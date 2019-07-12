@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
@@ -44,10 +44,10 @@ rule-of-thumb recommendations, so don't worry about it being exact.
 Several data scientists we talked with said that the only sure way to
 find the very best algorithm is to try all of them.
 
-Here's an example from the [Azure AI Gallery](http://gallery.azure.ai/) of an experiment that tries
+Here's an example from the [Azure AI Gallery](https://gallery.azure.ai/) of an experiment that tries
 several algorithms against the same data and compares the results:
 [Compare Multi-class Classifiers: Letter
-recognition](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
+recognition](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > To download an easy-to-understand infographic overview of machine learning basics to learn about popular algorithms used to answer common machine learning questions, see [Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
@@ -302,7 +302,7 @@ algorithm constructs a sequence of trees, each of which learns to
 compensate for the error left by the tree before. The result is a very
 accurate learner that tends to use a lot of memory. For the full
 technical description, check out [Friedman's original
-paper](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
+paper](https://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
 [Fast forest quantile
 regression](/azure/machine-learning/studio-module-reference/fast-forest-quantile-regression)
@@ -400,7 +400,7 @@ Research. They have some exceptionally beautiful theoretical work behind
 them. The interested student is directed to the [original article in
 JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) and an
 [insightful blog by Chris
-Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+Bishop](https://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### Specialized algorithms
 If you have a very specific goal you may be in luck. Within the Azure Machine Learning Studio

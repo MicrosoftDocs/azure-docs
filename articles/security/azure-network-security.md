@@ -90,7 +90,7 @@ You can connect VNets to each other, enabling resources connected to either VNet
 
 - **Peering:** Enables resources connected to different Azure VNets within the same Azure location to communicate with each other. The bandwidth and latency across the VNet is the same as if the resources were connected to the same VNet. To learn more about peering, read [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
- ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
+  ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
 
 - **VNet-to-VNet connection:** Enables resources connected to different Azure VNet within the same, or different Azure locations. Unlike peering, bandwidth is limited between VNets because traffic must flow through an Azure VPN Gateway.
 
@@ -318,19 +318,19 @@ Forced tunneling in Azure is configured via virtual network user-defined routes 
 
 The following section lists the current limitation of the routing table and routes for an Azure Virtual Network:
 
--	Each virtual network subnet has a built-in, system routing table. The system routing table has the following three groups of routes:
+- Each virtual network subnet has a built-in, system routing table. The system routing table has the following three groups of routes:
 
- -	**Local VNet routes:** Directly to the destination VMs in the same virtual network
+  -  **Local VNet routes:** Directly to the destination VMs in the same virtual network
 
- - **On premises routes:** To the Azure VPN gateway
+  - **On premises routes:** To the Azure VPN gateway
 
- -	**Default route:** Directly to the Internet. Packets destined to the private IP addresses not covered by the previous two routes are dropped.
+  -  **Default route:** Directly to the Internet. Packets destined to the private IP addresses not covered by the previous two routes are dropped.
 
--	With the release of user-defined routes, you can create a routing table to add a default route, and then associate the routing table to your VNet subnet to enable forced tunneling on those subnets.
+- With the release of user-defined routes, you can create a routing table to add a default route, and then associate the routing table to your VNet subnet to enable forced tunneling on those subnets.
 
--	You need to set a "default site" among the cross-premises local sites connected to the virtual network.
+- You need to set a "default site" among the cross-premises local sites connected to the virtual network.
 
--	Forced tunneling must be associated with a VNet that has a dynamic routing VPN gateway (not a static gateway).
+- Forced tunneling must be associated with a VNet that has a dynamic routing VPN gateway (not a static gateway).
 
 - ExpressRoute forced tunneling is not configured via this mechanism, but instead, is enabled by advertising a default route via the ExpressRoute BGP peering sessions.
 

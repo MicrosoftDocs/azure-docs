@@ -8,7 +8,7 @@ manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -46,7 +46,7 @@ For more information about setting parameters, see [SAS parameter considerations
 
 ### Option 1: Using SAS with pass-through to blob storage from Azure CDN
 
-This option is the simplest and uses a single SAS token, which is passed from Azure CDN to the origin server. It's supported by **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles. 
+This option is the simplest and uses a single SAS token, which is passed from Azure CDN to the origin server.
  
 1. Select an endpoint, select **Caching rules**, then select **Cache every unique URL** from the **Query string caching** list.
 
@@ -135,7 +135,7 @@ Because SAS parameters are not visible to Azure CDN, Azure CDN cannot change its
 | --- | --- |
 | Start | The time that Azure CDN can begin to access the blob file. Due to clock skew (when a clock signal arrives at different times for different components), choose a time 15 minutes earlier if you want the asset to be available immediately. |
 | End | The time after which Azure CDN can no longer access the blob file. Previously cached files on Azure CDN are still accessible. To control the file expiry time, either set the appropriate expiry time on the Azure CDN security token or purge the asset. |
-| Allowed IP addresses | Optional. If you are using **Azure CDN from Verizon**, you can set this parameter to the ranges defined in [Azure CDN from Verizon Edge Server IP Ranges](https://msdn.microsoft.com/library/mt757330.aspx). If you are using **Azure CDN from Akamai**, you cannot set the IP ranges parameter because the IP addresses are not static.|
+| Allowed IP addresses | Optional. If you are using **Azure CDN from Verizon**, you can set this parameter to the ranges defined in [Azure CDN from Verizon Edge Server IP Ranges](/azure/cdn/cdn-pop-list-api). If you are using **Azure CDN from Akamai**, you cannot set the IP ranges parameter because the IP addresses are not static.|
 | Allowed protocols | The protocol(s) allowed for a request made with the account SAS. The HTTPS setting is recommended.|
 
 ## Next steps

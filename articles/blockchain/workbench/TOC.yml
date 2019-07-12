@@ -69,7 +69,5 @@
   items:
   - name: Ethereum Proof-of-Authority consortium
     href: ../templates/ethereum-poa-deployment.md
-  - name: Ethereum Proof-of-Work consortium
-    href: ../templates/ethereum-deployment.md
   - name: Hyperledger Fabric consortium
     href: ../templates/hyperledger-fabric-consortium-blockchain.md

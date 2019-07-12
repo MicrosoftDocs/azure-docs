@@ -2,7 +2,7 @@
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/09/2018	
+ms.date: 03/18/2019	
 ms.author: rogarana
 ---
 You can attach a number of data disks to an Azure virtual machine. Based on the scalability and performance targets for a VM's data disks, you can determine the number and type of disk that you need to meet your performance and capacity requirements.
@@ -10,16 +10,18 @@ You can attach a number of data disks to an Azure virtual machine. Based on the 
 > [!IMPORTANT]
 > For optimal performance, limit the number of highly utilized disks attached to the virtual machine to avoid possible throttling. If all attached disks aren't highly utilized at the same time, the virtual machine can support a larger number of disks.
 
-* **For Azure managed disks:** 
+**For Azure managed disks:**
 
-> | Resource | Default limit | Maximum limit |
+The following table illustrates the default and maximum limits of the number of resources per region per subscription
+
+> | Resource | Default limit  | Maximum limit |
 > | --- | --- | --- |
-> | Standard managed disks | 10,000 | 50,000 |
-> | Standard SSD managed disks | 10,000 | 50,000 |
-> | Premium managed disks | 10,000 | 50,000 |
-> | Standard_LRS snapshots | 10,000 | 50,000 |
-> | Standard_ZRS snapshots | 10,000 | 50,000 |
-> | Managed image | 10,000 | 50,000 |
+> | Standard managed disks | 25,000 | 50,000 |
+> | Standard SSD managed disks | 25,000 | 50,000 |
+> | Premium managed disks | 25,000 | 50,000 |
+> | Standard_LRS snapshots | 25,000 | 50,000 |
+> | Standard_ZRS snapshots | 25,000 | 50,000 |
+> | Managed image | 25,000 | 50,000 |
 
 * **For Standard storage accounts:** A Standard storage account has a maximum total request rate of 20,000 IOPS. The total IOPS across all of your virtual machine disks in a Standard storage account should not exceed this limit.
   

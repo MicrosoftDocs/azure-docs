@@ -3,14 +3,14 @@ title: "Quickstart: Get news using Bing News Search REST API and Go"
 titleSuffix: Azure Cognitive Services
 description: Learn how to get news results from the Bing News Search API.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 2/21/2019
-ms.author: rosh
+ms.author: aahi
 ---
 
 # Quickstart: Get news results using the Bing News Search REST API and Go
@@ -147,7 +147,7 @@ resp, err := client.Do(req)
 defer resp.Body.Close()
 
 // Read the results
-resbody, err := ioutil.ReadAll(resp.Body)
+body, err := ioutil.ReadAll(resp.Body)
 if err != nil {
 	panic(err)
 }

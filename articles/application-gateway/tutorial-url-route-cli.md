@@ -1,22 +1,22 @@
 ---
-title: Tutorial - Route web traffic based on the URL - Azure CLI
-description: In this tutorial, learn how to route web traffic based on the URL to specific scalable pools of servers using the Azure CLI.
+title: Route web traffic based on the URL - Azure CLI
+description: In this article, learn how to route web traffic based on the URL to specific scalable pools of servers using the Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up routing of web traffic to specific pools of servers based on the URL that the customer uses, so I can ensure my customers have the most efficient route to the information they need.
 ---
-# Tutorial: Route web traffic based on the URL using the Azure CLI
+# Route web traffic based on the URL using the Azure CLI
 
-As an IT administrator managing web traffic, you want to help your customers or users get the information they need as quickly as possible. One way you can optimize their experience is by routing different kinds of web traffic to different server resources. This tutorial shows you how to use the Azure CLI to set up and configure Application Gateway routing for different types of traffic from your application. The routing then directs the traffic to different server pools based on the URL.
+As an IT administrator managing web traffic, you want to help your customers or users get the information they need as quickly as possible. One way you can optimize their experience is by routing different kinds of web traffic to different server resources. This article shows you how to use the Azure CLI to set up and configure Application Gateway routing for different types of traffic from your application. The routing then directs the traffic to different server pools based on the URL.
 
 ![URL routing example](./media/tutorial-url-route-cli/scenario.png)
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a resource group for the network resources you’ll need
@@ -26,13 +26,13 @@ In this tutorial, you learn how to:
 > * Create a scale set for each pool so the pool can automatically scale
 > * Run a test so you can verify that the different types of traffic go to the correct pool
 
-If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-url-route-powershell.md) or the [Azure portal](create-url-route-portal.md).
+If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-url-route-powershell.md) or the [Azure portal](create-url-route-portal.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires you to run the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires you to run the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -177,7 +177,7 @@ az network application-gateway rule create \
 
 ## Create VM scale sets
 
-In this tutorial, you create three virtual machine scale sets that support the three backend pools you created. You create scale sets named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances where you install NGINX.
+In this article, you create three virtual machine scale sets that support the three backend pools you created. You create scale sets named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances where you install NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -229,7 +229,7 @@ done
 
 ## Test the application gateway
 
-To get the public IP address of the application gateway, use az network public-ip show. Copy the public IP address, and then paste it into the address bar of your browser. Such as, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, or *http://40.121.222.19:8080/video/test.htm*.
+To get the public IP address of the application gateway, use az network public-ip show. Copy the public IP address, and then paste it into the address bar of your browser. Such as, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, or `http://40.121.222.19:8080/video/test.htm`.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -259,5 +259,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create an application gateway with URL path-based redirection](./tutorial-url-redirect-cli.md)
+* [Create an application gateway with URL path-based redirection](./tutorial-url-redirect-cli.md)

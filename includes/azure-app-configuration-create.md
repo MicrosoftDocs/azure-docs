@@ -11,34 +11,23 @@ ms.author: yegu
 ms.custom: include file
 ---
 
-1. To create a new app configuration store, first sign in to the [Azure portal](https://aka.ms/azconfig/portal). In the upper left side of the page, click **+ Create a resource**. In the **Search the Marketplace** textbox, type **App Configuration** and press **Enter**.
+1. To create a new App Configuration store, sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the pane, select **+Create a resource**. In the **Search the Marketplace** box, enter **App Configuration** and select Enter.
 
     ![Search for App Configuration](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-new.png)
 
-2. Click **App Configuration** from the search results and then **Create**.
+1. Select **App Configuration** from the search results, and then select **Create**.
 
-3. In the **App Configuration** > **Create** page, enter the following settings:
+1. On the **App Configuration** > **Create** pane, enter the following settings:
 
     | Setting | Suggested value | Description |
     |---|---|---|
-    | **Resource name** | Globally unique name | Enter a unique resource name to use for the app configuration store resource. The name must be a string between 1 and 63 characters and contain only numbers, letters, and the `-` character. The name cannot start or end with the `-` character, and consecutive `-` characters are not valid.  |
-    | **Subscription** | Your subscription | Select the Azure subscription that you want to use to test App Configuration. If your account has only one subscription, it is automatically selected and the **Subscription** drop-down isn't displayed. |
-    | **Resource Group** | *AppConfigTestResources* | Select or create a resource group for your app configuration store resource. This group is useful for organizing multiple resources that you may want to delete at the same time by deleting the resource group. For more information, see [Using Resource groups to manage your Azure resources](/azure/azure-resource-manager/resource-group-overview). |
-    | **Location** | *Central US* | Use **Location** to specify the geographic location in which your app configuration store is hosted. For the best performance, we recommend that you create the resource in the same region as other components of your application. |
+    | **Resource name** | Globally unique name | Enter a unique resource name to use for the App Configuration store resource. The name must be a string between 1 and 63 characters and contain only numbers, letters, and the `-` character. The name can't start or end with the `-` character, and consecutive `-` characters aren't valid.  |
+    | **Subscription** | Your subscription | Select the Azure subscription that you want to use to test App Configuration. If your account has only one subscription, it's automatically selected and the **Subscription** list isn't displayed. |
+    | **Resource group** | *AppConfigTestResources* | Select or create a resource group for your App Configuration store resource. This group is useful for organizing multiple resources that you might want to delete at the same time by deleting the resource group. For more information, see [Use resource groups to manage your Azure resources](/azure/azure-resource-manager/resource-group-overview). |
+    | **Location** | *Central US* | Use **Location** to specify the geographic location in which your app configuration store is hosted. For the best performance, create the resource in the same region as other components of your application. |
 
-    ![Create an app configuration store resource](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-create.png)
+    ![Create an App Configuration store resource](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-create.png)
 
-4. Click **Create**. The deployment may take a few minutes to complete.
+1. Select **Create**. The deployment might take a few minutes to finish.
 
-5. Once the deployment is completed, click **Settings** > **Access Keys**. Make a note of either primary read-only or primary read-write key connection string. You will use this later to configure your application to communicate with the app configuration store you have just created.
-
-6. Click **Key/Value Explorer** and **+ Create** to add the following key-value pairs:
-
-    | Key | Value |
-    |---|---|
-    | TestApp:Settings:BackgroundColor | white |
-    | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | black |
-    | TestApp:Settings:Message | Data from Azure App Configuration |
-
-    You will leave **Label** and **Content Type** empty for now.
+1. After the deployment is finished, select **Settings** > **Access Keys**. Make a note of either the primary read-only or primary read-write key connection string. You'll use this connection string later to configure your application to communicate with the App Configuration store that you created.

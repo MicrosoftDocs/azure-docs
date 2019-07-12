@@ -48,7 +48,7 @@ You have a web app (/VMSS/cloud service role) and
 
 ## Scale based on custom metric
 
-You have a web front end and a API tier that communicates with the backend.
+You have a web front end and an API tier that communicates with the backend.
 
 - You want to scale the API tier based on custom events in the front end (example: You want to scale your checkout process based on the number of items in the shopping cart)
 

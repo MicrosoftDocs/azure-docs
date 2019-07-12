@@ -9,7 +9,7 @@ manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
@@ -23,7 +23,7 @@ Load balancing provides a higher level of availability and scale by spreading in
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-To do the tasks in this quickstart, sign in to the [Azure portal](http://portal.azure.com).
+To do the tasks in this quickstart, sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a Basic Load Balancer
 
@@ -202,7 +202,7 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    
 1. Select **OK**.
    
-  ![Add a load balancer rule](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![Add a load balancer rule](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## Test the load balancer
 
@@ -230,21 +230,27 @@ Install Internet Information Services (IIS) on the virtual machines to help test
    
    The VM desktop opens in a new window. 
    
-**To install IIS on the VM:**
+**To install IIS**
 
-1. If **Server Manager** is not already open on the server desktop, browse to **Windows Administrative Tools** > **Server Manager**.
-   
-1. In **Server Manager**, select **Add roles and features**.
-   
-   ![Adding server manager role](./media/load-balancer-get-started-internet-portal/servermanager.png)
-   
-1. In the **Add Roles and Features Wizard**:
-   1. On the **Select installation type** page, select **Role-based or feature-based installation**.
-   1. On the **Select destination server** page, select **MyVM1**.
-   1. On the **Select server role** page, select **Web Server (IIS)**. 
-   1. At the prompt to install required tools, select **Add Features**. 
-   1. Accept the defaults, and select **Install**. 
-   1. When the features are finished installing, select **Close**. 
+1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the *myResourceGroupSLB* resource group.
+2. On the **Overview** page, select **Connect** to RDP into the VM.
+5. Log into the VM with the credentials that you provided during the creation of this VM. This launches a remote desktop session with virtual machine - *myVM1*.
+6. On the server desktop, navigate to **Windows Administrative Tools**>**Windows PowerShell**.
+7. In the PowerShell Window, run the following commands to install the IIS server, remove the  default iisstart.htm file, and then add a new iisstart.htm file that displays the name of the VM:
+
+   ```azurepowershell
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+    remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. Close the RDP session with *myVM1*.
+7. Repeat steps 1 to 6 to install IIS and the updated iisstart.htm file on *myVM2*.
    
 1. Repeat the steps for the virtual machine **MyVM2**, except set the destination server to **MyVM2**.
 
@@ -252,8 +258,9 @@ Install Internet Information Services (IIS) on the virtual machines to help test
 
 Open a browser and paste your load balancer's public IP address into the browser's address bar. The IIS web server default page should appear in the browser.
 
-![IIS web server](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+![IIS Web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
+To see the load balancer distribute traffic across both VMs running your app, you can force-refresh your web browser.
 ## Clean up resources
 
 To delete the load balancer and all related resources when you no longer need them, open the **MyResourceGroupLB** resource group and select **Delete resource group**.

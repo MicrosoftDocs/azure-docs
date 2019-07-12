@@ -190,7 +190,7 @@ This Azure Security and Compliance Blueprint Automation is comprised of JSON con
 
 3. Click the button below, sign into the Azure portal, enter the required ARM template parameters, and click **Purchase**.
 
-	[![Deploy to Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
+	[![Deploy to Azure](https://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
 
 ## Guidance and recommendations
 ### VPN and ExpressRoute

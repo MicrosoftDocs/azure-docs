@@ -4,8 +4,8 @@ title: Use a Linux troubleshooting VM with the Azure CLI | Microsoft Docs
 description: Learn how to troubleshoot Linux VM issues by connecting the OS disk to a recovery VM using the Azure CLI
 services: virtual-machines-linux
 documentationCenter: ''
-authors: genlin
-manager: jeconnoc
+author: genlin
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-linux

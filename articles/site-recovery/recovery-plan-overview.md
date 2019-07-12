@@ -6,7 +6,7 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
 
 ---
@@ -14,8 +14,7 @@ ms.author: raynew
 
 This article describes recovery plans in [Azure Site Recovery](site-recovery-overview.md).
 
-A recovery plan gathers machines into recovery groups. You can customize a plan by adding order, instructions, and tasks to it. After a plan is defined, you can run a failover on it.
-
+A recovery plan gathers machines into recovery groups. You can customize a plan by adding order, instructions, and tasks to it. After a plan is defined, you can run a failover on it.  Machines can be referenced in multiple Recovery Plans, in which subsequent plans will skip the deployment/startup of the machine if it was previously deployed via another recovery plan.
 
 
 ## Why use a recovery plan?
@@ -24,7 +23,7 @@ A recovery plan helps you to define a systematic recovery process, by creating s
 
 * Model an app around its dependencies.
 * Automate recovery tasks to reduce RTO.
-- Verify that you're prepared for migration or disaster recovery by ensuring that your apps are part of a recovery plan.
+* Verify that you're prepared for migration or disaster recovery by ensuring that your apps are part of a recovery plan.
 * Run test failover on recovery plans, to ensure disaster recovery or migration is working as expected.
 
 
@@ -32,15 +31,15 @@ A recovery plan helps you to define a systematic recovery process, by creating s
 
 You can plan and create a recovery group to capture app-specific properties. As an example, let's consider a typical three-tier application with a SQL server backend, middleware, and a web frontend. Typically, you customize the recovery plan so that machines in each tier start in the correct order after failover.
 
-	- The SQL backend should start first, the middleware next, and finally the web frontend.
-	- This start order ensures that the app is working by the time the last machine starts.
-	- This order ensures that when the middleware starts and tries to connect to the SQL Server tier, the SQL Server tier is already running. 
-	- This order also helps ensure that the front-end server starts last, so that end users don't connect to the app URL before all the components are up and running, and the app is ready to accept requests.
+- The SQL backend should start first, the middleware next, and finally the web frontend.
+- This start order ensures that the app is working by the time the last machine starts.
+- This order ensures that when the middleware starts and tries to connect to the SQL Server tier, the SQL Server tier is already running. 
+- This order also helps ensure that the front-end server starts last, so that end users don't connect to the app URL before all the components are up and running, and the app is ready to accept requests.
 
-To create this order, you add groups to the recovery group, and add machines into the groups. 
-	- Where order is specified, sequencing is used. Actions run in parallel where appropriate, to improve application recovery RTO.
-	- Machines in a single group fail over in parallel.
-	- Machines in different groups fail over in group order, so that Group 2 machines start their failover only after all the machines in Group 1 have failed over and started.
+To create this order, you add groups to the recovery group, and add machines into the groups.
+- Where order is specified, sequencing is used. Actions run in parallel where appropriate, to improve application recovery RTO.
+- Machines in a single group fail over in parallel.
+- Machines in different groups fail over in group order, so that Group 2 machines start their failover only after all the machines in Group 1 have failed over and started.
 
 	![Example recovery plan](./media/recovery-plan-overview/rp.png)
 
@@ -79,7 +78,7 @@ You can use a recovery plan to trigger a test failover. Use the following best p
 
 ## Watch the video
 
-Watch a quick example video showing a on-click failover for a two-tier WordPress app.
+Watch a quick example video showing an on-click failover for a two-tier WordPress app.
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
@@ -88,4 +87,4 @@ Watch a quick example video showing a on-click failover for a two-tier WordPress
 ## Next steps
 
 - [Create](site-recovery-create-recovery-plans.md) a recovery plan.
-* Learn about [running failovers](site-recovery-failover.md).  
+- Learn about [running failovers](site-recovery-failover.md).  

@@ -53,11 +53,11 @@ The gateway is required even if the Oracle is hosted in an Azure infrastructure 
 This Oracle connector support two versions of drivers:
 
 - **Microsoft driver for Oracle (recommended)**: Beginning in Data Management Gateway version 2.7, a Microsoft driver for Oracle is automatically installed with the gateway. You don't need to install or update the driver to establish connectivity to Oracle. You can also experience better copy performance by using this driver. These versions of Oracle databases are supported:
-    - Oracle 12c R1 (12.1)
-    - Oracle 11g R1, R2 (11.1, 11.2)
-    - Oracle 10g R1, R2 (10.1, 10.2)
-    - Oracle 9i R1, R2 (9.0.1, 9.2)
-    - Oracle 8i R3 (8.1.7)
+  - Oracle 12c R1 (12.1)
+  - Oracle 11g R1, R2 (11.1, 11.2)
+  - Oracle 10g R1, R2 (10.1, 10.2)
+  - Oracle 9i R1, R2 (9.0.1, 9.2)
+  - Oracle 8i R3 (8.1.7)
 
     > [!NOTE]
     > Oracle proxy server isn't supported.
@@ -80,7 +80,7 @@ You can create a pipeline that has a copy activity. The pipeline moves data to o
 
 The easiest way to create a pipeline is to use the Copy wizard. See [Tutorial: Create a pipeline by using the Copy wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline by using the Copy Data wizard.
 
-You can also use one of the following tools to create a pipeline: the **Azure portal**, **Visual Studio**, **Azure PowerShell**, an **Azure Resource Manager template**, the **.NET API**, or the **REST API**. See the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions on how to create a pipeline that has a copy activity.
+You can also use one of the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, an **Azure Resource Manager template**, the **.NET API**, or the **REST API**. See the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions on how to create a pipeline that has a copy activity.
 
 Whether you use the tools or APIs, complete the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -184,7 +184,7 @@ In Copy Activity, when the source is the **OracleSource** type, the following pr
 
 ## JSON examples for copying data to and from the Oracle database
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data from or to an Oracle database and to or from Azure Blob storage. However, data can be copied to any of the sinks listed in [Supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data from or to an Oracle database and to or from Azure Blob storage. However, data can be copied to any of the sinks listed in [Supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
 
 **Example: Copy data from Oracle to Azure Blob storage**
 

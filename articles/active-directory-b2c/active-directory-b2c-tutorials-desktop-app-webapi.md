@@ -2,10 +2,10 @@
 title: Tutorial - Grant access to a Node.js web API from a desktop application - Azure Active Directory B2C | Microsoft Docs
 description: Tutorial on how to use Active Directory B2C to protect a Node.js web api and call it from a .NET desktop app.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
-ms.author: davidmu
+ms.author: marsma
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial

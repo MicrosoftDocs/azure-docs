@@ -53,18 +53,18 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
     ![Create SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. In your code editor, open the *chat/src/java* folder in the cloned repository.
+1. In your code editor, open the *src/chat/java* folder in the cloned repository.
 
 1. Rename *local.settings.sample.json* to *local.settings.json*.
 
 1. In **local.settings.json**, paste the connection string into the value of the **AzureSignalRConnectionString** setting. Save the file.
 
-1. The main file that contains the functions are in *src/main/java/com/function/Functions.java*:
+1. The main file that contains the functions are in *src/chat/java/src/main/java/com/function/Functions.java*:
 
     - **negotiate** - Uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
     - **sendMessage** - Receives a chat message in the request body and uses the *SignalR* output binding to broadcast the message to all connected client applications.
 
-1. In the terminal, ensure that you are in the *chat/src/java* folder. Build the function app.
+1. In the terminal, ensure that you are in the *src/chat/java* folder. Build the function app.
 
     ```bash
     mvn clean package

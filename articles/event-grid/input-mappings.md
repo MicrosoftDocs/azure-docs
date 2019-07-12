@@ -15,6 +15,8 @@ ms.author: spelluru
 
 If your event data doesn't match the expected [Event Grid schema](event-schema.md), you can still use Event Grid to route event to subscribers. This article describes how to map your schema to the Event Grid schema.
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 ## Install preview feature
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]

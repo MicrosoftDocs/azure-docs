@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
-ms.author: juliako
+ms.date: 03/18/2019
+ms.author: juliako 
 
 ---
 # Publish Media Services content using .NET  
@@ -76,7 +76,7 @@ Build Streaming URLs
 
         // Get a reference to the streaming manifest file from the  
         // collection of files in the asset. 
-        var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+        var manifestFile = asset.AssetFiles.ToList().Where(f => f.Name.ToLower().
                                     EndsWith(".ism")).
                                     FirstOrDefault();
 

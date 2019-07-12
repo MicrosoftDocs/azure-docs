@@ -49,7 +49,7 @@ Create an Azure VPN gateway, local network gateway, and a connection resource co
 
 Once the connection resource is created, follow the instructions below to download the VPN device configuration scripts:
 
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account
+1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and, if necessary, sign in with your Azure account
 2. Go to the connection resource you created. You can find the list of all connection resources by clicking "All services", then "NETWORKING", and "Connections."
 
     ![connection-list](./media/vpn-gateway-download-vpndevicescript/connectionlist.png)

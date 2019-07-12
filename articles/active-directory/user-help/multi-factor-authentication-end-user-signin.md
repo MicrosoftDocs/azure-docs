@@ -30,7 +30,7 @@ Your sign-in experience differs depending on what you choose to use as your seco
 | [With a phone call to my mobile or office phone](#signing-in-with-a-phone-call) |
 | [With a text to my mobile phone](#signing-in-with-a-text-message)
 | [With notifications from the Microsoft Authenticator app](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
-| [With verification codes from the Microsoft Authenticator app](#to-sign-in-using-a-verification-with-the-microsoft-authenticator-app) |
+| With verification codes from the Microsoft Authenticator app |
 | [With an alternate method, because I can't use my preferred method right now](#signing-in-with-an-alternate-method) |
 
 ## Signing in with a phone call
@@ -54,7 +54,7 @@ The following information describes the experience of using the Microsoft Authen
 1. Sign in to an application or service such as Office 365 using your username and password.
 2. Microsoft sends a notification to the Microsoft Authenticator app on your device.
 
-  ![Microsoft sends notification](./media/multi-factor-authentication-end-user-signin/notify.png)
+   ![Microsoft sends notification](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. Open the notification on your phone and select the **Verify** key. If your company requires a PIN, enter it here.
 4. You should now be signed in.
@@ -66,7 +66,7 @@ If you use the Microsoft Authenticator app to get verification codes, then when 
 1. Sign in to an application or service such as Office 365 using your username and password.
 2. Microsoft prompts you for a verification code.
 
-  ![Enter verification code](./media/multi-factor-authentication-end-user-signin/verify3.png)
+   ![Enter verification code](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Open the Microsoft Authenticator app on your phone and enter the code in the box where you are signing in.
 
@@ -77,7 +77,7 @@ Sometimes you don't have the phone or device that you set up as your preferred v
 2. Select **Use a different verification option**. You see different verification options based on how many you have setup.
 3. Choose an alternate method and sign in.
 
-  ![Use alternate method](./media/multi-factor-authentication-end-user-signin/alt.png)
+   ![Use alternate method](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## Next steps
 - If you have problems signing in with two-step verification, get more information at [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).

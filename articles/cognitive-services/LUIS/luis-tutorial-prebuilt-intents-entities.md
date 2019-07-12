@@ -50,13 +50,13 @@ LUIS provides several prebuilt intents to help with common user intentions.
 
 1. Select the following intents and select **Done**: 
 
-    * Utilities.Cancel
-    * Utilities.Confirm
-    * Utilities.Help
-    * Utilities.StartOver
-    * Utilities.Stop
+   * Utilities.Cancel
+   * Utilities.Confirm
+   * Utilities.Help
+   * Utilities.StartOver
+   * Utilities.Stop
 
-    These intents are helpful to determine where, in the conversation, the user is and what they are asking to do. 
+     These intents are helpful to determine where, in the conversation, the user is and what they are asking to do. 
 
 
 ## Add prebuilt entities to help with common data type extraction
@@ -69,12 +69,12 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. Select the following entities from the list of prebuilt entities then select **Done**:
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
-    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-    ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-    These entities will help you add name and place recognition to your client application.
+     These entities will help you add name and place recognition to your client application.
 
 ## Add example utterances to the None intent 
 

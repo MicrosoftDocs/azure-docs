@@ -3,7 +3,7 @@ title: Introduction to Terraform on Azure.
 description: Get started with Terraform on Azure by deploying an Azure Cosmos DB and Azure Container Instances.
 services: terraform
 author: neilpeterson
-ms.service: terraform
+ms.service: azure
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
@@ -107,7 +107,7 @@ resource "azurerm_container_group" "vote-aci" {
     image  = "microsoft/azure-vote-front:cosmosdb"
     cpu    = "0.5"
     memory = "1.5"
-    ports  = {
+    ports {
       port     = 80
       protocol = "TCP"
     }

@@ -20,7 +20,7 @@ ms.author: jeconnoc
 # Expose role configuration settings as an environment variable with XPath
 In the cloud service worker or web role service definition file, you can expose runtime configuration values as environment variables. The following XPath values are supported (which correspond to API values).
 
-These XPath values are also available through the [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) library. 
+These XPath values are also available through the [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee773173(v=azure.100)) library. 
 
 ## App running in emulator
 Indicates that the app is running in the emulator.

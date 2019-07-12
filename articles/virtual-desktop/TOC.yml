@@ -1,0 +1,86 @@
+- name: Windows Virtual Desktop
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Windows Virtual Desktop?
+    href: overview.md
+- name: Tutorials
+  items:
+  - name: 1. Create a tenant in Windows Virtual Desktop
+    href: tenant-setup-azure-active-directory.md
+  - name: 2. Create service principals and role assignments by using PowerShell
+    href: create-service-principal-role-powershell.md
+  - name: 3. Create a host pool by using the Azure Marketplace
+    href: create-host-pools-azure-marketplace.md
+  - name: 4. Manage app groups
+    href: manage-app-groups.md
+  - name: 5. Create a host pool to validate service updates
+    href: create-validation-host-pool.md
+  - name: 6. Deploy a management tool
+    href: manage-resources-using-ui.md
+  - name: 7. Set up service alerts
+    href: set-up-service-alerts.md
+- name: How-to
+  items:
+  - name: Connect to Windows Virtual Desktop resources
+    items:
+      - name: Connect from Windows 10 or Windows 7
+        href: connect-windows-7-and-10.md
+      - name: Connect from a web browser
+        href: connect-web.md
+  - name: Create a host pool with an Azure Resource Manager template
+    href: create-host-pools-arm-template.md
+  - name: Create a host pool with PowerShell
+    href: create-host-pools-powershell.md
+  - name: Set up a user profile share for a host pool
+    href: create-host-pools-user-profile.md
+  - name: Configure the Windows Virtual Desktop load-balancing method
+    href: configure-host-pool-load-balancing.md
+  - name: Prepare and customize a master VHD image
+    href: set-up-customize-master-image.md
+  - name: Install Office on a master VHD image
+    href: install-office-on-wvd-master-image.md  
+  - name: Configure GPU for Windows Virtual Desktop 
+    href: configure-vm-gpu.md
+  - name: Automatically scale session hosts
+    href: set-up-scaling-script.md
+  - name: Customize feed for Windows Virtual Desktop users
+    href: customize-feed-for-virtual-desktop-users.md
+  - name: Customize RDP Properties
+    href: customize-rdp-properties.md
+- name: Concepts
+  items:
+  - name: Windows Virtual Desktop environment
+    href: environment-setup.md
+  - name: Delegated access in Windows Virtual Desktop
+    href: delegated-access-virtual-desktop.md
+  - name: Host pool load-balancing methods
+    href: host-pool-load-balancing.md
+  - name: FSLogix profile containers and Azure files
+    href: fslogix-containers-azure-files.md
+  - name: Partner integrations
+    href: partners.md
+- name: Troubleshoot
+  items:
+  - name: Troubleshooting overview, feedback, and support
+    href: troubleshoot-set-up-overview.md
+  - name: Identify issues with the diagnostics feature 
+    href: diagnostics-role-service.md   
+  - name: Tenant and host pool creation
+    href: troubleshoot-set-up-issues.md
+  - name: Session host virtual machine configuration
+    href: troubleshoot-vm-configuration.md
+  - name: Remote Desktop client connections
+    href: troubleshoot-client-connection.md
+  - name: Windows Virtual Desktop PowerShell 
+    href: troubleshoot-powershell.md
+  - name: Diagnosing graphics performance issues
+    href: remotefx-graphics-performance-counters.md
+- name: Reference
+  items:
+  - name: PowerShell
+    href: /powershell/windows-virtual-desktop/overview
+- name: Resources
+  items:
+  - name: Tech Community support group 
+    href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop

@@ -3,6 +3,7 @@ title: Postman FHIR server in Azure tutorial - Azure API for FHIR
 description: This article describes how to access a FHIR API with Postman.
 services: healthcare-apis
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: mihansen
@@ -54,6 +55,7 @@ Hit "Get New Access Token" and a dialog appears:
 ![Request New Access Token](media/tutorial-postman/postman-request-token.png)
 
 You will need to some details:
+
 | Field                 | Example Value                                                                                                   | Comment                    |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------|
 | Token Name            | MYTOKEN                                                                                                         | A name you choose          |

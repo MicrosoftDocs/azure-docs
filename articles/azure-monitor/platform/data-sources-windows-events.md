@@ -49,7 +49,7 @@ Windows event records have a type of **Event** and have the properties in the fo
 | EventLevelName |Severity of the event in text form. |
 | EventLog |Name of the event log that the event was collected from. |
 | ParameterXml |Event parameter values in XML format. |
-| ManagementGroupName |Name of the management group for System Center Operations Manager agents.  For other agents, this value is AOI-<workspace ID> |
+| ManagementGroupName |Name of the management group for System Center Operations Manager agents.  For other agents, this value is `AOI-<workspace ID>` |
 | RenderedDescription |Event description with parameter values |
 | Source |Source of the event. |
 | SourceSystem |Type of agent the event was collected from. <br> OpsManager – Windows agent, either direct connect or Operations Manager managed <br> Linux – All Linux agents  <br> AzureStorage – Azure Diagnostics |

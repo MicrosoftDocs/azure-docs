@@ -3,7 +3,6 @@ title: Azure Data Factory Mapping Data Flow Schema Drift
 description: Build resilient Data Flows in Azure Data Factory with Schema Drift
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
@@ -21,7 +20,7 @@ In order to protect against Schema Drift, it is important to have the facilities
 * Define transformation parameters that can work with data patterns instead of hard-coded fields and values
 * Define expressions that understand patterns to match incoming fields, instead of using named fields
 
-In Azure Data Factory Data Flow, those facilities are surfaced through this workflow:
+## How to implement schema drift
 
 * Choose "Allow Schema Drift" in your Source Transformation
 
@@ -29,7 +28,7 @@ In Azure Data Factory Data Flow, those facilities are surfaced through this work
 
 * When you've selected this option, all incoming fields will be read from your source on every Data Flow execution and will be passed through the entire flow to the Sink.
 
-* Make sure to use "Auto-Map" to map all new fields in the Sink Transformation so that all new fields get picked-up and landed in your destination:
+* Make sure to use "Auto-Map" to map all new fields in the Sink Transformation so that all new fields get picked-up and landed in your destination.
 
 <img src="media/data-flow/automap.png" width="400">
 
@@ -62,3 +61,10 @@ You can test this out with the Azure Data Factory Data Flow sample "Taxi Demo". 
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
+## Access new columns downstream
+
+When you generate new columns with column patterns, you can access those new columns later in your data flow transformations using the "byName" expression function.
+
+## Next steps
+
+In the [Data Flow Expression Language](data-flow-expression-functions.md) you will find additional facilities for column patterns and schema drift including "byName" and "byPosition".

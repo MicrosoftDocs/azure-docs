@@ -29,7 +29,7 @@ This article will demonstrate individual enrollments.
 
 ## Prepare the environment 
 
-1. Make sure you have either [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/) or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have 'Desktop development with C++' workload enabled for your Visual Studio installation.
+1. Make sure you have installed either [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later, with the 'Desktop development with C++' workload enabled for your Visual Studio installation.
 
 2. Download and install the [CMake build system](https://cmake.org/download/).
 
@@ -90,15 +90,15 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 6. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
 7. Under the **Add Enrollment** panel, enter the following information:
-    - Select **X.509** as the identity attestation *Mechanism*.
-    - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **X509testcertificate.pem** created in the previous steps.
-    - Optionally, you may provide the following information:
-      - Select an IoT hub linked with your provisioning service.
-      - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
-      - Update the **Initial device twin state** with the desired initial configuration for the device.
-    - Once complete, click the **Save** button. 
+   - Select **X.509** as the identity attestation *Mechanism*.
+   - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **X509testcertificate.pem** created in the previous steps.
+   - Optionally, you may provide the following information:
+     - Select an IoT hub linked with your provisioning service.
+     - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
+     - Update the **Initial device twin state** with the desired initial configuration for the device.
+   - Once complete, click the **Save** button. 
 
-    [![Add individual enrollment for X.509 attestation in the portal](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
+     [![Add individual enrollment for X.509 attestation in the portal](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
    Upon successful enrollment, your X.509 device appears as **riot-device-cert** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
@@ -115,8 +115,8 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
 3. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
 
-    > [!NOTE]
-        > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package.
+   > [!NOTE]
+   > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package.
 
 4. Navigate to the samples folder.
 

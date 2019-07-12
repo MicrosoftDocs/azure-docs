@@ -1,1 +1,1 @@
-To reset the environment data that has been captured in your session, you can invoke the Reset method.
+To reset the environment data that has been captured in your session, you can invoke `Reset()`.

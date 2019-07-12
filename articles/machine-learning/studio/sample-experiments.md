@@ -1,5 +1,5 @@
 ---
-title: Create Machine Learning Studio experiments from examples
+title: Kickstart your experiments from examples
 titleSuffix: Azure Machine Learning Studio
 description: Learn how to use example machine learning experiments to create new experiments with Azure AI Gallery and Azure Machine Learning Studio.
 services: machine-learning
@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018

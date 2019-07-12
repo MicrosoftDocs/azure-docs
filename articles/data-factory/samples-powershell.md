@@ -2,17 +2,14 @@
 title: Azure PowerShell Samples for Azure Data Factory | Microsoft Docs
 description: Azure PowerShell Samples - Scripts to help you create and manage data factories. 
 services: data-factory
-author: douglaslMS
-manager: douglaslMS
-editor: ''
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
+author: sharonlo101
+ms.author: shlo
+manager: craigg
 ---
 
 # Azure PowerShell samples for Azure Data Factory

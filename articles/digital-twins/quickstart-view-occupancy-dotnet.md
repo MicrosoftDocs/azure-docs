@@ -8,7 +8,7 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 12/17/2018
+ms.date: 06/26/2019
 ms.author: alinast
 # As a developer new to Azure Digital Twins, I need to see how to send motion and carbon dioxide telemetry to a space in Azure Digital Twins and how to find available rooms with fresh air by using a back-end application. 
 ---
@@ -113,8 +113,8 @@ The sensor sample simulates random data values for two sensors. They're motion a
 1. Look at this command prompt and the sensor data command prompt side by side.
 
     One command prompt sends simulated motion and carbon dioxide data to Digital Twins every five seconds. The other command reads the graph in real time to find out available rooms with fresh air based on random simulated data. It displays one of these conditions in near real time based on the sensor data that was sent last:
-    - Available rooms with fresh air.
-    - Occupied or poor air quality of the room.
+   - Available rooms with fresh air.
+   - Occupied or poor air quality of the room.
 
      ![Get available spaces with fresh air][3]
 

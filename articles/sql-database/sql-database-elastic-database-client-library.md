@@ -15,7 +15,7 @@ ms.date: 09/25/2018
 ---
 # Building scalable cloud databases
 
-Scaling out databases can be easily accomplished using scalable tools and features for Azure SQL Database. In particular, you can use the **Elastic Database client library** to create and manage scaled-out databases. This feature lets you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases. [Elastic jobs](sql-database-elastic-jobs-powershell.md) can then be used to help ease management of these databases.
+Scaling out databases can be easily accomplished using scalable tools and features for Azure SQL Database. In particular, you can use the **Elastic Database client library** to create and manage scaled-out databases. This feature lets you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases.
 
 To download:
 
@@ -56,7 +56,7 @@ In general, customers using elastic database tools can expect to get full T-SQL 
 
 ## Next steps
 
-- Elastic Database Client Library ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) - to **download** the library.
+- Elastic Database Client Library ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) - to **download** the library.
 
 - [Get started with elastic database tools](sql-database-elastic-scale-get-started.md) - to try the **sample app** that demonstrates client functions.
 

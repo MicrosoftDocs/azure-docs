@@ -55,8 +55,8 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Queue;
-	```
-## Create a queue
+    ```
+   ## Create a queue
 
 The following steps illustrate how to create a queue:
 
@@ -210,7 +210,7 @@ Once you've [created a queue](#create-a-queue), you can add messages to that que
 	<h2>Add Message results</h2>
 	
 	The message '@ViewBag.Message' was added to the queue '@ViewBag.QueueName'.
-	```
+    ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
@@ -296,7 +296,7 @@ This section illustrates how to peek at a queued message (read the first message
 	    <tr><th>Queue</th><th>Peeked Message</th></tr>
 	    <tr><td>@ViewBag.QueueName</td><td>@ViewBag.Message</td></tr>
 	</table>	
-	```
+    ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
@@ -387,7 +387,7 @@ In this section, you learn how to read and remove a message from a queue.
 	    <tr><th>Queue</th><th>Read (and Deleted) Message</th></tr>
 	    <tr><td>@ViewBag.QueueName</td><td>@ViewBag.Message</td></tr>
 	</table>
-	```
+    ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
@@ -474,7 +474,7 @@ This section illustrates how to get the queue length (number of messages).
 	<h2>Get Queue Length results</h2>
 	
 	The queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
-	```
+    ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
@@ -554,7 +554,7 @@ This section illustrates how to delete a queue.
 	<h2>Delete Queue results</h2>
 	
 	@ViewBag.QueueName deleted.
-	```
+    ```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 

@@ -4,7 +4,7 @@ description: This article covers some advanced topics pertaining to upgrading a 
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: e29585ff-e96f-46f4-a07f-6682bbe63281

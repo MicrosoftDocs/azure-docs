@@ -38,7 +38,7 @@ Authorization: Bearer
 
 The `{subscriptionID}` parameter is required and identifies the target subscription.
 
-The `{billingPeriod}` parameter is required and specifies a current [billing period](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod).
+The `{billingPeriod}` parameter is required and specifies a current [billing period](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
 The `${startDate}` and `${endDate}` parameters are required for this example, but optional for the endpoint. They specify the date range as strings in the form of YYYY-MM-DD (examples: `'20180501'` and `'20180615'`).
 
@@ -91,7 +91,7 @@ Each item in **value** represents a details regarding the use of a service:
 |**meterDetails** | Detailed information about the use. |
 |**nextLink**| When set, specifies a URL for the next "page" of details. Blank when the page is the last one. |
 
-This example is abbreviated; see [List usage details](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) for a complete description of each response field.
+This example is abbreviated; see [List usage details](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) for a complete description of each response field.
 
 Other status codes indicate error conditions. In these cases, the response object explains why the request failed.
 

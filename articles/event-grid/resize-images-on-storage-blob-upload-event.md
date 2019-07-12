@@ -45,6 +45,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To complete this tutorial:
 
 You must have completed the previous Blob storage tutorial: [Upload image data in the cloud with Azure Storage][previous-tutorial].
@@ -138,7 +140,7 @@ THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```azurecli-interactive
 blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
 
-blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
 -n $blobStorageAccount --query [0].value --output tsv)
 
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \

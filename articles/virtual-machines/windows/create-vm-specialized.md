@@ -4,7 +4,7 @@ description: Create a new Windows VM by attaching a specialized managed disk as 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -33,11 +33,11 @@ You can also use the Azure portal to [create a new VM from a specialized VHD](cr
 
 This article shows you how to use managed disks. If you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](sa-create-vm-specialized.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Option 1: Use an existing disk
 
-If you had a VM that you deleted and you want to reuse the OS disk to create a new VM, use [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk?view=azurermps-6.8.1).
+If you had a VM that you deleted and you want to reuse the OS disk to create a new VM, use [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
@@ -201,7 +201,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-To use this snapshot to create a VM that needs to be high-performing, add the parameter `-AccountType Premium_LRS` to the New-AzSnapshot command. This parameter creates the snapshot so that it's stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard, so be sure you'll need Premium before using this parameter.
+To use this snapshot to create a VM that needs to be high-performing, add the parameter `-AccountType Premium_LRS` to the New-AzSnapshotConfig command. This parameter creates the snapshot so that it's stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard, so be sure you'll need Premium before using this parameter.
 
 ### Create a new disk from the snapshot
 

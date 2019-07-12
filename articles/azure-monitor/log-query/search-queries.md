@@ -16,12 +16,6 @@ ms.author: bwren
 ---
 
 # Search queries in Azure Monitor logs
-
-> [!NOTE]
-> You should complete [Get started with Azure Monitor log queries](get-started-queries.md) before completing this lesson.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 Azure Monitor log queries can start with either a table name or a search command. This tutorial covers search-based queries. There are advantages to each method.
 
 Table-based queries start by scoping the query and therefore tend to be more efficient than search queries. Search queries are less structured which makes them the better choice when searching for a specific value across columns or tables. **search** can scan all columns in a given table, or in all tables, for the specified value. The amount of data being processed could be enormous, which is 
@@ -60,7 +54,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> If you use `==` instead of `:`, the results would include records in which the *Source* column has the exact value "error", and in this exact case. Using ':' will not include records where *Source* has values such as "error code 404" or "Error".
+> If you use `==` instead of `:`, the results would include records in which the *Source* column has the exact value "error", and in this exact case. Using ':' will include records where *Source* has values such as "error code 404" or "Error".
 
 ## Case-sensitivity
 By default, term search is case-insensitive, so searching "dns" could yield results such as "DNS", "dns", or "Dns". To make the search case-sensitive, use the `kind` option:

@@ -74,9 +74,9 @@ To complete this article, you need:
 
 ## Find the template reference
 
-1. Browse to [Azure Templates](https://docs.microsoft.com/azure/templates/).
-2. In **Filter by title**, enter **storage accounts**.
-3. Select **Reference/Template reference/Storage/<Version>/Storage Accounts** as shown in the following screenshot:
+1. Browse to [Azure Template reference](https://docs.microsoft.com/azure/templates/).
+2. In the **Filter by title** box, enter **storage accounts**.
+3. Select **Reference/Template reference/Storage/&lt;Version>/Storage Accounts** as shown in the following screenshot:
 
     ![Resource Manager template reference storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 

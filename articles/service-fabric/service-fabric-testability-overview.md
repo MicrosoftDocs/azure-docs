@@ -4,7 +4,7 @@ description: This article describes the Fault Analysis Service in Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: anmolah
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 1f064276-293a-4989-a513-e0d0b9fdf703

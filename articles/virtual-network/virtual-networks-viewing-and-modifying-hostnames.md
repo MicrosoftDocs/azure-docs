@@ -38,7 +38,7 @@ From a REST client, follow these instructions:
 
 1. Ensure that you have a client certificate to connect to the Azure portal. To obtain a client certificate, follow the steps presented in [How to: Download and Import Publish Settings and Subscription Information](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Set a header entry named x-ms-version with a value of 2013-11-01.
-3. Send a request in the following format: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+3. Send a request in the following format: https:\//management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
 4. Look for the **HostName** element for each **RoleInstance** element.
 
 > [!WARNING]

@@ -3,9 +3,8 @@ title: How to enable cross-app SSO on Android using ADAL | Microsoft Docs
 description: How to use the features of the ADAL SDK to enable single sign-on across your applications.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
@@ -13,10 +12,10 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
-ms.reviewer: dadobali
+ms.author: ryanwi
+ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
@@ -35,7 +34,7 @@ In this how-to, you'll learn how to configure the SDK within your application to
 
 This how-to assumes that you know how to:
 
-- Provision your app using the legacy portal for Azure Active Directory (Azure AD). For more info, see [Register an app with the Azure AD v1.0 endpoint](quickstart-v1-add-azure-ad-app.md)
+- Provision your app using the legacy portal for Azure Active Directory (Azure AD). For more info, see [Register an app](quickstart-register-app.md)
 - Integrate your application with the [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## Single sign-on concepts

@@ -4,7 +4,7 @@ description: Introduction to creating a Microsoft Azure Service Fabric applicati
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: d9b44d75-e905-468e-b867-2190ce97379a
@@ -41,7 +41,7 @@ Launch Visual Studio 2015 or Visual Studio 2017 as an administrator, and create 
 
 ![Use the New Project dialog box to create a new Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Then create a stateless service project using **.Net Core 2.0** named *HelloWorldStateless*:
+Then create a stateless service project using **.NET Core 2.0** named *HelloWorldStateless*:
 
 ![In the second dialog box, create a stateless service project](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -123,7 +123,7 @@ In the same *HelloWorld* application, you can add a new service by right-clickin
 
 ![Add a service to your Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Select **.Net Core 2.0 -> Stateful Service** and name it *HelloWorldStateful*. Click **OK**.
+Select **.NET Core 2.0 -> Stateful Service** and name it *HelloWorldStateful*. Click **OK**.
 
 ![Use the New Project dialog box to create a new Service Fabric stateful service](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 

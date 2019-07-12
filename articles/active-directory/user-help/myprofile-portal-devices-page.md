@@ -32,7 +32,7 @@ You can manage the devices you're connected to using your work or school account
     ![Device page, showing connected devices](media/myprofile-portal/myprofile-portal-devices-page.png)
 
 ## Disable a device
-You can disable any of your connected devices at any time. This is especially important if a device isn't familiar to you or if a device is lost or stolen.
+You can disable any of your connected devices at any time. This is especially important if a device isn't familiar to you or if a device is lost or stolen. After you disable a device, it can no longer be authenticated by your organization, and will be unable to access any of your organization's resources.
 
 >[!Important]
 >If you disable a device by mistake, there's no way to undo it. You'll have to contact your organization's administrator to add the device again.

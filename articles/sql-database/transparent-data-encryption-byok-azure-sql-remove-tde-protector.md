@@ -11,13 +11,15 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/12/2018
+ms.date: 03/12/2019
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
 
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 - You must have an Azure subscription and be an administrator on that subscription
 - You must have Azure PowerShell installed and running. 
@@ -33,6 +35,19 @@ If a key is ever suspected to be compromised, such that a service or user had un
 
 Keep in mind that once the TDE protector is deleted in Key Vault, **all connections to the encrypted databases under the server are blocked, and these databases go offline and get dropped within 24 hours**. Old backups encrypted with the compromised key are no longer accessible.
 
+The following steps outline how to check the TDE Protector thumbprints still in use by Virtual Log Files (VLF) of a given database. 
+The thumbprint of the current TDE protector of the database, and the database ID can be found by running: 
+SELECT [database_id], 
+       [encryption_state], 
+       [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/ 
+       [encryptor_thumbprint], 
+ FROM [sys].[dm_database_encryption_keys] 
+ 
+The following query returns the VLFs and the encryptor respective thumbprints in use. Each different thumbprint refers to different key in Azure Key Vault (AKV): 
+SELECT * FROM sys.dm_db_log_info (database_id) 
+
+The PowerShell command Get-AzureRmSqlServerKeyVaultKey provides the thumbprint of the TDE Protector used in the query, so you can see which keys to keep and which keys to delete in AKV. Only keys no longer used by the database can be safely deleted from Azure Key Vault.
+
 This how-to guide goes over two approaches depending on the desired result after the incident response:
 
 - To keep the Azure SQL databases / Data Warehouses **accessible**
@@ -40,7 +55,7 @@ This how-to guide goes over two approaches depending on the desired result after
 
 ## To keep the encrypted resources accessible
 
-1. Create a [new key in Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level. 
+1. Create a [new key in Key Vault](/powershell/module/az.keyvault/add-azkeyvaultkey). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level.
 2. Add the new key to the server using the [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) and [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets and update it as the server’s new TDE protector.
 
    ```powershell
@@ -68,18 +83,18 @@ This how-to guide goes over two approaches depending on the desired result after
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-4. Take a [backup of the new key](/powershell/module/az.keyvault/backup-azurekeyvaultkey) in Key Vault.
+4. Take a [backup of the new key](/powershell/module/az.keyvault/backup-azkeyvaultkey) in Key Vault.
 
    ```powershell
    <# -OutputFile parameter is optional; 
    if removed, a file name is automatically generated. #>
-   Backup-AzureKeyVaultKey `
+   Backup-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName> `
    -OutputFile <DesiredBackupFilePath>
    ```
  
-5. Delete the compromised key from Key Vault using the [Remove-AzKeyVaultKey](/powershell/module/az.keyvault/remove-azurekeyvaultkey) cmdlet. 
+5. Delete the compromised key from Key Vault using the [Remove-AzKeyVaultKey](/powershell/module/az.keyvault/remove-azkeyvaultkey) cmdlet. 
 
    ```powershell
    Remove-AzKeyVaultKey `
@@ -87,7 +102,7 @@ This how-to guide goes over two approaches depending on the desired result after
    -Name <KeyVaultKeyName>
    ```
  
-6. To restore a key to Key Vault in the future using the [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azurekeyvaultkey) cmdlet:
+6. To restore a key to Key Vault in the future using the [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet:
    ```powershell
    Restore-AzKeyVaultKey `
    -VaultName <KeyVaultName> `

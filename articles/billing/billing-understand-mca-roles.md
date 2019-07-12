@@ -1,25 +1,21 @@
 ---
 title: Understand billing administrative roles for Microsoft Customer Agreements - Azure
 description: Learn about billing roles for billing accounts in Azure for Microsoft Customer Agreements.
-services: 'billing'
-documentationcenter: ''
 author: amberbhargava
 manager: amberbhargava
-editor: ''
-
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
 ---
 # Understand Microsoft Customer Agreement administrative roles in Azure
 
 To manage your billing account for a Microsoft Customer Agreement, use the roles described in the following sections. These roles are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Customer Agreement. Check if you have access to a Microsoft Customer Agreement.
 
 ## Billing role definitions
 
@@ -41,7 +37,7 @@ The following table describes the billing roles you use to manage your billing a
 
 ## Billing account roles and tasks
 
-A billing account lets you manage billing for your organization. You use billing account to organize costs, monitor charges, and invoices and control billing access for your organization. For more information, see [Understand billing account](billing-mca-overview.md#understand-billing-account).
+A billing account lets you manage billing for your organization. You use billing account to organize costs, monitor charges, and invoices and control billing access for your organization. For more information, see [Understand billing account](billing-mca-overview.md#your-billing-account).
 
 The following tables show what role you need to complete tasks in the context of the billing account.
 
@@ -87,7 +83,7 @@ The following tables show what role you need to complete tasks in the context of
 
 ## Billing profile roles and tasks
 
-A billing profile lets you manage your invoices and payment methods. A monthly invoice is generated for the Azure subscriptions and other products purchased using the billing profile. You use the payments methods to pay the invoice. For more information, see [Understand billing profiles](billing-mca-overview.md#understand-billing-profiles).
+A billing profile lets you manage your invoices and payment methods. A monthly invoice is generated for the Azure subscriptions and other products purchased using the billing profile. You use the payments methods to pay the invoice. For more information, see [Understand billing profiles](billing-mca-overview.md#billing-profiles).
 
 The following tables show what role you need to complete tasks in the context of the billing profile.
 
@@ -137,17 +133,17 @@ The following tables show what role you need to complete tasks in the context of
 
 ## Invoice section roles and tasks
 
-An invoice section allows you to organize the costs on your invoice. You can create a section to organize your costs by department, development environment, or based on your organization's needs. Give others permission to create Azure subscriptions for the section. Any usage charges and purchases for the subscriptions then show on the section of the invoice. For more information, see [Understand invoice section](billing-mca-overview.md#understand-invoice-sections).
+An invoice section allows you to organize the costs on your invoice. You can create a section to organize your costs by department, development environment, or based on your organization's needs. Give others permission to create Azure subscriptions for the section. Any usage charges and purchases for the subscriptions then show on the section of the invoice. For more information, see [Understand invoice section](billing-mca-overview.md#invoice-sections).
 
 The following tables show what role you need to complete tasks in the context of invoice sections.
 
 ### Manage invoice section permissions and properties
 
-|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|Billing account owner|Billing account contributor|Billing account reader
-|---|---|---|---|---|---|---|---|
-|View all permissions on invoice section|✔|✔|✔|✔|✔|✔|✔|
-|Give others permissions to view and manage the invoice section|✔|✘|✘|✘|✘|✘|✘|
-|View invoice section properties|✔|✔|✔|✔|✔|✔|✔|
+|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|Billing account owner|Billing account contributor|Billing account reader | |
+|---|---|---|---|---|---|---|---|---|
+|View all permissions on invoice section|✔|✔|✔|✔|✔|✔|✔| |
+|Give others permissions to view and manage the invoice section|✔|✘|✘|✘|✘|✘|✘| |
+|View invoice section properties|✔|✔|✔|✔|✔|✔|✔| |
 |Update invoice section properties|✔|✔|✘|✘|✘|✘|✘|✘|
 
 ### Manage products for invoice section
@@ -180,7 +176,7 @@ The following table shows what role you need to complete tasks in the context of
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Search on **Cost Management + Billing**.
+2. Search for **Cost Management + Billing**.
 
    ![Screenshot that shows Azure portal search](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
 

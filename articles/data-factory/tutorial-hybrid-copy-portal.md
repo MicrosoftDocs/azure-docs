@@ -3,7 +3,7 @@ title: Copy data from SQL Server to Blob storage by using Azure Data Factory | M
 description: Learn how to copy data from an on-premises data store to the cloud by using a self-hosted integration runtime in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 
 ms.topic: tutorial
 ms.date: 01/11/2018
-ms.author: jingwang
+ms.author: abnarain
 
 ---
 
@@ -119,9 +119,10 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory. 
 
 1. Open the **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. On the left menu, select **New** > **Data + Analytics** > **Data Factory**.
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
    
-   ![New data factory creation](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
    
      ![New data factory page](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
@@ -132,11 +133,11 @@ The name of the data factory must be *globally unique*. If you see the following
 1. Select the Azure **subscription** in which you want to create the data factory.
 1. For **Resource Group**, take one of the following steps:
    
-      - Select **Use existing**, and select an existing resource group from the drop-down list.
+   - Select **Use existing**, and select an existing resource group from the drop-down list.
 
-      - Select **Create new**, and enter the name of a resource group.
+   - Select **Create new**, and enter the name of a resource group.
         
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
+     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
 1. Under **Version**, select **V2**.
 1. Under **Location**, select the location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Storage and SQL Database) and computes (for example, Azure HDInsight) used by Data Factory can be in other regions.
 1. Select **Pin to dashboard**. 

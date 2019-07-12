@@ -6,9 +6,6 @@ documentationcenter: ''
 author: mumian
 
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
@@ -79,6 +76,10 @@ See [Deploy resources to an existing resource group](./manage-resources-cli.md#d
 
 You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
 
+## Redeploy when deployment fails
+
+This feature is also known as *Rollback on error*. For more information, see [Redeploy when deployment fails](./resource-group-template-deploy-cli.md#redeploy-when-deployment-fails).
+
 ## Move to another resource group or subscription
 
 You can move the resources in the group to another resource group. For more information, see [Move resources](./manage-resources-cli.md#move-resources).
@@ -134,7 +135,7 @@ az group export --name $resourceGroupName
 
 The script displays the template on the console.  Copy the JSON, and save as a file.
 
-For more information, see [Export resource group](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+For more information, see [Single and multi-resource export to template in Azure portal](./export-template-portal.md).
 
 ## Manage access to resource groups
 

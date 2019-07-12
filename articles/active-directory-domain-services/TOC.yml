@@ -1,0 +1,135 @@
+- name: Azure AD Domain Services Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items: 
+    - name: What is Azure AD Domain Services?
+      href: overview.md
+    - name: Compare with Windows Server AD
+      href: comparison.md
+    - name: Compare with Azure AD join
+      href: active-directory-ds-compare-with-azure-ad-join.md
+    - name: Features
+      href: active-directory-ds-features.md
+- name: Samples
+  items: 
+    - name: Create an Azure AD DS instance using Azure PowerShell
+      href: powershell-create-instance.md
+- name: Concepts
+  items: 
+    - name: How synchronization works
+      href: synchronization.md
+- name: How to
+  items: 
+    - name: Create an Azure AD DS instance
+      items: 
+        - name: "Task 1 configure basic settings"
+          href: create-instance.md
+        - name: "Task 2 configure network settings"
+          href: active-directory-ds-getting-started-network.md
+        - name: "Task 3 configure administrator group and enable Azure AD Domain Services"
+          href: active-directory-ds-getting-started-admingroup.md
+        - name: "Task 4 update DNS settings for virtual network"
+          href: active-directory-ds-getting-started-dns.md
+        - name: "Task 5 enable password hash synchronization"
+          href: active-directory-ds-getting-started-password-sync.md
+    - name: Plan for Azure AD DS
+      items: 
+        - name: Scenarios
+          href: scenarios.md
+        - name: Plan a virtual network
+          href: network-considerations.md
+    - name: Manage Azure AD DS
+      items: 
+        - name: Enable security audit events (Preview)
+          href: security-audit-events.md
+        - name: Check a managed domain's health
+          href: check-health.md
+        - name: Configure scoped synchronization from Azure AD to a managed domain
+          href: scoped-synchronization.md
+        - name: Secure your managed domain
+          href: secure-your-domain.md
+        - name: Create an OU on a managed domain
+          href: create-ou.md
+        - name: Create a group managed service account on a managed domain
+          href: create-gmsa.md
+        - name: Manage Group Policy for Azure AD Domain Services
+          href: manage-group-policy.md
+        - name: Configure password policies on a managed domain
+          href: password-policy.md
+        - name: Delete a managed domain
+          href: delete-aadds.md
+        - name: Create an Azure AD DS administrative virtual machine
+          href: manage-domain.md
+        - name: Manage DNS for Azure AD Domain Services
+          href: manage-dns.md
+        - name: Update email notifications
+          href: notifications.md
+        - name: Configure secure LDAP (LDAPS) in an Azure AD Domain Services domain
+          href: "configure-ldaps.md"
+          items:             
+            - name: "Task 2 Export the secure LDAP certificate"
+              href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
+            - name: "Task 3 Enable secure LDAP for the managed domain using Azure portal"
+              href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
+            - name: "Task 4 Configure DNS to access the managed domain from the internet"
+              href: active-directory-ds-ldaps-configure-dns.md
+            - name: "Task 5 Bind to the managed domain and lock down secure LDAP access"
+              href: active-directory-ds-ldaps-bind-lockdown.md
+    - name: Deploy applications to Azure AD DS
+      items: 
+        - name: Configure support for profile synchronization for SharePoint Server
+          href: deploy-sp-profile-sync.md
+        - name: Configure Kerberos Constrained Delegation
+          href: deploy-kcd.md
+        - name: Deploy Azure AD Application Proxy
+          href: deploy-azure-app-proxy.md
+    - name: Join virtual machines to Azure AD DS
+      items: 
+        - name: Windows Server VM
+          href: join-windows-vm.md
+        - name: Windows Server VM from template
+          href: join-windows-vm-template.md
+        - name: CentOS
+          href: join-centos-linux-vm.md
+        - name: CoreOS
+          href: join-coreos-linux-vm.md
+        - name: Red Hat Enterprise Linux
+          href: join-rhel-linux-vm.md
+        - name: Ubuntu Server
+          href: join-ubuntu-linux-vm.md
+    - name: Troubleshoot Azure AD DS
+      items: 
+        - name: Troubleshooting guide
+          href: troubleshoot.md
+        - name: Troubleshoot alerts
+          href: troubleshoot-alerts.md          
+          items: 
+            - name: Fix a broken NSG configuration
+              href: alert-nsg.md
+            - name: Restore missing service principals
+              href: alert-service-principal.md
+            - name: Secure LDAP errors
+              href: alert-ldaps.md
+        - name: Resolve mismatched tenant errors
+          href: mismatched-tenant-error.md
+        - name: Suspended domains
+          href: suspension.md
+        - name: Troubleshoot secure LDAP
+          href: tshoot-ldaps.md
+- name: Resources
+  items: 
+    - name: FAQs
+      href: faqs.md
+    - name: Service updates
+      href: https://azure.microsoft.com/updates/?product=active-directory-ds
+    - name: Compatible third-party software
+      href: compatible-software.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/active-directory-ds/
+    - name: Azure AD feedback forum
+      href: https://feedback.azure.com/forums/169401-azure-active-directory
+    - name: Contact us
+      href: contact-us.md
+    - name: Use Azure AD Domain Services in Azure CSP subscriptions
+      href: csp.md

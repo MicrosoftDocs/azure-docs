@@ -2,14 +2,14 @@
 title: Add your own attributes to custom policies in Azure Active Directory B2C | Microsoft Docs
 description: A walkthrough on using extension properties and custom attributes and including them in the user interface.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 # Azure Active Directory B2C: Use custom attributes in a custom profile edit policy
@@ -255,20 +255,20 @@ The ID token sent back to your application includes the new extension property a
 
 1. Add the new claim to the flows to sign in to social accounts by changing the following **TechnicalProfiles**. Social and federated accounts use these two **TechnicalProfiles** to sign in. They write and read user data by using the **alternativeSecurityId** as the locator of the user object.
 
-  ```xml
+   ```xml
     <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
     <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-  ```
+   ```
 
 2. Use the same extension attributes between built-in and custom policies. When you add extension, or custom, attributes via the portal experience, those attributes are registered by using the **b2c-extensions-app** that exists in every B2C tenant. Take the following steps to use extension attributes in your custom policy:
 
-  a. Within your B2C tenant in portal.azure.com, navigate to **Azure Active Directory** and select **App registrations**.  
-  b. Find your **b2c-extensions-app** and select it.  
-  c. Under **Essentials**, enter the **Application ID** and the **Object ID**.  
-  d. Include them in your **AAD-Common** TechnicalProfile metadata:  
+   a. Within your B2C tenant in portal.azure.com, navigate to **Azure Active Directory** and select **App registrations**.  
+   b. Find your **b2c-extensions-app** and select it.  
+   c. Under **Essentials**, enter the **Application ID** and the **Object ID**.  
+   d. Include them in your **AAD-Common** TechnicalProfile metadata:  
 
-  ```xml
+   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
           <DisplayName>Azure Active Directory</DisplayName>
@@ -280,18 +280,18 @@ The ID token sent back to your application includes the new extension property a
               <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
               <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
             </Metadata>
-  ```
+   ```
 
 3. Stay consistent with the portal experience. Create these attributes by using the portal UI before you use them in your custom policies. When you create an attribute **ActivationStatus** in the portal, you must refer to it as follows:
 
-  ```
-  extension_ActivationStatus in the custom policy.
-  extension_<app-guid>_ActivationStatus via Graph API.
-  ```
+   ```
+   extension_ActivationStatus in the custom policy.
+   extension_<app-guid>_ActivationStatus via Graph API.
+   ```
 
 ## Reference
 
-For more information on extension properties, see the article [Directory schema extensions | Graph API concepts](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+For more information on extension properties, see the article [Directory schema extensions | Graph API concepts](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 > [!NOTE]
 > * A **TechnicalProfile** is an element type, or function, that defines an endpoint’s name, metadata, and protocol. The **TechnicalProfile** details the exchange of claims that the Identity Experience Framework performs. When this function is called in an orchestration step or from another **TechnicalProfile**, the **InputClaims** and **OutputClaims** are provided as parameters by the caller.  

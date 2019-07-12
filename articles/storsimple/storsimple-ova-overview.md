@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2018
+ms.date: 03/14/2019
 ms.author: alkohli
 ---
 # Introduction to the StorSimple Virtual Array
@@ -69,8 +69,8 @@ The following table describes some of the key benefits that the StorSimple Virtu
 
 A summary of supported StorSimple workloads is tabulated below.
 
-|Scenario     |Workload     |Supported      |Restrictions               |
-|-------------|-------------|---------------|---------------------------|
+|Scenario     |Workload     |Supported      |Restrictions               | Versions applicable|
+|-------------|-------------|---------------|---------------------------|--------------------|
 |Remote Office/Branch Office (ROBO)  |File sharing     |Yes      |See [maximum limits for file server](storsimple-ova-limits.md).<br></br>See [system requirements for supported SMB versions](storsimple-ova-system-requirements.md).| All versions     |
 |Cloud archiving  |Archival file sharing     |Yes      |See [maximum limits for file server](storsimple-ova-limits.md).<br></br>See [system requirements for supported SMB versions](storsimple-ova-system-requirements.md).| All versions     |
 

@@ -1,20 +1,12 @@
 ---
-title: Technical information for a Power BI App offer - Azure Marketplace | Microsoft Docs
+title: Technical information for a Power BI App offer | Azure Marketplace 
 description: Configure Technical info fields for a Power BI App offer for the Microsoft AppSource Marketplace. 
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.author: pbutlerm
+ms.date: 04/24/2019
+ms.author: pabutler
 ---
 
 # Power BI Apps Technical Info tab
@@ -30,7 +22,7 @@ On the **Technical Info** tab, complete the fields described in the following ta
 
 |        Field          |  Description                                                                 |
 |    ---------------    |  ----------------------------------------------------------------------------|
-| **Installer URL**     | Power BI generates this URL when you publish the app and promote it to production.  For more information, see [Publish apps with dashboards and reports in Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
+| **Installer URL\***     | Power BI generates this URL when you publish the app and promote it to production.  For more information, see [Publish apps with dashboards and reports in Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
 |  **Validation instructions**  |  If you want, add instructions (up to 3,000 characters) to help the Microsoft validation team configure, connect, and test your app. Include typical configuration settings, accounts, parameters, or other information that can be used to test the Connect Data option. This information is visible only to the validation team, and it's used only for validation purposes.  |
 | **Is this app created as a Power BI content pack?** | Currently, this field is used only internally. Leave the default setting of **No**. If you change the setting to **Yes**, you could stop the publishing process.  |  
 |  |  |

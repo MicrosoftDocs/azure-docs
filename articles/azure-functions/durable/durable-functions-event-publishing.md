@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/14/2019
 ms.author: glenga
 ---
 
@@ -30,16 +30,16 @@ Following are some scenarios where this feature is useful:
 * Install [Azure Storage Emulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
 * Install [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
-## Create a custom Event Grid topic
+## Create a custom event grid topic
 
-Create an Event Grid topic for sending events from Durable Functions. The following instructions show how to create a topic by using Azure CLI. For information about how to do it by using PowerShell or the Azure portal, refer to the following articles:
+Create an event grid topic for sending events from Durable Functions. The following instructions show how to create a topic by using Azure CLI. For information about how to do it by using PowerShell or the Azure portal, refer to the following articles:
 
 * [EventGrid Quickstarts: Create custom event - PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
 * [EventGrid Quickstarts: Create custom event - Azure portal](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### Create a resource group
 
-Create a resource group with the `az group create` command. Currently, Event Grid doesn't support all regions. For information about which regions are supported, see the [Event Grid overview](https://docs.microsoft.com/azure/event-grid/overview).
+Create a resource group with the `az group create` command. Currently, Azure Event Grid doesn't support all regions. For information about which regions are supported, see the [Azure Event Grid overview](https://docs.microsoft.com/azure/event-grid/overview).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -47,7 +47,7 @@ az group create --name eventResourceGroup --location westus2
 
 ### Create a custom topic
 
-An Event Grid topic provides a user-defined endpoint that you post your event to. Replace `<topic_name>` with a unique name for your topic. The topic name must be unique because it becomes a DNS entry.
+An event grid topic provides a user-defined endpoint that you post your event to. Replace `<topic_name>` with a unique name for your topic. The topic name must be unique because it becomes a DNS entry.
 
 ```bash
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
@@ -73,25 +73,18 @@ Now you can send events to the topic.
 
 In your Durable Functions project, find the `host.json` file.
 
-Add `EventGridTopicEndpoint` and `EventGridKeySettingName` in a `durableTask` property.
+Add `eventGridTopicEndpoint` and `eventGridKeySettingName` in a `durableTask` property.
 
 ```json
 {
     "durableTask": {
-        "EventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
-        "EventGridKeySettingName": "EventGridKey"
+        "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+        "eventGridKeySettingName": "EventGridKey"
     }
 }
 ```
 
-The possible Azure Event Grid configuration properties are as follows:
-
-* **EventGridTopicEndpoint** - The endpoint of the Event Grid Topic. The *%AppSettingName%* syntax can be used to resolve this value from application settings or environment variables.
-* **EventGridKeySettingName** - The key of the application setting on your Azure Function. Durable Functions will get the Event Grid Topic key from the value.
-* **EventGridPublishRetryCount** - [Optional] The number of times to retry if publishing to the Event Grid topic fails.
-* **EventGridPublishRetryInterval** - [Optional] The Event Grid publish retry interval in the *hh:mm:ss* format. If not specified, the default retry interval is 5 minutes.
-
-Once you configure the `host.json` file, Your Durable Functions project starts to send lifecycle events to the Event Grid topic. This works when you run in the Function App and when you run locally.
+The possible Azure Event Grid configuration properties can be found in the [host.json documentation](../functions-host-json.md#durabletask). After you configure the `host.json` file, your function app sends lifecycle events to the event grid topic. This works when you run your function app both locally and in Azure.```
 
 Set the app setting for the topic key in the Function App and `local.setting.json`. The following JSON is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` with the topic key.  
 
@@ -110,9 +103,9 @@ Make sure that [Storage Emulator](https://docs.microsoft.com/azure/storage/commo
 
 ## Create functions that listen for events
 
-Create a Function App. It's best to locate it in the same region as the Event Grid Topic.
+Create a Function App. It's best to locate it in the same region as the event grid topic.
 
-### Create an Event Grid trigger function
+### Create an event grid trigger function
 
 Create a function to receive the lifecycle events. Select **Custom Function**.
 
@@ -140,11 +133,11 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-Select `Add Event Grid Subscription`. This operation adds an Event Grid subscription for the Event Grid topic that you created. For more information, see [Concepts in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
+Select `Add Event Grid Subscription`. This operation adds an event grid subscription for the event grid topic that you created. For more information, see [Concepts in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
 
 ![Select the Event Grid Trigger link.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-Select `Event Grid Topics` for **Topic Type**. Select the resource group that you created for the Event Grid topic. Then select the instance of the Event Grid topic. Press `Create`.
+Select `Event Grid Topics` for **Topic Type**. Select the resource group that you created for the event grid topic. Then select the instance of the event grid topic. Press `Create`.
 
 ![Create an Event Grid subscription.](./media/durable-functions-event-publishing/eventsubscription.png)
 
@@ -166,7 +159,6 @@ using Microsoft.Extensions.Logging;
 namespace LifeCycleEventSpike
 {
     public static class Sample
-    {
     {
         [FunctionName("Sample")]
         public static async Task<List<string>> RunOrchestrator(
@@ -253,19 +245,19 @@ See the logs from the function that you created in the Azure portal.
 
 The following list explains the lifecycle events schema:
 
-* **id**: Unique identifier for the Event Grid event.
-* **subject**: Path to the event subject. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` will be `Running`, `Completed`, `Failed`, and `Terminated`.  
-* **data**: Durable Functions Specific Parameters.
-  * **hubName**: [TaskHub](durable-functions-task-hubs.md) name.
-  * **functionName**: Orchestrator function name.
-  * **instanceId**: Durable Functions instanceId.
-  * **reason**: Additional data associated with the tracking event. For more information, see [Diagnostics in Durable Functions (Azure Functions)](durable-functions-diagnostics.md)
-  * **runtimeStatus**: Orchestration Runtime Status. Running, Completed, Failed, Canceled.
-* **eventType**: "orchestratorEvent"
-* **eventTime**: Event time (UTC).
-* **dataVersion**: Version of the lifecycle event schema.
-* **metadataVersion**:  Version of the metadata.
-* **topic**: EventGrid Topic resource.
+* **`id`**: Unique identifier for the event grid event.
+* **`subject`**: Path to the event subject. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` will be `Running`, `Completed`, `Failed`, and `Terminated`.  
+* **`data`**: Durable Functions Specific Parameters.
+  * **`hubName`**: [TaskHub](durable-functions-task-hubs.md) name.
+  * **`functionName`**: Orchestrator function name.
+  * **`instanceId`**: Durable Functions instanceId.
+  * **`reason`**: Additional data associated with the tracking event. For more information, see [Diagnostics in Durable Functions (Azure Functions)](durable-functions-diagnostics.md)
+  * **`runtimeStatus`**: Orchestration Runtime Status. Running, Completed, Failed, Canceled.
+* **`eventType`**: "orchestratorEvent"
+* **`eventTime`**: Event time (UTC).
+* **`dataVersion`**: Version of the lifecycle event schema.
+* **`metadataVersion`**:  Version of the metadata.
+* **`topic`**: Event grid topic resource.
 
 ## How to test locally
 

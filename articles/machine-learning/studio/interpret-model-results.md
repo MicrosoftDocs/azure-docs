@@ -1,5 +1,5 @@
 ---
-title: Interpret model results in Machine Learning Studio
+title: Interpret model results
 titleSuffix: Azure Machine Learning Studio
 description: How to choose the optimal parameter set for an algorithm using and visualizing score model outputs.
 services: machine-learning
@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
@@ -47,7 +47,7 @@ Azure Machine Learning Studio has different modules to deal with each of these t
 ### Two-class classification
 **Example experiment**
 
-An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in Azure Machine Learning Studio is a subset of the popular [Iris data set](http://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
+An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in Azure Machine Learning Studio is a subset of the popular [Iris data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
 
 ![Screenshot of iris experiment](./media/interpret-model-results/1.png)
 

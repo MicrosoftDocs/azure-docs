@@ -248,24 +248,24 @@ The steps in this section show you how to configure a Jenkins job to respond to 
       ```
    
    * **For Jenkins running outside your cluster:** Follow these steps to copy the cluster certificate to your container:
-      1. Your certificate must be in PEM format. If you don't have a PEM file, you can create one from the certificate PFX file. If your PFX file is not password protected, run the following command from your host:
+     1. Your certificate must be in PEM format. If you don't have a PEM file, you can create one from the certificate PFX file. If your PFX file is not password protected, run the following command from your host:
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
+        ``` 
 
-      If the PFX file is password protected, include the password in the `-passin` parameter. For example:
+        If the PFX file is password protected, include the password in the `-passin` parameter. For example:
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
+        ``` 
 
-      1. To get the container ID for your Jenkins container, run `docker ps` from your host.
-      1. Copy the PEM file to your container with the following Docker command:
+     1. To get the container ID for your Jenkins container, run `docker ps` from your host.
+     1. Copy the PEM file to your container with the following Docker command:
     
-         ```sh
-         docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
-         ``` 
+        ```sh
+        docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
+        ``` 
 
 You're almost finished! Keep the Jenkins job open. The only remaining task is to configure the post-build steps to deploy your application to your Service Fabric cluster:
 

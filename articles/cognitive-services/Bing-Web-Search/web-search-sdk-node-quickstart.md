@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
 ---
 
@@ -38,14 +38,14 @@ Let's start by setting up the development environment for our Node.js project.
     mkdir YOUR_PROJECT
     ```
 
-2. Create a new package file:
+1. Create a new package file:
 
     ```console
     cd YOUR_PROJECT
     npm init
     ```
 
-3. Now, let's install some azure modules and add them to the `package.json`:
+1. Now, let's install some azure modules and add them to the `package.json`:
 
     ```console
     npm install --save azure-cognitiveservices-websearch

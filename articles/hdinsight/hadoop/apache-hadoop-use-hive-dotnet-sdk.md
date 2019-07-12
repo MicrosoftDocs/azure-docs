@@ -2,7 +2,6 @@
 title: Run Apache Hive queries using HDInsight .NET SDK - Azure 
 description: Learn how to submit Apache Hadoop jobs to Azure HDInsight Apache Hadoop using HDInsight .NET SDK.
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 
 ms.service: hdinsight
@@ -135,7 +134,6 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 
 * [Get started with Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](../hdinsight-administer-use-management-portal.md)
 * [HDInsight .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 * [Use Apache Sqoop with HDInsight](apache-hadoop-use-sqoop-mac-linux.md)

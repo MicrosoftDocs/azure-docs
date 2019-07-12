@@ -88,7 +88,7 @@ You may view deleted state key vaults, associated with your subscription, using 
 ```azurecli
 az keyvault list-deleted
 ```
-- *Id* can be used to identify the resource when recovering, or purging. 
+- *ID* can be used to identify the resource when recovering or purging. 
 - *Resource ID* is the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. 
 - *Scheduled Purge Date* is when the vault will be permanently deleted, if no action is taken. The default retention period, used to calculate the *Scheduled Purge Date*, is 90 days.
 
@@ -161,19 +161,19 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 Like keys, secrets are managed with their own commands:
 
 - Delete a secret named SQLPassword: 
-```azurecli
-az keyvault secret delete --vault-name ContosoVault -name SQLPassword
-```
+  ```azurecli
+  az keyvault secret delete --vault-name ContosoVault -name SQLPassword
+  ```
 
 - List all deleted secrets in a key vault: 
-```azurecli
-az keyvault secret list-deleted --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret list-deleted --vault-name ContosoVault
+  ```
 
 - Recover a secret in the deleted state: 
-```azurecli
-az keyvault secret recover --name SQLPassword --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret recover --name SQLPassword --vault-name ContosoVault
+  ```
 
 - Purge a secret in deleted state: 
 
@@ -216,6 +216,24 @@ Listing deleted key vault objects also shows when they're scheduled to be purged
 
 >[!IMPORTANT]
 >A purged vault object, triggered by its *Scheduled Purge Date* field, is permanently deleted. It is not recoverable!
+
+## Enabling Purge Protection
+
+When purge protection is turned on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. Such vault or object can still be recovered. This feature gives added assurance that a vault or an object can never be permanently deleted until the retention period has passed.
+
+You can enable purge protection only if soft-delete is also enabled. 
+
+To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command:
+
+```
+az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) command:
+
+```
+az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+```
 
 ## Other resources
 

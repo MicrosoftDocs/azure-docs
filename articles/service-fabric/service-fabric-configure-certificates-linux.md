@@ -4,7 +4,7 @@ description: Configure certificates for your app with the Service Fabric runtime
 services: service-fabric
 documentationcenter: NA
 author: JimacoMS2
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

@@ -84,7 +84,7 @@ To configure the integration of Land Gorilla Client into Azure AD, you need to a
 
 
 ##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Land Gorilla Client based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with Land Gorilla Client based on a test user called "B. Simon".
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Land Gorilla Client is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Land Gorilla Client needs to be established.
 
@@ -94,8 +94,8 @@ To configure and test Azure AD single sign-on with Land Gorilla Client, you need
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with limited group.
-1. **[Creating a Land Gorilla test user](#creating-a-land-gorilla-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Creating a Land Gorilla test user](#creating-a-land-gorilla-test-user)** - to test Azure AD single sign-on with B. Simon.
+1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable B. Simon to use Azure AD single sign-on.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
@@ -148,7 +148,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
+The objective of this section is to create a test user in the Azure Management portal called B. Simon.
 
 ![Create Azure AD User][100]
 
@@ -170,9 +170,9 @@ The objective of this section is to create a test user in the Azure Management p
  
 	![Creating an Azure AD test user](./media/landgorilla-tutorial/create_aaduser_04.png) 
 
-    a. In the **Name** textbox, type **BrittaSimon**.
+    a. In the **Name** textbox, type **B. Simon**.
 
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+    b. In the **User name** textbox, type the **email address** of B. Simon.
 
 	c. Select **Show Password** and write down the value of the **Password**.
 
@@ -184,11 +184,11 @@ Please work with [Land Gorilla support team](https://www.landgorilla.com/support
     
 ### Assigning the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Land Gorilla Client.
+In this section, you enable B. Simon to use Azure single sign-on by granting them access to Land Gorilla Client.
 
 ![Assign User][200] 
 
-**To assign Britta Simon to Land Gorilla Client, perform the following steps:**
+**To assign B. Simon to Land Gorilla Client, perform the following steps:**
 
 1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
@@ -206,7 +206,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][203]
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **B. Simon** in the Users list.
 
 1. Click **Select** button on **Users and groups** dialog.
 

@@ -111,7 +111,7 @@ Leave the web browser open so that you can see an updated version in the next st
 
 
 ## Update app deployment
-Throughout the lifecycle of a scale set, you may need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set. When the scale set was created in a previous step, the *upgradePolicy` was set to *Automatic*. This setting allows the VM instances in the scale set to automatically update and apply the latest version of your application.
+Throughout the lifecycle of a scale set, you may need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set. When the scale set was created in a previous step, the *upgradePolicy* was set to *Automatic*. This setting allows the VM instances in the scale set to automatically update and apply the latest version of your application.
 
 To update the Custom Script Extension definition, edit your template to reference a new install script. A new filename must be used for the Custom Script Extension to recognize the change. The Custom Script Extension does not examine the contents of the script to determine any changes. This following definition uses an updated install script with *_v2* appended to its name:
 

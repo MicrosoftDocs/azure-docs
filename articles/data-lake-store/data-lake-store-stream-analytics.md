@@ -3,8 +3,8 @@ title: Stream data from Stream Analytics into Azure Data Lake Storage Gen1 | Mic
 description: Use Azure Stream Analytics to stream data into Azure Data Lake Storage Gen1
 services: data-lake-store,stream-analytics
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Stream data from Azure Storage Blob into Azure Data Lake Storage Gen1 using Azure Stream Analytics
@@ -50,17 +50,17 @@ You start by creating a Stream Analytics job that includes an input source and a
 
     ![Add an input to your job](./media/data-lake-store-stream-analytics/create.input.2.png "Add an input to your job")
 
-	* For **Input alias**, enter a unique name for the job input.
-	* For **Source type**, select **Data stream**.
-	* For **Source**, select **Blob storage**.
-	* For **Subscription**, select **Use blob storage from current subscription**.
-	* For **Storage account**, select the storage account that you created as part of the prerequisites. 
-	* For **Container**, select the container that you created in the selected storage account.
-	* For **Event serialization format**, select **CSV**.
-	* For **Delimiter**, select **tab**.
-	* For **Encoding**, select **UTF-8**.
+   * For **Input alias**, enter a unique name for the job input.
+   * For **Source type**, select **Data stream**.
+   * For **Source**, select **Blob storage**.
+   * For **Subscription**, select **Use blob storage from current subscription**.
+   * For **Storage account**, select the storage account that you created as part of the prerequisites. 
+   * For **Container**, select the container that you created in the selected storage account.
+   * For **Event serialization format**, select **CSV**.
+   * For **Delimiter**, select **tab**.
+   * For **Encoding**, select **UTF-8**.
 
-	Click **Create**. The portal now adds the input and tests the connection to it.
+     Click **Create**. The portal now adds the input and tests the connection to it.
 
 
 ## Create a Data Lake Storage Gen1 output for the job
@@ -80,15 +80,15 @@ You start by creating a Stream Analytics job that includes an input source and a
 
 	![Add an output to your job](./media/data-lake-store-stream-analytics/create.output.3.png "Add an output to your job")
 
-	* For **Account name**, select the Data Lake Storage Gen1 account you already created where you want the job output to be sent to.
-	* For **Path prefix pattern**, enter a file path used to write your files within the specified Data Lake Storage Gen1 account.
-	* For **Date format**, if you used a date token in the prefix path, you can select the date format in which your files are organized.
-	* For **Time format**, if you used a time token in the prefix path, specify the time format in which your files are organized.
-	* For **Event serialization format**, select **CSV**.
-	* For **Delimiter**, select **tab**.
-	* For **Encoding**, select **UTF-8**.
+   * For **Account name**, select the Data Lake Storage Gen1 account you already created where you want the job output to be sent to.
+   * For **Path prefix pattern**, enter a file path used to write your files within the specified Data Lake Storage Gen1 account.
+   * For **Date format**, if you used a date token in the prefix path, you can select the date format in which your files are organized.
+   * For **Time format**, if you used a time token in the prefix path, specify the time format in which your files are organized.
+   * For **Event serialization format**, select **CSV**.
+   * For **Delimiter**, select **tab**.
+   * For **Encoding**, select **UTF-8**.
 	
-	Click **Create**. The portal now adds the output and tests the connection to it.
+     Click **Create**. The portal now adds the output and tests the connection to it.
 	
 ## Run the Stream Analytics job
 

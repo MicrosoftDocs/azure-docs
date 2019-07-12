@@ -6,17 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/19/2018
+ms.date: 05/22/2019
 ms.author: raynew
 
 
 ---
-# Restore SQL Server databases on Azure VMs 
+# Restore SQL Server databases on Azure VMs
 
 This article describes how to restore a SQL Server database that's running on an Azure virtual machine (VM) that the [Azure Backup](backup-overview.md) service has backed up to an Azure Backup Recovery Services vault.
-
-> [!NOTE]
-> Backup of SQL Server databases that are running on an Azure VM that uses Azure Backup is currently in public preview.
 
 This article describes how to restore SQL Server databases. For more information, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md).
 
@@ -40,6 +37,7 @@ Before you restore a database, note the following:
     - Only the specified client name can open the connection.
 - For all system databases (model, master, msdb), stop the SQL Server Agent service before you trigger the restore.
 - Close any applications that might try to take a connection to any of these databases.
+- If you have multiple instances running on a server, all of the instances should be up and running otherwise the server would not appear in the list of destination servers for you to restore database to.
 
 ## Restore a database
 
@@ -49,7 +47,7 @@ To restore, you need the following permissions:
 * **Contributor (write)** access to the source VM that's backed up.
 * **Contributor (write)** access to the target VM:
     - If you're restoring to the same VM, this is the source VM.
-    - If you're restoring to an alternate location, this is the new target VM. 
+    - If you're restoring to an alternate location, this is the new target VM.
 
 Restore as follows:
 1. Open the vault in which the SQL Server VM is registered.
@@ -62,24 +60,24 @@ Restore as follows:
 
     ![Select the database to restore](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
-5. Review the database menu. It provides information about the database backup, including: 
+5. Review the database menu. It provides information about the database backup, including:
 
     * The oldest and latest restore points.
     * The log backup status for the last 24 hours for databases that are in full and bulk-logged recovery mode and that are configured for transactional log backups.
 
-6. Select **Restore DB**. 
+6. Select **Restore DB**.
 
     ![Select Restore DB](./media/backup-azure-sql-database/restore-db-button.png)
 
 7. In **Restore Configuration**, specify where to restore the data:
-    - **Alternate Location**: Restore the database to an alternate location and keep the original source database.
-    - **Overwrite DB**: Restore the data to the same SQL Server instance as the original source. This option overwrites the original database.
+   - **Alternate Location**: Restore the database to an alternate location and keep the original source database.
+   - **Overwrite DB**: Restore the data to the same SQL Server instance as the original source. This option overwrites the original database.
 
-    > [!Important]
-    > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
-    >
+     > [!Important]
+     > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
+     >
 
-    ![Restore Configuration menu](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
+     ![Restore Configuration menu](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
 
 ### Restore to an alternate location
 
@@ -94,7 +92,7 @@ Restore as follows:
 2. In **Select restore point**, select whether to [restore to a specific point in time](#restore-to-a-specific-point-in-time) or to [restore to a specific recovery point](#restore-to-a-specific-restore-point).
 
     > [!NOTE]
-    > The point-in-time restore is available only for log backups for databases that are in full and bulk-logged recovery mode. 
+    > The point-in-time restore is available only for log backups for databases that are in full and bulk-logged recovery mode.
 
 ### Restore and overwrite
 
@@ -105,7 +103,7 @@ Restore as follows:
 2. In **Select restore point**, select **Logs (Point in Time)** to [restore to a specific point in time](#restore-to-a-specific-point-in-time). Or select **Full & Differential** to restore to a [specific recovery point](#restore-to-a-specific-restore-point).
 
     > [!NOTE]
-    > The point-in-time restore is available only for log backups for databases that are in full and bulk-logged recovery mode. 
+    > The point-in-time restore is available only for log backups for databases that are in full and bulk-logged recovery mode.
 
 ### Restore to a specific point in time
 
@@ -121,7 +119,7 @@ If you've selected **Logs (Point in Time)** as the restore type, do the followin
 
     ![Select a restore time](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 
- 
+
 1. On the **Advanced Configuration** menu, if you want to keep the database nonoperational after the restore, enable **Restore with NORECOVERY**.
 1. If you want to change the restore location on the destination server, enter a new target path.
 1. Select **OK**.
@@ -140,9 +138,9 @@ If you've selected **Full & Differential** as the restore type, do the following
 1. Select a recovery point from the list, and select **OK** to complete the restore point procedure.
 
     ![Choose a full recovery point](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
-        
+
 1. On the **Advanced Configuration** menu, if you want to keep the database nonoperational after the restore, enable **Restore with NORECOVERY**.
-1. If you want to change the restore location on the destination server, enter a new target path. 
+1. If you want to change the restore location on the destination server, enter a new target path.
 1. Select **OK**.
 
     ![Advanced Configuration menu](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
@@ -151,6 +149,13 @@ If you've selected **Full & Differential** as the restore type, do the following
 1. Track the restore progress in the **Notifications** area, or track it by selecting **Restore jobs** on the database menu.
 
     ![Restore job progress](./media/backup-azure-sql-database/restore-job-notification.png)
+
+### Restore databases with large number of files
+
+If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup stores the list of database files in a different pit component such that you will not be able to set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
+
+  ![Restore Database with large file](./media/backup-azure-sql-database/restore-large-files.jpg)
+
 
 ## Next steps
 

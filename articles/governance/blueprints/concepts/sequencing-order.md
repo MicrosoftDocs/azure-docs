@@ -1,10 +1,9 @@
 ---
 title: Understand the deployment sequence order
-description: Learn about the life-cycle that a blueprint goes through and details about each stage.
-services: blueprints
+description: Learn about the life-cycle that a blueprint definition goes through and details about each stage.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/12/2018
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
@@ -13,7 +12,7 @@ ms.custom: seodec18
 # Understand the deployment sequence in Azure Blueprints
 
 Azure Blueprints uses a **sequencing order** to determine the order of resource creation when
-processing the assignment of a blueprint. This article explains the following concepts:
+processing the assignment of a blueprint definition. This article explains the following concepts:
 
 - The default sequencing order that is used
 - How to customize the order
@@ -25,8 +24,8 @@ There are variables in the JSON examples that you need to replace with your own 
 
 ## Default sequencing order
 
-If the blueprint contains no directive for the order to deploy artifacts or the directive is null,
-then the following order is used:
+If the blueprint definition contains no directive for the order to deploy artifacts or the directive
+is null, then the following order is used:
 
 - Subscription level **role assignment** artifacts sorted by artifact name
 - Subscription level **policy assignment** artifacts sorted by artifact name
@@ -40,27 +39,27 @@ created within that resource group:
 - Resource group child **policy assignment** artifacts sorted by artifact name
 - Resource group child **Azure Resource Manager template** artifacts sorted by artifact name
 
+> [!NOTE]
+> Use of [artifacts()](../reference/blueprint-functions.md#artifacts) creates an implicit dependency
+> on the artifact being referred to.
+
 ## Customizing the sequencing order
 
-When composing large blueprints, it may be necessary for resources to be created in a specific
-order. The most common use pattern of this scenario is when a blueprint includes several Azure
-Resource Manager templates. Blueprints handles this pattern by allowing the sequencing order to be
-defined.
+When composing large blueprint definitions, it may be necessary for resources to be created in a
+specific order. The most common use pattern of this scenario is when a blueprint definition includes
+several Azure Resource Manager templates. Blueprints handles this pattern by allowing the sequencing
+order to be defined.
 
-The ordering is accomplished by defining a `dependsOn` property in the JSON. Only the blueprint (for
-resource groups) and artifact objects support this property. `dependsOn` is a string array of
-artifact names that the particular artifact needs to be created before it's created.
+The ordering is accomplished by defining a `dependsOn` property in the JSON. The blueprint
+definition, for resource groups, and artifact objects support this property. `dependsOn` is a string
+array of artifact names that the particular artifact needs to be created before it's created.
 
-> [!NOTE]
-> **Resource group** artifacts support the `dependsOn` property, but can't be the target of a
-> `dependsOn` by any artifact type.
+### Example - ordered resource group
 
-### Example - blueprint with ordered resource group
-
-This example blueprint has a resource group that has defined a custom sequencing order by declaring
-a value for `dependsOn`, along with a standard resource group. In this case, the artifact named
-**assignPolicyTags** will be processed before the **ordered-rg** resource group. **standard-rg**
-will be processed per the default sequencing order.
+This example blueprint definition has a resource group that has defined a custom sequencing order by
+declaring a value for `dependsOn`, along with a standard resource group. In this case, the artifact
+named **assignPolicyTags** will be processed before the **ordered-rg** resource group.
+**standard-rg** will be processed per the default sequencing order.
 
 ```json
 {
@@ -112,6 +111,46 @@ ordering allows the policy artifact to wait for the Azure Resource Manager templ
 }
 ```
 
+### Example - subscription level template artifact depending on a resource group
+
+This example is for a Resource Manager template deployed at the subscription level to depend on a
+resource group. In default ordering, the subscription level artifacts would be created prior to any
+resource groups and child artifacts in those resource groups. The resource group is defined in the
+blueprint definition like this:
+
+```json
+"resourceGroups": {
+    "wait-for-me": {
+        "metadata": {
+            "description": "Resource Group that is deployed prior to the subscription level template artifact"
+        }
+    }
+}
+```
+
+The subscription level template artifact depending on the **wait-for-me** resource group is defined
+like this:
+
+```json
+{
+    "properties": {
+        "template": {
+            ...
+        },
+        "parameters": {
+            ...
+        },
+        "dependsOn": ["wait-for-me"],
+        "displayName": "SubLevelTemplate",
+        "description": ""
+    },
+    "kind": "template",
+    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/subtemplateWaitForRG",
+    "type": "Microsoft.Blueprint/blueprints/artifacts",
+    "name": "subtemplateWaitForRG"
+}
+```
+
 ## Processing the customized sequence
 
 During the creation process, a topological sort is used to create the dependency graph of the
@@ -126,8 +165,8 @@ default sequencing order and no changes would be made.
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](lifecycle.md)
-- Understand how to use [static and dynamic parameters](parameters.md)
-- Find out how to make use of [blueprint resource locking](resource-locking.md)
-- Learn how to [update existing assignments](../how-to/update-existing-assignments.md)
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md)
+- Learn about the [blueprint life-cycle](lifecycle.md).
+- Understand how to use [static and dynamic parameters](parameters.md).
+- Find out how to make use of [blueprint resource locking](resource-locking.md).
+- Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
+- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).

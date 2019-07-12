@@ -12,7 +12,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
-ms.date: 06/12/2018
+ms.date: 03/13/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ---
@@ -48,7 +48,7 @@ When you submit a task with multi-instance settings to a job, Batch performs sev
 Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. To disable concurrent task execution, set the [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool) property to 1.
 
 > [!NOTE]
-> Batch [limits](batch-quota-limit.md#other-limits) the size of a pool that has inter-node communication enabled.
+> Batch [limits](batch-quota-limit.md#pool-size-limits) the size of a pool that has inter-node communication enabled.
 
 
 This code snippet shows how to create a pool for multi-instance tasks using the Batch .NET library.
@@ -277,7 +277,7 @@ The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to u
 
 ### Execution
 1. Download the [azure-batch-samples][github_samples_zip] from GitHub.
-2. Open the MultiInstanceTasks **solution** in Visual Studio 2017. The `MultiInstanceTasks.sln` solution file is located in:
+2. Open the MultiInstanceTasks **solution** in Visual Studio 2019. The `MultiInstanceTasks.sln` solution file is located in:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Enter your Batch and Storage account credentials in `AccountSettings.settings` in the **Microsoft.Azure.Batch.Samples.Common** project.

@@ -3,8 +3,8 @@ title: Generate log events from a .NET Service Fabric app in Azure or a standalo
 description: Learn about how to add logging to your .NET Service Fabric application hosted on an Azure cluster or a standalone-cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: srrengar
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/27/2018
-ms.author: ryanwi
+ms.author: srrengar
 ---
 
 # Add logging to your Service Fabric application
@@ -128,7 +128,7 @@ The ASP.NET Core logging ([Microsoft.Extensions.Logging NuGet package](https://w
 
 ### Using other logging providers
 
-Some third-party providers use the approach described in the preceding section, including [Serilog](https://serilog.net/), [NLog](http://nlog-project.org/), and [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). You can plug each of these into ASP.NET Core logging, or you can use them separately. Serilog has a feature that enriches all messages sent from a logger. This feature can be useful to output the service name, type, and partition information. To use this capability in the ASP.NET Core infrastructure, do these steps:
+Some third-party providers use the approach described in the preceding section, including [Serilog](https://serilog.net/), [NLog](https://nlog-project.org/), and [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). You can plug each of these into ASP.NET Core logging, or you can use them separately. Serilog has a feature that enriches all messages sent from a logger. This feature can be useful to output the service name, type, and partition information. To use this capability in the ASP.NET Core infrastructure, do these steps:
 
 1. Add the **Serilog**, **Serilog.Extensions.Logging**, **Serilog.Sinks.Literate**, and **Serilog.Sinks.Observable** NuGet packages to the project. 
 2. Create a `LoggerConfiguration` and the logger instance.

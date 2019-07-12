@@ -43,7 +43,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=power-bi-embedded
   - name: PowerShell
-    href: /powershell/module/azurerm.powerbiembedded
+    href: /powershell/module/az.powerbiembedded
   - name: .NET Azure Resource Manager
     href: /dotnet/api/microsoft.azure.management.powerbiembedded
   - name: .NET SDK download
@@ -65,10 +65,10 @@
   - name: Power BI C# Git repo
     href: https://github.com/Microsoft/PowerBI-CSharp
   - name: Power BI community
-    href: http://community.powerbi.com/t5/Developer/bd-p/Developer
+    href: https://community.powerbi.com/t5/Developer/bd-p/Developer
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Sample application
     href: https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/powerbi
+    href: https://stackoverflow.com/questions/tagged/powerbi

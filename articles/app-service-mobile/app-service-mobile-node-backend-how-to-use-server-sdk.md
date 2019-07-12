@@ -141,7 +141,7 @@ an Express 4.x application:
 
     Save the file.
 
-1. Either run the application locally (the API is served on http://localhost:3000) or publish to Azure.
+1. Either run the application locally (the API is served on `http://localhost:3000`) or publish to Azure.
 
 ### <a name="create-node-backend-portal"></a>Create a Node.js back end by using the Azure portal
 

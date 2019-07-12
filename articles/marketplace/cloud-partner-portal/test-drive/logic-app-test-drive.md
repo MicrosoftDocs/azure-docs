@@ -1,19 +1,12 @@
 ---
-title: Logic App Test Drive | Microsoft Docs
+title: Logic App Test Drive | Azure Marketplace
 description: Explains how to build their Test Drive that connects with a Dynamics AX/CRM instance or any other resource beyond just Azure.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: pbutlerm
-manager: Patrick.Butler  
-editor:
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 Logic App Test Drive
@@ -136,6 +129,10 @@ Given we are using the application to deploy to the subscription, we need to add
 **Azure AD App Key -** *[Required Field]* The final field is to generate an authentication key. Under keys, add a Key Description, set the duration to never expire, then select save. It is **important** to avoid having an expired key, which will break your test drive in production. Copy this value and paste it into your required Test Drive field.
 
 ![Azure Active Directory Keys section](./media/azure-resource-manager-test-drive/subdetails8.png)
+
+> [!CAUTION]
+> You cannot use the Azure App Registration Preview because it does not currently generate a base64 encoded key.
+
 
 Next steps
 ----------

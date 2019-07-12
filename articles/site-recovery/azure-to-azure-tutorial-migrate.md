@@ -19,13 +19,13 @@ You can use the [Azure Site Recovery](site-recovery-overview.md) service to mana
 In this tutorial, you will:
 
 > [!div class="checklist"]
-
+> 
 > * Verify prerequisites for the move
 > * Prepare the source VMs and the target region
 > * Copy the data and enable replication
 > * Test the configuration and perform the move
 > * Delete the resources in the source region
-
+> 
 > [!NOTE]
 > This tutorial shows you how to move Azure VMs from one region to another as is. If you need to improve availability by moving VMs in an availability set to zone pinned VMs in a different region, see the [Move Azure VMs into Availability Zones tutorial](move-azure-vms-avset-azone.md).
 
@@ -51,7 +51,7 @@ In this tutorial, you will:
     - For Windows VMs, install all the latest Windows updates on the VM, so that all the trusted root certificates are on the machine. In a disconnected environment, follow the standard Windows Update and certificate update processes for your organization.
     - For Linux VMs, follow the guidance provided by your Linux distributor to get the latest trusted root certificates and certificate revocation list on the VM.
 1. Make sure that you're not using an authentication proxy to control network connectivity for VMs that you want to move.
-1. If the VM that you're trying to move doesn't have access to the internet, or it's using a firewall proxy to control outbound access, [check the requirements](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+1. If the VM that you're trying to move doesn't have access to the internet, or it's using a firewall proxy to control outbound access, [check the requirements](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 1. Identify the source networking layout and all the resources that you're currently using. This includes but isn't limited to load balancers, network security groups (NSGs), and public IPs.
 
 ## Prepare the target region
@@ -67,9 +67,9 @@ In this tutorial, you will:
 
      To create the most commonly used network resources that are relevant for you based on the source VM configuration, see the following documentation:
 
-    - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+   - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
      For any other networking components, see the [networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 

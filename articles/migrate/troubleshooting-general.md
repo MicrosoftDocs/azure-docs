@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 07/11/2019
 ms.author: raynew
 ---
 
@@ -12,17 +12,25 @@ ms.author: raynew
 
 ## Troubleshoot common errors
 
-[Azure Migrate](migrate-overview.md) assesses on-premises workloads for migration to Azure. Use this article to troubleshoot issues when deploying and using Azure Migrate.
+[Azure Migrate](migrate-services-overview.md) provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. This document provides help on troubleshooting errors with Azure Migrate, Azure Migrate: Server Assessment and Azure Migrate: Server Migration.
 
-### I am using the OVA that continuously discovers my on-premises environment, but the VMs that are deleted in my on-premises environment are still being shown in the portal.
+### I am using the appliance that continuously discovers my on-premises environment, but the VMs that are deleted in my on-premises environment are still being shown in the portal.
 
-The continuous discovery appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
+It takes up to 30 minutes for the discovery data gathered by the appliance to reflect in the portal. If you do not see up to date information even after 30 minutes, issue a refresh on the data using the following steps:
 
-- Addition of items (VMs, disks, cores etc.): To reflect these changes in the Azure portal, you can stop the discovery from the appliance and then start it again. This will ensure that the changes are updated in the Azure Migrate project.
+1. In Servers > Azure Migrate: Server Assessment, click **Overview**.
+2. Under **Manage**, click on **Agent Health**
+3. Click on the option to **Refresh agent**. You will see this below option below the list of agents.
+4. Wait for the refresh operation to complete. Verify that you are able to see up to date information on your VMs.
 
-   ![Stop discovery](./media/troubleshooting-general/stop-discovery.png)
+### I do not the latest information on the on-premise VMs on the portal
 
-- Deletion of VMs: Due to the way the appliance is designed, deletion of VMs is not reflected even if you stop and start the discovery. This is because data from subsequent discoveries are appended to older discoveries and not overridden. In this case, you can simply ignore the VM in the portal, by removing it from your group and recalculating the assessment.
+It takes up to 30 minutes for the discovery data gathered by the appliance to reflect in the portal. If you do not see up to date information even after 30 minutes, issue a refresh on the data using the following steps:
+
+1. In Servers > Azure Migrate: Server Assessment, click **Overview**.
+2. Under **Manage**, click on **Agent Health**
+3. Click on the option to **Refresh agent**. You will see this below option below the list of agents.
+4. Wait for the refresh operation to complete. Verify that you are able to see up to date information on your VMs.
 
 ### Deletion of Azure Migrate projects and associated Log Analytics workspace
 
@@ -48,41 +56,39 @@ If you are unable to export the assessment report from the portal, try using the
 
 1. Install *armclient* on your computer (if you don’t have it already installed):
 
-  a. In an administrator Command Prompt window, run the following command:
+   a. In an administrator Command Prompt window, run the following command:
     ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
-  b. In an administrator Windows PowerShell window, run the following command:
+   b. In an administrator Windows PowerShell window, run the following command:
     ```choco install armclient```
 
-2.	Get the download URL for the assessment report using Azure Migrate REST API
+2. Get the download URL for the assessment report using Azure Migrate REST API
 
-  a.	In an administrator Windows PowerShell window, run the following command:
-      ```armclient login```
+   a.    In an administrator Windows PowerShell window, run the following command:
+     ```armclient login```
 
-  This opens the Azure login pop-up where you need to logon to Azure.
+        This opens the Azure login pop-up where you need to sign in to Azure.
 
-  b.	In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
+   b.    In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
 
-       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
-       Sample request and output:
+      Sample request and output:
 
-       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
-esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
-018_12_16_21/downloadUrl?api-version=2018-02-02
-{
-  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
-  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+      ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+   esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+   018_12_16_21/downloadUrl?api-version=2018-02-02
+   {
+   "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+   "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
 
 3. Copy the URL from the response and open it in a browser to download the assessment report.
 
 4. Once the report is downloaded, use Excel to browse to the downloaded folder and open the file in Excel to view it.
 
-### Performance data for disks and networks adapters shows as zeros
+### Performance data for CPU, memory and disks is showing up as zeroes
 
-This can occur if the statistics setting level on the vCenter server is set to less than three. At level three or higher, vCenter stores VM performance history for compute, storage, and network. For less than level three, vCenter doesn't store storage and network data, but CPU and memory data only. In this scenario, performance data shows as zero in Azure Migrate, and Azure Migrate provides size recommendation for disks and networks based on the metadata collected from the on-premises machines.
-
-To enable collection of disk and network performance data, change the statistics settings level to three. Then, wait at least a day to discover your environment and assess it.
+Azure Migrate continuously profiles the on-premises environment to collect performance data of the on-premises VMs. If you have just started the discovery of your environment, you need to wait for at least a day for the performance data collection to be done. If an assessment is created without waiting for one day, the performance metrics will show up as zeroes. After waiting for a day, you can either create a new assessment or update the existing assessment by using the 'Recalculate' option in the assessment report.
 
 ### I specified an Azure geography, while creating a migration project, how do I find out the exact Azure region where the discovered metadata would be stored?
 
@@ -90,45 +96,35 @@ You can go to the **Essentials** section in the **Overview** page of the project
 
    ![Project location](./media/troubleshooting-general/geography-location.png)
 
-## Collector issues
+## Appliance issues
 
-### Deployment of Azure Migrate Collector failed with the error: The provided manifest file is invalid: Invalid OVF manifest entry.
+### Deployment of Azure Migrate appliance for VMware failed with the error: The provided manifest file is invalid: Invalid OVF manifest entry.
 
-1. Verify if Azure Migrate Collector OVA file is downloaded correctly by checking its hash value. Refer to the [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) to verify the hash value. If the hash value is not matching, download the OVA file again and retry the deployment.
+1. Verify if Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. Refer to the [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) to verify the hash value. If the hash value is not matching, download the OVA file again and retry the deployment.
 2. If it still fails and if you are using VMware vSphere Client to deploy the OVF, try deploying it through vSphere Web Client. If it still fails, try using different web browser.
 3. If you are using vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on ESXi host by following the below steps:
-  - Connect to the ESXi host directly (instead of vCenter Server) using the web client (https://<*host IP Address*>/ui)
-  - Go to Home > Inventory
-  - Click File > Deploy OVF template > Browse to the OVA and complete the deployment
+   - Connect to the ESXi host directly (instead of vCenter Server) using the web client (https://<*host IP Address*>/ui)
+   - Go to Home > Inventory
+   - Click File > Deploy OVF template > Browse to the OVA and complete the deployment
 4. If the deployment still fails, contact Azure Migrate support.
 
+### Unable to select the Azure cloud in the appliance, fails with error "Azure cloud selection failed"
 
-### Collector is not able to connect to the internet
+This is a known issue and a fix is available for the issue. Please download the [latest upgrade bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) for the appliance and update the appliance to apply the fix.
+
+### Appliance is not able to connect to the internet
 
 This can happen when the machine you are using is behind a proxy. Make sure you provide the authorization credentials if the proxy needs one.
-If you are using any URL-based firewall proxy to control outbound connectivity, be sure to whitelist these required URLs:
+If you are using any URL-based firewall proxy to control outbound connectivity, be sure to add these required URLs to an allow list:
 
 **URL** | **Purpose**  
 --- | ---
 *.portal.azure.com | Required to check connectivity with the Azure service and validate time synchronization issues.
 *.oneget.org | Required to download the powershell based vCenter PowerCLI module.
 
-**The collector can't connect to the internet because of a certificate validation failure**
+**The appliance can't connect to the internet because of a certificate validation failure**
 
 This can happen if you are using an intercepting proxy to connect to the Internet, and if you have not imported the proxy certificate on to the collector VM. You can import the proxy certificate using the steps detailed [here](https://docs.microsoft.com/azure/migrate/concepts-collector).
-
-**The collector can't connect to the project using the project ID and key I copied from the portal.**
-
-Make sure you've copied and pasted the right information. To troubleshoot, install the Microsoft Monitoring Agent (MMA) and verify if the MMA can connect to the project as follows:
-
-1. On the collector VM, download the [MMA](https://go.microsoft.com/fwlink/?LinkId=828603).
-2. To start the installation, double-click the downloaded file.
-3. In setup, on the **Welcome** page, click **Next**. On the **License Terms** page, click **I Agree** to accept the license.
-4. In **Destination Folder**, keep or modify the default installation folder > **Next**.
-5. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
-6. Click **Add** to add a new Log Analytics workspace. Paste in project ID and key that you copied. Then click **Next**.
-7. Verify that the agent can connect to the project. If it can't, verify the settings. If the agent can connect but the collector can't, contact Support.
-
 
 ### Error 802: Date and time synchronization error
 
@@ -138,58 +134,6 @@ The server clock might be out-of-synchronization with the current time by more t
 2. To check the time zone, run w32tm /tz.
 3. To synchronize the time, run w32tm /resync.
 
-### VMware PowerCLI installation failed
-
-Azure Migrate collector downloads PowerCLI and installs it on the appliance. Failure in PowerCLI installation could be due to unreachable endpoints for the PowerCLI repository. To troubleshoot, try manually installing PowerCLI in the collector VM using the following step:
-
-1. Open Windows PowerShell in administrator mode
-2. Go to the directory C:\ProgramFiles\ProfilerService\VMWare\Scripts\
-3. Run the script InstallPowerCLI.ps1
-
-### Error UnhandledException Internal error occurred: System.IO.FileNotFoundException
-
-This issue could occur due to an issue with VMware PowerCLI installation. Follow the below steps to resolve the issue:
-
-1. If you are not on the latest version of the collector appliance, [upgrade your Collector to the latest version](https://aka.ms/migrate/col/checkforupdates) and check if the issue is resolved.
-2. If you already have the latest collector version, follow the below steps to do a clean installation of PowerCLI :
-
-   a. Close the web browser in the appliance.
-
-   b. Stop the 'Azure Migrate Collector' service by going to Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Stop.
-
-   c. Delete all folders starting with 'VMware' from the following locations:
-        C:\Program Files\WindowsPowerShell\Modules  
-        C:\Program Files (x86)\WindowsPowerShell\Modules
-
-   d. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
-
-   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
-
-3. If the above does not resolve the issue, follow steps a to c above and then manually install PowerCLI in the appliance using the following steps:
-
-   a. Clean up all incomplete PowerCLI installation files by following steps #a to #c in step #2 above.
-
-   b. Go to Start > Run > Open Windows PowerShell(x86) in administrator mode
-
-   c. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
-
-   d. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
-
-   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
-
-4. If you are unable to download the module in the appliance due to firewall issues, download and install the module in a machine that has access to internet using the following steps:
-
-    a. Clean up all incomplete PowerCLI installation files by following steps #a to #c in step #2 above.
-
-    b. Go to Start > Run > Open Windows PowerShell(x86) in administrator mode
-
-    c. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
-
-    d. Copy all modules starting with "VMware" from “C:\Program Files (x86)\WindowsPowerShell\Modules” to the same location on the collector VM.
-
-    e. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
-
-    f. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
 
 ### Error UnableToConnectToServer
 
@@ -299,18 +243,18 @@ To collect Event Tracing for Windows, do the following:
 
 **How do I collect portal network traffic logs?**
 
-1. Open the browser and navigate and log in [to the portal](https://portal.azure.com).
+1. Open the browser and navigate and sign in [to the portal](https://portal.azure.com).
 2. Press F12 to start the Developer Tools. If needed, clear the setting **Clear entries on navigation**.
 3. Click the **Network** tab, and start capturing network traffic:
- - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start
- - In Microsoft Edge/IE, recording should start automatically. If it doesn't, click the green play button.
+   - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start
+   - In Microsoft Edge/IE, recording should start automatically. If it doesn't, click the green play button.
 4. Try to reproduce the error.
 5. After you've encountered the error while recording, stop recording, and save a copy of the recorded activity:
- - In Chrome, right-click and click **Save as HAR with content**. This zips and exports the logs as a .har file.
- - In Microsoft Edge/IE, click the **Export captured traffic** icon. This zips and exports the log.
+   - In Chrome, right-click and click **Save as HAR with content**. This zips and exports the logs as a .har file.
+   - In Microsoft Edge/IE, click the **Export captured traffic** icon. This zips and exports the log.
 6. Navigate to the **Console** tab to check for any warnings or errors. To save the console log:
- - In Chrome, right-click anywhere in the console log. Select **Save as**, to export and zip the log.
- - In Microsoft Edge/IE, right-click on the errors and select **Copy all**.
+   - In Chrome, right-click anywhere in the console log. Select **Save as**, to export and zip the log.
+   - In Microsoft Edge/IE, right-click on the errors and select **Copy all**.
 7. Close Developer Tools.
 
 ## Collector error codes and recommended actions
@@ -331,4 +275,4 @@ To collect Event Tracing for Windows, do the following:
 | 802       | TimeSyncError                  | Time is not in sync with the internet time server.                            | Time is not in sync with the internet time server.                                                    | Ensure that the time on the machine is accurately set for the machine's time zone and retry the operation.                                 |
 | 702       | OMSInvalidProjectKey           | Invalid project key specified.                                                | Invalid project key specified.                                                                        | Retry the operation with correct project key.                                                                                              |
 | 703       | OMSHttpRequestException        | Error while sending request. Message %Message;                                | Check project ID and key and ensure that endpoint is reachable.                                       | Retry the operation. If the issue persists, contact Microsoft Support.                                                                     |
-| 704       | OMSHttpRequestTimeoutException | HTTP request timed out. Message %Message;                                     | Check project id and key and ensure that endpoint is reachable.                                       | Retry the operation. If the issue persists, contact Microsoft Support.                                                                     |
+| 704       | OMSHttpRequestTimeoutException | HTTP request timed out. Message %Message;                                     | Check project ID and key and ensure that endpoint is reachable.                                       | Retry the operation. If the issue persists, contact Microsoft Support.                                                                     |

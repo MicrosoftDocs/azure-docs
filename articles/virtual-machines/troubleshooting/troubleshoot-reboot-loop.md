@@ -79,9 +79,9 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
 12.	If any of the following keys exist and they have value **2** or **3**, and then change these values to **1** accordingly:
 
-  - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupCoordinatorSvc\ErrorControl`
-  - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
-  - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
+    - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupCoordinatorSvc\ErrorControl`
+    - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
+    - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
 13.	Select the **BROKENSYSTEM** key and then select **File** > **Load Hive** from the menu.
 
@@ -98,6 +98,8 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 Restore the VM to the last known good configuration, follow the steps in [How to start Azure Windows VM with Last Known Good Configuration](https://support.microsoft.com/help/4016731/).
 
 ### Solution for cause 3
+>[!NOTE]
+>The following procedure should only be used as last resource. While restoring from regback may restore access to the machine, the OS is not considered stable since there is data lost in the registry between the timestamp of the hive and the current day. You need to build a new VM and make plans to migrate data.
 
 1. Once the disk is attached to a troubleshooting VM, make sure that the disk is flagged as **Online** in the Disk Management console.
 
@@ -109,5 +111,4 @@ Restore the VM to the last known good configuration, follow the steps in [How to
 
 5. [Create a new VM from the OS disk](../windows/create-vm-specialized.md).
 
->[!NOTE]
->The following procedure should only be used as last resource. While restoring from regback may restore access to the machine, the OS is not considered stable since there is data lost in the registry between the timestamp of the hive and the current day. You need to build a new VM and make plans to migrate data.
+

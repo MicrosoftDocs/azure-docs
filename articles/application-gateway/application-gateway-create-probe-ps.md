@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a custom probe - Azure Application Gateway - PowerShell | Microsoft Docs
 description: Learn how to create a custom probe for Application Gateway by using PowerShell in Resource Manager
 services: application-gateway
@@ -37,27 +37,27 @@ In this article, you add a custom probe to an existing application gateway with 
 
 1. Use `Connect-AzAccount` to authenticate.
 
-  ```powershell
-  Connect-AzAccount
-  ```
+   ```powershell
+   Connect-AzAccount
+   ```
 
 1. Get the subscriptions for the account.
 
-  ```powershell
-  Get-AzSubscription
-  ```
+   ```powershell
+   Get-AzSubscription
+   ```
 
 1. Choose which of your Azure subscriptions to use.
 
-  ```powershell
-  Select-AzSubscription -Subscriptionid '{subscriptionGuid}'
-  ```
+   ```powershell
+   Select-AzSubscription -Subscriptionid '{subscriptionGuid}'
+   ```
 
 1. Create a resource group. You can skip this step if you have an existing resource group.
 
-  ```powershell
-  New-AzResourceGroup -Name appgw-rg -Location 'West US'
-  ```
+   ```powershell
+   New-AzResourceGroup -Name appgw-rg -Location 'West US'
+   ```
 
 Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway use the same resource group.
 
@@ -101,7 +101,7 @@ You set up all configuration items before creating the application gateway. The 
 |**Rule**| Routes the traffic to the appropriate backend based on HTTP settings.|
 
 ```powershell
-# Creates a application gateway Frontend IP configuration named gatewayIP01
+# Creates an application gateway Frontend IP configuration named gatewayIP01
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 #Creates a back-end IP address pool named pool01 with IP addresses 134.170.185.46, 134.170.188.221, 134.170.185.50.

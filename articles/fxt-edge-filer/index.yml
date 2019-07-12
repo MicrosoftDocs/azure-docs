@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure FXT Edge Filer Documentation
+metadata:
+  title: Azure FXT Edge Filer Documentation 
+  description: Use Azure FXT Edge Filer as a caching layer for read-intensive high-performance computing (HPC) tasks
+  author: ekpgh
+  ms.service: fxt-edge-filer 
+  ms.topic: landing-page
+  ms.date: 07/10/2019
+  ms.author: v-erkell
+abstract:
+  description: The Azure FXT Edge Filer hybrid storage cache is a hardware/software hybrid system that speeds up data access for file-based, read-intensive high-performance computing (HPC) workflows. A cluster of three or more Azure FXT Edge Filer devices can accelerate storage performance for on-premises NAS systems (NetApp or Dell EMC Isilon), cloud storage, or a combination of solutions. 
+
+  
+sections:
+- title: Step-by-step tutorials  
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="fxt-install">Install Azure FXT Edge Filer hardware</a>
+    - html: <a href="fxt-network-power">Make network connections for the Azure FXT Edge Filer</a>
+    - html: <a href="fxt-node-password">Set root passwords on the hardware nodes</a>
+    - html: <a href="fxt-cluster-create">Create the hybrid storage cache cluster</a>
+    - html: <a href="fxt-add-nodes">Add cluster nodes</a>
+    - html: <a href="fxt-add-storage">Add back-end storage and configure virtual namespace</a>
+    - html: <a href="fxt-configure-network">Configure the cluster's network settings</a>
+
+- title: How-to guides
+  items:
+  - type: list
+    style: unordered
+    items: 
+    - html: <a href="fxt-mount-clients">Connect clients to the Azure FXT Edge Filer cluster</a> 
+    - html: <a href="fxt-monitor">Monitor the Azure FXT Edge Filer</a>
+    - html: <a href="fxt-power-off">Safely power off a hardware node</a>
+
+- title: Resources
+  items: 
+  - type: list
+    style: unordered
+    items: 
+    - html: <a href="fxt-specs">Hardware specifications</a>
+    - html: <a href="fxt-additional-doc">Additional documentation</a>
+    - html: <a href="fxt-support-ticket">Open a support ticket</a>
+  

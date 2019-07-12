@@ -3,8 +3,8 @@ title: Create a .NET app on Service Fabric in Azure | Microsoft Docs
 description: In this tutorial, you learn how to create an application with an ASP.NET Core front-end and a reliable service stateful back-end and deploy the application to a cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/14/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
 
 ---
@@ -22,7 +22,7 @@ ms.custom: mvc
 
 This tutorial is part one of a series.  You will learn how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).  If you prefer, you can also watch a [video walk-through](https://channel9.msdn.com/Events/Connect/2017/E100) of this tutorial.
 
-![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS+ASP.NET API Front End, Connecting to a stateful backend service on Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 In part one of the series, you learn how to:
 
@@ -184,7 +184,7 @@ Open **Views/Shared/_Layout.cshtml**, the default layout for the ASP.NET app.  R
 
 ```html
 <!DOCTYPE html>
-<html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
+<html ng-app="VotingApp" xmlns:ng="https://angularjs.org">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -463,7 +463,7 @@ This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-commu
         ],
 ```
 To find the reverse proxy port used in your local development cluster, view the **HttpApplicationGatewayEndpoint** element in the local Service Fabric cluster manifest:
-1. Open a browser window and navigate to http://localhost:19080 to open the Service Fabric Explorer tool.
+1. Open a browser window and navigate to http:\//localhost:19080 to open the Service Fabric Explorer tool.
 2. Select **Cluster -> Manifest**.
 3. Make a note of the HttpApplicationGatewayEndpoint element port. By default this should be 19081. If it is not 19081, you will need to change the port in the GetProxyAddress method of the following VotesController.cs code.
 
@@ -618,22 +618,22 @@ To look at what happens in the code, complete the following steps:
 4. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
     
 
-    1. This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
+   1. This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
 
-    ![Add Vote Front-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+      ![Add Vote Front-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. First construct the URL to the ReverseProxy for the back-end service **(1)**.
-    3. Then send the HTTP PUT Request to the ReverseProxy **(2)**.
-    4. Finally the return the response from the back-end service to the client **(3)**.
+   2. First construct the URL to the ReverseProxy for the back-end service **(1)**.
+   3. Then send the HTTP PUT Request to the ReverseProxy **(2)**.
+   4. Finally the return the response from the back-end service to the client **(3)**.
 
 5. Press **F5** to continue.
-    1. You are now at the break point in the back-end service.
+   1. You are now at the break point in the back-end service.
 
-    ![Add Vote Back-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+      ![Add Vote Back-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. In the first line in the method **(1)** use the `StateManager` to get or add a reliable dictionary called `counts`.
-    3. All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
-    4. In the transaction, update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
+   2. In the first line in the method **(1)** use the `StateManager` to get or add a reliable dictionary called `counts`.
+   3. All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
+   4. In the transaction, update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
 6. Press **F5** to continue.
 
 To stop the debugging session, press **Shift+F5**.

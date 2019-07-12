@@ -180,5 +180,5 @@ And the unit tests will verify the format of the output. The unit tests can use 
 
 > [!div class="nextstepaction"]
 > [Learn more about xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
-
+> 
 > [Learn more about moq](https://github.com/Moq/moq4/wiki/Quickstart)

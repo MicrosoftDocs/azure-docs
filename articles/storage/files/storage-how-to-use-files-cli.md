@@ -2,11 +2,11 @@
 title: Quickstart for managing Azure file shares using the Azure CLI
 description: Use this quickstart to learn how to use Azure CLI to manage Azure Files.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -41,12 +41,12 @@ az group create --name myResourceGroup --location eastus
 ## Create a storage account
 A storage account is a shared pool of storage in which you can deploy Azure file shares or other storage resources, such as blobs or queues. A storage account can contain an unlimited number of file shares. A share can store an unlimited number of files, up to the capacity limits of the storage account.
 
-The following example creates a storage account named *mystorageaccount\<random number\>* by using the [az storage account create](/cli/azure/storage/account) command, and then puts the name of that storage account in the `$STORAGEACCT` variable. Storage account names must be unique. Using `$RANDOM` appends a number to the storage account name to make it unique. 
+The following example creates a storage account named *mystorageaccount\<random number\>* by using the [az storage account create](/cli/azure/storage/account) command, and then puts the name of that storage account in the `$STORAGEACCT` variable. Storage account names must be unique, so make sure to replace "mystorageacct" with a unique name.
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
-    --name "mystorageacct$RANDOM" \
+    --name "mystorageacct" \
     --location eastus \
     --sku Standard_LRS \
     --query "name" | tr -d '"')
@@ -83,12 +83,12 @@ To mount a file share with SMB, see the following document based on your OS:
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### Using an Azure file share with the File REST protocol 
-It is possible work directly with the File REST protocol directly (i.e. handcrafting REST HTTP calls yourself), but the most common way to use the File REST protocol is to use the Azure CLI, the [Azure PowerShell module](storage-how-to-use-files-powershell.md), or an Azure Storage SDK, all of which provide a nice wrapper around the File REST protocol in the scripting/programming language of your choice.  
+It is possible work directly with the File REST protocol directly (handcrafting REST HTTP calls yourself), but the most common way to use the File REST protocol is to use the Azure CLI, the [Azure PowerShell module](storage-how-to-use-files-powershell.md), or an Azure Storage SDK, all of which provide a nice wrapper around the File REST protocol in the scripting/programming language of your choice.  
 
 We expect most uses of Azure Files will want to work with their Azure file share over the SMB protocol, as this allows them to use the existing applications and tools they expect to be able to use, but there are several reasons why it is advantageous to use the File REST API rather than SMB, such as:
 
 - You are browsing your file share from the Azure Bash Cloud Shell (which cannot mount file shares over SMB).
-- You need to execute a script or application from a client which cannot mount an SMB shares, such as on-premises clients which do not have port 445 unblocked.
+- You need to execute a script or application from a client that cannot mount an SMB share, such as on-premises clients that do not have port 445 unblocked.
 - You are taking advantage of serverless resources, such as [Azure Functions](../../azure-functions/functions-overview.md). 
 
 The following examples show how to use the Azure CLI to manipulate your Azure file share with the File REST protocol. 

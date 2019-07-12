@@ -49,5 +49,5 @@ ms.author: alkohli
     | HcsVersion                     | The HCS software version running on your device. For instance, the HCS software   version corresponding to Data Box Edge 1902 is 1.4.771.324.            |   |
     | LocalCapacityInMb              | The total local capacity of the device in Megabits.                                                                                                        |   |
     | IsRegistered                   | This value indicates if your device is activated with the service.                                                                                         |   |
-    ```
+
 

@@ -2,13 +2,14 @@
 title: Azure Quickstart - Create a blob in object storage using Go | Microsoft Docs
 description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Go to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage  
-author: seguler
+author: mhopkins-msft
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: seguler
+ms.author: mhopkins
+ms.reviewer: seguler
 ---
 
 # Quickstart: Upload, download, and list blobs using Go
@@ -85,7 +86,7 @@ Press the enter key to delete the sample files, example container, and exit the 
 When you press the key to continue, the sample program deletes the storage container and the files. 
 
 > [!TIP]
-> You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
+> You can also use a tool such as the [Azure Storage Explorer](https://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 >
 
 ## Understand the sample code

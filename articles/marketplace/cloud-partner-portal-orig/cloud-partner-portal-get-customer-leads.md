@@ -1,20 +1,12 @@
 ---
-title: Configure customer leads | Microsoft Docs
+title: Configure customer leads | Azure Marketplace
 description: Configure customer leads in the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 
@@ -40,14 +32,14 @@ Leads are customers that are interested in, or are deploying your products from 
 
 <!-- -->
 
-2.  Customer consents to sharing their information after selecting "Get it now". This lead is an **initial interest** lead, where we
-    share information about customer who has expressed interest in getting your product. The lead is the top of the acquisition funnel.
+1. Customer consents to sharing their information after selecting "Get it now". This lead is an **initial interest** lead, where we
+   share information about customer who has expressed interest in getting your product. The lead is the top of the acquisition funnel.
 
-    ![Get it now option](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
+   ![Get it now option](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
 
-3.  Customer selects "Purchase" in the [Azure Portal](https://portal.azure.com/) to get your product. This lead is an **active** lead, where we share information about a customer who has started to deploy your product.
+1. Customer selects "Purchase" in the [Azure Portal](https://portal.azure.com/) to get your product. This lead is an **active** lead, where we share information about a customer who has started to deploy your product.
 
-    ![Purchase option](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
+   ![Purchase option](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
 
 
 ### AppSource

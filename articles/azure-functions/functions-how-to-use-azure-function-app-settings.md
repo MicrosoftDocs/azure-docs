@@ -22,33 +22,23 @@ To begin, go to the [Azure portal](https://portal.azure.com) and sign in to your
 
 ![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-## <a name="favorite"></a>Favorite Functions in the portal 
+You can navigate to everything you need to manage your function app from the overview page, in particular the **[Application settings](#settings)** and **[Platform features](#platform-features)**.
 
-It can sometimes be hard to find your resources in the [Azure portal]. To make it easier to find the function apps you have created, add Function Apps to your favorites in the portal. 
+## <a name="settings"></a>Application settings
 
-1. Log in to the [Azure portal].
+The **Application Settings** tab maintains settings that are used by your function app.
 
-2. Click the arrow at the bottom left to expand all services, type `Functions` in the **Filter** field, and then click the star next to **Function Apps**.  
- 
-    ![Create function app in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
+![Function app settings in the Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-    This adds the Functions icon to the menu on the left of the portal.
+These settings are stored encrypted, and you must select **Show values** to see the values in the portal.
 
-3. Close the menu, then scroll down to the bottom to see the Functions icon. Click this icon to see a list of all your function apps. Click your function app to work with functions in this app. 
- 
-    ![Function Apps in Favorites](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
- 
-[Azure portal]: https://portal.azure.com/
+To add a setting, select **New application setting** and add the new key-value pair.
 
-## <a name="manage-app-service-settings"></a>Function app settings tab
+[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-![Function app overview in the Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+When you develop a function app locally, these values are maintained in the local.settings.json project file.
 
-The **Settings** tab is where you can update the Functions runtime version used by your function app. It is also where you manage the host keys used to restrict HTTP access to all functions hosted by the function app.
-
-Functions supports both Consumption hosting and App Service hosting plans. For more information, see [Choose the correct service plan for Azure Functions](functions-scale.md). For better predictability in the Consumption plan, Functions lets you limit platform usage by setting a daily usage quota, in gigabytes-seconds. Once the daily usage quota is reached, the function app is stopped. A function app stopped as a result of reaching the spending quota can be re-enabled from the same context as establishing the daily spending quota. See the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details on billing.   
-
-## Platform features tab
+## Platform features
 
 ![Function app platform features tab.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
@@ -60,7 +50,6 @@ Function apps run in, and are maintained, by the Azure App Service platform. As 
 The rest of this topic focuses on the following App Service features in the Azure portal that are useful for Functions:
 
 + [App Service editor](#editor)
-+ [Application settings](#settings) 
 + [Console](#console)
 + [Advanced tools (Kudu)](#kudu)
 + [Deployment options](#deployment)
@@ -68,7 +57,7 @@ The rest of this topic focuses on the following App Service features in the Azur
 + [Authentication](#auth)
 + [API definition](#swagger)
 
-For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service/web-sites-configure.md).
+For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service/configure-common.md).
 
 ### <a name="editor"></a>App Service Editor
 
@@ -77,14 +66,6 @@ For more information about how to work with App Service settings, see [Configure
 | ![Function app App Service editor.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | The App Service editor is an advanced in-portal editor that you can use to modify JSON configuration files and code files alike. Choosing this option launches a separate browser tab with a basic editor. This enables you to integrate with the Git repository, run and debug code, and modify function app settings. This editor provides an enhanced development environment for your functions compared with the default function app blade.    |
 
 ![The App Service editor](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
-
-### <a name="settings"></a>Application settings
-
-| | |
-|-|-|
-| ![Function app application settings.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | The App Service **Application settings** blade is where you configure and manage framework versions, remote debugging, app settings, and connection strings. When you integrate your function app with other Azure and third-party services, you can modify those settings here. To delete a setting, scroll to the right and select the **X** icon at the right end of the line (not shown in the following image).
-
-![Configure application settings](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
 ### <a name="console"></a>Console
 
@@ -139,7 +120,7 @@ For more information about how to work with App Service settings, see [Configure
 
 ## Next steps
 
-+ [Configure Azure App Service Settings](../app-service/web-sites-configure.md)
++ [Configure Azure App Service Settings](../app-service/configure-common.md)
 + [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
 
 

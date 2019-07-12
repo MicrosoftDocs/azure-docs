@@ -42,7 +42,7 @@ In this section, you create a new build pipeline. Configure the pipeline to run 
 >
 >For more information, see [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Sign into your Azure DevOps organization (**https://dev.azure.com/{your organization}/**) and open the project that contains your IoT Edge solution repository.
+1. Sign into your Azure DevOps organization (**https:\//dev.azure.com/{your organization}/**) and open the project that contains your IoT Edge solution repository.
 
    For this article, we created a repository called **IoTEdgeRepo**. That repository contains **IoTEdgeSolution** which has the code for a module named **filtermodule**. 
 
@@ -64,13 +64,13 @@ In this section, you create a new build pipeline. Configure the pipeline to run 
 
 4. Once your pipeline is created, you are taken to the pipeline editor. In your pipeline description, choose the correct agent pool based on your target platform: 
     
-    * If you would like to build your modules in platform amd64 for Linux containers, choose **Hosted Ubuntu 1604**
+   * If you would like to build your modules in platform amd64 for Linux containers, choose **Hosted Ubuntu 1604**
 
-    * If you would like to build your modules in platform amd64 for Windows 1809 containers, you need to [set up self-hosted agent on Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * If you would like to build your modules in platform amd64 for Windows 1809 containers, you need to [set up self-hosted agent on Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-    * If you would like to build your modules in platform arm32v7 for Linux containers, you need to [set up self-hosted agent on Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
+   * If you would like to build your modules in platform arm32v7 for Linux containers, you need to [set up self-hosted agent on Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
-    ![Configure build agent pool](./media/how-to-ci-cd/configure-env.png)
+     ![Configure build agent pool](./media/how-to-ci-cd/configure-env.png)
 
 5. Your pipeline comes preconfigured with a job called **Agent job 1**. Select the plus sign (**+**) to add three tasks to the job: **Azure IoT Edge** twice, and **Publish Build Artifacts** once. (Hover over the name of each task to see the **Add** button.)
 
@@ -153,11 +153,11 @@ Create a new pipeline, and configure its first stage for quality assurance (QA) 
 
 10. Select the new Azure IoT Edge task and configure it with the following values:
 
-   * **Display name**: The display name is automatically updated when the action field changes. 
-   * **Action**: Use the dropdown list to select **Deploy to IoT Edge device**. Changing the action value also updates the task display name to match.
-   * **Azure subscription**: Select the subscription that contains your IoT Hub.
-   * **IoT Hub name**: Select your IoT hub. 
-   * **Choose single/multiple device**: Choose whether you want the release pipeline to deploy to one device or multiple devices. 
+    * **Display name**: The display name is automatically updated when the action field changes. 
+    * **Action**: Use the dropdown list to select **Deploy to IoT Edge device**. Changing the action value also updates the task display name to match.
+    * **Azure subscription**: Select the subscription that contains your IoT Hub.
+    * **IoT Hub name**: Select your IoT hub. 
+    * **Choose single/multiple device**: Choose whether you want the release pipeline to deploy to one device or multiple devices. 
       * If you deploy to a single device, enter the **IoT Edge device ID**. 
       * If you are deploying to multiple devices, specify the device **target condition**. The target condition is a filter to match a set of Edge devices in IoT Hub. If you want to use Device Tags as the condition, you need to update your corresponding devices Tags with IoT Hub device twin. Update the **IoT Edge deployment ID** and **IoT Edge deployment priority** in the advanced settings. For more information about creating a deployment for multiple devices, see [Understand IoT Edge automatic deployments](module-deployment-monitoring.md).
 

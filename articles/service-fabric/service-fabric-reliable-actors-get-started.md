@@ -4,7 +4,7 @@ description: Learn how to create, debug, and deploy your first actor-based servi
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
@@ -34,7 +34,7 @@ Launch Visual Studio 2015 or later as an administrator, and then create a new **
 
 ![Service Fabric tools for Visual Studio - new project][1]
 
-In the next dialog box, choose **Actor Service** under **.Net Core 2.0** and enter a name for the service.
+In the next dialog box, choose **Actor Service** under **.NET Core 2.0** and enter a name for the service.
 
 ![Service Fabric project templates][5]
 

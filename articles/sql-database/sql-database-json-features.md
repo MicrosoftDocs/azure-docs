@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 01/15/2019
 ---
 # Getting started with JSON features in Azure SQL Database
-Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](http://www.json.org/) format, and export your relational data as JSON text. The following JSON scenarios are available in Azure SQL Database:
+Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text. The following JSON scenarios are available in Azure SQL Database:
 - [Formatting relational data in JSON format](#formatting-relational-data-in-json-format) using `FOR JSON` clause.
 - [Working with JSON data](#working-with-json-data)
 - [Querying JSON data](#querying-json-data) using JSON scalar functions.

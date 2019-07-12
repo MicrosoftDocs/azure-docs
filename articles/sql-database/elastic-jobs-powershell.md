@@ -11,13 +11,13 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 manager: craigg
-ms.date: 01/03/2019
+ms.date: 03/13/2019
 ---
 # Create an Elastic Job agent using PowerShell
 
 [Elastic jobs](sql-database-job-automation-overview.md#elastic-database-jobs) enable the running of one or more Transact-SQL (T-SQL) scripts in parallel across many databases.
 
-In this tutorial you learn the steps required to run a query across multiple databases:
+In this tutorial, you learn the steps required to run a query across multiple databases:
 
 > [!div class="checklist"]
 > * Create an Elastic Job agent
@@ -31,39 +31,41 @@ In this tutorial you learn the steps required to run a query across multiple dat
 
 ## Prerequisites
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+The upgraded version of Elastic Database jobs has a new set of PowerShell cmdlets for use during migration. These new cmdlets transfer all of your existing job credentials, targets (including databases, servers, custom collections), job triggers, job schedules, job contents, and jobs over to a new Elastic Job agent.
+
+### Install the latest Elastic Jobs cmdlets
 
 If you don't have already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-- Install the **AzureRM.Sql** 4.8.1-preview module to get the latest Elastic Job cmdlets. Run the following commands in PowerShell with administrative access.
+Install the **Az.Sql** 1.1.1-preview module to get the latest Elastic Job cmdlets. Run the following commands in PowerShell with  administrative access.
 
-  ```powershell
-  # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
-  Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
-  
-  # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
-  Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
-  
-  # Restart your powershell session with administrative access
-  
-  # Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
-  Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
-  
-  # Import the AzureRM.Sql 4.8.1 module
-  Import-Module AzureRM.Sql -RequiredVersion 4.8.1
-  
-  # Confirm if module successfully imported - if the imported version is 4.8.1, then continue
-  Get-Module AzureRM.Sql
-  ```
+```powershell
+# Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
+Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
 
-- In addition to the **AzureRM.Sql** 4.8.1-preview module, this tutorial also requires the *sqlserver* PowerShell module. For details, see [Install SQL Server PowerShell module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
+# Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
+Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
+
+# Restart your powershell session with administrative access
+
+# Places Az.Sql preview cmdlets side by side with existing Az.Sql version
+Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease
+
+# Import the Az.Sql module
+Import-Module Az.Sql -RequiredVersion 1.1.1
+
+# Confirm if module successfully imported - if the imported version is 1.1.1, then continue
+Get-Module Az.Sql
+```
+
+- In addition to the **Az.Sql** 1.1.1-preview module, this tutorial also requires the *sqlserver* PowerShell module. For details, see [Install SQL Server PowerShell module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
 
 
 ## Create required resources
 
 Creating an Elastic Job agent requires a database (S0 or higher) for use as the [Job database](sql-database-job-automation-overview.md#job-database). 
 
-*The script below creates a new resource group, server, and database for use as the Job database. The script below also creates a second server with 2 blank databases to execute jobs against.*
+*The script below creates a new resource group, server, and database for use as the Job database. The script below also creates a second server with two blank databases to execute jobs against.*
 
 Elastic Jobs has no specific naming requirements so you can use whatever naming conventions you want, as long as they conform to any [Azure requirements](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -121,7 +123,7 @@ $Db2
 
 ## Enable the Elastic Jobs preview for your subscription
 
-To use Elastic Jobs, register the feature in your Azure subscription by running the following command (this only needs to be run once in each subscription where you want to use Elastic Jobs):
+To use Elastic Jobs, register the feature in your Azure subscription by running the following command. Run this command once for the subscription in which you intend to provision the Elastic Job agent. Subscriptions that only contain databases that are job targets don't need to be registered.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
@@ -277,6 +279,23 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 # Get the job target execution details
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
+
+### Job execution states
+
+The following table lists the possible job execution states:
+
+|State|Description|
+|:---|:---|
+|**Created** | The job execution was just created and is not yet in progress.|
+|**InProgress** | The job execution is currently in progress.|
+|**WaitingForRetry** | The job execution wasn’t able to complete its action and is waiting to retry.|
+|**Succeeded** | The job execution has completed successfully.|
+|**SucceededWithSkipped** | The job execution has completed successfully, but some of its children were skipped.|
+|**Failed** | The job execution has failed and exhausted its retries.|
+|**TimedOut** | The job execution has timed out.|
+|**Canceled** | The job execution was canceled.|
+|**Skipped** | The job execution was skipped because another execution of the same job step was already running on the same target.|
+|**WaitingForChildJobExecutions** | The job execution is waiting for its child executions to complete.|
 
 ## Schedule the job to run later
 

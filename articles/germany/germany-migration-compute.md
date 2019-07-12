@@ -33,9 +33,9 @@ Install a configuration/process server in your source environment to build the s
 1. Sign in to the Azure Germany portal.
 1. Compare the OS versions of the VMs you want to migrate against the [support matrix](../site-recovery/vmware-physical-secondary-support-matrix.md).
 1. Set up a new VM in your source Azure Virtual Network instance to act as the configuration server:
-  1. Select **DS4v3** or higher (4 to 8 cores, 16-GB memory).
-  1. Attach an additional disk that has at least 1 TB of available space (for the VM images).
-  1. Use Windows Server 2012 R2 or later.
+   1. Select **DS4v3** or higher (4 to 8 cores, 16-GB memory).
+   1. Attach an additional disk that has at least 1 TB of available space (for the VM images).
+   1. Use Windows Server 2012 R2 or later.
 1. Make sure that ports 443 and 9443 are open for the subnet in both directions.
 1. Sign in to the new VM (ConfigurationServer).
 1. In your remote desktop session, sign in to the global Azure portal by using your global Azure credentials.
@@ -119,7 +119,7 @@ To redeploy cloud services by using the REST API:
     https://management.core.windows.net/<subscription-id>/services/hostedservices
     ```
 
-1. Create a new deployment by using the [Create Deployment API](https://msdn.microsoft.com/library/azure/ee460813.aspx). To find your `.cspkg` and `.cscfg` definitions, you can call the [Get Package API](https://msdn.microsoft.com/library/azure/jj154121.aspx).
+1. Create a new deployment by using the [Create Deployment API](/previous-versions/azure/reference/ee460813(v=azure.100)). To find your `.cspkg` and `.cscfg` definitions, you can call the [Get Package API](/previous-versions/azure/reference/jj154121(v=azure.100)).
 
     ```http
     https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deploymentslots/production
@@ -169,7 +169,7 @@ For more information:
 Migrating Azure Functions resources from Azure Germany to global Azure isn't supported at this time. We recommend that you export the Resource Manager template, change the location, and then redeploy to the target region.
 
 > [!IMPORTANT]
-> Change location, Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
+> Change location, Key Vault secrets, certificates, App Settings, and other GUIDs to be consistent with the new region.
 
 For more information:
 

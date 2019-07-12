@@ -170,10 +170,10 @@ The table summarizes the performance metrics and counters that were measured in 
 | CPU |\Processor(_Total)\% Processor Time |
 | Available memory |\Memory\Available MBytes |
 | IOPS |\PhysicalDisk(_Total)\Disk Transfers/sec |
-| VM read (IOPS) operations/sec |\Hyper-V Virtual Storage Device(<VHD>)\Read Operations/Sec |
-| VM write (IOPS) operations/sec |\Hyper-V Virtual Storage Device(<VHD>)\Write Operations/S |
-| VM read throughput |\Hyper-V Virtual Storage Device(<VHD>)\Read Bytes/sec |
-| VM write throughput |\Hyper-V Virtual Storage Device(<VHD>)\Write Bytes/sec |
+| VM read (IOPS) operations/sec |\Hyper-V Virtual Storage Device(\<VHD>)\Read Operations/Sec |
+| VM write (IOPS) operations/sec |\Hyper-V Virtual Storage Device(\<VHD>)\Write Operations/S |
+| VM read throughput |\Hyper-V Virtual Storage Device(\<VHD>)\Read Bytes/sec |
+| VM write throughput |\Hyper-V Virtual Storage Device(\<VHD>)\Write Bytes/sec |
 
 ## Next steps
 

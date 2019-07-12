@@ -23,11 +23,11 @@ ms.author: njray
 
 This article describes how to deploy an [example architecture](ibm-db2-purescale-azure.md) that an enterprise customer recently used to migrate from its IBM DB2 environment running on z/OS to IBM DB2 pureScale on Azure.
 
-To follow the steps used for the migration, see the installation scripts in the [DB2onAzure](http://aka.ms/db2onazure) repository on GitHub. These scripts are based on the architecture for a typical, medium-sized online transaction processing (OLTP) workload.
+To follow the steps used for the migration, see the installation scripts in the [DB2onAzure](https://aka.ms/db2onazure) repository on GitHub. These scripts are based on the architecture for a typical, medium-sized online transaction processing (OLTP) workload.
 
 ## Get started
 
-To deploy this architecture, download and run the deploy.sh script found in the [DB2onAzure](http://aka.ms/db2onazure) repository on GitHub.
+To deploy this architecture, download and run the deploy.sh script found in the [DB2onAzure](https://aka.ms/db2onazure) repository on GitHub.
 
 The repository also has scripts for setting up a Grafana dashboard. You can use the dashboard to query Prometheus, the open-source monitoring and alerting system included with DB2.
 
@@ -73,7 +73,7 @@ After the scripts create the iSCSI device, the final step is to install DB2 pure
 The GitHub repository includes DB2server.rsp, a response (.rsp) file that enables you to generate an automated script for the DB2 pureScale installation. The following table lists the DB2 pureScale options that the response file uses for setup. You can customize the response file as needed for your environment.
 
 > [!NOTE]
-> A sample response file, DB2server.rsp, is included in the [DB2onAzure](http://aka.ms/db2onazure) repository on GitHub. If you use this file, you must edit it before it can work in your environment.
+> A sample response file, DB2server.rsp, is included in the [DB2onAzure](https://aka.ms/db2onazure) repository on GitHub. If you use this file, you must edit it before it can work in your environment.
 
 | Screen name               | Field                                        | Value                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -135,7 +135,7 @@ The GitHub repo includes a knowledge base that the authors maintain. It lists po
 
 -   You're removing DB2 pureScale and IBM Spectrum Scale.
 
-For more information about these and other known problems, see the kb.md file in the [DB2onAzure](http://aka.ms/DB2onAzure) repo.
+For more information about these and other known problems, see the kb.md file in the [DB2onAzure](https://aka.ms/DB2onAzure) repo.
 
 ## Next steps
 
@@ -145,7 +145,7 @@ For more information about these and other known problems, see the kb.md file in
 
 -   [DB2icrt - Create instance command](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
 
--   [DB2 pureScale Clusters Data Solution](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+-   [DB2 pureScale Clusters Data Solution](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 
 -   [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 

@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -146,6 +146,7 @@ To configure Azure AD single sign-on with G Suite, perform the following steps:
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `google.com/a/<yourdomain.com>` |
@@ -160,9 +161,10 @@ To configure Azure AD single sign-on with G Suite, perform the following steps:
 
     ![G Suite Domain and URLs single sign-on information](common/sp-identifier.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `google.com/a/<yourdomain.com>` |
@@ -233,11 +235,11 @@ To configure Azure AD single sign-on with G Suite, perform the following steps:
 
     a. Select **Setup SSO with third-party identity provider**.
 
-    b. In the **Sign-in page URL** field in G Suite, paste the value of **Login URL** which you have copied from Azure portal.
+    b. In the **Sign-in page URL** field in G Suite, paste the value of **Login URL** which you have copied from Azure portal.
 
-    c. In the **Sign-out page URL** field in G Suite, paste the value of **Logout URL** which you have copied from Azure portal.
+    c. In the **Sign-out page URL** field in G Suite, paste the value of **Logout URL** which you have copied from Azure portal.
 
-    d. In the **Change password URL** field in G Suite, paste the value of **Change password URL** which you have copied from Azure portal.
+    d. In the **Change password URL** field in G Suite, paste the value of **Change password URL** which you have copied from Azure portal.
 
     e. In G Suite, for the **Verification certificate**, upload the certificate that you have downloaded from Azure portal.
 
@@ -263,7 +265,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -318,7 +320,7 @@ When you click the G Suite tile in the Access Panel, you should be automatically
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Configure User Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
 
 <!--Image references-->

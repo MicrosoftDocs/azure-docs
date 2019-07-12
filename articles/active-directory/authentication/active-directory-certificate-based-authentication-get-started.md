@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Active Directory certificate-based authentication
+title: Get started with certificate-based authentication - Azure Active Directory
 description: Learn how to configure certificate-based authentication in your environment
 
 services: active-directory

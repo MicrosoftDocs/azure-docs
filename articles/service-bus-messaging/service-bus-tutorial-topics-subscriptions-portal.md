@@ -86,7 +86,7 @@ To run the code, do the following:
    - Execute 2: to add your own filters.
    - Execute 3: to optionally remove your own filters. Note that this will not recreate the default filters.
 
-    ![Showing output of 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
+     ![Showing output of 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
 
 8. After filter creation, you can send messages. Press 4 and observe 10 messages being sent to the topic:
 
@@ -391,6 +391,9 @@ private async Task ReceiveMessages(string subscription)
     await receiver.CloseAsync();
 }
 ```
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 

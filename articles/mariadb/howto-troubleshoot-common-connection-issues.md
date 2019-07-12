@@ -43,7 +43,7 @@ If the application persistently fails to connect to Azure Database for MariaDB, 
 
 * Firewall configuration: The Azure Database for MariaDB server or client-side firewall is blocking connections.
 * Network reconfiguration on the client side: A new IP address or a proxy server was added.
-* User error: For example, you may have mistyped connection parameters, such as the server name in the connection string or a missing *@servername* suffix in the user name.
+* User error: For example, you may have mistyped connection parameters, such as the server name in the connection string or a missing *\@servername* suffix in the user name.
 
 ### Steps to resolve persistent connectivity issues
 

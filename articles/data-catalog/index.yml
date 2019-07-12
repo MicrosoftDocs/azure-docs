@@ -1,0 +1,43 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Data Catalog Documentation
+metadata:
+  title:  Azure Data Catalog Documentation - Tutorials, API Reference
+  meta.description: Learn how to set up a data catalog where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation.
+  services: data-catalog
+  author: JasonWHowell
+  ms.author: jasonh
+  ms.service: data-catalog
+  ms.topic: landing-page
+  ms.date: 07/01/2019
+abstract:
+  description: Learn how to use Data Catalog to help your organization and team discover, understand, and consume your data sources. Tutorials, REST API reference, and other documentation show you how to plan and set up your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to deploy your first Azure Data Catalog:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: media/index/data-catalog.svg
+      text: Azure portal
+      href: https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to register, search, annotate, manage, and delete assets in Azure Data Catalog:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="register-data-assets-tutorial">Register data assets in Azure Data Catalog</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="/rest/api/datacatalog/">REST API Reference</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Search syntax reference</a></p>
+      

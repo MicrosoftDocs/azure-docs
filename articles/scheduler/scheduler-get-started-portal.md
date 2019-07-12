@@ -8,7 +8,7 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 09/17/2018
 ---
 
@@ -36,7 +36,7 @@ select **Scheduler**, and then choose **Create**.
    ![Create Scheduler resource](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
    Now create a job that sends a GET request to this URL: 
-   `http://www.microsoft.com/` 
+   `https://www.microsoft.com/` 
 
 1. Under **Scheduler Job**, enter this information:
 
@@ -54,7 +54,7 @@ and then choose **OK** when you're done:
    |----------|---------------|-------------| 
    | **Action** | **Http** | The type of action to run | 
    | **Method** | **Get** | The method to call | 
-   | **URL** | **http://www.microsoft.com** | The destination URL | 
+   | **URL** | **https://www.microsoft.com** | The destination URL | 
    |||| 
    
    ![Define job](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)

@@ -4,7 +4,7 @@ description: Create an Azure Service Fabric cluster on any machine (physical or 
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
@@ -23,7 +23,7 @@ You can use Azure Service Fabric to create Service Fabric clusters on any virtua
 This article walks you through the steps for creating a Service Fabric standalone cluster.
 
 > [!NOTE]
-> This standalone Windows Server package is commercially available and may be used for production deployments. This package may contain new Service Fabric features that are in "Preview". Scroll down to "[Preview features included in this package](#previewfeatures_anchor)." section for the list of the preview features. You can [download a copy of the EULA](https://go.microsoft.com/fwlink/?LinkID=733084) now.
+> This standalone Windows Server package is commercially available at no cost and may be used for production deployments. This package may contain new Service Fabric features that are in "Preview". Scroll down to "[Preview features included in this package](#previewfeatures_anchor)." section for the list of the preview features. You can [download a copy of the EULA](https://go.microsoft.com/fwlink/?LinkID=733084) now.
 > 
 > 
 

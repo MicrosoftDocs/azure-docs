@@ -69,10 +69,10 @@ For more information, see [Get started with Azure Monitor logs](https://docs.mic
 #### To create the Log Analytics workspace through the monitoring template from Azure market place:
 
 1. Open Azure portal.
-2. Click the "+" sign, or "Create a resource" on the top left corner.
-3. Type "Cloud Foundry" in the search window, select "Cloud Foundry Monitoring Solution".
-4. The Cloud Foundry monitoring solution template front page is loaded, click "Create" to launch the template blade.
-5. Enter the required parameters:
+1. Click the "+" sign, or "Create a resource" on the top left corner.
+1. Type "Cloud Foundry" in the search window, select "Cloud Foundry Monitoring Solution".
+1. The Cloud Foundry monitoring solution template front page is loaded, click "Create" to launch the template blade.
+1. Enter the required parameters:
     * **Subscription**: Select an Azure subscription for the Log Analytics workspace, usually the same with Cloud Foundry deployment.
     * **Resource group**: Select an existing resource group or create a new one for the Log Analytics workspace.
     * **Resource Group Location**: Select the location of the resource group.
@@ -80,7 +80,7 @@ For more information, see [Get started with Azure Monitor logs](https://docs.mic
     * **OMS_Workspace_Region**: Select the location for the workspace.
     * **OMS_Workspace_Pricing_Tier**: Select the Log Analytics workspace SKU. See the [pricing guidance](https://azure.microsoft.com/pricing/details/log-analytics/) for reference.
     * **Legal terms**: Click Legal terms, then click “Create” to accept the legal term.
-- After all parameters are specified, click “Create” to deploy the template. When the deployment is completed, the status will show up at the notification tab.
+1. After all parameters are specified, click “Create” to deploy the template. When the deployment is completed, the status will show up at the notification tab.
 
 
 ## Deploy the Nozzle

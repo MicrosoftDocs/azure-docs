@@ -1,20 +1,12 @@
 ---
-title: Configure the Microsoft Azure-hosted VM for the Azure Marketplace | Microsoft Docs
+title: Configure the Microsoft Azure-hosted VM for the Azure Marketplace 
 description: Explains how to size, update, and generalize a VM hosted on Azure.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Configure the Azure-hosted VM
@@ -41,7 +33,7 @@ The base images of operating system VMs contain the latest updates up to their p
 
 For Windows Server 2016, run the **Check for Updates** command.  Otherwise, for older versions of Windows, see [How to get an update through Windows Update](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update).  Windows update will automatically install the latest critical and important security updates.
 
-For Linux distributions, updates are commonly downloaded and installed through a command-line tool or a graphical utility.  For example, Ubuntu Linux provides the [apt-get](http://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) command and the [Update Manager](http://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) tool for updating the OS.
+For Linux distributions, updates are commonly downloaded and installed through a command-line tool or a graphical utility.  For example, Ubuntu Linux provides the [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) command and the [Update Manager](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) tool for updating the OS.
 
 
 ## Perform additional security checks
@@ -69,24 +61,23 @@ Windows OS disks are generalized with the [sysprep tool](https://docs.microsoft.
 > [!WARNING]
 >  Because updates may run automatically, once you run sysprep, you should to turn off the VM until it is deployed.  This shutdown will avoid subsequent updates from making instance-specific changes to the VHD OS or installed services.
 
-For more information about running sysprep, see [Steps to generalize a VHD]
-(https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+For more information about running sysprep, see [Steps to generalize a VHD](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ### Linux
 
 Following two-step process will generalize a Linux VM and redeploy it as a separate VM.  For more information, see [How to create an image of a virtual machine or VHD](../../../virtual-machines/linux/capture-image.md). 
 
 #### Remove the Azure Linux agent
-1.	Connect to your Linux VM using an SSH client.
-2.	In the SSH window, type the following command: <br/>
+1.  Connect to your Linux VM using an SSH client.
+2.  In the SSH window, type the following command: <br/>
     `sudo waagent -deprovision+user`
-3.	Type `y` to continue. (You can add the `-force` parameter to the previous command avoid this confirmation step.)
-4.	After the command completes, type `exit` to close the SSH client.
+3.  Type `y` to continue. (You can add the `-force` parameter to the previous command avoid this confirmation step.)
+4.  After the command completes, type `exit` to close the SSH client.
 
 <!-- TD: I need to add meat and/or references to the following steps -->
 #### Capture the Image
 1.  Go to the Azure portal, select your resource group (RG) and de-allocate the VM.
-2.	Your VHD is generalized now and you can create a new VM by using this VHD.
+2.  Your VHD is generalized now and you can create a new VM by using this VHD.
 
 
 ## Create one or more copies

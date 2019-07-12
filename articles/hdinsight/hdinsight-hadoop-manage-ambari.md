@@ -1,22 +1,21 @@
 ---
 title: Monitor and manage Azure HDInsight using Ambari Web UI 
 description: Learn how to use Ambari to monitor and manage Linux-based HDInsight clusters. In this document, you learn how to use the Ambari Web UI included with HDInsight clusters.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-
 ---
+
 # Manage HDInsight clusters by using the Apache Ambari Web UI
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari simplifies the management and monitoring of an Apache Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on Linux-based HDInsight clusters, and is used to monitor the cluster and make configuration changes.
+Apache Ambari simplifies the management and monitoring of an Apache Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters, and is used to monitor the cluster and make configuration changes.
 
 In this document, you learn how to use the Ambari Web UI with an HDInsight cluster.
 
@@ -24,14 +23,9 @@ In this document, you learn how to use the Ambari Web UI with an HDInsight clust
 
 [Apache Ambari](https://ambari.apache.org) simplifies Hadoop management by providing an easy-to-use web UI. You can use Ambari to manage and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the [Ambari REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-The Ambari Web UI is provided by default with HDInsight clusters that use the Linux operating system.
-
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
-
 ## Connectivity
 
-The Ambari Web UI is available on your HDInsight cluster at HTTPS://CLUSTERNAME.azurehdinsight.net, where **CLUSTERNAME** is the name of your cluster.
+The Ambari Web UI is available on your HDInsight cluster at `https://CLUSTERNAME.azurehdinsight.net`, where `CLUSTERNAME` is the name of your cluster.
 
 > [!IMPORTANT]  
 > Connecting to Ambari on HDInsight requires HTTPS. When prompted for authentication, use the admin account name and password you provided when the cluster was created.
@@ -51,23 +45,17 @@ When the page opens, note the bar at the top. This bar contains the following in
 
 ![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
-* **Ambari logo** - Opens the dashboard, which can be used to monitor the cluster.
-
-* **Cluster name # ops** - Displays the number of ongoing Ambari operations. Selecting the cluster name or **# ops** displays a list of background operations.
-
-* **# alerts** - Displays warnings or critical alerts, if any, for the cluster.
-
-* **Dashboard** - Displays the dashboard.
-
-* **Services** - Information and configuration settings for the services in the cluster.
-
-* **Hosts** - Information and configuration settings for the nodes in the cluster.
-
-* **Alerts** - A log of information, warnings, and critical alerts.
-
-* **Admin** - Software stack/services that are installed on the cluster, service account information, and Kerberos security.
-
-* **Admin button** - Ambari management, user settings, and logout.
+|Item |Description |
+|---|---|
+|Ambari logo|Opens the dashboard, which can be used to monitor the cluster.|
+|Cluster name # ops|Displays the number of ongoing Ambari operations. Selecting the cluster name or **# ops** displays a list of background operations.|
+|# alerts|Displays warnings or critical alerts, if any, for the cluster.|
+|Dashboard|Displays the dashboard.|
+|Services|Information and configuration settings for the services in the cluster.|
+|Hosts|Information and configuration settings for the nodes in the cluster.|
+|Alerts|A log of information, warnings, and critical alerts.|
+|Admin|Software stack/services that are installed on the cluster, service account information, and Kerberos security.|
+|Admin button|Ambari management, user settings, and sign out.|
 
 ## Monitoring
 
@@ -81,49 +69,6 @@ The following list contains the common alert statuses used by Ambari:
 * **UNKNOWN**
 
 Alerts other than **OK** cause the **# alerts** entry at the top of the page to display the number of alerts. Selecting this entry displays the alerts and their status.
-
-Ambari offers several predefined alerts. 
-The following alerts help monitor the availability of a cluster:
-
-| Alert Name                               | Description                                                                                                                                                                                  |
-|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Metric Monitor Status                    | This alert indicates the status of the Metrics Monitor process as determined by the monitor status script.                                                                                   |
-| Ambari Agent Heartbeat                   | This alert is triggered if the server has lost contact with an agent.                                                                                                                        |
-| ZooKeeper Server Process                 | This host-level alert is triggered if the ZooKeeper server process cannot be determined to be up and listening on the network.                                                               |
-| IOCache Metadata Server Status           | This host-level alert is triggered if the IOCache Metadata Server cannot be determined to be up and responding to client requests                                                            |
-| JournalNode Web UI                       | This host-level alert is triggered if the JournalNode Web UI is unreachable.                                                                                                                 |
-| Spark2 Thrift Server                     | This host-level alert is triggered if the Spark2 Thrift Server cannot be determined to be up.                                                                                                |
-| History Server Process                   | This host-level alert is triggered if the History Server process cannot be established to be up and listening on the network.                                                                |
-| History Server Web UI                    | This host-level alert is triggered if the History Server Web UI is unreachable.                                                                                                              |
-| ResourceManager Web UI                   | This host-level alert is triggered if the ResourceManager Web UI is unreachable.                                                                                                             |
-| NodeManager Health Summary               | This service-level alert is triggered if there are unhealthy NodeManagers                                                                                                                    |
-| App Timeline Web UI                      | This host-level alert is triggered if the App Timeline Server Web UI is unreachable.                                                                                                         |
-| DataNode Health Summary                  | This service-level alert is triggered if there are unhealthy DataNodes                                                                                                                       |
-| NameNode Web UI                          | This host-level alert is triggered if the NameNode Web UI is unreachable.                                                                                                                    |
-| ZooKeeper Failover Controller Process    | This host-level alert is triggered if the ZooKeeper Failover Controller process cannot be confirmed to be up and listening on the network.                                                   |
-| Oozie Server Web UI                      | This host-level alert is triggered if the Oozie server Web UI is unreachable.                                                                                                                |
-| Oozie Server Status                      | This host-level alert is triggered if the Oozie server cannot be determined to be up and responding to client requests.                                                                      |
-| Hive Metastore Process                   | This host-level alert is triggered if the Hive Metastore process cannot be determined to be up and listening on the network.                                                                 |
-| HiveServer2 Process                      | This host-level alert is triggered if the HiveServer cannot be determined to be up and responding to client requests.                                                                        |
-| WebHCat Server Status                    | This host-level alert is triggered if the templeton server status is not healthy.                                                                                                            |
-| Percent ZooKeeper Servers Available      | This alert is triggered if the number of down ZooKeeper servers in the cluster is greater than the configured critical threshold. It aggregates the results of ZooKeeper process checks.     |
-| Spark2 Livy Server                       | This host-level alert is triggered if the Livy2 Server cannot be determined to be up.                                                                                                        |
-| Spark2 History Server                    | This host-level alert is triggered if the Spark2 History Server cannot be determined to be up.                                                                                               |
-| Metrics Collector Process                | This alert is triggered if the Metrics Collector cannot be confirmed to be up and listening on the configured port for number of seconds equal to threshold.                                 |
-| Metrics Collector - HBase Master Process | This alert is triggered if the Metrics Collector's HBase master processes cannot be confirmed to be up and listening on the network for the configured critical threshold, given in seconds. |
-| Percent Metrics Monitors Available       | This alert is triggered if a percentage of Metrics Monitor processes are not up and listening on the network for the configured warning and critical thresholds.                             |
-| Percent NodeManagers Available           | This alert is triggered if the number of down NodeManagers in the cluster is greater than the configured critical threshold. It aggregates the results of NodeManager process checks.        |
-| NodeManager Health                       | This host-level alert checks the node health property available from the NodeManager component.                                                                                              |
-| NodeManager Web UI                       | This host-level alert is triggered if the NodeManager Web UI is unreachable.                                                                                                                 |
-| NameNode High Availability Health        | This service-level alert is triggered if either the Active NameNode or Standby NameNode are not running.                                                                                     |
-| DataNode Process                         | This host-level alert is triggered if the individual DataNode processes cannot be established to be up and listening on the network.                                                         |
-| DataNode Web UI                          | This host-level alert is triggered if the DataNode Web UI is unreachable.                                                                                                                    |
-| Percent JournalNodes Available           | This alert is triggered if the number of down JournalNodes in the cluster is greater than the configured critical threshold. It aggregates the results of JournalNode process checks.        |
-| Percent DataNodes Available              | This alert is triggered if the number of down DataNodes in the cluster is greater than the configured critical threshold. It aggregates the results of DataNode process checks.              |
-| Zeppelin Server Status                   | This host-level alert is triggered if the Zeppelin server cannot be determined to be up and responding to client requests.                                                                   |
-| HiveServer2 Interactive Process          | This host-level alert is triggered if the HiveServerInteractive cannot be determined to be up and responding to client requests.                                                             |
-| LLAP Application                         | This alert is triggered if the LLAP Application cannot be determined to be up and responding to requests.                                                                                    |
-
 
 Alerts are organized into several default groups, which can be viewed from the **Alerts** page.
 
@@ -202,31 +147,18 @@ The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these
 
 2. Use the **Actions** menu to select the action that you wish to perform:
 
-   * **Start all components** - Start all components on the host.
-
-   * **Stop all components** - Stop all components on the host.
-
-   * **Restart all components** - Stop and start all components on the host.
-
-   * **Turn on maintenance mode** - Suppresses alerts for the host. This mode should be enabled if you are performing actions that generate alerts. For example, stopping and starting a service.
-
-   * **Turn off maintenance mode** - Returns the host to normal alerting.
-
-   * **Stop** - Stops DataNode or NodeManagers on the host.
-
-   * **Start** - Starts DataNode or NodeManagers on the host.
-
-   * **Restart** - Stops and starts DataNode or NodeManagers on the host.
-
-   * **Decommission** - Removes a host from the cluster.
-
-     > [!NOTE]  
-     > Do not use this action on HDInsight clusters.
-
-   * **Recommission** - Adds a previously decommissioned host to the cluster.
-
-     > [!NOTE]  
-     > Do not use this action on HDInsight clusters.
+    |Item |Description |
+    |---|---|
+    |Start all components|Start all components on the host.|
+    |Stop all components|Stop all components on the host.|
+    |Restart all components|Stop and start all components on the host.|
+    |Turn on maintenance mode|Suppresses alerts for the host. This mode should be enabled if you are performing actions that generate alerts. For example, stopping and starting a service.|
+    |Turn off maintenance mode|Returns the host to normal alerting.|
+    |Stop|Stops DataNode or NodeManagers on the host.|
+    |Start|Starts DataNode or NodeManagers on the host.|
+    |Restart|Stops and starts DataNode or NodeManagers on the host.|
+    |Decommission|Removes a host from the cluster. **Do not use this action on HDInsight clusters.**|
+    |Recommission|Adds a previously decommissioned host to the cluster. **Do not use this action on HDInsight clusters.**|
 
 ### <a id="service"></a>Services
 
@@ -266,7 +198,6 @@ To configure a service, use the following steps:
 ## Ambari views
 
 Ambari Views allow developers to plug UI elements into the Ambari Web UI using the [Apache Ambari Views Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight provides the following views with Hadoop cluster types:
-
 
 * Hive View: The Hive View allows you to run Hive queries directly from your web browser. You can save queries, view results, save results to the cluster storage, or download results to your local system. For more information on using Hive Views, see [Use Apache Hive Views with HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 

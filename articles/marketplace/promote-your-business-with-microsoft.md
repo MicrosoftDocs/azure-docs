@@ -1,24 +1,17 @@
 ---
-title: Promote Your Business with Microsoft | Azure
+title: Promote Your Business with Microsoft | Azure Marketplace
 description: Promote your business using Azure Marketplace and AppSource for app and service publishers
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
 author: jm-aditi-ms
 manager: pabutler
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-
 ---
 
-# Promote Your Business with Microsoft  
+# Promote Your Business with Microsoft 
+
 Microsoft has the goal to support partners (you) and to simplify the selling of your app or offer in the storefronts on the marketplace. By listing on the marketplace, you access the programs and resources on the marketplace. 
 
 If you have not already signed up to the Microsoft Partner Network (MPN), then do this before continuing.  

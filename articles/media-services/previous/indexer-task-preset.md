@@ -12,9 +12,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
-ms.author: adsolank;juliako;
-
+ms.date: 03/14/2019
+ms.author: adsolank
+ms.reviewer: juliako
 ---
 # Task preset for Azure Media Indexer 
 

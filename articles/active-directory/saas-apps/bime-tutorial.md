@@ -166,7 +166,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -223,7 +223,7 @@ In order to enable Azure AD users to log in to Bime, they must be provisioned in
 
     b. In the **Last name** textbox, enter the last name of user like **Simon**.
 
-    c. In the **Email** textbox, enter the email of user like **brittasimon@contoso.com**.
+    c. In the **Email** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
     d. Click **Save**.
 
@@ -242,5 +242,5 @@ When you click the Bime tile in the Access Panel, you should be automatically si
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

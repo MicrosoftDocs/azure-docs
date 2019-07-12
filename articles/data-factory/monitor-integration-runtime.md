@@ -3,18 +3,14 @@ title: Monitor integration runtime in Azure Data Factory | Microsoft Docs
 description: Learn how to monitor different types of integration runtime in Azure Data Factory.  
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: 
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 07/25/2018
-ms.author: douglasl
-
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
 ---
 
 # Monitor an integration runtime in Azure Data Factory  

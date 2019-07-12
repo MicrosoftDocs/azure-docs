@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 03/12/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
@@ -70,7 +70,7 @@ When you receive the Data Box, do the following steps to cable, connect to and t
 	
 4. Cable the device as shown below.  
 
-    ![Data Box cabled](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
+    ![Data Box device backplane cabled](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
 
     1. Connect the power cable to the device.
     2. Use the RJ-45 CAT 6 network cable to connect your host computer to the management port (MGMT) on the device. 

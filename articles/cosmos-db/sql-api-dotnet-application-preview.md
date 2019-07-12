@@ -1,6 +1,6 @@
 ---
-title: Tutorial to develop an ASP.NET MVC web application with Azure Cosmos DB by using .Net preview SDK.
-description: This tutorial describes how to create an ASP .Net MVC web application by using Azure Cosmos DB. You'll store and access JSON data from a todo app hosted on Azure.
+title: Tutorial to develop an ASP.NET MVC web application with Azure Cosmos DB by using .NET preview SDK.
+description: This tutorial describes how to create an ASP .NET MVC web application by using Azure Cosmos DB. You'll store and access JSON data from a todo app hosted on Azure.
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -10,7 +10,7 @@ ms.date: 12/03/2018
 ms.author: dech
 ---
 
-# Tutorial: Develop an ASP.NET MVC web application with Azure Cosmos DB by using .Net preview SDK 
+# Tutorial: Develop an ASP.NET MVC web application with Azure Cosmos DB by using .NET preview SDK 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -21,7 +21,7 @@ ms.author: dech
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 
-This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure. In this tutorial you use the .Net SDK V3 that is currently in preview. The following image shows the web page that you will build by using the sample in this article:
+This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure. In this tutorial you use the .NET SDK V3 that is currently in preview. The following image shows the web page that you will build by using the sample in this article:
  
 ![Screenshot of the todo list MVC web application created by this tutorial - ASP NET MVC tutorial step by step](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 
@@ -72,7 +72,7 @@ In the next section, you create a new ASP.NET MVC application.
 
 3. In the **Name** box, type the name of the project. This tutorial uses the name "todo". If you choose to use something other than this, then wherever this tutorial talks about the todo namespace, adjust the provided code samples to use whatever you named your application. 
 
-4. Select **Browse** to navigate to the folder where you would like to create the project, and then choose **.Net framework 4.6.1** or higher. Select **OK**. 
+4. Select **Browse** to navigate to the folder where you would like to create the project, and then choose **.NET framework 4.6.1** or higher. Select **OK**. 
 
 5. The **New ASP.NET Web Application** dialog box appears. In the templates pane, select **MVC**.
 
@@ -230,7 +230,7 @@ The first thing to do here is add a class that contains the logic to connect to 
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
    ```
 
-  This code now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior, instead of **Home**, it uses **Item** as the controller and **Index** as the view.
+   This code now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior, instead of **Home**, it uses **Item** as the controller and **Index** as the view.
 
 Now if you run the application, it calls into your **ItemController** that calls the GetItems methods from the TodoItemService class that you define in the next section. 
 
@@ -277,7 +277,7 @@ Now that you have the complete application working correctly with Azure Cosmos D
 In a few seconds, Visual Studio publishes your web application and launch a browser where you can see your project running in Azure!
 
 ## Next steps
-In this tutorial, you've learned how to build a ASP.NET MVC web application that can access data stored in Azure Cosmos DB. You can now proceed to the next article:
+In this tutorial, you've learned how to build an ASP.NET MVC web application that can access data stored in Azure Cosmos DB. You can now proceed to the next article:
 
 > [!div class="nextstepaction"]
 > [Build a Java application to access data stored in SQL API account of Azure Cosmos DB]( sql-api-java-application.md)

@@ -1,8 +1,8 @@
-- name: Device Management Documentation
+- name: Device Identities Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is device management in Azure AD?
+  - name: What is a device identity?
     href: overview.md
   - name: What is enterprise state roaming?
     href: enterprise-state-roaming-overview.md
@@ -18,37 +18,53 @@
   - name: Configure Azure AD join during Windows 10 first-run experience
     href: azuread-joined-devices-frx.md
 - name: Concepts
-  expanded: false
-  items:
-  - name: SSO to on-premises resources
-    href: azuread-join-sso.md
-- name: How-to guides
   expanded: true
   items:
-  - name: Manage devices using the Azure portal
+  - name: Azure AD registered devices
+    href: concept-azure-ad-register.md
+  - name: Azure AD joined devices
+    href: concept-azure-ad-join.md
+  - name: Hybrid Azure AD joined devices
+    href: concept-azure-ad-join-hybrid.md
+  - name: SSO to on-premises resources
+    href: azuread-join-sso.md
+  - name: Primary Refresh Tokens
+    href: concept-primary-refresh-token.md
+  - name: Azure-managed workstations
+    href: concept-azure-managed-workstation.md
+- name: How-to guides
+  expanded: false
+  items:
+  - name: Plan your Azure AD join implementation
+    href: azureadjoin-plan.md
+  - name: Assign local admins to Azure AD joined devices
+    href: assign-local-admin.md
+  - name: Plan your hybrid Azure AD join implementation
+    href: hybrid-azuread-join-plan.md
+  - name: Controlled validation of hybrid Azure AD join
+    href: hybrid-azuread-join-control.md
+  - name: Manage device identities
     href: device-management-azure-portal.md
   - name: Manage stale devices
     href: manage-stale-devices.md
-  - name: Plan your Azure AD join implementation
-    href: azureadjoin-plan.md
-  - name: Plan your hybrid Azure AD join implementation
-    href: hybrid-azuread-join-plan.md
-  - name: Control the hybrid Azure AD join of your devices
-    href: hybrid-azuread-join-control.md
-  - name: Assign local admins to Azure AD joined devices
-    href: assign-local-admin.md
   - name: Enable enterprise state roaming
     href: enterprise-state-roaming-enable.md
-  - name: Troubleshoot hybrid Azure AD joined Windows current devices
-    href: troubleshoot-hybrid-join-windows-current.md
-  - name: Troubleshoot hybrid Azure AD joined legacy Windows devices
-    href: troubleshoot-hybrid-join-windows-legacy.md
-  - name: Troubleshoot enterprise state roaming
-    href: enterprise-state-roaming-troubleshooting.md
-  - name: FAQs
-    href: faq.md
-  - name: Enable enterprise state FAQs
-    href: enterprise-state-roaming-faqs.md
+  - name: Deploy Azure-managed workstations
+    href: howto-azure-managed-workstation.md
+  - name: Troubleshoot device identities
+    items: 
+    - name: Troubleshoot hybrid Azure AD joined Windows current devices
+      href: troubleshoot-hybrid-join-windows-current.md
+    - name: Troubleshoot hybrid Azure AD joined legacy Windows devices
+      href: troubleshoot-hybrid-join-windows-legacy.md
+    - name: Troubleshoot enterprise state roaming
+      href: enterprise-state-roaming-troubleshooting.md
+  - name: Frequently asked questions
+    items:
+    - name: FAQs
+      href: faq.md
+    - name: Enable enterprise state FAQs
+      href: enterprise-state-roaming-faqs.md
 - name: Reference
   items:
   - name: Enterprise state roaming GPO settings
