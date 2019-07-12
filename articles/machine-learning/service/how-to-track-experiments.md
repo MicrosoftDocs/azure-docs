@@ -300,19 +300,19 @@ Learn more about:
 
 1. Select **Experiments** in the leftmost panel of your workspace.
 
-   ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_menu.png)
+   ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-menu.png)
 
 1. Select the experiment you are interested in.
 
-   ![Experiment list](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.png)
+   ![Experiment list](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-list.png)
 
 1. In the table, select the Run Number.
 
-   ![Experiment run](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.png)
+   ![Experiment run](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-run.png)
 
 1. In the table, select the Iteration Number for the model that you would like to explore further.
 
-   ![Experiment model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.png)
+   ![Experiment model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-model.png)
 
 
 
@@ -346,20 +346,20 @@ With this chart, you can compare the precision-recall curves for each model to d
 The term Precision represents that ability for a classifier to label all instances correctly. Recall represents the ability for a classifier to find all instances of a particular label. The precision-recall curve shows the relationship between these two concepts. Ideally, the model would have 100% precision and 100% accuracy.
 
 Example 1: A classification model with low precision and low recall
-![A classification model with low precision and low recall](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.png)
+![A classification model with low precision and low recall](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall1.png)
 
 Example 2: A classification model with ~100% precision and ~100% recall (ideal)
-![A classification model high precision and recall](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.png)
+![A classification model high precision and recall](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall2.png)
 
 #### ROC
 
 Receiver operating characteristic (or ROC) is a plot of the correctly classified labels vs. the incorrectly classified labels for a particular model. The ROC curve can be less informative when training models on datasets with high bias, as it will not show the false positive labels.
 
 Example 1: A classification model with low true labels and high false labels
-![Classification model with low true labels and high false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.png)
+![Classification model with low true labels and high false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-1.png)
 
 Example 2: A classification model with high true labels and low false labels
-![a classification model with high true labels and low false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.png)
+![a classification model with high true labels and low false labels](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-2.png)
 
 #### Lift curve
 
@@ -368,10 +368,10 @@ You can compare the lift of the model built automatically with Azure Machine Lea
 Lift charts are used to evaluate the performance of a classification model. It shows how much better you can expect to do with a model compared to without a model. 
 
 Example 1: Model performs worse than a random selection model
-![A classification model that does worse than a random selection model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.png)
+![A classification model that does worse than a random selection model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve1.png)
 
 Example 2: Model performs better than a random selection model
-![A classification model that performs better](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.png)
+![A classification model that performs better](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve2.png)
 
 #### Gains curve
 
@@ -380,10 +380,10 @@ A gains chart evaluates the performance of a classification model by each portio
 Use the cumulative gains chart to help you choose the classification cutoff using a percentage that corresponds to a desired gain from the model. This information provides another way of looking at the results in the accompanying lift chart.
 
 Example 1: A classification model with minimal gain
-![a classification model with minimal gain](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.png)
+![a classification model with minimal gain](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve1.png)
 
 Example 2: A classification model with significant gain
-![A classification model with significant gain](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.png)
+![A classification model with significant gain](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve2.png)
 
 #### Calibration plot
 
@@ -392,10 +392,10 @@ For all classification problems, you can review the calibration line for micro-a
 A calibration plot is used to display the confidence of a predictive model. It does this by showing the relationship between the predicted probability and the actual probability, where “probability” represents the likelihood that a particular instance belongs under some label. A well calibrated model  aligns with the y=x line, where it is reasonably confident in its predictions. An over-confident model  aligns with the y=0 line, where the predicted probability is present but there is no actual probability.
 
 Example 1: A more well-calibrated model
-![ more well-calibrated model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.png)
+![ more well-calibrated model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve1.png)
 
 Example 2: An over-confident model
-![An over-confident model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.png)
+![An over-confident model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve2.png)
 
 ### Regression
 For every regression model, you build using the automated machine learning capabilities of Azure Machine Learning, you can see the following charts: 
