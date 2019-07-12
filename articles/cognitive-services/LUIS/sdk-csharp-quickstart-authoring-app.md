@@ -72,7 +72,7 @@ Build succeeded.
 Within the application directory, install the Language Understanding (LUIS) client library for .NET with the following command:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.XXX.LUIS --version X.X.X
+dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring -Version 3.0.0
 ```
 
 If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
@@ -80,7 +80,7 @@ If you're using the Visual Studio IDE, the client library is available as a down
 
 ## Object model
 
-The Language Understanding (LUIS) authoring client is a [LUISAuthoringClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-dotnet) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
+The Language Understanding (LUIS) authoring client is a [LUISAuthoringClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-dotnet) object that authenticates to Azure, which contains your authoring key.
 
 Once the client is created, use this client to access functionality:
 
