@@ -1,12 +1,12 @@
 ---
 title: Deployment Center Launcher
-description: Deployment center in Azure DevOps simplifies setting up a robust DevOps pipeline for your application.
+description: Deployment center in Azure DevOps simplifies setting up a robust Azure DevOps pipeline for your application
 ms.author: puagarw
 ms.manager: douge
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 07/12/2019
 author: pulkitaggarwl
 monikerRange: 'vsts'
 ---
@@ -33,7 +33,7 @@ In this tutorial, you will:
 
 1. Login to your [Azure Portal](https://portal.azure.com/)
 
-1. Select the [Cloud Shell](https://docs.microsoft.com/en-in/azure/cloud-shell/overview) button on the menu in the upper-right corner of the Azure Portal.
+1. Select the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) button on the menu in the upper-right corner of the Azure Portal.
 
 1. To create the AKS cluster, run the following commands.
 
@@ -55,7 +55,7 @@ In this tutorial, you will:
 
    ![settings](media/deployment-center-launcher/settings.png)
 
-1. Choose the location of the code and click **Next**. Currently, the repositories supported are, **[Azure Repos](https://docs.microsoft.com/en-in/azure/devops/repos/index?view=azure-devops)** and **GitHub**. You can follow the steps below based on the repository selection.
+1. Choose the location of the code and click **Next**. Currently, the repositories supported are, **[Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** and **GitHub**. You can follow the steps below based on the repository selection.
 
     Azure Repos is a set of version control tools that you can use to manage your code. Whether your software project is large or small, using version control as soon as possible is a good idea.
 
@@ -76,7 +76,7 @@ In this tutorial, you will:
 
     ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
 
-1. Select or create an existing Container Registry and click on **Finish**. The pipeline will be created automatically and queue a build in [Azure Pipelines](https://docs.microsoft.com/en-in/azure/devops/pipelines/index?view=azure-devops).
+1. Select or create an existing Container Registry and click on **Finish**. The pipeline will be created automatically and queue a build in [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops).
 
     Azure Pipelines is a cloud service that you can use to automatically build and test your code project and make it available to other users. Azure Pipelines combines continuous integration (CI) and continuous delivery (CD) to constantly and consistently test and build your code and ship it to any target.
 
