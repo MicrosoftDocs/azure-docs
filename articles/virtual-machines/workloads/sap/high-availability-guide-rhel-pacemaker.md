@@ -91,7 +91,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo subscription-manager repos --disable "*"
    sudo subscription-manager repos --enable=rhel-7-server-rpms
    sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-rpms
-   sudo subscription-manager repos --enable="rhel-sap-for-rhel-7-server-rpms"
+   sudo subscription-manager repos --enable=rhel-sap-for-rhel-7-server-rpms
+   sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-eus-rpms
    </code></pre>
 
 1. **[A]** Install RHEL HA Add-On
@@ -100,13 +101,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
    > [!IMPORTANT]
-   > We recommend the following versions of Azure Fence agent for customers to benefit from the faster failover time, if a resource stop fails or the cluster nodes cannot communicate which each other anymore:
-   > RHEL 7.6: fence-agents-4.2.1-11.el7_6.8 or later  
-   > RHEL 7.5: fence-agents-4.0.11-86.el7_5.8 or later  
-   > RHEL 7.4: fence-agents-4.0.11-66.el7_4.12 or later  
+   > We recommend the following versions of Azure Fence agent (or later) for customers to benefit from a faster failover time, if a resource stop fails or the cluster nodes cannot communicate which each other anymore:  
+   > RHEL 7.6: fence-agents-4.2.1-11.el7_6.8  
+   > RHEL 7.5: fence-agents-4.0.11-86.el7_5.8  
+   > RHEL 7.4: fence-agents-4.0.11-66.el7_4.12  
    > For more information see [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711)
 
-   Check the version of the Azure fence agent and if necessary update it to a version as stated above.
+   Check the version of the Azure fence agent. If necessary update it to a version as stated above.
    <pre><code># Check the version of the Azure Python SDK
     sudo yum info fence-agents-azure-arm
    </code></pre>
