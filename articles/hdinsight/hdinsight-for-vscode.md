@@ -20,7 +20,7 @@ Spark & Hive Tools can be installed on platforms that are supported by Visual St
 
 The following items are required for completing the steps in this article:
 
-- An HDInsight cluster. To create a cluster, see [Get started with HDInsight](hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md).
+- An HDInsight cluster. To create a cluster, see [Get started with HDInsight](hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md). Or a Spark / Hive cluster supporting Livy endpoint.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono is only required for Linux and macOS.
 - [Set up PySpark interactive environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
@@ -43,7 +43,7 @@ After you have completed the prerequisites, you can install  Spark & Hive Tools 
 5. Select **Reload** to activate the **Spark & Hive Tools** extension after it installs.
 
 
-## Open a work folder
+## Open work folder
 
 Complete the following steps to open a work folder, and create a file in Visual Studio Code:
 
@@ -57,7 +57,7 @@ Complete the following steps to open a work folder, and create a file in Visual 
 
 ## Set the Azure environment
 
-For national cloud user, please follow the steps to set Azure environment first, then use **Azure: Sign In** command to sign into Azure.
+For national cloud user, follow the steps to set Azure environment first, then use **Azure: Sign In** command to sign into Azure.
    
 1. Click **File\Preferences\Settings**.
 2. Search **Azure: Cloud**
@@ -130,9 +130,9 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 ## Set default cluster
 
-1. Re-Open the folder **HDexample** created [earlier](#open-hdinsight-work-folder) if closed.  
+1. Re-Open the folder **HDexample** created [earlier](#open-work-folder) if closed.  
 
-2. Select the file  **HelloWorld.hql** created [earlier](#open-hdinsight-work-folder) and it will open in the script editor.
+2. Select the file  **HelloWorld.hql** created [earlier](#open-work-folder) and it will open in the script editor.
 
 3. Right-click the script editor, and select **Spark / Hive: Set Default Cluster**.  
 
@@ -147,9 +147,9 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive queries, and Hive batch scripts to your clusters.
 
-1. Reopen the folder **HDexample** created [earlier](#open-hdinsight-work-folder) if closed.  
+1. Reopen the folder **HDexample** created [earlier](#open-work-folder) if closed.  
 
-2. Select the file  **HelloWorld.hql** created [earlier](#open-hdinsight-work-folder) and it will open in the script editor.
+2. Select the file  **HelloWorld.hql** created [earlier](#open-work-folder) and it will open in the script editor.
 
 
 3. Copy and paste the following code into your Hive file, and then save it.
@@ -174,9 +174,9 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
 
 You can submit interactive PySpark queries by following the steps below:
 
-1. Reopen the folder **HDexample** created [earlier](#open-hdinsight-work-folder) if closed.  
+1. Reopen the folder **HDexample** created [earlier](#open-work-folder) if closed.  
 
-2. Create a new file **HelloWorld.py** following the [earlier](#open-hdinsight-work-folder) steps.
+2. Create a new file **HelloWorld.py** following the [earlier](#open-work-folder) steps.
 
 3. Copy and paste the following code into the script file:
    ```python
@@ -197,7 +197,7 @@ You can submit interactive PySpark queries by following the steps below:
 
 5. Choose all the code and right-click the script editor, select **Spark: PySpark Interactive** to submit the query, or use shortcut **Ctrl + Alt + I**.
 
-   ![pyspark interactive right click](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
+   ![pyspark interactive context menu](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
 6. Select the cluster if you haven't specified a default cluster. After a few moments, the **Python Interactive** results appear in a new tab. The tools also allow you to submit a block of code instead of the whole script file using the context menu. 
 
@@ -222,9 +222,9 @@ You can submit interactive PySpark queries by following the steps below:
 
 ## Submit PySpark batch job
 
-1. Reopen the folder **HDexample** created [earlier](#open-hdinsight-work-folder) if closed.  
+1. Reopen the folder **HDexample** created [earlier](#open-work-folder) if closed.  
 
-2. Create a new file **BatchFile.py** following the [earlier](#open-hdinsight-work-folder) steps.
+2. Create a new file **BatchFile.py** following the [earlier](#open-work-folder) steps.
 
 3. Copy and paste the following code into the script file:
 
@@ -381,7 +381,7 @@ Spark & Hive for Visual Studio Code supports the following features:
 
 ## Reader Only Role
 
-Users with cluster **Reader** **only** **role** can no longer submit job to the HDInsight cluster nor view the Hive database. You need to contact the cluster administrator to upgrade your role to [**HDInsight** **Cluster** **Operator**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure portal](https://ms.portal.azure.com/). If you know Ambari credentials, you can manually link the cluster following the instruction below.
+Users with cluster **Reader** **only** **role** can no longer submit job to the HDInsight cluster nor view the Hive database. Contact the cluster administrator to upgrade your role to [**HDInsight** **Cluster** **Operator**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure portal](https://ms.portal.azure.com/). If you know Ambari credentials, you can manually link the cluster following the instruction below.
 
 ### Browse HDInsight Cluster  
 
