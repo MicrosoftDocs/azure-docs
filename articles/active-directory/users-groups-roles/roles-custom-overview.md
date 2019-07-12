@@ -43,7 +43,7 @@ The way you control access using Azure AD role-based access control is to create
 
 - Security principal
 - Role definition
-- Scope
+- Resource ccope
 
 Access is granted by creating a role assignment, and access is revoked by removing a role assignment. You can [create role assignments](roles-create-assignments.md) using the Azure portal, Azure AD PowerShell, and Graph API. You can separately [view the assignments for a custom role](roles-view-assignments.md#view-the-assignments-of-a-role-with-single-application-scope-using-the-azure-ad-portal-preview).
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/30/2019
+ms.date: 07/22/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -150,9 +150,9 @@ Body
         {
             "resourceActions":
             {
-                "allowedResourceActions": 
+                "allowedResourceActions":
                 [
-                    "microsoft.directory/applications/createAsOwner"
+                    "microsoft.directory/applications/create"
                 ]
             },
             "condition":null
@@ -164,6 +164,8 @@ Body
 ```
 
 ### Assign the custom role using Microsoft Graph API
+
+The role assignment combines a security principal ID (which can be a user or service principal), a role definition (role) ID, and an Azure AD resource scope.
 
 HTTP request to assign a custom role.
 
@@ -182,16 +184,6 @@ Body
     "resourceScopes":["/"]
 }
 ```
-
-## Clean up resources
-
-### To remove the expiration policy
-
-1. Ensure that you are signed in to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your tenant.
-2. Select **Azure Active Directory** > **Groups** > **Expiration**.
-3. Set **Enable expiration for these Office 365 groups** to **None**.
-
-### To turn off user creation for groups
 
 ## Next steps
 

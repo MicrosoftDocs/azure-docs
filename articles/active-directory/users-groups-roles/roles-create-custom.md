@@ -18,27 +18,48 @@ ms.collection: M365-identity-device-management
 ---
 # Create a custom role in your Azure Active Directory organization
 
-In Azure Active Directory (Azure AD), custom roles can be created in the **Roles and administrators** tab on the Azure AD page or the Application registration page. Custom roles can be assigned at the directory scope or a scope of a single app registration.
+In Azure Active Directory (Azure AD), custom roles can be created in the **Roles and administrators** tab on the Azure AD overview page or [the application registration page](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview). The role is can be assigned either at the directory-level scope or scoped to app registrations only.
 
-## Create a new custom role using the Azure AD portal
+See the [custom roles overview](roles-custom-overview.md) for more information on the basics of custom roles.
+
+## Using the Azure AD portal
+
+### Create a new custom role to grant access to manage app registrations
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
-1. Select **Roles and administrators**, and then select **New custom role**.
+1. Select **Azure Active Directory** > **Roles and administrators** > **New custom role**.
 
     ![Create or edit roles from the Roles and administrators page](./media/roles-create-assignments/new-custom-role.png)
 
-1. On the **Basics** tab, provide "Application Support Administrator" for the name of the role and "Can manage basic aspects of application registrations" for the role description.
+1. On the **Basics** tab, provide a name and description for the role.
 
     ![provide a name and description for a custom role on the Basics tab](./media/roles-create-assignments/basics-tab.png)
 
-1. On the Permissions tab, use the filter box to search for the following permissions individually, selecting the checkbox next to each one:
-    - microsoft.directory/applications/allProperties/read
-    - microsoft.directory/applications/basic/update
-    - microsoft.directory/applications/credentials/update
+1. To select the permissions necessary to manage app registration credentials as well as basic properties like name, 
+    1. enter "credentials" in the search bar and select the `microsoft.directory/applications/credentials/update` permission.
 
     ![Select the permissions for a custom role on the Permissions tab](./media/roles-create-assignments/permissions-tab.png)
 
+    1. Enter "basic" in the search bar, select the `microsoft.directory/applications/basic/update` permission, and then click **Next**.
 1. On the **Review + create** tab, review the permissions and select **Create**.
+
+Your custom role will show up in the list of available roles to assign.
+
+## Assign a role scoped to a resource
+
+Like built-in roles, custom roles can be assigned at default organization scope to grant access over all app registrations. But custom roles can also be assigned at object scope. This allows you to give the assignee the permission to update credentials and basic properties of a single app without having to create a second custom role.
+
+1. In Azure AD, select the App registrations tab.
+1. Select the app registration to which you want to grant access to manage. You might have to select the **All applications** tab for the complete list of app registrations in your Azure AD organization.
+
+    ![Select the app registration as a resource scope for a role assignment](./media/roles-create-assignments/permissions-tab.png)
+
+1. In the app registration, select **Roles and administrators**. You’ll see the custom role that you created earlier.
+
+The role you're assigning shows up in the list on every app registration, but if you assign it from the context of an open app registration then the assignee has permissions on only that one app registration. If you have assigned access to Azure resource groups using Azure RBAC, where an owner can be assigned permission to all the resources for a subscription or to as little as a single virtual machine, this access model might be familiar to you.
+
+
+
 
 ## Create a custom role using Azure AD PowerShell
 
