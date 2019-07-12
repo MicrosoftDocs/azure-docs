@@ -87,10 +87,11 @@ The following tables show data that's included or isn't in Cost Management. All 
 | Marketplace offering usage<sup>6</sup> | Taxes - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 | Marketplace purchases<sup>6</sup>      | Credits - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 | Reservation purchases<sup>7</sup>      |  |
+| Amortization of reservation purchases<sup>7</sup>      |  |
 
 _<sup>**5**</sup> Azure service usage is based on reservation and negotiated prices._
 
-_<sup>**6**</sup> Marketplace usage and purchases are not available for Pay-As-You-Go, MSDN, and Visual Studio offers at this time._
+_<sup>**6**</sup> Marketplace purchases are not available for Pay-As-You-Go, MSDN, and Visual Studio offers at this time._
 
 _<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreement (EA) accounts at this time._
 
