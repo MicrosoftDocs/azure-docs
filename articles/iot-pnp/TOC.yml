@@ -32,3 +32,5 @@
     href: howto-install-pnp-cli.md    
   - name: Onboard to the IoT portal
     href: howto-onboard-portal.md
+  - name: Build a solution
+    href: howto-build-plug-and-play-solution.md

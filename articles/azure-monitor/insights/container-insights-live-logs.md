@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 07/12/2019
 ms.author: magoedte
 ---
 
@@ -61,7 +61,7 @@ If you have enabled Kubernetes RBAC authorization, you will need to apply cluste
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. If you are configuring it for the first time, you create the cluster rule binding by running the following command: `kubectl create -f LogReaderRBAC.yaml`. If you previously enabled support for live logs preview before we introduced live event logs, to update your configuration, run the following command: `kubectl apply -f LogReaderRBAC.yml`.
+2. If you are configuring it for the first time, you create the cluster rule binding by running the following command: `kubectl create -f LogReaderRBAC.yaml`. If you previously enabled support for live logs preview before we introduced live event logs, to update your configuration, run the following command: `kubectl apply -f LogReaderRBAC.yaml`.
 
 ## Configure AKS with Azure Active Directory
 
@@ -111,5 +111,7 @@ To suspend autoscroll and control the behavior of the pane and allow you to manu
 You can go to Azure Monitor Logs to see historical container logs by selecting **View container logs** from the drop-down list **View in analytics**.
 
 ## Next steps
+
 - To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
