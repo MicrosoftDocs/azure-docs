@@ -36,18 +36,21 @@ what the customer will learn, or do, or accomplish. Answer the
 fundamental “why would I want to do this?” question.
 --->
 
-In this tutorial, you will modify the simple echo-bot sample code, deploy it to Azure, and register it with Bot-Framework's Direct Line Speech channel. You will then run and configure a sample client application for Window (Direct Line Speech Client), allowing you to talk to your bot and hear it
-speak back to you. 
+In this tutorial, you will modify the simple echo-bot sample code, deploy it to Azure, and register it with the Bot-Framework Direct Line Speech channel. You will then run and configure a sample client application for Window (Direct Line Speech Client), allowing you to talk to your bot and hear it speak back to you.
+
+This tutorial is targeted for developers who are just starting their journey with Bot-Framework bots, Direct Line Speech or Speech SDK, who want to quickly build a working end-to-end system with minimal coding. The focus is not on the functionality of the bot (the dialog), but rather on setting up a simple system with client app, channel and bot service communicating with each other. When configured correctly, it will demostrate the how quickly the user hears the Bot's spoken reply, the accuracy of speech recognition and the quality of Bot's voice (text-to-speech).   
+
+ To read more about Direct Line Speech channel and its usage in a commercial application look at [About custom voice-first virtual assistants](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/voice-first-virtual-assistants)
 
 Here's what this tutorial covers:
 > [!div class="checklist"]
-> * Downloaidng the echo-bot sample code and modifying it to support voice output and Direct Line Speech channel
+> * Downloading the echo-bot sample code and modifying it to support voice output and Direct Line Speech channel
 > * Deploying the bot to Azure and registering it with Direct Line Speech channel
 > * Downloading Direct Line Speech client sample code and configuring it to communicate with your bot
 > * Running the client application, using voice to communicate with your bot and examining the json Activity objects set by the bot
 > * TODO: Custom wakeword
 
-This tutorial is targeted for first-time users of Direct Line Speech channel, Speech SDK, Bot-Framework bots or Azure, who want to build a working end-to-end system with minimal coding. This working system will demonstrate   Read more about Direct Line Speech channel and it usage in commercial application [About custom voice-first virtual assistants](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/voice-first-virtual-assistants)
+
 
 <!---Required:
 The outline of the tutorial should be included in the beginning and at
@@ -72,7 +75,7 @@ Let's review the software and subscription key that you'll need for this tutoria
 
 - [GitHub](https://github.com/) account
 - [Git for Windows](https://git-scm.com/download/win)
-- [Visual Studio 2017](https://visualstudio.microsoft.com/) or later
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or later
 - An [Azure account with a Speech resource](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#new-azure-account), in one of the supported [Azure regions](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#voice-first-virtual-assistants) (see "Voice-first virtual assistant" regions)
 
 <!---If you need them, make Prerequisites your first H2 in a tutorial. If
