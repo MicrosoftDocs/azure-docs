@@ -110,7 +110,7 @@ the local store with the server:
 * **[PullAsync]**
    A pull is started from a [IMobileServiceSyncTable]. When there are tracked changes in the table, an implicit push is run to make sure
    that all tables in the local store along with relationships remain consistent. The *pushOtherTables* parameter controls whether other
-   tables in the context are pushed in an implicit push. The *query* parameter takes an [IMobileServiceTableQuery<T>][IMobileServiceTableQuery]
+   tables in the context are pushed in an implicit push. The *query* parameter takes an [IMobileServiceTableQuery\<T>][IMobileServiceTableQuery]
    or OData query string to filter the returned data. The *queryId* parameter is used to define incremental sync. For more information, see
    [Offline Data Sync in Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
 * **[PurgeAsync]**

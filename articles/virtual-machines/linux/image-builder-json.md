@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: jeconnoc
+manager: gwallace
 ---
 # Preview: Create an Azure Image Builder template 
 

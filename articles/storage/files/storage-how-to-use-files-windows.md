@@ -229,7 +229,7 @@ The following table provides detailed information on the status of SMB 1 each ve
 
 | Windows version                           | SMB 1 default status | Disable/Remove method       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019 (preview)             | Disabled             | Remove with Windows feature |
+| Windows Server 2019                       | Disabled             | Remove with Windows feature |
 | Windows Server, versions 1709+            | Disabled             | Remove with Windows feature |
 | Windows 10, versions 1709+                | Disabled             | Remove with Windows feature |
 | Windows Server 2016                       | Enabled              | Remove with Windows feature |
@@ -241,7 +241,7 @@ The following table provides detailed information on the status of SMB 1 each ve
 | Windows 7                                 | Enabled              | Disable with Registry       | 
 
 ### Auditing SMB 1 usage
-> Applies to Windows Server 2019 (preview), Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows 10 (versions 1507, 1607, 1703, 1709, and 1803), Windows Server 2012 R2, and Windows 8.1
+> Applies to Windows Server 2019, Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows 10 (versions 1507, 1607, 1703, 1709, and 1803), Windows Server 2012 R2, and Windows 8.1
 
 Before removing SMB 1 in your environment, you may wish to audit SMB 1 usage to see if any clients will be broken by the change. If any requests are made against SMB shares with SMB 1, an audit event will be logged in the event log under `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit`. 
 
@@ -255,7 +255,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### Removing SMB 1 from Windows Server
-> Applies to Windows Server 2019 (preview), Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows Server 2012 R2
+> Applies to Windows Server 2019, Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows Server 2012 R2
 
 To remove SMB 1 from a Windows Server instance, execute the following cmdlet from an elevated PowerShell session:
 

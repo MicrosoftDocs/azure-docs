@@ -2,7 +2,7 @@
 title: Use Azure Kinect Sensor SDK image transformations
 description: How to use Azure Kinect Sensor SDK image transformation functions.
 author: cdedmonds
-ms.author: cdedmonds
+ms.author: cedmonds
 ms.prod: kinect-dk
 ms.topic: conceptual
 ms.date: 06/26/2019 

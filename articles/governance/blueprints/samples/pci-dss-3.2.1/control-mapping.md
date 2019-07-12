@@ -33,7 +33,7 @@ within the information system.
 - Audit unrestricted network access to storage accounts
 - Access through Internet facing endpoint should be restricted
 
-## 3.4.a, 4.1, 4.1.g, 4.1.h Cryptographic Protection
+## 3.4.a, 4.1, 4.1.g, 4.1.h and 6.5.3 Cryptographic Protection
 
 This blueprint helps you enforce your policy with the use of cryptograph controls by assigning [Azure Policy](../../../policy/overview.md)
 definitions which enforce specific cryptograph controls and audit use of weak cryptographic
@@ -85,7 +85,7 @@ appropriate separation of duties.
 - There should be more than one owner assigned to your subscription
 - A maximum of 3 owners should be designated for your subscription 
 
-## 7.2.1, 8.3.1.a and 8.3.1.b Management of Privileged Access Rights
+## 3.2, 7.2.1, 8.3.1.a and 8.3.1.b Management of Privileged Access Rights
 
 This blueprint helps you restrict and control privileged access rights by assigning [Azure
 Policy](../../../policy/overview.md) definitions to audit external accounts with owner, write and/or
@@ -133,7 +133,7 @@ considered for removal.
 - Deprecated accounts should be removed from your subscription
 - Deprecated accounts with owner permissions should be removed from your subscription
 
-## 8.2.3.a,b and 8.2.4.a,b Password-based Authentication
+## 8.2.3.a,b, 8.2.4.a,b and 8.2.5 Password-based Authentication
 
 This blueprint helps you enforce strong passwords by assigning [Azure
 Policy](../../../policy/overview.md) definitions that audit Windows VMs that don't enforce minimum
