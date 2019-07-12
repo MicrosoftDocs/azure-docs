@@ -162,22 +162,7 @@ Most browser exceptions are reported.
 
 If your web page includes script files from content delivery networks or other domains, ensure your script tag has the attribute ```crossorigin="anonymous"```,  and that the server sends [CORS headers](https://enable-cors.org/). This will allow you to get a stack trace and detail for unhandled JavaScript exceptions from these resources.
 
-## Web forms
-For web forms, the HTTP Module will be able to collect the exceptions when there are no redirects configured with CustomErrors.
-
-But if you have active redirects, add the following lines to the Application_Error function in Global.asax.cs. (Add a Global.asax file if you don't already have one.)
-
-```csharp
-    void Application_Error(object sender, EventArgs e)
-    {
-      if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError () != null)
-      {
-         var ai = new TelemetryClient(); // or re-use an existing instance
-
-         ai.TrackException(Server.GetLastError());
-      }
-    }
-```
+## Reuse your telemetry client
 
 > [!NOTE]
 > TelemetryClient is recommended to be instantiated once and re-used throughout the life of an application.
@@ -197,6 +182,23 @@ public class GoodController : ApiController
 }
 ```
 
+
+## Web forms
+For web forms, the HTTP Module will be able to collect the exceptions when there are no redirects configured with CustomErrors.
+
+But if you have active redirects, add the following lines to the Application_Error function in Global.asax.cs. (Add a Global.asax file if you don't already have one.)
+
+```csharp
+    void Application_Error(object sender, EventArgs e)
+    {
+      if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError () != null)
+      {
+         var ai = new TelemetryClient(); // or re-use an existing instance
+
+         ai.TrackException(Server.GetLastError());
+      }
+    }
+```
 ## MVC
 Starting with Application Insights Web SDK version 2.6 (beta3 and later), Application Insights collects unhandled exceptions thrown in the MVC 5+ controllers methods automatically. If you have previously added a custom handler to track such exceptions (as described in following examples), you may remove it to prevent double tracking of exceptions.
 
