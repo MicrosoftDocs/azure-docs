@@ -16,7 +16,7 @@ ms.date: 05/06/2019
 
 # Hyperscale service tier for up to 100 TB
 
-Azure SQL Database is based on SQL Server Database Engine architecture that is adjusted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are three architectural models that are used in Azure SQL Database:
+Azure SQL Database is based on SQL Server Database Engine architecture that is adjusted for the cloud environment in order to ensure 99.99% availability even in case of infrastructure failures. There are three architectural models that are used in Azure SQL Database:
 - General Purpose/Standard 
 -  Hyperscale
 -  Business Critical/Premium
