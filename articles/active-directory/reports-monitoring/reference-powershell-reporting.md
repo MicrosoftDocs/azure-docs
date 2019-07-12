@@ -1,6 +1,6 @@
 ---
 title: Azure AD PowerShell cmdlets for reporting | Microsoft Docs
-description: Referernce of the Azure AD PowerShell cmdlets for reporting.
+description: Reference of the Azure AD PowerShell cmdlets for reporting.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
