@@ -9,11 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Generate a thumbnail using the REST API and JavaScript in Computer Vision
+# Quickstart: Generate a thumbnail using the Computer Vision REST API and JavaScript
 
 In this quickstart, you generate a thumbnail from an image by using Computer Vision's REST API. You specify the height and width, which can differ in aspect ratio from the input image. Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates based on that region.
 

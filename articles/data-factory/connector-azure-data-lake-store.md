@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/02/2019
 ms.author: jingwang
 
 ---
@@ -77,7 +77,7 @@ To use service principal authentication, register an application entity in Azure
 >To list folders starting from the root, you must set the permission of the service principal being granted to **at root level with "Execute" permission**. This is true when you use the:
 >- **Copy data tool** to author copy pipeline.
 >- **Data Factory UI** to test connection and navigating folders during authoring.
->If you have concerns about granting permission at root level, skip the connection test and input the path manually during authoring. The copy activity works as long as the service principal is granted with the proper permission at the files to be copied.
+>If you have concerns about granting permission at root level, during authoring, skip testing connection, and input a paraent path with permission granted then choose to browse from that specified path. Copy activity works as long as the service principal is granted with proper permission at the files to be copied.
 
 The following properties are supported:
 
@@ -131,7 +131,7 @@ To use managed identities for Azure resources authentication:
 >To list folders starting from the root, you must set the permission of the managed identity being granted to **at root level with "Execute" permission**. This is true when you use the:
 >- **Copy data tool** to author copy pipeline.
 >- **Data Factory UI** to test connection and navigating folders during authoring.
->If you have concerns about granting permission at root level, skip the connection test and input the path manually during authoring. The copy activity works as long as the managed identity is granted with proper permission at the files to be copied.
+>If you have concerns about granting permission at root level, during authoring, skip testing connection, and input a parent path with permission granted then choose to browse from that specified path. Copy activity works as long as the service principal is granted with proper permission at the files to be copied.
 
 In Azure Data Factory, you don't need to specify any properties besides the general Data Lake Store information in the linked service.
 
