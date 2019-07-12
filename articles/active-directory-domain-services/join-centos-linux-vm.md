@@ -68,9 +68,9 @@ Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-c
 ## Install required packages on the Linux virtual machine
 Next, install packages required for domain join on the virtual machine. In your SSH terminal, type the following command to install the required packages:
 
-    ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
-    ```
+```
+sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
 
 
 ## Join the Linux virtual machine to the managed domain
@@ -133,7 +133,7 @@ Verify whether the machine has been successfully joined to the managed domain. C
 
 
 ## Troubleshooting domain join
-Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-joining-a-domain) article.
+Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-domain-join-issues) article.
 
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)

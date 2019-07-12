@@ -142,7 +142,7 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
 
 3. In the **Add Controller** window, name the controller **IdentityController**, and then select **Add**.
 
-    ![Entering the the controller name in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
+    ![Entering the controller name in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
 
     The scaffolding creates a file named *IdentityController.cs* in the *Controllers* folder.
 

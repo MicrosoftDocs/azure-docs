@@ -31,7 +31,7 @@ To gracefully delete a vault follow the steps mentioned in the sequence below:
 
 ## Delete backup data and backup items
 
-Before you proceed further read **[this ](#before-you-start)** section to understand the dependencies and vault deletion process.
+Before you proceed further read **[this](#before-you-start)** section to understand the dependencies and vault deletion process.
 
 ### For Protected items in Cloud
 

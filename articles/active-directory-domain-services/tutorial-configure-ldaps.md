@@ -272,7 +272,7 @@ In this tutorial, you learned how to:
 > * Bind and test secure LDAP for an Azure AD DS managed domain
 
 > [!div class="nextstepaction"]
-> [Join a Windows Server virtual machine to your managed domain](join-windows-vm.md)
+> [Learn how synchronization works in an Azure AD Domain Services managed domain](synchronization.md)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

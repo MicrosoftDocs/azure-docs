@@ -216,7 +216,7 @@ You can grant members of the 'AAD DC Administrators' group administrative privil
 
 
 ## Troubleshooting domain join
-Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-joining-a-domain) article.
+Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-domain-join-issues) article.
 
 
 ## Related Content
