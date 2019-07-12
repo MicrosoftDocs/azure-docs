@@ -86,13 +86,14 @@ All classic alerts on Cosmos DB metrics can be migrated except alerts on these m
 - Mongo Update Failed Requests
 - Observed Read Latency
 - Observed Write Latency
+- Service Availability
 - Storage Capacity
 - Throttled Requests
 - Total Requests
 
 Average Requests per Second, Consistency Level, Max RUPM Consumed Per Minute, Max RUs Per Second, Observed Read Latency, Observed Write Latency, Storage Capacity are not currently available in the [new system](metrics-supported.md#microsoftdocumentdbdatabaseaccounts).
 
-Alerts on request metrics like Http 2xx, Http 3xx, Http 400, Http 401, Internal Server Error, Throttled Requests and Total Requests are not migrated because the way requests are counted is different between classic metrics and new metrics. Alerts on these will need to be manually recreated with thresholds adjusted.
+Alerts on request metrics like Http 2xx, Http 3xx, Http 400, Http 401, Internal Server Error, Service Availability, Throttled Requests and Total Requests are not migrated because the way requests are counted is different between classic metrics and new metrics. Alerts on these will need to be manually recreated with thresholds adjusted.
 
 Alerts on Mongo Failed Requests metrics must be split into multiple alerts because there is no combined metric that provides the same functionality. Thresholds will need to be adapted appropriately.
 
