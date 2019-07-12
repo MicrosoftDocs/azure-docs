@@ -140,7 +140,7 @@ To learn in more about the hierarchy of different entities, see the [working wit
 
 * [CreateDatabaseIfNotExistsAsync]() - This method creates(if doesn't exist) or gets(if already exists) a database resource as an asynchronous operation. 
 
-* [CreateContainerIfNotExistsAsync]() a container as an asynchronous operation. You can check the status code from the response to determine whether the collection was newly created (201) or an existing collection was returned (200). 
+* [CreateContainerIfNotExistsAsync]() a container as an asynchronous operation. You can check the status code from the response to determine whether the container was newly created (201) or an existing container was returned (200). 
 * [CreateItemAsync]() - This method creates an item within the container. 
 
 * [QueryItemsAsync]() - Runs a query to get the required items. A SQL query is passed within this method. 
@@ -349,7 +349,7 @@ else
 
 ```
 
-## Query the items
+### Query the items
 
 After inserting an item, you can run a query to get the details of "Anderson" family. The following code shows how to execute the query using the SQL query directly. The SQL query to get the "Anderson" family details is- `SELECT * FROM c WHERE c.LastName = 'Andersen'`. Define the `QueryItemsAsync` method within the program.cs class and add the following code to it:
 
@@ -457,7 +457,7 @@ az group delete -g "myResourceGroup" -l "southcentralus"
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos account, create a database and a collection/container using a .NET Core app. You can now import additional data to your Azure Cosmos account with the instructions int the following article. 
+In this quickstart, you learned how to create an Azure Cosmos account, create a database and a container using a .NET Core app. You can now import additional data to your Azure Cosmos account with the instructions int the following article. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
