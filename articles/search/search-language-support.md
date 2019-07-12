@@ -23,12 +23,16 @@ A language analyzer is specified when a field is created. Adding an analyzer to 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and find your search service.
 1. Click **Add index** in the command bar at the top of the service dashboard to start a new index, or open an existing index to set an analyzer on new fields you're adding to an existing index.
-1. Start a field definition by providing a name, choosing the data type, and setting attributes. Only **Searchable** fields can take a language analyzer.
-1. Choose an available analyzer.
+1. Start a field definition by providing a name.
+1. Choose the Edm.String data type. Only string fields are full-text searchable.
+1. Set the **Searchable** attribute to enable the Analyzer property. A field must be text-based in order to make use of a language analyzer.
+1. Choose one of the available analyzers. 
 
 ![Assign language analyzers during field definition](media/search-language-support/select-analyzer.png "Assign language analyzers during field definition")
 
 By default, all searchable fields use the [Standard Lucene analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) which is language-agnostic. To view the full list of supported analyzers, see [Add language analyzers to an Azure Search index](index-add-language-analyzers.md).
+
+In the portal, analyzers are intended to be used as-is. If you require customization or a specific configuration of filters and tokenizers, you should [create a custom analyzer](index-add-custom-analyzers.md) in code. The portal does not support selecting or configuring custom analyzers.
 
 ## Query language-specific fields
 
