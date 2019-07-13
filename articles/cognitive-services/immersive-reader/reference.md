@@ -33,8 +33,8 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
-| `token` | string | The access token acquired from the call to the `issueToken` endpoint. |
-| `resourceName` | string | Reserved. Must be set to `null`. |
+| `token` | string | The AAD authentication token. See the [AAD authentication tutorial](aadauth.md). |
+| `subdomain` | string | The custom subdomain of your Immersive Reader resource in Azure. See the [AAD authentication tutorial](aadauth.md). |
 | `content` | [Content](#content) | An object containing the content to be shown in the Immersive Reader. |
 | `options` | [Options](#options) | Options for configuring certain behaviors of the Immersive Reader. Optional. |
 

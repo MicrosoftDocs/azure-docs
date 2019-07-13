@@ -13,6 +13,8 @@
   items:
   - name: Launch the Immersive Reader (Node.js)
     href: tutorial.md
+  - name: Azure Active Directory (AAD) authentication
+    href: aadauth.md
 - name: Reference
   items:
   - name: SDK Reference
