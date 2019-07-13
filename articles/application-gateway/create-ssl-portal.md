@@ -49,9 +49,9 @@ PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
 Thumbprint                                Subject
 ----------                                -------
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
+```
 
 Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate:
-```
 
 ```powershell
 $pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText

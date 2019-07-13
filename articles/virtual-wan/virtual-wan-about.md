@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -15,7 +15,9 @@ Customer intent: As someone with a networking background, I want to understand w
 
 Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You can leverage the Azure backbone to also connect branches and enjoy branch-to-VNet connectivity. We have a list of partners that support connectivity automation with Azure Virtual WAN VPN. For more information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
 
-Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN (generally available), ExpressRoute (Preview), point-to-site user VPN (Preview) into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections.
+Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN, ExpressRoute, and point-to-site user VPN into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections.
+
+ExpressRoute and point-to-site user VPN for Virtual WAN are currently in Preview.
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan1.png)
 

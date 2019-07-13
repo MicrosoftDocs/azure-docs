@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2019
+ms.date: 07/12/2019
 ms.author: magoedte
 ---
 
@@ -26,8 +26,8 @@ Azure Monitor provides a multi-cluster view showing the health status of all mon
 
 The main differences monitoring a Windows Server cluster with Azure Monitor for containers compared to a Linux cluster are the following:
 
-- Memory RSS metric is not available for Windows node and containers 
-- Disk storage capacity information is not available for Windows nodes
+- Memory RSS metric is not available for Windows node and containers.
+- Disk storage capacity information is not available for Windows nodes.
 - Live logs support is available with the exception of Windows container logs.
 - Only pod environments are monitored, not Docker environments.
 - With the preview release, a maximum of 30 Windows Server containers are supported. This limitation does not apply to Linux containers.  
@@ -158,7 +158,9 @@ Azure Container Instances Virtual Nodes running the Linux OS are shown after the
 From an expanded node, you can drill down from the pod or container running on the node to the controller to view performance data filtered for that controller. Click on the value under the **Controller** column for the specific node.   
 ![Example drill-down from node to controller in the performance view](./media/container-insights-analyze/drill-down-node-controller.png)
 
-You can select controllers or containers at the top of the page and review the status and resource utilization for those objects.  If instead you want to review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value. 
+You can select controllers or containers at the top of the page and review the status and resource utilization for those objects.  If instead you want to review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value.
+
+Memory working set shows both the resident memory and virtual memory (cache) included, and is a total of what the application is using. Memory RSS shows only main memory, which is the resident memory. This metric is showing the actual capacity of available memory.
 
 ![Container nodes performance view](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 

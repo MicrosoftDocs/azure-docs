@@ -11,7 +11,8 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/10/2018
-ms.author: routlaw, glenga
+ms.author: routlaw
+ms.reviewer: glenga
 ms.custom: mvc, devcenter
 ---
 
@@ -67,17 +68,25 @@ Maven will ask you for values needed to finish generating the project. For _grou
 The `com.fabrikam.functions` and `fabrikam-functions` identifiers below are used as an example and to make later steps in this quickstart easier to read. You are encouraged to supply your own values to Maven in this step.
 
 ```Output
-Define value for property 'groupId': com.fabrikam.functions
-Define value for property 'artifactId' : fabrikam-functions
+Define value for property 'groupId' (should match expression '[A-Za-z0-9_\-\.]+'): com.fabrikam.functions
+Define value for property 'artifactId' (should match expression '[A-Za-z0-9_\-\.]+'): fabrikam-functions
 Define value for property 'version' 1.0-SNAPSHOT : 
 Define value for property 'package': com.fabrikam.functions
 Define value for property 'appName' fabrikam-functions-20170927220323382:
+Define value for property 'appRegion' westus: :
+Define value for property 'resourceGroup' java-functions-group: :
 Confirm properties configuration: Y
 ```
 
-Maven creates the project files in a new folder with a name of _artifactId_, in this example `fabrikam-functions`. The ready to run generated code in the project is an [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the request:
+Maven creates the project files in a new folder with a name of _artifactId_, in this example `fabrikam-functions`. The ready to run generated code in the project is an [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the request. Replace *src/main/java/com/fabrikam/functions/Function.java* with the following code: 
 
 ```java
+package com.fabrikam.functions;
+
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
 public class Function {
     /**
      * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
@@ -104,7 +113,7 @@ public class Function {
 
 ```
 
-## Reference bindings
+## Enable extension bundles
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -201,7 +210,7 @@ return request.createResponse(200, "Hi, " + name);
 Save the changes. Run mvn clean package and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:
 
 ```bash
-curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello
 ```
 
 Will have updated output:

@@ -3,7 +3,7 @@ title: Azure PowerShell script - Azure Cosmos DB list and get operations for Tab
 description: Azure PowerShell script - Azure Cosmos DB list and get operations for Table API
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
 ---

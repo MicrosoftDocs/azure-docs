@@ -70,6 +70,11 @@ All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
 
 ## Mode
 
+**Mode** is configured depending if the policy is targeting an Azure Resource Manager property or a
+Resource Provider property.
+
+### Resource Manager modes
+
 The **mode** determines which resource types will be evaluated for a policy. The supported modes
 are:
 
@@ -88,6 +93,15 @@ compliance results. The exception is **resource groups**. Policies that enforce 
 a resource group should set **mode** to `all` and specifically target the
 `Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
 tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see [Tag support for Azure resources](../../../azure-resource-manager/tag-support.md).
+
+### Resource Provider modes
+
+The only Resource Provider mode supported currently is `Microsoft.ContainerService.Data` for
+managing admission controller rules on [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Azure Policy for Kubernetes](rego-for-aks.md) is in Public Preview and only supports built-in
+> policy definitions.
 
 ## Parameters
 
@@ -108,7 +122,7 @@ A parameter has the following properties that are used in the policy definition:
 
 - **name**: The name of your parameter. Used by the `parameters` deployment function within the
   policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
-- `type`: Determines if the parameter is a **string** or an **array**.
+- `type`: Determines if the parameter is a **string**, **array**, **object**, **boolean**, **integer**, **float**, or **datetime**.
 - `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly
   information:
   - `description`: The explanation of what the parameter is used for. Can be used to provide
@@ -457,6 +471,8 @@ Azure Policy supports the following types of effect:
 - **AuditIfNotExists**: enables auditing if a resource doesn't exist
 - **DeployIfNotExists**: deploys a resource if it doesn't already exist
 - **Disabled**: doesn't evaluate resources for compliance to the policy rule
+- **EnforceRegoPolicy**: configures the Open Policy Agent admissions controller in Azure Kubernetes
+  Service (preview)
 
 For **append**, you must provide the following details:
 

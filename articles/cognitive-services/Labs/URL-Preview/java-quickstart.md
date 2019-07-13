@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 # Quickstart: URL Preview with Java
 

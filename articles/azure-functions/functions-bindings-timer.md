@@ -4,7 +4,7 @@ description: Understand how to use timer triggers in Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
@@ -185,6 +185,7 @@ import logging
 
 import azure.functions as func
 
+
 def main(mytimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.datetime.utcnow().replace(
         tzinfo=datetime.timezone.utc).isoformat()
@@ -266,12 +267,7 @@ Each field can have one of the following types of values:
 |A set of values (`,` operator)|<nobr>"5,8,10 * * * * *"</nobr>|at hh:mm:05,hh:mm:08, and hh:mm:10 where hh:mm is every minute of every hour (3 times a minute)|
 |An interval value (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|at hh:05:00, hh:10:00, hh:15:00, and so on through hh:55:00 where hh is every hour (12 times an hour)|
 
-To specify months or days you can use numeric values, names, or abbreviations of names:
-
-* For days, the numeric values are 0 to 6 where 0 starts with Sunday.
-* Names are in English. For example: `Monday`, `January`.
-* Names are case-insensitive.
-* Names can be abbreviated. Three letters is the recommended abbreviation length.  For example: `Mon`, `Jan`. 
+[!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
 ### CRON examples
 

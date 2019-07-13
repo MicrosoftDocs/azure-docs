@@ -31,7 +31,7 @@ By default, Azure AD issues a SAML token to your application that contains a `Na
 
 To view or edit the claims issued in the SAML token to the application, open the application in Azure portal. Then open the **User Attributes & Claims** section.
 
-![User Attributes & Claims section](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
+![Open the User Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
 
 There are two possible reasons why you might need to edit the claims issued in the SAML token:
 

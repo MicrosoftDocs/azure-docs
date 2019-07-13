@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 07/02/2019
 ms.author: dapine
 ---
 
@@ -50,7 +50,7 @@ This container supports minimum and recommended values for the settings:
 
 |Container| Minimum | Recommended | TPS<br>(Minimum, Maximum)|
 |-----------|---------|-------------|--|
-|LUIS|1 core, 2 GB memory|1 core, 4 GB memory|20,40|
+|LUIS|1 core, 2-GB memory|1 core, 4-GB memory|20,40|
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * TPS - transactions per second
@@ -170,16 +170,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{AUTHORING_KEY} | The authoring key of the LUIS account for the published LUIS app.<br/>You can get your authoring key from the **User Settings** page on the LUIS portal. |
 |{AZURE_REGION} | The appropriate Azure region:<br/><br/>```westus``` - West US<br/>```westeurope``` - West Europe<br/>```australiaeast``` - Australia East |
 
-Use the following CURL command to download the published package, substituting your own values:
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz
-```
-
-If successful, the response is a LUIS package file. Save the file in the storage location specified for the input mount of the container. 
+To download the published package, please refer to the [API documentation here][download-published-package]. If successfully downloaded, the response is a LUIS package file. Save the file in the storage location specified for the input mount of the container. 
 
 ### Export trained app's package from API
 
@@ -198,16 +189,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{AUTHORING_KEY} | The authoring key of the LUIS account for the published LUIS app.<br/>You can get your authoring key from the **User Settings** page on the LUIS portal.  |
 |{AZURE_REGION} | The appropriate Azure region:<br/><br/>```westus``` - West US<br/>```westeurope``` - West Europe<br/>```australiaeast``` - Australia East |
 
-Use the following CURL command to download the trained package:
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_v{APPLICATION_VERSION}.gz
-```
-
-If successful, the response is a LUIS package file. Save the file in the storage location specified for the input mount of the container. 
+To download the trained package, please refer to the [API documentation here][download-trained-package]. If successfully downloaded, the response is a LUIS package file. Save the file in the storage location specified for the input mount of the container. 
 
 ## Run the container with `docker run`
 
@@ -232,11 +214,9 @@ Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-* This example uses the directory off the `c:` drive to avoid any permission conflicts on Windows. If you need to use a specific directory as the input directory, you may need to grant the docker service permission. 
+* This example uses the directory off the `C:` drive to avoid any permission conflicts on Windows. If you need to use a specific directory as the input directory, you may need to grant the docker service permission. 
 * Do not change the order of the arguments unless you are very familiar with docker containers.
 * If you are using a different operating system, use the correct console/terminal, folder syntax for mounts, and line continuation character for your system. These examples assume a Windows console with a line continuation character `^`. Because the container is a Linux operating system, the target mount uses a Linux-style folder syntax.
-
-
 
 This command:
 
@@ -319,7 +299,6 @@ From the LUIS portal, select your app, then select **Import endpoint logs** to u
 
 After the log is uploaded, [review the endpoint](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) utterances in the LUIS portal.
 
-
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -357,14 +336,13 @@ You can use a LUIS application if it **doesn't include** any of the following de
 
 Unsupported app configurations|Details|
 |--|--|
-|Unsupported container cultures| Dutch (nl-NL)<br>Japanese (ja-JP)<br>German is only supported with the [1.0.1 tokenizer or later](luis-language-support.md#custom-tokenizer-versions).|
+|Unsupported container cultures| Dutch (nl-NL)<br>Japanese (ja-JP)<br>German is only supported with the [1.0.2 tokenizer](luis-language-support.md#custom-tokenizer-versions).|
 |Unsupported entities for all cultures|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) prebuilt entity for all cultures|
 |Unsupported entities for English (en-US) culture|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) prebuilt entities|
 |Speech priming|External dependencies are not supported in the container.|
 |Sentiment analysis|External dependencies are not supported in the container.|
 
-<!--blogs/samples/video coures -->
-
+<!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
@@ -385,3 +363,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings
 * Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
+
+<!-- Links - external -->
+[download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip
+[download-trained-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip

@@ -33,7 +33,7 @@ The Hyperscale service tier in Azure SQL Database is the newest service tier in 
 The Hyperscale service tier in Azure SQL Database provides the following additional capabilities:
 
 - Support for up to 100 TB of database size
-- Nearly instantaneous database backups (based on file snapshots stored in Azure Blob storage) regardless of size with no IO impact on Compute   
+- Nearly instantaneous database backups (based on file snapshots stored in Azure Blob storage) regardless of size with no IO impact on compute resources  
 - Fast database restores (based on file snapshots) in minutes rather than hours or days (not a size of data operation)
 - Higher overall performance due to higher log throughput and faster transaction commit times regardless of data volumes
 - Rapid scale out - you can provision one or more read-only nodes for offloading your read workload and for use as hot-standbys
@@ -64,7 +64,7 @@ Hyperscale service tier is only available in [vCore model](sql-database-service-
 
 - **Storage**:
 
-  You don't need to specify the max data size when configuring a Hyperscale database. In the hyperscale tier, you are charged for storage for your database based on actual usage. Storage is automatically allocated between 10 GB and 100 TB, in increments which are dynamically adjusted between 10GB and 40GB.  
+  You don't need to specify the max data size when configuring a Hyperscale database. In the hyperscale tier, you are charged for storage for your database based on actual usage. Storage is automatically allocated between 10 GB and 100 TB, in increments that are dynamically adjusted between 10 GB and 40 GB.  
 
 For more information about Hyperscale pricing, see [Azure SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -221,7 +221,7 @@ These are the current limitations to the Hyperscale service tier as of GA.  We a
 
 | Issue | Description |
 | :---- | :--------- |
-| The Manage Backups pane for a logical server does not show Hyperscale databases will be filtered from SQL server  | Hyperscale has a separate method for managing backups, and as such the Long Term Retention and Point in Time backup Retention settings do not apply / are invalidated. Accordingly, Hyperscale databases do not appear in the Manage Backup pane. |
+| The Manage Backups pane for a logical server does not show Hyperscale databases will be filtered from SQL server  | Hyperscale has a separate method for managing backups, and as such the Long-Term Retention and Point in Time backup Retention settings do not apply / are invalidated. Accordingly, Hyperscale databases do not appear in the Manage Backup pane. |
 | Point-in-time restore | Once a database is migrated into the Hyperscale service tier, restore to a point-in-time prior to the migration is not supported.|
 | Restore of non-Hyperscale DB to Hypserscale and vice-versa | You cannot restore a Hyperscale database into a non-Hyperscale database, nor can you restore a non-Hyperscale database into a Hyperscale database.|
 | If a database file grows during migration due to an active workload and crosses the 1 TB per file boundary, the migration fails | Mitigations: <br> - If possible, migrate the database when there is no update workload running.<br> - Re-try the migration, it will succeed as long as the 1 TB boundary is not crossed during the migration.|

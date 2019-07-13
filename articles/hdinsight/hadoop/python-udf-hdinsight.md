@@ -156,9 +156,6 @@ In the commands below, replace `sshuser` with the actual username if different. 
 
 ### Upload file (PowerShell)
 
-> [!IMPORTANT]  
-> These PowerShell scripts will not work if [secure transfer](../../storage/common/storage-require-secure-transfer.md) is enabled.  Either use shell commands or disable secure transfer.
-
 PowerShell can also be used to remotely run Hive queries. Ensure your working directory is where `hiveudf.py` is located.  Use the following PowerShell script to run a Hive query that uses the `hiveudf.py` script:
 
 ```PowerShell
@@ -427,9 +424,6 @@ In the commands below, replace `sshuser` with the actual username if different. 
 
 
 ### Upload file (PowerShell)
-
-> [!IMPORTANT]  
-> These PowerShell scripts will not work if [secure transfer](../../storage/common/storage-require-secure-transfer.md) is enabled.  Either use shell commands or disable secure transfer.
 
 PowerShell can also be used to remotely run Hive queries. Ensure your working directory is where `pigudf.py` is located.  Use the following PowerShell script to run a Hive query that uses the `pigudf.py` script:
 

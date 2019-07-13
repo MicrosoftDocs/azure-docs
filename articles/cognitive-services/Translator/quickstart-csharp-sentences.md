@@ -3,13 +3,13 @@ title: "Quickstart: Get sentence lengths, C# - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to determine sentence length using .NET Core and the Translator Text API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/13/2019
-ms.author: erhopf
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to determine sentence length using C#
@@ -17,6 +17,9 @@ ms.author: erhopf
 In this quickstart, you'll learn how to determine sentence lengths using .NET Core, C# 7.1 or later, and the Translator Text API.
 
 This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
+
+>[!TIP]
+> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## Prerequisites
 
@@ -159,6 +162,8 @@ foreach (BreakSentenceResult o in deserializedOutput)
 }
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
 ## Put it all together
 
 The last step is to call `BreakSentenceRequest()` in the `Main` function. Locate `static void Main(string[] args)` and replace it with this code:
@@ -218,10 +223,10 @@ Make sure to remove any confidential information from your sample app's source c
 
 ## Next steps
 
-Explore the sample code for this quickstart and others, including transliteration and language identification, as well as other sample Translator Text projects on GitHub.
+Take a look at the API reference to understand everything you can do with the Translator Text API.
 
 > [!div class="nextstepaction"]
-> [Explore C# examples on GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## See also
 

@@ -121,8 +121,6 @@
     href: visualizations.md
   - name: Partner integrations
     href: platform/partners.md
-  - name: OMS portal deprecation
-    href: platform/oms-portal-transition.md
   - name: FAQ
     items:
     - name: Log Analytics
@@ -341,8 +339,6 @@
           href: app/proactive-exception-volume.md
         - name: Memory leak
           href: app/proactive-potential-memory-leak.md
-        - name: Resource utilization
-          href: app/proactive-low-utilization-cloud-resources.md
         - name: Security detection
           href: app/proactive-application-security-detection-pack.md
         - name: Azure Cloud Services
@@ -431,6 +427,8 @@
             href: insights/container-insights-enable-new-cluster.md
           - name: Enable for existing cluster
             href: insights/container-insights-enable-existing-clusters.md
+          - name: Region mappings
+            href: insights/container-insights-region-mapping.md
         - name: Analyze 
           href: insights/container-insights-analyze.md
         - name: Disable monitoring
@@ -1049,10 +1047,6 @@
       href: ./platform/classic-api-retirement-metrics-autoscale.md 
     - name: Classic alerting & monitoring 
       href: platform/monitoring-classic-retirement.md
-    - name: Extend alerts from Log Analytics to Azure
-      href: platform/alerts-extend.md
-    - name: Copy alerts from OMS portal to Azure portal 
-      href: platform/alerts-extend-tool.md
     - name: Switch log alert API preference
       href: platform/alerts-log-api-switch.md
     - name: HockeyApp data
