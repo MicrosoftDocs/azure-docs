@@ -38,7 +38,9 @@ fundamental “why would I want to do this?” question.
 
 In this tutorial, you will modify the simple echo-bot sample code, deploy it to Azure, and register it with the Bot-Framework Direct Line Speech channel. You will then run and configure a sample client application for Window (Direct Line Speech Client), allowing you to talk to your bot and hear it speak back to you.
 
-This tutorial is targeted for developers who are just starting their journey with Bot-Framework bots, Direct Line Speech or Speech SDK, who want to quickly build a working end-to-end system with minimal coding. The focus is not on the functionality of the bot (the dialog), but rather on setting up a simple system with client app, channel and bot service communicating with each other. When configured correctly, it will demostrate the how quickly the user hears the Bot's spoken reply, the accuracy of speech recognition and the quality of Bot's voice (text-to-speech).   
+This tutorial is targeted for developers who are just starting their journey with Bot-Framework bots, Direct Line Speech or Speech SDK, and want to quickly build a working end-to-end system with minimal coding. The focus is not on the functionality of the bot (the dialog), but rather on setting up a simple system with client app, channel and bot service communicating with each other. When configured correctly, it will demostrate the how quickly the user hears the Bot's spoken reply, the accuracy of speech recognition and the quality of Bot's voice (text-to-speech).
+
+TODO: mention that everything can be done for free (free Azure account, free usage of TTS, STT...)
 
  To read more about Direct Line Speech channel and its usage in a commercial application look at [About custom voice-first virtual assistants](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/voice-first-virtual-assistants)
 
@@ -83,13 +85,33 @@ there’s something a customer needs to take care of before they start (for
 example, creating a VM) it’s OK to link to that content before they
 begin.--->
 
-## Sign in to <service/product/tool name>
+<!-- ## Sign in to <service/product/tool name> -->
 
-Sign in to the [<service> portal](url).
+<!-- Sign in to the [<service> portal](url). -->
+
 <!---If you need to sign in to the portal to do the tutorial, this H2 and
 link are required.--->
 
-## Procedure 1
+## Select the Azure region for your bot deployment
+
+The Windows application you will run connects to Direct Line Speech channel (an Azure web service). The channel connects to the bot service you deploy to Azure. To reduce the overall round-trip time for a response from your bot, it's best to have these two services located in the same Azure region, and one which is closest to your location.
+
+See the section titled ["voice-first virtual assistant"](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#voice-first-virtual-assistants) for the list of regions supported by Direct Line Speech channel. You will need to pick one region, closest to you. This will also be the region you will deploy your bot. Exact location associated with Azure region
+[can be found here](https://azure.microsoft.com/en-us/global-infrastructure/locations/).
+
+One caveats: Direct Line Speech channel uses Text-to-Speech, which has "Standard Voices" and "Neural Voices". If you are interested in the higher quality Neural Voices, make sure you also look at the [Azure regions where Neural Voices is supported](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
+
+<!-- As noted in the next section, you will need to create a Cognitive Service Speech resource on Azure. If you choose the free trial subscription, it is only available in the "westus" region. -->
+
+From this point on, we will assume the chosen region is "westus2" (which also support Neural Voices)
+
+## Create an Azure Account with a Speech resource
+
+You will need an Azure account to deploy your echo-bot, if you don't already have one. Follow the instructions in the section titled ["New Azure account"](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#new-azure-account).
+
+## Create a Speech resource and get your speech subscription key
+
+You will need to create an Azure Speech resource, in order to get a subscription key, used to handle the Speech-To-Text and Text-to-Speech functionality in the Direct Line speech channel.  
 
 <!---Required:
 Tutorials are prescriptive and guide the customer through an end-to-end
