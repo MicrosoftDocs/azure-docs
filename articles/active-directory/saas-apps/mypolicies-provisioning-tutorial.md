@@ -115,11 +115,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to myPolicies**.
 
-	![myPolicies User Mappings](media\mypolicies-provisioning-tutorial\usermapping.png)
+	![myPolicies User Mappings](media/mypolicies-provisioning-tutorial/usermapping.png)
 
 9. Review the user attributes that are synchronized from Azure AD to myPolicies in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in myPolicies for update operations. Select the **Save** button to commit any changes.
 
-	![myPolicies User Mappings](media\mypolicies-provisioning-tutorial\userattribute.png)
+	![myPolicies User Mappings](media/mypolicies-provisioning-tutorial/userattribute.png)
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
