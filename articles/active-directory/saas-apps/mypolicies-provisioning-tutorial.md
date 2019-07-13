@@ -50,9 +50,10 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup myPolicies for provisioning
 
-The instructions to get a SCIM token were to reach out to a myPolicies representative to get the SCIM token for their instance.
- 
-* If you need a new SCIM token for you test instance, reach out to Jamie Lediet <jlediet@infotech.com> or Tayler Phillips <tphillips@infotech.com>.
+ Inorder to get SCIM token for their instance. We need to reach out to myPolicies representative.
+* In the case of  client they would have a sales representative or could use support@mypolicies.com. There is no other way to get a SCIM token except through a myPolicies representative.
+
+* If you need a new SCIM token for your test instance, reach out to Jamie Lediet <jlediet@infotech.com> or Tayler Phillips <tphillips@infotech.com>.
 
 * Save the token value provided by the myPolicies members. This value will be entered in the Secret Token field in the Provisioning tab of your myPolicies application in the Azure portal.
 
@@ -103,7 +104,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://<myPoliciesCustomDomain>.mypolicies.com/scim` in **Tenant URL** where **myPoliciesCustomDomain** is your myPolicies custom domain. In **Secret Token** textbox, enter the **SCIM Authentication Token** value which was given by mypolocies member. Click **Test Connection** to ensure Azure AD can connect to myPolicies. If the connection fails, ensure your myPolicies account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://<myPoliciesCustomDomain>.mypolicies.com/scim` in **Tenant URL** where **myPoliciesCustomDomain** is your myPolicies custom domain. In **Secret Token** textbox, enter the **SCIM Authentication Token** value which was given by myPolicies member. Click **Test Connection** to ensure Azure AD can connect to myPolicies. If the connection fails, ensure your myPolicies account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
