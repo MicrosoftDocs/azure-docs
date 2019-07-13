@@ -59,8 +59,8 @@ This tutorial will create a new project. If you want to download the completed t
 2. Open the [App registrations blade](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) and click **+New registration**.
 3. Enter a **Name** for your app and then, without setting a Redirect URI, click **Register**.
 4. In the **Manage** section of the pane that appears, select **Authentication**.
-5. Click **Try out the new new experience** near the top of the screen to open the new app registration experience, and then click **+New registration** > **+ Add a platform** > **iOS**.
-    - Enter your project's Bundle ID. If you downloaded the code, this is `com.microsoft.identitysample.MSALiOS`. If you are creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
+5. Click **Try out the new experience** near the top of the screen to open the new app registration experience, and then click **+New registration** > **+ Add a platform** > **iOS**.
+    - Enter your project's Bundle ID. If you downloaded the code, this is `com.microsoft.identitysample.MSALiOS`. If you're creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
 6. Click `Configure` and save the **MSAL Configuration** that appears in the **iOS configuration** page so you can enter it when you configure your app later.  Click **Done**.
 
 ## Add MSAL
@@ -69,7 +69,7 @@ Choose one of the following ways to install the MSAL library in your app:
 
 ### CocoaPods
 
-1. If you are using [CocoaPods](https://cocoapods.org/), install `MSAL` by first creating an empty file called `podfile` in the same folder as your project's `.xcodeproj` file. Add the following to `podfile`:
+1. If you're using [CocoaPods](https://cocoapods.org/), install `MSAL` by first creating an empty file called `podfile` in the same folder as your project's `.xcodeproj` file. Add the following to `podfile`:
 
 ```
 use_frameworks!
@@ -81,11 +81,11 @@ end
 
 2. Replace `<your-target-here>` with the name of your project.
 3. In a terminal window, navigate to the folder that contains the `podfile` you created and run `pod install` to install the MSAL library.
-4. Close Xcode and open the <project name>.xcworkspace to reload the project in Xcode.
+4. Close Xcode and open `<your project name>.xcworkspace` to reload the project in Xcode.
 
 ### Carthage
 
-If you are using [Carthage](https://github.com/Carthage/Carthage), install `MSAL` by adding it to your `Cartfile`:
+If you're using [Carthage](https://github.com/Carthage/Carthage), install `MSAL` by adding it to your `Cartfile`:
 
 ```
 github "AzureAD/microsoft-authentication-library-for-objc" "master"
@@ -124,7 +124,7 @@ Modify the value assigned to `kClientID`to be your Application ID. This value is
 
 In this step, you will register `CFBundleURLSchemes` so that the user can be redirected back to the app after sign in. By the way, `LSApplicationQueriesSchemes` also allows  your app to make use of Microsoft Authenticator.
 
-In Xcode, open `Info.plist` as a source code file, and add the following inside of the `<dict>` section. Replace `[BUNDLE_ID]` with the value you used in the Azure portal which, if you downloaded the code, is `com.microsoft.identitysample.MSALiOS`. If you are creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
+In Xcode, open `Info.plist` as a source code file, and add the following inside of the `<dict>` section. Replace `[BUNDLE_ID]` with the value you used in the Azure portal which, if you downloaded the code, is `com.microsoft.identitysample.MSALiOS`. If you're creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -487,7 +487,7 @@ This app is built for a single account scenario. MSAL also supports multi-accoun
 
 Build and deploy the app to a test device or emulator. You should be able to sign in and get tokens for Azure AD or personal Microsoft accounts.
 
-The first time a user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested.  While most users are capable of consenting, some Azure AD tenants have disabled user consent which requires admins to consent on behalf of all users. To support this scenario, register your app's scopes in the Azure portal.
+The first time a user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested.  While most users are capable of consenting, some Azure AD tenants have disabled user consent, which requires admins to consent on behalf of all users. To support this scenario, register your app's scopes in the Azure portal.
 
 After you sign in, the app will display the data returned from the Microsoft Graph `/me` endpoint.
 
