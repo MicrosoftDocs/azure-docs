@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 07/11/2019
+ms.date: 07/15/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev 
@@ -69,7 +69,7 @@ Choose one of the following ways to install the MSAL library in your app:
 
 ### CocoaPods
 
-If you are using [CocoaPods](https://cocoapods.org/), install `MSAL` by first creating a file called `podfile` at the same folder as your project's `.xcodeproj` file. Add the following:
+1. If you are using [CocoaPods](https://cocoapods.org/), install `MSAL` by first creating an empty file called `podfile` in the same folder as your project's `.xcodeproj` file. Add the following to `podfile`:
 
 ```
 use_frameworks!
@@ -79,11 +79,9 @@ target '<your-target-here>' do
 end
 ```
 
-Replace '<your-target-here>' with the name of your project.
-
-In a terminal window, navigate to the folder that contains your project's `.xcodeproj` file, and run `pod install` to install the MSAL library.
-
-Close Xcode and open the <project name>.xcworkspace to reload the project in Xcode. 
+2. Replace `<your-target-here>` with the name of your project.
+3. In a terminal window, navigate to the folder that contains your project's `.xcodeproj` file, and run `pod install` to install the MSAL library.
+4. Close Xcode and open the <project name>.xcworkspace to reload the project in Xcode.
 
 ### Carthage
 
@@ -101,13 +99,13 @@ You can also use Git Submodule, or check out the latest release to use as a fram
 
 Next, we'll add your app registration to your code. 
 
-First, import the MSAL framework in `ViewController.swift` and `AppDelegate.swift` files with:
+First, import the MSAL framework in `ViewController.swift` and `AppDelegate.swift` by adding the following to the top of those files:
 
 ```swift
 import MSAL
 ```
 
-Add your Application ID (which you saved in an earlier step - it's part of the MSAL Configuration) to `ViewController.swift` by adding  the following code prior to `viewDidLoad()`:
+Add the following code to `ViewController.swift` prior to `viewDidLoad()`:
 
 ```swift
 let kClientID = "Your_Application_Id_Here"
@@ -120,11 +118,13 @@ var accessToken = String()
 var applicationContext : MSALPublicClientApplication?
 ```
 
+Modify the value assigned to `kClientID`to be your Application ID. This value is part of the MSAL Configuration data that you saved during the step at the beginning of this tutorial to register the application in the Azure portal.
+
 ## Configure URL schemes
 
-Now you will register `CFBundleURLSchemes` to allow a callback so user can be redirected back to the app after sign in. `LSApplicationQueriesSchemes` allows using your app to use the Microsoft Authenticator if available.
+Now you will register `CFBundleURLSchemes` so the user can be redirected back to the app after sign in. `LSApplicationQueriesSchemes` allows using your app to use the Microsoft Authenticator if available.
 
-Open `Info.plist` as source code and add the following inside of the `<dict>` section. Replace **[BUNDLE_ID]** with what you configured in the Azure portal.  (If you downloaded the code, this is `com.microsoft.identitysample.MSALiOS`. If you are creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section).
+Open `Info.plist` as source code and add the following inside of the `<dict>` section. Replace `[BUNDLE_ID]` with the value you used in the Azure portal.  If you downloaded the code, this is `com.microsoft.identitysample.MSALiOS`. If you are creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -151,10 +151,9 @@ For this tutorial, you need to create:
 - Sign out button
 - Logging textview
 
-In `ViewController.swift`, define properties and `initUI()` in the `ViewController`class as follows:
+In `ViewController.swift`, add the following code to the `ViewController`class:
 
 ```swift
-
 var loggingText: UITextView!
 var signOutButton: UIButton!
 var callGraphButton: UIButton!
@@ -202,7 +201,7 @@ func initUI() {
     }
 ```
 
-Next, inside the `ViewController` class, replace the `viewDidLoad()` method with:
+Next, also inside the `ViewController` class, replace the `viewDidLoad()` method with:
 
 ```swift
     override func viewDidLoad() {
@@ -220,7 +219,7 @@ Next, inside the `ViewController` class, replace the `viewDidLoad()` method with
 
 ### Initialize MSAL
 
-Now add the following `InitMSAL` method to the `ViewController` class. It creates an `MSALPublicClientApplication` with an instance of `MSALPublicClientConfiguration` for your application:
+Now add the following `InitMSAL` method to the `ViewController` class:
 
 ```swift
     func initMSAL() throws {
@@ -237,7 +236,7 @@ Now add the following `InitMSAL` method to the `ViewController` class. It create
     }
 ```
 
-### Handle the Callback
+### Handle the sign-in callback
 
 Open the `AppDelegate.swift` file. To handle the callback after sign-in, add `MSALPublicClientApplication.handleMSALResponse` to the `appDelegate` class:
 
@@ -260,7 +259,7 @@ MSAL exposes two primary methods for getting tokens: `acquireTokenSilently` and 
 
 - `acquireTokenSilently()` attempts to sign in a user and get tokens without any user interaction if an account is present.
 
-- `acquireTokenInteractively` will always show UI when attempting to sign in the user and get tokens; however, it might use session cookies in the browser or an account in the Microsoft authenticator to give an interactive-SSO experience.
+- `acquireTokenInteractively()` always shows UI when attempting to sign in the user and get tokens; however, it might use session cookies in the browser or an account in the Microsoft authenticator to provide an interactive-SSO experience.
 
 Put the following code in the `ViewController` class:
 
@@ -338,7 +337,7 @@ Add the following code to the `ViewController` class.
 
 #### Get a token silently
 
-To acquire an updated token silently, you will need to create an    `MSALSilentTokenParameters`  and call `acquireTokenSilent`.  Add the following code to the `ViewController` class.
+To acquire an updated token silently you will need to create an `MSALSilentTokenParameters` object and call `acquireTokenSilent`.  Add the following code to the `ViewController` class.
 
 ```swift
     
@@ -376,7 +375,7 @@ To acquire an updated token silently, you will need to create an    `MSALSilentT
 
 ### Call the Microsoft Graph API 
 
-Once you have a token through `self.accessToken`, your app can use this value in the HTTP header to make an authorized request to the Microsoft Graph:
+Once you have a token, your app can use this value in the HTTP header to make an authorized request to the Microsoft Graph:
 
 | header key    | value                 |
 | ------------- | --------------------- |
@@ -412,7 +411,7 @@ Add the following code to the `ViewController` class:
     }
 ```
 
-Learn more about the [Microsoft Graph API](https://graph.microsoft.com)
+See [Microsoft Graph API](https://graph.microsoft.com) if you want to learn more about the Microsoft Graph API.
 
 ### Use MSAL for Sign-out
 
