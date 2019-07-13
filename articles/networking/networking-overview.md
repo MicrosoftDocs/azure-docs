@@ -169,7 +169,7 @@ Azure Application Gateway is a web traffic load balancer that enables you to man
 
 The following diagram shows url path-based routing with Application Gateway.
 
-![Application Gateway example](../application-gateway/media/application-gateway-introduction/scenario.png)
+![Application Gateway example](./media/networking-overview/figure1-720.png)
 
 ## <a name="monitor"></a>Network monitoring services
 This section describes networking services in Azure that help monitor your network resources - Network Watcher, ExpressRoute Monitor, Azure Monitor, and Virtual Network TAP.
