@@ -1460,6 +1460,8 @@
         href: leapsome-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
+      - name: myPolicies
+        href: mypolicies-provisioning-tutorial.md
     - name: N - Z
       items:
       - name: Netsuite
