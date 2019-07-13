@@ -39,7 +39,7 @@ ms.author: sngun
 ## Release Notes
 
 > [!NOTE]
-> If you are using .NET Core, please see the latest version of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard. 
+> If you are using .NET Core, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard. 
 
 ### <a name="2.4.1"/>2.4.1
 
