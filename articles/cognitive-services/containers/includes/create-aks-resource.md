@@ -11,9 +11,9 @@ ms.date: 7/3/2019
 ms.author: dapine
 ---
 
-## Create an Azure Kubernetes Service (AKS) cluster resource
+## Create an Azure Kubernetes Service cluster resource
 
-1. Go to [Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks) and click **Create**.
+1. Go to [Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks) and select **Create**.
 
 1. On the **Basics** tab, enter the following information:
 
@@ -39,8 +39,8 @@ ms.author: dapine
 
 1. On the **Monitoring** tab, make sure that **Enable container monitoring** is set to **Yes**, and leave **Log Analytics workspace** as the default value.
 1. On the **Tags** tab, leave the name/value pairs blank for now.
-1. Click **Review and Create**.
-1. After validation passes, click **Create**.
+1. Select **Review and Create**.
+1. After validation passes, select **Create**.
 
 > [!NOTE]
-> If validation fails, it may be due a "Service principal" error. Go back to the **Authentication** tab and then back to **Review + create**, where validation should execute and then pass.
+> If validation fails, it may be due a "Service principal" error. Go back to the **Authentication** tab and then back to **Review + create**, where validation should run and then pass.
