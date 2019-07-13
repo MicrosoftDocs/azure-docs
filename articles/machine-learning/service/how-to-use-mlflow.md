@@ -219,7 +219,7 @@ mlflow.sklearn.log_model(regression_model, model_save_path)
 
 ### Retrieve model from previous run
 
-To retrieve the desired run we need the run id and the path in run history of where the model was saved. 
+To retrieve the desired run we need the run ID and the path in run history of where the model was saved. 
 
 ```python
 # gets the list of runs for your experiment as an array
@@ -227,7 +227,7 @@ experiment_name = "experiment-with-mlflow"
 exp = ws.experiments[experiment_name]
 runs = list(exp.get_runs())
 
-# get the run id and the path in run history
+# get the run ID and the path in run history
 runid = runs[0].id
 model_save_path = "model"
 ```
