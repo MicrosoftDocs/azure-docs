@@ -41,7 +41,7 @@ This sample uses the Microsoft Authentication library (MSAL) to implement Authen
 ## Prerequisites
 
 - XCode version 10.x is required to build the app in this guide. You can download XCode from the [iTunes website](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
-- Microsoft Authentication Library ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). You can use dependency manager or add the library manually. The instructions below show you how.
+- Microsoft Authentication Library ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). You can use a dependency manager or add the library manually. The instructions below show you how.
 
 This tutorial will create a new project. If you want to download the completed tutorial instead, [download the code](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip).
 
@@ -56,7 +56,7 @@ This tutorial will create a new project. If you want to download the completed t
 ## Register your application
 
 1. Go to the [Azure portal](https://aka.ms/MobileAppReg)
-2. Open the [App registrations blade](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview).
+2. Open the [App registrations blade](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) and click **+New registration**.
 3. Enter a **Name** for your app and then, without setting a Redirect URI, click **Register**.
 4. In the **Manage** section of the pane that appears, select **Authentication**.
 5. Click **Try out the new new experience** near the top of the screen to open the new app registration experience, and then click **+New registration** > **+ Add a platform** > **iOS**.
@@ -80,7 +80,7 @@ end
 ```
 
 2. Replace `<your-target-here>` with the name of your project.
-3. In a terminal window, navigate to the folder that contains your project's `.xcodeproj` file, and run `pod install` to install the MSAL library.
+3. In a terminal window, navigate to the folder that contains the `podfile` you created and run `pod install` to install the MSAL library.
 4. Close Xcode and open the <project name>.xcworkspace to reload the project in Xcode.
 
 ### Carthage
@@ -99,13 +99,13 @@ You can also use Git Submodule, or check out the latest release to use as a fram
 
 Next, we'll add your app registration to your code. 
 
-First, import the MSAL framework in `ViewController.swift` and `AppDelegate.swift` by adding the following to the top of those files:
+First, add the following import statement to the top of the `ViewController.swift` and `AppDelegate.swift` files:
 
 ```swift
 import MSAL
 ```
 
-Add the following code to `ViewController.swift` prior to `viewDidLoad()`:
+Then Add the following code to `ViewController.swift` prior to `viewDidLoad()`:
 
 ```swift
 let kClientID = "Your_Application_Id_Here"
@@ -122,9 +122,9 @@ Modify the value assigned to `kClientID`to be your Application ID. This value is
 
 ## Configure URL schemes
 
-Now you will register `CFBundleURLSchemes` so the user can be redirected back to the app after sign in. `LSApplicationQueriesSchemes` allows using your app to use the Microsoft Authenticator if available.
+In this step, you will register `CFBundleURLSchemes` so that the user can be redirected back to the app after sign in. By the way, `LSApplicationQueriesSchemes` also allows  your app to make use of Microsoft Authenticator.
 
-Open `Info.plist` as source code and add the following inside of the `<dict>` section. Replace `[BUNDLE_ID]` with the value you used in the Azure portal.  If you downloaded the code, this is `com.microsoft.identitysample.MSALiOS`. If you are creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
+In Xcode, open `Info.plist` as a source code file, and add the following inside of the `<dict>` section. Replace `[BUNDLE_ID]` with the value you used in the Azure portal which, if you downloaded the code, is `com.microsoft.identitysample.MSALiOS`. If you are creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -145,13 +145,7 @@ Open `Info.plist` as source code and add the following inside of the `<dict>` se
 
 ## Create your app’s UI
 
-For this tutorial, you need to create:
-
-- Call Graph API button
-- Sign out button
-- Logging textview
-
-In `ViewController.swift`, add the following code to the `ViewController`class:
+Now create a UI that includes a button to call the Microsoft Graph API, another to sign out,  and a text view to see some output by adding the following code to the `ViewController`class:
 
 ```swift
 var loggingText: UITextView!
@@ -219,7 +213,7 @@ Next, also inside the `ViewController` class, replace the `viewDidLoad()` method
 
 ### Initialize MSAL
 
-Now add the following `InitMSAL` method to the `ViewController` class:
+Add the following `InitMSAL` method to the `ViewController` class:
 
 ```swift
     func initMSAL() throws {
@@ -238,7 +232,7 @@ Now add the following `InitMSAL` method to the `ViewController` class:
 
 ### Handle the sign-in callback
 
-Open the `AppDelegate.swift` file. To handle the callback after sign-in, add `MSALPublicClientApplication.handleMSALResponse` to the `appDelegate` class:
+Open the `AppDelegate.swift` file. To handle the callback after sign-in, add `MSALPublicClientApplication.handleMSALResponse` to the `appDelegate` class like this:
 
 ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -255,13 +249,13 @@ Open the `AppDelegate.swift` file. To handle the callback after sign-in, add `MS
 
 Now, we can implement the application's UI processing logic and get tokens interactively through MSAL.
 
-MSAL exposes two primary methods for getting tokens: `acquireTokenSilently` and `acquireTokenInteractively`: 
+MSAL exposes two primary methods for getting tokens: `acquireTokenSilently()` and `acquireTokenInteractively()`: 
 
-- `acquireTokenSilently()` attempts to sign in a user and get tokens without any user interaction if an account is present.
+- `acquireTokenSilently()` attempts to sign in a user and get tokens without any user interaction as long as an account is present.
 
-- `acquireTokenInteractively()` always shows UI when attempting to sign in the user and get tokens; however, it might use session cookies in the browser or an account in the Microsoft authenticator to provide an interactive-SSO experience.
+- `acquireTokenInteractively()` always shows UI when attempting to sign in the user. It may use session cookies in the browser or an account in the Microsoft authenticator to provide an interactive-SSO experience.
 
-Put the following code in the `ViewController` class:
+Add the following code to the `ViewController` class:
 
 ```swift
     @objc func callGraphAPI(_ sender: UIButton) {
@@ -298,10 +292,10 @@ Put the following code in the `ViewController` class:
 
 #### Get a token interactively
 
-To acquire a token for the first time, you will need to create an `MSALInteractiveTokenParameters` and call `acquireToken`. Next you will add code that:
+The code below gets a token for the first time by creating an `MSALInteractiveTokenParameters` object and calling `acquireToken`. Next you will add code that:
 
 1. Creates `MSALInteractiveTokenParameters` with scopes.
-2. Calls `acquireToken` with the parameters created.
+2. Calls `acquireToken()` with the created parameters.
 3. Handles errors. For more detail, refer to the [iOS error handling guide](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/Error-Handling).
 4. Handles the successful case.
 
@@ -337,7 +331,7 @@ Add the following code to the `ViewController` class.
 
 #### Get a token silently
 
-To acquire an updated token silently you will need to create an `MSALSilentTokenParameters` object and call `acquireTokenSilent`.  Add the following code to the `ViewController` class.
+To acquire an updated token silently, add the following code to the `ViewController` class. It creates an `MSALSilentTokenParameters` object and calls `acquireTokenSilent()`:
 
 ```swift
     
@@ -375,7 +369,7 @@ To acquire an updated token silently you will need to create an `MSALSilentToken
 
 ### Call the Microsoft Graph API 
 
-Once you have a token, your app can use this value in the HTTP header to make an authorized request to the Microsoft Graph:
+Once you have a token, your app can use it in the HTTP header to make an authorized request to the Microsoft Graph:
 
 | header key    | value                 |
 | ------------- | --------------------- |
@@ -411,7 +405,7 @@ Add the following code to the `ViewController` class:
     }
 ```
 
-See [Microsoft Graph API](https://graph.microsoft.com) if you want to learn more about the Microsoft Graph API.
+See [Microsoft Graph API](https://graph.microsoft.com) to learn more about the Microsoft Graph API.
 
 ### Use MSAL for Sign-out
 
@@ -434,8 +428,7 @@ To add sign-out capability, add the following code inside the `ViewController` c
             /**
              Removes all tokens from the cache for this application for the provided account
              
-             - account:    The account to remove from the cache
-             */
+             - account:    The account to remove from the cache */
             
             try applicationContext.remove(account)
             self.loggingText.text = ""
@@ -453,13 +446,12 @@ To add sign-out capability, add the following code inside the `ViewController` c
 By default, MSAL caches your app's tokens in the iOS keychain. 
 
 To enable token caching:
-1. Go to your Xcode Project Settings > `Capabilities tab` > `Enable Keychain Sharing`
-2. Click `+` and enter `com.microsoft.adalcache` as a **Keychain Groups** entry.
+1. Go to your Xcode Project Settings > **Capabilities tab** > **Enable Keychain Sharing**
+2. Click **+** and enter `com.microsoft.adalcache` as a **Keychain Groups** entry.
 
 ### Add helper methods
 
 Add the following helper methods to the `ViewController` class to complete the sample:
-
 
 ``` swift
     
@@ -485,7 +477,7 @@ Add the following helper methods to the `ViewController` class to complete the s
     }
 ```
 
-#### Multi-account applications
+### Multi-account applications
 
 This app is built for a single account scenario. MSAL also supports multi-account scenarios, but it requires some additional work from apps. You will need to create UI to help user's select which account they want to use for each action that requires tokens. Alternatively, your app can implement a heuristic to select which account to use via the `getAccounts()` method.
 
@@ -495,11 +487,9 @@ This app is built for a single account scenario. MSAL also supports multi-accoun
 
 Build and deploy the app to a test device or emulator. You should be able to sign in and get tokens for Azure AD or personal Microsoft accounts.
 
+The first time a user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested.  While most users are capable of consenting, some Azure AD tenants have disabled user consent which requires admins to consent on behalf of all users. To support this scenario, register your app's scopes in the Azure portal.
+
 After you sign in, the app will display the data returned from the Microsoft Graph `/me` endpoint.
-
-### Consent
-
-The first time any user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested.  While most users are capable of consenting, some Azure AD tenants have disabled user consent which requires admins to consent on behalf of all users. To support this scenario, register your app's scopes in the Azure portal.
 
 ## Get help
 
