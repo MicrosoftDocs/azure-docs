@@ -28,11 +28,8 @@ Pay-as-you-go (PAYG) | Yes | No | No | No
 
 To learn more about Marketplace orders (also known as external services), see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
-See [How to get your Azure billing invoice and daily usage
-data](billing-download-azure-invoice-daily-usage-date.md)
-for download instructions.
-The usage and charges file is available in a comma-separated values (.csv) file format,
-which you can open in a spreadsheet application.
+For download instructions, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
+You can open your usage and charges CSV file in Microsoft Excel or another spreadsheet application.
 
 ## List of terms and descriptions
 
@@ -60,7 +57,7 @@ CostInBillingCurrency | MCA | Cost of the charge in the billing currency before 
 CostInPricingCurrency | MCA | Cost of the charge in the pricing currency before credits or taxes.
 Currency | EA, PAYG | See BillingCurrency.
 Date | All | The usage or purchase date of the charge.
-EffectivePrice | All | Blended unit price for the period. This averages out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.
+EffectivePrice | All | Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.
 ExchangeRateDate | MCA | Date the exchange rate was established.
 ExchangeRatePricingToBilling | MCA | Exchange rate used to convert the cost in the pricing currency to the billing currency.
 Frequency | All | Indicates whether a charge is expected to repeat. Charges can either happen once (**OneTime**), repeat on a monthly or yearly basis (**Recurring**), or be based on usage (**UsageBased**).
