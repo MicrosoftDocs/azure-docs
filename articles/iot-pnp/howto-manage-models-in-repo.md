@@ -11,9 +11,9 @@ ms.author: yahajiza
 ---
 
 # Manage Models in the Repository
-The Plug and Play Model Repository is a store that contains device capability models and interfaces and makes them available to be discovered and consumed by solution developers. A Device Capability Model is used to describe a complete entity, such as a physical device and defines the set of interfaces implemented by the entity.
+The Plug and Play Model Repository is a store that contains device capability models and interfaces and makes them available to be discovered and consumed by solution developers. A Device Capability Model is used to describe a complete entity, such as a physical device and defines the set of interfaces implemented by the entity. . You can share models from your company repository to the public repository; where it be consumed by others.
 
-There are three mechanisms to manage capability models in the repositories. These include the Azure Certified for IoT portal, Azure CLI, and Visual Studio Code.
+There are three mechanisms to manage capability models in repositories. These include the Azure Certified for IoT portal, Azure CLI, and Visual Studio Code.
 
 ## Azure Certified for IoT Portal
 
