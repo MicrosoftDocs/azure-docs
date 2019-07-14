@@ -737,9 +737,9 @@ Apache Cassandra SDK's client drivers that use CQLv3 were used for client progra
 
 Yes, you can use regular syntax to create composite partition key.
 
-### Can I use stable loader for data loading?
+### Can I use sstableloader for data loading?
 
-No,  stable loader isn't supported.
+No, sstableloader isn't supported.
 
 ### Can an on-premises Apache Cassandra cluster be paired with Azure Cosmos DB's Cassandra API?
 

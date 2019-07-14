@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date:  7/02/2019
-ms.author: monhaber
+ms.author: v-monhabe
 
 ---
 # Threat detection for data services in Azure Security Center

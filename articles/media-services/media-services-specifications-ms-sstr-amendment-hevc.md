@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: johndeu;
+ms.author: johndeu
 
 ---
 # Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC 
