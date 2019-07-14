@@ -44,6 +44,7 @@ To open the Network map:
 2. Under **Network map** click **See topology**.
  
 The default view of the topology map displays:
+
 - Subscriptions you selected in Azure. The map supports multiple subscriptions.
 - VMs, subnets, and VNets of the Resource Manager resource type (Classic Azure resources are not supported)
 - Peered VNets
@@ -60,6 +61,7 @@ The Network map can show you your Azure resources in a **Topology** view and a *
 ### The topology view
 
 In the **Topology** view of the networking map, you can view the following insights about your networking resources:
+
 - In the inner circle, you can see all the Vnets within your selected subscriptions, the next circle is all the subnets, the outer circle is all the virtual machines.
 - The lines connecting the resources in the map let you know which resources are associated with each other, and how your Azure network is structured. 
 - Use the severity indicators to quickly get an overview of which resources have open recommendations from Security Center.
@@ -69,6 +71,7 @@ In the **Topology** view of the networking map, you can view the following insig
 Because the map is interactive and dynamic, every node is clickable, and the view can change based on the filters:
 
 1. You can modify what you see on the network map by using the filters at the top. You can focus the map based on:
+
    -  **Security health**: You can filter the map based on Severity (High, Medium, Low) of your Azure resources.
    - **Recommendations**: You can select which resources are displayed based on which recommendations are active on those resources. For example, you can view only resources for which Security Center recommends you enable Network Security Groups.
    - **Network zones**: By default, the map displays only Internet facing resources, you can select internal VMs as well.
@@ -76,6 +79,7 @@ Because the map is interactive and dynamic, every node is clickable, and the vie
 2. You can click **Reset** in top left corner at any time to return the map to its default state.
 
 To drill down into a resource:
+
 1. When you select a specific resource on the map, the right pane opens and gives you general information about the resource, connected security solutions if there are any, and the recommendations relevant to the resource. It's the same type of behavior for each type of resource you select. 
 2. When you hover over a node in the map, you can view general information about the resource, including subscription, resource type, and resource group.
 3. Use the link to zoom into the tool tip and refocus the map on that specific node. 
@@ -94,6 +98,7 @@ For example, you might detect two machines that you weren’t aware could commun
 ### Investigate resources
 
 To drill down into a resource:
+
 1. When you select a specific resource on the map, the right pane opens and gives you general information about the resource, connected security solutions if there are any, and the recommendations relevant to the resource. It's the same type of behavior for each type of resource you select. 
 2. Click **Traffic** to see the list of possible outbound and inbound traffic on the resource - this is a comprehensive list of who can communicate with the resource and who it can communicate with, and through which protocols and ports. For example, when you select a VM, all the VMs it can communicate with are shown, and when you select a subnet, all the subnets which it can communicate with are shown.
 
@@ -125,7 +130,7 @@ The third level displays virtual machines, which is similar to what is described
 
 ## Network recommendations
 
-|Recommendation Name|Description|Severity|Secure score|Resource Type|
+|Recommendation name|Description|Severity|Secure score|Resource type|
 |----|----|----|----|----|----|
 |Network security groups on the subnet level should be enabled|Enable network security groups to control network access of resources deployed in your subnets.|High/ Medium|30|Subnet|
 |Virtual machines should be associated with a Network Security Group|Enable Network Security Groups to control network access of your virtual machines.|High/ Medium|30|Virtual machine|
