@@ -113,7 +113,7 @@ Get the custom policy starter pack and update the XML files in the SocialAndLoca
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-1. In all of the files in the **SocialAndLocalAccounts** directory, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, `contosoTenant.onmicrosoft.com`.
+1. In all of the files in the **SocialAndLocalAccounts** directory, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosotenant*, all instances of `yourtenant.onmicrosoft.com` become `contosotenant.onmicrosoft.com`.
 
 ### Add application IDs to the custom policy
 
