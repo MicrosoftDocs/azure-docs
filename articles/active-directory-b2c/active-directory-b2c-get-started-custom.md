@@ -145,7 +145,8 @@ As you upload the files, Azure adds the prefix `B2C_1A_` to each.
 ## Test the custom policy
 
 1. Under **Custom policies**, select **B2C_1A_signup_signin**.
-1. For **Select application** on the overview page of the custom policy, select the web application named *webapp1* that you previously registered. Make sure that the **Reply URL** is `https://jwt.ms`.
+1. For **Select application** on the overview page of the custom policy, select the web application named *webapp1* that you previously registered.
+1. Make sure that the **Reply URL** is `https://jwt.ms`.
 1. Select **Run now**.
 1. You should be able to sign up using an email address.
 1. Sign in with the same account to confirm that you have the correct configuration.
