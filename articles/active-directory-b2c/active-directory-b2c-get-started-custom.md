@@ -121,10 +121,10 @@ Get the custom policy starter packs from GitHub, then update the XML files in th
 
 Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
 
-1. Open the `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** file and find the element `<TechnicalProfile Id="login-NonInteractive">`.
+1. Open `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** and find the element `<TechnicalProfile Id="login-NonInteractive">`.
 1. Replace both instances of `IdentityExperienceFrameworkAppId` with the application ID of the IdentityExperienceFramework application that you created earlier.
 1. Replace both instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the ProxyIdentityExperienceFramework application that you created earlier.
-1. Save the `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** file.
+1. Save the file.
 
 ## Upload the policies
 
