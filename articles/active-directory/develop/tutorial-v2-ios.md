@@ -71,13 +71,13 @@ Choose one of the following ways to install the MSAL library in your app:
 
 1. If you're using [CocoaPods](https://cocoapods.org/), install `MSAL` by first creating an empty file called `podfile` in the same folder as your project's `.xcodeproj` file. Add the following to `podfile`:
 
-```
-use_frameworks!
-
-target '<your-target-here>' do
-   pod 'MSAL', '~> 0.4.0'
-end
-```
+   ```
+   use_frameworks!
+   
+   target '<your-target-here>' do
+      pod 'MSAL', '~> 0.4.0'
+   end
+   ```
 
 2. Replace `<your-target-here>` with the name of your project.
 3. In a terminal window, navigate to the folder that contains the `podfile` you created and run `pod install` to install the MSAL library.
