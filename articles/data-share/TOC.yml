@@ -36,7 +36,7 @@
 - name: Resources
   items:
   - name: Blog
-    href: https://azure.microsoft.com/blog/tag/data-share
+    href: https://azure.microsoft.com/blog/announcing-preview-of-azure-data-share/
   - name: Microsoft Tech Community
     href: https://techcommunity.microsoft.com/
   - name: Product feedback
