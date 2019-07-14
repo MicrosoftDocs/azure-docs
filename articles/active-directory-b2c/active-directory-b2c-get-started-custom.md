@@ -141,7 +141,7 @@ When each file is uploaded, the name of the policy file is prefixed with `B2C_1A
 
 ## Test the custom policy
 
-1. Under **Custom Policies**, select **B2C_1A_signup_signin**.
+1. Under **Custom policies**, select **B2C_1A_signup_signin**.
 1. For **Select application** on the overview page of the custom policy, select the web application named *webapp1* that you previously registered. Make sure that the **Reply URL** is `https://jwt.ms`.
 1. Select **Run now**.
 1. You should be able to sign up using an email address.
@@ -161,7 +161,7 @@ When each file is uploaded, the name of the policy file is prefixed with `B2C_1A
 
 1. Upload the *TrustFrameworkExtensions.xml* file to your tenant.
 1. Under **Custom policies**, select **B2C_1A_signup_signin**.
-1. Select **Run now** and select Facebook to sign in and test the custom policy. Or, invoke the policy directly from your registered application.
+1. Select **Run now** and select Facebook to sign in with Facebook and test the custom policy. Or, invoke the policy directly from your registered application.
 
 ## Next steps
 
