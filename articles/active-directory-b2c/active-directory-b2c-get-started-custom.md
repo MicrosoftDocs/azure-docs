@@ -160,7 +160,8 @@ When each file is uploaded, the name of the policy file is prefixed with `B2C_1A
    ```
 
 1. Upload the *TrustFrameworkExtensions.xml* file to your tenant.
-1. Select **Run now** to test the custom policy, or invoke the policy directly from your registered application.
+1. Under **Custom policies**, select **B2C_1A_signup_signin**.
+1. Select **Run now** and select Facebook to sign in and test the custom policy. Or, invoke the policy directly from your registered application.
 
 ## Next steps
 
