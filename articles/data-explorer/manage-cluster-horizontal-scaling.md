@@ -13,10 +13,12 @@ ms.date: 07/14/2019
 
 Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. A static cluster size can lead to under-utilization or over-utilization, neither of which is ideal.
 
-Since demand on a cluster can’t be predicted with absolute accuracy, a better approach is to *scale* a cluster, adding and removing capacity with changing demand. There are two workflows for scaling: 
+Since demand on a cluster can’t be predicted with absolute accuracy, a better approach is to *scale* a cluster, adding and removing capacity and CPU resources with changing demand. 
 
-* Horizontal scaling, also called scaling out and in.
-* Vertical scaling, also called scaling up and down.
+There are two workflows for scaling an Azure Data Explorer cluster: 
+
+* Horizontal scaling, also called scaling in and out.
+* [Vertical scaling](manage-cluster-vertical-scaling.md), also called scaling up and down.
 
 This article explains the horizontal scaling workflow.
 
@@ -24,7 +26,7 @@ This article explains the horizontal scaling workflow.
 
 Horizontal scaling allows you to scale the instance count automatically based on predefined rules and schedules. Specify your autoscale settings for your cluster in the Azure portal, as described in this article.
 
-1. In the Azure portal, go to your Data Explorer cluster resource. Under **Settings**, select **Scale out**. 
+1. In the Azure portal, go to your Azure Data Explorer cluster resource. Under **Settings**, select **Scale out**. 
 
 2. In the **Scale out** window, select your desired autoscale method: **Manual scale**, **Optimized autoscale** or **Custom autoscale**.
 
@@ -98,9 +100,10 @@ Custom autoscale allows you to scale your cluster dynamically based on metrics t
 
 7. Select **Save**.
 
-You've now configured a scale-out operation for your Azure Data Explorer cluster. Add another rule for a scale-in operation. If you need assistance with cluster-scaling issues, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in the Azure portal.
+You've now configured horizontal scaling for your Azure Data Explorer cluster. Add another rule for vertical scaling. If you need assistance with cluster-scaling issues, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in the Azure portal.
 
 ## Next steps
 
 * [Monitor Azure Data Explorer performance, health, and usage with metrics](using-metrics.md)
+
 * [Manage cluster vertical scaling](manage-cluster-vertical-scaling.md) for appropriate sizing of a cluster.
