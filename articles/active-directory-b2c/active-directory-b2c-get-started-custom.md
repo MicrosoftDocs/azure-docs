@@ -128,7 +128,8 @@ Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
 
 ## Upload the policies
 
-1. Under **Custom policies** on the **Identity Experience Framework** page in the Azure portal, select **Upload Policy**.
+1. Select the **Identity Experience Framework** menu item in your B2C tenant in the Azure portal.
+1. Select **Upload custom policy**.
 1. In this order, upload the policy files:
     1. *TrustFrameworkBase.xml*
     1. *TrustFrameworkExtensions.xml*
@@ -136,7 +137,7 @@ Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
     1. *ProfileEdit.xml*
     1. *PasswordReset.xml*
 
-When each file is uploaded, the name of the policy file is prefixed with `B2C_1A_`.
+As you upload the files, Azure adds the prefix `B2C_1A_` to each.
 
 > [!TIP]
 > If your XML editor supports validation, validate the files against the `TrustFrameworkPolicy_0.3.0.0.xsd` XML schema that is located in the root directory of the starter pack. XML schema validation identifies errors before uploading.
