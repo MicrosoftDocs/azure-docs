@@ -56,7 +56,7 @@ Each entry in the list of interfaces in the implements section has a:
 - `name`: the programming name of the interface.
 - `schema`: the interface the capability model implements.
 
-There are additional optional fields you can use to add more details to the capability model, such as display name and description.
+There are additional optional fields you can use to add more details to the capability model, such as display name and description.  Interfaces that are declared within a capability model can be thought of as components of the device. For public preview, the interface list may have only one entry per schema.
 
 ## Interface
 
@@ -64,7 +64,7 @@ With DTDL, you describe the capabilities of your device using interfaces. Interf
 
 - `Properties`. Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on-off state of a coolant pump. Properties can also represent basic device properties, such as the firmware version of the device. You can declare properties as read-only or writable.
 - `Telemetry`. Telemetry fields represent measurements from sensors. Whenever your device takes a sensor measurement, it should send a telemetry event containing the sensor data.
-- `Commands`. Commands represent methods that users of your device can execute on the device. For example, a reset command or a command to switch a fan on or off.
+- `Commands`. Commands represent methods that users of your device can execute on the device. For example, a reset command or a command to switch a fan on or off. 
 
 The following example shows the interface for a thermostat device:
 
@@ -97,6 +97,22 @@ In this simple example, there's only a single telemetry field. A minimal field d
 - `schema`: specifies the data type for the telemetry. This value can be a primitive type, such as double, integer, boolean, or string. Complex object types, arrays, and maps are also supported.
 
 Other optional fields, such as display name and description, let you add more details to the interface and capabilities.
+
+### Properties
+
+### Telemetry
+By default, all telemetry coming into IoT Hub will be routed to Event Hub.  Routes can set based on system properties that are documented in 
+•	Discuss the “system” properties that telemetry is tagged with so developer can figure out basic routing rules.
+
+
+### Commands
+Commands may be syncronous or asyncronous. A syncronous command needs to execute quickly, within 30 seconds by default unless otherwise specified, and the device must be connected when the command arrives.  An asyncronous command is used for long-running operations. Progress is sent by the device via telemetry messages with the following header properies:
+- `iothub-command-name`:  the command name, for example `UpdateFirmware`
+-	`iothub-command-request-id`:  the request Id generated on the server side and sent to the device in the initial call
+-	`iothub-interface-id`:  The Id of the interface this command is defined on, for example `urn:example:AssetTracker:1`
+- `iothub-interface-name`: the instance name of this interface, for example `myAssetTracker`
+-	`iothub-command-statuscode`: the status code returned from the device, for example `202`
+
 
 ## Register a device
 
