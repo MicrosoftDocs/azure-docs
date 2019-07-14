@@ -88,7 +88,7 @@ Azure AD B2C requires you to register two applications that are used to sign up 
 
 ## Custom policy starter pack
 
-Custom policies are a set of XML files that you upload to your Azure AD B2C tenant to define your user journeys. We provide starter packs with several pre-built journeys to get you going quickly. Each starter pack in the following list contains the smallest number of technical profiles and user journeys needed to achieve the scenarios described:
+Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define technical profiles and user journeys. We provide starter packs with several pre-built policies to get you going quickly. Each of these starter packs contains the smallest number of technical profiles and user journeys needed to achieve the scenarios described:
 
 - **LocalAccounts** - Enables the use of local accounts only.
 - **SocialAccounts** - Enables the use of social (or federated) accounts only.
@@ -97,15 +97,15 @@ Custom policies are a set of XML files that you upload to your Azure AD B2C tena
 
 Each starter pack contains:
 
-- The base file. Few modifications are required to the base.
-- The extension file. This file is where most configuration changes are made.
-- The relying party files. Task-specific files called by your application.
+- **Base file** - Few modifications are required to the base. Example: *TrustFrameworkBase.xml*
+- **Extension file** - This file is where most configuration changes are made. Example: *TrustFrameworkExtensions.xml*
+- **Relying party files** - Task-specific files called by your application. Examples: *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*
 
 In this article, you edit the XML custom policy files in the **SocialAndLocalAccounts** starter pack. If you need an XML editor, try [Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 
 ### Get the starter pack
 
-Get the custom policy starter pack and update the XML files in the SocialAndLocalAccounts directory with your Azure AD B2C tenant name.
+Get the custom policy starter packs from GitHub, then update the XML files in the SocialAndLocalAccounts starter pack with your Azure AD B2C tenant name.
 
 1. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or clone the repository:
 
@@ -113,7 +113,9 @@ Get the custom policy starter pack and update the XML files in the SocialAndLoca
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-1. In all of the files in the **SocialAndLocalAccounts** directory, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosotenant*, all instances of `yourtenant.onmicrosoft.com` become `contosotenant.onmicrosoft.com`.
+1. In all of the files in the **SocialAndLocalAccounts** directory, replace the string `yourtenant` with the name of your Azure AD B2C tenant.
+
+    For example, if the name of your B2C tenant is *contosotenant*, all instances of `yourtenant.onmicrosoft.com` become `contosotenant.onmicrosoft.com`.
 
 ### Add application IDs to the custom policy
 
@@ -167,4 +169,4 @@ When each file is uploaded, the name of the policy file is prefixed with `B2C_1A
 
 Next, try adding Azure Active Directory (Azure AD) as an identity provider. The base file used in this getting started guide already contains some of the content that you need for adding other identity providers like Azure AD.
 
-For information about setting up Azure AD as and identity provider, see [Set up sign-up and sign-in with an Azure Active Directory account using Active Directory B2C custom policies](active-directory-b2c-setup-aad-custom.md) article.
+For information about setting up Azure AD as and identity provider, see [Set up sign-up and sign-in with an Azure Active Directory account using Active Directory B2C custom policies](active-directory-b2c-setup-aad-custom.md).
