@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
-ms.author: monhaber
+ms.author: v-monhabe
 
 ---
 # Monitor identity and access in Azure Security Center (Preview)
