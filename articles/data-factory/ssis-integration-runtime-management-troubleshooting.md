@@ -132,7 +132,7 @@ It’s very likely you have some customized configuration of DNS server or NSG s
 
 SSIS IR will be automatically updated in a regular basis, and a new Azure Batch pool is created during upgrade and old Azure Batch pool will be deleted, VNet related resource for old pool will be deleted and new VNet related resource will be created under your subscription. This error means deleting VNet related resource for old pool failed due to delete lock at subscription or resource group level. Please help to remove the delete lock.
 
-###VNetResourceGroupLockedDuringStart
+### VNetResourceGroupLockedDuringStart
 
 SSIS IR provisioning could be fail due to kinds of reason, and if a failure happens, all the resources created will be deleted. However, VNet resource are failed to be deleted due to there is resource delete lock at subscription or resource group level. Please remove the delete lock and restart the IR.
 
