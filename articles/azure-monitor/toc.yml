@@ -447,8 +447,6 @@
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
         href: insights/containers.md
-      - name: Monitor Docker applications
-        href: app/docker.md
     - name: Virtual machines
       items: 
       - name: Agents
@@ -1055,6 +1053,8 @@
       href: insights/azure-web-apps-analytics.md
     - name: Application Insights Connector
       href: platform/app-insights-connector.md
+    - name: Monitor Docker applications
+      href: app/docker.md
 - name: Resources
   items:
   - name: Azure Roadmap
