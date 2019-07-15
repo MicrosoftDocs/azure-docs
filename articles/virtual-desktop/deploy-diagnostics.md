@@ -4,43 +4,43 @@ title: Deploy WVD-Diagnostics-UX
 
 # Deploy diagnostics for Windows Virtual Desktop
 
-Diagnostics-UX for Windows Virtual Desktop provides you with the following functionality:
+Diagnostics-UX for Windows Virtual Desktop can do the following things for you:
 
-- Query diagnostic activities (Management, Connection, Feed) per user for a single week
-- Query Log Analytics to gather session host information for connection activities
-- Review VM Performance details for a particular host
-- View users that are logged into the session host.
+- Look up diagnostic activities (management, connection, or feed) for a single user over a period of one week
+- Gather session host information for connection activities from your Log Analytics workspace
+- Review virtual machine (VM) performance details for a particular host
+- See which users are signed in to the session host
 - Send message to active users on a specific session host
-- Logoff users on a session host.
+- Sign users out of a session host
 
 ## Prerequisites
 
-Before deploying the Azure Resource Manager template, you'll need to create an Azure Active Directory App Registration and the Log Analytics workspace. To deploy the UI the following need the administrator deploying should have following permissions:
+Before deploying the Azure Resource Manager template, you'll need to create an Azure Active Directory App Registration and a Log Analytics workspace. You or the administrator need the these permissions to do so:
 
-- Owner on the Azure subscription
+- Owner of the Azure subscription
 - Permission to create resources in your Azure subscription
 - Permission to create an Azure AD application.
 - RDS Owner or Contributor rights
 
-You will need to install the following PowerShell modules:
+You also need to install these PowerShell modules before you get started:
 
 - [Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.4.0)
 - [Azure AD module](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
-You will need to have the Subscription ID ready as it will be required.
+Make sure you have your Subscription ID ready because you need it to sign in.
 
-Once the prerequisites are confirmed start creating the Azure AD App registration.
+After you have everything in order, you can create the Azure AD app registration.
 
-## Create an Azure AD App Registration using PowerShell script
+## Create an Azure AD app registration using PowerShell script
 
-In this section you will be executing the PowerShell script that is creating the Azure AD Application with service principal and add the API permissions to the AD Application
+This section will show you how to use PowerShell to create the Azure AD Application with a service principal and add API permissions to it.
 
 >[!NOTE]
 >The API permissions are Windows Virtual Desktop, Log Analytics and Microsoft Graph API permissions are added to the AD Application.
 
 1. Open PowerShell as an Administrator:
 2. [Follow this link](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) for “Create AD App Registration for Diagnostics.ps1” script. Execute it in PowerShell.
-3.  Provide unique App Name when asked.
+3.  Provide unique app name when asked.
 4.  When prompted authenticate with the administrative account. Enter the credentials of a user with [delegated admin access](https://docs.microsoft.com/en-us/azure/virtual-desktop/delegated-access-virtual-desktop). The admin needs to have either RDS Owner or Contributor rights.
 
 After the script successfully runs, you should see the following things:
