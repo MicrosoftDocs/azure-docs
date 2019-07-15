@@ -61,7 +61,7 @@ Perform the following steps to create a support request:
 
 ## Get hardware support
 
-The process to report hardware issues is as follows:
+This information only applies to Data Box Edge device. The process to report hardware issues is as follows:
 
 1. Open a Support ticket from the Azure portal for a hardware issue. Under **Problem type**, select **Data Box Edge Hardware**. Choose the **Problem subtype** as **Hardware failure**. 
 
