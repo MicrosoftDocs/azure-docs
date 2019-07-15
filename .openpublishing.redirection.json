@@ -1016,6 +1016,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/bing-entity-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-news-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/governance/management-groups/overview.md",
       "redirect_url": "/azure/governance/management-groups/index",
       "redirect_document_id": true
