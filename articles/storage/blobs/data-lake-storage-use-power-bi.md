@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 07/15/2019
 ms.author: normesta
 ---
 
