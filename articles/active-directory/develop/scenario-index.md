@@ -1,11 +1,36 @@
+---
+title: Authentication scenarios for Microsoft identity platform | Azure
+description: Learn about authentication scenarios 
+services: active-directory
+documentationcenter: dev-center-name
+author: jmprieur
+manager: CelesteDG
+editor: ''
+
+ms.assetid: 
+ms.service: active-directory
+ms.subservice: develop
+ms.devlang: na
+ms.topic: quickstart
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 07/15/2019
+ms.author: jmprieur
+ms.custom: aaddev 
+#Customer intent: As an application developer, I want to learn about authentication scenarios so I can create applications protected using the Microsoft identity platform.
+ms.collection: M365-identity-device-management
+---
+
 # Authentication scenarios overview
+
+The Microsoft identity platform (v2.0) endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes different authentication scenarios and the applications scenarios they're used in.  This article also lists [Scenarios and supported authentication flows](#scenarios-and-supported-authentication-flows) and [Scenarios and supported platforms and languages](#scenarios-and-supported-platforms-and-languages).
 
 ## Introduction - several axes to understand authentication scenarios
 
 Authentication scenarios can be classified along several axes:
 
 - [Protected resources vs client applications](#protected-resources-vs-client-applications): Some scenarios are about protecting resources (Web Apps or Web APIs), whereas others are about acquiring a security token to call a protected Web API.
-- [With users or without users](#with-users-or-without-users): Some scenarios involve a signed-in user, whereas other don't involve a user (daemon scenarios)
+- [With users or without users](#with-users-or-without-users): Some scenarios involve a signed-in user, whereas other don't involve a user (daemon scenarios).
 - [Single page applications, Public client applications, and confidential client applications](#single-page-applications-public-client-applications-and-confidential-client-applications): are three large categories of application types. The libraries and objects used to manipulate them will be different. Scenarios and application types don't map one to one.
 - [OAuth 2.0 flows](#scenarios-and-supported-authentication-flows) are used to implement the scenarios requesting tokens, but they don't form a one to one mapping either.
 - Audience: Not all the scenarios are available for all the [sign in audiences](v2-supported-account-types.md). Some are only available for Work or School accounts, some are available for both Work or School accounts and Personal Microsoft accounts. Allowed audience depends on the authentication flows.
@@ -54,7 +79,7 @@ The security tokens can be acquired from a number of application types. Applicat
   
   These types of apps use the [ConfidentialClientApplication](msal-client-applications.md)
 
-## Scenarios - details
+## Application scenarios
 
 Let's discover the scenarios in more details
 
@@ -130,9 +155,7 @@ You can write such apps (daemon app) acquiring a token for the app on top using 
 
 ![Daemon app](media/scenarios/daemon-app.svg)
 
-## Summary
-
-### Scenarios and supported authentication flows
+## Scenarios and supported authentication flows
 
 Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flows described in details in [Microsoft identity platform protocols](active-directory-v2-protocols.md)
 
@@ -150,7 +173,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
 | [![Daemon app](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | [Daemon app](scenario-daemon-overview.md) | [Client credentials](v2-oauth2-client-creds-grant-flow.md)  |   App only permissions (no user) only on AAD Organizations
 | [![Web API that calls web APIs](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | [Web API that calls web APIs](scenario-web-api-call-api-overview.md)| [On Behalf Of](v2-oauth2-on-behalf-of-flow.md) | Work or School accounts and Personal accounts |
 
-### Scenarios and supported platforms and languages
+## Scenarios and supported platforms and languages
 
 Not every application type is available on every platform. You can also use various languages to build your applications. Microsoft Authentication libraries support a number of **platforms** (JavaScript, .NET Framework, .NET Core, Windows 10/UWP, Xamarin.iOS, Xamarin.Android, native iOS, native Android, Java, Python)
 
