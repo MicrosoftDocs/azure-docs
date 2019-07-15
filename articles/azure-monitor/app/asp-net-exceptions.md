@@ -56,12 +56,12 @@ In the code, notice that CodeLens shows data about the exceptions:
 Application Insights comes with a curated APM experience to help you diagnose failures in your monitored applications. To start, click on the Failures option in the Application Insights resource menu located in the Investigate section.
 You should see a full-screen view that shows you the failure rate trends for your requests, how many of them are failing, and how many users are impacted. On the right, you'll see some of the most useful distributions specific to the selected failing operation, including top three response codes, top three exception types, and top three failing dependency types.
 
-![Failures triage view (operations tab)](./media/asp-net-exceptions/FailuresTriageView0719.png)
+![Failures triage view (operations tab)](./media/asp-net-exceptions/failures0719.png)
 
 In a single click, you can then review representative samples for each of these subsets of operations. In particular, to diagnose exceptions, you can click on the count of a particular exception to be presented with the End-to-end transaction details tab,
 such as this one:
 
-![End-to-end transaction details tab](./media/asp-net-exceptions/ExceptionDetailsBlade0719.png)
+![End-to-end transaction details tab](./media/asp-net-exceptions/end-to-end.png)
 
 **Alternatively,** instead of looking at exceptions of a specific failing operation, you can start from the overall view of exceptions, by switching to the Exceptions tab at the top. Here you can see all the exceptions collected for your monitored app.
 
@@ -80,7 +80,7 @@ You have several options:
 
 To see these events, open [Search](../../azure-monitor/app/diagnostic-search.md) from the left menu, select the drop-down menu **Event types**, and then choose Custom Event, Trace, or Exception.
 
-![Drill through](./media/asp-net-exceptions/viewCustomEvents.png)
+![Drill through](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
 > If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. Events that are part of the same operation will be selected or deselected as a group, so that you can navigate between related events. [Learn about sampling.](../../azure-monitor/app/sampling.md)
