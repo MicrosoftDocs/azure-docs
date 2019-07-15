@@ -178,7 +178,7 @@ In Intune in the Azure portal:
 1. Select **Next**.
 1. Select **Create** to create the profile. The Autopilot deployment profile is now available to assign to devices.
 
-Device enrollment in Autopilot provides a different user experience based on device type and role. In our deployment example we illustrate a model where the secured devices are bulk deployed and can be shared, but once used for the first time the device is assigned to a user. For more information, see [Intune Autopilot device enrollment](https://docs.microsoft.com/en-us/intune/device-enrollment).
+Device enrollment in Autopilot provides a different user experience based on device type and role. In our deployment example, we illustrate a model where the secured devices are bulk deployed and can be shared, but when used for the first time, the device is assigned to a user. For more information, see [Intune Autopilot device enrollment](https://docs.microsoft.com/intune/device-enrollment).
 
 ### Configure Windows Update
 
