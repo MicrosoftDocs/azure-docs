@@ -96,7 +96,7 @@ The following sample payload is for a standard webhook action *without a custom 
     "LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": "log alert rule",
     "Severity": "Warning",
-	"SearchResult":
+	"SearchResults":
         {
 		"tables":[
                     {"name":"PrimaryResult","columns":
@@ -141,7 +141,7 @@ The following sample payload is for a standard webhook *without a custom JSON op
     "LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
     "Severity": "3",
-	"SearchResult":
+	"SearchResults":
         {
 		"tables":[
                     {"name":"PrimaryResult","columns":
@@ -179,7 +179,7 @@ The following sample payload is for a custom webhook action for any log alert:
 ```json
     {
     "alertname":"AcmeRule","IncludeSearchResults":true,
-	"SearchResult":
+	"SearchResults":
         {
 		"tables":[
                     {"name":"PrimaryResult","columns":
