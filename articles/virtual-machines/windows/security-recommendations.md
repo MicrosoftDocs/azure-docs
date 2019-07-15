@@ -7,7 +7,7 @@ manager: barbkess
 
 ms.service: vm-service
 ms.topic: conceptual
-ms.date: 07/12/2019
+ms.date: 07/15/2019
 ms.author: barclayn
 
 ---
@@ -68,7 +68,7 @@ This article contains security recommendations for virtual machines in Azure. Im
 
 | Recommendation | Comments |
 |-|-|
-| Monitor your virtual machines | You can use [Azure monitor for VMs](../../azure-monitor/insights/vminsights-overview.md) to monitor your Azure virtual machines and virtual machine scale sets. |
+| Monitor your virtual machines | You can use [Azure monitor for VMs](../../azure-monitor/insights/vminsights-overview.md) to monitor the state of your Azure virtual machines and virtual machine scale sets. |
 
 ## Business continuity
 
