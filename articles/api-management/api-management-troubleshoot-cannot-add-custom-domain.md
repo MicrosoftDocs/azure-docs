@@ -35,10 +35,10 @@ The API Management service does not have permission to access the key vault that
 To resolve this issue, follow these steps:
 
 1. Go to the [Azure portal](Https://portal.azure.com), select your API Management instance, and then select **Managed identities**. Make sure that the **Register with Azure Active Directory** option is set to **Yes**. 
-    ![An image about register with Azure Active Director](.\media\api-management-troubleshoot-cannot-add-custom-domain\register-with-aad.png)
+    ![An image about register with Azure Active Director](./media/api-management-troubleshoot-cannot-add-custom-domain/register-with-aad.png)
 1. In the Azure portal, open the **Key vaults** service, select the key vault that you're trying to use for the custom domain.
 1. Select **Access policies**, check if there is a service principal that matches the name of the API Management service instance. If yes, select the service principal, and then make sure that it has **Get** permission under **Secret permissions**.  
-    ![A sample about add access policy for a service principal](.\media\api-management-troubleshoot-cannot-add-custom-domain\access-policy.png)
+    ![A sample about add access policy for a service principal](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
 1. If the API Management service is not in the list, select **Add access policy**, and then create the following access policy: 
     - **Configure from Template**: None
     - **Select principal**: Search the name of the API Management service, and then select it from the list.
