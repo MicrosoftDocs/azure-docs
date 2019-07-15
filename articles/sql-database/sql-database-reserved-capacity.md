@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 07/01/2019
+ms.date: 07/15/2019
 ---
 # Prepay for SQL Database compute resources with Azure SQL Database reserved capacity
 
@@ -52,7 +52,7 @@ The following table describes required fields.
 |Deployment Type|The SQL resource type that you want to buy the reservation for.|
 |Performance Tier|The service tier for the SQL Database instances.
 |Term        |One year or three years.|
-|Quantity    |The number of instances being purchased within the SQL Database reserved capacity reservation. The quantity is the number of running SQL Database instances that can get the billing discount. For example, if you are running 10 SQL Database instances in the East US, then you would specify quantity as 10 to maximize the benefit for all running machines. |
+|Quantity    |The amount of compute resources being purchased within the SQL Database reserved capacity reservation. The quantity is a number of vCores in the selected Azure region and Performance tier that are being reserved and will get the billing discount. For example, if you are running or planning to run SQL Database instances with the total compute capacity of Gen5 16 vCores in the East US region, then you would specify quantity as 16 to maximize the benefit for all instances. |
 
 1. Review the cost of the SQL Database reserved capacity reservation in the **Costs** section.
 1. Select **Purchase**.
