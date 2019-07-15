@@ -60,7 +60,7 @@
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
-  - name: Work with Azure Migrate v1
+  - name: Work with previous version
     href: migrate-v1.md
   - name: Deploy a VMware appliance
     href: how-to-set-up-appliance-vmware.md
