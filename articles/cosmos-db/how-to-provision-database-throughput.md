@@ -54,6 +54,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 > You can use Cosmos SDKs for SQL API to provision throughput for all APIs. You can optionally use the following example for Cassandra API as well.
 
 ### <a id="dotnet-all"></a>All APIs
+### .Net V2 SDK
 
 ```csharp
 //set the throughput for the database
@@ -67,6 +68,9 @@ await client.CreateDatabaseIfNotExistsAsync(
     new Database {Id = databaseName},  
     options);
 ```
+
+### .Net V3 SDK
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 
