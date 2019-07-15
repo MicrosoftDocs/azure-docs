@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Troubleshooting Network Security Group configuration | Microsoft Docs'
-description: Troubleshooting NSG configuration for Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Troubleshoot network security groups | Microsoft Docs'
+description: Troubleshooting network security group configuration for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
