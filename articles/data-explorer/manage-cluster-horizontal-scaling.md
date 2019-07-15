@@ -24,15 +24,15 @@ This article explains the horizontal scaling workflow.
 
 ## Configure horizontal scaling
 
-Horizontal scaling allows you to scale the instance count automatically based on predefined rules and schedules. Specify the autoscale settings for your cluster in the Azure portal:
+Horizontal scaling allows you to scale the instance count automatically based on predefined rules and schedules. To specify the autoscale settings for your cluster:
 
 1. In the Azure portal, go to your Azure Data Explorer cluster resource. Under **Settings**, select **Scale out**. 
 
-2. In the **Scale out** window, select your desired autoscale method: **Manual scale**, **Optimized autoscale**, or **Custom autoscale**.
+2. In the **Scale out** window, select the autoscale method that you want: **Manual scale**, **Optimized autoscale**, or **Custom autoscale**.
 
 ### Manual scale
 
-Manual scale is the default setting during cluster creation. The cluster has a static capacity that doesn't change automatically. You select the static capacity by using the **instance capacity** bar. The cluster's scaling remains at that setting until you make an additional change.
+Manual scale is the default setting during cluster creation. The cluster has a static capacity that doesn't change automatically. You select the static capacity by using the **instance capacity** bar. The cluster's scaling remains at that setting until you make an another change.
 
    ![Manual scale method](media/manage-cluster-horizontal-scaling/manual-scale-method.png)
 
@@ -52,7 +52,7 @@ Optimized autoscale starts working. Its actions are now visible in the Activity 
 
 ### Custom autoscale
 
-Custom autoscale allows you to scale your cluster dynamically based on metrics that you specify. The following graphic shows the flow and steps to use to configure Custom autoscale. More details follow the graphic.
+Custom autoscale allows you to scale your cluster dynamically based on metrics that you specify. The following graphic shows the flow and steps to configure Custom autoscale. More details follow the graphic.
 
 1. In the **Autoscale setting name** box, enter a name, such as *Scale-out: cache utilization*. 
 
