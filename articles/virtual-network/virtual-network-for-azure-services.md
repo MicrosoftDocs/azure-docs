@@ -11,7 +11,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: malop;kumud
+ms.author: malop
+ms.reviewer: kumud
 
 ---
 
