@@ -13,7 +13,7 @@ ms.date: 06/21/2019
 
 # Tutorial: Add your product information
 
-In the how-to article, you learned about how to register your company to the portal, create Plug and Play models and implement your device code to be certified.
+In the previous tutorial, you learned how to register your company to the portal, create Plug and Play models, and implement the device code you want to certify.
 
 This tutorial shows you how to add the product information that's shown in the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat) for your Plug and Play device.
 
@@ -26,8 +26,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need:
-* A Microsoft Partner Center account
+To complete this tutorial, you need a Microsoft Partner Center account.
 
 ## Certification requirements
 
@@ -60,9 +59,11 @@ After you've successfully created the product in the portal, the product is disp
 
 In this tutorial, you learned how to:
 
-> [!div class="nextstepaction"]
-> * Understand the certification requirements
-> * Add your product name
-> * Add your product information
+* Understand the certification requirements
+* Add your product name
+* Add your product information
 
-Now that you know now to add your Plug and Play device information to the portal, the suggested next step is to learn how to [run the certification tests](tutorial-certification-test.md).
+Now that you know now to add your Plug and Play device information to the portal, the suggested next step is to:
+
+> [!div class="nextstepaction"]
+> [Learn how to run the certification tests](tutorial-certification-test.md)
