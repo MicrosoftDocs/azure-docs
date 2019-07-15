@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
-ms.author: echuvyrov
+ms.author: gwallace
 ---
 
 # Create a complete Linux virtual machine infrastructure in Azure with Terraform
