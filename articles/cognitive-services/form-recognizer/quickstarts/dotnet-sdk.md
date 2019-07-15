@@ -28,6 +28,7 @@ Use the Form Recognizer client library for .NET to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* An Azure Storage blob with a set of training data. See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data. 
 
 ## Setting up
 
@@ -41,7 +42,7 @@ Use the Form Recognizer client library for .NET to:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]l
 
-After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `FORM_RECOGNIZER_KEY`.
+After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `FORM_RECOGNIZER_KEY`. Then create another environment variable for you subscription region, which should look similar to `https://westus2.api.cognitive.microsoft.com/`. Name it `FORM_RECOGNIZER_REGION`.
 
 ### Create a new C# application
 
@@ -78,14 +79,14 @@ using System.IO;
 using System.Threading.Tasks;
 ```
 
-In the application's **Main** method, create variables for your resource's Azure location and your subscription key as an environment variable. If you create the environment variable after the application is launched, you'll need to close and reload the editor, IDE, or shell running it. You will define the included method(s) later.
+Add the following code in the application's **Main** method.
 
-```csharp
-static void Main(string[] args){
-    var t1 = RunFormRecognizerClient();
-    Task.WaitAll(t1);
-}
-```
+[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_main)]
+
+Then, define the task referenced in **Main**. You will define the included methods later on.
+
+[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_mainTask)]
+
 
 ### Install the client library
 
@@ -108,10 +109,6 @@ The following classes handle the main functionality of the Form Recognizer SDK.
 |[TrainResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainresult?view=azure-dotnet-preview)| This class delivers the results of a custom model Train operation, including the model ID which you can then use to analyze forms. |
 |[AnalyzeResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.analyzeresult?view=azure-dotnet-preview)| This class delivers the results of a custom model Analyze operation. It includes a list of **ExtractedPage** instances. |
 |[ExtractedPage](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.extractedpage?view=azure-dotnet-preview)| This class represents all of the data extracted from a single form document.|
-<!-- 
-    Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages.
-    Briefly explain the object hierarchy and how the classes work together to manipulate resources in the service.
--->
 
 ## Code examples
 
@@ -145,6 +142,12 @@ In a new method, instantiate a client with your endpoint and key. Create an [Api
 ```csharp
 
 ```
+
+### Define variables
+
+Add the following variable definitions to the top of your **Program** class. You'll need to fill in some of the variables yourself. To retrieve the SAS URL for your training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+
+[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 
 ### Example task 1
 
