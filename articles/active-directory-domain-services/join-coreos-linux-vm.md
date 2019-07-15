@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Join a CoreOS Linux VM to a managed domain | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Join a CoreOS Linux VM | Microsoft Docs'
 description: Join a CoreOS Linux virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''

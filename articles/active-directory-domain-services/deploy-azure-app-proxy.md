@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Deploy Azure Active Directory Application Proxy | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Deploy Azure AD Application Proxy | Microsoft Docs'
 description: Use Azure AD Application Proxy on Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''

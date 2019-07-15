@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Troubleshooting Service Principal configuration| Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Troubleshoot service principals | Microsoft Docs'
 description: Troubleshooting Service Principal configuration for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
