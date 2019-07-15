@@ -80,7 +80,7 @@ Follow the instructions below using to create a support request via Azure's 'Usa
 
 5. Select **Compute-VM (cores-vCPUs) subscription limit increases** as the quote type. 
 
-![Fill in form](./media/resource-manager-core-quotas-request/forms.png)
+![Fill in form](./media/resource-manager-core-quotas-request/select-quota-type.png)
    
 6. In **Problem Details**, provide additional information to help process your request by clicking **Provide details**.
 
