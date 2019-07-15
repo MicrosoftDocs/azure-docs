@@ -109,9 +109,9 @@ it for different scenarios.
    you created your KeyVault.
 
     > [!NOTE]
-    > In the new **Az** modules, `Get-AzureKeyVaultSecret` is an alias for `Get-AzKeyVaultSecret`.
-    > To enable aliases for **AzureRM** cmdlets, use [Enable-AzureRmAlias](/powershell/module/az.accounts/enable-azurermalias?/view). You can also update your Automation Account with the newest modules by following the steps in
-    > [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
+    > This script is designed to be backwards compatible with the **AzureRM** modules which are
+    > present, by default, with new Automation Accounts.  If your Automation Account has the newer
+    > **Az** modules, you can enable aliases with [Enable-AzureRmAlias](/powershell/module/az.accounts/enable-azurermalias?/view).
 
     ```powershell-interactive
     Param(
@@ -128,7 +128,6 @@ it for different scenarios.
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
     Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Out-Null
     $VaultName = "<Enter your vault name>"
-    # If your automation account uses the Az modules, change this to Get-AzureKeyVaultSecret
     $SENDGRID_API_KEY = (Get-AzureKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey").SecretValueText
     $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
     $headers.Add("Authorization", "Bearer " + $SENDGRID_API_KEY)
@@ -181,6 +180,6 @@ az keyvault delete --name
 ## Next steps
 
 * For issues creating or starting your runbook, see [Troubleshoot errors with runbooks](./troubleshoot/runbooks.md).
-* For details about different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md).
+* To update modules in your Automation Account, see [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md)].
 * To monitor runbook execution, see [Forward job status and job streams from Automation to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md).
 * To trigger a runbook using an alert, see [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md).
