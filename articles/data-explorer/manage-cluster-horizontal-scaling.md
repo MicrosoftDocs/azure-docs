@@ -13,7 +13,7 @@ ms.date: 07/14/2019
 
 Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. A static cluster size can lead to under-utilization or over-utilization, neither of which is ideal.
 
-Because demand on a cluster can’t be predicted with absolute accuracy, it's preferable to *scale* a cluster, adding and removing capacity and CPU resources with changing demand. 
+Because demand on a cluster can’t be predicted with absolute accuracy, it's better to *scale* a cluster, adding and removing capacity and CPU resources with changing demand. 
 
 There are two workflows for scaling an Azure Data Explorer cluster: 
 
@@ -24,7 +24,7 @@ This article explains the horizontal scaling workflow.
 
 ## Configure horizontal scaling
 
-Horizontal scaling allows you to scale the instance count automatically based on predefined rules and schedules. To specify the autoscale settings for your cluster:
+By using horizontal scaling, you can scale the instance count automatically, based on predefined rules and schedules. To specify the autoscale settings for your cluster:
 
 1. In the Azure portal, go to your Azure Data Explorer cluster resource. Under **Settings**, select **Scale out**. 
 
@@ -32,27 +32,27 @@ Horizontal scaling allows you to scale the instance count automatically based on
 
 ### Manual scale
 
-Manual scale is the default setting during cluster creation. The cluster has a static capacity that doesn't change automatically. You select the static capacity by using the **instance capacity** bar. The cluster's scaling remains at that setting until you make an another change.
+Manual scale is the default setting during cluster creation. The cluster has a static capacity that doesn't change automatically. You select the static capacity by using the **Instance count** bar. The cluster's scaling remains at that setting until you make another change.
 
    ![Manual scale method](media/manage-cluster-horizontal-scaling/manual-scale-method.png)
 
 ### Optimized autoscale
 
-Optimized autoscale is the recommended autoscale method. This method optimizes cluster performance and costs. If the cluster approaches a state of under-utilization, it will be scaled in. This action lowers costs but keeps performance level. If the cluster approaches a state of over-utilization, it will be scaled out to maintain optimal performance. To configure **Optimized autoscale**:
+Optimized autoscale is the recommended autoscale method. This method optimizes cluster performance and costs. If the cluster approaches a state of under-utilization, it will be scaled in. This action lowers costs but keeps performance level. If the cluster approaches a state of over-utilization, it will be scaled out to maintain optimal performance. To configure Optimized autoscale:
 
 1. Select **Optimized autoscale**. 
 
-1. Select a **minimum instance count** and a **maximum instance count**. The cluster autoscaling ranges between those two numbers, based on load.
+1. Select a minimum instance count and a maximum instance count. The cluster autoscaling ranges between those two numbers, based on load.
 
 1. Select **Save**.
 
    ![Optimized autoscale method](media/manage-cluster-horizontal-scaling/optimized-autoscale-method.png)
 
-Optimized autoscale starts working. Its actions are now visible in the Activity log of the cluster. 
+Optimized autoscale starts working. Its actions are now visible in the Azure activity log of the cluster.
 
 ### Custom autoscale
 
-Custom autoscale allows you to scale your cluster dynamically based on metrics that you specify. The following graphic shows the flow and steps to configure Custom autoscale. More details follow the graphic.
+By using custom autoscale, you can scale your cluster dynamically based on metrics that you specify. The following graphic shows the flow and steps to configure custom autoscale. More details follow the graphic.
 
 1. In the **Autoscale setting name** box, enter a name, such as *Scale-out: cache utilization*. 
 
