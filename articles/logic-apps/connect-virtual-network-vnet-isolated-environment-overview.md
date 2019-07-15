@@ -99,17 +99,17 @@ An ISE also provides increased limits for run duration, storage retention, throu
 
 <a name="ise-level"></a>
 
-## ISE levels
+## ISE SKUs
 
-When you create your ISE, you can select either Developer or Premium. Here are the differences between these levels:
+When you create your ISE, you can select the Developer SKU or Premium SKU. Here are the differences between these SKUs:
 
 * **Developer**
 
-   Provides a lower-cost ISE that you can use for experimentation, development, and testing (not performance testing). This ISE is not meant for production use and doesn't include SLA support, options to add scale units, or redundancy during recycling, which means that you might experience delays or downtime.
+   Provides a lower-cost ISE that you can use for experimentation, development, and testing, but not for production or performance testing. The Developer SKU doesn't include any service-level agreement (SLA), options for scaling capacity, or redundancy during recycling, which means that you might experience delays or downtime.
 
 * **Premium**
 
-  Provides an ISE that you can use for production and includes SLA support, better performance, options to add scale units, redundancy during recycling, 1 Standard integration account, and 1 Enterprise connector.
+  Provides an ISE that you can use for production with SLA support, options for scaling capacity, redundancy during recycling, one Standard integration account, and one Enterprise connector.
 
 For pricing information, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
