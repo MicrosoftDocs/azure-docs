@@ -44,7 +44,7 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 
 1. On your workspace page in the Azure portal, select **Notebook VMs** on the left.
 
-1. Select **+New** to create a notebook VM.
+1. Select **+New** to create a notebook VM.  
 
      ![Select New VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
@@ -66,12 +66,12 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 
     ![Start the Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-server.png)
 
-    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM.
+    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM.  Each user of the workspace must create their own VM.
 
 1. On the Jupyter notebook webpage, the top foldername is your username.  Select this folder.
 
     > [!TIP]
-    > This folder is located on the [storage container](concept-workspace.md#resources) in your workspace rather than on the notebook VM itself.  You can delete the notebook VM and still keep all your work.  When you create a new notebook VM later, it will load  this same folder.
+    > This folder is located on the [storage container](concept-workspace.md#resources) in your workspace rather than on the notebook VM itself.  You can delete the notebook VM and still keep all your work.  When you create a new notebook VM later, it will load  this same folder.  If you share your workspace with others, they will see your folder and you will see theirs. 
 
 1. The samples foldername includes a version number, for example **samples-1.0.33.1**.  Select the samples folder.
 
