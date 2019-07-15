@@ -145,9 +145,9 @@ In rare but necessary situations, we might need to do an online migration of a m
 
 For this reason, we strongly discourage relying on immutability of the IP address as it could cause unnecessary downtime.
 
-## Can I move a VNet to a new resource group?
+## Can I move a managed instance or VNet?
 
-No, this is current platform limitation. After a managed instance is created in a VNet you should not move the VNet to another resource group.
+No, this is current platform limitation. After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
 
 ## Can I change the time zone for an existing managed instance?
 
