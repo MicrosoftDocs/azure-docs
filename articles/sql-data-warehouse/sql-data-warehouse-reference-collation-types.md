@@ -20,8 +20,6 @@ Collations provide the locale, code page, sort order and character sensitivity r
 # Changing collation
 To change the default collation, you simple update to the Collation field in the provisioning experience.
 
-![change default collation](sql-data-warehouse/media/create-data-warehouse-portal/Collation.png)
-
 For example, if you wanted to change the default collation to case sensitive, you would simply rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS. 
 
 #List of unsupported collation types
