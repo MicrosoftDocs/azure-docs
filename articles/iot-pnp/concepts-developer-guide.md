@@ -100,13 +100,21 @@ Other optional fields, such as display name and description, let you add more de
 
 ### Properties
 
+By default, properties are read-only. This means that the device reports property value updates to your IoT hub. Your IoT hub cannot set the value of a read-only property.
+
+You can also mark a property as writeable on an interface. A device can receive an update to a writeable property from your IoT hub as well as reporting property value updates to your hub.
+
+Devices don't need to be connected to set property values. The updated values are transferred when the device next connects to the hub. This applies to both read-only and writeable properties.
+
+Don't use properties to send telemetry from your device. For example, a readonly property such as `temperatureSetting=80` should mean that the device temperature has been set to 80, and the device is trying to get to, or stay at, this temperature.
+
 ### Telemetry
 
 By default, IoT Hub routes all telemetry messages from devices to its [built-in service-facing endpoint (**messages/events**)](../iot-hub/iot-hub-devguide-messages-read-builtin.md) that's compatible with [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/).
 
 ### Commands
 
-Commands are either synchronous or asynchronous. A synchronous command must execute within 30 seconds by default, and the device must be connected when the command arrives.
+Commands are either synchronous or asynchronous. A synchronous command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device does respond in time, or the device is not connected, then the the command fails.
 
 Use asynchronous commands for long-running operations. The device sends progress information using telemetry messages. These progress messages have the following header properties:
 
