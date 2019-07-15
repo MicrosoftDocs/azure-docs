@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: aljo, dekapur
+ms.author: dekapur
 ms.custom: mvc
 
 ---

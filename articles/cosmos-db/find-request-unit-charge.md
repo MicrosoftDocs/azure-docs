@@ -33,7 +33,8 @@ Currently, you can find the request charge in the Azure portal only for a SQL qu
 
 ![Screenshot of a SQL query request charge in the Azure portal](./media/find-request-unit-charge/portal-sql-query.png)
 
-### Use the .NET SDK V2
+### Use the .NET SDK
+### .Net V2 SDK
 
 Objects that are returned from the [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) expose a `RequestCharge` property:
 
@@ -67,6 +68,12 @@ while (query.HasMoreResults)
     requestCharge = queryResponse.RequestCharge;
 }
 ```
+
+### .Net V3 SDK
+
+Objects that are returned from the [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) expose a `RequestCharge` property:
+
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
 For more information, see [Quickstart: Build a .NET web app by using a SQL API account in Azure Cosmos DB](create-sql-api-dotnet.md).
 

@@ -16,7 +16,7 @@ the NIST SP 800-53 R4 controls. For more information about the controls, see [NI
 The following mappings are to the **NIST SP 800-53 (Rev. 4)** controls. Use the navigation on the
 right to jump directly to a specific control mapping. Many of the mapped controls are implemented
 with an [Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative,
-open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **[Preview]:
+open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **\[Preview\]:
 Audit NIST SP 800-53 R4 controls and deploy specific VM Extensions to support audit requirements**
 built-in policy initiative.
 
@@ -28,11 +28,11 @@ accounts with read, write and owner permissions on a subscription and deprecated
 reviewing the accounts audited by these policies, you can take appropriate action to ensure account
 management requirements are met.
 
-- [Preview]: Audit deprecated accounts on a subscription
-- [Preview]: Audit deprecated accounts with owner permissions on a subscription
-- [Preview]: Audit external accounts with owner permissions on a subscription
-- [Preview]: Audit external accounts with read permissions on a subscription
-- [Preview]: Audit external accounts with write permissions on a subscription
+- \[Preview\]: Audit deprecated accounts on a subscription
+- \[Preview\]: Audit deprecated accounts with owner permissions on a subscription
+- \[Preview\]: Audit external accounts with owner permissions on a subscription
+- \[Preview\]: Audit external accounts with read permissions on a subscription
+- \[Preview\]: Audit external accounts with write permissions on a subscription
 
 ## AC-2 (7) Account Management | Role-Based Schemes
 
@@ -55,7 +55,7 @@ atypical usage. This blueprint assigns an [Azure Policy](../../../policy/overvie
 that helps you monitor virtual machines that can support just-in-time access but have not yet been
 configured.
 
-- [Preview]: Monitor possible network Just In Time (JIT) access in Azure Security Center
+- \[Preview\]: Monitor possible network Just In Time (JIT) access in Azure Security Center
 
 ## AC-4 Information Flow Enforcement
 
@@ -66,7 +66,7 @@ definition to help you monitor CORS resources access restrictions in Azure Secur
 Understanding CORS implementations can help you verify that information flow controls are
 implemented.
 
-- [Preview]: Audit CORS resource access restrictions for a Web Application
+- \[Preview\]: Audit CORS resource access restrictions for a Web Application
 
 ## AC-5 Separation of Duties
 
@@ -79,8 +79,8 @@ you control membership of the Administrators group on Windows virtual machines. 
 subscription owner and virtual machine administrator permissions can help you implement appropriate
 separation of duties.
 
-- [Preview]: Audit maximum number of owners for a subscription
-- [Preview]: Audit minimum number of owners for subscription
+- \[Preview\]: Audit maximum number of owners for a subscription
+- \[Preview\]: Audit minimum number of owners for subscription
 - Audit that the Administrators group inside Windows VMs excludes the specified members
 - Audit that the Administrators group inside Windows VMs includes the specified members
 - Deploy VM extension to audit that the Administrators group inside Windows VMs excludes the specified members
@@ -94,8 +94,8 @@ review who has access to Azure resources and their permissions. This blueprint a
 definitions to audit accounts that should be prioritized for review. Reviewing these account
 indicators can help you ensure least privilege controls are implemented.
 
-- [Preview]: Audit maximum number of owners for a subscription
-- [Preview]: Audit minimum number of owners for subscription
+- \[Preview\]: Audit maximum number of owners for a subscription
+- \[Preview\]: Audit minimum number of owners for subscription
 - Audit that the Administrators group inside Windows VMs excludes the specified members
 - Audit that the Administrators group inside Windows VMs includes the specified members
 - Deploy VM extension to audit that the Administrators group inside Windows VMs excludes the specified members
@@ -110,11 +110,11 @@ without passwords. This blueprint also assigns an Azure Policy definition that h
 unrestricted access to storage accounts. Monitoring these indicators can help you ensure remote
 access methods comply with your security policy.
 
-- [Preview]: Audit remote debugging state for a Function App
-- [Preview]: Audit remote debugging state for a Web Application
-- [Preview]: Audit remote debugging state for an API App
-- [Preview]: Audit that Linux VMs do not allow remote connections from accounts without passwords
-- [Preview]: Deploy VM extension to audit that Linux VMs do not allow remote connections from accounts without passwords
+- \[Preview\]: Audit remote debugging state for a Function App
+- \[Preview\]: Audit remote debugging state for a Web Application
+- \[Preview\]: Audit remote debugging state for an API App
+- \[Preview\]: Audit that Linux VMs do not allow remote connections from accounts without passwords
+- \[Preview\]: Deploy VM extension to audit that Linux VMs do not allow remote connections from accounts without passwords
 - Audit unrestricted network access to storage accounts
 
 ## AU-3 (2) Content of Audit Records | Centralized Management of Planned Audit Record Content
@@ -123,13 +123,13 @@ Log data collected by Azure Monitor is stored in a Log Analytics workspace enabl
 configuration and management. This blueprint helps you ensure events are logged by assigning seven [Azure Policy](../../../policy/overview.md)
 definitions that audit and enforce deployment of the Log Analytics agent on Azure virtual machines.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
 ## AU-5 Response to Audit Processing Failures
 
@@ -137,7 +137,7 @@ This blueprint assigns five [Azure Policy](../../../policy/overview.md) definiti
 audit and event logging configurations. Monitoring these configurations can provide an indicator of
 an audit system failure or misconfiguration and help you take corrective action.
 
-- [Preview]: Monitor unaudited SQL servers in Azure Security Center
+- \[Preview\]: Monitor unaudited SQL servers in Azure Security Center
 - Audit diagnostic setting
 - Audit SQL managed instances without Advanced Data Security
 - Audit SQL server level Auditing settings
@@ -149,13 +149,13 @@ Log data collected by Azure Monitor is stored in a Log Analytics workspace enabl
 reporting and analysis. This blueprint helps you ensure events are logged by assigning seven [Azure Policy](../../../policy/overview.md)
 definitions that audit and enforce deployment of the Log Analytics agent on Azure virtual machines.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
 ## AU-12 Audit Generation
 
@@ -166,14 +166,14 @@ for other Azure resource types. These policy definitions also audit configuratio
 to provide insight into operations that are performed within Azure resources. Additionally, auditing
 and Advanced Data Security are configured on SQL servers.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
-- [Preview]: Monitor unaudited SQL servers in Azure Security Center
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
+- \[Preview\]: Monitor unaudited SQL servers in Azure Security Center
 - Apply Diagnostic Settings for Network Security Groups
 - Audit diagnostic setting
 - Audit SQL managed instances without Advanced Data Security
@@ -190,7 +190,7 @@ virtual machines. Application control can run in an enforcement mode that prohib
 application from running. This blueprint assigns an Azure Policy definition that helps you monitor
 virtual machines where an application whitelist is recommended but has not yet been configured.
 
-- [Preview]: Monitor possible app whitelisting in Azure Security Center
+- \[Preview\]: Monitor possible app whitelisting in Azure Security Center
 
 ## CM-7 (5) Least Functionality | Authorized Software / Whitelisting
 
@@ -201,7 +201,7 @@ machines. This blueprint assigns an [Azure Policy](../../../policy/overview.md) 
 helps you monitor virtual machines where an application whitelist is recommended but has not yet
 been configured.
 
-- [Preview]: Monitor possible app whitelisting in Azure Security Center
+- \[Preview\]: Monitor possible app whitelisting in Azure Security Center
 
 ## CM-11 User-Installed Software
 
@@ -212,7 +212,7 @@ restriction policies. This blueprint assigns an [Azure Policy](../../../policy/o
 definition that helps you monitor virtual machines where an application whitelist is recommended but
 has not yet been configured.
 
-- [Preview]: Monitor possible app whitelisting in Azure Security Center
+- \[Preview\]: Monitor possible app whitelisting in Azure Security Center
 
 ## CP-7 Alternate Processing Site
 
@@ -232,8 +232,8 @@ authentication enabled. Multi-factor authentication helps keep accounts secure e
 authentication information is compromised. By monitoring accounts without multi-factor
 authentication enabled, you can identify accounts that may be more likely to be compromised.
 
-- [Preview]: Audit accounts with owner permissions who are not MFA enabled on a subscription
-- [Preview]: Audit accounts with write permissions who are not MFA enabled on a subscription
+- \[Preview\]: Audit accounts with owner permissions who are not MFA enabled on a subscription
+- \[Preview\]: Audit accounts with write permissions who are not MFA enabled on a subscription
 
 ## IA-2 (2) Identification and Authentication (Organizational Users) | Network Access to Non-Privileged Accounts
 
@@ -243,7 +243,7 @@ enabled. Multi-factor authentication helps keep accounts secure even if one piec
 information is compromised. By monitoring accounts without multi-factor authentication enabled, you
 can identify accounts that may be more likely to be compromised.
 
-- [Preview]: Audit accounts with read permissions who are not MFA enabled on a subscription
+- \[Preview\]: Audit accounts with read permissions who are not MFA enabled on a subscription
 
 ## IA-5 Authenticator Management
 
@@ -254,11 +254,11 @@ conjugation of the password encryption type for Windows virtual machines. Monito
 indicators helps you ensure that system authenticators comply with your organization’s
 identification and authentication policy.
 
-- [Preview]: Audit that Linux VMs do not have accounts without passwords
-- [Preview]: Deploy VM extension to audit that Linux VMs do not have accounts without passwords
-- [Preview]: Audit that Linux VMs have the passwd file permissions set to 0644
-- [Preview]: Audit that Windows VMs store passwords using reversible encryption
-- [Preview]: Deploy VM extension to audit that Linux VMs have the passwd file permissions set to 0644
+- \[Preview\]: Audit that Linux VMs do not have accounts without passwords
+- \[Preview\]: Deploy VM extension to audit that Linux VMs do not have accounts without passwords
+- \[Preview\]: Audit that Linux VMs have the passwd file permissions set to 0644
+- \[Preview\]: Audit that Windows VMs store passwords using reversible encryption
+- \[Preview\]: Deploy VM extension to audit that Linux VMs have the passwd file permissions set to 0644
 
 ## IA-5 (1) Authenticator Management | Password-Based Authentication
 
@@ -268,18 +268,18 @@ password requirements. Awareness of virtual machines in violation of the passwor
 helps you take corrective actions to ensure passwords for all virtual machine user accounts comply
 with your organization’s password policy.
 
-- [Preview]: Audit that Windows VMs cannot re-use the previous 24 passwords
-- [Preview]: Audit that Windows VMs have a maximum password age of 70 days
-- [Preview]: Audit that Windows VMs have a minimum password age of 1 day
-- [Preview]: Audit that Windows VMs have the password complexity setting enabled
-- [Preview]: Audit that Windows VMs restrict the minimum password length to 14 characters
-- [Preview]: Audit that Windows VMs store passwords using reversible encryption
-- [Preview]: Deploy VM extension to audit that Windows VMs cannot re-use the previous 24 passwords
-- [Preview]: Deploy VM extension to audit that Windows VMs have a maximum password age of 70 days
-- [Preview]: Deploy VM extension to audit that Windows VMs have a minimum password age of 1 day
-- [Preview]: Deploy VM extension to audit that Windows VMs have the password complexity setting enabled
-- [Preview]: Deploy VM extension to audit that Windows VMs restrict the minimum password length to 14 characters
-- [Preview]: Deploy VM extension to audit that Windows VMs store passwords using reversible encryption
+- \[Preview\]: Audit that Windows VMs cannot re-use the previous 24 passwords
+- \[Preview\]: Audit that Windows VMs have a maximum password age of 70 days
+- \[Preview\]: Audit that Windows VMs have a minimum password age of 1 day
+- \[Preview\]: Audit that Windows VMs have the password complexity setting enabled
+- \[Preview\]: Audit that Windows VMs restrict the minimum password length to 14 characters
+- \[Preview\]: Audit that Windows VMs store passwords using reversible encryption
+- \[Preview\]: Deploy VM extension to audit that Windows VMs cannot re-use the previous 24 passwords
+- \[Preview\]: Deploy VM extension to audit that Windows VMs have a maximum password age of 70 days
+- \[Preview\]: Deploy VM extension to audit that Windows VMs have a minimum password age of 1 day
+- \[Preview\]: Deploy VM extension to audit that Windows VMs have the password complexity setting enabled
+- \[Preview\]: Deploy VM extension to audit that Windows VMs restrict the minimum password length to 14 characters
+- \[Preview\]: Deploy VM extension to audit that Windows VMs store passwords using reversible encryption
 
 ## RA-5 Vulnerability Scanning
 
@@ -294,10 +294,10 @@ capabilities to help you understand vulnerabilities in your deployed resources.
 - Audit SQL managed instances without Advanced Data Security
 - Audit SQL servers without Advanced Data Security
 - Deploy Advanced Data Security on SQL servers
-- [Preview]: Audit OS vulnerabilities on your virtual machine scale sets in Azure Security Center
-- [Preview]: Monitor OS vulnerabilities in Azure Security Center
-- [Preview]: Monitor SQL vulnerability assessment results in Azure Security Center
-- [Preview]: Monitor VM Vulnerabilities in Azure Security Center
+- \[Preview\]: Audit OS vulnerabilities on your virtual machine scale sets in Azure Security Center
+- \[Preview\]: Monitor OS vulnerabilities in Azure Security Center
+- \[Preview\]: Monitor SQL vulnerability assessment results in Azure Security Center
+- \[Preview\]: Monitor VM Vulnerabilities in Azure Security Center
 
 ## SC-5 Denial of Service Protection
 
@@ -308,7 +308,7 @@ definition that audits if the DDoS standard tier is enabled. Understanding the c
 between the service tiers can help you select the best solution to address denial of service
 protections for your Azure environment.
 
-- [Preview]: Audit standard tier of DDoS protection is enabled for a virtual network
+- \[Preview\]: Audit standard tier of DDoS protection is enabled for a virtual network
 
 ## SC-7 Boundary Protection
 
@@ -323,10 +323,10 @@ endpoints, applications, and storage accounts. Endpoints and applications that a
 firewall, and storage accounts with unrestricted access can allow unintended access to information
 contained within the information system.
 
-- [Preview]: Monitor Internet-facing virtual machines for Network Security Group traffic hardening recommendations
-- [Preview]: Monitor permissive network access in Azure Security Center
-- [Preview]: Monitor unprotected network endpoints in Azure Security Center
-- [Preview]: Monitor unprotected web application in Azure Security Center
+- \[Preview\]: Monitor Internet-facing virtual machines for Network Security Group traffic hardening recommendations
+- \[Preview\]: Monitor permissive network access in Azure Security Center
+- \[Preview\]: Monitor unprotected network endpoints in Azure Security Center
+- \[Preview\]: Monitor unprotected web application in Azure Security Center
 - Audit unrestricted network access to storage accounts
 
 ## SC-7 (3) Boundary Protection | Access Points
@@ -337,7 +337,7 @@ machine access helps you limit the number of external connections to your resour
 blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you monitor
 virtual machines that can support just-in-time access but have not yet been configured.
 
-- [Preview]: Monitor possible network Just In Time (JIT) access in Azure Security Center
+- \[Preview\]: Monitor possible network Just In Time (JIT) access in Azure Security Center
 
 ## SC-7 (4) Boundary Protection | External Telecommunications Services
 
@@ -348,7 +348,7 @@ request and approval processes. This blueprint assigns an [Azure Policy](../../.
 definition that helps you monitor virtual machines that can support just-in-time access but have not
 yet been configured.
 
-- [Preview]: Monitor possible network Just In Time (JIT) access in Azure Security Center
+- \[Preview\]: Monitor possible network Just In Time (JIT) access in Azure Security Center
 
 ## SC-28 (1) Protection of Information at Rest | Cryptographic Protection
 
@@ -361,8 +361,8 @@ policy. Specifically, the policy definitions assigned by this blueprint require 
 lake storage accounts; require transparent data encryption on SQL databases; and audit missing
 encryption on SQL databases, virtual machine disks, and automation account variables.
 
-- [Preview]: Monitor unencrypted SQL databases in Azure Security Center
-- [Preview]: Monitor unencrypted VM Disks in Azure Security Center
+- \[Preview\]: Monitor unencrypted SQL databases in Azure Security Center
+- \[Preview\]: Monitor unencrypted VM Disks in Azure Security Center
 - Audit secure transfer to storage accounts
 - Audit SQL managed instances without Advanced Data Security
 - Audit SQL servers without Advanced Data Security
@@ -380,12 +380,12 @@ provides reporting capabilities that enable you to have real-time insight into t
 deployed Azure resources. This blueprint also assigns a policy definition that ensures automatic
 upgrade of the operating system for virtual machine scale sets.
 
-- [Preview]: Audit any missing system updates on virtual machine scale sets in Azure Security Center
-- [Preview]: Audit OS vulnerabilities on your virtual machine scale sets in Azure Security Center
-- [Preview]: Monitor missing system updates in Azure Security Center
-- [Preview]: Monitor OS vulnerabilities in Azure Security Center
-- [Preview]: Monitor SQL vulnerability assessment results in Azure Security Center
-- [Preview]: Monitor VM Vulnerabilities in Azure Security Center
+- \[Preview\]: Audit any missing system updates on virtual machine scale sets in Azure Security Center
+- \[Preview\]: Audit OS vulnerabilities on your virtual machine scale sets in Azure Security Center
+- \[Preview\]: Monitor missing system updates in Azure Security Center
+- \[Preview\]: Monitor OS vulnerabilities in Azure Security Center
+- \[Preview\]: Monitor SQL vulnerability assessment results in Azure Security Center
+- \[Preview\]: Monitor VM Vulnerabilities in Azure Security Center
 - Enforce automatic OS upgrade with app health checks on VMSS
 
 ## SI-3 Malicious Code Protection
@@ -395,8 +395,8 @@ assigning three [Azure Policy](../../../policy/overview.md) definitions that mon
 endpoint protection on virtual machines in Azure Security Center and enforce the Microsoft
 antimalware solution on Windows virtual machines.
 
-- [Preview]: Audit the endpoint protection solution on virtual machine scale sets in Azure Security Center
-- [Preview]: Monitor missing Endpoint Protection in Azure Security Center
+- \[Preview\]: Audit the endpoint protection solution on virtual machine scale sets in Azure Security Center
+- \[Preview\]: Monitor missing Endpoint Protection in Azure Security Center
 - Deploy default Microsoft IaaSAntimalware extension for Windows Server
 
 ## SI-3 (1) Malicious Code Protection | Central Management
@@ -407,8 +407,8 @@ endpoint protection on virtual machines in Azure Security Center. Azure Security
 centralized management and reporting capabilities that enable you to have real-time insight into the
 security state of deployed Azure resources.
 
-- [Preview]: Audit the endpoint protection solution on virtual machine scale sets in Azure Security Center
-- [Preview]: Monitor missing Endpoint Protection in Azure Security Center
+- \[Preview\]: Audit the endpoint protection solution on virtual machine scale sets in Azure Security Center
+- \[Preview\]: Monitor missing Endpoint Protection in Azure Security Center
 
 ## SI-4 Information System Monitoring
 
@@ -418,13 +418,13 @@ Analytics agent, and enhanced security settings for SQL databases, storage accou
 resources. These capabilities can help you detect anomalous behavior and indicators of attacks so
 you can take appropriate action.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Audit SQL managed instances without Advanced Data Security
 - Audit SQL servers without Advanced Data Security
 - Deploy Advanced Data Security on SQL servers

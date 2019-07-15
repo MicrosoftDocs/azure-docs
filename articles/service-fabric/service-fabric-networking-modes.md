@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: aljo, subramar
+ms.author: subramar
 
 ---
 # Service Fabric container networking modes

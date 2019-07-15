@@ -9,7 +9,7 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
-ms.service: asc-for-iot
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na

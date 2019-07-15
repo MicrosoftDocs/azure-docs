@@ -72,7 +72,7 @@ To successfully complete your "content protection" system/application design, yo
   
      You can create a player by using the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
 
-     For testing AES or CENC (Widevine and/or PlayReady) encrypted content, you can use [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Make sure you click on "Advanced options" and check your encryption options.
+     For testing AES or CENC (Widevine and/or PlayReady) encrypted content, you can use [Azure Media Player](https://aka.ms/azuremediaplayer). Make sure you click on "Advanced options" and check your encryption options.
 
      If you want to test FairPlay encrypted content, use [this test player](https://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. 
     

@@ -2,7 +2,8 @@
 title:  Azure Kinect body tracking joints
 description: Using body frame and joints
 author: qm13
-ms.author: cedmonds, abalan, quentinm
+ms.author: quentinm
+ms.reviewer: cedmonds, abalan
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual

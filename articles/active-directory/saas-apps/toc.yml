@@ -117,6 +117,8 @@
         href: asana-tutorial.md
       - name: ASC Contracts
         href: asccontracts-tutorial.md
+      - name: Ascentis
+        href: ascentis-tutorial.md
       - name: Asset Bank
         href: assetbank-tutorial.md
       - name: Atlassian Cloud
@@ -183,7 +185,7 @@
         href: box-tutorial.md
       - name: Boxcryptor
         href: boxcryptor-tutorial.md
-      - name: Bpmâonline
+      - name: Bpm’online
         href: bpmonline-tutorial.md
       - name: Brandfolder
         href: brandfolder-tutorial.md
@@ -449,7 +451,7 @@
         href: floqast-tutorial.md
       - name: Fluxx Labs
         href: fluxxlabs-tutorial.md
-      - name: FM:Systems
+      - name: FM&#58Systems
         href: fm-systems-tutorial.md
       - name: Folloze
         href: folloze-tutorial.md
@@ -545,6 +547,10 @@
         href: huddle-tutorial.md
       - name: Humanity
         href: shiftplanning-tutorial.md
+      - name: Hype
+        href: hype-tutorial.md
+      - name: HyperAnna
+        href: hyperanna-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -577,7 +583,7 @@
         href: infogix-tutorial.md
       - name: Infor CloudSuite
         href: infor-cloud-suite-tutorial.md
-      - name: Infor Retail â Information Management
+      - name: Infor Retail - Information Management
         href: inforretailinformationmanagement-tutorial.md
       - name: Inkling
         href: inkling-tutorial.md
@@ -649,6 +655,8 @@
         href: joinme-tutorial.md
       - name: Jostle
         href: jostle-tutorial.md
+      - name: Kallidus
+        href: kallidus-tutorial.md
       - name: Kanbanize
         href: kanbanize-tutorial.md
       - name: Kantega SSO for Bamboo
@@ -1297,6 +1305,8 @@
         href: vxmaintain-tutorial.md
     - name: W - Z
       items:
+      - name: Wandera
+        href: wandera-tutorial.md
       - name: Way We Do
         href: waywedo-tutorial.md
       - name: Wdesk
@@ -1410,8 +1420,6 @@
         href: box-userprovisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
-      - name: Cisco Spark
-        href: cisco-spark-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
       - name: Comeet Recruiting Software
@@ -1426,6 +1434,14 @@
         href: dropboxforbusiness-provisioning-tutorial.md
       - name: Dynamic Signal
         href: dynamic-signal-provisioning-tutorial.md
+      - name: Dialpad
+        href: dialpad-provisioning-tutorial.md
+      - name: Envoy
+        href: envoy-provisioning-tutorial.md
+      - name: Figma
+        href: figma-provisioning-tutorial.md
+      - name: Federated Directory
+        href: federated-directory-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
@@ -1442,6 +1458,8 @@
         href: linkedinsalesnavigator-provisioning-tutorial.md
       - name: Lucidchart
         href: lucidchart-provisioning-tutorial.md
+      - name: Leapsome
+        href: leapsome-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
     - name: N - Z
@@ -1450,6 +1468,10 @@
         href: netsuite-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
+      - name: Proxyclick
+        href: Proxyclick-provisioning-tutorial.md
+      - name: Peakon
+        href: peakon-provisioning-tutorial.md
       - name: Salesforce
         href: salesforce-provisioning-tutorial.md
       - name: Salesforce Sandbox
@@ -1484,3 +1506,5 @@
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
+      - name: Zoom
+        href: zoom-provisioning-tutorial.md

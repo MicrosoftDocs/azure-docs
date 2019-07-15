@@ -129,7 +129,7 @@ Developers running a single application with one deployment slot in their App Se
 
 When tuning application heap settings, review your App Service plan details and take into account multiple applications and deployment slot needs to find the optimal allocation of memory.
 
-If you are deploying a JAR application, it should be named *app.jar* so that the built-in image can correctly identify your app. (The Maven plugin does this renaming automatically.) If you do not wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your JAR. Then paste the full path to this script in the [Startup File](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) textbox in the Configuration section of the portal.
+If you are deploying a JAR application, it should be named *app.jar* so that the built-in image can correctly identify your app. (The Maven plugin does this renaming automatically.) If you do not wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your JAR. Then paste the full path to this script in the [Startup File](app-service-linux-faq.md#built-in-images) textbox in the Configuration section of the portal.
 
 ### Turn on web sockets
 
@@ -166,6 +166,10 @@ Alternatively, you can configure the app setting using the App Service Maven plu
 ### Adjust startup timeout
 
 If your Java application is particularly large, you should increase the startup time limit. To do this, create an application setting, `WEBSITES_CONTAINER_START_TIME_LIMIT` and set it to the number of seconds that App Service should wait before timing out. The maximum value is `1800` seconds.
+
+### Pre-Compile JSP files
+
+To improve performance of Tomcat applications, you can compile your JSP files before deploying to App Service. You can use the [Maven plugin](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) provided by Apache Sling, or using this [Ant build file](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
 
 ## Secure applications
 

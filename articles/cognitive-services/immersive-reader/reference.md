@@ -1,9 +1,10 @@
 ---
 title: "Immersive Reader SDK Reference"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Reference for the Immersive Reader SDK
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
