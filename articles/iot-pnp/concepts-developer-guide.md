@@ -116,7 +116,7 @@ You can use [IoT Hub's custom endpoints and routing rules](../iot-hub/iot-hub-de
 
 ### Commands
 
-Commands are either synchronous or asynchronous. A synchronous command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device does respond in time, or the device is not connected, then the the command fails.
+Commands are either synchronous or asynchronous. A synchronous command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device does respond in time, or the device is not connected, then the command fails.
 
 Use asynchronous commands for long-running operations. The device sends progress information using telemetry messages. These progress messages have the following header properties:
 
