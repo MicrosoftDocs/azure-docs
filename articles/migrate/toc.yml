@@ -88,6 +88,8 @@
       href: how-to-migrate-at-scale.md
   - name: Migration examples-Contoso series
     href: contoso-migration-overview.md
+- name: Troubleshoot
+  items:
   - name: Troubleshoot Azure Migrate
     href: troubleshooting-general.md
 - name: Resources
