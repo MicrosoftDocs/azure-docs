@@ -53,7 +53,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid
 
 ### View error messages for a failed activity by activity ID
 
-To view the error messages for a failed activity, you must run the cmdlet with the **-Detailed** parameter. Since the errors are returned as a list in the returned object, you can easily view them by using the **Select-Object** cmdlet.
+To view the error messages for a failed activity, you must run the cmdlet with the **-Detailed** parameter. You can view the list of errors by running the **Select-Object** cmdlet.
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantname> -ActivityId <ActivityGuid> -Detailed | Select-Object -ExpandProperty Errors
