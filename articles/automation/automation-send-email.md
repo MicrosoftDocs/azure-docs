@@ -119,8 +119,8 @@ it for different scenarios.
       [String] $content
     )
 
-    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Out-Null
+    $Conn = Get-AzAutomationConnection -Name AzureRunAsConnection
+    Login-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Out-Null
     $VaultName = "<Enter your vault name>"
     $SENDGRID_API_KEY = (Get-AzKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey").SecretValueText
     $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
