@@ -13,7 +13,7 @@ ms.author: pabutler
 
 This article describes how to configure Azure Table storage to manage sales leads. Table storage helps you store and modify customer information.
 
-## How to configure Table storage
+## Configure Table storage
 
 1. If you don't have an Azure account, [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).
 1. After your account is active, sign in to the [Azure portal](https://portal.azure.com).
@@ -22,11 +22,11 @@ This article describes how to configure Azure Table storage to manage sales lead
     1. In the **New** pane, select **Storage**. A **Featured** list will open on the right side.
     1. Select **Storage account**. Then, follow the instructions at [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
-        ![Create an Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
+    ![Create an Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
     For more about storage accounts, see [Quickstart tutorials](https://docs.microsoft.com/azure/storage/). For pricing information, see [Azure storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-1. Wait until your storage account is provisioned, which typically takes a few minutes. Then, access the account from the **Home** page of the Azure portal: Select **See all your resources** or **All resources** in the navigation pane.
+1. Wait until your storage account is provisioned, which typically takes a few minutes. Then, access the account from the home page of the Azure portal: Select **See all your resources** or **All resources** in the navigation pane.
 
     ![Access your Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
@@ -54,12 +54,12 @@ This example shows how to create a basic flow. The flow automatically sends an e
 1. In the navigation pane on the left side, select **My flows**.
 1. In the top navigation bar, select **+New**.  
 1. From the drop-down list, select **+Create from blank**.
-1. Under "Create a flow from blank," select **Create from blank**.
+1. Under **Create a flow from blank**, select **Create from blank**.
 
    ![Create a new flow from blank](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-create-from-blank.png)
 
 1. On the connectors and triggers search page, select **Triggers**.
-1. Under "Triggers," select **Recurrence**.
+1. Under **Triggers**, select **Recurrence**.
 1. In the **Recurrence** window, keep the default setting of **1** for **Interval**. From the **Frequency** drop-down list, select **Hour**.
 
    >[!NOTE] 
@@ -68,7 +68,7 @@ This example shows how to create a basic flow. The flow automatically sends an e
    ![Set a 1-hour frequency for recurrence](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
 
 1. Select **+New step**.
-1. Search for **Get past time**, and then select **Get past time** under "Choose an action."
+1. Search for **Get past time**, and then select **Get past time** under **Choose an action**.
 
     ![Find and select the "get past time" action](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
 
@@ -83,15 +83,15 @@ This example shows how to create a basic flow. The flow automatically sends an e
 
 In the next set of steps, you connect to your storage table and set up the processing logic to handle new leads.
 
-1. After the "Get past time" step, select **+New step**, and then search for **Get entities**.
-1. Under "Actions," select **Get entities**, and then select **Show advanced options**.
+1. After the **Get past time** step, select **+New step**, and then search for **Get entities**.
+1. Under **Actions**, select **Get entities**, and then select **Show advanced options**.
 1. In the **Get entities** window, fill in the following fields:
 
    - **Table**: the name of your table storage. The following image shows “MarketPlaceLeads” entered:
 
      ![Pick a custom value for Azure table name](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Filter Query**: When you click this field, the **Get past time** icon is displayed in a pop-up window. Select **Past time** to use this value as a timestamp to filter the query. Or, you can paste the following function into the field:
+   - **Filter Query**: When you select this field, the **Get past time** icon is displayed in a pop-up window. Select **Past time** to use this value as a timestamp to filter the query. Or, you can paste the following function into the field:
    
       `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
 
@@ -141,7 +141,7 @@ In the next set of steps, you connect to your storage table and set up the proce
 
     [![Final flow sequence](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
 
-    (*Click the image to enlarge it.*)
+    (*Select the image to enlarge it.*)
 
 ### Manage your flow
 
