@@ -137,7 +137,7 @@ You can query dependency data captured by Service Map in the Log Analytics works
 
 - [Learn how to](../azure-monitor/insights/service-map.md#log-analytics-records) search for Service Map data in Log Analytics. 
 - [Get an overview](../azure-monitor/log-query/get-started-queries.md)  of writing log queries in [Log Analytics](../azure-monitor/log-query/get-started-portal.md).
-- 
+
 
 Run a query for dependency data as follows:
 
