@@ -1,5 +1,5 @@
 ---
-title: Manage cluster horizontal scaling to accommodate changing demand
+title: Manage cluster horizontal scaling (scale out) in Azure Data Explorer to accommodate changing demand
 description: This article describes steps to scale out and scale in an Azure Data Explorer cluster based on changing demand.
 author: orspod
 ms.author: orspodek
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/14/2019
 ---
 
-# Manage cluster horizontal scaling to accommodate changing demand
+# Manage cluster horizontal scaling (scale out) in Azure Data Explorer to accommodate changing demand
 
 Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. A static cluster size can lead to under-utilization or over-utilization, neither of which is ideal.
 

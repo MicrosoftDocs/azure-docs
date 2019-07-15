@@ -1,5 +1,5 @@
 ---
-title: Scale up an Azure Data Explorer cluster to accommodate changing demand
+title: Manage cluster vertical scaling (scale up) in Azure Data Explorer to accommodate changing demand
 description: This article describes steps to scale up and scale down an Azure Data Explorer cluster based on changing demand.
 author: radennis
 ms.author: radennis
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/14/2019
 ---
 
-# Manage cluster scale-up to accommodate changing demand
+# Manage cluster vertical scaling (scale up) in Azure Data Explorer to accommodate changing demand
 
 Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. A static cluster size can lead to under-utilization or over-utilization, neither of which is ideal.
 
@@ -22,7 +22,7 @@ There are two workflows for scaling an Azure Data Explorer cluster:
 
 This article explains the vertical scaling workflow:
 
-## Steps to configure vertical scaling
+## Configure vertical scaling
 
 1. In the Azure portal, go to your Azure Data Explorer cluster resource. Under **Settings**, select **Scale up**.
 
@@ -37,7 +37,7 @@ This article explains the vertical scaling workflow:
 > [!NOTE]
 > * The vertical scaling process can take a few minutes, and during that time your cluster will be  suspended. 
 > * Scaling down can harm your cluster performance.
-> * The price is an estimate of the cluster's virtual machines and Azure Data Explorer service costs. Other costs are not included. See Azure Data Explorer [cost estimator](https://dataexplorer.azure.com/AzureDataExplorerCostEstimator.html) page for an estimate and the Azure Data Explorer [pricing page](https://azure.microsoft.com/en-us/pricing/details/data-explorer/) for full pricing information.
+> * The price is an estimate of the cluster's virtual machines and Azure Data Explorer service costs. Other costs are not included. See Azure Data Explorer [cost estimator](https://dataexplorer.azure.com/AzureDataExplorerCostEstimator.html) page for an estimate and the Azure Data Explorer [pricing page](https://azure.microsoft.com/pricing/details/data-explorer/) for full pricing information.
 
 You've now configured vertical scaling for your Azure Data Explorer cluster. Add another rule for a horizontal scaling. If you need assistance with cluster-scaling issues, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in the Azure portal.
 
