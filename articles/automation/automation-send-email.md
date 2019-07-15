@@ -108,6 +108,11 @@ it for different scenarios.
 6. Copy the following PowerShell example into the **Edit** page. Ensure that the `$VaultName` is the name you specified when
    you created your KeyVault.
 
+    > [!NOTE]
+    > In the new **Az** modules, `Get-AzureKeyVaultSecret` is an alias for `Get-AzKeyVaultSecret`.
+    > To enable aliases for **AzureRM** cmdlets, use [Enable-AzureRmAlias](/powershell/module/az.accounts/enable-azurermalias?/view). You can also update your Automation Account with the newest modules by following the steps in
+    > [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
+
     ```powershell-interactive
     Param(
       [Parameter(Mandatory=$True)]
@@ -123,7 +128,8 @@ it for different scenarios.
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
     Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Out-Null
     $VaultName = "<Enter your vault name>"
-    $SENDGRID_API_KEY = (Get-AzureRMKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey").SecretValueText
+    # If your automation account uses the Az modules, change this to Get-AzureKeyVaultSecret
+    $SENDGRID_API_KEY = (Get-AzureKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey").SecretValueText
     $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
     $headers.Add("Authorization", "Bearer " + $SENDGRID_API_KEY)
     $headers.Add("Content-Type", "application/json")
@@ -159,12 +165,6 @@ it for different scenarios.
 
 To verify that the runbook executes successfully you can follow the steps under [Test a runbook](manage-runbooks.md#test-a-runbook) or [Start a runbook](start-runbooks.md).
 If you do not initially see your test email, check your **Junk** and **Spam** folders.
-
-> [!NOTE]
-> The script above uses `Get-AzureKeyVault` for ease of use with new Automation Accounts. The
-> steps listed in [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-automation-integration-modules.md)
-> show you how to update your Automation Account with the new Azure PowerShell
-> modules.
 
 ## Clean Up
 
