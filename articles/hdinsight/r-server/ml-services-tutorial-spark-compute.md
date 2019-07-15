@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Use R in a Spark compute context in Azure HDInsight'
-description: Tutorial - Get started with R and Spark on Azure Machine Learning services.
+description: Tutorial - Get started with R and Spark on an Azure HDInsight Machine Learning services cluster.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -13,7 +13,7 @@ ms.date: 06/21/2019
 
 # Tutorial: Use R in a Spark compute context in Azure HDInsight
 
-This tutorial provides a step-by-step introduction to using the R functions in Apache Spark that run on an Azure Machine Learning services cluster in Azure HDInsight.
+This tutorial provides a step-by-step introduction to using the R functions in Apache Spark that run on an Azure HDInsight Machine Learning services cluster.
 
 In this tutorial, you learn how to:
 
@@ -29,11 +29,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* A Machine Learning services cluster in HDInsight. Go to [Create Apache Hadoop clusters by using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and, for **Cluster type**, select **ML Services**.
+* An Azure HDInsight Machine Learning services cluster. Go to [Create Apache Hadoop clusters by using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and, for **Cluster type**, select **ML Services**.
 
 ## Connect to RStudio Server
 
-RStudio Server runs on the cluster’s edge node. Go to the following site (where *CLUSTERNAME* in the URL is the name of the Machine Learning services cluster you created):
+RStudio Server runs on the cluster’s edge node. Go to the following site (where *CLUSTERNAME* in the URL is the name of the HDInsight Machine Learning services cluster you created):
 
 ```
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
@@ -241,7 +241,9 @@ rxSetComputeContext(mySparkCluster)
 
 ## Use composite XDF files
 
-As you've seen, you can analyze CSV files directly with R on Hadoop. But you can do the analysis more quickly if you store the data in a more efficient format. The R XDF file format is efficient, but it's modified somewhat for HDFS so that individual files remain within a single HDFS block. (The HDFS block size varies from installation to installation but is typically either 64 MB or 128 MB.) When you use [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport) on Hadoop to create a set of composite XDF files, you specify an `RxTextData` data source such as `AirDS` as the inData and an `RxXdfData` data source with fileSystem set to an HDFS file system as the outFile argument. You can then use the `RxXdfData` object as the data argument in subsequent R analyses.
+As you've seen, you can analyze CSV files directly with R on Hadoop. But you can do the analysis more quickly if you store the data in a more efficient format. The R XDF file format is efficient, but it's modified somewhat for HDFS so that individual files remain within a single HDFS block. (The HDFS block size varies from installation to installation but is typically either 64 MB or 128 MB.) 
+
+When you use [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport) on Hadoop to create a set of composite XDF files, you specify an `RxTextData` data source such as `AirDS` as the inData and an `RxXdfData` data source with fileSystem set to an HDFS file system as the outFile argument. You can then use the `RxXdfData` object as the data argument in subsequent R analyses.
 
 1. Define an `RxXdfData` object. In RStudio, enter the following code:
 
@@ -357,7 +359,7 @@ To delete a cluster, see [Delete an HDInsight cluster by using your browser, Pow
 
 ## Next steps
 
-In this tutorial, you learned how to use R functions in Apache Spark that are running on a Machine Learning services cluster in Azure HDInsight. For more information, see the following articles:
+In this tutorial, you learned how to use R functions in Apache Spark that are running on an HDInsight Machine Learning services cluster. For more information, see the following articles:
 
-* [Compute context options for Machine Learning services in HDInsight](r-server-compute-contexts.md)
+* [Compute context options for an Azure HDInsight Machine Learning services cluster](r-server-compute-contexts.md)
 * [R Functions for Spark on Hadoop](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler-hadoop-functions)
