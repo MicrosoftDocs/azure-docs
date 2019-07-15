@@ -38,7 +38,7 @@ The basic network interconnectivity that is established at the time of a private
 - Outbound access to Azure services by production VM workloads.
 - Inbound access and consumption of workloads running in the SDDC.
 
-*Figure 1 -- Basic connectivity*
+![Figure 1 -- basic connectivity](./media/concepts/adjacency-overview-drawing-single.png)
 
 The ExpressRoute (ER) circuit in this VNet -to- private cloud scenario is established when a private cloud is deployed. Peering of a VNet to the ER circuit is established from within your subscription by using an authorization key and a circuit ID that is created when a private cloud is deployed. The ER connection that is provisioned is a private, high-speed, one-to-one connection that enables essential VNet to a private cloud connectivity. Management, access to Azure services, and workload consumption can all occur over that connection.
 
@@ -57,10 +57,10 @@ As an extension to Azure connectivity, **full connectivity** to on-premises envi
 The on-prem to Azure VNet ER circuit is key to connecting from on-prem to your private cloud in Azure. That ER circuit is in your subscription and is not part of a private cloud deployment. Once it is enabled and operational in your subscription, it can be linked to your private private cloud ER circuit with Global Reach. The on-prem ER circuit is beyond the scope of this document but if you require on-prem connectivity to the private cloud, you can use one of your existing ER circuits or purchase one in the Azure portal.
 
 Once linked with Global Reach, the two ER circuits provide an L3 routable path between your on-premises environments and your private cloud. The network flows are shown in figure 2 and, in addition to the list provided earlier, they also enable the following use cases:
-- Hot/Cold Cross-vCenter vMotion * <Insert Requirements>
+- Hot/Cold Cross-vCenter vMotion
 - On-Premise to AVS by Virtustream private cloud management access
 
-*Figure 2 -- Full connectivity*
+![Figure 1 -- basic connectivity](./media/concepts/adjacency-overview-drawing-double.png)
 
 To enable full connectivity, an Authorization Key and peering ID for Global Reach can be provided when a private cloud. With those, you can establish Global Reach between an ER circuit in your subscription and the ER circuit for your new private cloud. Typically those are provided when a private cloud is deployed, but they can be requested later and then used to establish Global Reach. The procedures for 1) getting the Authorization Key and peering ID pair and 2) the overall procedure for installing a private cloud with full connectivity is provided in the [create an AVS by Virtustream private cloud tutorial][tutorial-create-private-cloud].
 
