@@ -37,7 +37,7 @@ You can also use the Schedule built-in actions to pause your workflow before the
 
 This article describes the capabilities for the Schedule built-in triggers and actions.
 
-<a name="schedule-triggers"></a<
+<a name="schedule-triggers"></a>
 
 ## Schedule triggers
 
@@ -49,7 +49,7 @@ Here are the differences between these triggers:
 
 * **Sliding Window**: Runs your workflow at regular time intervals that handle data in continuous chunks. If recurrences are missed, the Sliding Window trigger goes back and processes the missed recurrences. You can specify a start date and time, time zone, and a duration to delay each recurrence in your workflow. This trigger doesn't have options to specify days, weeks, and months, hours of the day, minutes of the hour, and days of the week. For more information, see [Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger](../connectors/connectors-native-sliding-window.md).
 
-<a name="schedule-actions"></a<
+<a name="schedule-actions"></a>
 
 ## Schedule actions
 
