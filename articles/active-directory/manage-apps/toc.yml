@@ -59,9 +59,9 @@
         href: isv-create-sso-documentation.md
       - name: Planning a single sign-on deployment
         href: plan-sso-deployment.md
-    - name: One Click SSO
+    - name: One-click SSO
       items:
-      - name: What is One Click SSO
+      - name: One-click SSO configuration
         href: one-click-sso-tutorial.md
     - name: Provisioning users and groups
       items:

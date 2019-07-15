@@ -33,7 +33,7 @@ Here are the key benefits of Azure Event Hubs and Azure Stream Analytics integra
 1. You see a query page with values already set for the following fields:
     1. Your **event hub** as an input for the query.
     1. Sample **SQL query** with SELECT statement. 
-    1. An **output** alias to refer to your test results. 
+    1. An **output** alias to refer to your query test results. 
 
         ![Query editor](./media/process-data-azure-stream-analytics/query-editor.png)
         
