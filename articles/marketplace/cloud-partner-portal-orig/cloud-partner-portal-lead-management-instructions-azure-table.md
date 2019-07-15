@@ -30,7 +30,7 @@ This article describes how to configure Azure Table storage to manage sales lead
 
     ![Access your Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
-1. From your storage account pane, copy the storage account connection string for the key. Paste it in the storage account **Connection String** field in the Cloud Partner Portal.
+1. From your storage account pane, copy the storage account connection string for the key. Paste it in the **Connection String** field for the storage account in the Cloud Partner Portal.
 
     Example connection string:
 
@@ -120,7 +120,8 @@ In the next set of steps, you connect to your storage table and set up the proce
      ![Set up an action based on condition results](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
 
 1. If the condition resolves to "If no," don’t do anything.
-1. If the condition resolves to "If yes," trigger an action that connects your Office 365 account to send an email:
+
+    If the condition resolves to "If yes," trigger an action that connects your Office 365 account to send an email:
    1. Select **Add an action**.
    1. Select **Send an email**.
    1. In the **Send an email** window, enter information in the following fields:
@@ -151,7 +152,6 @@ It's easy to manage your flow after it's running. You have complete control over
 The flow keeps running until you select **Turn flow off**.
 
 If you’re not getting any lead email notifications, no new leads have been added to your table storage.
-
 You'll get an email like the following example if a flow failure occurs:
 
  ![Flow failure email notification](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
