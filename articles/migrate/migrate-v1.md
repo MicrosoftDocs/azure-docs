@@ -37,8 +37,6 @@ Find projects from the previous version as follows:
 2. On the Azure Migrate dashboard, there's a notification and a link to access old Azure Migrate projects.
 3. Click the link to open v1 projects.
 
-## Discover VMs
-
 
 ## Create an assessment
 
@@ -199,7 +197,7 @@ To use dependency visualization, you associate a Log Analytics workspace with a 
 1. To attach a Log Analytics workspace to a project, in **Overview**, > **Essentials**, click **Requires configuration**.
 2. You can create a new workspace, or attach an existing one:
   - To create a new workspace, specify a name. The workspace is created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
-  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Note that only those workspaces are listed which were created in a [supported Service Map region](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). To attach a workspace, ensure that you have 'Reader' access to the workspace.
+  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Only those workspaces are listed which were created in a [supported Service Map region](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). To attach a workspace, ensure that you have 'Reader' access to the workspace.
 
 > [!NOTE]
 > You can't change the workspace associated with a migration project.
@@ -242,7 +240,7 @@ To install the agent on a Linux machine:
 
 ### Install the MMA agent on a machine monitored by Operations Manager
 
-For machines monitored by System Center Operations Manager 2012 R2 or later, there is no need to install the MMA agent. Service Map integrates with the Operations Manager MMA to gather the necessary dependency data. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Note, that the Dependency agent does need to be installed.
+For machines monitored by System Center Operations Manager 2012 R2 or later, there is no need to install the MMA agent. Service Map integrates with the Operations Manager MMA to gather the necessary dependency data. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). The Dependency agent does need to be installed.
 
 
 ### Install the Dependency agent
@@ -304,7 +302,7 @@ Following are sample queries you can use to extract dependency data. You can mod
 
 #### Summarize inbound connections on a set of machines
 
-Note that the records in the table for connection metrics, VMConnection, do not represent individual physical network connections. Multiple physical network connections are grouped into a logical connection. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) about how physical network connection data is aggregated into a single logical record in VMConnection. 
+The records in the table for connection metrics, VMConnection, do not represent individual physical network connections. Multiple physical network connections are grouped into a logical connection. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) about how physical network connection data is aggregated into a single logical record in VMConnection. 
 
 ```
 // the machines of interest
@@ -334,9 +332,8 @@ VMConnection
 | where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
 | join kind=inner (ips) on $left.DestinationIp == $right.ips
 | summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
-
+```
 
 
 ## Next steps
-
-- [Learn about](migrate-services-overview.md) the latest version of Azure Migrate.
+[Learn about](migrate-services-overview.md) the latest version of Azure Migrate.
