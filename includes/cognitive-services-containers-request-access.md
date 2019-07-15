@@ -1,9 +1,6 @@
 ---
 author: IEvangelist
 ms.author: dapine
-ms.date: 06/25/2019
-ms.service: cognitive-services
-ms.topic: include
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/5/2019
