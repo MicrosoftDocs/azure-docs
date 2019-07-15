@@ -1,12 +1,12 @@
 ---
 title: Azure VMware Solution by Virtustream tutorial - Create a private cloud
-description: In this Azure VMware Solution by Virtustream (AVS by Virtustream) tutorial, you ue the Azure portal to create a private cloud.
+description: In this Azure VMware Solution by Virtustream (AVS by Virtustream) tutorial, you use the Azure portal to create a private cloud.
 services: 
 author: v-jetome
 
 ms.service: vmware-virtustream
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 07/22/2019
 ms.author: v-jetome
 ms.custom: 
 
@@ -33,7 +33,7 @@ You need to plan for the type and number of hosts that you will use in your priv
 
 This tutorial also requires that you have an Azure subscription, access to the Portal, and that the Microsoft.VMwareVirtustream resource provider is registered in your subscription. Following the instructions in [resource provider][Azure resource providers and types] documentation, search for Virtustream. This screenshot shows what will appear if the resource provider is registered in your subscription.
 
-![Image of a registered Virtustream.PrivateCloud resource provider](./media/resource-providers-microsoft-Azure.png)
+![Image of a registered Virtustream.PrivateCloud resource provider](./media/resource-provider-azure.png)
 
 If it is not registered, continue with instructions in that documentation.
 
