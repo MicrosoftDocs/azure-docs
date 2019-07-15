@@ -47,7 +47,7 @@ $SubscriptionId  =  "<subscription ID>"
 
 # Sign in to your Azure account and select your subscription
 # If you omit the SubscriptionId parameter, the default subscription is selected.
-Login-AzAccount -SubscriptionId $SubscriptionId
+Connect-AzAccount -SubscriptionId $SubscriptionId
 
 # Use Get-AzLocation to see your available locations.
 $region = "southcentralus"
@@ -120,7 +120,7 @@ it for different scenarios.
     )
 
     $Conn = Get-AzAutomationConnection -Name AzureRunAsConnection
-    Login-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Out-Null
+    Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Out-Null
     $VaultName = "<Enter your vault name>"
     $SENDGRID_API_KEY = (Get-AzKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey").SecretValueText
     $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
