@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with AirWatch, complete the following buildin
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Create AirWatch test user](#create-airwatch-test-user)** - to have a counterpart of Britta Simon in AirWatch that is linked to the Azure AD representation of user.
 5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-6. **[Test sso](#test-sso)** - to verify whether the configuration works.
+6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
 
@@ -123,7 +123,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In a different web browser window, sign in to your AirWatch company site as an administrator.
 
-1. On the settings page. Select **Settings > Entrprise Integration > Directory Services**.
+1. On the settings page. Select **Settings > Enterprise Integration > Directory Services**.
 
    ![Settings](./media/airwatch-tutorial/ic791921.png "Settings")
 
@@ -153,7 +153,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. As **Request Binding Type**, select **POST**.
 
-    b. In the Azure portal, on the **Configure single sign-on at Airwatch** dialog page, copy the **Login URL** value, and then paste it into the **Identity Provider Single Sign On URL** textbox.
+    b. In the Azure portal, on the **Configure single sign-on at AirWatch** dialog page, copy the **Login URL** value, and then paste it into the **Identity Provider Single Sign On URL** textbox.
 
     c. As **NameID Format**, select **Email Address**.
 
