@@ -109,7 +109,7 @@ it for different scenarios.
    you created your KeyVault.
 
     > [!NOTE]
-    > This script is designed to be backwards compatible with the **AzureRM** modules which are
+    > This script is designed to be backwards compatible with the **AzureRM** modules, which are
     > present, by default, with new Automation Accounts.  If your Automation Account has the newer
     > **Az** modules, you can enable aliases with [Enable-AzureRmAlias](/powershell/module/az.accounts/enable-azurermalias?/view).
 
