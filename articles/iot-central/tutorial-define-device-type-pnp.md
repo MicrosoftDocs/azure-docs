@@ -169,17 +169,15 @@ Now you can view the dashboard you created for **Environmental Sensor** devices:
 
 In this tutorial, you learned how to:
 
-<!-- Repeat task list from intro -->
+* Create a new device definition
+* Import a device capability model.
+* Create cloud properties.
+* Define a visualization for the device telemetry.
+* Publish your device definition.
+* Create a simulated device from your device definition.
+* View your simulated device.
+
+Now that you've created a device definition in your Azure IoT Central application, here is the suggested next step:
+
 > [!div class="nextstepaction"]
-> * Create a new device definition
-> * Import a device capability model.
-> * Create cloud properties.
-> * Define a visualization for the device telemetry.
-> * Publish your device definition.
-> * Create a simulated device from your device definition.
-> * View your simulated device.
-
-Now that you've created a device definition in your Azure IoT Central application, here are the suggested next steps:
-
-* [Configure rules and actions for your device](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-* [Customize the operator's views](tutorial-customize-operator-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Customize the operator's views](tutorial-customize-operator-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

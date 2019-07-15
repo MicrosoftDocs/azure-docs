@@ -87,7 +87,7 @@ The connection string for a device instance in your application is generated fro
 
 1. On the device screen for your real environmental sensor, choose **Connect**.
 
-1. On the Device Connection page, make a note of the **Scope ID**, **Device ID, and **Primary Key** values. You use these values in a following step:
+1. On the Device Connection page, make a note of the **Scope ID**, **Device ID**, and **Primary Key** values. You use these values in a following step:
 
    ![Connection details](media/tutorial-add-device-pnp/device-connect.png)
 
@@ -343,25 +343,20 @@ To configure your client code to connect to your Azure IoT Central application, 
 
 In this tutorial, you learned how to:
 
-> [!div class="nextstepaction"]
-> * Add a new real device
-> * Configure the new device
-> * Get connection string for real device from the application
-> * Understand how client code maps to the application
-> * Configure client code for the real device
+* Add a new real device
+* Configure the new device
+* Get connection string for real device from the application
+* Understand how client code maps to the application
+* Configure client code for the real device
 
 Now that you've connected a real device to your Azure IoT Central application, here are some suggested next steps.
 
 As an operator, you can learn how to:
 
-* [Manage your devices](howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-* [Use device sets](howto-use-device-sets-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-* [Create custom analytics](howto-use-device-sets-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [!div class="nextstepaction"]
+> [Monitor your devices](tutorial-monitor-devices.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 As a device developer, you can learn how to:
 
-* [Prepare and connect a DevKit device (C)](howto-connect-devkit.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-* [Prepare and connect a Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-* [Prepare and connect a Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-* [Prepare and connect a Windows 10 IoT core device (C#)](howto-connect-windowsiotcore.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-* [Connect a generic Node.js client to your Azure IoT Central application](howto-connect-nodejs.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [!div class="nextstepaction"]
+> [Prepare and connect a DevKit device (C)](howto-connect-devkit.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
