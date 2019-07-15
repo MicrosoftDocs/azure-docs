@@ -125,5 +125,5 @@ Confidence ratings for an assessment are as follows.
 
 ## Next steps
 
-- Learn how to use [dependency mapping(how-to-create-group-machine-dependencies.md) to create high confidence groups.
+- Learn how to use [dependency mapping](how-to-create-group-machine-dependencies.md) to create high confidence groups.
 - [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
