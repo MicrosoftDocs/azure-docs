@@ -163,11 +163,11 @@ If the recovery still fails, restart your server or client. If you don't want to
 
 ## Troubleshoot Cache problems
 
-Backup operation may fail because it is having an issue with the cache folder, to resolve any issue refer the below:
+Backup operation may fail if the cache folder is incorrectly configured, missing pre-requisites or has restricted access
 
 ### Pre-requisites
 
-Before you start troubleshooting cache problem, ensure the below are verified:
+For MARS agent operations to succeed the cache folder needs to adhere to below requirements:
 
 - [Ensure 5% to 10% free volume space is available in the scratch folder location](backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Ensure scratch folder location is valid and accessible](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
@@ -177,10 +177,10 @@ Before you start troubleshooting cache problem, ensure the below are verified:
 
 ### Increase shadow copy storage
 The shadow copy storage space for the protected data source is insufficient for backup to proceed. To resolve this issue increase the shadow copy storage space on the protected volume using vssadmin as shown below
-- Check the current shadow storage space from the elevated command prompt:
+- Check the current shadow storage space from the elevated command prompt:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
-- Increase the shadow storage space using the below command:
-  'vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]``
+- Increase the shadow storage space using the below command:<br/>
+  `vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]`
 
 ### Anti-virus blocking
 If you have antivirus software installed on the server, add necessary exclusion rules to the antivirus scan for these files and folders:  
@@ -193,69 +193,58 @@ If you have antivirus software installed on the server, add necessary exclusion 
 
 ### SalChecksumStoreInitializationFailed
 
-**Error message**:
-**Recommended action**:
-
-1. [Check if there is an antivirus or other processes locking the scratch location files](#anti-virus-blocking)
-2. [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
-3. Restart the server
+Error message | Recommended action |
+-- | --
+| 1. [Check if there is an antivirus or other processes locking the scratch location files](#anti-virus-blocking)<br/> 2. [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)<br/> 3. Restart the server
 
 ### SalVhdInitializationError
 
-**Error message**:
-**Recommended action**:
+Error message | Recommended action |
+-- | --
 
-1. [Check if there is an antivirus or other processes locking the scratch location files](#anti-virus-blocking)
-2. [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
-3. Restart the server
+1. [Check if there is an antivirus or other processes locking the scratch location files](#anti-virus-blocking)<br/> 2. [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)<br/> 3. Restart the server
 
 ### SalLowDiskSpace
 
-**Error message**:
-
-**Recommended action**:
+Error message | Recommended action |
+-- | --
 - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
 
 ### SalBitmapError
 
-**Error message**: Unable to find changes in a file. This could be due to various reasons. Please retry the operation
-
-**Recommended action**:
-- [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
+Error message | Recommended action |
+-- | --
+Unable to find changes in a file. This could be due to various reasons. Please retry the operation | - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/>- [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
 - Retry the operation
 
 ### CBPSourceSnapshotFailedReplicaMissingOrInvalid
 
-**Error message**: Backup failed because the disk-backup replica is either invalid or missing.
+**Error message**:
 
-**Recommended action**:
-1. Create a disk recovery point and try backup again.
-2. Run consistency check on datasource and try backup again.
-3. Stop protection of datasource and then reconfigure protection for this data source.
+Error message | Recommended action |
+-- | --
+Backup failed because the disk-backup replica is either invalid or missing. | - Create a disk recovery point and try backup again.<br/> 2. Run consistency check on datasource and try backup again.<br/> 3. Stop protection of datasource and then reconfigure protection for this data source.
 
 ### CBPSourceSnapshotFailedReplicaMetadataInvalid
 
-**Error message**: Source volume snapshot failed because metadata on replica is invalid.
-
-**Recommended action**:
+Error message | Recommended action |
+-- | --
 - Create a disk recovery point of this datasource
 - Retry online backup again.
 
 ### CBPSourceSnapshotFailedReplicaInconsistent
 
-**Error message**: Source volume snapshot failed due to inconsistent datasource replica.
-
-**Recommended action**:
-- Run a consistency check on this datasource and try again
+**Error message**:
+Error message | Recommended action |
+-- | --
+Source volume snapshot failed due to inconsistent datasource replica. | Run a consistency check on this datasource and try again
 
 ### CBPSourceSnapshotFailedReplicaCloningIssue
 
-**Error message**: Backup failed as the disk-backup replica could not be cloned.
-
-**Recommended action**:
-- Ensure that all previous disk-backup replica files (.vhdx) are unmounted and no disk to disk backup is in progress during online backups
+Error message | Recommended action |
+-- | --
+Backup failed as the disk-backup replica could not be cloned.|  Ensure that all previous disk-backup replica files (.vhdx) are unmounted and no disk to disk backup is in progress during online backups
 
 ## Next steps
 * Get more details on [how to back up Windows Server with the Azure Backup agent](tutorial-backup-windows-server-to-azure.md).

@@ -23,10 +23,7 @@ If you delete a vault that contains dependencies, then it will display the follo
 
 ![delete vault error](./media/backup-azure-delete-vault/error.png)
 
-To gracefully delete a vault follow the steps mentioned in the sequence below:
-- Stop protection and delete backup data
-- Delete the protected servers or backup management servers
-- Delete the vault
+To gracefully delete the vault, choose the scenario that matches your setup and follow the recommended steps:
 
 Scenario | Steps to remove dependencies to delete vault |
 -- | --
