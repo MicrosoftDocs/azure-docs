@@ -172,7 +172,7 @@ Before you start troubleshooting cache problem, ensure the below are verified:
 - [Ensure 5% to 10% free volume space is available in the scratch folder location](backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Ensure scratch folder location is valid and accessible](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 - [Ensure file attributes on the cache folder are supported](backup-azure-file-folder-backup-faq.md#are-there-any-attributes-of-the-cache-folder-that-arent-supported)
-- [Ensure the allocated shadow copy storage space is sufficient for backup process]backup process](#increase-shadow-copy-storage)
+- [Ensure the allocated shadow copy storage space is sufficient for backup process](#increase-shadow-copy-storage)
 - [Ensure there are no other processes (ex. anti-virus software) restricting access to cache folder](#anti-virus-blocking)
 
 ### Increase shadow copy storage
@@ -188,6 +188,69 @@ If you have antivirus software installed on the server, add necessary exclusion 
 - The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 - CBengine.exe
 - CSC.exe
+
+## Common issues
+
+### SalChecksumStoreInitializationFailed
+
+**Error message**:
+**Recommended action**:
+
+1. [Check if there is an antivirus or other processes locking the scratch location files](#anti-virus-blocking)
+2. [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+3. Restart the server
+
+### SalVhdInitializationError
+
+**Error message**:
+**Recommended action**:
+
+1. [Check if there is an antivirus or other processes locking the scratch location files](#anti-virus-blocking)
+2. [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+3. Restart the server
+
+### SalLowDiskSpace
+
+**Error message**:
+**Recommended action**:
+
+- [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
+
+### SalBitmapError
+
+**Error message**: Unable to find changes in a file. This could be due to various reasons. Please retry the operation
+**Recommended action**:
+- [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
+- Retry the operation
+
+### CBPSourceSnapshotFailedReplicaMissingOrInvalid
+
+**Error message**: Backup failed because the disk-backup replica is either invalid or missing.
+**Recommended action**:
+1. Create a disk recovery point and try backup again.
+2. Run consistency check on datasource and try backup again.
+3. Stop protection of datasource and then reconfigure protection for this data source.
+
+### CBPSourceSnapshotFailedReplicaMetadataInvalid
+
+**Error message**: Source volume snapshot failed because metadata on replica is invalid.
+**Recommended action**:
+- Create a disk recovery point of this datasource
+- Retry online backup again.
+
+### CBPSourceSnapshotFailedReplicaInconsistent
+
+**Error message**: Source volume snapshot failed due to inconsistent datasource replica.
+**Recommended action**:
+- Run a consistency check on this datasource and try again
+
+### CBPSourceSnapshotFailedReplicaCloningIssue
+
+**Error message**: Backup failed as the disk-backup replica could not be cloned.
+**Recommended action**:
+- Ensure that all previous disk-backup replica files (.vhdx) are unmounted and no disk to disk backup is in progress during online backups
 
 ## Next steps
 * Get more details on [how to back up Windows Server with the Azure Backup agent](tutorial-backup-windows-server-to-azure.md).
