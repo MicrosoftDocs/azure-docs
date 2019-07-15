@@ -1,5 +1,5 @@
 ---
-title: "SSIS Integration Runtime Management troubleshooting | Microsoft Docs"
+title: "Troubleshoot SSIS Integration Runtime Management in Azure Data Factory | Microsoft Docs"
 description: "This article provides troubleshooting guidance for management issues of SSIS Integration Runtime (SSIS IR)"
 services: data-factory
 documentationcenter: ""
@@ -8,14 +8,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 07/8/2019
+ms.date: 07/08/2019
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
 manager: craigg
 ---
 
-# SSIS Integration Runtime Management troubleshooting
+# Troubleshoot SSIS Integration Runtime Management in Azure Data Factory
 
 This document provides troubleshooting guides for management issues of SSIS Integration Runtime (SSIS IR).
 
@@ -37,11 +37,10 @@ You may see this issue when you are provisioning a new SSIS IR or during IR runn
 
 If you see the error during IR provisioning, it may be caused by following reasons, and you can get detail SqlException message in the error message.
 
-1. You may see this issue when you are provisioning a new SSIS IR or during IR running,
-If you see the error during IR provisioning, it may be caused by following reasons, and you can get detail SqlException message in the error message.
-2. Login failed and SQL Authentication is used. It means the account provide cannot login the SQL Server, make sure the correct user account is provided.
-3. Login failed and AAD authentication (Managed Identity) is used. Please add the Managed Identity of your factory into an AAD group with access permissions to your catalog database server.
-4. Connection timeout, it is always due to security related configuration. It is recommended to create a VM  (make the VM join the same VNet of IR if IR is in a VNet), install SSMS and check the Azure SQL Database server/Managed Instance status.
+* Network connection issue. Check the SQL Server or Managed Instance host name is accessible, and there is no firewall or NSG blocks SSIS IR to access the server.
+* Login failed and SQL Authentication is used. It means the account provide cannot login the SQL Server, make sure the correct user account is provided.
+* Login failed and AAD authentication (Managed Identity) is used. Please add the Managed Identity of your factory into an AAD group with access permissions to your catalog database server.
+* Connection timeout, it is always due to security related configuration. It is recommended to create a VM  (make the VM join the same VNet of IR if IR is in a VNet), install SSMS and check the Azure SQL Database server/Managed Instance status.
 
 For other issues, refer to the detail SQL Exception error message and fix the issue shown in error message, if you’re still having problems, contact Azure SQL Database server/Managed Instance support team.
 
@@ -59,8 +58,8 @@ This means the Azure SQL Database server/Managed Instance already has a SSISDB c
 
 This could be caused by below reasons,
 
-1. The user account which is configured for the SSIS IR has no permission to create the database. You can grant the user to have permission to create the database.
-2. Create database timeout like execution timeout, DB operation timeout, etc. You can retry later to see whether the issue is solved. If retry doesn’t work, contact the Azure SQL Database server/Managed Instance support team.
+* The user account which is configured for the SSIS IR has no permission to create the database. You can grant the user to have permission to create the database.
+* Create database timeout like execution timeout, DB operation timeout, etc. You can retry later to see whether the issue is solved. If retry doesn’t work, contact the Azure SQL Database server/Managed Instance support team.
 
 For other issues, check the SQL Exception error message and fix the issue mentioned in error message. If you’re still having problems, contact Azure SQL Database server/Managed Instance support team.
 
