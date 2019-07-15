@@ -108,6 +108,6 @@ By enabling private cloud access to the internet, production workload VMs will b
 [enable Global Reach]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-set-global-reach-cli#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions
 
 <!-- LINKS - internal -->
-<!--[tutorials-create-vnet-resources]: ./t utorials-create-vnet-resources.md-->
+<!--[tutorials-create-vnet-resources]: ./tutorials-create-vnet-resources.md-->
 <!-- [tutorials-access-private-cloud]: ./tutorials-access-private-cloud.md-->
-<!-- [tutorials-create-t1-ls]: ./tutorials-create-t1-ls.md-->
+[tutorials-create-t1-ls]: ./tutorials-create-t1-ls.md
