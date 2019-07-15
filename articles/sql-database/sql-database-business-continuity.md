@@ -75,6 +75,9 @@ Different recovery methods offer different levels of RPO and RTO. You can choose
 See the table earlier in this article for details of the auto-failover RTO and RPO.
 
 
+> [NOTE]
+> Auto Failover Groups applies to multiple databases where Active Geo-Replication applies to an individual database.
+
 Use auto-failover groups if your application meets any of these criteria:
 
 - Is mission critical.
