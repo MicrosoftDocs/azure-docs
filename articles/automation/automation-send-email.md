@@ -32,7 +32,7 @@ To complete this tutorial, the following are required:
   [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
   or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Create a SendGrid Account](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account).
-* [Automation account](automation-offering-get-started.md) and [Run As connection](automation-create-runas-account.md) to store and execute the runbook.
+* [Automation account](automation-offering-get-started.md) with **Az** modules, and [Run As connection](automation-create-runas-account.md), to store and execute the runbook.
 
 ## Create an Azure KeyVault
 
@@ -68,24 +68,23 @@ $Secret = ConvertTo-SecureString -String $SendGridAPIKey -AsPlainText -Force
 Set-AzKeyVaultSecret -VaultName $VaultName -Name 'SendGridAPIKey' -SecretValue $Secret
 
 # Grant access to the KeyVault to the Automation RunAs account.
-$connection = Get-AzureRmAutomationConnection -ResourceGroupName $KeyVaultResourceGroupName -AutomationAccountName $AutomationAccountName -Name AzureRunAsConnection
+$connection = Get-AzAutomationConnection -ResourceGroupName $KeyVaultResourceGroupName -AutomationAccountName $AutomationAccountName -Name AzureRunAsConnection
 $appID = $connection.FieldDefinitionValues.ApplicationId
-Set-AzureRmKeyVaultAccessPolicy -VaultName $VaultName -ServicePrincipalName $appID -PermissionsToSecrets Set, Get
+Set-AzKeyVaultAccessPolicy -VaultName $VaultName -ServicePrincipalName $appID -PermissionsToSecrets Set, Get
 ```
 
 For other ways to create an Azure KeyVault and store a secret, see [KeyVault Quickstarts](/azure/key-vault/).
 
 ## Import required modules to your Automation Account
 
-To use Azure KeyVault within a runbook, you need to add the following two modules to your
-Automation Account in the order listed below:
+To use Azure KeyVault within a runbook, your Automation Account will need the following modules:
 
-1. [AzureRM.Profile](https://www.powershellgallery.com/packages/AzureRM.profile).
-2. [AzureRM.KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault).
+* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile).
+* [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault).
 
 Click <kbd>Deploy to Azure Automation</kbd> on the Azure Automation tab under Installation Options. This action opens up the Azure portal. On the Import page, select your Automation Account and click <kbd>OK</kbd>.
 
-For additional methods for adding the required modules, see [Integration Modules](automation-integration-modules.md).
+For additional methods for adding the required modules, see [Import Modules](automation-integration-modules.md#import-modules).
 
 ## Create the runbook to send an email
 
@@ -108,11 +107,6 @@ it for different scenarios.
 6. Copy the following PowerShell example into the **Edit** page. Ensure that the `$VaultName` is the name you specified when
    you created your KeyVault.
 
-    > [!NOTE]
-    > This script is designed to be backwards compatible with the **AzureRM** modules, which are
-    > present, by default, with new Automation Accounts.  If your Automation Account has the newer
-    > **Az** modules, you can enable aliases with [Enable-AzureRmAlias](/powershell/module/az.accounts/enable-azurermalias?/view).
-
     ```powershell-interactive
     Param(
       [Parameter(Mandatory=$True)]
@@ -128,7 +122,7 @@ it for different scenarios.
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
     Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Out-Null
     $VaultName = "<Enter your vault name>"
-    $SENDGRID_API_KEY = (Get-AzureKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey").SecretValueText
+    $SENDGRID_API_KEY = (Get-AzKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey").SecretValueText
     $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
     $headers.Add("Authorization", "Bearer " + $SENDGRID_API_KEY)
     $headers.Add("Content-Type", "application/json")
