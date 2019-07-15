@@ -117,7 +117,7 @@ To install the agent on a Linux machine:
 4. You can look at dependencies for different time durations by clicking on the time duration in the time range label. By default the range is an hour. You can modify the time range, or specify start and end dates, and duration.
 
    > [!NOTE]
-    > Time range can be up to an hour. If you need a longer range, use [Azure Monitor to query dependent data](how-to-create-group-machine-dependencies) for a longer period.
+    > Time range can be up to an hour. If you need a longer range, use Azure Monitor to query dependent data for a longer period.
 
 5. After you've identified dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.
 6. Specify a group name.
