@@ -59,7 +59,7 @@ For example, when setting up direct federation for **fabrikam.com**, the authent
 ### Signing certificate renewal
 If you specify the metadata URL in the identity provider settings, Azure AD will automatically renew the signing certificate when it expires. However, if the certificate is rotated for any reason before the expiration time, or if you don't provide a metadata URL, Azure AD will be unable to renew it. In this case, you'll need to update the signing certificate manually.
 
-### Number of federation relationships
+### Limit on federation relationships
 Currently, a maximum of 1,000 federation relationships is supported. This limit includes both [internal federations](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) and direct federations.
 ## Frequently asked questions
 ### Can I set up direct federation with a domain for which an unmanaged (email-verified) tenant exists? 
