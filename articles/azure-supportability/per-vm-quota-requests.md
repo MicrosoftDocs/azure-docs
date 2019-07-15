@@ -31,7 +31,7 @@ Follow the instructions below to create a support request via Azure's 'Help + Su
  
 2.  Select **New support request**. 
 
-   ![New support request](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+     ![New support request](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
 3. In the Issue type dropdown, choose **Service and subscription limits (quotas)**.
 
