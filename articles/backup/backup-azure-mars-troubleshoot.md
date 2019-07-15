@@ -6,7 +6,7 @@ author: saurabhsensharma
 manager: sivan
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/15/2019
 ms.author: saurse
 ---
 
@@ -160,8 +160,34 @@ Azure Backup might not successfully mount the recovery volume, even after severa
 
 If the recovery still fails, restart your server or client. If you don't want to restart, or if the recovery still fails even after you restart the server, try [recovering from another machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
-## Need help? Contact support
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
+
+## Troubleshoot Cache problems
+
+Backup operation may fail because it is having an issue with the cache folder, to resolve any issue refer the below:
+
+### Pre-requisites
+
+Before you start troubleshooting cache problem, ensure the below are verified:
+
+- [Ensure 5% to 10% free volume space is available in the scratch folder location](backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [Ensure scratch folder location is valid and accessible](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+- [Ensure file attributes on the cache folder are supported](backup-azure-file-folder-backup-faq.md#are-there-any-attributes-of-the-cache-folder-that-arent-supported)
+- [Ensure the allocated shadow copy storage space is sufficient for backup process](#increase_shadow_copy_storage )
+- [Ensure there are no other processes (ex. anti-virus software) restricting access to cache folder](#anti-virus_blocking )
+
+### Increase shadow copy storage
+The shadow copy storage space for the protected data source is insufficient for backup to proceed. To resolve this issue increase the shadow copy storage space on the protected volume using vssadmin as shown below
+- Check the current shadow storage space from the elevated command prompt:
+  `vssadmin List ShadowStorage /For=[Volume letter]:`
+- Increase the shadow storage space using the below command:
+  'vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]``
+
+### Anti-virus blocking
+If you have antivirus software installed on the server, add necessary exclusion rules to the antivirus scan for these files and folders:  
+- The scratch folder. Its default location is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.
+- The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
+- CBengine.exe
+- CSC.exe
 
 ## Next steps
 * Get more details on [how to back up Windows Server with the Azure Backup agent](tutorial-backup-windows-server-to-azure.md).
