@@ -1,6 +1,6 @@
 ---
 title: Create a custom role definition in Azure AD role-based access control - Azure Active Directory | Microsoft Docs
-description: You can now create custom Azure AD administrator roles in the Azure AD admin center.
+description: You can now create custom Azure AD administrator roles and scope them to individual Azure Active Directory resources.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/30/2019
+ms.date: 07/22/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
 ---
-# Create a custom role in your Azure Active Directory organization
+# Create a custom role and assign it at resource scope in Azure Active Directory
 
 In Azure Active Directory (Azure AD), custom roles can be created in the **Roles and administrators** tab on the Azure AD overview page or [the application registration page](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview). The role is can be assigned either at the directory-level scope or scoped to app registrations only.
 
@@ -56,10 +56,15 @@ Like built-in roles, custom roles can be assigned at default organization scope 
 
 1. In the app registration, select **Roles and administrators**. You’ll see the custom role that you created earlier.
 
-The role you're assigning shows up in the list on every app registration, but if you assign it from the context of an open app registration then the assignee has permissions on only that one app registration. If you have assigned access to Azure resource groups using Azure RBAC, where an owner can be assigned permission to all the resources for a subscription or to as little as a single virtual machine, this access model might be familiar to you.
+    The role you're assigning shows up in the list on every app registration, but if you assign it from the context of an open app registration then the assignee has permissions on only that one app registration. If you have assigned access to Azure resource groups using Azure RBAC, where an owner can be assigned permission to all the resources for a subscription or to as little as a single virtual machine, this access model might be familiar to you.
 
+1. Select the role to open the **Assignments** page.
 
+    ![Select role in the Roles and administrators list to see role assignments](./media/roles-create-assignments/permissions-tab.png)
 
+1. Select **Add assignment** to add a user. The user will not be granted any permissions over any app registration other than the selected one.
+
+    ![Select Add assignment to add a user as the security principal to a role assignment](./media/roles-create-assignments/permissions-tab.png)
 
 ## Create a custom role using Azure AD PowerShell
 
@@ -110,18 +115,20 @@ $customAdmin = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -Disp
 
 ## Create a custom role using Microsoft Graph API
 
-HTTP request to create a custom role definition.
+1. Create the role definition.
 
-POST
+    HTTP request to create a custom role definition.
 
-``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
-```
+    POST
 
-Body
+    ``` HTTP
+    https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
+    ```
 
-``` HTTP
-{
+    Body
+
+    ``` HTTP
+    {
     "description":"Can manage basic aspects of application registrations.",
     "displayName":"Application Support Administrator",
     "isEnabled":true,
@@ -132,7 +139,6 @@ Body
             {
                 "allowedResourceActions":
                 [
-                    "microsoft.directory/applications/allProperties/read",
                     "microsoft.directory/applications/basic/update",
                     "microsoft.directory/applications/credentials/update"
                 ]
@@ -142,13 +148,28 @@ Body
     ],
     "templateId":"<GET NEW GUID AND INSERT HERE>",
     "version":"1"
-}
-```
+    }
+    ```
 
-There are two permissions available for granting the ability to create application registrations, with different behaviors:
+1. Create the role assignment.
 
-- microsoft.directory/applications/createAsOwner: this permission results in the creator being added as the first owner of the created app registration, and the created app registration will count against the creator's 250 created objects quota.
-- microsoft.directory/applicationPolicies/create: this permission results in the creator not being added as the first owner of the created app registration, and the created app registration will not count against the creator's 250 created objects quota. Use this permission carefully, as there is nothing preventing the assignee from creating app registrations until the directory-level quota is hit. If both permissions are assigned, this permission will take precedence.
+    HTTP request to create a custom role definition.
+
+    POST
+
+    ``` HTTP
+    https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions/roleAssignments
+    ```
+
+    Body
+
+    ``` HTTP
+    {
+    "principalId":"<GUID OF USER>",
+    "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
+    "resourceScopes":["/<GUID OF APPLICATION REGISTRATION>"]
+    }
+    ```
 
 ## Next steps
 
