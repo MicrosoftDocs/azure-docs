@@ -45,45 +45,45 @@ To communicate with the Graph API, you first must have a service account with ad
 First, register your migration application in Azure AD. Then, create an application key (application secret) and set the application with write privileges.
 
 1. Sign in to the [Azure portal][Portal].
-   
+
 1. Choose your Azure AD **B2C** tenant by selecting your account at the top right of the window.
-   
+
 1. In the left pane, select **Azure Active Directory** (not Azure AD B2C). To find it, you might need to select **More Services**.
-   
+
 1. Select **App registrations**.
-   
+
 1. Select **New application registration**.
-   
-   ![New application registration](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
-   
+
+   ![Azure Active Directory and App registrations menu items highlighted](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
+
 1. Create a new application by doing the following:
    - For **Name**, use **B2CUserMigration** or any other name you want.
    - For **Application type**, use **Web app/API**.
    - For **Sign-on URL**, use `https://localhost` (as it's not relevant for this application).
    - Select **Create**.
-   
+
 1. After the application is created, in the **Applications** list, select the newly created **B2CUserMigration** application.
-   
+
 1. Select **Properties**, copy the **Application ID**, and save it for later.
 
 ### Step 1.2: Create the application secret
 1. In the Azure portal **Registered App** window, select **Keys**.
-   
+
 1. Add a new key (also known as a client secret), and then copy the key for later use.
-   
-   ![Application ID and Keys](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
-   
+
+   ![Application ID value and Keys menu item highlighted in Azure portal](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
+
 ### Step 1.3: Grant administrative permission to your application
 1. In the Azure portal **Registered App** window, select **Required permissions**.
 
 1. Select **Windows Azure Active Directory**.
-   
+
 1. In the **Enable Access** pane, under **Application Permissions**, select **Read and write directory data**, and then select **Save**.
-   
+
 1. In the **Required permissions** pane, select **Grant Permissions**.
-   
-   ![Application permissions](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
-   
+
+   ![Read/write directory checkbox, Save, and Grant permissions highlighted](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
+
 Now you have an application with permissions to create, read, and update users from your Azure AD B2C tenant.
 
 ### Step 1.4: (Optional) Environment cleanup
@@ -97,9 +97,9 @@ Read and write directory data permissions do *not* include the right to delete u
 
 In this PowerShell script, do the following:
 1. Connect to your online service. To do so, run the `Connect-AzureAD` cmdlet at the Windows PowerShell command prompt, and provide your credentials.
-   
+
 1. Use the **Application ID** to assign the application the user account administrator role. These roles have well-known identifiers, so all you need to do is enter your **Application ID** in the script.
-   
+
 ```powershell
 Connect-AzureAD
 
@@ -138,7 +138,7 @@ The sample app uses a JSON file that contains dummy user data. After you success
 
 To edit the JSON file, open the `AADB2C.UserMigration.sln` Visual Studio solution. In the `AADB2C.UserMigration` project, open the `UsersData.json` file.
 
-![User data file](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
+![Portion of UsersData.json file showing JSON blocks of two users](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 As you can see, the file contains a list of user entities. Each user entity has the following properties:
 - email
@@ -174,32 +174,32 @@ Right-click the `AADB2C.UserMigration` solution, and then rebuild the sample. If
 
 - To **migrate users with random password**, use the `UserMigration.exe 2` command. This operation also creates an Azure table entity. Later, you configure the policy to call the REST API service. The service uses an Azure table to track and manage the migration process.
 
-![Migration process demo](media/active-directory-b2c-user-migration/pre-migration-demo.png)
+![Command Prompt window showing output of UserMigration.exe command](media/active-directory-b2c-user-migration/pre-migration-demo.png)
 
 ### Step 2.4: Check the pre-migration process
 To validate the migration, use one of the following two methods:
 
 - To search for a user by display name, use the Azure portal:
-   
+
    1. Open **Azure AD B2C**, and then select **Users and Groups**.
-   
+
    1. In the search box, type the user's display name, and then view the user's profile.
-   
+
 - To retrieve a user by sign-in email address, use this sample application:
-   
+
    1. Run the following command:
-   
+
       ```Console
           UserMigration.exe 3 {email address}
       ```
-      
+
       > [!TIP]
       > You can also retrieve a user by display name by using the following command: `UserMigration.exe 4 "<Display name>"`.
-      
+
    1. Open the UserProfile.json file in a JSON editor to see user's information.
-   
-      ![The UserProfile.json file](media/active-directory-b2c-user-migration/pre-migration-get-by-email2.png)
-      
+
+      ![UserProfile.json file open in the Visual Studio Code editor](media/active-directory-b2c-user-migration/pre-migration-get-by-email2.png)
+
 ### Step 2.5: (Optional) Environment cleanup
 If you want to clean up your Azure AD tenant and remove users from the Azure AD directory, run the `UserMigration.exe 5` command.
 
@@ -226,7 +226,7 @@ To get the link to your password reset policy, do the following:
 
 1. In the **Run now endpoint** box, copy the URL, and then send it to your users.
 
-    ![Set diagnostics logs](media/active-directory-b2c-user-migration/pre-migration-policy-uri.png)
+    ![Password reset policy page with Run now endpoint highlighted](media/active-directory-b2c-user-migration/pre-migration-policy-uri.png)
 
 ## Step 4: (Optional) Change your policy to check and set the user migration status
 
@@ -331,7 +331,7 @@ After you define the technical profile for your RESTful API, tell your Azure AD 
 
 1. Try to sign in with one of the migrated users' credentials, and then select **Sign In**. Your REST API should throw the following error message:
 
-    ![Set diagnostics logs](media/active-directory-b2c-user-migration/pre-migration-error-message.png)
+    ![Sign-in Sign-up page showing the change password error message](media/active-directory-b2c-user-migration/pre-migration-error-message.png)
 
 ### Step 4.6: (Optional) Troubleshoot your REST API
 You can view and monitor logging information in near-real time.
@@ -344,7 +344,7 @@ You can view and monitor logging information in near-real time.
 
 1. Select **Save**
 
-    ![Set diagnostics logs](media/active-directory-b2c-user-migration/pre-migration-diagnostic-logs.png)
+    ![Diagnostics logs configuration page in Azure portal](media/active-directory-b2c-user-migration/pre-migration-diagnostic-logs.png)
 
 1. On the **Settings** menu, select **Log stream**.
 
