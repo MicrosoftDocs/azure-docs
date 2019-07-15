@@ -160,7 +160,7 @@ Create the Terraform configuration file that declares the resources for the Kube
             }
         }
 
-        tags {
+        tags = {
             Environment = "Development"
         }
     }
