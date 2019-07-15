@@ -123,15 +123,13 @@ You can select the link and image tiles to navigate to the URLs you set as a bui
 
 In this tutorial, you learned how to customize the operator's view of the application.
 
-<!-- Repeat task list from intro -->
+* Configure your device dashboard
+* Configure your device properties layout
+* Preview the device as an operator
+* Configure your default application dashboard
+* Preview the default application dashboard as an operator
+
+Now that you have learned how to customize the operator's view of the application, the suggested next step is:
+
 > [!div class="nextstepaction"]
-> * Configure your device dashboard
-> * Configure your device properties layout
-> * Preview the device as an operator
-> * Configure your default application dashboard
-> * Preview the default application dashboard as an operator
-
-Now that you have learned how to customize the operator's view of the application, the suggested next steps are:
-
-* [Monitor your devices (as an operator)](tutorial-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-* [Add a new device to your application (as an operator and device developer)](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Add a new device to your application (as an operator and device developer)](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

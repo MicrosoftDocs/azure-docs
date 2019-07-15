@@ -56,15 +56,10 @@ Shortly after you save the rule, it becomes live. When the conditions defined in
 
 In this tutorial, you learned how to:
 
-<!-- Repeat task list from intro -->
+* Create a telemetry-based rule
+* Add an action
+
+Now that you've defined a threshold-based rule the suggested next step is to:
+
 > [!div class="nextstepaction"]
-> * Create a telemetry-based rule
-> * Add an action
-
-Now that you've defined a threshold-based rule the suggested next step is to [Customize the operator's views](tutorial-customize-operator-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
-
-To learn more about different types of rules in Azure IoT Central and how to parameterize the rule definition, see:
-* [Create a telemetry rule and set up notifications](howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
-* [Create an event rule and set up notifications](howto-create-event-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
-
-<!-- Next tutorials in the sequence -->
+> [Create an event rule and set up notifications](howto-create-event-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).

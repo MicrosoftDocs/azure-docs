@@ -70,9 +70,11 @@ To make a change to the device, use the **Environmental Sensor properties** page
 
 In this tutorial, you learned how to:
 
-> [!div class="nextstepaction"]
-> * Receive a notification
-> * Investigate an issue
-> * Remediate an issue
+* Receive a notification
+* Investigate an issue
+* Remediate an issue
 
-Now that you know now to monitor your device, the suggested next step is to [Add a device](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Now that you know now to monitor your device, the suggested next step is to:
+
+> [!div class="nextstepaction"]
+> [Configure rules and actions for your device](tutorial-configure-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
