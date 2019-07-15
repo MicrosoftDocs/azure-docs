@@ -2,12 +2,12 @@
 title: Configure kubenet networking in Azure Kubernetes Service (AKS)
 description: Learn how to configure kubenet (basic) network in Azure Kubernetes Service (AKS) to deploy an AKS cluster into an existing virtual network and subnet.
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
-ms.date: 06/03/2019
-ms.author: iainfou
+ms.date: 06/26/2019
+ms.author: mlearned
 ms.reviewer: nieberts, jomore
 ---
 
@@ -44,7 +44,7 @@ With *Azure CNI*, a common issue is the assigned IP address range is too small t
 
 As a compromise, you can create an AKS cluster that uses *kubenet* and connect to an existing virtual network subnet. This approach lets the nodes receive defined IP addresses, without the need to reserve a large number of IP addresses up front for all of the potential pods that could run in the cluster.
 
-With *kubenet*, you can use a much smaller IP address range and be able to support large clusters and application demands. For example, even with a */27* IP address range, you could run a 20-25 node cluster with enough room to scale or upgrade. This cluster size would support up to *2,200-2,750* pods (with a default maximum of 110 pods per node). The maximum number of pods per node that you can configure with *kubenet* in AKS is 250.
+With *kubenet*, you can use a much smaller IP address range and be able to support large clusters and application demands. For example, even with a */27* IP address range, you could run a 20-25 node cluster with enough room to scale or upgrade. This cluster size would support up to *2,200-2,750* pods (with a default maximum of 110 pods per node). The maximum number of pods per node that you can configure with *kubenet* in AKS is 110.
 
 The following basic calculations compare the difference in network models:
 
@@ -76,6 +76,8 @@ Use *Azure CNI* when:
 - Most of the pod communication is to resources outside of the cluster.
 - You don’t want to manage the UDRs.
 - You need advanced features such as virtual nodes or network policy.
+
+For more information to help you decide which network model to use, see [Compare network models and their support scope][network-comparisons].
 
 > [!NOTE]
 > Kuberouter makes it possible to enable network policy when using kubenet and can be installed as a daemonset in an AKS cluster. Please be aware kube-router is still in beta and no support is offered by Microsoft for the project.
@@ -192,3 +194,4 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
+[network-comparisons]: concepts-network.md#compare-network-models

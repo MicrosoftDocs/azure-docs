@@ -44,7 +44,7 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 
 1. On your workspace page in the Azure portal, select **Notebook VMs** on the left.
 
-1. Select **+New** to create a notebook VM.
+1. Select **+New** to create a notebook VM.  
 
      ![Select New VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
@@ -66,13 +66,16 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 
     ![Start the Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-server.png)
 
-    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM.
+    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM.  Each user of the workspace must create their own VM.
 
 1. On the Jupyter notebook webpage, the top foldername is your username.  Select this folder.
 
+    > [!TIP]
+    > This folder is located on the [storage container](concept-workspace.md#resources) in your workspace rather than on the notebook VM itself.  You can delete the notebook VM and still keep all your work.  When you create a new notebook VM later, it will load  this same folder.  If you share your workspace with others, they will see your folder and you will see theirs. 
+
 1. The samples foldername includes a version number, for example **samples-1.0.33.1**.  Select the samples folder.
 
-1. Select the **quickstart** notebook.
+1. Select the **quickstart** folder.
 
 ## Run the notebook
 
@@ -111,11 +114,11 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
 1. Click the **Link to Azure portal** to view information about the run in your workspace.  This link opens your workspace in the Azure portal.
 
-1. The plots of logged values you see were automatically created in the workspace. Whenever you log multiple values with the same name parameter, a plot is automatically generated for you.
+1. The plots of logged values you see were automatically created in the workspace. Whenever you log multiple values with the same name parameter, a plot is automatically generated for you. Here is an example:
 
    ![View history](./media/quickstart-run-cloud-notebook/web-results.png)
 
-Because the code to approximate pi uses random values, your plots will show different values.  
+Because the code to approximate pi uses random values, your plots may look different.  
 
 ## Clean up resources
 
@@ -150,7 +153,9 @@ In this quickstart, you completed these tasks:
 * Run the notebook.
 * View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
 
-On the Jupyter Notebook webpage, browse through other notebooks in the samples folder to learn more about Azure Machine Learning service.
+On the Jupyter Notebook webpage, in the **quickstart** folder, open and run the **02.deploy-web-service.ipynb** notebook to learn how to deploy a web service.
+
+Also on the Jupyter Notebook webpage, browse through other notebooks in the samples folder to learn more about Azure Machine Learning service.
 
 For an in-depth workflow experience, follow Machine Learning tutorials to train and deploy a model:  
 

@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
-ms.author: saysa
+ms.author: jeconnoc
 
 ---
 # Use Jenkins to build and deploy your Linux applications

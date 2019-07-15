@@ -4,7 +4,7 @@ description: Bi-Directional Serial Console for Azure Virtual Machines and Virtua
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

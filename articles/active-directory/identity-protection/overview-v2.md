@@ -115,7 +115,7 @@ The user risk is calculated by considering all the risks associated with the use
 
 ## How Identity Protection detects risk  
 
-Azure AD uses machine learning to detect anomalies and suspicious activity, using both signals detected in real-time during sign-ins as well as non-real time signals related to users and their sign-in activities. Using this data, Identity Protection calculates a real-time sign-in risk each time a user authenticates, as well as determining an overall user risk level for reach user. Identity Protection allows you to automatically take action on these risk detections by configuring Identity Protection user risk and Sign-In Risk policies.  
+Azure AD uses machine learning to detect anomalies and suspicious activity, using both signals detected in real-time during sign-ins as well as non-real time signals related to users and their sign-in activities. Using this data, Identity Protection calculates a real-time sign-in risk each time a user authenticates, as well as determining an overall user risk level for each user. Identity Protection allows you to automatically take action on these risk detections by configuring Identity Protection user risk and Sign-In Risk policies.  
 
  
 

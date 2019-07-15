@@ -24,7 +24,7 @@ ms.custom: seodec18
 
 With the release of Microsoft Azure PowerShell version 1.1.0, a new option has been added to `New-AzWebApp` that lets you clone an existing App Service app to a newly created app in a different region or in the same region. This option enables customers to deploy a number of apps across different regions quickly and easily.
 
-App cloning is currently only supported for premium tier app service plans. The new feature uses the same limitations as App Service Backup feature, see [Back up an app in Azure App Service](manage-backup.md).
+App cloning is supported for Standard, Premium, Premium V2, and Isolated app service plans. The new feature uses the same limitations as App Service Backup feature, see [Back up an app in Azure App Service](manage-backup.md).
 
 ## Cloning an existing app
 Scenario: An existing app in South Central US region, and you want to clone the contents to a new app in North Central US region. It can be accomplished by using the Azure Resource Manager version of the PowerShell cmdlet to create a new app with the `-SourceWebApp` option.
@@ -126,6 +126,7 @@ Here are the known restrictions of app cloning:
 * TiP rules are not cloned
 * Database content is not cloned
 * Outbound IP Addresses changes if cloning to a different scale unit
+* Not available for Linux Apps
 
 ### References
 * [App Service Cloning](app-service-web-app-cloning.md)

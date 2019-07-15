@@ -30,7 +30,8 @@ az cosmosdb create \
    --resource-group $resourceGroupName \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
-   --locations WestUS=0 EastUS=1 \
+   --locations regionName=WestUS failoverPriority=0 isZoneRedundant=False \
+   --locations regionName=EastUS failoverPriority=1 isZoneRedundant=False \
    --enable-multiple-write-locations true
 ```
 
@@ -95,13 +96,13 @@ $resourceGroupName = 'myResourceGroup'
 $accountName = 'myaccountname'
 
 # Create an account with 1 region
-az cosmosdb create --name $accountName --resource-group $resourceGroupName --locations westus=0
+az cosmosdb create --name $accountName --resource-group $resourceGroupName --locations regionName=westus failoverPriority=0 isZoneRedundant=False
 
 # Add a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations westus=0 eastus=1
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=westus failoverPriority=0 isZoneRedundant=False --locations regionName=EastUS failoverPriority=1 isZoneRedundant=False
 
 # Remove a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations westus=0
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=westus failoverPriority=0 isZoneRedundant=False
 ```
 
 ### <a id="add-remove-regions-via-ps"></a>Azure PowerShell
@@ -363,7 +364,7 @@ The process for performing a manual failover involves changing the account's wri
 $resourceGroupName = 'myResourceGroup'
 $accountName = 'myaccountname'
 
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations westus=0 eastus=1
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=westus failoverPriority=0 isZoneRedundant=False --locations regionName=eastus failoverPriority=1 isZoneRedundant=False
 ```
 
 ### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell

@@ -59,7 +59,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Portuguese (Portugal) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt` also accepted|
 | Portuguese (Brazil)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
 | Russian     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Spanish     | `es`          | ✔        |            |   ✔ \*\*      |     | 
+| Spanish     | `es`          | ✔        | ✔           |   ✔ \*\*      |     | 
 | Swedish     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
 | Turkish     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 

@@ -18,6 +18,6 @@ FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. If you w
     
     - A FedEx, UPS, or DHL account number is required for shipping drives back from the US and Europe locations. 
     - A DHL account number is preferred for shipping drives back from Asia and Australia locations. 
-    - If you do not have an account number, create a [FedEx](http://www.fedex.com/us/oadr/) or [DHL](http://www.dhl.com/) carrier account.
+    - If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](http://www.dhl.com/) carrier account.
 - When shipping your packages, you must follow the [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
 - Properly package yours disks to avoid potential damage and delays in processing.

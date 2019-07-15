@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Join a RHEL VM to a managed doma
 description: Join a Red Hat Enterprise Linux virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Join a Red Hat Enterprise Linux 7 virtual machine to a managed domain

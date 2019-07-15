@@ -62,7 +62,7 @@
       - name: Use device sets
         href: howto-use-device-sets.md
       - name: Version device template
-        href: howto-version-devicetemplate.md
+        href: howto-version-device-template.md
   - name: Monitoring and analytics
     items:
       - name: Create telemetry rule
@@ -106,6 +106,8 @@
         href: howto-prepare-images.md
       - name: Configure application dashboard
         href: howto-configure-homepage.md
+      - name: Use dashboard tiles
+        href: howto-use-tiles.md
       - name: Customize application UI
         href: howto-customize-ui.md
       - name: Use application templates
