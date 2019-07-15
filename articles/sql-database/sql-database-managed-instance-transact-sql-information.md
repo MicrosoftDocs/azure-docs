@@ -470,6 +470,7 @@ Cross-instance service broker isn't supported:
 
 ### VNET
 - VNet can be deployed using Resource Model - Classic Model for VNet is not supported.
+- After a managed instance is created in a VNet you should not move the VNet to another resource group. This is a current platform limitation. 
 - Some services such as App Service Environments, Logic apps, and Managed Instances (used for Geo-replication, Transactional replication, or via linked servers) cannot access Managed Instances in different regions if their VNets are connected using [global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resource via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
 ## <a name="Changes"></a> Behavior changes
