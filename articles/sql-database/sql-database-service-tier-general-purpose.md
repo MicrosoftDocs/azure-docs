@@ -8,7 +8,7 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
-ms.author: jovanpop-msft
+ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/07/2019

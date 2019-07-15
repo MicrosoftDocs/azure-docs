@@ -1336,6 +1336,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/create-sql-api-dotnet-preview.md",
+      "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-python-application.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-python",
       "redirect_document_id": false
@@ -1564,6 +1569,26 @@
       "source_path": "articles/cosmos-db/regional-failover.md",
       "redirect_url": "/azure/cosmos-db/high-availability",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-dotnet-application-preview.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-dotnet-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-dotnet-get-started-preview.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-dotnet-core-get-started-preview.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/search/search-fiddler.md",
@@ -40128,13 +40153,13 @@
 
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
-      "redirect_url": "/azure/articles/data-explorer/manage-cluster-vertical-scaling",
+      "redirect_url": "/azure/data-explorer/manage-cluster-vertical-scaling",
       "redirect_document_id": false
     },
 
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-out.md",
-      "redirect_url": "/azure/articles/data-explorer/manage-cluster-horizontal-scaling",
+      "redirect_url": "/azure/data-explorer/manage-cluster-horizontal-scaling",
       "redirect_document_id": false
     },
     {
