@@ -62,7 +62,7 @@ az vm create \
 ```
 
 ## Availability Sets
-You can also create an  availability set in your proximity placement group. Use the same `--ppg` parameter with [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create) to create an availability set and all of the VMs will be created in the same proximity placement group.
+You can also create an  availability set in your proximity placement group. Use the same `--ppg` parameter with [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create) to create an availability set and all of the VMs in the availability set will also be created in the same proximity placement group.
 
 ## Scale sets
 
