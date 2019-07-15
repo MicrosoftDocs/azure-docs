@@ -93,7 +93,6 @@
         "jomolnar",
         "KatieCumming",
         "rjagiewich",
-        "v-thepet",
         "deneha",
         "ktoliver",
         "itechedit",
@@ -102,8 +101,19 @@
         "GitHubber17",
         "v-shils",
         "rmca14",
+        "trishamc",
+        "Jak-MS",
+        "garycentric",
+        "jborsecnik",
+        "Kellylorenebaker",
+        "ShannonLeavitt",
+        "v-albemi",
+        "v-dansch",
+        "chbain",
+        "atookey",
         "tfosmark",
-        "sdwheeler"
+        "sdwheeler",
+        "meganbradley"
       ],
       "_op_documentIdPathDepotMapping": {
         "articles/iot-central/": {
@@ -373,20 +383,12 @@
       "titleSuffix": {
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/policy/**/*.md": "Azure Policy",
-        "articles/governance/resource-graph/**/*.md": "Azure Resource Graph"
+        "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
+        "articles/lighthouse/**/*.md": "Azure Lighthouse"
       },
       "featureFlags": {
         "articles/**/*.md": [
           "show_learn_banner"
-        ],
-        "articles/active-directory-b2c/**/*.md": [
-          "show_star_rating"
-        ],
-        "articles/active-directory-domain-services/**/*.md": [
-          "show_star_rating"
-        ],
-        "articles/active-directory/**/*.md": [
-          "show_star_rating"
         ]
       },
       "learn_banner_products": {

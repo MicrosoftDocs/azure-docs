@@ -159,3 +159,4 @@ Explore the other samples available for the visual interface:
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
 - [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)
+- [Sample 6 - Classification: Predict flight delays](ui-sample-classification-predict-flight-delay.md)

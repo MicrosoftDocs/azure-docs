@@ -57,7 +57,9 @@ Before you can create a connection, you need to add the ITSM Connector Solution.
 
 3. In the **OMS Workspace** section, select the Azure Log Analytics workspace where you want to install the solution.
    >[!NOTE]
-   >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
+   > * As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
+   > * The ITSM Connector can only be installed in Log Analytics workspaces in the following regions: East US, West Europe, Southeast Asia, Southeast Australia, West Central US, East Japan, South UK, Central India, Central Canada.
+
 4. In the **OMS Workspace Settings** section, select the ResourceGroup where you want to create the solution resource.
 
    ![ITSMC workspace](media/itsmc-overview/itsmc-solution-workspace.png)

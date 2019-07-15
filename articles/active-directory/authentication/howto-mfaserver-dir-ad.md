@@ -30,6 +30,9 @@ By default, the Azure Multi-Factor Authentication (MFA) Server is configured to 
 
 ![Edit LDAP configuration in MFA Server](./media/howto-mfaserver-dir-ad/dirint.png)
 
+> [!NOTE]
+> Directory integration is not guaranteed to work with directories other than Active Directory Domain Services.
+
 | Feature | Description |
 | --- | --- |
 | Use Active Directory |Select the Use Active Directory option to use Active Directory for importing and synchronization.  This is the default setting. <br>Note: For Active Directory integration to work properly,join the computer to a domain and sign in with a domain account. |

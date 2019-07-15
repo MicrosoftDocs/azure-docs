@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Enable support for SharePoint Us
 description: Configure Azure Active Directory Domain Services managed domains to support profile synchronization for SharePoint Server
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: ergreenl
+ms.author: iainfou
 
 ---
 

@@ -45,7 +45,9 @@ This quickstart shows how to connect to an Azure Cache for Redis with Python to 
 
 The following example uses *pip3* for Python3 to install the redis-py package on Windows 10 using a Visual Studio 2019 Developer Command prompt running with elevated Administrator privileges.
 
+```python
     pip3 install redis
+```
 
 ![Install redis-py](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
@@ -79,7 +81,8 @@ import redis
 myHostname = "<Your Host Name>.redis.cache.windows.net"
 myPassword = "<Your Access Key>"
 
-r = redis.StrictRedis(host=myHostname, port=6380,password=myPassword,ssl=True)
+r = redis.StrictRedis(host=myHostname, port=6380,
+                      password=myPassword, ssl=True)
 
 result = r.ping()
 print("Ping returned : " + str(result))
@@ -91,9 +94,9 @@ result = r.get("Message")
 print("GET Message returned : " + result.decode("utf-8"))
 
 result = r.client_list()
-print("CLIENT LIST returned : ") 
+print("CLIENT LIST returned : ")
 for c in result:
-	print("id : " + c['id'] + ", addr : " + c['addr'])
+    print("id : " + c['id'] + ", addr : " + c['addr'])
 ```
 
 Run the script with Python.

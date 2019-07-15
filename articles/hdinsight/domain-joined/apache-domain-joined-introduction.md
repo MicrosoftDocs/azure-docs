@@ -45,7 +45,7 @@ Auditing of all access to the cluster resources, and the data, is necessary to t
 
 The admin can view and report all access to the HDInsight cluster resources and data. The admin can also view and report all changes to the access control policies created in Apache Ranger supported endpoints. 
 
-A HDInsight cluster with ESP uses the familiar Apache Ranger UI to search audit logs. On the back end, Ranger uses [Apache Solr](http://lucene.apache.org/solr/) for storing and searching the logs.
+A HDInsight cluster with ESP uses the familiar Apache Ranger UI to search audit logs. On the back end, Ranger uses [Apache Solr](https://lucene.apache.org/solr/) for storing and searching the logs.
 
 ## Encryption
 Protecting data is important for meeting organizational security and compliance requirements. Along with restricting access to data from unauthorized employees, you should encrypt it. 

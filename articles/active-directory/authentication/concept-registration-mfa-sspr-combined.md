@@ -134,6 +134,8 @@ A user who has previously set up at least one method that can be used for Multi-
 
 [Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
 
+[SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
+
 [Available methods for Multi-Factor Authentication and SSPR](concept-authentication-methods.md)
 
 [Configure self-service password reset](howto-sspr-deployment.md)
