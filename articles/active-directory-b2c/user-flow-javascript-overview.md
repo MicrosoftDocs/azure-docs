@@ -23,7 +23,7 @@ If you intend to enable [JavaScript](javascript-samples.md) client-side code, yo
 
 ## User flows
 
-In the user flow properties, you can enable JavaScript, which also enforces the use of a page layout. Then you can set the page layout version for the user flow
+In the user flow **Properties**, you can enable JavaScript, which also enforces the use of a page layout. You can then set the page layout version for the user flow as described in the next section.
 
 ![User flow properties page with Enable JavaScript setting highlighted](media/user-flow-javascript-overview/javascript-settings.png)
 
