@@ -15,7 +15,7 @@ Azure Data Explorer has multiple VM SKUs from which to choose when creating a ne
 
 The size and VM SKU of the data management cluster is fully managed by the Azure Data Explorer service. It is determined by factors such as the engine's VM size and the ingestion workload. 
 
-The VM SKU for the engine cluster can be changed any time by [scaling up the cluster](manage-cluster-vertical-scaling.md). Therefore, it is best to start with the minimal SKU size that fits the initial scenario. Keep in mind that scaling up the cluster results in downtime of up to 30 minutes while the cluster is re-created with the new VM SKU.
+The VM SKU for the engine cluster can be changed anytime by [scaling up the cluster](manage-cluster-vertical-scaling.md). Therefore, it's best to start with the minimal SKU size that fits the initial scenario. Keep in mind that scaling up the cluster results in downtime of up to 30 minutes while the cluster is re-created with the new VM SKU.
 
 > [!TIP]
 > Compute [RI (reserved instances)](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepay-reserved-vm-instances) is applicable for Azure Data Explorer cluster.  
@@ -28,7 +28,7 @@ Azure Data Explorer offers two types of clusters:
 
 * **Production**: Production clusters contain two nodes for engine and data management clusters and are operated under the Azure Data Explorer [SLA](https://azure.microsoft.com/en-us/support/legal/sla/data-explorer/v1_0/).
 
-* **Dev/Test (no SLA)**: Dev/Test clusters have a single D11_v2 node for the engine cluster and a single D1 node for the data management cluster. This is the lowest cost configuration because of the low instance count and no engine markup charge. There is no SLA for this cluster configuration because it lacks redundancy.
+* **Dev/Test (no SLA)**: Dev/Test clusters have a single D11_v2 node for the engine cluster and a single D1 node for the data management cluster. This cluster type is the lowest cost configuration because of the low instance count and no engine markup charge. There's no SLA for this cluster configuration because it lacks redundancy.
 
 ## SKU types
 
@@ -47,23 +47,23 @@ The following table provides the key differences between the available SKU types
 |**Small SKUs**|Minimal size is 'D11' with two cores|Minimal size is 'L4' with four cores
 |**Availability**|Available in all regions (the DS+PS version has more limited availability)|Available in a few regions
 |**Cost per GB cache per core**|High with the D SKU, low with the DS+PS version|Cheapest with the *Pay as you go* option
-|**RI (Reserved Instances) pricing**|High discount (over 55% for a three year commitment)|Lower discount (20% for a three year commitment)  
+|**RI (Reserved Instances) pricing**|High discount (over 55% for a three-year commitment)|Lower discount (20% for a three-year commitment)  
 
 ## Select your cluster VM 
 
 To select your cluster VM, [configure vertical scaling](manage-cluster-vertical-scaling.md#steps-to-configure-vertical-scaling). 
 
-The different VM SKU options enable you to optimize costs for the desired performance and hot cache requirements for the desired scenario. For example, If the scenario requires the most optimal performance for a high query volume, the ideal SKU should be compute optimized. On the other hand, if the scenario requires querying large volumes of data with relatively lower query load, the storage optimized SKU will reduce costs while still providing excellent performance.
+The different VM SKU options enable you to optimize costs for the necessary performance and hot cache requirements for the desired scenario. If the scenario requires the most optimal performance for a high query volume, the ideal SKU should be compute optimized. On the other hand, if the scenario requires querying large volumes of data with relatively lower query load, the storage optimized SKU will reduce costs while still providing excellent performance.
 
-The number of instances per cluster for the small SKUs is limited so it is preferable to use larger VMs that have greater RAM. The RAM size is needed for some query types that put more demand on the RAM resource, such as those queries that use `joins`. Therefore, when considering scaling options, is advised to scale up to a bigger SKU than scale out by adding more instances.
+The number of instances per cluster for the small SKUs is limited so it's preferable to use larger VMs that have greater RAM. The RAM size is needed for some query types that put more demand on the RAM resource, such as those queries that use `joins`. Therefore, when considering scaling options, is advised to scale-up to a bigger SKU than scale-out by adding more instances.
 
 ## VM options
 
 The following table provides the technical specifications for the Azure Data Explorer cluster VMs:
 
-|**Name**| **Category** | **SSD size** | **Cores** | **RAM** | **Premium storage disks (1TB)**| **Minimum instance count per cluster** | **Maximum instance count per cluster**
+|**Name**| **Category** | **SSD size** | **Cores** | **RAM** | **Premium storage disks (1 TB)**| **Minimum instance count per cluster** | **Maximum instance count per cluster**
 |---|---|---|---|---|---|---|---
-|D11_v2| compute optimized | 75 GB    | 2 | 14 GB | 0 | 1 | 8 (except for dev/test SKU where it is 1)
+|D11_v2| compute optimized | 75 GB    | 2 | 14 GB | 0 | 1 | 8 (except for dev/test SKU where it's 1)
 |D12_v2| compute optimized | 150 GB   | 4 | 28 GB | 0 | 2 | 16
 |D13_v2| compute optimized | 307 GB   | 8 | 56 GB | 0 | 2 | 1,000
 |D14_v2| compute optimized | 614 GB   | 16| 112 GB | 0 | 2 | 1,000
