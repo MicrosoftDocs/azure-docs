@@ -6,7 +6,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 07/17/2019
 ms.author: normesta
 
 ---
@@ -21,7 +21,7 @@ Until recently, you might have had to maintain separate storage solutions for ob
 
 ## Use the entire ecosystem of applications, tools, and services
 
-If you enroll in the preview of Multi-Protocol Access on Data Lake Storage, you can work with all of your data by using the entire ecosystem of tools, applications, and services. This includes Azure services such as [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction), [IOT Hub](https://docs.microsoft.com/azure/iot-hub/), [Power BI](data-lake-storage-use-power-bi.md), and many others. 
+If you enroll in the preview of Multi-Protocol Access on Data Lake Storage, you can work with all of your data by using the entire ecosystem of tools, applications, and services. This includes Azure services such as [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction), [IOT Hub](https://docs.microsoft.com/azure/iot-hub/), [Power BI](https://docs.microsoft.com/power-bi/desktop-data-sources), and many others. 
 
 This also includes third party tools and applications. You can point them to accounts that have a hierarchical namespace without having to modify them. These applications work *as is* even if they call Blob APIs, because Blob APIs can now operate on data in accounts that have a hierarchical namespace.
 

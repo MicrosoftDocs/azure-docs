@@ -564,7 +564,7 @@
   - name: Concepts
     items:
     - name: Multi-Protocol Access on Data Lake Storage
-      href: ../blobs/data-lake-storage-interop.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: ../blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Blob File System driver for Hadoop
       href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Blob File System URI
