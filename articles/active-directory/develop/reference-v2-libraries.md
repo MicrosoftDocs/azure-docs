@@ -79,11 +79,10 @@ In term of supported operating systems vs languages, the mapping is the followin
 |-------------|------------|------------|------------|------------|------------|
 | ![JavaScript](media/sample-v2-code/logo_js.png)  |  MSAL.js | MSAL.js | MSAL.js | MSAL.js |  MSAL.js |
 | ![.NET Framework](media/sample-v2-code/logo_NET.png) C#  | ASP.NET, ASP.NET Core, MSAL.Net (.NET FW,  Core, UWP)| ASP.NET Core, MSAL.Net (.NET Core) | ASP.NET Core, MSAL.Net (MacOS)       | MSAL.Net (Xamarin.iOS) | MSAL.Net (Xamarin.Android)|
-| Objective C |            |            |        | MSAL.iOS |            |
+| ![Objective C](../../cognitive-services/speech-service/media/index/logo_objc.jpg) |            |            |        | MSAL.iOS |            |
 | ![Java](media/sample-v2-code/logo_java.png) Java       | MSAL.Java       | MSAL.Java       | MSAL.Java      | | MSAL.Android
 | ![Python](media/sample-v2-code/logo_python.png) Python     | MSAL.Python | MSAL.Python | MSAL.Python |
 | ![Node.Js](media/sample-v2-code/logo_nodejs.png) Node.JS     | Passport.node | Passport.node | Passport.node |
-
 
 ## Compatible client libraries
 
