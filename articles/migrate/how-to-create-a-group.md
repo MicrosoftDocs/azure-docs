@@ -19,7 +19,7 @@ This article describes how to create groups of machines for assessment with Azur
 You gather machines into groups to assess whether they're suitable for migration to Azure, and to get Azure sizing and cost estimations for them. There are a couple of ways to create groups:
 
 - If you know the machines that need be migrated together, you can manually create the group in Azure Migrate.
-If you are not sure about the machines that need to be grouped together, you can use the dependency visualization functionality in Azure Migrate to create groups. 
+- If you are not sure about the machines that need to be grouped together, you can use the dependency visualization functionality in Azure Migrate to create groups. 
 
 > [!NOTE]
 > The dependency visualization functionality is not available in Azure Government.
