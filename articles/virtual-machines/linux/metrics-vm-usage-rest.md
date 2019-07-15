@@ -4,7 +4,7 @@ description: Use the Azure REST APIs to collect utilization metrics for a Virtua
 services: virtual-machines
 author: rloutlaw
 ms.reviewer: routlaw
-manager: jeconnoc
+manager: gwallace
 ms.service: load-balancer
 ms.custom: REST
 ms.topic: article

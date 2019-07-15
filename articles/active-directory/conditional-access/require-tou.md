@@ -52,11 +52,8 @@ This section provides you with the steps to create a sample ToU. When you create
 **To create your terms of use:**
 
 1. In Microsoft Word, create a new document.
-
 1. Type **My terms of use**, and then save the document on your computer as **mytou.pdf**.
-
 1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a Conditional Access administrator.
-
 1. In the Azure portal, on the left navbar, click **Azure Active Directory**.
 
    ![Azure Active Directory](./media/require-tou/02.png)
@@ -78,17 +75,11 @@ This section provides you with the steps to create a sample ToU. When you create
    ![Terms of use](./media/require-tou/112.png)
 
    1. In the **Name** textbox, type **My TOU**.
-
    1. In the **Display name** textbox, type **My TOU**.
-
    1. Upload your terms of use PDF file.
-
    1. As **Language**, select **English**.
-
    1. As **Require users to expand the terms of use**, select **On**.
-
    1. As **Enforce with Conditional Access policy templates**, select **Custom policy**.
-
    1. Click **Create**.
 
 ## Create your Conditional Access policy
@@ -123,13 +114,9 @@ In your policy, set:
    ![Users and groups](./media/require-tou/24.png)
 
    1. Click **Select users and groups**, and then select **Users and groups**.
-
    1. Click **Select**.
-
    1. On the **Select** page, select **Isabella Simonsen**, and then click **Select**.
-
    1. On the **Users and groups** page, click **Done**.
-
 1. Click **Cloud apps**.
 
    ![Cloud apps](./media/require-tou/08.png)
@@ -139,13 +126,9 @@ In your policy, set:
    ![Select cloud apps](./media/require-tou/26.png)
 
    1. Click **Select apps**.
-
    1. Click **Select**.
-
    1. On the **Select** page, select **Microsoft Azure Management**, and then click **Select**.
-
    1. On the **Cloud apps** page, click **Done**.
-
 1. In the **Access controls** section, click **Grant**.
 
    ![Access controls](./media/require-tou/10.png)
@@ -155,11 +138,8 @@ In your policy, set:
    ![Grant](./media/require-tou/111.png)
 
    1. Select **Grant access**.
-
    1. Select **My TOU**.
-
    1. Click **Select**.
-
 1. In the **Enable policy** section, click **On**.
 
    ![Enable policy](./media/require-tou/18.png)
@@ -170,7 +150,7 @@ In your policy, set:
 
 Now that you have configured your Conditional Access policy, you probably want to know whether it works as expected. As a first step, use the Conditional Access what if policy tool to simulate a sign-in of your test user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report.  
 
-To initialize the what if policy evaluation tool, set:
+To initialize the **What If** policy evaluation tool, set:
 
 - **Isabella Simonsen** as user
 - **Microsoft Azure Management** as cloud app
@@ -197,15 +177,10 @@ Clicking **What If** creates a simulation report that shows:
    ![Cloud apps](./media/require-tou/16.png)
 
    1. Click **Cloud apps**.
-
    1. On the **Cloud apps page**, click **Select apps**.
-
    1. Click **Select**.
-
    1. On the **Select** page, select **Microsoft Azure Management**, and then click **Select**.
-
    1. On the cloud apps page, click **Done**.
-
 1. Click **What If**.
 
 ## Test your Conditional Access policy
@@ -221,7 +196,6 @@ To test your policy, try to sign-in to your [Azure portal](https://portal.azure.
 When no longer needed, delete the test user and the Conditional Access policy:
 
 - If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
-
 - To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
 
     ![Multi-factor authentication](./media/require-tou/33.png)

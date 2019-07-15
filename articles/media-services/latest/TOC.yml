@@ -36,11 +36,16 @@
   items:
   - name: Overview
     href: concepts-overview.md
-  - name: Cloud upload and storage
+  - name: Accounts
     items:    
-    - name: Storage
+    - name: Media Services account
+      displayName: subscription
+      href: media-services-account-concept.md
+    - name: Storage account
       href: storage-account-concept.md  
       displayName: Storage side encryption
+  - name: Uploading 
+    items:
     - name: Assets
       href: assets-concept.md    
   - name: Encoding
@@ -237,6 +242,12 @@
       href: monitor-events-portal-how-to.md
     - name: Monitor events - CLI
       href: job-state-events-cli-how-to.md 
+  - name: Use Azure Monitor
+    items:
+    - name: Monitor metrics
+      href: media-services-metrics-howto.md
+    - name: Monitor diagnostic logs
+      href: media-services-diagnostic-logs-howto.md
   - name: Protect content
     items:
     - name: Get content key policy - .NET

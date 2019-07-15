@@ -104,17 +104,6 @@ provided to make each deployment of the copy of the blueprint sample unique.
 
      Leave the default _system assigned_ managed identity option.
 
-   - Blueprint parameters
-
-     The parameters defined in this section are used by many of the artifacts in the blueprint
-     definition to provide consistency.
-
-     - **Allowed locations (Policy: Blueprint initiative for PCI-DSS v3.2.1)**: Value that indicates
-       the allowed locations for resource groups and resources.
-     - **Allowed resource types (Policy: Blueprint initiative for PCI-DSS v3.2.1)**: Allows only
-       approved resource types to be deployed. Specify an array of resource types that are
-       permitted.
-
    - Artifact parameters
 
      The parameters defined in this section apply to the artifact under which it's defined. These
@@ -137,11 +126,11 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|Audit Diagnostic Setting|Resource Group|List of Resource Types | Audit diagnostic setting for selected resource types. Default value is all resources are selected| 
+|[Preview]: Audit PCI v3.2.1:2018 controls and deploy specific VM Extensions to support audit requirements|Policy Assignment|List of Resource Types | Audit diagnostic setting for selected resource types. Default value is all resources are selected| 
 |Allowed locations|Policy Assignment|List Of Allowed Locations|List of data center locations allowed for any resource to be deployed into. This list is customizable to the desired Azure locations globally. Select locations you wish to allow.| 
-|Allowed Locations for resource groups|Resource Group |Allowed Location |This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.| 
-|Retention Days|Policy Assignment|Retention days|Data rentention in number of days. Default value is 180 but PCI requires 365.| 
-|Storage Accounts Resource Group|Resource Group|Resource group name for storage account|Auditing writes database events to an audit log in your Azure Storage account (a storage account will be created in each region where a SQL Server is created that will be shared by all servers in that region).| 
+|Allowed Locations for resource groups|Policy Assignment |Allowed Location |This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.| 
+|Deploy Auditing on SQL servers|Policy Assignment|Retention days|Data rentention in number of days. Default value is 180 but PCI requires 365.| 
+|Deploy Auditing on SQL servers|Policy Assignment|Resource group name for storage account|Auditing writes database events to an audit log in your Azure Storage account (a storage account will be created in each region where a SQL Server is created that will be shared by all servers in that region).| 
 
 ## Next steps
 

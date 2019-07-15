@@ -146,7 +146,7 @@ assetloc: {
 
 ## Settings
 
-Settings control a device. They enable operators to provide inputs to the device. You can add multiple settings to your device template that appear as tiles on the **Settings** tab for operators to use. You can add many types of settings: number, text, date, toggle, pick list, and section label.
+Settings control a device. They enable operators to provide inputs to the device. You can add multiple settings to your device template that appear as tiles on the **Settings** tab for operators to use. You can add many types of settings: number, text, date, toggle, and section label.
 
 Settings can be in one of three states. The device reports these states.
 
@@ -301,6 +301,6 @@ To learn more about how to use tiles in Azure IoT Central, see [Use dashboard ti
 Now that you've learned how to set up a device template in your Azure IoT Central application, you can:
 
 > [!div class="nextstepaction"]
-> [Create a new device template version](howto-version-devicetemplate.md)
+> [Create a new device template version](howto-version-device-template.md)
 > [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md)
 > [Connect a generic client application to your Azure IoT Central application (Node.js)](howto-connect-nodejs.md)

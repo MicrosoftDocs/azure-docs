@@ -4,7 +4,7 @@ description: Lists the previous generations of sizes available for Windows virtu
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 

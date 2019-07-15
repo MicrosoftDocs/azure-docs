@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: aljo, subramar
+ms.author: subramar
 ---
 
 # Resource governance

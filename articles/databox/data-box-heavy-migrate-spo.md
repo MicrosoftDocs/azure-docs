@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/05/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ The Microsoft Azure Data Box is a service that lets you order a device from the 
 
 - [Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) with 35-TB usable capacity per order for small-to-medium datasets.
 - [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) with 80-TB usable capacity per device for medium-to-large datasets.
-- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) with 770-TB usable capacity per device for large datasets. Data Box Heavy is currently in preview.
+- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) with 770-TB usable capacity per device for large datasets.
 
 This article specifically talks about how to use the Data Box Heavy to migrate your file share content to SharePoint Online.
 
