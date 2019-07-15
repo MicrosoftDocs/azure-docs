@@ -13,7 +13,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
@@ -47,7 +48,7 @@ A personalized, seamless user experience is essential for mobile apps.  Microsof
 Considerations for mobile apps:
 
 - **User experience is key**: Allow users to see the value of your app before asking for sign-in, and request only the required permissions.
-- **Support all user configurations**: Many mobile business users are under conditional access and device compliance policies. Be sure to support these key scenarios.
+- **Support all user configurations**: Many mobile business users are under Conditional Access and device compliance policies. Be sure to support these key scenarios.
 - **Implement single sign-on (SSO)**: MSAL and Microsoft identity platform make enabling single sign-on simple through the device's browser or the Microsoft Authenticator (and Intune Company Portal on Android).
 
 ## Specifics

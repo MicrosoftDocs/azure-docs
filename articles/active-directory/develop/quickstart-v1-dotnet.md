@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
@@ -54,13 +54,15 @@ To enable your app to get tokens, register your app in your Azure AD tenant and 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top bar, select your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
 3. Select on **All services** in the left-hand nav, and choose **Azure Active Directory**.
-4. On **App registrations**, choose **Add**.
-5. Follow the prompts and create a new **Native** client application.
-    * The **Name** of the application will describe your application to end users
-    * The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses. Enter a value specific to your application, for example, `http://DirectorySearcher`.
+4. On **App registrations**, choose **New registration**.
+5. Follow the prompts to create a new client application.
+    * **Name** is the application name and describes your application to end users.
+    * Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+    * **Redirect URI** is a scheme and string combination that Azure AD uses to return token responses. Enter a value that is specific to your application (for example, `http://DirectorySearcher`) and is based on the previous redirect URI information. Also select **Public client (mobile and desktop)** from the dropdown. 
 
 6. Once you've completed registration, AAD will assign your app a unique Application ID. You'll need this value in the next sections, so copy it from the application page.
-7. From the **Settings** page, choose **Required permissions** and choose **Add**. Select **Microsoft Graph** as the API, and under **Delegated permissions** add the **Read directory data** permission. Setting this permission enables your application to query the Graph API for users.
+7. From the **API permissions** page, select **Add a permission**. Inside **Select an API** select ***Microsoft Graph***.
+8. Under **Delegated permissions**, select the permission **User.Read**, then hit **Add** to save. This permission sets up your application to query the Azure AD Graph API for users.
 
 ## Step 2: Install and configure ADAL
 

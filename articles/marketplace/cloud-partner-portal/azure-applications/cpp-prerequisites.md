@@ -35,7 +35,8 @@ For more information, see [Create Azure portal user interface for your managed a
 
 The business requirements include the following procedural, contractual, and legal obligations:
 
-* You must be a registered Cloud Marketplace Publisher. If you’re not registered, follow the steps in the article [Become a Cloud Marketplace Publisher](../../become-publisher.md).
+* You must be a registered Cloud Marketplace Publisher. If you’re not registered, follow the steps in the article [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher
+).
 
 >[!NOTE]
 >You should use the same Microsoft Developer Center registration account to sign in to the Cloud Partner Portal. You should have only one Microsoft account for your Azure Marketplace offerings. This account shouldn’t be specific to individual services or offers.

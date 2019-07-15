@@ -58,13 +58,13 @@ Data scientists use several tools for these tasks. It can be time consuming to f
 
 The DSVM jump-starts your analytics project. You can work on tasks in various languages including R, Python, SQL, and C#. Visual Studio provides an easy-to-use integrated development environment (IDE) to develop and test your code. The Azure SDK is included in the VM so you can build your applications by using various services on Microsoft’s cloud platform.
 
-There are no software charges for this data science VM image. You pay only the Azure usage fees. They depend on the size of the virtual machine you provision. More details on compute fees are in the **Pricing details** section on the [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice) page.
+There are no software charges for this data science VM image. You pay only the Azure usage fees. They depend on the size of the virtual machine you provision. More details on compute fees are in the **Pricing details** section on the [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) page.
 
 ### Other DSVM versions
 
 * An [Ubuntu](dsvm-ubuntu-intro.md) image. It has many tools similar to the DSVM plus a few additional deep learning frameworks.
 * A [Linux CentOS](linux-dsvm-intro.md) image.
-* The [Windows Server 2012 edition](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) of the Data Science Virtual Machine. A few tools are available only on the Windows Server 2016 edition. Otherwise, this article also applies to the Windows Server 2012 edition.
+* The [Windows Server 2012 edition](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) of the Data Science Virtual Machine. A few tools are available only on the Windows Server 2016 edition. Otherwise, this article also applies to the Windows Server 2012 edition.
 
 ## Prerequisite
 
@@ -103,7 +103,7 @@ To create a DSVM instance:
 
 After the VM is created and provisioned, you can remote desktop into it by using the admin account credentials that you configured in the preceding **Basics** section. You're ready to start using the tools that are installed and configured on the VM. Many of the tools can be accessed through start menu tiles and desktop icons.
 
-You can also attach a Data Science VM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+You can also attach a Data Science VM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## Tools installed on the Microsoft Data Science Virtual Machine
 

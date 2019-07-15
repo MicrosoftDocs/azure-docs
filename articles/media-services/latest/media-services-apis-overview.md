@@ -99,7 +99,6 @@ Media Services has the following long-running operations:
 * Stop StreamingEndpoint
 * Scale StreamingEndpoint
 
-
 ## SDKs
 
 > [!NOTE]
@@ -132,6 +131,10 @@ See [Filtering, ordering, paging of Azure Media Services entities](entities-over
 ## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
+## See also
+
+[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## Next steps
 

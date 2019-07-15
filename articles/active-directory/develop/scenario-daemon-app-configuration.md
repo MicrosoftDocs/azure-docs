@@ -38,7 +38,9 @@ The Microsoft libraries supporting daemon apps are:
 
 Given that the daemon applications don't use delegated permissions, but application permissions, their *supported account type* cannot be *Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)*. Indeed, there is no tenant admin to grant consent to the daemon application for Microsoft personal accounts. You'll need to choose *accounts in my organization* or *accounts in any organization*.
 
-Therefore the authority specified in the application configuration should be tenant-ed (specifying a Tenant ID or a domain name associated with your organization). If you are an ISV and want to provide a multi-tenant tool, you can use `organizations`. But keep in mind that you will also need to explain to your customers how to grant admin consent. See [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) for details
+Therefore the authority specified in the application configuration should be tenant-ed (specifying a Tenant ID or a domain name associated with your organization).
+
+If you are an ISV and want to provide a multi-tenant tool, you can use `organizations`. But keep in mind that you will also need to explain to your customers how to grant admin consent. See [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) for details. Also there is currently a limitation in MSAL that `organizations` is only allowed when the client credentials are an application secret (not a certificate). See [MSAL.NET bug #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
 
 ## Application configuration and instantiation
 

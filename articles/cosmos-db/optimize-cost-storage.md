@@ -4,7 +4,7 @@ description: This article explains how to manage storage costs for the data stor
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ---
 

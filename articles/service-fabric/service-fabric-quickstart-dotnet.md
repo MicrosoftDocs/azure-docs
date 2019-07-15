@@ -29,7 +29,7 @@ This quickstart shows how to deploy your first .NET application to Service Fabri
 Using this application you learn how to:
 
 * Create an application using .NET and Service Fabric
-* Use ASP.NET core as a web front-end
+* Use ASP.NET core as a web front end
 * Store application data in a stateful service
 * Debug your application locally
 * Scale-out the application across multiple nodes
@@ -39,7 +39,7 @@ Using this application you learn how to:
 
 To complete this quickstart:
 
-1. [Install Visual Studio 2017](https://www.visualstudio.com/) with the **Azure development** and **ASP.NET and web development** workloads.
+1. [Install Visual Studio 2019](https://www.visualstudio.com/) with the **Azure development** and **ASP.NET and web development** workloads.
 2. [Install Git](https://git-scm.com/)
 3. [Install the Microsoft Azure Service Fabric SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. Run the following command to enable Visual Studio to deploy to the local Service Fabric cluster:
@@ -86,11 +86,11 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## Run the application locally
 
-Right-click the Visual Studio icon in the Start Menu and choose **Run as administrator**. In order to attach the debugger to your services, you need to run Visual Studio as administrator.
+Right-click the Visual Studio icon in the Start Menu and choose **Run as administrator**. To attach the debugger to your services, you need to run Visual Studio as administrator.
 
 Open the **Voting.sln** Visual Studio solution from the repository you cloned.
 
-By default, the Voting application listens on port 8080.  The application port is set in the */VotingWeb/PackageRoot/ServiceManifest.xml* file.  You can change the application port by updating the **Port** attribute of the **Endpoint** element.  To deploy and run the application locally, the application port must be open and available on your computer.  If you change the application port, substitute the new application port value for "8080" throughout this article.
+By default, the Voting application listens on port 8080.  The application port is set in the */VotingWeb/PackageRoot/ServiceManifest.xml* file.  You can change the application port by updating the **Port** attribute of the **Endpoint** element.  To deploy and run the application locally, the application port must be open and available on your computer.  If you change the application port, replace the new application port value for "8080" throughout this article.
 
 To deploy the application, press **F5**.
 
@@ -112,7 +112,7 @@ The voting application consists of two services:
 
 ![Application Diagram](./media/service-fabric-quickstart-dotnet/application-diagram.png)
 
-When you vote in the application the following events occur:
+When you vote in the application, the following events occur:
 
 1. A JavaScript sends the vote request to the web API in the web front-end service as an HTTP PUT request.
 
@@ -122,7 +122,7 @@ When you vote in the application the following events occur:
 
 ## Debug in Visual Studio
 
-The application should be running OK, but you can use the debugger to see how key parts of the application work. When debugging the application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, data is stored in back-end service using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
+The application should be running OK, but you can use the debugger to see how key parts of the application work. When debugging the application in Visual Studio, you're using a local Service Fabric development cluster. You can adjust your debugging experience to your scenario. In this application, data is stored in back-end service using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
 
 To look at what happens in the code, complete the following steps:
 
@@ -131,7 +131,7 @@ To look at what happens in the code, complete the following steps:
 2. Open the **/VotingData/Controllers/VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 54).
 
 3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front end's api controller.
-   * This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
+   * This step is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
 
      ![Add Vote Front-End Service](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
@@ -141,7 +141,7 @@ To look at what happens in the code, complete the following steps:
 
 4. Press **F5** to continue
    - If prompted by the browser, grant ServiceFabricAllowedUsers group read and execute permissions for Debug Mode.
-   - You are now at the break point in the back-end service.
+   - You're now at the break point in the back-end service.
 
      ![Add Vote Back-End Service](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
@@ -176,7 +176,7 @@ To upgrade the application, do the following:
 
     While the upgrade is running, you can still use the application. Because you have two instances of the service running in the cluster, some of your requests may get an upgraded version of the application, while others may still get the old version.
 
-11. Open your browser and browse to the cluster address on port 19080. For example `http://localhost:19080/`.
+11. Open your browser and browse to the cluster address on port 19080. For example, `http://localhost:19080/`.
 12. Click on the **Applications** node in the tree view, and then **Upgrades in Progress** in the right-hand pane. You see how the upgrade rolls through the upgrade domains in your cluster, making sure each domain is healthy before proceeding to the next. An upgrade domain in the progress bar appears green when the health of the domain has been verified.
     ![Upgrade View in Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
@@ -187,7 +187,7 @@ To upgrade the application, do the following:
 In this quickstart, you learned how to:
 
 * Create an application using .NET and Service Fabric
-* Use ASP.NET core as a web front-end
+* Use ASP.NET core as a web front end
 * Store application data in a stateful service
 * Debug your application locally
 * Scale-out the application across multiple nodes

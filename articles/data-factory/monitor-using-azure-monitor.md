@@ -384,7 +384,7 @@ ADFV2 emits the following metrics
 
 | **Metric**           | **Metric Display Name**         | **Unit** | **Aggregation Type** | **Description**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | Succeeded pipeline runs metrics | Count    | Total                | Total pipelines runs succeeded within a minute window |
+| PipelineSucceededRuns | Succeeded pipeline runs metrics | Count    | Total                | Total pipelines runs succeeded within a minute window |
 | PipelineFailedRuns   | Failed pipeline runs metrics    | Count    | Total                | Total pipelines runs failed within a minute window    |
 | ActivitySucceededRuns | Succeeded activity runs metrics | Count    | Total                | Total activity runs succeeded within a minute window  |
 | ActivityFailedRuns   | Failed activity runs metrics    | Count    | Total                | Total activity runs failed within a minute window     |

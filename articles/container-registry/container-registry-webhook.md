@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 05/24/2019
 ms.author: danlep
 ---
 
 # Using Azure Container Registry webhooks
 
-An Azure container registry stores and manages private Docker container images, similar to the way Docker Hub stores public Docker images. It can also host repositories for [Helm charts](container-registry-helm-repos.md) (preview), a packaging format to deploy applications to Kubernetes. You can use webhooks to trigger events when certain actions take place in one of your registry repositories. Webhooks can respond to events at the registry level, or they can be scoped down to a specific repository tag.
+An Azure container registry stores and manages private Docker container images, similar to the way Docker Hub stores public Docker images. It can also host repositories for [Helm charts](container-registry-helm-repos.md) (preview), a packaging format to deploy applications to Kubernetes. You can use webhooks to trigger events when certain actions take place in one of your registry repositories. Webhooks can respond to events at the registry level, or they can be scoped down to a specific repository tag. With a  [geo-replicated](container-registry-geo-replication.md) registry, you configure each webhook to respond to events in a specific regional replica.
 
 For details on webhook requests, see [Azure Container Registry webhook schema reference](container-registry-webhook-reference.md).
 
@@ -31,7 +31,8 @@ For details on webhook requests, see [Azure Container Registry webhook schema re
 
 | Value | Description |
 |---|---|
-| Name | The name you want to give to the webhook. It may contain only letters and numbers, and must be 5-50 characters in length. |
+| Webhook name | The name you want to give to the webhook. It may contain only letters and numbers, and must be 5-50 characters in length. |
+| Location | For a [geo-replicated](container-registry-geo-replication.md) registry, specify the Azure region of the registry replica. 
 | Service URI | The URI where the webhook should send POST notifications. |
 | Custom headers | Headers you want to pass along with the POST request. They should be in "key: value" format. |
 | Trigger actions | Actions that trigger the webhook. Actions include image push, image delete, Helm chart push, Helm chart delete, and image quarantine. You can choose one or more actions to trigger the webhook. |

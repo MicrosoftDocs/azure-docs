@@ -3,14 +3,14 @@ title: Translator Text API Translate Method
 titleSuffix: Azure Cognitive Services
 description: Use the Translator Text API Translate method.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
+ms.author: swmachan
 ---
 
 # Translator Text API 3.0: Translate
@@ -38,7 +38,7 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>from</td>
-    <td><em>Optional parameter</em>.<br/>Specifies the language of the input text. Find which languages are available to translate from by looking up <a href="./v3-0-languages.md">supported languages</a> using the <code>translation</code> scope. If the <code>from</code> parameter is not specified, automatic language detection is applied to determine the source language.</td>
+    <td><em>Optional parameter</em>.<br/>Specifies the language of the input text. Find which languages are available to translate from by looking up <a href="./v3-0-languages.md">supported languages</a> using the <code>translation</code> scope. If the <code>from</code> parameter is not specified, automatic language detection is applied to determine the source language. <br/><br/>You must use the <code>from</code> parameter rather than autodetection when using the <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dynamic dictionary</a> feature.</td>
   </tr>
   <tr>
     <td>to</td>
@@ -50,7 +50,7 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Optional parameter</em>.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with <a href="../customization.md">Custom Translator</a>. Add the Category ID from your Custom Translator project to this parameter to use your deployed customized system. Default value is: <code>general</code>.</td>
+    <td><em>Optional parameter</em>.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with <a href="../customization.md">Custom Translator</a>. Add the Category ID from your Custom Translator <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">project details</a> to this parameter to use your deployed customized system. Default value is: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>

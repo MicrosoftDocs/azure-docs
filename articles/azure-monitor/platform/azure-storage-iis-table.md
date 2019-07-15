@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ---
-# Use Azure blob storage for IIS and Azure table storage for events with Azure Monitor
+# Collect Azure diagnostic logs from Azure Storage
 
 Azure Monitor can read the logs for the following services that write diagnostics to table storage or IIS logs written to blob storage:
 

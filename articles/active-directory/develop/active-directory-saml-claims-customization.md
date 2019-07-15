@@ -31,7 +31,7 @@ By default, Azure AD issues a SAML token to your application that contains a `Na
 
 To view or edit the claims issued in the SAML token to the application, open the application in Azure portal. Then open the **User Attributes & Claims** section.
 
-![User Attributes & Claims section](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
+![Open the User Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
 
 There are two possible reasons why you might need to edit the claims issued in the SAML token:
 
@@ -43,7 +43,7 @@ There are two possible reasons why you might need to edit the claims issued in t
 To edit the NameID (name identifier value):
 
 1. Open the **Name identifier value** page.
-1. Select the attribute or transformation you want to apply to the attribute. Optionally, you can specify the format you want he NameID claim to have.
+1. Select the attribute or transformation you want to apply to the attribute. Optionally, you can specify the format you want the NameID claim to have.
 
    ![Edit the NameID (name identifier) value](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
 

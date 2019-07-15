@@ -6,7 +6,7 @@ author: bwren
 ms.service: log-analytics
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/19/2019
 ms.author: bwren
 ---
 
@@ -74,7 +74,7 @@ $ExportedSearches = @"
     {
         "Category":  "My Saved Searches",
         "DisplayName":  "Current Disk Queue Length",
-        "Query":  "Type=Perf ObjectName=LogicalDisk InstanceName=\"C:\" CounterName=\"Current Disk Queue Length\"",
+        "Query":  "Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:",
         "Version":  1
     }
 ]

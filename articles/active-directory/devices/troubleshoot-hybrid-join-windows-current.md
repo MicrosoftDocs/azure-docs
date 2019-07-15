@@ -1,20 +1,16 @@
 ---
 title: Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices| Microsoft Docs
 description: Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices.
-services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
 
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
+services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/08/2017
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 
 #Customer intent: As an IT admin, I want to fix issues with my hybrid Azure AD joined devices so that I can my users can use this feature.
@@ -32,15 +28,11 @@ For other Windows clients, see [Troubleshooting hybrid Azure Active Directory jo
 
 This article assumes that you have [configured hybrid Azure Active Directory joined devices](hybrid-azuread-join-plan.md) to support the following scenarios:
 
-- Device-based conditional access
-
+- Device-based Conditional Access
 - [Enterprise roaming of settings](../active-directory-windows-enterprise-state-roaming-overview.md)
-
 - [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
 
-
 This document provides troubleshooting guidance on how to resolve potential issues. 
-
 
 For Windows 10 and Windows Server 2016, hybrid Azure Active Directory join supports the Windows 10 November 2015 Update and above. We recommend using the Anniversary update.
 
@@ -51,8 +43,6 @@ For Windows 10 and Windows Server 2016, hybrid Azure Active Directory join suppo
 1. Open the command prompt as an administrator
 
 2. Type **dsregcmd /status**
-
-
 
 ```
 +----------------------------------------------------------------------+
@@ -99,8 +89,6 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-
-
 ## Step 2: Evaluate the join status 
 
 Review the following fields and make sure that they have the expected values:
@@ -113,22 +101,14 @@ If the value is **NO**, the join to Azure AD has not completed yet.
 **Possible causes:**
 
 - Authentication of the computer for a join failed.
-
 - There is an HTTP proxy in the organization that cannot be discovered by the computer
-
 - The computer cannot reach Azure AD to authenticate or Azure DRS for registration
-
 - The computer may not be on the organization’s internal network or on VPN with direct line of sight to an on-premises AD domain controller.
-
 - If the computer has a TPM, it can be in a bad state.
-
 - There might be a misconfiguration in the services noted in the document earlier that you will need to verify again. Common examples are:
-
-    - Your federation server does not have WS-Trust endpoints enabled
-
-    - Your federation server does not allow inbound authentication from computers in your network using Integrated Windows Authentication.
-
-    - There is no Service Connection Point object that points to your verified domain name in Azure AD in the AD forest where the computer belongs to
+   - Your federation server does not have WS-Trust endpoints enabled
+   - Your federation server does not allow inbound authentication from computers in your network using Integrated Windows Authentication.
+   - There is no Service Connection Point object that points to your verified domain name in Azure AD in the AD forest where the computer belongs to
 
 ---
 
@@ -150,9 +130,7 @@ These fields indicate whether the user has successfully authenticated to Azure A
 If the values are **NO**, it could be due:
 
 - Bad storage key (STK) in TPM associated with the device upon registration (check the KeySignTest while running elevated).
-
 - Alternate Login ID
-
 - HTTP Proxy not found
 
 ## Next steps

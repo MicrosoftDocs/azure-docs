@@ -25,7 +25,7 @@ This article provides a guide for importing and exporting data with App Configur
 
 Import brings configuration data into an App Configuration store from an existing source, instead of manually entering it. Use the import function to migrate data into an app configuration store or aggregate data from multiple sources. App Configuration supports importing from a JSON, YAML, or properties file.
 
-Import data by using either the [Azure portal](https://aka.ms/azconfig/portal) or the [Azure CLI](./scripts/cli-import.md). From the Azure portal, follow these steps:
+Import data by using either the [Azure portal](https://portal.azure.com) or the [Azure CLI](./scripts/cli-import.md). From the Azure portal, follow these steps:
 
 1. Browse to your app configuration store, and select **Import/Export**.
 
@@ -49,7 +49,7 @@ Import data by using either the [Azure portal](https://aka.ms/azconfig/portal) o
 
 Export writes configuration data stored in App Configuration to another destination. Use the export function, for example, to save data in an app configuration store to a file that's embedded with your application code during deployment.
 
-Export data by using either the [Azure portal](https://aka.ms/azconfig/portal) or the [Azure CLI](./scripts/cli-export.md). From the Azure portal, follow these steps:
+Export data by using either the [Azure portal](https://portal.azure.com) or the [Azure CLI](./scripts/cli-export.md). From the Azure portal, follow these steps:
 
 1. Browse to your app configuration store, and select **Import/Export**.
 

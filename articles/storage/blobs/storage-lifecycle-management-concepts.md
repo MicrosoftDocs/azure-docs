@@ -6,7 +6,7 @@ author: mhopkins-msft
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
@@ -27,7 +27,7 @@ Consider a scenario where data gets frequent access during the early stages of t
 
 ## Storage account support
 
-The lifecycle management policy is available with both General Purpose v2 (GPv2) accounts and Blob storage accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).  
+The lifecycle management policy is available with General Purpose v2 (GPv2) accounts, Blob storage accounts, and Premium Block Blob storage accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).  
 
 ## Pricing
 
@@ -35,7 +35,7 @@ The lifecycle management feature is free of charge. Customers are charged the re
 
 ## Regional availability
 
-The lifecycle management feature is available in all global Azure regions.
+The lifecycle management feature is available in all global Azure and Azure Government regions.
 
 ## Add or remove a policy
 
@@ -127,7 +127,7 @@ You can define lifecycle management by using Azure Resource Manager templates. H
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -389,8 +389,12 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
 
 ## FAQ
 
-**I created a new policy, why are the actions not run immediately?**  
+**I created a new policy, why do the actions not run immediately?**  
 The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions to run for the first time.  
+
+**I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**  
+When a blob is moved from one access tier to another access tier, its last modification time doesn't change. If you manually rehydrate an archived blob to hot tier, it would be moved back to archive tier by lifecycle management engine. You can prevent it by disabling the rule which affects this blob temporarily. You can copy the blob to another location if it needs to stay in hot tier permanently. You can re-enable the rule when the blob can be safely moved back to archive tier. 
+
 
 ## Next steps
 

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 06/11/2019
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -26,6 +26,21 @@ There are a number of inbound dependencies that an ASE has. The inbound manageme
 The ASE outbound dependencies are almost entirely defined with FQDNs, which do not have static addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) cannot be used to lock down the outbound traffic from an ASE. The addresses change often enough that one cannot set up rules based on the current resolution and use that to create NSGs. 
 
 The solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination.  
+
+## System architecture
+
+Deploying an ASE with outbound traffic going through a firewall device requires changing routes on the ASE subnet. Routes operate at an IP level. If you are not careful in defining your routes, you can force TCP reply traffic to source from another address. This is called asymmetric routing and it will break TCP.
+
+There must be routes defined so that inbound traffic to the ASE can reply back the same way the traffic came in. This is true for inbound management requests and it is true for inbound application requests.
+
+The traffic to and from an ASE must abide by the following conventions
+
+* The traffic to Azure SQL, Storage and Event Hub are not supported with use of a firewall device. This traffic must be sent directly to those services. The way to make that happen is to configure service endpoints for those three services. 
+* Route table rules must be defined that send inbound management traffic back from where it came.
+* Route table rules must be defined that send inbound application traffic back from where it came. 
+* All other traffic leaving the ASE can be sent to your firewall device with a route table rule.
+
+![ASE with Azure Firewall connection flow][5]
 
 ## Configuring Azure Firewall with your ASE 
 
@@ -64,8 +79,6 @@ The above steps will allow your ASE to operate without problems. You still need 
 If your applications have dependencies, they need to be added to your Azure Firewall. Create Application rules to allow HTTP/HTTPS traffic and Network rules for everything else. 
 
 If you know the address range that your application request traffic will come from, you can add that to the route table that is assigned to your ASE subnet. If the address range is large or unspecified, then you can use a network appliance like the Application Gateway to give you one address to add to your route table. For details on configuring an Application Gateway with your ILB ASE, read [Integrating your ILB ASE with an Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
-
-![ASE with Azure Firewall connection flow][5]
 
 This use of the Application Gateway is just one example of how to configure your system. If you did follow this path, then you would need to add a route to the ASE subnet route table so the reply traffic sent to the Application Gateway would go there directly. 
 

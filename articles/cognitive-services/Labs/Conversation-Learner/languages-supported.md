@@ -3,13 +3,13 @@ title: Conversation Learner languages supported - Microsoft Cognitive Services |
 titleSuffix: Azure
 description: 
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ---
 
 # Supported languages

@@ -4,7 +4,7 @@ description: Learn how to use synthetic partition keys in your Azure Cosmos cont
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/21/2019
 ms.author: rimman
 
 ---

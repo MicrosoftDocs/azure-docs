@@ -28,7 +28,7 @@ var datasource = new atlas.source.DataSource(null, {
 	//The radius in pixels to cluster points together.
 	clusterRadius: 45,
 
-	//The maximium zoom level in which clustering occurs.
+	//The maximum zoom level in which clustering occurs.
 	//If you zoom in more than this, all points are rendered as symbols.
 	clusterMaxZoom: 15 
 });
@@ -41,9 +41,9 @@ The `DataSource` class also has the following methods related to clustering:
 
 | Method | Return type | Description |
 |--------|-------------|-------------|
-| getClusterChildren(clusterId: number) | Promise&lt;Feature&lt;Geometry, any&gt; \| Shape&gt; | Retrieves the children of the given cluster on the next zoom level. These children may be a combination of shapes and subclusters. The subclusters will be features with properties matching ClusteredProperties. |
+| getClusterChildren(clusterId: number) | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves the children of the given cluster on the next zoom level. These children may be a combination of shapes and subclusters. The subclusters will be features with properties matching ClusteredProperties. |
 | getClusterExpansionZoom(clusterId: number) | Promise&lt;number&gt; | Calculates a zoom level at which the cluster will start expanding or break apart. |
-| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promise&lt;Feature&lt;Geometry, any&gt; \| Shape&gt; | Retrieves all points in a cluster. Set the `limit` to return a subset of the points, and use the `offset` to page through the points. |
+| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves all points in a cluster. Set the `limit` to return a subset of the points, and use the `offset` to page through the points. |
 
 ## Display clusters using a bubble layer
 
@@ -87,7 +87,7 @@ When mouse events occur on a layer that contain clustered data points, the clust
 | cluster | boolean | Indicates if feature represents a cluster. |
 | cluster_id | string | A unique ID for the cluster that can be used with the DataSource `getClusterExpansionZoom`, `getClusterChildren`, and `getClusterLeaves` methods. |
 | point_count | number | The number of points the cluster contains. |
-| point_count_abbreviated | string | A string that abbreviates the point_count value if it is long. (for example, 4,000 becomes 4K) |
+| point_count_abbreviated | string | A string that abbreviates the `point_count` value if it is long. (for example, 4,000 becomes 4K) |
 
 This example takes a bubble layer that renders cluster points and adds a click event that when triggered, calculate, and zoom the map to the next zoom level at which the cluster will break apart using the `getClusterExpansionZoom` method of the `DataSource` class and the `cluster_id` property of the clicked clustered data point. 
 

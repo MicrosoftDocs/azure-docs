@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: fmegen
 ---
 
@@ -50,7 +50,7 @@ If you're running Linux, make sure these dependencies are installed before start
   ```
 
 If you're running Windows (64-bit), ensure you have installed Microsoft Visual C++ Redistributable for your platform.
-* [Download Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+* [Download Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## Create and configure project
 

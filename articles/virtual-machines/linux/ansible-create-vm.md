@@ -5,7 +5,7 @@ keywords: ansible, azure, devops, virtual machine
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
 ---
@@ -101,7 +101,7 @@ A virtual network interface card connects your virtual machine to a given virtua
 The following section in a sample Ansible playbook section creates a virtual network interface card named `myNIC` connected to the virtual networking resources you've created:
 
 ```yaml
-- name: Create virtual network inteface card
+- name: Create virtual network interface card
   azure_rm_networkinterface:
     resource_group: myResourceGroup
     name: myNIC
@@ -180,7 +180,7 @@ This section lists the entire sample Ansible playbook that you've built up over 
           access: Allow
           priority: 1001
           direction: Inbound
-  - name: Create virtual network inteface card
+  - name: Create virtual network interface card
     azure_rm_networkinterface:
       resource_group: myResourceGroup
       name: myNIC
@@ -266,7 +266,7 @@ This section walks you through running the sample Ansible playbook presented in 
    TASK [Create Network Security Group that allows SSH] **********************
    changed: [localhost]
 
-   TASK [Create virtual network inteface card] *******************************
+   TASK [Create virtual network interface card] *******************************
    changed: [localhost]
 
    TASK [Create VM] **********************************************************

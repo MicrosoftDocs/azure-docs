@@ -70,8 +70,6 @@
     href: https://go.microsoft.com/fwlink/?linkid=865446
   - name: Custom Vision Prediction API 
     href: https://go.microsoft.com/fwlink/?linkid=865445
-  - name: Glossary
-    href: glossary-of-terms.md
   - name: SDKs
     items:
     - name: .NET
@@ -98,5 +96,7 @@
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Release Notes
     href: release-notes.md

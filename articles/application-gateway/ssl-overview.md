@@ -45,7 +45,7 @@ Application gateway supports the following types of certificates:
 For more information, see [configure SSL termination with application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
 ### Size of the certificate
-The Personal Information Exchange (PFX) file with the SSL certificate information should not be more than 10 KB in size.
+Check the [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) section to know the maximum SSL certificate size supported.
 
 ## End to end SSL encryption
 

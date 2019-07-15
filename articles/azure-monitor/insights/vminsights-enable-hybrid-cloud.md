@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2019
+ms.date: 06/07/2019
 ms.author: magoedte
 ---
 
@@ -19,18 +19,18 @@ ms.author: magoedte
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article explains how to enable Azure Monitor for VMs (preview) for virtual machines or physical computers hosted in your datacenter or other cloud environment. At the end of this process you will have successfully begun monitoring your virtual machines in your environment and learn if they are experiencing any performance or availability issues. 
+This article explains how to enable Azure Monitor for VMs (preview) for virtual machines or physical computers hosted in your datacenter or other cloud environment. At the end of this process, you will have successfully begun monitoring your virtual machines in your environment and learn if they are experiencing any performance or availability issues. 
 
-Before getting started, be sure to review the [prerequisites](vminsights-enable-overview.md) and verify your subscription and resources meet the requirements. Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../log-analytics/log-analytics-agent-overview.md).
+Before you get started, be sure to review the [prerequisites](vminsights-enable-overview.md) and verify that your subscription and resources meet the requirements. Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../log-analytics/log-analytics-agent-overview.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 >[!NOTE]
->The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
+>The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
-The tasks to complete this task are summarized as follows:
+The steps to complete this task are summarized as follows:
 
-1. Install Log Analytics Agent for Windows or Linux.
+1. Install Log Analytics agent for Windows or Linux. Before you install the agent, review the [Log Analytics agent overview](../platform/log-analytics-agent.md) article to understand system prerequisites and deployment methods.
 
 2. Download and install the Azure Monitor for VMs Map Dependency agent for [Windows](https://aka.ms/dependencyagentwindows) or [Linux](https://aka.ms/dependencyagentlinux).
 
@@ -51,9 +51,9 @@ The following table highlights the parameters that are supported by setup for th
 | /? | Returns a list of the command-line options. |
 | /S | Performs a silent installation with no user interaction. |
 
-For example, to run the installation program with the `/?` parameter, type **InstallDependencyAgent-Windows.exe /?**.
+For example, to run the installation program with the `/?` parameter, enter **InstallDependencyAgent-Windows.exe /?**.
 
-Files for the Windows Dependency agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency agent fails to start after setup is complete, check the logs for detailed error information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
+Files for the Windows Dependency agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
 
 ## Install the Dependency agent on Linux
 The Dependency agent is installed on Linux servers from *InstallDependencyAgent-Linux64.bin*, a shell script with a self-extracting binary. You can run the file by using `sh` or add execute permissions to the file itself.
@@ -68,9 +68,9 @@ The Dependency agent is installed on Linux servers from *InstallDependencyAgent-
 | -s | Perform a silent installation with no user prompts. |
 | --check | Check permissions and the operating system, but don't install the agent. |
 
-For example, to run the installation program with the `-help` parameter, type **InstallDependencyAgent-Linux64.bin -help**.
+For example, to run the installation program with the `-help` parameter, enter **InstallDependencyAgent-Linux64.bin -help**.
 
-Install the Linux Dependency agent as root by running the following command, `sh InstallDependencyAgent-Linux64.bin`.
+Install the Linux Dependency agent as root by running the command `sh InstallDependencyAgent-Linux64.bin`.
 
 If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
 
@@ -85,18 +85,18 @@ Files for the Dependency agent are placed in the following directories:
 | Binary storage files | /var/opt/microsoft/dependency-agent/storage |
 
 ## Enable performance counters
-If the Log Analytics workspace that's referenced by the solution isn't already configured to collect the performance counters required by the solution, you will need to enable them. You can do so in either of two ways:
+If the Log Analytics workspace that's referenced by the solution isn't already configured to collect the performance counters required by the solution, you need to enable them. You can do so in one of two ways:
 * Manually, as described in [Windows and Linux performance data sources in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
-* By downloading and running a PowerShell script that's available from [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
+* By downloading and running a PowerShell script that's available from the [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ## Deploy Azure Monitor for VMs
 This method includes a JSON template that specifies the configuration for enabling the solution components in your Log Analytics workspace.
 
-If you're unfamiliar with deploying resources by using a template, see:
+If you don't know how to deploy resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### Create and execute a template
 
@@ -174,7 +174,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
     ```
 
-    The configuration change can take a few minutes to complete. When it's complete, a message is displayed that's similar to the following and includes the result:
+    The configuration change can take a few minutes to finish. When it's finished, a message displays that's similar to the following and includes the result:
 
     ```powershell
     provisioningState       : Succeeded
@@ -183,4 +183,9 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 ## Next steps
 
-Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs. To learn how to use the Health feature, see [View Azure Monitor for VMs Health](vminsights-health.md). To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). To identify bottlenecks and overall utilization with your VMs performance, see [View Azure VM Performance](vminsights-performance.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs.
+ 
+- To learn how to use the Health feature, see [View Azure Monitor for VMs health](vminsights-health.md).
+- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+- To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM performance](vminsights-performance.md).
+- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).

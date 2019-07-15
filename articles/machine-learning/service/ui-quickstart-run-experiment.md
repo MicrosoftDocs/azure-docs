@@ -14,9 +14,9 @@ ms.date: 05/02/2019
 
 # Quickstart: Prepare and visualize data without writing code in Azure Machine Learning
 
-Prepare and visualize your data in the drag-and-drop visual interface (preview) for Azure Machine Learning. The data you'll use includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.  
+Prepare and visualize your data in the drag-and-drop visual interface (preview) for Azure Machine Learning. The data you'll use includes entries for various individual automobiles, including information such as make, model, technical specifications, and price. Once you complete this quickstart, you'll be ready to use this data to predict an automobile's price. 
 
-In this quickstart you'll explore and prepare data:
+Before you train a machine learning model, you need to understand and prepare your data.  In this quickstart you'll:
 
 - Create your first experiment to add and preview data
 - Prepare the data by removing missing values
@@ -127,7 +127,7 @@ Now that you have run your initial experiment, you can visualize the data to und
 
      ![Preview the data](./media/ui-quickstart-run-experiment/preview-data.gif)
 
-1. Click on each column to understand more about your dataset.
+1. Click on each column to understand more about your dataset, and think about whether these columns will be useful to predict the price of an automobile.
 
 ## Prepare data
 
@@ -172,7 +172,7 @@ First,  remove the **normalized-losses** column completely.
 
 ### Clean missing data
 
-Now add another module that removes any remaining row that has missing data.
+When you train a model, you have to do something about the data that is missing.  In this case, you'll add a module to remove any remaining row that has missing data.  
 
 1. Type **Clean** in the Search box to find the **Clean Missing Data** module.
 
@@ -212,7 +212,7 @@ Since you made changes to the modules in your experiment, the status has changed
 
     There are now 193 rows and 25 columns.
 
-    When you click on **num-of-doors** you see it still has 2 unique values but now has 0 missing values.  
+    When you click on **num-of-doors** you see it still has 2 unique values but now has 0 missing values. Click through the rest of the columns to see that there are no missing values left in the dataset. 
 
 ## Clean up resources
 
@@ -224,7 +224,7 @@ In this quickstart, you learned how to:
 
 - Create your first experiment to add and preview data
 - Prepare the data by removing missing values
-- Visualize the resulting data
+- Visualize the prepared data
 
 Continue to the tutorial to use this data to predict the price of an automobile.
 
