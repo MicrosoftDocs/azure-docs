@@ -26,7 +26,7 @@ There are two types of applications, single-tenant and multi-tenant. Single-tena
 
 Action | Permission | Documentation description
 ------ | ---------- | -------------------------
-Delete | microsoft.directory/applications.myOrganization/delete | Ability to delete single-tenant applications. 
+Delete | microsoft.directory/applications.myOrganization/delete | Ability to delete single-tenant applications.
 Read | microsoft.directory/applications.myOrganization/allProperties/read | Ability to read all properties of single-tenant applications.
 Read | microsoft.directory/applications.myOrganization/basic/read | Ability to read the name, application ID, logo, homepage URL, terms of service URL, privacy statement URL, and publisher domain properties of single-tenant applications.
 Read | microsoft.directory/applications.myOrganization/owners/read | Ability to read owners property on single-tenant applications.
@@ -37,46 +37,23 @@ Update | microsoft.directory/applications.myOrganization/credentials/update | Ab
 Update | microsoft.directory/applications.myOrganization/owners/update | Ability to update the owner property on single-tenant applications. Be aware this permission allows adding owners, and owners can promote single-tenant applications to multi-tenant applications.
 Update | microsoft.directory/applications.myOrganization/permissions/update | Ability to update the delegated permissions, application permissions, authorized client applications, required permissions, and grant consent properties on single-tenant applications.
 
-* microsoft.directory/applications.myOrganization/delete
-    Delete: Ability to delete single-tenant applications. single-tenant applications are defined as having the Supported account types set to "Accounts in this organizational directory only". In the API single-tenant application have the signInAudience property set to "AzureADMyOrg".
-* microsoft.directory/applications.myOrganization/allProperties/read
-    Read: Ability to read all properties of single-tenant applications. 
-* microsoft.directory/applications.myOrganization/basic/read
-    Read: Ability to read the name, application ID, logo, homepage URL, terms of service URL, privacy statement URL, and publisher domain properties of single-tenant applications. Single-tenant applications are defined as having **Supported account types** set to "Accounts in this organizational directory only". In the Graph API,  single-tenant applications have the signInAudience property set to "AzureADMyOrg".
-* microsoft.directory/applications.myOrganization/owners/read
-    Read: Ability to read owners property on single-tenant applications. Single-tenant applications are defined as having **Supported account types** set to "Accounts in this organizational directory only". In the Graph API,  single-tenant applications have the signInAudience property set to "AzureADMyOrg".
-* microsoft.directory/applications.myOrganization/allProperties/update
-    Update: Ability to update all properties. single-tenant applications are defined as having the Supported account types set to "Accounts in this organizational directory only". In the API single-tenant application have the signInAudience property set to "AzureADMyOrg".
-* microsoft.directory/applications.myOrganization/audience/update
-    Update: Ability to update the supported account type property on single-tenant applications. single-tenant applications are defined as having the Supported account types set to "Accounts in this organizational directory only". In the API single-tenant application have the signInAudience property set to "AzureADMyOrg".
-* microsoft.directory/applications.myOrganization/authentication/update
-    Update: Ability to update the reply URL, logout URL, implicit flow, and publisher domain properties on single-tenant applications. single-tenant applications are defined as having the Supported account types set to "Accounts in this organizational directory only". In the API single-tenant application have the signInAudience property set to "AzureADMyOrg".
-* microsoft.directory/applications.myOrganization/basic/update
-    Update: Ability to update the name, logo, homepage URL, terms of service URL, and privacy statement URL properties on single-tenant applications. single-tenant applications are defined as having the Supported account types set to "Accounts in this organizational directory only". In the API single-tenant application have the signInAudience property set to "AzureADMyOrg".
-* microsoft.directory/applications.myOrganization/credentials/updateUpdate
-  Update: Ability to update the certificates and client secrets properties on single-tenant applications. single-tenant applications are defined as having the Supported account types set to "Accounts in this organizational directory only". In the API single-tenant application have the signInAudience property set to "AzureADMyOrg".
-* microsoft.directory/applications.myOrganization/owners/update
-    Update: Ability to update the owner property on single-tenant applications. single-tenant applications are defined as having the Supported account types set to "Accounts in this organizational directory only". In the API single-tenant application have the signInAudience property set to "AzureADMyOrg". Be aware this permission allows adding owners, and owners can promote single-tenant applications to multi-directory applications.
-* microsoft.directory/applications.myOrganization/permissions/update
-    Update: Ability to update the delegated permissions, application permissions, authorized client applications, required permissions, and grant consent properties on single-tenant applications. single-tenant applications are defined as having the Supported account types set to "Accounts in this organizational directory only". In the API single-tenant application have the signInAudience property set to "AzureADMyOrg".
-
 ## Single- and multi-tenant application permissions
 
 Action | Permission | Documentation description
 ------ | ----------- | -------------------------
-Create |  microsoft.directory/applications/create |  Ability to create a new single-directory or multi-directory application. Creator is not added as the first owner, but creator can add owners during creation (API/CLI only). Be aware creator is not restricted to 250 created objects and therefore can accidently or maliciously consume organization-wide object quota.
-Create |  microsoft.directory/applications/createAsOwner |  Ability to create a new single-directory or multi-directory application. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota.
-Delete |  microsoft.directory/applications/delete |  Ability to delete single-directory and multi-directory applications
-Read |  microsoft.directory/applications/allProperties/read |  Ability to read all properties of single-directory and multi-directory applications outside of senstive properties like credentials.
-Read |  microsoft.directory/applications/basic/read |  Ability to read the name, application ID, logo, homepage URL, terms of service URL, privacy statement URL, and publisher domain properties on single-directory and multi-directory applications.
-Read |  microsoft.directory/applications/owners/read |  Ability to read owners property on single-directory and multi-directory applications.
-Update |  microsoft.directory/applications/allProperties/update |  Ability to update all properties on single-directory and multi-directory applications.
-Update |  microsoft.directory/applications/audience/update |  Ability to update the supported account type (signInAudience) property on single-directory and multi-directory applications.
-Update |  microsoft.directory/applications/authentication/update |  Ability to update the reply URL, logout URL, implicit flow, and publisher domain properties on single-directory and multi-directory applications.
-Update |  microsoft.directory/applications/basic/update |  Ability to update the name, logo, homepage URL, terms of service URL, and privacy statement URL properties on single-directory and multi-directory applications.
-Update |  microsoft.directory/applications/credentials/update |  Ability to update the certificates and client secrets properties on single-directory and multi-directory applications.
-Update |  microsoft.directory/applications/owners/update |  Ability to update the owner property on single-directory and multi-directory applications.
-Update |  microsoft.directory/applications/permissions/update |  Ability to update the delegated permissions, application permissions, authorized client applications, required permissions, and grant consent properties on single-directory and multi-directory applications.
+Create |  microsoft.directory/applications/create |  Ability to create a new single-directory or multi-directory application. Creator is not added as the first owner, but creator can add owners during creation (API/CLI only). Be aware that an application creator is not restricted to 250 created objects, and could accidentally or maliciously consume organization-wide object quota.
+Create |  microsoft.directory/applications/createAsOwner |  Ability to create a new single-directory or multi-directory application. The application creator is added as the first owner, and the created object counts against the creator's default user limit of 250 created objects.
+Delete |  microsoft.directory/applications/delete |  Ability to delete single-tenant and multi-tenant applications
+Read |  microsoft.directory/applications/allProperties/read |  Ability to read all properties of single-tenant and multi-tenant applications outside of sensitive properties like credentials.
+Read |  microsoft.directory/applications/basic/read |  Ability to read the name, application ID, logo, homepage URL, terms of service URL, privacy statement URL, and publisher domain properties on single-tenant and multi-tenant applications.
+Read |  microsoft.directory/applications/owners/read |  Ability to read owners property on single-tenant and multi-tenant applications.
+Update |  microsoft.directory/applications/allProperties/update |  Ability to update all properties on single-tenant and multi-tenant applications.
+Update |  microsoft.directory/applications/audience/update |  Ability to update the supported account type (signInAudience) property on single-tenant and multi-tenant applications.
+Update |  microsoft.directory/applications/authentication/update |  Ability to update the reply URL, logout URL, implicit flow, and publisher domain properties on single-tenant and multi-tenant applications.
+Update |  microsoft.directory/applications/basic/update |  Ability to update the name, logo, homepage URL, terms of service URL, and privacy statement URL properties on single-tenant and multi-tenant applications.
+Update |  microsoft.directory/applications/credentials/update |  Ability to update the certificates and client secrets properties on single-tenant and multi-tenant applications.
+Update |  microsoft.directory/applications/owners/update |  Ability to update the owner property on single-tenant and multi-tenant applications.
+Update |  microsoft.directory/applications/permissions/update |  Ability to update the delegated permissions, application permissions, authorized client applications, required permissions, and grant consent properties on single-tenant and multi-tenant applications.
 
 ## Required license plan
 
