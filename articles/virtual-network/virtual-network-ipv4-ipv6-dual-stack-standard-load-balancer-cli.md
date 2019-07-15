@@ -90,7 +90,7 @@ az network public-ip create \
 --resource-group DsResourceGroup01 \
 --location eastus  \
 --sku Standard  \
---allocation-method dynamic  \
+--allocation-method static  \
 --version IPv4
 
 az network public-ip create \
@@ -98,7 +98,7 @@ az network public-ip create \
 --resource-group DsResourceGroup01  \
 --location eastus  \
 --sku Standard  \
---allocation-method dynamic  \
+--allocation-method static  \
 --version IPv4
 ```
 
