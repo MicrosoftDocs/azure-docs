@@ -1,5 +1,5 @@
 ---
-title: Configure settings
+title: Configure settings - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 services: cognitive-services
@@ -7,7 +7,7 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
 #Customer intent: 
