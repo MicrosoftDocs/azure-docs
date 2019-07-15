@@ -18,7 +18,7 @@ Logic Apps helps you create and run automated recurring tasks and processes on a
 > [!TIP]
 > You can schedule and run recurring workloads without creating a separate logic app for each scheduled job and running into the [limit on workflows per region and subscription](../logic-apps/logic-apps-limits-and-config.md#definition-limits). Instead, you can use the logic app pattern that's created by the [Azure QuickStart template: Logic Apps job scheduler](https://github.com/Azure/azure-quickstart-templates/tree/master/301-logicapps-jobscheduler/).
 >
-> The Logic Apps job scheduler template creates a CreateTimerJob logic app that acts as an API. You can then call this logic app by making an HTTP request and passing a schedule as input for the request. Each call creates a new timer job instance that continuously runs based on the schedule that you pass in or until a specified limit is met. That way, you can create and run as many timer job instances as you want because instances are not individual logic apps definitions or resources.
+> The Logic Apps job scheduler template creates a CreateTimerJob logic app that calls a TimerJob logic app. You can then call the CreateTimerJob logic app as an API by making an HTTP request and passing a schedule as input for the request. Each call to the CreateTimerJob logic app then calls the TimerJob logic app, which creates a new TimerJob instance that continuously runs based on the schedule that you pass in or until a specified limit is met. That way, you can create and run as many timer job instances as you want because instances are not individual logic apps definitions or resources.
 
 This list shows some example tasks that you can run with the Schedule built-in triggers:
 
