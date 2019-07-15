@@ -112,6 +112,8 @@ Don't use properties to send telemetry from your device. For example, a readonly
 
 By default, IoT Hub routes all telemetry messages from devices to its [built-in service-facing endpoint (**messages/events**)](../iot-hub/iot-hub-devguide-messages-read-builtin.md) that's compatible with [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/).
 
+You can use [IoT Hub's custom endpoints and routing rules](../iot-hub/iot-hub-devguide-messages-d2c.md) to send telemetry to other destinations such as blob storage or other event hubs. Routing rules use message properties to select messages.
+
 ### Commands
 
 Commands are either synchronous or asynchronous. A synchronous command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device does respond in time, or the device is not connected, then the the command fails.
