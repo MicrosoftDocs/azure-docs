@@ -28,7 +28,7 @@ There are two types of assessments you can run using Azure Migrate Server Assess
 
 ## How is an assessment done?
 
-An assessment done in Azure Migrate Server Assessment has three stages. Assessment starts with a suitability analysis, followed by sizing, and lastly, a monthly cost estimation. A machine only moves along to a later stage if it passes the previous one. For example, if a machine fails the Azure suitability check, it’s marked as unsuitable for Azure, and sizing and costing won't be done. [Learn more.](https://docs.microsoft.com/en-us/azure/migrate/concepts-assessment-calculation)
+An assessment done in Azure Migrate Server Assessment has three stages. Assessment starts with a suitability analysis, followed by sizing, and lastly, a monthly cost estimation. A machine only moves along to a later stage if it passes the previous one. For example, if a machine fails the Azure suitability check, it’s marked as unsuitable for Azure, and sizing and costing won't be done. [Learn more.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation)
 
 ## What's in an assessment?
 
@@ -46,7 +46,7 @@ An assessment done in Azure Migrate Server Assessment has three stages. Assessme
 **Currency** | Billing currency.
 **Discount (%)** | Any subscription-specific discount you receive on top of the Azure offer.<br/> The default setting is 0%.
 **VM uptime** | If your VMs are not going to be running 24x7 in Azure, you can specify the duration (number of days per month and number of hours per day) for which they would be running and the cost estimations would be done accordingly.<br/> The default value is 31 days per month and 24 hours per day.
-**Azure Hybrid Benefit** | Specify whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If set to Yes, non-Windows Azure prices are considered for Windows VMs. | Default is Yes.
+**Azure Hybrid Benefit** | Specify whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If set to Yes, non-Windows Azure prices are considered for Windows VMs. Default is Yes.
 
 
 ## Edit assessment properties

@@ -16,25 +16,25 @@ ms.author: raynew
 
 ### I am unable to find my existing Azure Migrate project.
 
-There are [two versions](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate. Depending on the version in which you created the project, follow the steps below to find the project: 
+There are [two versions](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate. Depending on the version in which you created the project, follow the steps below to find the project:
 
 1. If you are looking for a project created with the pervious version (old experience) of Azure Migrate,  follow the below steps to find the project.
 
-    a. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**
-    b. On the Azure Migrate dashboard, you will see a banner that talks about accessing older projects (you will see this banner only if you have created a project with the old experience). Click the banner.
+    1. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**
+    2. On the Azure Migrate dashboard, you will see a banner that talks about accessing older projects (you will see this banner only if you have created a project with the old experience). Click the banner.
 
     ![Access existing projects](./media/troubleshooting-general/access-existing-projects.png)
 
-    c. You will now see the list of existing projects created with the previous version of Azure Migrate.
+    3. You will now see the list of existing projects created with the previous version of Azure Migrate.
 
 2. If you are looking for a project created with the current version (new experience), follow the below steps to find the project.
 
-    a. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**
-    b. On the Azure Migrate dashboard, go to the **Servers** page on the left pane and click **change** on the top-right corner
+    1. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**
+    2. On the Azure Migrate dashboard, go to the **Servers** page on the left pane and click **change** on the top-right corner
 
     ![Switch to an existing Azure Migrate project](./media/troubleshooting-general/switch-project.png)
 
-    c. Select the appropriate **Subscription** and **Migrate project**
+    3. Select the appropriate **Subscription** and **Migrate project**
 
 ### I am unable to create a second Azure Migrate project.
 
@@ -43,22 +43,22 @@ Follow the below steps to create a new Azure Migrate project.
 1. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**
 2. On the Azure Migrate dashboard, go to the **Servers** page on the left pane and click **change** on the top-right corner
 
-  ![Change Azure Migrate project](./media/troubleshooting-general/switch-project.png)
+   ![Change Azure Migrate project](./media/troubleshooting-general/switch-project.png)
 
 3. To create a new project, click **click here** as shown in the screenshot below:
 
-  ![Create a second Azure Migrate project](./media/troubleshooting-general/create-new-project.png)
+   ![Create a second Azure Migrate project](./media/troubleshooting-general/create-new-project.png)
 
 ### Deletion of Azure Migrate projects and associated Log Analytics workspace
 
 When you delete an Azure Migrate project, it deletes the migration project along with all the groups and assessments. However, if you have attached a Log Analytics workspace to the project, it does not automatically delete the Log Analytics workspace. This is because the same Log Analytics workspace might be used for multiple use cases. If you would like to delete the Log Analytics workspace as well, you need to do it manually.
 
 1. Browse to the Log Analytics workspace attached to the project.
-     a. If you have not deleted the migration project yet, you can find the link to the workspace from the project overview page in the Essentials section.
+     1. If you have not deleted the migration project yet, you can find the link to the workspace from the project overview page in the Essentials section.
 
      ![LA Workspace](./media/troubleshooting-general/LA-workspace.png)
 
-     b. If you already deleted the migration project,  click **Resource Groups** in the left pane in Azure portal and go to the Resource Group in which the workspace was created and then browse to it.
+     2. If you already deleted the migration project,  click **Resource Groups** in the left pane in Azure portal and go to the Resource Group in which the workspace was created and then browse to it.
 2. Follow the instructions [in this article](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete the workspace.
 
 ### Migration project creation failed with error *Requests must contain user identity headers*
@@ -136,42 +136,6 @@ It takes up to 30 minutes for the discovery data gathered by the appliance to re
 4. Wait for the refresh operation to complete. Verify that you are able to see up-to-date information on your VMs.
 
 ## Assessment issues
-
-### I am unable to export the assessment report
-
-If you are unable to export the assessment report from the portal, try using the below REST API to get a download URL for the assessment report.
-
-1. Install *armclient* on your computer (if you don’t have it already installed):
-
-   a. In an administrator Command Prompt window, run the following command:
-    ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
-
-   b. In an administrator Windows PowerShell window, run the following command:
-    ```choco install armclient```
-
-2. Get the download URL for the assessment report using Azure Migrate REST API
-
-   a.    In an administrator Windows PowerShell window, run the following command:
-     ```armclient login```
-
-        This opens the Azure login pop-up where you need to sign in to Azure.
-
-   b.    In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
-
-       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
-
-      Sample request and output:
-
-      ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
-   esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
-   018_12_16_21/downloadUrl?api-version=2018-02-02
-   {
-   "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
-   "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
-
-3. Copy the URL from the response and open it in a browser to download the assessment report.
-
-4. Once the report is downloaded, use Excel to browse to the downloaded folder and open the file in Excel to view it.
 
 ### Azure Readiness issues
 
