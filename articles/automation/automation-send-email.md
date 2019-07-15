@@ -85,7 +85,7 @@ Automation Account in the order listed below:
 
 Click <kbd>Deploy to Azure Automation</kbd> on the Azure Automation tab under Installation Options. This action opens up the Azure portal. On the Import page, select your Automation Account and click <kbd>OK</kbd>.
 
-For additional methods for adding the required modules, see [Integration Modules](modules.md).
+For additional methods for adding the required modules, see [Integration Modules](automation-integration-modules.md).
 
 ## Create the runbook to send an email
 
@@ -162,7 +162,7 @@ If you do not initially see your test email, check your **Junk** and **Spam** fo
 
 > [!NOTE]
 > The script above uses `Get-AzureKeyVault` for ease of use with new Automation Accounts. The
-> steps listed in [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md)
+> steps listed in [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-automation-integration-modules.md)
 > show you how to update your Automation Account with the new Azure PowerShell
 > modules.
 
@@ -182,4 +182,4 @@ az keyvault delete --name
 
 * For details about different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md).
 * To monitor runbook execution, see [Forward job status and job streams from Automation to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md).
-* To trigger a runbook using an alert, see [Use an alert to trigger an Azure Automation runbook](./automation/automation-create-alert-triggered-runbook.md).
+* To trigger a runbook using an alert, see [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md).
