@@ -20,17 +20,17 @@ This article describes how to configure Azure Table storage to manage sales lead
 1. In the Azure portal, follow these steps:  
     1. Select **+Create a resource** in the pane on the left side. The **New** pane will open.
     1. In the **New** pane, select **Storage**. A **Featured** list will open on the right side.
-    1. Select **Storage account**. Then, follow the instructions in [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    1. Select **Storage account**. Then, follow the instructions at [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
         ![Create an Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-    For more about storage accounts, see [Quickstart tutorials](https://docs.microsoft.com/azure/storage/). For information about pricing, see [Azure storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+    For more about storage accounts, see [Quickstart tutorials](https://docs.microsoft.com/azure/storage/). For pricing information, see [Azure storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 1. Wait until your storage account is provisioned, which typically takes a few minutes. Then, access the account from the **Home** page of the Azure portal: Select **See all your resources** or **All resources** in the navigation pane.
 
     ![Access your Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
-1. From your storage account pane, copy the storage account connection string for the key. Paste it in the **Storage Account Connection String** field in the Cloud Partner Portal.
+1. From your storage account pane, copy the storage account connection string for the key. Paste it in the storage account **Connection String** field in the Cloud Partner Portal.
 
     Example connection string:
 
@@ -91,7 +91,7 @@ In the next set of steps, you connect to your storage table and set up the proce
 
      ![Pick a custom value for Azure table name](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Filter Query**: Click this field, and the **Get past time** icon is displayed in a pop-up window. Select **Past time** to use this value as a timestamp to filter the query. Or, you can paste the following function into the field:
+   - **Filter Query**: When you click this field, the **Get past time** icon is displayed in a pop-up window. Select **Past time** to use this value as a timestamp to filter the query. Or, you can paste the following function into the field:
    
       `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
 
@@ -106,14 +106,16 @@ In the next set of steps, you connect to your storage table and set up the proce
      ![Add a condition control](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
 1. In the **Condition** window, select **Choose a value**, and then select **Expression** in the pop-up window.
-1. Paste `length(body('Get_entities')?['value'])` in the ***fx*** field. Select **OK** to add this function. To finish setting up the condition:
+1. Paste `length(body('Get_entities')?['value'])` in the ***fx*** field. Select **OK** to add this function. 
 
-   1. Select **is greater than** from the drop-down list.
-   1. Enter **0** as the value.
+
 
      ![Add a function to the condition](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-fx0.png)
 
 1. Set up the action to take based on the result of the condition.
+
+    1. Select **is greater than** from the drop-down list.
+   1. Enter **0** as the value.
 
      ![Set up an action based on condition results](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
 
@@ -146,9 +148,11 @@ It's easy to manage your flow after it's running. You have complete control over
 
  ![Flow-management options](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-manage-completed.png)
 
-The flow keeps running until you select the **Turn flow off** option.
+The flow keeps running until you select **Turn flow off**.
 
-If you’re not getting any lead email notifications, no new leads have been added to your table storage. You'll get an email like the following example if a flow failure occurs:
+If you’re not getting any lead email notifications, no new leads have been added to your table storage.
+
+You'll get an email like the following example if a flow failure occurs:
 
  ![Flow failure email notification](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
 
