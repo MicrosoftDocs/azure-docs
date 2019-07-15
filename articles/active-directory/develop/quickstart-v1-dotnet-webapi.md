@@ -70,7 +70,7 @@ Under **Supported account types**, select **Accounts in any organizational direc
     1. In **User consent display name** type "Access TodoListService as a user".
     1. In **User consent description** type "Accesses the TodoListService Web API as a user".
     1. In **State**, select **Enabled**.
-11. Select "Add scope" to save the configuration. Leave the portal open, because you'll also need to register your client application shortly.
+11. Select **Add scope** to save the configuration. Leave the portal open, because you'll also need to register your client application shortly.
 
 ## Step 2: Set up the app to use the OWIN authentication pipeline
 
