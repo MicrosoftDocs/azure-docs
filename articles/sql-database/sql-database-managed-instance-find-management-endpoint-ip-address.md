@@ -19,7 +19,7 @@ The Azure SQL Database Managed Instance virtual cluster contains a management en
 
 To determine the management ip address you do a DNS lookup on your managed instance FQDN i.e. `mi-name.zone_id.database.windows.net` this will return a DNS entry that is like `trx.region-a.worker.vnet.database.windows.net`. You can then do a dns lookup on this fqdn with ".vnet" removed and this will return the management ip address. 
 
-This ppwershell will do it all for you if you replace <MI FQDN> by the DNS entry for you managed instance
+This powershell will do it all for you if you replace <MI FQDN> by the DNS entry for your managed instance, i.e. `mi-name.zone_id.database.windows.net`
   
 ``` powershell
   $MIFQDN = "<MI FQDN>"
