@@ -25,11 +25,11 @@ There will be an error message in the ADF portal or returned from PowerShell cmd
 
 It means service has some transient issues if the error code is InternalServerError. You may retry the operation later. Contact Azure Data Factory support team if retry doesn’t help.
 
-There are three major external dependencies that may cause errors: Azure SQL Database server/Managed Instance, Custom Setup Script, and Virtual Network Configuration if the error code is not InternalServerError.
+There are three major external dependencies that may cause errors: Azure SQL Database server or Managed Instance, Custom Setup Script, and Virtual Network Configuration if the error code is not InternalServerError.
 
 ## Azure SQL Database server or managed instance issues
 
-An Azure SQL Database server/Managed Instance is required if provisioning SSIS IR with SSIS catalog database. The Azure SQL Database server/Managed Instance should be accessible by the SSIS IR. The account of the Azure SQL Database server/Managed Instance should have the permission to create SSIS Catalog database (SSISDB). If there is any error, an error code with detail SQL exception message will be shown in the ADF portal. Follow the steps below to troubleshoot the error codes.
+An Azure SQL Database server or Managed Instance is required if provisioning SSIS IR with SSIS catalog database. The Azure SQL Database server or Managed Instance should be accessible by the SSIS IR. The account of the Azure SQL Database server or Managed Instance should have the permission to create SSIS Catalog database (SSISDB). If there is any error, an error code with detail SQL exception message will be shown in the ADF portal. Follow the steps below to troubleshoot the error codes.
 
 ### AzureSqlConnectionFailure
 
@@ -40,38 +40,41 @@ It may be caused by following reasons if you see the error during IR provisionin
 * Network connection issue. Check the SQL Server or Managed Instance host name is accessible, and there is no firewall or NSG blocks SSIS IR to access the server.
 * Login failed and SQL Authentication is used. It means the account provide cannot log in the SQL Server, make sure the correct user account is provided.
 * Login failed and AAD authentication (Managed Identity) is used. Add the Managed Identity of your factory into an AAD group, and make the Managed Identity has access permissions to your catalog database server.
-* Connection timeout, it is always because of security-related configuration. It is recommended to create a new VM and make the VM joining the same VNet of IR if IR is in a VNet, install SSMS and check the Azure SQL Database server/Managed Instance status.
+* Connection timeout, it is always because of security-related configuration. It is recommended to create a new VM,  make the VM joining the same VNet of IR if IR is in a VNet, then install SSMS and check the Azure SQL Database server or Managed Instance status.
 
-For other issues, refer to the detail SQL Exception error message and fix the issue shown in error message. Contact Azure SQL Database server/Managed Instance support team if you’re still having problems.
+For other issues, refer to the detail SQL Exception error message and fix the issue shown in error message. Contact Azure SQL Database server or Managed Instance support team if you’re still having problems.
 
-It’s likely there are some Network Security Group or firewall changes if you see the error during IR running, which causes the SSIS IR worker node cannot access the Azure SQL Database server/Managed Instance anymore. Unblock the SSIS IR worker node to access the Azure SQL Database server/Managed Instance.
+It’s likely there are some Network Security Group or firewall changes if you see the error during IR running, which causes the SSIS IR worker node cannot access the Azure SQL Database server or Managed Instance anymore. Unblock the SSIS IR worker node to access the Azure SQL Database server or Managed Instance.
 
 ### CatalogCapacityLimitError
 
 The error message is like “The database 'SSISDB' has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions.” The possible solutions are:
 * Increase size quota of your SSISDB.
-* Change the configurations of SSISDB to reduce the size like reducing the retention period and number of project versions, reducing the retention period of log, changing the default level of the log and so on.
+* Change the configurations of SSISDB to reduce the size like:
+** Reducing the retention period and number of project versions
+** Reducing the retention period of log
+** Changing the default level of the log and so on.
 
 ### CatalogDbBelongsToAnotherIR
 
-This error means the Azure SQL Database server/Managed Instance already has an SSISDB created and used by another IR. You need either provide a different Azure SQL Database server/Managed Instance or delete existing SSISDB and restart the new IR.
+This error means the Azure SQL Database server or Managed Instance already has an SSISDB created and used by another IR. You need either provide a different Azure SQL Database server or Managed Instance, or delete existing SSISDB and restart the new IR.
 
 ### CatalogDbCreationFailure
 
 This error could be caused by below reasons,
 
 * The user account that is configured for the SSIS IR has no permission to create the database. You can grant the user to have permission to create the database.
-* Create database timeout like execution timeout, DB operation timeout and so on. You can retry later to see whether the issue is solved. If retry doesn’t work, contact the Azure SQL Database server/Managed Instance support team.
+* Create database timeout like execution timeout, DB operation timeout and so on. You can retry later to see whether the issue is solved. Contact the Azure SQL Database server or Managed Instance support team if retry doesn’t work.
 
-For other issues, check the SQL Exception error message and fix the issue mentioned in error message. If you’re still having problems, contact Azure SQL Database server/Managed Instance support team.
+For other issues, check the SQL Exception error message and fix the issue mentioned in error message. If you’re still having problems, contact Azure SQL Database server or Managed Instance support team.
 
 ### InvalidCatalogDb
 
-The error message is like “Invalid object name 'catalog.catalog_properties'.”, it means either you already have a database named SSISDB but it’s not created by SSIS IR, or the database is in invalid state that is caused by errors in last SSIS IR provisioning. You can drop existing database with the name SSISDB, or configure a new Azure SQL Database server/Managed Instance for the IR.
+The error message is like “Invalid object name 'catalog.catalog_properties'.”, it means either you already have a database named SSISDB but it’s not created by SSIS IR, or the database is in invalid state that is caused by errors in last SSIS IR provisioning. You can drop existing database with the name SSISDB, or configure a new Azure SQL Database server or Managed Instance for the IR.
 
 ## Custom setup
 
-Custom Setup provides an interface to add your own setup steps during the provisioning or reconfiguration of your SSIS IR. For more information, see [Customize setup for the Azure-SSIS integration runtime](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+Custom Setup provides an interface to add your own setup steps during the provisioning or reconfiguration of your SSIS IR. For more information, see [Customize setup for the Azure-SSIS integration runtime](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
 
 Ensure your container contains only the necessary custom setup files, as all the files in the container will be downloaded onto the SSIS IR worker node. It’s recommended to test the custom setup script on a local machine to fix any script execution issues before running the script in SSIS IR.
 
@@ -83,7 +86,7 @@ Any error with custom setup, you will see an error with code CustomSetupScriptFa
 
 It means SSIS IR cannot access your Azure blob container for custom setup. Check the SAS URI of the container is reachable and not expired.
 
-You need to stop the IR first if the IR is in running state, reconfigure the IR with new custom setup container SAS URI and then start the IR again.
+Stop the IR first if the IR is in running state, reconfigure the IR with new custom setup container SAS URI and then start the IR again.
 
 ### CustomSetupScriptNotFound
 
@@ -95,11 +98,11 @@ It means the execution of custom setup script (main.cmd) failed, you can try the
 
 ### CustomSetupScriptTimeout
 
-It means execute custom setup script timeout. Ensure that your blob container contains only the necessary custom setup files. You can also check custom setup execution logs in your blob container. The maximum period for custom setup is currently set at 45 minutes before it times out and the maximum period includes the time to download all files from your container and install them on SSIS IR. If a longer period is needed, raise a support ticket.
+It means execute custom setup script timeout. Ensure that your blob container contains only the necessary custom setup files. You can also check custom setup execution logs in your blob container. The maximum period for custom setup is set at 45 minutes before it times out and the maximum period includes the time to download all files from your container and install them on SSIS IR. If a longer period is needed, raise a support ticket.
 
 ### CustomSetupScriptLogUploadFailure
 
-It means uploading custom setup execution logs to your blob container failed, it is either because of SSIS IR has no write permission to your blob container or some storage/network issues. If custom setup is successful, this error does not impact any SSIS function, but logs are missing. If custom setup failed with other error, and we fail to upload log, we will report this error first so log can be uploaded for analysis and after this issue is resolved, we will report more specified issue. If this issue is not solved after retry, contact Azure Data Factory support team.
+It means uploading custom setup execution logs to your blob container failed, it is either because of SSIS IR has no write permission to your blob container, or some storage or network issues. If custom setup is successful, this error does not impact any SSIS function, but logs are missing. If custom setup failed with other error, and we fail to upload log, we will report this error first so log can be uploaded for analysis and after this issue is resolved, we will report more specified issue. If this issue is not solved after retry, contact Azure Data Factory support team.
 
 ## Virtual network configuration
 
