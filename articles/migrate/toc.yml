@@ -54,7 +54,7 @@
     href: migrate-replication-appliance.md
   - name: Best practices for assessments
     href: best-practices-assessment.md
-  - name: Assessments with Azure Migrate Server Assessment
+  - name: Assessments overview
     href: concepts-assessment-calculation.md
   - name: Dependency visualization
     href: concepts-dependency-visualization.md
@@ -62,17 +62,17 @@
   items:
   - name: Work with Azure Migrate v1
     href: migrate-v1.md
-  - name: Deploy an appliance for VMware assessment/migration (agentless)
+  - name: Deploy a VMware appliance
     href: how-to-set-up-appliance-vmware.md
-  - name: Deploy an appliance for Hyper-V assessment/migration
+  - name: Deploy a Hyper-V appliance
     href: how-to-set-up-appliance-hyper-v.md
-  - name: Add an assessment/migration tool for the first time
+  - name: Add a tool for the first time
     href: how-to-add-tool-first-time.md
   - name: Add assessment tools
     href: how-to-assess.md
-  - name: How to group machines for assessment
+  - name: Group machines for assessment
     href: how-to-create-a-group.md
-  - name: How to group machines using dependency visualization
+  - name: Group machines using dependency visualization
     href: how-to-create-group-machine-dependencies.md 
   - name: Customize an assessment
     href: how-to-modify-assessment.md
