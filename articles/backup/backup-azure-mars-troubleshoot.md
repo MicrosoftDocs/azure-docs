@@ -182,7 +182,7 @@ The shadow copy storage space for the protected data source is insufficient for 
 - Increase the shadow storage space using the below command:<br/>
   `vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]`
 
-### Anti-virus blocking
+### Another process or antivirus software blocking access to cache folder
 If you have antivirus software installed on the server, add necessary exclusion rules to the antivirus scan for these files and folders:  
 - The scratch folder. Its default location is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.
 - The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
