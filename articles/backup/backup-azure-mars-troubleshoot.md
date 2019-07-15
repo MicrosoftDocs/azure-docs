@@ -172,8 +172,8 @@ Before you start troubleshooting cache problem, ensure the below are verified:
 - [Ensure 5% to 10% free volume space is available in the scratch folder location](backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Ensure scratch folder location is valid and accessible](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 - [Ensure file attributes on the cache folder are supported](backup-azure-file-folder-backup-faq.md#are-there-any-attributes-of-the-cache-folder-that-arent-supported)
-- [Ensure the allocated shadow copy storage space is sufficient for backup process](#increase_shadow_copy_storage )
-- [Ensure there are no other processes (ex. anti-virus software) restricting access to cache folder](#anti-virus_blocking )
+- [Ensure the allocated shadow copy storage space is sufficient for backup process]backup process](#increase-shadow-copy-storage)
+- [Ensure there are no other processes (ex. anti-virus software) restricting access to cache folder](#anti-virus-blocking)
 
 ### Increase shadow copy storage
 The shadow copy storage space for the protected data source is insufficient for backup to proceed. To resolve this issue increase the shadow copy storage space on the protected volume using vssadmin as shown below
