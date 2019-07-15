@@ -79,9 +79,12 @@ Get-AzProximityPlacementGroup `
    -Property VirtualMachines 
 ```
 
+## Availability Sets
+You can also create an  availability set in your proximity placement group. Use the same `-ProximityPlacementGroup` parameter with the [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) cmdlet to create an availability set and all of the VMs will be created in the same proximity placement group.
+
 ## Scale sets
 
-You can also create a scale-set in your proximity placement group. Use the same `-ProximityPlacementGroup` parameter with [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) to create a scale set and all of the instances will be created in the same proximity placement group.
+You can also create a scale-set in your proximity placement group. Use the same `-ProximityPlacementGroup` parameter with [New-AzVMSS](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) to create a scale set and all of the instances will be created in the same proximity placement group.
 
 ## Next steps
 
