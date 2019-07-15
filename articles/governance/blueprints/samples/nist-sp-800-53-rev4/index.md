@@ -12,7 +12,7 @@ manager: carmonm
 
 The NIST SP 800-53 R4 blueprint sample provides governance guard-rails using [Azure Policy](../../../policy/overview.md)
 that help you assess specific NIST SP 800-53 R4 controls. This blueprint helps customers deploy a 
-core set of policies for any Azure-deployed architecure that must implement NIST SP 800-53 R4 
+core set of policies for any Azure-deployed architecture that must implement NIST SP 800-53 R4 
 controls.
 
 ## Control mapping
