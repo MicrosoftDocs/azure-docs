@@ -19,10 +19,10 @@ There are two versions of the Azure Migrate service:
 
 - **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. [Learn more](whats-new.md) about what's new in this version.
 - **Previous version (v1)**: If you were using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. If you still need to use Azure Migrate projects you previously created with v1, this is what you can and can't do:
-   - You can no longer create Azure Migrate projects using v1.
- - You can't perform new discoveries with v1.
- - You can still access existing projects.
- - You can still run assessments on previously discovered VMware VMs.
+    - You can no longer create Azure Migrate projects using v1.
+    - You can't perform new discoveries with v1.
+    - You can still access existing projects.
+    - You can still run assessments on previously discovered VMware VMs.
 
 
 
