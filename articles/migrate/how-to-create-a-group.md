@@ -72,7 +72,7 @@ If you've already [set up dependency mapping](how-to-create-group-machine-depend
 4. To refine dependencies, you can modify the time range (an hour by default), specify start and end dates, or the duration.
 
     > [!NOTE]
-    > Time range can be up to an hour. If you need a longer range, use [Azure Monitor to query dependent data](how-to-create-group-machine-dependencies) for a longer period.
+    > Time range can be up to an hour. If you need a longer range, use [Azure Monitor to query dependent data](how-to-create-group-machine-dependencies.md) for a longer period.
 
 5. After you've identified dependencies, you can modify the group. Use Ctrl+Click to add or remove machines from the group.
 
