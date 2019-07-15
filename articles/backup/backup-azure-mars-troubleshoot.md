@@ -195,7 +195,7 @@ If you have antivirus software installed on the server, add necessary exclusion 
 
 Error message | Recommended action |
 -- | --
-Microsoft Azure Recovery Services Agent was unable to access backup checksum stored in scratch location | To resolve this issue, perfom the below and restart the server <br/> - [Check if there is an antivirus or other processes locking the scratch location files](#anti-virus-blocking)<br/> - [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+Microsoft Azure Recovery Services Agent was unable to access backup checksum stored in scratch location | To resolve this issue, perform the below and restart the server <br/> - [Check if there is an antivirus or other processes locking the scratch location files](#anti-virus-blocking)<br/> - [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### SalVhdInitializationError
 
@@ -213,7 +213,7 @@ Backup failed due to insufficient storage in volume  where the scratch folder is
 
 Error message | Recommended action |
 -- | --
-Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verufy the below and restart the server <br/> - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
+Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verify the below and restart the server <br/> - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
 
 
 ### CBPSourceSnapshotFailedReplicaMissingOrInvalid
