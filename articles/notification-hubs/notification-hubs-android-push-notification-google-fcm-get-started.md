@@ -96,7 +96,6 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
     ![Android SDK Manager - Google Play Services selected](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
 3. If you see the **Confirm Change** dialog box, select **OK**. The Component Installer installs the requested components. Select **Finish** after the components are installed.
 4. Select **OK** to close the **Settings for New Projects** dialog box.  
-5. Select **Sync Now** icon in the toolbar.
 1. Open the AndroidManifest.xml file, and then add the following tag to the *application* tag.
 
     ```xml
@@ -141,7 +140,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 
 ### Update the AndroidManifest.xml file
 
-1. After you receive your FCM registration token, you use it to [register with Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). You support this registration in the background by using an `IntentService` named `RegistrationIntentService`. This service also refreshes your FCM registration token. You also create a class named `FirebaseService` as a subclass of the `FirebaseMessagingService` and handle notifications that're received. 
+1. After you receive your FCM registration token, you use it to [register with Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). You support this registration in the background by using an `IntentService` named `RegistrationIntentService`. This service also refreshes your FCM registration token. You also create a class named `FirebaseService` as a subclass of the `FirebaseMessagingService` and handle notifications that are received. 
 
     Add the following service definition to the AndroidManifest.xml file, inside the `<application>` tag.
 
@@ -430,7 +429,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 
 13. Add the following code for the `FirebaseService` class, making it a subclass of `FirebaseMessagingService`.
 
-    This code overrides the `onMessageReceived` method and reports notifications that are received. it also sends the push notification to the Android notification manager by using the `sendNotification()` method. Call the `sendNotification()` method when the app is not running and a notification is received.
+    This code overrides the `onMessageReceived` method and reports notifications that are received. it also sends the push notification to the Android notification manager by using the `sendNotification()` method. Call the `sendNotification()` method when the app isn't running and a notification is received.
 
     ```java
     public class FirebaseService extends FirebaseMessagingService
@@ -547,7 +546,7 @@ You can send push notifications from the [Azure portal] by taking the following 
 ### Run the mobile app on emulator
 Before you test push notifications inside an emulator, make sure that your emulator image supports the Google API level that you chose for your app. If your image doesn't support native Google APIs, you might get the **SERVICE\_NOT\_AVAILABLE** exception.
 
-In addition, make sure that you've added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with FCM might result in the **AUTHENTICATION\_FAILED** exception.
+Also make sure that you've added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with FCM might result in the **AUTHENTICATION\_FAILED** exception.
 
 ## Next steps
 In this tutorial, you used Firebase Cloud Messaging to broadcast notifications to all Android devices that were registered with the service. To learn how to push notifications to specific devices, advance to the following tutorial:
