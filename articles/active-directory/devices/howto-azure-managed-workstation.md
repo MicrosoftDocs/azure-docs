@@ -178,6 +178,8 @@ In Intune in the Azure portal:
 1. Select **Next**.
 1. Select **Create** to create the profile. The Autopilot deployment profile is now available to assign to devices.
 
+Device enrollment in Autopilot will provide a diffrent user experience based on device type, and roles. In our deployment example we illustrate a model where the secured devices are bulk deployed, and can be shared, but once used for the first time the device is assigned to a user. More information about [Intune Autopilot device enrollment](https://docs.microsoft.com/en-us/intune/device-enrollment).
+
 ### Configure Windows Update
 
 Keeping Windows 10 up to date is one of the most important things you can do. To maintain Windows in a secure state, you deploy an update ring to manage the pace that updates are applied to workstations. 
