@@ -26,16 +26,25 @@ Multi Factor authentication is supported if Azure Active Directory (Azure AD) is
 
 ![Screenshot showing how authentication works in Azure Machine Learning service](./media/enterprise-readiness/authentication.png)
 
-### Authentication keys for Web service deployment
+### Authentication for Web service deployment
 
-When you enable authentication for a deployment, you automatically create authentication keys.
+Azure Machine Learning supports two forms of authentication for web services, key and token.
+
+|Authentication Method|ACI|AKS|
+|---|---|---|
+|Key|Disabled by default| Enabled by default|
+|Token| Not Available| Disabled by default |
+
+#### Authentication with Keys
+
+When you enable key authentication for a deployment, you automatically create authentication keys.
 
 * Authentication is enabled by default when you are deploying to Azure Kubernetes Service.
 * Authentication is disabled by default when you are deploying to Azure Container Instances.
 
-To control authentication, use the `auth_enabled` parameter when you are creating or updating a deployment.
+To enable key authentication, use the `auth_enabled` parameter when you are creating or updating a deployment.
 
-If authentication is enabled, you can use the `get_keys` method to retrieve a primary and secondary authentication key:
+If key authentication is enabled, you can use the `get_keys` method to retrieve a primary and secondary authentication key:
 
 ```python
 primary, secondary = service.get_keys()
@@ -45,6 +54,24 @@ print(primary)
 > [!IMPORTANT]
 > If you need to regenerate a key, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
+#### Authentication with Tokens
+
+When you enable token authentication for a web service, a user must provide an Azure Machine Learning token to the web service to access it. 
+
+* Token authentication is disabled by default when you are deploying to Azure Kubernetes Service.
+* Token authentication is not supported when you are deploying to Azure Container Instances.
+
+To control token authentication, use the `token_auth_enabled` parameter when you are creating or updating a deployment.
+
+If token authentication is enabled, you can use the `get_token` method to retrieve a bearer token and that tokens expiration time:
+
+```python
+token, refresh_by = service.get_tokens()
+print(token)
+```
+
+> [!IMPORTANT]
+> You will need to request a new token after the token's `refresh_by` time. The token will expire 12 hours after that time. 
 
 ## Authorization
 
