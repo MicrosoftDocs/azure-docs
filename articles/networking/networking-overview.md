@@ -89,7 +89,7 @@ This section describes networking services in Azure that help protect your netwo
 |[Virtual network service endpoints](#serviceendpoints)|Enables you to limit network access to some Azure service resources to a virtual network subnet|[Restrict network access to PaaS resources](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
 |||
 ### <a name="ddosprotection"></a>DDoS Protection 
-Azure DDoS Protection provides countermeasures against the most sophisticated DDoS threats. The service provides enhanced DDoS mitigation capabilities for your application and resources deployed in your virtual networks. Additionally, customers using Azure DDoS Protection have access to DDoS Rapid Response support to engage DDoS experts during an active attack. For more information about DDoS protection, see [DDoS Protection Overview](../virtual-network/ddos-protection-overview.md).
+[Azure DDoS Protection](../virtual-network/manage-ddos-protection.md) provides countermeasures against the most sophisticated DDoS threats. The service provides enhanced DDoS mitigation capabilities for your application and resources deployed in your virtual networks. Additionally, customers using Azure DDoS Protection have access to DDoS Rapid Response support to engage DDoS experts during an active attack.
 
 ![DDoS Protection](./media/networking-overview/ddos-protection.png)
 
