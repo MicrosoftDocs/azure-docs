@@ -10,7 +10,7 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/10/2019
+ms.date: 07/11/2019
 ms.author: kumud
 ---
 
