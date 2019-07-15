@@ -145,7 +145,7 @@ Containers are also the billing entities for Azure Cosmos DB. Each container is 
 
 ### How do I create a database?
 
-You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a collection](create-sql-api-dotnet.md#create-collection-database), one of the [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md), or the [REST APIs](/rest/api/cosmos-db/).
+You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a collection](create-sql-api-java.md#add-a-container), one of the [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md), or the [REST APIs](/rest/api/cosmos-db/).
 
 ### How do I set up users and permissions?
 
@@ -737,9 +737,9 @@ Apache Cassandra SDK's client drivers that use CQLv3 were used for client progra
 
 Yes, you can use regular syntax to create composite partition key.
 
-### Can I use stable loader for data loading?
+### Can I use sstableloader for data loading?
 
-No,  stable loader isn't supported.
+No, sstableloader isn't supported.
 
 ### Can an on-premises Apache Cassandra cluster be paired with Azure Cosmos DB's Cassandra API?
 

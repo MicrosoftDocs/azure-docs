@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: juliako;cenkdin
+ms.author: juliako
+ms.reviewr: cenkdin
 
 ---
 # Creating Filters with Azure Media Services REST API 
