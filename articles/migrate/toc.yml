@@ -74,7 +74,7 @@
     href: how-to-create-a-group.md
   - name: Group machines using dependency visualization
     href: how-to-create-group-machine-dependencies.md 
-  - name: How to create an assessment
+  - name: Create an assessment
     href: how-to-create-assessment.md
   - name: Customize an assessment
     href: how-to-modify-assessment.md
