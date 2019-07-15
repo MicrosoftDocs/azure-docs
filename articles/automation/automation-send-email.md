@@ -169,12 +169,12 @@ If you do not initially see your test email, check your **Junk** and **Spam** fo
 
 When no longer needed, delete the runbook. To do so, select the runbook in the runbook list, and click **Delete**.
 
-Delete the key vault by using the `az keyvault delete` command:
+Delete the key vault by using the [Remove-AzureRMKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault?view=azurermps) cmdlet.
 
-```azurecli-interactive
-az keyvault delete --name
-                   [--resource group]
-                   [--subscription]
+```azurepowershell-interactive
+$VaultName = "<your KeyVault name>"
+$ResourceGroupName = "<your ResourceGroup name>"
+Remove-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $ResourceGroupName
 ```
 
 ## Next steps
