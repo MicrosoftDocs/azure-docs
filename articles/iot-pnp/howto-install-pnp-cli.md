@@ -37,9 +37,15 @@ This article shows you how to:
 
 ### Step 2 - Install the Azure CLI
 
-Follow the [installation instruction](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to set up Azure CLI in your environment. Your Azure CLI version must be version 2.0.24 or above. Use `az –version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
+Follow the [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to set up Azure CLI in your environment. Your Azure CLI version must be version 2.0.67 or above. Use `az –version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
 
 ### Step 3 - Install IoT extension
+
+> [!NOTE]
+> Bug bash: Skip this section. Instead you need to get an **azure-cli-iot-ext** WHL file.
+> 1. Remove any previously installed IoT CLI Extension: `az extension remove --name azure-cli-iot-ext`
+> 1. Add the Plug and Play enabled extension: `az extension add -y --source azure_cli_iot_ext-VERSION-py2.py3-none-any.whl`
+> 1. Verify the installation of **azure-cli-iot-ext** version: `az extension list`
 
 [The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension) describes several ways to install the extension. The simplest way is to run `az extension add --name azure-cli-iot-ext`. After installation, you can use `az extension list` to validate the currently installed extensions or `az extension show --name azure-cli-iot-ext` to see details about the IoT extension. To remove the extension, you can use `az extension remove --name azure-cli-iot-ext`.
 
@@ -56,7 +62,7 @@ To use the Azure IoT extension for Azure CLI, you need:
 az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
 ```
 
-- (Optional) A model repository for your organization. A model repository for your organization is created when you [onboard to the Azure Certified for IoT portal](howto-onboard-portal.md).
+- (Optional) The connection string for your organization's model repository, or a connection string that is shared to you from a third-party. A model repository for your organization is created when you [onboard to the Azure Certified for IoT portal](howto-onboard-portal.md).
 
 ### Interact with a device
 
@@ -124,36 +130,68 @@ Monitor all telemetry from a particular IoT Plug and Play device:
 az iot digitaltwin monitor-events --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
 ```
 
-### Manage interfaces in the model repository
+### Manage interfaces in a model repository
 
-List interfaces in the IoT Plug and Play model repository:
+List interfaces in an IoT Plug and Play model repository:
 
 ```cmd/sh
-az iot pnp interface list --repository {ModelRepoNameOrConnectionString}
+az iot pnp interface list --login {ModelRepoConnectionString}
 ```
 
 Show an interface in the IoT Plug and Play model repository:
 
 ```cmd/sh
-az iot pnp interface show --interface {YourInterfaceID} --repository {ModelRepoNameOrConnectionString}
+az iot pnp interface show --interface {YourInterfaceID} --login {ModelRepoConnectionString}
 ```
 
 Create an interface in the IoT Plug and Play model repository:
 
 ```cmd/sh
-az iot pnp interface create --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --repository {ModelRepoNameOrConnectionString}
+az iot pnp interface create --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --login {ModelRepoConnectionString}
 ```
 
 Update an interface in the IoT Plug and Play model repository:
 
 ```cmd/sh
-az iot pnp interface update --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --repository {ModelRepoNameOrConnectionString}
+az iot pnp interface update --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --login {ModelRepoConnectionString}
 ```
 
 Publish an interface on the IoT Plug and Play model repository. This operation makes the interface immutable:
 
 ```cmd/sh
-az iot pnp interface publish --interface {YourInterfaceID} --repository {ModelRepoNameOrConnectionString}
+az iot pnp interface publish --interface {YourInterfaceID} --login {ModelRepoConnectionString}
+```
+
+### Manage device capability models in a model repository
+
+List device capability models in an IoT Plug and Play model repository:
+
+```cmd/sh
+az iot pnp model list --login {ModelRepoConnectionString}
+```
+
+Show a device capability model in an IoT Plug and Play model repository:
+
+```cmd/sh
+az iot pnp model show --interface {YourInterfaceID} --login {ModelRepoConnectionString}
+```
+
+Create a device capability model in an IoT Plug and Play model repository:
+
+```cmd/sh
+az iot pnp model create --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --login {ModelRepoConnectionString}
+```
+
+Update a device capability model in the IoT Plug and Play model repository:
+
+```cmd/sh
+az iot pnp model update --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --login {ModelRepoConnectionString}
+```
+
+Publish a device capability model in the IoT Plug and Play model repository. This operation makes the interface immutable:
+
+```cmd/sh
+az iot pnp model publish --interface {YourInterfaceID} --login {ModelRepoConnectionString}
 ```
 
 ## Next steps
