@@ -1,19 +1,19 @@
 ---
-title: Return your Azure Data Box Edge device | Microsoft Docs 
-description: Describes how to return the Azure Data Box Edge device and delete the order for the device.
+title: Return or replace your Azure Data Box Edge device | Microsoft Docs 
+description: Describes how to return or replace the Azure Data Box Edge device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 07/15/2019
 ms.author: alkohli
 ---
 
-# Return your Azure Data Box Edge device
+# Return or replace your Azure Data Box Edge device
 
-This article describes how to wipe the data and then return your Azure Data Box Edge device. After you've returned the device, you can also delete the resource associated with the device.
+This article describes how to wipe the data and then return your Azure Data Box Edge device. After you've returned the device, you can also delete the resource associated with the device or order a replacement device.
 
 In this article, you learn how to:
 
@@ -22,6 +22,7 @@ In this article, you learn how to:
 > * Open a Support ticket to return your device
 > * Pack up the device and schedule a pickup
 > * Delete the resource in Azure portal
+> * Get a replacement device
 
 ## Erase data from the device
 
@@ -101,6 +102,20 @@ Take the following steps to delete the device and the resource in Azure portal.
     ![Confirm delete](media/data-box-edge-return-device/delete-resource-2.png)
 
 You're notified after the device and the associated resource is successfully deleted.
+
+## Get a replacement device
+
+To get a replacement device, you need to take the following steps:
+
+1. Follow all the steps to return the device with the following modifications:
+    1. Wait to erase the data on the device.
+    2. [Open a Support ticket](#open-a-support-ticket). In the ticket, also mention that that you need a replacement device.
+    3. After you receive the replacement device, [erase the data on the device](#erase-data-from-the-device).
+    4. [Schedule a pickup](#schedule-a-pickup).
+    5. [Delete the resource](#delete-the-resource) associated with the returned device.
+2. [Create a new resource](#create-a-new-resource) for the device. Make sure to select the check box against **I have a Data Box Edge device**. 
+3. [Install](data-box-edge-deploy-install.md) and [activate](data-box-edge-connect-setup-activate) the replacement device against the new resource.
+
 
 ## Next steps
 
