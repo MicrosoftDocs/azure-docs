@@ -167,6 +167,8 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |sentBytes| Size of packet sent, in bytes.|
 |timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
 |sslEnabled| Whether communication to the back-end pools used SSL. Valid values are on and off.|
+|host| The hostname with which the request has been sent to the backend server. If backend hostname is being overriden, this name will reflect that.|
+|originalHost| The hostname with which the request was received by the Application Gateway from the client.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -186,7 +188,9 @@ The access log is generated only if you've enabled it on each Application Gatewa
         "receivedBytes": 65,
         "sentBytes": 553,
         "timeTaken": 205,
-        "sslEnabled": "off"
+        "sslEnabled": "off",
+        "host": "www.contoso.com",
+        "originalHost": "www.contoso.com"
     }
 }
 ```
@@ -220,12 +224,11 @@ For Application Gateway and WAF v2, the logs show a little more information:
     "time": "2017-04-26T19:27:38Z",
     "category": "ApplicationGatewayAccessLog",
     "properties": {
-        "instanceId": "ApplicationGatewayRole_IN_0",
+        "instanceId": "appgw_1",
         "clientIP": "191.96.249.97",
         "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
-        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
         "userAgent": "-",
         "httpStatus": 404,
         "httpVersion": "HTTP/1.0",
@@ -238,7 +241,7 @@ For Application Gateway and WAF v2, the logs show a little more information:
         "serverRouted": "104.41.114.59:80",
         "serverStatus": "200",
         "serverResponseLatency": "0.023",
-        "host": "52.231.230.101"
+        "host": "www.contoso.com",
     }
 }
 ```
