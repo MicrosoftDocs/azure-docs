@@ -168,6 +168,64 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
  - The SQL VM resource provider only supports SQL Server VMs deployed using the 'Resource Manager'. SQL Server VMs deployed using the 'classic model' are not supported. 
  - The SQL VM resource provider only supports SQL Server VMs deployed to the public cloud. Deployments to the private, or government cloud, are not supported. 
 
+## Facts
+1.	Should I register my VM provisioned from a SQL image on Azure Marketplace?
+No. Microsoft auto-registers VM’s provisioned from SQL images on Azure Marketplace. Registering with SQL VM RP is required only if VM is NOT provisioned from SQL images on Azure marketplace and SQL Server is self-installed.  
+
+2.	Is the SQL VM resource provider available for all customers?
+Yes. Customers should register their SQL VM with SQL VM RP if they did not use a SQL Server image from Azure marketplace and self-installed SQL Server or bring their custom VHD.  VM’s owned by all types of subscriptions (Direct, EA and CSP) can register with SQL VM RP.
+
+3.	Should I register with SQL VM resource provider if my VM has SQL IaaS Extension installed?
+If your SQL VM is self-installed, not provisioned from SQL images on Azure marketplace, then you should register with SQL VM RP even if you installed SQL IaaS Extension. Registering with SQL VM RP creates a new resource of type Microsoft.SqlVirtualMachines. Installing SQL IaaS Extension does not create that resource. 
+
+4.	What is the Default SQL Management Mode when registering with SQL VM RP
+The default SQL Management mode when registering with SQL VM RP is Full. If SQL Management property is not set when registering with SQL VM RP, then mode will be set as Full Managebility. Having SQL IaaS Extension installed on the VM is the prerequisite to register with SQL VM RP in Full Managebility mode.
+5.	What is the prerequisites to register with SQL VM RP?
+There is no prerequisites to register with SQL VM RP in lightweight mode or no-agent mode. The prerequisites to register with SQL VM RP in Full mode is having SQL IaaS Extension installed on the VM.
+6.	Can I register with SQL VM RP if I do not have the SQL IaaS Extension installed on the VM?
+Yes, you can register with SQL VM RP in lightweight management mode if you do not have SQL IaaS Extension installed on the VM. In lightweight mode, SQL VM RP will use a console app to query registry of the VM and verify SQL instance’s version and edition. The console app will die after verifying that there is at least one SQL instance running on the VM. Registering with SQL VM RP in lightweight mode will not restart SQL Server and will not create an agent on the VM.
+
+7.	Will registering with SQL VM RP install an agent on my VM?
+No. Registering with SQL VM RP will only create a new metadata resource, and will not install an agent on the VM.  SQL IaaS Extension is needed only for enabling Full Managebility, so upgrading the manageability mode from lightweight to full will install the SQL IaaS Extension and will restart SQL Server. 
+
+8.	Will registering with SQL VM RP restart SQL Server on my VM?
+No. Registering with SQL VM RP will only create a new metadata resource, and will not restart the SQL Server on the VM.  Restarting of SQL Server is only needed to install SQL IaaS Extension; and SQL IaaS Extension is needed for enabling Full Managebility. Upgrading the manageability mode from lightweight to full will install the SQL IaaS Extension and will restart SQL Server. 
+
+9.	What is the difference of lightweight and no-agent management modes when registering with SQL VM RP?
+No-agent management mode is only available for SQL Server 2008/R2 on Windows Server 2008; and it is the only available management mode for these versions. For all versions of SQL Server, excluding SQL Server 2008/R2 on Windows Server, there are two Managebility modes available as lightweight and full. No-agent mode requires SQL Server version and edition properties set by customer; lightweight mode queries the VM to find the version and edition of the SQL instance.
+
+10.	Can I register with SQL VM RP in Lightweight or no-agent mode with Azure CLI?
+NO.  SQL Management mode property is only available when registering with SQL VM RP with Azure Power Shell. Azure CLI do not support setting SQL Managebility property and always registers with SQL VM RP in the default mode- Full manageability.
+
+11.	Can I register with SQL VM RP without specifying the SQL License Type?
+No. SQL License type is not an optional property when registering with SQL VM RP. You have to set SQL License type as PAYG or AHB when registering with SQL VM RP in all manageability modes (no-agent, lightweight and Full) both with CLI and PS.
+
+12.	Can I upgrade SQL IaaS Extension from no-agent mode to Full mode?
+No. Upgrading SQL Managebility mode to Full or Lightweight is not available for no-agent mode. This is a technical limitation of Windows Server 2008.
+
+13.	Can I upgrade SQL IaaS Extension from lightweight mode to Full mode?
+Yes. Upgrading SQL manageability mode from lightweight to Full is supported via PS or Azure Portal; and, it requires restarting SQL Server.
+
+14.	Can I downgrade SQL IaaS Extension from Full mode to no-agent or lightweight management modes?
+No. Downgrading SQL IaaS Extension manageability mode is not supported. SQL Managebility mode cannot be downgraded from Full mode to lightweight or no-agent mode; and it cannot be downgraded from Lightweight mode to no-agent mode.
+To change the Managebility mode from Full manageability; remove the SQL IaaS extension; drop Micorsoft.SqlVirtualMachine resource and re-register with SQL VM.
+
+15.	Can I register with SQL VM RP from Azure Portal?
+No. Registering with SQL VM RP is not available on Azure Portal. Registering with SQL VM RP in Full manageability mode is supported with Azure CLI or Power Shell; and registering with SQL VM RP in lightweight or no-agent manageability modes are only supported by Azure Power Shell APIs.
+
+16.	Can I register a VM with SQL VM RP before SQL Server is installed?
+No. VM should have at least one SQL instance to successfully register with SQL VM RP. If there is no SQL instance on the VM, then the new Micosoft.SqlVirtualMachine resource will be in failed state.
+
+17.	Can I register a VM with SQL VM RP if there are multiple SQL instances?
+Yes. SQL VM RP will register only one SQL instance. SQL VMRP will register the default SQL instance in the case of multiple instances. If there is no default instance, then only registering in lightweight mode is supported. To upgrade from lightweight to full manageability mode, either the default SQL instance should exist or VM should have only one named SQL instance.
+
+18.	Can I register a SQL Server Failover Cluster Instance with SQL VM RP?
+Yes. SQL FCI instances on Azure VM can be registered with SQL VM RP in lightweight mode. But, those cannot be upgraded to full manageability mode.
+
+19.	Can I register my VM with SQL VM RP if Always ON AG was configured?
+Yes. There are no restrictions to register a SQL instances on Azure VM with SQL VM RP if participated in an Always ON AG configuration.
+
+
 ## Next steps
 
 For more information, see the following articles: 
