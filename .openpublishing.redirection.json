@@ -16545,6 +16545,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/how-to-create-group-dependencies.md",
+      "redirect_url": "how-to-create-a-group#refine-a-group-with-dependency-mapping",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/concepts-collector.md",
       "redirect_url": "migrate-appliance",
       "redirect_document_id": false
