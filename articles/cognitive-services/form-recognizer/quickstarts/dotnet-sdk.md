@@ -42,7 +42,7 @@ Use the Form Recognizer client library for .NET to:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]l
 
-After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `FORM_RECOGNIZER_KEY`. Then create another environment variable for you subscription region, which should look similar to `https://westus2.api.cognitive.microsoft.com/`. Name it `FORM_RECOGNIZER_REGION`.
+After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `FORM_RECOGNIZER_KEY`. Then create another environment variable for your API endpoint, which should look similar to `https://westus2.api.cognitive.microsoft.com/`. Name it `FORM_RECOGNIZER_ENDPOINT`.
 
 ### Create a new C# application
 
@@ -83,11 +83,6 @@ Add the following code in the application's **Main** method.
 
 [!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_main)]
 
-Then, define the task referenced in **Main**. You will define the included methods later on.
-
-[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_mainTask)]
-
-
 ### Install the client library
 
 Within the application directory, install the Form Recognizer client library for .NET with the following command:
@@ -126,28 +121,17 @@ These code snippets show you how to do the following with the Form Recognizer cl
 * Get a list of form models
 * Display analysis results
 
-### Authenticate the client
-
-<!-- 
-    The authentication section (and its H3) is required and must be the first code example in the section if your library requires authentication for use.
--->
-
-
-> [!NOTE]
-> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Form Recognizer key, named `FORM_RECOGNIZER_KEY`.
-
-
-In a new method, instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials]() object with your key, and use it with your endpoint to create an [ApiClient]() object.
-
-```csharp
-
-```
-
 ### Define variables
 
 Add the following variable definitions to the top of your **Program** class. You'll need to fill in some of the variables yourself. To retrieve the SAS URL for your training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 [!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
+
+### Authenticate the client
+
+Under the **Main** method, define the task that is referenced in **Main**. Here, you'll authenticate the client object using the subscription variables you defined above. You'll define the other methods later on.
+
+[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_mainTask)]
 
 ### Example task 1
 
