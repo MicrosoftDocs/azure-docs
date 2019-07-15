@@ -23,13 +23,13 @@ AVS by Virtustream private clouds provide Azure-based environments to run VMware
 > * Request ExpressRoute authorization keys
 > * Enable internet and Azure connectivity
 
+The next tutorial provides the instructions for deploying resources to a VNet in your subscription. An ExpressRoute gateway in that VNet will be used to peer with an ExpressRoute circuit that is created as part of a private cloud deployment described in this tutorial. Most of the procedures in the second tutorial can be performed before this tutorial.
+
 ## Prerequisites
 
-This first tutorial describes the process for creating an AVS by Virtustream private cloud. In order complete this tutorial, it's recommended that you first plan the private network address space that you will use for management access to your private cloud and then proceed with the tutorial. The private cloud management network address space should be unique across the VNets in your Azure subscription and, if you are planning to connect to on-premises environments, then it's recommended that it is unique across your on-premises networks.
+In order complete this tutorial, it's recommended that you first plan the private network address space that you will use for management access and vMotion in your private cloud. The private  network address space should be unique across the VNets in your Azure subscription and, if you are planning to connect to on-premises environments, it's also recommended that it is unique across your on-premises networks.
 
-It's also recommended that you have planned for the number and type of hosts that you will use in your private cloud clusters. Resource and resource group names are also required, . The prerequisite for this tutorial are also listed below.
-
-The second tutorial describes the procedures for deploying resources to a VNet in your subscription that is then peered with an ExpressRoute circuit that is created as part of your private cloud deployment. That VNet and required resources can be created before creating a private cloud.
+You need to plan for the type and number of hosts that you will use in your private cloud clusters. Resource and resource group names are also required, and you will be required to know or create those to complete this tutorial.
 
 This tutorial also requires that you have an Azure subscription, access to the Portal, and that the Microsoft.VMwareVirtustream resource provider is registered in your subscription. Following the instructions in [resource provider][Azure resource providers and types] documentation, search for Virtustream. This screenshot shows what will appear if the resource provider is registered in your subscription.
 
@@ -39,8 +39,8 @@ If it is not registered, continue with instructions in that documentation.
 
 Prerquisites:
 
-- IP address planning for the private cloud (see this link for a description)
-- the host types to be used in private cloud clusters (see this link for a description)
+- A /22 network address space
+- The host types to be used in private cloud clusters (see this link for a description)
 - the number of hosts to be used in each cluster
 - an existing VNet with an ExpressRoute gateway in your subscription (see this link for instructions)
 - optionally, and if you intend to enable ExpressRoute Gloabl Reach, an authorization key and resource ID of an ExpressRoute circuit that connects your on-premises environments to an Azure VNet. Use these instructions to [generate auth key][generate an authorization key]. This can be done after creating a private cloud.
