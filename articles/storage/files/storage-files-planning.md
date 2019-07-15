@@ -78,7 +78,7 @@ Standard file shares are backed by hard disk drives (HDDs). Standard file shares
 Standard file shares up to 5 TiB in size are available as a GA offering. While larger file shares, which are any shares larger than 5 TiB, up to a maximum of 100 TiB, are currently available as a preview offering.
 
 > [!IMPORTANT]
-> Large (> 5TiB) File shares:
+> File shares larger than 5 TiB:
 > - Require you to create a new general purpose storage account (cannot expand existing storage accounts).
 > - Are only available with LRS.
 > - Available in three regions: West US 2, West Europe, and SE Asia regions.
