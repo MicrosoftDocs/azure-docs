@@ -21,9 +21,9 @@ ms.custom: H1Hack27Feb2017
 ---
 
 # Azure Proximity Placement Groups for optimal network latency with SAP applications
-SAP applications based on the SAP NetWeaver or SAP S/4HANA architecture are sensitive to network latency between the SAP application tier and the SAP database tier. The reason for this sensitivity of these architectures is rooted in the fact that most of the business logic is executed in the application layer. As a result of executing the business logic the SAP application layer issues queries to the database tier in high frequency of thousands and tens of thousands per second. In most cases, the nature of those queries is simple. And often can be executed on the database tier in less than 500 microseconds or even less. The time spent on the network to send such a query from the application tier to the database tier and receive the result set back from the database tier, is contributing majorly. And with that can influence the time it takes to execute business processes in a major way. That is why some time in the planning of SAP deployment projects needs to be spent in planning out the network architecture with the aspect of keeping the network latency in an acceptable level. In [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E), SAP has some guidelines published in how to classify the network latency.
+SAP applications based on the SAP NetWeaver or SAP S/4HANA architecture are sensitive to network latency between the SAP application tier and the SAP database tier. The reason for this sensitivity of these architectures is rooted in the fact that most of the business logic is executed in the application layer. As a result of executing the business logic the SAP application layer issues queries to the database tier in high frequency of thousands and tens of thousands per second. In most cases, the nature of those queries is simple. And often can be executed on the database tier in less than 500 microseconds or even less. The time spent on the network to send such a query from the application tier to the database tier and receive the result set back from the database tier has major impact on the time it takes to execute business processes. This is the reason why some time in the planning of SAP deployment projects needs to be spent in planning the network architecture to optimize the network latency. In [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E), SAP published some guidelines in how to classify the network latency.
 
-On the one side, Azure regions grew in the number of datacenters per Azure region in many Azure regions and started to introduce Availability Zones in some of the main regions. On the other side, customers, especially for high-end SAP systems used more special VM SKus out of the M-Series family or HANA Large Instances, which are not present in all the datacenters in an Azure region. As a result of these two tendencies, customers experienced cases, where the network latency, after the deployment of the SAP application layer, was not in the optimal range and in some cases resulted in suboptimal performance of their SAP systems.
+On the one side, in many Azure regions the number of datacenters grew, also triggered by the introduction of Availability Zones. On the other side, customers, especially for high-end SAP systems used more special VM SKus out of the M-Series family or HANA Large Instances. Azure Virtual machine types that are not present in all the datacenters in a specific Azure region. As a result of these two tendencies, customers experienced cases, where the network latency was not in the optimal range and in some cases resulted in suboptimal performance of their SAP systems.
 
 In order to prevent such a problem, Azure offers a construct that is called [Azure Proximity Placement Group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). This new functionality has been used to deploy various different SAP systems already. Check the article referenced for restrictions of proximity placement groups. This article will cover the different SAP scenarios where Azure Proximity Placement Groups can be used or should be used.
 
@@ -34,9 +34,9 @@ An Azure proximity placement group is a logical construct, that at definition ph
 - By all subsequent VMs deployed referencing the proximity placement group to place all subsequent deployed Azure VMs in the same datacenter as the first virtual machine was placed in.
 
 > [!NOTE]
-> If there is no host hardware deployed that could run a specific VM type in the same datacenter as the first VM was placed in, the deployment of he demanded VM type will not succeed and will end with a failure message. These can be cases where more non-mainstream VMs, like virtual machines with GPUs or HPC VM types should centered around e.g. an M-Series VM that has been deployed as first VM type
+> If there is no host hardware deployed that could run a specific VM type in the same datacenter as the first VM was placed in, the deployment of the demanded VM type will not succeed and will end with a failure message. These can be cases where more non-mainstream VMs, like virtual machines with GPUs or HPC VM types should centered around e.g. an M-Series VM that has been deployed as first VM type
 
-A single Azure resource group can have multiple proximity placement groups assigned to itself. However, one proximity placement group can only be assigned to one Azure resource group.
+A single [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) can have multiple proximity placement groups assigned to itself. However, one proximity placement group can only be assigned to one Azure resource group.
 
 Using proximity placement groups, you should be aware of:
 
@@ -106,7 +106,7 @@ New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppganchorvm" -Location
 With the command above, a Windows based VM is deployed. After this VM deployment succeeded, the datacenter scope of the proximity placement group is defined within the Azure region. All subsequent VM deployments that reference the proximity placement group as in the last command, will be deployed in the same Azure datacenter as long as the VM type can be hosted on hardware placed in that datacenter and/or capacity for that VM type is available.
 
 ## Combine Availability Sets and Availability Zones with proximity placement groups 
-One of the disadvantages for SAP system deployments is the fact that SAP in cases where you want to leverage Azure Availability Zones, the SAP application layer can't be deployed using availability sets. Since you want to have the SAP application layer deployed in the same zones as the DBMS layer, and referencing an Availability Zone and an availability set when deploying a single VM is not supported, you were forced to deploy your application layer by referencing a zone and thereby lose the capability of making sure that the application layer VMs got spread across different update and failure domains. 
+Using Availability Zones for SAP System deployments, one of the disadvantages is the fact that the SAP application layer can't be controlled deployed using availability sets within the specific zone. Since you want to have the SAP application layer deployed in the same zones as the DBMS layer, and referencing an Availability Zone and an availability set when deploying a single VM is not supported, you were forced to deploy your application layer by referencing a zone and thereby lose the capability of making sure that the application layer VMs got spread across different update and failure domains. 
 With the help of proximity placement groups, you can overcome this restriction. The sequence of deployments would look like:
 
 - Create a proximity placement group
@@ -114,7 +114,7 @@ With the help of proximity placement groups, you can overcome this restriction. 
 - Create an availability set that references the Azure proximity group (see below)
 - Deploy the application layer VMs by referencing the availability set and the proximity placement group
 
-Instead of deploying the first VM as demonstrated above, you would reference an Azure Availability Zone and the proximity placement group when deploying the VM like:
+Instead of deploying the first VM as demonstrated above, you reference an Azure Availability Zone and the proximity placement group when deploying the VM like:
 
 <pre><code>
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppganchorvm" -Location "westus2" -OpenPorts 80,3389 -Zone "1" -ProximityPlacementGroup "letsgetclose" -Size "Standard_E16_v3"
@@ -137,9 +137,11 @@ When you create the availability set, you need to consider additional parameters
 New-AzAvailabilitySet -ResourceGroupName "myfirstppgexercise" -Name "myppgavset" -Location "westus2" -ProximityPlacementGroupId "/subscriptions/my very long ppg id string" -sku "aligned" -PlatformUpdateDomainCount 3 -PlatformFaultDomainCount 2 
 </code></pre>
 
-Ideally, you should use three fault domains. However, the number of supported fault domain can vary from region to region. In this case the maximum fault domain count possible for the specific regions was two. For deploying your application layer VMs, you need to add a reference to your availability set name and the proximity placement group name, as demonstrated here:
+Ideally, you should use three fault domains. However, the number of supported fault domains can vary from region to region. In this case the maximum fault domain count possible for the specific regions was two. For deploying your application layer VMs, you need to add a reference to your availability set name and the proximity placement group name, as demonstrated here:
 
+<pre><code>
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppgavsetappvm" -Location "westus2" -OpenPorts 80,3389 -AvailabilitySetName "myppgavset" -ProximityPlacementGroup "letsgetclose" -Size "Standard_DS11_v2"
+</code></pre>
 
 The end result of this sequence will be a DBMS layer and central services of your SAP system that is located in a specific Availability Zone(s) and an SAP application layer that is located through availability sets in the same Azure datacenters as the DBMS VM(s) got deployed.
 
@@ -154,7 +156,7 @@ As you have SAP systems deployed already, you might want to optimize the network
 Consult the documentation:
 
 - [SAP workload on Azure planning and deployment checklist](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
-- [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
-- [Azure Virtual Machines deployment for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
+- [Preview: Deploy VMs to proximity placement groups using Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups)
+- [Preview: Deploy VMs to proximity placement groups using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups)
 - [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 
