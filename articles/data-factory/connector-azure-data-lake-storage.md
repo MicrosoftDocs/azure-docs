@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
 
 ---
@@ -111,7 +111,7 @@ To use service principal authentication, follow these steps.
 >To list folders starting from the account level or to test connection, you need to set the permission of the service principal being granted to **storage account with "Storage Blob Data Reader" permission in IAM**. This is true when you use the:
 >- **Copy data tool** to author copy pipeline.
 >- **Data Factory UI** to test connection and navigating folders during authoring. 
->If you have concerns about granting permission at the account level, you can skip test connection and input path manually during authoring. Copy activity still works as long as the service principal is granted with proper permission at the files to be copied.
+>If you have concerns about granting permission at the account level, during authoring, skip testing connection, and input a parent path with permission granted then choose to browse from that specified path. Copy activity works as long as the service principal is granted with proper permission at the files to be copied.
 
 These properties are supported for the linked service:
 
@@ -165,7 +165,7 @@ To use managed identities for Azure resource authentication, follow these steps.
 >To list folders starting from the account level or to test connection, you need to set the permission of the managed identity being granted to **storage account with "Storage Blob Data Reader" permission in IAM**. This is true when you use the:
 >- **Copy data tool** to author copy pipeline.
 >- **Data Factory UI** to test connection and navigating folders during authoring. 
->If you have concerns about granting permission at the account level, you can skip test connection and input path manually during authoring. Copy activity still works as long as the managed identity is granted with proper permission at the files to be copied.
+>If you have concerns about granting permission at the account level, during authoring, skip testing connection, and input a parent path with permission granted then choose to browse from that specified path. Copy activity works as long as the service principal is granted with proper permission at the files to be copied.
 
 >[!IMPORTANT]
 >If you use PolyBase to load data from Data Lake Storage Gen2 into SQL Data Warehouse, when using  managed identity authentication for Data Lake Storage Gen2, make sure you also follow steps 1 and 2 in [this guidance](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) to 1) register your SQL Database server with Azure Active Directory (Azure AD) and 2) assign the Storage Blob Data Contributor role to your SQL Database server; the rest are handled by Data Factory. If your Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.

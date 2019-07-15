@@ -2,7 +2,7 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 04/19/2019	
+ms.date: 07/12/2019	
 ms.author: tomfitz
 ---
 | Resource | Default limit | Maximum limit |
@@ -27,7 +27,7 @@ ms.author: tomfitz
 | Outputs |64 |64 |
 | Template expression |24,576 chars |24,576 chars |
 | Resources in exported templates |200 |200 | 
-| Template size |1 MB |1 MB |
+| Template size |4 MB |4 MB |
 | Parameter file size |64 KB |64 KB |
 
 You can exceed some template limits by using a nested template. For more information, see [Use linked templates when you deploy Azure resources](../articles/azure-resource-manager/resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).

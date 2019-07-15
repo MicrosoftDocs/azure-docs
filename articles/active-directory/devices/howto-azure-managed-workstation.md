@@ -152,7 +152,7 @@ It's important to ensure that your secure workstation is a trusted clean device.
 To ensure that devices are fully configured before use, Intune provides a means to **Block device use until all apps and profiles are installed**.
 
 From the **Azure portal**:
-1. Go to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Enrollment Status Page (Preview)** > **Default** > **Settings**.
+1. Go to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Enrollment Status Page** > **Default** > **Settings**.
 1. Set **Show app profile installation progress** to **Yes**.
 1. Set **Block device use until all apps and profiles are installed** to **Yes**.
 
@@ -167,12 +167,16 @@ In Intune in the Azure portal:
    * Name - **Secure workstation deployment profile**.
    * Description - **Deployment of secure workstations**.
    * Set **Convert all targeted devices to Autopilot** to **Yes**. This setting makes sure that all devices in the list get registered with the Autopilot deployment service. Allow 48 hours for the registration to be processed.
+1. Select **Next**.
    * For **Deployment mode**, choose **Self-Deploying (Preview)**. Devices with this profile are associated with the user who enrolls the device. User credentials are required to enroll the device.
    * The **Join to Azure AD as** box should show **Azure AD joined** and be grayed out.
-1. Select **Out-of-box experience (OOBE)**, and choose **Standard** as the user account type. Leave others set to the default.
-1. Select **Ok**.
-1. Select **Create** to create the profile. The Autopilot deployment profile is now available to assign to devices.
+   * Select your Langugage (Region), User account type **standard**. 
+1. Select **Next**.
+   * Select a scope tag if you have preconfigured one.
+1. Select **Next**.
 1. Choose **Assignments** > **Assign to** > **Selected Groups**. In **Select groups to include**, choose **Secure Workstation Users**.
+1. Select **Next**.
+1. Select **Create** to create the profile. The Autopilot deployment profile is now available to assign to devices.
 
 ### Configure Windows Update
 

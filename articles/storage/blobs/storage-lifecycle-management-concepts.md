@@ -27,7 +27,7 @@ Consider a scenario where data gets frequent access during the early stages of t
 
 ## Storage account support
 
-The lifecycle management policy is available with both General Purpose v2 (GPv2) accounts and Blob storage accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).  
+The lifecycle management policy is available with General Purpose v2 (GPv2) accounts, Blob storage accounts, and Premium Block Blob storage accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).  
 
 ## Pricing
 
@@ -35,7 +35,7 @@ The lifecycle management feature is free of charge. Customers are charged the re
 
 ## Regional availability
 
-The lifecycle management feature is available in all global Azure regions.
+The lifecycle management feature is available in all global Azure and Azure Government regions.
 
 ## Add or remove a policy
 

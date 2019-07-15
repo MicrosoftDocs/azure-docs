@@ -8,7 +8,8 @@ manager: jasmc
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
-ms.author: radwiv;chadmat;genli
+ms.author: radwiv
+ms.reviewer: chadmat;genli
 
 ---
 # How to validate VPN throughput to a virtual network

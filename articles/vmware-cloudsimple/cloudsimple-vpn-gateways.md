@@ -38,8 +38,6 @@ Use cases for site-to-site VPN include:
 
 ### Cryptographic parameters
 
-A site-to-site VPN connection uses the following default cryptographic parameters to establish a secure connection.  When you create a connection from on-premises VPN device, the parameters must match.
-
 A site-to-site VPN connection uses the following default cryptographic parameters to establish a secure connection.  When you create a connection from on-premises VPN device, use any of the following parameters supported by your on-premises VPN gateway.
 
 #### Phase 1 proposals
