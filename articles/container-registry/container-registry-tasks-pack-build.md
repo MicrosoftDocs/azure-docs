@@ -9,7 +9,7 @@ ms.date: 07/15/2019
 ms.author: danlep
 ---
 
-# Build and push and image from an app using a Cloud Native Buildpack
+# Build and push an image from an app using a Cloud Native Buildpack
 
 The Azure CLI command `az acr pack build` uses the [`pack`](https://github.com/buildpack/pack) CLI tool, from [Buildpacks](https://buildpacks.io/), to build an app and push its image to an Azure container registry. This feature provides an option to quickly build a container image from your application source code in Node.js, Java, and other languages without having to define a Dockerfile.
 
@@ -73,6 +73,21 @@ This example builds the `java-app` image tagged with the run ID of the command a
 The `--pull` parameter specifies that the command pulls the latest builder image, which is recommended when you use a non-default builder.
 
 
+Command output shows the progress of building and pushing the image. 
+
+After the image is successfully built, you can run it with Docker. First sign into your registry:
+
+```azurecli
+az acr login --name myregistry
+```
+
+Run the image, substituting your image tag for *runid*:
+
+```console
+docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid
+```
+
+Browse to `localhost:8080` in your favorite browser to see the sample web app. Press `[Ctrl]+[C] to stop the container.
 
 
 ## Next steps
