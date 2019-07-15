@@ -38,7 +38,7 @@ You may see this issue when you are provisioning a new SSIS IR or during IR runn
 It may be caused by following reasons if you see the error during IR provisioning, and you can get detail SqlException message in the error message.
 
 * Network connection issue. Check the SQL Server or Managed Instance host name is accessible, and there is no firewall or NSG blocks SSIS IR to access the server.
-* Login failed and SQL Authentication is used. It means the account provide cannot log in the SQL Server, make sure the correct user account is provided.
+* Login failed and SQL Authentication is used. It means the account provided can't log in to the SQL Server. Make sure the correct user account is provided.
 * Login failed and AAD authentication (Managed Identity) is used. Add the Managed Identity of your factory into an AAD group, and make the Managed Identity has access permissions to your catalog database server.
 * Connection timeout, it is always because of security-related configuration. It is recommended to create a new VM,  make the VM joining the same VNet of IR if IR is in a VNet, then install SSMS and check the Azure SQL Database server or Managed Instance status.
 
@@ -51,9 +51,9 @@ It’s likely there are some Network Security Group or firewall changes if you s
 The error message is like “The database 'SSISDB' has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions.” The possible solutions are:
 * Increase size quota of your SSISDB.
 * Change the configurations of SSISDB to reduce the size like:
-** Reducing the retention period and number of project versions
-** Reducing the retention period of log
-** Changing the default level of the log and so on.
+   * Reducing the retention period and number of project versions.
+   * Reducing the retention period of log.
+   * Changing the default level of the log and so on.
 
 ### CatalogDbBelongsToAnotherIR
 
