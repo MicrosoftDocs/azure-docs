@@ -33,9 +33,9 @@
   items:
   - name: Python SDK
     items:
-    - name: Getting started tutorials
+    - name: Create first ML experiment
       items:
-      - name: 1. Setup environment and workspace
+      - name: 1. Setup workspace & dev environment
         href: tutorial-quickstart-setup.md
       - name: 2. Train your first model
         href: tutorial-quickstart-train-model.md

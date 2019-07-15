@@ -72,14 +72,16 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 
     ![Start the Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-server.png)
 
-    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM.
+    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM. Each user of the workspace must create their own VM.
 
 1. On the Jupyter notebook webpage, the top foldername is your username.  Select this folder.
 
     > [!TIP]
-    > This folder is located on the [storage container](concept-workspace.md#resources) in your workspace rather than on the notebook VM itself.  You can delete the notebook VM and still keep all your work.  When you create a new notebook VM later, it will load  this same folder.
+    > This folder is located on the [storage container](concept-workspace.md#resources) in your workspace rather than on the notebook VM itself.  You can delete the notebook VM and still keep all your work.  When you create a new notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
 
 1. Open the `samples-*` subdirectory, then open `tutorials/tutorial-quickstart-train-model.ipynb` to run **part two** of the tutorial.
+
+You can now move to the [end](#end) of the tutorial.
 
 ### <a name="server"></a>Use your own local environment
 
@@ -138,14 +140,6 @@ Use these instructions to install and use the SDK from your local computer. Befo
 > *  'azureml-sdk[notebooks]'
 > * 'azureml-sdk[automl]'
 
-#### Get workspace credentials
-
-The most secure method of attaching your workspace subscription information to the SDK code is to use a JSON file containing your authentication properties. Use the following steps to get the file, which is necessary for **part two** of this tutorial series.
-
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).
-1. On the **Overview** (default) tab, click **Download config.json** at the top of the page.
-1. Move this file into the same directory as your Anaconda installation so it will be available for the next notebook.
-
 #### Start notebook server
 
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
@@ -162,7 +156,15 @@ The most secure method of attaching your workspace subscription information to t
 
 1. In the Jupyter file tree, navigate to the cloned repository, and open the file `tutorials/tutorial-quickstart-train-model.ipynb`.
 
-## Clean up resources
+#### Get workspace credentials
+
+The most secure method of attaching your workspace subscription information to the SDK code is to use a JSON file containing your authentication properties. Use the following steps to get the file, which is necessary for **part two** of this tutorial series.
+
+1. Open your workspace in the [Azure portal](https://portal.azure.com/).
+1. On the **Overview** (default) tab, click **Download config.json** at the top of the page.
+1. Move this file into the root directory of your cloned repository. This will make the config file available to all notebooks.
+
+## <a name="end"></a> Clean up resources
 
 Do not complete this section if you plan on continuing to **part 2** of the tutorial.
 
