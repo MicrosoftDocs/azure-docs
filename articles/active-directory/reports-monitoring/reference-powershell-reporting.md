@@ -22,12 +22,9 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD PowerShell cmdlets for reporting
 
-With Azure Active Directory (Azure AD) reports, you can get the information you need to determine how your environment is doing. You can retrieve report data using the Azure AD PowerShell cmdlets for reporting.
+With Azure Active Directory (Azure AD) reports, you can get details on activities around all the write operations in your direction (Audit logs) and authentication data (Sign-in logs). While, this was available to you through MS Graph API, we are now giving you the ability to  retrieve the same data using the Azure AD PowerShell cmdlets for reporting.
 
-This article gives you an overview of the cmdlet.
-
-
-
+This article gives you an overview of the PowerShell cmdlets for these 2 logs.
 
 ## Audit logs
 
