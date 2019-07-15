@@ -17,33 +17,31 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to learn about authentication scenarios so I can create applications protected using the Microsoft identity platform.
+#Customer intent: As an application developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
 ms.collection: M365-identity-device-management
 ---
 
-# Authentication scenarios overview
+# Overview of authentication flows and application scenarios
 
-The Microsoft identity platform (v2.0) endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes different authentication scenarios and the applications scenarios they're used in.  This article also lists [Scenarios and supported authentication flows](#scenarios-and-supported-authentication-flows) and [Scenarios and supported platforms and languages](#scenarios-and-supported-platforms-and-languages).
+The Microsoft identity platform (v2.0) endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the different authentication flows and the application scenarios that they're used in.  This article also lists [supported authentication flows](#scenarios-and-supported-authentication-flows) and [supported platforms and languages](#scenarios-and-supported-platforms-and-languages) for each application scenario.
 
-## Introduction - several axes to understand authentication scenarios
+Application scenarios can be classified along several axes:
 
-Authentication scenarios can be classified along several axes:
-
-- [Protected resources vs client applications](#protected-resources-vs-client-applications): Some scenarios are about protecting resources (Web Apps or Web APIs), whereas others are about acquiring a security token to call a protected Web API.
+- [Protected resources vs client applications](#protected-resources-vs-client-applications): Some scenarios are about protecting resources (Web Apps or Web APIs) and others are about acquiring a security token to call a protected Web API.
 - [With users or without users](#with-users-or-without-users): Some scenarios involve a signed-in user, whereas other don't involve a user (daemon scenarios).
-- [Single page applications, Public client applications, and confidential client applications](#single-page-applications-public-client-applications-and-confidential-client-applications): are three large categories of application types. The libraries and objects used to manipulate them will be different. Scenarios and application types don't map one to one.
-- [OAuth 2.0 flows](#scenarios-and-supported-authentication-flows) are used to implement the scenarios requesting tokens, but they don't form a one to one mapping either.
-- Audience: Not all the scenarios are available for all the [sign in audiences](v2-supported-account-types.md). Some are only available for Work or School accounts, some are available for both Work or School accounts and Personal Microsoft accounts. Allowed audience depends on the authentication flows.
-- [Supported platforms](#scenarios-and-supported-platforms-and-languages): Not all the scenarios are available for every platform
+- [Single page applications, Public client applications, and confidential client applications](#single-page-applications-public-client-applications-and-confidential-client-applications): are three large categories of application types. The libraries and objects used to manipulate them will be different.
+- [Sign-in audience](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types): Some authentication flows are unavailable for certain sign in audiences. Some flows are only available for Work or School accounts and some are available for both Work or School accounts and Personal Microsoft accounts. The allowed audience depends on the authentication flows.
+- [Supported OAuth 2.0 flows](#scenarios-and-supported-authentication-flows) are used to implement the application scenarios requesting tokens.  There is not a one-to-one mapping between application scenarios and authentication flows.
+- [Supported platforms](#scenarios-and-supported-platforms-and-languages): Not all application scenarios are available for every platform.
 
-### Protected resources vs client applications
+## Protected resources vs client applications
 
 Authentication scenarios involve two activities:
 
 - **Acquiring security tokens** for a protected Web API. Microsoft recommends that you use [authentication libraries](reference-v2-libraries.md#microsoft-supported-client-libraries) to acquire tokens, in particular the MicroSoft Authentication Libraries family (MSAL)
 - **Protecting a Web API** (or a Web App). One of the challenges of protecting a resource (Web app or Web API) is to validate the security token. Microsoft offers, on some platforms, [middleware libraries](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
 
-### With users or without users
+## With users or without users
 
 Most authentication scenarios acquire tokens on behalf of a (signed-in) **user**.
 
@@ -53,7 +51,7 @@ However there are also scenarios (daemon apps), where applications will acquire 
 
 ![daemon apps](media/scenarios/daemon-app.svg)
 
-### Single page applications, Public client applications, and confidential client applications
+## Single page applications, Public client applications, and confidential client applications
 
 The security tokens can be acquired from a number of application types. Applications tend to be separated into three categories:
 
@@ -168,7 +166,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
 | | | Integrated Windows | Work or School accounts |
 | | | [Resource Owner Password](v2-oauth-ropc.md)  | Work or School accounts, B2C |
 | ![Device code flow](media/scenarios/device-code-flow-app.svg)| [Desktop app that calls web APIs](scenario-desktop-overview.md) | [Device Code](v2-oauth2-device-code.md)  | Work or School accounts* |
-| [![Mobile app that calls web APIs](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | [Mobile app that calls web APIs](scenario-mobile-overview.md) | Interactive  (A[Authorization Code](v2-oauth2-auth-code-flow.md) with PKCE)  |   Work or School accounts and Personal accounts, B2C
+| [![Mobile app that calls web APIs](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | [Mobile app that calls web APIs](scenario-mobile-overview.md) | Interactive  ([Authorization Code](v2-oauth2-auth-code-flow.md) with PKCE)  |   Work or School accounts and Personal accounts, B2C
 | | | Resource Owner Password  | Work or School accounts, B2C |
 | [![Daemon app](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | [Daemon app](scenario-daemon-overview.md) | [Client credentials](v2-oauth2-client-creds-grant-flow.md)  |   App only permissions (no user) only on AAD Organizations
 | [![Web API that calls web APIs](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | [Web API that calls web APIs](scenario-web-api-call-api-overview.md)| [On Behalf Of](v2-oauth2-on-behalf-of-flow.md) | Work or School accounts and Personal accounts |
