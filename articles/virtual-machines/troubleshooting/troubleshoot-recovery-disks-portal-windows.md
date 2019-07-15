@@ -124,6 +124,7 @@ The template is loaded into the Azure portal for deployment. Enter the names for
 
     ![Search disk from Azure portal](./media/troubleshoot-recovery-disks-portal-windows/search-disk.png)
 1. Select **Overview**, and then select **Create VM**.
+    ![Create VM from a disk from Azure portal](./media/troubleshoot-recovery-disks-portal-windows/create-vm-from-disk.png)
 1. Follow the wizard to create the VM.
 
 ## Re-enable boot diagnostics
