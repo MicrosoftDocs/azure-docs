@@ -5,7 +5,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 04/15/2019
 ---
 

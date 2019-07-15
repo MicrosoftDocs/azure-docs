@@ -6,7 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
-ms.author: amitsriva
+ms.author: victorh
 
 ---
 # Back-end health, diagnostic logs, and metrics for Application Gateway
@@ -232,7 +232,7 @@ For Application Gateway and WAF v2, the logs show a little more information:
         "receivedBytes": 65,
         "sentBytes": 553,
         "timeTaken": 205,
-        "sslEnabled": "off"
+        "sslEnabled": "off",
         "sslCipher": "",
         "sslProtocol": "",
         "serverRouted": "104.41.114.59:80",

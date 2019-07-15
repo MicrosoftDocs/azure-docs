@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.author: IEvangelist
+ms.author: dapine
 ms.custom: seodec18
 ---
 
@@ -30,7 +30,6 @@ You must meet the following prerequisites before using Recognize Text containers
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Azure `Cognitive Services` resource |In order to use the container, you must have:<br><br>A _Cognitive Services_ Azure resource and the associated billing key the billing endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container. You need to add the `vision/v2.0` routing to the endpoint URI as shown in the following BILLING_ENDPOINT_URI example. <br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
-
 
 ## Request access to the private container registry
 

@@ -76,8 +76,10 @@ Like application objects, service principals can also be created through multipl
 * Programmatically via the Azure AD Graph API or PowerShell
 
 ## How are application objects and service principals related to each other?
+
 An application has one application object in its home directory that is referenced by one or more service principals in each of the directories where it operates (including the application's home directory).
-![A diagram illustrating how application objects and service principals interact with each other and Azure AD instances.][apps_service_principals_directory]
+
+![Shows relationship between app objects and service principals][apps_service_principals_directory]
 
 In the preceding diagram, Microsoft maintains two directories internally (shown on the left) that it uses to publish applications:
 
@@ -93,6 +95,7 @@ Applications that you add yourself (represented as **App (yours)** in the diagra
 * Apps you published using the Azure AD application proxy
 
 ### Notes and exceptions
+
 * Not all service principals point back to an application object. When Azure AD was originally built the services provided to applications were more limited and the service principal was sufficient for establishing an application identity. The original service principal was closer in shape to the Windows Server Active Directory service account. For this reason, it's still possible to create service principals through different pathways, such as using Azure AD PowerShell, without first creating an application object. The Azure AD Graph API requires an application object before creating a service principal.
 * Not all of the information described above is currently exposed programmatically. The following are only available in the UI:
   * Claims transformation rules
@@ -102,6 +105,7 @@ Applications that you add yourself (represented as **App (yours)** in the diagra
   * [Service Principal](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## Why do applications integrate with Azure AD?
+
 Applications are added to Azure AD to leverage one or more of the services it provides including:
 
 * Application authentication and authorization
@@ -113,6 +117,7 @@ Applications are added to Azure AD to leverage one or more of the services it pr
 * Application publishing and proxy - Publish an application from a private network to the internet
 
 ## Who has permission to add applications to my Azure AD instance?
+
 While there are some tasks that only global administrators can do (such as adding applications from the app gallery and configuring an application to use the Application Proxy) by default all users in your directory have rights to register application objects that they are developing and discretion over which applications they share/give access to their organizational data through consent. If a person is the first user in your directory to sign in to an application and grant consent, that will create a service principal in your tenant; otherwise, the consent grant information will be stored on the existing service principal.
 
 Allowing users to register and consent to applications might initially sound concerning, but keep the following in mind:
@@ -129,10 +134,11 @@ If you still want to prevent users in your directory from registering applicatio
 
 * To prevent users from consenting to applications on their own behalf:
   1. In the Azure portal, go to the [User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) section under Enterprise applications.
-  2. Change **Users can consent to apps accessing company data on their behalf** to **No**. 
+  2. Change **Users can consent to apps accessing company data on their behalf** to **No**.
      
      > [!NOTE]
-     > If you decide to turn off user consent, an admin will be required to consent to any new application a user needs to use.    
+     > If you decide to turn off user consent, an admin will be required to consent to any new application a user needs to use.
+
 * To prevent users from registering their own applications:
   1. In the Azure portal, go to the [User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) section under Azure Active Directory
   2. Change **Users can register applications** to **No**.
@@ -142,4 +148,3 @@ If you still want to prevent users in your directory from registering applicatio
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-

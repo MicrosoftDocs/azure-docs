@@ -5,7 +5,7 @@
  author: anavinahar
  ms.service: networking
  ms.topic: include
- ms.date: 06/13/2019
+ ms.date: 06/25/2019
  ms.author: anavin
  ms.custom: include file
 
@@ -71,7 +71,7 @@ The following limits apply only for networking resources managed through Azure R
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Virtual networks |50 |100 |
+| Virtual networks |100 |100 |
 | Local network sites |20 |Contact support. |
 | DNS servers per virtual network |20 |20 |
 | Private IP addresses per virtual network |4,096 |4,096 |
@@ -80,8 +80,8 @@ The following limits apply only for networking resources managed through Azure R
 | NSG rules per NSG |1,000 |1,000 |
 | User-defined route tables |200 |200 |
 | User-defined routes per route table |400 |400 |
-| Public IP addresses (dynamic) |5 |Contact support |
-| Reserved public IP addresses |20 |Contact support |
+| Public IP addresses (dynamic) |500 |500 |
+| Reserved public IP addresses |500 |500 |
 | Public VIP per deployment |5 |Contact support |
 | Private VIP (internal load balancing) per deployment |1 |1 |
 | Endpoint access control lists (ACLs) |50 |50 |
