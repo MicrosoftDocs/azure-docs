@@ -390,4 +390,7 @@ When you run the code, it connects to IoT Hub and starts sending sample telemetr
 
 ## Next steps
 
-Now that you've built an IoT Plug and Play ready for certification, learn how to [build a device that's ready for certification](tutorial-build-device-certification.md) and list it in the Certified for Azure IoT device catalog.
+Now that you've built an IoT Plug and Play ready for certification, learn how to:
+
+> [!div class="nextstepaction"]
+> [Build a device that's ready for certification](tutorial-build-device-certification.md)
