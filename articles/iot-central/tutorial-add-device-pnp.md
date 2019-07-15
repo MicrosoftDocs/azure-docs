@@ -87,7 +87,7 @@ The connection string for a device instance in your application is generated fro
 
 1. On the device screen for your real environmental sensor, choose **Connect**.
 
-1. On the Device Connection page, make a note of the **Scope ID**, **Device ID, and **Primary Key** values. You use these values in a following step:
+1. On the Device Connection page, make a note of the **Scope ID**, **Device ID**, and **Primary Key** values. You use these values in a following step:
 
    ![Connection details](media/tutorial-add-device-pnp/device-connect.png)
 
