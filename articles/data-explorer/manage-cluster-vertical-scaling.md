@@ -30,7 +30,7 @@ This article explains the vertical scaling workflow:
 
     ![Scale up](media/manage-cluster-vertical-scaling/scale-up.png)
 
-    The SKUs are disabled because they're the current SKU being used, or they aren't available in the region where the cluster is located.
+    The SKUs are disabled because they're the current SKU, or they aren't available in the region where the cluster is located.
 
 1. To change your SKU, select a new SKU and click **Select**.
 

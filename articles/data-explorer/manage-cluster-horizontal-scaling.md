@@ -22,7 +22,7 @@ There are two workflows for scaling an Azure Data Explorer cluster:
 
 This article explains the horizontal scaling workflow.
 
-## Steps to configure horizontal scaling
+## Configure horizontal scaling
 
 Horizontal scaling allows you to scale the instance count automatically based on predefined rules and schedules. Specify your autoscale settings for your cluster in the Azure portal, as described in this article.
 
@@ -38,9 +38,7 @@ Manual scale is the default setting during cluster creation. The cluster has a s
 
 ### Optimized autoscale
 
-Optimized autoscale is the recommended autoscale method. This autoscale method optimizes the cluster performance and costs. If the cluster approaches a state of under-utilization, it will be scaled-in. This will lower costs but keep performance level. If the cluster approaches a state of over-utilization, it will be scaled-out to keep performance at its best.
-
-To configure **Optimized autoscale**:
+Optimized autoscale is the recommended autoscale method. This autoscale method optimizes the cluster performance and costs. If the cluster approaches a state of under-utilization, it will be scaled-in. This will lower costs but keep performance level. If the cluster approaches a state of over-utilization, it will be scaled-out to keep performance at its best. To configure **Optimized autoscale**:
 
 1. Select **Optimized autoscale**. 
 
