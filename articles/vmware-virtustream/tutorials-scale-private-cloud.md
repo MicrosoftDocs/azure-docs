@@ -6,7 +6,7 @@ author: v-jetome
 
 ms.service: vmware-virtustream
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 07/22/2019
 ms.author: v-jetome
 ms.custom: 
 
@@ -55,13 +55,10 @@ The deployment of an additional host to the cluster will begin.
 
 ## Next steps
 
-What should be the next step?
-
-<!-- [In your subscription, create a VNet and resources to connect to a private cloud.][tutorials-create-vnet-resources] -->
+If you require another AVS by Virtustream private cloud, use the [create private cloud tutorial][tutorials-create-private-cloud].
 
 <!-- LINKS - external-->
 
 <!-- LINKS - internal -->
-<!--[tutorials-create-vnet-resources]: ./t utorials-create-vnet-resources.md-->
-<!-- [tutorials-access-private-cloud]: ./tutorials-access-private-cloud.md-->
-<!-- [tutorials-create-t1-ls]: ./tutorials-create-t1-ls.md-->
+[tutorials-create-private-cloud]: ./tutorials-create-private-cloud.md -->
+<!-- [tutorials-create-vnet-resources]: ./tutorials-create-vnet-resources.md -->
