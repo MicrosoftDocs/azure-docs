@@ -65,10 +65,12 @@ On the review page, review discovered Plug and Play interfaces and make sure the
 
 In this tutorial, you learned how to:
 
-> [!div class="nextstepaction"]
-> * Connect a device
-> * Discover IoT Plug and Play interfaces
-> * Review IoT Plug and Play interfaces and run tests
-> * Apply for certification
+* Connect a device
+* Discover IoT Plug and Play interfaces
+* Review IoT Plug and Play interfaces and run tests
+* Apply for certification
 
-Now that you know now to certify your Plug and Play device, the suggested next step is to learn how to connect a Plug and Play device to an IoT hub.
+Now that you know now to certify your Plug and Play device, the suggested next step is:
+
+> [!div class="nextstepaction"]
+> To learn how to connect a Plug and Play device to an IoT hub

@@ -90,4 +90,7 @@ During certification, your device is tested programmatically to ensure it implem
 
 ## Next steps
 
-Now that you've built an IoT Plug and Play device ready for certification, learn how to [certify your device](tutorial-certification-product.md) and list it in the Certified for Azure IoT device catalog.
+Now that you've built an IoT Plug and Play device ready for certification the suggested next step is to:
+
+> [!div class="nextstepaction"]
+> [Learn how to certify your device](tutorial-certification-product.md)
