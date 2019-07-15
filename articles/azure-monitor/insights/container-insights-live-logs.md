@@ -61,7 +61,7 @@ If you have enabled Kubernetes RBAC authorization, you will need to apply cluste
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. If you are configuring it for the first time, you create the cluster rule binding by running the following command: `kubectl create -f LogReaderRBAC.yaml`. If you previously enabled support for live logs preview before we introduced live event logs, to update your configuration, run the following command: `kubectl apply -f LogReaderRBAC.yaml`.
+2. If you are configuring it for the first time, you apply the cluster rule binding by running the following command: `kubectl create -f LogReaderRBAC.yaml`. If you previously enabled support for live logs preview before we introduced live event logs, to update your configuration, run the following command: `kubectl apply -f LogReaderRBAC.yaml`.
 
 ## Configure AKS with Azure Active Directory
 
