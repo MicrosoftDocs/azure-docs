@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 07/15/2019
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
@@ -44,14 +44,15 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 
 * [Resource group name](#resource-group-name)
 * [Cluster types and configuration](#cluster-types) 
-* Cluster login and SSH username
+* [Cluster name](#cluster-name)
+* [Cluster login and SSH username](#cluster-login-and-ssh-username)
 * [Location](#location)
 
 ## Resource group name
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all the resources for your application in a single coordinated operation.
 
-## <a name="cluster-types"></a> Cluster types and configuration
+## Cluster types and configuration
 Azure HDInsight currently provides the following cluster types, each with a set of components to provide certain functionalities.
 
 > [!IMPORTANT]  
@@ -71,12 +72,25 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 ### HDInsight version
 Choose the version of HDInsight for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
+## Cluster name
+
+HDInsight cluster names have the following restrictions:
+- Must be unique
+- First 6 characters must be unique within a VNET
+- Allowed special characters: _ and @ 
+- Characters not allowed:  #;."',\/:`!*?$(){}[]<>|&--=+%~^space
+- Max length: 20
 
 ## Cluster login and SSH username
 With HDInsight clusters, you can configure two user accounts during cluster creation:
 
 * HTTP user: The default username is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
 * SSH user: Used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+The HTTP and SSH usernames have the following restrictions:
+- Allowed special characters: _ and @ 
+- Characters not allowed:  #;."',\/:`!*?$(){}[]<>|&--=+%~^space
+- Max length: 20
 
 The Enterprise security package allows you to integrate HDInsight with Active Directory and Apache Ranger. Multiple users can be created using the Enterprise security package.
 
