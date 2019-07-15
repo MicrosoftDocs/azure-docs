@@ -1,6 +1,6 @@
 ---
-title: Select a page contract - Azure Active Directory B2C
-description: Learn about how to select a page contract in Azure Active Directory B2C.
+title: Select a page layout - Azure Active Directory B2C
+description: Learn about how to select a page layout in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -13,18 +13,18 @@ ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Select a page contract in Azure Active Directory B2C using custom policies
+# Select a page layout in Azure Active Directory B2C using custom policies
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-You can enable JavaScript client-side code in your Azure Active Directory (Azure AD) B2C policies whether you’re using user flows or custom policies. To enable JavaScript for your applications, you must add an element to your [custom policy](active-directory-b2c-overview-custom.md), select a page contract, and use [b2clogin.com](b2clogin.md) in your requests.
+You can enable JavaScript client-side code in your Azure Active Directory (Azure AD) B2C policies whether you’re using user flows or custom policies. To enable JavaScript for your applications, you must add an element to your [custom policy](active-directory-b2c-overview-custom.md), select a page layout, and use [b2clogin.com](b2clogin.md) in your requests.
 
-A page contract is an association of elements that Azure AD B2C provides and the content that you provide.
+A page layout is an association of elements that Azure AD B2C provides and the content that you provide.
 
-This article discusses how to select a page contract in Azure AD B2C by configuring it in a custom policy.
+This article discusses how to select a page layout in Azure AD B2C by configuring it in a custom policy.
 
 > [!NOTE]
-> If you want to enable JavaScript for user flows, see [JavaScript and page contract versions in Azure Active Directory B2C](user-flow-javascript-overview.md).
+> If you want to enable JavaScript for user flows, see [JavaScript and page layout versions in Azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## Replace DataUri values
 
@@ -42,9 +42,9 @@ In your custom policies, you may have [ContentDefinitions](contentdefinitions.md
 </ContentDefinition>
 ```
 
-To select a page contract, you change the **DataUri** values in your [ContentDefinitions](contentdefinitions.md) in your policies. By switching from the old **DataUri** values to the new values, you're selecting an immutable package. The benefit of using this package is that you’ll know it won't change and cause unexpected behavior on your page.
+To select a page layout, you change the **DataUri** values in your [ContentDefinitions](contentdefinitions.md) in your policies. By switching from the old **DataUri** values to the new values, you're selecting an immutable package. The benefit of using this package is that you’ll know it won't change and cause unexpected behavior on your page.
 
-To set up a page contract, use the following table to find **DataUri** values.
+To set up a page layout, use the following table to find **DataUri** values.
 
 | Old DataUri value | New DataUri value |
 | ----------------- | ----------------- |
@@ -62,7 +62,7 @@ To set up a page contract, use the following table to find **DataUri** values.
 
 ## Version change log
 
-Page contract packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
+Page layout packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
 
 ### 1.1.0
 
