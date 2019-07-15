@@ -195,43 +195,38 @@ If you have antivirus software installed on the server, add necessary exclusion 
 
 Error message | Recommended action |
 -- | --
-| 1. [Check if there is an antivirus or other processes locking the scratch location files](#anti-virus-blocking)<br/> 2. [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)<br/> 3. Restart the server
+Microsoft Azure Recovery Services Agent was unable to access backup checksum stored in scratch location | To resolve this issue, perfom the below and restart the server <br/> - [Check if there is an antivirus or other processes locking the scratch location files](#anti-virus-blocking)<br/> - [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### SalVhdInitializationError
 
 Error message | Recommended action |
 -- | --
-
-1. [Check if there is an antivirus or other processes locking the scratch location files](#anti-virus-blocking)<br/> 2. [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)<br/> 3. Restart the server
+Microsoft Azure Recovery Services Agent was unable to access the scratch location to initialize VHD | To resolve this issue, perform the below and restart the server <br/> - [Check if there is an antivirus or other processes locking the scratch location files](#anti-virus-blocking)<br/> - [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### SalLowDiskSpace
 
 Error message | Recommended action |
 -- | --
-- [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
+Backup failed due to insufficient storage in volume  where the scratch folder is located | - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
 
 ### SalBitmapError
 
 Error message | Recommended action |
 -- | --
-Unable to find changes in a file. This could be due to various reasons. Please retry the operation | - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/>- [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
-- Retry the operation
+Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verufy the below and restart the server <br/> - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
+
 
 ### CBPSourceSnapshotFailedReplicaMissingOrInvalid
 
-**Error message**:
-
 Error message | Recommended action |
 -- | --
-Backup failed because the disk-backup replica is either invalid or missing. | - Create a disk recovery point and try backup again.<br/> 2. Run consistency check on datasource and try backup again.<br/> 3. Stop protection of datasource and then reconfigure protection for this data source.
+Backup failed because the disk-backup replica is either invalid or missing. | To resolve this issue, perform the below steps: <br/> 1. Create a disk recovery point and try backup again.<br/> 2. Run consistency check on datasource and try backup again.<br/> 3. Stop protection of datasource and then reconfigure protection for this data source.
 
 ### CBPSourceSnapshotFailedReplicaMetadataInvalid
 
 Error message | Recommended action |
 -- | --
-- Create a disk recovery point of this datasource
-- Retry online backup again.
+Source volume snapshot failed because metadata on replica is invalid. | - Create a disk recovery point of this datasource <br/> - Retry online backup again.
 
 ### CBPSourceSnapshotFailedReplicaInconsistent
 
