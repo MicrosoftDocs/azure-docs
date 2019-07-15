@@ -23,6 +23,7 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Provides a set of policies to aide in PCI-DSS v3.2.1 compliance. |
 | [UK OFFICIAL and UK NHS Governance](./ukofficial/index.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards UK OFFICIAL and UK NHS attestation. |
 
+
 ## Next steps
 
 - Learn about the [blueprint life-cycle](../concepts/lifecycle.md).
