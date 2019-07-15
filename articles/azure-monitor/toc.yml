@@ -280,8 +280,10 @@
         href: platform/custom-fields.md
     - name: Configure applications
       items:
-      - name: Azure apps
+      - name: Azure-hosted apps
         items:
+        - name: Azure VM and Azure virtual machine scale set
+          href: app/azure-vm-vmss-apps.md
         - name: Azure app service
           href: app/azure-web-apps.md
         - name: Azure Cloud Services
@@ -711,6 +713,8 @@
         href: platform/metrics-charts.md
       - name: Examples of metric charts
         href: platform/metric-chart-samples.md
+        name: Log-based metrics
+        href: platform/app-insights-metrics.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
     - name: Logs

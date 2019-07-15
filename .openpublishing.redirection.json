@@ -1091,6 +1091,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/howto-sspr-windows-7-8.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-sspr-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/tutorial-sspr-windows.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-sspr-windows",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-sharing-accounts.md",
       "redirect_url": "/azure/active-directory/users-groups-roles/users-sharing-accounts",
       "redirect_document_id": true

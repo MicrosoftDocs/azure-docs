@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/11/2019
 ms.author: raynew
 ---
 
@@ -12,17 +12,25 @@ ms.author: raynew
 
 ## Troubleshoot common errors
 
-[Azure Migrate](migrate-overview.md) assesses on-premises workloads for migration to Azure. Use this article to troubleshoot issues when deploying and using Azure Migrate.
+[Azure Migrate](migrate-services-overview.md) provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. This document provides help on troubleshooting errors with Azure Migrate, Azure Migrate: Server Assessment and Azure Migrate: Server Migration.
 
-### I am using the OVA that continuously discovers my on-premises environment, but the VMs that are deleted in my on-premises environment are still being shown in the portal.
+### I am using the appliance that continuously discovers my on-premises environment, but the VMs that are deleted in my on-premises environment are still being shown in the portal.
 
-The continuous discovery appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
+It takes up to 30 minutes for the discovery data gathered by the appliance to reflect in the portal. If you do not see up to date information even after 30 minutes, issue a refresh on the data using the following steps:
 
-- Addition of items (VMs, disks, cores etc.): To reflect these changes in the Azure portal, you can stop the discovery from the appliance and then start it again. This will ensure that the changes are updated in the Azure Migrate project.
+1. In Servers > Azure Migrate: Server Assessment, click **Overview**.
+2. Under **Manage**, click on **Agent Health**
+3. Click on the option to **Refresh agent**. You will see this below option below the list of agents.
+4. Wait for the refresh operation to complete. Verify that you are able to see up to date information on your VMs.
 
-   ![Stop discovery](./media/troubleshooting-general/stop-discovery.png)
+### I do not the latest information on the on-premise VMs on the portal
 
-- Deletion of VMs: Due to the way the appliance is designed, deletion of VMs is not reflected even if you stop and start the discovery. This is because data from subsequent discoveries are appended to older discoveries and not overridden. In this case, you can simply ignore the VM in the portal, by removing it from your group and recalculating the assessment.
+It takes up to 30 minutes for the discovery data gathered by the appliance to reflect in the portal. If you do not see up to date information even after 30 minutes, issue a refresh on the data using the following steps:
+
+1. In Servers > Azure Migrate: Server Assessment, click **Overview**.
+2. Under **Manage**, click on **Agent Health**
+3. Click on the option to **Refresh agent**. You will see this below option below the list of agents.
+4. Wait for the refresh operation to complete. Verify that you are able to see up to date information on your VMs.
 
 ### Deletion of Azure Migrate projects and associated Log Analytics workspace
 
@@ -88,11 +96,11 @@ You can go to the **Essentials** section in the **Overview** page of the project
 
    ![Project location](./media/troubleshooting-general/geography-location.png)
 
-## Collector issues
+## Appliance issues
 
-### Deployment of Azure Migrate Collector failed with the error: The provided manifest file is invalid: Invalid OVF manifest entry.
+### Deployment of Azure Migrate appliance for VMware failed with the error: The provided manifest file is invalid: Invalid OVF manifest entry.
 
-1. Verify if Azure Migrate Collector OVA file is downloaded correctly by checking its hash value. Refer to the [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) to verify the hash value. If the hash value is not matching, download the OVA file again and retry the deployment.
+1. Verify if Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. Refer to the [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) to verify the hash value. If the hash value is not matching, download the OVA file again and retry the deployment.
 2. If it still fails and if you are using VMware vSphere Client to deploy the OVF, try deploying it through vSphere Web Client. If it still fails, try using different web browser.
 3. If you are using vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on ESXi host by following the below steps:
    - Connect to the ESXi host directly (instead of vCenter Server) using the web client (https://<*host IP Address*>/ui)
@@ -104,32 +112,19 @@ You can go to the **Essentials** section in the **Overview** page of the project
 
 This is a known issue and a fix is available for the issue. Please download the [latest upgrade bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) for the appliance and update the appliance to apply the fix.
 
-### Collector is not able to connect to the internet
+### Appliance is not able to connect to the internet
 
 This can happen when the machine you are using is behind a proxy. Make sure you provide the authorization credentials if the proxy needs one.
-If you are using any URL-based firewall proxy to control outbound connectivity, be sure to whitelist these required URLs:
+If you are using any URL-based firewall proxy to control outbound connectivity, be sure to add these required URLs to an allow list:
 
 **URL** | **Purpose**  
 --- | ---
 *.portal.azure.com | Required to check connectivity with the Azure service and validate time synchronization issues.
 *.oneget.org | Required to download the powershell based vCenter PowerCLI module.
 
-**The collector can't connect to the internet because of a certificate validation failure**
+**The appliance can't connect to the internet because of a certificate validation failure**
 
 This can happen if you are using an intercepting proxy to connect to the Internet, and if you have not imported the proxy certificate on to the collector VM. You can import the proxy certificate using the steps detailed [here](https://docs.microsoft.com/azure/migrate/concepts-collector).
-
-**The collector can't connect to the project using the project ID and key I copied from the portal.**
-
-Make sure you've copied and pasted the right information. To troubleshoot, install the Microsoft Monitoring Agent (MMA) and verify if the MMA can connect to the project as follows:
-
-1. On the collector VM, download the [MMA](https://go.microsoft.com/fwlink/?LinkId=828603).
-2. To start the installation, double-click the downloaded file.
-3. In setup, on the **Welcome** page, click **Next**. On the **License Terms** page, click **I Agree** to accept the license.
-4. In **Destination Folder**, keep or modify the default installation folder > **Next**.
-5. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
-6. Click **Add** to add a new Log Analytics workspace. Paste in project ID and key that you copied. Then click **Next**.
-7. Verify that the agent can connect to the project. If it can't, verify the settings. If the agent can connect but the collector can't, contact Support.
-
 
 ### Error 802: Date and time synchronization error
 
@@ -139,58 +134,6 @@ The server clock might be out-of-synchronization with the current time by more t
 2. To check the time zone, run w32tm /tz.
 3. To synchronize the time, run w32tm /resync.
 
-### VMware PowerCLI installation failed
-
-Azure Migrate collector downloads PowerCLI and installs it on the appliance. Failure in PowerCLI installation could be due to unreachable endpoints for the PowerCLI repository. To troubleshoot, try manually installing PowerCLI in the collector VM using the following step:
-
-1. Open Windows PowerShell in administrator mode
-2. Go to the directory C:\ProgramFiles\ProfilerService\VMWare\Scripts\
-3. Run the script InstallPowerCLI.ps1
-
-### Error UnhandledException Internal error occurred: System.IO.FileNotFoundException
-
-This issue could occur due to an issue with VMware PowerCLI installation. Follow the below steps to resolve the issue:
-
-1. If you are not on the latest version of the collector appliance, [upgrade your Collector to the latest version](https://aka.ms/migrate/col/checkforupdates) and check if the issue is resolved.
-2. If you already have the latest collector version, follow the below steps to do a clean installation of PowerCLI :
-
-   a. Close the web browser in the appliance.
-
-   b. Stop the 'Azure Migrate Collector' service by going to Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Stop.
-
-   c. Delete all folders starting with 'VMware' from the following locations:
-        C:\Program Files\WindowsPowerShell\Modules  
-        C:\Program Files (x86)\WindowsPowerShell\Modules
-
-   d. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
-
-   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
-
-3. If the above does not resolve the issue, follow steps a to c above and then manually install PowerCLI in the appliance using the following steps:
-
-   a. Clean up all incomplete PowerCLI installation files by following steps #a to #c in step #2 above.
-
-   b. Go to Start > Run > Open Windows PowerShell(x86) in administrator mode
-
-   c. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
-
-   d. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
-
-   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
-
-4. If you are unable to download the module in the appliance due to firewall issues, download and install the module in a machine that has access to internet using the following steps:
-
-    a. Clean up all incomplete PowerCLI installation files by following steps #a to #c in step #2 above.
-
-    b. Go to Start > Run > Open Windows PowerShell(x86) in administrator mode
-
-    c. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
-
-    d. Copy all modules starting with "VMware" from “C:\Program Files (x86)\WindowsPowerShell\Modules” to the same location on the collector VM.
-
-    e. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
-
-    f. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
 
 ### Error UnableToConnectToServer
 
@@ -300,7 +243,7 @@ To collect Event Tracing for Windows, do the following:
 
 **How do I collect portal network traffic logs?**
 
-1. Open the browser and navigate and log in [to the portal](https://portal.azure.com).
+1. Open the browser and navigate and sign in [to the portal](https://portal.azure.com).
 2. Press F12 to start the Developer Tools. If needed, clear the setting **Clear entries on navigation**.
 3. Click the **Network** tab, and start capturing network traffic:
    - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start
