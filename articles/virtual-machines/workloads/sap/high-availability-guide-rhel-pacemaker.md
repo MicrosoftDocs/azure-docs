@@ -192,16 +192,17 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
 
 1. Go to <https://portal.azure.com>
-1. Open the Azure Active Directory blade
+1. Open the Azure Active Directory blade  
    Go to Properties and write down the Directory ID. This is the **tenant ID**.
 1. Click App registrations
-1. Click Add
-1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http:\//localhost) and click Create
-1. The sign-on URL is not used and can be any valid URL
-1. Select the new App and click Keys in the Settings tab
-1. Enter a description for a new key, select "Never expires" and click Save
+1. Click New Registration
+1. Enter a Name, select "Accounts in this organization directory only" 
+2. Select Application Type "Web", enter a sign-on URL (for example http:\//localhost) and click Add  
+   The sign-on URL is not used and can be any valid URL
+1. Select Certificates and Secrets, then click New client secret
+1. Enter a description for a new key, select "Never expires" and click Add
 1. Write down the Value. It is used as the **password** for the Service Principal
-1. Write down the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
+1. Select Overview. Write down the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
 
 ### **[1]** Create a custom role for the fence agent
 
