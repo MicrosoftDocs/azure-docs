@@ -908,9 +908,9 @@ Jump to a resource provider namespace:
 ## Microsoft.Sql
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| instancepools | Yes | Yes |
-| managedinstances | Yes | Yes |
-| managedinstances/databases | Yes | Yes |
+| instancepools | No | No |
+| managedinstances | No | No |
+| managedinstances/databases | No | No |
 | servers | Yes | Yes |
 | servers/databases | Yes | Yes |
 | servers/elasticpools | Yes | Yes |
