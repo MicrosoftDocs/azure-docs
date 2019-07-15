@@ -22,14 +22,15 @@ ms.collection: M365-identity-device-management
 
 
 # Troubleshoot Application Proxy problems and error messages
+
+When troubleshooting Application Proxy issues, we recommend you start with reviewing the troubleshooting flow, [Debug Application Proxy Connector issues](application-proxy-debug-connectors.md), to determine if Application Proxy connectors are configured correctly. If you're still having trouble connecting to the application, follow the troubleshooting flow in [Debug Application Proxy application issues](application-proxy-debug-apps.md).
+
 If errors occur in accessing a published application or in publishing applications, check the following options to see if Microsoft Azure AD Application Proxy is working correctly:
 
 * Open the Windows Services console and verify that the **Microsoft AAD Application Proxy Connector** service is enabled and running. You may also want to look at the Application Proxy service properties page, as shown in the following image:  
   ![Microsoft AAD Application Proxy Connector Properties window screenshot](./media/application-proxy-troubleshoot/connectorproperties.png)
 * Open Event Viewer and look for Application Proxy connector events in **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
 * If needed, more detailed logs are available by [turning on the Application Proxy connector session logs](application-proxy-connectors.md#under-the-hood).
-
-When troubleshooting Application Proxy issues, we recommend you start with reviewing the troubleshooting flow, [Debug Application Proxy Connector issues](application-proxy-debug-connectors.md), to determine if Application Proxy connectors are configured correctly. If you're still having trouble connecting to the application, follow the troubleshooting flow in [Debug Application Proxy application issues](application-proxy-debug-apps.md).
 
 ## The page is not rendered correctly
 You may have problems with your application rendering or functioning incorrectly without receiving specific error messages. This can occur if you published the article path, but the application requires content that exists outside that path.

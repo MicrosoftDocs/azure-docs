@@ -1,6 +1,6 @@
   - name: Application Management Documentation
     href: index.yml
-  - name: Application management
+  - name: Application management and single sign-on
     items:
      - name: Overview
        expanded: true
@@ -291,14 +291,14 @@
        items:
        - name: Configure connectors
          items:
-         - name: Configure connectors
+         - name: Configure with proxy servers
            href: application-proxy-configure-connectors-with-proxy-servers.md
-         - name: Configure claims-aware apps
-           href: application-proxy-configure-for-claims-aware-applications.md
          - name: Register connector - silent install
            href: application-proxy-register-connector-powershell.md
-       - name: Configure client access
+       - name: Configure application access
          items:
+         - name: Configure claims-aware apps
+           href: application-proxy-configure-for-claims-aware-applications.md
          - name: Give mobile and desktop apps access to on-premises APIs
            href: application-proxy-secure-api-access.md 
          - name: Configure mobile and desktop client apps
@@ -315,6 +315,16 @@
            href: application-proxy-remove-personal-data.md
          - name: Configure custom domain
            href: application-proxy-configure-custom-domain.md
+         - name: Single sign-on with Application Proxy
+           items:
+           - name: Kerberos constrained Delegation (KCD)
+             href: application-proxy-configure-single-sign-on-with-kcd.md
+           - name: Password vaulting
+             href: application-proxy-configure-single-sign-on-password-vaulting.md
+           - name: Headers
+             href: application-proxy-configure-single-sign-on-with-ping-access.md
+           - name: SAML SSO
+             href: application-proxy-configure-single-sign-on-on-premises-apps.md
          - name: Publishing walkthroughs
            items:
            - name: Integrate with Cloud App Security
@@ -329,24 +339,14 @@
              href: application-proxy-integrate-with-tableau.md
            - name: Integrate with Qlik
              href: application-proxy-qlik.md
-         - name: Single sign-on with Application Proxy
-           items:
-           - name: Kerberos constrained Delegation (KCD)
-             href: application-proxy-configure-single-sign-on-with-kcd.md
-           - name: Password vaulting
-             href: application-proxy-configure-single-sign-on-password-vaulting.md
-           - name: Headers
-             href: application-proxy-configure-single-sign-on-with-ping-access.md
-           - name: SAML SSO
-             href: application-proxy-configure-single-sign-on-on-premises-apps.md
        - name: Troubleshoot Application Proxy
          items:
+         - name: Application Proxy troubleshooting
+           href: application-proxy-troubleshoot.md
          - name: Connector troubleshooting flowchart
            href: application-proxy-debug-connectors.md
          - name: Application troubleshooting flowchart
            href: application-proxy-debug-apps.md
-         - name: Configuration errors
-           href: application-proxy-troubleshoot.md
          - name: Problem displaying app page
            href: application-proxy-page-appearance-broken-problem.md
          - name: Application load is too long
