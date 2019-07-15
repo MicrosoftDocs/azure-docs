@@ -82,7 +82,7 @@ mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 Set the MLflow experiment name with `set_experiment()` and start your training run with `start_run()`. Then use `log_metric()` to activate the MLflow logging API and begin logging your training run metrics.
 
 ```Python
-experiment_name = "experiment_with_mlflow"
+experiment_name = 'experiment_with_mlflow'
 mlflow.set_experiment(experiment_name)
 
 with mlflow.start_run():
@@ -100,18 +100,18 @@ from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core import ScriptRunConfig
 
-exp = Experiment(workspace = "my_workspace",
-                 name = "my_experiment")
+exp = Experiment(workspace = 'my_workspace',
+                 name='my_experiment')
 
-mlflow_env = Environment(name="mlflow-env")
+mlflow_env = Environment(name='mlflow-env')
 
-cd = CondaDependencies.create(pip_packages = ["mlflow", "azureml-contrib-run"])
+cd = CondaDependencies.create(pip_packages=['mlflow', 'azureml-contrib-run'])
 
-mlflow_env.python.conda_dependencies=cd
+mlflow_env.python.conda_dependencies = cd
 
-src = ScriptRunConfig(source_directory="./my_script_location", script="my_training_script.py")
+src = ScriptRunConfig(source_directory='./my_script_location', script='my_training_script.py')
 
-src.run_config.target = "my-remote-compute-compute"
+src.run_config.target = 'my-remote-compute-compute'
 src.run_config.environment = mlflow_env
 ```
 
@@ -121,10 +121,10 @@ In your training script, import `mlflow` to use the MLflow logging APIs, and sta
 import mlflow
 
 with mlflow.start_run():
-    mlflow.log_metric("example", 1.23)
+    mlflow.log_metric('example', 1.23)
 ```
 
-With this compute and training run configuration, use the `Experiment.submit("train.py")` method to submit a run. This automatically sets the MLflow tracking URI and directs the logging from MLflow to your Workspace.
+With this compute and training run configuration, use the `Experiment.submit('train.py')` method to submit a run. This automatically sets the MLflow tracking URI and directs the logging from MLflow to your Workspace.
 
 ```Python
 run = exp.submit(src)
@@ -160,18 +160,18 @@ import azureml.core
 from azureml.core import Workspace
 from azureml.mlflow import get_portal_url
 
-subscription_id = "subscription_id"
+subscription_id = 'subscription_id'
 
 # Azure Machine Learning resource group NOT the managed resource group
-resource_group = "resource_group_name" 
+resource_group = 'resource_group_name' 
 
 #Azure Machine Learning workspace name, NOT Azure Databricks workspace
-workspace_name = "workspace_name"  
+workspace_name = 'workspace_name'  
 
 # Instantiate Azure Machine Learning workspace
-ws = Workspace.get(name = workspace_name,
-                   subscription_id = subscription_id,
-                   resource_group = resource_group)
+ws = Workspace.get(name=workspace_name,
+                   subscription_id=subscription_id,
+                   resource_group=resource_group)
 
 ```
 #### Set MLflow tracking URI
@@ -186,7 +186,7 @@ In your training script, import mlflow to use the MLflow logging APIs, and start
 
 ```python
 import mlflow 
-mlflow.log_metric("epoch_loss", loss.item()) 
+mlflow.log_metric('epoch_loss', loss.item()) 
 ```
 
 ## View metrics and artifacts in your workspace
@@ -223,13 +223,13 @@ To retrieve the desired run we need the run ID and the path in run history of wh
 
 ```python
 # gets the list of runs for your experiment as an array
-experiment_name = "experiment-with-mlflow"
+experiment_name = 'experiment-with-mlflow'
 exp = ws.experiments[experiment_name]
 runs = list(exp.get_runs())
 
 # get the run ID and the path in run history
 runid = runs[0].id
-model_save_path = "model"
+model_save_path = 'model'
 ```
 
 ### Create Docker image
@@ -241,7 +241,7 @@ In the following code, we build a docker image using *runs:/<run.id>/model* as t
 ```python
 import mlflow.azureml
 
-azure_image, azure_model = mlflow.azureml.build_image(model_uri="runs:/{}/{}".format(runid, model_save_path),
+azure_image, azure_model = mlflow.azureml.build_image(model_uri='runs:/{}/{}'.format(runid, model_save_path),
                                                       workspace=ws,
                                                       model_name='sklearn-model',
                                                       image_name='sklearn-image',
@@ -265,7 +265,7 @@ from azureml.core.webservice import AciWebservice, Webservice
 # Configure 
 aci_config = AciWebservice.deploy_configuration(cpu_cores=1, 
                                                 memory_gb=1, 
-                                                tags={"method" : "sklearn"}, 
+                                                tags={'method' : 'sklearn'}, 
                                                 description='Diabetes model',
                                                 location='eastus2')
 ```
@@ -275,7 +275,7 @@ Then, deploy the image using Azure Machine Learning SDK's [deploy_from_image()](
 ```python
 webservice = Webservice.deploy_from_image( image=azure_image, 
                                            workspace=ws, 
-                                           name="diabetes-model-1", 
+                                           name='diabetes-model-1', 
                                            deployment_config=aci_config)
 
 webservice.wait_for_deployment(show_output=True)
@@ -290,7 +290,7 @@ To get the image from the previous ACI deployment we use the [Image](https://doc
 from azureml.core.image import Image
 
 # Get the image by name, you can change this based on the image you want to deploy
-myimage = Image(workspace=ws, name="sklearn-image") 
+myimage = Image(workspace=ws, name='sklearn-image') 
 ```
 
 Create AKS compute it may take 20-25 minutes to create a new cluster
@@ -304,9 +304,9 @@ prov_config = AksCompute.provisioning_configuration()
 aks_name = 'aks-mlflow' 
 
 # Create the cluster
-aks_target = ComputeTarget.create(workspace = ws, 
-                                  name = aks_name, 
-                                  provisioning_configuration = prov_config)
+aks_target = ComputeTarget.create(workspace=ws, 
+                                  name=aks_name, 
+                                  provisioning_configuration=prov_config)
 
 aks_target.wait_for_completion(show_output = True)
 
@@ -319,10 +319,10 @@ Set up your deployment configuration with the [deploy_configuration()](https://d
 from azureml.core.webservice import Webservice, AksWebservice
 from azureml.core.image import ContainerImage
 
-#Set the web service configuration (using default here with app insights)
+# Set the web service configuration (using default here with app insights)
 aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
 
-#unique service name
+# Unique service name
 service_name ='aks-service'
 ```
 
