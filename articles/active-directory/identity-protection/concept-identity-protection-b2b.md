@@ -1,6 +1,6 @@
 ---
 title: Identity Protection and B2B users - Azure Active Directory
-description: 
+description: Using Identity Protection with B2B users how it works and known limitations
 
 services: active-directory
 ms.service: active-directory
