@@ -45,7 +45,7 @@ For more information see [Syslog data sources in Azure Monitor](../azure-monitor
 2. If your Linux machine is within Azure, select **Download and install agent on Azure Linux virtual machine**. In the Virtual machines window, select the machines on which you want to install the agent and click **Connect** at the top.
 1. If your Linux machine not within Azure, select **Download and install agent on Linux non-Azure machine**. In the **Direct agent** window, copy the command under **Download and onboard agent for Linux** and run it on your machine. 
 1. Under **Configure the logs to be connected** in the Syslog connector setup window, follow the instructions:
-    1. Click the link to **Open your worksapce advanced settings configuration**. 
+    1. Click the link to **Open your workspace advanced settings configuration**. 
     1. Select **Data**, followed by **Syslog**.
     1. Then, in the table set which facilities you want Syslog to collect. You should either add or select the facilities that your Syslog appliance includes in its log headers. You can see this configuration in your Syslog appliance in Syslog-d in the folder: /etc/rsyslog.d/security-config-omsagent.conf, and in r-Syslog under /etc/syslog-ng/security-config-omsagent.conf. 
        > [!NOTE]
