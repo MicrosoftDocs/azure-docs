@@ -15,6 +15,8 @@ This article lists the Windows Virtual Desktop's partners in alphabetical order.
 
 ## Active Cypher
 
+![Active Cypher Logo](./media/partners/activecypher.png)
+
 Active Cypher is a Windows Virtual Desktop value-added services provider that equips IT with encryption technology to help protect the enterprise from breaches and data loss. With Active Cypher, innovative encryption technology supports the overall file protection strategy to run Windows Virtual Desktop on Azure.
 
 When used with Windows Virtual Desktop, Active Cypher provides additional capabilities to enable accessibility and mobility of user data while preventing inadvertent data loss. With Active Cypher, existing group security policies and permissions in Azure Information Protection can be leveraged to encrypt user files while using Windows Virtual Desktop.
@@ -22,6 +24,8 @@ When used with Windows Virtual Desktop, Active Cypher provides additional capabi
 [Go to partner website.](https://activecypher.com/)
 
 ## CloudJumper
+
+![CloudJumper Logo](./media/partners/cloudjumper.png)
 
 CloudJumper is a Windows Virtual Desktop value-added services provider that equips solution providers and enterprise IT with software to holistically provision and manage Windows Virtual Desktop environments. With CloudJumper software, IT can manage every layer of a Windows Virtual Desktop deployment. Delivery of workloads and applications is automated, ensuring that users can quickly access their desktop anywhere on any device.
 
@@ -31,6 +35,8 @@ CloudJumper’s software, Cloud Workspace Management Suite extends the value of 
 
 ## Lakeside Software
 
+![Lakeside Software Logo](./media/partners/lakeside.png)
+
 Lakeside Software is a Windows Virtual Desktop value-added services provider that equips IT teams with software for monitoring performance and assessing Azure migration readiness of user workloads. With this software, IT gains clearer visibility into application usage and resource consumption to streamline the migration process. Lakeside Software collects data at every workspace to create a comprehensive report on user environments, enabling quick troubleshooting and optimization of assets.
 
 Lakeside Software’s digital experience monitoring solution, SysTrack, can help provide a great user experience by tracking performance and identifying ideal workloads for migration. SysTrack works to extend the value of Windows Virtual Desktop through right-sizing assessments and continuous monitoring of user environments.
@@ -39,6 +45,8 @@ Lakeside Software’s digital experience monitoring solution, SysTrack, can help
 
 ## Liquidware
 
+![Liquidware Logo](./media/partners/liquidware.png)
+
 Liquidware is a Windows Virtual Desktop value-added services provider that delivers software that manages and optimizes Windows Virtual Desktop deployment. The Liquidware Essentials suite provides application delivery through layering, user environment management, and key user experience visibility and diagnostics. With solutions for assessing migration readiness and analyzing usage metrics, Liquidware provides a seamless virtual desktop experience for end users.
 
 Liquidware Essentials extends the value of Windows Virtual Desktop by efficiently harvesting user profiles and gathering key user data to streamline migration of user environments to Azure. Additionally, Liquidware Essentials simplifies image management by unifying user profiles and layering apps based on configurable rights management settings.
@@ -46,6 +54,8 @@ Liquidware Essentials extends the value of Windows Virtual Desktop by efficientl
 [Go to partner website.](https://www.liquidware.com/solutions/solutions-platform/microsoft)
 
 ## Nerdio
+
+![Nerdio Logo](./media/partners/nerdio.png)
 
 Nerdio is an Azure IT automation platform that makes it easy to deploy and manage Windows Virtual Desktop. Nerdio provides the knowledge and technology to deploy, price, package, manage, and optimize customers’ Azure deployments—with Windows Virtual Desktop front-and-center.
 
@@ -62,6 +72,8 @@ ThinPrint’s ezeep solution extends the value of Windows Virtual Desktop by ena
 [Go to partner website.](http://www.ezeep.com/wvd-printing)
 
 ## Workspot
+
+![Workspot Logo](./media/partners/workspot.png)
 
 Workspot is a Windows Virtual Desktop value-added services provider that equips enterprises with high-performance desktops and workstations in Azure. With Workspot, infrastructure provisioning is automated, which means users can access their Windows Virtual Desktop environment from anywhere around the world with high availability.
 
