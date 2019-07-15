@@ -27,39 +27,39 @@ Follow the instructions below to create a support request via Azure's 'Help + Su
 
 1. From https://portal.azure.com, select **Help + Support**.
 
-![Help + Support](./media/resource-manager-core-quotas-request/helpsupport.png)
+   ![Help + Support](./media/resource-manager-core-quotas-request/helpsupport.png)
  
 2.  Select **New support request**. 
 
-![New support request](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+   ![New support request](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
 3. In the Issue type dropdown, choose **Service and subscription limits (quotas)**.
 
-![Issue type dropdown](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+   ![Issue type dropdown](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
 
 4. Select the subscription that needs an increased quota.
 
-![Select subscription newSR](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
+   ![Select subscription newSR](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
    
 5. Select **Compute -VM (cores-vCPUs) subscription  limit increases** in **quota type** dropdown. 
 
-![Select quota type](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![Select quota type](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
 6. In **Problem Details**, provide additional information to help process your request by clicking **Provide details**.
 
-![Provide details](./media/resource-manager-core-quotas-request/provide-details.png)
+   ![Provide details](./media/resource-manager-core-quotas-request/provide-details.png)
 
 7. In the **Quota details** panel, select Deployment model and select a location.
 
-![Quota Details DM](./media/resource-manager-core-quotas-request/quota-details.png)
+   ![Quota Details DM](./media/resource-manager-core-quotas-request/quota-details.png)
 
 8. Select the **SKU families** that require an increase. 
 
-![SKU Family](./media/resource-manager-core-quotas-request/sku-family.png)
+   ![SKU Family](./media/resource-manager-core-quotas-request/sku-family.png)
 
 9. Enter the new limits you would like on the subscription. To remove a line, uncheck the SKU from the SKU family dropdown or click the discard "x" icon. After entering the desired quota for each SKU family, click **Save and Continue** on the Quota details panel to continue with the support request creation.
 
-![New Limits](./media/resource-manager-core-quotas-request/new-limits.png)
+   ![New Limits](./media/resource-manager-core-quotas-request/new-limits.png)
 
 
 ## Request per VM Series vCPU quota increase at subscription level using **Usages + Quota** blade
@@ -68,33 +68,33 @@ Follow the instructions below using to create a support request via Azure's 'Usa
 
 1. From https://portal.azure.com, select **Subscriptions**.
 
-![Subscriptions](./media/resource-manager-core-quotas-request/subscriptions.png)
+   ![Subscriptions](./media/resource-manager-core-quotas-request/subscriptions.png)
 
 2. Select the subscription that needs an increased quota.
 
-![Select subscription](./media/resource-manager-core-quotas-request/select-subscription.png)
+   ![Select subscription](./media/resource-manager-core-quotas-request/select-subscription.png)
 
 3. Select **Usage + quotas**
 
-![Select usage and quotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+   ![Select usage and quotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
 
 4. In the upper right corner, select **Request increase**.
 
-![Request increase](./media/resource-manager-core-quotas-request/request-increase.png)
+   ![Request increase](./media/resource-manager-core-quotas-request/request-increase.png)
 
 5. Select **Compute-VM (cores-vCPUs) subscription limit increases** as the quote type. 
 
-![Fill in form](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![Fill in form](./media/resource-manager-core-quotas-request/select-quota-type.png)
    
 6. In the **Quota details** panel, select Deployment model and select a location.
 
-![Quota Problem blade](./media/resource-manager-core-quotas-request/quota-details.png)
+   ![Quota Problem blade](./media/resource-manager-core-quotas-request/quota-details.png)
 
 7. Select the **SKU Families** that require an increase.
 
-![SKU series selected](./media/resource-manager-core-quotas-request/sku-family.png)
+   ![SKU series selected](./media/resource-manager-core-quotas-request/sku-family.png)
 
 8. Enter the new limits you would like on the subscription. To remove a line, uncheck the SKU from the SKU family dropdown or click the discard "x" icon. After entering the desired quota for each SKU family, click **Save and Continue** on the Problem step page to continue with the support request creation.
 
-![SKU new quota request](./media/resource-manager-core-quotas-request/new-limits.png)
+   ![SKU new quota request](./media/resource-manager-core-quotas-request/new-limits.png)
  
