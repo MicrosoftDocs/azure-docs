@@ -19,9 +19,9 @@ Blobs in Azure Storage are organized into containers. Before you can upload a bl
 
 A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:
 
-1. Container names can be between 3 and 63 characters long.
-1. Container names must start with a letter or number, and can contain only lowercase letters, numbers, and the dash (-) character.
-1. Two or more consecutive dash characters are not permitted in container names.
+- Container names can be between 3 and 63 characters long.
+- Container names must start with a letter or number, and can contain only lowercase letters, numbers, and the dash (-) character.
+- Two or more consecutive dash characters are not permitted in container names.
 
 The URI for a container is in this format:
 
