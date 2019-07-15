@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 07/15/2019
 ms.author: aahi
 ---
 
@@ -21,9 +21,21 @@ Use this quickstart to begin searching for news with the Bing Video Search SDK f
 
 - [Node.js](https://www.nodejs.org/)
 
-To set up a console application using the Bing Video Search SDK:
-* Run `npm install ms-rest-azure` in your development environment.
-* Run `npm install azure-cognitiveservices-videosearch` in your development environment.
+To set up an application using the Bing Video Search SDK:
+
+1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
+
+    ```console
+    mkdir myapp && cd myapp
+    ```
+
+2. Run the following commands to create a node application with a package.json file.
+
+```console
+npm init
+npm install ms-rest-azure
+npm install azure-cognitiveservices-videosearch
+```
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
