@@ -18,7 +18,7 @@ The size and VM SKU of the data management cluster is fully managed by the Azure
 The VM SKU for the engine cluster can be changed anytime by [scaling up the cluster](manage-cluster-vertical-scaling.md). Therefore, it's best to start with the minimal SKU size that fits the initial scenario. Keep in mind that scaling up the cluster results in downtime of up to 30 minutes while the cluster is re-created with the new VM SKU.
 
 > [!TIP]
-> Compute [RI (reserved instances)](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepay-reserved-vm-instances) is applicable for Azure Data Explorer cluster.  
+> Compute [RI (reserved instances)](https://docs.microsoft.com/azure/virtual-machines/windows/prepay-reserved-vm-instances) is applicable for Azure Data Explorer cluster.  
 
 This article describes the different VM SKU options and provides the technical details that can help you make the optimal choice.
 
@@ -26,19 +26,19 @@ This article describes the different VM SKU options and provides the technical d
 
 Azure Data Explorer offers two types of clusters:
 
-* **Production**: Production clusters contain two nodes for engine and data management clusters and are operated under the Azure Data Explorer [SLA](https://azure.microsoft.com/en-us/support/legal/sla/data-explorer/v1_0/).
+* **Production**: Production clusters contain two nodes for engine and data management clusters and are operated under the Azure Data Explorer [SLA](https://azure.microsoft.com/support/legal/sla/data-explorer/v1_0/).
 
 * **Dev/Test (no SLA)**: Dev/Test clusters have a single D11_v2 node for the engine cluster and a single D1 node for the data management cluster. This cluster type is the lowest cost configuration because of the low instance count and no engine markup charge. There's no SLA for this cluster configuration because it lacks redundancy.
 
 ## SKU types
 
-when creating an Azure Data Explorer cluster, select the *optimal* VM SKU for the planned workload. Azure Data Explorer has two SKU families from which to choose:
+When creating an Azure Data Explorer cluster, select the *optimal* VM SKU for the planned workload. Azure Data Explorer has two SKU families from which to choose:
 
-* **D_V2** - The **D** SKU is compute optimized. It is provided in two flavors:
+* **D_V2**: The **D** SKU is compute optimized and provided in two flavors.
     * VM itself
     * VM bundled with premium storage disks
 
-* **LS** - The **L** SKU is storage optimized. It has a much greater SSD size than the similar priced **D** SKU.
+* **LS**: The **L** SKU is storage optimized. It has a much greater SSD size than the similar priced **D** SKU.
 
 The following table provides the key differences between the available SKU types:
  
