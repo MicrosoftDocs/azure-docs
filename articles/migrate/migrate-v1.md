@@ -23,8 +23,11 @@ There are two versions of the Azure Migrate service:
     - We recommend that you don't perform new discoveries.
     - You can still access existing projects.
     - You can still run assessments.
+    
 
+## Upgrade between versions
 
+You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](how-to-add-tool-first-time.md), and add assessment and migration tools to it.
 
 ## Find projects from previous version
 
