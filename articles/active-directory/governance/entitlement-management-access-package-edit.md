@@ -60,7 +60,7 @@ You can have entitlement management automatically add users to a group when they
 You can select any Office 365 group or Azure AD security group.  Administrators can add any group to a catalog; catalog owners can add any group to the catalog if they are owner of the group. Keep the following Azure AD constraints in mind when selecting a group:
 
 - When a user, including a guest, is added as a member to a group, they can see all the other members of that group.
-- Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect.  
+- Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect, or that was created in Exchange Online as a distribution group.  
 - The membership of dynamic groups cannot be updated by adding or removing a member, so dynamic group memberships are not suitable for use with entitlement management.
 
 1. On the **Add resource roles to access package** page, click **Groups** to open the Select groups pane.
