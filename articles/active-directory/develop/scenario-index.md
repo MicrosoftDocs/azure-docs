@@ -32,7 +32,7 @@ However there are also scenarios (daemon apps), where applications will acquire 
 
 The security tokens can be acquired from a number of application types. Applications tend to be separated into three categories:
 
-- **Single page applications** (SPA) are a form of Web applications where tokens are acquired from the app running in the browser (written in JavaScript or Typescript). MSAL.js is the only Microsoft authentication library supporting Single Page applications.
+- **Single page applications** (SPA) are a form of Web applications where tokens are acquired from the app running in the browser (written in JavaScript or Typescript). Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, the app is written by using a framework like Angular, React, or Vue. MSAL.js is the only Microsoft authentication library supporting Single Page applications.
 
   ![SPA](media/scenarios/spa-app.svg)
 
@@ -108,16 +108,16 @@ Some scenarios, involving conditional access related to the device ID, or a devi
 
 See [Mobile app that calls web APIs](scenario-mobile-overview.md) for details
 
+### Protected Web API
+
+You can use the Microsoft identity platform endpoint to secure web services, such as your app's RESTful Web API. A protected Web API is called with an access token to secure its data and to authenticate incoming requests. The caller of a Web API appends an access token in the authorization header of an HTTP request. If you want to protect you ASP.NET or ASP.NET Core Web API, you will need to validate the access token. For this, you'll use the ASP.NET JWT middleware. Under the hood, the validation is done by the [IdentityModel extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) library, not MSAL.NET
+
+See [Protected Web API](scenario-protected-web-api-overview.md) for details
+
 ### Web API calling another downstream Web API on behalf of the user for whom it was called
 
-A protected Web API is called with an access token. If you want your ASP.NET or ASP.NET Core protected Web API to call another Web API on behalf of the user you will need to:
-
-- validate the token. For this, you'll use the ASP.NET JWT middleware. Under the hood. This also involves validating the token that is done by the [IdentityModel extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) library, not MSAL.NET
-
-  See [Protected Web API](scenario-protected-web-api-overview.md) for details
-
-- then you'll need to acquire a token for the downstream Web API by using the ConfidentialClientApplication's method Acquiring a token on [behalf of a user](https://aka.ms/msal-net-on-behalf-of) in Service to Services calls.
-- Web APIs calling other web API will also need to provide a custom cache serialization
+If, moreover, you want your ASP.NET or ASP.NET Core protected Web API to call another Web API on behalf of the user, the app will need to acquire a token for the downstream Web API by using the ConfidentialClientApplication's method Acquiring a token on [behalf of a user](https://aka.ms/msal-net-on-behalf-of). This is also named service to services calls.
+The Web APIs calling other web API will also need to provide a custom cache serialization
 
   ![Web API](media/scenarios/web-api.svg)
 
@@ -125,7 +125,8 @@ See [Web API that calls web APIs](scenario-web-api-call-api-overview.md) for det
 
 ### Desktop/service or Web daemon application calling Web API without a user (in its own name)
 
-You can write a daemon app acquiring a token for the app on top using MSAL's ConfidentialClientApplication's [client credentials](https://aka.ms/msal-net-client-credentials) acquisition methods. These suppose that the app has previously registered a secret (application password or certificate or client assertion) with Azure AD, which it then shares with this call.
+Apps that have long-running processes or that operate without interaction with a user also need a way to access secured Web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity. They prove their identity using a client secret or certificate.
+You can write such apps (daemon app) acquiring a token for the app on top using MSAL's ConfidentialClientApplication's [client credentials](https://aka.ms/msal-net-client-credentials) acquisition methods. These suppose that the app has previously registered a secret (application password or certificate or client assertion) with Azure AD, which it then shares with this call.
 
 ![Daemon app](media/scenarios/daemon-app.svg)
 
