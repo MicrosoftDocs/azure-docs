@@ -19,10 +19,10 @@ There are two versions of the Azure Migrate service:
 
 - **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. [Learn more](whats-new.md) about what's new in this version.
 - **Previous version (v1)**: If you were using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. If you still need to use Azure Migrate projects you previously created with v1, this is what you can and can't do:
-- You can no longer create Azure Migrate projects using v1.
-- You can't perform new discoveries with v1.
-- You can still access existing projects.
-- You can still run assessments on previously discovered VMware VMs.
+ - You can no longer create Azure Migrate projects using v1.
+ - You can't perform new discoveries with v1.
+ - You can still access existing projects.
+ - You can still run assessments on previously discovered VMware VMs.
 
 
 
@@ -35,7 +35,7 @@ Find v1 projects as follows:
 3. Click the link to open v1 projects.
 
 
-## Create and view assessments
+## Create an assessment
 
 After VMs are discovered in the portal, you group them and create assessments.
 
@@ -169,17 +169,6 @@ An assessment might not have all the data points available due to a number of re
 
 > [!NOTE]
 > If the confidence rating of any assessment is below five-stars, wait for at least a day for the appliance to profile the environment, and then recalculate the assessment. If you don't performance-based sizing might not be reliable. If you don't want to recalculate, we recommended switching to as on-premises sizing, by changing the assessment properties.
-
-
-
-
-## Next steps
-
-- [Learn](how-to-modify-assessment.md) how to customize an assessment based on your requirements.
-- Learn how to create high-confidence assessment groups using [machine dependency mapping](how-to-create-group-machine-dependencies.md)
-- [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
-- [Learn](how-to-scale-assessment.md) how to discover and assess a large VMware environment.
-- [Learn more](resources-faq.md) about the FAQs on Azure Migrate
 
 
 
