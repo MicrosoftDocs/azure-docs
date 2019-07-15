@@ -102,7 +102,7 @@ connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
 var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
 ```
 
-### Python SDK
+## Python SDK
 
 The following code shows how to set preferred locations by using the Python SDK:
 
@@ -114,7 +114,7 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
 ```
 
-### Java V2 SDK
+## Java V2 SDK
 
 The following code shows how to set preferred locations by using the Java SDK:
 
