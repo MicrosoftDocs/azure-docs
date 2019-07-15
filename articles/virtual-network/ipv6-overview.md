@@ -10,7 +10,7 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/11/2019
+ms.date: 07/15/2019
 ms.author: kumud
 ---
 
@@ -46,8 +46,8 @@ IPv6 for VNet includes the following capabilities:
 - Protect your resources with IPv6 rules for Network Security Groups
 - Customize the routing of IPv6 traffic in your virtual network with User-Defined Routes- especially when leveraging Network Virtual Appliances to augment your application.
 - Let Internet clients seamlessly access your dual stack application using their protocol of choice with Azure DNS support for IPv6 (AAAA) records. 
-- Standard IPv6 support to create resilient, scalable applications that includes Azure DNS support for AAAA records for IPv6 public IPs. Standard IPv6 external Load Balancer includes:
-    - Optional IPv6 health probe to determine which backend pool instances are health and thus can receive new flows.   .  
+- Standard IPv6 Public Load Balancer support to create resilient, scalable applications which includes:
+    - Optional IPv6 health probe to determine which backend pool instances are health and thus can receive new flows. .  
     - Optional outbound rules which provide full declarative control over outbound connectivity to scale and tune this ability to your specific needs.
     - Optional multiple front-end configurations which enable a single load balancer to use multiple IPv6 public IP addresses- the same frontend protocol and port can be reused across frontend addresses.
 - Instance-level public IP provides IPv6 Internet connectivity directly to individual VMs.
@@ -64,7 +64,7 @@ The preview release of IPv6 for Azure virtual network has the following limitati
 - When using Standard IPv6 External Load Balancer, the following limits apply: 
   - Outbound rules can reference multiple front-end public IPs but may **not** reference an IPv6 public prefix. IP public prefix supports only IPv4 prefixes.
   - IPv6 load-balancing rules may **not** use the *Floating IP* feature. Port reuse on backend instances is supported only with IPv4.
-
+- Reserving a block of Internet-facing IPv6 addresses is not supported by the Azure Public IP Address Prefix feature.
 
 ## Pricing
 
