@@ -19,7 +19,7 @@ There are two versions of the Azure Migrate service:
 
 - **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. [Learn more](whats-new.md) about what's new in this version.
 - **Previous version (v1)**: If you were using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. If you still need to use Azure Migrate projects you previously created with v1, this is what you can and can't do:
- - You can no longer create Azure Migrate projects using v1.
+   - You can no longer create Azure Migrate projects using v1.
  - You can't perform new discoveries with v1.
  - You can still access existing projects.
  - You can still run assessments on previously discovered VMware VMs.
@@ -150,13 +150,13 @@ For performance-based sizing, Azure Migrate needs the following:
 
 Depending on the percentage of data points available, the possible confidence ratings are summarized in the table.
 
-   **Availability of data points** | **Confidence rating**
-   --- | ---
-   0%-20% | 1 Star
-   21%-40% | 2 Star
-   41%-60% | 3 Star
-   61%-80% | 4 Star
-   81%-100% | 5 Star
+**Availability of data points** | **Confidence rating**
+--- | ---
+0%-20% | 1 Star
+21%-40% | 2 Star
+41%-60% | 3 Star
+61%-80% | 4 Star
+81%-100% | 5 Star
 
 
 #### Assessment issues affecting confidence ratings
