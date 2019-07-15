@@ -5,7 +5,7 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 037/11/2019
+ms.date: 07/11/2019
 ms.author: ellacroi
 ---
 
@@ -194,7 +194,7 @@ Since the add-on is associated to the Azure Virtual Machine (VM), to cancel the 
 
 Enterprise Agreement customers, for the specific services outlined, first have available monetary commitment funds reduced by the total cost for these services in the month they are consumed. All Azure Marketplace offers that do not deduct from monetary commitment, are billed monthly in arrears. Annual SaaS subscriptions are billed once for a full year's services.
 
-MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (web direct) customers are charged monthly against the same credit card that is on file for their Azure subscription profile. Annual SaaS subscriptions are billed once for a full year's services.
+MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/) (web direct) customers are charged monthly against the same credit card that is on file for their Azure subscription profile. Annual SaaS subscriptions are billed once for a full year's services.
 
 **How can I move my Azure Marketplace purchases from my MOSP subscription to my direct Enterprise Agreement (EA) subscription?**
 
@@ -302,7 +302,7 @@ For more information, and to get started enabling a trial with AAD, visit the [A
 
 To get started, publishers should verify that a [Dev Center account](deprecated/register-dev-center.md) has not already been registered (to prevent duplication). Once confirmed, the next step is to register by [signing in](https://account.microsoft.com/account/) with a Microsoft account, which will be associated with the developer account.
 
-If you don't already have a Microsoft account, you can [create an account](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (for example: contoso_marketplace@live.com).
+If you don't already have a Microsoft account, you can [create an account](https://signup.live.com/) (for example: contoso_marketplace@live.com).
 
 **Why is Dev Center account required?**
 
@@ -401,7 +401,7 @@ For billing and subscription issues with your Azure Marketplace purchase, contac
 
 **Who do I contact with publishing or offer management questions?**
 
-Visit the [Azure Marketplace Publisher Guide](marketplace-publishers-guide.md) for up-to-date resource and documentations on frequently asked questions. Additionally, you can log a ticket with [Microsoft Support in the Cloud Partner Portal](https://support.microsoft.com/en-us/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
+Visit the [Azure Marketplace Publisher Guide](marketplace-publishers-guide.md) for up-to-date resource and documentations on frequently asked questions. Additionally, you can log a ticket with [Microsoft Support in the Cloud Partner Portal](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
 
 ### Azure Marketplace for publishers
 
@@ -444,6 +444,5 @@ A Free Tier subscription offering is perpetually free.  A Free Software Trial (T
 
 Visit the [Azure Marketplace and AppSource Publisher guide](/azure/marketplace/marketplace-publishers-guide) page.
 
----
 
 [Azure portal]: https://portal.azure.com
