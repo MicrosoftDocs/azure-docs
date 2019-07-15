@@ -34,7 +34,7 @@ The goal of this article is to provide you with a basis for 1) the actions that 
 
 The basic network interconnectivity that is established at the time of a private cloud deployment is shown in Figure 1. It depicts the logical networking between a VNet in Azure and an AVS by Virtustream private cloud. The connectivity is across the Azure backbone network, uses ExpressRoute, and fulfills three of the primary use cases:
 - Inbound access to management networks where vCenter server and NSX-T manager reside.
-    - Accessible via VM's within your Azure subscription.  Not your on-prem systems.
+    - Accessible via VMs within your Azure subscription, not from your on-premises systems.
 - Outbound access to Azure services by production VM workloads.
 - Inbound access and consumption of workloads running in the SDDC.
 
