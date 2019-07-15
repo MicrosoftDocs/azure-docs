@@ -57,7 +57,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 ### Identity Providers, Tokens, Protocols
 
 | Feature | Development | Preview | GA | Notes |
-|-------- | ----------- | ------- | -- | ----- |
+|-------- | :-----------: | :-------: | :--: | ----- |
 | IDP-OpenIDConnect |  |  | X | For example, Google+.  |
 | IDP-OAUTH2 |  |  | X | For example, Facebook.  |
 | IDP-OAUTH1 (twitter) |  | X |  | For example, Twitter. |
@@ -74,7 +74,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 ### Component Support
 
 | Feature | Development | Preview | GA | Notes |
-| ------- | ----------- | ------- | -- | ----- |
+| ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Multi Factor Authentication |  |  | X |  |
 | Azure Active Directory as local directory |  |  | X |  |
 | Azure Email subsystem for email verification |  |  | X |  |
@@ -85,7 +85,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 ### Content Definition
 
 | Feature | Development | Preview | GA | Notes |
-| ------- | ----------- | ------- | -- | ----- |
+| ------- | :-----------: | :-------: | :--: | ----- |
 | Error page, api.error |  |  | X |  |
 | IDP selection page, api.idpselections |  |  | X |  |
 | IDP selection for signup, api.idpselections.signup |  |  | X |  |
@@ -101,7 +101,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 ### App-IEF integration
 
 | Feature | Development | Preview | GA | Notes |
-| ------- | ----------- | ------- | -- | ----- |
+| ------- | :-----------: | :-------: | :--: | ----- |
 | Query string parameter domain_hint |  |  | X | Available as claim, can be passed to IDP. |
 | Query string parameter login_hint |  |  | X | Available as claim, can be passed to IDP. |
 | Insert JSON into UserJourney via client_assertion | X |  |  | Will be deprecated. |
@@ -111,7 +111,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 ### Session Management
 
 | Feature | Development | Preview | GA | Notes |
-| ------- | ----------- | ------- | -- | ----- |
+| ------- | :-----------: | :-------: | :--: | ----- |
 | SSO Session Provider |  |  | X |  |
 | External Login Session Provider |  |  | X |  |
 | SAML SSO  Session Provider |  |  | X |  |
@@ -120,7 +120,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 ### Security
 
 | Feature | Development | Preview | GA | Notes |
-|-------- | ----------- | ------- | -- | ----- |
+|-------- | :-----------: | :-------: | :--: | ----- |
 | Policy Keys- Generate, Manual, Upload |  |  | X |  |
 | Policy Keys- RSA/Cert, Secrets |  |  | X |  |
 | Policy upload |  |  | X |  |
@@ -128,10 +128,11 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 ### Developer interface
 
 | Feature | Development | Preview | GA | Notes |
-| ------- | ----------- | ------- | -- | ----- |
+| ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Portal-IEF UX |  |  | X |  |
 | Application Insights UserJourney Logs |  | X |  | Used for troubleshooting during development.  |
 | Application Insights Event Logs (via orchestration steps) |  | X |  | Used to monitor user flows in production. |
 
 ## Next steps
-[Learn more about custom policies and the differences with user flows](active-directory-b2c-overview-custom.md).
+
+Learn more about [custom policies and the differences with user flows](active-directory-b2c-overview-custom.md).

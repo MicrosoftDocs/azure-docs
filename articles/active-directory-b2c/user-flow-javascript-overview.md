@@ -27,16 +27,20 @@ In the user flow properties, you can enable JavaScript, which also enforces the 
 
 ![User flow properties page with Enable JavaScript setting highlighted](media/user-flow-javascript-overview/javascript-settings.png)
 
-Whether or not you enable JavaScript in your user flow's properties, you can specify a page layout version for your user flow pages. Open the user flow and select **Page Layouts**. Under **Layout Name**, select a user flow page and choose the **Page Layout Version**.
+Whether or not you enable JavaScript in your user flow's properties, you can specify a page layout version for your user flow pages. Open the user flow and select **Page layouts**. Under **LAYOUT NAME**, select a user flow page and choose the **Page Layout Version**.
 
-![Page layout settings in portal showing page layout version dropdown](media/user-flow-javascript-overview/page-contract-version.png)
+For information about the different page layout versions, see the [Version change log](page-layout.md#version-change-log).
+
+![Page layout settings in portal showing page layout version dropdown](media/user-flow-javascript-overview/page-layout-version.png)
 
 ## Custom policies
 
 To enable JavaScript in custom policies, you add the **ScriptExecution** element to the **RelyingParty** element in your custom policy file. For more information, see [JavaScript samples for use in Azure Active Directory B2C](javascript-samples.md).
 
-Whether or not you enable JavaScript in your custom policies, you can specify a page layout version for your pages. For more information about specifying a page layout, see [Select a page layout in Azure Active Directory B2C using custom policies](page-contract.md).
+Whether or not you enable JavaScript in your custom policies, you can specify a page layout version for your pages. For more information about specifying a page layout, see [Select a page layout in Azure Active Directory B2C using custom policies](page-layout.md).
 
 ## Next steps
 
-See the [JavaScript samples for use in Azure Active Directory B2C](javascript-samples.md).
+For information about the different page layout versions, see the **Version change log** section of [Select a page layout in Azure Active Directory B2C using custom policies](page-layout.md#version-change-log).
+
+You can find examples of JavaScript usage in [JavaScript samples for use in Azure Active Directory B2C](javascript-samples.md).

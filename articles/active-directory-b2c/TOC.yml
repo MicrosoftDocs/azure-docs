@@ -143,7 +143,7 @@
       - name: Twitter
         href: active-directory-b2c-custom-setup-twitter-idp.md
     - name: Page layout
-      href: page-contract.md
+      href: page-layout.md
     - name: Password complexity
       href: active-directory-b2c-reference-password-complexity-custom.md
     - name: Password change

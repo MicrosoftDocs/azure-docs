@@ -117,7 +117,7 @@ If you are a single-page application developer using Node.js, set up your applic
 
 ### JavaScript
 
-You can add your own JavaScript client-side code to your applications in Azure AD B2C. To set up JavaScript in your application, you define a [page layout](page-contract.md) and enable [JavaScript](javascript-samples.md) in your user flows or custom policies.
+You can add your own JavaScript client-side code to your applications in Azure AD B2C. To set up JavaScript in your application, you define a [page layout](page-layout.md) and enable [JavaScript](javascript-samples.md) in your user flows or custom policies.
 
 ### User accounts
 
