@@ -212,14 +212,15 @@ If you have antivirus software installed on the server, add necessary exclusion 
 ### SalLowDiskSpace
 
 **Error message**:
-**Recommended action**:
 
+**Recommended action**:
 - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
 
 ### SalBitmapError
 
 **Error message**: Unable to find changes in a file. This could be due to various reasons. Please retry the operation
+
 **Recommended action**:
 - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
@@ -228,6 +229,7 @@ If you have antivirus software installed on the server, add necessary exclusion 
 ### CBPSourceSnapshotFailedReplicaMissingOrInvalid
 
 **Error message**: Backup failed because the disk-backup replica is either invalid or missing.
+
 **Recommended action**:
 1. Create a disk recovery point and try backup again.
 2. Run consistency check on datasource and try backup again.
@@ -236,6 +238,7 @@ If you have antivirus software installed on the server, add necessary exclusion 
 ### CBPSourceSnapshotFailedReplicaMetadataInvalid
 
 **Error message**: Source volume snapshot failed because metadata on replica is invalid.
+
 **Recommended action**:
 - Create a disk recovery point of this datasource
 - Retry online backup again.
@@ -243,12 +246,14 @@ If you have antivirus software installed on the server, add necessary exclusion 
 ### CBPSourceSnapshotFailedReplicaInconsistent
 
 **Error message**: Source volume snapshot failed due to inconsistent datasource replica.
+
 **Recommended action**:
 - Run a consistency check on this datasource and try again
 
 ### CBPSourceSnapshotFailedReplicaCloningIssue
 
 **Error message**: Backup failed as the disk-backup replica could not be cloned.
+
 **Recommended action**:
 - Ensure that all previous disk-backup replica files (.vhdx) are unmounted and no disk to disk backup is in progress during online backups
 
