@@ -1,0 +1,30 @@
+---
+title: Secure your cluster in Azure Data Explorer
+description: This article describes how to secure your cluster in Azure Data Explorer within the Azure portal.
+author: orspod
+ms.author: orspodek
+ms.reviewer: rkarlin
+ms.service: data-explorer
+ms.topic: conceptual
+ms.date: 07/15/2019
+---
+
+# Secure your cluster in Azure Data Explorer
+
+[Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) helps protect and safeguard your data to meet your organizational security and compliance commitments. It provides volume encryption for the OS and data disks of your cluster virtual machines. It is also integrated with [Azure Key Vault](/azure/key-vault/) to help you control and manage the disk encryption keys and secrets, and ensures that all data on the VM disks are encrypted at rest while in Azure Storage. 
+  
+## Enable Encryption at rest
+  
+Enabling [Encryption at rest](/azure/security/azure-security-encryption-atrest) on your cluster provides data protection for stored data (at rest). Your cluster security settings allow you to enable disk encryption on your cluster.
+
+1. In the Azure portal, go to your Azure Data Explorer cluster resource. Under the **Settings** heading, select **Security**. 
+
+![Turn on encryption at rest](media/manage-cluster-security/security-encryption-at-rest.png)
+
+1. In the **Security** window, Select **On** for the **Disk encryption** security setting. 
+
+1. Select **Save**
+
+## Next steps
+
+[Check cluster health](/azure/data-explorer/check-cluster-health)

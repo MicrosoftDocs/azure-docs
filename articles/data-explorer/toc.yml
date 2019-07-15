@@ -106,6 +106,8 @@
       href: manage-cluster-horizontal-scaling.md
     - name: Manage cluster vertical scaling
       href: manage-cluster-vertical-scaling.md
+    - name: Manage cluster security
+      href: manage-cluster-security.md
     - name: Delete data
       href: delete-data.md
     - name: Deal with duplicate data
