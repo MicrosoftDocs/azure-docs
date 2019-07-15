@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
-ms.author: v-livech
+ms.author: gwallace
 
 ---
 # Create a Linux VM using the Azure classic CLI
