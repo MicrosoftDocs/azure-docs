@@ -1,0 +1,47 @@
+- name: Azure Data Share Preview Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Data Share Preview?
+    href: overview.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: Share data
+      href: share-your-data.md
+    - name: Accept and receive data
+      href: subscribe-to-data-share.md
+- name: Concepts
+  items:
+  - name: Azure Data Share Terminology 
+    href: terminology.md
+  - name: Roles and requirements 
+    href: concepts-roles-permissions.md
+- name: How-to guides
+  items:
+  - name: Monitor
+    href: how-to-monitor.md
+  - name: Configure dataset mappings
+    href: how-to-configure-mapping.md
+  - name: Troubleshoot 
+    href: data-share-troubleshoot.md
+  - name: Add datasets
+    href: how-to-add-datasets.md
+  - name: Add recipients
+    href: how-to-add-recipients.md
+  - name: Delete an invitation
+    href: how-to-delete-invitation.md
+  - name: Revoke a share subscription
+    href: how-to-revoke-share-subscription.md
+- name: Resources
+  items:
+  - name: Blog
+    href: https://azure.microsoft.com/blog/announcing-preview-of-azure-data-share/
+  - name: Microsoft Tech Community
+    href: https://techcommunity.microsoft.com/
+  - name: Product feedback
+    href: https://feedback.azure.com/forums/922759-azure-data-share-public-preview
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=data-share

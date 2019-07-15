@@ -117,7 +117,7 @@ The sample supports sign-up, sign-in, profile editing, and password reset. This 
 
     Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes.
 
-    ![Sign-up workflow](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+    ![Sign-up page presented by the sign-in/sign-up user flow](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 1. Click **Create** to create a local account in the Azure AD B2C directory.
 
