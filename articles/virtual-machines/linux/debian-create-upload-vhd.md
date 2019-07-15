@@ -4,7 +4,7 @@ description: Learn how to create Debian VHD images for deployment in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
