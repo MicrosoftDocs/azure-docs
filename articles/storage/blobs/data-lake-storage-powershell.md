@@ -64,7 +64,8 @@ Pass in the storage account context and the name of the file system (container) 
 
 ```powershell
 $containerName = "mycontainer"
-$directory = New-AzStorageBlobDirectory -Context $ctx -Container $containerName
+$newDirectory = "my-directory"
+$directory = New-AzStorageBlobDirectory -Context $ctx -Container $containerName -Path $newDirectory
 ```
 
 ## Rename or move a directory
@@ -86,7 +87,7 @@ Delete a directory by using the `Remove-AzStorageBlobDirectory` cmdlet.
 
 ```powershell
 $containerName = "mycontainer"
-$directory = "my-directory"
+$directory = "my-new-directory"
 Remove-AzStorageBlobDirectory -Context $ctx -Container $containerName -Path $directory 
 ```
 
@@ -99,6 +100,7 @@ This example does blah.
 ```powershell
 $containerName = "mycontainer"
 $directory = "my-directory"
+$localSrcFile = "C:\help.txt"
 Set-AzStorageBlobContent -Context $ctx -File $localSrcFile -Container $containerName -Blob "$($directory)/text1.txt" -Force 
 ```
 
@@ -110,7 +112,8 @@ This example does blah.
 
 ```powershell
 $containerName = "mycontainer"
-Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath my-directory 
+$directoryName = "my-directory"
+Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath $directoryName 
 ```
 
 ## Get a file (blob) from a directory
@@ -121,7 +124,8 @@ This example does blah.
 
 ```powershell
 $containerName = "mycontainer"
-$blob = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath my-directory -BlobRelativePath myTextFile.txt
+$directoryName = "my-directory"
+$blob = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath $directoryName  -BlobRelativePath text1.txt
 $blob
 ```
 
@@ -144,7 +148,8 @@ This example does blah.
 
 ```powershell
 $containerName = "mycontainer"
-$blob = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath my-directory  -BlobRelativePath myTextFile.txt -FetchPermission
+$directoryName = "my-directory"
+$blob = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath $directoryName  -BlobRelativePath text1.txt -FetchPermission
 $blob
 ```
 
@@ -178,6 +183,7 @@ $acl = New-AzStorageBlobPathACL -AccessControlType group -Permission rwx -InputO
 $acl = New-AzStorageBlobPathACL -AccessControlType other -Permission "-w-" -InputObject $acl
 $blob = Set-AzStorageBlob -Context $ctx -Container $containerName -Path text.txt -ACL $acl
 $blob.ICloudBlob.PathProperties
+```
 
 ## Perform common tasks with your files (blobs)
 
