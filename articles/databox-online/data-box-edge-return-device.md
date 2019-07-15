@@ -114,7 +114,7 @@ To get a replacement device, you need to take the following steps:
     4. [Schedule a pickup](#schedule-a-pickup).
     5. [Delete the resource](#delete-the-resource) associated with the returned device.
 2. [Create a new resource](#create-a-new-resource) for the device. Make sure to select the check box against **I have a Data Box Edge device**. 
-3. [Install](data-box-edge-deploy-install.md) and [activate](data-box-edge-connect-setup-activate) the replacement device against the new resource.
+3. [Install](data-box-edge-deploy-install.md) and [activate](data-box-edge-connect-setup-activate.md) the replacement device against the new resource.
 
 
 ## Next steps
