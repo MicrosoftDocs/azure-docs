@@ -73,10 +73,8 @@ Different recovery methods offer different levels of RPO and RTO. You can choose
 > [!NOTE]
 > *Manual database failover* refers to failover of a single database to its geo-replicated secondary using the [unplanned mode](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
 See the table earlier in this article for details of the auto-failover RTO and RPO.
-
-
-> [NOTE]
-> Auto Failover Groups applies to multiple databases where Active Geo-Replication applies to an individual database.
+>
+> Auto-failover groups apply to multiple databases where active geo-replication applies to an individual database.
 
 Use auto-failover groups if your application meets any of these criteria:
 
