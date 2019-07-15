@@ -30,14 +30,14 @@ You can use the Azure Cloud Shell or a local installation of the Azure CLI to ru
 
 To build and push a container image using Cloud Native Buildpacks, run the [az acr pack build][az-acr-pack-build] command. Whereas the [az acr build][az-acr-build] command builds and pushes an image from a Dockerfile source and related code, with `az acr pack build` you specify an application source tree directly.
 
-At a minimum you specify the following when you run `az acr pack build`:
+At a minimum, specify the following when you run `az acr pack build`:
 
 * An Azure container registry where you run the command
 * An image name and tag for the command output
 * One of the [supported context locations](container-registry-tasks-overview.md#quick-task) for an ACR Task, such as a local directory, a GitHub repo, or a remote tarball
 * Optionally the name of a container image for a [supported builder](#supported-builders). By default, the command uses the Microsoft Oryx builder to compile source code into a runnable container image. 
 
-`az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables)and [task run logs](container-registry-tasks-overview.md#view-task-logs) that are streamed and saved for later inspection.
+`az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-overview.md#view-task-logs) that are streamed and saved for later inspection.
 
 ## Example: Build Node.js image with default builder
 
