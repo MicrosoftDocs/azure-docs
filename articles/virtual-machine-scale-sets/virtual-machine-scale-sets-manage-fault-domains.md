@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: rajraj
+ms.author: drewm
 
 ---
 # Choosing the right number of fault domains for virtual machine scale set
