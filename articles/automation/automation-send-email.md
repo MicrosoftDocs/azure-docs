@@ -123,7 +123,7 @@ it for different scenarios.
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
     Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Out-Null
     $VaultName = "<Enter your vault name>"
-    $SENDGRID_API_KEY = (Get-AzureKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey").SecretValueText
+    $SENDGRID_API_KEY = (Get-AzureRMKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey").SecretValueText
     $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
     $headers.Add("Authorization", "Bearer " + $SENDGRID_API_KEY)
     $headers.Add("Content-Type", "application/json")
@@ -180,6 +180,7 @@ az keyvault delete --name
 
 ## Next steps
 
+* For issues creating or starting your runbook, see [Troubleshoot errors with runbooks](./troubleshoot/runbooks.md).
 * For details about different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md).
 * To monitor runbook execution, see [Forward job status and job streams from Automation to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md).
 * To trigger a runbook using an alert, see [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md).
