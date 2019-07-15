@@ -1091,6 +1091,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/howto-sspr-windows-7-8.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-sspr-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/tutorial-sspr-windows.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-sspr-windows",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-sharing-accounts.md",
       "redirect_url": "/azure/active-directory/users-groups-roles/users-sharing-accounts",
       "redirect_document_id": true
@@ -1326,6 +1336,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/create-sql-api-dotnet-preview.md",
+      "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-python-application.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-python",
       "redirect_document_id": false
@@ -1554,6 +1569,26 @@
       "source_path": "articles/cosmos-db/regional-failover.md",
       "redirect_url": "/azure/cosmos-db/high-availability",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-dotnet-application-preview.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-dotnet-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-dotnet-get-started-preview.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-dotnet-core-get-started-preview.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/search/search-fiddler.md",
@@ -7325,15 +7360,15 @@
       "redirect_url": "/azure/active-directory/saas-apps/cisco-spark-tutorial",
       "redirect_document_id": true
     },
+	{
+      "source_path": "articles/active-directory/active-directory-saas-cisco-spark-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/active-directory/active-directory-saas-cisco-webex-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/cisco-webex-tutorial",
       "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/saas-apps/cisco-webex-provisioning-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
-      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-ciscocloud-tutorial.md",
@@ -16510,6 +16545,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/how-to-create-group-dependencies.md",
+      "redirect_url": "how-to-create-a-group#refine-a-group-with-dependency-mapping",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/concepts-collector.md",
       "redirect_url": "migrate-appliance",
       "redirect_document_id": false
@@ -20106,7 +20146,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-regions-and-availability.md",
-      "redirect_url": "/azure/virtual-machines/linux/regions-and-availability",
+      "redirect_url": "/azure/virtual-machines/linux/regions",
       "redirect_document_id": false
     },
     {
@@ -21506,7 +21546,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-regions-and-availability.md",
-      "redirect_url": "/azure/virtual-machines/windows/regions-and-availability",
+      "redirect_url": "/azure/virtual-machines/windows/regions",
       "redirect_document_id": false
     },
     {
@@ -33070,6 +33110,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/page-contract.md",
+      "redirect_url": "/azure/active-directory-b2c/page-layout",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
       "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
       "redirect_document_id": true
@@ -40123,13 +40168,13 @@
 
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
-      "redirect_url": "/azure/articles/data-explorer/manage-cluster-vertical-scaling",
+      "redirect_url": "/azure/data-explorer/manage-cluster-vertical-scaling",
       "redirect_document_id": false
     },
 
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-out.md",
-      "redirect_url": "/azure/articles/data-explorer/manage-cluster-horizontal-scaling",
+      "redirect_url": "/azure/data-explorer/manage-cluster-horizontal-scaling",
       "redirect_document_id": false
     },
     {
@@ -40146,6 +40191,21 @@
     {
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
       "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-report.md",
+      "redirect_url": "https://docs.microsoft.com/sql/reporting-services/report-server/reporting-services-report-server-native-mode?view=sql-server-2017",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-reportviewer.md",
+      "redirect_url": "https://docs.microsoft.com/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started?view=sql-server-2017",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi.md",
+      "redirect_url": "https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017",
       "redirect_document_id": false
     }
   ]
