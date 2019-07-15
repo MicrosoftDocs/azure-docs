@@ -140,7 +140,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 
 ### Update the AndroidManifest.xml file
 
-1. After you receive your FCM registration token, you use it to [register with Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). You support this registration in the background by using an `IntentService` named `RegistrationIntentService`. This service also refreshes your FCM registration token. You also create a class named `FirebaseService` as a subclass of the `FirebaseMessagingService` and handle notifications that are received. 
+1. After you receive your FCM registration token, you use it to [register with Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). You support this registration in the background by using an `IntentService` named `RegistrationIntentService`. This service also refreshes your FCM registration token. You also create a class named `FirebaseService` as a subclass of `FirebaseMessagingService` and override the `onMessageReceived` method to receive and handle notifications. 
 
     Add the following service definition to the AndroidManifest.xml file, inside the `<application>` tag.
 
