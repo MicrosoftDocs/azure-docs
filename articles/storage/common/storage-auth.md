@@ -16,10 +16,6 @@ ms.subservice: common
 
 Each time you access data in your storage account, your client makes a request over HTTP/HTTPS to Azure Storage. Every request to a secure resource must be authorized, so that the service ensures that the client has the permissions required to access the data. Azure Storage offers these options for authorizing access to secure resources:
 
-
-(start with storage acct key, then SAS, then AAD, then pub)
-
-
 |Auth Method  |Shared key (storage account key)  |Shared Access Signature (SAS)  |Azure Active Directory (AAD)  |Pub  |
 |---------|---------|---------|---------|---------|
 |Azure Blobs     |Yes         |Yes         |Yes         |Yes         |
