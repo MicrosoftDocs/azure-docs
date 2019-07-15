@@ -320,8 +320,8 @@ Unlike with AD FS in Windows Server 2012 R2, the AD FS 2016 Azure MFA adapter in
 When using Azure MFA with AD FS 2016 and the target application is subject to Conditional Access policy, there are additional considerations:
 
 * Conditional Access is available when the application is a relying party to Azure AD, federated with AD FS 2016 or newer.
-* Conditional Access is not available when the application is a relying party to AD FS 2016/19 and is managed or federated with AD FS 2016/19.
-* Conditional Access is also not available when AD FS 2016/19 is configured to use Azure MFA as the primary authentication method.
+* Conditional Access is not available when the application is a relying party to AD FS 2016 or AD FS 2019 and is managed or federated with AD FS 2016 or AD FS 2019.
+* Conditional Access is also not available when AD FS 2016 or AD FS 2019 is configured to use Azure MFA as the primary authentication method.
 
 #### AD FS logging
 
