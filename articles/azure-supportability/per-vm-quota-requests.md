@@ -84,11 +84,11 @@ Follow the instructions below using to create a support request via Azure's 'Usa
 
 5. Select **Compute-VM (cores-vCPUs) subscription limit increases** as the quote type. 
 
-![Fill in form](./media/resource-manager-core-quotas-request/forms.png)
+![Fill in form](./media/resource-manager-core-quotas-request/select-quota-type.png)
    
 6. In the **Quota details** panel, select Deployment model and select a location.
 
-![Quota Problem blade](./media/resource-manager-core-quotas-request/problemstep.png)
+![Quota Problem blade](./media/resource-manager-core-quotas-request/quota-details.png)
 
 7. Select the **SKU Families** that require an increase.
 
