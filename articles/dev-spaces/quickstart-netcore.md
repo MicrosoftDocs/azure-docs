@@ -1,5 +1,5 @@
 ---
-title: "Develop with .NET Core on Kubernetes using Azure Dev Spaces (Visual Studio Code)"
+title: "Debug and iterate with Visual Studio Code and .NET Core on Kubernetes using Azure Dev Spaces (Visual Studio Code)"
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -11,7 +11,7 @@ description: "Rapid Kubernetes development with containers and microservices on 
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
-# Quickstart: Develop with .NET Core on Kubernetes using Azure Dev Spaces (Visual Studio Code)
+# Quickstart: Debug and iterate with Visual Studio Code and .NET Core on Kubernetes using Azure Dev Spaces (Visual Studio Code)
 
 In this guide, you will learn how to:
 

@@ -1,5 +1,5 @@
 ---
-title: "Develop with Java on Kubernetes using Azure Dev Spaces"
+title: "Debug and iterate with Visual Studio Code and Java on Kubernetes using Azure Dev Spaces"
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -11,7 +11,7 @@ description: "Rapid Kubernetes development with containers, microservices, and J
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Java, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
-# Quickstart: Develop with Java on Kubernetes using Azure Dev Spaces
+# Quickstart: Debug and iterate with Visual Studio Code and Java on Kubernetes using Azure Dev Spaces
 
 In this guide, you will learn how to:
 
