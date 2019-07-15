@@ -10,7 +10,7 @@ ms.service: load-balancer
 ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: KumudD
+ms.author: kumud
 ---
 
 # Get Load Balancer utilization metrics using the REST API

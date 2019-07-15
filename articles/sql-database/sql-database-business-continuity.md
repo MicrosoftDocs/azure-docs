@@ -62,7 +62,8 @@ Although rare, an Azure data center can have an outage. When an outage occurs, i
 
 As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event. The time required for application to fully recover is known as Recovery time objective (RTO). You also need to understand the maximum period of recent data updates (time interval) the application can tolerate losing when recovering from an unplanned disruptive event. The potential data loss is known as Recovery point objective (RPO).
 
-Different recovery methods offer different levels of RPO and RTO. You can choose a specific recovery method, or use a combination of methods to achicethe the full application recovery. The following table compares RPO and RTO of each recovery option.
+Different recovery methods offer different levels of RPO and RTO. You can choose a specific recovery method, or use a combination of methods to achieve full application recovery. The following table compares RPO and RTO of each recovery option. Auto-failover groups 
+simplify the deployment and usage of geo-replication and adds the additional capabilities as described in the following table.
 
 | Recovery method | RTO | RPO |
 | --- | --- | --- | 
