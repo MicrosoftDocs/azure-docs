@@ -15,9 +15,6 @@ Customer intent: As a developer, I want to build a Node.js console application t
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET (Preview)](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core (Preview)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -97,7 +94,7 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
 
    JavaScript SDK uses the generic terms *container* and *item*. A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. 
    
-   `module.exports = config;` code isused to export your ```config``` object, so that you can reference it within the ```app.js``` file.
+   `module.exports = config;` code is used to export your ```config``` object, so that you can reference it within the ```app.js``` file.
 
 ## <a id="Connect"></a>Connect to an Azure Cosmos DB account
 
@@ -150,7 +147,7 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
 
    A database can be created by using either the `createIfNotExists` or create function of the **Databases** class. A database is the logical container of items partitioned across containers. 
 
-2. Copy and paste the **createDatabase** and **readDatabase** methods into the app.js file under the ```databaseId``` and ```containerId``` definition. The **createDatabase** function will create a new database with id ```FamilyDatabase```, specified from the ```config``` object if it does not already exist. The **readDatabase** function will read the database's definition to ensure that the database exists.
+2. Copy and paste the **createDatabase** and **readDatabase** methods into the app.js file under the ```databaseId``` and ```containerId``` definition. The **createDatabase** function will create a new database with ID ```FamilyDatabase```, specified from the ```config``` object if it does not already exist. The **readDatabase** function will read the database's definition to ensure that the database exists.
 
    ```javascript
    /**
@@ -378,7 +375,7 @@ A container can be created by using either the `createIfNotExists` or create fun
 
 An item can be created by using the create function of the **Items** class. When you're using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into Azure Cosmos DB.
 
-1. Copy and paste the **createFamilyItem** function underneath the **readContainer** function. The **createFamilyItem** function creates the items containing the JSON data saved in the ```config``` object. We'll check to make sure an item with the same id does not already exist before creating it.
+1. Copy and paste the **createFamilyItem** function underneath the **readContainer** function. The **createFamilyItem** function creates the items containing the JSON data saved in the ```config``` object. We'll check to make sure an item with the same ID does not already exist before creating it.
 
    ```javascript
    /**
