@@ -20,7 +20,7 @@ Data in Azure Monitor Logs is [stored as a set of records in either a Log Analyt
 Some of these properties are still in the process of being implemented, so you may see them in some data types but not yet in others.
 
 ## TimeGenerated and timestamp
-The **TimeGenerated** (Log Analytics workspace) and **timestamp** (Application Insights application) properties contain the date and time that the record was created. It provides a common property to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses TimeGenerated or timestamp to filter the results.
+The **TimeGenerated** (Log Analytics workspace) and **timestamp** (Application Insights application) properties contain the date and time that the record was created by the data source. It provides a common property to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses TimeGenerated or timestamp to filter the results.
 
 ### Examples
 
@@ -44,11 +44,25 @@ exceptions
 ```
 
 ## \_TimeReceived
-The **\_TimeReceived** property contain the date and time that the data for the record was received by the Azure Monitor ingestion point. Used with **TimeGenerated**, this can help you determine the time between the record being collected and actually being created. This can be useful for identifying issues with delays in data arriving from your data source.
+The **\_TimeReceived** property contains the date and time that the record was received by the Azure Monitor ingestion point. This can be useful for identifying latency issues by helping you track the time between the record being created at the data source, being received by Azure Monitor, and actually being created in the Log Analytics workspace.
+
+The following table specifies how you can determine the different times for a record as it's created and sent to Azure Monitor.
+
+| Step | Property or Function | Comments |
+|:---|:---|:---|
+| Record created at data source | [TimeGenerated](#timegenerated-and-timestamp) |  If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. |
+| Record received by Azure Monitor ingestion endpoint | _TimeReceived | |
+| Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
+
+The following query gives the average latency by hour from for event records from an agent. This includes the time from the agent to Azure Monitor and the total time for the record to be available for queries.
 
 ```Kusto
 Event
-| 
+| where TimeGenerated > ago(1d) 
+| project TimeGenerated, TimeReceived = _TimeReceived, IngestionTime = ingestion_time() 
+| extend AgentLatency = toreal(datetime_diff('Millisecond',TimeReceived,TimeGenerated)) / 1000
+| extend TotalLatency = toreal(datetime_diff('Millisecond',IngestionTime,TimeGenerated)) / 1000
+| summarize avg(AgentLatency), avg(TotalLatency) by bin(TimeGenerated,1hr)
 ``` 
 
 ## Type and itemType

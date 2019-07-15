@@ -75,6 +75,14 @@ This process currently takes about 5 minutes when there is low volume of data bu
 ## Checking ingestion time
 Ingestion time may vary for different resources under different circumstances. You can use log queries to identify specific behavior of your environment.
 
+The following table specifies how you can determine the different times for a record as it's created and sent to Azure Monitor.
+
+| Step | Property or Function | Comments |
+|:---|:---|:---|
+| Record created at data source | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) |  If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. |
+| Record received by Azure Monitor ingestion endpoint | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
+
 ### Ingestion latency delays
 You can measure the latency of a specific record by comparing the result of the [ingestion_time()](/azure/kusto/query/ingestiontimefunction) function to the _TimeGenerated_ field. This data can be used with various aggregations to find how ingestion latency behaves. Examine some percentile of the ingestion time to get insights for large amount of data. 
 
