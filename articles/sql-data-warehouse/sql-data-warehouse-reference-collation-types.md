@@ -17,7 +17,7 @@ ms.reviewer: jrasnick
 You can change the default database collation from the Azure portal when you create a new Azure SQL Data Warehouse database. This capability makes it even easier to create a new database using one of the 3800 supported database collations for SQL Data Warehouse.
 Collations provide the locale, code page, sort order and character sensitivity rules for character-based data types. Once chosen, all columns and expressions requiring collation information inherit the chosen collation from the database setting. The default inheritance can be overridden by explicitly stating a different collation for a character-based data type.
 
-# Changing collation
+## Changing collation
 To change the default collation, you simple update to the Collation field in the provisioning experience.
 
 For example, if you wanted to change the default collation to case sensitive, you would simply rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS. 
@@ -94,7 +94,7 @@ For example, if you wanted to change the default collation to case sensitive, yo
 *	SQL_EBCDIC1141_CP1_CS_AS
 *	SQL_EBCDIC277_2_CP1_CS_AS
 
-# Checking the current collation
+## Checking the current collation
 To check the current collation for the database, you can run the following T-SQL snippet:
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 When passed ‘Collation’ as the property parameter, the DatabasePropertyEx function returns the current collation for the database specified. You can learn more about the DatabasePropertyEx function on MSDN.
