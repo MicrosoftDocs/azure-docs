@@ -16,7 +16,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Custom administrator role available permissions in Azure Active Directory
+# Available custom role permissions in Azure Active Directory
 
 ## Available permissions
 
@@ -41,8 +41,8 @@ Update | microsoft.directory/applications.myOrganization/permissions/update | Ab
 
 Action | Permission | Documentation description
 ------ | ----------- | -------------------------
-Create |  microsoft.directory/applications/create |  Ability to create a new single-directory or multi-directory application. Creator is not added as the first owner, but creator can add owners during creation (API/CLI only). Be aware that an application creator is not restricted to 250 created objects, and could accidentally or maliciously consume organization-wide object quota.
-Create |  microsoft.directory/applications/createAsOwner |  Ability to create a new single-directory or multi-directory application. The application creator is added as the first owner, and the created object counts against the creator's default user limit of 250 created objects.
+Create |  microsoft.directory/applications/create |  Ability to create a new single-tenant or multi-tenant application. Creator is not added as the first owner, but creator can add owners during creation (API/CLI only). Be aware that an application creator is not restricted to 250 created objects, and could accidentally or maliciously consume organization-wide object quota.
+Create |  microsoft.directory/applications/createAsOwner |  Ability to create a new single-tenant or multi-tenant application. The application creator is added as the first owner, and the created object counts against the creator's default user limit of 250 created objects.
 Delete |  microsoft.directory/applications/delete |  Ability to delete single-tenant and multi-tenant applications
 Read |  microsoft.directory/applications/allProperties/read |  Ability to read all properties of single-tenant and multi-tenant applications outside of sensitive properties like credentials.
 Read |  microsoft.directory/applications/basic/read |  Ability to read the name, application ID, logo, homepage URL, terms of service URL, privacy statement URL, and publisher domain properties on single-tenant and multi-tenant applications.

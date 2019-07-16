@@ -144,11 +144,11 @@
         href: roles-assign-graph.md
       - name: Custom role preview permissions
         href: roles-custom-available-permissions.md
-    - name: Delegate app admin roles
-      href: roles-delegate-app-roles.md
+      - name: Assign app admin permissions
+        href: roles-delegate-app-roles.md
     - name: Least-privileged roles by task   
       href: roles-delegate-by-task.md
-    - name: Microsoft 365 roles   
+    - name: Microsoft 365 roles
       href: roles-m365-workload-docs.md
     - name: Administrator role security    
       items:   
