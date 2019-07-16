@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 16/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.reviewer: 
 ms.custom: aaddev
@@ -21,15 +21,20 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Confidential Client Assertions
-In order to prove their identity, confidential client applications exchange a secret with Azure AD. This secret can be a:
-- a client secret (application password), 
-- a certificate, which is used to build a signed assertion containing standard claims..
+# Confidential client assertions
+In order to prove their identity, confidential client applications exchange a secret with Azure AD. The secret can be:
+- A client secret (application password).
+- A certificate, which is used to build a signed assertion containing standard claims.
+
 This secret can also be a signed assertion directly.
 
-MSAL.NET has four methods to provide either credentials or assertions to the confidential client app: `.WithClientSecret()` `.WithCertificate()`, `.WithSignedAssertion()`, and `.WithClientClaims()`.
+MSAL.NET has four methods to provide either credentials or assertions to the confidential client app:
+- `.WithClientSecret()`
+- `.WithCertificate()`
+- `.WithSignedAssertion()`
+- `.WithClientClaims()`
 
-### Signed Assertions
+### Signed assertions
 
 A signed client assertion takes the form of a signed JWT with the payload containing the required authentication claims mandated by Azure AD, Base64 encoded. To use it:
 
@@ -76,7 +81,9 @@ private static IDictionary<string, string> GetClaims()
             };
 }
 ```
-Here is how to craft a signed client assertion
+
+Here is how to craft a signed client assertion:
+
 ```CSharp
 string Encode(byte[] arg)
 {
@@ -138,6 +145,6 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 ```
 
-If one of the claims in the dictionary that you pass in is the same as one of the mandatory claims, the additional claim's value will be taken into account (it will override the claims computed by MSAL.NET)
+If one of the claims in the dictionary that you pass in is the same as one of the mandatory claims, the additional claim's value will be taken into account. It will override the claims computed by MSAL.NET.
 
 If you want to provide your own claims, including the mandatory claims expected by Azure AD, pass in `false` for the `mergeWithDefaultClaims` parameter.
