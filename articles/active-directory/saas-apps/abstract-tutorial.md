@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 07/16/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Configure Abstract SSO
 
-Make sure to retrieve your `App Federation Metadata Url` and the `Azure AD Identifier` from the Azure Portal, as you will need those to configure SSO on Abstract.
+Make sure to retrieve your `App Federation Metadata Url` and the `Azure AD Identifier` from the Azure portal, as you will need those to configure SSO on Abstract.
 
 You will find those information on the **Set up Single Sign-On with SAML** page:
 
