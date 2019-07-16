@@ -272,6 +272,7 @@
         "articles/data-factory/**/*.md": "https://feedback.azure.com/forums/270578-data-factory",
         "articles/data-lake-analytics/**/*.md": "https://feedback.azure.com/forums/327234-data-lake",
         "articles/data-lake-store/**/*.md": "https://feedback.azure.com/forums/327234-data-lake",
+        "articles/data-share/**/*.md": "https://feedback.azure.com/forums/922759-azure-data-share-public-preview",
         "articles/dev-spaces/**/*.md": "https://github.com/Azure/dev-spaces/issues",
         "articles/devtest-lab/**/*.md": "https://feedback.azure.com/forums/320373-devtest-labs",
         "articles/digital-twins/**/*.md": "https://feedback.azure.com/forums/916621-azure-digital-twins",
