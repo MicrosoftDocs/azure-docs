@@ -33,7 +33,7 @@ To view the utilization and availability of your Storage accounts across all of 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **Monitor** from the left-hand pane in the Azure portal, and under the **Insights** section, select **Storage Accounts (preview*)**.
+2. Select **Monitor** from the left-hand pane in the Azure portal, and under the **Insights** section, select **Storage Accounts (preview)**.
 
     ![Multiple storage accounts view](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
