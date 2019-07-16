@@ -17,6 +17,8 @@
     href: notifications.md
   - name: What is your sign-in experience?
     href: flows.md
+  - name: Identity Protection and B2B users
+    href: concept-identity-protection-b2b.md
 - name: 'How-to guides'
   expanded: true
   items:
