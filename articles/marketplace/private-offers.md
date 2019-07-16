@@ -50,4 +50,4 @@ Private offers will also appear in search results. Just look out for the “Priv
 
 ## Next steps
 
-To start using private offers, follow the steps in the [Private SKUs and Plans](..\cloud-partner-portal-orig\cloud-partner-portal-azure-private-skus.md) guide.
+To start using private offers, follow the steps in the [Private SKUs and Plans](.\cloud-partner-portal-orig\cloud-partner-portal-azure-private-skus.md) guide.
