@@ -17,7 +17,7 @@ OFFICIAL and UK NHS controls. For more information about the controls, see [UK O
 The following mappings are to the **UK OFFICIAL** and **UK NHS** controls. Use the navigation on the
 right to jump directly to a specific control mapping. Many of the mapped controls are implemented
 with an [Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative,
-open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **[Preview]
+open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **\[Preview\]
 Audit UK OFFICIAL and UK NHS controls and deploy specific VM Extensions to support audit
 requirements** built-in policy initiative.
 
@@ -113,33 +113,33 @@ This blueprint also assigns an Azure Policy definition that audits Linux VM pass
 permissions to alert if they're set incorrectly. This design enables you to take corrective action
 to ensure authenticators aren't compromised.
 
-- [Preview]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- \[Preview\]: Audit Linux VM /etc/passwd file permissions are set to 0644
 
 This blueprint helps you enforce strong passwords by assigning Azure Policy definitions that
 audit Windows VMs that don't enforce minimum strength and other password requirements. Awareness of
 VMs in violation of the password strength policy helps you take corrective actions to ensure
 passwords for all VM user accounts are compliant with policy.
 
-- [Preview]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
-- [Preview]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
-- [Preview]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
-- [Preview]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Preview]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
-- [Preview]: Audit Windows VMs that do not have the password complexity setting enabled
-- [Preview]: Audit Windows VMs that do not have a maximum password age of 70 days
-- [Preview]: Audit Windows VMs that do not have a minimum password age of 1 day
-- [Preview]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Preview]: Audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Audit Windows VMs that do not have the password complexity setting enabled
+- \[Preview\]: Audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Audit Windows VMs that do not have a minimum password age of 1 day
+- \[Preview\]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Audit Windows VMs that allow re-use of the previous 24 passwords
 
 This blueprint also helps you control access to Azure resources by assigning Azure Policy
 definitions. These policies audit use of resource types and configurations that may allow more
 permissive access to resources. Understanding resources that are in violation of these policies can
 help you take corrective actions to ensure access Azure resources is restricted to authorized users.
 
-- [Preview]: Deploy requirements to audit Linux VMs that have accounts without passwords
-- [Preview]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
-- [Preview]: Audit Linux VMs that have accounts without passwords
-- [Preview]: Audit Linux VMs that allow remote connections from accounts without passwords
+- \[Preview\]: Deploy requirements to audit Linux VMs that have accounts without passwords
+- \[Preview\]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
+- \[Preview\]: Audit Linux VMs that have accounts without passwords
+- \[Preview\]: Audit Linux VMs that allow remote connections from accounts without passwords
 - Storage accounts should be migrated to new Azure Resource Manager resources
 - Virtual machines should be migrated to new Azure Resource Manager resources
 - Audit VMs that do not use managed disks
@@ -200,7 +200,7 @@ This blueprint also assigns an Azure Policy definition that audits Linux VM pass
 permissions to alert if they're set incorrectly. This design enables you to take corrective action
 to ensure authenticators aren't compromised.
 
-- [Preview]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- \[Preview\]: Audit Linux VM /etc/passwd file permissions are set to 0644
 
 ## 13 Audit Information for Users
 
@@ -211,8 +211,8 @@ machines aren't sending logs to a specified log analytics workspace.
 - Monitor unaudited SQL servers in Azure Security Center
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Deploy network watcher when virtual networks are created
 
 ## Next steps
