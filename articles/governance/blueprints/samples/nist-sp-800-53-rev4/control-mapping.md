@@ -408,13 +408,13 @@ provides reporting capabilities that enable you to have real-time insight into t
 deployed Azure resources. This blueprint also assigns a policy definition that ensures patching
 of the operating system for virtual machine scale sets.
 
+- Require automatic OS image patching on Virtual Machine Scale Sets
 - System updates on virtual machine scale sets should be installed
-- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - System updates should be installed on your virtual machines
+- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities in security configuration on your virtual machines should be remediated
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
-- Require automatic OS image patching on Virtual Machine Scale Sets
 
 ## SI-3 Malicious Code Protection
 
@@ -423,9 +423,9 @@ assigning [Azure Policy](../../../policy/overview.md) definitions that monitor f
 endpoint protection on virtual machines in Azure Security Center and enforce the Microsoft
 antimalware solution on Windows virtual machines.
 
+- Deploy default Microsoft IaaSAntimalware extension for Windows Server
 - Endpoint protection solution should be installed on virtual machine scale sets
 - Monitor missing Endpoint Protection in Azure Security Center
-- Deploy default Microsoft IaaSAntimalware extension for Windows Server
 
 ## SI-3 (1) Malicious Code Protection | Central Management
 
