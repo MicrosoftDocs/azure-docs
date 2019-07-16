@@ -26,12 +26,12 @@ Run this code on either of these environments:
 
  - Azure Machine Learning Notebook VM - no downloads or installation necessary
 
-     - Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    - Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-tensorflow** folder. 
  
  - Your own Jupyter Notebook server
 
-     - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
+    - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
     - [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` and `utils.py`
      

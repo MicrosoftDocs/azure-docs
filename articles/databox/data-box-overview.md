@@ -23,12 +23,12 @@ You can order the Data Box device via the Azure portal. Once the device is recei
 
 Data Box is ideally suited to transfer data sizes larger than 40 TBs in scenarios with no to limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers. Here are the various scenarios where Data Box can be used for data transfer.
 
- - **One time migration** - when large amount of on-premises data is moved to Azure. 
+- **One time migration** - when large amount of on-premises data is moved to Azure. 
      - Moving a media library from offline tapes into Azure to create an online media library.
      - Migrating your VM farm, SQL server, and applications to Azure
      - Moving historical data to Azure for in-depth analysis and reporting using HDInsight
 
- - **Initial bulk transfer** - when an initial bulk transfer is done using Data Box (seed) followed by incremental transfers over the network. 
+- **Initial bulk transfer** - when an initial bulk transfer is done using Data Box (seed) followed by incremental transfers over the network. 
      - For example, backup solutions partners such as Commvault and Data Box are used to move initial large historical backup to Azure. Once complete, the incremental data is transferred via network to Azure storage.
 
 - **Periodic uploads** - when large amount of data is generated periodically and needs to be moved to Azure. For example in energy exploration, where video content is generated on oil rigs and windmill farms.      

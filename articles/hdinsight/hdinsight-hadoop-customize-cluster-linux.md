@@ -55,7 +55,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. C
 
         For example URIs, see [Example script action scripts](#example-script-action-scripts).
 
-     * For clusters with ESP:
+      * For clusters with ESP:
          
          * The wasb:// or wasbs:// or http[s]:// URIs are supported.
             

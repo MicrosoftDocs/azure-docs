@@ -51,7 +51,7 @@ If you want to prevent profanity in the translation even when it's in the source
 |Marked		|Profane words will be surrounded by XML tags \<profanity> and \</profanity>.		|彼はジャッカスです。	|He is a \<profanity>jackass\</profanity>.	|
 |Deleted	|Profane words will be removed from the output without replacement.		|彼はジャッカスです。	|He is a.	|
 
-	
+
 ## Excluding content from translation
 When you translate content with tags, like HTML (`contentType=text/html`), it's sometimes useful to exclude specific content from the translation. You can use the attribute `class=notranslate` to specify content that should remain in its original language. In the following example, the content in the first `div` element won't be translated, but the content in the second `div` element will be translated.
 
@@ -135,12 +135,12 @@ These elements are in `TranslateArrayRequest`:
 * `AppId`: Required. If the `Authorization` or `Ocp-Apim-Subscription-Key` header is used, leave the `AppId` field empty. Otherwise, include a string that contains `"Bearer" + " " + "access_token"`.
 * `From`: Optional. A string that represents the language code of the text being translated. If this field is left empty, the response will include the result of automatic language detection.
 * `Options`: Optional. An `Options` object that contains the following values. They're all optional and default to the most common settings. Specified elements must be listed in alphabetical order.
-	- `Category`: A string that contains the category (domain) of the translation. The default is `general`.
-	- `ContentType`: The format of the text being translated. The supported formats are `text/plain` (default), `text/xml`, and `text/html`. Any HTML elements need to be well-formed, complete elements.
-	- `ProfanityAction`: Specifies how profanities are handled, as explained earlier. Accepted values are `NoAction` (default), `Marked`, and `Deleted`.
-	- `State`: User state to help correlate the request and response. The same content will be returned in the response.
-	- `Uri`: Filter results by this URI. Default: `all`.
-	- `User`: Filter results by this user. Default: `all`.
+  - `Category`: A string that contains the category (domain) of the translation. The default is `general`.
+  - `ContentType`: The format of the text being translated. The supported formats are `text/plain` (default), `text/xml`, and `text/html`. Any HTML elements need to be well-formed, complete elements.
+  - `ProfanityAction`: Specifies how profanities are handled, as explained earlier. Accepted values are `NoAction` (default), `Marked`, and `Deleted`.
+  - `State`: User state to help correlate the request and response. The same content will be returned in the response.
+  - `Uri`: Filter results by this URI. Default: `all`.
+  - `User`: Filter results by this user. Default: `all`.
 * `Texts`: Required. An array that contains the text for translation. All strings must be in the same language. The total of all text to be translated can't exceed 10,000 characters. The maximum number of array elements is 2,000.
 * `To`: Required. A string that represents the code of the language to translate the text into.
 
@@ -604,12 +604,12 @@ The `TranslateOptions` object contains the values in the following list. They're
 * `Category`: A string that contains the category (domain) of the translation. The default is `general`.
 * `ContentType`: The only supported option, and the default, is `text/plain`.
 * `IncludeMultipleMTAlternatives`: A Boolean flag to specify whether more than one alternative should be returned from the MT engine. Valid values are `true` and `false` (case-sensitive). The default is `false`, which returns only one alternative. Setting the flag to `true` enables the creation of artificial alternatives, fully integrated with the Collaborative Translation Framework (CTF). The feature enables returning alternatives for sentences that have no translations in CTF by adding artificial alternatives from the *n*-best list of the decoder.
-	- Ratings. The ratings are applied like this: 
-	     - The best automatic translation has a rating of 5.
+  - Ratings. The ratings are applied like this: 
+       - The best automatic translation has a rating of 5.
        - The alternatives from CTF reflect the authority of the reviewer. They range from -10 to +10.
        - The automatically generated (*n*-best) translation alternatives have a rating of 0 and a match degree of 100.
-	- Number of alternatives. The number of returned alternatives can be as high as the value specified in `maxTranslations`, but it can be lower.
-	- Language pairs. This functionality isn't available for translations between Simplified Chinese and Traditional Chinese, in either direction. It is available for all other language pairs supported by Microsoft Translator.
+  - Number of alternatives. The number of returned alternatives can be as high as the value specified in `maxTranslations`, but it can be lower.
+  - Language pairs. This functionality isn't available for translations between Simplified Chinese and Traditional Chinese, in either direction. It is available for all other language pairs supported by Microsoft Translator.
 * `State`: User state to help correlate the request and response. The same content will be returned in the response.
 * `Uri`: Filter results by this URI. If no value is set, the default is `all`.
 * `User`: Filter results by this user. If no value is set, the default is `all`.
@@ -713,15 +713,15 @@ Here's the format of the request body:
 * `From`: Required. A string that represents the language code of the text being translated.
 * `MaxTranslations`: Required. An integer that represents the maximum number of translations to return.
 * `Options`: Optional. An `Options` object that contains the following values. They're all optional and default to the most common settings. Specified elements must be listed in alphabetical order.
-	- `Category`: A string that contains the category (domain) of the translation. The default is `general`.
-	- `ContentType`: The only supported option, and the default, is `text/plain`.
-	- `IncludeMultipleMTAlternatives`: A Boolean flag to specify whether more than one alternative should be returned from the MT engine. Valid values are `true` and `false` (case-sensitive). The default is `false`, which returns only one alternative. Setting the flag to `true` enables generation of artificial alternatives in translation, fully integrated with the Collaborative Translations Framework (CTF). The feature enables returning alternatives for sentences that have no alternatives in CTF by adding artificial alternatives from the *n*-best list of the decoder.
-		- Ratings The ratings are applied like this:
-		  - The best automatic translation has a rating of 5.
-		  - The alternatives from CTF reflect the authority of the reviewer. They range from -10 to +10.
-		  - The automatically generated (*n*-best) translation alternatives have a rating of 0 and a match degree of 100.
-		- Number of alternatives. The number of returned alternatives can be as high as the value specified in `maxTranslations`, but it can be lower.
-		- Language pairs. This functionality isn't available for translations between Simplified Chinese and Traditional Chinese, in either direction. It is available for all other language pairs supported by Microsoft Translator.
+  - `Category`: A string that contains the category (domain) of the translation. The default is `general`.
+  - `ContentType`: The only supported option, and the default, is `text/plain`.
+  - `IncludeMultipleMTAlternatives`: A Boolean flag to specify whether more than one alternative should be returned from the MT engine. Valid values are `true` and `false` (case-sensitive). The default is `false`, which returns only one alternative. Setting the flag to `true` enables generation of artificial alternatives in translation, fully integrated with the Collaborative Translations Framework (CTF). The feature enables returning alternatives for sentences that have no alternatives in CTF by adding artificial alternatives from the *n*-best list of the decoder.
+    - Ratings The ratings are applied like this:
+      - The best automatic translation has a rating of 5.
+      - The alternatives from CTF reflect the authority of the reviewer. They range from -10 to +10.
+      - The automatically generated (*n*-best) translation alternatives have a rating of 0 and a match degree of 100.
+    - Number of alternatives. The number of returned alternatives can be as high as the value specified in `maxTranslations`, but it can be lower.
+    - Language pairs. This functionality isn't available for translations between Simplified Chinese and Traditional Chinese, in either direction. It is available for all other language pairs supported by Microsoft Translator.
 * `State`: User state to help correlate the request and response. The same content will be returned in the response.
 * `Uri`: Filter results by this URI. If no value is set, the default is `all`.
 * `User`: Filter results by this user. If no value is set, the default is `all`.

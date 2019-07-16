@@ -42,7 +42,7 @@ Example scenarios include the following:
 
 If you want a narrowing effect in your search results, filters are not your only choice. These alternatives could be a better fit, depending on your objective:
 
- + `searchFields` query parameter pegs search to specific fields. For example, if your index provides separate fields for English and Spanish descriptions, you can use searchFields to target which fields to use for full text search. 
++ `searchFields` query parameter pegs search to specific fields. For example, if your index provides separate fields for English and Spanish descriptions, you can use searchFields to target which fields to use for full text search. 
 
 + `$select` parameter is used to specify which fields to include in a result set, effectively trimming the response before sending it to the calling application. This parameter does not refine the query or reduce the document collection, but if a smaller response is your goal, this parameter is an option to consider. 
 

@@ -38,7 +38,7 @@ This article describes how to troubleshoot some of the common routing issues you
 
 ### Cause
 There are several possible causes for this symptom:
- - The backend is not a public facing backend and is not visible to the Front Door service.
+- The backend is not a public facing backend and is not visible to the Front Door service.
 
 - The backend is misconfigured, which is causing the Front Door service to send the wrong request (that is, your backend only accepts HTTP but you have not unchecked allowing HTTPS so Front Door is attempting to forward HTTPS requests).
 - The backend is rejecting the host header that was forwarded with the request to the backend.
@@ -63,5 +63,5 @@ There are several possible causes for this symptom:
 
                - _Accepted protocols_ are HTTP. _Forwarding protocol_ is either match request or HTTPS.
 
-   - Click on the _Advanced_ tab at the top of the routing rule configuration pane. _Url Rewrite_ is disabled by default and you should only use this field if you want to narrow the scope of backend-hosted resources that you want to make available. When disabled, Front Door will forward the same request path it receives. It is possible that this field is misconfigured and Front Door is requesting a resource from the backend that is not available, thus returning an HTTP 404 status code.
+     - Click on the _Advanced_ tab at the top of the routing rule configuration pane. _Url Rewrite_ is disabled by default and you should only use this field if you want to narrow the scope of backend-hosted resources that you want to make available. When disabled, Front Door will forward the same request path it receives. It is possible that this field is misconfigured and Front Door is requesting a resource from the backend that is not available, thus returning an HTTP 404 status code.
 

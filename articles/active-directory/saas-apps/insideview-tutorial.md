@@ -50,19 +50,19 @@ To set up the integration of InsideView into Azure AD, you need to add InsideVie
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**:
 
-	![Select Azure Active Directory](common/select-azuread.png)
+    ![Select Azure Active Directory](common/select-azuread.png)
 
 2. Go to **Enterprise applications** > **All applications**:
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add an application, select **New application** at the top of the window:
 
-	![Select New application](common/add-new-app.png)
+    ![Select New application](common/add-new-app.png)
 
 4. In the search box, enter **InsideView**. Select **InsideView** in the search results and then select **Add**.
 
-	![Search results](common/search-new-app.png)
+    ![Search results](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -94,7 +94,7 @@ To configure Azure AD single sign-on with InsideView, take these steps:
 
 3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
-	![Edit icon](common/edit-urls.png)
+    ![Edit icon](common/edit-urls.png)
 
 4. In the **Basic SAML Configuration** dialog box, take the following steps.
 
@@ -104,18 +104,18 @@ To configure Azure AD single sign-on with InsideView, take these steps:
 
     `https://my.insideview.com/iv/<STS Name>/login.iv`
 
-	> [!NOTE]
-	> This value is a placeholder. You need to use the actual reply URL. Contact the [InsideView support team](mailto:support@insideview.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
+    > [!NOTE]
+    > This value is a placeholder. You need to use the actual reply URL. Contact the [InsideView support team](mailto:support@insideview.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Raw)**, per your requirements, and save the certificate on your computer:
 
-	![Certificate download link](common/certificateraw.png)
+    ![Certificate download link](common/certificateraw.png)
 
 6. In the **Set up InsideView** section, copy the appropriate URLs, based on your requirements:
 
-	![Copy the configuration URLs](common/copy-configuration-urls.png)
+    ![Copy the configuration URLs](common/copy-configuration-urls.png)
 
-	1. **Login URL**.
+    1. **Login URL**.
 
     1. **Azure AD Identifier**.
 
@@ -131,23 +131,23 @@ To configure Azure AD single sign-on with InsideView, take these steps:
 
 1. In the **Add a New SAML** section, take the following steps.
 
-	![Add a New SAML section](./media/insideview-tutorial/ic794136.png "Add a New SAML section")
+    ![Add a New SAML section](./media/insideview-tutorial/ic794136.png "Add a New SAML section")
 
-	1. In the **STS Name** box, enter a name for your configuration.
+    1. In the **STS Name** box, enter a name for your configuration.
 
-	1. In the **SamlP/WS-Fed Unsolicited EndPoint** box, paste the **Login URL** value that you copied from the Azure portal.
+    1. In the **SamlP/WS-Fed Unsolicited EndPoint** box, paste the **Login URL** value that you copied from the Azure portal.
 
-	1. Open the Raw certificate that you downloaded from the Azure portal. Copy the contents of the certificate to the clipboard, and then paste the contents into the **STS Certificate** box.
+    1. Open the Raw certificate that you downloaded from the Azure portal. Copy the contents of the certificate to the clipboard, and then paste the contents into the **STS Certificate** box.
 
-	1. In the **Crm User Id Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    1. In the **Crm User Id Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-	1. In the **Crm Email Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    1. In the **Crm Email Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-	1. In the **Crm First Name Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    1. In the **Crm First Name Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-	1. In the **Crm lastName Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.  
+    1. In the **Crm lastName Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.  
 
-	1. Select **Save**.
+    1. Select **Save**.
 
 ### Create an Azure AD test user
 
@@ -179,11 +179,11 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **InsideView**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the list of applications, select **InsideView**.
 
-	![List of applications](common/all-applications.png)
+    ![List of applications](common/all-applications.png)
 
 3. In the left pane, select **Users and groups**:
 

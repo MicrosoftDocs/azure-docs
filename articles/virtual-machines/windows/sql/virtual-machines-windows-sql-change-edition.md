@@ -81,9 +81,9 @@ Once the SQL Server edition is downgraded, you should modify the 'Edition' prope
 
 ## Remarks
 
- - The edition property for the SQL Server VM must match the edition of the SQL Server installed to the virtual machine for all SQL Virtual Machines including both PAYG and BYOL license types.
- - If you drop your SQL Server VM resource, you will go back to the hard-coded edition setting of the image.
-  - The ability to change the edition is a feature of the SQL VM resource provider. Deploying a marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md).
+- The edition property for the SQL Server VM must match the edition of the SQL Server installed to the virtual machine for all SQL Virtual Machines including both PAYG and BYOL license types.
+- If you drop your SQL Server VM resource, you will go back to the hard-coded edition setting of the image.
+- The ability to change the edition is a feature of the SQL VM resource provider. Deploying a marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md).
 - Adding a SQL Server VM to an availability set requires recreating the VM. As such, any VMs added to an availability set will go back to the default edition and the edition will need to be modified again.
 
 ## Next steps

@@ -83,7 +83,7 @@ Use the following steps to enable diagnostic logging in the Azure portal:
 
       * **Send to Log Analytics**: To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [Create a new workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in the portal. 
 
-   * You can log the following data:
+    * You can log the following data:
 
       * **DataPlaneRequests**: Select this option to log back-end requests to all APIs which includes SQL, Graph, MongoDB, Cassandra, and Table API accounts in Azure Cosmos DB. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires. The following JSON data is an example output of details logged using DataPlaneRequests. Key properties to note are: Requestcharge, statusCode, clientIPaddress, and partitionID:
 
@@ -340,11 +340,11 @@ The blobs that are returned in each of these queries are stored as text and form
     [
         {
            "time": "Fri, 23 Jun 2017 19:29:50.266 GMT",
-		   "resourceId": "contosocosmosdb",
-		   "category": "DataPlaneRequests",
-		   "operationName": "Query",
-		   "resourceType": "Database",
-		   "properties": {"activityId": "05fcf607-6f64-48fe-81a5-f13ac13dd1eb",`
+           "resourceId": "contosocosmosdb",
+           "category": "DataPlaneRequests",
+           "operationName": "Query",
+           "resourceType": "Database",
+           "properties": {"activityId": "05fcf607-6f64-48fe-81a5-f13ac13dd1eb",`
            "userAgent": "documentdb-dotnet-sdk/1.12.0 Host/64-bit MicrosoftWindowsNT/6.2.9200.0 AzureSearchIndexer/1.0.0",`
            "resourceType": "Database","statusCode": "200","documentResourceId": "",`
            "clientIpAddress": "13.92.241.0","requestCharge": "2.260","collectionRid": "",`

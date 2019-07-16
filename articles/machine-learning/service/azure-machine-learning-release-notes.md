@@ -225,9 +225,9 @@ In Azure portal, you can now:
 + Create and run automated ML experiments 
 + Create a Notebook VM to try out sample Jupyter notebooks or your own.
 + Brand new Authoring section (Preview) in the Machine Learning service workspace, which includes Automated Machine Learning, Visual Interface and Hosted Notebook VMs
-	+ Automatically create a model using Automated machine learning 
-	+ Use a drag and drop Visual Interface to run experiments
-	+ Create a Notebook VM to explore data, create models, and deploy services.
+  + Automatically create a model using Automated machine learning 
+  + Use a drag and drop Visual Interface to run experiments
+  + Create a Notebook VM to explore data, create models, and deploy services.
 + Live chart and metric updating in run reports and run details pages
 + Updated file viewer for logs, outputs, and snapshots in Run details pages.
 + New and improved report creation experience in the Experiments tab. 
@@ -483,9 +483,9 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 
 + **Changes**: 
   + Azure ML SDK no longer has azure-cli packages as dependency. Specifically, azure-cli-core and azure-cli-profile dependencies have been removed from azureml-core. These are the  user impacting changes:
-  	+ If you are performing "az login" and then using azureml-sdk, the SDK will do the browser or device code log in one more time. It won't use any credentials state created by "az login".
-	+ For Azure CLI authentication, such as using "az login", use _azureml.core.authentication.AzureCliAuthentication_ class. For Azure CLI authentication, do  _pip install azure-cli_ in the Python environment where you have installed azureml-sdk.
-	+ If you are doing "az login" using a service principal for automation, we recommend using _azureml.core.authentication.ServicePrincipalAuthentication_ class, as azureml-sdk won't use credentials state created by azure CLI. 
+    + If you are performing "az login" and then using azureml-sdk, the SDK will do the browser or device code log in one more time. It won't use any credentials state created by "az login".
+  + For Azure CLI authentication, such as using "az login", use _azureml.core.authentication.AzureCliAuthentication_ class. For Azure CLI authentication, do  _pip install azure-cli_ in the Python environment where you have installed azureml-sdk.
+  + If you are doing "az login" using a service principal for automation, we recommend using _azureml.core.authentication.ServicePrincipalAuthentication_ class, as azureml-sdk won't use credentials state created by azure CLI. 
 
 + **Bug fixes**: This release mostly contains minor bug fixes
 
@@ -498,13 +498,13 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 ### Azure portal: new features
 + New drag and drop charting experience for reports. Users can drag a column or attribute from the well to the chart area where the system will automatically select an appropriate chart type for the user based on the type of data. Users can change the chart type to other applicable types or add additional attributes.
 
-	Supported Chart Types:
-	- Line Chart
-	- Histogram
-	- Stacked Bar Chart
-	- Box Plot
-	- Scatter Plot
-	- Bubble Plot
+  Supported Chart Types:
+  - Line Chart
+  - Histogram
+  - Stacked Bar Chart
+  - Box Plot
+  - Scatter Plot
+  - Bubble Plot
 + The portal now dynamically generates reports for experiments. When a user submits a run to an experiment, a report will automatically be generated with logged metrics and graphs to allow comparison across different runs. 
 
 ## 2019-01-14
@@ -687,7 +687,7 @@ The Azure portal for the Azure Machine Learning service has the following update
   * Python 3.7 is now supported
   * When you save a dataflow that contains datastores to a DataPrep package, the datastore information will be persisted as part of the DataPrep package
   * Writing to datastore is now supported 
-		
+
 + **Bug fixed**
   * 64-bit unsigned integer overflows are now handled properly on Linux
   * Fixed incorrect text label for plain text files in smart_read

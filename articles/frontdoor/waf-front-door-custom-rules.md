@@ -48,7 +48,7 @@ You can control access with a custom WAf rule that defines a priority number, a 
     - LessThanOrEqual: size constraint
     - GreaterThanOrEqual: size constraint
     - BeginsWith
-     - EndsWith
+    - EndsWith
 
 You can set *negate* condition to be true if the result of a condition should be negated.
 

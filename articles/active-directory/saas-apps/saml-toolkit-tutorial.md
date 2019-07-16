@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     1. In the **Identifier (Entity ID)** text box, type a URL:
     `https://samltoolkit.azurewebsites.net`
 
-	1. In the **Reply URL** text box, type a URL:
+    1. In the **Reply URL** text box, type a URL:
     `https://samltoolkit.azurewebsites.net/SAML/Consume`
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
@@ -97,29 +97,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Open a new web browser window, if you have not registered in the Azure AD SAML Toolkit website, first register by clicking on the **Register**. If you have registered already, sign into your Azure AD SAML Toolkit company site using the registered sign in credentials.
 
-	![Azure AD SAML Toolkit Register](./media/saml-toolkit-tutorial/register.png)
+    ![Azure AD SAML Toolkit Register](./media/saml-toolkit-tutorial/register.png)
 
 1. Click on the **SAML Configuration**.
 
-	![Azure AD SAML Toolkit SAML Configuration](./media/saml-toolkit-tutorial/saml-configure.png)
+    ![Azure AD SAML Toolkit SAML Configuration](./media/saml-toolkit-tutorial/saml-configure.png)
 
 1. Click **Create**.
 
-	![Azure AD SAML Toolkit Create SSO](./media/saml-toolkit-tutorial/createsso.png)
+    ![Azure AD SAML Toolkit Create SSO](./media/saml-toolkit-tutorial/createsso.png)
 
 1. On the **SAML SSO Configuration** page, perform the following steps:
 
-	![Azure AD SAML Toolkit Create SSO](./media/saml-toolkit-tutorial/fill-details.png)
+    ![Azure AD SAML Toolkit Create SSO](./media/saml-toolkit-tutorial/fill-details.png)
 
-	1. In the **Login URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
+    1. In the **Login URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
-	1. In the **Azure AD Identifier** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
+    1. In the **Azure AD Identifier** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
 
-	1. In the **Logout URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
+    1. In the **Logout URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
 
-	1. Click **Choose File** and upload the **Federation metadata XML** file which you have downloaded from the Azure portal.
+    1. Click **Choose File** and upload the **Federation metadata XML** file which you have downloaded from the Azure portal.
 
-	1. Click **Create**.
+    1. Click **Create**.
 
 ### Create an Azure AD test user
 
@@ -145,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.

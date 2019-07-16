@@ -125,9 +125,9 @@ You can only change the license type of a SQL Server VM as PAYG or AHB if the SQ
 
 ## Remarks
 
- - Azure Cloud Solution Partner (CSP) customers can utilize the Azure Hybrid Benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license if they have active SA.
- - If you drop your SQL Server VM resource, you will go back to the hard-coded license setting of the image. 
-  - The ability to change the licensing model is a feature of the SQL VM resource provider. Deploying a marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md). 
+- Azure Cloud Solution Partner (CSP) customers can utilize the Azure Hybrid Benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license if they have active SA.
+- If you drop your SQL Server VM resource, you will go back to the hard-coded license setting of the image. 
+- The ability to change the licensing model is a feature of the SQL VM resource provider. Deploying a marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md). 
 - Adding a SQL Server VM to an availability set requires recreating the VM. As such, any VMs added to an availability set will go back to the default pay-as-you-go license type and AHB will need to be enabled again. 
 
 

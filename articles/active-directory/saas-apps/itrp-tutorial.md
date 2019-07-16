@@ -50,19 +50,19 @@ To set up the integration of ITRP into Azure AD, you need to add ITRP from the g
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**:
 
-	![Select Azure Active Directory](common/select-azuread.png)
+    ![Select Azure Active Directory](common/select-azuread.png)
 
 2. Go to **Enterprise applications** > **All applications**:
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add an application, select **New application** at the top of the window:
 
-	![Select New application](common/add-new-app.png)
+    ![Select New application](common/add-new-app.png)
 
 4. In the search box, enter **ITRP**. Select **ITRP** in the search results and then select **Add**.
 
-	 ![Search results](common/search-new-app.png)
+    ![Search results](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -94,13 +94,13 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
 3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
-	![Edit icon](common/edit-urls.png)
+    ![Edit icon](common/edit-urls.png)
 
 4. In the **Basic SAML Configuration** dialog box, take the following steps.
 
     ![Basic SAML Configuration dialog box](common/sp-identifier.png)
 
-	1. In the **Sign on URL** box, enter a URL in this pattern:
+    1. In the **Sign on URL** box, enter a URL in this pattern:
     
        `https://<tenant-name>.itrp.com`
 
@@ -108,12 +108,12 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
        `https://<tenant-name>.itrp.com`
 
-	> [!NOTE]
-	> These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [ITRP support team](https://www.itrp.com/support) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
+    > [!NOTE]
+    > These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [ITRP support team](https://www.itrp.com/support) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
 5. In the **SAML Signing Certificate** section, select the **Edit** icon to open the **SAML Signing Certificate** dialog box:
 
-	![Edit icon](common/edit-certificate.png)
+    ![Edit icon](common/edit-certificate.png)
 
 6. In the **SAML Signing Certificate** dialog box, copy the **Thumbprint** value and save it:
 
@@ -121,13 +121,13 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
 7. In the **Set up ITRP** section, copy the appropriate URLs, based on your requirements:
 
-	![Copy the configuration URLs](common/copy-configuration-urls.png)
+    ![Copy the configuration URLs](common/copy-configuration-urls.png)
 
-	1. **Login URL**.
+    1. **Login URL**.
 
-	1. **Azure AD Identifier**.
+    1. **Azure AD Identifier**.
 
-	1. **Logout URL**.
+    1. **Logout URL**.
 
 ### Configure ITRP single sign-on
 
@@ -147,13 +147,13 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
     ![Single Sign-On section](./media/itrp-tutorial/ic775573.png "Single Sign-On section")
 
-	1. Select **Enabled**.
+    1. Select **Enabled**.
 
-	1. In the **Remote logout URL** box, paste the **Logout URL** value that you copied from the Azure portal.
+    1. In the **Remote logout URL** box, paste the **Logout URL** value that you copied from the Azure portal.
 
-	1. In the **SAML SSO URL** box, paste the **Login URL** value that you copied from the Azure portal.
+    1. In the **SAML SSO URL** box, paste the **Login URL** value that you copied from the Azure portal.
 
-	1. In the **Certificate fingerprint** box, paste the **Thumbprint** value of the certificate, which you copied from the Azure portal.
+    1. In the **Certificate fingerprint** box, paste the **Thumbprint** value of the certificate, which you copied from the Azure portal.
 
     1. Select **Save**.
 
@@ -187,11 +187,11 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **ITRP**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the list of applications, select **ITRP**.
 
-	![List of applications](common/all-applications.png)
+    ![List of applications](common/all-applications.png)
 
 3. In the left pane, select **Users and groups**:
 

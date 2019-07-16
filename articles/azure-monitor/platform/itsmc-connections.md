@@ -48,9 +48,9 @@ Use the following procedure to connect your System Center Service Manager instan
 
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
-2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
+2. Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
 
-	![New connection](media/itsmc-connections/add-new-itsm-connection.png)
+    ![New connection](media/itsmc-connections/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
@@ -188,7 +188,7 @@ Ensure the following prerequisites are met:
     - [Set up OAuth for Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-	- [Set up OAuth for Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Set up OAuth for Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
@@ -203,8 +203,8 @@ Use the following procedure to create a ServiceNow connection:
 
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
-2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](media/itsmc-connections/add-new-itsm-connection.png)
+2. Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
+    ![New connection](media/itsmc-connections/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
@@ -262,10 +262,10 @@ The newly created user is displayed with the default roles assigned.
 **Default roles**:
 - personalize_choices
 - import_transformer
-- 	x_mioms_microsoft.user
-- 	itil
-- 	template_editor
-- 	view_changer
+- x_mioms_microsoft.user
+- itil
+- template_editor
+- view_changer
 
 Once the user is successfully created, the status of **Check Installation Checklist** moves to Completed, listing the details of the user role created for the app.
 
@@ -298,8 +298,8 @@ Use the following procedure to create a Provance connection:
 
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
-2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](media/itsmc-connections/add-new-itsm-connection.png)
+2. Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
+    ![New connection](media/itsmc-connections/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
@@ -349,8 +349,8 @@ Use the following procedure to create a Provance connection:
 
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
-2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](media/itsmc-connections/add-new-itsm-connection.png)
+2. Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
+    ![New connection](media/itsmc-connections/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 

@@ -134,12 +134,12 @@ To configure Conditional Access from the Azure portal:
        * Include - **Users and groups** - Select the **Secure Workstation Users** group created earlier.
        * Exclude - **Users and groups** - Select your organization's emergency access accounts.
      * **Cloud apps** - Include **All cloud apps**.
-    * Access controls
-      * **Grant** - Select **Grant access** radio button.
-        * **Require multi-factor authentication**.
-        * **Require device to be marked as compliant**.
-        * For multiple controls - **Require all the selected controls**.
-    * Enable policy - **On**.
+   * Access controls
+     * **Grant** - Select **Grant access** radio button.
+       * **Require multi-factor authentication**.
+       * **Require device to be marked as compliant**.
+       * For multiple controls - **Require all the selected controls**.
+   * Enable policy - **On**.
 
 You have the option to create policies that block countries where users would not access company resources. For more information about IP location-based Conditional Access policies, see [the location condition in Azure Active Directory Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition).
 

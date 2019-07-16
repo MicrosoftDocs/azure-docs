@@ -44,12 +44,12 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 
 ## 2.9.6313.2
 ### Enhancements-
--	You can add DNS entries to whitelist Service Bus rather than whitelisting all Azure IP addresses from your firewall (if needed). More details here.
--	You can now copy data to/from a single block blob up to 4.75 TB, which is the max supported size of block blob. (earlier limit was 195 GB).
--	Fixed: Out of memory issue while unzipping several small files during copy activity.
--	Fixed: Index out of range issue while copying from Document DB to an on-premises SQL Server with idempotency feature.
--	Fixed: SQL cleanup script doesn't work with on-premises SQL Server from Copy Wizard.
--	Fixed: Column name with space at the end does not work in copy activity.
+- You can add DNS entries to whitelist Service Bus rather than whitelisting all Azure IP addresses from your firewall (if needed). More details here.
+- You can now copy data to/from a single block blob up to 4.75 TB, which is the max supported size of block blob. (earlier limit was 195 GB).
+- Fixed: Out of memory issue while unzipping several small files during copy activity.
+- Fixed: Index out of range issue while copying from Document DB to an on-premises SQL Server with idempotency feature.
+- Fixed: SQL cleanup script doesn't work with on-premises SQL Server from Copy Wizard.
+- Fixed: Column name with space at the end does not work in copy activity.
 
 ## 2.8.66283.3
 ### Enhancements-
@@ -123,7 +123,7 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 
     *  Reorganized and simplified controls.
 
-	*  You can copy data from a storage using the [code-free copy tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general.
+    *  You can copy data from a storage using the [code-free copy tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general.
 *  You can use Data Management Gateway to ingress data directly from an on-premises SQL Server database into Azure Machine Learning.
 
 *  Performance improvements

@@ -49,7 +49,7 @@ This module supports exporting or saving your data to the following cloud data s
 
     3. For private accounts, choose **Account**, and provide the account name and the account key, so that the experiment can write to the storage account.
 
-         - **Account name**: Type or paste the name of the account where you want to save the data. For example, if the full URL of the storage account is `http://myshared.blob.core.windows.net`, you would type `myshared`.
+        - **Account name**: Type or paste the name of the account where you want to save the data. For example, if the full URL of the storage account is `http://myshared.blob.core.windows.net`, you would type `myshared`.
 
         - **Account key**: Paste the storage access key that is associated with the account.
 
@@ -59,7 +59,7 @@ This module supports exporting or saving your data to the following cloud data s
 
         - If you specify the name of a blob that does not already exist, Azure creates the blob for you.
 
-       -  When writing to an existing blob, you can specify that current contents of the blob be overwritten by setting the property, **Azure blob storage write mode**. By default, this property is set to **Error**, meaning that an error is raised whenever an existing blob file of the same name is found.
+        -  When writing to an existing blob, you can specify that current contents of the blob be overwritten by setting the property, **Azure blob storage write mode**. By default, this property is set to **Error**, meaning that an error is raised whenever an existing blob file of the same name is found.
 
 
     4. For **File format for blob file**, select the format in which data should be stored.

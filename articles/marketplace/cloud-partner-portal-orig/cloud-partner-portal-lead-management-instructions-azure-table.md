@@ -115,9 +115,9 @@ In the next set of steps, you connect to your storage table and set up the proce
 1. Set up the action to take based on the result of the condition.
 
     1. Select **is greater than** from the drop-down list.
-   1. Enter **0** as the value.
+    1. Enter **0** as the value.
 
-     ![Set up an action based on condition results](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
+    ![Set up an action based on condition results](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
 
 1. If the condition resolves to "If no," don’t do anything.
 

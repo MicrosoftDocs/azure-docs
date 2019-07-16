@@ -28,7 +28,7 @@ Before you begin to configure an IP restriction policy, set up your CLI environm
 
 #### Set up the Azure CLI environment
 1. Install the [Azure CLI](/cli/azure/install-azure-cli), or use Azure Cloud Shell. Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Select the **Try it** button in the CLI commands that follow, and then sign in to your Azure account in the Cloud Shell session that opens. After the session starts, enter `az extension add --name front-door` to add the Azure Front Door Service extension.
- 2. If you're using the CLI locally in Bash, sign in to Azure by using `az login`.
+2. If you're using the CLI locally in Bash, sign in to Azure by using `az login`.
 
 #### Create an Azure Front Door Service profile
 Create an Azure Front Door Service profile by following the instructions described in [Quickstart: Create a Front Door for a highly available global web application](quickstart-create-front-door.md).
@@ -114,7 +114,7 @@ You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/o
     ```
     Connect-AzAccount
     ```
- 2. Before you install an Azure Front Door Service module, make sure you have the current version of the PowerShellGet module installed. Run the following command, and then reopen PowerShell.
+2. Before you install an Azure Front Door Service module, make sure you have the current version of the PowerShellGet module installed. Run the following command, and then reopen PowerShell.
 
     ```
     Install-Module PowerShellGet -Force -AllowClobber

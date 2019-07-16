@@ -59,9 +59,9 @@ To add a new consumer group to your IoT hub:
 
 1. Select a value for **Import option**:
 
-   * If you already have an IoT hub in one of your subscriptions, select **Use IoT Hub from available subscriptions**. This option is the easiest approach.
+    * If you already have an IoT hub in one of your subscriptions, select **Use IoT Hub from available subscriptions**. This option is the easiest approach.
    
-     [![Select options in the New event source pane](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png#lightbox)
+      [![Select options in the New event source pane](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png#lightbox)
 
     * The following table describes the properties that are required for the **Use IoT Hub from available subscriptions** option:
 

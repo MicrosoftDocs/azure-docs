@@ -152,19 +152,19 @@ Azure Security Center enables you to define an application whitelisting policy o
 
 ## Move a VM from one group to another
 
- When you move a VM from one group to another, the application control policy applied to it changes to the settings of the group that you moved it to. You can also move a VM from a configured group to a non-configured group, which results in removing any application control policy that was previously applied to the VM.
+When you move a VM from one group to another, the application control policy applied to it changes to the settings of the group that you moved it to. You can also move a VM from a configured group to a non-configured group, which results in removing any application control policy that was previously applied to the VM.
 
- 1. From the **Adaptive application controls** page, from the **CONFIGURED** tab, click the group which the VM to be moved currently belongs to.
+1. From the **Adaptive application controls** page, from the **CONFIGURED** tab, click the group which the VM to be moved currently belongs to.
 1. Click **Configured VMs and Computers**.
 1. Click the three dots in the line of the VM to move and click **Move**. The **Move computer to different group** window opens.
 
     ![Protection](./media/security-center-adaptive-application/adaptive-application-move-group.png)
 
- 1. Select the group to move the VM to, and click **Move Computer**, and click **Save**.
+1. Select the group to move the VM to, and click **Move Computer**, and click **Save**.
 
     ![Protection](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
 
- > [!NOTE]
+> [!NOTE]
 > Be sure to click **Save** after clicking **Move Computer**. If you do not click **Save**, then the computer will not be moved.
 
 ## Next steps

@@ -75,7 +75,7 @@ To select a workspace created by Security Center:
    ![Select pricing tier][10] 
 
 1. Click **Save**.<br>
-	Security Center creates a new resource group and default workspace in that geolocation, and connects the agent to that workspace. The naming convention for the workspace and resource group is:<br>
+    Security Center creates a new resource group and default workspace in that geolocation, and connects the agent to that workspace. The naming convention for the workspace and resource group is:<br>
    **Workspace: DefaultWorkspace-[subscription-ID]-[geo]<br>
    Resource Group: DefaultResourceGroup-[geo]**
 
@@ -128,9 +128,9 @@ To select an existing Log Analytics workspace:
 
 5. Select the pricing tier for the desired workspace you intend to set the Microsoft Monitoring agent. <br>To use an existing workspace, set the pricing tier for the workspace. This will install a security Center solution on the workspace if one is not already present.
 
-    a.  In the Security Center main menu, select **Pricing & settings**.
+    a. In the Security Center main menu, select **Pricing & settings**.
      
-    b.	Select the desired Workspace in which you intend to connect the agent.
+    b. Select the desired Workspace in which you intend to connect the agent.
         ![Select workspace][7]
     c. Set the pricing tier.
         ![Select pricing tier][9]
@@ -231,13 +231,13 @@ You can turn off automatic provisioning from resources at any time by turning of
 When auto provisioning is disabled (turned off), the default workspace configuration section is not displayed.
 
 If you switch off auto provision after it was previously on:
--	Agents will not be provisioned on new VMs.
--	Security Center stops collecting data from the default workspace.
+- Agents will not be provisioned on new VMs.
+- Security Center stops collecting data from the default workspace.
  
 > [!NOTE]
 >  Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Security Center](security-center-faq.md#remove-oms).
 >
-	
+
 ## Manual agent provisioning <a name="manualagent"></a>
  
 There are several ways to install the Microsoft Monitoring Agent manually. When installing manually, make sure you disable auto provisioning.
@@ -290,12 +290,12 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
                "workspaceKey": "<Primary key value>”
            }' 
 
-	  - When installing on a Windows VM:
-	    
+      - When installing on a Windows VM:
+
             Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
-	
+
       - When installing on a Linux VM:
-	    
+
             Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
 > [!NOTE]
@@ -303,10 +303,10 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
 
 ## Troubleshooting
 
--	To identify automatic provision installation issues, see [Monitoring agent health issues](security-center-troubleshooting-guide.md#mon-agent).
+- To identify automatic provision installation issues, see [Monitoring agent health issues](security-center-troubleshooting-guide.md#mon-agent).
 
--  To identify monitoring agent network requirements, see [Troubleshooting monitoring agent network requirements](security-center-troubleshooting-guide.md#mon-network-req).
--	To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
+- To identify monitoring agent network requirements, see [Troubleshooting monitoring agent network requirements](security-center-troubleshooting-guide.md#mon-network-req).
+- To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
 - To identify Unmonitored VMs and computers issues, see [Unmonitored VMs and computers](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers).
 

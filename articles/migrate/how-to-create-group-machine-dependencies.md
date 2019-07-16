@@ -153,8 +153,8 @@ Run a query for dependency data as follows:
 We provide a number sample queries you can use to extract dependency data.
 
 - You can modify the queries to extract your preferred data points.
- - [Review ](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) a complete list of dependency data records.
- - [Review](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches) additional sample queries.
+- [Review](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) a complete list of dependency data records.
+- [Review](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches) additional sample queries.
 
 #### Sample: Review inbound connections 
 Review inbound connections for a set of VMs.

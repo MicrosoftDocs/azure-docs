@@ -126,8 +126,8 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
 
     ![ADX new linked service](media/data-factory-load-data/adx-new-linked-service.png)
 
-   * Select **Name** for Azure Data Explorer linked service.
-   * In **Account selection method**: 
+    * Select **Name** for Azure Data Explorer linked service.
+    * In **Account selection method**: 
         * Select the **From Azure subscription** radio button and select your **Azure subscription** account. Then, select your **Cluster**. Note the drop-down will only list clusters that belong to the user.
         * Alternatively, select **Enter manually** radio button and enter your **Endpoint**.
     * Specify the **Tenant**.

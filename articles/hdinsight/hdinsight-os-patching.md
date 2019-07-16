@@ -29,13 +29,13 @@ By using the script actions described in this article, you can modify the OS pat
 Using a script requires the following information:
 
 - The install-updates-schedule-reboots script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh.
- 	
+
    HDInsight uses this URI to find and run the script on all the VMs in the cluster. This script provides options to install updates and restart the VM.
-  
+
 - The schedule-reboots script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh.
- 	
+
    HDInsight uses this URI to find and run the script on all the VMs in the cluster. This script restarts the VM.
-  
+
 - The cluster node types that the script is applied to are headnode, workernode, and zookeeper. Apply the script to all node types in the cluster. If the script isn't applied to a node type, the VMs for that node type won't be updated or restarted.
 
 - The install-updates-schedule-reboots script accepts two numeric parameters:
@@ -45,7 +45,7 @@ Using a script requires the following information:
     | Install kernel updates only/Install all updates/Install kernel + security updates only|0,  1, or 2. A value of 0 installs only kernel updates. A value of 1 installs all updates, and 2 installs only kernel + security updates. If no parameter is provided, the default is 0. |
     | No reboot/Enable schedule reboot/Enable immediate reboot |0, 1, or 2. A value of 0 disables restart. A value of 1 enables schedule restart, and 2 enables immediate restart. If no parameter is provided, the default is 0. The user must change input parameter 1 to input parameter 2. |
    
- - The schedule-reboots script accepts one numeric parameter:
+- The schedule-reboots script accepts one numeric parameter:
 
     | Parameter | Definition |
     | --- | --- |

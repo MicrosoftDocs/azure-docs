@@ -51,19 +51,19 @@ To configure the integration of Mitel Connect into Azure AD, you need to add Mit
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory**.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Click **Enterprise Applications** and then click **All Applications**.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. Click **New application**.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. Type **Mitel Connect** in the search field, click **Mitel Connect** from results panel, and then click **Add**.
 
-	 ![Mitel Connect in the results list](common/search-new-app.png)
+    ![Mitel Connect in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -93,17 +93,17 @@ To configure MiCloud Connect with SSO for Azure AD, it is easiest to open the Az
     b. In the **Select a Single sign-on method** dialog, click **SAML**.
 
     ![Single sign-on select mode](common/select-saml-option.png)
-	
-	The SAML-based sign-on page is displayed.
+
+    The SAML-based sign-on page is displayed.
 
 2. To open the configuration dialog in the Mitel Account portal, do the following:
 
     a. On the **Phone System** menu, click **Add-On Features**.
 
     b. To the right of **Single Sign-On**, click **Activate** or **Settings**.
-    
+
     The Connect Single Sign-On Settings dialog box appears.
-	
+
 3. Select the **Enable Single Sign-On** check box.
     ![image](./media/mitel-connect-tutorial/Mitel_Connect_Enable.png)
 
@@ -173,11 +173,11 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 1. In the Azure portal, click **Enterprise Applications**, and then click **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, click **Mitel Connect**.
 
-	![The Mitel Connect link in the Applications list](common/all-applications.png)
+    ![The Mitel Connect link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -201,7 +201,7 @@ For details about adding users in the Mitel Account portal, see the [Adding a Us
 
 Create a user on your MiCloud Connect account with the following details:
 
-  * **Name:** Britta Simon
+* **Name:** Britta Simon
 
 * **Business Email Address:** `brittasimon@<yourcompanydomain>.<extension>`   
 (Example: [brittasimon@contoso.com](mailto:brittasimon@contoso.com))

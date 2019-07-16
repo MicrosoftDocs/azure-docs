@@ -814,7 +814,7 @@ Where the action can be one of the following:
 
 Where the status can be one of the following: 
 - **NotStarted** <br>
- - **InProgress** <br>
+- **InProgress** <br>
 - **Succeeded** <br>
 - **Failed** <br>
 - **Conflict** <br>

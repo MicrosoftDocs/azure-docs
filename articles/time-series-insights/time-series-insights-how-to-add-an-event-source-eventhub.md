@@ -78,7 +78,7 @@ To add a new consumer group in your event hub:
      | Event serialization format | Currently, JSON is the only available serialization format. Event messages must be in this format or data can't be read. |
      | Timestamp property name | To determine this value, you need to understand the message format of the message data that's sent to the event hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. If left blank, the **event enqueue time** in the event source is used as the event timestamp. |
 
-    - If the event hub is external to your subscriptions or if you want to select advanced options, select **Provide Event Hub settings manually**.
+     - If the event hub is external to your subscriptions or if you want to select advanced options, select **Provide Event Hub settings manually**.
 
       The following table describes the required properties for the **Provide Event Hub settings manually** option:
  

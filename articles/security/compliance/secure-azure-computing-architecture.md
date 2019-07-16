@@ -87,15 +87,15 @@ The SACA reference architecture is designed to deploy the VDSS and VDMS componen
 When you plan your SCCA compliancy strategy and technical architecture, consider the following topics from the beginning because they affect every customer. The following issues have come up with DoD customers and tend to slow down planning and execution. 
 
 #### Which BCAP will your organization use?
-   - DISA BCAP:
-        - DISA has two operational BCAPs at the Pentagon and at Camp Roberts, CA. A third is planned to come online soon. 
-        - DISA’s BCAPs all have Azure ExpressRoute circuits to Azure, which can be used by DoD customers for connectivity. 
-        - DISA has an enterprise-level Microsoft peering session for DoD customers who want to subscribe to Microsoft software as a service (SaaS) tools, such as Office 365. By using the DISA BCAP, you can enable connectivity and peering to your SACA instance. 
-    - Build your own BCAP:
-        - This option requires you to lease space in a co-located data center and set up an ExpressRoute circuit to Azure. 
-        - This option requires additional approval. 
-        - Because of the additional approval and a physical build-out, this option takes the most time. 
-    - We recommend that you use the DISA BCAP. This option is readily available, has built-in redundancy, and has customers that operate on it today in production.
+- DISA BCAP:
+    - DISA has two operational BCAPs at the Pentagon and at Camp Roberts, CA. A third is planned to come online soon. 
+    - DISA’s BCAPs all have Azure ExpressRoute circuits to Azure, which can be used by DoD customers for connectivity. 
+    - DISA has an enterprise-level Microsoft peering session for DoD customers who want to subscribe to Microsoft software as a service (SaaS) tools, such as Office 365. By using the DISA BCAP, you can enable connectivity and peering to your SACA instance. 
+- Build your own BCAP:
+    - This option requires you to lease space in a co-located data center and set up an ExpressRoute circuit to Azure. 
+    - This option requires additional approval. 
+    - Because of the additional approval and a physical build-out, this option takes the most time. 
+- We recommend that you use the DISA BCAP. This option is readily available, has built-in redundancy, and has customers that operate on it today in production.
 - DoD routable IP space:
     - You must use DoD routable IP space at your edge. The option to use NAT to connect those spaces to private IP space in Azure is available.
     - Contact the DoD Network Information Center (NIC) to obtain IP space. You need it as part of your System/Network Approval Process (SNAP) submission with DISA. 

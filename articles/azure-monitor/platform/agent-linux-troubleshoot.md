@@ -388,15 +388,15 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 * The setting **Apply the following configuration to my Linux Servers** has not been selected.
 * omsconfig has not picked up the latest custom log configuration from the service.
 * Log Analytics agent for Linux user `omsagent` is unable to access the custom log due to permissions or not being found.  You may see the following errors:
- * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
- * `[DATETIME] [error]: file not accessible by omsagent.`
+  * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
+  * `[DATETIME] [error]: file not accessible by omsagent.`
 * Known Issue with Race Condition fixed in Log Analytics agent for Linux version 1.1.0-217
 
 ### Resolution
 1. Verify onboarding to Azure Monitor was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. If not, either:  
 
-  1. Reonboard using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
-  2. Under **Advanced Settings** in the Azure portal, ensure that the setting **Apply the following configuration to my Linux Servers** is enabled.  
+   1. Reonboard using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
+   2. Under **Advanced Settings** in the Azure portal, ensure that the setting **Apply the following configuration to my Linux Servers** is enabled.  
 
 2. Check that the `omsconfig` agent can communicate with Azure Monitor by running the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  This command returns the configuration that agent receives from the service, including Syslog settings, Linux performance counters, and custom logs. If this command fails, run the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration.
 

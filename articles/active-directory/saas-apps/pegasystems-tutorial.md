@@ -51,19 +51,19 @@ To set up the integration of Pega Systems into Azure AD, you need to add Pega Sy
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**:
 
-	![Select Azure Active Directory](common/select-azuread.png)
+    ![Select Azure Active Directory](common/select-azuread.png)
 
 2. Go to **Enterprise applications** > **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add an application, select **New application** at the top of the window:
 
-	![Select New application](common/add-new-app.png)
+    ![Select New application](common/add-new-app.png)
 
 4. In the search box, enter **Pega Systems**. Select **Pega Systems** in the search results, and then select **Add**.
 
-	 ![Search results](common/search-new-app.png)
+    ![Search results](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -95,7 +95,7 @@ To configure Azure AD single sign-on with Pega Systems, take these steps:
 
 3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
-	![Edit icon](common/edit-urls.png)
+    ![Edit icon](common/edit-urls.png)
 
 4. In the **Basic SAML Configuration** dialog box, if you want to configure the application in IdP-initiated mode, complete the following steps.
 
@@ -113,21 +113,21 @@ To configure Azure AD single sign-on with Pega Systems, take these steps:
 
     ![Pega Systems Domain and URLs single sign-on information](common/both-advanced-urls.png)
 
-	1. In the **Sign on URL** box, enter the sign on URL value.
+    1. In the **Sign on URL** box, enter the sign on URL value.
 
     1. In the **Relay State** box, enter a URL in this pattern:
        `https://<customername>.pegacloud.io/prweb/sso`
 
-	> [!NOTE]
-	> The values provided here are placeholders. You need to use the actual identifier, reply URL, sign on URL, and relay state URL. You can get the identifier and reply URL values from a Pega application, as explained later in this tutorial. To get the relay state value, contact the [Pega Systems support team](https://www.pega.com/contact-us). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > The values provided here are placeholders. You need to use the actual identifier, reply URL, sign on URL, and relay state URL. You can get the identifier and reply URL values from a Pega application, as explained later in this tutorial. To get the relay state value, contact the [Pega Systems support team](https://www.pega.com/contact-us). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. The Pega Systems application needs the SAML assertions to be in a specific format. To get them in the correct format, you need to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the default attributes. Select the **Edit** icon to open the **User Attributes** dialog box:
 
-	![User Attributes](common/edit-attribute.png)
+    ![User Attributes](common/edit-attribute.png)
 
 7. In addition to the attributes shown in the previous screenshot, the Pega Systems application requires a few more attributes to be passed back in the SAML response. In the **User claims** section of the **User Attributes** dialog box, complete the following steps to add these SAML token attributes:
 
-	
+
    - `uid`
    - `cn`
    - `mail`
@@ -138,40 +138,40 @@ To configure Azure AD single sign-on with Pega Systems, take these steps:
    - `workgroup`  
    - `Phone`
 
-	> [!NOTE]
-	> These values are specific to your organization. Provide the appropriate values.
+    > [!NOTE]
+    > These values are specific to your organization. Provide the appropriate values.
 
-	1. Select **Add new claim** to open the **Manage user claims** dialog box:
+    1. Select **Add new claim** to open the **Manage user claims** dialog box:
 
-	![Select Add new claim](common/new-save-attribute.png)
+    ![Select Add new claim](common/new-save-attribute.png)
 
-	![Manage user claims dialog box](common/new-attribute-details.png)
+    ![Manage user claims dialog box](common/new-attribute-details.png)
 
-	1. In the **Name** box, enter the attribute name shown for that row.
+    1. In the **Name** box, enter the attribute name shown for that row.
 
-	1. Leave the **Namespace** box empty.
+    1. Leave the **Namespace** box empty.
 
-	1. For the **Source**, select **Attribute**.
+    1. For the **Source**, select **Attribute**.
 
-	1. In the **Source attribute** list, select the attribute value shown for that row.
+    1. In the **Source attribute** list, select the attribute value shown for that row.
 
-	1. Select **Ok**.
+    1. Select **Ok**.
 
-	1. Select **Save**.
+    1. Select **Save**.
 
 8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Federation Metadata XML**, per your requirements, and save the certificate on your computer:
 
-	![Certificate download link](common/metadataxml.png)
+    ![Certificate download link](common/metadataxml.png)
 
 9. In the **Set up Pega Systems** section, copy the appropriate URLs, based on your requirements.
 
-	![Copy the configuration URLs](common/copy-configuration-urls.png)
+    ![Copy the configuration URLs](common/copy-configuration-urls.png)
 
-	1. **Login URL**.
+    1. **Login URL**.
 
-	1. **Azure AD Identifier**.
+    1. **Azure AD Identifier**.
 
-	1. **Logout URL**.
+    1. **Logout URL**.
 
 ### Configure Pega Systems single sign-on
 
@@ -179,37 +179,37 @@ To configure Azure AD single sign-on with Pega Systems, take these steps:
 
 2. Select **Create** > **SysAdmin** > **Authentication Service**:
 
-	![Select Authentication Service](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
-	
+    ![Select Authentication Service](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
+
 3. Complete the following steps on the **Create Authentication Service** screen.
 
-	![Create Authentication Service screen](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
+    ![Create Authentication Service screen](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 
-	1. In the **Type** list, select **SAML 2.0**.
+    1. In the **Type** list, select **SAML 2.0**.
 
-	1. In the **Name** box, enter any name (for example, **Azure AD SSO**).
+    1. In the **Name** box, enter any name (for example, **Azure AD SSO**).
 
-	1. In the **Short description** box, enter a description.  
+    1. In the **Short description** box, enter a description.  
 
-	1. Select **Create and open**.
-	
+    1. Select **Create and open**.
+
 4. In the **Identity Provider (IdP) information** section, select **Import IdP metadata** and browse to the metadata file that you downloaded from the Azure portal. Click **Submit** to load the metadata:
 
-	![Identity Provider (IdP) information section](./media/pegasystems-tutorial/tutorial_pegasystems_admin2.png)
-	
+    ![Identity Provider (IdP) information section](./media/pegasystems-tutorial/tutorial_pegasystems_admin2.png)
+
     The import will populate the IdP data as shown here:
 
-	![Imported IdP data](./media/pegasystems-tutorial/tutorial_pegasystems_admin3.png)
-	
+    ![Imported IdP data](./media/pegasystems-tutorial/tutorial_pegasystems_admin3.png)
+
 6. Complete the following steps in the **Service Provider (SP) settings** section.
 
-	![Service provider settings](./media/pegasystems-tutorial/tutorial_pegasystems_admin4.png)
+    ![Service provider settings](./media/pegasystems-tutorial/tutorial_pegasystems_admin4.png)
 
-	1. Copy the **Entity Identification** value and paste it into the **Identifier** box in the **Basic SAML Configuration** section in the Azure portal.
+    1. Copy the **Entity Identification** value and paste it into the **Identifier** box in the **Basic SAML Configuration** section in the Azure portal.
 
-	1. Copy the **Assertion Consumer Service (ACS) location** value and paste it into the **Reply URL** box in the **Basic SAML Configuration** section in the Azure portal.
+    1. Copy the **Assertion Consumer Service (ACS) location** value and paste it into the **Reply URL** box in the **Basic SAML Configuration** section in the Azure portal.
 
-	1. Select **Disable request signing**.
+    1. Select **Disable request signing**.
 
 7. Select **Save**.
 
@@ -243,11 +243,11 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **Pega Systems**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the list of applications, select **Pega Systems**.
 
-	![List of applications](common/all-applications.png)
+    ![List of applications](common/all-applications.png)
 
 3. In the left pane, select **Users and groups**:
 

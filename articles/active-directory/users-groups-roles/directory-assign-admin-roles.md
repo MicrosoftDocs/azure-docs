@@ -53,7 +53,7 @@ The following administrator roles are available:
   * Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
   * Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
   * Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
-  *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
+  * Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 * **[Azure Information Protection Administrator](#azure-information-protection-administrator)**: Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, or Office 365 Security & Compliance Center.
 
@@ -61,8 +61,8 @@ The following administrator roles are available:
 
 * **[B2C User Flow Attribute Administrator](#b2c-user-flow-attribute-administrator)**: Users with this role add or delete custom attributes available to all user flows in the tenant. As such, users with this role can change or add new elements to the end user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
 
-* **[B2C IEF Keyset Administrator](#b2c-ief-keyset-administrator)**: 	User can create and manage policy keys and secrets for token encryption, token signatures, and claim encryption/decryption. By adding new keys to existing key containers, this limited administrator can rollover secrets as needed without impacting existing applications. This user can see the full content of these secrets and their expiration dates even after their creation.
-	
+* **[B2C IEF Keyset Administrator](#b2c-ief-keyset-administrator)**: User can create and manage policy keys and secrets for token encryption, token signatures, and claim encryption/decryption. By adding new keys to existing key containers, this limited administrator can rollover secrets as needed without impacting existing applications. This user can see the full content of these secrets and their expiration dates even after their creation.
+
   <b>Important:</b> This is a sensitive role. The keyset administrator role should be carefully audited and assigned with care during preproduction and production.
 
 * **[B2C IEF Policy Administrator](#b2c-ief-policy-administrator)**: Users in this role have the ability to create, read, update, and delete all custom policies in Azure AD B2C and therefore have full control over the Identity Experience Framework in the relevant Azure AD B2C tenant. By editing policies, this user can establish direct federation with external identity providers, change the directory schema, change all user-facing content (HTML, CSS, JavaScript), change the requirements to complete an authentication, create new users, send user data to external systems including full migrations, and edit all user information including sensitive fields like passwords and phone numbers. Conversely, this role cannot change the encryption keys or edit the secrets used for federation in the tenant.
@@ -139,7 +139,7 @@ The following administrator roles are available:
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Intune Service Administrator ". It is "Intune Administrator" in the [Azure portal](https://portal.azure.com).
   
- * **[Kaizala Administrator](#kaizala-administrator)**: Users with this role have global permissions to manage settings within Microsoft Kaizala, when the service is present, as well as the ability to manage support tickets and monitor service health.
+* **[Kaizala Administrator](#kaizala-administrator)**: Users with this role have global permissions to manage settings within Microsoft Kaizala, when the service is present, as well as the ability to manage support tickets and monitor service health.
 Additionally, the user can access reports related to adoption & usage of Kaizala by Organization members and business reports generated using the Kaizala actions. 
 
 * **[License Administrator](#license-administrator)**: 
@@ -162,10 +162,10 @@ Additionally, the user can access reports related to adoption & usage of Kaizala
   
   <b>Important</b>: Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
   * Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Helpdesk Administrators. Through this path a Helpdesk Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
-  *	Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
-  *	Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
-  *	Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
-  *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
+  * Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
+  * Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
+  * Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
+  * Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 
   > [!NOTE]
@@ -181,8 +181,8 @@ Additionally, the user can access reports related to adoption & usage of Kaizala
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Power BI Service Administrator ". It is "Power BI Administrator" in the [Azure portal](https://portal.azure.com).
 
 * **[Privileged Authentication Administrator](#privileged-authentication-administrator)**: Users with this role can set or reset non-password credentials for all users, including global administrators. Privileged Authentication Administrators can force users to re-register against existing non-password credential (e.g. MFA, FIDO) and revoke ‘remember MFA on the device’, prompting for MFA on the next login of all users. Privileged Authentication Administrators can:
-  *	Force users to re-register against existing non-password credential (e.g. MFA, FIDO)
-  *	Revoke ‘remember MFA on the device’, prompting for MFA on the next login
+  * Force users to re-register against existing non-password credential (e.g. MFA, FIDO)
+  * Revoke ‘remember MFA on the device’, prompting for MFA on the next login
 
 * **[Privileged Role Administrator](#privileged-role-administrator)**: Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. In addition, this role allows management of all aspects of Privileged Identity Management and administrative units.
 
@@ -270,10 +270,10 @@ Additionally, the user can access reports related to adoption & usage of Kaizala
   
   <b>Important</b>: Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
   * Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to User Administrators. Through this path a User Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
-  *	Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
-  *	Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
-  *	Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
-  *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
+  * Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
+  * Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
+  * Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
+  * Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 ## Role Permissions
 The following tables describe the specific permissions in Azure Active Directory given to each role. Some roles may have additional permissions in Microsoft services outside of Azure Active Directory.

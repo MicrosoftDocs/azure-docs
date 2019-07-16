@@ -84,8 +84,8 @@ In the example in the following figure,
 
 File Integrity Monitoring data resides within the Azure Log Analytics / ConfigurationChange table set.  
 
- 1. Set a time range to retrieve a summary of changes by resource.
-In the following example, we are retrieving all changes in the last fourteen days in the categories of registry and files:
+1. Set a time range to retrieve a summary of changes by resource.
+    In the following example, we are retrieving all changes in the last fourteen days in the categories of registry and files:
 
     <code>
 

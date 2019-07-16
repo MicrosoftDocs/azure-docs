@@ -36,7 +36,7 @@ The new version of Azure Migrate provides a number of new features:
     - This appliance is used by Azure Migrate Server Assessment, and Azure Migrate Server Migration for agentless migration.
     - The appliance continuously discovers server metadata and performance data, for the purposes of assessment and migration.  
 - **VMware VM migration**:  Azure Migrate Server Migration provides a couple of methods for migrating on-premises VMware VMs to Azure.  An agentless migration using the Azure Migrate appliance, and an agent-based migration that uses a replication appliance, and deploys an agent on each VM you want to migrate. [Learn more](server-migrate-overview.md)
- - **Database assessment and migration**: From Azure Migrate, you can assess on-premises databases for migration to Azure using the Azure Database Migration Assistant. You can migrate databases using the Azure Database Migration Service.
+- **Database assessment and migration**: From Azure Migrate, you can assess on-premises databases for migration to Azure using the Azure Database Migration Assistant. You can migrate databases using the Azure Database Migration Service.
 - **Web app migration**: You can assess web apps using a public endpoint URL with the Azure App Service. For migration of internal .NET apps, you can download and run the App Service Migration Assistant. 
 - **Data Box**: Import large amounts offline data into Azure using Azure Data Box in Azure Migrate.
 

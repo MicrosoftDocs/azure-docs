@@ -50,19 +50,19 @@ To add Everbridge from the Azure Marketplace, follow these steps.
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, select **Azure Active Directory**.
 
-	![Azure Active Directory button](common/select-azuread.png)
+    ![Azure Active Directory button](common/select-azuread.png)
 
 2. Go to **Enterprise applications**, and then select **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add a new application, select **New application** at the top of the dialog box.
 
-	![New application button](common/add-new-app.png)
+    ![New application button](common/add-new-app.png)
 
 4. In the search box, enter **Everbridge**. Select **Everbridge** from the result panel, and select **Add**.
 
-	 ![Everbridge in the results list](common/search-new-app.png)
+    ![Everbridge in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -95,10 +95,10 @@ To configure Azure AD single sign-on with Everbridge, follow these steps.
 
 3. On the **Set up Single Sign-On with SAML** page, select **Edit** to open the **Basic SAML Configuration** dialog box.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
     >[!NOTE]
-	>Configure the application either as the manager portal *or* as the member portal on both the Azure portal and the Everbridge portal.
+    >Configure the application either as the manager portal *or* as the member portal on both the Azure portal and the Everbridge portal.
 
 4. To configure the **Everbridge** application as the **Everbridge manager portal**, in the **Basic SAML Configuration** section, follow these steps:
 
@@ -110,39 +110,39 @@ To configure Azure AD single sign-on with Everbridge, follow these steps.
     b. In the **Reply URL** box, enter a URL that follows the pattern
     `https://manager.everbridge.net/saml/SSO/<API_Name>/alias/defaultAlias`
 
-	> [!NOTE]
-	> These values aren't real. Update these values with the actual Identifier and Reply URL values. To get these values, contact the [Everbridge support team](mailto:support@everbridge.com). You also can refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values aren't real. Update these values with the actual Identifier and Reply URL values. To get these values, contact the [Everbridge support team](mailto:support@everbridge.com). You also can refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. To configure the **Everbridge** application as the **Everbridge member portal**, in the **Basic SAML Configuration** section, follow these steps:
 
-  * If you want to configure the application in IDP-initiated mode, follow these steps:
+    * If you want to configure the application in IDP-initiated mode, follow these steps:
 
-	 ![Everbridge domain and URLs single sign-on information for IDP-initiated mode](common/idp-intiated.png)
+      ![Everbridge domain and URLs single sign-on information for IDP-initiated mode](common/idp-intiated.png)
 
-    a. In the **Identifier** box, enter a URL that follows the pattern `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+      a. In the **Identifier** box, enter a URL that follows the pattern `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
-    b. In the **Reply URL** box, enter a URL that follows the pattern `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
+      b. In the **Reply URL** box, enter a URL that follows the pattern `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
-   * If you want to configure the application in SP-initiated mode, select **Set additional URLs** and follow this step:
+    * If you want to configure the application in SP-initiated mode, select **Set additional URLs** and follow this step:
 
-     ![Everbridge domain and URLs single sign-on information for SP-initiated mode](common/both-signonurl.png)
+      ![Everbridge domain and URLs single sign-on information for SP-initiated mode](common/both-signonurl.png)
 
-     a. In the **Sign on URL** box, enter a URL that follows the pattern `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+      a. In the **Sign on URL** box, enter a URL that follows the pattern `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
-     > [!NOTE]
-     > These values aren't real. Update these values with the actual Identifier, Reply URL, and Sign on URL values. To get these values, contact the [Everbridge support team](mailto:support@everbridge.com). You also can refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+      > [!NOTE]
+      > These values aren't real. Update these values with the actual Identifier, Reply URL, and Sign on URL values. To get these values, contact the [Everbridge support team](mailto:support@everbridge.com). You also can refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Federation Metadata XML**. Save it on your computer.
 
-	![Certificate download link](common/metadataxml.png)
+    ![Certificate download link](common/metadataxml.png)
 
 7. In the **Set up Everbridge** section, copy the URLs you need for your requirements:
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	- Login URL
-	- Azure AD Identifier
-	- Logout URL
+    - Login URL
+    - Azure AD Identifier
+    - Logout URL
 
 ### Configure Everbridge as Everbridge manager portal single sign-on
 
@@ -202,11 +202,11 @@ Enable Britta Simon to use Azure single sign-on by granting access to Everbridge
 
 1. In the Azure portal, select **Enterprise applications** > **All applications** >**Everbridge**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Everbridge**.
 
-	![Everbridge link in the applications list](common/all-applications.png)
+    ![Everbridge link in the applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 

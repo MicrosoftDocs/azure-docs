@@ -58,25 +58,25 @@ For more information about Point-to-Site connections, see [Point-to-Site FAQ](#p
 Use the following values to create a test environment, or refer to these values to better understand the examples in this article:
 
 - **Create virtual network (classic) settings**
-   - **Name**: Enter *VNet1*.
-   - **Address space**: Enter *192.168.0.0/16*. For this example, we use only one address space. You can have more than one address space for your VNet, as shown in the diagram.
-   - **Subnet name**: Enter *FrontEnd*.
-   - **Subnet address range**: Enter *192.168.1.0/24*.
-   - **Subscription**: Select a subscription from the list of available subscriptions.
-   - **Resource group**: Enter *TestRG*. Select **Create new**, if the resource group doesn't exist.
-   - **Location**: Select **East US** from the list.
+  - **Name**: Enter *VNet1*.
+  - **Address space**: Enter *192.168.0.0/16*. For this example, we use only one address space. You can have more than one address space for your VNet, as shown in the diagram.
+  - **Subnet name**: Enter *FrontEnd*.
+  - **Subnet address range**: Enter *192.168.1.0/24*.
+  - **Subscription**: Select a subscription from the list of available subscriptions.
+  - **Resource group**: Enter *TestRG*. Select **Create new**, if the resource group doesn't exist.
+  - **Location**: Select **East US** from the list.
 
   - **VPN connection settings**
     - **Connection type**: Select **Point-to-site**.
     - **Client Address Space**: Enter *172.16.201.0/24*. VPN clients that connect to the VNet by using this Point-to-Site connection receive an IP address from the specified pool.
 
 - **Gateway configuration subnet settings**
-   - **Name**: Autofilled with *GatewaySubnet*.
-   - **Address range**: Enter *192.168.200.0/24*. 
+  - **Name**: Autofilled with *GatewaySubnet*.
+  - **Address range**: Enter *192.168.200.0/24*. 
 
 - **Gateway configuration settings**:
-   - **Size**: Select the gateway SKU that you want to use.
-   - **Routing Type**: Select **Dynamic**.
+  - **Size**: Select the gateway SKU that you want to use.
+  - **Routing Type**: Select **Dynamic**.
 
 ## Create a virtual network and a VPN gateway
 

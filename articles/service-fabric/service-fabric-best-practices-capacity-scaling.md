@@ -28,14 +28,14 @@ You should perform scaling operations via Azure Resource Manager templates, beca
 Using automatic scaling through virtual machine scale sets will make your versioned Resource Manager template inaccurately define your instance counts for virtual machine scale sets. Inaccurate definition increases the risk that future deployments will cause unintended scaling operations. In general, you should use autoscaling if:
 
 * Deploying your Resource Manager templates with appropriate capacity declared doesn’t support your use case.
-     
-   In addition to manual scaling, you can configure a [Continuous integration and delivery pipeline in Azure DevOps Services by using Azure resource group deployment projects](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts). This pipeline is commonly triggered by a logic app that uses virtual machine performance metrics queried from the [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough). The pipeline effectively autoscales based on whatever metrics you want, while optimizing for Resource Manager templates.
+    
+  In addition to manual scaling, you can configure a [Continuous integration and delivery pipeline in Azure DevOps Services by using Azure resource group deployment projects](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts). This pipeline is commonly triggered by a logic app that uses virtual machine performance metrics queried from the [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough). The pipeline effectively autoscales based on whatever metrics you want, while optimizing for Resource Manager templates.
 * You need to horizontally scale only one virtual machine scale set node at a time.
-   
-   To scale out by three or more nodes at a time, you should [scale out a Service Fabric cluster by adding a virtual machine scale set](virtual-machine-scale-set-scale-node-type-scale-out.md). It's safest to scale in and scale out virtual machine scale sets horizontally, one node at a time.
-* You have Silver reliability or higher for your Service Fabric cluster, and Silver durability or higher on any scale where you configure autoscaling rules.
   
-   The minimum capacity for autoscaling rules must be equal to or greater than five virtual machine instances. It must also be equal to or greater than your Reliability Tier minimum for your primary node type.
+  To scale out by three or more nodes at a time, you should [scale out a Service Fabric cluster by adding a virtual machine scale set](virtual-machine-scale-set-scale-node-type-scale-out.md). It's safest to scale in and scale out virtual machine scale sets horizontally, one node at a time.
+* You have Silver reliability or higher for your Service Fabric cluster, and Silver durability or higher on any scale where you configure autoscaling rules.
+
+  The minimum capacity for autoscaling rules must be equal to or greater than five virtual machine instances. It must also be equal to or greater than your Reliability Tier minimum for your primary node type.
 
 > [!NOTE]
 > The Service Fabric stateful service fabric:/System/InfastructureService/<NODE_TYPE_NAME> runs on every node type that has Silver or higher durability. It's the only system service that is supported to run in Azure on any of your clusters node types.
@@ -58,7 +58,7 @@ The following snippet of a Resource Manager template shows the properties you'll
 
 ```json
 "settings": {
-   "nodeTypeRef": ["[parameters('primaryNodetypeName')]"]
+  "nodeTypeRef": ["[parameters('primaryNodetypeName')]"]
 }
 ```
 
@@ -74,7 +74,7 @@ With the node properties and placement constraints declared, do the following st
 3. Decrease the number of VMs by one in that node type. The highest VM instance will now be removed.
 4. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. See [Planning the Service Fabric cluster capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) for a list of recommended instances.
 5. Once all VMs are gone (represented as "Down") the fabric:/System/InfrastructureService/[node name] will show an Error state. Then, you can update the cluster resource to remove the node type. You can either use the ARM template deployment, or edit the cluster resource through the [Azure resource manager](https://resources.azure.com). This will start a cluster upgrade which will remove the fabric:/System/InfrastructureService/[node type] service that is in error state.
- 6. After that you can optionally delete the VMScaleSet, you will still see the nodes as “Down” from Service Fabric Explorer view though. The last step would be to clean them up with `Remove-ServiceFabricNodeState` command.
+6. After that you can optionally delete the VMScaleSet, you will still see the nodes as “Down” from Service Fabric Explorer view though. The last step would be to clean them up with `Remove-ServiceFabricNodeState` command.
 
 ### Example scenario
 A supported scenario for when to perform a vertical scaling operation is: you want to migrate your Service Fabric cluster and application from an unmanaged disk to managed disks without application downtime. 

@@ -250,7 +250,7 @@ SQL Database customers will have the following rights associated with Azure Hybr
   - [Azure CLI samples for SQL Database](sql-database-cli-samples.md)
   - [Azure PowerShell samples for SQL Database](sql-database-powershell-samples.md)
 
- - For information about new capabilities as they are announced, see 
-   - **[Azure Roadmap for SQL Database](https://azure.microsoft.com/roadmap/?category=databases)** - A place to find out what’s new and what’s coming next.
+- For information about new capabilities as they are announced, see 
+  - **[Azure Roadmap for SQL Database](https://azure.microsoft.com/roadmap/?category=databases)** - A place to find out what’s new and what’s coming next.
   - **[Azure SQL Database blog](https://azure.microsoft.com/blog/topics/database)** -  A place where SQL Server product team members blog about SQL Database news and features.
 

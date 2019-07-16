@@ -94,8 +94,8 @@ If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a 
             1. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. Use this command: `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` where {0} should be replaced with your workspace GUID.
             1. Restart the syslog daemon by using this command: `sudo service syslog-ng restart`
 
-      1. Restart the Syslog agent by using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-      1. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
+       1. Restart the Syslog agent by using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
+       1. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
 ## Step 2: Forward Fortinet logs to the Syslog agent
 
@@ -150,12 +150,12 @@ It might take up to 20 minutes until your logs start to appear in Log Analytics.
 
       For more information, see [imudp: UDP Syslog input module](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) and [imtcp: TCP Syslog input module](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module).
 
-   - For syslog-ng:<br>Make sure that the file `/etc/syslog-ng/syslog-ng.conf` includes this configuration:
+    - For syslog-ng:<br>Make sure that the file `/etc/syslog-ng/syslog-ng.conf` includes this configuration:
 
            # source s_network {
             network( transport(UDP) port(514));
              };
-     For more information, see [imudp: UDP Syslog input module](https://rsyslog.readthedocs.io/en/latest/configuration/modules/imudp.html) and [syslog-ng Open source edition 3.16 - Administration guide](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
+      For more information, see [imudp: UDP Syslog input module](https://rsyslog.readthedocs.io/en/latest/configuration/modules/imudp.html) and [syslog-ng Open source edition 3.16 - Administration guide](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
 
 1. Check that there's communication between the Syslog daemon and the agent. Run this command on the Syslog agent machine: `tcpdump -A -ni any  port 25226 -vv`. This command shows you the logs that stream from the device to the Syslog machine. Make sure that the logs are also being received on the agent.
 

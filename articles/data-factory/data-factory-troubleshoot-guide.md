@@ -128,19 +128,19 @@ This article lists common troubleshooting questions.
 
 5. Turn off capturing so that the browser's cache can be cleared in order to start a fresh trace.
 
-6. 1. Go to **File** > **Capture Traffic** or press **F12**.
+   1. Go to **File** > **Capture Traffic** or press **F12**.
    2. Clear your browser's cache so that all cached items are removed and must be re-downloaded.
 
 7. Create request : 
 
-8. 1. Click on the Composer tab
+   1. Click on the Composer tab
    2. Set the Http method and URL
    3. Add headers and request body if required
    4. Click Execute
 
-9. Start capturing traffic again and complete the problematic transaction on your page.
+8. Start capturing traffic again and complete the problematic transaction on your page.
 
-10. Once completed, go to **File** > **Save** > **All Sessions**.
+9. Once completed, go to **File** > **Save** > **All Sessions**.
 
 More information on Fiddler [here](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)
 

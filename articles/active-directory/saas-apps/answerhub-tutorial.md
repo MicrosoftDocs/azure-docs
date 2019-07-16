@@ -51,19 +51,19 @@ To set up the integration of AnswerHub into Azure AD, you need to add AnswerHub 
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**.
 
-	![Azure Active Directory button](common/select-azuread.png)
+    ![Azure Active Directory button](common/select-azuread.png)
 
 2. Go to **Enterprise Applications**, and then select **All Applications**.
 
-	![Enterprise Applications blade](common/enterprise-applications.png)
+    ![Enterprise Applications blade](common/enterprise-applications.png)
 
 3. To add an application, select **New application** at the top of the window.
 
-	![New application button](common/add-new-app.png)
+    ![New application button](common/add-new-app.png)
 
 4. In the search box, enter **AnswerHub**. Select **AnswerHub** in the results list, and then select **Add**.
 
-	 ![AnswerHub in the results list](common/search-new-app.png)
+    ![AnswerHub in the results list](common/search-new-app.png)
 
 ## Set up and test Azure AD single sign-on
 
@@ -95,35 +95,35 @@ In this section, you set up Azure AD single sign-on in the Azure portal.
 
 3. On the **Set up Single Sign-On with SAML** page, select the edit icon to open the **Basic SAML Configuration** dialog box.
 
-	![Set up Single Sign-On with SAML page](common/edit-urls.png)
+    ![Set up Single Sign-On with SAML page](common/edit-urls.png)
 
 4. In the **Basic SAML Configuration** section, complete the following steps:
 
     ![Basic SAML Configuration section](common/sp-identifier.png)
 
-	a. In the **Sign on URL** box, enter a URL that has this pattern:
+    a. In the **Sign on URL** box, enter a URL that has this pattern:
     `https://<company>.answerhub.com`
 
     b. In the **Identifier (Entity ID)** box, enter a URL that has this pattern:
     `https://<company>.answerhub.com`
 
-	> [!NOTE]
-	> These values aren't real. Update these values with the actual sign-on URL and identifier. Contact the [AnswerHub support team](mailto:success@answerhub.com) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values aren't real. Update these values with the actual sign-on URL and identifier. Contact the [AnswerHub support team](mailto:success@answerhub.com) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer.
 
-	![Certificate download link](common/certificatebase64.png)
+    ![Certificate download link](common/certificatebase64.png)
 
 6. In the **Set up AnswerHub** section, copy the appropriate URL or URLs, based on your requirements.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-   You can copy these URLs:
+    You can copy these URLs:
     - Login URL
 
-	- Azure AD Identifier
+    - Azure AD Identifier
 
-	- Logout URL
+    - Logout URL
 
 ### Configure AnswerHub single sign-on
 
@@ -197,11 +197,11 @@ In this section, you set up the user Britta Simon to use Azure AD single sign-on
 
 1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **AnswerHub**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the list of applications, select **AnswerHub**.
 
-	![Applications list](common/all-applications.png)
+    ![Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
