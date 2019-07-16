@@ -116,13 +116,13 @@ If you need additional transformations, submit your idea in the [feedback forum 
 
 ## Emitting claims based on conditions
 
-You can specify the source of a claim based on the user type and the group the user belongs. 
+You can specify the source of a claim based on user type and the group to which the user belongs. 
 
 The user type can be:
-- **Any**: All users allowed to access the application.
+- **Any**: All users are allowed to access the application.
 - **Members**: Native member of the tenant
 - **All guests**: User is brought over from an external organization with or without Azure AD.
-- **AAD guests**: Guest user belongs to another organization with Azure AD.
+- **AAD guests**: Guest user belongs to another organization using Azure AD.
 - **External guests**: Guest user belongs to an external organization that doesn't have Azure AD.
 
 
@@ -132,12 +132,12 @@ To add a claim condition:
 
 1. In **Manage claim**, expand the Claim conditions.
 2. Select the user type.
-3. Select the group(s) for which the user should belong. You can select up to 10 unique groups across all claims for a given application. 
-4. Select the Source where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
+3. Select the group(s) to which the user should belong. You can select up to 10 unique groups across all claims for a given application. 
+4. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
 The order in which you add the conditions are important. Azure AD evaluates the conditions from top to buttom to decide which value to emit in the claim. 
 
-For example, Brita Simon is a guest user in the Contoso tenant. She belongs to another organization that also use Azure AD. Given the below configuration for the Fabrikam application, when Brita tries to sign-in to Fabrikam, Azure AD will evaluate the conditions as follow.
+For example, Brita Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Brita tries to sign in to Fabrikam, Azure AD will evaluate the conditions as follow.
 
 First, Azure AD verifies if Brita's user type is `All guests`. Since, this is true then Azure AD assigns the source for the claim to `user.extensionattribute1`. Second, Azure AD verifies if Brita's user type is `AAD guests`, since this is also true then Azure AD assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.email` for Brita.
 
