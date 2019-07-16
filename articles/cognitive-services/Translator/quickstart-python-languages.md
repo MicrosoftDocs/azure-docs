@@ -16,6 +16,9 @@ ms.author: swmachan
 
 In this quickstart, you'll learn how to make a GET request that returns a list of supported languages using Python and the Translator Text REST API.
 
+>[!TIP]
+> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
+
 ## Prerequisites
 
 This quickstart requires:
@@ -65,7 +68,7 @@ headers = {
 }
 ```
 
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## Create a request to get a list of supported languages
 
@@ -191,8 +194,10 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## Next steps
 
+Take a look at the API reference to understand everything you can do with the Translator Text API.
+
 > [!div class="nextstepaction"]
-> [Explore Python examples on GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
+> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## See also
 

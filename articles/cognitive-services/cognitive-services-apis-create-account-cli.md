@@ -38,7 +38,7 @@ Your subscriptions to Cognitive Services are represented by Azure resources. Eve
 
 ### Choose your resource group location
 
-To create a resource, you'll need one of the Azure locations available for your subscription. You can retrieve a list of available locations with the [az account list-locations](/cli/azure/account#az_account_list) command. Most Cognitive Services can be accessed from several locations. Choose the one closest to you, or see which locations are available for the service.
+To create a resource, you'll need one of the Azure locations available for your subscription. You can retrieve a list of available locations with the [az account list-locations](/cli/azure/account#az-account-list-locations) command. Most Cognitive Services can be accessed from several locations. Choose the one closest to you, or see which locations are available for the service.
 
 > [!IMPORTANT]
 > * Remember your Azure location, as you will need it when calling the Azure Cognitive Services.
@@ -50,7 +50,7 @@ az account list-locations \
     --out table
 ```
 
-After you have your azure location, create a new resource group in the Azure CLI using the [az group create](/cli/azure/group#az_group_create) command.
+After you have your azure location, create a new resource group in the Azure CLI using the [az group create](/cli/azure/group#az-group-create) command.
 
 In the example below, replace the azure location `westus2` with one of the Azure locations available for your subscription.
 

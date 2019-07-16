@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
@@ -79,7 +79,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
     ```csharp
     private const string ClientId = "Enter_the_Application_Id_here";
     ```
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > This quickstart supports Enter_the_Supported_Account_Info_Here.    
 
@@ -154,7 +154,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### Get a user token silently
 
-Use the `AcquireTokenSilent` method to obtain tokens to access protected resources after the initial `AcquireTokenAsync` method. You don’t want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction
+Use the `AcquireTokenSilent` method to obtain tokens to access protected resources after the initial `AcquireTokenInteractive` method. You don’t want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

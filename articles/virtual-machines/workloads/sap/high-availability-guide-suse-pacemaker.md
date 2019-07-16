@@ -4,7 +4,7 @@ description: Setting up Pacemaker on SUSE Linux Enterprise Server in Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -347,7 +347,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Configure cloud-netconfig-azure for HA Cluster
 
-   Change the configuration file for the network interface as shown below to prevent the cloud network plugin from removing the virtual IP address (Pacemaker must control the VIP assignment). For more information see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+   Change the configuration file for the network interface as shown below to prevent the cloud network plugin from removing the virtual IP address (Pacemaker must control the VIP assignment). For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 
    <pre><code># Edit the configuration file
    sudo vi /etc/sysconfig/network/ifcfg-eth0 
@@ -492,17 +492,18 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
 
-1. Go to [https://portal.azure.com](https://portal.azure.com)
+1. Go to <https://portal.azure.com>
 1. Open the Azure Active Directory blade  
    Go to Properties and write down the Directory ID. This is the **tenant ID**.
 1. Click App registrations
-1. Click Add
-1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http\://localhost) and click Create
-1. The sign-on URL is not used and can be any valid URL
-1. Select the new App and click Keys in the Settings tab
-1. Enter a description for a new key, select "Never expires" and click Save
+1. Click New Registration
+1. Enter a Name, select "Accounts in this organization directory only" 
+2. Select Application Type "Web", enter a sign-on URL (for example http:\//localhost) and click Add  
+   The sign-on URL is not used and can be any valid URL
+1. Select Certificates and Secrets, then click New client secret
+1. Enter a description for a new key, select "Never expires" and click Add
 1. Write down the Value. It is used as the **password** for the Service Principal
-1. Write down the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
+1. Select Overview. Write down the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
 
 ### **[1]** Create a custom role for the fence agent
 
@@ -575,9 +576,9 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 
 ## Pacemaker configuration for Azure scheduled events
 
-Azure offers [scheduled events](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM re-deployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected, the agent will attempt to stop all resources on the impacted VM and move them to another node in the cluster. To achieve that additional Pacemaker resources must be configured. 
+Azure offers [scheduled events](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM redeployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected, the agent will attempt to stop all resources on the impacted VM and move them to another node in the cluster. To achieve that additional Pacemaker resources must be configured. 
 
-1. **[A]** Install the **azure-events** agent . 
+1. **[A]** Install the **azure-events** agent. 
 
 <pre><code>sudo zypper install resource-agents
 </code></pre>

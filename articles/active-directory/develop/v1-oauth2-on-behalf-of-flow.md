@@ -80,7 +80,7 @@ Register both the middle-tier service and the client application in Azure AD.
 1. Select **Register** to create the application.
 1. Configure permissions for your application. In **API permissions**, select **Add a permission** and then **My APIs**.
 1. Type the name of the middle-tier service in the text field.
-1. Choose **Select Permissions** and then select **Access <service name>**.
+1. Choose **Select Permissions** and then select **Access \<service name>**.
 
 ### Configure known client applications
 

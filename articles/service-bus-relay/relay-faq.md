@@ -102,7 +102,7 @@ To move a namespace from one Azure subscription to another subscription, you can
 
 #### Azure portal
 
-To use the Azure portal to migrate Azure Relay namespaces from one subscription to another subscription, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+To use the Azure portal to migrate Azure Relay namespaces from one subscription to another subscription, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### PowerShell
 
@@ -124,7 +124,7 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 For a description of common exceptions and suggested actions you can take, see [Relay exceptions][Relay exceptions].
 
 ### What is a shared access signature, and which languages can I use to generate a signature?
-Shared Access Signatures (SAS) are an authentication mechanism based on SHA-256 secure hashes or URIs. For information about how to generate your own signatures in Node, PHP, Java, C, and C#, see [Service Bus authentication with shared access signatures][Shared Access Signatures].
+Shared Access Signatures (SAS) are an authentication mechanism based on SHA-256 secure hashes or URIs. For information about how to generate your own signatures in Node.js, PHP, Python, Java, C, and C#, see [Service Bus authentication with shared access signatures][Shared Access Signatures].
 
 ### Is it possible to whitelist relay endpoints?
 Yes. The relay client makes connections to the Azure Relay service by using fully qualified domain names. Customers can add an entry for `*.servicebus.windows.net` on firewalls that support DNS whitelisting.
