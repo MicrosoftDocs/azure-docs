@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 07/03/2019
+ms.date: 07/15/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -74,6 +74,22 @@ Once you have registered your application and granted it permissions to access d
 
 For a list of scenarios for which acquiring tokens is supported, see the [Scenarios](https://aka.ms/msal-net-scenarios) section of the [Microsoft Authentication Library (MSAL) for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub repository.
 
+## Well-known values for authentication with Azure AD
+
+To authenticate a security principal with Azure AD, you need to include some well-known values in your code.
+
+### Azure AD authority
+
+For Microsoft public cloud, the base Azure AD authority is as follows, where *tenant-id* is your Active Directory tenant ID (or directory ID):
+
+`https://login.microsoftonline.com/<tenant-id>/`
+
+The tenant ID identifies the Azure AD tenant to use for authentication. It is also referred to as the directory ID. To retrieve the tenant ID, navigate to the **Overview** page for your app registration in the Azure portal, and copy the value from there.
+
+### Azure Storage resource ID
+
+[!INCLUDE [storage-resource-id-include](../../../includes/storage-resource-id-include.md)]
+
 ## .NET code example: Create a block blob
 
 The code example shows how to get an access token from Azure AD. The access token is used to authenticate the specified user and then authorize a request to create a block blob. To get this sample working, first follow the steps outlined in the preceding sections.
@@ -85,27 +101,6 @@ To request the token, you will need the following values from your app's registr
 - The client (or application) ID. Retrieve this value from the **Overview** page of your app registration.
 - The client redirection URI. Retrieve this value from the **Authentication** settings for your app registration.
 - The value of the client secret. Retrieve this value from the location to which you previously copied it.
-
-### Well-known values for authentication with Azure AD
-
-To authenticate a security principal with Azure AD, you need to include some well-known values in your code.
-
-#### Azure AD authority
-
-For Microsoft public cloud, the base Azure AD authority is as follows, where *tenant-id* is your Active Directory tenant ID (or directory ID):
-
-`https://login.microsoftonline.com/<tenant-id>/`
-
-The tenant ID identifies the Azure AD tenant to use for authentication. It is also referred to as the directory ID. To retrieve the tenant ID, navigate to the **Overview** page for your app registration in the Azure portal, and copy the value from there.
-
-#### Azure Storage resource ID
-
-The Azure AD resource ID indicates the audience for which a token that is issued can be used to provide access to an Azure resource. In the case of Azure Storage, the resource ID may be specific to a single storage account, or it may apply to any storage account. The following table describes the values that you can provide for the resource ID:
-
-|Resource ID  |Description  |
-|---------|---------|
-|`https://<account>.blob.core.windows.net`    | The root URI of a storage account. Use this value to acquire a token for authorizing requests to that specific Azure Storage account only. Replace the value in brackets with the name of your storage account.      |
-|`https://storage.azure.com/`     | Use to acquire a token for authorizing requests to any Azure Storage account.        |
 
 ### Create a storage account and container
 

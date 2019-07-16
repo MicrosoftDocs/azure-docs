@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 07/03/2019
+ms.date: 07/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -38,20 +38,15 @@ For more information about assigning RBAC roles, see one of the following articl
 - [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md)
 - [Grant access to Azure blob and queue data with RBAC using PowerShell](storage-auth-aad-rbac-powershell.md)
 
+## Azure Storage resource ID
+
+[!INCLUDE [storage-resource-id-include](../../../includes/storage-resource-id-include.md)]
+
 ## .NET code example: Create a block blob
 
 The code example shows how to get an OAuth 2.0 token from Azure AD and use it to authorize a request to create a block blob. To get this example working, first follow the steps outlined in the preceding sections.
 
 The [Microsoft Azure App Authentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) client library for .NET (preview) simplifies the process of acquiring and renewing a token from your code. The App Authentication client library manages authentication automatically. The library uses the developer's credentials to authenticate during local development. Using developer credentials during local development is more secure because you do not need to create Azure AD credentials or share credentials between developers. When the solution is later deployed to Azure, the library automatically switches to using application credentials.
-
-### Azure Storage resource ID
-
-The Azure AD resource ID indicates the audience for which the token can be used to provide access. In the case of Azure Storage, the resource ID may be specific to a single storage account, or it may apply to any storage account. The following table describes the values that you can provide for the resource ID:
-
-|Resource ID  |Description  |
-|---------|---------|
-|`https://<account>.blob.core.windows.net`    | The root URI of a storage account. Use this value to acquire a token for authorizing requests to that specific Azure Storage account only. Replace the value in brackets with the name of your storage account.      |
-|`https://storage.azure.com/`     | Use to acquire a token for authorizing requests to any Azure Storage account.        |
 
 ### Install packages
 
