@@ -16,11 +16,9 @@ manager: philmea
 This tutorial describes how, as a device developer, you can build a Plug and Play device that's ready for certification.
 
 The certification tests check that:
-
-- The device capability model includes the standard **Device Information** interface.
-- Your device code implements the **Device Information**, **Model Information**, and **SDK Information** interfaces.
-- The device code implements all the capabilities defined in the model.
-- The device can be provisioned to an IoT hub using the Azure IoT Device Provisioning Service.
+- Your IoT Plug and Play device code must be installed on your device.
+- Your device code must support the Azure IoT Hub Device Provisioning Service.
+- Your device code must implement Device Information Interface.
 
 ## Prerequisites
 
@@ -31,9 +29,9 @@ To complete this tutorial, you need:
 
 You also need the Plug and Play device that you create when you follow [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md).
 
-## Include standard interfaces
+## Include the Device Information interface
 
-To pass the certification process, you must include the **Device Information** interface in your capability model. This interface has the following identification:
+To pass the certification process, you must include the **Device Information** interface in your capability model and implement it. This interface has the following identification:
 
 ```json
    "@id": "urn:azureiot:DeviceManagement:DeviceInformation:1"
@@ -63,6 +61,12 @@ To view the contents of the **Device Information** interface in VS Code:
 1. In the global model repository, enter **Device Information** in the search field.
 
 1. To create a local copy of the **Device Information** interface, select it in the search results, and then select **Download**.
+
+To view the contents of the **Device Information** interface through the Azure CLI:
+
+1. Install the Azure IoT CLI extension by following the instructions [here](https://review.docs.microsoft.com/en-us/azure/iot-pnp/howto-install-pnp-cli?branch=pr-en-us-81533).
+
+1. Use the cmdlet to show an interface with the id of the Device Information interface to see it. See instructions on managing interfaces in a model repository through the Azure IoT CLI [here](https://review.docs.microsoft.com/en-us/azure/iot-pnp/howto-install-pnp-cli?branch=pr-en-us-81533#manage-interfaces-in-a-model-repository).
 
 ## Update device code
 
