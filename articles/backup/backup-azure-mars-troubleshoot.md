@@ -190,6 +190,7 @@ If you have antivirus software installed on the server, add necessary exclusion 
 - CSC.exe
 
 ## Common issues
+This section covers the troubleshoot errors that you encounter while using MARS agent.
 
 ### SalChecksumStoreInitializationFailed
 
@@ -215,30 +216,6 @@ Error message | Recommended action |
 -- | --
 Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verify the below and restart the server <br/> - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
 
-
-### CBPSourceSnapshotFailedReplicaMissingOrInvalid
-
-Error message | Recommended action |
--- | --
-Backup failed because the disk-backup replica is either invalid or missing. | To resolve this issue, perform the below steps: <br/> 1. Create a disk recovery point and try backup again<br/> 2. Run consistency check on datasource and try backup again<br/> 3. Stop protection of datasource and then reconfigure protection for this data source
-
-### CBPSourceSnapshotFailedReplicaMetadataInvalid
-
-Error message | Recommended action |
--- | --
-Source volume snapshot failed because metadata on replica is invalid. | - Create a disk recovery point of this datasource <br/> - Retry online backup again
-
-### CBPSourceSnapshotFailedReplicaInconsistent
-
-Error message | Recommended action |
--- | --
-Source volume snapshot failed due to inconsistent datasource replica. | Run a consistency check on this datasource and try again
-
-### CBPSourceSnapshotFailedReplicaCloningIssue
-
-Error message | Recommended action |
--- | --
-Backup failed as the disk-backup replica could not be cloned.| Ensure that all previous disk-backup replica files (.vhdx) are unmounted and no disk to disk backup is in progress during online backups
 
 ## Next steps
 * Get more details on [how to back up Windows Server with the Azure Backup agent](tutorial-backup-windows-server-to-azure.md).
