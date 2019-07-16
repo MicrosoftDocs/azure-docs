@@ -95,16 +95,20 @@ Thumbprint                                Subject
 959BD1531A1E674EB09E13BD8534B2C76A45B3E6  CN=contoso100.com
 ```
 
-## Export a private certificate for Azure AD DS
+## Understand and export required certificates
 
 To use secure LDAP, the network traffic is encrypted using public key infrastructure (PKI). A pair of digital certificates secures this network traffic:
 
 * A **private** certificate is applied to the Azure AD DS managed domain.
     * This private certificate is used to *encrypt* the secure LDAP traffic. The private certificate should only be applied to the Azure AD DS managed domain and not widely distributed to client computers.
+    * The private certificate uses the *.PFX* file format.
 * A **public** certificate is applied to the client computers.
     * This public certificate is used to *decrypt* the secure LDAP traffic. The public certificate can be distributed to client computers, as it can only be used to decrypt the specific traffic that was initially encrypted using the private certificate.
+    * The public certificate uses the *.CER* file format.
 
 These two certificates, the *private* and *public* part, make sure that only the appropriate computers can successfully communicate with each other. If you use a public CA or enterprise CA, you are issued with the private certificate that can be applied to an Azure AD DS managed domain. The public certificate should already be known and trusted by client computers. In this tutorial, you created a self-signed certificate, so you need to export the appropriate private and public certificates.
+
+### Export a private certificate for Azure AD DS
 
 Before you can use the digital certificate created in the previous step with your Azure AD DS managed domain, export the certificate to a private *.PFX* certificate file.
 
@@ -140,7 +144,7 @@ Before you can use the digital certificate created in the previous step with you
 1. On the review page, select **Finish** to export the certificate to a private *.PFX* certificate file. A confirmation dialog is displayed when the private certificate has been successfully exported.
 1. Leave the MMC open for use in the following section.
 
-## Export a public certificate for client computers
+### Export a public certificate for client computers
 
 Client computers must trust the issuer of the secure LDAP certificate to be able to connect successfully to the managed domain using LDAPS. The client computers need a public certificate to successfully decrypt data encrypted by the private certificate. If you use a public CA, the computer should automatically trust these certificate issuers and have a corresponding public certificate. In this tutorial you use a self-signed certificate, and generated a private certificate in the previous step. Now let's export and then install the public part of the self-signed certificate into the trusted certificate store on the client computer:
 
@@ -227,7 +231,7 @@ With secure LDAP access enabled over the internet, update the DNS zone so that c
 
 ![View the secure LDAP external IP address for your Azure AD DS managed domain in the Azure portal](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
-Configure your external DNS provider to create a host record, such as *ldaps*, to resolve to this external IP address. To test locally on your machine first, you can create an entry in the Windows hosts file. To successfully edit the hosts file on your local machine, open *Notepad* as an administrator, then open the file *C:\Windows\System32\drivers\etc*.
+Configure your external DNS provider to create a host record, such as *ldaps*, to resolve to this external IP address. To test locally on your machine first, you can create an entry in the Windows hosts file. To successfully edit the hosts file on your local machine, open *Notepad* as an administrator, then open the file *C:\Windows\System32\drivers\etc*
 
 The following example DNS entry, either with your external DNS provider or in the local hosts file, resolves traffic for *ldaps.contoso100.com* to the external IP address of *40.121.19.239*:
 
@@ -260,6 +264,14 @@ To see of the objects stored in your Azure AD DS managed domain:
     ![Search for objects in your Azure AD DS managed domain using LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
 To directly query a specific container, from the **View > Tree** menu, you can specify a **BaseDN** such as *OU=AADDC Users,DC=CONTOSO100,DC=COM* or *OU=AADDC Computers,DC=CONTOSO100,DC=COM*. For more information on how to format and create queries, see [LDAP query basics][ldap-query-basics].
+
+## Clean up resources
+
+If you added a DNS entry to the local hosts file of your computer to test connectivity for this tutorial, remove this entry and add a formal record in your DNS zone. To remove the entry from the local hosts file, complete the following steps:
+
+1. On your local machine, open *Notepad* as an administrator
+1. Browse to and open the file *C:\Windows\System32\drivers\etc*
+1. Delete the line for the record you added, such as `40.121.19.239    ldaps.contoso100.com`
 
 ## Next steps
 

@@ -37,6 +37,8 @@
           href: network-considerations.md
     - name: Manage Azure AD DS
       items: 
+        - name: Enable password hash synchronization
+          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
         - name: Enable security audit events (Preview)
           href: security-audit-events.md
         - name: Check a managed domain's health
