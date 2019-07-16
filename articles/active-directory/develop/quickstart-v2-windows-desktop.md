@@ -67,7 +67,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 
 #### Step 2: Download your Visual Studio project
 
-[Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)  ([View Project on Github](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/))
+[Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)  ([View Project on GitHub](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/))
 
 #### Step 3: Configure your Visual Studio project
 
