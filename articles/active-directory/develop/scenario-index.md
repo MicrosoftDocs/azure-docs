@@ -60,12 +60,11 @@ The security tokens can be acquired from a number of application types. Applicat
   ![SPA](media/scenarios/spa-app.svg)
 
 - **Public client applications** always sign in users. These apps are:
-  - Desktop applications calling Web APIs on behalf of the signed-in user
-  - Mobile applications
-  - A third category of applications, running on devices that don't have a browser (Browserless apps, running on iOT for instance).
-
-    ![Desktop app](media/msal-client-applications/desktop-app.png) ![Browserless API](media/msal-client-applications/browserless-app.png) ![Mobile app](media/msal-client-applications/mobile-app.png)
-
+  |--|--|
+  |![Desktop app](media/msal-client-applications/desktop-app.png)|Desktop applications calling Web APIs on behalf of the signed-in user|
+  |![Browserless API](media/msal-client-applications/browserless-app.png)|Mobile applications|
+  |![Mobile app](media/msal-client-applications/mobile-app.png)|A third category of applications, running on devices that don't have a browser (Browserless apps, running on iOT for instance).|
+  
   They're represented by the MSAL class named [PublicClientApplication](msal-client-applications.md).
 
 - **Confidential client applications**
