@@ -188,12 +188,6 @@ When you're using a local computer (which might also be a remote virtual machine
     pip install azureml-sdk[notebooks,automl]
     ```
 
-    Use this command to install the Azure Machine Learning Data Prep SDK on its own:
-
-    ```shell
-    pip install azureml-dataprep
-    ```
-
    > [!NOTE]
    > If you get a message that PyYAML can't be uninstalled, use the following command instead:
    >
@@ -226,6 +220,12 @@ The procedure in the [Local computer](#local) section installs necessary compone
     ```shell
     conda activate myenv
     ```
+    
+1. Clone [the GitHub repository](https://aka.ms/aml-notebooks) for a set of sample notebooks.
+
+    ```CLI
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
 
 1. Launch the Jupyter Notebook server with the following command:
 
@@ -246,8 +246,9 @@ The procedure in the [Local computer](#local) section installs necessary compone
     import sys
     sys.path
     ```
-
+    
 1. To configure the Jupyter Notebook to use your Azure Machine Learning service workspace, go to the [Create a workspace configuration file](#workspace) section.
+
 
 ### <a id="vscode"></a>Visual Studio Code
 
