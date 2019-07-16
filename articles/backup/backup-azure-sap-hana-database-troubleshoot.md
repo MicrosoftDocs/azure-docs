@@ -52,7 +52,7 @@ After a database is chosen for backup, the Azure Backup service  configures back
 > [!NOTE]
 > Make sure these parameters are *not* present at HOST level. Host-level parameters will override these parameters and might cause unexpected behavior.
 
-## Understanding common user errors
+## Common user errors
 
 ### UserErrorInOpeningHanaOdbcConnection
 
