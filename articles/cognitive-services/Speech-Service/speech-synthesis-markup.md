@@ -352,29 +352,34 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 
 ## Add background audio
 
+The `mstts:backgroundaudio` element allows you to add background audio to your SSML documents (or mix an audio file with text-to-speech). With `mstts:backgroundaudio` you can loop an audio file in the background, fade in at the beginning of text-to-speech, and fade out at the end of text-to-speech.
+
+If the background audio provided is shorter than the text-to-speech or the fade out, it will loop. If it is longer than the text-to-speech, it will stop when the fade out has finished.
+
+Only one background audio file is allowed per SSML document. However, you can intersperse `audio` tags within the `voice` element to add additional audio to your SSML document.
+
 **Syntax**
 
 ```XML
-<mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"></mstts:backgroundaudio>
+<mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
 ```
 
 **Attributes**
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| src | Specifies the location/URL of the background audio file. | TBD |
-| volume | Specifies the volume of the background audio file. **Accepted values**: `0` to `100` inclusive. | TBD |
-| fadein | **Accepted values**: `0` to `10000` inclusive.  | Optional |
-| fadeout | **Accepted values**: `0` to `10000` inclusive.  | Optional |
+| src | Specifies the location/URL of the background audio file. | Required if using background audio in your SSML document. |
+| volume | Specifies the volume of the background audio file. **Accepted values**: `0` to `100` inclusive. The default value is `1`. | Optional |
+| fadein | Specifies the duration of the background audio fade in. **Accepted values**: `0` to `10000` inclusive.  | Optional |
+| fadeout | Specifies the duration of the background audio fade out. **Accepted values**: `0` to `10000` inclusive.  | Optional |
 
 **Example**
 
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
-    <mstts:backgroundaudio src="https://spsvclocusw2.blob.core.windows.net/poleli-test/migu-Elegant-120s-01.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice xml:lang="en-US" xml:gender="Female" name="Microsoft Server Speech Text to Speech Voice (en-US, EvaRUS)">World</voice>
+    <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
     <voice name="Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)">
-        Text-to-speech before the background audio. <audio src="https://ttsaudiotest.blob.core.windows.net/audios/24KHz.mp3"> Text-to-speech with background audio. </audio> Text-to-speech after background audio.
+        The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>
 ```
