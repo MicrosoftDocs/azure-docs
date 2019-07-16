@@ -21,6 +21,8 @@
       items:
       - name: Analyze text content
         href: text-moderation-quickstart-python.md
+    - name: Java
+      href: java-sdk-quickstart.md
 - name: Tutorials
   items:
   - name: Moderate e-commerce images
