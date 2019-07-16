@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Join a CoreOS Linux VM to a managed domain | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Join a CoreOS Linux VM | Microsoft Docs'
 description: Join a CoreOS Linux virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -55,54 +55,56 @@ Follow the instructions in the article [How to log on to a virtual machine runni
 ## Configure the hosts file on the Linux virtual machine
 In your SSH terminal, edit the /etc/hosts file and update your machine’s IP address and hostname.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 In the hosts file, enter the following value:
 
-```
+```console
 127.0.0.1 contoso-coreos.contoso100.com contoso-coreos
 ```
+
 Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-coreos' is the hostname of the CoreOS virtual machine you are joining to the managed domain.
 
 
 ## Configure the SSSD service on the Linux virtual machine
 Next, update your SSSD configuration file in ('/etc/sssd/sssd.conf') to match the following sample:
 
- ```
- [sssd]
- config_file_version = 2
- services = nss, pam
- domains = CONTOSO100.COM
+```console
+[sssd]
+config_file_version = 2
+services = nss, pam
+domains = CONTOSO100.COM
 
- [domain/CONTOSO100.COM]
- id_provider = ad
- auth_provider = ad
- chpass_provider = ad
+[domain/CONTOSO100.COM]
+id_provider = ad
+auth_provider = ad
+chpass_provider = ad
 
- ldap_uri = ldap://contoso100.com
- ldap_search_base = dc=contoso100,dc=com
- ldap_schema = rfc2307bis
- ldap_sasl_mech = GSSAPI
- ldap_user_object_class = user
- ldap_group_object_class = group
- ldap_user_home_directory = unixHomeDirectory
- ldap_user_principal = userPrincipalName
- ldap_account_expire_policy = ad
- ldap_force_upper_case_realm = true
- fallback_homedir = /home/%d/%u
+ldap_uri = ldap://contoso100.com
+ldap_search_base = dc=contoso100,dc=com
+ldap_schema = rfc2307bis
+ldap_sasl_mech = GSSAPI
+ldap_user_object_class = user
+ldap_group_object_class = group
+ldap_user_home_directory = unixHomeDirectory
+ldap_user_principal = userPrincipalName
+ldap_account_expire_policy = ad
+ldap_force_upper_case_realm = true
+fallback_homedir = /home/%d/%u
 
- krb5_server = contoso100.com
- krb5_realm = CONTOSO100.COM
- ```
+krb5_server = contoso100.com
+krb5_realm = CONTOSO100.COM
+```
+
 Replace 'CONTOSO100.COM' with the DNS domain name of your managed domain. Make sure you specify the domain name in capital case in the conf file.
 
 
 ## Join the Linux virtual machine to the managed domain
 Now that the required packages are installed on the Linux virtual machine, the next task is to join the virtual machine to the managed domain.
 
-```
+```console
 sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H contoso-coreos.contoso100.com -N coreos
 ```
 
@@ -115,26 +117,30 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 >   * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
 
 Start the SSSD service. In your SSH terminal, type the following command:
-  ```
-  sudo systemctl start sssd.service
-  ```
+  
+```console
+sudo systemctl start sssd.service
+```
 
 
 ## Verify domain join
 Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined CoreOS VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
 1. In your SSH terminal, type the following command to connect to the domain joined CoreOS virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-coreos.contoso100.com
     ```
 
 2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
-    ```
+    
+    ```console
     pwd
     ```
 
 3. In your SSH terminal, type the following command to see if the group memberships are being resolved correctly.
-    ```
+   
+    ```console
     id
     ```
 

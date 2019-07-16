@@ -23,11 +23,16 @@ If you delete a vault that contains dependencies, then it will display the follo
 
 ![delete vault error](./media/backup-azure-delete-vault/error.png)
 
-To gracefully delete a vault follow the steps mentioned in the sequence below:
-- Stop protection and delete backup data
-- Delete the protected servers or backup management servers
-- Delete the vault
+To gracefully delete the vault, choose the scenario that matches your setup and follow the recommended steps:
 
+Scenario | Steps to remove dependencies to delete vault |
+-- | --
+I have on-premises Files and Folders protected using Azure Backup Agent (MARS) backing up to Azure | Perform the steps in Delete backup data and backup items - [For MARS agent](#for-mars-agent)
+I have on-premises machines protected using MABS (Microsoft Azure Backup Server) or DPM to Azure (System Center Data Protection Manager) | Perform the steps in Delete backup data and backup items - [For MABS agent](#for-mabs-agent)
+I have protected items in cloud (ex. laaS VM, Azure File Share etc.)  | Perform the steps in Delete backup data and backup items - [For Protected items in Cloud](#for-protected-items-in-cloud)
+I have protected items both on-premises and cloud | Perform the steps in Delete backup data and backup items in the below sequence: <br> - [For Protected items in Cloud](#for-protected-items-in-cloud)<br> - [For MABS agent](#for-mars-agent) <br> - [For MABS agent](#for-mabs-agent)
+I don't have any protected items on-premises or cloud; however, I am still getting the Vault deletion error | Perform the steps in [Delete the Recovery Services vault using Azure Resource Manager client](#delete-the-recovery-services-vault-using-azure-resource-manager-client)
+I don't have that original on-premises server anymore (lost/decommissioned) and I want to delete the Recovery Services vault | Contact Microsoft support.
 
 ## Delete backup data and backup items
 
