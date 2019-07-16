@@ -92,42 +92,53 @@ Create your failover group and add your single database to it using PowerShell.
    > The server login and firewall settings must match that of your primary server. 
 
    ```powershell-interactive
-   # Set variables for your server and database
-   # $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
-   # $Location = "westus2"
-   $AdminLogin = "azureuser"
-   $Password = "ChangeYourAdminPassword1"
-   # $ServerName = "mysqlserver" # to randomize: "mysqlserver-$(Get-Random)"
-   # $DatabaseName = "mySampleDatabase"
-   $drLocation = "eastus2"
-   $drServerName = "secondaryFailover" # to randomize: "secondaryFailover-$(Get-Random)"
-   $FailoverGroupName = "failovergrouptutorial" # to randomize: "failovergrouptutorial-$(Get-Random)"
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "West US 2"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $databaseName = "mySampleDatabase"
+   $drLocation = "East US 2"
+   $drServerName = "mysqlsecondary-$(Get-Random)"
+   $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+
+   # Show randomized variables
+   Write-host "DR Server name is" $drServerName 
+   Write-host "Failover group name is" $failoverGroupName
    
    # Create a secondary server in the failover region
-   New-AzSqlServer -ResourceGroupName $ResourceGroupName `
+   Write-host "Creating a secondary logical server in the failover region..."
+   $drServer = New-AzSqlServer -ResourceGroupName $resourceGroupName `
       -ServerName $drServerName `
       -Location $drLocation `
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
-         -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $Password -AsPlainText -Force))
+         -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+   $drServer
+   
    
    # Create a failover group between the servers
+   $failovergroup = Write-host "Creating a failover group between the primary and secondary server..."
    New-AzSqlDatabaseFailoverGroup `
-      –ResourceGroupName $ResourceGroupName `
-      -ServerName $ServerName `
+      –ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
       -PartnerServerName $drServerName  `
-      –FailoverGroupName $FailoverGroupName `
+      –FailoverGroupName $failoverGroupName `
       –FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
+   $failovergroup
    
    # Add the database to the failover group
+   Write-host "Adding the database to the failover group..." 
    Get-AzSqlDatabase `
-      -ResourceGroupName $ResourceGroupName `
-      -ServerName $ServerName `
-      -DatabaseName $DatabaseName | `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -DatabaseName $databaseName | `
    Add-AzSqlDatabaseToFailoverGroup `
-      -ResourceGroupName $ResourceGroupName `
-      -ServerName $ServerName `
-      -FailoverGroupName $FailoverGroupName
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -FailoverGroupName $failoverGroupName
+   Write-host "Successfully added the database to the failover group..." 
    ```
 
 # [AZ CLI](#tab/bash)
@@ -197,14 +208,15 @@ Check the role of the secondary replica:
 
    ```powershell-interactive
    # Set variables
-   # $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
-   # $drServerName = "mysqlsecondary" # to randomize: "mysqlsecondary-$(Get-Random)"
-   # $FailoverGroupName = "failovergrouptutorial" # to randomize: "failovergrouptutorial-$(Get-Random)"
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
    
    # Check role of secondary replica
+   Write-host "Confirming the secondary replica is secondary...." 
    (Get-AzSqlDatabaseFailoverGroup `
-      -FailoverGroupName $FailoverGroupName `
-      -ResourceGroupName $ResourceGroupName `
+      -FailoverGroupName $failoverGroupName `
+      -ResourceGroupName $resourceGroupName `
       -ServerName $drServerName).ReplicationRole
    ```
 
@@ -213,30 +225,34 @@ Failover to the secondary server:
 
    ```powershell-interactive
    # Set variables
-   # $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
-   # $drServerName = "mysqlsecondary" # to randomize: "mysqlsecondary-$(Get-Random)"
-   # $FailoverGroupName = "failovergrouptutorial" # to randomize: "failovergrouptutorial-$(Get-Random)"
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
    
    # Failover to secondary server
+   Write-host "Failing over failover group to the secondary..." 
    Switch-AzSqlDatabaseFailoverGroup `
-     -ResourceGroupName $ResourceGroupName `
-     -ServerName $drServerName `
-     -FailoverGroupName $FailoverGroupName
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -FailoverGroupName $failoverGroupName
+   Write-host "Failed failover group to sucessfully to" $drServerName 
    ```
 
 Revert failover group back to the primary server:
 
    ```powershell-interactive
    # Set variables
-   # $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
-   # $drServerName = "mysqlsecondary" # to randomize: "mysqlsecondary-$(Get-Random)"
-   # $FailoverGroupName = "failovergrouptutorial" # to randomize: "failovergrouptutorial-$
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
    
    # Revert failover to primary server
+   Write-host "Failing over failover group to the primary...." 
    Switch-AzSqlDatabaseFailoverGroup `
-      -ResourceGroupName $ResourceGroupName `
-      -ServerName $ServerName `
-      -FailoverGroupName $FailoverGroupName
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -FailoverGroupName $failoverGroupName
+   Write-host "Failed failover group to successfully to back to" $serverName
    ```
 
 # [AZ CLI](#tab/bash)
@@ -310,7 +326,9 @@ Delete the resource group using PowerShell.
    # $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
 
    # Remove the resource group
-   Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
+   Write-host "Removing resource group..."
+   Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
+   Write-host "Resource group removed =" $resourceGroupName
    ```
 
 # [AZ CLI](#tab/bash)
@@ -333,100 +351,7 @@ Delete the resource group by using AZ CLI.
 
 # [PowerShell](#tab/powershell)
 
-```powershell-interactive
-# Set variables for your server and database
-$ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
-$Location = "westus2"
-$AdminLogin = "azureuser"
-$Password = "ChangeYourAdminPassword1"
-$ServerName = "mysqlserver" # to randomize: "mysqlserver-$(Get-Random)"
-$DatabaseName = "mySampleDatabase"
-$drLocation = "eastus2"
-$drServerName = "mysqlsecondary" # to randomize: "mysqlsecondary-$(Get-Random)"
-$FailoverGroupName = "failovergrouptutorial" # to randomize: "failovergrouptutorial-$(Get-Random)"
-
-# The ip address range that you want to allow to access your server 
-# Leaving at 0.0.0.0 will prevent outside-of-azure connections
-$startIp = "0.0.0.0"
-$endIp = "0.0.0.0"
-
-# Connect to Azure
-Connect-AzAccount
-# Set subscription ID
-Set-AzContext -SubscriptionId $subscriptionId 
-
-# Create a resource group
-$resourceGroup = New-AzResourceGroup -Name $ResourceGroupName -Location $Location
-
-# Create a server with a system wide unique server name
-$server = New-AzSqlServer -ResourceGroupName $ResourceGroupName `
-   -ServerName $ServerName `
-   -Location $Location `
-   -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
-   -ArgumentList $AdminLogin, $(ConvertTo-SecureString -String $Password -AsPlainText -Force))
-
-# Create a server firewall rule that allows access from the specified IP range
-$serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $ResourceGroupName `
-   -ServerName $ServerName `
-   -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
-
-# Create General Purpose Gen4 database with 1 vCore
-$database = New-AzSqlDatabase  -ResourceGroupName $ResourceGroupName `
-   -ServerName $ServerName `
-   -DatabaseName $DatabaseName `
-   -Edition GeneralPurpose `
-   -VCore 1 `
-   -ComputeGeneration Gen4  `
-   -MinimumCapacity 1 `
-   -SampleName "AdventureWorksLT"
-
-# Create a secondary server in the failover region
-New-AzSqlServer -ResourceGroupName $ResourceGroupName `
-   -ServerName $drServerName `
-   -Location $drLocation `
-   -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
-      -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $Password -AsPlainText -Force))
-
-# Create a failover group between the servers
-New-AzSqlDatabaseFailoverGroup `
-   –ResourceGroupName $ResourceGroupName `
-   -ServerName $ServerName `
-   -PartnerServerName $drServerName  `
-   –FailoverGroupName $FailoverGroupName `
-   –FailoverPolicy Automatic `
-   -GracePeriodWithDataLossHours 2
-
-# Add the database to the failover group
-Get-AzSqlDatabase `
-   -ResourceGroupName $ResourceGroupName `
-   -ServerName $ServerName `
-   -DatabaseName $DatabaseName | `
-Add-AzSqlDatabaseToFailoverGroup `
-   -ResourceGroupName $ResourceGroupName `
-   -ServerName $ServerName `
-   -FailoverGroupName $FailoverGroupName
-
-# Check role of secondary replica
-(Get-AzSqlDatabaseFailoverGroup `
-   -FailoverGroupName $FailoverGroupName `
-   -ResourceGroupName $ResourceGroupName `
-   -ServerName $drServerName).ReplicationRole
-
-# Failover to secondary server
-Switch-AzSqlDatabaseFailoverGroup `
-   -ResourceGroupName $ResourceGroupName `
-   -ServerName $drServerName `
-   -FailoverGroupName $FailoverGroupName
-
-# Revert failover to primary server
-Switch-AzSqlDatabaseFailoverGroup `
-   -ResourceGroupName $ResourceGroupName `
-   -ServerName $ServerName `
-   -FailoverGroupName $FailoverGroupName
-
-# Clean up resources by removing the resource group
-# Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
-```
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
 
 # [AZ CLI](#tab/bash)
 
