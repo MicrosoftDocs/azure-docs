@@ -25,7 +25,7 @@ To use the examples presented in this article, you'll need to create a storage a
 2. Verify that you have Azure PowerShell module Az version 0.7 or later.
 
    ```powershell
-   Get-Module -Name Az.* -ListAvailable | select Name,Version
+   Get-InstalledModule -Name Az -AllVersions | select Name,Version
    ```
 
    If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
@@ -137,7 +137,7 @@ This example does blah.
 
 ```powershell
 $containerName = "mycontainer"
-$dir = Get-AzStorageBlobDirectory -Context $ctx -Container $containerName -BlobDirectoryPath my-directory -FetchPermission
+$dir = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath my-directory -FetchPermission
 $dir
 $dir.CloudBlobDirectory.Properties
 ```
