@@ -16,7 +16,7 @@ ms.author: nimolnar
 
 # Dependency auto-collection
 
-Below is the currently supported list of dependency calls that are automatically detected as dependencies without requiring any additional modification to your application's code. This consists of outgoing calls to communication libraries, storage clients, logging & metrics libraries, as well as incoming calls into application frameworks and servers. These dependencies are visualized in the Application Insights [Application map](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) and [Transaction diagnostics](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) views. If your dependency isn't on the list below, you can still track it manually with a [track dependency call](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Below is the currently supported list of dependency calls that are automatically detected as dependencies without requiring any additional modification to your application's code. These dependencies are visualized in the Application Insights [Application map](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) and [Transaction diagnostics](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) views. If your dependency isn't on the list below, you can still track it manually with a [track dependency call](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## .NET
 
