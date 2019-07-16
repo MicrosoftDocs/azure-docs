@@ -719,6 +719,12 @@ featureFlags:
                                                 <p>Data Lake Storage Gen1</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/data-share/">
+                                                <img src="media/index/data-share.svg" alt="" />
+                                                <p>Azure Data Share</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Blockchain</h3>
                                     <ul>
