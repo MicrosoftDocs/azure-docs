@@ -280,8 +280,10 @@
         href: platform/custom-fields.md
     - name: Configure applications
       items:
-      - name: Azure apps
+      - name: Azure-hosted apps
         items:
+        - name: Azure VM and Azure virtual machine scale set
+          href: app/azure-vm-vmss-apps.md
         - name: Azure app service
           href: app/azure-web-apps.md
         - name: Azure Cloud Services
@@ -358,6 +360,8 @@
             href: app/status-monitor-v2-api-get-status.md
           - name: API Set-ApplicationInsightsMonitoringConfig
             href: app/status-monitor-v2-api-set-config.md
+          - name: API Start-ApplicationInsightsMonitoringTrace
+            href: app/status-monitor-v2-api-start-trace.md
         - name: Windows desktop
           href: app/windows-desktop.md        
         - name: Console
@@ -472,7 +476,7 @@
               href: app/export-stream-analytics.md
         - name: Export data model
           href: app/export-data-model.md
-        - name: Troubleshoot
+      - name: Troubleshoot
         items:
         - name: No data for .NET
           href: app/asp-net-troubleshoot-no-data.md
@@ -709,6 +713,8 @@
         href: platform/metrics-charts.md
       - name: Examples of metric charts
         href: platform/metric-chart-samples.md
+        name: Log-based metrics
+        href: platform/app-insights-metrics.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
     - name: Logs

@@ -303,6 +303,8 @@
       href: sql-data-warehouse-troubleshoot-connectivity.md   
 - name: Reference
   items:
+  - name: Database collation types
+    href: sql-data-warehouse-reference-collation-types.md
   - name: T-SQL
     items:
     - name: Full reference

@@ -60,7 +60,7 @@ BizTalk Services has several kinds of artifacts.
 
 BizTalk Services connectors help bridges send and receive data, 
 including two-way bridges that enable HTTP-based request/response interactions. 
-Logic Apps uses the same terminology and has 180+ connectors that serve the same 
+Logic Apps uses the same terminology and has hundreds of connectors that serve the same 
 purpose by connecting to a wide range of technologies and services. 
 For example, connectors are available for cloud SaaS and PaaS services, 
 such as OneDrive, Office365, Dynamics CRM, and more, 

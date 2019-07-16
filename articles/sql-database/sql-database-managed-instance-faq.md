@@ -145,6 +145,9 @@ In rare but necessary situations, we might need to do an online migration of a m
 
 For this reason, we strongly discourage relying on immutability of the IP address as it could cause unnecessary downtime.
 
+## Can I move a managed instance or VNet?
+
+No, this is current platform limitation. After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
 
 ## Can I change the time zone for an existing managed instance?
 
@@ -155,7 +158,7 @@ Workarounds include creating a new managed instance with the proper time zone an
 
 ## How do I resolve performance issues with my managed instance
 
-For a performance comparison between managed instance and SQL Server, a good starting point is [best practices for performance comparison between Azure SQL managed instance and SQL Server ](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
+For a performance comparison between managed instance and SQL Server, a good starting point is [best practices for performance comparison between Azure SQL managed instance and SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
 
 Data loads are often slower on managed instance than in SQL Server due to mandatory full recovery model and [limits](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics) on transaction log write throughput. Sometimes, this can be worked around by loading transient data into tempdb instead of user database, or using clustered columnstore, or memory-optimized tables.
 
