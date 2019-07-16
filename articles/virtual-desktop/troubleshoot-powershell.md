@@ -5,7 +5,7 @@ services: virtual-desktop
 author: ChJenk
 
 ms.service: virtual-desktop
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ---
@@ -53,7 +53,7 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 **Cause:** -TenantName parameter
 
-**Fix:** Issue Get-RdsDiagnosticActivities with -TenantName <TenantName>.
+**Fix:** Issue Get-RdsDiagnosticActivities with -TenantName \<TenantName>.
 
 ### Error: Get-RdsDiagnosticActivities -- the user isn't authorized to query the management service
 
@@ -63,7 +63,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **Cause:** Using -Deployment switch.
 
-**Fix:** -Deployment switch can be used only by deployment administrators. These administrators are usually members of the Remote Desktop Services/Windows Virtual Desktop team. Replace the -Deployment switch with -TenantName <TenantName>.
+**Fix:** -Deployment switch can be used only by deployment administrators. These administrators are usually members of the Remote Desktop Services/Windows Virtual Desktop team. Replace the -Deployment switch with -TenantName \<TenantName>.
 
 ### Error: New-RdsRoleAssignment -- the user isn't authorized to query the management service
 
