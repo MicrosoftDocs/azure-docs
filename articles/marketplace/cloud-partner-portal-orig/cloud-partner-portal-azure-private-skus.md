@@ -44,7 +44,7 @@ private:
 
 ![Mark a SKU as private](./media/cloud-partner-portal-publish-virtual-machine/markingskuprivate.png)
 
-You can reuse the disks in another SKU and modify the pricing or the description. To reuse the disks, select **Yes** as a response to the "Does this SKU re-use images from a public SKU" prompt.
+You can reuse the disks in another SKU and modify the pricing or the description. To reuse the disks, select **Yes** as a response to the "Does this SKU reuse images from a public SKU" prompt.
 
 If the SKU is marked as private and the offer has other SKUs with
 reuseable disks, you are required to indicate that the SKU reuses disks
@@ -57,14 +57,11 @@ audience for the private SKU.
 Select an image
 ------------------
 
-You can provide new disks for the private SKU or reuse the same disks already provided in another SKU, only modifying the pricing or description. To reuse the disks, select **Yes**  as a response to the "Does this SKU re-use image from a public SKU" prompt.
+You can provide new disks for the private SKU or reuse the same disks already provided in another SKU, only modifying the pricing or description. To reuse the disks, select **Yes**  as a response to the "Does this SKU reuse image from a public SKU" prompt.
 
-![Indicate image re-use](./media/cloud-partner-portal-publish-virtual-machine/selectimage1.png)
+![Indicate image reuse](./media/cloud-partner-portal-publish-virtual-machine/selectimage1.png)
 
-After you confirm that the SKU reuses images from another SKU, you identify the SKU that's the source of the images.
-
-The prompts in the next screen capture show how to identify the private SKU would reuse the images from the
-selected SKU:
+After confirming that the SKU reuses images, select the source or *base* SKU for the images:
 
 ![Select an image](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
 
@@ -183,9 +180,9 @@ Previewing private offers
 -------------------------
 
 During the preview/staging step, only the offer level preview
-subscriptions will be able to access the SKU. This is the testing stage
-at which time you can validate what the offer would look like to your
-targeted customers, and is standard for all types of publishing.
+subscriptions will be able to access the SKU. At this testing stage
+you can preview the offer as it would appear to your
+target customers.
 
 Offer Level Preview Subscriptions to access staged offers:
 
