@@ -168,7 +168,7 @@ In this section, you create a test user in the Azure portal named Britta Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to PageDNA.
+In this section, you enable the user Britta Simon to use Azure single sign-on by granting the user access to PageDNA.
 
 1. In the Azure portal, select **Enterprise applications** > **All applications** > **PageDNA**.
 
@@ -209,3 +209,4 @@ When you select **PageDNA** in the My Apps portal, you should be automatically s
 * [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 * [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

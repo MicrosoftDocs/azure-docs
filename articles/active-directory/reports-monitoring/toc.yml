@@ -6,6 +6,7 @@
     href: overview-reports.md
   - name: What is Azure AD monitoring?
     href: overview-monitoring.md
+
     
 - name: Quickstarts
   expanded: true
@@ -95,6 +96,8 @@
 - name: Reference
   expanded: true
   items:
+  - name: Azure AD PowerShell cmdlets for reporting
+    href: reference-powershell-reporting.md
   - name: Audit logs API reference
     href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
   - name: Sign-in logs API reference

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
-ms.author: rajraj
+ms.author: jeconnoc
 
 ---
 # Working with large virtual machine scale sets
