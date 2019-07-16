@@ -11,7 +11,7 @@ services: iot-pnp
 
 # IoT Plug and Play common interfaces
 
-IoT Plug and Play defines a set of common interfaces that are implemented by all IoT Plug and Play devices. Several common interface are required for [certification](tutorial-build-device-certification.md). This section summarizes all of the IoT Plug and Play common interfaces.  All common interfaces are hosted in the global model repository.
+Common interfaces are expected to be implemented by all IoT Plug and Play devices. IoT solutions benefit from common interfaces because they provide consistent functionality. Several common interfaces are required for [certification](tutorial-build-device-certification.md).  Common interfaces can be retrieved from the global model repository.
 
 ## Summary of common interfaces
 
@@ -20,12 +20,12 @@ IoT Plug and Play defines a set of common interfaces that are implemented by all
 | Model Information | urn:azureiot:ModelDiscovery:ModelInformation:1 | For devices declare the capability model ID and interfaces. Required for all IoT Plug and Play devices. | Yes | No |
 | Digital Twin Client SDK Information | urn:azureiot:Client:SDKInformation:1 | Client SDK for connecting the device with Azure. Required for [certification](tutorial-build-device-certification.md) | Yes | No |
 | Device information | urn:azureiot:DeviceManagement:DeviceInformation:1 | Hardware and operating system information about the device. Required for [certification](tutorial-build-device-certification.md) | No | Yes |
-| Model Definition | urn:azureiot:ModelDiscovery:ModelDefinition:1 | For devices to declare the full defition for its capability model and interfaces. Must be implemented when model defintions are not hosted in a model repository. | No | Yes |
-| Digital Twin | urn:azureiot:ModelDiscovery:DigitalTwin:1 | For solution developers to retrieve the capability model ID and itnerface IDs for a digital twin. This interface is not declared or implemented by an IoT Plug and Play device. | No | No |
+| Model Definition | urn:azureiot:ModelDiscovery:ModelDefinition:1 | For devices to declare the full definition for its capability model and interfaces. Must be implemented when model definitions are not hosted in a model repository. | No | Yes |
+| Digital Twin | urn:azureiot:ModelDiscovery:DigitalTwin:1 | For solution developers to retrieve the capability model ID and interface IDs for a digital twin. This interface is not declared or implemented by an IoT Plug and Play device. | No | No |
 
 
 - Implemented by Azure IoT SDK - Whether the Azure IoT SDK implements the capabilities declared in the interfaces. IoT Plug and Play devices that use the Azure IoT SDK do not need to implement this interface.
-- Must be declared in capabaility model - If 'yes', this interface must be declared within the `"implements":` section of the device capability model for this IoT Plug and Play device
+- Must be declared in capability model - If 'yes', this interface must be declared within the `"implements":` section of the device capability model for this IoT Plug and Play device
 
 
 ## Retrieve interface definitions from the global repository
