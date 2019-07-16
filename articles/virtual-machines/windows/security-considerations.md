@@ -1,6 +1,6 @@
 ---
 title: Security Considerations for Windows virtual machines in Azure
-description: Security Considerations for the virtual machines in Azure. Implementing these Considerations will help you fulfill your security obligations as described in our shared responsibility model and will improve the overall security for your deployments
+description: Security Considerations for the virtual machines in Azure. Implementing these considerations will help you fulfill your security obligations as described in our shared responsibility model and will improve the overall security for your deployments
 services: vm-windows
 author: barclayn
 manager: barbkess
