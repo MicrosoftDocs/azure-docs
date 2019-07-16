@@ -20,7 +20,7 @@ This article shows you how to enable Managed Identity for the Blob output(s) of 
 
    ![Configure Stream Analytics managed identity](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-enable-managed-identity.png)
 
-2. In the output properties window of the Azure Blob storage output sink, select the Authentication mode drop-down and choose **Managed Identity**. For information regarding the other output properties, see [Understand outputs from Azure Stream Analytics](./stream-analytics-define-outputs.md#blob-storage). When you are finished, click **Save**.
+2. In the output properties window of the Azure Blob storage output sink, select the Authentication mode drop-down and choose **Managed Identity**. For information regarding the other output properties, see [Understand outputs from Azure Stream Analytics](./stream-analytics-define-outputs.md). When you are finished, click **Save**.
 
    ![Configure Azure Blob storage output](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
 
@@ -232,5 +232,5 @@ Below are the current limitations of this feature:
 
 ## Next steps
 
-* [Understand outputs from Azure Stream Analytics](./stream-analytics-define-outputs.md#blob-storage)
+* [Understand outputs from Azure Stream Analytics](./stream-analytics-define-outputs.md)
 * [Azure Stream Analytics custom blob output partitioning](./stream-analytics-custom-path-patterns-blob-storage-output.md)
