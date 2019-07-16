@@ -19,7 +19,7 @@ By using connectors in your logic apps, you expand the capabilities for
 your cloud and on-premises apps to perform tasks with the data that you 
 create and already have.
 
-While Logic Apps offers [~300+ connectors](https://docs.microsoft.com/connectors), 
+While Logic Apps offers [hundreds of connectors](https://docs.microsoft.com/connectors), 
 this article describes popular and more commonly used connectors that are successfully 
 used by thousands of apps and millions of executions for processing data and information. 
 To find the full list of connectors and each connector's reference information, 
