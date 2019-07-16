@@ -61,7 +61,8 @@ The following are examples of feature namespaces used by applications:
 * current_time
 * NewsArticle_TextAnalytics
 
-You can name feature namespaces following your own conventions as long as they are valid JSON keys.
+You can name feature namespaces following your own conventions as long as they are valid JSON keys. Namespaces are used to organize features into distinct sets, and to disambiguate features with similar names. You can think of namespaces as a 'prefix' that is added to feature names. Namespaces cannot be nested.
+
 
 In the following JSON, `user`, `state`, and `device` are feature namespaces.
 
@@ -72,7 +73,7 @@ JSON objects can include nested JSON objects and simple property/values. An arra
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug",
+                "profileType":"AnonymousUser",
                 "latlong": [47.6, -122.1]
             }
         },

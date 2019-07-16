@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/11/2019
+ms.date: 7/17/2019
 ms.author: victorh
 ---
 
@@ -41,6 +41,8 @@ If you use non-default ports for SQL IaaS traffic, you can configure those ports
 3. Configure an application rule with SQL FQDN to allow access to a SQL server:
 
    ```azurecli
+   az extension add -n azure-firewall
+
    az network firewall application-rule create \
    -g FWRG \
    -f azfirewall \
