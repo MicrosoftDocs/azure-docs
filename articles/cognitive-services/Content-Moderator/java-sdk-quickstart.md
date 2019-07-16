@@ -19,16 +19,12 @@ Use the Content Moderator client library for Java to:
 
 * Moderate images for adult or racy content, text, or human faces.
 
-<!--
-    Include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, but try not to include any other links or content in the introduction.
--->
-
 [Reference documentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [Artifact (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator&sort=0)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* The current version of the [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
 
 ## Setting up
@@ -91,18 +87,10 @@ import java.util.*;
 
 ## Code examples
 
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
-
-    Include links to the service's reference content when introducing a class for the first time
--->
-
 These code snippets show you how to do the following with the Content Moderator client library for Java:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Moderate images]()
-* [link to example task 2]()
-* [link to example task 3]()
+* [Moderate images](#moderate-images)
 
 <!--
     change the environment key variable to something descriptive for your service.
@@ -214,7 +202,7 @@ Run the application with the `gradle run` command:
 gradle run
 ```
 
-Navigate to the *src/main/resources/ModerationOutput.json* file and view the results.
+Navigate to the *src/main/resources/ModerationOutput.json* file and view the results of your content moderation.
 
 ## Clean up resources
 
@@ -225,7 +213,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart you learned how to use the Content Moderator Java library to perform moderation tasks. Next, learn more about the moderation of images or other media by reading a conceptual guide.
+In this quickstart, you learned how to use the Content Moderator Java library to perform moderation tasks. Next, learn more about the moderation of images or other media by reading a conceptual guide.
 
 > [!div class="nextstepaction"]
 >[Image moderation concepts](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
