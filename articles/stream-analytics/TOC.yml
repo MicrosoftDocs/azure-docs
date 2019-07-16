@@ -94,10 +94,12 @@
       href: stream-analytics-clean-up-your-job.md
     - name: Pair jobs for reliability
       href: stream-analytics-job-reliability.md
-    - name: Authenticate with managed identity
+    - name: Authenticate with managed identity - ADLS Gen 1 output
       href: stream-analytics-managed-identities-adls.md
     - name: Use SQL reference data
       href: sql-reference-data.md
+    - name: Authenticate with managed identity - Blob output
+      href: blob-output-managed-identity.md
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis
