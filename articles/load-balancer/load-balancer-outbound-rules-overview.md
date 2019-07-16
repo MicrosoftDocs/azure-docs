@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Use outbound rules to define outbound network address translations
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,7 +12,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Load Balancer outbound rules
