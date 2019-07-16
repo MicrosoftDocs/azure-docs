@@ -27,6 +27,7 @@ The term **Log Alerts** to describe alerts where signal is log query in a [Log A
 Detailed next is step-by-step guide to using log alerts using the Azure portal interface.
 
 ### Create a log alert rule with the Azure portal
+
 1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts**.
 
     ![Monitoring](media/alerts-log/AlertsPreviewMenu.png)
@@ -42,7 +43,6 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
 1. Define the alert condition by using the **Select Resource** link and specifying the target by selecting a resource. Filter by choosing the _Subscription_, _Resource Type_, and required _Resource_.
 
    > [!NOTE]
-   > 
    > For creating a log alert - verify the **log** signal is available for the selected resource before you proceed.
    >  ![Select resource](media/alerts-log/Alert-SelectResourceLog.png)
 
@@ -136,7 +136,6 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
     "variables": {
         "alertLocation": "southcentralus",
         "alertName": "samplelogalert",
-        "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
         "alertDescription": "Sample log search alert",
         "alertStatus": "true",
         "alertSource":{
@@ -166,7 +165,6 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
         "type":"Microsoft.Insights/scheduledQueryRules",
         "apiVersion": "2018-04-16",
         "location": "[variables('alertLocation')]",
-        "tags":{"[variables('alertTag')]": "Resource"},
         "properties":{
             "description": "[variables('alertDescription')]",
             "enabled": "[variables('alertStatus')]",
@@ -198,9 +196,6 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
 
 ```
 
-> [!IMPORTANT]
-> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template.
-
 The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 
@@ -220,7 +215,6 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
         "alertName": "sample log alert",
         "alertDescr": "Sample log search alert",
         "alertStatus": "true",
-        "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
         "alertSource":{
             "Query":"union workspace(\"servicews\").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
             "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
@@ -257,7 +251,6 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
         "type":"Microsoft.Insights/scheduledQueryRules",
         "apiVersion": "2018-04-16",
         "location": "[variables('alertLocation')]",
-        "tags":{"[variables('alertTag')]": "Resource"},
         "properties":{
             "description": "[variables('alertDescr')]",
             "enabled": "[variables('alertStatus')]",
@@ -298,7 +291,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
 ```
 
 > [!IMPORTANT]
-> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template. When using cross-resource query in log alert, the usage of [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) is mandatory and user must have access to the list of resources stated
+> When using cross-resource query in log alert, the usage of [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) is mandatory and user must have access to the list of resources stated
 
 The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

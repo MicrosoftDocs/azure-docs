@@ -79,7 +79,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
     ```csharp
     private const string ClientId = "Enter_the_Application_Id_here";
     ```
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > This quickstart supports Enter_the_Supported_Account_Info_Here.    
 

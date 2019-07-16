@@ -1,9 +1,10 @@
 ---
-title: "Quickstart: Create a web app that launches the Immersive Reader (C#)"
+title: "Quickstart: Create a web app that launches the Immersive Reader with C#"
 titlesuffix: Azure Cognitive Services
-description: In this quickstart, you build a web app from scratch and add the Immersive Reader functionality.
+description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
@@ -17,7 +18,7 @@ ms.author: metan
 
 The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension.
 
-In this quickstart, you build a web app from scratch and integrate the Immersive Reader by using the Immersive Reader SDK. A full working sample of this quickstart is available [here](https://github.com/Microsoft/immersive-reader-sdk/samples/quickstart-csharp).
+In this quickstart, you build a web app from scratch and integrate the Immersive Reader by using the Immersive Reader SDK. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/quickstart-csharp).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

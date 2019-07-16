@@ -130,7 +130,7 @@ alphanumeric and special characters).
 
 You can use an identity framework to create and enforce password
 policies. Azure AD B2C helps you with password management by providing
-[built-in policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy),
+[built-in policies](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow),
 [self-service password reset](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr), and more.
 
 To defend against attacks on default accounts, verify that all keys and

@@ -5,7 +5,7 @@ services: virtual-desktop
 author: ChJenk
 
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: v-chjenk
 ---

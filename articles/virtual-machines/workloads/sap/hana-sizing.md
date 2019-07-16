@@ -4,7 +4,7 @@ description: Sizing of SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-linux

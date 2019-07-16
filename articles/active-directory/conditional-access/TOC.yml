@@ -44,7 +44,7 @@
     items:
     - name: Require MFA for admins
       href: howto-baseline-protect-administrators.md
-    - name: End user protection
+    - name: End-user protection
       href: howto-baseline-protect-end-users.md
     - name: Block legacy authentication
       href: howto-baseline-protect-legacy-auth.md
@@ -52,14 +52,14 @@
       href: howto-baseline-protect-azure.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
+  - name: Conditional Access for MFA registration
+    href: ../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration
   - name: Require approved client apps
     href: app-based-conditional-access.md
   - name: Require app protection policy
     href: app-protection-based-conditional-access.md
   - name: Require managed devices
     href: require-managed-devices.md
-  - name: Require trusted networks for MFA registration
-    href: ../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration
   - name: Require MFA for access attempts from untrusted networks
     href: untrusted-networks.md
   - name: Require terms of use

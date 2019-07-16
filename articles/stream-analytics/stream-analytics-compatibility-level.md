@@ -80,6 +80,12 @@ The upsert behavior is *insert or replace*.
 
 **1.2 level:** DateTimeOffset is no longer adjusted.
 
+### Long when writing to SQL output
+
+**Previous levels:** Values were truncated based on the target type.
+
+**1.2 level:** Values that do not fit into the target type are handled according to the output error policy.
+
 ### Strict validation of prefix of functions
 
 **Previous levels:** There was no strict validation of function prefixes.

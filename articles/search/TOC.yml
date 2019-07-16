@@ -131,6 +131,8 @@
       href: search-what-is-an-index.md
     - name: Create an index (portal)
       href: search-create-index-portal.md
+    - name: Create a multi-language index
+      href: search-language-support.md
     - name: Analyzers
       items:
       - name: Adding analyzers
@@ -193,6 +195,8 @@
       href: search-howto-schedule-indexers.md
     - name: Map fields
       href: search-indexer-field-mappings.md
+    - name: Connect to SQL Managed Instance
+      href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
     - name: Connect to SQL Server VMs
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
     - name: Monitor indexers
@@ -360,6 +364,8 @@
     href: https://azure.microsoft.com/support/community/?product=search
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
+  - name: Feedback Forum (UserVoice)
+    href:  https://feedback.azure.com/forums/263029-azure-search 
   - name: Demo sites
     items:
     - name: Financial files demo

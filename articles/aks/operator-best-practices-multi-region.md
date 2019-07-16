@@ -7,7 +7,7 @@ author: lastcoolnameleft
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.author: lastcoolnameleft
+ms.author: thfalgou
 #Customer intent: As an AKS cluster operator, I want to plan for business continuity or disaster recovery to help protect my cluster from region problems.
 ---
 # Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)

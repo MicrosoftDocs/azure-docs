@@ -125,7 +125,6 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 The following properties are returned under **MaintenanceRedeployStatus**: 
 
 | Value	| Description	|
-
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time. |
 | PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM. |
@@ -157,7 +156,6 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 The following properties are returned under **MaintenanceRedeployStatus** for each VM instance: 
 
 | Value	| Description	|
-
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time. |
 | PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM. |
@@ -185,7 +183,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **A:** Virtual machines deployed in an availability set or in virtual machine scale sets use update domains. When performing maintenance, Azure honors the update domain constraint and doesn't reboot VMs from a different update domain (within the same availability set). Azure also waits for at least 30 minutes before moving to the next group of VMs. 
 
-For more information about high availability, see [Regions and availability for virtual machines in Azure](../virtual-machines/windows/regions-and-availability.md).
+For more information about high availability, see [Regions and availability for virtual machines in Azure](../virtual-machines/windows/availability.md).
 
 **Q: How can I be notified about planned maintenance?**
 
