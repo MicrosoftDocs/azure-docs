@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 06/13/2019
+ms.date: 07/11/2019
 ms.author: tamram
 ms.custom: "include file"
 ---
 
 ## Resources for development with .NET
 
-The links below point to useful resources for developers using the Azure Storage client library for .NET.
+The links below provide useful resources for developers using the Azure Storage client library for .NET.
 
 ### Azure Storage common APIs
 
@@ -26,3 +26,8 @@ The links below point to useful resources for developers using the Azure Storage
 - [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 - [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 - [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+
+### .NET tools
+
+- [.NET](https://dotnet.microsoft.com/download/)
+- [Visual Studio](https://visualstudio.microsoft.com/)
