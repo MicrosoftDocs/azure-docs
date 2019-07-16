@@ -99,8 +99,6 @@ In this article you create a backend service to receive file upload notification
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](iot-hub-devguide-security.md#access-control-and-permissions).
-
 ## Receive a file upload notification
 
 In this section, you write a .NET console app that receives file upload notification messages from IoT Hub.
