@@ -12,7 +12,7 @@ ms.date: 07/12/2019
 
 [Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for output to Azure Blob storage is available for Azure Stream Analytics as a preview. This gives Stream Analytics jobs direct access to a storage account instead of using a connection string. In addition to improved security, this feature also enables you to write data to a storage account in a Virtual Network (VNET) within Azure.
 
-This article shows you how to enable Managed Identity for the Blob output(s) of a Stream Analytics job through the Azure Portal and through an Azure Resource Managed (ARM) deployment.
+This article shows you how to enable Managed Identity for the Blob output(s) of a Stream Analytics job through the Azure portal and through an Azure Resource Manager deployment.
 
 ## Create the Stream Analytics job using the Azure portal
 
@@ -28,10 +28,10 @@ This article shows you how to enable Managed Identity for the Blob output(s) of 
 
 ## Azure Resource Manager deployment
 
-Using Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource manager templates using either Azure PowerShell or the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest). The below examples use the Azure CLI.
+Using Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). The below examples use the Azure CLI.
 
 
-1. You can create a **Microsoft.StreamAnalytics/streamingjobs** resource with a Managed Identity by including the following property in the resource section of your Resource manager template:
+1. You can create a **Microsoft.StreamAnalytics/streamingjobs** resource with a Managed Identity by including the following property in the resource section of your Resource Manager template:
 
     ```json
     "Identity": {
@@ -39,7 +39,7 @@ Using Azure Resource Manager allows you to fully automate the deployment of your
     },
     ```
 
-   This property tells Azure Resource Manager to create and manage the identity for your Stream Analytics job. Below is an example Resource manager template that deploys a Stream Analytics job with Managed Identity enabled and a Blob output sink that uses Managed Identity:
+   This property tells Azure Resource Manager to create and manage the identity for your Stream Analytics job. Below is an example Resource Manager template that deploys a Stream Analytics job with Managed Identity enabled and a Blob output sink that uses Managed Identity:
 
     ```json
     {
@@ -153,7 +153,7 @@ There are two levels of access you can choose to give your Stream Analytics job:
 1. **Container level access:** this option gives the job access to a specific existing container.
 2. **Account level access:** this option gives the job general access to the storage account, including the ability to create new containers.
 
-Unless you need the job to create containers on your behalf, you should choose **Container level access** since this option will grant the job the minimum level of access required. Both options are explained below for the Azure Portal and the command-line.
+Unless you need the job to create containers on your behalf, you should choose **Container level access** since this option will grant the job the minimum level of access required. Both options are explained below for the Azure portal and the command-line.
 
 ### Grant access via the Azure portal
 
@@ -197,7 +197,7 @@ Unless you need the job to create containers on your behalf, you should choose *
 
 To give access to a specific container, run the following command using the Azure CLI:
 
-   ```azure-cli
+   ```azurecli
    az role assignment create --role "Storage Blob Data Contributor" --assignee <principal-id> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
    ```
 
@@ -205,7 +205,7 @@ To give access to a specific container, run the following command using the Azur
 
 To give access to the entire account, run the following command using the Azure CLI:
 
-   ```azure-cli
+   ```azurecli
    az role assignment create --role "Storage Blob Data Contributor" --assignee <principal-id> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
    ```
 

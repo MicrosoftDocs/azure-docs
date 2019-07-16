@@ -99,7 +99,7 @@
     - name: Use SQL reference data
       href: sql-reference-data.md
     - name: Authenticate with managed identity - Blob output
-      href: blob-output-managed-id.md
+      href: blob-output-managed-identity.md
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis
