@@ -11,15 +11,18 @@ ms.custom: mvc
 
 # Use repartitioning to optimize processing with Azure Stream Analytics
 
-Azure Stream Analytics jobs can consume data and write different partitions in parallel to increase throughput; however you can use repartitioning in scenarios that can't be fully [parallelized](stream-analytics-scale-jobs.md).
+This article shows you how to use repartitioning to scale your Azure Stream Analytics query for scenarios that can't be fully [parallelized](stream-analytics-scale-jobs.md).
 
-You may not be able to use [parallelization](stream-analytics-parallelization.md) to optimize your Azure Stream Analytics queries if you don't control the partition key for your input stream, or if your source "sprays" input across multiple partitions that later need to be merged. 
+You might not be able to use [parallelization](stream-analytics-parallelization.md) if:
+
+* You don't control the partition key for your input stream.
+* Your source "sprays" input across multiple partitions that later need to be merged. 
 
 ## How to repartition
 
-Repartitioning, or reshuffling, is required when processing data on a stream that is not sharded according to the natural input scheme, such as the **PartitionId** when using Event Hubs. When you repartition, each shard can be processed independently, which allows you to linearly scale out your streaming pipeline.
+Repartitioning, or reshuffling, is required when you process data on a stream that's not sharded according to the natural input scheme. For example, Event Hubs uses **PartitionId**. When you repartition, each shard can be processed independently, which allows you to linearly scale out your streaming pipeline.
 
-To repartition, use the keyword **INTO** after a **PARTITION BY** statement in your query. The following example partitions the data by **DeviceID** into a partition count of 10. Hashing of **DeviceID** is used to determine which partition shall accept which substream. The data is flushed independently for each partitioned stream, assuming the output supports partitioned writes, and either has 10 partitions or can handle an arbitrary number of such.
+To repartition, use the keyword **INTO** after a **PARTITION BY** statement in your query. The following example partitions the data by **DeviceID** into a partition count of 10. Hashing of **DeviceID** is used to determine which partition shall accept which substream. The data is flushed independently for each partitioned stream, assuming the output supports partitioned writes, and has 10 partitions.
 
 ```sql
 SELECT * 
@@ -38,11 +41,11 @@ step2 AS (SELECT * FROM input2 PARTITION BY DeviceID INTO 10)
 SELECT * INTO output FROM step1 PARTITION BY DeviceID UNION step2 PARTITION BY DeviceID
 ```
 
-When you use repartitioning, the output scheme should match the stream scheme key and count so that each substream can be flushed independently of others. Alternatively, the stream could be merged and repartitioned again by a different scheme before flushing, but that method should be avoided, as it adds to the general latency of the processing and increases resource utilization.
+When you use repartitioning, the output scheme should match the stream scheme key and count so that each substream can be flushed independently. The stream could also be merged and repartitioned again by a different scheme before flushing, but that method should be avoided, as it adds to the general latency of the processing and increases resource utilization.
 
 ## Streaming Units for repartitions
 
-Experiment and observe the resource utilization of your job to determine the exact number of partitions needed. The number of [streaming units (SU)](stream-analytics-streaming-unit-consumption.md) must be adjusted according to the physical resources needed for each partition. In general, six SUs are needed for each partition. If there are insufficient resources assigned to the job, the system will only apply the repartition if it benefits the job.
+Experiment and observe the resource usage of your job to determine the exact number of partitions needed. The number of [streaming units (SU)](stream-analytics-streaming-unit-consumption.md) must be adjusted according to the physical resources needed for each partition. In general, six SUs are needed for each partition. If there are insufficient resources assigned to the job, the system will only apply the repartition if it benefits the job.
 
 ## Repartitions for SQL output
 
