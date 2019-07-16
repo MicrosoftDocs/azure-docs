@@ -27,12 +27,12 @@ The Microsoft identity platform (v2.0) endpoint supports authentication for a va
 
 ## Application scenarios can be classified along several axes
 
-- [Protected resources vs client applications](#protected-resources-vs-client-applications): Some scenarios are about protecting resources (Web Apps or Web APIs) and others are about acquiring a security token to call a protected Web API.
-- [With users or without users](#with-users-or-without-users): Some scenarios involve a signed-in user, whereas other don't involve a user (daemon scenarios).
-- [Single page applications, Public client applications, and confidential client applications](#single-page-applications-public-client-applications-and-confidential-client-applications): are three large categories of application types. The libraries and objects used to manipulate them will be different.
-- [Sign-in audience](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types): Some authentication flows are unavailable for certain sign in audiences. Some flows are only available for Work or School accounts and some are available for both Work or School accounts and Personal Microsoft accounts. The allowed audience depends on the authentication flows.
-- [Supported OAuth 2.0 flows](#scenarios-and-supported-authentication-flows) are used to implement the application scenarios requesting tokens.  There is not a one-to-one mapping between application scenarios and authentication flows.
-- [Supported platforms](#scenarios-and-supported-platforms-and-languages): Not all application scenarios are available for every platform.
+- [Protected resources vs client applications](#protected-resources-vs-client-applications). Some scenarios are about protecting resources (Web Apps or Web APIs) and others are about acquiring a security token to call a protected Web API.
+- [With users or without users](#with-users-or-without-users). Some scenarios involve a signed-in user, whereas other don't involve a user (daemon scenarios).
+- [Single page applications, Public client applications, and confidential client applications](#single-page-applications-public-client-applications-and-confidential-client-applications). These are three large categories of application types. The libraries and objects used to manipulate them will be different.
+- [Sign-in audience](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types). Some authentication flows are unavailable for certain sign in audiences. Some flows are only available for Work or School accounts and some are available for both Work or School accounts and Personal Microsoft accounts. The allowed audience depends on the authentication flows.
+- [Supported OAuth 2.0 flows](#scenarios-and-supported-authentication-flows).  Authentication flows are used to implement the application scenarios requesting tokens.  There is not a one-to-one mapping between application scenarios and authentication flows.
+- [Supported platforms](#scenarios-and-supported-platforms-and-languages). Not all application scenarios are available for every platform.
 
 ### Protected resources vs client applications
 
@@ -47,7 +47,7 @@ Most authentication scenarios acquire tokens on behalf of a (signed-in) **user**
 
 ![scenarios with users](media/scenarios/scenarios-with-users.svg)
 
-However there are also scenarios (daemon apps), where applications will acquire tokens on behalf of themselves(with no user)
+However there are also scenarios (daemon apps), where applications will acquire tokens on behalf of themselves (with no user).
 
 ![daemon apps](media/scenarios/daemon-app.svg)
 
@@ -60,11 +60,10 @@ The security tokens can be acquired from a number of application types. Applicat
   ![SPA](media/scenarios/spa-app.svg)
 
 - **Public client applications** always sign in users. These apps are:
-  |--|--|
-  |![Desktop app](media/msal-client-applications/desktop-app.png)|Desktop applications calling Web APIs on behalf of the signed-in user|
-  |![Browserless API](media/msal-client-applications/browserless-app.png)|Mobile applications|
-  |![Mobile app](media/msal-client-applications/mobile-app.png)|A third category of applications, running on devices that don't have a browser (Browserless apps, running on iOT for instance).|
-  
+  - ![Desktop app](media/msal-client-applications/desktop-app.png) Desktop applications calling Web APIs on behalf of the signed-in user.
+  - ![Browserless API](media/msal-client-applications/browserless-app.png) Mobile applications.
+  - ![Mobile app](media/msal-client-applications/mobile-app.png) A third category of applications, running on devices that don't have a browser (Browserless apps, running on iOT for instance).
+
   They're represented by the MSAL class named [PublicClientApplication](msal-client-applications.md).
 
 - **Confidential client applications**
@@ -178,7 +177,7 @@ Not every application type is available on every platform. You can also use vari
 |--|--|--|--|--|--|--|
 | [Single-page app](scenario-spa-overview.md) <br/>[![Single Page App](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js
 | [Web App that signs in users](scenario-web-app-sign-user-overview.md) <br/>[![Web App that signs-in users](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET](media/sample-v2-code/logo_NET.png)</br> ASP.NET ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core
-| [Web App that calls web APIs](scenario-web-app-call-api-overview.md) <br/> [![Web App that calls Web APIs](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET](media/sample-v2-code/logo_NET.png) </br> ASP.NET + MSAL.NET </br> ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) MSAL.Java ![MSAL Python](media/sample-v2-code/logo_python.png) Flask + MSAL.Python| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) MSAL.Java ![MSAL Python](media/sample-v2-code/logo_python.png) Flask + MSAL.Python| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) MSAL.Java ![MSAL Python](media/sample-v2-code/logo_python.png) Flask + MSAL.Python
+| [Web App that calls web APIs](scenario-web-app-call-api-overview.md) <br/> [![Web App that calls Web APIs](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET](media/sample-v2-code/logo_NET.png) </br> ASP.NET + MSAL.NET </br> ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) MSAL.Java ![MSAL Python](media/sample-v2-code/logo_python.png) Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) MSAL.Java ![MSAL Python](media/sample-v2-code/logo_python.png) Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) MSAL.Java ![MSAL Python](media/sample-v2-code/logo_python.png) Flask + MSAL Python
 | [Desktop app that calls web APIs](scenario-desktop-overview.md) <br/> [![Desktop app that calls web APIs](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![Device code flow](media/scenarios/device-code-flow-app.svg) | ![MSAL.NET](media/sample-v2-code/logo_NET.png)  MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) MSAL.Java ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL.Python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) MSAL.Java ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL.Python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) MSAL.Java ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL.Python
 | [Mobile app that calls web APIs](scenario-mobile-overview.md) <br/> [![Mobile app that calls web APIs](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/logo_xamarin.png) MSAL.NET | | | ![iOS / Objective C or swift](media/sample-v2-code/logo_iOS.png) MSAL.iOS | ![Android](media/sample-v2-code/logo_Android.png) MSAL.Android
 | [Daemon app](scenario-daemon-overview.md) <br/> [![Daemon app](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) MSAL.Java ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL.Python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) MSAL.Java ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL.Python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) MSAL.Java ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL.Python
