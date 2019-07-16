@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 07/08/2019
+ms.date: 07/16/2019
 ---
 # SQL Database managed instance frequently asked questions (FAQ)
 
 This article contains many of the most common questions about [SQL Database managed instance](sql-database-managed-instance.md).
 
-## Where can I find a list of features that are supported on managed instance?
+## Where can I find a list of features supported on managed instance?
 
 For a list of supported features in managed instance, see [Azure SQL Database versus SQL Server](sql-database-features.md).
 
@@ -51,7 +51,7 @@ Native `COPY_ONLY` backups taken from managed instance cannot be restored to SQL
 
 ## How can I migrate my instance database to a single Azure SQL Database?
 
-One option is to [export the database to a bacpac](sql-database-export.md) and then [import the bacpac file]( sql-database-import.md). 
+One option is to [export the database to a BACPAC](sql-database-export.md) and then [import the BACPAC file]( sql-database-import.md). 
 
 This is the recommended approach if your database is smaller than 100 GB. Transactional replication can be used if all tables in the database have primary keys.
 
@@ -67,14 +67,14 @@ Customers are advised to test the performance of actual workloads intended for p
 
 Automated online switching between hardware generations is possible if both hardware generations are available in the same region where your managed instance is provisioned. In this case, you have an option in the pricing tier section of the Azure portal to switch between hardware generations.
 
-This is a long running operation as the new managed instance will be provisioned at the back end and databases automatically transferred between the old and new instance. This process will be seamless for customers.
+This is a long running operation as a new managed instance will be provisioned in the background and databases automatically transferred between the old and new instance with a quick failover at the end of the process. 
 
-If both hardware generations are not supported in the same region, changing the hardware generation is possible but must be done manually. This requires you to provision a new instance in the region where the desired hardware generation is available, and manually backing up and restoring data between the old and new instance.
+If both hardware generations are not supported in the same region, changing the hardware generation is possible but must be done manually. This requires you to provision a new instance in the region where the desired hardware generation is available, and manually back up and restore data between the old and new instance.
 
 
 ## How do I tune performance of my managed instance? 
 
-General purpose managed instance uses remote storage due to which size of data and log files matters to performance. To tune general purpose service tier performance, follow instructions in this blog post.
+General purpose managed instance uses remote storage due to which size of data and log files matters to performance. To tune General Purpose service tier performance, follow instructions in this blog post.
 
 For IO intensive workloads consider using Gen 5 hardware, versus using Gen 4 for compute intensive workloads. For more information, see FAQ section on choosing between hardware generations.
 
@@ -82,7 +82,7 @@ If your workload consists of lots of small transactions, consider switching the 
 
 ## What is the maximum storage size for managed instance? 
 
-Storage size for managed instance depends the selected service tier (General Purpose or Business Critical). For storage limitations of these service tiers, see [Service tier characteristic](sql-database-service-tiers-general-purpose-business-critical.md).
+Storage size for managed instance depends on the selected service tier (General Purpose or Business Critical). For storage limitations of these service tiers, see [Service tier characteristic](sql-database-service-tiers-general-purpose-business-critical.md).
 
 ## Is the backup storage deducted from my managed instance storage? 
 
@@ -109,11 +109,11 @@ To mitigate any networking risks, customers are recommended to apply a set of se
 
 - Turn on Transparent Data Encryption (TDE) on all databases.
 - Turn off Common Language Runtime (CLR). This is recommended on-premises as well.
-- Use Azure AD accounts only.
-- Access SQL MI with low privileged DBA account.
+- Use Azure Active Directory (AAD) accounts only.
+- Access instance with low privileged DBA account.
 - Configure JiT jumpbox access for sysadmin account.
 - Turn on SQL auditing, and integrate it with alerting mechanisms.
-- Turn on Threat Detection from ATS suite.
+- Turn on the Threat Detection from the Advanced Data Security (ADS) suite.
 
 
 ## Where can I find use cases and resulting cost savings with managed instance?
@@ -145,7 +145,7 @@ In rare but necessary situations, we might need to do an online migration of a m
 
 For this reason, we strongly discourage relying on immutability of the IP address as it could cause unnecessary downtime.
 
-## Can I move a managed instance or VNet?
+## Can I move a managed instance or VNet to another resource group?
 
 No, this is current platform limitation. After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
 
@@ -167,8 +167,8 @@ Data loads are often slower on managed instance than in SQL Server due to mandat
 
 Yes, you don't need to decrypt your database to be able to restore it to managed instance. You do need to provide a certificate/key used as an encryption key protector in the source system to the managed instance to be able to read data from the encrypted backup file. There are two possible ways to do this:
 
-- Upload certificate-protector to the managed instance. This can be done using PowerShell only. The sample script describes the whole process.
-- Upload asymmetric key-protector to Azure Key Vault (AKV) and point managed instance to it. This approach resembles bring-your-own-key (BYOK) TDE use case that also uses AKV integration to store the encryption key. If you just want the key uploaded to AKV available to managed instance for restoring encrypted databases without actually using the key as an encryption key protector, follow instructions for setting up BYOK TDE, and don’t check the checkbox Make the selected key the default TDE protector.
+- *Upload certificate-protector to the managed instance*. This can be done using PowerShell only. The [sample script](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) describes the whole process.
+- *Upload asymmetric key-protector to Azure Key Vault (AKV) and point managed instance to it*. This approach resembles bring-your-own-key (BYOK) TDE use case that also uses AKV integration to store the encryption key. If you just want the key uploaded to AKV available to managed instance for restoring encrypted databases without actually using the key as an encryption key protector, follow instructions for [setting up BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption-in-the-azure-portal), and don’t check the checkbox *Make the selected key the default TDE protector*.
 
 Once you make the encryption protector available to managed instance, you can proceed with the standard database restore procedure.
 
