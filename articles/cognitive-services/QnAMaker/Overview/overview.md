@@ -1,73 +1,69 @@
 ---
-title: What is QnA Maker?
+title: What is QnA Maker API service?
 titleSuffix: Azure Cognitive Services
 description: QnA Maker is a cloud-based API service that applies custom machine-learning intelligence to a user's natural language question to provide the best answer.
 services: cognitive-services
-author: diberry
+author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 04/05/2019
-ms.author: diberry
+ms.date: 03/19/2019
+ms.author: tulasim
 #customer intent: As a developer, I want to know how to use QnA Maker for my FAQs and product manuals so that I can enable conversational question and answer sessions for my customers.
 ---
 
-# What is QnA Maker?
+# What is the QnA Maker API service?
 
-QnA Maker is a cloud-based API service that creates a conversational, question and answer layer over your data. 
+QnA Maker takes natural language questions, and returns the most appropriate answer from your custom knowledge base (KB) of information.
 
-QnA Maker enables you to create a knowledge-base(KB) from your semi-structured content such as Frequently Asked Question (FAQ) URLs, product manuals, support documents and custom questions and answers. The QnA Maker service answers your users' natural language questions by matching it with the best possible answer from the QnAs in your Knowledge base.
+QnA Maker imports your content into question and answer sets you can then edit and test. After you publish your knowledge base, a client application sends a user's question to the service for analysis. Your QnA Maker service processes the question and responds with the best answer. 
 
-The easy-to-use [web portal](https://qnamaker.ai) enables you to create, manage, train and publish your service without any developer experience. Once the service is published to an endpoint, a client application such as a chat bot can manage the conversation with a user to get questions and respond with the answers. 
+![Ask a bot a question and get answer from knowledge base content](../media/what-is-qnamaker/bot-chat-with-qnamaker.png)
 
-![Overview](../media/qnamaker-overview-learnabout/overview.png)
+## What is a knowledge base 
 
-## Key QnA Maker processes
+A knowledge base is a collection of question and answer sets. 
 
-QnA Maker provides two key services for your data:
+To build your knowledge base, you provide content:
 
-* **Extraction**: Structured question-answer data is extracted from structured & semi-structured [data sources](../Concepts/data-sources-supported.md) like FAQs and product manuals. This extraction can be done as part of the KB [creation](https://aka.ms/qnamaker-docs-createkb) or later, as part of the editing process.
+* **Files** such as PDF, XLS, and DOC
+* **Web content** such as FAQs, Support pages, and How-to articles
+* **Prebuilt question and answer sets** such as chit chat with personalities
+* Your own questions and answers
+ 
+Tag question and answer sets with **metadata**. The client application requests answers filtered with this metadata. The service applies the filter then responds with the answers.   
 
-* **Matching**: Once your knowledge base has been [trained and tested](https://aka.ms/qnamaker-docs-trainkb), you [publish](https://aka.ms/qnamaker-docs-publishkb) it. This enables an endpoint to your QnA Maker knowledge base, which you can then use in your bot or client app. This endpoint accepts a user question and responds with the best answer in the knowledge base, along with a confidence score for the match.
+![Example question and answer with metadata](../media/what-is-qnamaker/example-question-and-answer-with-metadata.png)
 
-```JSON
-{
-    "answers": [
-        {
-            "questions": [
-                "How do I share a knowledge base with other?"
-            ],
-            "answer": "Sharing works at the level of a QnA Maker service, i.e. all knowledge bases in the services will be shared. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/collaborate-knowledge-base)how to collaborate on a knowledge base.",
-            "score": 70.95,
-            "id": 4,
-            "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
-            "metadata": []
-        }
-    ]
-}
+After the knowledge base receives questions from users at the published endpoint, QnA Maker applies **active learning** to these real-world questions to suggest changes to your knowledge base to improve the quality. 
 
-```
+## Managing your knowledge base 
 
-## QnA Maker architecture
+You don't need any developer experience to manage your knowledge base. The easy-to-use [web portal](https://qnamaker.ai) enables you to:
 
-The QnA Maker architecture consists of the following two components:
+* develop your knowledge base of natural language questions and answers
+* test your knowledge base
+* train and publish to an Internet endpoint 
 
-1. **QnA Maker management services**: The management experience for a QnA Maker knowledge base, which includes the initial creation, updating, training, and publishing. These activities can be done through the [portal](https://qnamaker.ai) or the [management APIs](https://go.microsoft.com/fwlink/?linkid=2092179). 
+## Querying your knowledge base is simple
 
-2. **QnA Maker data and runtime**: This is deployed in your Azure subscription in your specified region. Your KB content is stored in [Azure Search](https://azure.microsoft.com/services/search/), and the endpoint deployed as an [App service](https://azure.microsoft.com/services/app-service/). You can also choose to deploy an [Application insights](https://azure.microsoft.com/services/application-insights/) resource for analytics.
+Querying the knowledge base is the process of sending the natural-language question to the service, along with requirements for the response such as metadata filters to apply, the number of answers expected, and a user's ID. 
 
-![Architecture](../media/qnamaker-overview-learnabout/architecture.png)
+The service responds with the best answer or answers. If a best response can't be determined, a configurable default answer is returned. 
 
+QnA Maker provides SDKs and REST-based APIs to send the user question and return a response. Samples show this process including end-to-end bot scenarios you can quickly adopt and deploy. 
 
-## Service highlights
+## Growing a QnA Maker knowledge base is easy
 
-- A complete **no-code** experience to [create a bot](../Quickstarts/create-publish-knowledge-base.md#create-a-bot) from a knowledge base.
-- **No network throttling for predictions**. Pay for hosting the service and not for the number of transactions. See the [pricing page](https://aka.ms/qnamaker-docs-pricing) for more details.
-- **Scale as needed**. Choose the appropriate SKUs of the individual components that suit your scenario. See how to [choose capacity](https://aka.ms/qnamaker-docs-capacity) for your QnA Maker service.
+Because the knowledge base is stored in Azure, you can easily change your resources based on growth:
 
+* allow for more questions and answers in a single knowledge base
+* add more knowledge bases 
+* handle more users requesting content
 
 ## Next steps
+QnA Maker provides everything you need to build, manage and deploy your custom knowledge base. 
 
 > [!div class="nextstepaction"]
 > [Create a QnA Maker service](../how-to/set-up-qnamaker-service-azure.md)
