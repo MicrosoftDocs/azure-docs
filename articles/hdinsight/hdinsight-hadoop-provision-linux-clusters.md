@@ -87,10 +87,16 @@ With HDInsight clusters, you can configure two user accounts during cluster crea
 * HTTP user: The default username is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
 * SSH user: Used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-The HTTP and SSH usernames have the following restrictions:
+The HTTP username has the following restrictions:
 - Allowed special characters: _ and @ 
 - Characters not allowed:  #;."',\/:`!*?$(){}[]<>|&--=+%~^space
 - Max length: 20
+
+The SSH username has the following restrictions:
+- Allowed special characters: _ and @ 
+- Characters not allowed:  #;."',\/:`!*?$(){}[]<>|&--=+%~^space
+- Max length: 64
+- Reserved names: hadoop, users, oozie, hive, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, yarn, hcat, ams, hbase, storm, administrator, admin, user, user1, test, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, console, david, guest, john, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
 
 The Enterprise security package allows you to integrate HDInsight with Active Directory and Apache Ranger. Multiple users can be created using the Enterprise security package.
 
