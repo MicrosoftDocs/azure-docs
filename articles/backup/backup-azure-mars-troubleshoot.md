@@ -163,7 +163,7 @@ If the recovery still fails, restart your server or client. If you don't want to
 
 ## Troubleshoot Cache problems
 
-Backup operation may fail if the cache folder is incorrectly configured, missing pre-requisites or has restricted access
+Backup operation may fail if the cache folder is incorrectly configured, missing pre-requisites or has restricted access.
 
 ### Pre-requisites
 
@@ -184,8 +184,8 @@ Backup operations could fail if there is insufficient shadow copy storage space 
 
 ### Another process or antivirus software blocking access to cache folder
 If you have antivirus software installed on the server, add necessary exclusion rules to the antivirus scan for these files and folders:  
-- The scratch folder. Its default location is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.
-- The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
+- The scratch folder. Its default location is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch
+- The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 - CBengine.exe
 - CSC.exe
 
@@ -220,7 +220,7 @@ Unable to find changes in a file. This could be due to various reasons. Please r
 
 Error message | Recommended action |
 -- | --
-Backup failed because the disk-backup replica is either invalid or missing. | To resolve this issue, perform the below steps: <br/> 1. Create a disk recovery point and try backup again.<br/> 2. Run consistency check on datasource and try backup again.<br/> 3. Stop protection of datasource and then reconfigure protection for this data source
+Backup failed because the disk-backup replica is either invalid or missing. | To resolve this issue, perform the below steps: <br/> 1. Create a disk recovery point and try backup again<br/> 2. Run consistency check on datasource and try backup again<br/> 3. Stop protection of datasource and then reconfigure protection for this data source
 
 ### CBPSourceSnapshotFailedReplicaMetadataInvalid
 
@@ -238,7 +238,7 @@ Source volume snapshot failed due to inconsistent datasource replica. | Run a co
 
 Error message | Recommended action |
 -- | --
-Backup failed as the disk-backup replica could not be cloned.|  Ensure that all previous disk-backup replica files (.vhdx) are unmounted and no disk to disk backup is in progress during online backups
+Backup failed as the disk-backup replica could not be cloned.| Ensure that all previous disk-backup replica files (.vhdx) are unmounted and no disk to disk backup is in progress during online backups
 
 ## Next steps
 * Get more details on [how to back up Windows Server with the Azure Backup agent](tutorial-backup-windows-server-to-azure.md).
