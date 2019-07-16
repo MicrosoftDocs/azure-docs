@@ -16,9 +16,11 @@ manager: philmea
 This tutorial describes how, as a device developer, you can build a Plug and Play device that's ready for certification.
 
 The certification tests check that:
-- Your IoT Plug and Play device code must be installed on your device.
-- Your device code must support the Azure IoT Hub Device Provisioning Service.
-- Your device code must implement Device Information Interface.
+* Your IoT Plug and Play device code must be installed on your device.
+* Your IoT Plug and Play device code are built with Azure IoT SDK
+* Your device code must support the [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
+* Your device code must implement [Device Information Interface](concepts-common-interfaces.md)
+* The capability model and device code work with IoT Central 
 
 ## Prerequisites
 
@@ -28,6 +30,17 @@ To complete this tutorial, you need:
 - [Azure IoT Workbench extension for VS Code](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/VSCode/README.md#installation)
 
 You also need the Plug and Play device that you create when you follow [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md).
+
+## Options for storing capability model and interfaces
+
+For Plug and Play devices you must author a capability model and interfaces that define the capabilities of the device as JSON files. 
+
+It's possible to store those JSON files in three different locations:
+- The global model repository. [Learn more]().
+- Your organizational model repository. [Learn more]().
+- You can store them on your device. [Learn more]().
+
+At this time, for certifying your device, they must be stored either in the organizational model repository or the global model repository.
 
 ## Include the Device Information interface
 
