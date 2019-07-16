@@ -163,7 +163,7 @@ If the recovery still fails, restart your server or client. If you don't want to
 
 ## Troubleshoot Cache problems
 
-Backup operation may fail if the cache folder is incorrectly configured, missing pre-requisites or has restricted access.
+Backup operation may fail if the cache folder (also referred as scratch folder) is incorrectly configured, missing pre-requisites or has restricted access.
 
 ### Pre-requisites
 
