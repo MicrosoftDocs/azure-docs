@@ -36,9 +36,12 @@ An Azure SQL Database server or managed instance is required if you're provision
 You might see this issue when you're provisioning a new SSIS IR or while IR is running. If you experience this error during IR provisioning, and if you get a detailed SqlException message in the error message, it might indicate one of the following problems:
 
 * A network connection issue. Check whether the SQL Server or managed instance host name is accessible. Also verify that no firewall or network security group (NSG) is blocking SSIS IR access to the server.
-* Login failed during SQL authentication. This means the account provided can't log in to the SQL Server database. Make sure you provide the correct user account.
+* Login failed during SQL authentication. This means the account provided can't sign in to the SQL Server database. Make sure you provide the correct user account.
 * Login failed during AAD authentication (managed identity). Add the managed identity of your factory to an AAD group, and make sure the managed identity has access permissions to your catalog database server.
-* Connection timeout. This is always caused by a security-related configuration. We recommend that you create a new VM; join the VM to the same VNet of IR if IR is in a VNet; and then install SSMS and check the Azure SQL Database server or managed instance status.
+* Connection timeout. This is always caused by a security-related configuration. We recommend that you:
+  1. Create a new VM. 
+  1. Join the VM to the same VNet of IR if IR is in a VNet. 
+  1. Install SSMS and check the Azure SQL Database server or managed instance status.
 
 For other problems, fix the issue shown in the detailed SQL Exception error message. If you’re still having problems, contact the Azure SQL Database server or managed instance support team.
 
