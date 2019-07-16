@@ -345,6 +345,26 @@ but you can use the `correlation` properties of events to correlate across actio
     }
   }
   ```
+  Here's another example using Initialize variable action. In this example we add tracked properties from the action input where the input is an array instead of a record.  
+
+  ``` json
+  "actions": {
+    "Initialize_variable": {
+    "inputs": {
+        "variables": [{
+              "name": "ConnectorName",
+               "type": "String",
+               "value": "SFTP-SSH"
+                  }
+               ]                
+            },
+    "trackedProperties": {
+        "Track1": "@action().inputs.variables[0].value"
+            },
+         "type": "InitializeVariable"
+        }
+      }      
+  ```
 
 ## Next steps
 
