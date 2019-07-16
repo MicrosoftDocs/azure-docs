@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: Create a group managed service account | Microsoft Docs'
-description: Administer Azure Active Directory Domain Services managed domains
+description: Learn how to create a group managed service account (gMSA) for use with Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
