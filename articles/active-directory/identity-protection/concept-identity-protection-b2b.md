@@ -19,8 +19,8 @@ ms.collection: M365-identity-device-management
 
 With Azure AD B2B collaboration, organizations can enforce risk-based policies for B2B users using Identity Protection. These policies be configured in two ways:
 
-1. Administrators can configure the built-in Identity Protection risk-based policies, that apply to all apps, that include guest users.
-2. Administrators can configure their Conditional Access policies, using sign-in risk as a condition, that includes guest users.
+- Administrators can configure the built-in Identity Protection risk-based policies, that apply to all apps, that include guest users.
+- Administrators can configure their Conditional Access policies, using sign-in risk as a condition, that includes guest users.
 
 ## How is risk evaluated for B2B collaboration users
 
@@ -30,9 +30,9 @@ The user risk for B2B collaboration users is evaluated at their home directory. 
 
 There are limitations in the implementation of Identity Protection for B2B collaboration users in a resource directory due to their identity existing in their home directory. The main limitations are as follows:
 
-1. If a guest user triggers the Identity Protection user risk policy to force password reset, they will be blocked. This block is due to the inability to reset passwords in the resource directory.
-1. Guest users do not appear in the risky users report. This loss of visibility is due to the risk evaluation occurring in the B2B user's home directory.
-1. Administrators cannot dismiss or remediate a risky B2B collaboration user in their resource directory. This loss of functionality is due to administrators in the resource directory not having access to the B2B user's home directory.
+- If a guest user triggers the Identity Protection user risk policy to force password reset, they will be blocked. This block is due to the inability to reset passwords in the resource directory.
+- Guest users do not appear in the risky users report. This loss of visibility is due to the risk evaluation occurring in the B2B user's home directory.
+- Administrators cannot dismiss or remediate a risky B2B collaboration user in their resource directory. This loss of functionality is due to administrators in the resource directory not having access to the B2B user's home directory.
 
 ### Why can't I remediate risky B2B collaboration users in my directory?
 
@@ -50,5 +50,5 @@ Excluding B2B users from your organization's risk-based Conditional Access polic
 
 See the following articles on Azure AD B2B collaboration:
 
-* [What is Azure AD B2B collaboration?](../b2b/what-is-b2b.md)
-* [What is Conditional Access?](../conditional-access/overview.md)
+- [What is Azure AD B2B collaboration?](../b2b/what-is-b2b.md)
+- [What is Conditional Access?](../conditional-access/overview.md)
