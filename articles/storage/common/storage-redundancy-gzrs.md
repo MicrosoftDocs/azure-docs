@@ -26,7 +26,8 @@ Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more info
 
 GZRS and RA-GZRS are currently available for preview in the following regions:
 
-- US East 2
+- US East
+- Europe West
 
 Microsoft continues to enable GZRS and RA-GZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about supported regions.
 
@@ -124,6 +125,7 @@ Keep in mind the following restrictions on live migration:
 - You can request a live migration from RA-GRS to RA-GZRS. However, migrating from RA-GRS to GZRS is not supported. In this case, you must request a live migration to RA-GZRS and then manually convert the storage account to use GZRS.
 - Managed disks support LRS only and cannot be migrated to GZRS or RA-GZRS. For integration with availability sets, see [Introduction to Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
 - You can store snapshots and images for Standard SSD Managed Disks on Standard HDD storage and [choose between LRS, ZRS, GZRS, and RA-GZRS options](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Accounts containing large file shares are not supported for GZRS.
 
 To request a live migration, use the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). From the portal, select the storage account to migrate to GZRS or RA-GZRS, and follow these instructions:
 
