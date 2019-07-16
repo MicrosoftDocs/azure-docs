@@ -29,7 +29,7 @@ For step-by-step instructions, see the following tutorials:
 - [Incrementally copy data from multiple tables in on-premises SQL Server to Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 For templates, see the following:
-- [Delta copy with control table] (solution-template-delta-copy-with-control-table.md)
+- [Delta copy with control table](solution-template-delta-copy-with-control-table.md)
 
 ## Delta data loading from SQL DB by using the Change Tracking technology
 Change Tracking technology is a lightweight solution in SQL Server and Azure SQL Database that provides an efficient change tracking mechanism for applications. It enables an application to easily identify data that was inserted, updated, or deleted. 
@@ -48,7 +48,7 @@ For step-by-step instructions, see the following tutorial: <br/>
 - [Incrementally copy new and changed files based on LastModifiedDate from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 For templates, see the following:
-- [Copy new files by LastModifiedDate] (solution-template-copy-new-files-lastmodifieddate.md)
+- [Copy new files by LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
 ## Loading new files only by using time partitioned folder or file name.
 You can copy new files only, where files or folders has already been time partitioned with timeslice information as part of the file or folder name (for example, /yyyy/mm/dd/file.csv). It is the most performance approach for incremental loading new files. 
