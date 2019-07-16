@@ -157,9 +157,11 @@ With a token-restricted content key policy, the content key is sent only to a cl
 
 When you configure the token restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the secure token service that issues the token. The audience, sometimes called scope, describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
+Customers often use a custom STS to include custom claims in the token to select between different ContentKeyPolicyOptions with different DRM license parameters (a subscription license versus a rental license) or to include a claim representing the content key identifier of the key that the token grants access to.
+
 ### Token replay prevention
 
-The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. The customer can add a claim of type `urn:microsoft:azure:mediaservices:maxuses` in the token, where the value is the number of times the token can be used to acquire a license or key. For example, if the value is 4, Media Services will only honor the first four successful requests to get a key or license with that token. All subsequent requests with the same token to Key Delivery will return an unauthorized response.
+The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. The customer can add a claim of type `urn:microsoft:azure:mediaservices:maxuses` in the token, where the value is the number of times the token can be used to acquire a license or key (for example, `claims.Add(new Claim("urn:microsoft:azure:mediaservices:maxuses", MaxUse))`). All subsequent requests with the same token to Key Delivery will return an unauthorized response.
  
 #### Considerations
 
@@ -169,8 +171,6 @@ The *Token Replay Prevention* feature allows Media Services customers to set a l
 * Playback fails if the token has exceeded the `maxuses` value set by the customer.
 * This feature can be used for all existing protected content (only the token issued needs to be changed).
 * This feature works with both JWT and SWT.
-
-Customers often use a custom STS to include custom claims in the token to select between different ContentKeyPolicyOptions with different DRM license parameters (a subscription license versus a rental license) or to include a claim representing the content key identifier of the key that the token grants access to.
 
 ## Custom key and license acquisition URL
 
