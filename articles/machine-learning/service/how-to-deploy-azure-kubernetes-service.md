@@ -21,7 +21,7 @@ Learn how to use the Azure Machine Learning service to deploy a model as a web s
 
 When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. There are two ways to connect an AKS cluster to your workspace:
 
-* Create the AKS cluster using the Azure Machine Learning service SDK, the Machine Learning CLI, or the Azure portal. This automatically connects the cluster to the workspace.
+* Create the AKS cluster using the Azure Machine Learning service SDK, the Machine Learning CLI, or the Azure portal. This process automatically connects the cluster to the workspace.
 * Attach an existing AKS cluster to your Azure Machine Learning service workspace. A cluster can be attached using the Azure Machine Learning service SDK, Machine Learning CLI, or the Azure portal.
 
 > [!IMPORTANT]
@@ -41,7 +41,7 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
     * `model` - Set to your registered model.
     * `inference_config` - Set to the inference configuration for the model.
 
-    For more information on setting these, see [How and where to deploy models](how-to-deploy-and-where.md).
+    For more information on setting these variables, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 - The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
 

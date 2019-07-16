@@ -1,5 +1,5 @@
 ---
-title: How deploy models to Azure Container Instances
+title: How to deploy models to Azure Container Instances
 titleSuffix: Azure Machine Learning service
 description: 'Learn how to deploy your Azure Machine Learning service models as a web service using Azure Container Instances.'
 services: machine-learning
@@ -14,7 +14,7 @@ ms.date: 07/08/2019
 
 # Deploy a model to Azure Container Instances
 
-Learn how to use the Azure Machine Learning service to deploy a model as a web service on Azure Container Instances (ACI). Use Azure Container Instances if one of the following is true:
+Learn how to use the Azure Machine Learning service to deploy a model as a web service on Azure Container Instances (ACI). Use Azure Container Instances if one of the following conditions is true:
 
 - You need to quickly deploy and validate your model. You do not need to create ACI containers ahead of time. They are created as part of the deployment process.
 - You are testing a model that is under development. 
@@ -35,7 +35,7 @@ For information on quota and region availability for ACI, see [Quotas and region
     * `model` - Set to your registered model.
     * `inference_config` - Set to the inference configuration for the model.
 
-    For more information on setting these, see [How and where to deploy models](how-to-deploy-and-where.md).
+    For more information on setting these variables, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 - The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
 
