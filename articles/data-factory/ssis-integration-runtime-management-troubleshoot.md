@@ -23,7 +23,7 @@ This article provides troubleshooting guidance for management issues in Azure-SQ
 
 If you run into any issue while provisioning or deprovisioning SSIS IR, you'll see an error message in the Azure Data Factory (ADF) portal or returned from a PowerShell cmdlet. The error always appears in the format of an error code with a detailed error message.
 
-If the error code is InternalServerError, this means that the service has transient issues and that you should retry the operation later. If a retry doesn’t help, contact the Azure Data Factory support team.
+If the error code is InternalServerError, the service has transient issues, and you should retry the operation later. If a retry doesn’t help, contact the Azure Data Factory support team.
 
 Otherwise, there are three major external dependencies that can cause errors: an Azure SQL Database server or managed instance, a custom setup script, and a virtual network configuration (if the error code is not InternalServerError).
 
@@ -36,7 +36,7 @@ An Azure SQL Database server or managed instance is required if you're provision
 You might see this issue when you're provisioning a new SSIS IR or while IR is running. If you experience this error during IR provisioning, and if you get a detailed SqlException message in the error message, it might indicate one of the following problems:
 
 * A network connection issue. Check whether the SQL Server or managed instance host name is accessible. Also verify that no firewall or network security group (NSG) is blocking SSIS IR access to the server.
-* Login failed during SQL authentication. This means the account provided can't sign in to the SQL Server database. Make sure you provide the correct user account.
+* Login failed during SQL authentication. The account provided can't sign in to the SQL Server database. Make sure you provide the correct user account.
 * Login failed during AAD authentication (managed identity). Add the managed identity of your factory to an AAD group, and make sure the managed identity has access permissions to your catalog database server.
 * Connection timeout. This is always caused by a security-related configuration. We recommend that you:
   1. Create a new VM. 
@@ -101,7 +101,7 @@ This error means the execution of custom setup script (main.cmd) failed. Try the
 
 ### CustomSetupScriptTimeout
 
-This error indicates an execute custom setup script timeout. Make sure that your blob container contains only the necessary custom setup files. You should also the check custom setup execution logs in your blob container. The maximum period for custom setup is 45 minutes before it times out, and the maximum period includes the time to download all files from your container and install them on SSIS IR. If you need a longer period, raise a support ticket.
+This error indicates an execute custom setup script timeout. Make sure that your blob container contains only the necessary custom setup files. You should also check the custom setup execution logs in your blob container. The maximum period for custom setup is 45 minutes before it times out, and the maximum period includes the time to download all files from your container and install them on SSIS IR. If you need a longer period, raise a support ticket.
 
 ### CustomSetupScriptLogUploadFailure
 
@@ -121,7 +121,7 @@ This error can occur for a variety of reasons. To troubleshoot it, see the "Forb
 
 This kind of error might resemble this: “SubnetId is not enabled for current account. Microsoft.Batch resource provider is not registered under the same subscription of VNet.”
 
-These details mean that Azure Batch can't access your VNet. Register Microsoft.Batch resource provider under the same subscription as VNet.
+These details mean that Azure Batch can't access your VNet. Register the Microsoft.Batch resource provider under the same subscription as VNet.
 
 ### InvalidPropertyValue
 
