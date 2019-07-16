@@ -107,13 +107,13 @@ For more information and how to verify the built-in firewall, see [Azure SQL Dat
 
 To mitigate any networking risks, customers are recommended to apply a set of security settings and controls:
 
-- Turn on Transparent Data Encryption (TDE) on all databases.
+- Turn on [Transparent Data Encryption (TDE)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) on all databases.
 - Turn off Common Language Runtime (CLR). This is recommended on-premises as well.
-- Use Azure Active Directory (AAD) accounts only.
+- Use Azure Active Directory (AAD) authentication only.
 - Access instance with low privileged DBA account.
 - Configure JiT jumpbox access for sysadmin account.
-- Turn on SQL auditing, and integrate it with alerting mechanisms.
-- Turn on the Threat Detection from the Advanced Data Security (ADS) suite.
+- Turn on [SQL auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine), and integrate it with alerting mechanisms.
+- Turn on the [Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) from the [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) suite.
 
 
 ## Where can I find use cases and resulting cost savings with managed instance?
