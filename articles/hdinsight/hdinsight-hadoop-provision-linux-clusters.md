@@ -52,7 +52,7 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all the resources for your application in a single coordinated operation.
 
-## Cluster types and configuration
+## <a name="cluster-types"></a> Cluster types and configuration
 Azure HDInsight currently provides the following cluster types, each with a set of components to provide certain functionalities.
 
 > [!IMPORTANT]  
