@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
-ms.author: monhaber
+ms.author: v-monhabe
 
 ---
 # Windows Defender Advanced Threat Protection with Azure Security Center
@@ -67,7 +67,7 @@ To onboard servers to Security Center, click **Go to Azure Security Center to on
 
 ## Enable Windows Defender ATP integration
 
-To view if Windows Defender ATP integration is enabled, select **Security center** > **Security policy** > **Subscription** > **Edit settings**.
+To view if Windows Defender ATP integration is enabled, select **Security center** > **Pricing & settings** > click on your subscription.
 
   ![Azure Security Center Policy Management](media/security-center-wdatp/policy-management.png)
 

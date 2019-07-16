@@ -3,7 +3,7 @@ title: Bind using Secure LDAP (LDAPS) to an Azure AD Domain Services managed dom
 description: Bind to an Azure AD Domain Services managed domain using secure LDAP (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: mstephen
+ms.date: 06/28/2019
+ms.author: iainfou
 
 ---
 # Bind to an Azure AD Domain Services managed domain using secure LDAP (LDAPS)
@@ -30,6 +30,11 @@ You can use the LDP.exe tool, which is included in the Remote Server Administrat
 First, open LDP and connect to the managed domain. Click **Connection** and click **Connect...** in the menu. Specify the DNS domain name of the managed domain. Specify the port to use for connections. For LDAP connections, use port 389. For LDAPS connections, use port 636. Click **OK** button to connect to the managed domain.
 
 Next, bind to the managed domain. Click **Connection** and click **Bind...** in the menu. Provide the credentials of a user account belonging to the 'AAD DC Administrators' group.
+
+> [!IMPORTANT]
+> Users (and service accounts) cannot perform LDAP simple binds if you have disabled NTLM password hash synchronization on your Azure AD Domain Services instance.  For more information on disabling NTLM password hash synchronization, read [Secure your Azure AD DOmain Services managed domain](secure-your-domain.md).
+>
+>
 
 Select **View**, and then select **Tree** in the menu. Leave the Base DN field blank, and click OK. Navigate to the container that you want to search, right-click the container, and select Search.
 

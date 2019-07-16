@@ -32,7 +32,7 @@ In order to make a connection, the following roles are required:
 
 ## <a name="rdp"></a>Connect using RDP
 
-1. In the [Azure portal](https://aka.ms/BastionHost) for the Bastion preview, navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Windows virtual machine when using an RDP connection.
+1. Use [this link](https://aka.ms/BastionHost) to open the preview portal page for Azure Bastion. Navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Windows virtual machine when using an RDP connection.
 
     ![VM connect](./media/bastion-connect-vm-rdp/connect.png)
 

@@ -274,7 +274,7 @@ SSH enables secure communication between a container and a client. To enable SSH
     > [!NOTE]
     > This configuration does not allow external connections to the container. SSH is available only through the Kudu/SCM Site. The Kudu/SCM site is authenticated with your Azure account.
 
-* The [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) copies the [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config file in the repository) to the */etc/ssh/* directory.
+* The [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) copies the [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config) file in the repository to the */etc/ssh/* directory.
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/

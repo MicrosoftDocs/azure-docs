@@ -53,7 +53,7 @@ with security best practices on Azure:
     describes the tools that are available on Azure.
 
   - [Azure DevOps
-    Services](https://docs.microsoft.com/azure/devops/?view=vsts#pivot=index&panel=indexA)
+    Services](https://docs.microsoft.com/azure/devops/)
     provides development collaboration tools. The tools include
     high-performance pipelines, free Git repositories, configurable
     Kanban boards, and extensive automated and cloud-based load testing.

@@ -5,7 +5,7 @@ ms.service: hdinsight
 author: msft-tacox
 ms.author: tacox
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 04/24/2019
 ---
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0

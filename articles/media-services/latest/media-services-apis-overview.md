@@ -99,7 +99,6 @@ Media Services has the following long-running operations:
 * Stop StreamingEndpoint
 * Scale StreamingEndpoint
 
-
 ## SDKs
 
 > [!NOTE]

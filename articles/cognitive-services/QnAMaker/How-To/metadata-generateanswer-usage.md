@@ -68,7 +68,7 @@ The GenerateAnswer URL has the following format:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-Remember to set the HTTP header property of `Authorization` with a value of the string `EndpointKey ` with a trailing space then the endpoint key found on the **Settings** page.
+Remember to set the HTTP header property of `Authorization` with a value of the string `EndpointKey` with a trailing space then the endpoint key found on the **Settings** page.
 
 An example JSON body looks like:
 
@@ -91,7 +91,7 @@ An example JSON body looks like:
 
 ## GenerateAnswer response properties
 
-The [response](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful_query) is a JSON object including all the information you need to display the answer and the next turn in the conversation, if available.
+The [response](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) is a JSON object including all the information you need to display the answer and the next turn in the conversation, if available.
 
 ```json
 {

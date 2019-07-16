@@ -9,12 +9,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Quickstart: Analyze a local image using the REST API and cURL in Computer Vision
+# Quickstart: Analyze a local image using the Computer Vision REST API and cURL
 
 In this quickstart, you analyze a locally stored image to extract visual features by using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
 
@@ -38,7 +38,7 @@ To create and run the sample, do the following steps:
 1. Open a command prompt window.
 1. Paste the command from the text editor into the command prompt window, and then run the command.
 
-```console
+```bash
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary "<localImage>"
 ```
 
@@ -101,10 +101,6 @@ A successful response is returned in JSON. The sample application parses and dis
   }
 }
 ```
-
-## Clean up resources
-
-When no longer needed, close the command prompt window and the text editor.
 
 ## Next steps
 

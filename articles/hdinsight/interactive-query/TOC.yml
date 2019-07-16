@@ -24,6 +24,9 @@
     maintainContext: true
 - name: How to
   items:
+  - name: Migrate Hive workloads to HDInsight 4.0
+    href: apache-hive-migrate-workloads.md
+    maintainContext: true
   - name: Use cluster storage
     items:
     - name: Using Azure Storage
@@ -100,6 +103,9 @@
       href: ./apache-hadoop-connect-hive-power-bi-directquery.md
     - name: Connect Power BI to Apache Hadoop
       href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
+      maintainContext: true
+    - name: Query Hive with PowerShell and ODBC
+      href: apache-hive-query-odbc-driver-powershell.md
       maintainContext: true
     - name: Connect Excel to Apache Hadoop
       href: ../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
@@ -247,9 +253,6 @@
       maintainContext: true
     - name: OS patching for HDInsight cluster
       href: ../hdinsight-os-patching.md
-      maintainContext: true
-    - name: Migrate Hive workloads to HDInsight 4.0
-      href: apache-hive-migrate-workloads.md
       maintainContext: true
   - name: Troubleshoot
     href: ../hdinsight-troubleshoot-guide.md

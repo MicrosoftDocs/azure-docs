@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -23,7 +23,7 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 + **Storage Optimized** runs on dedicated machines with more total storage, storage bandwidth, and memory than **Standard**. Storage Optimized comes in two levels: L1 and L2
 
 > [!NOTE]
-> The Storage Optimized service tiers are currently available as a preview at discounted pricing for testing and experimentation purposes with the goal of gathering feedback. Final pricing will be announced later when these tiers are generally available. We advise against using these tiers for production applications.
+> As of July 1, all tiers are generally available, including the Storage Optimized tier. All pricing can be found on the [Pricing Details](https://azure.microsoft.com/pricing/details/search/) page.
 
   S3 High Density (S3 HD) is engineered for specific workloads: [multi-tenancy](search-modeling-multitenant-saas-applications.md) and large quantities of small indexes (one million documents per index, three thousand indexes per service). This tier does not provide the [indexer feature](search-indexer-overview.md). On S3 HD, data ingestion must leverage the push approach, using API calls to push data from source to index. 
 
