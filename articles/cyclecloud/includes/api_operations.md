@@ -1,6 +1,6 @@
 
 
-<a name="getnodes"></a>
+<a name="clusters_getnodes"></a>
 ## Get cluster nodes
 ```
 GET /clusters/{cluster}/nodes
@@ -49,7 +49,7 @@ GET /clusters/{cluster}/nodes
 ```
 
 
-<a name="createnodes"></a>
+<a name="clusters_createnodes"></a>
 ## Create cluster nodes
 ```
 POST /clusters/{cluster}/nodes/create
@@ -65,31 +65,15 @@ This operation adds new nodes from a nodearray to a cluster. It accepts multiple
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Path**|**cluster**  <br>*required*|The cluster to add nodes to|string|
-|**Body**|**nodes**  <br>*required*|Sets of nodes to be created|[NodeCreation](#nodecreation)|
+|**Body**|**nodes**  <br>*required*|Sets of nodes to be created|[NodeCreationRequest](#nodecreationrequest)|
 
 
 ### Responses
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[Response 202](#createnodes-response-202)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeCreationResult](#nodecreationresult)|
 |**409**|Invalid input|No Content|
-
-<a name="createnodes-response-202"></a>
-**Response 202**
-
-|Name|Description|Schema|
-|---|---|---|
-|**operationId**  <br>*required*|The id of this operation  <br>**Example** : `"00000000-0000-0000-0000-000000000000"`|string|
-|**sets**  <br>*required*|An array of sets, in the same order as in the request  <br>**Example** : `[ "object" ]`|< [sets](#clusters-cluster-nodes-create-post-sets) > array|
-
-<a name="clusters-cluster-nodes-create-post-sets"></a>
-**sets**
-
-|Name|Description|Schema|
-|---|---|---|
-|**added**  <br>*required*|How many nodes were started in this set  <br>**Example** : `1`|integer|
-|**message**  <br>*optional*|Indicates why not all requested nodes could be added, if present  <br>**Example** : `"string"`|string|
 
 
 
@@ -115,11 +99,14 @@ This operation adds new nodes from a nodearray to a cluster. It accepts multiple
 
 #### Response 202
 ```json
-"object"
+{
+  "operationId" : "00000000-0000-0000-0000-000000000000",
+  "sets" : [ "object" ]
+}
 ```
 
 
-<a name="deallocatenodes"></a>
+<a name="clusters_deallocatenodes"></a>
 ## Deallocate cluster nodes
 ```
 POST /clusters/{cluster}/nodes/deallocate
@@ -160,7 +147,9 @@ This operation deallocates nodes in a cluster. The nodes can be identified in se
 ```json
 {
   "filter" : "State === \"Started\"",
+  "hostnames" : [ "hostname1", "hostname2" ],
   "ids" : [ "id1", "id2" ],
+  "ip_addresses" : [ "10.0.1.1", "10.1.1.2" ],
   "names" : [ "name1", "name2" ],
   "requestId" : "string"
 }
@@ -178,7 +167,7 @@ This operation deallocates nodes in a cluster. The nodes can be identified in se
 ```
 
 
-<a name="removenodes"></a>
+<a name="clusters_removenodes"></a>
 ## Terminate and remove cluster nodes
 ```
 POST /clusters/{cluster}/nodes/remove
@@ -219,7 +208,9 @@ This operation removes nodes in a cluster. The nodes can be identified in severa
 ```json
 {
   "filter" : "State === \"Started\"",
+  "hostnames" : [ "hostname1", "hostname2" ],
   "ids" : [ "id1", "id2" ],
+  "ip_addresses" : [ "10.0.1.1", "10.1.1.2" ],
   "names" : [ "name1", "name2" ],
   "requestId" : "string"
 }
@@ -237,7 +228,7 @@ This operation removes nodes in a cluster. The nodes can be identified in severa
 ```
 
 
-<a name="shutdownnodes"></a>
+<a name="clusters_shutdownnodes"></a>
 ## Terminate or deallocate cluster nodes
 ```
 POST /clusters/{cluster}/nodes/shutdown
@@ -278,7 +269,9 @@ This operation terminates or deallocates nodes in a cluster, depending on whethe
 ```json
 {
   "filter" : "State === \"Started\"",
+  "hostnames" : [ "hostname1", "hostname2" ],
   "ids" : [ "id1", "id2" ],
+  "ip_addresses" : [ "10.0.1.1", "10.1.1.2" ],
   "names" : [ "name1", "name2" ],
   "requestId" : "string"
 }
@@ -296,7 +289,7 @@ This operation terminates or deallocates nodes in a cluster, depending on whethe
 ```
 
 
-<a name="startnodes"></a>
+<a name="clusters_startnodes"></a>
 ## Start deallocated or terminated cluster nodes
 ```
 POST /clusters/{cluster}/nodes/start
@@ -337,7 +330,9 @@ This operation starts nodes in a cluster. The nodes can be identified in several
 ```json
 {
   "filter" : "State === \"Started\"",
+  "hostnames" : [ "hostname1", "hostname2" ],
   "ids" : [ "id1", "id2" ],
+  "ip_addresses" : [ "10.0.1.1", "10.1.1.2" ],
   "names" : [ "name1", "name2" ],
   "requestId" : "string"
 }
@@ -355,7 +350,7 @@ This operation starts nodes in a cluster. The nodes can be identified in several
 ```
 
 
-<a name="terminatenodes"></a>
+<a name="clusters_terminatenodes"></a>
 ## Terminate cluster nodes
 ```
 POST /clusters/{cluster}/nodes/terminate
@@ -396,7 +391,9 @@ This operation terminates nodes in a cluster. The nodes can be identified in sev
 ```json
 {
   "filter" : "State === \"Started\"",
+  "hostnames" : [ "hostname1", "hostname2" ],
   "ids" : [ "id1", "id2" ],
+  "ip_addresses" : [ "10.0.1.1", "10.1.1.2" ],
   "names" : [ "name1", "name2" ],
   "requestId" : "string"
 }
@@ -414,7 +411,57 @@ This operation terminates nodes in a cluster. The nodes can be identified in sev
 ```
 
 
-<a name="getclusterstatus"></a>
+<a name="clusters_scale"></a>
+## Scale cluster to size
+```
+POST /clusters/{cluster}/scale/{nodearray}
+```
+
+
+### Description
+This operation adds nodes as needed to a nodearray to hit a total count. The request is processed one time, and does not re-add nodes later to maintain the given number. This scales by either total cores or total nodes, but not both. It returns the URL to the operation that can be used to track the status of the operation.
+
+
+### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**Path**|**cluster**  <br>*required*|The cluster to add nodes to|string|
+|**Path**|**nodearray**  <br>*required*|The nodearray to add nodes to|string|
+|**Query**|**totalCoreCount**  <br>*optional*|The total number of cores to have in this nodearray, including nodes already created|integer|
+|**Query**|**totalNodeCount**  <br>*optional*|The total number of machines to have in this nodearray, including nodes already created|integer|
+
+
+### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeCreationResult](#nodecreationresult)|
+|**409**|Invalid input|No Content|
+
+
+
+
+### Example HTTP request
+
+#### Request path
+```
+/clusters/string/scale/string
+```
+
+
+### Example HTTP response
+
+#### Response 202
+```json
+{
+  "operationId" : "00000000-0000-0000-0000-000000000000",
+  "sets" : [ "object" ]
+}
+```
+
+
+<a name="clusters_getclusterstatus"></a>
 ## Get cluster status
 ```
 GET /clusters/{cluster}/status
@@ -465,10 +512,10 @@ This operation contains information for the nodes and nodearrays in a given clus
 ```
 
 
-<a name="getoperationstatusbyrequest"></a>
-## Gets operation status by request id
+<a name="operations_list"></a>
+## Lists the status of operations
 ```
-GET /operations
+GET /operations/
 ```
 
 
@@ -476,14 +523,14 @@ GET /operations
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Query**|**request_id**  <br>*required*|The request ID for the operation|string|
+|**Query**|**request_id**  <br>*optional*|The request ID for the operation. If this is given, the list will only have 0 or 1 element in it.|string|
 
 
 ### Responses
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|OK|[OperationStatus](#operationstatus)|
+|**200**|OK|< [OperationStatus](#operationstatus) > array|
 |**400**|Invalid request|No Content|
 |**404**|Not found|No Content|
 
@@ -494,7 +541,7 @@ GET /operations
 
 #### Request path
 ```
-/operations?request_id=string
+/operations/
 ```
 
 
@@ -502,14 +549,14 @@ GET /operations
 
 #### Response 200
 ```json
-{
+[ {
   "action" : "string",
   "startTime" : "string"
-}
+} ]
 ```
 
 
-<a name="getoperationstatusbyid"></a>
+<a name="operations_getstatus"></a>
 ## Gets operation status by id
 ```
 GET /operations/{id}

@@ -70,33 +70,52 @@ A node record
 *Type* : object
 
 
-<a name="nodecreation"></a>
-## NodeCreation
+<a name="nodecreationrequest"></a>
+## NodeCreationRequest
 Specifies how to add nodes to a cluster
 
 
 |Name|Description|Schema|
 |---|---|---|
 |**requestId**  <br>*optional*|Optional user-supplied unique token to prevent duplicate operations  <br>**Example** : `"string"`|string|
-|**sets**  <br>*required*|A list of node definitions to create. The request must contain at least one set. Each set can specify a different set of properties.  <br>**Example** : `[ "object" ]`|< [sets](#nodecreation-sets) > array|
+|**sets**  <br>*required*|A list of node definitions to create. The request must contain at least one set. Each set can specify a different set of properties.  <br>**Example** : `[ "object" ]`|< [sets](#nodecreationrequest-sets) > array|
 
-<a name="nodecreation-sets"></a>
+<a name="nodecreationrequest-sets"></a>
 **sets**
 
 |Name|Description|Schema|
 |---|---|---|
 |**count**  <br>*required*|The number of nodes to create  <br>**Example** : `1`|integer|
-|**definition**  <br>*optional*|The definition of the bucket to use. This is provided by the cluster status API call.  If some of the items given in the status call are missing, or the entire bucket property is missing, the first bucket that matches the given items is used.  <br>**Example** : `"object"`|[definition](#nodecreation-definition)|
+|**definition**  <br>*optional*|The definition of the bucket to use. This is provided by the cluster status API call.  If some of the items given in the status call are missing, or the entire bucket property is missing, the first bucket that matches the given items is used.  <br>**Example** : `"object"`|[definition](#nodecreationrequest-definition)|
+|**nameFormat**  <br>*optional*|If given, nodes will use this naming convention instead of the standard "nodearray-%d" format  <br>**Example** : `"custom-name-%d"`|string|
+|**nameOffset**  <br>*optional*|If given, along with nameFormat, offsets nodeindex for new nodes.  <br>**Example** : `1`|integer|
 |**nodeAttributes**  <br>*optional*|Additional attributes to be set on each node from this set  <br>**Example** : `"[node](#node)"`|[Node](#node)|
 |**nodearray**  <br>*required*|The name of the nodearray to start nodes from  <br>**Example** : `"execute"`|string|
 |**placementGroupId**  <br>*optional*|If given, nodes with the same value for groupId will all be started in the same placement group.  <br>**Example** : `"string"`|string|
 
-<a name="nodecreation-definition"></a>
+<a name="nodecreationrequest-definition"></a>
 **definition**
 
 |Name|Description|Schema|
 |---|---|---|
 |**machineType**  <br>*optional*|**Example** : `"A2"`|string|
+
+
+<a name="nodecreationresult"></a>
+## NodeCreationResult
+
+|Name|Description|Schema|
+|---|---|---|
+|**operationId**  <br>*required*|The id of this operation  <br>**Example** : `"00000000-0000-0000-0000-000000000000"`|string|
+|**sets**  <br>*required*|An array of sets, in the same order as in the request  <br>**Example** : `[ "object" ]`|< [sets](#nodecreationresult-sets) > array|
+
+<a name="nodecreationresult-sets"></a>
+**sets**
+
+|Name|Description|Schema|
+|---|---|---|
+|**added**  <br>*required*|How many nodes were started in this set  <br>**Example** : `1`|integer|
+|**message**  <br>*optional*|Indicates why not all requested nodes could be added, if present  <br>**Example** : `"string"`|string|
 
 
 <a name="nodelist"></a>
@@ -117,8 +136,10 @@ Specifies how to perform actions on nodes in a cluster. There are multiple ways 
 
 |Name|Description|Schema|
 |---|---|---|
-|**filter**  <br>*optional*|A filter expression that matches nodes. Note that strings must be escaped properly.  <br>**Example** : `"State === \"Started\""`|string|
+|**filter**  <br>*optional*|A filter expression that matches nodes. Note that strings in the expression must be quoted properly.  <br>**Example** : `"State === \"Started\""`|string|
+|**hostnames**  <br>*optional*|A list of short hostnames (with no domain) to manage  <br>**Example** : `[ "hostname1", "hostname2" ]`|< string > array|
 |**ids**  <br>*optional*|A list of node ids to manage  <br>**Example** : `[ "id1", "id2" ]`|< string > array|
+|**ip_addresses**  <br>*optional*|A list of IP addresses to manage  <br>**Example** : `[ "10.0.1.1", "10.1.1.2" ]`|< string > array|
 |**names**  <br>*optional*|A list of node names to manage  <br>**Example** : `[ "name1", "name2" ]`|< string > array|
 |**requestId**  <br>*optional*|Optional user-supplied unique token to prevent duplicate operations  <br>**Example** : `"string"`|string|
 
