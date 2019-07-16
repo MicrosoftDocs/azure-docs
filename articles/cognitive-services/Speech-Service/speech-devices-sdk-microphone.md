@@ -51,7 +51,7 @@ The recommended properties when selecting microphones are:
 | Frequency Response                | ± 3 dB, 200-8000 Hz Floating Mask\*|
 | Reliability                       | Storage Temperature Range -40°C  to 70°C<br />Operating Temperature Range -20°C to 55°C  |
 
-*\*Higher sampling rates or "wider" frequency ranges may be necessary
+*\* Higher sampling rates or "wider" frequency ranges may be necessary
 for high-quality communications (VoIP) applications*
 
 Good component selection must be paired with good
@@ -69,10 +69,12 @@ Therefore the device performance measured after any fixed gain or EQ should meet
 |  SNR                 | \> 62 dB (1 kHz signal 94 dBSPL, A-weighted noise) |
 |  Output Sensitivity  | -26 dBFS/Pa @ 1 kHz (recommended) |
 |  Amplitude Matching  | ± 2 dB, 200-8000 Hz |
-| THD%                 | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5th Order |
-|  Frequency Response  | ± 6 dB, 200-8000 Hz Floating Mask\* |
+| THD%\*                 | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5th Order |
+|  Frequency Response  | ± 6 dB, 200-8000 Hz Floating Mask\*\* |
 
-*\*"Wider" frequency ranges may be necessary for high-quality
+*\*\* A low distortion speaker is required to measure THD (e.g. Neumann KH120)*
+
+*\*\* "Wider" frequency ranges may be necessary for high-quality
 communications (VoIP) applications*
 
 ## Speaker integration recommendations
