@@ -82,6 +82,7 @@
     - name: Logs
       href: platform/data-platform-logs.md
     - name: Log data ingestion time
+      displayname: latency
       href: platform/data-ingestion-time.md         
   - name: Insights
     href: insights/insights-overview.md
@@ -124,8 +125,10 @@
   - name: FAQ
     items:
     - name: Log Analytics
+      displayName: FAQ
       href: platform/log-faq.md
     - name: Application Insights
+      displayName: FAQ
       href: app/troubleshoot-faq.md
 - name: How-to guides
   items:
@@ -540,10 +543,13 @@
         - name: Troubleshoot
           items:
           - name: Log Analytics VM Extension
+            displayname: troubleshoot, troubleshooting
             href: platform/vmext-troubleshoot.md
           - name: Log Analytics Windows agent
+            displayname: troubleshoot, troubleshooting
             href: platform/agent-windows-troubleshoot.md
           - name: Log Analytics Linux agent
+            displayname: troubleshoot, troubleshooting
             href: platform/agent-linux-troubleshoot.md
       - name: Agent data sources
         items:
@@ -665,6 +671,8 @@
       items:
       - name: Networking Analytics
         href: insights/azure-networking-analytics.md
+      - name: DNS
+        href: insights/dns-analytics.md
       - name: Network Performance Monitor
         items:
         - name: Solution overview
@@ -685,8 +693,6 @@
         href: insights/ad-assessment.md
       - name: AD Replication Status
         href: insights/ad-replication-status.md
-      - name: DNS
-        href: insights/dns-analytics.md
       - name: Office 365
         href: insights/solution-office-365.md
       - name: Surface Hub
