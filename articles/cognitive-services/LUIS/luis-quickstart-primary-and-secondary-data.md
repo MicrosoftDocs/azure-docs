@@ -225,7 +225,7 @@ Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
 1. Select **Create new phrase list**. 
 
-1. Name the new phrase list `JobNames` and copy the list from jobs-phrase-list.csv into the **Values** text box. Select enter. 
+1. Name the new phrase list `JobNames` and copy the list from jobs-phrase-list.csv into the **Values** text box. Select **Done** to save the phrase list. 
 
     [![Screenshot of create new phrase list dialog pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
