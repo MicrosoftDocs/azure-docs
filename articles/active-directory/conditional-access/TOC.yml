@@ -70,7 +70,7 @@
     href: policy-migration.md
   - name: Troubleshooting
     items:
-    - name: Troubleshooting using the What If tool 
+    - name: Troubleshoot using the What If tool 
       href: troubleshoot-conditional-access-what-if.md
 - name: Reference
   items:
