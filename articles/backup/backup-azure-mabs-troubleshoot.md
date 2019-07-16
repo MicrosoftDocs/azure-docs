@@ -118,19 +118,20 @@ We recommend you perform the below validation, before you start troubleshooting 
 
 ## Common issues
 
-This section covers the common troubleshoot errors that you encounter while using Azure Backup Serve.
+This section covers the common errors that you might encounter while using Azure Backup Server.
+
 
 ### CBPSourceSnapshotFailedReplicaMissingOrInvalid
 
 Error message | Recommended action |
 -- | --
-Backup failed because the disk-backup replica is either invalid or missing. | To resolve this issue, perform the below steps: <br/> 1. Create a disk recovery point and try backup again<br/> 2. Run consistency check on datasource and try backup again<br/> 3. Stop protection of datasource and then reconfigure protection for this data source
+Backup failed because the disk-backup replica is either invalid or missing. | To resolve this issue, verify the below steps and retry the operation: <br/> 1. Create a disk recovery point<br/> 2. Run consistency check on datasource <br/> 3. Stop protection of datasource and then reconfigure protection for this data source
 
 ### CBPSourceSnapshotFailedReplicaMetadataInvalid
 
 Error message | Recommended action |
 -- | --
-Source volume snapshot failed because metadata on replica is invalid. | - Create a disk recovery point of this datasource <br/> - Retry online backup again
+Source volume snapshot failed because metadata on replica is invalid. | Create a disk recovery point of this datasource and retry online backup again
 
 ### CBPSourceSnapshotFailedReplicaInconsistent
 

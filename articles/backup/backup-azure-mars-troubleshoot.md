@@ -190,7 +190,7 @@ If you have antivirus software installed on the server, add necessary exclusion 
 - CSC.exe
 
 ## Common issues
-This section covers the troubleshoot errors that you encounter while using MARS agent.
+This section covers the common errors that you encounter while using MARS agent.
 
 ### SalChecksumStoreInitializationFailed
 
@@ -208,13 +208,13 @@ Microsoft Azure Recovery Services Agent was unable to access the scratch locatio
 
 Error message | Recommended action |
 -- | --
-Backup failed due to insufficient storage in volume  where the scratch folder is located | - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
+Backup failed due to insufficient storage in volume  where the scratch folder is located | To resolve this issue, verify the below steps and retry the operation:<br/>- [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
 
 ### SalBitmapError
 
 Error message | Recommended action |
 -- | --
-Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verify the below and restart the server <br/> - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
+Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verify the below steps and retry the operation:<br/> - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
 
 
 ## Next steps
