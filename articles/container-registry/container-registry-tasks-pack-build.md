@@ -34,14 +34,14 @@ At a minimum, specify the following when you run `az acr pack build`:
 
 * An Azure container registry where you run the command
 * An image name and tag for the command output
-* One of the [supported context locations](container-registry-tasks-overview.md#quick-task) for an ACR Task, such as a local directory, a GitHub repo, or a remote tarball
+* One of the [supported context locations](container-registry-tasks-overview.md#quick-task) for ACR Tasks, such as a local directory, a GitHub repo, or a remote tarball
 * Optionally the name of a container image for a [supported builder](#supported-builders). By default, the command uses the Microsoft Oryx builder to compile source code into a runnable container image. 
 
-`az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-overview.md#view-task-logs) that are streamed and saved for later inspection.
+`az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-overview.md#view-task-logs) that are streamed and also saved for later retrieval.
 
 ## Example: Build Node.js image with default builder
 
-Te following example builds a container image from the Node.js app in the [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, using the default Microsoft Oryx builder:
+The following example builds a container image from the Node.js app in the [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, using the default Microsoft Oryx builder:
 
 ```azurecli
 az acr pack build \
@@ -87,7 +87,7 @@ Run the image, substituting your image tag for *runid*:
 docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid
 ```
 
-Browse to `localhost:8080` in your favorite browser to see the sample web app. Press `[Ctrl]+[C] to stop the container.
+Browse to `localhost:8080` in your favorite browser to see the sample web app. Press `[Ctrl]+[C]` to stop the container.
 
 
 ## Next steps
