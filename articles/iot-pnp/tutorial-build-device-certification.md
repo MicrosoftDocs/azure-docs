@@ -85,7 +85,37 @@ To view the contents of the **Device Information** interface through the Azure C
 
 ### Enable device provisioning through the Azure IoT Device Provisioning Service (DPS)
 
-To add the ability to use DPS, copy this code to the **file name to be specified** source file in the generated code.
+To certify the device, it has to enable device provisioning through the [Azure IoT Device Provisioning Service (DPS)](https://docs.microsoft.com/en-us/azure/iot-dps/about-iot-dps). To add the ability to use DPS, you can generate the C code stub in VS code. Follow these steps to do so:
+
+1. Open the folder with DCM file in VS Code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub**.
+
+1. Choose the DCM file you want to use to generate the device code stub.
+
+1. Enter the project name, it will be the name of your device application.
+
+1. Choose **ANSI C** as the language.
+
+1. Choose **CMake Project** as your project type.
+
+1. Choose **Via DPS (Device Provisioning Service) symmetric key** as connection method.
+
+1. VS Code opens a new window with generated device code stub files.
+    ![Device code](media/tutorial-build-device-certification/device-code.png)
+
+1. Open `main.c`, fill the **dpsIdScope**, **sasKey** and **registrationId** that you prepared. You can get this information from the certification portal. [Learn more](https://review.docs.microsoft.com/en-us/azure/iot-pnp/tutorial-certification-test?branch=pr-en-us-81533#connect-and-discover-interfaces).
+
+    ```c
+    // TODO: Specify DPS scope ID if you intend on using DPS / IoT Central.
+    static const char *dpsIdScope = "[DPS Id Scope]";
+    
+    // TODO: Specify symmetric keys if you intend on using DPS / IoT Central and symmetric key based auth.
+    static const char *sasKey = "[DPS symmetric key]";
+    
+    // TODO: specify your device registration ID
+    static const char *registrationId = "[device registration Id]";
+    ```
+
+1. Save the file.
 
 ### Implement standard interfaces
 
