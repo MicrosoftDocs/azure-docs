@@ -558,6 +558,9 @@ Dataset for data destination used by copy activity.
     }
 }
 ```
+
+You can also get the template to move files from [here](solution-template-move-files.md).
+
 ## Known limitation
 
 -   Delete activity does not support deleting list of folders described by wildcard.
