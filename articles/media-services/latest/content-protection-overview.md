@@ -21,6 +21,12 @@ ms.custom: seodec18
 
 You can use Azure Media Services to secure your media from the time it leaves your computer through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
 
+In Media Services v3, a content key is associated with Streaming Locator (see [this example](protect-with-aes128.md)). If using the Media Services key delivery service, you can let Azure Media Services generate the content key for you. You should generate the content key yourself if you are using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two data centers.
+
+When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service or the key delivery service you specified. To decide whether or not the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
+
+You can use the REST API, or a Media Services client library to configure authorization and authentication policies for your licenses and keys.
+
 The following image illustrates the Media Services content protection workflow: 
 
 ![Protect content](./media/content-protection/content-protection.svg)
@@ -143,33 +149,6 @@ Common browsers support the following DRM clients:
 |Opera|Widevine|
 |Safari|FairPlay|
 
-## Dynamic encryption and key delivery service
-
-In Media Services v3, a content key is associated with Streaming Locator (see [this example](protect-with-aes128.md)). If using the Media Services key delivery service, you can let Azure Media Services generate the content key for you. You should generate the content key yourself if you are using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two datacenters.
-
-When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service or the key delivery service you specified. To decide whether or not the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
-
-Media Services provides a key delivery service for delivering DRM (PlayReady, Widevine, FairPlay) licenses and AES keys to authorized clients. You can use the REST API, or a Media Services client library to configure authorization and authentication policies for your licenses and keys.
-
-### Custom key and license acquisition URL
-
-Use the following templates if you want to specify a different key and license delivery service (not Media Services). The two replaceable fields in the templates are there so that you can share your Streaming Policy across many Assets instead of creating a Streaming Policy per Asset. 
-
-* EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate - Template for the URL of the custom service delivering keys to end-user players. Not required when using Azure Media Services for issuing keys. The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
-* StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate - Template for the URL of the custom service delivering licenses to end-user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested. 
-* StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate - Same as above, only for Widevine. 
-* StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate - Same as above, only for FairPlay.  
-
-For example:
-
-```csharp
-streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
-```
-
-The `ContentKeyId` has a value of the key being requested and the `AlternativeMediaId` can be used if you want to map the request to an entity on your side. For example, the `AlternativeMediaId` can be used to help you look up permissions.
-
-For REST examples that use custom key and license acquisition URLs, see [Streaming Policies - Create](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)
-
 ## Control content access
 
 You can control who has access to your content by configuring the content key policy. Media Services supports multiple ways of authorizing users who make key requests. You must configure the content key policy. The client (player) must meet the policy before the key can be delivered to the client. The content key policy can have **open** or **token** restriction. 
@@ -191,9 +170,26 @@ The *Token Replay Prevention* feature allows Media Services customers to set a l
 * This feature can be used for all existing protected content (only the token issued needs to be changed).
 * This feature works with both JWT and SWT.
 
-### Custom claims
-
 Customers often use a custom STS to include custom claims in the token to select between different ContentKeyPolicyOptions with different DRM license parameters (a subscription license versus a rental license) or to include a claim representing the content key identifier of the key that the token grants access to.
+
+## Custom key and license acquisition URL
+
+Use the following templates if you want to specify a different key and license delivery service (not Media Services). The two replaceable fields in the templates are there so that you can share your Streaming Policy across many Assets instead of creating a Streaming Policy per Asset. 
+
+* EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate - Template for the URL of the custom service delivering keys to end-user players. Not required when using Azure Media Services for issuing keys. The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+* StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate - Template for the URL of the custom service delivering licenses to end-user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested. 
+* StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate - Same as above, only for Widevine. 
+* StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate - Same as above, only for FairPlay.  
+
+For example:
+
+```csharp
+streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
+```
+
+The `ContentKeyId` has a value of the key being requested and the `AlternativeMediaId` can be used if you want to map the request to an entity on your side. For example, the `AlternativeMediaId` can be used to help you look up permissions.
+
+For REST examples that use custom key and license acquisition URLs, see [Streaming Policies - Create](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)
 
 ## Troubleshoot
 
