@@ -19,8 +19,6 @@ ms.custom: seodec18
 ---
 # Design of a multi-DRM content protection system with access control 
 
-## Overview
-
 Designing and building a Digital Rights Management (DRM) subsystem for an over-the-top (OTT) or online streaming solution is a complex task. Operators/online video providers typically outsource this task to specialized DRM service providers. The goal of this document is to present a reference design and a reference implementation of an end-to-end DRM subsystem in an OTT or online streaming solution.
 
 The targeted readers for this document are engineers who work in DRM subsystems of OTT or online streaming/multiscreen solutions or readers who are interested in DRM subsystems. The assumption is that readers are familiar with at least one of the DRM technologies on the market, such as PlayReady, Widevine, FairPlay, or Adobe Access.
@@ -215,6 +213,7 @@ For information on Azure AD:
 * You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### Some issues in implementation
+
 Use the following troubleshooting information for help with implementation issues.
 
 * The issuer URL must end with "/". The audience must be the player application client ID. Also, add "/" at the end of the issuer URL.
@@ -251,6 +250,7 @@ Use the following troubleshooting information for help with implementation issue
     Because you add support for JWT (Azure AD) in addition to SWT (ACS), the default TokenType is TokenType.JWT. If you use SWT/ACS, you must set the token to TokenType.SWT.
 
 ## The completed system and test
+
 This section walks you through the following scenarios in the completed end-to-end system so that you can have a basic picture of the behavior before you get a sign-in account:
 
 * If you need a non-integrated scenario:
@@ -295,6 +295,7 @@ The following screenshots show different sign-in pages used by different domain 
 ![Custom Azure AD tenant domain account three](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
 ### Use Encrypted Media Extensions for PlayReady
+
 On a modern browser with Encrypted Media Extensions (EME) for PlayReady support, such as Internet Explorer 11 on Windows 8.1 or later and Microsoft Edge browser on Windows 10, PlayReady is the underlying DRM for EME.
 
 ![Use EME for PlayReady](./media/design-multi-drm-system-with-access-control/media-services-eme-for-playready1.png)
@@ -310,6 +311,7 @@ EME in Microsoft Edge and Internet Explorer 11 on Windows 10 allows [PlayReady S
 To focus on the Windows devices, PlayReady is the only DRM in the hardware available on Windows devices (PlayReady SL3000). A streaming service can use PlayReady through EME or through a Universal Windows Platform application and offer a higher video quality by using PlayReady SL3000 than another DRM. Typically, content up to 2K flows through Chrome or Firefox, and content up to 4K flows through Microsoft Edge/Internet Explorer 11 or a Universal Windows Platform application on the same device. The amount depends on service settings and implementation.
 
 #### Use EME for Widevine
+
 On a modern browser with EME/Widevine support, such as Chrome 41+ on Windows 10, Windows 8.1, Mac OSX Yosemite, and Chrome on Android 4.4.4, Google Widevine is the DRM behind EME.
 
 ![Use EME for Widevine](./media/design-multi-drm-system-with-access-control/media-services-eme-for-widevine1.png)
@@ -319,16 +321,19 @@ Widevine doesn't prevent you from making a screen capture of protected video.
 ![Player plug-ins for Widevine](./media/design-multi-drm-system-with-access-control/media-services-eme-for-widevine2.png)
 
 #### Use EME for FairPlay
+
 Similarly, you can test FairPlay protected content in this test player in Safari on macOS or iOS 11.2 and later.
 
 Make sure you put "FairPlay" as protectionInfo.type and put in the right URL for your Application Certificate in FPS AC Path (FairPlay Streaming Application Certificate Path).
 
 ### Unentitled users
+
 If a user isn't a member of the "Entitled Users" group, the user doesn't pass the entitlement check. The multi-DRM license service then refuses to issue the requested license as shown. The detailed description is "License acquire failed," which is as designed.
 
 ![Unentitled users](./media/design-multi-drm-system-with-access-control/media-services-unentitledusers.png)
 
 ### Run a custom security token service
+
 If you run a custom STS, the JWT is issued by the custom STS by using either a symmetric or an asymmetric key.
 
 The following screenshot shows a scenario that uses a symmetric key (using Chrome):
@@ -341,14 +346,8 @@ The following screenshot shows a scenario that uses an asymmetric key via an X50
 
 In both of the previous cases, user authentication stays the same. It takes place through Azure AD. The only difference is that JWTs are issued by the custom STS instead of Azure AD. When you configure dynamic CENC protection, the license delivery service restriction specifies the type of JWT, either a symmetric or an asymmetric key.
 
-## Summary
-This document discussed content protection using 3 DRMs and access control via token authentication, its design, and its implementation by using Azure, Azure Media Services, and Azure Media Player.
-
-* A reference design was presented that contains all the necessary components in a DRM subsystem.
-* A reference implementation was presented on Azure, Azure Media Services, and Azure Media Player.
-* Some topics directly involved in the design and implementation were also discussed.
-
 ## Next steps
 
 * [Frequently asked questions](frequently-asked-questions.md)
+* [Content protection overview](content-protection-overview.md)
 * [Protect your content with DRM](protect-with-drm.md)
