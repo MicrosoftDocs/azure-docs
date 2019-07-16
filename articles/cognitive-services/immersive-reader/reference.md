@@ -26,7 +26,7 @@ The SDK exposes a single function, `ImmersiveReader.launchAsync(token, resourceN
 Launches the Immersive Reader within an `iframe` in your web application.
 
 ```typescript
-launchAsync(token: string, resourceName: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
 #### Parameters
