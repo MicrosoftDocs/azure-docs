@@ -61,12 +61,11 @@ Create as many sites as you need that correspond to your physical locations. For
 4. Click **Show advanced** to view additional settings. You can select **BGP** to enable BGP, which will enable BGP functionality on all connections created for this site in Azure. You can also enter **Device information** (optional fields). Doing so can help the Azure Team better understand your environment to add additional optimization possibilities in the future, or to help you troubleshoot.
 
 >[!NOTE]
-> Configuring BGP on Virtual WAN is equivalent to configuring BGP on an Azure VPN Gateway.
+> Configuring BGP on a Virtual WAN is equivalent to configuring BGP on an Azure VPN gateway.
 
->Your on-premises BGP peer address MUST NOT be the same as the public IP address of your VPN to device or the Vnet address space of the VPN Site. Use a different IP address on the VPN device for your BGP Peer IP. It can be an address assigned to the loopback interface on the device, but please note that it cannot be an APIPA (169.254.x.x) address. Specify this address in the corresponding Local Network Gateway representing the location.
+>Your on-premises BGP peer address *must not* be the same as the public IP address of your VPN to device or the Vnet address space of the VPN site. Use a different IP address on the VPN device for your BGP peer IP. It can be an address assigned to the loopback interface on the device. But note that it *can't* be an APIPA (169.254.*x*.*x*) address. Specify this address in the corresponding Local Network Gateway representing the location.
 
->For BGP prerequisites kindly refer: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview
->
+>For BGP prerequisites, see [About BGP with Azure VPN Gatewa](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview).
 
 5. Click **Confirm**.
 6. After you click **Confirm**, view the status on the VPN sites page. The site will go from **Provisioning** to **Provisioned**.
