@@ -7,9 +7,8 @@ ms.suite: logic-apps
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
-ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
-ms.topic: article
-ms.date: 05/22/2019
+ms.topic: conceptual
+ms.date: 07/16/2019
 ---
 
 # Pricing model for Azure Logic Apps
@@ -23,28 +22,29 @@ For specific pricing information, see [Azure Logic Apps Pricing](https://azure.m
 
 ## Consumption pricing model
 
-For new logic apps that run in the public or "global" 
-Azure Logic Apps service, you pay only for what you use. 
-These logic apps use a consumption-based plan and pricing model. 
-In your logic app definition, each step is an action. For example, actions include:
+For new logic apps that run in the public or "global" Azure Logic Apps service, you pay only for what you use. These logic apps use a consumption-based plan and pricing model. In your logic app, each step is an action, and Azure Logic Apps meters all the actions that run in your logic app.
 
-* Triggers, which are special actions. 
-All logic apps require a trigger as the first step.
-* "Built-in" or native actions such as HTTP, 
-calls to Azure Functions and API Management, and so on
-* Calls to connectors such as Outlook 365, Dropbox, and so on
+For example, actions include:
+
+* Triggers, which are special actions. All logic apps require a trigger as the first step.
+* ["Built-in" or native actions](../connectors/apis-list.md#built-in) such as HTTP, calls to Azure Functions and API Management, and so on
+* Calls to [managed connectors](../connectors/apis-list.md##managed-connectors) such as Outlook 365, Dropbox, and so on
 * Control flow steps, such as loops, conditional statements, and so on
 
-Azure Logic Apps meters all the actions that run in your logic app. 
+[Standard connectors](../connectors/apis-list.md#managed-connectors) are charged at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps). Generally available [Enterprise connectors](../connectors/apis-list.md#managed-connectors) are charged at the [Enterprise connector price](https://azure.microsoft.com/pricing/details/logic-apps), while public preview Enterprise connectors are charged at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps).
+
 Learn more about how billing works for [triggers](#triggers) and [actions](#actions).
 
 <a name="fixed-pricing"></a>
 
 ## Fixed pricing model
 
-An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides a private, isolated, and dedicated way for you to create and run logic apps that can access resources in an Azure virtual network. For new logic apps that run inside an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for built-in actions and triggers and also for Standard connectors.
+An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides a private, isolated, and dedicated way for you to create and run logic apps that can access resources in an Azure virtual network. For new logic apps that run inside an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for these capabilities:
 
-Your ISE also includes one free Enterprise connector, which includes as many *connections* as you want. Usage for additional Enterprise connectors is charged based on the [Enterprise consumption price](https://azure.microsoft.com/pricing/details/logic-apps). Only generally available Enterprise connectors are charged at the Enterprise consumption price. Public preview Enterprise connectors are charged at the [Standard connector rate](https://azure.microsoft.com/pricing/details/logic-apps).
+* [Built-in triggers and actions](../connectors/apis-list.md#built-in)
+* [Standard connectors](../connectors/apis-list.md#managed-connectors)
+* [Enterprise connectors](../connectors/apis-list.md#enterprise-connectors) with many connections as you want
+* A [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
 > [!NOTE]
 > Within an ISE, built-in triggers and actions display the 
@@ -65,8 +65,7 @@ For specific pricing information, see
 
 ## Connectors
 
-Azure Logic Apps connectors help your logic app access apps, services, and systems in the cloud or on premises by providing 
-[triggers](#triggers), [actions](#actions), or both. Connectors are classified as either Standard or Enterprise. For an overview about these connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). If no prebuilt connectors are available for the REST APIs that you want to use in your logic apps, you can create [custom connectors](https://docs.microsoft.com/connectors/custom-connectors), which are just wrappers around those REST APIs. Custom connectors are billed as Standard connectors. The following sections provide more information about how billing for triggers and actions work.
+Azure Logic Apps connectors help your logic app access apps, services, and systems in the cloud or on premises by providing [triggers](#triggers), [actions](#actions), or both. Connectors are classified as either Standard or Enterprise. For an overview about these connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). If no prebuilt connectors are available for the REST APIs that you want to use in your logic apps, you can create [custom connectors](https://docs.microsoft.com/connectors/custom-connectors), which are just wrappers around those REST APIs. Custom connectors are billed as Standard connectors. The following sections provide more information about how billing for triggers and actions work.
 
 <a name="triggers"></a>
 
