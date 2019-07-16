@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Status Monitor v2 API: Start-ApplicationInsightsMonitoringTrace (v0.3.1-alpha)
+# Status Monitor v2 API: Start-ApplicationInsightsMonitoringTrace (v0.4.0-alpha)
 
 This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
