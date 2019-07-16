@@ -381,8 +381,6 @@
           href: app/usage-retention.md
         - name: User Flows
           href: app/usage-flows.md
-        - name: Workbooks
-          href: app/usage-workbooks.md
         - name: Usage analytics
           href: app/usage-troubleshoot.md
       - name: Azure DevOps
@@ -460,6 +458,18 @@
           href: app/sample-mscrm.md
         - name: Windows desktop
           href: app/windows-desktop.md        
+      - name: Extend
+        items:
+        - name: API for custom events and metrics
+          href: app/api-custom-events-metrics.md
+        - name: Track custom operations in .NET SDK
+          href: app/custom-operations-tracking.md
+        - name: Filtering and preprocessing telemetry
+          href: app/api-filtering-sampling.md
+        - name: Sampling
+          href: app/sampling.md
+        - name: TelemetryChannels
+          href: app/telemetry-channels.md
     - name: Containers
       items:
       - name: Azure Monitor for containers 
@@ -703,6 +713,18 @@
         href: insights/solutions.md
       - name: Target solutions
         href: insights/solution-targeting.md
+    - name: Collect custom data 
+      items:
+      - name: Custom metrics
+        href: platform/metrics-custom-overview.md   
+      - name: Log Analytics Data collector API 
+        href: platform/data-collector-api.md
+      - name: Log Analytics Data Collector API Pipeline example
+        href: platform/create-pipeline-datacollector-api.md
+      - name: Metrics REST API
+        href: platform/metrics-store-custom-rest-api.md
+      - name: GuestOS to Metrics Linux VM (Telegraf)
+        href: platform/collect-custom-metrics-linux-telegraf.md  
     - name: Use System Center
       items:
       - name: Connect Operations Manager
@@ -711,18 +733,6 @@
         href: insights/scom-assessment.md
       - name: Configuration Manager
         href: platform/collect-sccm.md
-  - name: Collect custom data 
-    items:
-    - name: Custom metrics
-      href: platform/metrics-custom-overview.md   
-    - name: Log Analytics Data collector API 
-      href: platform/data-collector-api.md
-    - name: Log Analytics Data Collector API Pipeline example
-      href: platform/create-pipeline-datacollector-api.md
-    - name: Metrics REST API
-      href: platform/metrics-store-custom-rest-api.md
-    - name: GuestOS to Metrics Linux VM (Telegraf)
-      href: platform/collect-custom-metrics-linux-telegraf.md  
   - name: Analyze data
     items:
     - name: Metrics
@@ -814,8 +824,17 @@
           href: log-query/parse-text.md
       - name: Computer groups
         href: platform/computer-groups.md
-      - name: Flow connector
+    - name: Flow / Logic Apps
+      items: 
+      - name: Flow connector with Logs
         href: platform/flow-tutorial.md   
+      - name: Flow Connector with applications
+        href: app/automate-with-flow.md
+      - name: Logic Apps with applications
+        href: app/automate-with-logic-apps.md
+    - name: REST API
+      displayname: metrics, analyze
+      href: platform/rest-api-walkthrough.md
   - name: Visualize data
     items:
     - name: Views
@@ -834,6 +853,8 @@
         href: platform/powerbi.md
       - name: Export application data
         href: app/export-power-bi.md 
+    - name: Workbooks
+      href: app/usage-workbooks.md
     - name: Dashboards
       href: app/app-insights-dashboards.md
     - name: Send data to Grafana
@@ -922,6 +943,8 @@
         href: platform/service-notifications.md
       - name: Configure alerts on notification events
         href: platform/alerts-activity-log-service-notifications.md
+    - name: Alert API
+      href: platform/api-alerts.md
     - name: IT Service Management
       items:
       - name: IT Service Management Connector
@@ -972,34 +995,12 @@
       href: platform/cli-samples.md
     - name: Resource Manager templates
       href: platform/template-workspace-configuration.md
-    - name: API
-      items:  
-      - name: Walkthrough using REST API
-        href: platform/rest-api-walkthrough.md
-      - name: Alert API
-        href: platform/api-alerts.md
     - name: Applications
       items:
-      - name: Automate with Microsoft Flow
-        href: app/automate-with-flow.md
-      - name: Automate with an Azure Logic App
-        href: app/automate-with-logic-apps.md
       - name: Custom email reports
         href: app/automate-custom-reports.md
   - name: Extend
     items:
-    - name: Applications
-      items:
-      - name: API for custom events and metrics
-        href: app/api-custom-events-metrics.md
-      - name: Track custom operations in .NET SDK
-        href: app/custom-operations-tracking.md
-      - name: Filtering and preprocessing telemetry
-        href: app/api-filtering-sampling.md
-      - name: Sampling
-        href: app/sampling.md
-      - name: TelemetryChannels
-        href: app/telemetry-channels.md
     - name: Monitoring solutions
       items:
       - name: Design and build
