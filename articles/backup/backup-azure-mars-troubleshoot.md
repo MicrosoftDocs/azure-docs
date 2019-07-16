@@ -6,7 +6,7 @@ author: saurabhsensharma
 manager: sivan
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/15/2019
 ms.author: saurse
 ---
 
@@ -160,8 +160,62 @@ Azure Backup might not successfully mount the recovery volume, even after severa
 
 If the recovery still fails, restart your server or client. If you don't want to restart, or if the recovery still fails even after you restart the server, try [recovering from another machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
-## Need help? Contact support
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
+
+## Troubleshoot Cache problems
+
+Backup operation may fail if the cache folder (also referred as scratch folder) is incorrectly configured, missing pre-requisites or has restricted access.
+
+### Pre-requisites
+
+For MARS agent operations to succeed the cache folder needs to adhere to the below requirements:
+
+- [Ensure 5% to 10% free volume space is available in the scratch folder location](backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [Ensure scratch folder location is valid and accessible](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+- [Ensure file attributes on the cache folder are supported](backup-azure-file-folder-backup-faq.md#are-there-any-attributes-of-the-cache-folder-that-arent-supported)
+- [Ensure the allocated shadow copy storage space is sufficient for backup process](#increase-shadow-copy-storage)
+- [Ensure there are no other processes (ex. anti-virus software) restricting access to cache folder](#another-process-or-antivirus-software-blocking-access-to-cache-folder)
+
+### Increase shadow copy storage
+Backup operations could fail if there is insufficient shadow copy storage space required to protect the data source. To resolve this issue increase the shadow copy storage space on the protected volume using vssadmin as shown below:
+- Check the current shadow storage space from the elevated command prompt:<br/>
+  `vssadmin List ShadowStorage /For=[Volume letter]:`
+- Increase the shadow storage space using the below command:<br/>
+  `vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]`
+
+### Another process or antivirus software blocking access to cache folder
+If you have antivirus software installed on the server, add necessary exclusion rules to the antivirus scan for these files and folders:  
+- The scratch folder. Its default location is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch
+- The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+- CBengine.exe
+- CSC.exe
+
+## Common issues
+This section covers the common errors that you encounter while using MARS agent.
+
+### SalChecksumStoreInitializationFailed
+
+Error message | Recommended action |
+-- | --
+Microsoft Azure Recovery Services Agent was unable to access backup checksum stored in scratch location | To resolve this issue, perform the below and restart the server <br/> - [Check if there is an antivirus or other processes locking the scratch location files](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+
+### SalVhdInitializationError
+
+Error message | Recommended action |
+-- | --
+Microsoft Azure Recovery Services Agent was unable to access the scratch location to initialize VHD | To resolve this issue, perform the below and restart the server <br/> - [Check if there is an antivirus or other processes locking the scratch location files](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Check if the scratch location is valid and accessible to mars agent.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+
+### SalLowDiskSpace
+
+Error message | Recommended action |
+-- | --
+Backup failed due to insufficient storage in volume  where the scratch folder is located | To resolve this issue, verify the below steps and retry the operation:<br/>- [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
+
+### SalBitmapError
+
+Error message | Recommended action |
+-- | --
+Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verify the below steps and retry the operation:<br/> - [Ensure MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#pre-requisites)
+
 
 ## Next steps
 * Get more details on [how to back up Windows Server with the Azure Backup agent](tutorial-backup-windows-server-to-azure.md).
