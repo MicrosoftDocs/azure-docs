@@ -52,10 +52,6 @@
       href: howto-baseline-protect-azure.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
-  - name: Migrate classic policies
-    href: policy-migration.md
-  - name: Sign-in frequency and browser persistence controls
-    href: howto-conditional-access-session-lifetime.md
   - name: Require approved client apps
     href: app-based-conditional-access.md
   - name: Require app protection policy
@@ -68,6 +64,14 @@
     href: untrusted-networks.md
   - name: Require terms of use
     href: terms-of-use.md
+  - name: Sign-in frequency and browser persistence controls
+    href: howto-conditional-access-session-lifetime.md
+  - name: Migrate classic policies
+    href: policy-migration.md
+  - name: Troubleshooting
+    items:
+    - name: Troubleshooting using the What If tool 
+      href: troubleshoot-conditional-access-what-if.md
 - name: Reference
   items:
   - name: Technical reference
