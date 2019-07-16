@@ -97,7 +97,7 @@ print(primary)
 
 #### Authentication with tokens
 
-When you enable token authentication for a web service, a user must provide an Azure Machine Learning token to the web service to access it. 
+When you enable token authentication for a web service, a user must provide an Azure Machine Learning JWT token to the web service to access it. 
 
 * Token authentication is disabled by default when you are deploying to Azure Kubernetes Service.
 * Token authentication is not supported when you are deploying to Azure Container Instances.

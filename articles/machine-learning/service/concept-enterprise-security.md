@@ -56,14 +56,14 @@ print(primary)
 
 #### Authentication with Tokens
 
-When you enable token authentication for a web service, a user must provide an Azure Machine Learning token to the web service to access it. 
+When you enable token authentication for a web service, a user must provide an Azure Machine Learning JSON Web Token to the web service to access it. 
 
 * Token authentication is disabled by default when you are deploying to Azure Kubernetes Service.
 * Token authentication is not supported when you are deploying to Azure Container Instances.
 
 To control token authentication, use the `token_auth_enabled` parameter when you are creating or updating a deployment.
 
-If token authentication is enabled, you can use the `get_token` method to retrieve a bearer token and that tokens expiration time:
+If token authentication is enabled, you can use the `get_token` method to retrieve a JWT token and that token's expiration time:
 
 ```python
 token, refresh_by = service.get_tokens()
@@ -72,6 +72,8 @@ print(token)
 
 > [!IMPORTANT]
 > You will need to request a new token after the token's `refresh_by` time. The token will expire 12 hours after that time. 
+> [!IMPORTANT]
+> To validate the token, the web service must communicate with the Azure Machine Learning workspace. This means that for best performance, you should deploy your webservice to a cluster in the same region as the workspace.
 
 ## Authorization
 

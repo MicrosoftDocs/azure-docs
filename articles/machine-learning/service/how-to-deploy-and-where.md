@@ -612,7 +612,7 @@ For more information on the `cluster_purpose` parameter, see the [AksCompute.Clu
 
 Every deployed web service provides a REST API, so you can create client applications in a variety of programming languages. 
 If you have enabled key authentication for your service, you need to provide a service key as a token in your request header.
-If you have enabled token authentication for your service, you need to provide an Azure Machine Learning token as a bearer token in your request header.
+If you have enabled token authentication for your service, you need to provide an Azure Machine Learning JWT token as a bearer token in your request header.
 
 ### Request-response consumption
 
