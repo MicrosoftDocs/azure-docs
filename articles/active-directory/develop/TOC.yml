@@ -227,6 +227,8 @@
             href: msal-client-application-configuration.md
           - name: Initialize applications (.NET)
             href: msal-net-initializing-client-applications.md
+          - name: Client assertions (.NET)
+            href: msal-net-client-assertions.md
           - name: Initialize applications (JS)
             href: msal-js-initializing-client-applications.md
         - name: Handle errors and exceptions

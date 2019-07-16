@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 16/07/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Application configuration options
 
-In your code, you initialize a new public or confidential client (or user-agent for MSAL.js) application to authenticate and acquire tokens. You can set a number of configuration options when you initialize the client app in Microsoft Authentication Library (MSAL). These options fall into two groups:
+In your code, you initialize a new public or confidential client application (or user-agent for MSAL.js) to authenticate and acquire tokens. You can set a number of configuration options when you initialize the client app in Microsoft Authentication Library (MSAL). These options fall into two groups:
 
 - Registration options, including:
     - [Authority](#authority) (composed of the identity provider [instance](#cloud-instance) and sign-in [audience](#application-audience) for the app, and possibly the tenant ID).
@@ -100,11 +100,19 @@ The redirect URI is the URI the identity provider will send the security tokens 
 
 ### Redirect URI for public client apps
 If you're a public client app developer who's using MSAL:
-- You don't need to pass `RedirectUri` because it's automatically computed by MSAL. This redirect URI is set to one of these values, depending on the platform:
-   - `urn:ietf:wg:oauth:2.0:oob` for all Windows platforms
-   - `msal{ClientId}://auth` for Xamarin Android and iOS
+- You'd want to use `.WithDefaultRedirectUri()` in desktop or UWP applications (MSAL.NET 4.1+). This method will set the public client applications 
+  redirect uri property to the default recommended redirect uri for public client applications. 
 
-- You do need to configure the redirect URI in [App registrations](https://aka.ms/appregistrations):
+  Platform  | Redirect URI  
+  ---------  | --------------
+  Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+  UWP | value of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. This enables SSO with the browser by setting the value to the result of WebAuthenticationBroker.GetCurrentApplicationCallbackUri() which you need to register
+  .NET Core | `https://localhost`. This enables the user to use the system browser for interactive authentication since .NET Core doesn't have a UI for the embedded web view at the moment.
+
+- You don't need to add a redirect URI if you're building a Xamarin Android and iOS application that doesn't support broker (the
+  redirect URI is automatically set to `msal{ClientId}://auth` for Xamarin Android and iOS
+
+- You need to configure the redirect URI in [App registrations](https://aka.ms/appregistrations):
 
    ![Redirect URI in App registrations](media/msal-client-application-configuration/redirect-uri.png)
 
@@ -116,7 +124,7 @@ You can override the redirect URI by using the `RedirectUri` property (for examp
 For details, see the [documentation for Android and iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
 
 ### Redirect URI for confidential client apps
-For web apps, the redirect URI (or reply URI) is the URI that Azure AD will use to send the token back to the application. This can be the URL of the web app/Web API if the confidential app is one of these. The redirect URI needs to be registered in app registration. This registration is especially important when you deploy an app that you've initially tested locally. You then need to add the reply URL of the deployed app in the application registration portal.
+For web apps, the redirect URI (or reply URI) is the URI that Azure AD will use to send the token back to the application. This URI can be the URL of the web app/Web API if the confidential app is one of these. The redirect URI needs to be registered in app registration. This registration is especially important when you deploy an app that you've initially tested locally. You then need to add the reply URL of the deployed app in the application registration portal.
 
 For daemon apps, you don't need to specify a redirect URI.
 

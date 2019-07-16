@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 16/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
@@ -177,9 +177,12 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 }
 ```
 
+Finally, instead of a client secret, the confidential client application can also prove its identity using a client certificate, or a client assertion.
+Using client assertions is an advanced scenario, detailed in [Client assertions](msal-net-client-assertions.md)
+
 ### MSAL.NET Token cache for a ASP.NET (Core) Web app
 
-In web apps (or web APIs as a matter of fact), the token cache implementation is different from the Desktop applications token cache implementations (which are often [file based](scenario-desktop-acquire-token.md#file-based-token-cache). It can use the ASP.NET/ASP.NET Core session, or a Redis cache, or a database, or even Azure Blob storage. In the code snippet above this is the object of the `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` method call, which binds a cache service. The detail of what happens here is beyond the scope of this scenario guide, but links are provided below.
+In web apps (or web APIs as a matter of fact), the token cache implementation is different from the Desktop applications token cache implementations (which are often [file based](scenario-desktop-acquire-token.md#file-based-token-cache). It can use the ASP.NET/ASP.NET Core session, or a Redis cache, or a database, or even Azure Blob storage. In the code snippet above, this is the object of the `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` method call, which binds a cache service. The detail of what happens here is beyond the scope of this scenario guide, but links are provided below.
 
 > [!IMPORTANT]
 > A very important thing to realize is that for web Apps and web APIs, there should be one token cache per user (per account). You need to serialize the token cache for each account.
