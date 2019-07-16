@@ -39,7 +39,7 @@ You can complete part one of this how-to series, [How to Train a TensorFlow Mode
 
 Azure has many different GPU options. You can use any of them for inferencing. See [the list of N-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) for a full breakdown of capabilities and costs.
 
-For more information on using AKS with Azure Machine Learning service, see [How to deploy and where](../service/how-to-deploy-and-where.md#deploy-aks).
+For more information on using AKS with Azure Machine Learning service, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ```Python
 # Choose a name for your cluster
