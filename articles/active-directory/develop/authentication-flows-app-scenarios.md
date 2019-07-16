@@ -1,6 +1,6 @@
 ---
 title: Authentication scenarios for Microsoft identity platform | Azure
-description: Learn about authentication flows and application scenarios. 
+description: Learn about authentication flows and application scenarios for Microsoft identity platform. Learn about the different types of application that can authenticate identities, acquire tokens, and call protected APIs.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
