@@ -57,9 +57,7 @@ The target number of nodes may be higher, lower, or the same as the current numb
 
 ### Sample autoscale formulas
 
-Below are examples of two autoscale formulas, which can be adjusted to work for most scenarios. 
-
-The variables `startingNumberOfVMs` and `maxNumberofVMs` in the example formula can be adjusted to your needs. This formula scales dedicated nodes, but can be modified to apply to scale low-priority nodes as well. 
+Below are examples of two autoscale formulas, which can be adjusted to work for most scenarios. The variables `startingNumberOfVMs` and `maxNumberofVMs` in the example formulas can be adjusted to your needs.
 
 #### Pending tasks
 ```
@@ -71,6 +69,8 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 ```
 
 With this autoscale formula, the pool is initially created with a single VM. The `$PendingTasks` metric defines the number of tasks that are running or queued. The formula finds the average number of pending tasks in the last 180 seconds and sets the `$TargetDedicatedNodes` variable accordingly. The formula ensures that the target number of dedicated nodes never exceeds 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free one by one and the autoscaling formula shrinks the pool.
+
+This formula scales dedicated nodes, but can be modified to apply to scale low-priority nodes as well.
 
 #### Preempted nodes 
 ```
