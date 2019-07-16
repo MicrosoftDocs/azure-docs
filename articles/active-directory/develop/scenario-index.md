@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Authentication flows and application scenarios
 
-The Microsoft identity platform (v2.0) endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md).  Using Microsoft identity platform, you can build different types of applications: single-page apps, web apps, web APIs, mobile and native apps, and daemons and server-side apps. This article describes the different authentication flows and the application scenarios that they're used in.  This article also lists [supported authentication flows](#scenarios-and-supported-authentication-flows) and [supported platforms and languages](#scenarios-and-supported-platforms-and-languages) for each application scenario.
+The Microsoft identity platform (v2.0) endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md).  Using Microsoft identity platform, you can build different types of applications: single-page apps, web apps, web APIs, mobile and native apps, and daemons and server-side apps. This article describes the different authentication flows and the application scenarios that they're used in.  This article also provides lists of [application scenarios and supported authentication flows](#scenarios-and-supported-authentication-flows) and [application scenarios and supported platforms and languages](#scenarios-and-supported-platforms-and-languages).
 
 ## Application scenarios can be classified along several axes
 
@@ -60,9 +60,9 @@ The security tokens can be acquired from a number of application types. Applicat
   ![SPA](media/scenarios/spa-app.svg)
 
 - **Public client applications** always sign in users. These apps are:
-  - ![Desktop app](media/msal-client-applications/desktop-app.png) Desktop applications calling Web APIs on behalf of the signed-in user.
-  - ![Browserless API](media/msal-client-applications/browserless-app.png) Mobile applications.
-  - ![Mobile app](media/msal-client-applications/mobile-app.png) A third category of applications, running on devices that don't have a browser (Browserless apps, running on iOT for instance).
+  - Desktop applications calling Web APIs on behalf of the signed-in user.
+  - Mobile applications.
+  - A third category of applications, running on devices that don't have a browser (Browserless apps, running on iOT for instance).
 
   They're represented by the MSAL class named [PublicClientApplication](msal-client-applications.md).
 
@@ -70,9 +70,7 @@ The security tokens can be acquired from a number of application types. Applicat
   - Web applications calling a Web API
   - Web APIs calling a Web API
   - Daemon applications (even when implemented as a console service like a daemon on linux, or a Windows service)
-
-    ![Web app](media/msal-client-applications/web-app.png) ![Web API](media/msal-client-applications/web-api.png) ![Daemon/service](media/msal-client-applications/daemon-service.png)
-  
+ 
   These types of apps use the [ConfidentialClientApplication](msal-client-applications.md)
 
 ## Application scenarios
