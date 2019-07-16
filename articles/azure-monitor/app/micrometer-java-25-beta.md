@@ -18,7 +18,8 @@ Micrometer application monitoring measures metrics for JVM-based application cod
 
 ## Using Spring Boot 1.5x
 Add the following dependencies to your pom.xml or build.gradle file: 
-* [Application Insights spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA or above
+* [Application Insights spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)
+  1.1.0-BETA or above
 * Micrometer Azure Registry 1.1.0 or above
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 or above (this backports the autoconfig code in the Spring framework).
 * [ApplicationInsights Resource](../../azure-monitor/app/create-new-resource.md )
@@ -31,7 +32,7 @@ Steps
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-spring-boot-starter</artifactId>
-        <version>1.1.0-BETA</version>
+        <version>2.5.0-BETA</version>
     </dependency>
 
     <dependency>
@@ -115,10 +116,8 @@ How to turn off automatic metrics collection:
 ## Use Micrometer with non-Spring Boot web applications
 
 Add the following dependencies to your pom.xml or build.gradle file:
- 
-* [Application Insight Core 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.2.0) or above
-* [Application Insights Web 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) or above
-* [Register Web Filter](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
+
+* Application Insights Web Auto 2.5.0-BETA or above
 * Micrometer Azure Registry 1.1.0 or above
 * [Application Insights Resource](../../azure-monitor/app/create-new-resource.md )
 
@@ -135,14 +134,41 @@ Steps:
         
         <dependency>
         	<groupId>com.microsoft.azure</groupId>
-        	<artifactId>applicationinsights-web</artifactId>
-        	<version>2.2.0</version>
-        </dependency
+        	<artifactId>applicationinsights-web-auto</artifactId>
+        	<version>2.5.0-BETA</version>
+        </dependency>
      ```
 
-2. Put Application Insights.xml in the resources folder
+2. Put `ApplicationInsights.xml` file in the resources folder
 
-    Sample Servlet class (emits a timer metric):
+    ```XML
+    <?xml version="1.0" encoding="utf-8"?>
+    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+    
+       <!-- The key from the portal: -->
+       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+    
+       <!-- HTTP request component (not required for bare API) -->
+       <TelemetryModules>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
+       </TelemetryModules>
+    
+       <!-- Events correlation (not required for bare API) -->
+       <!-- These initializers add context data to each event -->
+       <TelemetryInitializers>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+       </TelemetryInitializers>
+    
+    </ApplicationInsights>
+    ```
+
+3. Sample Servlet class (emits a timer metric):
 
     ```Java
         @WebServlet("/hello")
@@ -181,7 +207,7 @@ Steps:
     
     ```
 
-      Sample configuration class:
+4. Sample configuration class:
 
     ```Java
          @WebListener
