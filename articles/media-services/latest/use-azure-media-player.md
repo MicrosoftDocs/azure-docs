@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 07/10/2018
 ms.author: juliako
 
 ---
@@ -28,7 +28,7 @@ Microsoft Azure Media Services allows for content to be served up with HLS, DASH
 
 ### Start using
 
-You can use the [Azure Media Player demo page](https://aka.ms/amp) to play Azure Media Services samples or your own stream.  
+You can use the [Azure Media Player demo page](https://aka.ms/azuremediaplayer) to play Azure Media Services samples or your own stream.  
 
 To play a new video, paste a different URL and press **Update**.
 
@@ -38,7 +38,7 @@ To configure various playback options (for example, tech, language, or encryptio
 
 ### Monitor diagnostics of a video stream
 
-You can use the [Azure Media Player demo page](https://aka.ms/amp) to monitor diagnostics of a video stream. 
+You can use the [Azure Media Player demo page](https://aka.ms/azuremediaplayer) to monitor diagnostics of a video stream. 
 
 ![Azure Media Player diagnostics](./media/azure-media-player/diagnostics.png)
 

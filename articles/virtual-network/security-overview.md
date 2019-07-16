@@ -11,7 +11,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
-ms.author: malop;kumud
+ms.author: malop
+ms.reviewer: kumud
 ---
 
 # Security groups
@@ -108,11 +109,11 @@ This tag denotes the address prefixes of traffic for Cognitive Services. If you 
 * **Dynamics365ForMarketingEmail** (Resource Manager only):
 This tag denotes the address prefixes of the marketing email service of Dynamics 365. If you specify *Dynamics365ForMarketingEmail* for the value, traffic is allowed or denied to Dynamics365ForMarketingEmail. If you only want to allow access to Dynamics365ForMarketingEmail in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format Dynamics365ForMarketingEmail.[region name].
 * **AzurePlatformDNS** (Resource Manager only):
-This tag denotes DNS which is a basic infrastructure service. If you specify *AzurePlatformDNS* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#azure-platform-considerations) for DNS. Please take caution in using this tag. Testing is recommended before using this tag. 
+This tag denotes DNS which is a basic infrastructure service. If you specify *AzurePlatformDNS* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) for DNS. Please take caution in using this tag. Testing is recommended before using this tag. 
 * **AzurePlatformIMDS** (Resource Manager only):
-This tag denotes IMDS which is a basic infrastructure service. If you specify *AzurePlatformIMDS* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#azure-platform-considerations) for IMDS. Please take caution in using this tag. Testing is recommended before using this tag. 
+This tag denotes IMDS which is a basic infrastructure service. If you specify *AzurePlatformIMDS* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) for IMDS. Please take caution in using this tag. Testing is recommended before using this tag. 
 * **AzurePlatformLKM** (Resource Manager only):
-This tag denotes Windows licensing or key management service. If you specify *AzurePlatformLKM* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#azure-platform-considerations) for licensing. Please take caution in using this tag. Testing is recommended before using this tag. 
+This tag denotes Windows licensing or key management service. If you specify *AzurePlatformLKM* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) for licensing. Please take caution in using this tag. Testing is recommended before using this tag. 
 
 > [!NOTE]
 > Service tags of Azure services denotes the address prefixes from the specific cloud being used. 
