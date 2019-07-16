@@ -31,11 +31,10 @@ The URI for a container is in this format:
 
 To create a container, call one of the following methods:
 
-> [!div class="checklist"]
-> - [Create](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
-> - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
-> - [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
-> - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
+- [Create](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
+- [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
+- [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
+- [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
 
 The **Create** and **CreateAsync** methods throw an exception if a container with the same name already exists.
 
@@ -116,11 +115,10 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
 
 To delete a container in .NET, use one of the following methods:
 
-> [!div class="checklist"]
-> - [Delete](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
-> - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
-> - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
-> - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)
+- [Delete](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
+- [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
+- [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
+- [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)
 
 The **Delete** and **DeleteAsync** methods throw an exception if the container does not exist.
 

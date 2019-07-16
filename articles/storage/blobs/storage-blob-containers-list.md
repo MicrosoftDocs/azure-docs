@@ -19,9 +19,8 @@ When you list the containers in an Azure Storage account from your code, you can
 
 To list containers in your storage account, call one of the following methods:
 
-> [!div class="checklist"]
-> - [ListContainersSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmented)
-> - [ListContainersSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmentedasync)
+- [ListContainersSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmented)
+- [ListContainersSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmentedasync)
 
 The overloads for these methods provide additional options for managing how containers are returned by the listing operation. These options are described in the following sections.
 
