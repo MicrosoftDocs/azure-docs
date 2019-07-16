@@ -1,5 +1,5 @@
 ---
-title: Deploy an IPv6 dual stack application in Azure virtual network - CLI
+title: Deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network - CLI
 titlesuffix: Azure Virtual Network
 description: This article shows how deploy an IPv6 dual stack application in Azure virtual network using Azure CLI.
 services: virtual-network
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2019
+ms.date: 07/15/2019
 ms.author: kumud
 ---
 
-# Deploy an IPv6 dual stack application in Azure virtual network - CLI (Preview)
+# Deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network - CLI (Preview)
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network with a dual stack subnet, a load balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
 
@@ -65,8 +65,8 @@ az network public-ip create \
 --name dsPublicIP_v4  \
 --resource-group DsResourceGroup01  \
 --location eastus  \
---sku BASIC  \
---allocation-method dynamic  \
+--sku STANDARD  \
+--allocation-method static  \
 --version IPv4
 
 # Create an IPV6 IP address
@@ -74,8 +74,8 @@ az network public-ip create \
 --name dsPublicIP_v6  \
 --resource-group DsResourceGroup01  \
 --location eastus \
---sku BASIC  \
---allocation-method dynamic  \
+--sku STANDARD  \
+--allocation-method static  \
 --version IPv6
 
 ```
@@ -89,32 +89,32 @@ az network public-ip create \
 --name dsVM0_remote_access  \
 --resource-group DsResourceGroup01 \
 --location eastus  \
---sku BASIC  \
---allocation-method dynamic  \
+--sku Standard  \
+--allocation-method static  \
 --version IPv4
 
 az network public-ip create \
 --name dsVM1_remote_access  \
 --resource-group DsResourceGroup01  \
 --location eastus  \
---sku BASIC  \
---allocation-method dynamic  \
+--sku Standard  \
+--allocation-method static  \
 --version IPv4
 ```
 
-## Create Basic Load Balancer
+## Create Standard Load Balancer
 
-In this section, you configure dual frontend IP (IPv4 and IPv6) and the back-end address pool for the load balancer and then create a Basic Load Balancer.
+In this section, you configure dual frontend IP (IPv4 and IPv6) and the back-end address pool for the load balancer and then create a Standard Load Balancer.
 
 ### Create load balancer
 
-Create the Basic Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **dsLB** that includes a frontend pool named **dsLbFrontEnd_v4**, a backend pool named **dsLbBackEndPool_v4** that is associated with the IPv4 public IP address **dsPublicIP_v4** that you created in the preceding step. 
+Create the Standard Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **dsLB** that includes a frontend pool named **dsLbFrontEnd_v4**, a backend pool named **dsLbBackEndPool_v4** that is associated with the IPv4 public IP address **dsPublicIP_v4** that you created in the preceding step. 
 
 ```azurecli
 az network lb create \
 --name dsLB  \
 --resource-group DsResourceGroup01 \
---sku Basic \
+--sku Standard \
 --location eastus \
 --frontend-ip-name dsLbFrontEnd_v4  \
 --public-ip-address dsPublicIP_v4  \
@@ -193,7 +193,7 @@ az vm availability-set create \
 
 ### Create network security group
 
-Create a network security group for the rules that will govern inbound and outbound communication in your VNET.
+Create a network security group for the rules that will govern inbound and outbound communication in your VNet.
 
 #### Create a network security group
 
@@ -382,4 +382,4 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 
 ## Next steps
 
-In this article, you created a Basic Load Balancer with a dual frontend IP configuration (IPv4 and IPv6). You also created a two virtual machines that included NICs with dual IP configurations (IPV4 + IPv6) that were added to the back-end pool of the load balancer. To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](ipv6-overview.md)
+In this article, you created a Standard Load Balancer with a dual frontend IP configuration (IPv4 and IPv6). You also created a two virtual machines that included NICs with dual IP configurations (IPV4 + IPv6) that were added to the back-end pool of the load balancer. To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](ipv6-overview.md)

@@ -1,7 +1,7 @@
 ---
-title: Deploy an IPv6 dual stack application in Azure virtual network - PowerShell
+title: Deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network - PowerShell
 titlesuffix: Azure Virtual Network
-description: This article shows how deploy an IPv6 dual stack application in Azure virtual network using Azure Powershell.
+description: This article shows how deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network using Azure Powershell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -15,7 +15,7 @@ ms.date: 07/08/2019
 ms.author: kumud
 ---
 
-# Deploy an IPv6 dual stack application in Azure - PowerShell (Preview)
+# Deploy an IPv6 dual stack application with Standard Load Balancer in Azure - PowerShell (Preview)
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network and subnet, a load balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, network security group, and public IPs.
 
@@ -30,7 +30,6 @@ If you choose to install and use PowerShell locally, this article requires the A
 Before you deploy a dual stack application in Azure, you must configure your subscription for this preview feature using the following Azure PowerShell:
 
 Register as follows:
-
 ```azurepowershell
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
@@ -39,7 +38,7 @@ It takes up to 30 minutes for feature registration to complete. You can check yo
 Check on the registration as follows:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
+Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace 
 ```
 After the registration is complete, run the following command:
 
@@ -65,15 +64,17 @@ $PublicIP_v4 = New-AzPublicIpAddress `
   -Name "dsPublicIP_v4" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
-  -AllocationMethod Dynamic `
-  -IpAddressVersion IPv4
+  -AllocationMethod Static `
+  -IpAddressVersion IPv4 `
+  -Sku Standard
   
 $PublicIP_v6 = New-AzPublicIpAddress `
   -Name "dsPublicIP_v6" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
-  -AllocationMethod Dynamic `
-  -IpAddressVersion IPv6
+  -AllocationMethod Static `
+  -IpAddressVersion IPv6 `
+  -Sku Standard
 ```
 To access your virtual machines using a RDP connection, create a IPV4 public IP addresses for the virtual machines with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
 
@@ -82,20 +83,22 @@ To access your virtual machines using a RDP connection, create a IPV4 public IP 
   -Name "RdpPublicIP_1" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
-  -AllocationMethod Dynamic `
+  -AllocationMethod Static `
+  -Sku Standard `
   -IpAddressVersion IPv4
   
   $RdpPublicIP_2 = New-AzPublicIpAddress `
    -Name "RdpPublicIP_2" `
    -ResourceGroupName $rg.ResourceGroupName `
    -Location $rg.Location  `
-   -AllocationMethod Dynamic `
+   -AllocationMethod Static `
+   -Sku Standard `
    -IpAddressVersion IPv4
 ```
 
-## Create Basic Load Balancer
+## Create Standard Load Balancer
 
-In this section, you configure dual frontend IP (IPv4 and IPv6) and the back-end address pool for the load balancer and then create a Basic Load Balancer.
+In this section, you configure dual frontend IP (IPv4 and IPv6) and the back-end address pool for the load balancer and then create a Standard Load Balancer.
 
 ### Create front-end IP
 
@@ -150,14 +153,14 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
 
 ### Create load balancer
 
-Create the Basic Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates a public Basic Load Balancer named *myLoadBalancer* using the IPv4 and IPv6 frontend IP configurations, backend pools, and load-balancing rules that you created in the preceding steps:
+Create a Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates a public Standard Load Balancer named *myLoadBalancer* using the IPv4 and IPv6 frontend IP configurations, backend pools, and load-balancing rules that you created in the preceding steps:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
 -ResourceGroupName $rg.ResourceGroupName `
 -Location $rg.Location  `
 -Name "MyLoadBalancer" `
--Sku "Basic" `
+-Sku "Standard" `
 -FrontendIpConfiguration $frontendIPv4,$frontendIPv6 `
 -BackendAddressPool $backendPoolv4,$backendPoolv6 `
 -LoadBalancingRule $lbrule_v4,$lbrule_v6
@@ -374,4 +377,4 @@ Remove-AzResourceGroup -Name dsRG1
 
 ## Next steps
 
-In this article, you created a Basic Load Balancer with a dual frontend IP configuration (IPv4 and IPv6). You also created a two virtual machines that included NICs with dual IP configurations (IPV4 + IPv6) that were added to the back-end pool of the load balancer. To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](ipv6-overview.md)
+In this article, you created a Standard Load Balancer with a dual frontend IP configuration (IPv4 and IPv6). You also created a two virtual machines that included NICs with dual IP configurations (IPV4 + IPv6) that were added to the back-end pool of the load balancer. To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](ipv6-overview.md)
