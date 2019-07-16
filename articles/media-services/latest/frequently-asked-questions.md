@@ -97,9 +97,8 @@ The ASP.NET player application uses HTTPS as a best practice, so Media Player is
 * Avoid mixed content. Both the player application and Media Player should use HTTP or HTTPS. When playing mixed content, the silverlightSS tech requires clearing a mixed-content warning. The flashSS tech handles mixed content without a mixed-content warning.
 * If your streaming endpoint was created before August 2014, it won't support HTTPS. In this case, create and use a new streaming endpoint for HTTPS.
 
-In the reference implementation for DRM-protected contents, both the application and streaming are under HTTPS. For open contents, the player doesn't need authentication or a license, so you can use either HTTP or HTTPS.
-
 ### What is Azure Active Directory signing key rollover?
+
 Signing key rollover is an important point to take into consideration in your implementation. If you ignore it, the finished system eventually stops working completely, within six weeks at the most.
 
 Azure AD uses industry standards to establish trust between itself and applications that use Azure AD. Specifically, Azure AD uses a signing key that consists of a public and private key pair. When Azure AD creates a security token that contains information about the user, it's signed by Azure AD with a private key before it's sent back to the application. To verify that the token is valid and originated from Azure AD, the application must validate the token's signature. The application uses the public key exposed by Azure AD that is contained in the tenant's federation metadata document. This public key, and the signing key from which it derives, is the same one used for all tenants in Azure AD.
@@ -129,6 +128,7 @@ What if the key rollover happens after Azure AD generates a JWT but before the J
 Because a key can be rolled over at any moment, more than one valid public key is always available in the federation metadata document. Media Services license delivery can use any of the keys specified in the document. Because one key might be rolled soon, another might be its replacement, and so forth.
 
 ### Where is the access token?
+
 If you look at how a web app calls an API app under [Application identity with OAuth 2.0 client credentials grant](../../active-directory/develop/web-api.md), the authentication flow is as follows:
 
 * A user signs in to Azure AD in the web application. For more information, see [Web browser to web application](../../active-directory/develop/web-app.md).
@@ -147,23 +147,17 @@ To register and configure the pointer app in Azure AD, take the following steps:
 
 1. In the Azure AD tenant:
 
-   * Add an application (resource) with the sign-on URL https://[resource_name].azurewebsites.net/. 
-   * Add an app ID with the URL https://[aad_tenant_name].onmicrosoft.com/[resource_name].
-
+   * Add an application (resource) with the sign-on URL `https://[resource_name].azurewebsites.net/`. 
+   * Add an app ID with the URL `https://[aad_tenant_name].onmicrosoft.com/[resource_name]`.
 2. Add a new key for the resource app.
-
 3. Update the app manifest file so that the groupMembershipClaims property has the value "groupMembershipClaims": "All".
-
 4. In the Azure AD app that points to the player web app, in the section **Permissions to other applications**, add the resource app that was added in step 1. Under **Delegated permission**, select **Access [resource_name]**. This option gives the web app permission to create access tokens that access the resource app. Do this for both the local and deployed version of the web app if you develop with Visual Studio and the Azure web app.
 
 The JWT issued by Azure AD is the access token used to access the pointer resource.
 
 ### What about live streaming?
-The previous discussion focused on on-demand assets. What about live streaming?
 
-You can use exactly the same design and implementation to protect live streaming in Media Services by treating the asset associated with a program as a VOD asset.
-
-Specifically, to do live streaming in Media Services, you need to create a channel and then create a program under the channel. To create the program, you need to create an asset that contains the live archive for the program. To provide CENC with multi-DRM protection of the live content, apply the same setup/processing to the asset as if it were a VOD asset before you start the program.
+You can use exactly the same design and implementation to protect live streaming in Media Services by treating the asset associated with a program as a VOD asset. To provide a multi-DRM protection of the live content, apply the same setup/processing to the Asset as if it were a VOD asset before you associate the Asset with the Live Output.
 
 ### What about license servers outside Media Services?
 
@@ -173,6 +167,7 @@ Often, customers invested in a license server farm either in their own data cent
 * You no longer need to configure license delivery service in Media Services. You need to provide the license acquisition URLs (for PlayReady, Widevine, and FairPlay) when you configure ContentKeyPolicies.
 
 ### What if I want to use a custom STS?
+
 A customer might choose to use a custom STS to provide JWTs. Reasons include:
 
 * The IDP used by the customer doesn't support STS. In this case, a custom STS might be an option.
