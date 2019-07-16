@@ -54,7 +54,7 @@ If the maximum supported backup retention period for point-in-time restore (PITR
 
 ## Compare geo-replication with failover groups
 
-The following table describes the differences between [geo-replication](sql-database-active-geo-replication.md) and [failover groups](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities).
+[Auto-failover groups](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) simplify the deployment and usage of [geo-replication](sql-database-active-geo-replication.md) and ads the additional capabilities as described in the following table:
 
 |                                              | Geo-replication | Failover groups  |
 |:---------------------------------------------| :-------------- | :----------------|
