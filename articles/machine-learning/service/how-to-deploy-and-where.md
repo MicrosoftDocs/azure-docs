@@ -478,7 +478,7 @@ If you already have an AKS cluster attached, you can deploy to it. If you haven'
     | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | The target utilization (in percent out of 100) that the autoscaler should attempt to maintain for this web service. Default, `70`. |
     | `dataCollection` | NA | Contains configuration elements for data collection. |
     | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Whether or not to enable model data collection for the web service. Default, `False`. |
-    | `authEnabled` | `auth_enabled` | Whether or not to enable key authentication for the web service. Default, `True`. |
+    | `authEnabled` | `auth_enabled` | Whether or not to enable key authentication for the web service. Both `tokenAuthEnabled` and `authEnabled` cannot be `True`. Default, `True`. |
     | `containerResourceRequirements` | NA | Contains configuration elements for the CPU and memory allocated for the container. |
     | &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate for this web service. Defaults, `0.1` |
     | &emsp;&emsp;`memoryInGB` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
@@ -498,7 +498,7 @@ If you already have an AKS cluster attached, you can deploy to it. If you haven'
     | &emsp;&emsp;`successThreshold` | `success_threshold` | Minimum consecutive successes for the liveness probe to be considered successful after having failed. Defaults to 1. Minimum value is 1. |
     | &emsp;&emsp;`failureThreshold` | `failure_threshold` | When a Pod starts and the liveness probe fails, Kubernetes will try failureThreshold times before giving up. Defaults to 3. Minimum value is 1. |
     | `namespace` | `namespace` | The Kubernetes namespace that the webservice is deployed into. Up to 63 lowercase alphanumeric ('a'-'z', '0'-'9') and hyphen ('-') characters. The first and last characters cannot be hyphens. |
-    | `tokenAuthEnabled` | `token_auth_enabled` | Whether or not to enable token authentication for the web service. Default, `False`. |
+    | `tokenAuthEnabled` | `token_auth_enabled` | Whether or not to enable token authentication for the web service. Both `tokenAuthEnabled` and `authEnabled` cannot be `True`. Default, `False`. |
 
     The following JSON is an example deployment configuration for use with the CLI:
 

@@ -28,7 +28,7 @@ Multi Factor authentication is supported if Azure Active Directory (Azure AD) is
 
 ### Authentication for Web service deployment
 
-Azure Machine Learning supports two forms of authentication for web services, key and token.
+Azure Machine Learning supports two forms of authentication for web services, key and token. Each webservice can only enable one form of authentication at a time.
 
 |Authentication Method|ACI|AKS|
 |---|---|---|
@@ -66,14 +66,14 @@ To control token authentication, use the `token_auth_enabled` parameter when you
 If token authentication is enabled, you can use the `get_token` method to retrieve a JWT token and that token's expiration time:
 
 ```python
-token, refresh_by = service.get_tokens()
+token, refresh_by = service.get_token()
 print(token)
 ```
 
 > [!IMPORTANT]
-> You will need to request a new token after the token's `refresh_by` time. The token will expire 12 hours after that time. 
+> You will need to request a new token after the token's `refresh_by` time.  
 > [!IMPORTANT]
-> To validate the token, the web service must communicate with the Azure Machine Learning workspace. This means that for best performance, you should deploy your webservice to a cluster in the same region as the workspace.
+> We strongly recommend you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. To authenticate with the token, the web service will make a call to the region in which your Azure Machine Learning workspace is created in. So, the greater the distance between the region of your cluster and the region of your workspace, the longer it will take to authenticate. 
 
 ## Authorization
 

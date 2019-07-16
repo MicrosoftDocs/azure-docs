@@ -36,8 +36,8 @@ The general workflow for creating a client that uses a machine learning web serv
 The [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class provides the information you need to create a client. The following `Webservice` properties are useful for creating a client application:
 
 * `auth_enabled` - If key authentication is enabled, `True`; otherwise, `False`.
-* `scoring_uri` - The REST API address.
 * `token_auth_enabled` - If token authentication is enabled, `True`; otherwise, `False`.
+* `scoring_uri` - The REST API address.
 
 
 There are a three ways to retrieve this information for deployed web services:
@@ -112,7 +112,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> You will need to request a new token after the token's `refresh_by` time. The token will expire 12 hours after that time. 
+> You will need to request a new token after the token's `refresh_by` time. 
 
 ## Request data
 
