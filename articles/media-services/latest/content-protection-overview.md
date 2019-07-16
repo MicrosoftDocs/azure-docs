@@ -206,6 +206,6 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 * [Protect with AES encryption](protect-with-aes128.md)
 * [Protect with DRM](protect-with-drm.md)
 * [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
-* [Storage side encryption](storage-account-conceptmd#storage-side-encryption)
+* [Storage side encryption](storage-account-concept.md#storage-side-encryption)
 * [Frequently asked questions](frequently-asked-questions.md)
 
