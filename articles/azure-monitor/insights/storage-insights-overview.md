@@ -49,25 +49,24 @@ The counter rolls-up the total number of storage accounts in the subscription an
 
 Selecting any one of the values under the columns open a report tailored to a specific type of storage KPIs. Specifically:
 
-* **Availability** open the **Availability** report. It shows the current health state of Azure Storage service, a table showing the available health state of each object categorized by data service defined in the storage account with a trend line representing the time range selected, and an availability trend chart for each data service in the account.  
+* **Availability** opens the **Availability** report. It shows the current health state of Azure Storage service, a table showing the available health state of each object categorized by data service defined in the storage account with a trend line representing the time range selected, and an availability trend chart for each data service in the account.  
 
     ![Availability report example](./media/storage-insights-overview/storage-account-availability-01.png)
 
-* **E2E Latency** and **Server Latency** open the **Performance** report. It includes a rollup status indicator showing E2E latency and server latency, a performance chart of E2E versus server latency, and a table breaking down latency of successful calls by API categorized by data service defined in the storage account.
+* **E2E Latency** and **Server Latency** opens the **Performance** report. It includes a rollup status indicator showing E2E latency and server latency, a performance chart of E2E versus server latency, and a table breaking down latency of successful calls by API categorized by data service defined in the storage account.
 
     ![Performance report example](./media/storage-insights-overview/storage-account-performance-01.png)
 
-* **ClientOtherError/Errors** open the **Failure** report. The report shows a rollup of all other client-side errors except described ones and successful requests, a performance chart for the transaction **Response Type** dimension metric specific to ClientOtherError attribute, and two tables - **Transactions by API name** and **Transactions by Response type**.
+* **ClientOtherError/Errors** opens the **Failure** report. The report shows a rollup of all other client-side errors except described ones and successful requests, a performance chart for the transaction **Response Type** dimension metric specific to ClientOtherError attribute, and two tables - **Transactions by API name** and **Transactions by Response type**.
 
    ![Failure report example](./media/storage-insights-overview/storage-account-failures-01.png)
 
 When you select a storage account from the list in the table, you drill down to the **Overview** report. This report focuses specifically on key performance indicators (KPIs) that helps you quickly assess:
 
-1. Health of the Storage service to see immediately if an issue outside of your control is affecting the Storage service in the region it is deployed to, which is stated under the **Summarized** column.  
+* Health of the Storage service to see immediately if an issue outside of your control is affecting the Storage service in the region it is deployed to, which is stated under the **Summarized** column.
 
-2.Interactive performance charts showing the most essential details related to storage capacity, availability, transactions, and latency.  
+* Interactive performance charts showing the most essential details related to storage capacity, availability, transactions, and latency.  
 
-3. Rollup status indicators highlighting service availability, total count of transactions to the storage service, E2E latency, and server latency.
+* Rollup status indicators highlighting service availability, total count of transactions to the storage service, E2E latency, and server latency.
 
 ![Storage account overview report](./media/storage-insights-overview/storage-account-overview-01.png)
-
