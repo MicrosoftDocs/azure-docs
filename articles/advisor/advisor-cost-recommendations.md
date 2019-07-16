@@ -20,7 +20,7 @@ Although certain application scenarios can result in low utilization by design, 
 
 Advisor shows you the estimated cost of continuing to run your virtual machine, so that you can choose to shut it down or resize it.
 
-If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the average CPU utilization rule on a per subscription basis.
+If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
 ## Reduce costs by eliminating unprovisioned ExpressRoute circuits
 

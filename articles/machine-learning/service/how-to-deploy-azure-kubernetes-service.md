@@ -1,7 +1,7 @@
 ---
-title: How and where to deploy models 
+title: How to deploy models to Azure Kubernetes Service
 titleSuffix: Azure Machine Learning service
-description: 'Learn how and where to deploy your Azure Machine Learning service models including: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and Field-programmable gate arrays.'
+description: 'Learn how to deploy your Azure Machine Learning service models as a web service using Azure Kubernetes Service.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -252,6 +252,8 @@ The following JSON is an example deployment configuration for use with the CLI:
     }
 }
 ```
+
+For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference. 
 
 ## Using VS Code
 

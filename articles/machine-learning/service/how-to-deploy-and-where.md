@@ -330,10 +330,6 @@ The following table provides an example of creating a deployment configuration f
 >
 > Model profiling results are emitted as a `Run` object. For more information, see the [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py) class reference.
 
-For more information, see the following articles on specific types of deployments:
-
-* [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
-
 ## Deploy to target
 
 Deployment uses the inference configuration deployment configuration to deploy the model(s). The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different, as you must provide a reference to the AKS cluster.
@@ -367,86 +363,11 @@ For more information, see the [az ml model deploy](https://docs.microsoft.com/cl
 
 ### <a id="aci"></a> Azure Container Instances (DEVTEST)
 
-Use Azure Container Instances for deploying your models as a web service if one or more of the following conditions is true:
-- You need to quickly deploy and validate your model.
-- You are testing a model that is under development. 
-
-To see quota and region availability for ACI, see the [Quotas and region availability for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) article.
-
-#### Using the SDK
-
-```python
-deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
-service = Model.deploy(ws, "aciservice", [model], inference_config, deployment_config)
-service.wait_for_deployment(show_output = True)
-print(service.state)
-```
-
-For more information, see the reference documentation for [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py), [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-), and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
-
-#### Using the CLI
-
-To deploy using the CLI, use the following command. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
-
-```azurecli-interactive
-az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
-```
-
-[!INCLUDE [aml-local-deploy-config](../../../includes/machine-learning-service-aci-deploy-config.md)]
-
-For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference.
-
-#### Using VS Code
-
-To [deploy your models with VS Code](how-to-vscode-tools.md#deploy-and-manage-models) you don't need to create an ACI container to test in advance, because ACI containers are created on the fly.
+See [Deploy to Azure Containere Instances](how-to-deploy-azure-container-instance.md).
 
 ### <a id="aks"></a>Azure Kubernetes Service (DEVTEST & PRODUCTION)
 
-When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. There are two ways to connect an AKS cluster to your workspace:
-
-* Create the AKS cluster using the Azure Machine Learning service SDK, the Machine Learning CLI, or the Azure portal. This automatically connects the cluster to the workspace.
-* Attach an existing AKS cluster to your Azure Machine Learning service workspace. A cluster can be attached using the Azure Machine Learning service SDK, Machine Learning CLI, or the Azure portal.
-
-> [!IMPORTANT]
-> The creation or attachment process is a one time task. Once an AKS cluster is connected to the workspace, you can use it for deployments. You can detach or delete the AKS cluster if you no longer need it. Once detatched or deleted, you will no longer be able to deploy to the cluster.
-
-For more information on creating or attaching an AKS cluster, see [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
-
-<a id="deploy-aks"></a>
-
-If you already have an AKS cluster attached, you can deploy to it using the information in the following sections.
-
-#### Using the SDK
-
-```python
-aks_target = AksCompute(ws,"myaks")
-# If deploying to a cluster configured for dev/test, ensure that it was created with enough
-# cores and memory to handle this deployment configuration. Note that memory is also used by
-# things such as dependencies and AML components.
-deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
-service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
-service.wait_for_deployment(show_output = True)
-print(service.state)
-print(service.get_logs())
-```
-
-For more information, see the reference documentation for [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), [AksWebService](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py), [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-), and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
-
-#### Using the CLI
-
-To deploy using the CLI, use the following command. Replace `myaks` with the name of the AKS compute target. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
-
-```azurecli-interactive
-az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
-```
-
-[!INCLUDE [aml-local-deploy-config](../../../includes/machine-learning-service-aks-deploy-config.md)]
-
-For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference.
-
-#### Using VS Code
-
-You can also [deploy to AKS via the VS Code extension](how-to-vscode-tools.md#deploy-and-manage-models), but you'll need to configure AKS clusters in advance.
+See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## Consume web services
 
