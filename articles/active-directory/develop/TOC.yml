@@ -271,7 +271,7 @@
       items:
       - name: Authentication basics
         href: authentication-scenarios.md
-      - name: application types and OAuth2.0 protocol
+      - name: Application types and OAuth2.0
         href: v2-app-types.md      
       - name: OAuth 2.0 and OpenID Connect protocols
         href: active-directory-v2-protocols.md
