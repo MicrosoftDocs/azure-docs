@@ -15,7 +15,7 @@ Azure Functions provides the simplest way to connect to the [change feed](change
 
 ![Serverless event-based Functions working with the Azure Cosmos DB Trigger](./media/change-feed-functions/functions.png)
 
-With the [Azure Cosmos DB Trigger](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger), you can leverage the [Change Feed Processor](./change-feed-processor.md)'s scaling and reliable event detection functionality without the need to maintain any [worker infrastructure](./change-feed-processor.md#implementing-the-change-feed-processor-library). Just focus on your Azure Function's logic without worrying about the rest of the event-sourcing pipeline. You can even mix the Trigger with any other [Azure Functions bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings).
+With the [Azure Cosmos DB Trigger](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger), you can leverage the [Change Feed Processor](./change-feed-processor.md)'s scaling and reliable event detection functionality without the need to maintain any [worker infrastructure](./change-feed-processor.md). Just focus on your Azure Function's logic without worrying about the rest of the event-sourcing pipeline. You can even mix the Trigger with any other [Azure Functions bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
 > [!NOTE]
 > Currently, the Azure Cosmos DB trigger is supported for use with the Core (SQL) API only.

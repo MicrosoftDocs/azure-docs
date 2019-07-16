@@ -7,7 +7,7 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
-ms.author: dwalthermsft
+ms.author: dwalther
 ---
 
 # Public preview service limits

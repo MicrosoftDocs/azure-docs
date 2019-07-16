@@ -77,7 +77,7 @@ Choose settings to manage files in your source.
 
 ![New source settings](media/data-flow/source2.png "New settings")
 
-* **Wildcard path**: From your source folder, choose a series of files that match a pattern. This setting overrides any file in your dataset definition.
+* **Wildcard path**: From your source container, choose a series of files that match a pattern. This setting overrides any file in your dataset definition.
 
 Wildcard examples:
 
