@@ -78,7 +78,7 @@ The Azure Migrate appliance collects metadata for on-premises VMs, including:
   - Network in
   - Network out
 
-Tn addition, if you deploy dependency mapping, the dependency mapping agents collect information that includes machine FQDN, operating system, IP address, MAC address, processes running inside the VM, and incoming/outgoing TCP connections for the VM. This discovery is optional only used if you enable dependency mapping for discovery.
+In addition, if you deploy dependency mapping, the dependency mapping agents collect information that includes machine FQDN, operating system, IP address, MAC address, processes running inside the VM, and incoming/outgoing TCP connections for the VM. This discovery is optional only used if you enable dependency mapping for discovery.
 
 ### Is there any performance impact on the analyzed ESXi host environment?
 
