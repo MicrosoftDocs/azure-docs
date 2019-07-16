@@ -100,7 +100,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![image](common/metadata-upload-additional-signon.png)
 
 	In the **Sign-on URL** text box, type a URL:
-    `amazon.com`
+    `https://www.amazon.com/`
 
 1. If you do not have the **Service Provider metadata file**, on the **Basic SAML Configuration** section, if you wish to configure in **IDP** intiated mode, perform the following steps:
 
@@ -126,7 +126,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	In the **Sign-on URL** text box, type a URL:
-    `amazon.com`
+    `https://www.amazon.com/`
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
