@@ -82,7 +82,7 @@
   - name: Concepts
     items:
     - name: Authentication flows and app scenarios
-      href: scenario-index.md
+      href: authentication-flows-app-scenarios.md
     - name: Application scenarios
       items:
       - name: Sign-in audience
