@@ -113,6 +113,65 @@ You will need an Azure account to deploy your echo-bot, if you don't already hav
 
 You will need to create an Azure Speech resource, in order to get a subscription key, used to handle the Speech-To-Text and Text-to-Speech functionality in the Direct Line speech channel.  
 
+## Get the echo-bot sample from GitHub, build and deploy it to your Azure account
+
+The echo-bot is a simple bot that replies back echoing the text it got as input. That is all we need to demonstrated how a deployed bot can listen and speak to you. There is a custom version of the echo-bot that is already configured to work with Direct Line Speech channel, and no code changes will be needed on your part if you are satisfied with its default behaviour. In one of the next sections we will discuss changing the default voice for example.
+
+Follow the instructions in the [REAME.md file of the echo Bot in the BotBuilder-Samples GitHub repo](https://github.com/microsoft/BotBuilder-Samples/blob/preview/speechAndAse/experimental/directline-speech/csharp_dotnetcore/02.echo-bot/README.md) to achieve the following:
+- Clone the BotBuilder-samples repo
+- Build the echo-bot in the experimental\directline-speech\csharp_dotnetcore folder
+- Deploy it locally and test it using Bot-Framework Emulator 
+
+The next step is deploying your bot to Azure. The above link shows how to do this from the command line using Azure Command-Line Interface (CLI). If you are new to Azure, you may find it easier to use Visual Studio's "Publish" feature: 
+- Open the project experimental\directline-speech\csharp_dotnetcore\02.echo-bot\EchoBot.csproj in Visual Studio
+- In the Solution Explorer, right click the "EoBot" solution and select "Publish"
+- A new window titled "Pick a publish target" will open, with a default selection of "App Service" and "Create new" Azure App Service. 
+- Click on "Publish" (Here we assume you want to create a new app service. If not, change the default to "Select Existing".)
+- In the "Create App Service dialog", click Add an account, and sign in to your Azure subscription. If you're already signed in, select the account you want from the dropdown.
+- Default will be populated for you for App Name, Subscription, Resource Group, Hosting Plan and Application Insights. Keep those defaults and press "Create".
+- Wait patiently while your bot is deployed. It can take a few minutes.
+
+If deployment was successful, you will see the following message in Visual Studio's Output window:
+"Web App was published successfully https://echobot##############.azurewebsites.net/ (where '#' are digits representing your unique bot name). A web page should also open at the above URL showing the "Your bot is ready!" message.
+
+TODO - Discuss failure points and what to do?
+
+At this point, view the Azure resources that were created for you:
+- Log into the [Azure portal](https://portal.azure.com).
+- Click on "Resouces groups" on the left-side menu ([direct link](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroupBlade/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups))
+- You should see a new Resource group named EchoBot##############ResourceGroup, which will hold all Azure resouces related to this project. When you click on it you will see two resources:
+    - "App Service" (named "EchoBot##############")
+    - "App Service Plan" (named "EchoBot##############Plan")
+
+See the [App Service overview](https://docs.microsoft.com/en-us/azure/app-service/overview) page for more information on Azure App Service and App Service Plans.
+
+TODO: they were created by default in "centeral US"... should we change this to westus2?
+See here: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-dotnet
+
+The next step is to register your Bot.. [TODO explain more why this is needed]
+- In the [Azure portal](https://portal.azure.com), click on "Create a resource"
+- In the search bar type "bot", and select the option "Bot Channels Registration".
+- Click on "Create"
+- Fill in the details
+    - Bot name - Enter your unique bot name (echobot##############)
+    - Subscription - Leave the deault "Free Trail"
+    - Resource group - Select your EchoBot##############ResourceGroup from the drop-down menu 
+    - Location - Enter the Azure region you decided in step ??? ("West US 2" in our case)
+    - Pricing tier - Select F0 from the drop down menu for free
+    - Messaging endpoint - Enter the URL of your web app with the /api/messages path. It should look like: https://echobot##############.azurewebsites.net/api/messages/
+    - Application insights - you can turn this off for now
+    - Click on "Auto create App ID and password", it will open another blade. Click "Auto crate App  ID and apssword".
+    - Back in the "Bot Channels Registration" blade, click "Create" at the bottom.
+
+
+TODO Discuss pricing in a separate section...
+
+Now view your resource group again, and you should see an additional "Bot Channels Registration" resource that you just created.
+
+
+Next validate again with Bot-Framework Emulator that you can chat with your deployed bot using typed text.
+
+
 <!---Required:
 Tutorials are prescriptive and guide the customer through an end-to-end
 procedure. Make sure to use specific naming for setting up accounts and
