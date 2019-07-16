@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/10/2019
+ms.date: 07/16/2019
 ms.author: rogirdh
 ms.custom: 
 ---
@@ -32,7 +32,7 @@ Oracle applications are made up of multiple services, which can be hosted on the
 
 Application instances can be set up with private or public endpoints. Microsoft and Oracle recommend setting up a *bastion host VM* with a public IP address in a separate subnet for management of the application. Then, assign only private IP addresses to the other machines, including the database tier. 
 
-When setting up an application in a cross-cloud architecture, planning is required to ensure that the IP address space in the Azure virtual network does not overlap the private IP address space in the OCI virtual cloud network. A bastion host may also be deployed in the virtual cloud network in OCI to manage the database tier.
+When setting up an application in a cross-cloud architecture, planning is required to ensure that the IP address space in the Azure virtual network does not overlap the private IP address space in the OCI virtual cloud network.
 
 For added security, set up network security groups at a subnet level to ensure only traffic on specific ports and IP addresses is permitted. For example, machines in the middle tier should only receive traffic from within the virtual network. No external traffic should reach the middle tier machines directly.
 
@@ -44,7 +44,9 @@ When deploying an application using the cross-cloud interconnect, you may contin
 
 Oracle E-Business Suite (EBS) is a suite of applications including Supply Chain Management (SCM) and Customer Relationship Management (CRM). To take advantage of OCI’s managed database portfolio, EBS can be deployed using the cross-cloud interconnect between Microsoft Azure and OCI. In this configuration, the presentation and application tiers run in Azure and the database tier in OCI. See the following architecture diagram:
 
-![EBS application cross-cloud architecture](media/oracle-oci-applications/ebs-arch-cross-cloud.png)
+![E-Business Suite cross-cloud architecture](media/oracle-oci-applications/ebs-arch-cross-cloud.png)
+
+*Figure 1: E-Business Suite cross-cloud architecture* 
 
 In this architecture, the virtual network in Azure is connected to a virtual cloud network in OCI using the cross-cloud interconnect. The application tier is set up in Azure, whereas the database is set up in OCI. It is recommended to deploy each component to its own subnet with network security groups to allow traffic only from specific subnets on specific ports.
 
@@ -52,13 +54,15 @@ The architecture can also be adapted for deployment entirely on Azure with highl
 
 ![E-Business Suite Azure-only architecture](media/oracle-oci-applications/ebs-arch-azure.png)
 
+*Figure 2: E-Business Suite Azure-only architecture*
+
 The following sections describe the different components at a high level.
 
 [!INCLUDE [virtual-machines-oracle-applications-bastion](../../../../includes/virtual-machines-oracle-applications-bastion.md)]
 
 ### Application (middle) tier
 
-The application tier is isolated in its own subnet. There are multiple virtual machines set up for fault tolerance and easy patch management. These VMs can be backed by shared storage, which is offered by Azure NetApp Files and Ultra SSDs. This configuration allows for easier deployment of patches without downtime. The machines in the application tier should be fronted by an internal load balancer so that requests to the EBS application tier are processed even if one machine in the tier is offline due to a fault.
+The application tier is isolated in its own subnet. There are multiple virtual machines set up for fault tolerance and easy patch management. These VMs can be backed by shared storage, which is offered by Azure NetApp Files and Ultra SSDs. This configuration allows for easier deployment of patches without downtime. The machines in the application tier should be fronted by a public load balancer so that requests to the EBS application tier are processed even if one machine in the tier is offline due to a fault.
 
 ### Load balancer
 
@@ -68,7 +72,8 @@ An Azure load balancer allows you to distribute traffic across multiple instance
 
 This tier hosts the Oracle database and is separated into its own subnet. It is recommended to add network security groups that only permit traffic from the application tier to the database tier on the Oracle-specific database port 1521.
 
-Microsoft and Oracle recommend a high availability setup. High availability can be achieved by setting up two Oracle databases in two availability zones with Oracle Data Guard, or by using Oracle Database Exadata Cloud Service in OCI. When using Oracle Database Exadata Cloud Service, your database is deployed in two subnets.
+Microsoft and Oracle recommend a high availability setup. High availability in Azure can be achieved by setting up two Oracle databases in two availability zones with Oracle Data Guard, or by using Oracle Database Exadata Cloud Service in OCI. When using Oracle Database Exadata Cloud Service, your database is deployed in two subnets. You may also setup Oracle Database in VMs in OCI in two availability domains with Oracle Data Guard.
+
 
 ### Identity tier
 
@@ -90,11 +95,15 @@ As with E-Business Suite, you can set up an optional bastion tier for secure adm
 
 ![JD Edwards EnterpriseOne cross-cloud architecture](media/oracle-oci-applications/jdedwards-arch-cross-cloud.png)
 
+*Figure 3: JD Edwards EnterpriseOne cross-cloud architecture*
+
 In this architecture, the virtual network in Azure is connected to the virtual cloud network in OCI using the cross-cloud interconnect. The application tier is set up in Azure, whereas the database is set up in OCI. It is recommended to deploy each component to its own subnet with network security groups to allow traffic only from specific subnets on specific ports.
 
 The architecture can also be adapted for deployment entirely on Azure with highly available Oracle databases configured using Oracle Data Guard in two availability zones in a region. The following diagram is an example of this architectural pattern:
 
 ![JD Edwards EnterpriseOne Azure-only architecture](media/oracle-oci-applications/jdedwards-arch-azure.png)
+
+*Figure 4: JD Edwards EnterpriseOne Azure-only architecture*
 
 The following sections describe the different components at a high level.
 
@@ -125,9 +134,9 @@ The following are the components in this tier:
 
 ### Middle tier
 
-The middle tier contains the logic server and batch server. In this case, both servers are installed on the same virtual machine. However, for production scenarios, it is recommended that you deploy logic server and batch server on separate servers. Multiple servers are deployed in the middle tier across two availability zones for higher availability. An Azure load balancer should be created and these servers should be placed in the backend pool to ensure that both servers are active and processing requests.
+The middle tier contains the logic server and batch server. In this case, both servers are installed on the same virtual machine. However, for production scenarios, it is recommended that you deploy logic server and batch server on separate servers. Multiple servers are deployed in the middle tier across two availability zones for higher availability. An Azure load balancer should be created and these servers should be placed in its backend pool to ensure that both servers are active and processing requests.
 
-The servers in the middle tier receive requests from the servers and the public load balancer in the presentation tier only. Network security group rules must be set up to deny traffic from any address other than the presentation tier subnet and the load balancer. An NSG rule can also be set up to allow traffic on port 22 from the bastion host for management purposes. You may be able to use the public load balancer to load balance requests between the VMs in the middle tier.
+The servers in the middle tier receive requests from the servers in the presentation tier and the public load balancer only. Network security group rules must be set up to deny traffic from any address other than the presentation tier subnet and the load balancer. An NSG rule can also be set up to allow traffic on port 22 from the bastion host for management purposes. You may be able to use the public load balancer to load balance requests between the VMs in the middle tier.
 
 The following two components are in the middle tier:
 
@@ -137,8 +146,6 @@ The following two components are in the middle tier:
 [!INCLUDE [virtual-machines-oracle-applications-database](../../../../includes/virtual-machines-oracle-applications-database.md)]
 
 [!INCLUDE [virtual-machines-oracle-applications-identity](../../../../includes/virtual-machines-oracle-applications-identity.md)]
-
-[//]: # "TODO: check if you can SSH from a VM in Azure to a VM in OCI. If so, no bastion server is needed in OCI."
 
 ## PeopleSoft
 
@@ -150,11 +157,15 @@ The following is a canonical architecture for deploying the PeopleSoft applicati
 
 ![PeopleSoft cross-cloud architecture](media/oracle-oci-applications/peoplesoft-arch-cross-cloud.png)
 
+*Figure 5: PeopleSoft cross-cloud architecture*
+
 In this sample architecture, the virtual network in Azure is connected to the virtual cloud network in OCI using the cross-cloud interconnect. The application tier is set up in Azure, whereas the database is set up in OCI. It is recommended to deploy each component to its own subnet with network security groups to allow traffic only from specific subnets on specific ports.
 
 The architecture can also be adapted for deployment entirely on Azure with highly available Oracle databases configured using Oracle Data Guard in two availability zones in a region. The following diagram is an example of this architectural pattern:
 
 ![PeopleSoft Azure-only architecture](media/oracle-oci-applications/peoplesoft-arch-azure.png)
+
+*Figure 6: PeopleSoft Azure-only architecture*
 
 The following sections describe the different components at a high level.
 
@@ -173,8 +184,6 @@ The PeopleTools Client is used to perform administration activities, such as dev
 [!INCLUDE [virtual-machines-oracle-applications-database](../../../../includes/virtual-machines-oracle-applications-database.md)]
 
 [!INCLUDE [virtual-machines-oracle-applications-identity](../../../../includes/virtual-machines-oracle-applications-identity.md)]
-
-[//]: # "TODO: check if you can SSH from a VM in Azure to a VM in OCI. If so, no bastion server is needed in OCI."
 
 ## Next steps
 
