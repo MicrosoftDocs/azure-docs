@@ -345,10 +345,11 @@ but you can use the `correlation` properties of events to correlate across actio
     }
   }
   ```
-  Here's another example using Initialize variable action. In this example we add tracked properties from the action input where the input is an array instead of a record.  
+  Here's another example using Initialize variable action. In this example, we add tracked properties from the action input where the input is an array instead of a record.  
 
   ``` json
   "actions": {
+    "type": "InitializeVariable",
     "Initialize_variable": {
     "inputs": {
         "variables": [{
@@ -360,8 +361,7 @@ but you can use the `correlation` properties of events to correlate across actio
             },
     "trackedProperties": {
         "Track1": "@action().inputs.variables[0].value"
-            },
-         "type": "InitializeVariable"
+            }
         }
       }      
   ```
