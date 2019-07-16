@@ -350,6 +350,44 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 </speak>
 ```
 
+## Add recorded audio
+
+`audio` is an optional element that allows you to insert MP3 audio into an SSML document. The body of the audio element may contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. Additionally, the `audio` element can contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
+
+Any audio included in the SSML document must meet these requirements:
+
+* The MP3 must be hosted on an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the MP3 file must present a valid, trusted SSL certificate.
+* The MP3 must be a valid MP3 file (MPEG v2).
+* The bit rate must be 48 kbps.
+* The sample rate must be 16000 Hz.
+* The combined total time for all text and audio files in a single response cannot exceed ninety (90) seconds.
+* The MP3 must not contain any customer-specific or other sensitive information.
+
+**Syntax**
+
+```xml
+<audio src="string"/></audio>
+```
+
+**Attributes**
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| src | Specifies the location/URL of the audio file. | Required if using the audio element in your SSML document. |
+
+**Example**
+
+```xml
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <p>
+        <audio src="https://contoso.com/opinionprompt.wav"/>
+        Thanks for offering your opinion. Please begin speaking after the beep.
+        <audio src="https://contoso.com/beep.wav">
+        Could not play the beep, please voice your opinion now. </audio>
+    </p>
+</speak>
+```
+
 ## Add background audio
 
 The `mstts:backgroundaudio` element allows you to add background audio to your SSML documents (or mix an audio file with text-to-speech). With `mstts:backgroundaudio` you can loop an audio file in the background, fade in at the beginning of text-to-speech, and fade out at the end of text-to-speech.
