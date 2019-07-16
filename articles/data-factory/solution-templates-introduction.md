@@ -44,6 +44,8 @@ Data Factory uses Azure Resource Manager templates for saving data factory pipel
 
     -   [Copy multiple file containers between file-based stores](solution-template-copy-files-multiple-containers.md)
 
+    -   [Move files](solution-template-move-files.md)
+
     -   [Delta copy from Database](solution-template-delta-copy-with-control-table.md)
 
     -   Copy from \<source\> to \<destination\>
