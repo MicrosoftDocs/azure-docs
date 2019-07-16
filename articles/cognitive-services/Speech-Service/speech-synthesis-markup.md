@@ -350,6 +350,35 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 </speak>
 ```
 
+## Add background audio
+
+**Syntax**
+
+```XML
+<mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"></mstts:backgroundaudio>
+```
+
+**Attributes**
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| src | Specifies the location/URL of the background audio file. | TBD |
+| volume | Specifies the volume of the background audio file. **Accepted values**: `0` to `100` inclusive. | TBD |
+| fadein | **Accepted values**: `0` to `10000` inclusive.  | Optional |
+| fadeout | **Accepted values**: `0` to `10000` inclusive.  | Optional |
+
+**Example**
+
+```xml
+<speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
+    <mstts:backgroundaudio src="https://spsvclocusw2.blob.core.windows.net/poleli-test/migu-Elegant-120s-01.wav" volume="0.7" fadein="3000" fadeout="4000"/>
+    <voice xml:lang="en-US" xml:gender="Female" name="Microsoft Server Speech Text to Speech Voice (en-US, EvaRUS)">World</voice>
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)">
+        Text-to-speech before the background audio. <audio src="https://ttsaudiotest.blob.core.windows.net/audios/24KHz.mp3"> Text-to-speech with background audio. </audio> Text-to-speech after background audio.
+    </voice>
+</speak>
+```
+
 ## Next steps
 
 * [Language support: voices, locales, languages](language-support.md)
