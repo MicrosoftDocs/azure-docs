@@ -44,6 +44,9 @@ You also need the following things for your development environment:
 
 * An active Azure subscription. If you don't have an Azure account, [create a free Azure trial account](https://azure.microsoft.com/free/) in just a few minutes.
 * A Mac or PC that is running Windows or Ubuntu.
+* [GIT](https://git-scm.com/download)
+* [Arduino](https://www.arduino.cc/en/main/software#download)
+* [Adafruit Huzzah ESP8266 driver for USB](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide)
 * A wireless network for Feather HUZZAH ESP8266 to connect to.
 * An Internet connection to download the configuration tool.
 * [Visual Studio Code extension for Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino).
