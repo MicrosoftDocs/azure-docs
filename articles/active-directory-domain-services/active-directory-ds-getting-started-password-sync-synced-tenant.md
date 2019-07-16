@@ -31,7 +31,7 @@ The steps involved are different for cloud-only user accounts vs user accounts t
 
 | **Type of user account** | **Steps to perform** |
 | --- | --- |
-| **User accounts synchronized from an on-premises directory** |**&#x2713;** [Follow the instructions in this article](active-directory-ds-getting-started-password-sync-synced-tenant.md#enable-password-synchronization-to-your-managed-domain-for-user-accounts-synced-with-your-on-premises-ad) |
+| **User accounts synchronized from an on-premises directory** |**&#x2713;** [Follow the instructions in this article](active-directory-ds-getting-started-password-sync-synced-tenant.md#install-or-update-azure-ad-connect) |
 | **Cloud user accounts created in Azure AD** |**&#x2713;** [Synchronize passwords for cloud-only user accounts to your managed domain](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) |
 
 > [!TIP]
