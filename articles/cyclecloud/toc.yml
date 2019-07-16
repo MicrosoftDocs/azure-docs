@@ -181,7 +181,15 @@
   - name: Auto Scale
     href: autoscale-api.md
   - name: Scheduler
-    href: scheduler-integration.md
+    items:
+    - name: PBS Professional OSS
+      href: pbspro.md
+    - name: Grid Engine
+      href: gridengine.md
+    - name: Slurm
+      href: slurm.md
+    - name: HT Condor
+      href: htcondor.md
 - name: Resources
   items:
   - name: Get Azure CycleCloud
