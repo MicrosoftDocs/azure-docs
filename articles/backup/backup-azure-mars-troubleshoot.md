@@ -167,7 +167,7 @@ Backup operation may fail if the cache folder is incorrectly configured, missing
 
 ### Pre-requisites
 
-For MARS agent operations to succeed the cache folder needs to adhere to below requirements:
+For MARS agent operations to succeed the cache folder needs to adhere to the below requirements:
 
 - [Ensure 5% to 10% free volume space is available in the scratch folder location](backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Ensure scratch folder location is valid and accessible](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
@@ -220,17 +220,16 @@ Unable to find changes in a file. This could be due to various reasons. Please r
 
 Error message | Recommended action |
 -- | --
-Backup failed because the disk-backup replica is either invalid or missing. | To resolve this issue, perform the below steps: <br/> 1. Create a disk recovery point and try backup again.<br/> 2. Run consistency check on datasource and try backup again.<br/> 3. Stop protection of datasource and then reconfigure protection for this data source.
+Backup failed because the disk-backup replica is either invalid or missing. | To resolve this issue, perform the below steps: <br/> 1. Create a disk recovery point and try backup again.<br/> 2. Run consistency check on datasource and try backup again.<br/> 3. Stop protection of datasource and then reconfigure protection for this data source
 
 ### CBPSourceSnapshotFailedReplicaMetadataInvalid
 
 Error message | Recommended action |
 -- | --
-Source volume snapshot failed because metadata on replica is invalid. | - Create a disk recovery point of this datasource <br/> - Retry online backup again.
+Source volume snapshot failed because metadata on replica is invalid. | - Create a disk recovery point of this datasource <br/> - Retry online backup again
 
 ### CBPSourceSnapshotFailedReplicaInconsistent
 
-**Error message**:
 Error message | Recommended action |
 -- | --
 Source volume snapshot failed due to inconsistent datasource replica. | Run a consistency check on this datasource and try again
