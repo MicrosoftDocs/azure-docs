@@ -48,7 +48,7 @@ In Batch, you need to mount the share each time a task is run on a Windows node.
 For example, include a `net use` command to mount the file share as part of each task command line. To mount the file share, the following credentials are needed:
 
 * **User name**: AZURE\\\<storageaccountname\>, for example, AZURE\\*mystorageaccountname*
-* **Password**: <StorageAccountKeyWhichEnds in==>, for example, *XXXXXXXXXXXXXXXXXXXXX==*
+* **Password**: \<StorageAccountKeyWhichEnds in==>, for example, *XXXXXXXXXXXXXXXXXXXXX==*
 
 The following command mounts a file share *myfileshare* in storage account *mystorageaccountname* as the *S:* drive:
 
@@ -125,7 +125,7 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 Then, run the `mount` command to mount the file share, providing these credentials:
 
 * **User name**: \<storageaccountname\>, for example, *mystorageaccountname*
-* **Password**: <StorageAccountKeyWhichEnds in==>, for example, *XXXXXXXXXXXXXXXXXXXXX==*
+* **Password**: \<StorageAccountKeyWhichEnds in==>, for example, *XXXXXXXXXXXXXXXXXXXXX==*
 
 The following command mounts a file share *myfileshare* in storage account *mystorageaccountname* at */mnt/MyAzureFileShare*: 
 

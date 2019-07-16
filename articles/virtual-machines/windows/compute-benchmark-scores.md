@@ -15,7 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
-ms.author: cynthn;davberg
+ms.author: cynthn
+ms.reviewer: davberg
 
 ---
 # Compute benchmark scores for Windows VMs
