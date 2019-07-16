@@ -50,7 +50,7 @@ Create your resource group and single database using the Azure portal.
 
      ![vCore-based purchasing options](../media/sql-database-get-started-portal/create-database-vcore.png)
 
-   - Select **Provisioned** and **Gen4**.
+   - Select **Provisioned** and **Gen5**.
 
      ![Provisioned Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
