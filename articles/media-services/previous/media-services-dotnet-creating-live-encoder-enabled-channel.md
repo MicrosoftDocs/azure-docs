@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: juliako;anilmur
+ms.author: anilmur
+ms.reviewer: juliako
 
 ---
 # How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET
