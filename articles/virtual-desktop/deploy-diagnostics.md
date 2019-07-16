@@ -39,56 +39,61 @@ This section will show you how to use PowerShell to create the Azure AD Applicat
 >The API permissions are Windows Virtual Desktop, Log Analytics and Microsoft Graph API permissions are added to the AD Application.
 
 1. Open PowerShell as an Administrator:
-2. [Follow this link](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) for “Create AD App Registration for Diagnostics.ps1” script. Execute it in PowerShell.
-3.  Provide unique app name when asked.
-4.  When prompted authenticate with the administrative account. Enter the credentials of a user with [delegated admin access](https://docs.microsoft.com/en-us/azure/virtual-desktop/delegated-access-virtual-desktop). The admin needs to have either RDS Owner or Contributor rights.
+2. Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) and run the **Create AD App Registration for Diagnostics.ps1** script in PowerShell.
+3.  When the script asks you to name your app, enter a unique app name.
+4.  The script will then ask you to sign in with an administrative account. Enter the credentials of a user with [delegated admin access](delegated-access-virtual-desktop.md). The admin should have either RDS Owner or Contributor rights.
 
 After the script successfully runs, you should see the following things:
 
--  A message confirming that Service principal role assignment completed for this app.
+-  A message that confirms your app now has a service principal role assignment.
 -  Your Print Client ID and Client Secret Key that you'll need to enter when you deploy diagnostics UX.
 
-Next configure your Log Analytics workspace.
+Now that you've registered your app, it's time to configure your Log Analytics workspace.
 
 ## Configure your Log Analytics workspace
 
-In this section you will configure your Log Analytics workspace with following recommended performance counters that allow you to derive statements of the user experience in a remote session. Here is the list of counters with default threshold values the user interface will highlight the session host as unhealthy.
+For the best possible experience, we recommend you configure your Log Analytics workspace with the following performance counters that allow you to derive statements of the user experience in a remote session. Here is the list of counters with default threshold values the user interface will highlight the session host as unhealthy. 
 
-If you don’t have a Log Analytics workspace today use the PowerShell script and instructions we have prepared for you in the next chapter. Otherwise go and configure the counters following the instructions here.
+<!--This paragraph makes no sense, and I think there's a link missing-->
+
+If you don’t have a Log Analytics workspace today use the PowerShell script and instructions we have prepared for you in the next chapter. Otherwise go and configure the counters following the instructions here. (LINK?)
 
 ### Create an Azure Log Analytics workspace using PowerShell
 
 In this section you will execute a PowerShell script which creates a Log Analytics Workspace and configures recommended Windows Performance Counters for deriving statements on user experience and app performance:
 
-1.  Open PowerShell as an Administrator and run “Create LogAnalyticsWorkspace for Diagnostics.ps1” which you find in [this location](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts).
-2. Enter the following values for the parameters:
+1.  Open PowerShell as an admin
+2.  Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) and run the **Create LogAnalyticsWorkspace for Diagnostics.ps1** script in PowerShell.
+3. Enter the following values for the parameters:
 
-    - A name for the resource group (ResourceGroupName)
-    - A name for your Log Analytics workspace which needs to be unique (LogAnalyticsWorkspaceName)
-    - Provide the Azure region (Location)
-    - Provide the Azure Subscription ID. Locate it in the Azure Portal under Subscriptions.
+    - For ResourceGroupName, enter the name for the resource group
+    - For LogAnalyticsWorkspaceName, enter a unique name for your Log Analytics workspace
+    - For Location, provide the Azure region
+    - Provide the Azure Subscription ID, which you can find in the Azure Portal under **Subscriptions**.
 
-3.   Enter the credentials of a user with delegated admin access
+4. Enter the credentials of a user with delegated admin access.
 
-4. Authenticate to Azure with the above credentials
+5. Sign in to Azure with the same user's credentials.
 
-5. Remember the LogAnalyticsWorkspace Id for the next step.
+<!--Is this the Azure portal or desktop client?-->
 
-Next, continue to [verify the script results in the portal](#validate-the-script-results-in-the-azure-portal) and connect your VMs
-to the log analytics workspace.
+6. Write down or memorize the LogAnalyticsWorkspace ID for later.
+
+7. After that, continue to [Validate the script results in the Azure Portal](#validate-the-script-results-in-the-azure-portal) for instructions about how to connect your VMs to the log analytics workspace.
 
 ### Configure Windows Performance counters in your existing Log Analytics workspace
 
-The following instructions explain how you can set-up the expected Performance
-counters in your existing Log Analytics workspace.
+<!--Is this the same section as the one at the last H2? What will make people skip this section and go to Validate the script results in the Azure Portal?-->
 
--   Open a browser and connect to the [Azure Portal](https://portal.azure.com/) with your administrative account.
+Here's how to set up the recommended performance counters in your existing Log Analytics workspace:
 
--   Next go to **Log Analytics workspaces** to review the configured Windows Performance Counters.
+1. Open your internet browser and sign in to the [Azure Portal](https://portal.azure.com/) with your administrative account.
 
--   In the settings section click **Advanced settings**.
+2. Next, go to **Log Analytics workspaces** to review the configured Windows Performance Counters.
 
--   Next navigate to **Data** > **Windows Performance Counters** and add the following counters – [follow this link for more detailed instructions](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-sources-performance-counters):
+3. In the **Settings** section, select  **Advanced settings**.
+
+4. After that, navigate to **Data** > **Windows Performance Counters** and add the following counters:
 
     -   LogicalDisk(\*)\|%Free Space
 
@@ -100,169 +105,168 @@ counters in your existing Log Analytics workspace.
 
     -   User Input Delay per Session(\*)\\Max Input Delay
 
+For more detailed information about the performance counters, see [Windows and Linux performance data sources in Azure Monitor](articles\azure-monitor\platform\data-sources-performance-counters.md).
+
 >[!NOTE]
->Any additional counters you configure won’t show up in the UI. It needs configuration of the config file for the diagnostics UX. The guidance will be available at a later stage on Github for advanced administration.
+>Any additional counters you configure won’t show up in the diagnostics tool itself. To make it appear in the diagnostics tool, you need to configure the tool's config file. Instructions for how to do this with advanced administration will be available in GitHub at a later date.
 
 ## Validate the script results in the Azure Portal
 
+Before you continue deploying the diagnostics tool, we recommend that you verify that your Azure Active Directory application has API permissions and your Log Analytics workspace has the preconfigured Windows performance counters.
+
 ### Review your app registration
 
-Before continuing with the deployment of the diagnostics UX we recommend verifying that the AAD Application created with the API permissions and your Log Analytics workspace created with Windows Performance Counters preconfigured.
+To make sure your app registration has API permissions:
 
--   Open a browser and connect to the [Azure Portal](https://portal.azure.com/) with your administrative account.
+1. Open a browser and connect to the [Azure Portal](https://portal.azure.com/) with your administrative account.
 
--   Go to **App registrations** and look for App registrations Azure AD Application with API permissions.
+2. Go to **App registrations** and look for your Azure AD App registration.
 
 ![The API permissions page.](media/2b978bbf5b3769a1d83acd56031ba67b.png)
 
-### Review your log Analytics workspace
+### Review your Log Analytics workspace
 
--   Next go to **Log Analytics workspaces** to review the configured Windows Performance Counters.
+To make sure your Log Analytics workspace has the preconfigured Windows performance counters:
 
-    -   In the settings section click **Advanced settings**.
+1. In the [Azure Portal](https://portal.azure.com/), go to **Log Analytics workspaces** to review the configured Windows Performance Counters.
+2. Under **Settings**, select **Advanced settings**.
+3. After that, go to **Data** > **Windows Performance Counters**.
+4. Make sure the following counters are preconfigured:
 
-    -   Next navigate to Data \> **Windows Performance Counters** where the following counters should be preconfigured that are most useful to derive statements on user experience:
+   - LogicalDisk(\*)\|%Free Space: Displays the amount of free space of the total usable space on the disk as a percentage.
 
-        -   LogicalDisk(\*)\|%Free Space: Displays the % of free space of the total usable space on the disk.
+   - LogicalDisk(C:)\\Avg. Disk Queue Length: The length of disk transfer request for your C drive. The value shouldn’t exceed 2 for a long period of time.
 
-        -   LogicalDisk(C:)\\Avg. Disk Queue Length: The length of disk transfer request for disk C:. The value shouldn’t exceed 2 for a longer period of time.
+   - Memory(\*)\\Available Mbytes: The available memory for the system in megabytes.
 
-        -   Memory(\*)\\Available Mbytes: The available memory for the system in Mbytes.
+   - Processor Information(\*)\\Processor Time: the percentage of elapsed time that the processor spends to execute a non-Idle thread.
 
-        -   Processor Information(\*)\\Processor Time: the percentage of elapsed time that the processor spends to execute a non-Idle thread.
+   - User Input Delay per Session(\*)\\Max Input Delay
 
-        -   User Input Delay per Session(\*)\\Max Input Delay:
-
-### Connect VMs to in your Log Analytics workspace
+### Connect to VMs in your Log Analytics workspace
 
 In order to be able to view the health of VMs you will need to enable the Log Analytics connection. Follow these steps to connect your VMs:
 
--   Open a browser and connect to the [Azure Portal](https://portal.azure.com/) with your administrative account.
+1. Open a browser and sign in to the [Azure Portal](https://portal.azure.com/) with your administrative account.
 
--   Go to LogAnalyticsWorkspace created/existing one
+2. Go to LogAnalyticsWorkspace created/existing one
 
--   In the left panel, under Workspace Data Sources, select virtual machines
+3. In the left panel, under Workspace Data Sources, select **virtual machines**.
 
--   Select the required virtual machine and click on it.
+4. Select the name of the VM you want to connect to.
 
--   Click on Connect, it will take few seconds to connect
+5. Select **Connect**.
 
 ## Deploy the diagnostics UX
 
-Follow these instructions to deploy the Azure Resource Management template:
+To deploy the Azure Resource Management template:
 
 1.  Go to the GitHub Azure RDS-Templates page.
 
-2.  Deploy the template to Azure and follow instructions in the template. From
-    the previous steps you need to have the following information available:
+2.  Deploy the template to Azure and follow the instructions in the template. Make sure you have the following information available:
 
     -   Client-Id
-
     -   Client-Secret
-
     -   Log Analytics workspace ID
 
-3.  Once the input parameters are provided, accept the terms and conditions and select **Purchase**.
+3.  Once the input parameters are provided, accept the terms and conditions, then select **Purchase**.
 
-The deployment will take 2–3 minutes. After successful deployment, go to the resource group and check that the web app and app service plan resources are created.
+The deployment will take 2–3 minutes. After successful deployment, go to the resource group and make sure the web app and app service plan resources are there.
 
-As last step you need to set the Redirect URI.
+Finally, you need to set the Redirect URI.
 
-1.  In the Azure Portal navigate to **App Services** and locate the application
-    you have just created.
+### Set the Redirect URI
 
-2.  On the overview page **copy the URL**
+To set the Redirect URI:
 
-3.  Next navigate to **app registrations** and click the app.
+1.  In the [Azure Portal](https://portal.azure.com/), go to **App Services** and locate the application you just created.
 
-4.  In the left panel, under manage section select **Authentication**
+2.  Go to the overview page and copy the URL you find there.
 
-5.  Set the RedirectURI by and save:
+3.  Navigate to **app registrations** and select the app you want to deploy.
 
-6. Selecting **Public client (mobile & desktop)** in the dropdown under
-        Type
+4.  In the left panel, under manage section, select **Authentication**.
 
-7. Enter the appURL and append **/security/signin-callback**.
+5.  Enter the desired Redirect URI, then select **Save**
 
-        E.g: https://\<appname\>.azurewebsites.net**/security/signin-callback**
+<!--Can I get a better idea of what the UI for step 5 looks like?-->
+
+6. Selecting **Public client (mobile & desktop)** in the dropdown under Type
+
+7. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: https://\<appname\>.azurewebsites.net/security/signin-callback.
 
 -   For example:
 
 ![](media/8fc125e527af5dbfac48b9f026d18b10.png)
 
->   Now, go to your Azure resources, select the Azure App Services resource with
->   the name you provided in the template (for example, contosoapp45) and
->   navigate to the URL associated with it; for
->   example, <https://contosoapp45.azurewebsites.net>.
+8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, contosoapp45) and navigate to the URL associated with it; for example, <https://contosoapp45.azurewebsites.net>.
 
-8. Sign in using the appropriate Azure Active Directory user account.
+9. Sign in using the appropriate Azure Active Directory user account.
 
-9.  Select **Accept** to provide consent and use the Diagnostics-UX application.
+10.  Select **Accept** to provide consent and use the Diagnostics-UX application.
 
-## Distributing the diagnostic UX
+## Distribute the diagnostic UX
 
-Before you distribute the UX for usage ensure that the following permission are applied:
+Before you distribute the UX for usage ensure that the following permissions are applied:
 
--   Users need read access to log analytics – see here the [RBAC documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/roles-permissions-security).
+- Users need read access for log analytics. For more details, see [Get started with roles, permissions, and security with Azure Monitor](articles\azure-monitor\platform\roles-permissions-security.md).
+-  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop Preview](delegated-access-virtual-desktop.md).
 
--   Users need to have read access on the WVD tenant (RDS Reader role) – [go here](https://docs.microsoft.com/en-us/azure/virtual-desktop/delegated-access-virtual-desktop) for more information.
+You also need to give your users the following information:
 
-You need to provide the following to users of the diagnostics interface:
+- The app's URL
+- The names of the tenant group individual tenant they can access.
 
--   URL of the application
+## Use the diagnostics UX
 
--   Tenant group and Tenant name they have access to.
+After you've signed in to your account using the information you've received from your organization, have the UPN ready for the user you want to query activities for. A search will give you all activities under the specified activity type from now until one week in the past.
 
-## Using the diagnostics UX
+### How to read activity search results
 
-Once signed in using with your account using information you have received from your organization (Tenant group/Tenant name) have the UPN ready for the user you want to query the activities. The search result will give you all activities for the specific activity type one week back from now.
+Activities are sorted by timestamp, with the latest activity first. If the results return an error, verify if it's a service error. For service errors, create a support ticket that includes the activity to help us debug the issue. All other error types can usually be solved by the user or administrator. For a list of the most common error scenarios and how to solve them, see [Identify issues with the diagnostics feature](diagnostics-role-service.md#common-error-scenarios).
 
-### Understand activity search result
+Connection activities might have more than one error. You can expand the activity type to see any other errors the user has encountered. Select the line to open up a dialog to see the friendly message.
 
-The activities are sorted by timestamp where the latest activity shows first. In case of an error verify if it is a service error. In that case you will most likely need to open a support ticket. Provide the Activity with the support ticket which helps us to debug the issue. All other scenarios might need user or administrator intervention. Find the most common scenarios [here](https://docs.microsoft.com/en-us/azure/virtual-desktop/diagnostics-role-service#common-error-scenarios).
+<!--Which line? UI?-->
 
-Connection activities might have more than one error. You can expand the activity to see the other errors the user has been running into. Click the line to open up a dialog to see the friendly message.
-
-### Investigate the Session host 
+### Investigate the session host 
 
 In the search results, find and select the session host you want information about.
 
--   Analyze the session host health:
+You can analyze session host health:
 
-    -   Based on predefined threshold you will be able to retrieve the session host health information which is queried from log analytics.
+- Based on predefined threshold you will be able to retrieve the session host health information that Log Analytics queries.
+- When there's no activity or the session host isn't connected to Log Analytics, the information won't available.
 
-    -   In the case where there is no activity, or the session host is not connected to Log Analytics information might be not available.
+You can also interact with users on the session host:
 
--   Interact with users on the session host:
+- You can either sign out or send a message to signed in users.
+- The user from the search result is selected by default, but you can also select additional users to send messages or sign out multiple users at once.
 
-    -   For the logged-on users you have two interaction types which is either log-off or message users.
+### Windows Performance counter thresholds
 
-    -   The user from the search result is selected by default. Select additional users to apply the available interactions.
+- LogicalDisk(\*)\|%Free Space:
 
-### Windows Performance counters thresholds
+    - Displays the percentage of the total usable space on the logical disk that is free.
 
--   LogicalDisk(\*)\|%Free Space:
+    - Threshold: Less than 20% will be marked as unhealthy.
 
-    -   Displays the percentage of the total usable space on the logical disk that is free.
+- LogicalDisk(C:)\\Avg. Disk Queue Length:
 
-    -   Threshold: Less than 20% will be marked as unhealthy.
+    - Represents storage system conditions.
 
--   LogicalDisk(C:)\\Avg. Disk Queue Length:
+    - Threshold: Higher than 5 is marked as unhealthy.
 
-    -   Represents storage system conditions.
+- Memory(\*)\\Available Mbytes:
 
-    -   Threshold: Higher than 5 is marked as unhealthy.
+    - The available memory for the system.
 
--   Memory(\*)\\Available Mbytes:
+    - Threshold: Less than 500 Mbytes marked as unhealthy.
 
-    -   The available memory for the system.
+- Processor Information(\*)\\Processor Time:
 
-    -   Threshold: Less than 500 Mbytes marked as unhealthy.
+    - Threshold: Higher than 80% is unhealthy.
 
--   Processor Information(\*)\\Processor Time:
+- [User Input Delay per Session(\*)\\Max Input Delay](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
-    -   Threshold: Higher than 80% is unhealthy.
-
--   [User Input Delay per Session(\*)\\Max Input Delay](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
-
-    -   Higher than 2000 ms is unhealthy.
+    - Higher than 2000 ms is unhealthy.
