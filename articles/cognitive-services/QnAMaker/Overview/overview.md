@@ -19,7 +19,7 @@ QnA Maker takes natural language questions, and returns the most appropriate ans
 
 QnA Maker imports your content into question and answer sets you can then edit and test. After you publish your knowledge base, a client application sends a user's question to the service for analysis. Your QnA Maker service processes the question and responds with the best answer. 
 
-![Ask a bot a question and get answer from knowledge base content](../media/what-is-qnamaker/bot-chat-with-qnamaker.png)
+![Ask a bot a question and get answer from knowledge base content](../media/qnamaker-overview-learnabout/bot-chat-with-qnamaker.png)
 
 ## What is a knowledge base 
 
@@ -34,7 +34,7 @@ To build your knowledge base, you provide content:
  
 Tag question and answer sets with **metadata**. The client application requests answers filtered with this metadata. The service applies the filter then responds with the answers.   
 
-![Example question and answer with metadata](../media/what-is-qnamaker/example-question-and-answer-with-metadata.png)
+![Example question and answer with metadata](../media/qnamaker-overview-learnabout/example-question-and-answer-with-metadata.png)
 
 After the knowledge base receives questions from users at the published endpoint, QnA Maker applies **active learning** to these real-world questions to suggest changes to your knowledge base to improve the quality. 
 
