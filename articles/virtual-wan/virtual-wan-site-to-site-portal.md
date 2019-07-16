@@ -62,7 +62,10 @@ Create as many sites as you need that correspond to your physical locations. For
 
 >[!NOTE]
 > Configuring BGP on Virtual WAN is equivalent to configuring BGP on an Azure VPN Gateway.
-For BGP prerequisites kindly refer: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview
+
+>Your on-premises BGP peer address MUST NOT be the same as the public IP address of your VPN to device or the Vnet address space of the VPN Site. Use a different IP address on the VPN device for your BGP Peer IP. It can be an address assigned to the loopback interface on the device, but please note that it cannot be an APIPA (169.254.x.x) address. Specify this address in the corresponding Local Network Gateway representing the location.
+
+>For BGP prerequisites kindly refer: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview
 >
 
 5. Click **Confirm**.
