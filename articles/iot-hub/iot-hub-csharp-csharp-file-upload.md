@@ -119,7 +119,7 @@ In this section, you write a .NET console app that receives file upload notifica
     using Microsoft.Azure.Devices;
     ```
 
-5. Add the following fields to the **Program** class. Substitute the placeholder value with the IoT hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
+5. Add the following fields to the **Program** class. Replace the `{iot hub connection string}` placeholder value with the IoT hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
 
     ```csharp
     static ServiceClient serviceClient;
