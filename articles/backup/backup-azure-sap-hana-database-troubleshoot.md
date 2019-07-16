@@ -14,7 +14,7 @@ ms.author: pullabhk
 
 This article provides troubleshooting information for backing up SAP HANA databases on Azure virtual machines.
 
-## Understanding prerequisites
+## Prerequisites
 
 As part of the [prerequisites](backup-azure-sap-hana-database.md#prerequisites), make sure the preregistration script has been run on the virtual machine where HANA is installed.
 
@@ -28,7 +28,7 @@ What the preregistration script does:
     - SAP_INTERNAL_HANA_SUPPORT: to access a few private tables.
 2. Adds a key to Hdbuserstore for the HANA plug-in to handle all operations (database queries, restore operations, configuring and running backup).
    
-   - To confirm the key creation, run the HDBSQL command on the HANA machine with SIDADM credentials:
+   To confirm the key creation, run the HDBSQL command on the HANA machine with SIDADM credentials:
 
     ``` hdbsql
     hdbuserstore list
