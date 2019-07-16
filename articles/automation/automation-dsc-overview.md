@@ -98,8 +98,8 @@ the following port and URLs are required for State Configuration (DSC) to commun
 
 This provides network connectivity for the managed node to communicate with Azure Automation.
 If you are using DSC resources that communicate between nodes,
-such as the [WaitFor* resources](https://docs.microsoft.com/en-us/powershell/dsc/reference/resources/windows/waitForAllResource),
-you will also need to allow traffic beween nodes.
+such as the [WaitFor* resources](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource),
+you will also need to allow traffic between nodes.
 See the documentation for each DSC resource to understand those network requirements.
 
 #### Proxy Support

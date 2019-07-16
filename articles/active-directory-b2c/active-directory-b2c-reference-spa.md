@@ -27,7 +27,7 @@ Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple au
 
 The implicit sign-in flow looks something like the following figure. Each step is described in detail later in the article.
 
-![OpenID Connect swimlanes](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![Swimlane-style diagram showing the OpenID Connect implicit flow](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## Send authentication requests
 
@@ -259,5 +259,5 @@ p=b2c_1_sign_in
 
 > [!NOTE]
 > Directing the user to the `end_session_endpoint` clears some of the user's single sign-on state with Azure AD B2C. However, it doesn't sign the user out of the user's social identity provider session. If the user selects the same identify provider during a subsequent sign-in, the user is reauthenticated, without entering their credentials. If a user wants to sign out of your Azure AD B2C application, it does not necessarily mean they want to completely sign out of their Facebook account, for example. However, for local accounts, the user's session will be ended properly.
-> 
+>
 
