@@ -47,7 +47,7 @@ The authority URL is composed of the instance and the audience.
 The authority can be:
 - An Azure AD cloud authority.
 - An Azure AD B2C authority. See [B2C specifics](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
-- An Active Directory Federation Services (ADFS) authority. See [ADFS support](https://aka.ms/msal-net-adfs-support).
+- An Active Directory Federation Services (AD FS) authority. See [AD FS support](https://aka.ms/msal-net-adfs-support).
 
 Azure AD cloud authorities have two parts:
 - The identity provider *instance*
@@ -100,7 +100,7 @@ The redirect URI is the URI the identity provider will send the security tokens 
 
 ### Redirect URI for public client apps
 If you're a public client app developer who's using MSAL:
-- You'd want to use `.WithDefaultRedirectUri()` in desktop or UWP applications (MSAL.NET 4.1+). This method will set the public client applications 
+- You'd want to use `.WithDefaultRedirectUri()` in desktop or UWP applications (MSAL.NET 4.1+). This method will set the public client application's 
   redirect uri property to the default recommended redirect uri for public client applications. 
 
   Platform  | Redirect URI  
