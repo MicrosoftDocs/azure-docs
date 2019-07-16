@@ -105,12 +105,81 @@ manual entry, the old list of subscription Ids with access to the SKU is
 not retained. A warning is displayed and the list is only overwritten
 upon saving the offer.
 
-Sync Private subscriptions
+Managing private subscriptions
 -------------------------
 
-When adding subscriptions to a published offer with a Private SKU or Plan, you do not need to re-publish the offer to add audience information. Simply use an Azure subscription ID (Plans and SKUs) or Tenant ID (Plans only) to add audience.
+You can add or remove subscriptions to an existing private offer using the Cloud Partner Portal API without  having to republish the offer. In general, you simply need to retrieve your offer, update the `restrictedAudience` object, then submit those changes back to your offer. If you are managing 10 or fewer subscriptions, you can alternately add or remove them using the Cloud Partner Portal UI.
 
-Previewing Private offers
+> [!NOTE]
+> Use the Azure subscription ID (Plans and SKUs) or Tenant ID (Plans only) to add an audience to your private offer.
+
+Here's how to programmatically update your audience list:
+
+1. [Retrieve your offer](cloud-partner-portal-api-retrieve-specific-offer.md) data:
+
+    ```
+    GET https://cloudpartner.azure.com/api/publishers//offers/?api-version=2017-10-31&includeAllPricing=true
+    ```
+
+2. Find restricted audience objects in each SKU of the offer using this JPath query:
+
+    ```
+    $.definition.plans[*].restrictedAudience
+    ```
+3. Update the restricted audience object(s) for your offer.
+
+    **If you originally uploaded the subscription list for your private offer from CSV file:**
+
+    Your *restrictedAudience* object(s) will look like this.
+    ```
+    "restrictedAudience": {
+                  "uploadedCsvUri": "{SasUrl}"
+    }
+    ```
+
+    For each restricted audience object:
+
+    a. Download the content of `restrictedAudience.uploadedCsvUri`. The content is simply a CSV file with headers. For example:
+
+        type,id,description
+        subscriptionId,541a269f-3df2-486e-8fe3-c8f9dcf28205,sub1
+        subscriptionId,c0da499c-25ec-4e4b-a42a-6e75635253b9,sub2
+
+    b. Add or delete subscriptions in the downloaded CSV file as needed.
+
+    c. Upload the updated CSV file to a location, such as [Azure Blob storage](../../storage/blobs/storage-blobs-overview.md) or [OneDrive](https://onedrive.live.com), and create a read-only link to your file. This will be your new *SasUrl*.
+
+    d. Update the `restrictedAudience.uploadedCsvUri` key with your new *SasUrl*.
+
+    **If you manually entered the original list of subscriptions for your private offer from the Cloud Partner Portal:**
+
+    Your *restrictedAudience* object(s)
+ will look something like this:
+
+    ```
+    "restrictedAudience": {
+        "manualEntries": [{
+            "type": "subscriptionId",
+            "id": "541a269f-3df2-486e-8fe3-c8f9dcf28205",
+            "description": "sub1"
+            }, {
+            "type": "subscriptionId",
+            "id": "c0da499c-25ec-4e4b-a42a-6e75635253b9",
+            "description": "sub2"
+            }
+        ]}
+    ```
+
+    a. For each restricted audience object, add or delete entries in the `restrictedAudience.manualEntries` list as needed.
+
+4. When finished updating all the *restrictedAudience* objects for each SKU of your private offer, [update the offer](cloud-partner-portal-api-creating-offer.md):
+
+    ```
+    PUT https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31
+    ```
+    With that, your updated audience list is now in effect.
+
+Previewing private offers
 -------------------------
 
 During the preview/staging step, only the offer level preview
