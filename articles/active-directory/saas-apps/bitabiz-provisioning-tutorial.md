@@ -50,15 +50,15 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup BitaBIZ for provisioning
 
-1. Sign in to your [BitaBIZ Admin Console](https://www.bitabiz.com/login?lang=en). Click on **Setup Admin**
+1. Sign in to your [BitaBIZ Admin Console](https://www.bitabiz.com/login?lang=en). Click on **SETUP ADMIN**.
 
 	![BitaBIZ Admin Console](media/bitabiz-provisioning-tutorial/setup-admin.png)
 
-2.  Navigate to **Integration**. Click on it.
+2.  Navigate to **INTEGRATION**. Click on it.
 
 	![BitaBIZ Admin Console](media/bitabiz-provisioning-tutorial/integration.png)
 
-2.	Navigate to **to Microsoft Azure AD Provisioning. > Select Enabled in Automatic user provisioning**. Copy the values for **SCIM provisioning endpoint URL and  Bearer Token**. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your Peakon application in the Azure portal.
+2.	Navigate to **Microsoft Azure AD Provisioning**. > Select **Enabled** in Automatic user provisioning. Copy the values for **SCIM provisioning endpoint URL and  Bearer Token**. These values will be entered in the Tenant URL and Secret Token fields in the Provisioning tab of your BitaBIZ application in the Azure portal.
 
 	![BitaBIZ Add SCIM](media/bitabiz-provisioning-tutorial/authentication.png)
 
@@ -128,13 +128,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![BitaBIZ User Attributes](media/bitabiz-provisioning-tutorial/user-attribute.png)
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to BitaBIZ**.
-
-	![BitaBIZ Group Mappings](media/bitabiz-provisioning-tutorial/groupmapping.png)
-
-11. Review the group attributes that are synchronized from Azure AD to BitaBIZ in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in BitaBIZ for update operations. Select the **Save** button to commit any changes.
-
-	![BitaBIZ Group Attributes](media/bitabiz-provisioning-tutorial/groupattribute.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
