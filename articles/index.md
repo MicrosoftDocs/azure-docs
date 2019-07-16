@@ -5430,7 +5430,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Bastion</h3>
-                                                    <p>Secure seamless connectivity to virtual machines over SSL via the Azure portal without a public IP address</p>
+                                                    <p>Privately access services hosted on the Azure platform, keeping your data within the Microsoft network</p>
                                                 </div>
                                             </div>
                                         </div>
