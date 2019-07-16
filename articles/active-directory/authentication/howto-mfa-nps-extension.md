@@ -228,6 +228,14 @@ You can choose to create this key and set it to FALSE while your users are onboa
 
 ## Troubleshooting
 
+### NPS extension health check script
+
+The following script is available on the TechNet Gallery to perform basic health check steps when troubleshooting the NPS extension.
+
+[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+
+---
+
 ### How do I verify that the client cert is installed as expected?
 
 Look for the self-signed certificate created by the installer in the cert store, and check that the private key has permissions granted to user **NETWORK SERVICE**. The cert has a subject name of **CN \<tenantid\>, OU = Microsoft NPS Extension**

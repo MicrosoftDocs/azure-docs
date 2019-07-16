@@ -16,7 +16,7 @@ the NIST SP 800-53 R4 controls. For more information about the controls, see [NI
 The following mappings are to the **NIST SP 800-53 (Rev. 4)** controls. Use the navigation on the
 right to jump directly to a specific control mapping. Many of the mapped controls are implemented
 with an [Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative,
-open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **[Preview]:
+open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **\[Preview\]:
 Audit NIST SP 800-53 R4 controls and deploy specific VM Extensions to support audit requirements**
 built-in policy initiative.
 
@@ -141,13 +141,13 @@ Log data collected by Azure Monitor is stored in a Log Analytics workspace enabl
 configuration and management. This blueprint helps you ensure events are logged by assigning [Azure Policy](../../../policy/overview.md)
 definitions that audit and enforce deployment of the Log Analytics agent on Azure virtual machines.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
 ## AU-5 Response to Audit Processing Failures
 
@@ -166,13 +166,13 @@ Log data collected by Azure Monitor is stored in a Log Analytics workspace enabl
 reporting and analysis. This blueprint helps you ensure events are logged by assigning [Azure Policy](../../../policy/overview.md)
 definitions that audit and enforce deployment of the Log Analytics agent on Azure virtual machines.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
 ## AU-12 Audit Generation
 
@@ -408,13 +408,13 @@ provides reporting capabilities that enable you to have real-time insight into t
 deployed Azure resources. This blueprint also assigns a policy definition that ensures patching
 of the operating system for virtual machine scale sets.
 
+- Require automatic OS image patching on Virtual Machine Scale Sets
 - System updates on virtual machine scale sets should be installed
-- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - System updates should be installed on your virtual machines
+- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities in security configuration on your virtual machines should be remediated
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
-- Require automatic OS image patching on Virtual Machine Scale Sets
 
 ## SI-3 Malicious Code Protection
 
@@ -423,9 +423,9 @@ assigning [Azure Policy](../../../policy/overview.md) definitions that monitor f
 endpoint protection on virtual machines in Azure Security Center and enforce the Microsoft
 antimalware solution on Windows virtual machines.
 
+- Deploy default Microsoft IaaSAntimalware extension for Windows Server
 - Endpoint protection solution should be installed on virtual machine scale sets
 - Monitor missing Endpoint Protection in Azure Security Center
-- Deploy default Microsoft IaaSAntimalware extension for Windows Server
 
 ## SI-3 (1) Malicious Code Protection | Central Management
 

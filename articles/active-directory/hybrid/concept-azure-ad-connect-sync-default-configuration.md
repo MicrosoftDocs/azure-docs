@@ -67,7 +67,7 @@ The following attribute rules apply:
   2. Attributes that can be found in an Exchange GAL (Global Address List) are contributed from the forest with an Exchange Mailbox.
   3. If no mailbox can be found, then these attributes can come from any forest.
   4. Exchange related attributes (technical attributes not visible in the GAL) are contributed from the forest where `mailNickname ISNOTNULL`.
-  5. If there are multiple forests that would satisfy one of these rules, then the creation order (date/time) of the Connectors (forests) is used to determine which forest contributes the attributes.
+  5. If there are multiple forests that would satisfy one of these rules, then the creation order (date/time) of the Connectors (forests) is used to determine which forest contributes the attributes. The first forest connected will be the first forest to sync. 
 
 ### Contact out-of-box rules
 A contact object must satisfy the following to be synchronized:
