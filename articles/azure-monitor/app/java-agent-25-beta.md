@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
 ---
-# Monitor dependencies, caught exceptions and method execution times in Java web apps
+# Monitor dependencies, caught exceptions, and method execution times in Java web apps
 
 
 If you have [instrumented your Java web app with Application Insights][java], you can use the Java Agent to get deeper insights, without any code changes:
@@ -21,7 +21,7 @@ If you have [instrumented your Java web app with Application Insights][java], yo
 * **Dependencies:** Data about calls that your application makes to other components, including:
   * **Outgoing HTTP calls** made via Apache HttpClient, OkHttp, and `java.net.HttpURLConnection` are captured.
   * **Redis calls** made via the Jedis client are captured.
-  * **JDBC queries** - For MySQL and PostgreSQL, if the call takes longer than 10s, the agent reports the query plan.
+  * **JDBC queries** - For MySQL and PostgreSQL, if the call takes longer than 10 seconds, the agent reports the query plan.
 
 * **Application logging:** Capture and correlate your application logs with HTTP requests and other telemetry
   * **Log4j 1.2**
@@ -81,7 +81,7 @@ Set the content of the xml file. Edit the following example to include or omit t
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
-For Azure App Services do the following:
+For Azure App Services, do the following:
 
 * Select Settings > Application Settings
 * Under App Settings, add a new key value pair:
@@ -89,7 +89,7 @@ For Azure App Services do the following:
 Key: `JAVA_OPTS`
 Value: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0-BETA.jar`
 
-For the latest version of the Java agent check the releases [here](https://github.com/Microsoft/ApplicationInsights-Java/releases
+For the latest version of the Java agent, check the releases [here](https://github.com/Microsoft/ApplicationInsights-Java/releases
 ). 
 
 The agent must be packaged as a resource in your project such that it ends up in the D:/home/site/wwwroot/ directory. You can confirm that your agent is in the correct App Service directory by going to **Development Tools** > **Advanced Tools** > **Debug Console** and examining the contents of the site directory.    
@@ -119,7 +119,7 @@ Ideally this would be the case when all your services have been updated to newer
 Make sure that **both [incoming](correlation.md#w3c-distributed-tracing) and outgoing (agent) configurations** are exactly same.
 
 ## View the data
-In the Application Insights resource, aggregated remote dependency and method execution times appears [under the Performance tile][metrics].
+In the Application Insights resource, aggregated remote dependency and method execution times appear [under the Performance tile][metrics].
 
 To search for individual instances of dependency, exception, and method reports, open [Search][diagnostic].
 

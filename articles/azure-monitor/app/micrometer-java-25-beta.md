@@ -82,9 +82,9 @@ Steps:
 Default Metrics:
 
 *    Automatically configured metrics for Tomcat, JVM, Logback Metrics, Log4J metrics, Uptime Metrics, Processor Metrics, FileDescriptorMetrics.
-*    For example, if the netflix hystrix is present on class path we get those metrics as well. 
+*    For example, if Netflix Hystrix is present on class path we get those metrics as well. 
 *    The following metrics can be available by adding respective beans. 
-        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcaseCache, Jcache)     
+        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache, JCache)     
         - DataBaseTableMetrics 
         - HibernateMetrics 
         - JettyMetrics 
@@ -272,5 +272,5 @@ Add the following binding code to the configuration  file:
 
 ## Next steps
 
-* To learn more about Micrometer refer to the official [Micrometer documentation](https://micrometer.io/docs).
-* To learn about Spring on Azure refer to the official [Spring on Azure documentation](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).
+* To learn more about Micrometer, refer to the official [Micrometer documentation](https://micrometer.io/docs).
+* To learn about Spring on Azure, refer to the official [Spring on Azure documentation](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).
