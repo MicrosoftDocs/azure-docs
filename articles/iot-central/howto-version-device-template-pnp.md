@@ -19,7 +19,7 @@ Azure IoT Central allows rapid development of IoT Applications. You can quickly 
 A device template has a version number when you create it. By default, the version number is 1.0.0. If you edit a device template, and if that change could impact live connected devices, Azure IoT Central prompts you to create a new device template version.
 
 > [!NOTE]
-> To learn more about how to create a device template see [Set up a device template](howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> To learn more about how to create a device template see [Set up and manage a device template](howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 ## Changes that prompt a version change
 

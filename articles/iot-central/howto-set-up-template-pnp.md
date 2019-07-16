@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Set up a device template (Plug and Play)
+# Set up and manage a device template (Plug and Play)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
@@ -18,289 +18,209 @@ A device template is a blueprint that defines the characteristics and behaviors 
 
 For example, a builder can create a device template for a connected fan that has the following characteristics:
 
-- Temperature telemetry measurement
-- Location measurement
-- Fan motor error event measurement
-- Fan operating state measurement
-- Fan speed setting
-- Rules that send alerts
+- Sends temperature telemetry
+- Sends location property
+- Sends fan motor error events
+- Sends fan operating state
+- Writeable fan speed property
+- Command to restart the device
 - Dashboard that gives you an overall view of the device
 
-From this device template, an operator can create and connect real fan devices with names such as **fan-1** and **fan-2**. All these fans have measurements, settings, properties, rules, and a dashboard that users of your application can monitor and manage.
+From this device template, an operator can create and connect real fan devices. All these fans have measurements, properties, and commands that operators use to monitor and manage then. Operators use the device dashboards and forms to interact with the fan devices.
 
 > [!NOTE]
 > Only builders and administrators can create, edit, and delete device templates. Any user can create devices on the **Device Explorer** page from existing device templates.
 
 ## Create a device template
 
-1. Navigate to the **Device Templates** page.
+A device template contains:
 
-2. To create a template, start by selecting **+New**.
+- A _device capability model_ that specifies the telemetry, properties, and commands that the device implements. These capabilities are organized into one or more interfaces.
+- _Cloud properties_ that define information that your IoT Central application stores about your devices. For example, a cloud property might record the data a device was last serviced. This information is never shared with the device.
+- _Customizations_ let the builder override some of the definitions in the device capability model. For example, the builder could override the name of a device property. Property names appear in IoT Central dashboards and forms.
+- _Dashboards and forms_ let the builder create a UI that lets operators monitor and manage the devices connected to your application.
 
-3. To get started quickly, choose from the existing pre-built templates. Otherwise, select **Custom**, enter a name, and click **Create** to build your own template from scratch.
+To create a device template:
 
-   ![Device template library](./media/howto-set-up-template-pnp/newtemplate.png)
+1. Go to the **Device Definitions** page in your IoT Central application.
+1. Select **+ New**, then select **Custom**.
+1. Enter a name for your template, such as **Refrigerated Vending Machine**.
+1. Press **Enter**. IoT Central creates an empty device template.
 
-4. When you create a custom template, you see the **Device Details** page for your new device template. IoT Central automatically creates a simulated device when you create a device template. A simulated device lets you test the behavior of your application before you connect a real device.
+## Manage a device template
 
-The following sections describe each of the tabs on the **Device Template** page.
+You can rename or delete a template from the template's home page.
 
-## Measurements
+After you've added a device capability model to your template, you can publish it. You can't connect a device based on this template until you've published it.
 
-Measurements are the data that comes from your device. You can add multiple measurements to your device template to match the capabilities of your device.
+## Create a capability model
 
-- **Telemetry** measurements are the numerical data points that your device collects over time. They're represented as a continuous stream. An example is temperature.
-- **Event** measurements are point-in-time data that represents something of significance on the device. A severity level represents the importance of an event. An example is a fan motor error.
-- **State** measurements represent the state of the device or its components over a period of time. For example, a fan mode can be defined as having **Operating** and **Stopped** as the two possible states.
-- **Location** measurements are the longitude and latitude coordinates of the device over a period of time in. For example, a fan can be moved from one location to another.
+To create a device capability model, you can:
 
-### Create a telemetry measurement
+- Use IoT Central to create a custom model from scratch.
+- Import a model from a JSON file. A device builder may have used Visual Studio Code to author a device capability model for your application.
 
-To add a new telemetry measurement, select **+ New Measurement**, choose **Telemetry** as the measurement type, and enter the details on the form.
+To add a device capability model to your template:
 
-> [!NOTE]
-> The field names in the device template must match the property names in the corresponding device code in order for the telemetry measurement to be displayed in the application when a real device is connected. Do the same when you configure settings, device properties, and commands as you continue to define the device template in the following sections.
-.png
-For example, you can add a new temperature telemetry measurement:
+After you create the template, on the **Create a Capability Model** page, choose either **Custom** or **Import Capability Model**.
 
-| Display Name        | Field Name    |  Units    | Min   |Max|
-| --------------------| ------------- |-----------|-------|---|
-| Temperature         | temp          |  degC     |  0    |100|
+## Manage a capability model
 
-!["Create Telemetry" form with details for temperature measurement](./media/howto-set-up-template-pnp/measurementsform.png)
+After you create a device capability model, you can:
 
-After you select **Save**, the **Temperature** measurement appears in the list of measurements. In a short while, you see the visualization of the temperature data from the simulated device.
+- Add interfaces to the model. A model must have at least one interface.
+- Edit model metadata such as its ID, namespace, and name.
+- Delete the model
 
-When displaying telemetry, you can choose from the following aggregation options: Average, Minimum, Maximum, Sum, and Count. **Average** is selected as the default aggregation on the chart.
+## Create an interface
 
-> [!NOTE]
-> The data type of the telemetry measurement is a floating point number.
+A device capability must have at least one interface. An interface is a reusable collection of capabilities.
 
-### Create an event measurement
+To create an interface:
 
-To add a new event measurement, select **+ New Measurement** and select **Event** as the measurement type. Enter the details on the **Create Event** form.
+1. Go to your device capability model and choose **+ Add Interface**.
 
-Provide the **Display Name**, **Field Name**, and **Severity** details for the event. You can choose from the three available levels of severity: **Error**, **Warning**, and **Information**.
+1. On the **Select an Interface** page, you can:
 
-For example, you can add a new **Fan Motor Error** event.
+    - Create a custom interface from scratch.
+    - Import an existing interface. A device builder may have used Visual Studio Code to author an interface for your device.
+    - Choose one of the standard interfaces such as the **Device Information** interface. Standard interfaces specify the capabilities common to many devices.
 
-| Display Name        | Field Name    |  Default Severity |
-| --------------------| ------------- |-----------|
-| Fan Motor Error     | fanmotorerror |  Error    |
+1. After you create an interface, choose **Edit Identity** to change the display name of the interface.
 
-!["Create Event" form with details for a fan motor event](./media/howto-set-up-template-pnp/eventmeasurementsform.png)
+1. If you choose to create a custom interface from scratch, you can add your device's capabilities. Device capabilities are telemetry, properties, and commands.
 
-After you select **Save**, the **Fan Motor Error** measurement appears in the list of measurements. In a short while, you see the visualization of the event data from the simulated device.
+### Telemetry
 
-To view more details about an event, select the event icon on the chart:
+Telemetry is a stream of values sent from the device, typically from a sensor. For example, a sensor could report the ambient temperature.
 
-![Details for the "Fan Motor Error" event](./media/howto-set-up-template-pnp/eventmeasurementsdetail.png)
+The following table shows the configuration settings for a  telemetry capability:
 
-> [!NOTE]
-> The data type of the event measurement is string.
+| Field | Description |
+| ----- | ----------- |
+| Display Name | The display name for the telemetry value used on dashboards and forms. |
+| Name | The name of the field in the telemetry message. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
+| Capability Type | Telemetry |
+| Semantic Type | The semantic type of the telemetry such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
+| Schema | The telemetry data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
+| Severity | Only available for the event semantic type. **Error**, **Information**, or **Warning**. |
+| State Values | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value. |
+| Unit | A unit for the telemetry value such as **mph**, **%**, or **&deg;C**. |
+| Display Unit | A display unit for use on dashboards and forms. |
+| Comment | Any comments about the telemetry capability. |
+| Description | A description of the telemetry capability. |
 
-### Create a state measurement
+### Properties
 
-To add a new state measurement, select the **+ New Measurement** button and select **State** as the measurement type. Enter the details on the **Create State** form.
+Properties represent point in time values. For example, a device could use a property to report the target temperature it's trying to reach. You can set writeable properties from IoT Central.
 
-Provide the details for **Display Name**, **Field Name**, and **Values** of the state. Each value can also have a display name that will be used when the value appears in charts and tables.
+The following table shows the configuration settings for a  property capability:
 
-For example, you can add a new **Fan Mode** state that has two possible values that the device can send, **Operating** and **Stopped**.
+| Field | Description |
+| ----- | ----------- |
+| Display Name | The display name for the property value used on dashboards and forms. |
+| Name | The name of the property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
+| Capability Type | Property |
+| Semantic Type | The semantic type of the property such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
+| Schema | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
+| Writeable | If the property isn't writeable, the device can report property values to IoT Central. If the property is writeable, the device can report property values to IoT Central and IoT Central can send property updates to the device.
+| Severity | Only available for the event semantic type. **Error**, **Information**, or **Warning**. |
+| State Values | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value. |
+| Unit | A unit for the property value such as **mph**, **%**, or **&deg;C**. |
+| Display Unit | A display unit for use on dashboards and forms. |
+| Comment | Any comments about the property capability. |
+| Description | A description of the property capability. |
 
-| Display Name | Field Name    |  Value 1   | Display Name | Value 2    |Display Name  | 
-| -------------| ------------- |----------- | -------------| -----------| -------------|
-| Fan Mode     | fanmode       |  1         | Operating    |     0      | Stopped      |
+### Commands
 
-!["Edit State" form with details for fan mode](./media/howto-set-up-template-pnp/statemeasurementsform.png)
+You can call device commands from IoT Central. Commands optionally pass parameters to the device and receive a response from the device. For example, you could call a command to reboot a device in ten-seconds time.
 
-After you select **Save**, the **Fan Mode** state measurement appears in the list of measurements. In a short while, you see the visualization of the state data from the simulated device.
+The following table shows the configuration settings for a  command capability:
 
-If the device sends too many data points in a small duration, the state measurement appears with a different visual. Select the chart to view all the data points within that time period in chronological order. You can also narrow down the time range to see the measurement plotted on the chart.
+| Field | Description |
+| ----- | ----------- |
+| Display Name | The display name for the command used on dashboards and forms. |
+| Name | The name of the command. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
+| Capability Type | Command |
+| Command | SynchronousExecutionType. |
+| Comment | Any comments about the command capability. |
+| Description | A description of the command capability. |
+| Request | If enabled, a definition of the request parameter including: name, display name, schema, unit, and display unit. |
+| Response | If enabled, a definition of the command response including: name, display name, schema, unit, and display unit. |
 
-> [!NOTE]
-> The data type of the state measurement is string.
+## Manage an interface
 
-### Create a location measurement
+Provided you haven't published the interface, you can edit the capabilities defined by the interface.
 
-To add a new location measurement, select **+ New Measurement**, choose **Location** as the measurement type, and enter the details on the **Create Measurement** form.
+You can also export the interface as a JSON file if you want to reuse it in another capability model.
 
-For example, you can add a new location telemetry measurement:
+## Add cloud properties
 
-| Display Name        | Field Name    |
-| --------------------| ------------- |
-| Asset Location      |  assetloc     |
+Use cloud properties to store information about devices in IoT Central. Cloud properties are never sent to a device. For example, you could use cloud properties to store the name of the customer who has installed the device, or the device's last service date.
 
-!["Create Location" form with details for location measurement](./media/howto-set-up-template-pnp/locationmeasurementsform.png)
+The following table shows the configuration settings for a  cloud property:
 
-After you select **Save**, the **Location** measurement appears in the list of measurements. In a short while, you see the visualization of the location data from the simulated device.
+| Field | Description |
+| ----- | ----------- |
+| Display Name | The display name for the cloud property value used on dashboards and forms. |
+| Name | The name of the cloud property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
+| Semantic Type | The semantic type of the property such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
+| Schema | The cloud property data type, such as double, string, or vector. The available choices are determined by the semantic type. |
 
-When displaying location, you can choose from the following options: latest location and location history. **Location history** is only applied over the selected time range.
+## Add customizations
 
-The data type of the location measurement is an object that contains longitude, latitude, and an optional altitude. The following snippet shows the JavaScript structure:
+Use customizations when you need to modify an imported interface or add IoT Central-specific features to a capability. You can only customize fields that don't break interface compatibility. For example, you can:
 
-```javascript
-assetloc: {
-  lon: floating point number,
-  lat: floating point number,
-  alt?: floating point number
-}
-```
+- Customize the display name and units of a capability.
+- Add a default color to use when the value appears on a chart.
+- Specify initial, minimum, and maximum values for a property.
 
-## Settings
+You can't customize the capability name or capability type.
 
-Settings control a device. They enable operators to provide inputs to the device. You can add multiple settings to your device template that appear as tiles on the **Settings** tab for operators to use. You can add many types of settings: number, text, date, toggle, pick list, and section label.
+## Add dashboards
 
-Settings can be in one of three states. The device reports these states.
+Add dashboards to device definition to enable operators to visualize a device using charts and metrics. You can have multiple dashboards for a device definition.
 
-- **Synced**: The device has changed to reflect the setting value.
+To add a dashboard to a device definition:
 
-- **Pending**: The device is currently changing to the setting value.
+1. Go to your device definition and select **Views**.
+1. Then choose **Visualizing the Device**.
+1. Enter a name for your dashboard in **Dashboard Name**.
+1. Add tiles to your dashboard from the list of static, property, cloud property, telemetry, and command tiles.
+1. To plot multiple telemetry values on a single chart tile, select the telemetry values and then select **Combine**.
+1. Configure each tile you add to customize how it displays data.
+1. Arrange and resize the tiles on your dashboard.
+1. Save the changes.
 
-- **Error**: The device has returned an error.
+## Add forms
 
-For example, you can add a new fan speed setting by selecting **Settings** and entering in the new **Number** setting:
+Add forms to device definition to enable operators to manage a device by viewing and setting properties. Operators can only edit cloud properties and writeable device properties. You can have multiple forms for a device definition.
 
-| Display Name  | Field Name    |  Units  | Decimals |Initial|
-| --------------| ------------- |---------| ---------|---- |
-| Fan Speed     | fanSpeed      | RPM     | 2        | 0   |
+To add a form to a device definition:
 
-!["Configure Number" form with details for speed settings](./media/howto-set-up-template-pnp/settingsform.png)
+1. Go to your device definition and select **Views**.
+1. Then choose **Editing Device and Cloud data**.
+1. Enter a name for your form in **Form Name**.
+1. Select the number of columns to use to lay out your form.
+1. Add properties to an existing section on your form, or select properties and choose **Add Section**. Use sections to group properties on your form. You can add a title to a section.
+1. Configure each property on the form to customize its behavior.
+1. Arrange the properties on your form.
+1. Save the changes.
 
-After you select **Save**, the **Fan Speed** setting appears as a tile. An operator can use the setting on the **Device Explorer** page to change the fan speed of the device.
+## Publish a device definition
 
-## Properties
+Before you can connect a device that implements your device capability model, you must publish your device definition.
 
-Properties are metadata that's associated with the device, such as a fixed device location and serial number. Add multiple properties to your device template that appear as tiles on the **Properties** tab. A property has a type such as number, text, date, toggle, device property, label, or a fixed location. An operator specifies the values for properties when they create a device, and they can edit these values at any time. Device properties are read-only and are sent from the device to the application. An operator can't change device properties. When a real device connects, the device property tile updates in the application.
+After you publish a device definition, you can only make limited changes to the device capability model. To modify an interface definition, you need to [create and publish a new version](./howto-version-device-template-pnp.md).
 
-There are two categories of properties:
+To publish a device definition, go to you your device definition and select **Publish**.
 
-- _Device properties_ that the device reports to the IoT Central application. Device properties are read-only values reported by the device and are updated in the application when a real device is connected.
-- _Application properties_ that are stored in the application and can be edited by the operator. Application properties are only stored in the application and are never seen by a device.
-
-For example, you can add the last serviced date for the device as a new **Date** property (an application property) on the **Properties** tab:
-
-| Display Name  | Field Name | Initial Value   |
-| --------------| -----------|-----------------|
-| Last serviced      | lastServiced        | 01/29/2019     |
-
-!["Configure Last Serviced" form on the "Properties" tab](./media/howto-set-up-template-pnp/propertiesform.png)
-
-After you select **Save**, the last serviced date for the device appears as a tile.
-
-After you create the tile, you can change the application property value in the **Device Explorer**.
-
-### Create a location property
-
-You can give geographic context to your location data in Azure IoT Central and map any latitude and longitude coordinates or a street address. Azure Maps enables this capability in IoT Central.
-
-You can add two types of location properties:
-
-- **Location as an application property**, which is stored in the application. Application properties are only stored in the application and are never seen by a device.
-- **Location as a device property**, which the device reports to the application. This type of property is best used for a static location.
-
-> [!NOTE]
-> Location as a property does not record a history. If history is desired, use a location measurement.
-
-#### Add location as an application property
-
-You can create a location property as an application property by using Azure Maps in your IoT Central application. For example, you can add the device installation address:
-
-1. Navigate to the **Properties** tab.
-
-2. In the library, select **Location**.
-
-3. Configure **Display Name**, **Field Name**, and (optionally) **Initial Value** for the location.
-
-    | Display Name  | Field Name | Initial Value |
-    | --------------| -----------|---------|
-    | Installation address | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
-
-   !["Configure Location" form with details for location](./media/howto-set-up-template-pnp/locationcloudproperty2.png)
-
-   There are two supported formats to add a location:
-   - **Location as an address**
-   - **Location as coordinates**
-
-4. Select **Save**. An operator can update the location value in the **Device Explorer**.
-
-#### Add location as a device property
-
-You can create a location property as a device property that the device reports. For example, if you want to track the device location:
-
-1. Navigate to the **Properties** tab.
-
-2. Select **Device Property** from the library.
-
-3. Configure the display name and field name, and select **Location** as the data type:
-
-    | Display Name  | Field Name | Data Type |
-    | --------------| -----------|-----------|
-    | Device location | deviceLocation | location  |
-
-   > [!NOTE]
-   > The field names must match the property names in the corresponding device code
-
-   !["Configure Device Properties" form with details for location](./media/howto-set-up-template-pnp/locationdeviceproperty2.png)
-
-Once the real device is connected, the location you added as a device property is updated with the value sent by the device. After you've configured your location property, you can [add a map to visualize the location in the device dashboard](#add-a-location-in-the-dashboard).
-
-## Commands
-
-Commands are used to remotely manage a device. They enable operators to run commands on the device. You can add multiple commands to your device template that appear as tiles on the **Commands** tab for operators to use. As the builder of the device, you have the flexibility to define commands according to your requirements.
-
-How is a command different from a setting?
-
-* **Setting**: A setting is a configuration that you want to apply to a device. You want the device to persist that configuration until you change it. For example, you want to set the temperature of your freezer, and you want that setting even when the freezer restarts.
-
-* **Command**: You use commands to instantly run a command on the device remotely from IoT Central. If a device isn't connected, the command times out and fails. For example, you want to restart a device.
-
-For example, you can add a new **Echo** command by selecting the **Commands** tab, then selecting **+ New Command**, and entering the new command details:
-
-| Display Name  | Field Name | Default Timeout | Data Type |
-| --------------| -----------|---------------- | --------- |
-| Echo Command  | echo       |  30             | text      |
-
-!["Configure Command" form with details for echo](./media/howto-set-up-template-pnp/commandsecho1.png)
-
-After you select **Save**, the **Echo** command appears as a tile and is ready to be used from the **Device Explorer** when your real device connects. The field names of your command must match the property names in the corresponding device code in order for commands to run successfully.
-
-## Rules
-
-Rules enable operators to monitor devices in near real time. Rules automatically invoke actions such as sending an email when the rule is triggered. One type of rule is available today:
-
-- **Telemetry rule**, which is triggered when the selected device telemetry crosses a specified threshold. [Learn more about telemetry rules](howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
-
-## Dashboard
-
-The dashboard is where an operator goes to see information about a device. As a builder, you add tiles to this page to help operators understand how the device is behaving. You can add many types of dashboard tiles such as image, line chart, bar chart, key performance indicator (KPI), settings and properties, and label.
-
-For example, you can add a **Settings and Properties** tile to show a selection of the current values of settings and properties by selecting the **Dashboard** tab and the tile from the Library:
-
-!["Configure Device Details" form with details for settings and properties](./media/howto-set-up-template-pnp/dashboardsettingsandpropertiesform1.png)
-
-Now when an operator views the dashboard in the **Device Explorer**, they can see the tile.
-
-### Add a location in the dashboard
-
-If you configured a location measurement, you can visualize the location with a map in your device dashboard.
-
-1. Navigate to the **Dashboard** tab.
-
-1. On the device dashboard, select **Map** from the library.
-
-1. Give the map a title. The following example has the title **Device Current Location**. Then choose the location measurement that you previously configured on the **Measurements** tab. In the following example, the **Asset Location** measurement is selected:
-
-   !["Configure Map" form with details for title and properties](./media/howto-set-up-template-pnp/locationcloudproperty5map.png)
-
-1. Select **Save**. The map tile now displays the location that you selected.
-
-You can resize the map tile. When an operator views the dashboard in the **Device Explorer**, all the dashboard tiles that you've configured, including a location map are visible.
+After you publish a device definition, an operator can go to the **Device Explorer** page and add either real or simulated devices that use your device definition.
 
 ## Next steps
 
 Now that you've learned how to set up a device template in your Azure IoT Central application, you can:
 
 > [!div class="nextstepaction"]
-> [Create a new device template version](howto-version-devicetemplate.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Create a new device template version](howto-version-device-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 > [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-> [Connect a generic client application to your Azure IoT Central application (Node.js)](howto-connect-nodejs.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
