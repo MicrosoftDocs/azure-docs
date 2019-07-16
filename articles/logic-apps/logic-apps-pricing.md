@@ -44,10 +44,11 @@ An [*integration service environment* (ISE)](../logic-apps/connect-virtual-netwo
 * [Built-in triggers and actions](../connectors/apis-list.md#built-in)
 * [Standard connectors](../connectors/apis-list.md#managed-connectors)
 * [Enterprise connectors](../connectors/apis-list.md#enterprise-connectors), which include as many connections as you want
-* An integration account that's based on your ISE's SKU:
+* An integration account that's based on your ISE SKU:
 
-  * **Premium**: A single [Standard tier integration account](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
-  * **Developer**: A single [Free tier integration account](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
+  * **Premium**: A [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
+
+  * **Developer**: A [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account. The Developer ISE can use only Free tier integration accounts.
 
 > [!NOTE]
 > Within an ISE, built-in triggers and actions display the 
@@ -56,10 +57,7 @@ An [*integration service environment* (ISE)](../logic-apps/connect-virtual-netwo
 > label run in the same ISE as your logic apps. Connectors 
 > that don't display the ISE label run in the global Logic Apps service.
 
-Your ISE base unit has fixed capacity, so if you need more throughput, 
-you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 
-either during creation or afterwards. Logic apps that run in an ISE 
-don't incur data retention costs.
+For a Premium ISE, the base unit has fixed capacity, so if you need more throughput, you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), either during creation or afterwards. Logic apps that run in an ISE don't incur data retention costs.
 
 For specific pricing information, see 
 [Azure Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
