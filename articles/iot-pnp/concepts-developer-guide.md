@@ -9,11 +9,11 @@ ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# Plug and Play modeling developer guide
+# IoT Plug and Play modeling developer guide
 
-IoT Plug and Play lets you build devices that advertise their capabilities to Azure IoT applications. Plug and Play devices don't require manual configuration when a customer connects them to Plug and Play-enabled applications. IoT Central is an example of a Plug and Play-enabled application.
+IoT Plug and Play lets you build devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications. IoT Central is an example of an IoT Plug and Play-enabled application.
 
-To build a Plug and Play device, you need to create a device description. The description is done with a simple definition language called Digital Twins Definition Language (DTDL).
+To build an IoT Plug and Play device, you need to create a device description. The description is done with a simple definition language called Digital Twins Definition Language (DTDL).
 
 ## Device capability model
 
@@ -128,7 +128,7 @@ Use asynchronous commands for long-running operations. The device sends progress
 
 ## Register a device
 
-Plug and Play makes it easy to advertise the capabilities of your device. With Plug and Play, after your device connects to IoT Hub, you must register your device capability model. Registration enables customers to use the Plug and Play capabilities of your device.
+IoT Plug and Play makes it easy to advertise the capabilities of your device. With IoT Plug and Play, after your device connects to IoT Hub, you must register your device capability model. Registration enables customers to use the IoT Plug and Play capabilities of your device.
 
 This guide shows you how to register a device using the Azure IoT Device SDK for C.
 
@@ -173,9 +173,9 @@ result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
 
 ## Use a device
 
-Plug and Play lets you use devices that have registered their capabilities with your IoT hub. For example, you can access the properties and commands of a device directly.
+IoT Plug and Play lets you use devices that have registered their capabilities with your IoT hub. For example, you can access the properties and commands of a device directly.
 
-To use a Plug and Play device that's connected to your IoT hub, use either the IoT Hub REST API or one of the IoT language SDKs. The following examples use the IoT Hub REST API.
+To use an IoT Plug and Play device that's connected to your IoT hub, use either the IoT Hub REST API or one of the IoT language SDKs. The following examples use the IoT Hub REST API.
 
 To get the value of a device property, such as the firmware version (`fwVersion`) in the `DeviceInformation` interface in the thermostat, you use the digital twins REST API.
 
@@ -203,7 +203,7 @@ More generally, properties for a specific interface can be accessed through this
 GET /digitalTwins/{device-id}/interfaces/{interface-name}
 ```
 
-You can call Plug and Play device commands directly. If the `Thermostat` interface in the `t-123` device has a `restart` command, you can call it with a REST API POST call:
+You can call IoT Plug and Play device commands directly. If the `Thermostat` interface in the `t-123` device has a `restart` command, you can call it with a REST API POST call:
 
 ```REST
 POST /digitalTwins/t-123/interfaces/thermostat/commands/restart
