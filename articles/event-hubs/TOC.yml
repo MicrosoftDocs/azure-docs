@@ -59,6 +59,8 @@
   items:
   - name: Event Hubs terminology
     href: event-hubs-features.md
+  - name: Event processor host
+    href: event-hubs-event-processor-host.md
   - name: Availability and consistency
     href: event-hubs-availability-and-consistency.md
   - name: Scalability
@@ -90,8 +92,6 @@
       href: event-hubs-exchange-events-different-protocols.md
     - name: Programming guide
       href: event-hubs-programming-guide.md
-    - name: Receive events using Event Processor Host 
-      href: event-hubs-event-processor-host.md
   - name: Process data
     items:
     - name: Process data using Azure Stream Analytics 
