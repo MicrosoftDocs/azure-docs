@@ -109,7 +109,7 @@ When you create your ISE, you can select the Developer SKU or Premium SKU. Here 
 
 * **Premium**
 
-  Provides an ISE that you can use for production and includes SLA support, built-in triggers and actions, Standard connectors, Enterprise connectors, a Standard tier integration account, options for scaling capacity, and redundancy during recycling for a fixed monthly price.
+  Provides an ISE that you can use for production and includes SLA support, built-in triggers and actions, Standard connectors, Enterprise connectors, a [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account, options for scaling capacity, and redundancy during recycling for a fixed monthly price.
 
 For pricing information, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 

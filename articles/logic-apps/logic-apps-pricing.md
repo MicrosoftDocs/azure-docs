@@ -41,7 +41,7 @@ An [*integration service environment* (ISE)](../logic-apps/connect-virtual-netwo
 * [Built-in triggers and actions](../connectors/apis-list.md#built-in)
 * [Standard connectors](../connectors/apis-list.md#managed-connectors)
 * [Enterprise connectors](../connectors/apis-list.md#enterprise-connectors)
-* An integration account that's based on your ISE SKU:
+* An integration account that's based on your [ISE SKU](../connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
   * **Premium**: A [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
@@ -54,7 +54,7 @@ An [*integration service environment* (ISE)](../logic-apps/connect-virtual-netwo
 > label run in the same ISE as your logic apps. Connectors 
 > that don't display the ISE label run in the global Logic Apps service.
 
-For a Premium ISE, the base unit has fixed capacity, so if you need more throughput, you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), either during creation or afterwards. Logic apps that run in an ISE don't incur data retention costs.
+For the Premium ISE, the base unit has fixed capacity, so if you need more throughput, you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), either during creation or afterwards. The Developer SKU doesn't include the capability to add scale units. Logic apps that run in an ISE don't incur data retention costs.
 
 For specific pricing information, see [Azure Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
