@@ -36,9 +36,9 @@ To use the Java agent, you install it on your server. Your web apps must be inst
 
 ## Install the Application Insights agent for Java
 1. On the machine running your Java server, [download the agent](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Please ensure to download the same version of Java Agent as Application Insights Java SDK core and web packages.
-2. Edit the application server startup script, and add the following JVM:
+2. Edit the application server startup script, and add the following JVM arg:
    
-    `javaagent:`*full path to the agent JAR file*
+    `-javaagent:<full path to the agent JAR file>`
    
     For example, in Tomcat on a Linux machine:
    
@@ -56,20 +56,21 @@ Set the content of the xml file. Edit the following example to include or omit t
    <Instrumentation>
       <BuiltIn enabled="true">
 
-         <!-- disable capturing logging performed through Log4j 1.2, Log4j2 and Logback, default is true -->
+         <!-- capture logging via Log4j 1.2, Log4j2, and Logback, default is true -->
          <Logging enabled="true" />
 
-         <!-- disable capturing outgoing HTTP calls performed through Apache HttpClient,
-              OkHttp and java.net.HttpURLConnection, default is true -->
+         <!-- capture outgoing HTTP calls performed through Apache HttpClient, OkHttp,
+              and java.net.HttpURLConnection, default is true -->
          <HTTP enabled="true" />
 
-         <!-- disable capturing JDBC queries, default is true -->
+         <!-- capture JDBC queries, default is true -->
          <JDBC enabled="true" />
 
-         <!-- disable capturing Redis calls, default is true -->
+         <!-- capture Redis calls, default is true -->
          <Jedis enabled="true" />
 
-         <!-- Set SQL query duration above which query plan is reported (MySQL, PostgreSQL). Default is 10000 ms. -->
+         <!-- capture query plans for JDBC queries that exceed this value (MySQL, PostgreSQL),
+              default is 10000 milliseconds -->
          <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
 
       </BuiltIn>
