@@ -14,7 +14,11 @@ ms.date: 07/08/2019
 
 # Deploy a model to an Azure Kubernetes Service cluster
 
-Learn how to use the Azure Machine Learning service to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. It provides fast response time and autoscaling of the deployed service.
+Learn how to use the Azure Machine Learning service to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. Use Azure Kubernetes service if you need one or more of the following capabilities:
+
+- __Fast response time__.
+- __Autoscaling__ of the deployed service.
+- __Hardware acceleration__ options such as GPU and field-programmable gate arrays (FPGA).
 
 > [!IMPORTANT]
 > Cluter scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see [Scale the node count in an AKS cluster](/azure/aks/scale-cluster.md).
@@ -100,6 +104,9 @@ For more information, see the [az ml computetarget create ask](https://docs.micr
 **Time estimate:** Approximately 5 minutes.
 
 If you already have AKS cluster in your Azure subscription, and it is version 1.12.##, you can use it to deploy your image.
+
+> [!TIP]
+> The existing AKS cluster can be in a Azure region than your Azure Machine Learning service workspace.
 
 > [!WARNING]
 > When attaching an AKS cluster to a workspace, you can define how you will use the cluster by setting the `cluster_purpose` parameter.
