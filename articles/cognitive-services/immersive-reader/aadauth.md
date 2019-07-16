@@ -22,17 +22,17 @@ In the following sections, you'll use either the Azure Cloud Shell environment o
 1. Start by opening the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview). Then [select a subscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
 
    ```azurecli-interactive
-   Select-AzureSubscription -SubscriptionName <YOUR_SUBCRIPTION>
+   Select-AzureSubscription -SubscriptionName <YOUR_SUBSCRIPTION>
    ```
 
 2. Next, [create an Immersive Reader resource](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) with a custom subdomain. 
 
    >[!NOTE]
-   > The Subdomain name is used in Immersive Reader SDK when launching the Reader with the launchAsync() method.
+   > The Subdomain name is used in Immersive Reader SDK when launching the Reader with the launchAsync function.
 
    -SkuName can be F0 (Free tier) or S0 (Standard tier, also free during public preview). The S0 tier has a higher call rate limit and no monthly quota on the number of calls.
 
-   -Location can be any of the following: `eastus`, `westus`, `austrailiaeast`, `centralindia`, `japaneast`, `northeurope`, `westeurope`
+   -Location can be any of the following: `eastus`, `westus`, `australiaeast`, `centralindia`, `japaneast`, `northeurope`, `westeurope`
    
    -CustomSubdomainName needs to be globally unique and cannot include special characters, such as: ".", "!", ",".
 
