@@ -51,25 +51,25 @@ To start using PIM in your directory, you must first enable PIM.
 
 1. In the list, click **Consent to PIM**.
 
-    ![Consent to PIM](./media/pim-getting-started/consent-pim.png)
+    ![Consent to PIM to enable PIM](./media/pim-getting-started/consent-pim.png)
 
 1. Click **Verify my identity** to verify your identity with Azure MFA. You'll be asked to pick an account.
 
-    ![Pick an account](./media/pim-getting-started/pick-account.png)
+    ![Pick an account window to verify your identity](./media/pim-getting-started/pick-account.png)
 
 1. If more information is required for verification, you'll be guided through the process. For more information, see [Get help with two-step verification](https://go.microsoft.com/fwlink/p/?LinkId=708614).
 
-    ![More information required](./media/pim-getting-started/more-information-required.png)
+    ![More information required window if your organization needs more information](./media/pim-getting-started/more-information-required.png)
 
     For example, you might be asked to provide phone verification.
 
-    ![Additional security verification](./media/pim-getting-started/additional-security-verification.png)
+    ![Additional security verification page asking how to contact you](./media/pim-getting-started/additional-security-verification.png)
 
 1. Once you have completed the verification process, click the **Consent** button.
 
 1. In the message that appears, click **Yes** to consent to the PIM service.
 
-    ![Consent to PIM message](./media/pim-getting-started/consent-pim-message.png)
+    ![Consent to PIM message to complete consent process](./media/pim-getting-started/consent-pim-message.png)
 
 ## Sign up PIM for Azure AD roles
 
@@ -95,7 +95,7 @@ Once you have enabled PIM for your directory, you'll need to sign up PIM to mana
 
 Once PIM is set up, you can perform your identity management tasks.
 
-![Top-level tasks for PIM - screenshot](./media/pim-getting-started/pim-quickstart-tasks.png)
+![Navigation window in PIM showing Tasks and Manage options](./media/pim-getting-started/pim-quickstart-tasks.png)
 
 | Task + Manage | Description |
 | --- | --- |
@@ -120,11 +120,11 @@ To make it easier to open PIM, you should add a PIM tile to your Azure portal da
 
 1. Check **Pin blade to dashboard** to pin the PIM Quickstart blade to the dashboard.
 
-    ![Pin blade to dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Pushpin icon to pin PIM blade to dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     On the Azure dashboard, you'll see a tile like this:
 
-    ![PIM Quickstart tile](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![PIM Quickstart tile on dashboard](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## Next steps
 

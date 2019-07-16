@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 01/19/2018
-ms.author: mscurrell
+ms.author: markscu
 ms.custom: mvc
 
 ---

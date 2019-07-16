@@ -4,8 +4,8 @@ description: This VM management solution starts and stops your Azure Resource Ma
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm

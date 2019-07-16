@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;anilmur
-
+ms.author: anilmur
+ms.reviewer: juliako
 ---
 
 # Live streaming using Azure Media Services to create multi-bitrate streams
@@ -358,7 +358,7 @@ Review Media Services learning paths.
 
 [Media Services Concepts](media-services-concepts.md)
 
-[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services Fragmented MP4 Live Ingest Specification](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 

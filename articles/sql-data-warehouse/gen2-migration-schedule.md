@@ -3,7 +3,7 @@ title: Migrate your existing Azure SQL Data Warehouse to Gen2 | Microsoft Docs
 description: Instructions for migrating an existing data warehouse to Gen2 and the migration schedule by region.
 services: sql-data-warehouse
 author: mlee3gsd
-ms.author: anumjs
+ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
@@ -33,13 +33,13 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | Canada East |\* |\* |
 | Central US |Available |June 1, 2019 |
 | China East |\* |\* |
-| China East 2 |\* |Gen2 only |
+| China East 2 |Available |Gen2 only |
 | China North |\* |\* |
 | China North 2 |Available |Gen2 only |
 | East Asia |Available |June 1, 2019 |
 | East US |Available |June 1, 2019 |
 | East US 2 |Available |June 1, 2019 |
-| France Central |\* |June 1, 2019 |
+| France Central |Available |June 1, 2019 |
 | Germany Central |\* |\* |
 | Germany West Central |September 1, 2019|January 2, 2020 |
 | India Central |Available |June 1, 2019 |
@@ -50,10 +50,12 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | Korea South |Available |May 1, 2019 |
 | North Central US |Available |May 1, 2019 |
 | North Europe |Available |June 1, 2019 |
+| South Africa North |July 12, 2019 |Gen2 only |
 | South Central US |Available |June 1, 2019 |
 | South East Asia |Available |June 1, 2019 |
-| UK South |Available, 2019 |June 1, 2019 |
-| UK West |\*|\* |
+| UAE North |July 20, 2019 |Gen2 only |
+| UK South |Available |June 1, 2019 |
+| UK West |Available |Gen2 only |
 | West Central US |September 2, 2019 |January 2, 2020|
 | West Europe |Available |June 1, 2019 |
 | West US |Available |June 1, 2019 |
@@ -61,7 +63,7 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 
 ## Automatic upgrade process
 
-Based on the availability chart above, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the data warehouse, the automated upgrades will be scheduled during your maintenance schedule. The ability to create a new Gen1 instance will be disabled in regions undergoing auto upgrade to Gen2. For more information on schedules, see [View a maintenance schedule](viewing-maintenance-schedule.md)
+Based on the availability chart above, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the data warehouse, the automated upgrades will be scheduled during your maintenance schedule. The ability to create a new Gen1 instance will be disabled in regions undergoing auto upgrade to Gen2. Gen1 will be deprecated once the automatic upgrades have been completed. For more information on schedules, see [View a maintenance schedule](viewing-maintenance-schedule.md)
 
 The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. However, you may experience a degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 

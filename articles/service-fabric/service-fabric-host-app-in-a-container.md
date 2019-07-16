@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
+ms.date: 07/08/2019
 ms.author: aljo
 ---
 
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 1. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Install [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) so that you can run containers on Windows 10.
 3. Install [Service Fabric runtime version 6.2 or later](service-fabric-get-started.md) and the [Service Fabric SDK version 3.1](service-fabric-get-started.md) or later.
-4. Install [Visual Studio 2017 version 15.7](https://www.visualstudio.com/) or later with the **Azure development** and **ASP.NET and web development** workloads.
+4. Install [Visual Studio 2019 Version 16.1](https://www.visualstudio.com/) or later with the **Azure development** and **ASP.NET and web development** workloads.
 5. Install [Azure PowerShell][link-azure-powershell-install]
  
 

@@ -2,7 +2,8 @@
 title: Azure Kinect body index map
 description: Using body index maps
 author: qm13
-ms.author: yijwan, quentinm
+ms.author: quentinm
+ms.reviewer: yijwan
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
@@ -16,7 +17,7 @@ The body index map includes the instance segmentation map for each body in the d
 ![Body index map example](./media/concepts/body-index-map.png)
 
 >[!NOTE]
-> The body index is different than the body id. You can query the body id by first querying the `k4abt_body_t` structure for a given index and then access the body id in `k4abt_body_t.id`.
+> The body index is different than the body id. You can query the body id from a given body index by calling API: [k4abt_frame_get_body_id()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/group__btfunctions_ga673def22c3e3d4683a5702d8fe3cdc5e.html#ga673def22c3e3d4683a5702d8fe3cdc5e).
 
 
 ## Using body index map

@@ -586,7 +586,7 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Azure.Cosmos.Table.Queryable;
 ```
 
-The employeeTable is a CloudTable object that implements a CreateQuery<ITableEntity>() method, which returns a TableQuery<ITableEntity>. Objects of this type implement an IQueryable and allow using both LINQ Query Expressions and dot notation syntax.
+The employeeTable is a CloudTable object that implements a CreateQuery\<ITableEntity>() method, which returns a TableQuery\<ITableEntity>. Objects of this type implement an IQueryable and allow using both LINQ Query Expressions and dot notation syntax.
 
 Retrieving multiple entities and be achieved by specifying a query with a **where** clause. To avoid a table scan, you should always include the **PartitionKey** value in the where clause, and if possible the **RowKey** value to avoid table and partition scans. The table service supports a limited set of comparison operators (greater than, greater than or equal, less than, less than or equal, equal, and not equal) to use in the where clause. 
 

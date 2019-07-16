@@ -3,7 +3,7 @@ title: Connectivity architecture in Azure Database for PostgreSQL
 description: Describes the connectivity architecture for your Azure Database for PostgreSQL server.
 author: kummanish
 ms.author: manishku
-ms.service: PostgreSQL
+ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ---

@@ -39,7 +39,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 [Download or clone the sample app](https://github.com/Azure-Samples/batch-python-quickstart) from GitHub. To clone the sample app repo with a Git client, use the following command:
 
-```
+```bash
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
@@ -65,7 +65,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 
 To see the Batch workflow in action, run the script:
 
-```
+```bash
 python python_quickstart_client.py
 ```
 
@@ -73,7 +73,7 @@ After running the script, review the code to learn what each part of the applica
 
 When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. Go to your Batch account in the [Azure portal](https://portal.azure.com) to monitor the pool, compute nodes, job, and tasks in your Batch account.
 
-```
+```output
 Sample start: 11/26/2018 4:02:54 PM
 
 Container [input] created.
@@ -88,7 +88,7 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 
 After tasks complete, you see output similar to the following for each task:
 
-```
+```output
 Printing task output...
 Task: Task0
 Node: tvm-2850684224_3-20171205t000401z

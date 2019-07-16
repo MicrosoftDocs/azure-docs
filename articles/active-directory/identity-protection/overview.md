@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is Azure Active Directory Identity Protection?
 
-Azure Active Directory [Identity](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection enables organizations to configure automated responses to detected suspicious actions related to user identities.
+Azure Active Directory [Identity](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection enables organizations to configure automated responses to detected suspicious actions related to user identities.
 
 ## Get started
 
