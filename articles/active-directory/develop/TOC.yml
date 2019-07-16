@@ -81,8 +81,8 @@
     href: sample-v2-code.md
   - name: Concepts
     items:
-    - name: Application types
-      href: v2-app-types.md
+    - name: Authentication flows and app scenarios
+      href: authentication-flows-app-scenarios.md
     - name: Application scenarios
       items:
       - name: Sign-in audience
@@ -267,10 +267,12 @@
                 href: msal-js-known-issues-ie-edge-browsers.md
               - name: Known issues- Safari 
                 href: msal-js-known-issues-safari-browser.md
-    - name: Authentication
+    - name: Authentication protocol
       items:
       - name: Authentication basics
         href: authentication-scenarios.md
+      - name: Application types and OAuth2.0
+        href: v2-app-types.md      
       - name: OAuth 2.0 and OpenID Connect protocols
         href: active-directory-v2-protocols.md
       - name: OpenID Connect
