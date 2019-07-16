@@ -12,11 +12,11 @@ manager: philmea
 
 # Azure IoT Central architecture
 
-[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 This article provides an overview of the Microsoft Azure IoT Central architecture.
 
-![Top-level architecture](media/concepts-architecture/architecture.png)
+![Top-level architecture](media/concepts-architecture-pnp/architecture.png)
 
 ## Devices
 
@@ -64,15 +64,14 @@ The analytics service is responsible for generating the custom reporting data th
 
 In an Azure IoT Central application, device templates define the behavior and capability of types of device. For example, a refrigerator device template specifies the telemetry a refrigerator sends to your application.
 
-![Template architecture](media/concepts-architecture/template_architecture.png)
+![Template architecture](media/concepts-architecture-pnp/template-architecture.png)
 
 In a device template:
 
-- **Measurements** specify the telemetry the device sends to the application.
-- **Settings** specify the configurations that an operator can set.
-- **Properties** specify metadata that an operator can set.
-- **Rules** automate behavior in the application based on data sent from a device.
-- **Dashboards** are customizable views of a device in the application.
+- **Device capability models** specify the capabilities of a device such as the telemetry it sends, the properties that define the device state, and the commands the device responds to. Device capabilities are organized into one or more interfaces. For more information about device capability models, see the the IoT Plug and Play documentation.
+- **Cloud properties** specify the properties IoT Central stores for a device. These properties are only stored in IoT Central and are never sent to a device.
+- **Views** specify the dashboards and forms the builder creates to let the operator monitor and manage the devices.
+- **Customizations** let the builder override some of the definitions in the device capability model to make them more relevant to the IoT Central application.
 
 An application can have one or more simulated and real devices based on each device template.
 
