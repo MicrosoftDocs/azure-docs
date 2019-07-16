@@ -155,10 +155,10 @@ Possible reasons for failure:
    - Details can be found in the section [Configure a Service Connection Point](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
 - Failure to connect and fetch the discovery metadata from the discovery endpoint.
    - The device should be able to access `https://enterpriseregistration.windows.net`, in the SYSTEM context, to discover the registration and authorization endpoints. 
-   - If the on-premises environment requires an authenticated proxy, the IT admin must ensure that the SYSTEM context on the device is able to discover and silently authenticate to the outbound proxy.
+   - If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device is able to discover and silently authenticate to the outbound proxy.
 - Failure to connect to user realm endpoint and perform realm discovery. (Windows 10 version 1809 and later only)
    - The device should be able to access `https://login.microsoftonline.com`, in the SYSTEM context, to perform realm discovery for the verified domain and determine the domain type (managed/federated).
-   - If the on-premises environment requires an authenticated proxy, the IT admin must ensure that the SYSTEM context on the device is able to discover and silently authenticate to the outbound proxy.
+   - If the on-premises environment requires an outbound proxy, the IT admin must ensure that the SYSTEM context on the device is able to discover and silently authenticate to the outbound proxy.
 
 **Common error codes:**
 
@@ -226,19 +226,16 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
 
 - **DSREG_DISCOVERY_TENANT_NOT_FOUND** (0x801c003a/-2145648582)
    - Reason: SCP object configured with wrong tenant ID. Or no active subscriptions were found in the tenant.
-   - Resolution: Ensure SCP object is configured with the correct Azure AD tenant ID and active subscriptions and present in the tenant.
+   - Resolution: Ensure SCP object is configured with the correct Azure AD tenant ID and active subscriptions or present in the tenant.
 - **DSREG_SERVER_BUSY** (0x801c0025/-2145648603)
    - Reason: HTTP 503 from DRS server.
    - Resolution: Server is currently unavailable. future join attempts will likely succeed once server is back online.
-- **DSREG_E_DISCOVERY_FAILED** (0x801c000c/-2145648628)
-   - Reason: 
-   - Resolution: 
 
 ###### Other errors
 
 - **E_INVALIDDATA** (0x8007000d/-2147024883)
-   - Reason: Server response JSON couldn't be parsed. Likely due to proxy returning HTTP 200 with an html auth page.
-   - Resolution: If the on-premises environment requires an authenticated proxy, the IT admin must ensure that the SYSTEM context on the device is able to discover and silently authenticate to the outbound proxy.
+   - Reason: Server response JSON couldn't be parsed. Likely due to proxy returning HTTP 200 with an HTML auth page.
+   - Resolution: If the on-premises environment requires an outbound proxy, the IT admin must ensure that the SYSTEM context on the device is able to discover and silently authenticate to the outbound proxy.
 
 #### Authentication phase
 
@@ -261,7 +258,7 @@ Use Event Viewer logs to locate the error code, suberror code, server error code
 ##### Configuration errors
 
 - **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
-   - Reason: Authentication protocol is not wstrust.
+   - Reason: Authentication protocol is not WS-Trust.
    - Resolution: The on-premises identity provider must support WS-Trust 
 - **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
    - Reason: On-premises federation service did not return an XML response.
@@ -279,7 +276,7 @@ Use Event Viewer logs to locate the error code, suberror code, server error code
    - Reason: Connection with the auth endpoint was aborted.
    - Resolution: Retry after sometime or try joining from an alternate stable network location.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
-   - Reason: One or more errors were found in the Secure Sockets Layer (SSL) certificate sent by the server.
+   - Reason: The Secure Sockets Layer (SSL) certificate sent by the server could not be validated.
    - Resolution: Check the client time skew. Retry after sometime or try joining from an alternate stable network location. 
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Reason: The attempt to connect to `https://login.microsoftonline.com` failed.
@@ -292,7 +289,7 @@ Use Event Viewer logs to locate the error code, suberror code, server error code
    - Resolution: Check the federation server settings. Look for the server error code in the authentication logs.
 - **ERROR_ADAL_WSTRUST_REQUEST_SECURITYTOKEN_FAILED** (0xcaa90014/-894894060)
    - Reason: Server WS-Trust response reported fault exception and it failed to get assertion
-   - Resolution: 
+   - Resolution: Check the federation server settings. Look for the server error code in the authentication logs.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - Reason: Received an error when trying to get access token from the token endpoint.
    - Resolution: Look for the underlying error in the ADAL log. 
@@ -304,7 +301,7 @@ Use Event Viewer logs to locate the error code, suberror code, server error code
 
 Reasons for failure:
 
-Find the join type and look for the error code from the list below.
+Find the registration type and look for the error code from the list below.
 
 #### Windows 10 1803 and above
 
@@ -383,8 +380,8 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
 | Server error code | Server error message | Possible reasons | Resolution |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002: Tenant <UUID> not found. This error may happen if there are no active subscriptions for the tenant. Check with your subscription administrator. | Tenant ID in SCP object is incorrect | Ensure SCP object is configured with the correct Azure AD tenant ID and active subscriptions and present in the tenant. |
-| DirectoryError | The device object by the given ID ${ __UUID} is not found. | Expected error for sync join. The device object has not synced from AD to Azure AD | Wait for the Azure AD Connect sync to complete and the next join attempt after sync completion will resolve the issue |
-| AuthenticationError | The verification of the target computer's SID (${ __SID} ${ __TSTMP}Z) | The certificate on the Azure AD device doesn't match the certificate used to sign the blob during the sync join. This error typically means sync hasn’t happened yet. |  Wait for the Azure AD Connect sync to complete and the next join attempt after sync completion will resolve the issue |
+| DirectoryError | The device object by the given ID is not found. | Expected error for sync join. The device object has not synced from AD to Azure AD | Wait for the Azure AD Connect sync to complete and the next join attempt after sync completion will resolve the issue |
+| AuthenticationError | The verification of the target computer's SID | The certificate on the Azure AD device doesn't match the certificate used to sign the blob during the sync join. This error typically means sync hasn’t completed yet. |  Wait for the Azure AD Connect sync to complete and the next join attempt after sync completion will resolve the issue |
 
 ### Step 5: Collect logs and contact Microsoft Support
 
@@ -393,18 +390,18 @@ Get public scripts here: [https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( h
 1. Open an admin command prompt and run `start_ngc_tracing_public.cmd`.
 2. Perform the steps to reproduce the issue.
 3. Stop running the logging script by executing `stop_ngc_tracing_public.cmd`.
-4. Zip and send the logs under %SYSTEMDRIVE%\TraceDJPP\* for analysis.
+4. Zip and send the logs under `%SYSTEMDRIVE%\TraceDJPP\*` for analysis.
 
 ## Troubleshoot Post-Join issues
 
-### Step 1: Retrieve the join status 
+### Retrieve the join status 
 
-#### WamDefaultSet : YES and AzureADPrt: YES
+#### WamDefaultSet: YES and AzureADPrt: YES
   
 These fields indicate whether the user has successfully authenticated to Azure AD when signing in to the device. 
 If the values are **NO**, it could be due:
 
-- Bad storage key (STK) in TPM associated with the device upon registration (check the KeySignTest while running elevated).
+- Bad storage key in the TPM associated with the device upon registration (check the KeySignTest while running elevated).
 - Alternate Login ID
 - HTTP Proxy not found
 
