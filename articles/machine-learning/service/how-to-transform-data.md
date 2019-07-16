@@ -272,7 +272,7 @@ The SDK includes the methods [`drop_columns()`](https://docs.microsoft.com/pytho
 
 ### Initial setup
 
-> ![Note]
+> [!Note]
 > The URL in this same example is not a complete URL. Instead, it refers to the demo folder in the blob. The full URL to the data is https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 What we are doing in the tutorial is to load all files inside the folder and aggregate the result into green_df_raw, and yellow_df_raw.
