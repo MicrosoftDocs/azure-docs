@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Authentication flows and application scenarios
 
-The Microsoft identity platform (v2.0) endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md).  Using the [authentication libraries](reference-v2-libraries.md), applications authenticate identities and aquire tokens to access protected APIs. This article describes the different authentication flows and the application scenarios that they're used in.  This article also provides lists of [application scenarios and supported authentication flows](#scenarios-and-supported-authentication-flows) and [application scenarios and supported platforms and languages](#scenarios-and-supported-platforms-and-languages).
+The Microsoft identity platform (v2.0) endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md).  Using the [authentication libraries](reference-v2-libraries.md), applications authenticate identities and acquire tokens to access protected APIs. This article describes the different authentication flows and the application scenarios that they're used in.  This article also provides lists of [application scenarios and supported authentication flows](#scenarios-and-supported-authentication-flows) and [application scenarios and supported platforms and languages](#scenarios-and-supported-platforms-and-languages).
 
 ## Application categories
 
