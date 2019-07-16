@@ -105,11 +105,11 @@ When you create your ISE, you can select the Developer SKU or Premium SKU. Here 
 
 * **Developer**
 
-   Provides a lower-cost ISE that you can use for experimentation, development, and testing, but not for production or performance testing. The Developer SKU includes a single Free tier integration account, but doesn't include any service-level agreement (SLA), options for scaling capacity, or redundancy during recycling, which means that you might experience delays or downtime.
+   Provides a lower-cost ISE that you can use for experimentation, development, and testing, but not for production or performance testing. The Developer SKU can use only the single Free tier integration account and doesn't include any service-level agreement (SLA), options for scaling capacity, or redundancy during recycling, which means that you might experience delays or downtime.
 
 * **Premium**
 
-  Provides an ISE that you can use for production and includes SLA support, options for scaling capacity, redundancy during recycling, a single Standard tier integration account, built-in triggers and actions, Standard connectors, and Enterprise connectors for a fixed monthly price.
+  Provides an ISE that you can use for production and includes SLA support, a single Standard tier integration account, options for scaling capacity, redundancy during recycling, built-in triggers and actions, Standard connectors, and Enterprise connectors for a fixed monthly price.
 
 For pricing information, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
