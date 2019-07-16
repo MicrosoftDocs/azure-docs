@@ -54,7 +54,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/network
+    href: /cli/azure/ext/azure-firewall/network/firewall
   - name: Azure PowerShell
     href: /powershell/module/az.network/new-azfirewall
   - name: .NET
