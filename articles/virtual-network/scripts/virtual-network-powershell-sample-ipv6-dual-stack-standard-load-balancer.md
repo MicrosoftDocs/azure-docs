@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script sample - Configure IPv6 virtual network endpoints (preview)
+title: Azure PowerShell script sample - Configure IPv6 virtual network endpoints with Standard Load Balancer(preview)
 titlesuffix: Azure Virtual Network
 description: Enable IPv6 endpoints using Powershell in Azure Virtual Network
 services: virtual-network
@@ -14,7 +14,7 @@ ms.date: 07/15/2019
 ms.author: kumud
 ---
 
-# Configure IPv6 endpoints in virtual network script sample (preview)
+# Configure IPv6 endpoints in virtual network script sample with Standard Load Balancer(preview)
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network with a dual stack subnet, a load balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
 
@@ -44,14 +44,11 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 
 ## Sample script
 
-
-
 ```azurepowershell
-# Dual-Stack VNET with 2 VMs.ps1
-#	Deploys Dual-stack (IPv4+IPv6) Azure virtual network with 2 VMs and Basic Load Balancer with IPv4 and IPv6 public IPs
+#	Deploys Dual-stack (IPv4+IPv6) Azure virtual network with 2 VMs and Standard Load Balancer with IPv4 and IPv6 public IPs
 
 # Create resource group to contain the deployment
-   $rg = New-AzResourceGroup `
+  $rg = New-AzResourceGroup `
   -ResourceGroupName "dsRG1"  `
   -Location "east us"
 
@@ -60,32 +57,35 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
   -Name "dsPublicIP_v4" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
-  -AllocationMethod Dynamic `
-  -IpAddressVersion IPv4
+  -AllocationMethod Static `
+  -IpAddressVersion IPv4 `
+  -Sku Standard
   
-  $PublicIP_v6 = New-AzPublicIpAddress `
+$PublicIP_v6 = New-AzPublicIpAddress `
   -Name "dsPublicIP_v6" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
-  -AllocationMethod Dynamic `
-  -IpAddressVersion IPv6
+  -AllocationMethod Static `
+  -IpAddressVersion IPv6 `
+  -Sku Standard
 
-  $RdpPublicIP_1 = New-AzPublicIpAddress `
+$RdpPublicIP_1 = New-AzPublicIpAddress `
   -Name "RdpPublicIP_1" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
-  -AllocationMethod Dynamic `
+  -AllocationMethod Static `
+  -Sku Standard `
   -IpAddressVersion IPv4
   
-    $RdpPublicIP_2 = New-AzPublicIpAddress `
-    -Name "RdpPublicIP_2" `
-    -ResourceGroupName $rg.ResourceGroupName `
-    -Location $rg.Location  `
-    -AllocationMethod Dynamic `
-    -IpAddressVersion IPv4
+$RdpPublicIP_2 = New-AzPublicIpAddress `
+  -Name "RdpPublicIP_2" `
+  -ResourceGroupName $rg.ResourceGroupName `
+  -Location $rg.Location  `
+  -AllocationMethod Static `
+  -Sku Standard `
+  -IpAddressVersion IPv4
 
-
-# Create Basic Load Balancer
+# Create front-end IP address
 $frontendIPv4 = New-AzLoadBalancerFrontendIpConfig `
   -Name "dsLbFrontEnd_v4" `
   -PublicIpAddress $PublicIP_v4
@@ -93,12 +93,14 @@ $frontendIPv4 = New-AzLoadBalancerFrontendIpConfig `
 $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
   -Name "dsLbFrontEnd_v6" `
   -PublicIpAddress $PublicIP_v6
-  
-$backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
-  -Name "dsLbBackEndPool_v4"
-$backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig `
-  -Name "dsLbBackEndPool_v6"
 
+# Configure back-end address pool  
+$backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
+-Name "dsLbBackEndPool_v4"
+$backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig `
+-Name "dsLbBackEndPool_v6"
+
+# Create load balancer rule
 $lbrule_v4 = New-AzLoadBalancerRuleConfig `
   -Name "dsLBrule_v4" `
   -FrontendIpConfiguration $frontendIPv4 `
@@ -115,11 +117,12 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -FrontendPort 80 `
   -BackendPort 80
   
+# Create Standard Load Balancer
 $lb = New-AzLoadBalancer `
 -ResourceGroupName $rg.ResourceGroupName `
 -Location $rg.Location  `
 -Name "MyLoadBalancer" `
--Sku "Basic" `
+-Sku "Standard" `
 -FrontendIpConfiguration $frontendIPv4,$frontendIPv6 `
 -BackendAddressPool $backendPoolv4,$backendPoolv6 `
 -LoadBalancingRule $lbrule_v4,$lbrule_v6
@@ -165,55 +168,53 @@ $nsg = New-AzNetworkSecurityGroup `
 -SecurityRules $rule1,$rule2
 
 #Create virtual network and subnet
-# Create dual stack subnet config
+# Create dual stack subnet
 $subnet = New-AzVirtualNetworkSubnetConfig `
 -Name "dsSubnet" `
 -AddressPrefix "10.0.0.0/24","ace:cab:deca:deed::/64"
 
 # Create the virtual network
 $vnet = New-AzVirtualNetwork `
-  -ResourceGroupName $rg.ResourceGroupName `
-  -Location $rg.Location  `
-  -Name "dsVnet" `
-  -AddressPrefix "10.0.0.0/16","ace:cab:deca::/48"  `
-  -Subnet $subnet
+-ResourceGroupName $rg.ResourceGroupName `
+-Location $rg.Location  `
+-Name "dsVnet" `
+-AddressPrefix "10.0.0.0/16","ace:cab:deca::/48"  `
+-Subnet $subnet
   
-  #Create network interfaces (NICs)
-  $Ip4Config=New-AzNetworkInterfaceIpConfig `
-    -Name dsIp4Config `
-    -Subnet $vnet.subnets[0] `
-    -PrivateIpAddressVersion IPv4 `
-    -LoadBalancerBackendAddressPool $backendPoolv4 `
-    -PublicIpAddress  $RdpPublicIP_1
+#Create network interfaces (NICs)
+$Ip4Config=New-AzNetworkInterfaceIpConfig `
+-Name dsIp4Config `
+-Subnet $vnet.subnets[0] `
+-PrivateIpAddressVersion IPv4 `
+-LoadBalancerBackendAddressPool $backendPoolv4 `
+-PublicIpAddress  $RdpPublicIP_1
   	
-  $Ip6Config=New-AzNetworkInterfaceIpConfig `
-    -Name dsIp6Config `
-    -Subnet $vnet.subnets[0] `
-    -PrivateIpAddressVersion IPv6 `
-    -LoadBalancerBackendAddressPool $backendPoolv6
+$Ip6Config=New-AzNetworkInterfaceIpConfig `
+-Name dsIp6Config `
+-Subnet $vnet.subnets[0] `
+-PrivateIpAddressVersion IPv6 `
+-LoadBalancerBackendAddressPool $backendPoolv6
     
-  $NIC_1 = New-AzNetworkInterface `
-    -Name "dsNIC1" `
-    -ResourceGroupName $rg.ResourceGroupName `
-    -Location $rg.Location  `
-    -NetworkSecurityGroupId $nsg.Id `
-    -IpConfiguration $Ip4Config,$Ip6Config 
+$NIC_1 = New-AzNetworkInterface `
+-Name "dsNIC1" `
+-ResourceGroupName $rg.ResourceGroupName `
+-Location $rg.Location  `
+-NetworkSecurityGroupId $nsg.Id `
+-IpConfiguration $Ip4Config,$Ip6Config 
     
-  $Ip4Config=New-AzNetworkInterfaceIpConfig `
-    -Name dsIp4Config `
-    -Subnet $vnet.subnets[0] `
-    -PrivateIpAddressVersion IPv4 `
-    -LoadBalancerBackendAddressPool $backendPoolv4 `
-    -PublicIpAddress  $RdpPublicIP_2  
+$Ip4Config=New-AzNetworkInterfaceIpConfig `
+-Name dsIp4Config `
+-Subnet $vnet.subnets[0] `
+-PrivateIpAddressVersion IPv4 `
+-LoadBalancerBackendAddressPool $backendPoolv4 `
+-PublicIpAddress  $RdpPublicIP_2  
 
-  $NIC_2 = New-AzNetworkInterface `
-    -Name "dsNIC2" `
-    -ResourceGroupName $rg.ResourceGroupName `
-    -Location $rg.Location  `
-    -NetworkSecurityGroupId $nsg.Id `
-    -IpConfiguration $Ip4Config,$Ip6Config 
-
-
+$NIC_2 = New-AzNetworkInterface `
+-Name "dsNIC2" `
+-ResourceGroupName $rg.ResourceGroupName `
+-Location $rg.Location  `
+-NetworkSecurityGroupId $nsg.Id `
+-IpConfiguration $Ip4Config,$Ip6Config 
 
 # Create virtual machines
 $cred = get-credential -Message "DUAL STACK VNET SAMPLE:  Please enter the Administrator credential to log into the VMs"
@@ -221,7 +222,7 @@ $cred = get-credential -Message "DUAL STACK VNET SAMPLE:  Please enter the Admin
 $vmsize = "Standard_A2"
 $ImagePublisher = "MicrosoftWindowsServer"
 $imageOffer = "WindowsServer"
-$imageSKU = "2016-Datacenter"
+$imageSKU = "2019-Datacenter"
 
 $vmName= "dsVM1"
 $VMconfig1 = New-AzVMConfig -VMName $vmName -VMSize $vmsize -AvailabilitySetId $avset.Id 3> $null | Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent 3> $null | Set-AzVMSourceImage -PublisherName $ImagePublisher -Offer $imageOffer -Skus $imageSKU -Version "latest" 3> $null | Set-AzVMOSDisk -Name "$vmName.vhd" -CreateOption fromImage  3> $null | Add-AzVMNetworkInterface -Id $NIC_1.Id  3> $null 
@@ -230,7 +231,6 @@ $VM1 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 $vmName= "dsVM2"
 $VMconfig2 = New-AzVMConfig -VMName $vmName -VMSize $vmsize -AvailabilitySetId $avset.Id 3> $null | Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent 3> $null | Set-AzVMSourceImage -PublisherName $ImagePublisher -Offer $imageOffer -Skus $imageSKU -Version "latest" 3> $null | Set-AzVMOSDisk -Name "$vmName.vhd" -CreateOption fromImage  3> $null | Add-AzVMNetworkInterface -Id $NIC_2.Id  3> $null 
 $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location  -VM $VMconfig2
-
 
 #End Of Script
 

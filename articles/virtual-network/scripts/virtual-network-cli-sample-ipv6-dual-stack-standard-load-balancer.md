@@ -1,5 +1,5 @@
 ---
-title: Azure CLI script sample - Configure IPv6 virtual network endpoints (preview)
+title: Azure CLI script sample - Configure IPv6 virtual network endpoints - Standard Load Balancer (preview)
 titlesuffix: Azure Virtual Network
 description: Enable IPv6 endpoints using Azure CLI in Azure Virtual Network
 services: virtual-network
@@ -10,13 +10,13 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/23/2019
+ms.date: 07/15/2019
 ms.author: kumud
 ---
 
-# Configure IPv6 endpoints in virtual network script sample (preview)
+# Configure IPv6 endpoints in virtual network script sample using Standard Load Balancer(preview)
 
-This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network with a dual stack subnet, a load balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, dual network security group rules ,and dual public IPs.
+This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network with a dual stack subnet, a Standard Load Balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, dual network security group rules ,and dual public IPs.
 
 You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/bash), or from a local Azure CLI installation. If you use the CLI locally, this script requires that you are running version 2.0.28 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you are running the CLI locally, you also need to run `az login` to create a connection with Azure.
 
@@ -55,8 +55,8 @@ az network public-ip create \
 --name dsPublicIP_v4  \
 --resource-group DsResourceGroup01  \
 --location eastus  \
---sku BASIC  \
---allocation-method dynamic  \
+--sku STANDARD  \
+--allocation-method static  \
 --version IPv4
 
 # Create an IPV6 IP address
@@ -64,8 +64,8 @@ az network public-ip create \
 --name dsPublicIP_v6  \
 --resource-group DsResourceGroup01  \
 --location eastus \
---sku BASIC  \
---allocation-method dynamic  \
+--sku STANDARD  \
+--allocation-method static  \
 --version IPv6
 
 # Create public IP addresses for remote access to VMs
@@ -73,22 +73,24 @@ az network public-ip create \
 --name dsVM0_remote_access  \
 --resource-group DsResourceGroup01 \
 --location eastus  \
---sku BASIC  \
---allocation-method dynamic  \
+--sku Standard  \
+--allocation-method static  \
 --version IPv4
 
-# Create load balancer
 az network public-ip create \
 --name dsVM1_remote_access  \
 --resource-group DsResourceGroup01  \
 --location eastus  \
---sku BASIC  \
---allocation-method dynamic  \
+--sku Standard  \
+--allocation-method static  \
 --version IPv4
+
+# Create load balancer
+
 az network lb create \
 --name dsLB  \
 --resource-group DsResourceGroup01 \
---sku Basic \
+--sku Standard \
 --location eastus \
 --frontend-ip-name dsLbFrontEnd_v4  \
 --public-ip-address dsPublicIP_v4  \
@@ -120,7 +122,7 @@ az network lb rule create \
 --backend-pool-name dsLbBackEndPool_v4
 
 
-az network lb rule create 
+az network lb rule create \
 --lb-name dsLB  \
 --name dsLBrule_v6  \
 --resource-group DsResourceGroup01 \
@@ -136,7 +138,7 @@ az vm availability-set create \
 --resource-group DsResourceGroup01  \
 --location eastus \
 --platform-fault-domain-count 2  \
---platform-update-domain-count 2
+--platform-update-domain-count 2  
 
 # Create network security group
 
@@ -156,9 +158,24 @@ az network nsg rule create \
 --protocol "*"  \
 --direction Inbound  \
 --source-address-prefixes "*"  \
---source-port-ranges 3389  \
+--source-port-ranges "*"  \
 --destination-address-prefixes "*"  \
 --destination-port-ranges 3389
+
+# Create inbound rule for port 80
+az network nsg rule create \
+--name allowHTTPIn  \
+--nsg-name dsNSG1  \
+--resource-group DsResourceGroup01  \
+--priority 200  \
+--description "Allow HTTP In"  \
+--access Allow  \
+--protocol "*"  \
+--direction Inbound  \
+--source-address-prefixes "*"  \
+--source-port-ranges 80  \
+--destination-address-prefixes "*"  \
+--destination-port-ranges 80
 
 # Create outbound rule
 
@@ -166,7 +183,7 @@ az network nsg rule create \
 --name allowAllOut  \
 --nsg-name dsNSG1  \
 --resource-group DsResourceGroup01  \
---priority 100  \
+--priority 300  \
 --description "Allow All Out"  \
 --access Allow  \
 --protocol "*"  \
@@ -189,8 +206,7 @@ az network vnet subnet create \
 --name dsSubNET \
 --resource-group DsResourceGroup01 \
 --vnet-name dsVNET \
---address-prefix 10.0.0.0/24 \
---address-prefix "ace:cab:deca:deed::/64" \
+--address-prefixes "10.0.0.0/24" "ace:cab:deca:deed::/64" \
 --network-security-group dsNSG1
 
 # Create NICs
@@ -235,17 +251,20 @@ az network nic ip-config create \
 --vnet-name dsVNET \
 --subnet dsSubNet \
 --private-ip-address-version IPv6 \
---lb-address-pools dsLbBackEndPool_v6 
+--lb-address-pools dsLbBackEndPool_v6 \
 --lb-name dsLB
 
-# Create virtual machines
+# Create virtual machine dsVM0
+
  az vm create \
 --name dsVM0 \
 --resource-group DsResourceGroup01 \
 --nics dsNIC0 \
 --size Standard_A2 \
 --availability-set dsAVset \
---image MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest  
+--image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest  
+
+# Create virtual machine dsVM1
 
 az vm create \
 --name dsVM1 \
@@ -253,9 +272,16 @@ az vm create \
 --nics dsNIC1 \
 --size Standard_A2 \
 --availability-set dsAVset \
---image MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
-
+--image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest 
 ```
+## View IPv6 dual stack virtual network in Azure portal
+You can view the IPv6 dual stack virtual network in Azure portal as follows:
+1. In the portal's search bar, enter *dsVnet*.
+2. When **myVirtualNetwork** appears in the search results, select it. This launches the **Overview** page of the dual stack virtual network named *dsVnet*. The dual stack virtual network shows the two NICs with both IPv4 and IPv6 configurations located in the dual stack subnet named *dsSubnet*. 
+
+> [!NOTE]
+> The IPv6 for Azure virtual network is available in the Azure portal in read-only for this preview release.
+
 ## Clean up deployment
 
 Run the following command to remove the resource group, VM, and all related resources:
