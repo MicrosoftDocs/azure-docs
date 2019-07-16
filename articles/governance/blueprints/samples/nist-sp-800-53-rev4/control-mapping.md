@@ -23,7 +23,7 @@ built-in policy initiative.
 ## AC-2 Account Management
 
 This blueprint helps you review accounts that may not comply with your organization’s account 
-management requirements. This blueprint assigns five [Azure Policy](../../../policy/overview.md) 
+management requirements. This blueprint assigns [Azure Policy](../../../policy/overview.md) 
 definitions that audit external accounts with read, write and owner permissions on a subscription 
 and deprecated accounts. By reviewing the accounts audited by these policies, you can take 
 appropriate action to ensure account management requirements are met.
