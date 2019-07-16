@@ -5,7 +5,7 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 11/02/2018
+ms.date: 07/16/2019
 ms.author: robinsh
 ms.custom: include file
 ---
@@ -22,3 +22,5 @@ To get the IoT Hub connection string for the **service** policy, follow these st
 4. Under **Shared access keys**, select the copy icon for the **Connection string -- primary key** and save the value.
 
     ![Show how to retrieve the connection string](./media/iot-hub-include-find-service-connection-string/iot-hub-get-connection-string.png)
+
+For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](iot-hub-devguide-security.md#access-control-and-permissions).

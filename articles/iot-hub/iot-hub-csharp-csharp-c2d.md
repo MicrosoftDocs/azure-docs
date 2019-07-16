@@ -94,8 +94,6 @@ In this article you create a backend service to send cloud-to-device messages th
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](iot-hub-devguide-security.md#access-control-and-permissions).
-
 ## Send a cloud-to-device message
 
 Now you write a .NET console app that sends cloud-to-device messages to the device app.
