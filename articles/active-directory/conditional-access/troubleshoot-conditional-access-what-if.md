@@ -55,6 +55,18 @@ This list will show which Conditional Access policies would apply given the cond
 
 This list will show Conditional Access policies that wouldn't apply if the conditions applied. The list will include any policies and the reason why they don't apply. Examples include users and groups that may be excluded from a policy.
 
+## Use case
+
+Many organizations create policies based on network locations, permitting trusted locations and blocking locations where access should not occur.
+
+To validate that a configuration has been made appropriately, an administrator could use the What If tool to mimic access, from a location that should be allowed and from a location that should be denied.
+
+![What If tool showing results with Block access](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)
+
+In this instance, the user would be blocked from accessing any cloud app on their trip to North Korea as Contoso has blocked access from that location.
+
+This test could be expanded to incorporate other data points to narrow the scope.
+
 ## Next steps
 
 * [What is Conditional Access?](overview.md)
