@@ -66,38 +66,7 @@ To deploy using the CLI, use the following command. Replace `mymodel:1` with the
 az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
-The entries in the `deploymentconfig.json` document map to the parameters for [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
-
-| JSON entity | Method parameter | Description |
-| ----- | ----- | ----- |
-| `computeType` | NA | The compute target. For ACI, the value must be `ACI`. |
-| `containerResourceRequirements` | NA | Contains configuration elements for the CPU and memory allocated for the container. |
-| &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate for this web service. Defaults, `0.1` |
-| &emsp;&emsp;`memoryInGB` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
-| `location` | `location` | The Azure region to deploy this Webservice to. If not specified the Workspace location will be used. More details on available regions can be found here: [ACI Regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
-| `authEnabled` | `auth_enabled` | Whether or not to enable auth for this Webservice. Defaults to False |
-| `sslEnabled` | `ssl_enabled` | Whether or not to enable SSL for this Webservice. Defaults to False. |
-| `appInsightsEnabled` | `enable_app_insights` | Whether or not to enable AppInsights for this Webservice. Defaults to False |
-| `sslCertificate` | `ssl_cert_pem_file` | The cert file needed if SSL is enabled |
-| `sslKey` | `ssl_key_pem_file` | The key file needed if SSL is enabled |
-| `cname` | `ssl_cname` | The cname for if SSL is enabled |
-| `dnsNameLabel` | `dns_name_label` | The dns name label for the scoring endpoint. If not specified a unique dns name label will be generated for the scoring endpoint. |
-
-The following JSON is an example deployment configuration for use with the CLI:
-
-```json
-{
-    "computeType": "aci",
-    "containerResourceRequirements":
-    {
-        "cpu": 0.5,
-        "memoryInGB": 1.0
-    },
-    "authEnabled": true,
-    "sslEnabled": false,
-    "appInsightsEnabled": false
-}
-```
+[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
 
 For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference. 
 
