@@ -55,11 +55,11 @@ Selecting any one of the values under the columns open a report tailored to a sp
 
 * **E2E Latency** and **Server Latency** open the **Performance** report. It includes a rollup status indicator showing E2E latency and server latency, a performance chart of E2E versus server latency, and a table breaking down latency of successful calls by API categorized by data service defined in the storage account.
 
-    ![Performance report example](./media/storage-insights-overview/storage-account-performance-01)
+    ![Performance report example](./media/storage-insights-overview/storage-account-performance-01.png)
 
 * **ClientOtherError/Errors** open the **Failure** report. The report shows a rollup of all other client-side errors except described ones and successful requests, a performance chart for the transaction **Response Type** dimension metric specific to ClientOtherError attribute, and two tables - **Transactions by API name** and **Transactions by Response type**.
 
-   ![Failure report example](./media/storage-insights-overview/storage-account-failure-01.png)
+   ![Failure report example](./media/storage-insights-overview/storage-account-failures-01.png)
 
 When you select a storage account from the list in the table, you drill down to the **Overview** report. This report focuses specifically on key performance indicators (KPIs) that helps you quickly assess:
 
