@@ -38,11 +38,11 @@ If you don't have an Azure Government subscription, create a [free account](http
 2. You'll be prompted to add an Azure account; in the dropdown choose the “Azure US Government” option:
 
     ![storage1](./media/documentation-government-get-started-connect-with-storage-img1.png)
-3. Log in to your Azure Government account and you can see all of your resources. The Storage Explorer should look similar to the screenshot below. Click on your Storage Account to see the blob containers, file shares, Queues, and Tables. 
+3. Sign in to your Azure Government account and you can see all of your resources. The Storage Explorer should look similar to the screenshot below. Click on your Storage Account to see the blob containers, file shares, Queues, and Tables. 
 
     ![storage2](./media/documentation-government-get-started-connect-with-storage-img2.png)
 
-For more information on Azure Storage Explorer, click [here](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For more information on Azure Storage Explorer, navigate [here](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Connecting to the Storage API 
 
