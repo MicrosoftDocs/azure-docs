@@ -271,15 +271,14 @@ compared to the global Logic Apps service, see [Isolated versus global in the IS
 
 ## Create integration account - ISE
 
-If you want to use an integration account with logic apps in an 
-integration service environment (ISE), that integration account 
-must use the *same environment* as the logic apps. Logic apps in 
-an ISE can reference only integration accounts in the same ISE.
+If you want to use an integration account with logic apps in an integration service environment (ISE), that integration account must use the *same environment* as the logic apps. Logic apps in an ISE can reference only integration accounts in the same ISE.
 
-To create an integration account that uses an ISE, 
-[create your integration account in the usual way](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
-except when you set the **Location** property, select your ISE from 
-the **Integration service environments** section, for example:
+Based on your [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), your ISE includes one integration account:
+
+* Premium ISE: A [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
+* Developer ISE (no SLA): A [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account. The Developer ISE supports only the Free tier integration account.
+
+To create an integration account that uses an ISE, [create your integration account in the usual way](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) except when you set the **Location** property, select your ISE from the **Integration service environments** section, for example:
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
@@ -287,13 +286,7 @@ the **Integration service environments** section, for example:
 
 ## Add ISE capacity
 
-Your ISE base unit has fixed capacity, so if you 
-need more throughput, you can add more scale units. 
-You can autoscale based on performance metrics or 
-based on a number of additional processing units. 
-If you choose autoscaling based on metrics, you can 
-choose from various criteria and specify the threshold 
-conditions for meeting that criteria.
+The Premium ISE base unit has fixed capacity, so if you need more throughput, you can add more scale units, either during creation or afterwards. You can autoscale based on performance metrics or based on a number of additional processing units. If you choose autoscaling based on metrics, you can choose from various criteria and specify the threshold conditions for meeting that criteria. The Developer SKU doesn't include the capability to add scale units.
 
 1. In the Azure portal, find your ISE.
 
