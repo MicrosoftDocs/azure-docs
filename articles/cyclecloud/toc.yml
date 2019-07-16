@@ -70,8 +70,12 @@
       href: event-logs.md
     - name: HealthCheck
       href: healthcheck.md
-  - name: User Management
+  - name: Access Control
     items:
+    - name: User Managemement
+      href: user-management.md
+    - name: Cluster User Access
+      href: user-cluster-access.md
     - name: User Authentication
       href: user-authentication.md
 - name: How-To

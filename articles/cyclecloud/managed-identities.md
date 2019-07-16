@@ -29,32 +29,48 @@ to CycleCloud. It's recommended to use a [VM with a managed identity](https://do
     "permissions": [
       {
         "actions": [
+          "Microsoft.Commerce/RateCard/read",
           "Microsoft.Compute/*/read",
           "Microsoft.Compute/availabilitySets/*",
+          "Microsoft.Compute/disks/*",
+          "Microsoft.Compute/images/read",
+          "Microsoft.Compute/locations/usages/read",
+          "Microsoft.Compute/register/action",
+          "Microsoft.Compute/skus/read",
           "Microsoft.Compute/virtualMachines/*",
+          "Microsoft.Compute/virtualMachineScaleSets/*",
+          "Microsoft.Compute/virtualMachineScaleSets/virtualMachines/*",
+          "Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action",
           "Microsoft.Network/*/read",
-          "Microsoft.Network/networkInterfaces/*",  
+          "Microsoft.Network/locations/*/read",
+          "Microsoft.Network/networkInterfaces/read",
+          "Microsoft.Network/networkInterfaces/write",
+          "Microsoft.Network/networkInterfaces/delete",
+          "Microsoft.Network/networkInterfaces/join/action",
+          "Microsoft.Network/networkSecurityGroups/read",
+          "Microsoft.Network/networkSecurityGroups/write",
+          "Microsoft.Network/networkSecurityGroups/delete",
+          "Microsoft.Network/networkSecurityGroups/join/action",
+          "Microsoft.Network/publicIPAddresses/read",
+          "Microsoft.Network/publicIPAddresses/write",
+          "Microsoft.Network/publicIPAddresses/delete",
+          "Microsoft.Network/publicIPAddresses/join/action",
+          "Microsoft.Network/register/action",
           "Microsoft.Network/virtualNetworks/read",
           "Microsoft.Network/virtualNetworks/subnets/read",
           "Microsoft.Network/virtualNetworks/subnets/join/action",
+          "Microsoft.Resources/deployments/read",
           "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Resources/subscriptions/resourcegroups/resources/read",
-          "Microsoft.Storage/storageAccounts/write",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/write",
-          "Microsoft.Compute/locations/usages/read",
-          "Microsoft.Commerce/RateCard/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/resources/read",
+          "Microsoft.Resources/subscriptions/operationresults/read",
           "Microsoft.Storage/*/read",
-          "Microsoft.Storage/storageAccounts/read",  
+          "Microsoft.Storage/checknameavailability/read",
+          "Microsoft.Storage/register/action",
+          "Microsoft.Storage/storageAccounts/read",
           "Microsoft.Storage/storageAccounts/listKeys/action",
           "Microsoft.Storage/storageAccounts/write"
         ],
-        "dataActions": [
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
-        ],
+        "dataActions": [],
         "notActions": [],
         "notDataActions": []
       }
@@ -64,6 +80,19 @@ to CycleCloud. It's recommended to use a [VM with a managed identity](https://do
     "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+
+### Optional Permissions
+
+To enable CycleCloud to assign Managed Identities to VMs it creates within clusters, add the following ``"actions"``:
+
+```json
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Authorization/roleAssignments/*",
+          "Microsoft.Authorization/roleDefinitions/*",
+```
+
+
+### Creating the Role
 
 A role can be created from the role definitions via the [Azure CLI](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli)
 .  Use this role to create a role definition within the Azure Tenant. Once the

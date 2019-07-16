@@ -66,6 +66,7 @@ KeyPairLocation | Integer | Location of ssh keypair on the local filesystem
 ReturnPath.Hostname | Hostname | Hostname where node can reach CycleCloud
 ReturnPath.WebserverPort | Integer | Webserver port where node can reach CycleCloud
 ReturnPath.BrokerPort | Integer | Broker where node can reach CycleCloud
+Zone | Integer | Availability zone for node
 
 ## `[[nodearray <name>]]`
 
