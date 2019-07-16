@@ -69,6 +69,7 @@ The current versions are:
 * Service Fabric runtime 6.5.641
 * Service Fabric Tools for Visual Studio 2015 2.5.20615.1
 * Visual Studio 2017 15.9 includes Service Fabric Tools for Visual Studio 2.4.11024.1 
+* Visual Studio 2019 16.1 includes Service Fabric Tools for Visual Studio 2.5.20423.3
 
 For a list of supported versions, see [Service Fabric versions](service-fabric-versions.md)
 
