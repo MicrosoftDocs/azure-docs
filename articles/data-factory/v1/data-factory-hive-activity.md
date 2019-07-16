@@ -80,7 +80,7 @@ The HDInsight Hive activity in a Data Factory [pipeline](data-factory-create-pip
 | outputs |Outputs produced by the Hive activity |Yes |
 | linkedServiceName |Reference to the HDInsight cluster registered as a linked service in Data Factory |Yes |
 | script |Specify the Hive script inline |No |
-| script path |Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
+| scriptPath |Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
 | defines |Specify parameters as key/value pairs for referencing within the Hive script using 'hiveconf' |No |
 
 ## Example
