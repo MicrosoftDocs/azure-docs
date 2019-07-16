@@ -93,7 +93,8 @@ IPublicClientApplication pca = PublicClientApplicationBuilder
                             .Build();
 ```
 
-Note: If you configure `http://localhost`, internally MSAL.NET will find a random open port and use it.
+> [!Note]
+> If you configure `http://localhost`, internally MSAL.NET will find a random open port and use it.
 
 ### Linux and MAC
 
@@ -103,7 +104,7 @@ On Mac, the browser is opened by invoking `open <url>`
 ### Customizing the experience
 
 > [!NOTE]
-> customization is available from MSAL.NET 4.1.0 onward
+> Customization is available in MSAL.NET 4.1.0 or later.
 
 MSAL.NET is able to respond with an HTTP message when a token is received or in case of error. You can display an HTML message or redirect to an url of your choice:
 
