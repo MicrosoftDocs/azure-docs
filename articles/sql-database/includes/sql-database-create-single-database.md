@@ -145,55 +145,63 @@ Create your resource group and single database using AZ CLI.
    ```azurecli-interactive
    #!/bin/bash
    # Set variables
-   export subscriptionID=<Your Subscription ID>
-   export ResourceGroupName=myResourceGroup # to randomize: myResourceGroup-$RANDOM
-   export Location=WestUS2
-   export AdminLogin=azureuser
-   export Password=ChangeYourAdminPassword1
-   export ServerName="mysqlserver" # to randomize: mysqlserver-$RANDOM
-   export DatabaseName=mySampleDatabase
+   subscriptionID=<SubscriptionID>
+   resourceGroupName=myResourceGroup-$RANDOM
+   location=SouthCentralUS
+   adminLogin=azureuser
+   password="PWD27!"+`openssl rand -base64 18`
+   serverName=mysqlserver-$RANDOM
+   databaseName=mySampleDatabase
+   drLocation=NorthEurope
+   drServerName=mysqlsecondary-$RANDOM
+   failoverGroupName=failovergrouptutorial-$RANDOM
    
    # The ip address range that you want to allow to access your DB. 
-   # (leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB)
-   export startip=0.0.0.0
-   export endip=0.0.0.0
+   # Leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB
+   startip=0.0.0.0
+   endip=0.0.0.0
   
    # Connect to Azure
    az login
 
-   $ Set subscription ID
-   az account set --subscription $SubscriptionID
+   # Set the subscription context for the Azure account
+   az account set -s $subscriptionID
    
    # Create a resource group
+   echo "Creating resource group..."
    az group create \
-      --name $ResourceGroupName \
-      --location $Location
+      --name $resourceGroupName \
+      --location $location \
+      --tags Owner[=SQLDB-Samples]
    
    # Create a logical server in the resource group
+   echo "Creating primary logical server..."
    az sql server create \
-      --name $ServerName \
-      --resource-group $ResourceGroupName \
-      --location $Location  \
-      --admin-user $AdminLogin\
-      --admin-password $Password
+      --name $serverName \
+      --resource-group $resourceGroupName \
+      --location $location  \
+      --admin-user $adminLogin \
+      --admin-password $password
    
    # Configure a firewall rule for the server
+   echo "Configuring firewall..."
    az sql server firewall-rule create \
-      --resource-group $ResourceGroupName \
-      --server $ServerName \
+      --resource-group $resourceGroupName \
+      --server $serverName \
       -n AllowYourIp \
       --start-ip-address $startip \
       --end-ip-address $endip
    
-   # Create a database in the server 
+   # Create a gen5 1vCore database in the server 
+   echo "Creating a gen5 2 vCore database..."
    az sql db create \
-      --resource-group $ResourceGroupName \
-      --server $ServerName \
-      --name $DatabaseName \
+      --resource-group $resourceGroupName \
+      --server $serverName \
+      --name $databaseName \
       --sample-name AdventureWorksLT \
       --edition GeneralPurpose \
-      --family Gen4 \
-      --capacity 1 \
+      --family Gen5 \
+      --capacity 2
    ```
 
 ---
