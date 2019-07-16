@@ -3,20 +3,20 @@ title: Cost analysis and budget - Azure Batch
 description: Learn how to get a cost analysis and set a budget for your Batch workload.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/14/2019
+ms.date: 07/16/2019
 ms.author: lahugh
 ---
 
 # Cost analysis and budget for Azure Batch
 
-The Azure Batch infrastructure is a free service. Charges only apply to the resources used to run Batch workloads, with the majority being virtual machines (VMs) and storage. Management of tasks, pools, and jobs does not contribute to your Azure bill. On a high level, costs are incurred from virtual machines (VMs) in a pool, data transfer from the VM, or any input or output data stored in the cloud. Let's take a look at some key components of Batch to understand where costs come from, and what you can do to make your Batch workloads more cost efficient. We'll also walk through the step of analyzing a pool and creating a budget.
+There's no charge for Azure Batch itself, only the underlying compute resources and software licenses used to run Batch workloads. On a high level, costs are incurred from virtual machines (VMs) in a pool, data transfer from the VM, or any input or output data stored in the cloud. Let's take a look at some key components of Batch to understand where costs come from, how to set a budget for a pool or account, and some techniques for making your Batch workloads more cost efficient.
 
 ## Batch resources
 
@@ -40,7 +40,7 @@ Depending on which services you use with your Batch solution, you may incur addi
 
 ## Cost analysis and budget for a pool
 
-Through the Azure portal, you can get accurate, up-to-date information on cost and resources used by your Batch pool.
+Through the Azure portal, you can create budgets and spending alerts for your Batch pool(s) or Batch account. Budgets and alerts are useful for notifying stakeholders of any risks of overspending. It's possible for there to be a delay in spending alerts and to slightly exceed a budget. In this example, we'll view cost analysis of an individual Batch pool.
 
 1. In the Azure portal, select **Cost Management + Billing** from the left navigation bar.
 1. Select your subscription from the **My subscriptions** section
@@ -52,7 +52,7 @@ Through the Azure portal, you can get accurate, up-to-date information on cost a
 
 The resulting cost analysis shows the cost of the pool as well as the resources that contribute to this cost. In this example, the VMs used in the pool are the most costly resource.
 
-To create a budget for the pool select **Budget: none**, and then select **Create new budget >**. This opens a window to configure a budget specifically for your pool.
+To create a budget for the pool select **Budget: none**, and then select **Create new budget >**. Now use the window to configure a budget specifically for your pool.
 
 For more information on configuring a budget, see [Create and manage Azure budgets](../cost-management/tutorial-acm-create-budgets.md).
 
@@ -75,7 +75,7 @@ Most VM-series have sizes that support both premium and non-premium storage. Vir
 
 ### Reserved virtual machine instances
 
-An alternative way to save costs on VMs is to reserve virtual machine instances for your workloads. If you have Batch workloads that run for long periods of time, a reservation is the most cost-effective option. Compared to a pay-as-you-go rate, a reservation rate is considerably lower. Virtual machine instances used without a reservation are charged at pay-as-you-go rates. If you purchase a reservation for those resources, the reservation discount is applied and you are no longer charged at the pay-as-you-go rates.
+If you intend to use Batch for a long period of time, you can save on the cost of VMs by using [Azure Reservations](../billing/billing-save-compute-costs-reservations.md) for your workloads. A reservation rate is considerably lower than a pay-as-you-go rate. Virtual machine instances used without a reservation are charged at pay-as-you-go rate. If you purchase a reservation, the reservation discount is applied and you are no longer charged at the pay-as-you-go rates.
 
 ### Automatic scaling
 
@@ -85,5 +85,6 @@ For more information about automatic scaling, see [Automatically scale compute n
 
 ## Next steps
 
-- Learn more about [monitoring Batch solutions](monitoring-overview.md).  
 - Learn more about the [Batch APIs and tools](batch-apis-tools.md) available for building and monitoring Batch solutions.  
+
+- Learn about [low-priority VMs with Batch](batch-low-pri-vms.md).
