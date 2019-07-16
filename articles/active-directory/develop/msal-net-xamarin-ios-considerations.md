@@ -26,7 +26,7 @@ On Xamarin iOS, there are several considerations that you must take into account
 
 - [Known issues with iOS 12 and authentication](#known-issues-with-ios-12-and-authentication)
 - [Override and implement the `OpenUrl` function in the `AppDelegate`](#implement-openurl)
-- [Enable Keychain groups](#enable-keychain-groups)
+- [Enable Keychain groups](#enable-keychain-access)
 - [Enable token cache sharing](#enable-token-cache-sharing-across-ios-applications)
 - [Enable Keychain access](#enable-keychain-access)
 
@@ -50,7 +50,6 @@ public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 ```
 
 You'll also need to define a URL scheme, require permissions for your app to call another app, have a specific form for the redirect URL, and register this redirect URL in the [Azure portal](https://portal.azure.com)
-
 
 ### Enable keychain access
 
