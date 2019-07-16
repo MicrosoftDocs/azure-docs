@@ -41,13 +41,12 @@ The recommended properties when selecting microphones are:
 
 | Parameter                         | Recommended                       |
 |-----------------------------------|-----------------------------------|
-| SNR                               | \> 65 dB (1 kHz signal 94 dBSPL, A-weighted noise)   |
+| SNR                               | \>= 65 dB (1 kHz signal 94 dBSPL, A-weighted noise)   |
 | Amplitude Matching                | ± 1 dB @ 1 kHz                     |
 | Phase Matching                    | ± 2° @ 1 kHz                       |
-| Acoustic Overload Point (AOP)     | \> 120 dBSPL (THD = 10%)          |
+| Acoustic Overload Point (AOP)     | \>= 120 dBSPL (THD = 10%)          |
 | Bit Rate                          | Minimum 24-bit                    |
 | Sampling Rate                     | Minimum 16 kHz\*                   |
-| Directivity                       | Omnidirectional                   |
 | Frequency Response                | ± 3 dB, 200-8000 Hz Floating Mask\*|
 | Reliability                       | Storage Temperature Range -40°C  to 70°C<br />Operating Temperature Range -20°C to 55°C  |
 
@@ -61,12 +60,11 @@ requirements (for example: operating temperature ranges).
 
 ## Microphone array integration
 
-The performance of the microphone array when integrated into a device will differ from the component specification. 
-Therefore the device performance measured after any fixed gain or EQ should meet the following recommendations:
+The performance of the microphone array when integrated into a device will differ from the component specification. It is important to ensure that the microphones are well matched after integration. Therefore the device performance measured after any fixed gain or EQ should meet the following recommendations:
 
 |  Parameter        |    Recommended |
 |--------------------|----------------------------------------------------|
-|  SNR                 | \> 62 dB (1 kHz signal 94 dBSPL, A-weighted noise) |
+|  SNR                 | \> 63 dB (1 kHz signal 94 dBSPL, A-weighted noise) |
 |  Output Sensitivity  | -26 dBFS/Pa @ 1 kHz (recommended) |
 |  Amplitude Matching  | ± 2 dB, 200-8000 Hz |
 | THD%\*                 | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5th Order |
