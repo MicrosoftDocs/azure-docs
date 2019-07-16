@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Add an Azure SQL Database elastic pool to a failover group | Microsoft Docs"
-description: Add an Azure SQL Database elastic pool to a failover group using the Azure Portal, PowerShell, or Azure CLI.  
+description: Add an Azure SQL Database elastic pool to a failover group using the Azure portal, PowerShell, or Azure CLI.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -104,10 +104,10 @@ In this step, you will fail your failover group over to the secondary server, an
    ![Select the failover group from the portal](media/sql-database-single-database-create-failover-group-tutorial/select-failover-group.png)
 
 1. Review which server is primary, and which server is secondary. 
-1. Select **Failover** from the task pane to failover your failover group containing your elastic pool. 
+1. Select **Failover** from the task pane to fail over your failover group containing your elastic pool. 
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected. 
 
-   ![Failover your failover group containing your SQL database](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
+   ![Fail over your failover group containing your SQL database](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
 
 1. Review which server is primary, which server is secondary. If failover succeeded, the two servers should have swapped roles. 
 1. Select **Failover** again to fail the failover group back to the original settings. 

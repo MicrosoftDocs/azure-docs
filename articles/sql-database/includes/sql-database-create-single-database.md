@@ -44,17 +44,15 @@ Create your resource group and single database using the Azure portal.
       > Remember to record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
         
    - **Want to use SQL elastic pool**: Select the **No** option.
-   - **Compute + storage**: Select **Configure database** and for this article, select **vCore-based purchasing options**
+   - **Compute + storage**: Select **Configure database**. 
 
      ![SQL Database details](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
-
-     ![vCore-based purchasing options](../media/sql-database-get-started-portal/create-database-vcore.png)
 
    - Select **Provisioned** and **Gen5**.
 
      ![Provisioned Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
-   - Review the settings for **Max vCores**, **Min vCores**, **Auto-pause delay**, and **Data max size**. Change these as desired.
+   - Review the settings for **Max vCores**, **Min vCores**, **Autopause delay**, and **Data max size**. Change these as desired.
    - Accept the preview terms and click **OK**.
    - Select **Apply**.
 

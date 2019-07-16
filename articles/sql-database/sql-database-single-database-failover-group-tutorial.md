@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Add an Azure SQL Database single database to a failover group | Microsoft Docs"
-description: Add an Azure SQL Database single database to a failover group using the Azure Portal, PowerShell, or Azure CLI.  
+description: Add an Azure SQL Database single database to a failover group using the Azure portal, PowerShell, or Azure CLI.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -24,7 +24,7 @@ Configure a failover group for an Azure SQL Database single database and test fa
 
 ## Prerequisites
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 To complete this tutorial, make sure you have: 
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
@@ -52,7 +52,7 @@ To complete the tutorial, make sure you have the following items:
 ## 2 - Create the failover group 
 In this step, you will create a [failover group](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the sample database to the failover group. 
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 Create your failover group and add your single database to it using the Azure portal. 
 
 
@@ -185,7 +185,7 @@ Create your failover group and add your single database to it using AZ CLI.
 ## 3 - Test failover 
 In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal. 
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 Test failover using the Azure portal. 
 
 1. Navigate to your **SQL servers** server within the [Azure portal](https://portal.azure.com). 
@@ -197,9 +197,9 @@ Test failover using the Azure portal.
 1. Select **Failover** from the task pane to failover your failover group containing your sample single database. 
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected. 
 
-   ![Failover your failover group containing your SQL database](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
+   ![Fail over your failover group containing your SQL database](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
 
-1. Review which server is now primary and which server is secondary. If failover succeeded, the two servers should have swapped roles. 
+1. Review which server is now primary and which server is secondary. If fail over succeeded, the two servers should have swapped roles. 
 1. Select **Failover** again to fail the servers back to their originally roles. 
 
 # [PowerShell](#tab/powershell)
@@ -223,7 +223,7 @@ Check the role of the secondary replica:
    ```
 
 
-Failover to the secondary server: 
+Fail over to the secondary server: 
 
    ```powershell-interactive
    # Set variables
@@ -276,7 +276,7 @@ Verify which server is the secondary:
       --resource-group $resourceGroupName
    ```
 
-Failover to the secondary server: 
+Fail over to the secondary server: 
 
    ```azurecli-interactive
    # Set variables
@@ -314,7 +314,7 @@ Revert failover group back to the primary server:
 ## Clean up resources 
 Clean up resources by deleting the resource group. 
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 Delete the resource group using the Azure portal. 
 
 
@@ -358,13 +358,13 @@ Delete the resource group by using AZ CLI.
 
 # [PowerShell](#tab/powershell)
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
+[!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
 
 # [AZ CLI](#tab/bash)
 
-[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
+[!code-azurecli-interactive[main](../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Create SQL Database")]
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 There are no scripts available for the Azure portal. 
 ---
 
