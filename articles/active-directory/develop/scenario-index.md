@@ -1,6 +1,6 @@
 ---
 title: Authentication scenarios for Microsoft identity platform | Azure
-description: Learn about authentication scenarios 
+description: Learn about authentication flows and application scenarios. 
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -23,9 +23,11 @@ ms.collection: M365-identity-device-management
 
 # Authentication flows and application scenarios
 
-The Microsoft identity platform (v2.0) endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md).  Using Microsoft identity platform, you can build different types of applications: single-page apps, web apps, web APIs, mobile and native apps, and daemons and server-side apps. This article describes the different authentication flows and the application scenarios that they're used in.  This article also provides lists of [application scenarios and supported authentication flows](#scenarios-and-supported-authentication-flows) and [application scenarios and supported platforms and languages](#scenarios-and-supported-platforms-and-languages).
+The Microsoft identity platform (v2.0) endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md).  Using the [authentication libraries](reference-v2-libraries.md), applications authenticate identities and aquire tokens to access protected APIs. This article describes the different authentication flows and the application scenarios that they're used in.  This article also provides lists of [application scenarios and supported authentication flows](#scenarios-and-supported-authentication-flows) and [application scenarios and supported platforms and languages](#scenarios-and-supported-platforms-and-languages).
 
-## Application scenarios can be classified along several axes
+## Application categories
+
+Tokens can be acquired from a number of application types: Web applications, Mobile or Desktop applications, Web APIs, and application running on devices that don't have a browser (or iOT). Applications can be categorized by the following:
 
 - [Protected resources vs client applications](#protected-resources-vs-client-applications). Some scenarios are about protecting resources (Web Apps or Web APIs) and others are about acquiring a security token to call a protected Web API.
 - [With users or without users](#with-users-or-without-users). Some scenarios involve a signed-in user, whereas other don't involve a user (daemon scenarios).
@@ -75,7 +77,7 @@ The security tokens can be acquired from a number of application types. Applicat
 
 ## Application scenarios
 
-Let's discover the scenarios in more details
+The Microsoft identity platform endpoint supports authentication for a variety of app architectures: single-page apps, web apps, web APIs, mobile and native apps, and daemons and server-side apps.  Applications use the various authentication flows to sign in users and get tokens to call protected APIs.
 
 ### Web Application signing-in a user
 
