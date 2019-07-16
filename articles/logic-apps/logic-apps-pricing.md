@@ -43,8 +43,8 @@ An [*integration service environment* (ISE)](../logic-apps/connect-virtual-netwo
 
 * [Built-in triggers and actions](../connectors/apis-list.md#built-in)
 * [Standard connectors](../connectors/apis-list.md#managed-connectors)
-* [Enterprise connectors](../connectors/apis-list.md#enterprise-connectors), which include as many connections as you want
-* A single [Free tier integration account](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
+* [Enterprise connectors](../connectors/apis-list.md#enterprise-connectors) with many connections as you want
+* A [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
 > [!NOTE]
 > Within an ISE, built-in triggers and actions display the 
