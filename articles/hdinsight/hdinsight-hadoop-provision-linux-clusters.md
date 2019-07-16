@@ -75,11 +75,11 @@ Choose the version of HDInsight for this cluster. For more information, see [Sup
 ## Cluster name
 
 HDInsight cluster names have the following restrictions:
+- Allowed characters: a-z, 0-9, A-Z 
+- Max length: 59
+- Reserved names: apps
 - Must be unique
 - First 6 characters must be unique within a VNET
-- Allowed special characters: _ and @ 
-- Characters not allowed:  #;."',\/:`!*?$(){}[]<>|&--=+%~^space
-- Max length: 20
 
 ## Cluster login and SSH username
 With HDInsight clusters, you can configure two user accounts during cluster creation:
