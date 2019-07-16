@@ -76,6 +76,6 @@ Depending on the size of your directory (number of users, groups etc.), synchron
 
 ## Related Content
 * [Enable password synchronization to AAD Domain Services for a cloud-only Azure AD directory](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-ad-ds)
-* [Manage an Azure AD Domain Services domain](manage-domain.md)
+* [Manage an Azure AD Domain Services domain](tutorial-create-management-vm.md)
 * [Join a Windows virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

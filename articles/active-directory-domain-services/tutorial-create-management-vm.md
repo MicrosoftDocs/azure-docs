@@ -1,38 +1,49 @@
 ---
-title: 'Azure Active Directory Domain Services: Administer a managed domain | Microsoft Docs'
-description: Administer Azure Active Directory Domain Services managed domains
-services: active-directory-ds
-documentationcenter: ''
+title: Tutorial - Create a management VM for Azure Active Directory Domain Services | Microsoft Docs
+description: In this tutorial, you learn how to create and configure a Windows virtual machine that you use to administer Azure Active Directory Domain Services instance.
 author: iainfoulds
 manager: daveba
-editor: curtand
 
-ms.assetid: d4fdbc75-3e6b-4e20-8494-5dcc3bf2220a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/22/2018
+ms.topic: tutorial
+ms.date: 07/16/2019
 ms.author: iainfou
 
+#Customer intent: As an identity administrator, I want to create a management VM and install the required tools to connect to and manage an Azure Active Directory Domain Services instance.
 ---
-# Administer an Azure Active Directory Domain Services managed domain
-This article shows you how to administer an Azure Active Directory (AD) Domain Services managed domain.
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+# Tutorial: Create a management VM to configure and administer an Azure Active Directory Domain Services managed domain
 
-## Before you begin
-To complete the tasks listed in this article, you need:
+This tutorial shows you how to create a Windows VM in Azure and install the required tools to administer an Azure AD DS managed domain.
 
-1. A valid **Azure subscription**.
-2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
-3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](tutorial-create-instance.md).
-4. A **domain-joined virtual machine** from which you administer the Azure AD Domain Services managed domain. If you don't have such a virtual machine, follow all the tasks outlined in the article titled [Join a Windows virtual machine to a managed domain](active-directory-ds-admin-guide-join-windows-vm.md).
-5. You need the credentials of a **user account belonging to the 'AAD DC Administrators' group** in your directory, to administer your managed domain.
+In this tutorial, you learn how to:
 
-<br>
+> [!div class="checklist"]
+> * 
+
+If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+To complete this tutorial, you need the following resources and privileges:
+
+* An active Azure subscription.
+    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
+    * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+* A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+
+## Sign in to the Azure portal
+
+In this tutorial, you create and configure a management VM using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+
+
+
+
 
 ## Administrative tasks you can perform on a managed domain
 Members of the 'AAD DC Administrators' group are granted privileges on the managed domain that enable them to do tasks such as:
@@ -119,3 +130,21 @@ Now, you can use Windows Server AD administrative tools to explore and administe
 * [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Deploy Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx)
+
+
+
+
+## Next steps
+
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * 
+
+To safely interact with your Azure AD DS managed domain, enable secure Lightweight Directory Access Protocol (LDAPS).
+
+> [!div class="nextstepaction"]
+> [Configure secure LDAP for your managed domain](tutorial-configure-ldaps.md)
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
