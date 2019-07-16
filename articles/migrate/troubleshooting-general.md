@@ -56,7 +56,7 @@ When you delete an Azure Migrate project, it deletes the migration project along
 1. Browse to the Log Analytics workspace attached to the project.
      1. If you have not deleted the migration project yet, you can find the link to the workspace from the project overview page in the Essentials section.
 
-     ![LA Workspace](./media/troubleshooting-general/LA-workspace.png)
+     ![LA Workspace](./media/troubleshooting-general/loganalytics-workspace.png)
 
      2. If you already deleted the migration project,  click **Resource Groups** in the left pane in Azure portal and go to the Resource Group in which the workspace was created and then browse to it.
 2. Follow the instructions [in this article](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete the workspace.
