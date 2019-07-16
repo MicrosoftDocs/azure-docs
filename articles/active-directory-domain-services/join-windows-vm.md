@@ -205,6 +205,6 @@ To safely interact with your Azure AD DS managed domain, enable secure Lightweig
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
-[create-azure-ad-ds-instance]: create-instance.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [password-sync]: active-directory-ds-getting-started-password-sync.md

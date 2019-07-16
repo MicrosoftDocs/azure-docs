@@ -289,7 +289,7 @@ In this tutorial, you learned how to:
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
-[create-azure-ad-ds-instance]: create-instance.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
 [secure-domain]: secure-your-domain.md
 
 <!-- EXTERNAL LINKS -->
