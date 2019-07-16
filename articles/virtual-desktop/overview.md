@@ -106,7 +106,7 @@ Windows Virtual Desktop supports the following OS images:
 If you have feedback for us, let us know in the following places:
 
 * Tell us about features you'd like us to add to the Windows Virtual Desktop service at the [Windows Virtual Desktop UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
-* To discuss current features or ask for support from the product team and active community members, visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). We currently aren't taking support cases while Windows Virtual Desktop is in preview.
+* To talk about current features with the product team and active community members, visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). We currently aren't taking support cases while Windows Virtual Desktop is in preview.
 
 ## Next steps
 
