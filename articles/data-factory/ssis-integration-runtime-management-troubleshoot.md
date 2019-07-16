@@ -25,7 +25,7 @@ If you run into any issue while provisioning or deprovisioning SSIS IR, you'll s
 
 If the error code is InternalServerError, the service has transient issues, and you should retry the operation later. If a retry doesn’t help, contact the Azure Data Factory support team.
 
-Otherwise, there are three major external dependencies that can cause errors: an Azure SQL Database server or managed instance, a custom setup script, and a virtual network configuration (if the error code is not InternalServerError).
+Otherwise, there are three major external dependencies that can cause errors: an Azure SQL Database server or managed instance, a custom setup script, and a virtual network configuration.
 
 ## Azure SQL Database server or managed instance issues
 
