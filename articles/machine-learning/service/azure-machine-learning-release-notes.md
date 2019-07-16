@@ -65,12 +65,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Improved resource utilization of remote runs that use azureml.mlflow.
     + Improved the documentation of the azureml-mlflow package.
     + Fixed the issue where mlflow.log_artifacts("my_dir") would save artifacts under "my_dir/artifact-paths" instead of "artifact-paths".
-  + **azureml-dataprep**
-    + Dataflow objects can now be iterated over producing a sequence of records.
-    + Fixed the issue where `Dataflow.read_pandas_dataframe` would fail when the `in_memory` argument is set to True.
-    + Improved handling of pandas DataFrames with non-string Column Indexes.
-    + Exposed `set_diagnostics_collection()` to allow for programmatic enabling/disabling of the telemetry collection.
-    + Added topValues and bottomValues summarize.
   + **azureml-pipeline-core**
     + Parameter hash_paths for all pipeline steps is deprecated and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore)
     + Continuing improving Module and ModuleStep to support compute type specific modules, in preparation for RunConfiguration integration and further changes to unlock their usage in pipelines.
@@ -83,7 +77,18 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Deprecated parameters `conda_dependencies_file_path` and `pip_requirements_file_path` in favor of `conda_dependencies_file` and `pip_requirements_file` respectively.
   + **azureml-opendatasets**
     + Improve NoaaIsdWeather enrich performance in non-SPARK version significantly.
-    
+
+### Azure Machine Learning Data Prep SDK v1.1.8
+
++ **New features**
+ + Dataflow objects can now be iterated over, producing a sequence of records. See documentation for `Dataflow.to_record_iterator`.
+
++ **Bug fixes and improvements**
+ + Increased the robustness of DataPrep SDK.
+ + Improved handling of pandas DataFrames with non-string Column Indexes.
+ + Improved the performance of `to_pandas_dataframe` in Datasets.
+ + Fixed a bug where Spark execution of Datasets failed when run in a multi-node environment.
+
 ## 2019-07-01
 
 ### Azure Machine Learning Data Prep SDK v1.1.7
@@ -109,8 +114,6 @@ We reverted a change that improved performance, as it was causing issues for som
     + Scoring explainers can now optionally save conda and pip information for more reliable serialization and deserialization.
     + Bug Fix for Auto Feature Selector.
     + Updated mlflow.azureml.build_image to the new api, patched bugs exposed by the new implementation.
-
-+ **Breaking changes**
 
 + **Bug fixes and improvements**
   + Removed paramiko dependency from azureml-core. Added deprecation warnings for legacy compute target attach methods.
