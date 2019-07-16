@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/11/2019
+ms.date: 07/16/2019
 ms.topic: conceptual
 ---
 # Export an Azure SQL database to a BACPAC file
@@ -42,7 +42,7 @@ When you need to export a database for archiving or for moving to another platfo
 
    ![Database export](./media/sql-database-export/database-export1.png)
 
-2. Specify the BACPAC filename, select an existing Azure storage account and container for the export, and then provide the appropriate credentials for access to the source database.
+2. Specify the BACPAC filename, select an existing Azure storage account and container for the export, and then provide the appropriate credentials for access to the source database. A SQL **Server admin login** is needed here even if you are the Azure admin, as being an Azure Admin does not equate to having SQL Server admin permissions.
 
     ![Database export](./media/sql-database-export/database-export2.png)
 
