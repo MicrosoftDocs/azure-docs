@@ -1,6 +1,6 @@
 ---
 title: Automatic OS image upgrades with Azure virtual machine scale sets | Microsoft Docs
-description: Learn how to automatically upgrade the OS image on VM instances in an scale set
+description: Learn how to automatically upgrade the OS image on VM instances in a scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -39,8 +39,8 @@ An upgrade works by replacing the OS disk of a VM with a new disk created using 
 
 The upgrade process works as follows:
 1. Before beginning the upgrade process, the orchestrator will ensure that no more than 20% of instances in the entire scale set are unhealthy (for any reason).
-2. The upgrade orchestrator identifies the batch of VM instances to upgrade, with any one batch having a maximum of 20% of the total instance count. For smaller scale sets with 5 or fewer instances, the batch size for an upgrade is 1 virtual machine.
-3. The OS disk of the selected batch of VM instances is replaced with a new OS disk created from the latest image, and all specified extensions and configurations in the scale set model are applied to the upgraded instance.
+2. The upgrade orchestrator identifies the batch of VM instances to upgrade, with any one batch having a maximum of 20% of the total instance count. For smaller scale sets with 5 or fewer instances, the batch size for an upgrade is one virtual machine instance.
+3. The OS disk of the selected batch of VM instances is replaced with a new OS disk created from the latest image. All specified extensions and configurations in the scale set model are applied to the upgraded instance.
 4. For scale sets with configured application health probes or Application Health extension, the upgrade waits up to 5 minutes for the instance to become healthy, before moving on to upgrade the next batch. If an instance does not recover its health in 5 minutes after an upgrade, then by default the previous OS disk for the instance is restored.
 5. The upgrade orchestrator also tracks the percentage of instances that become unhealthy post an upgrade. The upgrade will stop if more than 20% of upgraded instances become unhealthy during the upgrade process.
 6. The above process continues until all instances in the scale set have been upgraded.
@@ -77,7 +77,7 @@ The following SKUs are currently supported (and more are added periodically):
 
 ### Service Fabric requirements
 
-If you are using Service Fabric, please ensure the following conditions are met:
+If you are using Service Fabric, ensure the following conditions are met:
 -	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) is Silver or Gold, and not Bronze.
 -	The Service Fabric extension on the scale set model definition must have TypeHandlerVersion 1.1 or above.
 -	Durability level should be the same at the Service Fabric cluster and Service Fabric extension on the scale set model definition.
@@ -147,7 +147,7 @@ The load-balancer probe can be referenced in the *networkProfile* of the scale s
 > When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster must be configured to use the Silver Durability Tier or higher. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### Keep credentials up-to-date
-If your scale set uses any credentials to access external resources, for example if a VM extension is configured which uses a SAS token for storage account, ensure that the credentials are updated. If any credentials, including certificates and tokens, have expired, the upgrade will fail, and the first batch of VMs will be left in a failed state.
+If your scale set uses any credentials to access external resources, such as a VM extension configured to use a SAS token for storage account, then ensure that the credentials are updated. If any credentials, including certificates and tokens, have expired, the upgrade will fail and the first batch of VMs will be left in a failed state.
 
 The recommended steps to recover VMs and re-enable automatic OS upgrade if there's a resource authentication failure are:
 
@@ -252,7 +252,7 @@ For specific cases where you do not want to wait for the orchestrator to apply t
 > Manual trigger of OS image upgrades does not provide automatic rollback capabilities. If an instance does not recover its health after an upgrade operation, its previous OS disk can't be restored.
 
 ### REST API
-Use the [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API call to start a rolling upgrade to move all virtual machine scale set instances to the latest available platform image OS version. Instances which are already running the latest available OS version are not affected. The following example details how you can start a rolling OS upgrade on a scale set named *myScaleSet* in the resource group named *myResourceGroup*:
+Use the [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API call to start a rolling upgrade to move all virtual machine scale set instances to the latest available platform image OS version. Instances that are already running the latest available OS version are not affected. The following example details how you can start a rolling OS upgrade on a scale set named *myScaleSet* in the resource group named *myResourceGroup*:
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2018-10-01`
