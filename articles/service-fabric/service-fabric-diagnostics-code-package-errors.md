@@ -63,6 +63,6 @@ Exit code | Hexadecimal value | Short description | Root cause | Potential fix
 ## Next steps
 
 * Learn more about [diagnosing other common scenarios](service-fabric-diagnostics-common-scenarios.md).
-* Get a more detailed overview of Azure Monitor logs and what they offer by reading [What is Azure Monitor Logs?](../operations-management-suite/operations-management-suite-overview.md).
+* Get a more detailed overview of Azure Monitor logs and what they offer by reading [Azure Monitor overview](../operations-management-suite/operations-management-suite-overview.md).
 * Learn more about Azure Monitor logs [alerting](../log-analytics/log-analytics-alerts.md) for aid in detection and diagnostics.
 * Get familiar with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs.
