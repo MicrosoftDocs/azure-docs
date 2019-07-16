@@ -81,7 +81,7 @@
     href: sample-v2-code.md
   - name: Concepts
     items:
-    - name: Authentication scenarios overview
+    - name: Authentication flows and app scenarios
       href: scenario-index.md
     - name: Application scenarios
       items:
