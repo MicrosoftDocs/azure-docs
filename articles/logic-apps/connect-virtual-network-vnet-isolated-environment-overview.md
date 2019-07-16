@@ -105,22 +105,13 @@ When you create your ISE, you can select the Developer SKU or Premium SKU. Here 
 
 * **Developer**
 
-   Provides a lower-cost ISE that you can use for experimentation, development, and testing, but not for production or performance testing. The Developer SKU doesn't include any service-level agreement (SLA), options for scaling capacity, or redundancy during recycling, which means that you might experience delays or downtime.
+   Provides a lower-cost ISE that you can use for experimentation, development, and testing, but not for production or performance testing. The Developer SKU includes a single Free tier integration account, but doesn't include any service-level agreement (SLA), options for scaling capacity, or redundancy during recycling, which means that you might experience delays or downtime.
 
 * **Premium**
 
-  Provides an ISE that you can use for production with SLA support, options for scaling capacity, redundancy during recycling, one Standard integration account, and one Enterprise connector.
+  Provides an ISE that you can use for production and includes SLA support, options for scaling capacity, redundancy during recycling, a single Standard tier integration account, built-in triggers and actions, Standard connectors, and Enterprise connectors for a fixed monthly price.
 
 For pricing information, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
-
-<a name="endpoint-access"></a>
-
-## ISE endpoint access
-
-When you create your ISE, you can choose to use either external or internal access endpoints. These endpoints determine whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network. These endpoints also affect access to inputs and outputs when viewing a logic app's run history.
-
-* **External**: Public access endpoints that permit calls from outside your virtual network
-* **Internal**: Private access endpoints that permit only calls from inside your virtual network
 
 <a name="on-premises"></a>
 
