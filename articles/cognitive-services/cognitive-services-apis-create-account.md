@@ -1,20 +1,20 @@
 ---
-title: Create a Cognitive Services account in the Azure portal
+title: Create a Cognitive Services resource in the Azure portal
 titlesuffix: Azure Cognitive Services
-description: How to create a Azure Cognitive Services APIs account in the Azure portal.
+description: Get started with Azure Cognitive Services by creating and subscribing to a resource in the Azure portal.
 services: cognitive-services
 author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 07/16/2019
 ms.author: aahi
 ---
 
-# Create a Cognitive Services account using the Azure portal
+# Create a Cognitive Services resource using the Azure portal
 
-Azure Cognitive Services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you subscribe to. Use this quickstart to learn how to deploy a resource, and get the keys to begin using it.
+Use this quickstart to get started with Azure Cognitive Services using the Azure portal. Cognitive Services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create, and subscribe to. After creating the resource, Use it's keys to authenticate your applications. 
 
 ## Prerequisites
 
