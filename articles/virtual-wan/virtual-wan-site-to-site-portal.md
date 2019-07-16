@@ -59,6 +59,12 @@ Create as many sites as you need that correspond to your physical locations. For
    * **Resource Group** - The resource group you want to use.
    * **Location**
 4. Click **Show advanced** to view additional settings. You can select **BGP** to enable BGP, which will enable BGP functionality on all connections created for this site in Azure. You can also enter **Device information** (optional fields). Doing so can help the Azure Team better understand your environment to add additional optimization possibilities in the future, or to help you troubleshoot.
+
+>[!NOTE]
+> Configuring BGP on Virtual WAN is equivalent to configuring BGP on an Azure VPN Gateway.
+For BGP prerequisites kindly refer: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview
+>
+
 5. Click **Confirm**.
 6. After you click **Confirm**, view the status on the VPN sites page. The site will go from **Provisioning** to **Provisioned**.
 
