@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/28/2019
+ms.date: 07/16/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -40,7 +40,7 @@ To get started, you need the following items:
 
 ## Scenario description
 
-SAP NetWeaver supports both **SAML** (**SP initiated SSO**) and **OAuth**. Users can configure as per their requirement. In this tutorial, you configure and test Azure AD SSO in a test environment.
+SAP NetWeaver supports both **SAML** (**SP initiated SSO**) and **OAuth**. Configure the application either in SAML or in OAuth as per the requirement. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Adding SAP NetWeaver from the gallery
 
@@ -60,11 +60,12 @@ Configure and test Azure AD SSO with SAP NetWeaver using a test user called **B.
 To configure and test Azure AD SSO with SAP NetWeaver, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-2. **[Configure SAP NetWeaver](#configure-sap-netweaver)** to configure the SSO settings on application side.
+2. **[Configure SAP NetWeaver using SAML](#configure-sap-netweaver-using-saml)** to configure the SSO settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
 5. **[Create SAP NetWeaver test user](#create-sap-netweaver-test-user)** to have a counterpart of B.Simon in SAP NetWeaver that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** to verify whether the configuration works.
+7. **[Configure SAP NetWeaver for OAuth​](#configure-sap-netweaver-for-oauth)** to configure the OAuth settings on application side.
 
 ### Configure Azure AD SSO
 
@@ -183,7 +184,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Configure SAP NetWeaver
+### Configure SAP NetWeaver using SAML
 
 1. Sign in to SAP system and go to transaction code SAML2. It opens new browser window with SAML configuration screen.
 
@@ -320,7 +321,7 @@ In this section, you create a user called B.simon in SAP NetWeaver. Please work 
 
 	`https://<sapurl>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#`
 
-## Enable SAP NetWeaver for OAuth
+### Configure SAP NetWeaver for OAuth
 
 1. SAP Documented process is available at the location: [NetWeaver Gateway Service Enabling and OAuth 2.0 Scope Creation](https://wiki.scn.sap.com/wiki/display/Security/NetWeaver+Gateway+Service+Enabling+and+OAuth+2.0+Scope+Creation)
 
@@ -339,10 +340,7 @@ In this section, you create a user called B.simon in SAP NetWeaver. Please work 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth03.png)
 
 	> [!NOTE]
-	> Message `soft state status is not supported` – can be ignored, as no problem.
-
-	> [!NOTE]
-	> For more details, refer [here](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
+	> Message `soft state status is not supported` – can be ignored, as no problem. For more details, refer [here](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
 
 ### Create a service user for the OAuth 2.0 Client
 
