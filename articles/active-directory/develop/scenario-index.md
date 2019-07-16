@@ -21,11 +21,11 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Overview of authentication flows and application scenarios
+# Authentication flows and application scenarios
 
-The Microsoft identity platform (v2.0) endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the different authentication flows and the application scenarios that they're used in.  This article also lists [supported authentication flows](#scenarios-and-supported-authentication-flows) and [supported platforms and languages](#scenarios-and-supported-platforms-and-languages) for each application scenario.
+The Microsoft identity platform (v2.0) endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md).  Using Microsoft identity platform, you can build different types of applications: single-page apps, web apps, web APIs, mobile and native apps, and daemons and server-side apps. This article describes the different authentication flows and the application scenarios that they're used in.  This article also lists [supported authentication flows](#scenarios-and-supported-authentication-flows) and [supported platforms and languages](#scenarios-and-supported-platforms-and-languages) for each application scenario.
 
-Application scenarios can be classified along several axes:
+## Application scenarios can be classified along several axes
 
 - [Protected resources vs client applications](#protected-resources-vs-client-applications): Some scenarios are about protecting resources (Web Apps or Web APIs) and others are about acquiring a security token to call a protected Web API.
 - [With users or without users](#with-users-or-without-users): Some scenarios involve a signed-in user, whereas other don't involve a user (daemon scenarios).
@@ -34,14 +34,14 @@ Application scenarios can be classified along several axes:
 - [Supported OAuth 2.0 flows](#scenarios-and-supported-authentication-flows) are used to implement the application scenarios requesting tokens.  There is not a one-to-one mapping between application scenarios and authentication flows.
 - [Supported platforms](#scenarios-and-supported-platforms-and-languages): Not all application scenarios are available for every platform.
 
-## Protected resources vs client applications
+### Protected resources vs client applications
 
 Authentication scenarios involve two activities:
 
 - **Acquiring security tokens** for a protected Web API. Microsoft recommends that you use [authentication libraries](reference-v2-libraries.md#microsoft-supported-client-libraries) to acquire tokens, in particular the MicroSoft Authentication Libraries family (MSAL)
 - **Protecting a Web API** (or a Web App). One of the challenges of protecting a resource (Web app or Web API) is to validate the security token. Microsoft offers, on some platforms, [middleware libraries](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
 
-## With users or without users
+### With users or without users
 
 Most authentication scenarios acquire tokens on behalf of a (signed-in) **user**.
 
@@ -51,7 +51,7 @@ However there are also scenarios (daemon apps), where applications will acquire 
 
 ![daemon apps](media/scenarios/daemon-app.svg)
 
-## Single page applications, Public client applications, and confidential client applications
+### Single page applications, Public client applications, and confidential client applications
 
 The security tokens can be acquired from a number of application types. Applications tend to be separated into three categories:
 
