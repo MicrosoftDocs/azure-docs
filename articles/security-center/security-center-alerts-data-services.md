@@ -6,16 +6,14 @@ documentationcenter: na
 author: monhaber
 manager: rkarlin
 editor: ''
-
 ms.assetid: da960861-0b6c-4d80-932d-898cdebb4f83
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date:  7/02/2019
-ms.author: v-monhabe
-
+ms.date: 7/02/2019
+ms.author: "v-mohabe"
 ---
 # Threat detection for data services in Azure Security Center
 

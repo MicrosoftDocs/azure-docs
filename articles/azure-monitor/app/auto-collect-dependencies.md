@@ -33,11 +33,6 @@ Below is the currently supported list of dependency calls that are automatically
 | [ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Storage clients</b>|  |
 | ADO.NET | 4.5+ |
-| <b>Logging libraries</b> |  |
-| ILogger | 1.1+ |
-| System.Diagnostics.Trace | 4.5+ |
-| [nLog](https://www.nuget.org/packages/NLog/) | 4.4.12+ |
-| [log4net](https://www.nuget.org/packages/log4net/) | 2.0.8+ on NetStandard  1.3, 2.0.6+ on .NET 4.5+ |
 
 ## Java
 | App servers | Versions |
