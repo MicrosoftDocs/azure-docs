@@ -2,7 +2,7 @@
 title: Add Azure Kinect library to your Visual Studio project
 description: Add the Azure Kinect library to a project
 author: wes-b
-ms.author: wes-b
+ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual

@@ -52,7 +52,7 @@ The following image shows an example for this command.
 
 ## Sign-in logs
 
-The [sign-ins](/concept-sign-ins.md) logs provide information about the usage of managed applications and user sign-in activities.
+The [sign-ins](concept-sign-ins.md) logs provide information about the usage of managed applications and user sign-in activities.
 
 You get access to the sign-in logs using the `Get-AzureADAuditSignInLogs cmdlet.
 
