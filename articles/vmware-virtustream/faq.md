@@ -34,7 +34,7 @@ All Azure services will be available to AVS solution customers.  Performance and
 
 **Do I use the same tools that I use now to manage private cloud resources?**
 
-Yes. The Azure Portal is used for deployment and a number of mangement operations, and vCenter and NSX Manager are used to manage vSphere and NSX-T resources.
+Yes. The Azure portal is used for deployment and a number of management operations. vCenter and NSX Manager are used to manage vSphere and NSX-T resources.
 
 **Will I be able to manage a private cloud with my on-premises vCenter?**
 
@@ -66,17 +66,17 @@ There are two types of hosts available: General Purpose and High-end servers.
 
 The High-End servers have dual 18 core 2.3 GHz Intel CPUs.
 
-THe General Purpose servers have dual 10 core 2.2GHz Intel CPUs.
+THe General Purpose servers have dual 10 core 2.2 GHz Intel CPUs.
 
 **How much memory is in each host?**
 
-The High-End servers have 576GB of RAM and the General Purpose hosts have 192GB RAM.
+The High-End servers have 576GB of RAM and the General Purpose hosts have 192 GB RAM.
 
 **What is the storage capacity of each host?**
 
-Each High-End ESXi host has two VSAN diskgroups with a capacity tier of 15.2TB and a 3.2TB NVMe cache tier (1.6TB in each diskgroup).
+Each High-End ESXi host has two VSAN diskgroups with a capacity tier of 15.2 TB and a 3.2 TB NVMe cache tier (1.6 TB in each diskgroup).
 
-THe General Purpose ESXi hosts have two VSAN diskroups with a capacity tier of 7.68TB and a 3.2TB NVMe cache tier (1.6TB in each diskgroup).
+THe General Purpose ESXi hosts have two VSAN diskgroups with a capacity tier of 7.68 TB and a 1.6 TB NVMe cache tier (1.6 TB in each diskgroup).
 
 **How much network bandwidth is available in each ESXi host?**
 
@@ -84,9 +84,9 @@ ESXi hosts support connectivity bandwidth up to 25 Gbps.
 
 **Is data stored on the VSAN datastores encrypted at rest?**
 
-Yes, all VSAN data is encrypted by default using keys stored securely and with high availability in Azure Key Vault.
+Yes, all VSAN data is encrypted by default using keys stored in Azure Key Vault.
 
-## Hosts, clusters, and SDDCs
+## Hosts, clusters, and private clouds
 
 **Is the underlying infrastructure shared?**
 
@@ -98,7 +98,7 @@ No. General Purpose and High-end hosts cannot be mixed in a cluster, though clus
 
 **What are the minimum and maximum number of hosts per cluster?**
 
-Clusters are scalable between 4 and 16 ESXi hosts. Trial clusters are limited to 3 hosts.
+Clusters are scalable between 4 and 16 ESXi hosts. Trial clusters are limited to three hosts.
 
 **Are clusters scalable?**
 
@@ -128,11 +128,11 @@ No. NSX-T is the only supported version of NSX.
 
 **Is NSX required in the on-premises environments or networks that connect or interact with a private cloud.**
 
-No, customers are not required to use NSX on-premises in order to connect or interact with an AVS by Virtustram private cloud.
+No, customers are not required to use NSX on-premises in order to connect or interact with an AVS by Virtustream private cloud.
 
 **What is the upgrade and update schedule for VMware software in a private cloud?**
 
-The VMware private cloud software will be kept within one version of the most recent release of the private cloud software bundle form VMware. This may be different than the most recent versions of the individual software components (ESXi, NSX-T, vCenter, VSAN).
+The VMware private cloud software will be kept within one version of the most recent release of the software bundle form VMware. The private cloud software versions may be different than the most recent versions of the individual software components (ESXi, NSX-T, vCenter, VSAN).
 
 **How often will the private cloud software stack be updated?**
 
@@ -140,11 +140,11 @@ The update frequency will depend on the VMware private cloud software release ca
 
 ## Connectivity
 
-**What network IP address planning is required to incorporate SDDC clusters with on-premises environments?**
+**What network IP address planning is required to incorporate private clouds with on-premises environments?**
 
 A private network /22 address space is required to deploy an AVS by Virtustream private cloud. This private address space should not overlap with other VNets in a subscription, or with on-premises networks.
  
-**How do I connect from on-premises environments to a AVS by Virtustream private cloud?**
+**How do I connect from on-premises environments to an AVS by Virtustream private cloud?**
 
 You can connect to the service in one of two methods: 
 - With a VM or application gateway deployed on an Azure VNet that is peered through ExpressRoute to the private cloud.
@@ -152,29 +152,29 @@ You can connect to the service in one of two methods:
 
 **How do I connect a workload VM to the internet or an Azure service endpoint?**
 
-In the Azure portal, enable internet connectiviy for a private cloud (it is disabled by default). In NSX-T manager, create an NSX-T T1 router and a logical switch and then deploy a VM on the network segment defined by the logical switch. That VM will have network access to the internet and to Azure services. 
+In the Azure portal, enable internet connectivity for a private cloud. In NSX-T manager, create an NSX-T T1 router and a logical switch. With vCenter, deploy a VM on the network segment defined by the logical switch. That VM will have network access to the internet and to Azure services.
 
 **Do I need to restrict access from the internet to VMs on logical networks in a private cloud?**
 
 No. Network traffic inbound from the internet directly to private clouds is not allowed.
 
-**Do I need to restrict internet access from VMs on logical networks to the internet?** 
+**Do I need to restrict internet access from VMs on logical networks to the internet?**
 
-Yes. If you have VMs on NSX-T logical networks that need to have restricted internet access, you will need to create a firewall with the appropriate policies using NSX-T Manager.
+Yes. You will need to use NSX-T manager to create a firewall that restricts VM access to the internet.
 
 ## Accounts and privileges
 
 **What accounts and privileges will I get with my new AVS by Virtustream private cloud?**
 
-You are provided credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There is also a cloudadmin group that can used to incorporate Azure Active Directory. For more information, see [Access and Identity Concepts][concepts-identity].
+You are provided credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There is also a CloudAdmin group that can used to incorporate Azure Active Directory. For more information, see [Access and Identity Concepts][concepts-identity].
 
-**Will I have administrator access to ESXi hosts?**
+**Can have administrator access to ESXi hosts?**
 
 No, administrator access to ESXi is limited in order to meet security and solution requirements.
 
 **What privileges and permissions will I have in vCenter?**
 
-You will have cloudadmin group privileges. For more information, see [Access and Identity Concepts][concepts-identity].
+You will have CloudAdmin group privileges. For more information, see [Access and Identity Concepts][concepts-identity].
 
 **What privileges and permissions will I have on the NSX-T manager?**
 
@@ -188,19 +188,19 @@ Yes, Azure AD is natively integrated with your AVS by Virtustream private and is
 
 ## Billing and Support
 
-**How do I request support support for my VSAV SDDC?** 
+**How do I request support for my AVS by Virtustream private cloud?** 
 
 Since this a Microsoft solution, Microsoft or the CSP selling the solution will offer the first line support. For Microsoft, a Service Request is the first step with Virtustream/VMware engaged for any internal assistance and/or escalations that are needed. 
 
-**What costs are associated with data ingress and egress for the VASV service?**
+**What costs are associated with data ingress and egress for an AVS by Virtustream private cloud?**
 
-Public cloud providers typically charge for data transiting various portions of their network infrastructure, be it inter-region, or in the case of Azure, between peered virtual networks.  It is also typical for public cloud providers not to charge for data ingress, but to charge for any data leaving their datacenters. 
+Public cloud providers typically charge for data transiting various portions of their network infrastructure, be it inter-region, or in the case of Azure, between peered virtual networks.  It is also typical for public cloud providers not to charge for data ingress, but to charge for any data leaving their datacenters.
 
-When considering the data ingress/egress costs for AVS by Virtustream, customers will want to consider how they plan to connect to the service and the associated data rates (e.g. ExpressRoute). 
+When considering the data ingress/egress costs for AVS by Virtustream, customers will want to consider how they plan to connect to the service and the associated data rates (for example, ExpressRoute).
 
 **Who supports AVS by Virtustream?**
 
-Microsoft provides primary support for the platform, with VMware and Virtustream providing tier two and three support.
+Microsoft provides primary support for the platform, with VMware and Virtustream providing tier two and tier three support.
 
 **What accounts do I need to create an AVS by Virtustream private cloud?**
 

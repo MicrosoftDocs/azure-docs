@@ -1,6 +1,6 @@
 ---
-title: Concepts - Storage for Azure VMware Solution by Virtustream (AVS by Virtustream)
-description: Learn about the key storage capabilities of Azure VMware software-defined data centers and vSphere clusters in VMware Solution on Azure by VMware. 
+title: Concepts - Identity and access for Azure VMware Solution by Virtustream
+description: Learn about the identity and access concepts of Azure VMware Solution by Virtustream. 
 services: 
 author: v-jetome
 
@@ -14,9 +14,9 @@ ms.custom:
 
 # Azure VMware Solution (AVS) by Virtustream Identity Concepts
 
-You can access vCenter and NSX-T Manager once a private cloud has been provisioned. You are provided with the capability to manage workloads in vCenter and extend the software defined network in NSX-T. All other private cloud administration is performed by Virtustream. The access and identity management that enables you to do that work is based on CloudAdmin group privileges for vCenter and restricted administrator rights for NSX-T manager. This policy ensures that your private cloud platform can be upgraded automatically, delivering the newest features and patches on a regular cadence. See the [private cloud upgrades concepts article][concepts-upgrades] for more details on private cloud upgrades. 
+You can access vCenter and NSX-T Manager once a private cloud has been provisioned. You are provided with the capability to manage workloads in vCenter and extend the software defined network in NSX-T. All other private cloud administration is performed by Virtustream. Access and identity management use CloudAdmin group privileges for vCenter and restricted administrator rights for NSX-T manager. This policy ensures that your private cloud platform can be upgraded automatically, delivering the newest features and patches on a regular cadence. See the [private cloud upgrades concepts article][concepts-upgrades] for more details on private cloud upgrades. 
 
-In this release of AVS by Virtustream, identity management for vCenter can be integrated with Azure AD.
+Identity management for vCenter can be integrated with Azure AD.
 
 ## vCenter access and identity
 
@@ -38,8 +38,8 @@ The CloudAdmin and CloudGlobalAdmin privileges are shown in the table below.
 |  Host                    |  Host.Hbr.HbrManagement      |        --          |  Virtustream performs all other Host operations.  |
 |  InventoryService        |  InventoryService.Tagging      |        --          |  --  |
 |  Network                 |  Network.Assign    |                  |  Virtustream performs all other Network operations.  |
-|  Permissions             |  --  |        --       |  Virtustream Virtustream performs all Permissions operations.  |
-|  Profile-driven Storage  |  --  |        --       |  Virtustream Virtustream performs all Permissions operations.  |
+|  Permissions             |  --  |        --       |  Virtustream performs all Permissions operations.  |
+|  Profile-driven Storage  |  --  |        --       |  Virtustream performs all Profile operations.  |
 |  Resource                |  A CloudAdmin user has all Resource privileges.        |      --       | --   |
 |  Scheduled Task          |  A CloudAdmin user has all ScheduleTask privileges.   |   --   | -- |
 |  Sessions                |  Sessions.GlobalMessage, Sessions.ValidateSession      |   --   |  Virtustream performs all other Sessions operations.  |
@@ -53,7 +53,7 @@ Request elevated vCenter privileges with an SR in the Azure portal.
 
 ## NSX-T Manager access and identity
 
-In the current version of the AVS by Virtustream, you access NSX-T Manager with the "administrator" account. The elevated level of access provides you with the privileges to create and manage T1 routers, logical switches, and a number of services running in the private cloud NSX-T software-defined network. You will manages those NSX-T components to provide network access to and from your workload VMs. The elevated privileges in NSX-T provide you with access to the NSX-T T0 router and Edge-node VMs (EVMs). It is critical to note that any change to the T0 router or EVMs could result in degraded network access and operation of a private cloud. It's strongly recommended that only Virtustream perform work on the NSX-T T0 router and the Edge-node VMs. You can open an SR in the Azure portal to request changes.
+In the current version of AVS by Virtustream, you access NSX-T Manager using the "administrator" account. You'll have all the privileges to create and manage T1 routers, logical switches, and a number of services running in the private cloud NSX-T software-defined network. The elevated privileges in NSX-T also provide you with access to the NSX-T T0 router and Edge-node VMs (EVMs). It's critical to note any change to the T0 router or EVMs could result in degraded network access and operation of a private cloud. It's recommended that only Virtustream perform work on the NSX-T T0 router and the Edge-node VMs. You can open an SR in the Azure portal to request changes.
   
 ## Next steps
 
