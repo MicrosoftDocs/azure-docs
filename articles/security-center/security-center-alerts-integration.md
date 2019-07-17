@@ -6,16 +6,14 @@ documentationcenter: na
 author: monhaber
 manager: rkarlin
 editor: ''
-
 ms.assetid: ad4b0373-08ee-46ca-a573-638ed93a647c
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date:  7/02/2019
-ms.author: v-monhabe
-
+ms.date: 7/02/2019
+ms.author: "v-mohabe"
 ---
 # Security Center integration with Azure Security products in ASC
 
