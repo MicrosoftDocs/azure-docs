@@ -74,7 +74,7 @@ If you've already [set up dependency mapping](how-to-create-group-machine-depend
     > [!NOTE]
     > Time range can be up to an hour. If you need a longer range, use [Azure Monitor to query dependent data](how-to-create-group-machine-dependencies.md) for a longer period.
 
-5. After you've identified the dependencies you would like to retain or remove from the group, you can modify the group. Use Ctrl+Click to add or remove machines from the group.
+5. After you've identified the dependencies you would like to add to or remove from the group, you can modify the group. Use Ctrl+Click to add or remove machines from the group.
 
     - You can only add machines that have been discovered.
     - Adding and removing machines invalidates past assessments for a group.
