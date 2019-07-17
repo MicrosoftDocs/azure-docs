@@ -4,7 +4,6 @@ description: Security Considerations for the virtual machines in Azure. Implemen
 services: virtual-machines
 author: barclayn
 manager: barbkess
-
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 07/17/2019

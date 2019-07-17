@@ -12,7 +12,7 @@ ms.author: barclayn
 ms.custom: security-considerations
 ---
 
-# Security Considerations for Windows Virtual machines in Azure
+# Security Considerations for Linux Virtual machines in Azure
 
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-security-considerations.md)]
