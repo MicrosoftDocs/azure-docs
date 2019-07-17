@@ -894,7 +894,7 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-$orphanFilesRemoved = Remove-StorageSyncOrphanedTieredFiles -Path <folder path containing orphan files> -Verbose
+$orphanFilesRemoved = Remove-StorageSyncOrphanedTieredFiles -Path <folder path containing orphaned tiered files> -Verbose
 $orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
 ```
 **Notes** 
