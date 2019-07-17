@@ -8,47 +8,7 @@ ms.author: adjohnso
 
 # Cluster Templates
 
-Azure CycleCloud uses templates to define cluster configurations. A number of templates are included in CycleCloud by default and a full list of supported templates is [available in GitHub](https://github.com/Azure?q=cyclecloud). You can create new templates or you can customize existing ones. For instance, you may want to take advantage of [low-priority](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) VMs, or you might want to use a VPC to extend your own network.
-
-## Customized Template Example
-
-Let's customize the default Slurm template that can be found in the [CycleCloud Slurm Repository](https://github.com/Azure/cyclecloud-slurm). The template file __templates/slurm.txt__ defines a Slurm cluster. Copy this template and make the following changes to it and give the file a unique name:
-
-[//]: # (TODO: need a better example that can be downloaded and modified)
-
-``` ini
-[cluster CustomSlurm]
-Autoscale = true
-
-[[node defaults]]
-UsePublicNetwork = true
-Credentials = azure
-ImageName = cycle.image.centos7
-SubnetId = my-resourcegroup/cyclevnet/compute
-Region = eastus
-KeyPairLocation = ~/.ssh/cyclecloud.pem
-...
-[[node master]]
-MachineType = Standard_D12_v2
-IsReturnProxy = true
-...
-[[nodearray execute]]
-MachineType = Standard_H16r
-MaxCoreCount = 128
-Interruptible = false
-  [[[configuration]]]
-  [[[cluster-init slurm:execute:1.0.0]]]
-  [[[network-interface eth0]]]
-  AssociatePublicIpAddress = false
-```
-
-By adding the above section a new cluster template called `custom_slurm_cluster`, a new cluster is defined for Azure using `Standard_D12_v2` for the master node, `Standard_H16r` for the execute nodes, and will autoscale to a maximum of 128 cores. To import and run this new cluster type, enter:
-
-```azurecli-interactive
-$ cyclecloud import custom_demo_cluster -f ~/.cycle/slurm_template.txt -c custom_slurm_cluster
-
-$ cyclecloud start custom_demo_cluster
-```
+Azure CycleCloud uses templates to define cluster configurations. A number of templates are included in CycleCloud by default and a full list of supported templates is [available in GitHub](https://github.com/Azure?q=cyclecloud). You can create new templates or you can customize existing ones. For instance, you may want to customize an existing template to take advantage of [low-priority](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) VMs, or you might want to add a VPC to extend your own network.
 
 ## Configuration Notation
 
