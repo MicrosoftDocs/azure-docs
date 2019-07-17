@@ -36,11 +36,9 @@ To complete this tutorial, you need the following:
 
 ## Get the IoT hub connection string
 
-In this article, you create a backend service that adds a device in the identity registry and then adds a module to that device. To perform these operations your service requires the **registry write** permission. By default, every IoT Hub is created with a shared access policy named **registryReadWrite** that grants this permission.
+[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
 
 [!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
-
-For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](iot-hub-devguide-security.md#access-control-and-permissions).
 
 [!INCLUDE [iot-hub-get-started-create-module-identity-csharp](../../includes/iot-hub-get-started-create-module-identity-csharp.md)]
 
