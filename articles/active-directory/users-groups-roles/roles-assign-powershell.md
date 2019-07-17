@@ -1,5 +1,5 @@
 ---
-title: Assign admin roles with administrative unit scope with Azure PowerShell - Azure Active Directory | Microsoft Docs
+title: Assign custom admininstrator roles with reseource scope using Azure PowerShell - Azure Active Directory | Microsoft Docs
 description: For those who frequently manage role assignments, you can now manage members of an Azure AD administrator role with Azure PowerShell.
 services: active-directory
 author: curtand
@@ -16,7 +16,7 @@ ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
 ---
-# Use PowerShell to assign administrator roles with administrative unit scope in Azure Active Directory
+# Assign custom roles with resource scope using PowerShell in Azure Active Directory
 
 This article describes how to create a role assignment at directory scope in Azure Active Directory (Azure AD). A directory-scoped role assignment grants access across the directory. To create a role assignment with a scope of a single Azure AD resource, see [How to create a custom role and assign it at resource scope](roles-create-custom.md).This article uses the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
 

@@ -144,7 +144,7 @@
         href: roles-assign-graph.md
       - name: Custom role preview permissions
         href: roles-custom-available-permissions.md
-      - name: Assign app admin permissions
+      - name: Delegate app admin permissions
         href: roles-delegate-app-roles.md
     - name: Least-privileged roles by task   
       href: roles-delegate-by-task.md

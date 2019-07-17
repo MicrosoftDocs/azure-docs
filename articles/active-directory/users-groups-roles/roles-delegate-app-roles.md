@@ -1,5 +1,5 @@
 ---
-title: Delegate application administrator creation and maangement permissions - Azure Active Directory | Microsoft Docs
+title: Delegate application administrator creation and management permissions - Azure Active Directory | Microsoft Docs
 description: Application access management delegating roles to grant permissions rights in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 07/22/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -20,7 +20,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Application creation and management permissions in Azure Active Directory
+# Delegate app registration permissions in Azure Active Directory
 
 Azure Active Directory (Azure AD) allows you to delegate Application creation and management permissions in the following ways:
 

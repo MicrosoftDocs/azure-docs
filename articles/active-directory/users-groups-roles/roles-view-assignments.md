@@ -16,7 +16,7 @@ ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
 ---
-# View role assignments for an Azure Active Directory organization
+# View custom role assignments in Azure Active Directory
 
 In Azure Active Directory (Azure AD), roles can be assigned at directory level or with a scope of a single application. Role assignments at the directory scope are added to the list of single application role assignments, but role assignments at the single application scope aren't added to the list of directory level assignments.
 

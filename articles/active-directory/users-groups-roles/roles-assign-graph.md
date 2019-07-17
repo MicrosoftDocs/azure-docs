@@ -1,5 +1,5 @@
 ---
-title: Assign and remove administrator role assignmentS with Microsoft Graph API - Azure Active Directory | Microsoft Docs
+title: Assign and remove custom administrator roles using Microsoft Graph API - Azure Active Directory | Microsoft Docs
 description: Automate role assignments by managing members of an Azure AD administrator role with Graph API in Azure Active Directory
 services: active-directory
 author: curtand
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 07/22/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
 ---
-# Assign admin roles using Graph API in Azure Active Directory 
+# Assign custom admin roles using Graph API in Azure Active Directory 
 
 You can automate how you assign roles to user accounts Microsoft Graph API.
 
