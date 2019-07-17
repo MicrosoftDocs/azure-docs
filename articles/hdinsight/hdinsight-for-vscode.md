@@ -1,6 +1,6 @@
 ---
-title: Spark & Hive Tools for VSCode - Use Visual Studio Code for Hive, LLAP, or PySpark
-description: Learn how to use the Spark & Hive Tools for Visual Studio Code to create and submit queries and scripts.
+title: Azure HDInsight for Visual Studio Code
+description: Learn how to use the Spark & Hive Tools(Azure HDInsight) for Visual Studio Code to create and submit queries and scripts.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -347,11 +347,11 @@ You can preview Hive Table in your cluster(s) directly through **Azure HDInsight
 
 5. Right-click on the Hive Table, e.g hivesampletable. Select **Preview**. 
 
-   ![Spark & Hive for vscode preview hive table](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
+   ![Spark & Hive for visual studio code preview hive table](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
 6. The **Preview Results** window will be opened.
 
-   ![Spark & Hive for vscode preview results window](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-results-window.png)
+   ![Spark & Hive for visual studio code preview results window](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-results-window.png)
    
 - **RESULTS** panel
 
@@ -366,7 +366,7 @@ You can preview Hive Table in your cluster(s) directly through **Azure HDInsight
 >
 >In Linux, install xclip to enable copy table data.
 >
->![Spark & Hive for vscode in linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
+>![Spark & Hive for Visual Studio code in linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
 ## Additional features
 
 Spark & Hive for Visual Studio Code supports the following features:
