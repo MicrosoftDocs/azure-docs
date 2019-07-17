@@ -16,14 +16,13 @@ ms.subservice: common
 
 Each time you access data in your storage account, your client makes a request over HTTP/HTTPS to Azure Storage. Every request to a secure resource must be authorized, so that the service ensures that the client has the permissions required to access the data. Azure Storage offers these options for authorizing access to secure resources:
 
-|Auth Method  |Shared key (storage account key)  |Shared Access Signature (SAS)  |Azure Active Directory (AAD)  |Pub  |
+|Auth Method  |Shared key (storage account key)  |Shared Access Signature (SAS)  |Azure Active Directory (AAD)  |Anonymous public read access  |
 |---------|---------|---------|---------|---------|
-|Azure Blobs     |Yes         |Yes         |Yes         |Yes         |
-|Azure Files (SMB)     |Yes         |No         |Yes, only with AAD Domain Services         |No         |
-|Azure Files (REST)     |Yes         |Yes         |No         |No         |
-|Azure Queues     |Yes         |Yes         |Yes         |Yes         |
-|Azure Tables     |Yes         |Yes         |No         |No         |
-
+|Azure Blobs     |[Available](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Available](storage-dotnet-shared-access-signature-part-1.md)         |[Available](storage-auth-aad.md)         |[Available](../blobs/storage-manage-access-to-resources.md)         |
+|Azure Files (SMB)     |[Available](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |Not available         |[Available, only with AAD Domain Services](../files/storage-files-active-directory-overview.md)         |Not available         |
+|Azure Files (REST)     |[Available](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Available](storage-dotnet-shared-access-signature-part-1.md)         |Not available         |Not available         |
+|Azure Queues     |[Available](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Available](storage-dotnet-shared-access-signature-part-1.md)         |[Available](storage-auth-aad.md)         |[Available](../blobs/storage-manage-access-to-resources.md)         |
+|Azure Tables     |[Available](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Available](storage-dotnet-shared-access-signature-part-1.md)         |Not available         |Not available         |
 
 - **Azure Active Directory (Azure AD) integration** for blobs, files, and queues. Azure AD provides role-based access control (RBAC) for fine-grained control over a client's access to resources in a storage account. 
 
