@@ -41,6 +41,18 @@ The content of the question and answer set includes all the alternate questions 
 
 After you publish your knowledge base, a client application sends a user's question to your endpoint. Your QnA Maker service processes the question and responds with the best answer. 
 
+## Create, manage, and publish to a bot without code
+
+The QnA Maker portal provides the complete knowledge base authoring experience. You can import documents, in their current form, to your knowledge base. These documents (such as an FAQ, product manual, spreadsheet, or web page) are converted into question and answer sets. Each set is analyzed for follow-up prompts and connected to other sets. The final markdown format supports rich presentation including images. 
+
+
+
+Once your knowledge base is edited, publish the knowledge base to a working [Azure Web App bot](https://azure.microsoft.com/en-us/services/bot-service/) without writing any code. Test your bot in the [Azure portal](https://portal.azure.com) or download and continue development. 
+
+## Quality search provided in a layered approach
+
+QnA Maker provides a layered approach
+
 ## QnA Maker improves the conversation process
 
 QnA Maker provides multi-turn prompts and active learning to help you improve your basic question and answer sets. 
