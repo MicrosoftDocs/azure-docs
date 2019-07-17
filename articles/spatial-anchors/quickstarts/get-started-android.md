@@ -41,9 +41,23 @@ To complete this quickstart, make sure you have:
 
 ## Open the sample project
 
+# [Java](#tab/openproject-java)
+
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-If you're building the Android NDK sample, you'll need to download `arcore_c_api.h` from [here](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.7.0/libraries/include/arcore_c_api.h) and place it in `Android\NDK\libraries\include`.
+# [NDK](#tab/openproject-ndk)
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
+Download `arcore_c_api.h` from [here](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.8.0/libraries/include/arcore_c_api.h) and place it in `Android\NDK\libraries\include`.
+
+From within the newly cloned repository, initialize submodules by running the following command:
+
+```console
+git submodule update --init --recursive
+```
+
+---
 
 Open Android Studio.
 
