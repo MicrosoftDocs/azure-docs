@@ -17,15 +17,13 @@ ms.author: magoedte
 
 ## Review capacity and utilization with Azure Monitor for Storage
 
-Azure Monitor for Storage provides comprehensive monitoring of Azure Storage accounts by delivering a holistic view of their health and performance that you would otherwise view from [Service Health](../../service-health/service-health-overview.md) and Storage metrics in [Azure Monitor](../../storage/common/storage-metrics-in-azure-monitor.md). You can observe storage health and performance in two ways. View directly from a storage account or view from Azure Monitor to see across groups of storage accounts. This article will help you understand these two viewing methods and how to use this feature.
+Azure Monitor for Storage (preview) provides comprehensive monitoring of Azure Storage accounts by delivering a holistic view of their health and performance that you would otherwise view from [Service Health](../../service-health/service-health-overview.md) and Storage metrics in [Azure Monitor](../../storage/common/storage-metrics-in-azure-monitor.md). You can observe storage health and performance in two ways. View directly from a storage account or view from Azure Monitor to see across groups of storage accounts. This article will help you understand these two viewing methods and how to use this feature.
 
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com)
 
-
-
-## Introduction to Azure Monitor for Storage 
+## Introduction to Azure Monitor for Storage
 
 Before diving into the experience, you should understand how it presents and visualizes information. Whether you select the Storage feature directly from a storage account or from Azure Monitor, Azure Monitor for Storage presents a consistent experience. The only difference is that from Azure Monitor, you can see all storage accounts in your subscriptions.
 
@@ -46,6 +44,10 @@ To access Azure Monitor for VMs directly from a storage account:
 1. In the Azure portal, select Storage accounts.
 
 2. From the list, choose a storage account. In the Monitoring section, choose Insights (preview).
+
+![Selected storage account Overview page](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+
+The **Overview** page shows 
 
 ## View from Azure Monitor
 
