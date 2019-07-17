@@ -22,15 +22,15 @@ Bing Statistics provides analytics for the Bing Search APIs. These analytics inc
 > * You may not use any data available via the Bing Statistics dashboard to create applications for distribution to third parties.
 > * Enabling Bing Statistics increases your subscription rate slightly. See [pricing](https://aka.ms/bingstatisticspricing) for details.
 
-Bing updates analytics data every 24 hours and maintains up to 13 month's worth of history.
+
 
 ## Accessing your analytics
+
+Bing updates analytics data every 24 hours and maintains up to 13 month's worth of history that you can access from the [analytics dashboard](https://bingapistatistics.com). Make sure you're signed in using the same Microsoft account (MSA) you used to sign up for Bing Statistics.
 
 > [!NOTE]  
 > * It may take up to 24 hours for metrics to surface on the dashboard. The dashboard shows the date and time the data was last updated.  
 > * Metrics are available from the time you enable the Bing Statistics Add-in.
-
-To access your analytics dashboard, go to https://bingapistatistics.com. Make sure you're signed in using the same Microsoft account (MSA) you used to sign up for Bing Statistics.
 
 ## Filtering the data
 
