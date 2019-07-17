@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Create a Cognitive Services resource using the Azure portal
 
-Use this quickstart to get started with Azure Cognitive Services using the Azure portal. Cognitive Services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create, and subscribe to. After creating the resource, Use it's keys to authenticate your applications. 
+Use this quickstart to get started with Azure Cognitive Services using the Azure portal. Cognitive Services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create in your Azure subscription. After creating the resource, Use the keys and endpoint generated for you to authenticate your applications. 
 
 ## Prerequisites
 
