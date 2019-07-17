@@ -10,9 +10,6 @@
  ms.custom: include file
 ---
 
-
-# Security Considerations for Windows Virtual machines in Azure
-
 This article contains security Considerations for virtual machines in Azure. Implementing these Considerations will help you fulfill your security obligations as described in our shared responsibility model. For more information on what Microsoft does to fulfill service provider responsibilities, read [Azure infrastructure security](../../security/azure-security-infrastructure.md).
 
 ## General
