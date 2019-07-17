@@ -51,7 +51,7 @@ The following table provides the key differences between the available SKU types
 
 ## Select your cluster VM 
 
-To select your cluster VM, [configure vertical scaling](manage-cluster-vertical-scaling.md#steps-to-configure-vertical-scaling). 
+To select your cluster VM, [configure vertical scaling](manage-cluster-vertical-scaling.md#configure-vertical-scaling). 
 
 The different VM SKU options enable you to optimize costs for the necessary performance and hot cache requirements for the desired scenario. If the scenario requires the most optimal performance for a high query volume, the ideal SKU should be compute optimized. On the other hand, if the scenario requires querying large volumes of data with relatively lower query load, the storage optimized SKU will reduce costs while still providing excellent performance.
 

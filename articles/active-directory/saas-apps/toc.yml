@@ -25,6 +25,8 @@
         href: abintegro-tutorial.md
       - name: Absorb LMS
         href: absorblms-tutorial.md
+      - name: Abstract
+        href: abstract-tutorial.md
       - name: Acadia
         href: acadia-tutorial.md  
       - name: Accredible
@@ -549,6 +551,8 @@
         href: shiftplanning-tutorial.md
       - name: Hype
         href: hype-tutorial.md
+      - name: HyperAnna
+        href: hyperanna-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
