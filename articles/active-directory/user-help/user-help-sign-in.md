@@ -22,7 +22,7 @@ After you set up two-step verification or security info, you'll be able to sign 
 > [!Note]
 > If you're still using the two-step verification experience, you'll need to set up your authentication methods by following the instructions in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
 > 
-> If your administrator has turned on the security info experience, you'll need to set your authentication methods using these step-by-step articles:<ul><li>[Set up security info to use an authentication app](security-info-setup-auth-app.md)</li><li>[Set up security info to use text messaging](security-info-setup-text-msg.md)</li><li>[Set up security info to use a phone call](security-info-setup-phone-number.md)</li></ul>
+> If your administrator has turned on the security info experience, you'll need to set your authentication methods using these step-by-step articles:<ul><li>[Set up security info to use an authentication app](security-info-setup-auth-app.md)</li><li>[Set up security info to use text messaging](security-info-setup-text-msg.md)</li><li>[Set up security info to use a phone call](security-info-setup-phone-number.md)</li><li>[Set up security info to use a security key](security-info-setup-security-key.md)</li></ul>
 
 ## Sign in using an authenticator app notification on your mobile device
 
@@ -56,9 +56,6 @@ After you set up two-step verification or security info, you'll be able to sign 
 
     ![Security key sign-in on the Windows 10 lock screen](./media/security-info/security-info-windows-10-lock-screen-security-key.png)
 
-    >[!NOTE]
-    >If you haven't already registered your security key, you won't see the security key icon. You can register your security key by following the steps in the [Set up security info to use a security key (Preview)](security-info-setup-security-key.md#register-your-security-key) article.
-
 ### Sign in on the web
 
 1. After you've registered your security key, open the Microsoft Edge browser.
@@ -68,8 +65,6 @@ After you set up two-step verification or security info, you'll be able to sign 
     ![Security key sign-in using the Microsoft Edge browser](./media/security-info/security-info-edge-security-key.png)
 
     >[!NOTE]
-    >If you haven't already registered your security key, you won't see the security key icon. You can register your security key by following the steps in the [Set up security info to use a security key (Preview)](security-info-setup-security-key.md#register-your-security-key) article.
-    >
     >For information about signing in using the Microsoft Authenticator app see the article, [Sign in to your accounts using the Microsoft Authenticator app](user-help-auth-app-sign-in.md).
 
 ## Sign in using another verification method
