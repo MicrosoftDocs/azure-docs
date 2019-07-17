@@ -1,6 +1,6 @@
 ---
 
-title: Users flagged for risk security report in the Azure Active Directory portal | Microsoft Docs
+title: Users flagged for risk in the Azure Active Directory portal | Microsoft Docs
 description: Learn about the users flagged for risk security report in the Azure Active Directory portal
 services: active-directory
 author: MarkusVi
