@@ -47,7 +47,7 @@ To access Azure Monitor for VMs directly from a storage account:
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
-The **Overview** page shows 
+The **Overview** page shows several storage KPIs for that storage account, along with health state of the Storage service.  
 
 ## View from Azure Monitor
 
@@ -61,15 +61,15 @@ To view the utilization and availability of your Storage accounts across all of 
 
 On the Overview page for the selected subscription, the table displays interactive storage metrics and service health state for up to ten storage accounts grouped by the subscription. You can scope the results based on the options you select within the following drop-down lists:
 
-1. Subscriptions - only subscriptions that have storage accounts are listed.  
+* Subscriptions - only subscriptions that have storage accounts are listed.  
 
-2. Storage Accounts - by default, only 10 storage accounts are selected. The workbook supports viewing metrics for up to 200 storage accounts.
+* Storage Accounts - by default, only 10 storage accounts are selected. The workbook supports viewing metrics for up to 200 storage accounts.
 
-3. Time Range - by default, displays the last 4 hours of information based on the corresponding selections made.
+* Time Range - by default, displays the last 4 hours of information based on the corresponding selections made.
 
-The counter rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected.  
+The counter under the drop down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected.  
 
-Selecting any one of the values under the columns open a report tailored to a specific type of storage KPIs. Specifically:
+Select any column, including **Availability**, **E2E Latency**, **Server Latency**, **ClientOtherError/Errors**, and **ClientThrottlingError/Errors**. View a report that is tailored to specific type of storage KPIs that match the column selected. Specifically:
 
 * **Availability** opens the **Availability** report. It shows the current health state of Azure Storage service, a table showing the available health state of each object categorized by data service defined in the storage account with a trend line representing the time range selected, and an availability trend chart for each data service in the account.  
 
