@@ -29,6 +29,22 @@ This article explains how to provision throughput on a database in Azure Cosmos 
 
 ![Screenshot of New Database dialog box](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
+
+## Provision throughput using Azure CLI
+
+```azcli-interactive
+az cosmosdb database create --db-name
+                            [--key]
+                            [--name]
+                            [--resource-group-name]
+                            [--subscription]
+                            [--throughput]
+                            [--url-connection]
+```
+
+
+
+
 ## Provision throughput using PowerShell
 
 ```azurepowershell-interactive

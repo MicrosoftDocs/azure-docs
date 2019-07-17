@@ -7,21 +7,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 07/09/2019
+ms.date: 07/15/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
 # What is Azure Data Box Edge? 
 
-Azure Data Box Edge is a storage solution that allows you to process data and send it over network to Azure. This article provides you an overview of the Data Box Edge solution, benefits, key capabilities, and the scenarios where you can deploy this device. 
+Azure Data Box Edge is an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Data Box Edge solution, benefits, key capabilities, and the scenarios where you can deploy this device. 
 
-Data Box Edge uses a physical device supplied by Microsoft to accelerate the secure data transfer. The physical device resides in your premises and you write data to it using the NFS and SMB protocols. 
-
-Data Box Edge has all the gateway capabilities of Data Box Gateway. Data Box is additionally equipped with AI-enabled edge computing capabilities that help analyze, process, or filter data as it moves to Azure block blob, page blob, or Azure Files.  
+Data Box Edge is a Hardware-as-a-service solution. Microsoft ships you a cloud-managed device with a built-in Field Programmable Gate Array (FPGA) that enables accelerated AI-inferencing and has all the capabilities of a storage gateway. 
 
 ## Use cases
 
-Azure Data Box Edge is an AI-enabled edge computing device with network data transfer capabilities. Here are the various scenarios where Data Box Edge can be used for data transfer.
+Here are the various scenarios where Data Box Edge can be used for rapid Machine Learning (ML) inferencing at the Edge and preprocessing data before sending it to Azure.
+
+- **Inference Azure Machine Learning** - With Data Box Edge, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Data Box Edge device, see 
+[Deploy Azure ML hardware accelerated models on Data Box Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Preprocess data** - Analyze data from on-premises or IoT devices to quickly get to result while staying close to where data is generated. Data Box Edge transfers the full data set to the cloud to perform more advanced processing or deeper analytics.  Preprocessing can be used to: 
 
@@ -29,9 +30,6 @@ Azure Data Box Edge is an AI-enabled edge computing device with network data tra
     - Modify data, for example to remove Personally Identifiable Information (PII).
     - Subset and transfer the data needed for deeper analytics in the cloud.
     - Analyze and react to IoT Events. 
-
-- **Inference Azure Machine Learning** - With Data Box Edge, you can run Machine Learning (ML) models to get quick results that can be acted on before the data is sent to the cloud. The full data set can be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Data Box Edge device, see 
-[Deploy Azure ML hardware accelerated models on Data Box Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Transfer data over network to Azure** - Use Data Box Edge to easily and quickly transfer data to Azure to enable further compute and analytics or for archival purposes. 
 
