@@ -30,6 +30,8 @@ Event Hubs is used in some of the following common scenarios:
 - User telemetry processing
 - Device telemetry streaming 
 
+[!VIDEO https://www.youtube.com/watch?v=45wgY-VSk9I]
+
 ## Why use Event Hubs?
 
 Data is valuable only when there is an easy way to process and get timely insights from data sources. Event Hubs provides a distributed stream processing platform with low latency and seamless integration, with data and analytics services inside and outside Azure to build a complete Big Data pipeline.
