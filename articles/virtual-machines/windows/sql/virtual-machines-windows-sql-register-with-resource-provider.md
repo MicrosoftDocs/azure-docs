@@ -190,9 +190,9 @@ The default SQL management mode when registering with SQL VM RP is _Full_. If SQ
 
 There are no prerequisites to registering with the SQL VM resource provider in lightweight mode or no-agent mode. The prerequisites to registering with the SQL VM resource provider in Full mode is having the SQL IaaS Extension installed on the VM.
 
-**Can I register with SQL VM RP if I do not have the SQL IaaS Extension installed on the VM?**
+**Can I register with SQL VM resouce provider if I do not have the SQL IaaS Extension installed on the VM?**
 
-Yes, you can register with SQL VM resource provider in lightweight management mode if you do not have SQL IaaS Extension installed on the VM. In lightweight mode, SQL VM RP will use a console app to query the registry of the VM and verify the version and edition of the SQL instance. The console app will shut itself down after verifying that there is at least one SQL instance running on the VM. Registering with SQL VM resource provider in lightweight mode will not restart SQL Server and will not create an agent on the VM.
+Yes, you can register with SQL VM resource provider in lightweight management mode if you do not have SQL IaaS Extension installed on the VM. In lightweight mode, SQL VM resouce provider will use a console app to verify the version and edition of the SQL instance. The console app will shut itself down after verifying that there is at least one SQL instance running on the VM. Registering with SQL VM resource provider in lightweight mode will not restart SQL Server and will not create an agent on the VM.
 
 **Will registering with SQL VM resource provider install an agent on my VM?**
 
