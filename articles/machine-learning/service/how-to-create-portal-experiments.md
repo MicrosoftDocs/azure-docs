@@ -176,7 +176,7 @@ Training jobs can take a while for each pipeline to finish running.
 
 ### View training run details
 
-Drill down on any of the output models to see training run details, like performance metrics and distribution charts. [Learn more about charts](how-to-track-experiments.md#understanding-automated-ml-charts).
+Drill down on any of the output models to see training run details, like performance metrics and distribution charts. [Learn more about charts](how-to-understand-automated-ml).
 
 ![Iteration details](media/how-to-create-portal-experiments/iteration-details.png)
 
