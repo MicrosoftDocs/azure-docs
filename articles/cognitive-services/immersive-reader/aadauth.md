@@ -92,7 +92,7 @@ Now that you have a custom subdomain associated with your resource, you need to 
    Here we are capturing the newly created Service Principal object into a **$principal** variable for use in the next step.
 
 
-3. The last step is to [assign the "Cognitive Services User" role](https://docs.microsoft.com/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) to the service principal (scoped to the resource). By assigning a role, you're granting service principal access to this resource. You can grant the same service principal access to multiple resources in your subscription.
+3. The last step is to [assign the "Cognitive Services User" role](https://docs.microsoft.com/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) to the service principal (scoped to the resource). By assigning a role, you are granting the service principal access to this resource. You can grant the same service principal access to multiple resources in your subscription.
 
    ```azurecli-interactive
    New-AzRoleAssignment -ObjectId $principal.Id -Scope $resource.Id -RoleDefinitionName "Cognitive Services User"
