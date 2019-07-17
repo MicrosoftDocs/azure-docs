@@ -250,7 +250,7 @@ Here are the steps if you need to move MABS to a new server, while retaining the
 3. Reset the machine account in active directory.
 4. Install Server 2016 on new machine and name it the same machine name as the original Azure Backup server.
 5. Join the Domain
-6. Install Azure Backup server V2 or later (Move DPM Storage pool disks from old server and import)
+6. Install Azure Backup server V2 or later (Move MABS Storage pool disks from old server and import)
 7. Restore the DPMDB taken in step 1.
 8. Attach the storage from the original backup server to the new server.
 9. From SQL Restore the DPMDB

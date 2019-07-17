@@ -22,6 +22,8 @@
     href: iot-plug-and-play-glossary.md
   - name: Developer guide
     href: concepts-developer-guide.md
+  - name: Common interfaces
+    href: concepts-common-interfaces.md
 - name: How-to guides
   items:
   - name: Install IoT explorer
@@ -30,5 +32,7 @@
     href: howto-install-pnp-cli.md    
   - name: Onboard to the IoT portal
     href: howto-onboard-portal.md
+  - name: Manage models
+    href: howto-manage-models.md
   - name: Build a solution
     href: howto-build-plug-and-play-solution.md
