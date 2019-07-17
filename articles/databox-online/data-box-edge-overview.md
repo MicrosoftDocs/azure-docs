@@ -1,13 +1,13 @@
 ---
 title: Microsoft Azure Data Box Edge overview | Microsoft Docs
-description: Describes Azure Data Box Edge, a storage solution that uses a physical device for network based transfer into Azure.
+description: Describes Azure Data Box Edge, a storage solution that uses a physical device for network-based transfer into Azure.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 07/15/2019
+ms.date: 07/17/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -19,29 +19,20 @@ Data Box Edge is a Hardware-as-a-service solution. Microsoft ships you a cloud-m
 
 ## Use cases
 
-Here are the various scenarios where Data Box Edge can be used for rapid Machine Learning (ML) inferencing at the Edge and preprocessing data before sending it to Azure.
+Here are the various scenarios where Data Box Edge can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
 
-- **Inference Azure Machine Learning** - With Data Box Edge, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Data Box Edge device, see 
+- **Inference with Azure Machine Learning** - With Data Box Edge, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Data Box Edge device, see 
 [Deploy Azure ML hardware accelerated models on Data Box Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
-- **Preprocess data** - Analyze data from on-premises or IoT devices to quickly get to result while staying close to where data is generated. Data Box Edge transfers the full data set to the cloud to perform more advanced processing or deeper analytics.  Preprocessing can be used to: 
+- **Preprocess data** - Transform data before sending it to Azure to create a more actionable dataset. Preprocessing can be used to: 
 
     - Aggregate data.
-    - Modify data, for example to remove Personally Identifiable Information (PII).
-    - Subset and transfer the data needed for deeper analytics in the cloud.
+    - Modify data, for example to remove personal data.
+    - Subset data to optimize storage and bandwidth, or for further analysis.
     - Analyze and react to IoT Events. 
 
 - **Transfer data over network to Azure** - Use Data Box Edge to easily and quickly transfer data to Azure to enable further compute and analytics or for archival purposes. 
 
-## Benefits
-
-Data Box Edge has the following benefits:
-
-- **Easy data transfer**- Makes moving data in and out of Azure storage as easy as working with a local network share.  
-- **High performance** - Enables high-performance transfers to and from Azure. 
-- **Fast access** - Caches most recent files for fast access of on-premises files.  
-- **Limited bandwidth usage** - Data can be written to Azure even when the network is throttled to limit usage during peak business hours.  
-- **Transform data** - Enables analysis, processing, or filtering of data as it moves to Azure.
 
 ## Key capabilities
 
@@ -49,15 +40,16 @@ Data Box Edge has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|High performance     | Fully automated and highly optimized data transfer and bandwidth.|
-|Supported protocols     | Support for standard SMB and NFS protocols for data ingestion. <br> For more information on supported versions, go to [Data Box Edge system requirements](data-box-edge-system-requirements.md).|
+|Accelerated AI inferencing| Enabled by the built-in FPGA.|
 |Computing       |Allows analysis, processing, filtering of data.|
-|Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud.|
-|Fast access     | Local cache on the device for fast access of most recently used files.|
+|High performance | High performance compute and data transfers.|
+|Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
+|Cloud-managed     |Device and service are managed via the Azure portal.  |
 |Offline upload     | Disconnected mode supports offline upload scenarios.|
+|Supported protocols     | Support for standard SMB and NFS protocols for data ingestion. <br> For more information on supported versions, go to [Data Box Edge system requirements](data-box-edge-system-requirements.md).|
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
-|Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.       |
-|Resiliency     | Built-in network resiliency.        |
+|Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.|
+|Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
 
 
 ## Components
