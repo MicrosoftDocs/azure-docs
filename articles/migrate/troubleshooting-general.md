@@ -65,7 +65,7 @@ When you delete an Azure Migrate project, it deletes the migration project along
 
 This issue can happen for users who do not have access to the Azure Active Directory (Azure AD) tenant of the organization. When a user is added to an Azure AD tenant for the first time, he/she receives an email invite to join the tenant. Users need to go to the email and accept the invitation to get successfully added to the tenant. If you are unable to see the email, reach out to a user who already has access to the tenant and ask them to resend the invitation to you using the steps specified [here](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users).
 
-Once the invitation email is received, you need to open the email and click the link in the email to accept the invitation. Once this is done, you need to sign out of Azure portal and sign-in again, refreshing the browser will not work. You can then try creating the migration project.
+Once the invitation email is received, you need to open the email and click the link in the email to accept the invitation. Once this is done, you need to sign out of Azure portal and sign in again, refreshing the browser will not work. You can then try creating the migration project.
 
 ## Appliance issues
 
@@ -118,6 +118,10 @@ If the issue still happens in the latest version, it could be because the collec
 
 ## Discovery issues
 
+### I started discovery but I don't see the discovered VMs on Azure portal. Server Assessment and Server Migrate tiles show a status of "Discovery in progress"
+After starting discovery from the appliance, allow some time for the discovered machines to show up on the Azure portal. It takes around 15 minutes for a VMware discovery, and around 2 minutes per added host for a Hyper-V discovery. If you continue to see "Discovery in progress" even after this time, click **Refresh** on the **Servers** tab. This should show the count of the discovered servers in the Server Assessment and Server Migration tiles.
+
+
 ### I am using the appliance that continuously discovers my on-premises environment, but the VMs that are deleted in my on-premises environment are still being shown in the portal.
 
 It takes up to 30 minutes for the discovery data gathered by the appliance to reflect in the portal. If you do not see up-to-date information even after 30 minutes, issue a refresh on the data using the following steps:
@@ -127,14 +131,26 @@ It takes up to 30 minutes for the discovery data gathered by the appliance to re
 3. Click on the option to **Refresh agent**. You will see this below option below the list of agents.
 4. Wait for the refresh operation to complete. Verify that you are able to see up-to-date information on your VMs.
 
-### I do not the latest information on the on-premise VMs on the portal
+### I don't the latest information on the on-premise VMs on the portal
 
-It takes up to 30 minutes for the discovery data gathered by the appliance to reflect in the portal. If you do not see up-to-date information even after 30 minutes, issue a refresh on the data using the following steps:
+It takes up to 30 minutes for the discovery data gathered by the appliance to reflect in the portal. If you don't see up-to-date information even after 30 minutes, issue a refresh on the data using the following steps:
 
 1. In Servers > Azure Migrate: Server Assessment, click **Overview**.
 2. Under **Manage**, click on **Agent Health**
-3. Click on the option to **Refresh agent**. You will see this below option below the list of agents.
-4. Wait for the refresh operation to complete. Verify that you are able to see up-to-date information on your VMs.
+3. Click on the option to **Refresh agent**. You will see this option below the list of agents.
+4. Wait for the refresh operation to complete. You should now see up-to-date information on your VMs.
+
+### Unable to connect to host(s) or cluster as the server name cannot be resolved. WinRM error code: 0x803381B9 (Error ID: 50004)
+This error occurs if the DNS serving the appliance cannot resolve the cluster or host name you provided. If you see this error on the cluster, try providing the fully qualified domain name of the cluster. 
+
+You may see this error for hosts in a cluster as well. In this case, the appliance could connect to the cluster. But the cluster has returned the host names that aren't fully qualified domain names. 
+
+To resolve this error, update the hosts file on the appliance adding a mapping of the IP address and host names.
+1. Open Notepad as administrator user. Open the file C:\Windows\System32\Drivers\etc\hosts.
+2. Add the IP address and host name in a row. Repeat for each host or cluster where you see this error.
+3. Save and close hosts file.
+4. You can check if the appliance can connect to the hosts using the appliance management app. After 30 minutes, you should be able to see the latest information on these hosts on the Azure portal. 
+
 
 ## Assessment issues
 
