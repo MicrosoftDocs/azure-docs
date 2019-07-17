@@ -15,7 +15,7 @@ ms.author: rwaller
 
 ## Use Azure Active Directory (AAD) authentication tokens with the Immersive Reader service
 
-In the following sections, you will use either the Azure Cloud Shell environment or the Azure CLI to create a new Immersive Reader resource with a custom subdomain and then configure AAD in your Azure tenant. After completing that initial configuration, you will call AAD to obtain an access token, similar to how it will be done when using Immersive Reader SDK. If you get stuck, links are provided in each section with all the available options for each of the Azure CLI commands.
+In the following sections, you will use either the Azure Cloud Shell environment or the Azure CLI to create a new Immersive Reader resource with a custom subdomain and then configure AAD in your Azure tenant. After completing that initial configuration, you will call AAD to obtain an access token, similar to how it will be done when using the Immersive Reader SDK. If you get stuck, links are provided in each section with all the available options for each of the Azure CLI commands.
 
 ### Create an Immersive Reader resource with a custom subdomain
 
