@@ -44,10 +44,10 @@ If the [SQL IaaS Extension](virtual-machines-windows-sql-server-agent-extension.
 Register SQL Server VM using PowerShell with the following code snippet:
 
   ```powershell-interactive
-     // Get the existing  Compute VM
+     # Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     // Register with SQL VM resource provider
+     # Register with SQL VM resource provider
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='AHUB'}  
@@ -59,10 +59,10 @@ If the SQL IaaS Extension is not installed on the VM, then you can register with
 Register SQL Server VM in lightweight SQL management mode using PowerShell with the following code snippet:
 
   ```powershell-interactive
-     // Get the existing  Compute VM
+     # Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     // Register SQL VM with 'Lightweight' SQL IaaS agent
+     # Register SQL VM with 'Lightweight' SQL IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  
@@ -87,7 +87,7 @@ The following table details the acceptable values for the parameters provided du
 To register your SQL Server 2008 or 2008 R2 on Windows Server 2008 instance, use the following Powershell code snippet:  
 
   ```powershell-interactive
-     // Get the existing  Compute VM
+     # Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
