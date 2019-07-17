@@ -5,7 +5,7 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 05/28/2019
+ms.date: 07/16/2019
 ms.topic: conceptual
 ---
 
@@ -61,7 +61,7 @@ Batch sets the [pool state](https://docs.microsoft.com/rest/api/batchservice/poo
 
 Even when Batch successfully allocates nodes in a pool, various issues can cause some of the nodes to be unhealthy and unusable. These nodes incur charges. It's important to detect problems so you aren't paying for unusable nodes.
 
-### Start task failure
+### Start task failures
 
 You might want to specify an optional [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) for a pool. As with any task, you can use a command line and resource files to download from storage. The start task is run for each node after it's been started. The **waitForSuccess** property specifies whether Batch waits until the start task completes successfully before it schedules any tasks to a node.
 
@@ -72,6 +72,8 @@ You can detect start task failures by using the [result](https://docs.microsoft.
 A failed start task also causes Batch to set the node [state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) to **starttaskfailed** if you'd set **waitForSuccess** to **true**.
 
 As with any task, there can be many causes for the start task failing.  To troubleshoot, check the stdout, stderr, and any further task-specific log files.
+
+Start tasks must be reentrant. It is possible the start task is run multiple times on the same node; it is run when a node is reimaged or rebooted. One situation to be aware of is for Cloud Service pools; the temporary disk used by Batch can remain intact when the OS disk has been reimaged - the OS disk data indicates the start task has not been run, but the start task data is present on the temporary disk and causes the start task to fail.
 
 ### Application package download failure
 
@@ -104,6 +106,30 @@ Additional examples of causes for **unusable** nodes include:
 ### Node agent log files
 
 The Batch agent process that runs on each pool node can provide log files which might be helpful if you need to contact support about a pool node issue. Log files for a node can be uploaded via the Azure portal, Batch Explorer, or an [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). It's useful to upload and save the log files. Afterward, you can delete the node or pool to save the cost of the running nodes.
+
+### Node disk full
+
+The temporary drive for a pool node VM is used by Batch to store various type of files:
+
+- Application packages files
+- Task resource files
+- Application-specific files downloaded to the node
+- Stdout and stderr files for each task application execution
+- Application-specific output files
+
+Some of these files are only written once when pool nodes are created, such as pool application packages or pool start task resource files. Even if only written once when the node is created, if these files are too large they could fill the temporary drive.
+
+Other files are written out for each task that is run on a node, such as stdout and stderr. If a large number of tasks run on the same node and/or the task files are too large, they could fill the temporary drive.
+
+The size of the temporary drive depends on the VM size. One consideration when picking a VM size is to ensure the temporary drive has enough space.
+
+- In the Azure portal when adding a pool, the full list of VM sizes can be displayed and there is a 'Resource Disk Size' column.
+- The articles describing all VM sizes have tables with a 'Temp Storage' column; e.g. [Compute Opimized VM sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute)
+
+For files written out by each task, a retention time can be specified for each task which determines how long the task files are kept before being automatically cleaned up. The default retention time can be reduced to lower the storage requirements.
+
+If temporary disk space does fill, then currently the node will stop running tasks. In the near future a [node error](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) will be reported.
+
 
 ## Next steps
 
