@@ -858,6 +858,17 @@ If the above conditions are not met, restoring access is not possible as these t
 - When tiered files are not accessible on the server, the full file should still be accessible if you access the Azure file share directly.
 - To prevent orphaned tiered files in the future, follow the steps documented in [Remove a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint) when deleting a server endpoint.
 
+<a id="get-orphaned"></a>**How to get the list of orphaned tiered files** 
+
+1. Verify Azure File Sync agent version v5.1 or later is installed.
+2. Run the following PowerShell commands to list orphaned tiered files:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+3. Save the OrphanTieredFiles.txt output file in case files need to be restored from backup after they are deleted.
+
 ### How to troubleshoot files unexpectedly recalled on a server  
 Antivirus, backup, and other applications that read large numbers of files cause unintended recalls unless they respect the skip offline attribute and skip reading the content of those files. Skipping offline files for products that support this option helps avoid unintended recalls during operations like antivirus scans or backup jobs.
 
