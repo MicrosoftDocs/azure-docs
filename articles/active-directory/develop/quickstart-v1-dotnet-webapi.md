@@ -79,8 +79,8 @@ To validate incoming requests and tokens, you need to set up your application to
 1. To begin, open the solution and add the OWIN middleware NuGet packages to the TodoListService project by using the Package Manager Console.
 
     ```
-    PM> Install-Package Microsoft.Owin.Security.ActiveDirectory -ProjectName TodoListService
-    PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
+    Install-Package Microsoft.Owin.Security.ActiveDirectory -ProjectName TodoListService
+    Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
     ```
 
 2. Add an OWIN Startup class to the TodoListService project called `Startup.cs`.  Right-click the project, select **Add > New Item**, and then search for **OWIN**. The OWIN middleware will invoke the `Configuration(…)` method when your app starts.
