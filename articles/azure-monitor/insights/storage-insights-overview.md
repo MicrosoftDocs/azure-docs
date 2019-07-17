@@ -69,7 +69,7 @@ On the Overview page for the selected subscription, the table displays interacti
 
 The counter under the drop down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected.  
 
-Select any column, including **Availability**, **E2E Latency**, **Server Latency**, **ClientOtherError/Errors**, and **ClientThrottlingError/Errors**. View a report that is tailored to specific type of storage KPIs that match the column selected. Specifically:
+Select any column, including **Availability**, **E2E Latency**, **Server Latency**, **ClientOtherError/Errors**, and **ClientThrottlingError/Errors**. You're directed to a report tailored to specific type of storage KPIs that match the column selected. Specifically:
 
 * **Availability** opens the **Availability** report. It shows the current health state of Azure Storage service, a table showing the available health state of each object categorized by data service defined in the storage account with a trend line representing the time range selected, and an availability trend chart for each data service in the account.  
 
