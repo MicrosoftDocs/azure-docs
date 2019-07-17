@@ -1626,14 +1626,14 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
-                                                <img src="media/index/private_link.svg" alt="" />
+                                            <a href="/azure/bastion/">
+                                                <img src="media/index/web_connect.svg" alt="" />
                                                 <p>Azure Bastion</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/bastion/">
-                                                <img src="media/index/web_connect.svg" alt="" />
+                                            <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                                <img src="media/index/private_link.svg" alt="" />
                                                 <p>Azure Private Link</p>
                                             </a>
                                         </li>
