@@ -23,7 +23,7 @@ Since Managed Instance uses the same DNS for its inner workings, you need to con
    > Always use fully-qualified domain names (FQDN) for the mail servers, SQL Servers, and other services even if they are within your private DNS zone. For example use `smtp.contoso.com` for mail server because simple `smtp` will not be properly resolved.
 
    > [!IMPORTANT]
-   > Updating virtual network DNS servers would not affect Managed Instance immediately. The setting will be updated after DHCP lease expires or after the platform upgarade, whatever comes first. **Users are advised to set virtual network DNS configuration before creating first Managed Instance.**
+   > Updating virtual network DNS servers would not affect Managed Instance immediately. Managed Instance DNS configuration will be updated after DHCP lease expires or after the platform upgarade, whatever comes first. **Users are advised to set virtual network DNS configuration before creating first Managed Instance.**
 
 ## Next steps
 
