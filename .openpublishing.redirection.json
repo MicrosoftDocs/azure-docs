@@ -23605,13 +23605,18 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/storage-dotnet-shared-access-signature-part-1.md",
+      "redirect_url": "/azure/storage/common/storage-shared-access-signatures",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-dotnet-shared-access-signature-part-2.md",
       "redirect_url": "/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/storage/blobs/storage-dotnet-shared-access-signature-part-2.md",
-      "redirect_url": "/azure/storage/common/storage-dotnet-shared-access-signature-part-1",
+      "redirect_url": "/azure/storage/common/storage-shared-access-signatures",
       "redirect_document_id": false
     },
     {

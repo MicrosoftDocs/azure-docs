@@ -1,26 +1,24 @@
 ---
-title: Using shared access signatures (SAS) in Azure Storage | Microsoft Docs
+title: Grant limited access to Azure Storage resources using shared access signatures (SAS)
 description: Learn to use shared access signatures (SAS) to delegate access to Azure Storage resources, including blobs, queues, tables, and files.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 07/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Using shared access signatures (SAS)
+# Grant limited access to Azure Storage resources using shared access signatures (SAS)
 
-A shared access signature (SAS) provides you with a way to grant limited access to objects in your storage account to other clients, without exposing your account key. In this article, we provide an overview of the SAS model, review SAS best practices, and look at some examples.
+A shared access signature (SAS) enables you to grant limited access to objects in your storage account to other clients, without compromising your account keys. When you create a SAS, you specify its constraints, including which object or objects a client is allowed to access, what permissions they have on those objects, and how long the SAS is valid. You can also manage the constraints for a SAS using a stored access policy, which is defined at the object container level and which enables revocation of a SAS that is compromised.
 
-For additional code examples using SAS beyond those presented here, see [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) and other samples available in the [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage) library. You can download the sample applications and run them, or browse the code on GitHub.
+## About shared access signatures
 
-## What is a shared access signature?
-
-A shared access signature provides delegated access to resources in your storage account. With a SAS, you can grant clients access to resources in your storage account, without sharing your account keys. This is the key point of using shared access signatures in your applications--a SAS is a secure way to share your storage resources without compromising your account keys.
+A shared access signature provides secure delegated access to resources in your storage account without compromising your account keys. This point is the key reason to use shared access signatures in your applications&mdash;a SAS is a secure way to share your storage resources without compromising your account keys.
 
 [!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
@@ -57,8 +55,9 @@ Additionally, you will need to use a SAS to authorize access to the source objec
 
 ## Types of shared access signatures
 
-You can create two types of shared access signatures:
+Azure Storage supports three types of shared access signatures:
 
+* **User delegation SAS.** 
 * **Service SAS.** The service SAS delegates access to a resource in just one of the storage services: the Blob, Queue, Table, or File service. See [Constructing a Service SAS](https://msdn.microsoft.com/library/dn140255.aspx) and [Service SAS Examples](https://msdn.microsoft.com/library/dn140256.aspx) for in-depth information about constructing the service SAS token.
 * **Account SAS.** The account SAS delegates access to resources in one or more of the storage services. All of the operations available via a service SAS are also available via an account SAS. Additionally, with the account SAS, you can delegate access to operations that apply to a given service, such as **Get/Set Service Properties** and **Get Service Stats**. You can also delegate access to read, write, and delete operations on blob containers, tables, queues, and file shares that are not permitted with a service SAS. See [Constructing an Account SAS](https://msdn.microsoft.com/library/mt584140.aspx) for in-depth information about constructing the account SAS token.
 
