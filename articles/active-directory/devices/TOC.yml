@@ -55,7 +55,7 @@
     items: 
     - name: Troubleshoot hybrid Azure AD joined Windows current devices
       href: troubleshoot-hybrid-join-windows-current.md
-    - name: Troubleshooting using dsregcmd
+    - name: Troubleshoot using dsregcmd
       href: troubleshoot-device-dsregcmd.md
     - name: Troubleshoot hybrid Azure AD joined down level Windows devices
       href: troubleshoot-hybrid-join-windows-legacy.md
