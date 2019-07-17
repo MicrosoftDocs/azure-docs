@@ -54,5 +54,5 @@ This article contains security Considerations for virtual machines in Azure. Imp
 | Considerations | Comments |
 |-|-|
 | Back-up your virtual machines | [Azure Backup](../articles/backup/backup-overview.md) helps protect your application data with minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications. With Azure Backup, your virtual machines running Windows and Linux are protected. |
-| Use multiple VMs for greater resilience and availability | If your VM runs applications that need to have high availability you should multiple VMs or [availability sets](manage-availability.md) |
+| Use multiple VMs for greater resilience and availability | If your VM runs applications that need to have high availability you should multiple VMs or [availability sets](../articles/virtual-machines/windows/manage-availability.md) |
 | Adopt a business continuity and disaster recovery (BCDR) strategy | Azure Site Recovery allows you to choose from different options designed to support your business continuity needs. It supports different replication and fails over scenarios. For more information, see  [About Site Recovery](../articles/site-recovery/site-recovery-overview.md) |
