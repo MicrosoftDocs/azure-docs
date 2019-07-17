@@ -64,6 +64,16 @@ If for some reason you're unable to use your primary sign-in method, you can use
 
 3. After you're back in your account, you can update your verification methods (if necessary). For more info about add or changing your methods, see the [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md) article.
 
+
+Sign in with passwordless credentials
+Sign in at the lock screen
+In the example below a user Bala Sandhu has already provisioned their FIDO2 security key. Bala can choose the security key credential provider from the Windows 10 lock screen and insert the security key to sign into Windows.
+
+Security key sign in at the Windows 10 lock screen
+
+Sign in on the web
+In the example below a user has already provisioned their FIDO2 security key. The user can choose to sign in on the web with their FIDO2 security key inside of the Microsoft Edge browser on Windows 10 version 1809 or higher.
+
 ## Next steps
 
 - Learn about security info in the [Security info (preview) overview](user-help-security-info-overview.md) article.
