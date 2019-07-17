@@ -20,10 +20,10 @@ A _device capability model_ (DCM) describes the capabilities of a plug and play 
 
 To complete this quickstart, you need to install the following software on your local machine:
 
-* Install [Visual Studio 2019](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/).
-* Install the latest version of [Git](https://git-scm.com/download/).
-* Install the latest version of [CMake](https://cmake.org/download/).
-* Install the latest version of [Visual Studio Code](https://code.visualstudio.com/).
+* [Visual Studio 2019](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/).
+* [Git](https://git-scm.com/download/).
+* [CMake](https://cmake.org/download/).
+* [Visual Studio Code](https://code.visualstudio.com/).
 
 ### Install Azure IoT Device Workbench
 
@@ -38,6 +38,15 @@ Install the Azure IoT Device Workbench extension from a .vsix file. Use the foll
 
 > [!NOTE]
 > The above experience will be replaced by directly installing from VS Code marketplace after IoT Plug and Play go public preview.
+
+> [!NOTE]
+> If you have problem on using the extension. Follow this step to reinstall it from scratch.
+> 1. Uninstall the IoT Device Workbench
+> 1. Close VS Code
+> 1. Navigate to `C:\Users\{yourname}\.vscode\extensions` folder
+> 1. Remove all `vsciot-vscode.vscode-iot-workbench-[version]` folders
+> 1. Open VS Code and then re-install from the .vsix file
+
 
 ### Install the Azure IoT explorer
 
@@ -116,8 +125,6 @@ Now you have a DCM, you can generate the device code that implements the model. 
 ## Build the code
 
 You use the device SDK to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
-
-### Windows
 
 1. In VS Code, open `CMakeLists.txt` in the device SDK root folder.
 
