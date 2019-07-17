@@ -28,7 +28,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 * Query the data 
 * Delete the database
 
-[API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+[API reference documentation](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
 
 ## Prerequisites
 
