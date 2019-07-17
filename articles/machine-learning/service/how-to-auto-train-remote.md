@@ -216,13 +216,15 @@ Here is a static image of the widget.  In the notebook, you can click on any lin
 ![widget table](./media/how-to-auto-train-remote/table.png)
 ![widget plot](./media/how-to-auto-train-remote/plot.png)
 
-The widget displays a URL you can use to see and explore the individual run details.
+The widget displays a URL you can use to see and explore the individual run details.  
+
+The same information is available in your workspace.  To learn more about these results, see [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 ### View logs
 
 Find logs on the DSVM under `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
-## Best model explanation
+## <a name="explain"></a> Best model explanation
 
 Retrieving model explanation data allows you to see detailed information about the models to increase transparency into what's running on the back-end. In this example, you run model explanations only for the best fit model. If you run for all models in the pipeline, it will result in significant run time. Model explanation information includes:
 

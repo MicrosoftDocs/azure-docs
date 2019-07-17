@@ -239,4 +239,5 @@ Automated ML helps you with deploying the model without writing code:
 ## Next steps
 
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
+* [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn how to consume a web service](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).
