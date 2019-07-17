@@ -14,7 +14,7 @@ ms.date: 07/20/2019
 
 # Tutorial: Setup environment and workspace
 
-In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks. This tutorial is **part one of a two-part tutorial series**, and covers Python environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. [**Part two**](tutorial-quickstart-train-model.md) builds on this to train multiple machine learning models and introduce the model management process using both the Azure Portal and the SDK.
+In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks. This tutorial is **part one of a two-part tutorial series**, and covers Python environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. [**Part two**](tutorial-1st-experiment-sdk-train.md) builds on this to train multiple machine learning models and introduce the model management process using both the Azure Portal and the SDK.
 
 In this tutorial, you:
 
@@ -106,4 +106,4 @@ In this tutorial, you completed these tasks:
 Continue with **part 2** of this tutorial to train a simple machine learning model.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Train your first model](tutorial-quickstart-train-model.md)
+> [Tutorial: Train your first model](tutorial-1st-experiment-sdk-train.md)

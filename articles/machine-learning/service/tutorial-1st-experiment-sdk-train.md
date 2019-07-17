@@ -14,7 +14,7 @@ ms.date: 07/20/2019
 
 # Tutorial: Train your first model
 
-This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and chose a development environment](tutorial-quickstart-setup.md). In this tutorial, you learn the foundational design patterns in Azure Machine Learning service, and train a simple scikit-learn model based on the diabetes data set. After completing this tutorial, you will have the practical knowledge of the SDK to scale up to developing more-complex experiments and workflows.
+This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and chose a development environment](tutorial-1st-experiment-sdk-setup.md). In this tutorial, you learn the foundational design patterns in Azure Machine Learning service, and train a simple scikit-learn model based on the diabetes data set. After completing this tutorial, you will have the practical knowledge of the SDK to scale up to developing more-complex experiments and workflows.
 
 In this tutorial, you learn the following tasks:
 
@@ -25,7 +25,7 @@ In this tutorial, you learn the following tasks:
 
 ## Prerequisites
 
-The only prerequisite is to run the previous tutorial, [Setup environment and workspace](tutorial-quickstart-setup.md).
+The only prerequisite is to run the previous tutorial, [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
 ## Connect workspace and create experiment
 
