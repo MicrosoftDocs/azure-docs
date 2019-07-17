@@ -15,7 +15,7 @@ ms.author: rwaller
 
 ## Use Azure Active Directory (AAD) authentication tokens with the Immersive Reader service
 
-In the following sections, you'll use either the Azure Cloud Shell environment or the Azure CLI to create a new Immersive Reader resource with a custom subdomain, configure AAD in your Azure tenant, grant AAD access to the Immersive Reader resource, and then obtain an AAD access token to use with the Immersive Reader SDK. If you get stuck, links are provided in each section with all available options for each command in Azure Cloud Shell/Azure CLI.
+In the following sections, you will use either the Azure Cloud Shell environment or the Azure CLI to create a new Immersive Reader resource with a custom subdomain and then configure AAD in your Azure tenant. After completing that initial configuration, you will call AAD to obtain an access token, similar to how it will be done when using Immersive Reader SDK. If you get stuck, links are provided in each section with all the available options for each of the Azure CLI commands.
 
 ### Create an Immersive Reader resource with a custom subdomain
 
@@ -50,7 +50,7 @@ In the following sections, you'll use either the Azure Cloud Shell environment o
 
 
    >[!NOTE]
-   > If you create a resource in the Azure portal, the resource 'Name' is used as the custom subdomain. You can check the subdomain name in the portal by going to the resource Overview page and finding the subdomain in the Endpoint listed there, e.g. `https://[SUBDOMAIN].cognitiveservices.azure.com/`. You can also check here later when you need to get the subdomain for integrating with the SDK.
+   > If you create a resource in the Azure portal, the resource 'Name' is used as the custom subdomain. You can check the subdomain name in the portal by going to the resource Overview page and finding the subdomain in the Endpoint listed there, for example, `https://[SUBDOMAIN].cognitiveservices.azure.com/`. You can also check here later when you need to get the subdomain for integrating with the SDK.
 
    If the resource was created in the portal, you can also [get an existing resource](https://docs.microsoft.com/en-us/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccount?view=azps-1.8.0) now.
 
