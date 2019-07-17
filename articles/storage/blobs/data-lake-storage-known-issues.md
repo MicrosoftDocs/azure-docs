@@ -48,9 +48,11 @@ If you used these APIs to load data before they were disabled, and you have a pr
 
 Under these circumstances, we can restore access to the Blob API for a limited period of time so that you can copy this data into a storage account that doesn't have the hierarchical namespace feature enabled.
 
-### Issues and limitations with Blob APIs and accounts that have a hierarchical namespace
+### Issues and limitations with using Blob APIs on accounts that have a hierarchical namespace
 
-If you enroll in the public preview of multi-protocol access on data lake storage, then blob APIs and Data Lake Storage Gen2 APIs can operate on the same data. This section describes issues and limitations in the current public preview.
+If you enroll in the public preview of multi-protocol access on data lake storage, then blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
+
+This section describes issues and limitations with using blob APIs and Data Lake Storage Gen2 APIs to operate on the same data.
 
 These Blob REST APIs aren't supported:
 
@@ -65,19 +67,19 @@ These Blob REST APIs aren't supported:
 
 * You can't use both Blob APIs and Data Lake Storage APIs to write to the same instance of a file.
 
-* If you write to a file by using Data Lake Storage Gen2 APIs, that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.comrest/api/storageservices/get-block-list) blob API.
+* If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.comrest/api/storageservices/get-block-list) blob API.
 
-* You can overwrite a file by using either Data Lake Storage Gen2 or Blob APIs. This won't affect file properties.
+* You can overwrite a file by using either Data Lake Storage Gen2 APIs or Blob APIs. This won't affect file properties.
 
-* When you use the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) operation without specifying a delimiter, results will include both directories and blobs.
+* When you use the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs.
 
   If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 
-* If you use the [Delete Blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) API to delete a directory, that directory will only be deleted if it's empty.
+* If you use the [Delete Blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) API to delete a directory, that directory will be deleted only if it's empty.
 
-  This means that you can't use te Blob API delete directories recursively.
+  This means that you can't use the Blob API delete directories recursively.
 
-## Support for other Blob storage features in accounts that have a hierarchical namespace
+## Support for other Blob storage features
 
 The following table lists all other features and tools that are not yet supported or only partially supported with storage accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2).
 
