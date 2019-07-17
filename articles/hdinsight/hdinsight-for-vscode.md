@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight for Visual Studio Code
-description: Learn how to use the Spark & Hive Tools(Azure HDInsight) for Visual Studio Code to create and submit queries and scripts.
+description: Learn how to use the Spark & Hive Tools (Azure HDInsight) for Visual Studio Code to create and submit queries and scripts.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
