@@ -48,7 +48,36 @@ If you used these APIs to load data before they were disabled, and you have a pr
 
 Under these circumstances, we can restore access to the Blob API for a limited period of time so that you can copy this data into a storage account that doesn't have the hierarchical namespace feature enabled.
 
-## All other features and tools
+### Issues and limitations with Blob APIs and accounts that have a hierarchical namespace
+
+If you enroll in the public preview of multi-protocol access on data lake storage, then blob APIs and Data Lake Storage Gen2 APIs can operate on the same data. This section describes issues and limitations in the current public preview.
+
+These Blob REST APIs aren't supported:
+
+* [Put Blob (Page)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+* [Put Page](https://docs.microsoft.com/rest/api/storageservices/put-page)
+* [Get Page Ranges](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
+* [Incremental Copy Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
+* [Put Page from URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
+* [Put Blob (Append)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
+* [Append Block from URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+
+* You can't use both Blob APIs and Data Lake Storage APIs to write to the same instance of a file.
+
+* If you write to a file by using Data Lake Storage Gen2 APIs, that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.comrest/api/storageservices/get-block-list) blob API.
+
+* You can overwrite a file by using either Data Lake Storage Gen2 or Blob APIs. This won't affect file properties.
+
+* When you use the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) operation without specifying a delimiter, results will include both directories and blobs.
+
+  If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
+
+* If you use the [Delete Blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) API to delete a directory, that directory will only be deleted if it's empty.
+
+  This means that you can't use te Blob API delete directories recursively.
+
+## Support for other Blob storage features in accounts that have a hierarchical namespace
 
 The following table lists all other features and tools that are not yet supported or only partially supported with storage accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2).
 
@@ -67,7 +96,6 @@ The following table lists all other features and tools that are not yet supporte
 | **Immutable storage** |Not yet supported <br><br>Immutable storage gives the ability to store data in a [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) state.|
 | **Object-level tiers** |Cool and archive tiers are supported only if you enroll in the the [Multi-protocol access on data lake storage](data-lake-storage-multi-protocol-access.md) preview. <br><br> All other access tiers are not yet supported.|
 | **Powershell and CLI support** | Limited functionality <br><br>Management operations such as creating an account is supported. Data plane operations such as uploading and downloading files is in public preview as part of [Multi-protocol access on data lake storage](data-lake-storage-multi-protocol-access.md). Working with directories and setting access control lists (ACLs) is not yet supported. |
-| **CLI support** | Limited functionality <br><br>Management operation such as creating an account is supported. Data plane operations such as uploading and downloading files is not yet supported.|
 | **Static websites** |Not yet supported <br><br>Specifically, the ability to serve files to [Static websites](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
 | **Third party applications** | Limited support <br><br>Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2. <br>Applications that call Blob APIs will likely work if you enroll in the public preview of [Multi-protocol access on data lake storage](data-lake-storage-multi-protocol-access.md). 
 | **Versioning features** |Not yet supported <br><br>This includes [snapshots](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) and [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete).|

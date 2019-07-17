@@ -12,7 +12,7 @@ ms.author: normesta
 ---
 # Multi-protocol access on data lake storage
 
-Blob APIs now work with accounts that have a hierarchical namespace. This unlocks the entire ecosystem of tools, applications, and services, as well as all Blob storage features to accounts that have a hierarchical namespace. 
+Blob APIs now work with accounts that have a hierarchical namespace. This unlocks the entire ecosystem of tools, applications, and services, as well as all Blob storage features to accounts that have a hierarchical namespace.
 
 Until recently, you might have had to maintain separate storage solutions for object storage and analytics storage. That's because Azure Data Lake Storage Gen2 had limited ecosystem support, and limited access to Blob service features such as diagnostic logging. A fragmented storage solution is hard to maintain because you have to move data between accounts to accomplish various scenarios. You no longer have to do that.
 
