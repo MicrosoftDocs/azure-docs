@@ -31,6 +31,8 @@
 
 - name: Concepts
   items:
+  - name: Plan a reporting and monitoring deployment
+  - href: plan-monitoring-and-reporting.md
   - name: Audit logs
     href: concept-audit-logs.md
   - name: Sign-in logs
