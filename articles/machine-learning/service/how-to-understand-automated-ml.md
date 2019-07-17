@@ -220,7 +220,7 @@ Feature importance allows you to see how valuable each feature was in the constr
 
 You can review the feature importance score for the model overall as well as per class on a predictive model. You can see per feature how the importance compares against each class and overall.
 
-![Feature Explain ability](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-feature-explain1.png)
+![Feature Explain ability](./media/how-to-understand-automated-ml/feature-importance.gif)
 
 For more information on enabling interpretability features, see [Configure automated ML experiments in Python](how-to-configure-auto-train.md#explain-the-model-interpretability).  For an example that explains the best model, see [Best model explanation](how-to-auto-train-remote.md#explain).
 
