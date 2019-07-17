@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2019
-ms.author: dariagrigoriu;cephalin
+ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
 

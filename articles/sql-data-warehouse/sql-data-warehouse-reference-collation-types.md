@@ -6,7 +6,6 @@ author: antvgski
 manager: igorstan
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: create
 ms.date: 07/10/2019
 ms.author: anvang
 ms.reviewer: jrasnick
