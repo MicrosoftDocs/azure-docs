@@ -61,25 +61,24 @@ To see how to join a computer to an Azure AD DS managed domain, let's create a W
     | Username             | Enter a username for the local administrator account to create on the VM, such as *azureuser* |
     | Password             | Enter, and then confirm, a secure password for the local administrator to create on the VM. Don't specify a domain user account's credentials. |
 
-By default, VMs created in Azure aren't accessible from the Internet. This configuration helps improve the security of the VM and reduces the area for potential attack. In the next step of this tutorial, you need to connect to the VM using remote desktop protocol (RDP) and then join the Windows Server to the Azure AD DS managed domain.
+4. By default, VMs created in Azure aren't accessible from the Internet. This configuration helps improve the security of the VM and reduces the area for potential attack. In the next step of this tutorial, you need to connect to the VM using remote desktop protocol (RDP) and then join the Windows Server to the Azure AD DS managed domain.
 
-When RDP is enabled, automated sign in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign in attempts. RDP should only be enabled when required, and limited to a set of authorized IP ranges. Azure Just In Time VM access as part of Azure Security Center can enable these short-lived, restricted RDP sessions. For this tutorial, manually enable RDP connections to the VM.
+    When RDP is enabled, automated sign in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign in attempts. RDP should only be enabled when required, and limited to a set of authorized IP ranges. Azure Just In Time VM access as part of Azure Security Center can enable these short-lived, restricted RDP sessions. For this tutorial, manually enable RDP connections to the VM.
 
-4. Under **Public inbound ports**, select the option to **Allow selected ports**. From the drop-down menu for **Select inbound ports**, choose *RDP*.
+    Under **Public inbound ports**, select the option to **Allow selected ports**. From the drop-down menu for **Select inbound ports**, choose *RDP*.
 
 5. When done, select **Next: Disks**.
 6. From the drop-down menu for **OS disk type**, choose *Standard SSD*, then select **Next: Networking**.
+7. Your VM must connect to an Azure virtual network subnet that can communicate with the subnet your Azure AD DS managed domain is deployed into. We recommend that an Azure AD DS managed domain is deployed into its own dedicated subnet. Don't deploy your VM in the same subnet as your Azure AD DS managed domain.
 
-Your VM must connect to an Azure virtual network subnet that can communicate with the subnet your Azure AD DS managed domain is deployed into. We recommend that an Azure AD DS managed domain is deployed into its own dedicated subnet. Don't deploy your VM in the same subnet as your Azure AD DS managed domain.
+    There are two main ways to deploy your VM and connect to an appropriate virtual network subnet:
+    
+    * Create a, or select an existing, subnet in the same the virtual network as your Azure AD DS managed domain is deployed.
+    * Select a subnet in an Azure virtual network that is connected to it using [Azure virtual network peering][vnet-peering].
+    
+    If you select a virtual network subnet that isn't connected to the subnet for your Azure AD DS instance, you can't join the VM to the managed domain. For this tutorial, let's create a new subnet in the Azure virtual network.
 
-There are two main ways to deploy your VM and connect to an appropriate virtual network subnet:
-
-* Create a, or select an existing, subnet in the same the virtual network as your Azure AD DS managed domain is deployed.
-* Select a subnet in an Azure virtual network that is connected to it using [Azure virtual network peering][vnet-peering].
-
-If you select a virtual network subnet that isn't connected to the subnet for your Azure AD DS instance, you can't join the VM to the managed domain. For this tutorial, let's create a new subnet in the Azure virtual network.
-
-7. In the **Networking** pane, select the virtual network in which your Azure AD DS-managed domain is deployed, such as *myVnet*
+    In the **Networking** pane, select the virtual network in which your Azure AD DS-managed domain is deployed, such as *myVnet*
 8. In this example, the existing *DomainServices* subnet is shown that the Azure AD DS managed domain is connected to. Don't connect your VM to this subnet. To create a subnet for the VM, select **Manage subnet configuration**.
 
     ![Choose to manage the subnet configuration in the Azure portal](./media/join-windows-vm/manage-subnet.png)
