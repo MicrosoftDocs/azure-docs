@@ -28,3 +28,5 @@ To create a shared access policy that grants **service connect** and **registry 
 6. Under **Shared access keys**, select the copy icon for the **Connection string -- primary key** and save the value.
 
     ![Show how to retrieve the connection string](./media/iot-hub-include-find-custom-connection-string/iot-hub-get-connection-string.png)
+
+For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](iot-hub-devguide-security.md#access-control-and-permissions).
