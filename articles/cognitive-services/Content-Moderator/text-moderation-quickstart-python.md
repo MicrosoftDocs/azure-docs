@@ -47,7 +47,7 @@ Next, add variables for your Content Moderator subscription key and endpoint URL
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=snippet_text-moderation-file)]
 
-A string of multiline text from a file will be moderated. Include the [content_moderator_text_moderation.txt](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_text_moderation.txt) file into your local root folder and add its file name to your variables:
+A string of multiline text from a file will be moderated. Include the [content_moderator_text_moderation.txt](https://github.com/Azure-Samples/cognitive-services-content-moderator-samples/blob/master/documentation-samples/python/content_moderator_text_moderation.txt) file into your local root folder and add its file name to your variables:
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?snippet_text-moderator-file)]
 
