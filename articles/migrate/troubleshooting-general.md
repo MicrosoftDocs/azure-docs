@@ -20,8 +20,8 @@ There are [two versions](https://docs.microsoft.com/azure/migrate/migrate-servic
 
 1. If you are looking for a project created with the pervious version (old experience) of Azure Migrate,  follow the below steps to find the project.
 
-    1. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**
-    2. On the Azure Migrate dashboard, you will see a banner that talks about accessing older projects (you will see this banner only if you have created a project with the old experience). Click the banner.
+    1. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**.
+    2. On the Azure Migrate dashboard, you will see a banner that talks about accessing older projects. You will see this banner only if you have created a project with the old experience. Click the banner.
 
     ![Access existing projects](./media/troubleshooting-general/access-existing-projects.png)
 
@@ -29,23 +29,23 @@ There are [two versions](https://docs.microsoft.com/azure/migrate/migrate-servic
 
 2. If you are looking for a project created with the current version (new experience), follow the below steps to find the project.
 
-    1. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**
-    2. On the Azure Migrate dashboard, go to the **Servers** page on the left pane and click **change** on the top-right corner
+    1. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**.
+    2. On the Azure Migrate dashboard, go to the **Servers** page on the left pane, and select **change** on the top-right corner:
 
     ![Switch to an existing Azure Migrate project](./media/troubleshooting-general/switch-project.png)
 
-    3. Select the appropriate **Subscription** and **Migrate project**
+    3. Select the appropriate **Subscription** and **Migrate project**.
 
 ### I am unable to create a second Azure Migrate project.
 
 Follow the below steps to create a new Azure Migrate project.
 
-1. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**
-2. On the Azure Migrate dashboard, go to the **Servers** page on the left pane and click **change** on the top-right corner
+1. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**.
+2. On the Azure Migrate dashboard, go to the **Servers** page on the left pane, and select **change** on the top-right corner:
 
    ![Change Azure Migrate project](./media/troubleshooting-general/switch-project.png)
 
-3. To create a new project, click **click here** as shown in the screenshot below:
+3. To create a new project, select **click here** as shown in the screenshot below:
 
    ![Create a second Azure Migrate project](./media/troubleshooting-general/create-new-project.png)
 
@@ -58,7 +58,7 @@ When you delete an Azure Migrate project, it deletes the migration project along
 
      ![LA Workspace](./media/troubleshooting-general/loganalytics-workspace.png)
 
-     2. If you already deleted the migration project,  click **Resource Groups** in the left pane in Azure portal and go to the Resource Group in which the workspace was created and then browse to it.
+     2. If you already deleted the migration project, select **Resource Groups** in the left pane in the Azure portal. Go to the Resource Group in which the workspace was created and then browse to it.
 2. Follow the instructions [in this article](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete the workspace.
 
 ### Migration project creation failed with error *Requests must contain user identity headers*
@@ -74,9 +74,9 @@ Once the invitation email is received, you need to open the email and click the 
 1. Verify if Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. Refer to the [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) to verify the hash value. If the hash value is not matching, download the OVA file again and retry the deployment.
 2. If it still fails and if you are using VMware vSphere Client to deploy the OVF, try deploying it through vSphere Web Client. If it still fails, try using different web browser.
 3. If you are using vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on ESXi host by following the below steps:
-   - Connect to the ESXi host directly (instead of vCenter Server) using the web client (https://<*host IP Address*>/ui)
-   - Go to Home > Inventory
-   - Click File > Deploy OVF template > Browse to the OVA and complete the deployment
+   - Connect to the ESXi host directly (instead of vCenter Server) using the web client (https://<*host IP Address*>/ui).
+   - Go to **Home** > **Inventory**.
+   - Click **File** > **Deploy OVF template**. Browse to the OVA and complete the deployment.
 4. If the deployment still fails, contact Azure Migrate support.
 
 ### Appliance is not able to connect to the internet
@@ -84,7 +84,7 @@ Once the invitation email is received, you need to open the email and click the 
 This can happen when the machine you are using is behind a proxy. Make sure you provide the authorization credentials if the proxy needs one.
 If you are using any URL-based firewall proxy to control outbound connectivity, be sure to add these required URLs to an allow list:
 
-**Scenario** | **URL list**
+Scenario | URL list
 --- | ---
 Server Assessment for VMware | [Here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-url-access-requirements)
 Server Assessment for Hyper-V | [Here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#assessment-appliance-url-access)
@@ -140,7 +140,7 @@ It takes up to 30 minutes for the discovery data gathered by the appliance to re
 
 ### Azure Readiness issues
 
-**Issue** | **Remediation**
+Issue | Remediation
 --- | ---
 Unsupported boot type | Azure does not support VMs with EFI boot type. We recommend you to convert the boot type to BIOS before you run a migration. <br/><br/>You can use Azure Migrate Server Migration to do the migration of such VMs as it will convert the boot type of the VM to BIOS during the migration.
 Conditionally supported Windows OS | The OS has passed its end of support date and needs a Custom Support Agreement (CSA) for [support in Azure](https://aka.ms/WSosstatement), consider upgrading the OS before migrating to Azure.
@@ -202,8 +202,8 @@ Azure Migrate depends on Service Map for the dependency visualization functional
 Once you have installed the agents, Azure Migrate typically takes 15-30 mins to display the dependencies in the portal. If you have waited for more than 30 minutes, ensure that the MMA agent is able to talk to the OMS workspace by following the below steps:
 
 For Windows VM:
-1. Go to **Control Panel** and launch **Microsoft Monitoring Agent**
-2. Go to the **Azure Log Analytics (OMS)** tab in the MMA properties pop-up
+1. Go to **Control Panel** and launch **Microsoft Monitoring Agent**.
+2. Go to the **Azure Log Analytics (OMS)** tab in the MMA properties pop-up.
 3. Ensure that the **Status** for the workspace is green.
 4. If the status is not green, try removing the workspace and adding it again to MMA.
         ![MMA Status](./media/troubleshooting-general/mma-status.png)
@@ -237,7 +237,7 @@ You can [visualize dependencies for groups](https://docs.microsoft.com/azure/mig
 1. Open the browser and navigate and sign in [to the portal](https://portal.azure.com).
 2. Press F12 to start the Developer Tools. If needed, clear the setting **Clear entries on navigation**.
 3. Click the **Network** tab, and start capturing network traffic:
-   - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start
+   - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start.
    - In Microsoft Edge/IE, recording should start automatically. If it doesn't, click the green play button.
 4. Try to reproduce the error.
 5. After you've encountered the error while recording, stop recording, and save a copy of the recorded activity:
