@@ -166,7 +166,7 @@ The *Token Replay Prevention* feature allows Media Services customers to set a l
 #### Considerations
 
 * Customers must have control over token generation. The claim needs to be placed in the token itself.
-* When using this feature, requests with tokens whose expiry time is more than 7 days away from the time the request is received are rejected with an unauthorized response.
+* When using this feature, requests with tokens whose expiry time is more than one hour away from the time the request is received are rejected with an unauthorized response.
 * Tokens are uniquely identified by their signature. Any change to the payload (for example, update to the expiry time or the claim) changes the signature of the token and it will count as a new token that Key Delivery has not encountered before.
 * Playback fails if the token has exceeded the `maxuses` value set by the customer.
 * This feature can be used for all existing protected content (only the token issued needs to be changed).
