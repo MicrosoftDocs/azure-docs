@@ -49,6 +49,7 @@ In a text editor, type the following and save it locally as `TestConfig.ps1`.
 
 ```powershell
 configuration TestConfig {
+  Import-DSCResource -ModuleName PSDesiredStateConfiguration
    Node WebServer {
       WindowsFeature IIS {
          Ensure               = 'Present'
@@ -58,6 +59,10 @@ configuration TestConfig {
    }
 }
 ```
+
+> !Important
+> In more advanced scenarios where you require multiple modules to be imported that provide DSC Resources,
+> make sure each module has a unique `Import-DscResource` line in your configuration.
 
 Call the `Import-AzureRmAutomationDscConfiguration` cmdlet to upload the configuration into your Automation account:
 
