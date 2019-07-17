@@ -41,7 +41,7 @@ You might see this issue when you're provisioning a new SSIS IR or while IR is r
  authentication (managed identity). Add the managed identity of your factory to an AAD group, and make sure the managed identity has access permissions to your catalog database server.
 * Connection timeout. This is always caused by a security-related configuration. We recommend that you:
   1. Create a new VM. 
-  1. Join the VM to the same Microsoft Azure Virtual Network of IR if IR is in a Virtual Network.
+  1. Join the VM to the same Microsoft Azure Virtual Network of IR if IR is in a virtual network.
   1. Install SSMS and check the Azure SQL Database server or managed instance status.
 
 For other problems, fix the issue shown in the detailed SQL Exception error message. If you’re still having problems, contact the Azure SQL Database server or managed instance support team.
@@ -110,7 +110,7 @@ This error means that the attempt to upload custom setup execution logs to your 
 
 ## Virtual network configuration
 
-When you join SSIS IR to Azure Virtual Network, SSIS IR uses the Virtual Network that's under the user subscription. For more information, see [Join an Azure-SSIS Integration Runtime to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+When you join SSIS IR to Azure Virtual Network, SSIS IR uses the virtual network that's under the user subscription. For more information, see [Join an Azure-SSIS Integration Runtime to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
 When there's a Virtual Network-related issue, you'll see one of the following errors.
 
@@ -122,7 +122,7 @@ This error can occur for a variety of reasons. To troubleshoot it, see the "Forb
 
 This kind of error might resemble this: “SubnetId is not enabled for current account. Microsoft.Batch resource provider is not registered under the same subscription of VNet.”
 
-These details mean that Azure Batch can't access your Virtual Network. Register the Microsoft.Batch resource provider under the same subscription as Virtual Network.
+These details mean that Azure Batch can't access your virtual network. Register the Microsoft.Batch resource provider under the same subscription as Virtual Network.
 
 ### InvalidPropertyValue
 
@@ -131,7 +131,7 @@ This kind of error might resemble one of the following:
 - “Either the specified VNet does not exist, or the Batch service does not have access to it.”
 - “The specified subnet xxx does not exist.”
 
-These errors mean the Virtual Network doesn't exist, the Azure Batch service can't access it, or the subnet provided doesn't exist. Make sure the Virtual Network and subnet exist and that Azure Batch can access them.
+These errors mean the virtual network doesn't exist, the Azure Batch service can't access it, or the subnet provided doesn't exist. Make sure the virtual network and subnet exist and that Azure Batch can access them.
 
 ### MisconfiguredDnsServerOrNsgSettings
 
