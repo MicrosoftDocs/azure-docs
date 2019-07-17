@@ -627,6 +627,8 @@
           href: insights/network-performance-monitor-pricing-faq.md
         - name: FAQ
           href: insights/network-performance-monitor-faq.md
+    - name: Monitor storage
+      href: insights/storage-insights-overview.md
     - name: Monitor virtual machines
       items:
       - name: Azure Monitor for VMs
