@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -85,18 +85,11 @@ Select an item in the list view to get more detailed information.
 > Customers can now troubleshoot Conditional Access policies through all sign-in reports. By clicking on the **Conditional Access** tab for a sign-in record, customers can review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
 > For more information, see the [Frequently asked questions about CA information in all sign-ins](reports-faq.md#conditional-access).
 
-![Sign-in activity](./media/concept-sign-ins/ConditionalAccess.png "Sign-in activity")
 
 
 ## Filter sign-in activities
 
-To narrow down the reported data to a level that works for you, you can filter the sign-ins data using the following default fields:
-
-- User
-- Application
-- Sign-in status
-- Conditional Access
-- Date
+To narrow down the reported data to a level that works for you, you can filter the sign-ins data using date field as default filter. Additionally, Azure AD provides you with a broad range of additional filters you can set.
 
 ![Sign-in activity](./media/concept-sign-ins/04.png "Sign-in activity")
 
