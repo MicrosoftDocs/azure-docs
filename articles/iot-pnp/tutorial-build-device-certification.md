@@ -103,8 +103,6 @@ To certify the device, it must enable provisioning through the [Azure IoT Device
 
 1. VS Code opens a new window with generated device code stub files.
 
-    ![Device code](media/tutorial-build-device-certification/device-code.png)
-
 1. Open `main.c`, fill the **dpsIdScope**, **sasKey**, and **registrationId** that you prepared. You can get this information from the certification portal. For more information, see [Connect and test your IoT Plug and Play device](tutorial-certification-test.md#connect-and-discover-interfaces).
 
     ```c
