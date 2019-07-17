@@ -15,10 +15,10 @@
   items:
     - name: Create a managed domain
       href: tutorial-create-instance.md
-    - name: Create a management VM
-      href: tutorial-create-management-vm.md
     - name: Domain-join a Windows Server VM
       href: join-windows-vm.md
+    - name: Install management tools
+      href: tutorial-create-management-vm.md
     - name: Configure secure LDAP
       href: tutorial-configure-ldaps.md
 - name: Samples

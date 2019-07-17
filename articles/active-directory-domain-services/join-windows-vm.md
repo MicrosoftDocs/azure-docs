@@ -146,12 +146,18 @@ Once the Windows Server VM has restarted, any policies applied in the Azure AD D
 
 ## Clean up resources
 
-If you continue to use the Windows Server VM created in this tutorial, recall that RDP was open over the Internet. To improve the security and reduce the risk of attack, RDP should be disabled over the Internet. To disable RDP to the Windows Server VM over the internet, complete the following steps:
+In the next tutorial, you use this Windows Server VM to install the management tools that let you administer the Azure AD DS managed domain. If you don't want to continue in this tutorial series, review the following clean up steps to [disable RDP](#disable-rdp) or [delete the VM](#delete-the-vm). Otherwise, [continue to the next tutorial](#next-steps).
+
+### Disable RDP
+
+If you continue to use the Windows Server VM created in this tutorial for running your own applications or workloads, recall that RDP was open over the Internet. To improve the security and reduce the risk of attack, RDP should be disabled over the Internet. To disable RDP to the Windows Server VM over the internet, complete the following steps:
 
 1. From the left-hand menu, select **Resource groups**
 1. Choose your resource group, such as *myResourceGroup*.
 1. Choose your VM, such as *myVM*, then select *Networking*.
 1. Under **Inbound network security rules** for the network security group, select the rule that allows RDP, then choose **Delete**. It takes a few seconds to remove the inbound security rule.
+
+### Delete the VM
 
 If you're not going use this Windows Server VM, delete the VM using the following steps:
 
@@ -196,10 +202,10 @@ In this tutorial, you learned how to:
 > * Connect to the Windows Server VM to an Azure virtual network
 > * Join the VM to the Azure AD DS managed domain
 
-To safely interact with your Azure AD DS managed domain, enable secure Lightweight Directory Access Protocol (LDAPS).
+To administer your Azure AD DS managed domain, configure a management VM using the Active Directory Administrative Center (ADAC).
 
 > [!div class="nextstepaction"]
-> [Configure secure LDAP for your managed domain](tutorial-configure-ldaps.md)
+> [Install administration tools on a management VM](tutorial-create-management-vm.md)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
