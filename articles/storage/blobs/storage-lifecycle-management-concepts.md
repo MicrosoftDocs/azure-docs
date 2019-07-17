@@ -70,11 +70,11 @@ There are two ways to add a policy through the Azure portal.
 
 5. Select **Add rule** and then fill out the **Action set** form fields. In the following example, blobs are moved to cool storage if they haven't been modified for 30 days.
 
-![Lifecycle management action set page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-action-set.png)
+   ![Lifecycle management action set page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-action-set.png)
 
 6. Select **Filter set** to add an optional filter. Then, select **Browse** to specify a container and folder by which to filter.
 
-![Lifecycle management filter set page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-filter-set-browse.png)
+   ![Lifecycle management filter set page in Azure portal](media/storage-lifecycle-management-concepts/lifecycle-management-filter-set-browse.png)
 
 8. Select **Review + add** to review the policy settings.
 
