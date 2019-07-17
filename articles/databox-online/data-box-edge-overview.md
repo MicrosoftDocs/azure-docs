@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box Edge overview | Microsoft Docs
-description: Describes Azure Data Box Edge, a storage solution that uses a physical device for network based transfer into Azure.
+description: Describes Azure Data Box Edge, a storage solution that uses a physical device for network-based transfer into Azure.
 services: databox
 author: alkohli
 
@@ -24,7 +24,7 @@ Here are the various scenarios where Data Box Edge can be used for rapid Machine
 - **Inference with Azure Machine Learning** - With Data Box Edge, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Data Box Edge device, see 
 [Deploy Azure ML hardware accelerated models on Data Box Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
-- **Preprocess data** - Transfrom data before sending it to Azure to create a more actionable dataset. Preprocessing can be used to: 
+- **Preprocess data** - Transform data before sending it to Azure to create a more actionable dataset. Preprocessing can be used to: 
 
     - Aggregate data.
     - Modify data, for example to remove Personally Identifiable Information (PII).
@@ -42,7 +42,7 @@ Data Box Edge has the following capabilities:
 |---------|---------|
 |Accelerated AI inferencing| Enabled by the built-in FPGA.|
 |Computing       |Allows analysis, processing, filtering of data.|
-|High performance | High-performance compute and data transfers.|
+|High performance | High performance compute and data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
 |Cloud-managed     |Device and service are managed via the Azure portal.  |
 |Offline upload     | Disconnected mode supports offline upload scenarios.|
