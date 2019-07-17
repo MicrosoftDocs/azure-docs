@@ -266,7 +266,7 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 
 Here are some common reasons why synchronization stops on managed domains:
 - Network connection is blocked on the managed domain. To learn more about checking your network for problems, read how to [troubleshoot Network Security Groups](alert-nsg.md) and [network requirements for Azure AD Domain Services](network-considerations.md).
--  Password synchronization was never set up or completed. To set up password synchronization, read [this article](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-ad-ds).
+-  Password synchronization was never set up or completed. To set up password synchronization, read [this article](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 ## AADDS501: A backup has not been taken in a while
 

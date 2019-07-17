@@ -78,7 +78,7 @@ sections:
     - html: <a href="csp.md">Azure CSP Subscriptions and Azure AD Domain Services</a>
     - html: <a href="manage-dns.md">Manage DNS</a>
     - html: <a href="network-considerations.md">Select a Virtual network</a>
-    - html: <a href="configure-ldaps.md">Configure Secure LDAP</a>
+    - html: <a href="tutorial-configure-ldaps.md">Configure Secure LDAP</a>
     - html: <a href="create-ou.md">Create an OU</a>
     - html: <a href="manage-group-policy.md">Manage Group Policy</a>
     

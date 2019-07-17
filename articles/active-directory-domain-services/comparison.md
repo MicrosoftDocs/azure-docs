@@ -100,7 +100,7 @@ The managed domain supports LDAP read workloads. Therefore you can deploy applic
 #### Secure LDAP
 
 You can configure Azure AD Domain Services to provide secure LDAP access to your managed domain, including over the internet.
-[More information](configure-ldaps.md)
+[More information](tutorial-configure-ldaps.md)
 
 #### LDAP Write
 
