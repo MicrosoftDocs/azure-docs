@@ -30,7 +30,7 @@ Learn more about:
     * Use the SDK to build a [classification model](how-to-auto-train-remote.md) or [regression model](tutorial-auto-train-models.md)
     * Use the [Azure portal](how-to-create-portal-experiments.md) to create a classification or regression model by uploading the appropriate data.
 
-## View the run charts
+## View the run
 
 After running an automated machine learning experiment, a history of the runs can be found in your machine learning service workspace. 
 
