@@ -17,7 +17,7 @@ This article contains security Considerations for virtual machines in Azure. Imp
 | Considerations | Comments |
 |-|-|----|
 | Build VM images using the latest updates | Before you create images ensure that all the latest updates are installed |
-| Keep your VMs current | You can use the [Update Management](../../automation/automation-update-management.md) solution in Azure Automation to manage operating system updates for your Windows and Linux computers in Azure |
+| Keep your VMs current | You can use the [Update Management](../articles/automation/automation-update-management.md) solution in Azure Automation to manage operating system updates for your Windows and Linux computers in Azure |
 
 ## Identity and access management
 
