@@ -191,7 +191,7 @@ When you're using a local computer (which might also be a remote virtual machine
    > [!NOTE]
    > If you get a message that PyYAML can't be uninstalled, use the following command instead:
    >
-   > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+   > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
 
    It will take several minutes to install the SDK. See the [install guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information on installation options.
 
