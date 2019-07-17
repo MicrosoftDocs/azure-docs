@@ -124,7 +124,7 @@ The **Category** filter enables you to select one of the following filters:
 
 The **Activity** filter is based on the category and activity resource type selection you make. You can select a specific activity you want to see or choose all. 
 
-You can get the list of all Audit Activities using the [Graph API](https://graph.windows.net/$tenantdomain/activities/auditActivityTypesV2?api-version=beta).
+You can get the list of all Audit Activities using the Graph API: `(https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta)`
 
 The **Status** filter allows you to filter based on the status of an audit operation. The status can be one of the following:
 
