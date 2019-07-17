@@ -78,6 +78,8 @@
       href: security-info-setup-email.md
     - name: Set up security questions
       href: security-info-setup-questions.md
+    - name: Set up security key
+      href: security-info-setup-security-key.md
   - name: Manage app passwords
     href: security-info-app-passwords.md
   - name: How to sign in

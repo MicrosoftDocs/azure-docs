@@ -74,6 +74,7 @@ We've created this content to help you set up and use security info, two-step ve
                         <a href="/azure/active-directory/user-help/security-info-setup-auth-app">Set up an authenticator app</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-text-msg">Set up text messaging</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-phone-number">Set up phone calls</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-security-key">Set up a security key</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">How to sign in</a>
                         </p>
                     </div>

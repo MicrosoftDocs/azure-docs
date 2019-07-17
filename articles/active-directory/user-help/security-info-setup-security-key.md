@@ -41,9 +41,9 @@ If this feature is turned on by your administrator and organization during our p
 
 Before you start to register your security key, double-check that:
 
-    - Your administrator has turned on this feature for use within your organization.
-    
-    - You've received a physical security key from your administrator or your organization. Your security key must be both FIDO2 and Microsoft-compliant. If you have any questions about your security key and whether it's compatible, contact your organization's help desk.
+- Your administrator has turned on this feature for use within your organization.
+
+- You've received a physical security key from your administrator or your organization. Your security key must be both FIDO2 and Microsoft-compliant. If you have any questions about your security key and whether it's compatible, contact your organization's help desk.
 
 ## How to register your security key
 
@@ -82,9 +82,22 @@ You must prepare your security key to work with Windows and a unique PIN number 
 
 10. Choose **Done** to close the **Security key** box.
 
+## Delete a security key from your security info
+
+If you no longer want to use your security key, you can delete the key from your security info. While this stops the security key from being used with your work or school account, the security key continues to store your data and credential information. To delete your data and credential information from the security key itself, you must follow the instructions in the [Reset a Microsoft-compatible security key](#reset-a-microsoft-compatible-security-key) section of this article.
+
+1. Select the **Delete** link from the security key to remove.
+
+2. Select **Ok** from the **Delete security key** box.
+
+    Your security key is deleted and you'll no longer be able to use it to sign in to your work or school account.
+
+>[!Important]
+>If you deleted this security key by mistake, you'll have to register it again using the instructions in the [How to register your security key](#how-to-register-your-security-key) section of this article.
+
 ## Reset a Microsoft-compatible security key
 
-You can reset your Microsoft-compatible security key from the **Windows Settings** app.
+If you want to delete all the account information stored on your physical security key, you must reset the key back to its factory defaults. Resetting your security key deletes everything from the key, allowing you to start over.
 
 >[!IMPORTANT]
 >Resetting your security key deletes everything from the key, resetting it to factory defaults.
@@ -96,19 +109,6 @@ You can reset your Microsoft-compatible security key from the **Windows Settings
 1. Open the Windows Settings app, select **Accounts**, select **Sign-in options**, select **Security Key**, and then select **Manage**.
 
 2. Follow the on-screen instructions, based on your specific security key manufacturer. If your key manufacturer isn't listed in the on-screen instructions, refer to the manufacturer's site for more information.
-
-## Delete a security key from your security info
-
-If you no longer want to use your security key, you can delete it from your security info.
-
-1. Select the **Delete** link from the security key to remove.
-
-2. Select **Ok** from the **Delete security key** box.
-
-    Your security key is deleted and you'll no longer be able to use it to sign in to your work or school account.
-
->[!Important]
->If you deleted this security key by mistake, you'll have to register it again using the [How to register your security key](#how-to-register-your-security-key) process.
 
 ## Next steps
 
