@@ -192,8 +192,10 @@ This section only applies to the standard file shares. All premium file shares a
 
 ### Restrictions
 
+- Azure preview [terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) apply to large file shares while in preview including when used with Azure File Sync deployments.
 - Requires you to create a new general purpose storage account (cannot expand existing storage accounts).
-- LRS to GRS account conversion will not be possible on any new storage account created after the subscription is accepted to the larger file shares preview.
+- LRS/ZRS to GRS account conversion will not be possible on any new storage account created after the subscription is accepted to the larger file shares preview.
+
 
 ### Regional availability
 
@@ -209,7 +211,7 @@ To help us prioritize new regions and features, please fill out this [survey](ht
 
 ### Steps to onboard
 
-To enroll your subscription to the larger file shares preview, you need to use Azure PowerShell. You can either use [Azure Cloud Shell](https://shell.azure.com/) or install the [Azure PowerShell module locally](https://docs.microsoft.com/en-us/powershell/azure/install-Az-ps?view=azps-2.4.0) to run the following PowerShell commands:
+To enroll your subscription to the larger file shares preview, you need to use Azure PowerShell. You can either use [Azure Cloud Shell](https://shell.azure.com/) or install the [Azure PowerShell module locally](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) to run the following PowerShell commands:
 
 First, make sure the subscription you want to enroll in the preview is selected:
 

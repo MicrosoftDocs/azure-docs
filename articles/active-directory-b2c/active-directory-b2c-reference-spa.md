@@ -27,7 +27,7 @@ Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple au
 
 The implicit sign-in flow looks something like the following figure. Each step is described in detail later in the article.
 
-![OpenID Connect swimlanes](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![Swimlane-style diagram showing the OpenID Connect implicit flow](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## Send authentication requests
 
@@ -169,7 +169,7 @@ If the only thing your web apps needs to do is execute user flows, you can skip 
 
 Now that you've signed the user into your single-page app, you can get access tokens for calling web APIs that are secured by Azure AD. Even if you have already received a token by using the `token` response type, you can use this method to acquire tokens for additional resources without redirecting the user to sign in again.
 
-In a typical web app flow, you would make a request to the `/token` endpoint. However, the endpoint does not support CORS requests, so making AJAX calls to get and refresh tokens is not an option. Instead, you can use the implicit flow in a hidden HTML iframe element to get new tokens for other web APIs. Here's an example, with line breaks for legibility:
+In a typical web app flow, you would make a request to the `/token` endpoint. However, the endpoint does not support CORS requests, so making AJAX calls to get a refresh token is not an option. Instead, you can use the implicit flow in a hidden HTML iframe element to get new tokens for other web APIs. Here's an example, with line breaks for legibility:
 
 ```
 
@@ -259,5 +259,5 @@ p=b2c_1_sign_in
 
 > [!NOTE]
 > Directing the user to the `end_session_endpoint` clears some of the user's single sign-on state with Azure AD B2C. However, it doesn't sign the user out of the user's social identity provider session. If the user selects the same identify provider during a subsequent sign-in, the user is reauthenticated, without entering their credentials. If a user wants to sign out of your Azure AD B2C application, it does not necessarily mean they want to completely sign out of their Facebook account, for example. However, for local accounts, the user's session will be ended properly.
-> 
+>
 

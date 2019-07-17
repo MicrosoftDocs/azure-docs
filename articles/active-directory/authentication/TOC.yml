@@ -16,8 +16,6 @@
     href: tutorial-sspr-pilot.md
   - name: Enable SSPR on-premises integration
     href: tutorial-enable-writeback.md
-  - name: Enable Windows 10 password reset
-    href: tutorial-sspr-windows.md
   - name: Integrate Azure Identity Protection
     href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
@@ -73,8 +71,8 @@
       href: howto-sspr-authenticationdata.md
     - name: Enable password writeback
       href: howto-sspr-writeback.md
-    - name: SSPR for Windows 7, 8, and 8.1
-      href: howto-sspr-windows-7-8.md
+    - name: SSPR for Windows clients
+      href: howto-sspr-windows.md
   - name: Cloud-based MFA
     items:
     - name: Deploy cloud-based MFA
