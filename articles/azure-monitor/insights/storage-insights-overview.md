@@ -30,8 +30,8 @@ Before diving into the experience, you should understand how it presents and vis
 Combined it delivers:
 
 * **At scale perspective** showing a snapshot view of their availability based on the health of the storage service or the API operation, utilization showing total number of requests that the storage service receives, and latency showing the average time the storage service or API operation type is taking to process requests. You can also view capacity broken for each data service by blob, file, table, and queues.
-* **Drill down analysis** of a particular storage account to help diagnose issues or perform detailed analysis by category - availability, performance, failures, and capacity. Selecting any one of those options provides an in-depth view of metrics tailored to that scoped report.  
-* **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save as your own report. Charts in the report can be pinned to Azure dashboard.  
+* **Drill down analysis** of a particular storage account to help diagnose issues or perform detailed analysis by category - availability, performance, failures, and capacity. Selecting any one of those options provides an in-depth view of metrics tailored and delivered in a child workbook.  
+* **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save as your own workbook. Charts in the workbook can be pinned to Azure dashboard.  
 
 Azure Monitor for Storage is an Azure Monitor workbook, which combines text, [log queries](../log-query/query-language.md), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
@@ -47,13 +47,17 @@ To access Azure Monitor for VMs directly from a storage account:
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
-On the **Overview** page for the storage account, it shows several storage key performance indicators (KPIs) that help you quickly assess
+On the **Overview** workbook for the storage account, it shows several storage key performance indicators (KPIs) that help you quickly assess
 
 * Health of the Storage service to immediately see if an issue outside of your control is affecting the Storage service in the region it is deployed to, which is stated under the **Summary** column.
 
 * Interactive performance charts showing the most essential details related to storage capacity, availability, transactions, and latency.  
 
-* Rollup status indicators highlighting service availability, total count of transactions to the storage service, E2E latency, and server latency.
+* Metric and status tiles highlighting service availability, total count of transactions to the storage service, E2E latency, and server latency.
+
+Selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** opens that workbook. The **Capcity** workbook should be of special interest to you because it highlights the amount of storage used for each device type in the account, and total storage used across the account.  
+
+![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png)
 
 ## View from Azure Monitor
 
@@ -65,36 +69,32 @@ To view the utilization and availability of your Storage accounts across all of 
 
     ![Multiple storage accounts view](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
-On the Overview page for the selected subscription, the table displays interactive storage metrics and service health state for up to ten storage accounts grouped by the subscription. You can scope the results based on the options you select within the following drop-down lists:
+On the Overview workbook for the selected subscription, the table displays interactive storage metrics and service health state for up to ten storage accounts grouped by the subscription. You can filter the results based on the options you select from the following drop down lists:
 
-* Subscriptions - only subscriptions that have storage accounts are listed.  
+* **Subscriptions** - only subscriptions that have storage accounts are listed.  
 
-* Storage Accounts - by default, only 10 storage accounts are selected. The workbook supports viewing metrics for up to 200 storage accounts.
+* **Storage Accounts** - by default, only 10 storage accounts are selected. The workbook supports viewing metrics for up to 200 storage accounts.
 
-* Time Range - by default, displays the last 4 hours of information based on the corresponding selections made.
+* **Time Range** - by default, displays the last 4 hours of information based on the corresponding selections made.
 
-The counter under the drop down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected.  
+The counter tile under the drop down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected.  
 
 Select any column, including **Availability**, **E2E Latency**, **Server Latency**, **ClientOtherError/Errors**, and **ClientThrottlingError/Errors**. You're directed to a report tailored to specific type of storage KPIs that match the column selected. Specifically:
 
-* **Availability** opens the **Availability** report. It shows the current health state of Azure Storage service, a table showing the available health state of each object categorized by data service defined in the storage account with a trend line representing the time range selected, and an availability trend chart for each data service in the account.  
+* **Availability** opens the **Availability** workbook. It shows the current health state of Azure Storage service, a table showing the available health state of each object categorized by data service defined in the storage account with a trend line representing the time range selected, and an availability trend chart for each data service in the account.  
 
     ![Availability report example](./media/storage-insights-overview/storage-account-availability-01.png)
 
-* **E2E Latency** and **Server Latency** opens the **Performance** report. It includes a rollup status indicator showing E2E latency and server latency, a performance chart of E2E versus server latency, and a table breaking down latency of successful calls by API categorized by data service defined in the storage account.
+* **E2E Latency** and **Server Latency** opens the **Performance** workbook. It includes a rollup status tile showing E2E latency and server latency, a performance chart of E2E versus server latency, and a table breaking down latency of successful calls by API categorized by data service defined in the storage account.
 
     ![Performance report example](./media/storage-insights-overview/storage-account-performance-01.png)
 
-* **ClientOtherError/Errors** and **ClientThrottlingError/Errors** opens the **Failure** report. The report shows a rollup of all other client-side errors except described ones and successful requests, client-throttling errors, a performance chart for the transaction **Response Type** dimension metric specific to ClientOtherError attribute, and two tables - **Transactions by API name** and **Transactions by Response type**.
+* **ClientOtherError/Errors** and **ClientThrottlingError/Errors** opens the **Failure** workbook. The report shows metric tiles of all other client-side errors except described ones and successful requests, client-throttling errors, a performance chart for the transaction **Response Type** dimension metric specific to ClientOtherError attribute, and two tables - **Transactions by API name** and **Transactions by Response type**.
 
    ![Failure report example](./media/storage-insights-overview/storage-account-failures-01.png)
 
-When you select a storage account from the list in the table, you drill down to the **Overview** report. This report focuses specifically on KPIs that helps you quickly assess:
-
-* Health of the Storage service to immediately see if an issue outside of your control is affecting the Storage service in the region it is deployed to, which is stated under the **Summary** column.
-
-* Interactive performance charts showing the most essential details related to storage capacity, availability, transactions, and latency.  
-
-* Rollup status indicators highlighting service availability, total count of transactions to the storage service, E2E latency, and server latency.
+When you select a storage account from the list in the table, you drill down to the **Overview** workbook, similarly as if you selected Insights (preview) from the storage account directly. 
 
 ![Storage account overview report](./media/storage-insights-overview/storage-account-overview-01.png)
+
+## Next steps
