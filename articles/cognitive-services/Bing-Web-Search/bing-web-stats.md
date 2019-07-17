@@ -8,30 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
-ms.date: 03/17/2019
+ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ---
 
 # Add analytics to the Bing Search APIs
 
-Bing Statistics provides analytics for the Bing [Web](overview.md), [Image](../bing-image-search/overview.md), [Video](../bing-video-search/overview.md), [Entity](../bing-entities-search/overview.md), and [News](../bing-news-search/search-the-web.md) Search APIs. Analytics includes call volume, top query strings, geographic distribution, and more. To enable Bing Statistics in your Bing Search paid subscription, navigate to your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), select your paid subscription, and click Enable Bing Statistics. Enabling Bing Statistics increases your subscription rate slightly (see [pricing](https://aka.ms/bingstatisticspricing)).
+Bing Statistics provides analytics for the Bing [Web](overview.md), [Image](../bing-image-search/overview.md), [Video](../bing-video-search/overview.md), [Entity](../bing-entities-search/overview.md), and [News](../bing-news-search/search-the-web.md) Search APIs. These analytics include call volume, top query strings, geographic distribution, and more. You can enable Bing Statistics in the [Azure portal](https://ms.portal.azure.com) by navigating to your Azure resource, and clicking **Enable Bing Statistics**.
 
-> [!NOTE]
-> Bing Statistics is available with paid subscriptions only - it is not available with free trial subscriptions.
-
-> [!NOTE]
-> You may not use any data available via the Bing Statistics dashboard to create applications for distribution to third parties.
+> [!IMPORTANT]
+> * Bing Statistics is not available with free trial subscriptions, or resources on the free `F0` pricing tier.
+> * You may not use any data available via the Bing Statistics dashboard to create applications for distribution to third parties.
+> * Enabling Bing Statistics increases your subscription rate slightly. See [pricing](https://aka.ms/bingstatisticspricing) for details.
 
 Bing updates analytics data every 24 hours and maintains up to 13 month's worth of history.
 
 ## Accessing your analytics
 
-To access your analytics dashboard, go to https://bingapistatistics.com. Make sure you're signed in using the same Microsoft account (MSA) you used to get your paid subscription.
+> [!NOTE]  
+> * It may take up to 24 hours for metrics to surface on the dashboard. The dashboard shows the date and time the data was last updated.  
+> * Metrics are available from the time you enable the Bing Statistics Add-in.
+
+To access your analytics dashboard, go to https://bingapistatistics.com. Make sure you're signed in using the same Microsoft account (MSA) you used to sign up for Bing Statistics.
 
 ## Filtering the data
 
-By default, the charts and graphs reflect all metrics data that you have access to. You can filter the data shown in the charts and graphs by selecting the resources, markets, endpoints, and reporting period you're interested in. The charts and graphs change to reflect the filters you apply. The following describe the filters that you may change.
+By default, the charts and graphs display all metrics and data that you have access to. You can filter the data shown in the charts and graphs by selecting the resources, markets, endpoints, and reporting period you're interested in. You can change the following filters:
 
 - **Resource ID**: The unique resource ID that identifies your Azure subscription. The list contains multiple IDs if you subscribe to more than one Bing Search API tier. By default, all resources are selected.  
   
@@ -45,12 +48,6 @@ By default, the charts and graphs reflect all metrics data that you have access 
   - Past week&mdash;Includes analytics from the previous seven days  
   - Past month&mdash;Includes analytics from the previous 30 days  
   - A custom date range&mdash;Includes analytics from the specified date range, if available  
-
-  > [!NOTE]  
-  > It may take up to 24 hours for metrics to surface on the dashboard. The dashboard shows the date and time the data was last updated.  
-
-  > [!NOTE]  
-  > Metrics are available from the time you enable the Bing Statistics Add-in.
 
 ## Charts and graphs
 
