@@ -141,4 +141,4 @@ During certification, your device is tested programmatically to ensure it implem
 Now that you've built an IoT Plug and Play device ready for certification the suggested next step is to:
 
 > [!div class="nextstepaction"]
-> [Learn how to certify your device](tutorial-certification-product.md)
+> [Learn how to certify your device](tutorial-certification-test.md)

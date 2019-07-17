@@ -117,4 +117,4 @@ The third option to manage the models in repo is VSC. Here is how to do it.
 
 ## Next steps
 
-The suggested next step is to learn how to [submit a Plug and Play device for certification](tutorial-certification-product.md).
+The suggested next step is to learn how to [submit a Plug and Play device for certification](tutorial-certification-test.md).

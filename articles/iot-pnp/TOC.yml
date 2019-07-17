@@ -14,9 +14,7 @@
     href: tutorial-pnp-visual-studio-code.md
   - name: Build a device ready for certification
     href: tutorial-build-device-certification.md
-  - name: Add product information to the catalog
-    href: tutorial-certification-product.md
-  - name: Run certification tests
+  - name: Certify your device
     href: tutorial-certification-test.md
 - name: Concepts
   items:
