@@ -345,7 +345,7 @@ but you can use the `correlation` properties of events to correlate across actio
     }
   }
   ```
-  Here's another example using Initialize variable action. In this example, we add tracked properties from the action input where the input is an array instead of a record.  
+  Here's another example that uses **Initialize variable** action. The example adds tracked properties from the action's input where the input is an array, not a record.  
 
   ``` json
   "actions": {
@@ -356,14 +356,13 @@ but you can use the `correlation` properties of events to correlate across actio
               "name": "ConnectorName",
                "type": "String",
                "value": "SFTP-SSH"
-                  }
-               ]                
-            },
+         }]                
+      },
     "trackedProperties": {
         "Track1": "@action().inputs.variables[0].value"
-            }
-        }
-      }      
+    }
+    }
+  }      
   ```
 
 ## Next steps
