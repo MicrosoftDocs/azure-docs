@@ -17,24 +17,24 @@ ms.collection: M365-identity-device-management
 ---
 # Troubleshooting devices using the dsregcmd command
 
+The dsregcmd /status utility must be run as a domain user account.
+
 ## Device state
 
 This section lists the device join state parameters. The table below lists the criteria for the device to be in various join states.
 
-| Device state | AzureAdJoined | EnterpriseJoined | DomainJoined |
+| AzureAdJoined | EnterpriseJoined | DomainJoined | Device state |
 | ---	| ---	| ---	| ---	|
-| Local Account | NO | NO | NO |
-| Azure AD Registered | NO | NO | NO |
-| Azure AD Joined | YES | NO | NO |
-| Domain Joined | NO | NO | YES |
-| Hybrid AD Joined | YES | NO | YES |
-| On-Prem Joined | NO | YES | YES	|
+| YES | NO | NO | Azure AD Joined |
+| NO | NO | YES | Domain Joined |
+| YES | NO | YES | Hybrid AD Joined |
+| NO | YES | YES | On-Premises DRS Joined |
 
 > [!NOTE]
-> Workplace Join state is displayed in the "User State" section
+> Workplace Join (Azure AD registered) state is displayed in the "User State" section
 
 - **AzureAdJoined:** - Set to “YES” if the device is Joined to Azure AD. “NO” otherwise.
-- **EnterpriseJoined:** - Set to “YES” if the device is Joined to an On-Prem DRS. A device cannot be both EnterpriseJoined and AzureAdJoined.
+- **EnterpriseJoined:** - Set to “YES” if the device is Joined to an On-Premises DRS. A device cannot be both EnterpriseJoined and AzureAdJoined.
 - **DomainJoined:** - Set to “YES” if the device is joined to a domain (AD).
 - **DomainName:** - Set to the name of the domain if the device is joined to a domain.
 
@@ -157,7 +157,7 @@ This section lists the status of various attributes for the user currently logge
 This section can be ignored for Azure AD registered devices.
 
 > [!NOTE]
-> The command must run in a user context to retrieve valid status.
+> The command must run in a user context to retrieve valid status for that user.
 
 - **AzureAdPrt:** - Set to “YES” if a PRT is present on the device for the logged-on user.
 - **AzureAdPrtUpdateTime:** - Set to the time in UTC when the PRT was last updated.

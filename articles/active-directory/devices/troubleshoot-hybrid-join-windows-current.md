@@ -407,4 +407,6 @@ If the values are **NO**, it could be due:
 
 ## Next steps
 
+Continue [troubleshooting devices using the dsregcmd command](troubleshoot-device-dsregcmd.md)
+
 For questions, see the [device management FAQ](faq.md)
