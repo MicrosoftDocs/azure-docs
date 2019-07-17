@@ -47,15 +47,15 @@ Before you start to register your security key, double-check that:
 
 ## How to register your security key
 
-You must prepare your security key to work with Windows and a unique PIN number before you can sign in to your work or school account using the key.
+You must prepare your security key to work with Windows and a unique PIN before you can sign in to your work or school account using the key.
 
 1. Go to the **My Profile** page at https://myprofile.microsoft.com and sign in if you haven't already done so.
 
 2. Select **Security Info** from the left navigation pane.
 
-3. From the **Security info** page, choose **Add method**, and then choose **Security key** from the **Add a method** drop-down list.
+3. From the **Security info** page, select **Add method**, and then select **Security key** from the **Add a method** drop-down list.
 
-4. Choose **Add**, and then choose the type of security key you have, either **USB device** or **NFC device**.
+4. Select **Add**, and then select the type of security key you have, either **USB device** or **NFC device**.
 
     >[!Note]
     >If you aren't sure which type of security key you have, refer to the manufacturer's documentation. If you aren't sure about the manufacturer, contact your organization's help desk for assistance.
@@ -70,17 +70,17 @@ You must prepare your security key to work with Windows and a unique PIN number 
 
     - If your security key is a NFC device, tap your security key to your reader.
 
-7. Type your unique security key PIN number into the **Windows security** box, and then choose **OK**.
+7. Type your unique security key PIN into the **Windows security** box, and then select **OK**.
 
     You'll return to the **Setting up your new sign-in method** box.
 
 8. Select **Next**.
 
-9. Return to the **Security info** page, type a name you'll recognize later for your new security key, and then choose **Next**.
+9. Return to the **Security info** page, type a name you'll recognize later for your new security key, and then select **Next**.
 
     Your security key is registered and ready for you to use for sign in to your work or school account.
 
-10. Choose **Done** to close the **Security key** box.
+10. Select **Done** to close the **Security key** box.
 
 ## Delete a security key from your security info
 
@@ -95,20 +95,44 @@ If you no longer want to use your security key, you can delete the key from your
 >[!Important]
 >If you deleted this security key by mistake, you'll have to register it again using the instructions in the [How to register your security key](#how-to-register-your-security-key) section of this article.
 
-## Reset a Microsoft-compatible security key
+## Manage your security key settings from Windows Settings
 
-If you want to delete all the account information stored on your physical security key, you must reset the key back to its factory defaults. Resetting your security key deletes everything from the key, allowing you to start over.
+You can manage your security key settings from the **Windows Settings** app, including resetting your security key and creating a new security key PIN.
+
+### Reset your security key
+
+If you want to delete all the account information stored on your physical security key, you must return the key back to its factory defaults. Resetting your security key deletes everything from the key, allowing you to start over.
 
 >[!IMPORTANT]
 >Resetting your security key deletes everything from the key, resetting it to factory defaults.
 >
 > **All data and credentials will be cleared.**
 
-### To reset your security key
+#### To reset your security key
 
 1. Open the Windows Settings app, select **Accounts**, select **Sign-in options**, select **Security Key**, and then select **Manage**.
 
-2. Follow the on-screen instructions, based on your specific security key manufacturer. If your key manufacturer isn't listed in the on-screen instructions, refer to the manufacturer's site for more information.
+2. Insert your security key into the USB port or tap your NFC reader to verify your identity.
+
+3. Follow the on-screen instructions, based on your specific security key manufacturer. If your key manufacturer isn't listed in the on-screen instructions, refer to the manufacturer's site for more information.
+
+4. Select **Close** to close the **Manage** screen.
+
+### Create a new security key PIN
+
+You can create a new security key PIN for your security key.
+
+#### To create a new security key PIN
+
+1. Open the Windows Settings app, select **Accounts**, select **Sign-in options**, select **Security Key**, and then select **Manage**.
+
+2. Insert your security key into the USB port or tap your NFC reader to verify your identity.
+
+3. Select **Add** from the **Security Key PIN** area, type and confirm your new security key PIN, and then select **OK**.
+
+    The security key is updated with the new security key PIN for use with your work or school account. If you decide to change your PIN again, you can select the **Change** button.
+
+4. Select **Close** to close the **Manage** screen.
 
 ## Next steps
 
