@@ -15,16 +15,21 @@ manager: philmea
 
 This article describes how, as a solution developer, you can build an IoT solution for IoT Plug and Play devices.
 
+There are two broad categories of IoT solution: purpose-built solutions that work with a known set of IoT Plug and Play devices, and model-driven solutions that work with any IoT Plug and Play device.
+
+This how-to article shows you how to build both types of solution. The article also provides sample applications to get you started.
+
 ## Prerequisites
 
 Before you start:
 
-- Either, acquire an IoT Plug and Play device that's pre-configured to connect to your device provisioning service instance or IoT Hub. These can be found on the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/).
+- Either, acquire an IoT Plug and Play device that's pre-configured to connect to your device provisioning service instance or IoT Hub. You can find these devices in the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/).
 - Or, use a simulated version of a sample device. You can use the [Node SDK device sample](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples).
 
-There are two broad categories of IoT solution: purpose-built solutions that work with a known set of IoT Plug and Play devices, and model-driven solutions that work with any IoT Plug and Play device.
+To complete the tutorial, you need Node.js version 10.0.x or later. Node.js is available for [download](https://nodejs.org) for multiple platforms.
 
-This how-to article shows you how to build both types of solution. The article also provides sample applications you can use to get started. To complete the tutorial, you need Node.js version 10.0.x or later. You can download Node.js for multiple platforms from nodejs.org. You can verify the current version of node.js on your development machine by using the following command:
+You can verify the current version of node.js on your development machine by using the following command:
+
 ```cmd/sh
 node --version
 ```
@@ -49,7 +54,7 @@ See the [ModelInformation](concepts-common-interfaces.md) interface to learn mor
 
 A purpose-built IoT solution works with a known set of IoT Plug and Play device capability models and interfaces.
 
-You will have the capability model and interfaces for the devices that will connect to your solution ahead of time. Use the following steps to prepare your solution:
+You'll have the capability model and interfaces for the devices that will connect to your solution ahead of time. Use the following steps to prepare your solution:
 
 1. Store the interface JSON files in Azure in a location where your solution can read them.
 1. Write logic in your IoT solution based on the expected IoT Plug and Play capability models and interface. For more information, see this [sample IoT application](overview-iot-plug-and-play.md).
@@ -63,8 +68,7 @@ When you receive a notification for a new device connection, follow these steps:
 
 ### Model-driven solutions
 
-A model-driven IoT solution can work with any IoT Plug and Play device.
-Building a model driven IoT Solution is more complex, but the benefit is that your solution works with any devices added in the future.
+A model-driven IoT solution can work with any IoT Plug and Play device. Building a model driven IoT Solution is more complex, but the benefit is that your solution works with any devices added in the future.
 
 To build a model-driven IoT solution, you need to build logic against the IoT Plug and Play interface primitives: telemetry, properties, and commands. Your IoT solution's logic represent a device by combining multiple telemetry, property, and command capabilities.
 
@@ -94,7 +98,7 @@ When your solution receives a notification for a new device connection, follow t
     ```
 
 1. If you found JSON files for each interface implemented by the device, you can enumerate the capabilities of the device. Use the logic you wrote earlier to enable users to interact with the device.
-1. At any time, you can call the digital twins API to retrive the capability model ID and interface IDs for the device.
+1. At any time, you can call the digital twins API to retrieve the capability model ID and interface IDs for the device.
 
     ```c
     Code sample
@@ -102,4 +106,4 @@ When your solution receives a notification for a new device connection, follow t
 
 ## Next steps
 
-Now that you've built an IoT solution for IoT Plug and Play devices, learn more about how the rest of the [Azure IoT Platform](overview-iot-plug-and-play.md) to leverage other great capabilities for your solution.
+Now that you've built an IoT solution for IoT Plug and Play devices, learn more about the [Azure IoT Platform](overview-iot-plug-and-play.md) to leverage other capabilities for your solution.
