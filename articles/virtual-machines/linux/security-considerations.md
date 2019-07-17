@@ -1,5 +1,5 @@
 ---
-title: Security Considerations for Virtual machines in Azure
+title: Security Considerations for Linux Virtual machines in Azure
 description: Security Considerations for the virtual machines in Azure. Implementing these considerations will help you fulfill your security obligations as described in our shared responsibility model and will improve the overall security for your deployments
 services: virtual-machines
 author: barclayn
