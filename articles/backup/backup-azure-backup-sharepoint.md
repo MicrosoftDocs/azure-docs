@@ -6,7 +6,7 @@ author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 07/09/2019
 ms.author: kasinh
 ---
 # Back up a SharePoint farm to Azure
@@ -221,17 +221,6 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. At this point, follow the recovery steps earlier in this article to recover a SharePoint content database from disk.
-
-## FAQs
-
-### Which versions of DPM support SQL Server 2014 and SQL 2012 (SP2)?
-DPM 2012 R2 with Update Rollup 4 supports both.
-
-### Can I recover a SharePoint item to the original location if SharePoint is configured by using SQL AlwaysOn (with protection on disk)?
-Yes, the item can be recovered to the original SharePoint site.
-
-### Can I recover a SharePoint database to the original location if SharePoint is configured by using SQL AlwaysOn?
-Because SharePoint databases are configured in SQL AlwaysOn, they cannot be modified unless the availability group is removed. As a result, DPM cannot restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
 
 ## Next steps
 * Learn more about DPM Protection of SharePoint - see [Video Series - DPM Protection of SharePoint](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)

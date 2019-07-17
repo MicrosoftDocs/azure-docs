@@ -548,8 +548,6 @@
       href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Clean up SSISDB logs with Elastic Database Jobs
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
-    - name: Troubleshooting Package Execution in Azure-SSIS IR
-      href: ssis-integration-runtime-ssis-activity-faq.md
   - name: Create triggers
     items:
     - name: Create an event-based trigger
@@ -566,12 +564,22 @@
       href: solution-template-copy-files-multiple-containers.md
     - name: Copy new files by LastModifiedDate
       href: solution-template-copy-new-files-lastmodifieddate.md
-    - name: Bulk copy with control table
+    - name: Bulk copy from database
       href: solution-template-bulk-copy-with-control-table.md
-    - name: Delta copy with control table
+    - name: Delta copy from database
       href: solution-template-delta-copy-with-control-table.md
+    - name: Move files
+      href: solution-template-move-files.md
     - name: Transform data with Databricks
       href: solution-template-databricks-notebook.md
+  - name: Troubleshooting guide
+    items:
+    - name: Activity troubleshooting
+      href: data-factory-troubleshoot-guide.md
+    - name: Troubleshooting Azure-SSIS IR Management
+      href: ssis-integration-runtime-management-troubleshoot.md
+    - name: Troubleshooting Package Execution in Azure-SSIS IR
+      href: ssis-integration-runtime-ssis-activity-faq.md
 - name: Reference
   items:
   - name: .NET

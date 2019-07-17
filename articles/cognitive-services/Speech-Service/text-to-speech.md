@@ -19,7 +19,7 @@ Text-to-speech from Azure Speech Services is a service that enables your applica
 Text-to-speech technology allows content creators to interact with their users in different ways. Text-to-speech can improve accessibility by providing users with an option to interact with content audibly. Whether the user has a visual impairment, a learning disability, or requires navigation information while driving, text-to-speech can improve an existing experience. Text-to-speech is also a valuable add-on for voice bots and virtual assistants.
 
 
-By leveraging Speech Synthesis Markup Language (SSML), an XML-based markup language, developers using the text-to-speech service can specify how input text is converted into synthesized speech. With SSML, you can adjust pitch, pronunciation, speaking rate, volume, and more. For more informations, see [SSML](#speech-synthesis-markup-language-ssml).
+By leveraging Speech Synthesis Markup Language (SSML), an XML-based markup language, developers using the text-to-speech service can specify how input text is converted into synthesized speech. With SSML, you can adjust pitch, pronunciation, speaking rate, volume, and more. For more information, see [SSML](#speech-synthesis-markup-language-ssml).
 
 ### Standard voices
 
@@ -82,7 +82,10 @@ We offer quickstarts designed to have you running code in less than 10 minutes. 
 
 | Quickstart (SDK) | Platform | API reference |
 |------------|----------|---------------|
+| [C#, .NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
 | [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
 

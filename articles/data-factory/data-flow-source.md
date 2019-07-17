@@ -77,7 +77,7 @@ Choose settings to manage files in your source.
 
 ![New source settings](media/data-flow/source2.png "New settings")
 
-* **Wildcard path**: From your source folder, choose a series of files that match a pattern. This setting overrides any file in your dataset definition.
+* **Wildcard path**: From your source container, choose a series of files that match a pattern. This setting overrides any file in your dataset definition.
 
 Wildcard examples:
 
@@ -141,6 +141,12 @@ If your text file has no defined schema, select **Detect data type** so that Dat
 You can modify the column data types in a later derived-column transformation. Use a select transformation to modify the column names.
 
 ![Settings for default data formats](media/data-flow/source2.png "Default formats")
+
+### Add dynamic content
+
+When you click inside of fields in the setting panel, you will see a hyperlink for "Add dynamic content". When you click here, you will launch the Expression Builder. This is where you can set values for settings dynamically using expressions, static literal values, or parameters.
+
+![Parameters](media/data-flow/params6.png "Parameters")
 
 ## Next steps
 

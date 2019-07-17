@@ -30,7 +30,7 @@ WAF also offers a configurable knob to turn the request body inspection on or of
 
 WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. A common example is Active Directory inserted tokens that are used for authentication or password fields. Such attributes are prone to contain special characters that may trigger a false positive from the WAF rules. Once an attribute is added to the WAF exclusion list, it isn't considered by any configured and active WAF rule. Exclusion lists are global in scope.
 
-The following attributes can be added to exclusion lists. The values of your chosen field aren't evaluated against WAF rules. The exclusion lists remove inspection of the field's value.
+The following attributes can be added to exclusion lists by name. The values of the chosen field aren't evaluated against WAF rules, but their names still are (see Example 1 below, the value of the User-Agent header is excluded from WAF evaluation). The exclusion lists remove inspection of the field's value.
 
 * Request Headers
 * Request Cookies
