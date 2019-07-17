@@ -7,7 +7,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
-ms.author: sujayt
+ms.author: sutalasi
 
 ---
 # About networking in Azure to Azure replication

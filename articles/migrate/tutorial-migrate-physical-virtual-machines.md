@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 > * Install the Mobility service on machines you want to migrate.
 > * Enable replication.
 > * Run a test migration to make sure everything's working as expected.
-> * Run a a full migration to Azure.
+> * Run a full migration to Azure.
 
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. Tutorials use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the How-tos for Azure Migrate.
@@ -99,7 +99,7 @@ The tenant/global admin can grant permissions as follows
 
 #### Assign Application Developer role 
 
-The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+The tenant/global admin can assign the Application Developer role to an account. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Assign permissions to create Key Vault
 

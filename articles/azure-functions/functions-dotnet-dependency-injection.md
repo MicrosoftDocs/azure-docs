@@ -11,7 +11,8 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/28/2019
-ms.author: jehollan, cshoe
+ms.author: cshoe
+ms.reviewer: jehollan
 ---
 # Use dependency injection in .NET Azure Functions
 

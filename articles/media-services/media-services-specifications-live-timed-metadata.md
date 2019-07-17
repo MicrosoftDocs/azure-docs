@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/2/2019
-ms.author: johndeu;
+ms.author: johndeu
 
 ---
 # Signaling Timed Metadata in Live Streaming 
