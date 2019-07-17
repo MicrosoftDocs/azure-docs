@@ -33,14 +33,14 @@ To work with the device capability model in this tutorial, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/download): VS Code is available for multiple platforms
 * Azure IoT Workbench extension for VS Code:
-    1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr). The latest version is: `0.10.6-rc`.
+    1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr).
     1. In VS Code, select **Extensions** tab.
     1. Select **Install from VSIX**.
     1. Select the .vsix file you downloaded.
     1. Select **Install**.
 
         > [!NOTE]
-        > Bugbash: This is currently the only way to install the extension. The public preview version will use the marketplace.
+        > Bugbash: This is currently the only way to install the extension.
 
 To build the generated C code on Windows in this tutorial, you need:
 
