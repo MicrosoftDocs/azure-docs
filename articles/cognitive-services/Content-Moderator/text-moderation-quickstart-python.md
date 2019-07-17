@@ -36,39 +36,35 @@ pip install azure-cognitiveservices-vision-contentmoderator
 
 ## Import modules
 
-Create a new Python script named _ContentModeratorQS.py_ and add the following code to import the necessary parts of the SDK.
+Create a new Python script named _ContentModeratorQS.py_ and add the following code to import the necessary parts of the SDK. The pretty print module is included for an easier to read JSON response.
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=1-10)]
-
-Also import the "pretty print" function to handle the final output.
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=12)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?range=1-11)]
 
 
 ## Initialize variables
 
-Next, add variables for your Content Moderator subscription key and endpoint URL. You will need to replace `<your subscription key>` with the value of your key. You may also need to change the value of `endpoint_url` to use the region identifier that corresponds to your subscription key. Free trial subscription keys are generated in the **westus** region.
+Next, add variables for your Content Moderator subscription key and endpoint URL. You will need to add the name `CONTENT_MODERATOR_SUBSCRIPTION_KEY` to your environment variables and add your subscription key as its value. For your base endpoint URL, add `CONTENT_MODERATOR_ENDPOINT` to your environment variables with your region-specific URL as its value, for example `https://westus.api.cognitive.microsoft.com`. Free trial subscription keys are generated in the **westus** region.
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=14-16)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?range=76-78)]
 
+A string of multiline text from a file will be moderated. Include the [content_moderator_text_moderation.txt](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_text_moderation.txt) file into your root folder and add the file name to your variables:
 
-For the sake of simplicity, you will analyze text directly from the script. Define a new string of text content to moderate:
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=18-21)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?range=42-43)]
 
 
 ## Query the Moderator service
 
-Create a **ContentModeratorClient** instance using your subscription key and endpoint URL. Then, use its member **TextModerationOperations** instance to call the moderation API. See the **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** reference documentation for more information on how to call it.
+Create a **ContentModeratorClient** instance using your subscription key and endpoint URL. 
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?range=81-81)]
 
-## Print the response
+Then, use its member **TextModerationOperations** instance to call the moderation API with the function `screen_text`. See the **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** reference documentation for more information on how to call it.
 
-Finally, check that the call completed successfully and returned a **Screen** instance. Then print the returned data to the console.
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?range=143-162)]
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=38-39)]
+## Check the printed response
 
+Run the sample and confirm the response. It should've completed successfully and returned a **Screen** instance. A successful result is printed below:
 
 The sample text used in this quickstart results in the following output:
 
