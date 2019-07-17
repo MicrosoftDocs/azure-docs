@@ -100,7 +100,7 @@ To validate incoming requests and tokens, you need to set up your application to
 4. Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(…)` method. The parameters that you provide in `WindowsAzureActiveDirectoryBearerAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD. To use them you'll need to use classes in the `System.IdentityModel.Tokens` namespace.
 
     ```csharp
-    using System.IdentityModel.Tokens;
+    using Microsoft.IdentityModel.Tokens;
     ```
 
     ```csharp
