@@ -54,7 +54,7 @@
       href: bing-insights-usage.md
     - name: Analytics for Visual Search API
       maintainContext: true
-      href: ../bing-web-search/bing-visual-search-stats.md
+      href: ../bing-web-search/bing-web-stats.md
 - name: How-to guides
   items:
   - name: Get insights using token

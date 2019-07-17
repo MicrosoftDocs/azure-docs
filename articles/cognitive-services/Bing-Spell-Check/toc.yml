@@ -70,7 +70,8 @@
 - name: Resources
   items:
   - name: Analytics for Bing Spell Check API
-    href: bing-spell-check-stats.md
+    maintainContext: true
+    href: ../bing-web-search/bing-web-stats.md
   - name: Language and region support
     href: language-support.md
   - name: Pricing

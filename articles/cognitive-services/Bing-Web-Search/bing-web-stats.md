@@ -38,7 +38,7 @@ By default, the charts and graphs display all metrics and data that you have acc
 
 - **Resource ID**: The unique resource ID that identifies your Azure subscription. The list contains multiple IDs if you subscribe to more than one Bing Search API tier. By default, all resources are selected.  
   
-- **Markets**: The markets where the results come from. For example, en-us (English, United States). By default, all markets are selected. Note that the en-WW market is the market that Bing uses if the call does not specify a market and Bing is unable to determine the user's market.  
+- **Markets**: The markets where the results come from. For example, en-us (English, United States). By default, all markets are selected. The `en-WW` market is the market that Bing uses if the call does not specify a market and Bing is unable to determine the user's market.  
   
 - **Endpoints**: The Bing Search API endpoints. The list contains all endpoints for which you have a paid subscription. By default, all endpoints are selected.  
 
@@ -57,7 +57,7 @@ The dashboard shows charts and graphs of the metrics available for the selected 
 For example, if you don't include the User-Agent header in your calls, the dashboard will not include device-related graphs.
 -->
 
-The following are the possible metrics. Each metric notes endpoint restrictions.
+The following are possible metrics and endpoint restrictions.
 
 - **Call Volume**: Shows the number of calls made during the reporting period. If the reporting period is for a day, the chart shows the number of calls made per hour. Otherwise, the chart shows the number of calls made per day of the reporting period.  
   
@@ -78,11 +78,11 @@ The following are the possible metrics. Each metric notes endpoint restrictions.
   > [!NOTE]  
   > Some query terms may be suppressed to remove confidential information such as emails, telephone numbers, SSN, etc.
 
-- **Geographic Distribution**: The markets where the results come from. For example, en-us (English, United States). Bing uses the `mkt` query parameter to determine the market, if specified. Otherwise, Bing uses signals such as the caller's IP address to determine the market.
+- **Geographic Distribution**: The markets where search results originate. For example, `en-us` (English, United States). Bing uses the `mkt` query parameter to determine the market, if specified. Otherwise, Bing uses signals such as the caller's IP address to determine the market.
 
 - **Response Code Distribution**: The HTTP status codes of all calls during the reporting period.
 
-- **Call Origin Distribution**: The types of browsers used by the users. For example, Microsoft Edge, Chrome, Safari, and FireFox. Calls made from outside a browser, such as bots, Postman, or using curl from a console app, are grouped under Libraries. The origin is determined using the request's User-Agent header value. If the request doesn't include the User-Agent header, Bing tries to derive the origin from other signals.  
+- **Call Origin Distribution**: The types of browsers used by the users. For example, Microsoft Edge, Chrome, Safari, and FireFox. Calls made from outside a browser (such as bots, Postman, or using curl from a console app) are grouped under Libraries. The origin is determined using the request's User-Agent header value. If the request doesn't include the User-Agent header, Bing tries to derive the origin from other signals.  
 
 - **Safe Search Distribution**: The distribution of safe search values. For example, off, moderate, or strict. The `safeSearch` query parameter contains the value, if specified. Otherwise, Bing defaults the value to moderate.  
 
@@ -94,7 +94,7 @@ The following are the possible metrics. Each metric notes endpoint restrictions.
 
 The following shows the analytics that are available for each endpoint.
 
-![Distribution by endpoint support matrix](./media/cognitive-services-bing-statistics/bing-statistics/bing-statistics-matrix.png)
+![Distribution by endpoint support matrix](./media/bing-statistics/bing-statistics-matrix.png)
 
 ## Next steps
 
