@@ -77,6 +77,8 @@ In this quickstart, you prepare a development environment you can use to clone a
 
 In this quickstart, you use an existing sample device capability model and associated interfaces.
 
+1. Download the [device capability model and interface samples](https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview-utopia/digitaltwin_client/samples).
+
 1. Open VS Code, use **Ctrl+Shift+P**, type and select **IoT Plug and Play: Open Model Repository**. Then select **Open Public Model Repository**.
 
 1. Select and download **Bug bash CapabilityModel** from Model Repository view. And select **Browse** to select the `pnp_app` folder you just created within the device SDK folder.
