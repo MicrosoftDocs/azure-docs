@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/012/2019
+ms.date: 07/12/2019
 ---
 # Quickstart: Build a .NET console app to manage Azure Cosmos DB SQL API resources
 
