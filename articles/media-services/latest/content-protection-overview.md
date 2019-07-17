@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 07/17/2019
 ms.author: juliako
 ms.custom: seodec18
 #Customer intent: As a developer who works on subsystems of online streaming/multiscreen solutions that need to deliver protected content, I want to make sure that content is delivered protected with DRM or AES-128. That's why i am using Media Services to deliver the live and on-demand content encrypted dynamically with AES-128 or any of the three major digital rights management DRM systems.
