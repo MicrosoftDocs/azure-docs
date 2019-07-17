@@ -1,8 +1,8 @@
 ---
-title: What are conditions in Azure Active Directory conditional access? | Microsoft Docs
-description: Learn how conditions are used in Azure Active Directory conditional access to trigger a policy.
+title: What are conditions in Azure Active Directory Conditional Access? | Microsoft Docs
+description: Learn how conditions are used in Azure Active Directory Conditional Access to trigger a policy.
 services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
+keywords: Conditional Access to apps, Conditional Access with Azure AD, secure access to company resources, Conditional Access policies
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -19,29 +19,29 @@ ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 
-#Customer intent: As an IT admin, I need to understand the conditions in conditional access so that I can set them according to my business needs
+#Customer intent: As an IT admin, I need to understand the conditions in Conditional Access so that I can set them according to my business needs
 
 ms.collection: M365-identity-device-management
 ---
-# What are conditions in Azure Active Directory conditional access?
+# What are conditions in Azure Active Directory Conditional Access?
 
-You can control how users access your cloud apps by using [Azure Active Directory (Azure AD) conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). In a conditional access policy, you define the response ("Then do this") to the reason for triggering your policy ("When this happens").
+You can control how users access your cloud apps by using [Azure Active Directory (Azure AD) Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). In a Conditional Access policy, you define the response ("Then do this") to the reason for triggering your policy ("When this happens").
 
 ![Reason and response](./media/conditions/10.png)
 
 
-In the context of conditional access, **When this happens** is called a **condition**. **Then do this** is called an **access control**. The combination of your conditions and your access controls represents a conditional access policy.
+In the context of Conditional Access, **When this happens** is called a **condition**. **Then do this** is called an **access control**. The combination of your conditions and your access controls represents a Conditional Access policy.
 
-![Conditional access policy](./media/conditions/61.png)
+![Conditional Access policy](./media/conditions/61.png)
 
 
-Conditions you haven't configured in a conditional access policy aren't applied. Some conditions are [mandatory](best-practices.md) to apply a conditional access policy to an environment.
+Conditions you haven't configured in a Conditional Access policy aren't applied. Some conditions are [mandatory](best-practices.md) to apply a Conditional Access policy to an environment.
 
-This article is an overview of the conditions and how they're used in a conditional access policy. 
+This article is an overview of the conditions and how they're used in a Conditional Access policy. 
 
 ## Users and groups
 
-The users and groups condition is mandatory in a conditional access policy. In your policy, you can either select **All users** or select specific users and groups.
+The users and groups condition is mandatory in a Conditional Access policy. In your policy, you can either select **All users** or select specific users and groups.
 
 ![Users and groups](./media/conditions/111.png)
 
@@ -61,7 +61,7 @@ Targeting specific sets of users is useful for the deployment of a new policy. I
 
 ## Cloud apps and actions
 
-A cloud app is a website, service, or endpoint protected by Azure AD Application Proxy. For a detailed description of supported cloud apps, see [cloud apps assignments](technical-reference.md#cloud-apps-assignments). The **Cloud apps or actions** condition is mandatory in a conditional access policy. In your policy, you can either select **All cloud apps** or specify apps with **Select apps**.
+A cloud app is a website, service, or endpoint protected by Azure AD Application Proxy. For a detailed description of supported cloud apps, see [cloud apps assignments](technical-reference.md#cloud-apps-assignments). The **Cloud apps or actions** condition is mandatory in a Conditional Access policy. In your policy, you can either select **All cloud apps** or specify apps with **Select apps**.
 
 Organizations can choose from the following:
 
@@ -71,12 +71,12 @@ Organizations can choose from the following:
 > [!NOTE]
 > You can exclude specific apps from a policy. However, these apps are still subject to the policies applied to the services they access.
 
-**User actions** are tasks that can be performed by a user. The only currently supported action is **Register security information (preview)**, which allows conditional access policy to enforce when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Enable combined security information registration (preview)](../authentication/howto-registration-mfa-sspr-combined.md).
+**User actions** are tasks that can be performed by a user. The only currently supported action is **Register security information (preview)**, which allows Conditional Access policy to enforce when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Enable combined security information registration (preview)](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ## Sign-in risk
 
 A sign-in risk is an indicator of the likelihood (high, medium, or low) that a sign-in wasn't made by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during a user's sign-in. 
-You can use the calculated sign-in risk level as condition in a conditional access policy.
+You can use the calculated sign-in risk level as condition in a Conditional Access policy.
 
 ![Sign-in risk levels](./media/conditions/22.png)
 
@@ -99,13 +99,13 @@ The device platform is characterized by the operating system that runs on your d
 For a list of the supported device platforms, see [device platform condition](technical-reference.md#device-platform-condition).
 
 
-A common use case for this condition is a policy that restricts access to your cloud apps to [managed devices](require-managed-devices.md). For more scenarios including the device platform condition, see [Azure Active Directory app-based conditional access](app-based-conditional-access.md).
+A common use case for this condition is a policy that restricts access to your cloud apps to [managed devices](require-managed-devices.md). For more scenarios including the device platform condition, see [Azure Active Directory app-based Conditional Access](app-based-conditional-access.md).
 
 
 
 ## Device state
 
-The device state condition excludes hybrid Azure AD joined devices and devices marked as compliant from a conditional access policy. 
+The device state condition excludes hybrid Azure AD joined devices and devices marked as compliant from a Conditional Access policy. 
 
 
 ![Configure device state](./media/conditions/112.png)
@@ -124,12 +124,12 @@ Common use cases for this condition are policies with the following protections:
 
 - Block access for users accessing a service from specific countries or regions. 
 
-For more information, see [What is the location condition in Azure Active Directory conditional access?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+For more information, see [What is the location condition in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
 
 ## Client apps
 
-By default, a conditional access policy applies to the following apps:
+By default, a Conditional Access policy applies to the following apps:
 
 - **[Browser apps](technical-reference.md#supported-browsers)** -  Browser apps include websites using the SAML, WS-Federation, or OpenID Connect web SSO protocols. This also applies to any website or web service that has been registered as an OAuth confidential client. For example, the Office 365 SharePoint website. 
 
@@ -176,20 +176,20 @@ If an approved app is required, the affected users get guidelines to install and
 
 In other cases, for example, if MFA is required, the affected users are blocked, because clients using Basic authentication don't support MFA.
 
-You can only target this setting to users and groups. It doesn’t support guests or roles. If a guest or role condition is configured, all users are blocked because conditional access can't determine if the policy should apply to the user or not.
+You can only target this setting to users and groups. It doesn’t support guests or roles. If a guest or role condition is configured, all users are blocked because Conditional Access can't determine if the policy should apply to the user or not.
 
 
  For more information, see:
 
-- [Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
+- [Set up SharePoint Online and Exchange Online for Azure Active Directory Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
-- [Azure Active Directory app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
+- [Azure Active Directory app-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
 
 
 
 ## Next steps
 
-- To find out how to configure a conditional access policy, see [Quickstart: Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
+- To find out how to configure a Conditional Access policy, see [Quickstart: Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
 
-- To configure conditional access policies for your environment, see the [Best practices for conditional access in Azure Active Directory](best-practices.md). 
+- To configure Conditional Access policies for your environment, see the [Best practices for Conditional Access in Azure Active Directory](best-practices.md). 
 

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 06/10/2019
 ms.author: jingwang
 
 ---
@@ -303,7 +303,7 @@ Be sure that the underlying data store is not overwhelmed by other workloads tha
 
 For Microsoft data stores, refer to [monitoring and tuning topics](#performance-reference) that are specific to data stores. These topics can help you understand data store performance characteristics and how to minimize response times and maximize throughput.
 
-* If you copy data **from Blob storage to SQL Data Warehouse**, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) for details.
+* If you copy data **from any data store to Azure SQL Data Warehouse**, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) for details.
 * If you copy data **from HDFS to Azure Blob/Azure Data Lake Store**, consider using **DistCp** to boost performance. See [Use DistCp to copy data from HDFS](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs) for details.
 * If you copy data **from Redshift to Azure SQL Data Warehouse/Azure BLob/Azure Data Lake Store**, consider using **UNLOAD** to boost performance. See [Use UNLOAD to copy data from Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift) for details.
 
@@ -314,10 +314,8 @@ For Microsoft data stores, refer to [monitoring and tuning topics](#performance-
 
 ### Relational data stores
 
-* **Copy behavior**: Depending on the properties you've set for **sqlSink**, Copy Activity writes data to the destination database in different ways.
-  * By default, the data movement service uses the Bulk Copy API to insert data in append mode, which provides the best performance.
-  * If you configure a stored procedure in the sink, the database applies the data one row at a time instead of as a bulk load. Performance drops significantly. If your data set is large, when applicable, consider switching to using the **preCopyScript** property.
-  * If you configure the **preCopyScript** property for each Copy Activity run, the service triggers the script, and then you use the Bulk Copy API to insert the data. For example, to overwrite the entire table with the latest data, you can specify a script to first delete all records before bulk-loading the new data from the source.
+* **Copy behavior and performance implication**: There are different ways to write data into SQL sink, learn more from [Best practice for loading data into Azure SQL Database](connector-azure-sql-database.md#best-practice-for-loading-data-into-azure-sql-database).
+
 * **Data pattern and batch size**:
   * Your table schema affects copy throughput. To copy the same amount of data, a large row size gives you better performance than a small row size because the database can more efficiently commit fewer batches of data.
   * Copy Activity inserts data in a series of batches. You can set the number of rows in a batch by using the **writeBatchSize** property. If your data has small rows, you can set the **writeBatchSize** property with a higher value to benefit from lower batch overhead and higher throughput. If the row size of your data is large, be careful when you increase **writeBatchSize**. A high value might lead to a copy failure caused by overloading the database.

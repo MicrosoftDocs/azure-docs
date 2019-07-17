@@ -6,7 +6,7 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 06/18/2019
 ms.author: sachdevaswati
 
 
@@ -30,9 +30,9 @@ In this article, you'll learn how to:
 Before you back up a SQL Server database, check the following criteria:
 
 1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region or locale as the VM hosting the SQL Server instance.
-2. Check the [VM permissions needed](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) to back up SQL databases.
-3. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-4. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
+2. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+3. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
+4. Specifically for SQL 2008 and 2008 R2, [add registry key](#add-registry-key-to-enable-registration) to enable server registration. This step will be not be required when the feature is generally available.
 5. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
 
 > [!NOTE]
@@ -75,16 +75,6 @@ Use NSG service tags | Easier to manage as range changes are automatically merge
 Use Azure Firewall FQDN tags | Easier to manage as the required FQDNs are automatically managed | Can be used with Azure Firewall only
 Use an HTTP proxy | Granular control in the proxy over the storage URLs is allowed <br/><br/> Single point of internet access to VMs <br/><br/> Not subject to Azure IP address changes | Additional costs to run a VM with the proxy software
 
-### Set VM permissions
-
-When you configure a backup for a SQL Server database, Azure Backup does the following:
-
-- Adds the AzureBackupWindowsWorkload extension.
-- Creates an NT SERVICE\AzureWLBackupPluginSvc account to discover databases on the virtual machine. This account is used for a backup and restore and requires SQL sysadmin permissions.
-- Discovers databases that are running on a VM, Azure Backup uses the NT AUTHORITY\SYSTEM account. This account must be a public sign-in on SQL.
-
-If you didn't create the SQL Server VM in the Azure Marketplace, you might receive a UserErrorSQLNoSysadminMembership error. For more information, see the Feature consideration and limitations section found in [About SQL Server Backup in Azure VMs](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
-
 ### Database naming guidelines for Azure Backup
 
 Avoid using the following elements in database names:
@@ -97,6 +87,22 @@ Avoid using the following elements in database names:
 
 Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
+### Add registry key to enable registration
+
+1. Open Regedit
+2. Create the Registry Directory Path: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (you will need to create the 'Key' TestHook under WorkloadBackup which in turn needs to be created under Microsoft).
+3. Under the Registry Directory Path, create a new 'string value' with the string name **AzureBackupEnableWin2K8R2SP1** and value: **True**
+
+    ![RegEdit for enabling registration](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
+
+Alternatively, you can automate this step by running .reg file with the following command:
+
+```csharp
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
+"AzureBackupEnableWin2K8R2SP1"="True"
+```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -137,7 +143,7 @@ How to discover databases running on a VM:
     - Azure Backup creates the service account NT Service\AzureWLBackupPluginSvc on the VM.
       - All backup and restore operations use the service account.
       - NT Service\AzureWLBackupPluginSvc requires SQL sysadmin permissions. All SQL Server VMs created in the Marketplace come with the SqlIaaSExtension installed. The AzureBackupWindowsWorkload extension uses the SQLIaaSExtension to automatically get the required permissions.
-    - If you didn't create the VM from the Marketplace, the VM won't have the SqlIaaSExtension installed, and the discovery operation fails with the error message UserErrorSQLNoSysAdminMembership. To fix this issue, follow the [instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+    - If you didn't create the VM from the Marketplace or if you are on SQL 2008 and 2008 R2, the VM may not have the SqlIaaSExtension installed, and the discovery operation fails with the error message UserErrorSQLNoSysAdminMembership. To fix this issue, follow the instructions under [Set VM permissions](backup-azure-sql-database.md#set-vm-permissions).
 
         ![Select the VM and database](./media/backup-azure-sql-database/registration-errors.png)
 

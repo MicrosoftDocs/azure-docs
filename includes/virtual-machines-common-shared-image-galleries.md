@@ -73,15 +73,15 @@ Source regions are listed in the table below. All public regions can be target r
 
 | Source regions |
 |---------------------|-----------------|------------------|-----------------|
-| Australia Central   | Central US EUAP | Korea Central    | UK South 2      |
-| Australia Central 2 | East Asia       | Korea South      | UK West         |
-| Australia East      | East US         | North Central US | West Central US |
-| Australia Southeast | East US 2       | North Europe     | West Europe     |
-| Brazil South        | East US 2 EUAP  | South Central US | West India      |
-| Canada Central      | France Central  | South India      | West US         |
-| Canada East         | France South    | Southeast Asia   | West US         |
-| Central India       | Japan East      | UK North         | West US 2       |
-| Central US          | Japan West      | UK South         |                 |
+| Australia Central   | Central US EUAP | Korea Central    | West Central US |
+| Australia Central 2 | East Asia       | Korea South      | West Europe     |
+| Australia East      | East US         | North Central US | West India      |
+| Australia Southeast | East US 2       | North Europe     | West US         |
+| Brazil South        | East US 2 EUAP  | South Central US | West US 2       |
+| Canada Central      | France Central  | South India      |                 |
+| Canada East         | France South    | Southeast Asia   |                 |
+| Central India       | Japan East      | UK South         |                 |
+| Central US          | Japan West      | UK West          |                 |
 
 
 

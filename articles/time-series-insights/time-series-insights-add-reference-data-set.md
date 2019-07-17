@@ -6,7 +6,7 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/13/2019
@@ -31,7 +31,7 @@ Reference data is not joined retroactively. Thus, only current and future ingres
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Locate your existing Time Series Insights environment. Click **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
+1. Locate your existing Time Series Insights environment. Select **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
 
 1. Select the **Overview** page. Locate the **Time Series Insights explorer URL** and open the link.  
 
@@ -73,7 +73,7 @@ Reference data is not joined retroactively. Thus, only current and future ingres
 
 1. Rename the column headers if needed. The key column name is necessary to join to the corresponding property in your event source. Ensure that the reference data key column names match exactly to the event name to your incoming data, including case-sensitivity. The non-key column names are used to augment the incoming data with the corresponding reference data values.
 
-1. Click **Add a row** or **Add a column** to add more reference data values, as needed.
+1. Select **Add a row** or **Add a column** to add more reference data values, as needed.
 
 1. Type a value in the **Filter the rows...** field to review specific rows as needed. The filter is useful for reviewing data, but is not applied when uploading the data.
 

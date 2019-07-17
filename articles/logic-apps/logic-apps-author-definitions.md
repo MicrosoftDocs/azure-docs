@@ -89,6 +89,9 @@ Select **Open With Logic App Designer**.
 
    ![Open logic app in a Visual Studio solution](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
+
 4. At the bottom of the designer, choose **Code View**. 
 
    The Code View editor opens and shows 

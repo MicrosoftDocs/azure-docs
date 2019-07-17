@@ -30,7 +30,7 @@ Azure Digital Twins applies to all types of environments. Just a few examples ar
 - Analyze occupancy levels for a building.
 - Find the busiest cash register in your store.
 
-Whatever your real-world business scenario is, a corresponding digital instance can be provisioned through Azure Digital Twins.
+Whatever your real-world business scenario is, it's very likely a corresponding digital instance can be provisioned through Azure Digital Twins.
 
 The following video takes a closer look at Azure Digital Twins.
 

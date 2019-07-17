@@ -100,7 +100,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
         # logout
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
-- - -
+---
 ## Prepare openSUSE 13.1+
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 2. Click **Connect** to open the window for the virtual machine.

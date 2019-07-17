@@ -125,11 +125,12 @@ Before you start the TelcoGenerator app, you must configure it so that it will s
 
 ### Start the app
 1.	Open a command window and change to the folder where the TelcoGenerator app is unzipped.
+
 2.	Enter the following command:
 
-        ```cmd
-        telcodatagen.exe 1000 0.2 2
-        ```
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
 
     The parameters are: 
 

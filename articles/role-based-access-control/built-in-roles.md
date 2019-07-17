@@ -2490,7 +2490,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Permits management of storage accounts. Does not provide access to data in the storage account. |
+> | **Description** | Permits management of storage accounts. Provides access to the account key, which can be used to access data via Shared Key authorization. |
 > | **Id** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read all authorization |

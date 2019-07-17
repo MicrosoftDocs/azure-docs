@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 06/13/2019
 ---
 
 # Use HDInsight Spark cluster to analyze data in Data Lake Storage Gen1

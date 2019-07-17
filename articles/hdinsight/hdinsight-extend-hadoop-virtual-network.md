@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 06/17/2019
 ---
 
 # Extend Azure HDInsight using an Azure Virtual Network
@@ -206,13 +206,13 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 
 ## <a id="networktraffic"></a> Controlling network traffic
 
-### Controlling inbound traffic to HDInsight clusters
+### Techniques for controlling inbound and outbound traffic to HDInsight clusters
 
 Network traffic in an Azure Virtual Networks can be controlled using the following methods:
 
 * **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
 
-* **Network virtual appliances** replicate the functionality of devices such as firewalls and routers. For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
+* **Network virtual appliances** (NVA) can be used with outbound traffic only. NVAs replicate the functionality of devices such as firewalls and routers.  For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
 
 As a managed service, HDInsight requires unrestricted access to the HDInsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs, you must ensure that these services can still communicate with HDInsight cluster.
 
@@ -286,11 +286,11 @@ If you use network security groups, you must allow traffic from the Azure health
     | &nbsp; | South India | 104.211.223.67<br/>104.211.216.210 | \*:443 | Inbound |
     | Japan | Japan East | 13.78.125.90</br>13.78.89.60 | \*:443 | Inbound |
     | &nbsp; | Japan West | 40.74.125.69</br>138.91.29.150 | \*:443 | Inbound |
-    | Korea | Korea Central | 52.231.39.142</br>52.231.36.209 | \*:433 | Inbound |
+    | Korea | Korea Central | 52.231.39.142</br>52.231.36.209 | \*:443 | Inbound |
     | &nbsp; | Korea South | 52.231.203.16</br>52.231.205.214 | \*:443 | Inbound
     | United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | \*:443 | Inbound |
     | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | \*:443 | Inbound |
-    | United States | Central US | 13.67.223.215</br>40.86.83.253 | \*:443 | Inbound |
+    | United States | Central US | 13.89.171.122</br>13.89.171.124 | \*:443 | Inbound |
     | &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | \*:443 | Inbound |
     | &nbsp; | North Central US | 157.56.8.38</br>157.55.213.99 | \*:443 | Inbound |
     | &nbsp; | West Central US | 52.161.23.15</br>52.161.10.167 | \*:443 | Inbound |

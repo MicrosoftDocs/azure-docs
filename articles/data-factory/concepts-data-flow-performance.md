@@ -36,7 +36,7 @@ Clicking that icon will display the execution plan and subsequent performance pr
 
 ## Optimizing for Azure SQL Database and Azure SQL Data Warehouse
 
-![Source Part](media/data-flow/sourcepart2.png "Source Part")
+![Source Part](media/data-flow/sourcepart3.png "Source Part")
 
 ### Partition your source data
 
@@ -54,6 +54,12 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * Setting batch size will instruct ADF to store data in sets in memory instead of row-by-row. It is an optional setting and you may run out of resources on the compute nodes if they are not sized properly.
 * Setting a query can allow you to filter rows right at the source before they even arrive for Data Flow for processing, which can make the initial data acquisition faster.
 * If you use a query, you can add optional query hints for your Azure SQL DB, i.e. READ UNCOMMITTED
+
+### Set isolation level on Source transformation settings for SQL datasets
+
+* Read uncommitted will provide faster query results on Source transformation
+
+![Isolation level](media/data-flow/isolationlevel.png "Isolation Level")
 
 ### Set sink batch size
 
@@ -117,8 +123,8 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * To avoid exhausting compute node resources, you can keep the default or explicit partitioning scheme in ADF, which optimizes for performance, and then add a subsequent Copy Activity in the pipeline that merges all of the PART files from the output folder to a new single file. Essentially, this technique separates the action of transformation from file merging and achieves the same result as setting "output to single file".
 
 ## Next steps
-See the other Data Flow articles:
+See the other Data Flow articles related to performance:
 
-- [Data Flow overview](concepts-data-flow-overview.md)
+- [Data Flow Optimize Tab](concepts-data-flow-optimize-tab.md)
 - [Data Flow activity](control-flow-execute-data-flow-activity.md)
 - [Monitor Data Flow performance](concepts-data-flow-monitoring.md)

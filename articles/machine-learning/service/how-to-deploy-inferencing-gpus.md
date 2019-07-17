@@ -139,7 +139,7 @@ model = Model(ws,"resnet50")
 inference_config = InferenceConfig(runtime= "python", 
                                    entry_script="score.py",
                                    conda_file="myenv.yml", 
-                                   gpu_enabled=True)
+                                   enable_gpu=True)
 ```
 
 For more information, see:

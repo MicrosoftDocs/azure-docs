@@ -254,6 +254,20 @@ automl_config = AutoMLConfig(task='forecasting',
 
 ## Run experiment
 
+For automated ML you will need to create an `Experiment` object, which is a named object in a `Workspace` used to run experiments.
+
+```python
+from azureml.core.experiment import Experiment
+
+ws = Workspace.from_config()
+
+# Choose a name for the experiment and specify the project folder.
+experiment_name = 'automl-classification'
+project_folder = './sample_projects/automl-classification'
+
+experiment = Experiment(ws, experiment_name)
+```
+
 Submit the experiment to run and generate a model. Pass the `AutoMLConfig` to the `submit` method to generate the model.
 
 ```python

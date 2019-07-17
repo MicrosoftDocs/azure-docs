@@ -4,7 +4,7 @@ description: Learn how to set provisioned throughput for your Azure Cosmos conta
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 06/14/2019
 ms.author: rimman
 
 ---
@@ -68,6 +68,9 @@ You can combine the two models. Provisioning throughput on both the database and
 
 * You can create an Azure Cosmos database named *Z* with provisioned throughput of *"K"* RUs. 
 * Next, create five containers named *A*, *B*, *C*, *D*, and *E* within the database. When creating container B, make sure to enable **Provision dedicated throughput for this container** option and explicitly configure *"P"* RUs of provisioned throughput on this container. Note that you can configure shared and dedicated throughput only when creating the database and container. 
+
+   ![Setting the throughput at the container-level](./media/set-throughput/coll-level-throughput.png)
+
 * The *"K"* RUs throughput is shared across the four containers *A*, *C*, *D*, and *E*. The exact amount of throughput available to *A*, *C*, *D*, or *E* varies. There are no SLAs for each individual container’s throughput.
 * The container named *B* is guaranteed to get the *"P"* RUs throughput all the time. It's backed by SLAs.
 
@@ -83,7 +86,7 @@ You can retrieve the minimum throughput of a container or a database programmati
 
 When using the .NET SDK, the [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) method allows you to retrieve the minimum throughput of a container or a database. 
 
-You can scale the provisioned throughput of a container or a database at any time. 
+You can scale the provisioned throughput of a container or a database at any time. When a scale operation is performed to increase the throughput, it can take longer time due to the system tasks to provision the required resources. You can check the status of the scale operation in Azure portal or programmatically using the SDKs. When using the .Net SDK, you can get the status of the scale operation by using the `DocumentClient.ReadOfferAsync` method.
 
 ## Comparison of models
 

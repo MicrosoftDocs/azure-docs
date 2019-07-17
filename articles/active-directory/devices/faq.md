@@ -44,10 +44,10 @@ Only the following devices are listed under **USER devices**:
 
 ---
 
-### Q: I see the device record under the USER info in the Azure portal. And I see the state as registered on the device. Am I set up correctly to use conditional access?
+### Q: I see the device record under the USER info in the Azure portal. And I see the state as registered on the device. Am I set up correctly to use Conditional Access?
 
-**A:** The device join state, shown by **deviceID**, must match the state on Azure AD and meet any evaluation criteria for conditional access. 
-For more information, see [Require managed devices for cloud app access with conditional access](../conditional-access/require-managed-devices.md).
+**A:** The device join state, shown by **deviceID**, must match the state on Azure AD and meet any evaluation criteria for Conditional Access. 
+For more information, see [Require managed devices for cloud app access with Conditional Access](../conditional-access/require-managed-devices.md).
 
 ---
 
@@ -117,7 +117,7 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 
 **A:** Yes. Windows has a cached username and password capability that allows users who signed in previously to access the desktop quickly even without network connectivity. 
 
-When a device is deleted or disabled in Azure AD, it's not known to the Windows device. So users who signed in previously continue to access the desktop with the cached username and password. But as the device is deleted or disabled, users can't access any resources protected by device-based conditional access. 
+When a device is deleted or disabled in Azure AD, it's not known to the Windows device. So users who signed in previously continue to access the desktop with the cached username and password. But as the device is deleted or disabled, users can't access any resources protected by device-based Conditional Access. 
 
 Users who didn't sign in previously can't access the device. There's no cached username and password enabled for them. 
 
@@ -153,8 +153,8 @@ Deleted or disabled users who didn't sign in previously can't access a device. T
 
 ### Q: Why do my users see *You can’t get there from here*?
 
-**A:** Did you configure certain conditional access rules to require a specific device state? If the device doesn't meet the criteria, users are blocked, and they see that message. 
-Evaluate the conditional access policy rules. Make sure the device meets the criteria to avoid the message.
+**A:** Did you configure certain Conditional Access rules to require a specific device state? If the device doesn't meet the criteria, users are blocked, and they see that message. 
+Evaluate the Conditional Access policy rules. Make sure the device meets the criteria to avoid the message.
 
 ---
 
@@ -224,7 +224,7 @@ Create a different local account before you use Azure Active Directory join to f
 
 **A:** When your users add their accounts to apps on a domain-joined device, they might be prompted with **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
 
-Hybrid Azure AD join takes precedence over the Azure AD registered state. So your device is considered hybrid Azure AD joined for any authentication and conditional access evaluation. You can safely delete the Azure AD registered device record from the Azure AD portal. Learn to [avoid or clean up this dual state on the Windows 10 machine](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
+Hybrid Azure AD join takes precedence over the Azure AD registered state. So your device is considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. You can safely delete the Azure AD registered device record from the Azure AD portal. Learn to [avoid or clean up this dual state on the Windows 10 machine](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
 
 ---
@@ -260,11 +260,11 @@ If a password is changed outside the corporate network (for example, by using Az
 **A:** Take the following steps:
 
 1.	[Create a compliance policy](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.	[Define a conditional access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
+2.	[Define a Conditional Access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
 
 **Remarks:**
 
-- The users included in your conditional access policy need a [supported version of Office for macOS](../conditional-access/technical-reference.md#client-apps-condition) to access resources. 
+- The users included in your Conditional Access policy need a [supported version of Office for macOS](../conditional-access/technical-reference.md#client-apps-condition) to access resources. 
 
 - During the first access try, your users are prompted to enroll the device by using the company portal.
 

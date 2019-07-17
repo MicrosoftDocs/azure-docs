@@ -2,12 +2,13 @@
 title: Ethics and responsible use - Personalizer
 titleSuffix: Azure Cognitive Services
 description: These guidelines are aimed at helping you to implement personalization in a way that helps you build trust in your company and service. Be sure to pause to research, learn and deliberate on the impact of the personalization on people’s lives. When in doubt, seek guidance.
+services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 06/12/2019
 ms.author: edjez
 ---
      

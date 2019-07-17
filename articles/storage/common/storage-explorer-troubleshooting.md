@@ -112,7 +112,7 @@ If you're in a reauthentication loop, or have changed the UPN of one of your acc
 
 ### Conditional Access
 
-Conditional access isn't supported when Storage Explorer is being used on Windows 10, Linux, or macOS. This is because of a limitation in the AAD Library used by Storage Explorer.
+Conditional Access isn't supported when Storage Explorer is being used on Windows 10, Linux, or macOS. This is because of a limitation in the AAD Library used by Storage Explorer.
 
 ## Mac Keychain errors
 

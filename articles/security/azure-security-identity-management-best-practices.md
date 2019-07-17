@@ -36,7 +36,7 @@ Azure identity management and access control security best practices discussed i
 * Centralize identity management
 * Manage connected tenants
 * Enable single sign-on
-* Turn on conditional access
+* Turn on Conditional Access
 * Enable password management
 * Enforce multi-factor verification for users
 * Use role-based access control
@@ -105,17 +105,17 @@ Use SSO to enable users to access their [SaaS applications](../active-directory/
 
 Organizations that don’t create a common identity to establish SSO for their users and applications are more exposed to scenarios where users have multiple passwords. These scenarios increase the likelihood of users reusing passwords or using weak passwords.
 
-## Turn on conditional access
+## Turn on Conditional Access
 
 Users can access your organization's resources by using a variety of devices and apps from anywhere. As an IT admin, you want to make sure that these devices meet your standards for security and compliance. Just focusing on who can access a resource is not sufficient anymore.
 
-To balance security and productivity, you need to think about how a resource is accessed before you can make a decision about access control. With Azure AD conditional access, you can address this requirement. With conditional access, you can make automated access control decisions based on conditions for accessing your cloud apps.
+To balance security and productivity, you need to think about how a resource is accessed before you can make a decision about access control. With Azure AD Conditional Access, you can address this requirement. With Conditional Access, you can make automated access control decisions based on conditions for accessing your cloud apps.
 
 **Best practice**: Manage and control access to corporate resources.  
-**Detail**: Configure Azure AD [conditional access](../active-directory/active-directory-conditional-access-azure-portal.md) based on a group, location, and application sensitivity for SaaS apps and Azure AD–connected apps.
+**Detail**: Configure Azure AD [Conditional Access](../active-directory/active-directory-conditional-access-azure-portal.md) based on a group, location, and application sensitivity for SaaS apps and Azure AD–connected apps.
 
 **Best practice**: Block legacy authentication protocols.
-**Detail**: Attackers exploit weaknesses in older protocols every day, particularly for password spray attacks. Configure conditional access to block legacy protocols. See the video [Azure AD: Do’s and Don’ts](https://www.youtube.com/watch?v=wGk0J4z90GI) for more information.
+**Detail**: Attackers exploit weaknesses in older protocols every day, particularly for password spray attacks. Configure Conditional Access to block legacy protocols. See the video [Azure AD: Do’s and Don’ts](https://www.youtube.com/watch?v=wGk0J4z90GI) for more information.
 
 ## Enable password management
 
@@ -139,16 +139,16 @@ There are multiple options for requiring two-step verification. The best option 
 Following are options and benefits for enabling two-step verification:
 
 **Option 1**: [Enable Multi-Factor Authentication by changing user state](../active-directory/authentication/howto-mfa-userstates.md).   
-**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure Multi-Factor Authentication in the cloud and Azure Multi-Factor Authentication Server](../active-directory/authentication/concept-mfa-whichversion.md). Using this method requires users to perform two-step verification every time they sign in and overrides conditional access policies.
+**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure Multi-Factor Authentication in the cloud and Azure Multi-Factor Authentication Server](../active-directory/authentication/concept-mfa-whichversion.md). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
 
 To determine where Multi-Factor Authentication needs to be enabled, see [Which version of Azure MFA is right for my organization?](../active-directory/authentication/concept-mfa-whichversion.md).
 
-**Option 2**: [Enable Multi-Factor Authentication with conditional access policy](../active-directory/authentication/howto-mfa-getstarted.md).
-**Benefit**: This option allows you to prompt for two-step verification under specific conditions by using [conditional access](../active-directory/active-directory-conditional-access-azure-portal.md). Specific conditions can be user sign-in from different locations, untrusted devices, or applications that you consider risky. Defining specific conditions where you require two-step verification enables you to avoid constant prompting for your users, which can be an unpleasant user experience.
+**Option 2**: [Enable Multi-Factor Authentication with Conditional Access policy](../active-directory/authentication/howto-mfa-getstarted.md).
+**Benefit**: This option allows you to prompt for two-step verification under specific conditions by using [Conditional Access](../active-directory/active-directory-conditional-access-azure-portal.md). Specific conditions can be user sign-in from different locations, untrusted devices, or applications that you consider risky. Defining specific conditions where you require two-step verification enables you to avoid constant prompting for your users, which can be an unpleasant user experience.
 
-This is the most flexible way to enable two-step verification for your users. Enabling a conditional access policy works only for Azure Multi-Factor Authentication in the cloud and is a premium feature of Azure AD. You can find more information on this method in [Deploy cloud-based Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
+This is the most flexible way to enable two-step verification for your users. Enabling a Conditional Access policy works only for Azure Multi-Factor Authentication in the cloud and is a premium feature of Azure AD. You can find more information on this method in [Deploy cloud-based Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
 
-**Option 3**: Enable Multi-Factor Authentication with conditional access policies by evaluating user and sign-in risk of [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
+**Option 3**: Enable Multi-Factor Authentication with Conditional Access policies by evaluating user and sign-in risk of [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
 **Benefit**: This option enables you to:
 
 - Detect potential vulnerabilities that affect your organization’s identities.
@@ -158,7 +158,7 @@ This is the most flexible way to enable two-step verification for your users. En
 This method uses the Azure AD Identity Protection risk evaluation to determine if two-step verification is required based on user and sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. You can find more information on this method in [Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md).
 
 > [!Note]
-> Option 1, enabling Multi-Factor Authentication by changing the user state, overrides conditional access policies. Because options 2 and 3 use conditional access policies, you cannot use option 1 with them.
+> Option 1, enabling Multi-Factor Authentication by changing the user state, overrides Conditional Access policies. Because options 2 and 3 use Conditional Access policies, you cannot use option 1 with them.
 
 Organizations that don’t add extra layers of identity protection, such as two-step verification, are more susceptible for credential theft attack. A credential theft attack can lead to data compromise.
 

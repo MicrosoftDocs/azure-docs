@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/19/2019
 ms.author: aahill
 ---
 
@@ -68,7 +68,7 @@ Host: api.cognitive.microsoft.com
 
 The following shows the response to the previous request. The example also shows the Bing-specific response headers.
 
-```
+```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
 X-MSEdge-ClientID: 1C3352B306E669780D58D607B96869
 BingAPIs-Market: en-US

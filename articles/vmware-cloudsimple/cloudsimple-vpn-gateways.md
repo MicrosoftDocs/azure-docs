@@ -46,7 +46,7 @@ A site-to-site VPN connection uses the following default cryptographic parameter
 | IKE Version | IKEv1 | IKEv1 | IKEv1 |
 | Encryption | AES 128 | AES 256 | AES 256 |
 | Hash Algorithm| SHA 256 | SHA 256 | SHA 1 |
-| Diffie Hellman Group (DH Group) | 1 | 1 | 1 |
+| Diffie Hellman Group (DH Group) | 2 | 2 | 2 |
 | Life Time | 28,800 seconds | 28,800 seconds | 28,800 seconds |
 | Data Size | 4 GB | 4 GB | 4 GB |
 

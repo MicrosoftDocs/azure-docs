@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 06/14/2019
 ms.author: cherylmc
 
 ---
@@ -22,7 +22,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 
 ## <a name="windows"></a>Windows clients
 
-1. Download and install the OpenVPN client from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
+1. Download and install the OpenVPN client (version 2.4 or higher) from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
 2. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal, or 'New-AzVpnClientConfiguration' in PowerShell.
 3. Unzip the profile. Next, open the *vpnconfig.ovpn* configuration file from the OpenVPN folder using Notepad.
 4. [Export](vpn-gateway-certificates-point-to-site.md#clientexport) the P2S client certificate you created and uploaded to your P2S configuration on the gateway.
@@ -57,7 +57,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 
 ## <a name="mac"></a>Mac clients
 
-1. Download and install an OpenVPN client, such as [TunnelBlik](https://tunnelblick.net/downloads.html). 
+1. Download and install an OpenVPN client, such as [TunnelBlick](https://tunnelblick.net/downloads.html). 
 2. Download the VPN profile for the gateway. This can be done from the point-to-site configuration tab in the Azure portal, or by using 'New-AzVpnClientConfiguration' in PowerShell.
 3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in Notepad.
 4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See [Export the public key](vpn-gateway-certificates-point-to-site.md#cer) for information about how to export a certificate to get the encoded public key.

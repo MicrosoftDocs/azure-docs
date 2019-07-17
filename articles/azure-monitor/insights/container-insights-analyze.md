@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/07/2019
+ms.date: 06/12/2019
 ms.author: magoedte
 ---
 
@@ -265,6 +265,20 @@ The icons in the status field indicate the online statuses of pods, as described
 | ![Last reported running status icon](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded in more than 30 minutes|  
 | ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|  
 | ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |  
+
+## Disk capacity workbook
+Workbooks combine text, [log queries](../log-query/query-language.md), [metrics](../platform/data-platform-metrics.md), and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
+
+Azure Monitor for containers includes a workbook to get you started, **Disk capacity**.  This workbook presents interactive disk usage charts for each disk presented to the node within a container by the following perspectives:
+
+- Disk % usage for all disks
+- Free disk space for all disks
+- A table showing for each nodes disk, its % used space, trend of % used space, free disk space (GiB), and trend of free disk space (GiB). When a row is selected in the table, % used space and free disk space (GiB) is shown below 
+
+You access this workbook by selecting **Disk capacity** from the **View Workbooks** drop-down list.  
+
+![View Workbooks drop-down list](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
+
 
 ## Next steps
 - Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures. 

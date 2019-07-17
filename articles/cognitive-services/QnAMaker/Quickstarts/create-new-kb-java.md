@@ -96,7 +96,7 @@ Repeat the call until success or failure:
 ```
 
 ## Add a main method
-The main method creates the KB, then polls for the status. The_create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. **The `while` loop retries the status if it is not completed.
+The main method creates the KB, then polls for the status. The operation ID is returned in the POST response header field **Location**, then used as part of the route in the GET request. The `while` loop retries the status if it is not completed.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 

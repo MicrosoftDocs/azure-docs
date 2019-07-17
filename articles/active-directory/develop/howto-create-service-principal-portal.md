@@ -94,7 +94,7 @@ When programmatically signing in, you need to pass the tenant ID with your authe
    ![Client ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
 ## Certificates and secrets
-Deamon applications can use two forms of credentials to authenticate with Azure AD: certificates and application secrets.  We recommend using a certificate, but you can also create a new application secret.
+Daemon applications can use two forms of credentials to authenticate with Azure AD: certificates and application secrets.  We recommend using a certificate, but you can also create a new application secret.
 
 ### Upload a certificate
 

@@ -40,7 +40,7 @@ The steps to get the private IP address of the AKS nodes is different based on t
 
 To add your SSH key to a Linux AKS node, complete the following steps:
 
-1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. Provide your own core resource group and AKS cluster name. The cluster name is assigned to the variable named *CLUSTER_RESOURCE_GROUP*:
+1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. The cluster name is assigned to the variable named *CLUSTER_RESOURCE_GROUP*. Replace *myResourceGroup* with the name of your Resource Group where you AKS Cluster is located:
 
     ```azurecli-interactive
     CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
@@ -74,7 +74,7 @@ To add your SSH key to a Linux AKS node, complete the following steps:
 
 To add your SSH key to a Linux AKS node that's part of a virtual machine scale set, complete the following steps:
 
-1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. Provide your own core resource group and AKS cluster name. The cluster name is assigned to the variable named *CLUSTER_RESOURCE_GROUP*:
+1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. The cluster name is assigned to the variable named *CLUSTER_RESOURCE_GROUP*. Replace *myResourceGroup* with the name of your Resource Group where you AKS Cluster is located:
 
     ```azurecli-interactive
     CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)

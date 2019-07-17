@@ -48,7 +48,7 @@
     href: security-center-onboarding.md
   - name: Server protection with Windows Defender ATP
     href: security-center-wdatp.md
-  - name: Advanced data security for IaaS
+  - name: Advanced data security for SQL on Azure VMs (Public Preview)
     href: security-center-iaas-advanced-data.md
   - name: Protect App Service
     href: security-center-app-services.md
@@ -77,15 +77,16 @@
   - name: Tenant-wide visibility
     href: security-center-management-groups.md
   - name: Implement security recommendations
-    href: security-center-recommendations.md
     items:
+    - name: What are security recommendations
+      href: security-center-recommendations.md
     - name: Strengthen security posture
       href: security-center-monitoring.md
     - name: Protect your machines and apps
       href: security-center-virtual-machine-protection.md
     - name: Protect network resources
       href: security-center-network-recommendations.md
-    - name: Protect SQL service and data
+    - name: Protect data and storage services
       href: security-center-sql-service-recommendations.md
     - name: Protect identity and access
       href: security-center-identity-access.md  
@@ -187,6 +188,8 @@
     href: /learn/browse/?term=securityS
   - name: Manage user data
     href: security-center-privacy.md
+  - name: Manage IoT
+    href: https://docs.microsoft.com/en-us/azure/asc-for-iot/
   - name: FAQ
     href: security-center-faq.md
   - name: Azure Security

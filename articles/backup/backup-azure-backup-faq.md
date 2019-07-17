@@ -2,12 +2,12 @@
 title: Azure Backup FAQ
 description: 'Answers to common questions about: Azure Backup features including Recovery Services vaults, what it can back up, how it works, encryption, and limits. '
 services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.author: raynew
+ms.author: dacurwin
 ---
 
 # Azure Backup - Frequently asked questions

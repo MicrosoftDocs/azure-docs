@@ -89,7 +89,7 @@ If you encounter an error or problem with Azure AD Application Proxy that isn't 
 * [Enable Application Proxy for Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md)
 * [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md)
-* [Enable conditional access](application-proxy-integrate-with-sharepoint-server.md)
+* [Enable Conditional Access](application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->

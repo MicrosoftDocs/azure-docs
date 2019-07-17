@@ -129,4 +129,4 @@ The result is:
 ```
 
 ## See Also
-[Data Types in Azure Stream Analytics](https://msdn.microsoft.com/azure/stream-analytics/reference/data-types-azure-stream-analytics)
+[Data Types in Azure Stream Analytics](https://docs.microsoft.com/en-us/stream-analytics-query/data-types-azure-stream-analytics)

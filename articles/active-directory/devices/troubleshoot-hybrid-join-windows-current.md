@@ -32,7 +32,7 @@ For other Windows clients, see [Troubleshooting hybrid Azure Active Directory jo
 
 This article assumes that you have [configured hybrid Azure Active Directory joined devices](hybrid-azuread-join-plan.md) to support the following scenarios:
 
-- Device-based conditional access
+- Device-based Conditional Access
 
 - [Enterprise roaming of settings](../active-directory-windows-enterprise-state-roaming-overview.md)
 

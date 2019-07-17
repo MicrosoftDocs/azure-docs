@@ -56,7 +56,7 @@ The service principal can include:
 * Records of local user and group application-role assignments
 * Records of local user and admin permissions granted to the application
   * For example: permission for the application to access a particular user's email
-* Records of local policies including conditional access policy
+* Records of local policies including Conditional Access policy
 * Records of alternate local settings for an application
   * Claims transformation rules
   * Attribute mappings (User provisioning)

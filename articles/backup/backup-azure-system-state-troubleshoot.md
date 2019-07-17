@@ -113,7 +113,7 @@ To validate Windows Server Backup status, perform the below:
 
   * Ensure WSB backup is working properly, by running the below command from elevated command prompt:
 
-      ` wbadmin start systemstatebackup -backuptarget:X: -quiet `
+      `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
       >Replace X with the drive letter of the volume where you want to store the system state back up image.

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory conditional access settings reference | Microsoft Docs
-description: Get an overview of the supported settings in an Azure Active Directory conditional access policy.
+title: Azure Active Directory Conditional Access settings reference | Microsoft Docs
+description: Get an overview of the supported settings in an Azure Active Directory Conditional Access policy.
 
 services: active-directory
 ms.service: active-directory
@@ -13,14 +13,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 
-#Customer intent: As an IT admin, I need to understand the conditional access settings so that  I can set them according to my business needs
+#Customer intent: As an IT admin, I need to understand the Conditional Access settings so that  I can set them according to my business needs
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory conditional access settings reference
+# Azure Active Directory Conditional Access settings reference
 
-You can use [Azure Active Directory (Azure AD) conditional access](../active-directory-conditional-access-azure-portal.md) to control how authorized users can access your resources.
+You can use [Azure Active Directory (Azure AD) Conditional Access](../active-directory-conditional-access-azure-portal.md) to control how authorized users can access your resources.
 
-This article provides you with support information for the following configuration options in a conditional access policy:
+This article provides you with support information for the following configuration options in a Conditional Access policy:
 
 - Cloud applications assignments
 - Device platform condition
@@ -31,13 +31,13 @@ If this is not the information you are looking for, please leave a comment at th
 
 ## Cloud apps assignments
 
-With conditional access policies, you control how your users access your [cloud apps](conditions.md#cloud-apps-and-actions). When you configure a conditional access policy, you need to select at least one cloud app. 
+With Conditional Access policies, you control how your users access your [cloud apps](conditions.md#cloud-apps-and-actions). When you configure a Conditional Access policy, you need to select at least one cloud app. 
 
 ![Select the cloud apps for your policy](./media/technical-reference/09.png)
 
 ### Microsoft cloud applications
 
-You can assign a conditional access policy to the following cloud apps from Microsoft:
+You can assign a Conditional Access policy to the following cloud apps from Microsoft:
 
 - Azure Analysis Services
 - Azure DevOps
@@ -75,7 +75,7 @@ You can assign a conditional access policy to the following cloud apps from Micr
 
 ### Other applications
 
-In addition to the Microsoft cloud apps, you can assign a conditional access policy to the following types of cloud apps:
+In addition to the Microsoft cloud apps, you can assign a Conditional Access policy to the following types of cloud apps:
 
 - Azure AD-connected applications
 - Pre-integrated federated software as a service (SaaS) application
@@ -85,7 +85,7 @@ In addition to the Microsoft cloud apps, you can assign a conditional access pol
 
 ## Device platform condition
 
-In a conditional access policy, you can configure the device platform condition to tie the policy to the operating system on a client. Azure AD conditional access supports the following device platforms:
+In a Conditional Access policy, you can configure the device platform condition to tie the policy to the operating system on a client. Azure AD Conditional Access supports the following device platforms:
 
 - Android
 - iOS
@@ -97,7 +97,7 @@ In a conditional access policy, you can configure the device platform condition 
 
 ## Client apps condition
 
-In your conditional access policy, you can configure the [client apps](conditions.md#client-apps) condition to tie the policy to the client app that has initiated an access attempt. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
+In your Conditional Access policy, you can configure the [client apps](conditions.md#client-apps) condition to tie the policy to the client app that has initiated an access attempt. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
 
 - Browser
 - Mobile apps and desktop apps
@@ -106,7 +106,7 @@ In your conditional access policy, you can configure the [client apps](condition
 
 ### Supported browsers
 
-In your conditional access policy, you can select **Browsers** as client app.
+In your Conditional Access policy, you can select **Browsers** as client app.
 
 ![Control access for supported browsers](./media/technical-reference/05.png)
 
@@ -156,7 +156,7 @@ These browsers support device authentication, allowing the device to be identifi
 
 ### Supported mobile applications and desktop clients
 
-In your conditional access policy, you can select **Mobile apps and desktop clients** as client app.
+In your Conditional Access policy, you can select **Mobile apps and desktop clients** as client app.
 
 ![Control access for supported mobile apps or desktop clients](./media/technical-reference/06.png)
 
@@ -192,7 +192,7 @@ For more information, see [Client apps](conditions.md#client-apps).
 
 ## Approved client app requirement
 
-In your conditional access policy, you can require that an access attempt to the selected cloud apps needs to be made from an approved client app. 
+In your Conditional Access policy, you can require that an access attempt to the selected cloud apps needs to be made from an approved client app. 
 
 ![Control access for approved client apps](./media/technical-reference/21.png)
 
@@ -232,7 +232,7 @@ This setting applies to the following client apps:
 
 ## App protection policy requirement 
 
-In your conditional access policy, you can require an app protection policy be present on the client app before access is available to the selected cloud apps. 
+In your Conditional Access policy, you can require an app protection policy be present on the client app before access is available to the selected cloud apps. 
 
 ![Control access with app protection policy](./media/technical-reference/22.png)
 
@@ -249,8 +249,8 @@ This setting applies to the following client apps:
 
 ## Next steps
 
-- For an overview of conditional access, see [What is conditional access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
-- If you are ready to configure conditional access policies in your environment, see the [recommended practices for conditional access in Azure Active Directory](best-practices.md).
+- For an overview of Conditional Access, see [What is Conditional Access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+- If you are ready to configure Conditional Access policies in your environment, see the [recommended practices for Conditional Access in Azure Active Directory](best-practices.md).
 
 <!--Image references-->
 [1]: ./media/technical-reference/01.png

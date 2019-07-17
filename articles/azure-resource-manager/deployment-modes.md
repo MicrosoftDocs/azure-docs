@@ -1,15 +1,9 @@
 ---
 title: Azure Resource Manager deployment modes | Microsoft Docs
 description: Describes how to specify whether to use a complete or incremental deployment mode with Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/14/2019
 ms.author: tomfitz
 ---

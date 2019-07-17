@@ -486,6 +486,8 @@
       href: control-flow-expression-language-functions.md
     - name: System variables
       href: control-flow-system-variables.md
+    - name: Data flow parameters
+      href: parameters-data-flow.md
   - name: Security
     items:
     - name: Data movement security considerations
@@ -516,7 +518,7 @@
     items:
     - name: Azure integration runtime
       href: create-azure-integration-runtime.md
-    - name: Self hosted integration runtime
+    - name: Self-hosted integration runtime
       href: create-self-hosted-integration-runtime.md
     - name: Azure-SSIS integration runtime
       href: create-azure-ssis-integration-runtime.md
@@ -546,6 +548,8 @@
       href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Clean up SSISDB logs with Elastic Database Jobs
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+    - name: Troubleshooting Package Execution in Azure-SSIS IR
+      href: ssis-integration-runtime-ssis-activity-faq.md
   - name: Create triggers
     items:
     - name: Create an event-based trigger

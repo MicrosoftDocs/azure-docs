@@ -69,7 +69,7 @@ You have control over the Spark execution environment for your Data Flow activit
 
 ### Staging area
 
-If you are sinking your data into Azure Data Warehouse, you must choose a staging location for your Polybase batch load.
+If you are sinking your data into Azure Data Warehouse, you must choose a staging location for your Polybase batch load. The staging settings are only applicable to Azure Data Warehouse workloads.
 
 ## Parameterized datasets
 

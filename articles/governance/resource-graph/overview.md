@@ -92,7 +92,7 @@ headers:
 - `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is reset
 
 For more information, see
-[Throttling Resource Manager requests](../../azure-resource-manager/resource-manager-request-limits.md).
+[Guidance for throttled requests](./concepts/guidance-for-throttled-requests.md).
 
 ## Running your first query
 

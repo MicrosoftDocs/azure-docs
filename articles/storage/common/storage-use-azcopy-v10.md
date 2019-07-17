@@ -44,7 +44,8 @@ To learn about a specific command, just include the name of the command (For exa
 
 ![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
-Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service.
+> [!NOTE] 
+> As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service. 
 
 ## Choose how you'll provide authorization credentials
 
@@ -62,9 +63,9 @@ Use this table as a guide:
 
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
-#### Authorization to upload files
+If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your identity.
 
-Verify that one of these roles has been assigned to your identity:
+If you want to upload files, then verify that one of these roles has been assigned to your identity:
 
 - [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -82,27 +83,6 @@ You don't need to have one of these roles assigned to your identity if your iden
 
 To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-#### Authorization to download files
-
-Verify that one of these roles has been assigned to your identity:
-
-- [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)
-- [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
-- [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
-
-These roles can be assigned to your identity in any of these scopes:
-
-- Container (file system)
-- Storage account
-- Resource group
-- Subscription
-
-To learn how to verify and assign roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or directory. In the ACL, your identity needs read permission on the target directory, and execute permission on container and each parent directory.
-
-To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
-
 #### Authenticate your identity
 
 After you've verified that your identity has been given the necessary authorization level, open a command prompt, type the following command, and then press the ENTER key.
@@ -110,6 +90,14 @@ After you've verified that your identity has been given the necessary authorizat
 ```azcopy
 azcopy login
 ```
+
+If you belong to more than one organization, include the tenant ID of the organization to which the storage account belongs.
+
+```azcopy
+azcopy login --tenant-id=<tenant-id>
+```
+
+Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal.
 
 This command returns an authentication code and the URL of a website. Open the website, provide the code, and then choose the **Next** button.
 
@@ -141,13 +129,32 @@ To find example commands, see any of these articles.
 
 - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
 
-## Configure, optimize, and troubleshoot AzCopy
+## Use AzCopy in a script
 
-See [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+Over time, the AzCopy [download link](#download-and-install-azcopy) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon. 
+
+To avoid these issues, obtain a static (un-changing) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
+
+To obtain the link, run this command:
+
+| Operating system  | Command |
+|--------|-----------|
+| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+
+> [!NOTE]
+> For Linux, `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
+
+The URL appears in the output of this command. Your script can then download AzCopy by using that URL.
+
+| Operating system  | Command |
+|--------|-----------|
+| **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
+| **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
 ## Use AzCopy in Storage Explorer
 
-If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer.
+If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer. 
 
 In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload and Download**.
 
@@ -156,6 +163,8 @@ In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload a
 > [!NOTE]
 > You don't have to enable this setting if you've enabled a hierarchical namespace on your storage account. That's because Storage Explorer automatically uses AzCopy on storage accounts that have a hierarchical namespace.  
 
+Storage Explorer uses your account key to perform operations, so after you sign into Storage Explorer, you won't need to provide additional authorization credentials.
+
 <a id="previous-version" />
 
 ## Use the previous version of AzCopy
@@ -163,7 +172,12 @@ In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload a
 If you need to use the previous version of AzCopy (AzCopy v8.1), see either of the following links:
 
 - [AzCopy on Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+
 - [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+
+## Configure, optimize, and troubleshoot AzCopy
+
+See [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Next steps
 

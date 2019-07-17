@@ -70,14 +70,17 @@
   - name: OS functionality
     href: operating-system-functionality.md
   - name: Security
-    href: overview-security.md
     items:
+    - name: Recommendations
+      href: security-recommendations.md
     - name: Authentication and authorization
       href: overview-authentication-authorization.md
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
     - name: Security attributes
       href: app-service-security-attributes.md
+    - name: Security overview
+      href: overview-security.md
   - name: Networking features
     href: networking-features.md
   - name: Inbound and outbound IPs

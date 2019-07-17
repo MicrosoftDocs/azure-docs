@@ -196,52 +196,6 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
 
    The device ID parameter is case-sensitive. ![az iot hub module-identity list output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
 
-## Run and debug locally
-
-For trouble shooting and debugging it is useful to run the Edge modules locally using the [IoT Edge Development Simulator](https://github.com/Azure/iotedgehubdev).  It provides a local development experience with a simulator for creating, developing, testing, running, and debugging Azure IoT Edge modules and solutions using the same bits/code that are used in production.
-
-### Prerequisites
-
-1. Deploy the OPC Twin [dependencies](howto-opc-twin-deploy-dependencies.md).
-
-2. Install [Docker CE (18.02.0+)](https://www.docker.com/community-edition) on [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) or [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
-
-3. Install [Docker Compose (1.20.0+)](https://docs.docker.com/compose/install/#install-compose) (Only required for **Linux**. Compose has already been included in Windows/macOS Docker CE installation)
-
-4. Install [Python (2.7/3.5+) and Pip](https://www.python.org/)
-
-5. Install iotedgehubdev by running below command in your terminal
-
-   ```bash
-   pip install --upgrade iotedgehubdev
-   ```
-
-> [!NOTE]
-> Install `iotedgehubdev` to **root** on Linux/macOS (*Don't use '--user' option in the 'pip install' command*).
-> Make sure there is no Azure IoT Edge runtime running on the same machine with iotedgehubdev since they require the same ports.
-
-### Quickstart
-
-1. Follow the instructions to [create a Edge Device in the Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).  Copy the edge device connection string.
-
-2. Set up the simulator using the edge connection string.
-
-    ```bash
-    iotedgehubdev setup -c <edge-device-connection-string>
-    ```
-
-3. Copy above manifest into a `deployment.json` file in the same folder.  Start the deployment in the simulator using
-
-    ```bash
-    iotedgehubdev start -d deployment.json
-    ```
-
-4. Stop the simulator using
-
-   ```bash
-   iotedgehubdev stop
-   ```
-
 ## Next steps
 
 Now that you have learned how to deploy OPC Twin from scratch, here is the suggested next step:

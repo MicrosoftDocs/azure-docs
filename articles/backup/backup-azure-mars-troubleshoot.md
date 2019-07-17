@@ -36,9 +36,29 @@ We recommend you perform the below validation, before you start troubleshooting 
 
 ## Invalid vault credentials provided
 
-| Error details | Possible causes | Recommended actions |
-| ---     | ---     | ---    |
-| **Error** </br> *Invalid vault credentials provided. The file is either corrupted or does not have the latest credentials associated with recovery service. (ID: 34513)* | <ul><li> The vault credentials are invalid (that is, they were downloaded more than 48 hours before the time of registration).<li>MARS Agent is unable to download files to the Windows Temp directory. <li>The vault credentials are on a network location. <li>TLS 1.0 is disabled<li> A configured proxy server is blocking the connection. <br> |  <ul><li>Download the new vault credentials.(**Note**: If multiple vault credential files are downloaded previously, only the latest downloaded file is valid within 48 hours.) <li>Launch **IE** > **Setting** > **Internet options** > **Security** > **Internet**. Next, select **Custom Level**, and scroll until you see the file download section. Then select **Enable**.<li>You might also have to add these sites in IE [trusted sites](https://docs.microsoft.com/azure/backup/backup-configure-vault#verify-internet-access).<li>Change the settings to use a proxy server. Then provide the proxy server details. <li> Match the date and time with your machine.<li>If you get an error stating that file downloads are not allowed, it is likely that there are a large number of files in the C:/Windows/Temp directory.<li>Go to C:/Windows/Temp and check whether there are more than 60,000 or 65,000 files with the .tmp extension. If there are, delete these files.<li>Ensure that you have .NET framework 4.6.2 installed. <li>If you have disabled TLS 1.0 due to PCI compliance, refer to this [troubleshooting page](https://support.microsoft.com/help/4022913). <li>If you have anti-virus software installed on the server, exclude the following files from the anti-virus scan: <ul><li>CBengine.exe<li>CSC.exe, which is related to .NET Framework. There is a CSC.exe for every .NET version that's installed on the server. Exclude CSC.exe files that are tied to all versions of .NET Framework on the affected server. <li>Scratch folder or cache location. <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<br><li>The bin folder C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+**Error message**: Invalid vault credentials provided. The file is either corrupted or does not have the latest credentials associated with recovery service. (ID: 34513)
+
+| Cause | Recommended Action |
+| ---     | ---    |
+| **The vault credentials are invalid** <br/> <br/> Vault credential files might be corrupt or may have expired (i.e. downloaded more than 48 hours before the time of registration)| Download a new credential from Recovery Services vault from the Azure portal (see *Step 6* under [**Download the MARS agent**](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) section) and perform the below: <ul><li> If you have already installed and registered Microsoft Azure Backup Agent, then open the Microsoft Azure Backup Agent MMC console and choose **Register Server** from Action Pane to complete the registration with the newly downloaded credentials <br/> <li> If the new installation failed then try re-installing using the new credentials</ul> **Note**: If multiple vault credential files are downloaded previously, only the latest downloaded file is valid within 48 hours. Hence it is recommended to download fresh new vault credentials file.
+| **Proxy Server/firewall is blocking <br/>or <br/>No Internet connectivity** <br/><br/> If your machine or Proxy Server has limited Internet access then without listing the necessary URLs the registration will fail.| To resolve this issue, perform the below:<br/> <ul><li> Work with your IT team to ensure the system has Internet connectivity<li> If you do not have Proxy server, then ensure the proxy option is unselected when registering the agent, verify proxy settings steps listed [here](#verifying-proxy-settings-for-windows)<li> If you do have a firewall/proxy server then work with your networking team to ensure that below URLs and IP address have access<br/> <br> **URLs**<br> - *www.msftncsi.com* <br>- *.Microsoft.com* <br> - *.WindowsAzure.com* <br>- *.microsoftonline.com* <br>- *.windows.net* <br>**IP address**<br> - *20.190.128.0/18* <br> - *40.126.0.0/18* <br/></ul></ul>Try re-registering after you complete the above troubleshooting steps
+| **Anti-virus software is blocking** | If you have anti-virus software installed on the server, then add necessary exclusion rules for the following files from the anti-virus scan: <br/><ui> <li> *CBengine.exe* <li> *CSC.exe*<li> Scratch folder, the default location is *C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch* <li> Bin folder at *C:\Program Files\Microsoft Azure Recovery Services Agent\Bin*
+
+### Additional recommendations
+- Go to *C:/Windows/Temp* and check whether there are more than 60,000 or 65,000 files with the .tmp extension. If there are, delete these files
+- Ensure the machine’s date and time is matching with local time zone
+- Ensure the [following](backup-configure-vault.md#verify-internet-access) sites are added to IE trusted sites
+
+### Verifying proxy settings for Windows
+
+- Download **psexec** from [here](https://docs.microsoft.com/sysinternals/downloads/psexec)
+- Run this `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` command from elevated prompt:
+- This will launch *Internet Explorer* window
+- Go to *Tools* -> *Internet Options* -> *Connections* -> *LAN settings*
+- Verify proxy settings for *System* account
+- If no proxy is configured and proxy details are provided, then remove the details
+-	If proxy is configured and proxy details are incorrect, then ensure *Proxy IP* and *port* details are accurate
+- Close *Internet Explorer*
 
 ## Unable to download vault credential file
 
@@ -100,11 +120,11 @@ If scheduled backups don't get triggered automatically, while manual backups wor
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
-- Ensure there are no missing or corrupted **PowerShell** module **MSonlineBackup**. In case there are any missing or corrupt file, to resolve this issue perform the below:
+- Ensure there are no missing or corrupted **PowerShell** module **MSonlineBackup**. In case there is any missing or corrupt file, to resolve this issue perform the below:
 
   - From any machine having MARS agent that is working properly, copy the MSOnlineBackup folder from *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* path.
   - Paste this in problematic machine in the same path *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)*.
-  - If **MSOnlineBackup** folder is already exists in the machine, paste or replace the content files inside it.
+  - If **MSOnlineBackup** folder is already existed in the machine, paste or replace the content files inside it.
 
 
 > [!TIP]

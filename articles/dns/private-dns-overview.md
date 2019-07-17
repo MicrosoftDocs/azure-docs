@@ -60,21 +60,11 @@ Azure DNS provides the following capabilities:
 
 Azure DNS has the following limitations:
 
-* Only one registration virtual network is allowed per private zone.
-* Up to 10 resolution virtual networks are allowed per private zone. This limit will be removed when this feature is generally available.
-* A specific virtual network can be linked to only one private zone as a registration virtual network.
-* A specific virtual network can be linked to up to 10 private zones as a resolution virtual network. This limit will be removed when this feature is generally available.
-* If you specify a registration virtual network, the DNS records for the VMs from that virtual network that are registered to the private zone are not viewable or retrievable from the Azure Powershell and Azure CLI APIs. The VM records are indeed registered and will resolve successfully.
-* Reverse DNS works only for private IP space in the registration virtual network.
-* Reverse DNS for a private IP that isn't registered in the private zone (for example, a private IP for a virtual machine in a virtual network that is linked as a resolution virtual network to a private zone) returns *internal.cloudapp.net* as the DNS suffix. However, this suffix isn't resolvable.
-* The virtual network must be completely empty the first time you link it to a private zone as a registration or resolution virtual network. However, the virtual network can then be non-empty for future linking as a registration or resolution virtual network, to other private zones.
-* Currently, conditional forwarding is not supported (for example, for enabling resolution between Azure and OnPrem networks). For information about how customers can realize this scenario via other mechanisms, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* A specific virtual network can be linked to only one private zone as if automatic registration of VM DNS records is enabled. You can however link multiple virtual networks to a single DNS zone.
 * Reverse DNS works only for private IP space in the linked virtual network
 * Reverse DNS for a private IP for a linked virtual network returns "internal.cloudapp.net" as the default suffix for the virtual machine. For virtual networks that are linked to a private zone with autoregistration enabled, reverse DNS for a private IP returns 2 FQDNs, one with default the suffix *internal.cloudapp.net* and another with the private zone suffix.
-* Conditional forwarding isn't supported. For example, to enable resolution between Azure and on-premises networks. Learn how you can enable this scenario using other mechanisms. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* Conditional forwarding is not natively supported at the moment. To enable resolution between Azure and on-premises networks. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
  
-
-
 ## Pricing
 
 For pricing information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).

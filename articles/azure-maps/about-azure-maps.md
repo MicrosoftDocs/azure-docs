@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # What is Azure Maps?
 
-Azure Maps is a collection of geospatial services, unpinned by the freshest mapping data available providing accurate geographic context to your web and mobile applications. Azure Maps consists of REST APIs for rendering **Maps** in multiple styles and satellite imagery, **Searching** for addresses, places, and points of interest around the world; **Routing** point-to-point, multipoint, multipoint optimization, isochrone, commercial vehicle, traffic influenced, and matrix routing; viewing industry-leading Traffic flow and incidents; **Mobility** services requesting public transit, bike share, scooter share, and car share information to plan routes leveraging alternative modes of transportation and real-time data; establishing user location through **Geolocation**; and converting location to **Time Zones**, as well as, fetching time at a location. Additionally, Azure Maps offers services for **Geofencing**, Map **Data** storage - hosting location information in Azure; and **Spatial Operations** providing location intelligence through geospatial analytics. Azure Maps services are available directly as REST APIs or through either our robust **Web SDK** or **Android SDK**. These tools allow developers to quickly develop and scale solutions that integrate location information into Azure solutions from within the Azure cloud. Sign up for your free [Azure Maps account](https://azure.microsoft.com/services/azure-maps/) today and start developing!
+Azure Maps is a collection of geospatial services, underpinned by the freshest mapping data available providing accurate geographic context to your web and mobile applications. Azure Maps consists of REST APIs for rendering **Maps** in multiple styles and satellite imagery, **Searching** for addresses, places, and points of interest around the world; **Routing** point-to-point, multipoint, multipoint optimization, isochrone, commercial vehicle, traffic influenced, and matrix routing; viewing industry-leading Traffic flow and incidents; **Mobility** services requesting public transit, bike share, scooter share, and car share information to plan routes leveraging alternative modes of transportation and real-time data; establishing user location through **Geolocation**; and converting location to **Time Zones**, as well as, fetching time at a location. Additionally, Azure Maps offers services for **Geofencing**, Map **Data** storage - hosting location information in Azure; and **Spatial Operations** providing location intelligence through geospatial analytics. Azure Maps services are available directly as REST APIs or through either our robust **Web SDK** or **Android SDK**. These tools allow developers to quickly develop and scale solutions that integrate location information into Azure solutions from within the Azure cloud. Sign up for your free [Azure Maps account](https://azure.microsoft.com/services/azure-maps/) today and start developing!
 
 The following video explains Azure Maps in depth:
 
@@ -147,12 +147,12 @@ Verify that the location of your current IP address isn't in one of the unsuppor
 
 ## Next steps
 
-For more information on the new features of Azure Maps:
-
-> [!div class="nextstepaction"]
-> [Route Matrix, Isochrones, IP lookup, and more](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
-
 Try out a sample app showcasing the Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create a web app](quick-demo-map-app.md)
+
+Stay up to date on Azure Maps: 
+
+> [!div class="nextstepaction"]
+> [Azure Maps blog](https://azure.microsoft.com/blog/topics/azure-maps/)

@@ -250,6 +250,23 @@ You can click on any individual data point at any time of the preceding plots to
 
 [![Visualization Dashboard Local](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
 
+Note you will need to have widget extensions of the visualization dashboard enabled prior to Jupyter kernel starting.
+
+* Jupyter notebooks
+
+    ```shell
+    jupyter nbextension install --py --sys-prefix azureml.contrib.explain.model.visualize
+    jupyter nbextension enable --py --sys-prefix azureml.contrib.explain.model.visualize
+    ```
+
+
+
+* Jupyter Labs
+
+    ```shell
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager
+    jupyter labextension install microsoft-mli-widget
+    ```
 To load the visualization dashboard, use the following code:
 
 ```python

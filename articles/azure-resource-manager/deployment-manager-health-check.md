@@ -6,10 +6,7 @@ documentationcenter: na
 author: mumian
 
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
 

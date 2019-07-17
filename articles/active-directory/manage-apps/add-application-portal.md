@@ -19,7 +19,7 @@ Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-i
 
 After an application is added to your Azure AD tenant, you can:
 
-- Manage user access to the application with a conditional access policy.
+- Manage user access to the application with a Conditional Access policy.
 - Configure users to single sign-on to the application with their Azure AD accounts.
 
 ## Before you begin

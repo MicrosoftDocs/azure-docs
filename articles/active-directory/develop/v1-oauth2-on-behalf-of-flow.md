@@ -210,7 +210,7 @@ The following example shows a success response to a request for an access token 
 
 ### Error response example
 
-The Azure AD token endpoint returns an error response when it tries to acquire an access token for a downstream API that is set with a conditional access policy (for example, multi-factor authentication). The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the conditional access policy.
+The Azure AD token endpoint returns an error response when it tries to acquire an access token for a downstream API that is set with a Conditional Access policy (for example, multi-factor authentication). The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
 
 ```
 {

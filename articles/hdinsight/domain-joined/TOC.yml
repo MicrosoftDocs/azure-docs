@@ -4,6 +4,12 @@
   items:
   - name: What is Enterprise Security Package in HDInsight?
     href: apache-domain-joined-introduction.md
+- name: Tutorials
+  items:
+  - name: Apache HBase RBAC with Apache Ranger
+    href: apache-domain-joined-run-hbase.md
+  - name: Apache Kafka RBAC with Apache Ranger
+    href: apache-domain-joined-run-kafka.md
 - name: Concepts
   items:
   - name: Plan for ESP clusters
@@ -16,10 +22,6 @@
     href: ../hdinsight-sync-aad-users-to-cluster.md
   - name: Configure Apache Hive policies
     href: apache-domain-joined-run-hive.md
-  - name: Apache HBase RBAC with Apache Ranger
-    href: apache-domain-joined-run-hbase.md
-  - name: Apache Kafka RBAC with Apache Ranger
-    href: apache-domain-joined-run-kafka.md
   - name: Use VSCode to link to ESP cluster
     href: ../hdinsight-for-vscode.md
   - name: Use IntelliJ to link to ESP cluster

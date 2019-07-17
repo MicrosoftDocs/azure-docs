@@ -147,7 +147,7 @@ To lock a resource group, provide the name of the resource group.
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-To get information about a lock, use [Get-​Azure​Rm​Resource​Lock](/powershell/module/az.resources/get-azresourcelock). To get all the locks in your subscription, use:
+To get information about a lock, use [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock). To get all the locks in your subscription, use:
 
 ```azurepowershell-interactive
 Get-AzResourceLock

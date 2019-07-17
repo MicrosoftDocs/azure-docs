@@ -68,6 +68,7 @@ The goal of Azure AD joined devices is to simplify:
 - Windows deployments of work-owned devices
 - Access to organizational apps and resources from any Windows device
 - Cloud-based management of work-owned devices
+- Users to sign in to their devices with their Azure AD or synced Active Directory work or school accounts.
 
 ![Azure AD registered devices](./media/overview/02.png)
 
@@ -134,12 +135,10 @@ As a rule of a thumb, you should use:
 - Azure AD joined devices:
    - For devices that are owned by your organization
    - For devices that are **not** joined to an on-premises AD
-   - To manually register devices with Azure AD
    - To change the local state of a device
 - Hybrid Azure AD joined devices for devices that are joined to an on-premises AD
    - For devices that are owned by your organization
    - For devices that are joined to an on-premises AD
-   - To automatically register devices with Azure AD
    - To change the local state of a device
 
 ## License requirements

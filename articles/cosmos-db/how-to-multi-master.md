@@ -1,16 +1,16 @@
 ---
 title: How to configure multi-master in Azure Cosmos DB
 description: Learn how to configure multi-master in your applications in Azure Cosmos DB.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
-ms.author: rimman
+ms.author: mjbrown
 ---
 
 # Configure multi-master in your applications that use Azure Cosmos DB
 
-To use the multi-master feature in your application, you must enable multi-region writes and configure the multi-homing capability in Azure Cosmos DB. To configure multi-homing, set the region where the application is deployed.
+To use the multi-master feature in your application, you must enable multi-region writes and configure the multi-homing capability in Azure Cosmos DB. To configure multi-homing, pass the name of the region where the application is deployed to the SetCurrentLocation property. Doing this automatically populates the PreferredLocations property based on the geo-proximity from location passed in. If a new region is later added to the account, the application does not have to be updated or redeployed, it will automatically detect the closer region and will auto-home on to it should a regional event occur.
 
 ## <a id="netv2"></a>.NET SDK v2
 

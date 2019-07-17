@@ -152,8 +152,8 @@ compliance in the **Compliance** node. For more information, see [getting compli
 data](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> For each Guest Configuration definition, both the **DeployIfNotExists** and **Audit**
-> policy definitions must exist.
+> The **DeployIfNotExists** policy is required for the **Audit** policy to return results.
+> Without the **DeployIfNotExists**, the **Audit** policy shows "0 of 0" resources as status.
 
 All built-in policies for Guest Configuration are included in an initiative to group the definitions
 for use in assignments. The built-in initiative named *[Preview]: Audit Password security settings

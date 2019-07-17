@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 06/17/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -44,7 +44,12 @@ Before you begin, make sure that:
 
 ## Order Data Box Disk
 
-Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfromdiskdocs) to order Data Box Disk.
+Sign in to:
+
+- The Azure portal at this URL: https://portal.azure.com to order Data Box Disk.
+- Or, the Azure Government portal at this URL: https://portal.azure.us. For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+
+Take the following steps to order Data Box Disk.
 
 1. In the upper left corner of the portal, click **+ Create a resource**, and search for *Azure Data Box*. Click **Azure Data Box**.
     

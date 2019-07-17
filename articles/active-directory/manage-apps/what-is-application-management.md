@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Application management with Azure Active Directory
 
-Azure Active Directory (Azure AD) simplifies the way you manage your applications by providing a single identity system for your cloud and on-premises apps. You can add your software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps to Azure AD. Then users sign in once to securely and seamlessly access these applications, along with Office 365 and other business applications from Microsoft. You can reduce administrative costs by automating user provisioning. You can also use multi-factor authentication and conditional access policies to provide secure application access.
+Azure Active Directory (Azure AD) simplifies the way you manage your applications by providing a single identity system for your cloud and on-premises apps. You can add your software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps to Azure AD. Then users sign in once to securely and seamlessly access these applications, along with Office 365 and other business applications from Microsoft. You can reduce administrative costs by automating user provisioning. You can also use multi-factor authentication and Conditional Access policies to provide secure application access.
 
 ![Apps federated via Azure AD](media/what-is-application-management/app-management-overview.png)
 
@@ -36,8 +36,8 @@ There are four main types of applications that you can add to your **Enterprise 
 
 -   **Non-Gallery applications** – Bring your own applications! Support single sign-on for other apps by adding them to Azure AD. You can integrate any web link you want, or any application that renders a username and password field, supports SAML or OpenID Connect protocols, or supports SCIM. For more information, see [Configure single sign-on for non-gallery apps](configure-single-sign-on-non-gallery-applications.md).
 
-## Manage risk with conditional access policies
-Coupling Azure AD single sign-on (SSO) with [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) provides high levels of security for accessing applications. Security capabilities include cloud-scale identity protection, risk-based access control, native multi-factor authentication, and conditional access policies. These capabilities allow for granular control policies based on applications, or on groups that need higher levels of security.
+## Manage risk with Conditional Access policies
+Coupling Azure AD single sign-on (SSO) with [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) provides high levels of security for accessing applications. Security capabilities include cloud-scale identity protection, risk-based access control, native multi-factor authentication, and Conditional Access policies. These capabilities allow for granular control policies based on applications, or on groups that need higher levels of security.
 
 ## Improve productivity with single sign-on
 Enabling single sign-on (SSO) across applications and Office 365 provides a superior sign-in experience for existing users by reducing or eliminating sign-in prompts. The user’s environment feels more cohesive and is less distracting without multiple prompts, or the need to manage multiple passwords. The business group can manage and approve access through self-service and dynamic membership. Allowing the right people in the business to manage access to an application improves the security of the identity system.

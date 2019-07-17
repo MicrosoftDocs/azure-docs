@@ -47,7 +47,7 @@ Before you begin any of the steps in this article, you need to know your proxy U
 
 Proxy URLs take the following format: **protocol**://**proxy_host**:**proxy_port**.
 
-* The **protocol** is either HTTP or HTTPS. The Docker daemon can use either protocol, depending on your container registry settings, but the IoT Edge daemon and runtime containers should always use HTTPS.
+* The **protocol** is either HTTP or HTTPS. The Docker daemon can use either protocol, depending on your container registry settings, but the IoT Edge daemon and runtime containers should always use HTTP to connect to the proxy.
 
 * The **proxy_host** is an address for the proxy server. If your proxy server requires authentication, you can provide your credentials as part of the proxy host with the following format: **user**:**password**\@**proxy_host**.
 
@@ -245,7 +245,7 @@ With the environment variables included, your module definition should look like
     },
     "env": {
         "https_proxy": {
-            "value": "https://proxy.example.com:3128"
+            "value": "http://proxy.example.com:3128"
         }
     },
     "status": "running",

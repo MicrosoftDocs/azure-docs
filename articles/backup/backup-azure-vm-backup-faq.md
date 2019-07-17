@@ -84,6 +84,9 @@ Azure Backup can't back up the WA-enabled disk but can exclude it from backup. H
 
 We're running private preview for an SAP HANA backup with an RPO of 15 minutes. It's built in a similar way to SQL DB backup, and uses the backInt interface for third-party solutions certified by SAP HANA. If you're interested, email us at `AskAzureBackupTeam@microsoft.com` with the subject **Sign up for private preview for backup of SAP HANA in Azure VMs**.
 
+### What is the maximum delay I can expect in backup start time from the scheduled backup time I have set in my VM backup policy?
+The scheduled backup will be triggered within 2 hours of the scheduled backup time. For ex. If 100 VMs have backup start time scheduled at 2:00 am, then by max 4:00 am all the 100VMs will have backup job in progress. If scheduled backups have been paused due to outage and resumed/retried then backup can start outside of this scheduled 2hr window.
+
 
 ## Restore
 

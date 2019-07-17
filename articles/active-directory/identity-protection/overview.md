@@ -38,7 +38,7 @@ As a consequence of this, you need to:
 
 Discovering compromised identities is no easy task. Azure Active Directory uses adaptive machine learning algorithms and heuristics to detect anomalies and suspicious incidents that indicate potentially compromised identities. Using this data, Identity Protection generates reports and alerts that enable you to evaluate the detected issues and take appropriate mitigation or remediation actions.
 
-Azure Active Directory Identity Protection is more than a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level has been reached. These policies, in addition to other conditional access controls provided by Azure Active Directory and [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), can either automatically block or initiate adaptive remediation actions including password resets and multi-factor authentication enforcement.
+Azure Active Directory Identity Protection is more than a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level has been reached. These policies, in addition to other Conditional Access controls provided by Azure Active Directory and [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), can either automatically block or initiate adaptive remediation actions including password resets and multi-factor authentication enforcement.
 
 ### Identity Protection capabilities
 
@@ -55,7 +55,7 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 - Providing basic workflows to track investigations
 - Providing easy access to remediation actions such as password reset
 
-**Risk-based conditional access policies:**
+**Risk-based Conditional Access policies:**
 
 - Policy to mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges
 - Policy to block or secure risky user accounts

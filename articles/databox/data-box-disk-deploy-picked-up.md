@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 06/13/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -152,6 +152,8 @@ The data automatically gets copied once the disks are connected to a server in t
 Once the copy is complete, order status updates to **Completed**.
 
 ![Data copy completed](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
+
+If the copy completes with errors, see [troubleshoot upload errors](data-box-disk-troubleshoot-upload.md).
 
 Verify that your data is in the storage account(s) before you delete it from the source. Your data can be in:
 

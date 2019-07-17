@@ -1,12 +1,12 @@
 ---
-title: Configure Apache Kafka policies in HDInsight with Enterprise Security Package - Azure
-description: Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
+title: Tutorial - Configure Apache Kafka policies in HDInsight with Enterprise Security Package - Azure
+description: Tutorial - Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 06/18/2019
 ---
 
 # Tutorial: Configure Apache Kafka policies in HDInsight with Enterprise Security Package (Preview)
@@ -112,7 +112,7 @@ To create two topics, `salesevents` and `marketingspend`:
    ```
 
    > [!Note]  
-   > Before proceeding, you may need to setup your development environment if you have not already done so. You will need components such as the Java JDK, Apache Maven and an SSH client with scp. For more details, see [setup instructions](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+   > Before proceeding, you may need to setup your development environment if you have not already done so. You will need components such as the Java JDK, Apache Maven and an SSH client with scp. For more information, see [setup instructions](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
    
 1. Download the [Apache Kafka domain-joined producer consumer examples](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 

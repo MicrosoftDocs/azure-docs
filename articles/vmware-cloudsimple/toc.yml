@@ -10,7 +10,7 @@
   - name: Quickstart
     expanded: true
     items:
-    - name: Initialize and purchase capacity
+    - name: Initialize and provision capacity
       href: quickstart-create-cloudsimple-service.md
     - name: Configure private cloud environment
       href: quickstart-create-private-cloud.md
@@ -62,7 +62,7 @@
       href: access-cloudsimple-portal.md
     - name: Manage nodes
       items:
-      - name: Purchase nodes
+      - name: Provision nodes
         href: create-nodes.md
     - name: Manage private cloud resources
       items: 

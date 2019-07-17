@@ -125,7 +125,7 @@ Now that you’ve configured KCD, you're ready to configure Azure AD Application
    1. On the application page in the portal, select **Single sign-on**.
    2. For Single Sign-on Mode, select **Integrated Windows Authentication**.
    3. Set Internal Application SPN to the value that you set earlier. For this example, that would be **HTTP/SharePoint**.
-   4. In "Delegated Login Identity", select **On-premises SAM account name**.
+   4. In "Delegated Login Identity", select the most suitable option for your Active Directory forest configuration. For example if you have a single AD domain in your forest, select **On-premises SAM account name** (as shown below), but if your users are not in the same domain as SharePoint and the App Proxy Connector servers then select **On-premises user principal name** (not shown).
 
    ![Configure Integrated Windows Authentication for SSO](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 

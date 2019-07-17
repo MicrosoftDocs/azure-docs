@@ -301,7 +301,7 @@ This flow is **not recommended** because your application asking a user for thei
 
 The following constraints also apply:
 
-- The Username/Password flow isn't compatible with conditional access and multi-factor authentication: As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you can't use this flow. Many organizations do that.
+- The Username/Password flow isn't compatible with Conditional Access and multi-factor authentication: As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you can't use this flow. Many organizations do that.
 - It works only for Work and school accounts (not MSA)
 - The flow is available on .net desktop and .net core, but not on UWP
 

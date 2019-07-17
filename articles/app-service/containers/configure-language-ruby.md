@@ -139,7 +139,7 @@ However, this setting alone causes the Rails server to start in development mode
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
 ```
 
-### Set secret_key_base manually
+### <a name="set-secret_key_base-manually"></a> Set secret_key_base manually
 
 To use your own `secret_key_base` value instead of letting App Service generate one for you, set the `SECRET_KEY_BASE` [app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) with the value you want. For example:
 

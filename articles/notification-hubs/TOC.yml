@@ -34,10 +34,6 @@
         href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
       - name: Push notifications to specific users
         href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-  - name: Baidu
-    items:
-    - name: Push notifications using Baidu cloud push
-      href: notification-hubs-baidu-china-android-notifications-get-started.md
   - name: iOS
     items:
     - name: Push notifications to iOS apps
@@ -143,6 +139,8 @@
     href: notification-hubs-push-notification-http2-token-authentification.md
   - name: Troubleshoot dropped notifications
     href: notification-hubs-push-notification-fixer.md
+  - name: Push notifications using Baidu cloud push
+    href: notification-hubs-baidu-china-android-notifications-get-started.md
 - name: Reference
   items:  
   - name: .NET

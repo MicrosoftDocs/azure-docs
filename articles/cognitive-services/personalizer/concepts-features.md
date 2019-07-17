@@ -35,6 +35,12 @@ Personalizer does not prescribe, limit or fix what features you can send for act
 
 Personalizer supports features of string, numeric, and boolean types.
 
+### How choice of feature type affects Machine Learning in Personalizer
+
+* **Strings**: For string types, every combination of key and value creates new weights in the Personalizer machine learning model. 
+* **Numeric**: You should use numerical values when the number should proportionally affect the personalization result. This is very scenario dependent. In a simplified example e.g. when personalizing a retail experience, NumberOfPetsOwned could be a feature that is numeric as you may want people with 2 or 3 pets to influence the personalization result twice or thrice as much as having 1 pet. Features that are based on numeric units but where the meaning isn't linear - such as Age, Temperature, or Person Height - are best encoded as strings, and the feature quality can typically be improved by using ranges. For example, Age could be encoded as "Age":"0-5", "Age":"6-10", etc.
+* **Boolean** values sent with value of "false" act as if they hadn't been sent at all.
+
 Features that are not present should be omitted from the request. Avoid sending features with a null value, because it will be processed as existing and with a value of "null" when training the model.
 
 ## Categorize features with namespaces
