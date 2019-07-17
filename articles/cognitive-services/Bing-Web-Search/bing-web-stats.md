@@ -23,6 +23,9 @@ Bing Statistics provides analytics for the Bing Search APIs. These analytics inc
 > * Enabling Bing Statistics increases your subscription rate slightly. See [pricing](https://aka.ms/bingstatisticspricing) for details.
 
 
+The following image shows the available analytics for each Bing Search API endpoint.
+
+![Distribution by endpoint support matrix](./media/bing-statistics/bing-statistics-matrix.png)
 
 ## Accessing your analytics
 
@@ -91,10 +94,6 @@ The following are possible metrics and endpoint restrictions.
 - **Answers Returned Distribution**: The answers that Web Search API returned in the response.
 
 - **Response Server Distribution**: The application server that served your API requests. The possible values are Bing.com (for traffic served from desktop and laptop devices) and Bing.com-mobile (for traffic served from mobile devices). The server is determined using the request's User-Agent header value. If the request doesn't include the User-Agent header, Bing tries to derive the server from other signals.
-
-The following shows the analytics that are available for each endpoint.
-
-![Distribution by endpoint support matrix](./media/bing-statistics/bing-statistics-matrix.png)
 
 ## Next steps
 
