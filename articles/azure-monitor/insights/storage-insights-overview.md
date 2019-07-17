@@ -55,7 +55,7 @@ On the **Overview** workbook for the storage account, it shows several storage k
 
 * Metric and status tiles highlighting service availability, total count of transactions to the storage service, E2E latency, and server latency.
 
-Selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** opens that workbook. The **Capcity** workbook should be of special interest to you because it highlights the amount of storage used for each device type in the account, and total storage used across the account.  
+Selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** opens that workbook. The **Capcity** workbook shows the amount of storage used for each device type in the account, and total storage used across the account.  
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png)
 
