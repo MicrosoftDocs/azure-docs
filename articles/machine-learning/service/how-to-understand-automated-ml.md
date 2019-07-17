@@ -36,24 +36,25 @@ After running an automated machine learning experiment, a history of the runs ca
 
 1. Go to your workspace.
 
-1. Select **Experiments** in the leftmost panel of your workspace.
+1. In the left panel of the workspace, select **Experiments**.
 
    ![Screenshot of experiment menu](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-menu.png)
 
-1. Select the experiment you are interested in.
+1. In the list of experiments, select the one you want to explore.
 
    ![Experiment list](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)
 
-1. In the table, select the Run Number.
+1. In the bottom table, select the **Run Number**.
 
    ![Experiment run](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)
 
-1. In the table, select the Iteration Number for the model that you would like to explore further.
+1. In the Iterations table, select the **Iteration Number** for the model that you want to explore further.
 
    ![Experiment model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)
 
+You also see these same results during a run when you use the `RunDetails`[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 
-## Classification
+## Classification results
 
 Thee following metrics and charts are available for every classification model that you build using the automated machine learning capabilities of Azure Machine Learning
 
@@ -163,7 +164,7 @@ Example 1: A more well-calibrated model
 Example 2: An over-confident model
 ![An over-confident model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
-## Regression
+## Regression results
 
 Thee following metrics and charts are available for every regression model that you build using the automated machine learning capabilities of Azure Machine Learning
 
@@ -214,9 +215,9 @@ Example 1: A regression model with bias in its errors
 Example 2: A regression model with more even distribution of errors
 ![A regression model with more even distribution of errors](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
-## Model explain-ability and feature importance
+## Model interpretability and feature importance
 
-Feature importance allows you to see how valuable each feature was in the construction of a model. This calculation is turned off by default, as it can significantly increase run time.   You can enable model explanation for all models or explain only the best fit model. 
+Feature importance allows you to see how valuable each feature was in the construction of a model. This calculation is turned off by default, as it can significantly increase run time.   You can enable model explanation for all models or explain only the best fit model.
 
 You can review the feature importance score for the model overall as well as per class on a predictive model. You can see per feature how the importance compares against each class and overall.
 
