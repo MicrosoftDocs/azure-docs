@@ -1336,7 +1336,7 @@ The resource types marked with `No` aren't automatically deleted when not in the
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | managedInstances | Yes |
-> | managedInstances/databases | Yes (see note below) |
+> | managedInstances/databases | Yes |
 > | managedInstances/databases/backupShortTermRetentionPolicies | No |
 > | managedInstances/databases/schemas/tables/columns/sensitivityLabels | No |
 > | managedInstances/databases/vulnerabilityAssessments | No |
@@ -1348,7 +1348,7 @@ The resource types marked with `No` aren't automatically deleted when not in the
 > | servers | Yes | 
 > | servers/administrators | No | 
 > | servers/communicationLinks | No | 
-> | servers/databases | Yes (see note below) | 
+> | servers/databases | Yes | 
 > | servers/encryptionProtector | No | 
 > | servers/firewallRules | No | 
 > | servers/keys | No | 
@@ -1403,7 +1403,7 @@ The resource types marked with `No` aren't automatically deleted when not in the
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
-> | streamingjobs | Yes (see note below) | 
+> | streamingjobs | Yes | 
 > | streamingjobs/diagnosticSettings | No | 
 
 ## Microsoft.Subscription
