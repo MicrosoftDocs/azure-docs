@@ -837,6 +837,27 @@ If files fail to be recalled:
 > [!NOTE]
 > An Event ID 9006 is logged once per hour in the Telemetry event log if a file fails to recall (one event is logged per error code). The Operational and Diagnostic event logs should be used if additional information is needed to diagnose an issue.
 
+### Tiered files are not accessible on the server after deleting a server endpoint
+Tiered files on a server will become inaccessible if the files are not recalled prior to deleting a server endpoint.
+
+Errors logged if tiered files are not accessible
+- When syncing a file, error code -2147942467 (0x80070043 - ERROR_BAD_NET_NAME) is logged in the ItemResults event log
+- When recalling a file, error code -2134376393 (0x80c80037 - ECS_E_SYNC_SHARE_NOT_FOUND) is logged in the RecallResults event log
+
+Restoring access to your tiered files is possible if the following conditions are met:
+- Server endpoint was deleted within past 30 days
+- Cloud endpoint was not deleted 
+- File share was not deleted
+- Sync group was not deleted
+
+If the above conditions are met, you can restore access to the files on the server by recreating the server endpoint at the same path on the server within the same sync group within 30 days. 
+
+If the above conditions are not met, restoring access is not possible as these tiered files on the server are now orphaned. Please follow the instructions below to remove the orphan tiered files.
+
+**Notes**
+- When tiered files are not accessible on the server, the full file should still be accessible if you access the Azure file share directly.
+- To prevent orphaned tiered files in the future, follow the steps documented in [Remove a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint) when deleting a server endpoint.
+
 ### How to troubleshoot files unexpectedly recalled on a server  
 Antivirus, backup, and other applications that read large numbers of files cause unintended recalls unless they respect the skip offline attribute and skip reading the content of those files. Skipping offline files for products that support this option helps avoid unintended recalls during operations like antivirus scans or backup jobs.
 
