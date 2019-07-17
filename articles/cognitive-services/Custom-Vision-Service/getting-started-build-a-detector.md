@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- A set of images with which to train your detector model. See below for tips on choosing images.
+- A set of images with which to train your detector model. You can use the set of [sample images](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) on GitHub. Or, you can choose your own images using the tips below.
 
 ## Create Custom Vision resources in the Azure portal
 
@@ -57,65 +57,48 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 
 ## Choose training images
 
-As a minimum, we recommend you use at least 30 images per tag in the initial training set. You'll also want to collect a few extra images to test your model once it is trained.
-
-In order to train your model effectively, use images with visual variety. Select images with that vary by:
-* camera angle
-* lighting
-* background
-* visual style
-* individual/grouped subject(s)
-* size
-* type
-
-Additionally, make sure all of your training images meet the following criteria:
-* .jpg, .png, or .bmp format
-* no greater than 6MB in size (4MB for prediction images)
-* no less than 256 pixels on the shortest edge; any images shorter than this will be automatically scaled up by the Custom Vision Service
+[!INCLUDE [choose training images](includes/choose-training-images.md)]
 
 ## Upload and tag images
 
 In this section you will upload and manually tag images to help train the detector. 
 
-1. To add images, click the __Add images__ button and then select __Browse local files__. Select __Open__ to move to tagging. Your tag selection will be applied to the entire group of images you've selected to upload, so it is easier to upload images in separate groups according to their desired tags. You can also change the tags for individual images after they have been uploaded.
+1. To add images, click the __Add images__ button and then select __Browse local files__. Select __Open__ to upload the images.
 
     ![The add images control is shown in the upper left, and as a button at bottom center.](./media/getting-started-build-a-detector/add-images.png)
 
-???
-1. To create a tag, enter text in the __My Tags__ field and press Enter. If the tag already exists, it will appear in a dropdown menu. In a multilabel project, you can add more than one tag to your images, but in a multiclass project you can add only one. To finish uploading the images, use the __Upload [number] files__ button. 
+1. You'll see your uploaded images in the **Untagged** section of the UI. The next step is to manually tag the objects that you want the detector to learn to recognize. Click the first image to open the tagging dialog window. 
 
-    ![Image of the tag and upload page](./media/getting-started-build-a-classifier/add-images03.png)
+    ![Images uploaded, in Untagged section](./media/getting-started-build-a-detector/images-untagged.png)
 
-1. Select __Done__ once the images have been uploaded.
+1. Click and drag a rectangle around the object in your image. Then, enter a new tag name with the **+** button, or select an existing tag from the drop-down list. Click the arrow on the right to save your tags and move on to the next image.
 
-    ![The progress bar shows all tasks completed.](./media/getting-started-build-a-classifier/add-images04.png)
+    ![Tagging an object with a rectangular selection](./media/getting-started-build-a-detector/image-tagging.png)
 
 To upload another set of images, return to the top of this section and repeat the steps.
 
 ## Train the detector
 
 To train the detector model, select the **Train** button. The detector uses all of the current images and their tags to create a model that identifies each tagged object.
-???
+
 ![The train button in the top right of the web page's header toolbar](./media/getting-started-build-a-classifier/train01.png)
 
 The training process should only take a few minutes. During this time, information about the training process is displayed in the **Performance** tab.
 
-![The browser window with a training dialog in the main section](./media/getting-started-build-a-classifier/train02.png)
+![The browser window with a training dialog in the main section](./media/getting-started-build-a-detector/training.png)
 
 ## Evaluate the detector
-???
-After training has completed, the model's performance is estimated and displayed. The Custom Vision Service uses the images that you submitted for training to calculate precision and recall, using a process called [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). Precision and recall are two different measurements of the effectiveness of a classifier:
+
+After training has completed, the model's performance is calculated and displayed. The Custom Vision service uses the images that you submitted for training to calculate precision, recall, and mean average precision, using a process called [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). Precision and recall are two different measurements of the effectiveness of a detector:
 
 - **Precision** indicates the fraction of identified classifications that were correct. For example, if the model identified 100 images as dogs, and 99 of them were actually of dogs, then the precision would be 99%.
 - **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were actually 100 images of apples, and the model identified 80 as apples, the recall would be 80%.
 
-![The training results show the overall precision and recall, and the precision and recall for each tag in the classifier.](./media/getting-started-build-a-classifier/train03.png)
+![The training results show the overall precision and recall, and mean average precision.](./media/getting-started-build-a-detector/trained-performance.png)
 
 ### Probability Threshold
 
-Note the **Probability Threshold** slider on the left pane of the **Performance** tab. This is the threshold for a predicted probability to be considered correct when computing precision and recall.
-
-Interpreting prediction calls with a high probability threshold tends to return results with high precision at the expense of recall (the found classifications are correct, but many were not found); a low probability threshold does the opposite (most of the actual classifications were found, but there are false positives within that set). With this in mind, you should set the probability threshold according to the specific needs of your project. Later, on the client side, you should use the same probability threshold value as a filter when receiving prediction results from the model.
+[!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
 ## Manage training iterations
 

@@ -59,21 +59,7 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 
 ## Choose training images
 
-As a minimum, we recommend you use at least 30 images per tag in the initial training set. You'll also want to collect a few extra images to test your model once it is trained.
-
-In order to train your model effectively, use images with visual variety. Select images with that vary by:
-* camera angle
-* lighting
-* background
-* visual style
-* individual/grouped subject(s)
-* size
-* type
-
-Additionally, make sure all of your training images meet the following criteria:
-* .jpg, .png, or .bmp format
-* no greater than 6MB in size (4MB for prediction images)
-* no less than 256 pixels on the shortest edge; any images shorter than this will be automatically scaled up by the Custom Vision Service
+[!INCLUDE [choose training images](includes/choose-training-images.md)]
 
 ## Upload and tag images
 
@@ -115,9 +101,7 @@ After training has completed, the model's performance is estimated and displayed
 
 ### Probability Threshold
 
-Note the **Probability Threshold** slider on the left pane of the **Performance** tab. This is the threshold for a predicted probability to be considered correct when computing precision and recall.
-
-Interpreting prediction calls with a high probability threshold tends to return results with high precision at the expense of recall (the found classifications are correct, but many were not found); a low probability threshold does the opposite (most of the actual classifications were found, but there are false positives within that set). With this in mind, you should set the probability threshold according to the specific needs of your project. Later, on the client side, you should use the same probability threshold value as a filter when receiving prediction results from the model.
+[!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
 ## Manage training iterations
 
