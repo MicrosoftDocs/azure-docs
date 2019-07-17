@@ -9,7 +9,7 @@ metadata:
   manager: cgronlun
 
   ms.service: cognitive-services
-  ms.subservice: form-recognizer
+  ms.subservice: forms-recognizer
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

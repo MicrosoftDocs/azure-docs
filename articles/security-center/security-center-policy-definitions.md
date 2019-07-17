@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/19/2019
-ms.author: monhaber
+ms.author: v-monhabe
 
 ---
 # Azure security policies monitored by Security Center

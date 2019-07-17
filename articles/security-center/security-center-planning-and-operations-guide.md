@@ -83,21 +83,21 @@ Using the personas explained in the previous diagram, the following RBAC would b
 
 **Jeff (Workload Owner)**
 
-* Resource Group Owner/Collaborator
+* Resource Group Owner/Contributor
 
 **David (IT Security)**
 
-* Subscription Owner/Collaborator or Security Admin
+* Subscription Owner/Contributor or Security Admin
 
 **Judy (Security Operations)**
 
 * Subscription Reader or Security Reader to view Alerts
-* Subscription Owner/Collaborator or Security Admin required to dismiss Alerts
+* Subscription Owner/Contributor or Security Admin required to dismiss Alerts
 
 **Sam (Security Analyst)**
 
 * Subscription Reader to view Alerts
-* Subscription Owner/Collaborator required to dismiss Alerts
+* Subscription Owner/Contributor required to dismiss Alerts
 * Access to the workspace may be required
 
 Some other important information to consider:

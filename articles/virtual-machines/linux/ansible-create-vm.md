@@ -5,7 +5,7 @@ keywords: ansible, azure, devops, virtual machine
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
 ---
