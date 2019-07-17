@@ -1633,7 +1633,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
-                                                <img src="media/index/private_link.svg" alt="" />
+                                                <img src="media/index/private-link.svg" alt="" />
                                                 <p>Azure Private Link</p>
                                             </a>
                                         </li>
@@ -5450,7 +5450,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/private_link.svg" alt="" />
+                                                        <img src="media/index/private-link.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
