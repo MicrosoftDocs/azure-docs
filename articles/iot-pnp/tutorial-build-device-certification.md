@@ -17,10 +17,11 @@ This tutorial describes how, as a device developer, you can build a Plug and Pla
 
 The certification tests check that:
 
-- The device capability model includes the standard **Device Information** interface.
-- Your device code implements the **Device Information**, **Model Information**, and **SDK Information** interfaces.
-- The device code implements all the capabilities defined in the model.
-- The device can be provisioned to an IoT hub using the Azure IoT Device Provisioning Service.
+- Your IoT Plug and Play device code is installed on your device.
+- Your IoT Plug and Play device code is built with Azure IoT SDK.
+- Your device code supports the [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
+- Your device code implements the Device Information interface.
+- The capability model and device code work with IoT Central.
 
 ## Prerequisites
 
@@ -29,32 +30,44 @@ To complete this tutorial, you need:
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure IoT Workbench extension for VS Code](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/VSCode/README.md#installation)
 
-You also need the Plug and Play device that you create when you follow [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md).
+You also need the Plug and Play device that you create in the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md).
 
-## Include standard interfaces
+## Store a capability model and interfaces
 
-To pass the certification process, you must include the **Device Information** interface in your capability model. This interface has the following identification:
+For Plug and Play devices, you must author a capability model and interfaces that define the capabilities of the device as JSON files.
+
+You can store these JSON files in three different locations:
+
+- The global model repository.
+- Your organizational model repository.
+- On your device.
+
+Currently, to certify your device, the files must be stored either in your organizational model repository, or in the global model repository.
+
+## Include the required interfaces
+
+To pass the certification process, you must include and implement the **Device Information** interface in your capability model. This interface has the following identification:
 
 ```json
-   "@id": "urn:azureiot:DeviceManagement:DeviceInformation:1"
+"@id": "urn:azureiot:DeviceManagement:DeviceInformation:1"
 ```
 
-To include the **Device Information** interface in your device's model, add the interface ID to the `implements` property of the capability model:
+To include the **Device Information** interface in your device model, add the interface ID to the `implements` property of the capability model:
 
 ```json
-   {
-    "@id": "urn:azureiot:sample:ThermostatDevice:1",
-    "@type": "CapabilityModel",
-    "displayName": "Thermostat T-1000",
-    "implements": [
-        "urn:azureiot:sample:Thermostat:1",
-        "urn:azureiot:DeviceManagement:DeviceInformation:1"
-    ],
-    "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
+{
+  "@id": "urn:azureiot:sample:ThermostatDevice:1",
+  "@type": "CapabilityModel",
+  "displayName": "Thermostat T-1000",
+  "implements": [
+    "urn:azureiot:sample:Thermostat:1",
+    "urn:azureiot:DeviceManagement:DeviceInformation:1"
+  ],
+  "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
 }
 ```
 
-To view the contents of the **Device Information** interface in VS Code:
+To view the **Device Information** interface in VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
@@ -64,11 +77,46 @@ To view the contents of the **Device Information** interface in VS Code:
 
 1. To create a local copy of the **Device Information** interface, select it in the search results, and then select **Download**.
 
+To view the **Device Information** interface using the Azure CLI:
+
+1. [Install the Azure IoT CLI extension](howto-install-pnp-cli.md).
+
+1. Use the cmdlet to show an interface with the Device Information interface ID. For more information, see [Install and use the Azure IoT extension for Azure CLI](howto-install-pnp-cli.md#manage-interfaces-in-a-model-repository).
+
 ## Update device code
 
 ### Enable device provisioning through the Azure IoT Device Provisioning Service (DPS)
 
-To add the ability to use DPS, copy this code to the **file name to be specified** source file in the generated code.
+To certify the device, it must enable provisioning through the [Azure IoT Device Provisioning Service (DPS)](https://docs.microsoft.com/azure/iot-dps/about-iot-dps). To add the ability to use DPS, you can generate the C code stub in VS code. Follow these steps:
+
+1. Open the folder with DCM file in VS Code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub**.
+
+1. Choose the DCM file you want to use to generate the device code stub.
+
+1. Enter the project name, this is the name of your device application.
+
+1. Choose **ANSI C** as the language.
+
+1. Choose **CMake Project** as your project type.
+
+1. Choose **Via DPS (Device Provisioning Service) symmetric key** as connection method.
+
+1. VS Code opens a new window with generated device code stub files.
+
+1. Open `main.c`, fill the **dpsIdScope**, **sasKey**, and **registrationId** that you prepared. You can get this information from the certification portal. For more information, see [Connect and test your IoT Plug and Play device](tutorial-certification-test.md#connect-and-discover-interfaces).
+
+    ```c
+    // TODO: Specify DPS scope ID if you intend on using DPS / IoT Central.
+    static const char *dpsIdScope = "[DPS Id Scope]";
+    
+    // TODO: Specify symmetric keys if you intend on using DPS / IoT Central and symmetric key based auth.
+    static const char *sasKey = "[DPS symmetric key]";
+    
+    // TODO: specify your device registration ID
+    static const char *registrationId = "[device registration Id]";
+    ```
+
+1. Save the file.
 
 ### Implement standard interfaces
 
@@ -80,7 +128,7 @@ If you chose to not use the Azure IoT device SDK, you can use the SDK source cod
 
 #### Implement the Device Information interface
 
-You must implement the **Device Information** interface on your device and provide device-specific information from the device at run time.
+Implement the **Device Information** interface on your device and provide device-specific information from the device at run time.
 
 You can use an example implementation of the **Device Information** interface for [Linux](https://github.com/Azure/azure-iot-sdk-c-pnp/) as reference.
 
