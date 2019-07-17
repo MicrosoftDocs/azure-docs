@@ -20,7 +20,7 @@ ms.author: tehnoonr
 
 This article describes the " Failed to update API Management service hostnames" error that you may experience when you add a custom domain for Azure API Management service. It provides troubleshooting steps to help resolve the issues. 
 
-## Symptoms
+## Symptom
 
  When you try to add a custom domain for your API Management service by using a certificate from an Azure key vault, you receive the following error message:
 
