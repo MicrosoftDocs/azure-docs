@@ -8,16 +8,26 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 07/16/2019
 ---
 
 # Evaluate training accuracy in automated ML with metrics
 
-There are multiple ways to view training accuracy metrics for each run iteration.
+In this article, you will learn about the different metrics available for automated ml models in Azure Machine Learning. 
 
+There are multiple ways to view training accuracy metrics for each run iteration.
 * Use [a Jupyter widget](how-to-track-experiments.md#view-run-details)
 * Use [the `get_metrics()` function](how-to-track-experiments.md#query-run-metrics) on any `Run` object
 * View [the experiment metrics in the Azure portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)
+
+## Prerequisites
+ 
+* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+ 
+* Create an automated machine learning experiment, either with the SDK or in the Azure portal.
+ 
+    * Use the SDK to build a [classification model](how-to-auto-train-remote.md) or [regression model](tutorial-auto-train-models.md)
+    * Use the [Azure portal](how-to-create-portal-experiments.md) to create a classification or regression model by uploading the appropriate data.
 
 ## Classification metrics
 
@@ -63,3 +73,7 @@ root_mean_squared_error|Root mean squared error is the square root of the expect
 normalized_root_mean_squared_error|Normalized root mean squared error is root mean squared error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Divide by range of the data|
 root_mean_squared_log_error|Root mean squared log error is the square root of the expected squared logarithmic error|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|None|
 normalized_root_mean_squared_log_error|Normalized Root mean squared log error is root mean squared log error divided by the range of the data|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divide by range of the data|
+
+## Next steps
+
+Learn more about [automated ml](concept-automated-ml.md) in Azure Machine Learning.
