@@ -86,7 +86,7 @@ The following documents contain provisions, which, through reference in this tex
 | [SCTE-224]        | SCTE 224 2018r1 – Event Scheduling and Notification Interface |
 | [SCTE-250]        | Event and Signaling Management API (ESAM) |
 
----------
+---
 
 
 ## 2. Timed Metadata Ingest
