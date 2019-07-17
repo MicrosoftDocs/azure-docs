@@ -56,8 +56,11 @@ QnA Maker provides authoring, training, and publishing along with collaboration 
 ## How do I start?
 
 **Step 1**: Create a QnA Maker resource in the [Azure portal](https://portal.azure.com). 
+
 **Step 2**: Create a knowledge base in the [QnA Maker](https://www.qnamaker.ai) portal. Add [files and URLs](../concepts/data-sources-supported.md) to create the knowledge base.  
+
 **Step 3**: Publish your knowledge base and test from your custom endpoint using cURL or Postman. 
+
 **Step 4**: From your client application, programmatically call your knowledge base's endpoint and read the JSON response show the best answer to the user.  
 
 ## News and updates
