@@ -49,7 +49,7 @@ Next, add variables for your Content Moderator subscription key and endpoint URL
 
 A string of multiline text from a file will be moderated. Include the [content_moderator_text_moderation.txt](~/cognitive-services-content-moderator-samples/documentation-samples/python) file into your local root folder and add its file name to your variables:
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?range=42-43)]
+[!code-python[](https://github.com/Azure-Samples/cognitive-services-content-moderator-samples/tree/master/documentation-samples/python?range=42-43)]
 
 
 ## Query the Moderator service
