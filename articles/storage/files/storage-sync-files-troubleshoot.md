@@ -794,14 +794,14 @@ There are two main classes of failures that can happen via either failure path:
 
 The following sections indicate how to troubleshoot cloud tiering issues and determine if an issue is a cloud storage issue or a server issue.
 
-<a id="monitor-tiering-activity"></a>**How to monitor tiering activity on a server**  
+### How to monitor tiering activity on a server  
 To monitor tiering activity on a server, use Event ID 9003, 9016 and 9029 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - Event ID 9003 provides error distribution for a server endpoint. For example, Total Error Count, ErrorCode, etc. Note, one event is logged per error code.
 - Event ID 9016 provides ghosting results for a volume. For example, Free space percent is, Number of files ghosted in session, Number of files failed to ghost, etc.
 - Event ID 9029 provides ghosting session information for a server endpoint. For example, Number of files attempted in the session, Number of files tiered in the session, Number of files already tiered, etc.
 
-<a id="monitor-recall-activity"></a>**How to monitor recall activity on a server**  
+### How to monitor recall activity on a server
 To monitor recall activity on a server, use Event ID 9005, 9006, 9009 and 9059 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - Event ID 9005 provides recall reliability for a server endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
@@ -809,7 +809,7 @@ To monitor recall activity on a server, use Event ID 9005, 9006, 9009 and 9059 i
 - Event ID 9009 provides recall session information for a server endpoint. For example, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, etc.
 - Event ID 9059 provides application recall distribution for a server endpoint. For example, ShareId, Application Name, and TotalEgressNetworkBytes.
 
-<a id="files-fail-tiering"></a>**Troubleshoot files that fail to tier**  
+### How to troubleshoot files that fail to tier
 If files fail to tier to Azure Files:
 
 1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent. 
@@ -825,7 +825,7 @@ If files fail to tier to Azure Files:
 > [!NOTE]
 > An Event ID 9003 is logged once an hour in the Telemetry event log if a file fails to tier (one event is logged per error code). The Operational and Diagnostic event logs should be used if additional information is needed to diagnose an issue.
 
-<a id="files-fail-recall"></a>**Troubleshoot files that fail to be recalled**  
+### How to troubleshoot files that fail to be recalled  
 If files fail to be recalled:
 1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent.
     1. Verify the files exist in the Azure file share.
@@ -837,7 +837,7 @@ If files fail to be recalled:
 > [!NOTE]
 > An Event ID 9006 is logged once per hour in the Telemetry event log if a file fails to recall (one event is logged per error code). The Operational and Diagnostic event logs should be used if additional information is needed to diagnose an issue.
 
-<a id="files-unexpectedly-recalled"></a>**Troubleshoot files unexpectedly recalled on a server**  
+### How to troubleshoot files unexpectedly recalled on a server  
 Antivirus, backup, and other applications that read large numbers of files cause unintended recalls unless they respect the skip offline attribute and skip reading the content of those files. Skipping offline files for products that support this option helps avoid unintended recalls during operations like antivirus scans or backup jobs.
 
 Consult with your software vendor to learn how to configure their solution to skip reading offline files.
