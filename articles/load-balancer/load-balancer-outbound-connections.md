@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: This article explains how Azure enables VMs to communicate with public internet services.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Outbound connections in Azure
