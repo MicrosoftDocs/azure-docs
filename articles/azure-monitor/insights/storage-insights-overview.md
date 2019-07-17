@@ -39,9 +39,15 @@ Azure Monitor for Storage is an Azure Monitor workbook, which combines text, [
 
 This feature does not require you to enable or configure anything, the metrics are already collected by default. If you are unfamiliar with the comprehensive set of metrics available with Azure Storage and need a description of their purpose and how to interpret their values, review [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
-## View 
+## View from a storage account
 
-## Multi-subscription view
+To access Azure Monitor for VMs directly from a storage account:
+
+1. In the Azure portal, select Storage accounts.
+
+2. From the list, choose a storage account. In the Monitoring section, choose Insights (preview).
+
+## View from Azure Monitor
 
 To view the utilization and availability of your Storage accounts across all of your subscriptions, perform the following steps.
 
