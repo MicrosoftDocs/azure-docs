@@ -6,7 +6,7 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/17/2019
 ms.author: diberry
@@ -32,10 +32,6 @@ Use the Language Understanding (LUIS) client library for .NET to:
 ## Setting up
 
 ### Get your Language Understanding (LUIS) authoring key
-
-<!--
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource of type **Cognitive Services** using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. 
--->
 
 Get your [authoring key](luis-how-to-account-settings.md), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `COGNITIVESERVICE_AUTHORING_KEY`.
 
@@ -96,12 +92,12 @@ Once the client is created, use this client to access functionality:
 
 These code snippets show you how to do the following with the Language Understanding (LUIS) client library for .NET:
 
-* [Create an app]()
-* [Add entities]()
-* [Add intents]()
-* [Add example utterances]()
-* [Train the app]()
-* [Publish the app]()
+* [Create an app](#create-a-luis-app)
+* [Add entities](#create-entities-for-the-app)
+* [Add intents](#create-intent-for-the-app)
+* [Add example utterances](#add-example-utterance-to-intent)
+* [Train the app](#train-the-app)
+* [Publish the app](#publish-a-knowledge-base)
 
 ## Add the dependencies
 
