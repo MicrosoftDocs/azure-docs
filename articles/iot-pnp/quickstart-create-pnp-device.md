@@ -29,7 +29,7 @@ To complete this quickstart, you need to install the following software on your 
 
 Install the Azure IoT Device Workbench extension from a .vsix file. Use the following steps to install the extension in VS Code. The extension can't be installed from Windows Explorer:
 
-1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr). Latest version: `0.10.6-rc`.
+1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr). Latest version: `0.10.7-rc`.
 1. In VS Code, select **Extensions ** tab.
 1. Select **Install from VSIX**.
     ![Install Azure IoT Device Workbench extension](media/quickstart-create-pnp-device/install-vsix.png)
@@ -86,32 +86,45 @@ In this quickstart, you prepare a development environment you can use to clone a
 
 In this quickstart, you use an existing sample device capability model and associated interfaces.
 
-1. Download the [device capability model and interface samples](https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview-utopia/digitaltwin_client/samples).
+1. Download the [device capability model and interface samples](https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview-utopia/digitaltwin_client/samples) and save files into `pnp_app` folder.
 
-1. Open VS Code, use **Ctrl+Shift+P**, type and select **IoT Plug and Play: Open Model Repository**. Then select **Open Public Model Repository**.
-
-1. Select and download **Bug bash CapabilityModel** from Model Repository view. And select **Browse** to select the `pnp_app` folder you just created within the device SDK folder.
-    ![Download DCM](media/quickstart-create-pnp-device/download-dcm.png)
-
-    ![Browse folder](media/quickstart-create-pnp-device/browse-folder.png)
-
-    ![Select pnp_app folder](media/quickstart-create-pnp-device/pnp_app_folder.png)
-
-1. The DCM file downloads to the pnp_app folder and VS Code opens a new window to display the model files.
+1. Open `pnp_app` folder with VS Code. You can view the files with intellisence 
     ![Device capability model](media/quickstart-create-pnp-device/dcm.png)
+
+## Publish device model files to model repository
+
+The device capability model and interface files are required to publish to your organizational model repository to be used for validation with **Azure IoT Explorer**. You can publish the files within VS Code.
+
+1. With the folder with DCM files open, use **Ctrl+Alt+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
+
+1. Select `SampleDevice.capabilitymodel.json` and `EnvironmentalSensor.interface.json` files.
+
+1. Enter your organizational Model Repository connection string, which you can get from [Azure Device Builder](https://aka.ms/adbtest) portal with signed in with your Microsoft Partner ID.
+
+    > [!NOTE]
+    > The connection string is required for the first time.
+
+1. In VS Code output window and notification, you can check the files have been published successfully.
+
+    > [!NOTE]
+    > If you get errors on publishing the device model files, you can try use command **IoT Plug and Play: Sign out Model Repository** to sign out and go through the steps again.
+
+1. To verify on the Model Repository, use **Ctrl+Alt+P** to open the command palette, type and select **IoT Plug & Play: Open Organizational Repository**.
+
+1. You can search to find the device capability model and interface files in the Model Repository view.
+    ![Org model repo](media/quickstart-create-pnp-device/org-model-repo.png)
 
 ## Generate the C code stub
 
-Now you have a DCM, you can generate the device code that implements the model. To generate the C code stub in VS code:
+Now you have a DCM and its associated interfaces, you can generate the device code that implements the model. To generate the C code stub in VS code:
 
-1. With the DCM file open, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub**.
+1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub**.
 
     The first time you use the IoT Plug and Play Code Generator utility, it takes a few seconds to download.
 
-1. Choose the DCM file you want to use to generate the device code stub:
-    ![Choose your DCM](media/quickstart-create-pnp-device/select-dcm.png)
+1. Choose the DCM file you want to use to generate the device code stub.
 
-1. Enter the project name **testing_device**, it will be the name of your device application.
+1. Enter the project name **sample_device**, it will be the name of your device application.
 
 1. Choose **ANSI C** as your language.
 
@@ -131,7 +144,7 @@ You use the device SDK to build the generated device code stub. The application 
 1. Add the line below at the bottom of the `CMakeLists.txt` file to include the device code stub folder when compiling:
 
     ```
-    add_subdirectory(pnp_app/testing_device)
+    add_subdirectory(pnp_app/sample_device)
     ```
 
 1. Create a cmake subdirectory in the the device SDK root folder, and navigate to that folder:
@@ -154,9 +167,13 @@ You use the device SDK to build the generated device code stub. The application 
 1. After the build completes successfully, run your application passing the IoT hub device connection string as parameter.
 
     ```cmd\sh
-    cd azure-iot-sdk-c-pnp\cmake\pnp_app\testing_device\Release\
-    testing_device.exe "[IoT Hub device connection string]"
+    cd azure-iot-sdk-c-pnp\cmake\pnp_app\sample_device\Release\
+    sample_device.exe "[IoT Hub device connection string]"
     ```
+
+1. The device application starts sending data to IoT Hub.
+
+    ![Device app running](media/quickstart-create-pnp-device/device-app-running.png)
 
 ## Validate the code
 
