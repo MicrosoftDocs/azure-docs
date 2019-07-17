@@ -28,13 +28,13 @@ This section lists the device join state parameters. The table below lists the c
 | YES | NO | NO | Azure AD Joined |
 | NO | NO | YES | Domain Joined |
 | YES | NO | YES | Hybrid AD Joined |
-| NO | YES | YES | On-Premises DRS Joined |
+| NO | YES | YES | On-premises DRS Joined |
 
 > [!NOTE]
 > Workplace Join (Azure AD registered) state is displayed in the "User State" section
 
 - **AzureAdJoined:** - Set to “YES” if the device is Joined to Azure AD. “NO” otherwise.
-- **EnterpriseJoined:** - Set to “YES” if the device is Joined to an On-Premises DRS. A device cannot be both EnterpriseJoined and AzureAdJoined.
+- **EnterpriseJoined:** - Set to “YES” if the device is Joined to an on-premises DRS. A device cannot be both EnterpriseJoined and AzureAdJoined.
 - **DomainJoined:** - Set to “YES” if the device is joined to a domain (AD).
 - **DomainName:** - Set to the name of the domain if the device is joined to a domain.
 
@@ -163,7 +163,7 @@ This section can be ignored for Azure AD registered devices.
 - **AzureAdPrtUpdateTime:** - Set to the time in UTC when the PRT was last updated.
 - **AzureAdPrtExpiryTime:** - Set to the time in UTC when the PRT is going to expire if it is not renewed.
 - **AzureAdPrtAuthority:** - Azure AD authority URL
-- **EnterprisePrt:** - Set to “YES” if the device has PRT from on-Prem ADFS. For hybrid Azure AD joined devices the device could have PRT from both Azure AD and On-prem AD simultaneously. On-prem joined devices will only have an Enterprise PRT.
+- **EnterprisePrt:** - Set to “YES” if the device has PRT from on-premises ADFS. For hybrid Azure AD joined devices the device could have PRT from both Azure AD and on-premises AD simultaneously. On-premises joined devices will only have an Enterprise PRT.
 - **EnterprisePrtUpdateTime:** - Set to the time in UTC when the Enterprise PRT was last updated.
 - **EnterprisePrtExpiryTime:** - Set to the time in UTC when the PRT is going to expire if it is not renewed.
 - **EnterprisePrtAuthority:** - ADFS authority URL
@@ -202,7 +202,7 @@ This section performs various tests to help diagnose join failures. This section
 
 - **Client Time:** - The system time in UTC.
 - **AD Connectivity Test:** - Test performs a connectivity test to the domain controller. Error in this test will likely result in Join errors in pre-check phase.
-- **AD Configuration Test:** - Test reads and verifies whether the SCP object is configured properly in the on-prem AD forest. Errors in this test would likely result in Join errors in the discover phase with the error code 0x801c001d.
+- **AD Configuration Test:** - Test reads and verifies whether the SCP object is configured properly in the on-premises AD forest. Errors in this test would likely result in Join errors in the discover phase with the error code 0x801c001d.
 - **DRS Discovery Test:** - Test gets the DRS endpoints from discovery metadata endpoint and performs a user realm request. Errors in this test would likely result in Join errors in the discover phase.
 - **DRS Connectivity Test:** - Test performs basic connectivity test to the DRS endpoint.
 - **Token acquisition Test:** - Test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in Join errors in the auth phase. If auth fails sync join will be attempted as fallback, unless fallback is explicitly disabled with a registry key.
