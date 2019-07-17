@@ -169,27 +169,23 @@ With Azure AD DS successfully deployed, now configure the virtual network to all
 > [!TIP]
 > If you selected an existing virtual network in the previous steps, any VMs connected to the network only get the new DNS settings after a restart. You can restart VMs using the Azure portal, Azure PowerShell, or the Azure CLI.
 
-## Enable password hash synchronization to Azure AD DS
+## Enable user accounts for Azure AD DS
 
 To authenticate users on the managed domain, Azure AD DS needs password hashes in a format that's suitable for NT LAN Manager (NTLM) and Kerberos authentication. Azure AD doesn't generate or store password hashes in the format that's required for NTLM or Kerberos authentication until you enable Azure AD DS for your tenant. For security reasons, Azure AD also doesn't store any password credentials in clear-text form. Therefore, Azure AD can't automatically generate these NTLM or Kerberos password hashes based on users' existing credentials.
 
-Let's enable synchronization of password hashes required for NTLM and Kerberos authentication to Azure AD DS. After you've set up password hash synchronization, users can sign in to the managed domain with their corporate credentials.
-
-The steps are different for cloud-only user accounts created in Azure AD vs user accounts that are synchronized from your on-premises directory using Azure AD Connect. A cloud-only user account is an account that was created in your Azure AD directory using either the Azure portal or Azure AD PowerShell cmdlets. These user accounts aren't synchronized from an on-premises directory.
-
-In this tutorial, you set up password hash synchronization for cloud-only user accounts. For more information on the additional steps, see [Synchronize password hashes for user accounts synced from your on-premises AD to your managed domain][on-prem-sync].
+The steps to generate and store these password hashes are different for cloud-only user accounts created in Azure AD versus user accounts that are synchronized from your on-premises directory using Azure AD Connect. A cloud-only user account is an account that was created in your Azure AD directory using either the Azure portal or Azure AD PowerShell cmdlets. These user accounts aren't synchronized from an on-premises directory. In this tutorial, let's work with a basic cloud-only user account. For more information on the additional steps required to use Azure AD Connect, see [Synchronize password hashes for user accounts synced from your on-premises AD to your managed domain][on-prem-sync].
 
 > [!TIP]
 > If your Azure AD tenant has a combination of cloud-only users and users from your on-premises AD, you need to complete both sets of steps.
 
-To generate the password hashes for cloud-only user accounts, users who need to use Azure AD DS must change their passwords. This password change process causes the password hashes for Kerberos and NTLM authentication to be generated in Azure AD. You can either expire the passwords for all users in the tenant who need to use Azure AD DS, or instruct them to change their passwords. For this tutorial, let's change a user password.
+For cloud-only user accounts, users must change their passwords before they can use Azure AD DS. This password change process causes the password hashes for Kerberos and NTLM authentication to be generated and stored in Azure AD. You can either expire the passwords for all users in the tenant who need to use Azure AD DS, which forces a password change on next sign in, or instruct them to manually change their passwords. For this tutorial, let's manually change a user password.
 
 Before a user can reset their password, the Azure AD tenant must be [configured for self-service password reset][configure-sspr].
 
 To change the password for a cloud-only user, the user must complete the following steps:
 
 1. Go to the Azure AD Access Panel page at [https://myapps.microsoft.com](https://myapps.microsoft.com).
-1. In the top right corner, select your name, then choose **Profile** from the drop-down menu.
+1. In the top-right corner, select your name, then choose **Profile** from the drop-down menu.
 
     ![Select profile](./media/tutorial-create-instance/select-profile.png)
 
@@ -207,7 +203,7 @@ In this tutorial, you learned how to:
 > * Configure DNS and virtual network settings for a managed domain
 > * Create an Azure AD DS instance
 > * Add administrative users to domain management
-> * Enable password hash synchronization
+> * Enable user accounts for Azure AD DS and generate password hashes
 
 To see this managed domain in action, create and join a virtual machine to the domain.
 

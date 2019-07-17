@@ -61,23 +61,24 @@ To see how to join a computer to an Azure AD DS managed domain, let's create a W
     | Username             | Enter a username for the local administrator account to create on the VM, such as *azureuser* |
     | Password             | Enter, and then confirm, a secure password for the local administrator to create on the VM. Don't specify a domain user account's credentials. |
 
-4. By default, VMs created in Azure aren't accessible from the Internet. This configuration helps improve the security of the VM and reduces the area for potential attack. In the next step of this tutorial, you connect to the VM using remote desktop protocol (RDP) and then join the Windows Server to the Azure AD DS managed domain. To do this step, you must enable RDP connections.
+4. By default, VMs created in Azure aren't accessible from the Internet. This configuration helps improve the security of the VM and reduces the area for potential attack. In the next step of this tutorial, you need to connect to the VM using remote desktop protocol (RDP) and then join the Windows Server to the Azure AD DS managed domain.
+
+    When RDP is enabled, automated sign in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign in attempts. RDP should only be enabled when required, and limited to a set of authorized IP ranges. Azure Just In Time VM access as part of Azure Security Center can enable these short-lived, restricted RDP sessions. For this tutorial, manually enable RDP connections to the VM.
 
     Under **Public inbound ports**, select the option to **Allow selected ports**. From the drop-down menu for **Select inbound ports**, choose *RDP*.
 
 5. When done, select **Next: Disks**.
 6. From the drop-down menu for **OS disk type**, choose *Standard SSD*, then select **Next: Networking**.
+7. Your VM must connect to an Azure virtual network subnet that can communicate with the subnet your Azure AD DS managed domain is deployed into. We recommend that an Azure AD DS managed domain is deployed into its own dedicated subnet. Don't deploy your VM in the same subnet as your Azure AD DS managed domain.
 
-Your VM must connect to an Azure virtual network subnet that can communicate with the subnet your Azure AD DS managed domain is deployed into. We recommend that an Azure AD DS managed domain is deployed into its own dedicated subnet. Don't deploy your VM in the same subnet as your Azure AD DS managed domain.
+    There are two main ways to deploy your VM and connect to an appropriate virtual network subnet:
+    
+    * Create a, or select an existing, subnet in the same the virtual network as your Azure AD DS managed domain is deployed.
+    * Select a subnet in an Azure virtual network that is connected to it using [Azure virtual network peering][vnet-peering].
+    
+    If you select a virtual network subnet that isn't connected to the subnet for your Azure AD DS instance, you can't join the VM to the managed domain. For this tutorial, let's create a new subnet in the Azure virtual network.
 
-There are two main ways to deploy your VM and connect to an appropriate virtual network subnet:
-
-* Create a, or select an existing, subnet in the same the virtual network as your Azure AD DS managed domain is deployed.
-* Select a subnet in an Azure virtual network that is connected to it using [Azure virtual network peering][vnet-peering].
-
-If you select a virtual network subnet that isn't connected to the subnet for your Azure AD DS instance, you can't join the VM to the managed domain. For this tutorial, let's create a new subnet in the Azure virtual network.
-
-7. In the **Networking** pane, select the virtual network in which your Azure AD DS-managed domain is deployed, such as *myVnet*
+    In the **Networking** pane, select the virtual network in which your Azure AD DS-managed domain is deployed, such as *myVnet*
 8. In this example, the existing *DomainServices* subnet is shown that the Azure AD DS managed domain is connected to. Don't connect your VM to this subnet. To create a subnet for the VM, select **Manage subnet configuration**.
 
     ![Choose to manage the subnet configuration in the Azure portal](./media/join-windows-vm/manage-subnet.png)
@@ -87,7 +88,7 @@ If you select a virtual network subnet that isn't connected to the subnet for yo
     ![Create a subnet configuration in the Azure portal](./media/join-windows-vm/create-subnet.png)
 
 10. It takes a few seconds to create the subnet. Once it's created, select the *X* to close the subnet window.
-11. Back in the **Networking** pane to create a VM, choose the subnet you created from the drop-down menu, such as *ManagedVMs*.
+11. Back in the **Networking** pane to create a VM, choose the subnet you created from the drop-down menu, such as *ManagedVMs*. Again, make sure you choose the correct subnet and don't deploy your VM in the same subnet as your Azure AD DS managed domain.
 12. Leave the other options as their default values, then select **Management**.
 13. Set **Boot diagnostics** to *Off*. Leave the other options as their default values, then select **Review + create**.
 14. Review the VM settings, then select **Create**.
@@ -195,12 +196,14 @@ In this tutorial, you learned how to:
 > * Connect to the Windows Server VM to an Azure virtual network
 > * Join the VM to the Azure AD DS managed domain
 
+To safely interact with your Azure AD DS managed domain, enable secure Lightweight Directory Access Protocol (LDAPS).
+
 > [!div class="nextstepaction"]
-> [Learn how synchronization works in an Azure AD Domain Services managed domain](synchronization.md)
+> [Configure secure LDAP for your managed domain](tutorial-configure-ldaps.md)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
-[create-azure-ad-ds-instance]: create-instance.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [password-sync]: active-directory-ds-getting-started-password-sync.md

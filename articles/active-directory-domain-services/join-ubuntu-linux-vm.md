@@ -29,7 +29,7 @@ To perform the tasks listed in this article, you need:
 2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
 3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](tutorial-create-instance.md).
 4. Ensure that you have configured the IP addresses of the managed domain as the DNS servers for the virtual network. For more information, see [how to update DNS settings for the Azure virtual network](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
-5. Complete the steps required to [synchronize passwords to your Azure AD Domain Services managed domain](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-ad-ds).
+5. Complete the steps required to [synchronize passwords to your Azure AD Domain Services managed domain](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 
 ## Provision an Ubuntu Linux virtual machine
@@ -53,15 +53,16 @@ Follow the instructions in the article [How to log on to a virtual machine runni
 ## Configure the hosts file on the Linux virtual machine
 In your SSH terminal, edit the /etc/hosts file and update your machine’s IP address and hostname.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 In the hosts file, enter the following value:
 
-```
+```console
 127.0.0.1 contoso-ubuntu.contoso100.com contoso-ubuntu
 ```
+
 Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-ubuntu' is the hostname of the Ubuntu virtual machine you are joining to the managed domain.
 
 
@@ -70,12 +71,13 @@ Next, install packages required for domain join on the virtual machine. Perform 
 
 1.  In your SSH terminal, type the following command to download the package lists from the repositories. This command updates the package lists to get information on the newest versions of packages and their dependencies.
 
-    ```
+    ```console
     sudo apt-get update
     ```
 
 2. Type the following command to install the required packages.
-    ```
+
+    ```console
       sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
     ```
 
@@ -83,27 +85,26 @@ Next, install packages required for domain join on the virtual machine. Perform 
 
     > [!TIP]
     > If the name of your managed domain is contoso100.com, enter CONTOSO100.COM as the realm. Remember, the realm name must be specified in UPPERCASE.
-    >
-    >
 
 
 ## Configure the NTP (Network Time Protocol) settings on the Linux virtual machine
 The date and time of your Ubuntu VM must synchronize with the managed domain. Add your managed domain's NTP hostname in the /etc/ntp.conf file.
 
-```
+```console
 sudo vi /etc/ntp.conf
 ```
 
 In the ntp.conf file, enter the following value and save the file:
 
-```
+```console
 server contoso100.com
 ```
+
 Here, 'contoso100.com' is the DNS domain name of your managed domain.
 
 Now sync the Ubuntu VM's date and time with NTP server and then start the NTP service:
 
-```
+```console
 sudo systemctl stop ntp
 sudo ntpdate contoso100.com
 sudo systemctl start ntp
@@ -115,7 +116,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
 
 1. Discover the AAD Domain Services managed domain. In your SSH terminal, type the following command:
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
@@ -133,7 +134,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
     > * Specify the domain name in capital letters, else kinit fails.
     >
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
@@ -141,9 +142,8 @@ Now that the required packages are installed on the Linux virtual machine, the n
 
     > [!TIP]
     > Use the same user account you specified in the preceding step ('kinit').
-    >
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM' --install=/
     ```
 
@@ -152,29 +152,34 @@ You should get a message ("Successfully enrolled machine in realm") when the mac
 
 ## Update the SSSD configuration and restart the service
 1. In your SSH terminal, type the following command. Open the sssd.conf file and make the following change
-    ```
+    
+    ```console
     sudo vi /etc/sssd/sssd.conf
     ```
 
 2. Comment out the line **use_fully_qualified_names = True** and save the file.
-    ```
+    
+    ```console
     # use_fully_qualified_names = True
     ```
 
 3. Restart the SSSD service.
-    ```
+    
+    ```console
     sudo service sssd restart
     ```
 
 
 ## Configure automatic home directory creation
 To enable automatic creation of the home directory after logging in users, type the following commands in your PuTTY terminal:
-```
+
+```console
 sudo vi /etc/pam.d/common-session
 ```
 
 Add the following line in this file below the line 'session optional pam_sss.so' and save it:
-```
+
+```console
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ```
 
@@ -183,17 +188,20 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined Ubuntu VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
 1. In your SSH terminal, type the following command to connect to the domain joined Ubuntu virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-ubuntu.contoso100.com
     ```
 
 2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
-    ```
+    
+    ```console
     pwd
     ```
 
 3. In your SSH terminal, type the following command to see if the group memberships are being resolved correctly.
-    ```
+    
+    ```console
     id
     ```
 
@@ -202,12 +210,14 @@ Verify whether the machine has been successfully joined to the managed domain. C
 You can grant members of the 'AAD DC Administrators' group administrative privileges on the Ubuntu VM. The sudo file is located at /etc/sudoers. The members of AD groups added in sudoers can perform sudo.
 
 1. In your SSH terminal, ensure you are logged in with superuser privileges. You can use the local administrator account you specified while creating the VM. Execute the following command:
-    ```
+    
+    ```console
     sudo vi /etc/sudoers
     ```
 
 2. Add the following entry to the /etc/sudoers file and save it:
-    ```
+    
+    ```console
     # Add 'AAD DC Administrators' group members as admins.
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```
