@@ -461,7 +461,7 @@
       - name: Xamarin
         href: quickstart-v1-xamarin.md
     - name: Service-to-service
-      href: sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity
+      href: quickstart-v1-dotnet.md
   - name: Samples
     href: sample-v1-code.md
   - name: Concepts
