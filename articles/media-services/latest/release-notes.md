@@ -37,6 +37,8 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 When streaming content protected with token restriction, end users need to obtain a token that is sent as part of the key delivery request. The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. For more information, see [Token Replay Prevention](content-protection-overview.md#token-replay-prevention).
 
+This feature is currently available in US Central and US West Central.
+
 ## June 2019
 
 ### Video subclipping
