@@ -66,27 +66,27 @@ The recursive DNS service caches the DNS responses it receives. The DNS resolver
 
 ## FAQs
 
-* [What IP address does Traffic Manager use?](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+* [What IP address does Traffic Manager use?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
 
-* [What types of traffic can be routed using Traffic Manager?](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+* [What types of traffic can be routed using Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
 
-* [Does Traffic Manager support 'sticky' sessions?](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+* [Does Traffic Manager support 'sticky' sessions?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
 
 * [Why am I seeing an HTTP error when using Traffic Manager?](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
-* [What is the performance impact of using Traffic Manager?](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+* [What is the performance impact of using Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
 
-* [What application protocols can I use with Traffic Manager?](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+* [What application protocols can I use with Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
 
-* [Can I use Traffic Manager with a 'naked' domain name?](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+* [Can I use Traffic Manager with a 'naked' domain name?](https://docs.microsoft.com/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
 
-* [Does Traffic Manager consider the client subnet address when handling DNS queries?](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+* [Does Traffic Manager consider the client subnet address when handling DNS queries?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
 
-* [What is DNS TTL and how does it impact my users?](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+* [What is DNS TTL and how does it impact my users?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
 
-* [How high or low can I set the TTL for Traffic Manager responses?](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+* [How high or low can I set the TTL for Traffic Manager responses?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
 
-* [How can I understand the volume of queries coming to my profile?](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
+* [How can I understand the volume of queries coming to my profile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
 ## Next steps
 
