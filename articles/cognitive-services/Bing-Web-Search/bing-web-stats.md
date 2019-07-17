@@ -95,3 +95,8 @@ The following are the possible metrics. Each metric notes endpoint restrictions.
 The following shows the analytics that are available for each endpoint.
 
 ![Distribution by endpoint support matrix](./media/cognitive-services-bing-statistics/bing-statistics/bing-statistics-matrix.png)
+
+## Next steps
+
+* [What are the Bing Search APIs?](bing-api-comparison.md)
+* [Bing Search API use and display requirements](use-display-requirements.md)
