@@ -98,3 +98,7 @@ When you select a storage account from the list in the table, you drill down to 
 ![Storage account overview report](./media/storage-insights-overview/storage-account-overview-01.png)
 
 ## Next steps
+
+* Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications.md) to set up automated alerting to aid in detecting issues.
+
+* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../app/usage-workbooks.md). 
