@@ -1631,6 +1631,12 @@ featureFlags:
                                                 <p>Azure Bastion</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                                <img src="media/index/private-link.svg" alt="" />
+                                                <p>Azure Private Link</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Security</h3>
                                     <ul>
@@ -5431,6 +5437,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Bastion</h3>
                                                     <p>Secure seamless connectivity to virtual machines over SSL via the Azure portal without a public IP address</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/private-link.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Private Link</h3>
+                                                    <p>Privately access services hosted on the Azure platform, keeping your data within the Microsoft network</p>
                                                 </div>
                                             </div>
                                         </div>
