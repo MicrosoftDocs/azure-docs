@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 The first time you run the Azure AD Connect installation wizard, it walks you through how to configure your installation. If you run the installation wizard again, it offers options for maintenance.
 
 >[!IMPORTANT]
->Be aware that you cannot run the installation wizard while a synchronization is in progress.  Please verify that a synchronization is not running prior to attempt to launch the wizard.
+>Be aware that you cannot run the installation wizard while a synchronization is in progress.  Please verify that a synchronization is not running before  launching the wizard.
 
 You can find the installation wizard in the start menu named **Azure AD Connect**.
 
