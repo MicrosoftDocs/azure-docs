@@ -182,7 +182,7 @@ From the triggers list, select this trigger:
    For more information about advanced scheduling options, see 
    [Create and run recurring tasks and workflows with Azure Logic Apps](../connectors/connectors-native-recurrence.md)
 
-1. Add other actions you want by selecting from [hundreds of ready-to-use ](../connectors/apis-list.md). 
+1. Add other actions you want by selecting from [hundreds of ready-to-use](../connectors/apis-list.md). 
 Under the trigger, choose **Next step**. 
 Find and select the actions you want.
 
