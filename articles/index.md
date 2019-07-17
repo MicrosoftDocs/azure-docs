@@ -1626,8 +1626,8 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/bastion/">
-                                                <img src="media/index/web_connect.svg" alt="" />
+                                            <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                                <img src="media/index/private_link.svg" alt="" />
                                                 <p>Azure Bastion</p>
                                             </a>
                                         </li>
@@ -5444,17 +5444,17 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/bastion/">
+                                <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/web_connect.svg" alt="" />
+                                                        <img src="media/index/private_link.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Private link</h3>
+                                                    <h3>Azure Private Link</h3>
                                                     <p>Privately access services hosted on the Azure platform, keeping your data within the Microsoft network</p>
                                                 </div>
                                             </div>
