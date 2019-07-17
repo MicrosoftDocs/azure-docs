@@ -102,6 +102,8 @@
       href: manage-database-permissions.md
     - name: Check cluster health
       href: check-cluster-health.md
+    - name: Select cluster VM SKU
+      href: manage-cluster-choose-sku.md
     - name: Manage cluster horizontal scaling
       href: manage-cluster-horizontal-scaling.md
     - name: Manage cluster vertical scaling

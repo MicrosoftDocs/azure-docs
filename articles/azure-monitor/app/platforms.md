@@ -22,9 +22,9 @@ ms.author: mbullwin
 * [JavaScript web pages](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
 
-## Languages - Community-supported
+## Community SDKs
 
-There are a number of community-supported Azure Application Insights SDKs, many of which were originally authored by Microsoft. Community-supported SDKs aren't officially maintained by Microsoft. We are unable to provide support for any SDK that isn't on the officially supported list. These SDKs are considered experimental and not recommended for production use.
+There are a number of community Azure Application Insights SDKs, many of which were originally authored by Microsoft. Community SDKs aren't officially maintained by Microsoft. We are unable to provide support for any SDK that isn't on the officially supported list. These SDKs are considered experimental and not recommended for production use.
 
 ## Platforms and frameworks
 ### Instrumentation for already-deployed applications (codeless, agent-based)
