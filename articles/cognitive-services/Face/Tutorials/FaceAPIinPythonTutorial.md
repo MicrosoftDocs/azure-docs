@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 07/15/2019
 ms.author: sbowles
 #Customer intent: As a Python developer, I want to implement a Face detection scenario with the Python SDK, so that I can build more complex scenarios later on.
 ---
