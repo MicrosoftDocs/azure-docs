@@ -98,6 +98,10 @@ Now that you have a custom subdomain associated with your resource, you need to 
    New-AzRoleAssignment -ObjectId $principal.Id -Scope $resource.Id -RoleDefinitionName "Cognitive Services User"
    ```
 
+   >[!NOTE]
+   > This step needs to be performed for each Immersive Reader resource you create. For example, if you create multiple resources for different global regions, then you will need to perform this step for each of those regional resources so that the AAD authentication works for all of them. Or, if you create a new resource at a later point in time, you will need to perform this role assignment step for that new resource as well.
+
+
 ### Obtain an AAD token
 
 In this example, your password is used to authenticate the service principal to obtain an AAD token.
