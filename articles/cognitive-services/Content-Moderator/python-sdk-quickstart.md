@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 07/17/2019
 ms.author: pafarley
 ---
 
@@ -15,13 +15,13 @@ ms.author: pafarley
 
 Get started with the Content Moderator client library for Python. Follow these steps to install the package and try out the example code for basic tasks. Content Moderator is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users.
 
-Use the [product name] client library for Python to:
+Use the Content Moderator client library for Python to:
 
 * Apply moderation tags to images
 * Check images against custom lists
 * Create a moderation job to pass content on to human review
 
-[Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 ## Prerequisites
 
@@ -58,16 +58,12 @@ from azure.cognitiveservices.vision.contentmoderator.models import (
 from msrest.authentication import CognitiveServicesCredentials
 ```
 
-<!--
-    change the environment key variable to something descriptive for your service.
-    For example: TEXT_ANALYTICS_KEY
--->
 
-
-Create variables for your resource's Azure location, and your key as an environment variable. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable.
+Create variables for your resource's Azure location and your key as an environment variable. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable.
 
 ```python
 CONTENTMODERATOR_LOCATION = os.environ.get("CONTENTMODERATOR_LOCATION", "westcentralus")
+subscription_key = os.environ.get("CONTENTMODERATOR_SUBSCRIPTION_KEY")
 ```
 
 ### Install the client library
@@ -91,10 +87,10 @@ pip install --upgrade azure-cognitiveservices-[product]
 <!--
     Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
 
-    Include links to the service's reference content when introducing a class for the first time
+    Include links to the service's reference content when introducing a class for the first
 -->
 
-These code snippets show you how to do the following with the [product] client library for .NET:
+These code snippets show you how to do the following with the Computer Vision client library for Python:
 
 * [Authenticate the client](#authenticate-the-client)
 * [link to example task 1]()
