@@ -105,7 +105,7 @@ Additional examples of causes for **unusable** nodes include:
 
 ### Node agent log files
 
-The Batch agent process that runs on each pool node can provide log files which might be helpful if you need to contact support about a pool node issue. Log files for a node can be uploaded via the Azure portal, Batch Explorer, or an [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). It's useful to upload and save the log files. Afterward, you can delete the node or pool to save the cost of the running nodes.
+The Batch agent process that runs on each pool node can provide log files that might be helpful if you need to contact support about a pool node issue. Log files for a node can be uploaded via the Azure portal, Batch Explorer, or an [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). It's useful to upload and save the log files. Afterward, you can delete the node or pool to save the cost of the running nodes.
 
 ### Node disk full
 
@@ -126,9 +126,9 @@ The size of the temporary drive depends on the VM size. One consideration when p
 - In the Azure portal when adding a pool, the full list of VM sizes can be displayed and there is a 'Resource Disk Size' column.
 - The articles describing all VM sizes have tables with a 'Temp Storage' column; e.g. [Compute Optimized VM sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute)
 
-For files written out by each task, a retention time can be specified for each task which determines how long the task files are kept before being automatically cleaned up. The default retention time can be reduced to lower the storage requirements.
+For files written out by each task, a retention time can be specified for each task that determines how long the task files are kept before being automatically cleaned up. The default retention time can be reduced to lower the storage requirements.
 
-If temporary disk space does fill, then currently the node will simply stop running tasks. In the future a [node error](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) will be reported.
+If temporary disk space does fill, then currently the node will stop running tasks. In the future, a [node error](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) will be reported.
 
 
 ## Next steps
