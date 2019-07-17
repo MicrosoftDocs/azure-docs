@@ -77,9 +77,7 @@ These Blob REST APIs aren't supported:
 
 ## Issues with Unmanaged Virtual Machine (VM) disks
 
-Unmanaged VM disks depend on [page blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-pageblob-overview) which are not supported in accounts that have a hierarchical namespace.
-
-If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
+Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
 
 ## Support for other Blob storage features
