@@ -15,7 +15,7 @@ ms.date: 07/12/2019
 ms.author: magoedte
 ---
 
-## Review capacity and utilization with Azure Monitor for Storage
+# Review capacity and utilization with Azure Monitor for Storage
 
 Azure Monitor for Storage (preview) provides comprehensive monitoring of Azure Storage accounts by delivering a holistic view of their health and performance that you would otherwise view from [Service Health](../../service-health/service-health-overview.md) and Storage metrics in [Azure Monitor](../../storage/common/storage-metrics-in-azure-monitor.md). You can observe storage health and performance in two ways. View directly from a storage account or view from Azure Monitor to see across groups of storage accounts. This article will help you understand these two viewing methods and how to use this feature.
 
