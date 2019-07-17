@@ -1,5 +1,5 @@
 ---
-title: Use Kubernetes on-premises
+title: Use with Kubernetes and Helm
 titleSuffix: Azure Cognitive Services
 description: Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises.
 services: cognitive-services
@@ -8,24 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 7/10/2019
+ms.date: 7/16/2019
 ms.author: dapine
 ---
 
-# Use Kubernetes on-premises
+# Use with Kubernetes and Helm
 
-Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services and various configuration options.
+Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services and various configuration options. For more information about running Docker containers without Kubernetes orchestration, see [install and run Speech Service containers](speech-container-howto.md).
 
 ## Prerequisites
 
-You must meet the following prerequisites before using Speech containers on-premises:
+The following prerequisites before using Speech containers on-premises:
 
 |Required|Purpose|
 |--|--|
 | Azure Account | If you don't have an Azure subscription, create a [free account][free-azure-account] before you begin. |
-| Container Registry access | In order for Kubernetes to pull the docker images into the cluster, it will need access to the container registry. You need to [request access to the container registry][speech-preview-access] first. |
+| Container Registry access | In order for Kubernetes to pull the docker images into the cluster, it will need access to the container registry. You're required to [request access to the container registry][speech-preview-access] first. |
 | Kubernetes CLI | The [Kubernetes CLI][kubernetes-cli] is required for managing the shared credentials from the container registry. Kubernetes is also needed before Helm, which is the Kubernetes package manager. |
-| Helm CLI | As part of the [Helm CLI][helm-install] install, you'll also need to initialize Helm which will install [Tiller][tiller-install]. |
+| Helm CLI | As part of the [Helm CLI][helm-install] install, you'll also need to initialize Helm, which will install [Tiller][tiller-install]. |
 |Speech resource |In order to use these containers, you must have:<br><br>A _Speech_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages and are required to start the container.<br><br>**{API_KEY}**: resource key<br><br>**{ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## The recommended host computer configuration
