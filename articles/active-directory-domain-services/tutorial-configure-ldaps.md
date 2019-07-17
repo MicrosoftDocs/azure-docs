@@ -153,7 +153,7 @@ Client computers must trust the issuer of the secure LDAP certificate to be able
 1. As you need the public part of the certificate, on the **Export Private Key** page choose **No, do not export the private key**, then select **Next**.
 1. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER)** as the file format for the exported certificate:
 
-    ![Choose the option to export the certificate in the Base-64 encoded X.509 (.CER) file format](./media/tutorial-configure-ldaps/export-cert-to-cer.png)
+    ![Choose the option to export the certificate in the Base-64 encoded X.509 (.CER) file format](./media/tutorial-configure-ldaps/export-cert-to-cer-file.png)
 
 1. On the **File to Export** page, specify the file name and location where you'd like to export the public certificate, such as *C:\Users\accountname\azure-ad-ds-client.cer*.
 1. On the review page, select **Finish** to export the certificate to a public *.CER* certificate file. A confirmation dialog is displayed when the public certificate has been successfully exported.
@@ -164,7 +164,7 @@ The *.CER* public certificate file can now be distributed to client computers th
 1. Right-select the public *.CER* certificate file, then choose **Install Certificate**.
 1. In the **Certificate Import Wizard**, choose to store the certificate in the *Local machine*, then select **Next**:
 
-    ![Choose the option to import the certificate into the local machine store](./media/tutorial-configure-ldaps/import-cer.png)
+    ![Choose the option to import the certificate into the local machine store](./media/tutorial-configure-ldaps/import-cer-file.png)
 
 1. When prompted, choose **Yes** to allow the computer to make changes.
 1. Choose to **Automatically select the certificate store based on the type of certificate**, then select **Next**.
