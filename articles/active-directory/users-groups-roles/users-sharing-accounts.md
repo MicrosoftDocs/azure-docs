@@ -63,7 +63,6 @@ To use Azure AD to share an account, you need to:
 * Add an application [app gallery](https://azure.microsoft.com/marketplace/active-directory/) or [custom application](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Configure the application for password Single Sign-On (SSO)
 * Use [group-based assignment](groups-saasapps.md) and select the option to enter a shared credential
-* Optional: in some applications, such as Facebook, Twitter, or LinkedIn, you can enable the option for [Azure AD automated password roll-over](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
 You can also make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](../authentication/concept-mfa-whichversion.md)) and you can delegate the ability to manage who has access to the application using [Azure AD self-service](groups-self-service-management.md) group management.
 
