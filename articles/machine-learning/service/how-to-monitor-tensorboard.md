@@ -1,56 +1,53 @@
 ---
-title: How to monitor experiments with TensorBoard and Azure Machine Learning service
-description: Launch TensorBoard for viewing your experiment run histories, and identify potential areas for hyperparameter tuning and retraining.
+title: Visualize experiments with TensorBoard
+titleSuffix: Azure Machine Learning service
+description: Launch TensorBoard to visualize experiment run histories, and identify potential areas for hyperparameter tuning and retraining.
 services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: article
 author: maxluk
 ms.author: maxluk
-ms.reviewer: nibaccam
-ms.service: machine-learning
-ms.component: core
-ms.workload: data-services
-ms.topic: article
 ms.date: 06/28/2019
-
 ---
 
-# Monitor model performance with TensorBoard and Azure Machine Learning
+# Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning
 
-In this article, you learn how to view your experiment runs and metrics in Tensorboard using [the `tensorboard` package](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) in the main Azure Machine Learning service SDK. Once you've inspected your experiment runs, you can better tune and retrain your machine learning models.
+In this article, you learn how to view your experiment runs and metrics in TensorBoard using [the `tensorboard` package](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) in the main Azure Machine Learning service SDK. Once you've inspected your experiment runs, you can better tune and retrain your machine learning models.
 
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) is a suite of web applications for inspecting and understanding your experiment structure and performance.
 
-How you launch Tensorboard with Azure Machine Learning experiments depends on the type of experiment:
+How you launch TensorBoard with Azure Machine Learning experiments depends on the type of experiment:
 + If your experiment natively outputs log files that are consumable by TensorBoard, such as PyTorch, Chainer and TensorFlow experiments, then you can [launch TensorBoard directly](#direct) from experiment's run history. 
 
 + For experiments that don't natively output TensorBoard consumable files, such as like Scikit-learn or Azure Machine Learning experiments, use [the `export_to_tensorboard()` method](#export) to export the run histories as TensorBoard logs and launch TensorBoard from there. 
 
 ## Prerequisites
 
-The code in this how-to can be run in either of the following environments: 
+* To launch TensorBoard and view your experiment run histories, your experiments need to have previously enabled logging to    track its metrics and performance.  
 
-* Azure Machine Learning Notebook VM - no downloads or installation necessary
+* The code in this how-to can be run in either of the following environments: 
 
-    * Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md#create-notebook) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    * Azure Machine Learning Notebook VM - no downloads or installation necessary
 
-    * In the samples folder on the notebook server, find  two completed and expanded notebooks by navigating to this directory: **how-to-use-azureml > training-with-deep-learning**.
+        * Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md#create-notebook) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+
+        * In the samples folder on the notebook server, find  two completed and expanded notebooks by navigating to this directory: **how-to-use-azureml > training-with-deep-learning**.
         * export-run-history-to-run-history.ipynb
         * tensorboard.ipynb
 
-* Your own Juptyer notebook server
-  * Use the [Create a workspace article](setup-create-workspace.md) to
-      * [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) with the `tensorboard` extra
-      * Create a workspace and its configuration file (config.json)
+    * Your own Juptyer notebook server
+      * Use the [Create a workspace article](setup-create-workspace.md) to
+          * [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) with the `tensorboard` extra
+          * Create a workspace and its configuration file (config.json)
   
-
 <a name="direct"></a>
 ## Option 1: Directly view run history in TensorBoard
 
 This option works for experiments that natively outputs log files consumable by TensorBoard, such as PyTorch, Chainer and TensorFlow experiments. If that is not the case of your experiment, use [the `export_to_tensorboard()` method](#export) instead.
 
-To launch TensorBoard and view your experiment run histories, your experiments need to have previously enabled logging to track its metrics and performance.  
-
-The following example code used the [MNIST demo experiment](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) from TensorFlow's repository in a remote compute target, Azure Machine Learning Compute, and demonstrate how to 
-start TensorBoard against a TensorFlow experiment, that is, an experiment that natively outputs TensorBoard event files.
+The following example code uses the [MNIST demo experiment](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) from TensorFlow's repository in a remote compute target, Azure Machine Learning Compute. Next, we train our model with the SDK's custom [TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), and then
+start TensorBoard against this TensorFlow experiment, that is, an experiment that natively outputs TensorBoard event files.
 
 ### Set experiment name and create project folder
 
@@ -143,9 +140,7 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 
 ### Submit run with TensorFlow estimator
 
-The [TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) provides a simple way of launching a TensorFlow training job on a compute target.
-
-The TensorFlow estimator is implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
+The TensorFlow estimator provides a simple way of launching a TensorFlow training job on a compute target. It's implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -179,7 +174,7 @@ tb.stop()
 
 <a name="export"></a>
 
-## Option 2: Export history as log to view in Tensorboard
+## Option 2: Export history as log to view in TensorBoard
 
 The following code sets up a sample experiment, begins the logging process using the Azure Machine Learning run history APIs, and exports the experiment run history into logs consumable by TensorBoard for visualization. 
 

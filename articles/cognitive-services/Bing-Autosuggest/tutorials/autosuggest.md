@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 02/20/2019
-ms.author: v-jaswel
+ms.author: nitinme
 ---
 # Tutorial: Get search suggestions on a web page
 

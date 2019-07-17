@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
 ---
 
@@ -84,4 +84,3 @@ In the dialogs that follow, make the following selections:
 
 > [!div class="nextstepaction"]
 > [Explore Objective-C samples on GitHub](https://aka.ms/csspeech/samples)
-

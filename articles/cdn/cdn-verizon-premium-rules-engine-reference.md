@@ -4,7 +4,7 @@ description: Reference documentation for Azure CDN rules engine match conditions
 services: cdn
 author: mdgattuso
 
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus

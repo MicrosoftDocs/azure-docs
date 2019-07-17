@@ -1,16 +1,16 @@
 ---
-title: Limits in Azure Cosmos DB
-description: This article describes limits in Azure Cosmos DB.
+title: Azure Cosmos DB service quotas
+description: Azure Cosmos DB service quotas and default limits on different resource types.
 author: arramac
 ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 07/10/2019
 ---
 
-# Limits in Azure Cosmos DB
+# Azure Cosmos DB service quotas
 
-This article provides an overview of the limits in the Azure Cosmos DB service.
+This article provides an overview of the default quotas offered to different resources in the Azure Cosmos DB.
 
 ## Storage and throughput
 
