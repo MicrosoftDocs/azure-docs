@@ -80,29 +80,10 @@ When your solution receives a notification for a new device connection, follow t
 1. For each ID, read the full JSON file to find the device's capabilities.
 1. Check to see if each interface is present in any caches you've built for storing the JSON files retrieved earlier by your solution.
 1. Then, check if an interface with that ID is present in the global model repository. For more information, see [Global model repository](overview-iot-plug-and-play.md).
-
-    ```c
-    Code sample
-    ```
-
 1. If the interface isn't present in the global model repository, try looking for it in any private model repositories known to your solution. You need a connection string to access a private model repository. For more information, see [Private model repository](overview-iot-plug-and-play.md).
-
-    ```c
-    Code sample
-    ```
-
 1. If you can't find all the interfaces in either the global model repository, or in a private model repository, you can check if the device can provide the interface definition. A device can implement the standard [ModelDefinition](overview-iot-plug-and-play.md) interface to publish information about how to retrieve interface files with a command.
-
-    ```c
-    Code sample
-    ```
-
 1. If you found JSON files for each interface implemented by the device, you can enumerate the capabilities of the device. Use the logic you wrote earlier to enable users to interact with the device.
 1. At any time, you can call the digital twins API to retrieve the capability model ID and interface IDs for the device.
-
-    ```c
-    Code sample
-    ```
 
 ## Next steps
 
