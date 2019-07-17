@@ -40,7 +40,7 @@ Data Box Edge has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|Accelerated AI inferencing| With FPGA.|
+|Accelerated AI inferencing| Enabled by the built-in FPGA.|
 |Computing       |Allows analysis, processing, filtering of data.|
 |High performance | High-performance compute and data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
