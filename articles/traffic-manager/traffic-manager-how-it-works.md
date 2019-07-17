@@ -72,7 +72,7 @@ The recursive DNS service caches the DNS responses it receives. The DNS resolver
 
 * [Does Traffic Manager support 'sticky' sessions?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
 
-* [Why am I seeing an HTTP error when using Traffic Manager?](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+* [Why am I seeing an HTTP error when using Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
 * [What is the performance impact of using Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
 
