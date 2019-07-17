@@ -60,12 +60,13 @@ Save the scene by selecting **File** -> **Save**.
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Ensure the **Export Project** checkbox does not have a check mark. Click **Build And Run**. You'll be asked to save your `.apk` file, you can pick any name for it.
+Ensure the **Export Project** checkbox does not have a check mark and that the build system is set to **Gradle**. Click **Build And Run**. You'll be asked to save your `.apk` file, you can pick any name for it.
 
 Follow the instructions in the app to place and recall an anchor.
 
-> [!NOTE]
-> When running the app, if you don't see the camera as the background (for instance you instead see a blank, blue or other textures) then you likely need to re-import assets in Unity. Stop the app. From the top menu in Unity, choose **Assets -> Reimport all**. Then, run the app again.
+## Troubleshooting
+
+When running the app, if you don't see the camera as the background (for instance you instead see a blank, blue or other textures) then you likely need to re-import assets in Unity. Stop the app. From the top menu in Unity, choose **Assets -> Reimport all**. Then, run the app again.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
