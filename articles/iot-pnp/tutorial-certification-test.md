@@ -95,5 +95,7 @@ Now that you've learned about certifying IoT Plug and Play device, here are some
 
 > [!div class="nextstepaction"]
 > [Digital Twin Definition Language (DTDL)](https://aka.ms/DTDL)<br>
+>
 > [C device SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)<br>
+>
 > [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
