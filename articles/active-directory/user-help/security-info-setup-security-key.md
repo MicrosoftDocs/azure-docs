@@ -45,7 +45,7 @@ Before you start to register your security key, double-check that:
 
 - You've received a physical security key from your administrator or your organization. Your security key must be both FIDO2 and Microsoft-compliant. If you have any questions about your security key and whether it's compatible, contact your organization's help desk.
 
-## How to register your security key
+## Register your security key
 
 You must prepare your security key to work with Windows and a unique PIN before you can sign in to your work or school account using the key.
 
@@ -84,7 +84,7 @@ You must prepare your security key to work with Windows and a unique PIN before 
 
 ## Delete a security key from your security info
 
-If you no longer want to use your security key, you can delete the key from your security info. While this stops the security key from being used with your work or school account, the security key continues to store your data and credential information. To delete your data and credential information from the security key itself, you must follow the instructions in the [Reset a Microsoft-compatible security key](#reset-a-microsoft-compatible-security-key) section of this article.
+If you no longer want to use your security key, you can delete the key from your security info. While this stops the security key from being used with your work or school account, the security key continues to store your data and credential information. To delete your data and credential information from the security key itself, you must follow the instructions in the [Reset a Microsoft-compatible security key](#reset-your-security-key) section of this article.
 
 1. Select the **Delete** link from the security key to remove.
 
@@ -93,7 +93,7 @@ If you no longer want to use your security key, you can delete the key from your
     Your security key is deleted and you'll no longer be able to use it to sign in to your work or school account.
 
 >[!Important]
->If you deleted this security key by mistake, you'll have to register it again using the instructions in the [How to register your security key](#how-to-register-your-security-key) section of this article.
+>If you deleted this security key by mistake, you'll have to register it again using the instructions in the [How to register your security key](#register-your-security-key) section of this article.
 
 ## Manage your security key settings from Windows Settings
 
