@@ -1,6 +1,6 @@
 ---
-title: Connect and test your Azure IoT Plug and Play device | Microsoft Docs
-description: This tutorial describes how to connect your device to the Azure IoT certification service and then run the Plug and Play certification tests.
+title: Certify your IoT Plug and Play device | Microsoft Docs
+description: This tutorial describes how to add your product information to the Azure Certified for IoT device catalog, connect your device to the Azure IoT certification service, and then run the Plug and Play certification tests.
 manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
@@ -11,17 +11,18 @@ ms.date: 06/21/2019
 # As a device builder, I want to certify my IoT Plug and Play device and add it to the Azure IoT device catalog so that customers can find it.
 ---
 
-# Tutorial: Add product and certify your IoT Plug and Play device
+# Tutorial: Certify your IoT Plug and Play device
 
-This tutorial shows you how to add product, connect your IoT Plug and Play device to the [Azure IoT certification service](https://aka.ms/azure-iot-aics) for applyging certification. Upon the completion of certification, you can publish the certified IoT Plug and Play device to the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat) via the [Azure Certified for IoT](https://aka.ms/ACFI) portal.
+To publish an IoT Plug and Play device in the Azure Certified for IoT device catalog](https://aka.ms/iotdevcat), it must pass a set of certification tests. Use the [Azure Certified for IoT](https://aka.ms/ACFI) portal to submit your device for certification. The [Azure IoT certification service](https://aka.ms/azure-iot-aics) runs the certification tests.
 
 In this tutorial, you learn:
 
-> * IoT Plug and Play certification requirements
-> * How to add your product name and information to the portal
-> * How to connect and discover IoT Plug and Play interfaces
-> * How to review IoT Plug and Play interfaces and run certification tests
-> * How to publish the certified IoT Plug and Play device to the catalog
+> [!div class="checklist"]
+> * What are the IoT Plug and Play certification requirements.
+> * How to add your product name and information to the portal.
+> * How to connect and discover IoT Plug and Play interfaces.
+> * How to review IoT Plug and Play interfaces and run certification tests.
+> * How to publish the certified IoT Plug and Play device to the catalog.
 
 ## Prerequisites
 
@@ -30,7 +31,7 @@ To complete this tutorial, you need:
 * A Microsoft Partner Center account
 * The Microsoft Partner Network ID
 
-For more details, learn [how to onboard to the Azure Certified for IoT](howto-onboard-portal.md) portal
+For more information, see [How to onboard to the Azure Certified for IoT](howto-onboard-portal.md) portal
 
 ## Certification requirements
 
@@ -59,7 +60,6 @@ After you've successfully created the product in the portal, the product is disp
 1. Select **Save**.
 1. Review the content you entered.
 
-
 ## Connect and discover interfaces
 
 To run the certification tests, connect your device to the [Azure IoT certification service](https://aka.ms/azure-iot-aics) (AICS) that is available in the portal.
@@ -80,11 +80,11 @@ These steps are one time step for running certification tests and it isn't neces
 
 ## Run tests and publish the device
 
-On the review page, review discovered the IoT Plug and Play interfaces and make sure the primitives implemented in the interface and its corresponding interface location are displayed correctly.
+On the review page, you can review the discovered IoT Plug and Play interfaces. Use this page to check the primitives implemented in the interface display correctly. You can also check the location of the interface.
 
-1. Make sure payload inputs are entered for required fields. These include payload information for the command primitive for the specified interface.
+1. Make sure payload inputs are entered for the required fields. These fields include payload information for the command primitive for the specified interface.
 1. When you've entered all the required information, select **Next**.
-1. To run the tests for implemented IoT Plug and Play interfaces, select **Run tests**.
+1. To run the tests for the implemented IoT Plug and Play interfaces, select **Run tests**.
 1. All the tests run automatically. If any tests fail, select **View logs** to view the error messages from AICS and the raw telemetry sent to Azure IoT Hub.
 1. To complete the certification tests, select **Finish**.
 1. Last step is to publish the certified IoT Plug and Play device to the catalog. To add the certified device to the catalog, select **Add to Catalog** on the toolbar.
@@ -93,6 +93,7 @@ On the review page, review discovered the IoT Plug and Play interfaces and make 
 
 Now that you've learned about certifying IoT Plug and Play device, here are some additional resources:
 
-- [Digital Twin Definition Language (DTDL)](https://aka.ms/DTDL)
-- [C device SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-- [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
+> [!div class="nextstepaction"]
+> * [Digital Twin Definition Language (DTDL)](https://aka.ms/DTDL)
+> * [C device SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+> * [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
