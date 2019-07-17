@@ -72,4 +72,4 @@ Don't delete the workspace created by Azure Migrate, unless you delete the migra
 
 ## Next steps
 - [Group machines using machine dependencies](how-to-create-group-machine-dependencies.md)
-- [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) about the FAQs on dependency visualization.
+- [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization) about the FAQs on dependency visualization.
