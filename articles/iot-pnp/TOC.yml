@@ -24,6 +24,8 @@
     href: iot-plug-and-play-glossary.md
   - name: Developer guide
     href: concepts-developer-guide.md
+  - name: Common interfaces
+    href: concepts-common-interfaces.md
 - name: How-to guides
   items:
   - name: Install IoT explorer
