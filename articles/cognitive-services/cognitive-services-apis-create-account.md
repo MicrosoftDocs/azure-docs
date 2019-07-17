@@ -64,7 +64,7 @@ After creating your resource, you can access it from the Azure dashboard if you 
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources contained in the group.
 
 To remove a resource group using the Azure portal:
 
