@@ -406,6 +406,8 @@
           href: app/api-filtering-sampling.md
         - name: Track custom operations in .NET SDK
           href: app/custom-operations-tracking.md
+        - name: Custom email reports
+          href: app/automate-custom-reports.md
         - name: Exceptions
           href: app/asp-net-exceptions.md
         - name: Log traces
@@ -422,16 +424,16 @@
           href: app/transaction-diagnostics.md
         - name: Correlate custom data sources
           href: app/custom-data-correlation.md
-      - name: Monitor applications
-        items:
-        - name: Deep diagnostics for web apps and services
-          href: app/devops.md
-        - name: Monitor performance in web applications
-          href: app/web-monitor-performance.md
-        - name: Separate development, test, and production
-          href: app/separate-resources.md
-        - name: How do I ... in Application Insights?
-          href: app/how-do-i.md
+        - name: Special topics
+          items:
+          - name: Deep diagnostics for web apps and services
+            href: app/devops.md
+          - name: Monitor performance in web applications
+            href: app/web-monitor-performance.md
+          - name: Separate development, test, and production
+            href: app/separate-resources.md
+          - name: How do I ... in Application Insights?
+            href: app/how-do-i.md
       - name: Export
         items:
         - name: Continuous export
@@ -985,10 +987,6 @@
       href: platform/cli-samples.md
     - name: Resource Manager templates
       href: platform/template-workspace-configuration.md
-    - name: Applications
-      items:
-      - name: Custom email reports
-        href: app/automate-custom-reports.md
   - name: Extend
     items:
     - name: Monitoring solutions
