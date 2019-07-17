@@ -47,7 +47,13 @@ To access Azure Monitor for VMs directly from a storage account:
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
-The **Overview** page shows several storage KPIs for that storage account, along with health state of the Storage service.  
+On the **Overview** page for the storage account, it shows several storage key performance indicators (KPIs) that help you quickly assess
+
+* Health of the Storage service to immediately see if an issue outside of your control is affecting the Storage service in the region it is deployed to, which is stated under the **Summary** column.
+
+* Interactive performance charts showing the most essential details related to storage capacity, availability, transactions, and latency.  
+
+* Rollup status indicators highlighting service availability, total count of transactions to the storage service, E2E latency, and server latency.
 
 ## View from Azure Monitor
 
@@ -79,13 +85,13 @@ Select any column, including **Availability**, **E2E Latency**, **Server Latency
 
     ![Performance report example](./media/storage-insights-overview/storage-account-performance-01.png)
 
-* **ClientOtherError/Errors** opens the **Failure** report. The report shows a rollup of all other client-side errors except described ones and successful requests, a performance chart for the transaction **Response Type** dimension metric specific to ClientOtherError attribute, and two tables - **Transactions by API name** and **Transactions by Response type**.
+* **ClientOtherError/Errors** and **ClientThrottlingError/Errors** opens the **Failure** report. The report shows a rollup of all other client-side errors except described ones and successful requests, client-throttling errors, a performance chart for the transaction **Response Type** dimension metric specific to ClientOtherError attribute, and two tables - **Transactions by API name** and **Transactions by Response type**.
 
    ![Failure report example](./media/storage-insights-overview/storage-account-failures-01.png)
 
-When you select a storage account from the list in the table, you drill down to the **Overview** report. This report focuses specifically on key performance indicators (KPIs) that helps you quickly assess:
+When you select a storage account from the list in the table, you drill down to the **Overview** report. This report focuses specifically on KPIs that helps you quickly assess:
 
-* Health of the Storage service to see immediately if an issue outside of your control is affecting the Storage service in the region it is deployed to, which is stated under the **Summarized** column.
+* Health of the Storage service to immediately see if an issue outside of your control is affecting the Storage service in the region it is deployed to, which is stated under the **Summary** column.
 
 * Interactive performance charts showing the most essential details related to storage capacity, availability, transactions, and latency.  
 
