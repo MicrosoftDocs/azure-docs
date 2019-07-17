@@ -18,6 +18,7 @@ This article includes frequently asked questions about Azure Migrate. If you hav
 Azure Migrate currently supports a number of geographies in which an Azure Migrate project can be created. Even though you can only create projects in these geographies, you can still assess or migrate your machines for other target locations. The project geography is only used to store the discovered metadata.
 
 **Geography** | **Metadata storage location**
+--- | ---
 Azure Government | US Gov Virginia
 Asia | Southeast Asia or East Asia
 Europe | South Europe or West Europe
