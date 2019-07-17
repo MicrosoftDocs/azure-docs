@@ -112,6 +112,9 @@ Registration features for FIDO2 security keys rely on the combined registration 
    1. **Target** - All users or Select users
 1. **Save** each method
 
+> [!NOTE]
+> If you have enabled passwordless phone sign-in before using the Azure AD PowerShell method, you had no choice but to enable it for all users in the tenant. If you are enabling it via the new method after doing so using powershell, you should either select each user that is actively using it as the target or "all users".
+
 > [!WARNING]
 > The FIDO2 “Key restriction policies” do not work yet. This functionality will be available before general availability, please do not change these policies from default.
 
