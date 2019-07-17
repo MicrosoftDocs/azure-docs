@@ -28,7 +28,7 @@ United States | Central US or West US 2
 
 
 > [!NOTE]
-> Support for Azure Government is only available for the [older version](https://docs.microsoft.com/en-us/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate and will be enabled in future for the new version.
+> Support for Azure Government is currently only available for the [older version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
 
 ### How is Azure Migrate different from Azure Site Recovery?
 
