@@ -4,7 +4,7 @@ description: This article provides information on web application firewall reque
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 5/15/2019
+ms.date: 7/17/2019
 ms.author: victorh
 ms.topic: conceptual
 ---
