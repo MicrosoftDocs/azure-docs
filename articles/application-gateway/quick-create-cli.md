@@ -55,8 +55,8 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
-  --allocation-method Static
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
   --sku Standard
 ```
 
