@@ -117,6 +117,10 @@ If the issue still happens in the latest version, it could be because the collec
 
 ## Discovery issues
 
+### I started discovery but I do not see the discovered VMs on Azure portal. Server Assessment and Server Migrate tiles show a status of "Discovery in progress"
+If you have just started the discovery from the appliance, please allow some time for the discovered machines to show up on the Azure portal. It takes around 15 minutes in the case of a VMware discovery, and around 2 minutes per added host in the case of a Hyper-V discovery. If you continue to see "Discovery in progress" even after this time, click **Refresh** on the **Servers** tab. This should show the count of the discovered servers in the Server Assessment and Server Migration tiles.
+
+
 ### I am using the appliance that continuously discovers my on-premises environment, but the VMs that are deleted in my on-premises environment are still being shown in the portal.
 
 It takes up to 30 minutes for the discovery data gathered by the appliance to reflect in the portal. If you do not see up-to-date information even after 30 minutes, issue a refresh on the data using the following steps:
@@ -134,6 +138,18 @@ It takes up to 30 minutes for the discovery data gathered by the appliance to re
 2. Under **Manage**, click on **Agent Health**
 3. Click on the option to **Refresh agent**. You will see this below option below the list of agents.
 4. Wait for the refresh operation to complete. Verify that you are able to see up-to-date information on your VMs.
+
+### Unable to connect to host(s) in cluster as host name cannot be resolved. WinRM error code: 0x803381B9 (Error ID: 50004)
+This can happen if the DNS serving the appliance cannot resolve the cluster or host name you provided. If you see this error on the cluster, try providing the fully qualified domain name of the cluster. 
+
+You may see this error for hosts in a cluster as well. You may have provided a fully qualified domain name for the cluster, due to which the appliance was able to connect to the cluster. But the cluster may have returned the host names that are not fully qualified domain names. 
+
+To resolve this error, update the hosts file on the appliance providing a mapping of the host IP address to the host names.
+1. Open Notepad as administrator user. Open the file C:\Windows\System32\Drivers\etc\hosts.
+2. Add the IP address and host name in a row. Repeat for each host or cluster where you see this error.
+3. Save and close hosts file.
+4. You can validate if the appliance is able to connect to the hosts using the appliance management app. After 30 minutes, you should be able to see the latest information on these hosts on the Azure portal. 
+
 
 ## Assessment issues
 
