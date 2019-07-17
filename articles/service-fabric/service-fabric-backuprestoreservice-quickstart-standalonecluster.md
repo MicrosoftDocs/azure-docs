@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 5/24/2019
 ms.author: hrushib
 
 ---
@@ -50,7 +50,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 - Retention management of backups (upcoming)
 
 ## Prerequisites
-* Service Fabric cluster with Fabric version 6.2 and above. The cluster should be set up on Windows Server. Refer to this [article](service-fabric-cluster-creation-for-windows-server.md) for steps to download required package.
+* Service Fabric cluster with Fabric version 6.4 or above. Refer to this [article](service-fabric-cluster-creation-for-windows-server.md) for steps to download required package.
 * X.509 Certificate for encryption of secrets needed to connect to storage to store backups. Refer [article](service-fabric-windows-cluster-x509-security.md) to know how to acquire or to Create a self-signed X.509 certificate.
 
 * Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .Net Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
@@ -166,9 +166,6 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
-> [!IMPORTANT]
-> Due to an issue in the runtime, ensure that the retention duration in the retention policy is configured to be less than 24 days or else it would result in Backup Restore service to go into quorum loss post replica failover.
-
 ### Enable periodic backup
 After defining policy to fulfill data protection requirements of the application, the backup policy should be associated with the application. Depending on requirement, the backup policy can be associated with an application, service, or a partition.
 
@@ -261,11 +258,6 @@ LsnOfLastBackupRecord   : 2437
 CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
-
-## Known Issues
-- Ensure that the retention duration is configured to be less than 24 days. 
-- Backup Restore service doesn't come up on locales where the decimal separator is other than '.'
-- Backup Restore service fails to come up on cluster secured with gMSA based security.
 
 ## Limitation/ caveats
 - Service Fabric PowerShell cmdlets are in preview mode.

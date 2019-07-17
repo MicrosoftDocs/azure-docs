@@ -203,7 +203,6 @@ Media Analytics is a collection of speech and vision components that makes it ea
 |Media processor name|Status|Datacenters
 |---|---|---|
 |Azure Media Face Detector|Preview|All|
-|Azure Media Hyperlapse|Preview|All|
 |Azure Media Indexer|GA|All|
 |Azure Media Motion Detector|Preview|All|
 |Azure Media OCR|Preview|All|

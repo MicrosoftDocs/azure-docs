@@ -11,7 +11,7 @@ ms.author: mialdrid
 ms.custom: seodec18
 
 ---
-# About ExpressRoute virtual network gateway and FastPath
+# ExpressRoute virtual network gateway and FastPath
 To connect your Azure virtual network and your on-premises network via ExpressRoute, you must create a virtual network gateway first. A virtual network gateway serves two purposes: exchange IP routes between the networks and route network traffic. This article explains gateway types, gateway SKUs and estimated performance by SKU. This article also explains ExpressRoute [FastPath](#fastpath), a feature that enables the network traffic from your on-premises network to bypass the virtual network gateway to improve performance.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

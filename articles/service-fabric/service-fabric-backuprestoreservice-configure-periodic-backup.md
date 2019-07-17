@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 2/01/2019
 ms.author: hrushib
 
 ---
@@ -133,9 +133,6 @@ A backup policy consists of the following configurations:
             "MinimumNumberOfBackups": 20
         }
         ```
-
-> [!IMPORTANT]
-> Due to an issue in the runtime, ensure that the retention duration in the retention policy is configured to be less than 24 days or else it would result in Backup Restore service to go into quorum loss post replica failover.
 
 ## Enable periodic backup
 After defining backup policy to fulfill data backup requirements, the backup policy should be appropriately associated either with an _application_, or _service_, or a _partition_.

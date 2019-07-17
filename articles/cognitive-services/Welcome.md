@@ -6,10 +6,10 @@ author: nitinme
 manager: nitinme
 
 ms.service: cognitive-services
-ms.subservice: 
+ms.subservice:
 ms.topic: article
 ms.date: 04/19/2019
-ms.author: nitinme 
+ms.author: nitinme
 ---
 
 # What are Azure Cognitive Services?

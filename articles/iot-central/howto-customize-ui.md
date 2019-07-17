@@ -73,6 +73,5 @@ You can also add new entries to the help menu and remove default entries:
 
 Now that you've learned how to customize the UI in your IoT Central application, here are some suggested next steps:
 
-> [!div class="nextstepaction"]
-> [Administer your application](./howto-administer.md)
-> [Configure the application dashboard](./howto-configure-homepage.md)
+- [Administer your application](./howto-administer.md)
+- [Configure the application dashboard](./howto-configure-homepage.md)

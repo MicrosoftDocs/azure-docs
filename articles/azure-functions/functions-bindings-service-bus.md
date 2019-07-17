@@ -4,7 +4,7 @@ description: Understand how to use Azure Service Bus triggers and bindings in Az
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
@@ -292,7 +292,7 @@ In C# and C# script, you can use the following parameter types for the queue or 
 * `string` - If the message is text.
 * `byte[]` - Useful for binary data.
 * A custom type - If the message contains JSON, Azure Functions tries to deserialize the JSON data.
-* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
+* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
   method.
 
 These parameters are for Azure Functions version 1.x; for 2.x, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
@@ -328,7 +328,7 @@ The Service Bus trigger provides several [metadata properties](./functions-bindi
 |`CorrelationId`|`string`|The correlation ID.|
 
 > [!NOTE]
-> Currently, trigger only works with queues and subscriptions that don't use sessions. Please track [this feature item](https://github.com/Azure/azure-functions-host/issues/563) for any further updates regarding this feature. 
+> Currently, Service bus trigger that works with session enabled queues and subscriptions is in preview. Please track [this item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) for any further updates regarding this. 
 
 See [code examples](#trigger---example) that use these properties earlier in this article.
 

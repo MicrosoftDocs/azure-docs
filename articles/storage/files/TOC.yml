@@ -121,10 +121,14 @@
       href: storage-sync-offline-data-transfer.md
     - name: Move data to and from Azure Storage
       href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: AzCopy on Windows
-      href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: AzCopy on Linux
-      href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Move data with AzCopy
+      items:
+        - name: Get started
+          href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Use with Files
+          href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Configure, optimize, troubleshoot
+          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Develop
     items:
     - name: Configure connection strings

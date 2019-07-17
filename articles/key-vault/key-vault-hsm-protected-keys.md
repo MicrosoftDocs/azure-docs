@@ -94,119 +94,119 @@ Do not close the Azure PowerShell window.
 
 Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](https://www.microsoft.com/download/details.aspx?id=45345) for your geographic region or instance of Azure. Use the following information to identify the package name to download and its corresponding SHA-256 package hash:
 
-- - -
+---
 **United States:**
 
 KeyVault-BYOK-Tools-UnitedStates.zip
 
 2E8C00320400430106366A4E8C67B79015524E4EC24A2D3A6DC513CA1823B0D4
 
-- - -
+---
 **Europe:**
 
 KeyVault-BYOK-Tools-Europe.zip
 
 9AAA63E2E7F20CF9BB62485868754203721D2F88D300910634A32DFA1FB19E4A
 
-- - -
+---
 **Asia:**
 
 KeyVault-BYOK-Tools-AsiaPacific.zip
 
 4BC14059BF0FEC562CA927AF621DF665328F8A13616F44C977388EC7121EF6B5
 
-- - -
+---
 **Latin America:**
 
 KeyVault-BYOK-Tools-LatinAmerica.zip
 
 E7DFAFF579AFE1B9732C30D6FD80C4D03756642F25A538922DD1B01A4FACB619
 
-- - -
+---
 **Japan:**
 
 KeyVault-BYOK-Tools-Japan.zip
 
 3933C13CC6DC06651295ADC482B027AF923A76F1F6BF98B4D4B8E94632DEC7DF
 
-- - -
+---
 **Korea:**
 
 KeyVault-BYOK-Tools-Korea.zip
 
 71AB6BCFE06950097C8C18D532A9184BEF52A74BB944B8610DDDA05344ED136F
 
-- - -
+---
 **South Africa:**
 
 KeyVault-BYOK-Tools-SouthAfrica.zip
 
 C41060C5C0170AAAAD896DA732E31433D14CB9FC83AC3C67766F46D98620784A
 
-- - -
+---
 **UAE:**
 
 KeyVault-BYOK-Tools-UAE.zip
 
 FADE80210B06962AA0913EA411DAB977929248C65F365FD953BB9F241D5FC0D3
 
-- - -
+---
 **Australia:**
 
 KeyVault-BYOK-Tools-Australia.zip
 
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
-- - -
+---
 [**Azure Government:**](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
 F8DB2FC914A7360650922391D9AA79FF030FD3048B5795EC83ADC59DB018621A
 
-- - -
+---
 **US Government DOD:**
 
 KeyVault-BYOK-Tools-USGovernmentDoD.zip
 
 A79DD8C6DFFF1B00B91D1812280207A205442B3DDF861B79B8B991BB55C35263
 
-- - -
+---
 **Canada:**
 
 KeyVault-BYOK-Tools-Canada.zip
 
 61BE1A1F80AC79912A42DEBBCC42CF87C88C2CE249E271934630885799717C7B
 
-- - -
+---
 **Germany:**
 
 KeyVault-BYOK-Tools-Germany.zip
 
 5385E615880AAFC02AFD9841F7BADD025D7EE819894AA29ED3C71C3F844C45D6
 
-- - -
+---
 **India:**
 
 KeyVault-BYOK-Tools-India.zip
 
 49EDCEB3091CF1DF7B156D5B495A4ADE1CFBA77641134F61B0E0940121C436C8
 
-- - -
+---
 **France:**
 
 KeyVault-BYOK-Tools-France.zip
 
 5C9D1F3E4125B0C09E9F60897C9AE3A8B4CB0E7D13A14F3EDBD280128F8FE7DF
 
-- - -
+---
 **United Kingdom:**
 
 KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 432746BD0D3176B708672CCFF19D6144FCAA9E5EB29BB056489D3782B3B80849
 
-- - -
+---
 
 To validate the integrity of your downloaded BYOK toolset, from your Azure PowerShell session, use the [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet.
 

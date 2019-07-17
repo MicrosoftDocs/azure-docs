@@ -2,14 +2,14 @@
 title: Azure Traffic Manager endpoint monitoring | Microsoft Docs
 description: This article can help you understand how Traffic Manager uses endpoint monitoring and automatic endpoint failover to help Azure customers deploy high-availability applications
 services: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Traffic Manager endpoint monitoring
@@ -69,7 +69,7 @@ Endpoint monitor status is a Traffic Manager-generated value that shows the stat
 | Enabled |Enabled |Online |The endpoint is monitored and is healthy. It is included in DNS responses and can receive traffic. |
 | Enabled |Enabled |Degraded |Endpoint monitoring health checks are failing. The endpoint is not included in DNS responses and does not receive traffic. <br>An exception to this is if all endpoints are degraded, in which case all of them are considered to be returned in the query response).</br>|
 | Enabled |Enabled |CheckingEndpoint |The endpoint is monitored, but the results of the first probe have not been received yet. CheckingEndpoint is a temporary state that usually occurs immediately after adding or enabling an endpoint in the profile. An endpoint in this state is included in DNS responses and can receive traffic. |
-| Enabled |Enabled |Stopped |The cloud service or web app that the endpoint points to is not running. Check the cloud service or web app settings. This can also happen if the endpoint is of type nested endpoint and the child profile is disabled or is inactive. <br>An endpoint with a Stopped status is not monitored. It is not included in DNS responses and does not receive traffic. An exception to this is if all endpoints are degraded, in which case all of them will be considered to be returned in the query response.</br>|
+| Enabled |Enabled |Stopped |The web app that the endpoint points to is not running. Check the web app settings. This can also happen if the endpoint is of type nested endpoint and the child profile is disabled or is inactive. <br>An endpoint with a Stopped status is not monitored. It is not included in DNS responses and does not receive traffic. An exception to this is if all endpoints are degraded, in which case all of them will be considered to be returned in the query response.</br>|
 
 For details about how endpoint monitor status is calculated for nested endpoints, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
@@ -93,10 +93,11 @@ The profile monitor status is a combination of the configured profile status and
 Traffic Manager periodically checks the health of every endpoint, including unhealthy endpoints. Traffic Manager detects when an endpoint becomes healthy and brings it back into rotation.
 
 An endpoint is unhealthy when any of the following events occur:
+
 - If the monitoring protocol is HTTP or HTTPS:
     - A non-200 response, or a response that does not include the status range specified in the **Expected status code ranges** setting, is received (including a different 2xx code, or a 301/302 redirect).
 - If the monitoring protocol is TCP: 
-    - A response other than ACK or SYN-ACK is received in response to the SYNC request sent by Traffic Manager to attempt a connection establishment.
+    - A response other than ACK or SYN-ACK is received in response to the SYN request sent by Traffic Manager to attempt a connection establishment.
 - Timeout. 
 - Any other connection issue resulting in the endpoint being not reachable.
 
@@ -146,8 +147,6 @@ For more information, see [Traffic Manager traffic-routing methods](traffic-mana
 > The consequence of this behavior is that if Traffic Manager health checks are not configured correctly, it might appear from the traffic routing as though Traffic Manager *is* working properly. However, in this case, endpoint failover cannot happen which affects overall application availability. It is important to check that the profile shows an Online status, not a Degraded status. An Online status indicates that the Traffic Manager health checks are working as expected.
 
 For more information about troubleshooting failed health checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
-
-
 
 ## Next steps
 

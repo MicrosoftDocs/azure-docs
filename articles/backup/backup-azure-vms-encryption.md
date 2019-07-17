@@ -7,7 +7,7 @@ manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
-ms.author: geetha
+ms.author: geg
 ---
 # Back up and restore encrypted Azure VM
 

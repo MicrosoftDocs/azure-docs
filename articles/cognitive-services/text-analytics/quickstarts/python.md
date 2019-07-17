@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/09/2019
+ms.date: 06/28/2019
 ms.author: aahi
 ---
 
@@ -45,7 +45,6 @@ Create a new Python application in your favorite editor or IDE. Add the followin
 import requests
 # pprint is used to format the JSON response
 from pprint import pprint
-from IPython.display import HTML
 ```
 
 Create variables for your subscription key, and the endpoint for the Text Analytics REST API. Verify that the region in the endpoint corresponds to the one you used when you signed up (for example `westcentralus`). If you're using a free trial key, you don't need to change anything.
@@ -288,6 +287,7 @@ Use the Requests library to send the documents to the API. Add your subscription
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
 response  = requests.post(entities_url, headers=headers, json=documents)
 entities = response.json()
+pprint(entities)
 ```
 
 ### Output

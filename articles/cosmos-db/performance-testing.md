@@ -4,7 +4,7 @@ description: Learn how to do scale and performance testing with Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 

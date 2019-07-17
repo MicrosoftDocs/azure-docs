@@ -8,9 +8,9 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: resources
+ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kylestorck
+ms.author: kylsto
 ---
 # Project Acoustics Known Issues
 You might encounter the following known issues when using the Designer Preview for Project Acoustics.

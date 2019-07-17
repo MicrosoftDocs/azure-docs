@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 07/17/2019
 ms.author: helohr
 ---
 # What is Windows Virtual Desktop Preview? 
@@ -21,6 +21,12 @@ Here’s what you can do when you run Windows Virtual Desktop on Azure:
 * Bring your existing Remote Desktop Services (RDS) and Windows Server desktops and apps to any computer
 * Virtualize both desktops and apps
 * Manage Windows 10, Windows Server, and Windows 7 desktops and apps with a unified management experience
+
+## Introductory video
+
+In the following video, Scott Manchester demonstrates some of Windows Virtual Desktop's capabilities:
+
+<br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## Key capabilities
 
@@ -88,17 +94,12 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
 
-
 ## Supported virtual machine OS image
 
 Windows Virtual Desktop supports the following OS images:
 
 * Windows 10 Enterprise multi-session
 * Windows Server 2016
-
-## Provide feedback
-
-Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members. We currently aren't taking support cases while Windows Virtual Desktop is in preview.
 
 ## Next steps
 

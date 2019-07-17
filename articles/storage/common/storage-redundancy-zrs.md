@@ -45,7 +45,7 @@ ZRS may not protect your data against a regional disaster where multiple zones a
 ## Converting to ZRS replication
 Migrating to or from LRS, GRS, and RA-GRS is straightforward. Use the Azure portal or the Storage Resource Provider API to change your account's redundancy type. Azure will then replicate your data accordingly. 
 
-Migrating data to or from ZRS requires a different strategy. ZRS migration involves the physical movement of data from a single storage stamp to multiple stamps within a region.
+Migrating data to ZRS requires a different strategy. ZRS migration involves the physical movement of data from a single storage stamp to multiple stamps within a region.
 
 There are two primary options for migration to ZRS: 
 

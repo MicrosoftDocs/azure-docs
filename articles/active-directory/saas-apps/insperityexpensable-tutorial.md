@@ -105,7 +105,7 @@ To configure Azure AD single sign-on with Insperity ExpensAble, perform the foll
     `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Insperity ExpensAble Client support team](http://expensable.com/support/support-overview) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [Insperity ExpensAble Client support team](https://www.insperity.com/products/expense-management/support/express/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -123,7 +123,7 @@ To configure Azure AD single sign-on with Insperity ExpensAble, perform the foll
 
 ### Configure Insperity ExpensAble Single Sign-On
 
-To configure single sign-on on **Insperity ExpensAble** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Insperity ExpensAble support team](http://expensable.com/support/support-overview). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Insperity ExpensAble** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Insperity ExpensAble support team](https://www.insperity.com/products/expense-management/support/express/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -178,7 +178,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Insperity ExpensAble test user
 
-In this section, you create a user called Britta Simon in Insperity ExpensAble. Work with [Insperity ExpensAble support team](http://expensable.com/support/support-overview) to add the users in the Insperity ExpensAble platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Insperity ExpensAble. Work with [Insperity ExpensAble support team](https://www.insperity.com/products/expense-management/support/express/) to add the users in the Insperity ExpensAble platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
@@ -192,4 +192,4 @@ When you click the Insperity ExpensAble tile in the Access Panel, you should be 
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -118,7 +118,7 @@ If you have a previous version of Deployment Planner, do either of the following
 
 ## Version history
 The latest Site Recovery Deployment Planner tool version is 2.4.
-See the [Site Recovery Deployment Planner version history](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-deployment-planner-history) page for the fixes that are added in each update.
+See the [Site Recovery Deployment Planner version history](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) page for the fixes that are added in each update.
 
 ## Next steps
 [Run Site Recovery Deployment Planner](site-recovery-vmware-deployment-planner-run.md)

@@ -3,8 +3,8 @@ title: Learn how to onboard Update Management, Change Tracking, and Inventory so
 description: Learn how to onboard an Azure Virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
@@ -98,6 +98,8 @@ If you used the Start/Stop VMs during off-hours solution, optionally you may wan
 * Start and stop VM runbook schedules
 * Start and stop VM runbooks
 * Variables
+
+Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
 
 ## Troubleshooting
 

@@ -108,6 +108,13 @@ The simulated device application connects to a device-specific endpoint on your 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
     ![Run the simulated device](media/quickstart-send-telemetry-python/SimulatedDevice.png)
+    
+### To avoid the import iothub_client error
+The current version of the Azure IoT SDK for Python is a wrapper over [our C SDK](https://github.com/azure/azure-iot-sdk-c). It is generated using the [Boost](https://www.boost.org/) library. Because of that, it comes with several significant limitations. See more details [here](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)
+
+1. Check that you have the right version of [Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues). Be aware that only certain versions works fine for this sample. 
+2. Check that you have the right version of C++ runtime  [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads). (We recommend the latest).
+3. Verify that you have installed the iothub client: `pip install azure-iothub-device-client`.
 
 ## Read the telemetry from your hub
 

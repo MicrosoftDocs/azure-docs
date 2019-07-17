@@ -43,7 +43,7 @@ sections:
     - image: 
         src: /azure/search/media/index/rest.svg
       text: REST
-      href: https://docs.microsoft.com/azure/search/search-fiddler
+      href: https://docs.microsoft.com/azure/search/search-get-started-postman
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

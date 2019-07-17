@@ -32,15 +32,15 @@ When you first set up PIM for Azure resources, you need to discover and select t
 
     If this is your first time using PIM for Azure resources, you'll see a Discover resources pane.
 
-    ![Discover resources - first time](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
+    ![Discover resources pane with no resources listed for first time experience](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
     If another resource or directory administrator in your organization is already managing Azure resources in PIM, you'll see a list of the resources that are currently being managed.
 
-    ![Discover resources pane](./media/pim-resource-roles-discover-resources/discover-resources.png)
+    ![Discover resources pane listing resources that are currently being managed](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
 1. Click **Discover resources** to launch the discovery experience.
 
-    ![Discovery pane](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![Discovery pane listing resources that can be managed such as subscriptions and management groups](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
 1. On the Discovery pane, use **Resource state filter** and **Select resource type** to filter the management groups or subscriptions you have write permission to. It's probably easiest to start with **All** initially.
 
@@ -53,11 +53,11 @@ When you first set up PIM for Azure resources, you need to discover and select t
     > [!NOTE]
     > Once a management group or subscription is set to managed, it can't be unmanaged. This prevents another resource administrator from removing PIM settings.
 
-    ![Discovery - Manage resource](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
+    ![Discovery pane with a resource selected and the Manage resource option highlighted](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
 1. If you see a message to confirm the onboarding of the selected resource for management, click **Yes**.
 
-    ![Discovery - Manage resource message](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
+    ![Message confirming to onboard the selected resources for management](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## Next steps
 

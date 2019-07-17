@@ -10,9 +10,7 @@
  ms.custom: include file
 ---
 
-To quickly create a VNet, you can click "Try It" in this article to open a PowerShell console. Adjust the values, then copy and paste the commands into the console window. To learn more about the new Az module and AzureRM compatibility, see
-[Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az). For
-Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+To quickly create a VNet, you can click "Try It" in this article to open a PowerShell console in Azure Cloud Shell. Adjust the values, then copy and paste the commands into the console window. 
 
 Be sure to verify that the address space for the VNet that you create does not overlap with any of the address ranges for other VNets that you want to connect to, or with your on-premises network address spaces.
 

@@ -1,12 +1,12 @@
 ---
-title: 'Quickstart: Create an Azure Data Explorer cluster and database by using C#'
+title: 'Create an Azure Data Explorer cluster and database by using C#'
 description: Learn how to create an Azure Data Explorer cluster and database by using the C#
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
+ms.topic: conceptual
+ms.date: 06/03/2019
 ---
 
 # Create an Azure Data Explorer cluster and database by using C#
@@ -19,7 +19,7 @@ ms.date: 03/25/2019
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database by using C#.
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this article, you create a cluster and a database by using C#.
 
 ## Prerequisites
 
@@ -107,7 +107,7 @@ You now have a cluster and a database.
 
 ## Clean up resources
 
-* If you plan to follow our other quickstarts and tutorials, keep the resources you created.
+* If you plan to follow our other articles, keep the resources you created.
 * To clean up resources, delete the cluster. When you delete a cluster, it also deletes all the databases in it. Use the following command to delete your cluster:
 
     ```C#-interactive
@@ -116,5 +116,4 @@ You now have a cluster and a database.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Quickstart: Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)
+* [Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)

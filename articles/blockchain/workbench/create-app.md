@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/14/2019
+ms.date: 05/30/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
@@ -34,10 +34,10 @@ You'll learn how to:
 
 ## Hello, Blockchain!
 
-Let's build a basic application in which a requestor sends a request and a responder send a response to the request. 
-For example, a request can be, "Hello, how are you?", and the response can be, "I'm great!". Both the request and the response are recorded on the underlying blockchain. 
+Let's build a basic application in which a requestor sends a request and a responder send a response to the request.
+For example, a request can be, "Hello, how are you?", and the response can be, "I'm great!". Both the request and the response are recorded on the underlying blockchain.
 
-Follow the steps to create the application files or you can [download the sample from GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
+Follow the steps to create the application files or you can [download the sample from GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain).
 
 ## Configuration file
 
@@ -211,7 +211,7 @@ The application roles section defines the user roles who can act or participate 
 
 ### Workflows
 
-Workflows define one or more stages and actions of the contract. In the request-response scenario, the first stage (state) of the workflow is a requestor (role) takes an action (transition) to send a request (function). The next stage (state) is a responder (role) takes an action (transition) to send a response (function). An application's workflow can involve properties, functions, and states required describe the flow of a contract. 
+Workflows define one or more stages and actions of the contract. In the request-response scenario, the first stage (state) of the workflow is a requestor (role) takes an action (transition) to send a request (function). The next stage (state) is a responder (role) takes an action (transition) to send a response (function). An application's workflow can involve properties, functions, and states required describe the flow of a contract.
 
 For more information about the contents of configuration files, see [Azure Blockchain Workflow configuration reference](configuration.md).
 
@@ -225,24 +225,23 @@ In your favorite editor, create a file called `HelloBlockchain.sol`.
 
 ### Version pragma
 
-As a best practice, indicate the version of Solidity you are targeting. Specifying the version helps avoid incompatibilities with future Solidity versions. 
+As a best practice, indicate the version of Solidity you are targeting. Specifying the version helps avoid incompatibilities with future Solidity versions.
 
 Add the following version pragma at the top of `HelloBlockchain.sol` smart contract code file.
 
-
-  ``` solidity
-  pragma solidity ^0.4.20;
-  ```
+``` solidity
+pragma solidity >=0.4.25 <0.6.0;
+```
 
 ### Configuration and smart contract code relationship
 
-Blockchain Workbench uses the configuration file and smart contract code file to create a blockchain application. There is a relationship between what is defined in the configuration and the code in the smart contract. Contract details, functions, parameters, and types are required to match to create the application. Blockchain Workbench verifies the files prior to application creation. 
+Blockchain Workbench uses the configuration file and smart contract code file to create a blockchain application. There is a relationship between what is defined in the configuration and the code in the smart contract. Contract details, functions, parameters, and types are required to match to create the application. Blockchain Workbench verifies the files prior to application creation.
 
 ### Contract
 
 Add the **contract** header to your `HelloBlockchain.sol` smart contract code file.
 
-```
+``` solidity
 contract HelloBlockchain {
 ```
 
@@ -250,17 +249,17 @@ contract HelloBlockchain {
 
 State variables store values of the state for each contract instance. The state variables in your contract must match the workflow properties defined in the configuration file.
 
-Add the state variables to your contract in your `HelloBlockchain.sol` smart contract code file. 
+Add the state variables to your contract in your `HelloBlockchain.sol` smart contract code file.
 
-```
+``` solidity
     //Set of States
     enum StateType { Request, Respond}
-    
+
     //List of properties
     StateType public  State;
     address public  Requestor;
     address public  Responder;
-    
+
     string public RequestMessage;
     string public ResponseMessage;
 ```
@@ -271,11 +270,11 @@ The constructor defines input parameters for a new smart contract instance of a 
 
 In the constructor function, write any business logic you want to perform prior to creating the contract. For example, initialize the state variables with starting values.
 
-Add the constructor function to your contract in your `HelloBlockchain.sol` smart contract code file. 
+Add the constructor function to your contract in your `HelloBlockchain.sol` smart contract code file.
 
-```
+``` solidity
     // constructor function
-    constructor(string message) public
+    constructor(string memory message) public
     {
         Requestor = msg.sender;
         RequestMessage = message;
@@ -289,22 +288,23 @@ Functions are the executable units of business logic within a contract. Required
 
 Write any business logic you want to perform in the function. For example, modifying a state variable's value.
 
-1. Add the following functions to your contract in your `HelloBlockchain.sol` smart contract code file. 
+1. Add the following functions to your contract in your `HelloBlockchain.sol` smart contract code file.
 
-    ```
+    ``` solidity
         // call this function to send a request
-        function SendRequest(string requestMessage) public
+        function SendRequest(string memory requestMessage) public
         {
             if (Requestor != msg.sender)
             {
                 revert();
             }
+    
             RequestMessage = requestMessage;
             State = StateType.Request;
         }
     
         // call this function to send a response
-        function SendResponse(string responseMessage) public
+        function SendResponse(string memory responseMessage) public
         {
             Responder = msg.sender;
     
@@ -330,7 +330,7 @@ To add a blockchain application to Blockchain Workbench, you upload the configur
 Deployment of the blockchain application takes a few minutes. When deployment is finished, the new application is displayed in **Applications**. 
 
 > [!NOTE]
-> You can also create blockchain applications by using the [Azure Blockchain Workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench). 
+> You can also create blockchain applications by using the [Azure Blockchain Workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench).
 
 ## Add blockchain application members
 

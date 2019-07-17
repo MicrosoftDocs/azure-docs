@@ -2,15 +2,16 @@
 title: Web sign-in with OpenID Connect - Azure Active Directory B2C | Microsoft Docs
 description: Build web applications using the OpenID Connect authentication protocol in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
+ms.custom: fasttrack-edit
 ---
 
 # Web sign-in with OpenID Connect in Azure Active Directory B2C
@@ -130,6 +131,8 @@ To determine which user flow was used in signing an ID token (and from where to 
 
 After you've acquired the metadata document from the OpenID Connect metadata endpoint, you can use the RSA 256 public keys to validate the signature of the ID token. There might be multiple keys listed at this endpoint, each identified by a `kid` claim. The header of the ID token also contains a `kid` claim, which indicates which of these keys was used to sign the ID token.
 
+To verify the tokens from Azure AD B2C, you need to generate the public key using the exponent(e) and modulus(n). You need to determine how to do this in your respective programming language accordingly. The official documentation on Public Key generation with the RSA protocol can be found here: https://tools.ietf.org/html/rfc3447#section-3.1
+
 After you've validated the signature of the ID token, there are several claims that you need to verify. For instance:
 
 - Validate the `nonce` claim to prevent token replay attacks. Its value should be what you specified in the sign-in request.
@@ -148,7 +151,9 @@ After you validate the ID token, you can begin a session with the user. You can 
 
 If you need your web application to only run user flows, you can skip the next few sections. These sections are applicable only to web applications that need to make authenticated calls to a web API and are also protected by Azure AD B2C.
 
-You can redeem the authorization code that you acquired (by using `response_type=code+id_token`) for a token to the desired resource by sending a `POST` request to the `/token` endpoint. Currently, the only resource that you can request a token for is your application's own back-end web API. The convention for requesting a token to yourself is to use your application's client ID as the scope:
+You can redeem the authorization code that you acquired (by using `response_type=code+id_token`) for a token to the desired resource by sending a `POST` request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other API's](active-directory-b2c-access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
+
+You can also request an access token for your app's own back-end Web API by convention of using the app's client ID as the requested scope (which will result in an access token with that client ID as the "audience"):
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

@@ -47,7 +47,7 @@ example](../concepts/effects.md#deployifnotexists-example).
 "details": {
     ...
     "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
         "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
     ]
 }
@@ -58,10 +58,6 @@ the role. To get the ID for the 'Contributor' role in your environment, use the 
 
 ```azurecli-interactive
 az role definition list --name 'Contributor'
-```
-
-```azurepowershell-interactive
-Get-AzRoleDefinition -Name 'Contributor'
 ```
 
 ## Manually configure the managed identity

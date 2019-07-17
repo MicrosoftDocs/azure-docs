@@ -210,7 +210,7 @@ or
 ```
 
 > [!NOTE]
-> Backend entities can be managed via management [API](https://docs.microsoft.com/rest/api/apimanagement/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Backend entities can be managed via management [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### Example
 
@@ -265,7 +265,7 @@ In this example the policy routes the request to a service fabric backend, using
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |base-url|New backend service base URL.|One of `base-url` or `backend-id` must be present.|N/A|
-|backend-id|Identifier of the backend to route to. (Backend entities are managed via [API](https://docs.microsoft.com/rest/api/apimanagement/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|One of `base-url` or `backend-id` must be present.|N/A|
+|backend-id|Identifier of the backend to route to. (Backend entities are managed via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|One of `base-url` or `backend-id` must be present.|N/A|
 |sf-partition-key|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Used to resolve a specific partition from the name resolution service.|No|N/A|
 |sf-replica-type|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Controls if the request should go to the primary or secondary replica of a partition. |No|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution.|No|N/A|

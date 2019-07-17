@@ -23,6 +23,7 @@ Moving from the traditional self-managed, self-controlled environment to a PaaS 
 
 This article discusses some of the core characteristics of Azure SQL Database as a platform that you can readily leverage when working with single databases and pooled databases in elastic pools. They are the following:
 
+- Monitor database using the Azure portal
 - Business continuity and disaster recovery (BCDR)
 - Security and compliance
 - Intelligent database monitoring and maintenance
@@ -30,6 +31,25 @@ This article discusses some of the core characteristics of Azure SQL Database as
 
 > [!NOTE]
 > This article applies to the following deployment options in Azure SQL Database: single databases and elastic pools. It does not apply to the managed instance deployment option in SQL Database.
+
+## Monitor databases using the Azure portal
+
+In the [Azure portal](https://portal.azure.com/), you can monitor an individual databases utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
+
+- CPU percentage
+- DTU percentage
+- Data IO percentage
+- Database size percentage
+
+Once you've added these metrics, you can continue to view them in the **Monitoring** chart with more information on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md) articles for more information about service tiers.  
+
+![Service tier monitoring of database performance.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+You can also configure alerts on the performance metrics. Click the **Add alert** button in the **Metric** window. Follow the wizard to configure your alert. You have the option to alert if the metrics exceed a certain threshold or if the metric falls below a certain threshold.
+
+For example, if you expect the workload on your database to grow, you can choose to configure an email alert whenever your database reaches 80% on any of the performance metrics. You can use this as an early warning to figure out when you might have to switch to the next highest compute size.
+
+The performance metrics can also help you determine if you are able to downgrade to a lower compute size. Assume you are using a Standard S2 database and all performance metrics show that the database on average does not use more than 10% at any given time. It is likely that the database will work well in Standard S1. However, be aware of workloads that spike or fluctuate before making the decision to move to a lower compute size.
 
 ## Business continuity and disaster recovery (BCDR)
 

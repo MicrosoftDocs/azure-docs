@@ -4,7 +4,7 @@ description: Deploy the Log Analytics agent on Windows virtual machine using a v
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -34,17 +34,18 @@ The Log Analytics agent extension for Windows supports following versions of the
 - Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
 
 ### Agent and VM Extension version
-The following table provides a mapping of the version of the Azure Monitor VM extension and Log Analytics agent bundle for each release. 
+The following table provides a mapping of the version of the Windows Azure Monitor VM extension and Log Analytics agent bundle for each release. 
 
-| Azure Monitor Linux VM extension version | Log Analytics Agent bundle version | Release Date | Release Notes |
+| Log Analytics Windows agent bundle version | Azure Monitor Windows VM extension version | Release Date | Release Notes |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 8.0.11049.0 | 1.0.11049.1 | Feb 2017 | |
-| 8.0.11072.0 | 1.0.11072.1 | Sept 2017 | |
-| 8.0.11081.0 | 1.0.11081.5 | Nov 2017 | | 
-| 8.0.11103.0 | n/a |  April 2018 | |
-| 8.0.11136.0 | n/a | Sept 2018 |  <ul><li> Added support for detecting resource ID change on VM move </li><li> Added Support for reporting resource ID when using non-extension install </li></ul>| 
-| 10.19.10006.0 | n/a | Dec 2018 | <ul><li> Minor stabilization fixes </li></ul> | 
-| 10.19.13515.0 | 1.0.13515.1 | March 2019 | <ul><li>Minor stabilization fixes </li></ul> |
+| 10.20.18001 | 1.0.18001 | June 2019 | <ul><li> Minor bug fixes and stabilization improvements </li><li> Added ability to disable default credentials when making proxy connection (support for WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
+| 10.19.13515 | 1.0.13515 | March 2019 | <ul><li>Minor stabilization fixes </li></ul> |
+| 10.19.10006 | n/a | Dec 2018 | <ul><li> Minor stabilization fixes </li></ul> | 
+| 8.0.11136 | n/a | Sept 2018 |  <ul><li> Added support for detecting resource ID change on VM move </li><li> Added Support for reporting resource ID when using non-extension install </li></ul>| 
+| 8.0.11103 | n/a |  April 2018 | |
+| 8.0.11081 | 1.0.11081 | Nov 2017 | | 
+| 8.0.11072 | 1.0.11072 | Sept 2017 | |
+| 8.0.11049 | 1.0.11049 | Feb 2017 | |
 
 ### Azure Security Center
 

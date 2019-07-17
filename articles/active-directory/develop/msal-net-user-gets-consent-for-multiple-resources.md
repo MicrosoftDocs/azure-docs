@@ -29,8 +29,8 @@ The Microsoft identity platform endpoint does not allow you to get a token for s
 
 For example, if you have two resources that have 2 scopes each:
 
-- https://mytenant.onmicrosoft.com/customerapi (with 2 scopes `customer.read` and `customer.write`)
-- https://mytenant.onmicrosoft.com/vendorapi (with 2 scopes `vendor.read` and `vendor.write`)
+- https:\//mytenant.onmicrosoft.com/customerapi (with 2 scopes `customer.read` and `customer.write`)
+- https:\//mytenant.onmicrosoft.com/vendorapi (with 2 scopes `vendor.read` and `vendor.write`)
 
 You should use the `.WithExtraScopeToConsent` modifier which has the *extraScopesToConsent* parameter as shown in the following example:
 

@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/29/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -42,14 +42,14 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. Select **Create a resource** > **Developer tools** > **Application Insights**.
 
-   ![Adding Application Insights Resource](./media/dotnetcore-quick-start/1createresourceappinsight.png)
+   > [!NOTE]
+   >If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc.
 
     A configuration box appears; use the following table to fill out the input fields.
 
-    | Settings        |  Value           | Description  |
+   | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
-   | **Application Type** | ASP.NET web application | Type of app you are monitoring |
    | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
@@ -93,6 +93,11 @@ Application Insights can gather telemetry data from any internet-connected appli
 5. On the left click on **Metrics**. Use the metrics explorer to investigate the health and utilization of your resource. You can click **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics. For example, you can make a chart that displays the average browser page load time by picking "Browser page load time" from the metrics drop down and "Avg" from aggregation. To learn more about Azure Metrics Explorer visit [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
      ![Metrics tab: Average browser page load time chart](./media/dotnetcore-quick-start/8metrics.png)
+
+## Video
+
+- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) from scratch.
+- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio Code](https://youtu.be/ygGt84GDync) from scratch.
 
 ## Clean up resources
 When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.

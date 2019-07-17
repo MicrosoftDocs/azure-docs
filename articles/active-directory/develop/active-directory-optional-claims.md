@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
@@ -22,7 +22,9 @@ ms.collection: M365-identity-device-management
 
 # How to: Provide optional claims to your Azure AD app
 
-This feature is used by application developers to specify which claims they want in tokens sent to their application. You can use optional claims to:
+Application developers can use optional claims in their Azure AD apps to specify which claims they want in tokens sent to their application. 
+
+You can use optional claims to:
 
 - Select additional claims to include in tokens for your application.
 - Change the behavior of certain claims that Azure AD returns in tokens.
@@ -30,23 +32,23 @@ This feature is used by application developers to specify which claims they want
 
 For the lists of standard claims, see the [access token](access-tokens.md) and [id_token](id-tokens.md) claims documentation. 
 
-While optional claims are supported in both v1.0 and v2.0 format tokens, as well as SAML tokens, they provide most of their value when moving from v1.0 to v2.0. One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-overview.md) is smaller token sizes to ensure optimal performance by clients. As a result, several claims formerly included in the access and ID tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.
+While optional claims are supported in both v1.0 and v2.0 format tokens, as well as SAML tokens, they provide most of their value when moving from v1.0 to v2.0. One of the goals of the [v2.0 Microsoft identity platform endpoint](active-directory-appmodel-v2-overview.md) is smaller token sizes to ensure optimal performance by clients. As a result, several claims formerly included in the access and ID tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.
 
 **Table 1: Applicability**
 
-| Account Type | V1.0 tokens | V2.0 tokens  |
+| Account Type | v1.0 tokens | v2.0 tokens  |
 |--------------|---------------|----------------|
-| Personal Microsoft account  | N/A  | Supported|
+| Personal Microsoft account  | N/A  | Supported |
 | Azure AD account      | Supported | Supported |
 
-## V1.0 and V2.0 optional claims set
+## v1.0 and v2.0 optional claims set
 
 The set of optional claims available by default for applications to use are listed below. To add custom optional claims for your application, see [Directory Extensions](#configuring-directory-extension-optional-claims), below. When adding claims to the **access token**, this will apply to access tokens requested *for* the application (a web API), not those *by* the application. This ensures that no matter the client accessing your API, the right data is present in the access token they use to authenticate against your API.
 
 > [!NOTE]
 > The majority of these claims can be included in JWTs for v1.0 and v2.0 tokens, but not SAML tokens, except where noted in the Token Type column. Consumer accounts support a subset of these claims, marked in the "User Type" column.  Many of the claims listed do not apply to consumer users (they have no tenant, so `tenant_ctry` has no value).  
 
-**Table 2: V1.0 and V2.0 optional claim set**
+**Table 2: v1.0 and v2.0 optional claim set**
 
 | Name                       |  Description   | Token Type | User Type | Notes  |
 |----------------------------|----------------|------------|-----------|--------|
@@ -66,7 +68,7 @@ The set of optional claims available by default for applications to use are list
 | `xms_pl`                   | User preferred language  | JWT ||The user’s preferred language, if set. Sourced from their home tenant, in guest access scenarios. Formatted LL-CC (“en-us”). |
 | `xms_tpl`                  | Tenant preferred language| JWT | | The resource tenant’s preferred language, if set. Formatted LL (“en”). |
 | `ztdid`                    | Zero-touch Deployment ID | JWT | | The device identity used for [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
-| `email`                    | The addressable email for this user, if the user has one.  | JWT, SAML | MSA, AAD | This value is included by default if the user is a guest in the tenant.  For managed users (those inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope.  For managed users, the email address must be set in the [Office admin portal](https://portal.office.com/adminportal/home#/users).| 
+| `email`                    | The addressable email for this user, if the user has one.  | JWT, SAML | MSA, Azure AD | This value is included by default if the user is a guest in the tenant.  For managed users (those inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope.  For managed users, the email address must be set in the [Office admin portal](https://portal.office.com/adminportal/home#/users).| 
 | `groups`| Optional formatting for group claims |JWT, SAML| |Used in conjunction with the GroupMembershipClaims setting in the [application manifest](reference-app-manifest.md), which must be set as well. For details see [Group claims](#Configuring-group-optional claims) below. For more information on group claims see [How to configure group claims](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`   		     | Users account status in tenant. | JWT, SAML | | If the user is a member of the tenant, the value is `0`. If they are a guest, the value is `1`. |
 | `upn`                      | UserPrincipalName claim. | JWT, SAML  |           | Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case.  |
@@ -75,7 +77,7 @@ The set of optional claims available by default for applications to use are list
 
 These claims are always included in v1.0 Azure AD tokens, but not included in v2.0 tokens unless requested. These claims are only applicable for JWTs (ID tokens and Access Tokens). 
 
-**Table 3: V2.0-only optional claims**
+**Table 3: v2.0-only optional claims**
 
 | JWT Claim     | Name                            | Description                                | Notes |
 |---------------|---------------------------------|-------------|-------|
@@ -85,8 +87,8 @@ These claims are always included in v1.0 Azure AD tokens, but not included in v2
 | `pwd_url`     | Change Password URL             | A URL that the user can visit to change their password.   |   |
 | `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they're not, the claim isn't included.   |  Based off of the [trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) settings in MFA.    |
 | `nickname`    | Nickname                        | An additional name for the user, separate from first or last name. | 
-| `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the user object. <br>"family_name":"Miller" | Supported in MSA and AAD   |
-| `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the user object.<br>"given_name": "Frank"                   | Supported in MSA and AAD  |
+| `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the user object. <br>"family_name":"Miller" | Supported in MSA and Azure AD   |
+| `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the user object.<br>"given_name": "Frank"                   | Supported in MSA and Azure AD  |
 | `upn`         | User Principal Name | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and should not be used to key data. | See [additional properties](#additional-properties-of-optional-claims) below for configuration of the claim. |
 
 ### Additional properties of optional claims
@@ -122,6 +124,9 @@ This OptionalClaims object causes the ID token returned to the client to include
 
 You can configure optional claims for your application by modifying the application manifest (See example below). For more info, see the [Understanding the Azure AD application manifest article](reference-app-manifest.md).
 
+> [!IMPORTANT]
+> Access tokens are **always** generated using the manifest of the resource, not the client.  So in the request `...scope=https://graph.microsoft.com/user.read...` the resource is Graph.  Thus, the access token is created using the Graph manifest, not the client's manifest.  Changing the manifest for your application will never cause tokens for Graph to look different.  In order to validate that your `accessToken` changes are in effect, request a token for your application, not another app.  
+
 **Sample schema:**
 
 ```json
@@ -153,11 +158,11 @@ You can configure optional claims for your application by modifying the applicat
    }
 ```
 
-### OptionalClaims Type
+### OptionalClaims type
 
 Declares the optional claims requested by an application. An application can configure optional claims to be returned in each of three types of tokens (ID token, access token, SAML 2 token) it can receive from the security token service. The application can configure a different set of optional claims to be returned in each token type. The OptionalClaims property of the Application entity is an OptionalClaims object.
 
-**Table 5: OptionalClaims Type Properties**
+**Table 5: OptionalClaims type properties**
 
 | Name        | Type                       | Description                                           |
 |-------------|----------------------------|-------------------------------------------------------|
@@ -165,12 +170,12 @@ Declares the optional claims requested by an application. An application can con
 | `accessToken` | Collection (OptionalClaim) | The optional claims returned in the JWT access token. |
 | `saml2Token`  | Collection (OptionalClaim) | The optional claims returned in the SAML token.   |
 
-### OptionalClaim Type
+### OptionalClaim type
 
 Contains an optional claim associated with an application or a service principal. The idToken, accessToken, and saml2Token properties of the [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) type is a collection of OptionalClaim.
 If supported by a specific claim, you can also modify the behavior of the OptionalClaim using the AdditionalProperties field.
 
-**Table 6: OptionalClaim Type Properties**
+**Table 6: OptionalClaim type properties**
 
 | Name                 | Type                    | Description                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -183,7 +188,8 @@ If supported by a specific claim, you can also modify the behavior of the Option
 In addition to the standard optional claims set, you can also configure tokens to include directory schema extensions. For more info, see [Directory schema extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). This feature is useful for attaching additional user information that your app can use – for example, an additional identifier or important configuration option that the user has set. 
 
 > [!Note]
-> Directory schema extensions are an AAD-only feature, so if your application manifest requests a custom extension and an MSA user logs into your app, these extensions will not be returned.
+> - Directory schema extensions are an Azure AD-only feature, so if your application manifest requests a custom extension and an MSA user logs into your app, these extensions will not be returned.
+> - Azure AD optional claims only work with the Azure AD extension and doesn't work with the Microsoft Graph directory extension. Both APIs require the `Directory.ReadWriteAll` permission, which can only be consented by admins.
 
 ### Directory extension formatting
 
@@ -196,11 +202,12 @@ Within the SAML tokens, these claims will be emitted with the following URI form
 ## Configuring group optional claims
 
    > [!NOTE]
-   > The ability to emit group names for users and groups synced from on-premises is Public Preview
+   > The ability to emit group names for users and groups synced from on-premises is Public Preview.
 
-This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory
+This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory.
+
 > [!IMPORTANT]
-> See [Configure group claims for applications with Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md) for more details including important caveats for the public preview of group claims from on-premises attributes.
+> See [Configure group claims for applications with Azure AD](../hybrid/how-to-connect-fed-group-claims.md) for more details including important caveats for the public preview of group claims from on-premises attributes.
 
 1. In the portal ->Azure Active Directory -> Application Registrations->Select Application->Manifest
 
@@ -243,7 +250,7 @@ This section covers the configuration options under optional claims for changing
    }
    ```
 
-   | Optional Claims Schema | Value |
+   | Optional claims schema | Value |
    |----------|-------------|
    | **name:** | Must be "groups" |
    | **source:** | Not used. Omit or specify null |

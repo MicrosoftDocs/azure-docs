@@ -4,7 +4,6 @@ titleSuffix: Azure Open Datasets
 description: Learn how to leverage the convenience of Azure Open Datasets along with the power of Azure Machine Learning service to create a regression model to predict NYC taxi fare prices.
 services: open-datasets
 ms.service: open-datasets
-ms.subservice: core
 ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
@@ -58,7 +57,7 @@ This example uses an Anaconda environment with Jupyter notebooks, but you can ru
     ```
 1. Install the packages you need for this tutorial. These packages are large and will take 5-10 minutes to install.
     ```
-    pip install azureml-sdk[automl] azureml-contrib-opendatasets
+    pip install azureml-sdk[automl] azureml-opendatasets
     ```
 1. Start a notebook kernel from your environment.
     ```
@@ -73,7 +72,7 @@ Import the necessary packages. The Open Datasets package contains a class repres
 
 
 ```python
-from azureml.contrib.opendatasets import NycTlcGreen
+from azureml.opendatasets import NycTlcGreen
 import pandas as pd
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -836,7 +835,7 @@ green_taxi_df.head(5)
 Now that you have taxi data downloaded and roughly prepared, add in holiday data as additional features. Holiday-specific features will assist model accuracy, as major holidays are times where taxi demand increases dramatically and supply becomes limited. The holiday dataset is relatively small, so fetch the full set by using the `PublicHolidays` class constructor with no parameters for filtering. Preview the data to check the format.
 
 ```python
-from azureml.contrib.opendatasets import PublicHolidays
+from azureml.opendatasets import PublicHolidays
 # call default constructor to download full dataset
 holidays_df = PublicHolidays().to_pandas_dataframe()
 holidays_df.head(5)
@@ -1080,7 +1079,7 @@ taxi_holidays_df.head(5)
 Now you append NOAA surface weather data to the taxi and holiday data. Use a similar approach to fetch the weather data by downloading one month at a time iteratively. Additionally, specify the `cols` parameter with an array of strings to filter the columns you want to download. This is a very large dataset containing weather surface data from all over the world, so before appending each month, filter the lat/long fields to near NYC using the `query()` function on the dataframe. This will ensure the `weather_df` doesn't get too large.
 
 ```python
-from azureml.contrib.opendatasets import NoaaIsdWeather
+from azureml.opendatasets import NoaaIsdWeather
 
 weather_df = pd.DataFrame([])
 start = datetime.strptime("1/1/2016","%m/%d/%Y")
@@ -1944,7 +1943,7 @@ print(1 - mean_abs_percent_error)
     Model Accuracy:
     0.8507638035507564
 
-Given that we used a fairly small sample of data relative to the full dataset (n=11748), model accuracy is fairly high at 85%, with RMSE at around +- $4.00 error in predicting taxi fare price. As a potential next step to improve accuracy, go back to the second cell of this notebook, and increase the sample size from 2,000 records per month, and run the entire experiment again to re-train the model with more data.
+Given that you used a fairly small sample of data relative to the full dataset (n=11748), model accuracy is fairly high at 85%, with RMSE at around +- $4.00 error in predicting taxi fare price. As a potential next step to improve accuracy, go back to the second cell of this notebook, and increase the sample size from 2,000 records per month, and run the entire experiment again to re-train the model with more data.
 
 ## Clean up resources
 

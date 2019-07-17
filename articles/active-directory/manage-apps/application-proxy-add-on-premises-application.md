@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/18/2019
+ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
@@ -29,10 +29,11 @@ This tutorial:
 
 ## Before you begin
 
-To add an application to your tenant, you need:
+To add an on-premises application to Azure AD, you need:
 
 * A [Microsoft Azure AD basic or premium subscription](https://azure.microsoft.com/pricing/details/active-directory)
 * An application administrator account
+* User identities must be synchronized from an on-premises directory or created directly within your Azure AD tenants. Identity synchronization allows Azure AD to pre-authenticate users before granting them access to App Proxy published applications and to have the necessary user identifier information to perform single sign-on (SSO).
 
 ### Windows server
 
@@ -43,12 +44,11 @@ For high availability in your production environment, we recommend having more t
 #### Recommendations for the connector server
 
 1. Physically locate the connector server close to the application servers to optimize performance between the connector and the application. For more information, see [Network topology considerations](application-proxy-network-topology.md).
+1. The connector server and the web applications servers should belong to the same Active Directory domain or span trusting domains. Having the servers in the same domain or trusting domains is a requirement for using single sign-on (SSO) with Integrated Windows Authentication (IWA) and Kerberos Constrained Delegation (KCD). If the connector server and web application servers are in different Active Directory domains, you need to use resource-based delegation for single sign-on. For more information, see [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
-2. The connector server and the web applications servers should belong to the same Active Directory domain or span trusting domains. Having the servers in the same domain or trusting domains is a requirement for using single sign-on (SSO) with Integrated Windows Authentication (IWA) and Kerberos Constrained Delegation (KCD). If the connector server and web application servers are in different Active Directory domains, you need to use resource-based delegation for single sign-on. For more information, see [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
+#### TLS requirements
 
-#### Software requirements
-
-The Windows connector server needs to have TLS 1.2 enabled before you install the Application Proxy connector. Existing connectors with versions below 1.5.612.0 will continue to work on prior versions of TLS until further notice. 
+The Windows connector server needs to have TLS 1.2 enabled before you install the Application Proxy connector.
 
 To enable TLS 1.2:
 
@@ -61,7 +61,10 @@ To enable TLS 1.2:
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
     ```
 
-2. Restart the server.
+1. Restart the server.
+
+> [!IMPORTANT]
+> To provide the best-in-class encryption to our customers, we are making updates to the Application Proxy service to limit access to only TLS 1.2 protocols. Based on customer readiness changes will be gradually rolled out to customers who are only using TLS 1.2 protocols and will not see any impact from this change. TLS 1.0 and 1.1 deprecation will complete on August 31, 2019 and customers will receive advance notice to prepare for this change. To prepare for this change make sure that all client-server and browser-server combinations are updated to use TLS 1.2 to maintain connection to Application Proxy service. These include clients your users are using to access applications published through Application Proxy. See Preparing for [TLS 1.2 in Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) for useful references and resources.
 
 ## Prepare your on-premises environment
 
@@ -69,7 +72,7 @@ Start by enabling communication to Azure data centers to prepare your environmen
 
 ### Open ports
 
-Open the following ports to **outbound** traffic. 
+Open the following ports to **outbound** traffic.
 
    | Port number | How it's used |
    | --- | --- |
@@ -78,7 +81,7 @@ Open the following ports to **outbound** traffic.
 
 If your firewall enforces traffic according to originating users, also open ports 80 and 443 for traffic from Windows services that run as a Network Service.
 
-You might have an older version of the connector installed if you're already using Application Proxy. Follow this tutorial to install the latest version of the connector. Versions earlier than 1.5.132.0 also require the following open ports: 5671, 8080, 9090-9091, 9350, 9352, 10100–10120. 
+You might have an older version of the connector installed if you're already using Application Proxy. Follow this tutorial to install the latest version of the connector. Versions earlier than 1.5.132.0 also require the following open ports: 5671, 8080, 9090-9091, 9350, 9352, 10100–10120.
 
 ### Allow access to URLs
 
@@ -90,7 +93,7 @@ Allow access to the following URLs:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure uses these URLs to verify certificates. |
 | login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | The connector uses these URLs during the registration process. |
 
-You can whitelist connections to \*.msappproxy.net and \*.servicebus.windows.net if your firewall or proxy allows DNS whitelisting. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). The IP ranges are updated each week.
+You can allow connections to \*.msappproxy.net and \*.servicebus.windows.net if your firewall or proxy lets you configure DNS allow lists. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). The IP ranges are updated each week.
 
 ## Install and register a connector
 
@@ -99,28 +102,27 @@ To use Application Proxy, install a connector on each Windows server you're usin
 To install the connector:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an application administrator of the directory that uses Application Proxy. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other admin alias on that domain.
-2. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
-3. In left navigation panel, select **Azure Active Directory**. 
-4. Under **Manage**, select **Application proxy**.
-5. Select **Download connector service**.
-    
-    ![Download connector service](./media/application-proxy-add-on-premises-application/application-proxy-download-connector-service.png)
+1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
+1. In left navigation panel, select **Azure Active Directory**.
+1. Under **Manage**, select **Application proxy**.
+1. Select **Download connector service**.
 
-6. Read the Terms of Service.  When you're ready, select **Accept terms & Download**.
-7. At the bottom of the window, select **Run** to install the connector. An install wizard opens. 
-8. Follow the instructions in the wizard to install the service. When you're prompted to register the connector with the Application Proxy for your Azure AD tenant, provide your application administrator credentials.
+    ![Download connector service to see the Terms of Service](./media/application-proxy-add-on-premises-application/application-proxy-download-connector-service.png)
+
+1. Read the Terms of Service. When you're ready, select **Accept terms & Download**.
+1. At the bottom of the window, select **Run** to install the connector. An install wizard opens.
+1. Follow the instructions in the wizard to install the service. When you're prompted to register the connector with the Application Proxy for your Azure AD tenant, provide your application administrator credentials.
     - For Internet Explorer (IE), if **IE Enhanced Security Configuration** is set to **On**, you may not see the registration screen. To get access, follow the instructions in the error message. Make sure that **Internet Explorer Enhanced Security Configuration** is set to **Off**.
 
 ### General remarks
 
 If you've previously installed a connector, reinstall to get the latest version. To see information about previously released versions and what changes they include, see [Application Proxy: Version Release History](application-proxy-release-version-history.md).
 
-If you choose to have more than one Windows server for your on-premises applications, you'll need to install and register the connector on each server. You can organize the connectors into connector groups. For more information, see [Connector groups](application-proxy-connector-groups.md). 
+If you choose to have more than one Windows server for your on-premises applications, you'll need to install and register the connector on each server. You can organize the connectors into connector groups. For more information, see [Connector groups](application-proxy-connector-groups.md).
 
 If your organization uses proxy servers to connect to the internet, you need to configure them for Application Proxy.  For more information, see [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md). 
 
-For information about connectors, capacity planning, and how they stay up-to-date, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md). 
-
+For information about connectors, capacity planning, and how they stay up-to-date, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).
 
 ## Verify the connector installed and registered correctly
 
@@ -131,10 +133,10 @@ You can use the Azure portal or your Windows server to confirm that a new connec
 To confirm the connector installed and registered correctly:
 
 1. Sign in to your tenant directory in the [Azure portal](https://portal.azure.com).
-2. In the left navigation panel, select **Azure Active Directory**, and then select **Application Proxy** under the **Manage** section. All of your connectors and connector groups appear on this page. 
-3. View a connector to verify its details. The connectors should be expanded by default. If the connector you want to view isn't expanded, expand the connector to view the details. An active green label indicates that your connector can connect to the service. However, even though the label is green, a network issue could still block the connector from receiving messages. 
+1. In the left navigation panel, select **Azure Active Directory**, and then select **Application Proxy** under the **Manage** section. All of your connectors and connector groups appear on this page.
+1. View a connector to verify its details. The connectors should be expanded by default. If the connector you want to view isn't expanded, expand the connector to view the details. An active green label indicates that your connector can connect to the service. However, even though the label is green, a network issue could still block the connector from receiving messages.
 
-    ![AzureAD Application Proxy Connectors](./media/application-proxy-connectors/app-proxy-connectors.png)
+    ![Azure AD Application Proxy Connectors](./media/application-proxy-connectors/app-proxy-connectors.png)
 
 For more help with installing a connector, see [Problem installing the Application Proxy Connector](application-proxy-connector-installation-problem.md).
 
@@ -143,33 +145,33 @@ For more help with installing a connector, see [Problem installing the Applicati
 To confirm the connector installed and registered correctly:
 
 1. Open the Windows Services Manager by clicking the **Windows** key and entering *services.msc*.
-2. Check to see if the status for the following two services is **Running**.
+1. Check to see if the status for the following two services is **Running**.
    - **Microsoft AAD Application Proxy Connector** enables connectivity.
    - **Microsoft AAD Application Proxy Connector Updater** is an automated update service. The updater checks for new versions of the connector and updates the connector as needed.
 
      ![App Proxy Connector services - screenshot](./media/application-proxy-enable/app_proxy_services.png)
 
-3. If the status for the services isn't **Running**, right-click to select each service and choose **Start**. 
+1. If the status for the services isn't **Running**, right-click to select each service and choose **Start**.
 
 ## Add an on-premises app to Azure AD
 
 Now that you've prepared your environment and installed a connector, you're ready to add on-premises applications to Azure AD.  
 
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).
-2. In the left navigation panel, select **Azure Active Directory**.
-3. Select **Enterprise applications**, and then select **New application**.
-4. Select **On-premises application**.  
-5. In the **Add your own on-premises application** section, provide the following information about your application:
+1. In the left navigation panel, select **Azure Active Directory**.
+1. Select **Enterprise applications**, and then select **New application**.
+1. Select **On-premises application**.  
+1. In the **Add your own on-premises application** section, provide the following information about your application:
 
     | Field | Description |
     | :---- | :---------- |
     | **Name** | The name of the application that will appear on the access panel and in the Azure portal. |
     | **Internal URL** | The URL for accessing the application from inside your private network. You can provide a specific path on the backend server to publish, while the rest of the server is unpublished. In this way, you can publish different sites on the same server as different apps, and give each one its own name and access rules.<br><br>If you publish a path, make sure that it includes all the necessary images, scripts, and style sheets for your application. For example, if your app is at https:\//yourapp/app and uses images located at https:\//yourapp/media, then you should publish https:\//yourapp/ as the path. This internal URL doesn't have to be the landing page your users see. For more information, see [Set a custom home page for published apps](application-proxy-configure-custom-home-page.md). |
     | **External URL** | The address for users to access the app from outside your network. If you don't want to use the default Application Proxy domain, read about [custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).|
-    | **Pre Authentication** | How Application Proxy verifies users before giving them access to your application.<br><br>**Azure Active Directory** - Application Proxy redirects users to sign in with Azure AD, which authenticates their permissions for the directory and application. We recommend keeping this option as the default so that you can take advantage of Azure AD security features like conditional access and Multi-Factor Authentication. **Azure Active Directory** is required for monitoring the application with Microsoft Cloud Application Security.<br><br>**Passthrough** - Users don't have to authenticate against Azure AD to access the application. You can still set up authentication requirements on the backend. |
+    | **Pre Authentication** | How Application Proxy verifies users before giving them access to your application.<br><br>**Azure Active Directory** - Application Proxy redirects users to sign in with Azure AD, which authenticates their permissions for the directory and application. We recommend keeping this option as the default so that you can take advantage of Azure AD security features like Conditional Access and Multi-Factor Authentication. **Azure Active Directory** is required for monitoring the application with Microsoft Cloud Application Security.<br><br>**Passthrough** - Users don't have to authenticate against Azure AD to access the application. You can still set up authentication requirements on the backend. |
     | **Connector Group** | Connectors process the remote access to your application, and connector groups help you organize connectors and apps by region, network, or purpose. If you don't have any connector groups created yet, your app is assigned to **Default**.<br><br>If your application uses WebSockets to connect, all connectors in the group must be version 1.5.612.0 or later.|
 
-5. If necessary, configure **Additional settings**. For most applications, you should keep these settings in their default states. 
+1. If necessary, configure **Additional settings**. For most applications, you should keep these settings in their default states. 
 
     | Field | Description |
     | :---- | :---------- |
@@ -179,8 +181,8 @@ Now that you've prepared your environment and installed a connector, you're read
     | **Use Persistent Cookie**| Keep this value set to **No**. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see [Cookie settings for accessing on-premises applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).
     | **Translate URLs in Headers** | Keep this value as **Yes** unless your application required the original host header in the authentication request. |
     | **Translate URLs in Application Body** | Keep this value as **No** unless you have hardcoded HTML links to other on-premises applications and don't use custom domains. For more information, see [Link translation with Application Proxy](application-proxy-configure-hard-coded-link-translation.md).<br><br>Set this value to **Yes** if you plan to monitor this application with Microsoft Cloud App Security (MCAS). For more information, see [Configure real-time application access monitoring with Microsoft Cloud App Security and Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md). |
-   
-6. Select **Add**.
+
+1. Select **Add**.
 
 ## Test the application
 
@@ -193,18 +195,18 @@ Before adding a user to the application, verify the user account already has per
 To add a test user:
 
 1. Select **Enterprise applications**, and then select the application you want to test.
-2. Select **Getting started**, and then select **Assign a user for testing**.
-3. Under **Users and groups**, select **Add user**.
-4. Under **Add assignment**, select **Users and groups**. The **User and groups** section appears. 
-5. Choose the account you want to add. 
-6. Choose **Select**, and then select **Assign**.
+1. Select **Getting started**, and then select **Assign a user for testing**.
+1. Under **Users and groups**, select **Add user**.
+1. Under **Add assignment**, select **Users and groups**. The **User and groups** section appears.
+1. Choose the account you want to add.
+1. Choose **Select**, and then select **Assign**.
 
 ### Test the sign-on
 
 To test the sign-on to the application:
 
 1. In your browser, navigate to the external URL that you configured during the publish step. You should see the start screen.
-2. Sign in as the user you created in the previous section.
+1. Sign in as the user you created in the previous section.
 
 For troubleshooting, see [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md).
 
@@ -220,7 +222,7 @@ You did these things:
 > * Added an on-premises application to your Azure AD tenant
 > * Verified a test user can sign on to the application by using an Azure AD account
 
-You're ready to configure the application for single sign-on. Use the following link to choose a single sign-on method and to find single sign-on tutorials. 
+You're ready to configure the application for single sign-on. Use the following link to choose a single sign-on method and to find single sign-on tutorials.
 
 > [!div class="nextstepaction"]
->[Configure single sign-on](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
+> [Configure single sign-on](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
