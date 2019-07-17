@@ -73,7 +73,7 @@ A failed start task also causes Batch to set the node [state](https://docs.micro
 
 As with any task, there can be many causes for the start task failing.  To troubleshoot, check the stdout, stderr, and any further task-specific log files.
 
-Start tasks must be reentrant. It is possible the start task is run multiple times on the same node; it is run when a node is reimaged or rebooted. One situation to be aware of is for Cloud Service pools; the temporary disk used by Batch can remain intact when the OS disk has been reimaged - the OS disk data indicates the start task has not been run, but the start task data is present on the temporary disk and causes the start task to fail.
+Start tasks must be re-entrant. It is possible the start task is run multiple times on the same node; it is run when a node is reimaged or rebooted. One situation to be aware of is for Cloud Service pools; the temporary disk used by Batch can remain intact when the OS disk has been reimaged - the OS disk data indicates the start task has not been run, but the start task data is present on the temporary disk and causes the start task to fail.
 
 ### Application package download failure
 
@@ -89,7 +89,7 @@ You can specify one or more container references on a pool. Batch downloads the 
 
 Azure Batch might set the [node state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) to **unusable** for many reasons. With the node state set to **unusable**, tasks can't be scheduled to the node, but it still incurs charges.
 
-Nodes in an **unsuable**, but without [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) state means that Batch is unable to communicate with the VM. In this case, Batch always tries to recover the VM. Batch will not automatically attempt to recover VMs which failed to install application packages or containers even though their state is **unusable**.
+Nodes in an **unusable** state, but without [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) means that Batch is unable to communicate with the VM. In this case, Batch always tries to recover the VM. Batch will not automatically attempt to recover VMs that failed to install application packages or containers even though their state is **unusable**.
 
 If Batch can determine the cause, the node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property reports it.
 
@@ -99,7 +99,7 @@ Additional examples of causes for **unusable** nodes include:
 
 - A VM is moved because of an infrastructure failure or a low-level upgrade. Batch recovers the node.
 
-- A VM image has been deployed on hardware which doesn’t support it. For example an “HPC” VM image running on non-HPC hardware. For example, trying to run a CentOS HPC image on a [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM.
+- A VM image has been deployed on hardware that doesn’t support it. For example, trying to run a CentOS HPC image on a [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM.
 
 - The VMs are in an [Azure virtual network](batch-virtual-network.md), and traffic has been blocked to key ports.
 
@@ -109,7 +109,7 @@ The Batch agent process that runs on each pool node can provide log files which 
 
 ### Node disk full
 
-The temporary drive for a pool node VM is used by Batch to store various type of files:
+The temporary drive for a pool node VM is used by Batch to store various types of files:
 
 - Application packages files
 - Task resource files
@@ -124,11 +124,11 @@ Other files are written out for each task that is run on a node, such as stdout 
 The size of the temporary drive depends on the VM size. One consideration when picking a VM size is to ensure the temporary drive has enough space.
 
 - In the Azure portal when adding a pool, the full list of VM sizes can be displayed and there is a 'Resource Disk Size' column.
-- The articles describing all VM sizes have tables with a 'Temp Storage' column; e.g. [Compute Opimized VM sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute)
+- The articles describing all VM sizes have tables with a 'Temp Storage' column; e.g. [Compute Optimized VM sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute)
 
 For files written out by each task, a retention time can be specified for each task which determines how long the task files are kept before being automatically cleaned up. The default retention time can be reduced to lower the storage requirements.
 
-If temporary disk space does fill, then currently the node will stop running tasks. In the near future a [node error](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) will be reported.
+If temporary disk space does fill, then currently the node will simply stop running tasks. In the future a [node error](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) will be reported.
 
 
 ## Next steps
