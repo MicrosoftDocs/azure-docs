@@ -32,10 +32,6 @@ If any of these use Blob APIs, and you want to use them to work with all of the 
 
 * **Option 2**: Enroll in the public preview of [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md). Tools and applications that call Blob APIs, as well as Blob storage features, such as diagnostic logs, can work with accounts that have a hierarchical namespace.
 
-### What to do with unmanaged Virtual Machine (VM) disks
-
-These depend upon the disabled Blob Storage APIs, so if you want to enable a hierarchical namespace on a storage account, and you don't want to enroll in the public preview of [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md), then consider placing them into a storage account that doesn't have the hierarchical namespace feature enabled.
-
 ### What to do if you used Blob APIs to load data before Blob APIs were disabled
 
 If you used these APIs to load data before they were disabled, and you have a production requirement to access that data, then please contact Microsoft Support with the following information:
@@ -78,6 +74,13 @@ These Blob REST APIs aren't supported:
 * If you use the [Delete Blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) API to delete a directory, that directory will be deleted only if it's empty.
 
   This means that you can't use the Blob API delete directories recursively.
+
+## Issues with Unmanaged Virtual Machine (VM) disks
+
+Unmanaged VM disks depend on [page blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-pageblob-overview) which are not supported in accounts that have a hierarchical namespace.
+
+If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
+
 
 ## Support for other Blob storage features
 
