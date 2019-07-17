@@ -32,13 +32,26 @@ In this tutorial, you learn how to:
 To work with the device capability model in this tutorial, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/download): VS Code is available for multiple platforms
-* [Azure IoT Workbench extension for VS Code](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/VSCode/README.md#installation)
+* Azure IoT Workbench extension for VS Code:
+    1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr).
+    1. In VS Code, select **Extensions** tab.
+    1. Select **Install from VSIX**.
+    1. Select the .vsix file you downloaded.
+    1. Select **Install**.
+
+        > [!NOTE]
+        > Bugbash: This is currently the only way to install the extension.
 
 To build the generated C code on Windows in this tutorial, you need:
 
 * [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload when you install Visual Studio.
 * [Git](https://git-scm.com/download)
 * [CMake](https://cmake.org/download/)
+* A local copy of the Azure IoT C SDK:
+
+    ```cmd
+    git clone https://github.com/Azure/azure-iot-sdk-c-pnp.git --recursive -b public-preview-utopia
+    ```
 
 To test your device code in this tutorial, you need:
 
@@ -55,13 +68,15 @@ You use the _digital twin definition language_ to create a device capability mod
 
 To create an interface file that defines the capabilities of your IoT device in VS Code:
 
-1. Create a folder on your machine called **EnvironmentalSensorDCM**.
+1. Create a folder called **devicemodel**.
 
-1. Start VS Code and open the **EnvironmentalSensorDCM** folder.
+1. Launch Visual Studio code and use **Ctrl+Shift+P** to open the command palette.
 
-1. Use **Ctrl+Shift+P** to open the command palette.
+1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Create Interface** command.
 
-1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Create Interface** command. Then enter **EnvironmentalSensor** as the name of the interface. VS Code creates a sample interface file called **EnvironmentalSensor.interface.json**.
+1. Browse to and select the **devicemodel** folder you created.
+
+1. Then enter **EnvironmentalSensor** as the name of the interface and press **Enter**. VS Code creates a sample interface file called **EnvironmentalSensor.interface.json**.
 
 1. Replace the contents of this file with the following JSON and replace `{your name}` in the `@id` field with a unique value. The interface ID must be unique to save the interface in the repository:
 
@@ -119,24 +134,35 @@ To create an interface file that defines the capabilities of your IoT device in 
           "unit": "Units/Humidity/percent"
         },
         {
-          "@type": "Command",
-          "description": "This command will begin blinking the LED for given time interval.",
-          "name": "blink",
-          "requestSchema": {
+          "@type": "Telemetry",
+          "name": "magnetometer",
+          "displayName": "Magnetometer",
+          "comment": "This shows a complex telemetry that contains a magnetometer reading.",
+          "schema": {
             "@type": "Object",
-            "fields": {
-              "@type": "SchemaField",
-              "name": "interval",
-              "schema": "long"
-            }
-          },
-          "responseSchema": "string",
-          "commandType": "synchronous"
+            "fields": [
+              {
+                "name": "x",
+                "schema": "integer"
+              },
+              {
+                "name": "y",
+                "schema": "integer"
+              },
+              {
+                "name": "z",
+                "schema": "integer"
+              }
+            ]
+          }
         },
         {
           "@type": "Command",
           "name": "turnon",
-          "responseSchema": "string",
+          "response": {
+            "name": "turnon",
+            "schema": "string"
+          },
           "comment": "This Commands will turn-on the LED light on the device.",
           "commandType": "synchronous"
         },
@@ -144,7 +170,10 @@ To create an interface file that defines the capabilities of your IoT device in 
           "@type": "Command",
           "name": "turnoff",
           "comment": "This Commands will turn-off the LED light on the device.",
-          "responseSchema": "string",
+          "response": {
+            "name": "turnoff",
+            "schema": "string"
+          },
           "commandType": "synchronous"
         }
       ],
@@ -152,30 +181,57 @@ To create an interface file that defines the capabilities of your IoT device in 
     }
     ```
 
-    This interface defines device properties such as **Customer Name**, telemetry types such as **Temperature**, and commands such as **blink**.
+    This interface defines device properties such as **Customer Name**, telemetry types such as **Temperature**, and commands such as **turnon**.
+
+1. Add a command capability called **blink** at the end of this interface file. Try typing the definition to see how intellisense, autocomplete, and validation can help you edit an interface definition:
+
+    ```json
+    {
+      "@type": "Command",
+      "description": "This command will begin blinking the LED for given time interval.",
+      "name": "blink",
+      "request": {
+        "name": "blinkRequest",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "interval",
+              "schema": "long"
+            }
+          ]
+        }
+      },
+      "response": {
+        "name": "blinkResponse",
+        "schema": "string"
+      },
+      "commandType": "synchronous"
+    }
+    ```
 
 1. Save the file.
 
 ### Create the model file
 
-The model file specifies the interfaces that your Plug and Play device implements. There are typically at least two interfaces in a model - one or more that define the specific capabilities of your device, and one standard interface that all Plug and Play devices must implement.
+The model file specifies the interfaces that your Plug and Play device implements. There are typically at least two interfaces in a model - one or more that define the specific capabilities of your device, and a standard interface that all Plug and Play devices must implement.
 
 To create a model file that specifies the interfaces your Plug and Play device implements in VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
-1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Create Capability Model** command. Then enter **EnvironmentalSensorModel** as the name of the model. VS Code creates a sample interface file called **EnvironmentalSensorModel.capabilitymodel.json**.
+1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Create Capability Model** command. Then enter **SensorboxModel** as the name of the model. VS Code creates a sample interface file called **SensorboxModel.capabilitymodel.json**.
 
 1. Replace the contents of this file with the following JSON and replace `{your name}` in the `@id` field and in the `EnvironmentalSensor` interface with the same value you used in the **EnvironmentalSensor.interface.json** file. The interface ID must be unique to save the interface in the repository:
 
     ```json
     {
-      "@id": "urn:dominicbetts:EnvironmentalSensorModel:1",
+      "@id": "urn:{your name}:SensorboxModel:1",
       "@type": "CapabilityModel",
-      "displayName": "Environmental Sensor Model",
+      "displayName": "Environmental Sensorbox Model",
       "implements": [
         {
-          "schema": "urn:dominincbetts:EnvironmentalSensor:1",
+          "schema": "urn:{your name}:EnvironmentalSensor:1",
           "name": "environmentalSensor"
         },
         {
@@ -201,48 +257,76 @@ To download the **DeviceInformation** interface from the public model repository
 
 1. Enter **Plug and Play**, select the **Open Model Repository** command, and then select **Open Public Model Repository**.
 
-1. Select **Interfaces**, then select the device information interface with ID `http://azureiot.com/interfaces/DeviceInformation/1.0.0`, and then select **Download**.
+1. Select **Interfaces**, then select the device information interface with ID `urn:azureiot:DeviceManagement:DeviceInformation:1`, and then select **Download**.
 
 You now have the three files that make up your device capability model:
 
-* DeviceInformation.interface.json
+* urn_azureiot_DeviceManagement_DeviceInformation_1.interface.json
 * EnvironmentalSensor.interface.json
-* EnvironmentalSensorModel.capabilitymodel.json
+* SensorboxModel.capabilitymodel.json
+
+## Publish the model
+
+For IoT hub to read your device capability model, you need to publish it in your organizational repository. To publish from Visual Studio code, you need the connection string for the organizational repository:
+
+1. Navigate to the [Azure Certified for IoT portal](https://aka.ms/ACFI).
+
+1. Use your Microsoft _work account_ to sign in to the portal.
+
+1. Select **Company repository** and then **Connection strings**.
+
+1. Copy the connection string.
+
+To open your organizational repository in VS Code:
+
+1. Use **Ctrl+Shift+P** to open the command palette.
+
+1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Open Model Repository** command.
+
+1. Select **Open Organizational Model Repository** and paste in your connection string.
+
+1. Press **Enter** to open your organizational repository.
+
+To publish your device capability model and interfaces to your organizational repository:
+
+1. Use **Ctrl+Shift+P** to open the command palette.
+
+1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Submit files to Model Repository** command.
+
+1. Select the **EnvironmentalSensor.interface.json** and **SensorboxModel.capabilitymodel.json** files and select **OK**.
+
+Your files are now stored in your organizational repository.
 
 ## Generate code
 
-> [!NOTE]
-> Bug bash: Skip this section - currently it's not possible to use the extension to generate code from local files.
-> Use pre-prepared code instead of generating the code. You can view the pre-prepared code at [https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview-utopia/digitaltwin_client/samples](https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview-utopia/digitaltwin_client/samples).
-
-You can use the **Azure IoT Workbench extension for VS Code** to generate skeleton C code from your model. To generate the code in VS Code:
-
-1. Use the **Explorer** in VS Code to create a folder called `modelcode` in your workspace. You use this folder to save the C code generated from your model.
+You can use the **Azure IoT Workbench extension for VS Code** to generate skeleton C code from your model. To generate the stub code in VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
 1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Generate Device Code Stub** command.
 
-1. Select your **EnvironmentalSensorModel.capabilitymodel.json** capability model file.
+1. Select your **SensorboxModel.capabilitymodel.json** capability model file.
+
+1. Enter **sensorbox_app** as the project name.
 
 1. Choose **ANSI C** as the language.
 
-1. Choose **General Platform** as the target platform.
+1. Choose **CMake Project** as the target.
 
-1. Select the **modelcode** folder in your workspace to save the generated C files.
+1. Choose **Via IoT Hub device connection string** as the way to connect.
 
-VS Code generates the skeleton C code and saves the files in the **modelcode** folder. VS Code opens a new window that contains the generated code files.
+VS Code generates the skeleton C code and saves the files in the **sensorbox_app** folder in the **modelcode** folder. VS Code opens a new window that contains the generated code files.
 
 ## Update the generated code
 
 > [!NOTE]
-> Bug bash: Skip this step - the pre-prepared code already contains the implementation code.
+> Bug bash: View the stub implementations in **SensorboxModel.c**.
 
 Before you can build and run the code, you need to implement the stubbed properties, telemetry, and commands.
 
 To provide implementations for the stubbed code in VS Code:
 
-1. Open the **device_model.c** file.
+1. Open the **SensorboxModel.c** file.
 
 1. Add code to implement the stubbed functions.
 
@@ -250,109 +334,9 @@ To provide implementations for the stubbed code in VS Code:
 
 ## Build the code
 
-Before you run the code to test your plug and play device with an Azure IoT hub, you need to compile the code. The following steps show you how to compile the code on Windows:
+Before you run the code to test your plug and play device with an Azure IoT hub, you need to compile the code.
 
-1. Clone the Azure IoT C SDK:
-
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c-pnp.git --recursive -b public-preview-utopia
-    ```
-
-    This command downloads the SDK to folder called **azure-iot-sdk-c-pnp** on your local machine.
-
-<!-- Commenting out for bugbash
-1. Copy the **modelcode** folder that contains the C files you generated in VS Code to the **azure-iot-sdk-c-pnp** folder.
-
-1. In the **azure-iot-sdk-c-pnp\modelcode** folder, create a file called **main.c**. Add the following C code to this file:
-
-    ```c
-    #ifdef WIN32
-    #include <windows.h>
-    #elif _POSIX_C_SOURCE >= 199309L
-    #include <time.h>   // for nanosleep
-    #else
-    #include <unistd.h> // for usleep
-    #endif
-
-    #include "application.h"
-
-    void sleep_ms(int milliseconds) // cross-platform sleep function
-    {
-    #ifdef WIN32
-        Sleep(milliseconds);
-    #elif _POSIX_C_SOURCE >= 199309L
-        struct timespec ts;
-        ts.tv_sec = milliseconds / 1000;
-        ts.tv_nsec = (milliseconds % 1000) * 1000000;
-        nanosleep(&ts, NULL);
-    #else
-        usleep(milliseconds * 1000);
-    #endif
-    }
-
-    int main(int argc, char *argv[])
-    {
-        if (argc != 2)
-        {
-            LogError("USAGE: pnp_app [IoTHub device connection string]");
-        }
-
-        application_initialize(argv[1], NULL);
-
-        while (1)
-        {
-            application_run();
-            sleep_ms(100);
-        }
-        return 0;
-    }
-    ```
-
-1. In the **azure-iot-sdk-c-pnp\modelcode** folder, create a file called **CMakeList.txt**. Add the following content to this file:
-
-    ```txt
-    #Copyright (c) Microsoft. All rights reserved.
-    #Licensed under the MIT license. See LICENSE file in the project root for full license information.
-
-    #this is CMakeLists.txt for pnp_app
-
-    compileAsC99()
-
-    cmake_minimum_required(VERSION 2.8)
-
-    file(GLOB pnp_app_src
-        "*.c"
-        "./utilities/*.c"
-    )
-
-    include_directories(.)
-    include_directories(./utilities)
-    include_directories(../deps/parson)
-    include_directories(${SHARED_UTIL_INC_FOLDER})
-    include_directories(${IOTHUB_CLIENT_INC_FOLDER})
-    include_directories(${PNP_CLIENT_INC_FOLDER})
-
-    add_executable(pnp_app ${pnp_app_src})
-
-    target_link_libraries(pnp_app parson iothub_client pnp_client)
-    ```
-
-1. Add the following line at the end of the **CMakeList.txt** file in the **azure-iot-sdk-c-pnp** folder:
-
-    ```txt
-    add_subdirectory(modelcode)
-    ```
-
-End commented section -->
-
-1. At the command prompt, navigate to the **azure-iot-sdk-c-pnp** folder. Then run the following commands to build the entire SDK folder:
-
-    ```cmd
-    mkdir cmake
-    cd cmake
-    cmake .. -G "Visual Studio 16 2019"
-    cmake --build . -- /m /p:Configuration=Release
-    ```
+The readme file in the **sample_app* folder that contains the generated code includes instructions for building and running the code on Windows and Linux. The following section includes instructions for retrieving a device connection string to use when you run the device code.
 
 ## Test the code
 
@@ -378,15 +362,15 @@ When you run the code, it connects to IoT Hub and starts sending sample telemetr
 
     Make a note of the connection string.
 
-1. At a command prompt, navigate to the **azure-iot-sdk-c-pnp** folder where you built the SDK and samples. Then navigate to the **cmake\\digitaltwin_client\\samples\\digitaltwin_sample_device\\Release** folder.
+1. At a command prompt, navigate to the **azure-iot-sdk-c-pnp** folder where you built the SDK and samples. Then navigate to the **cmake\\sensorbox_app\\Release** folder.
 
 1. Run the following command:
 
     ```cmd
-    digitaltwin_sample_device.exe {your device connection string}
+    sensorbox_app.exe {your device connection string}
     ```
 
-1. Use the Plug and Play Device Explorer to interact with the device.
+1. Use the Plug and Play Device Explorer to interact with the Plug and Play device connected to your IoT hub.
 
 ## Next steps
 
