@@ -13,29 +13,26 @@ manager: carmonm
 # Compiling DSC configurations in Azure Automation State Configuration
 
 You can compile Desired State Configuration (DSC) configurations in two ways with Azure Automation
-State Configuration: in the Azure portal and with Windows PowerShell. The following table helps you
+State Configuration: in Azure and in Windows PowerShell. The following table helps you
 determine when to use which method based on the characteristics of each:
 
-**Azure portal**
+**Azure State Configuration compilation service**
 
-- Simplest method with interactive user interface
-- Form to provide simple parameter values
+- Beginner method with interactive user interface
 - Easily track job state
-- Access authenticated with Azure logon
 
 **Windows PowerShell**
 
-- Call from command line with Windows PowerShell cmdlets
-- Can be included in automated solution with multiple steps
-- Provide simple and complex parameter values
-- Track job state
-- Client required to support PowerShell cmdlets
-- Pass ConfigurationData
-- Compile configurations that use credentials
+- Call from Windows PowerShell on local workstation or build service
+- Integrate with development test pipeline
+- Provide complex parameter values
+- Work with node and non-node data at scale
+- Significant performance improvement
+- Increased reliability
 
-Once you have decided on a compilation method, use the following procedures to start compiling.
+## Compiling a DSC Configuration in Azure State Configuration
 
-## Compiling a DSC Configuration with the Azure portal
+### Portal
 
 1. From your Automation account, click **State configuration (DSC)**.
 1. Click on the **Configurations** tab, then click on the configuration name to compile.
@@ -43,7 +40,7 @@ Once you have decided on a compilation method, use the following procedures to s
 1. If the configuration has no parameters, you are prompted to confirm whether you want to compile it. If the configuration has parameters, the **Compile Configuration** blade opens so you can provide parameter values. See the following [**Basic Parameters**](#basic-parameters) section for further details on parameters.
 1. The **Compilation Job** page is opened so that you can track the compilation job's status, and the node configurations (MOF configuration documents) it caused to be placed on the Azure Automation State Configuration Pull Server.
 
-## Compiling a DSC Configuration with Windows PowerShell
+### Az cmdlets
 
 You can use [`Start-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/start-azurermautomationdsccompilationjob)
 to start compiling with Windows PowerShell. The following sample code starts compilation of a DSC configuration called **SampleConfig**.
@@ -119,7 +116,7 @@ In the portal, you can enter parameter values after clicking **Compile**.
 
 ![Configuration compile parameters](./media/automation-dsc-compile/DSC_compiling_1.png)
 
-### PowerShell
+### Az cmdlets
 
 PowerShell requires parameters in a [hashtable](/powershell/module/microsoft.powershell.core/about/about_hash_tables)
 where the key matches the parameter name, and the value equals the parameter value.
