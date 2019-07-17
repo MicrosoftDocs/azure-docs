@@ -70,7 +70,7 @@ OK
 
 Headers:
 Pragma                        : no-cache
-x-ms-ratelimit-remaining-subscription-reads: 11999
+x-ms-ratelimit-remaining-subscription-reads: 1199
 ```
 
 To get write limits, use a write operation: 
@@ -109,7 +109,7 @@ msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
 msrest.http_logger :     'Content-Encoding': 'gzip'
 msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'Vary': 'Accept-Encoding'
-msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '1199'
 ```
 
 To get write limits, use a write operation: 
