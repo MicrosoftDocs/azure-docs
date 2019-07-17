@@ -15,7 +15,7 @@ ms.custom: seodec2018
 
 # Add analytics to the Bing Search APIs
 
-Bing Statistics provides analytics for the Bing [Web](overview.md), [Image](../bing-image-search/overview.md), [Video](../bing-video-search/overview.md), [Entity](../bing-entities-search/overview.md), and [News](../bing-news-search/search-the-web.md) Search APIs. These analytics include call volume, top query strings, geographic distribution, and more. You can enable Bing Statistics in the [Azure portal](https://ms.portal.azure.com) by navigating to your Azure resource, and clicking **Enable Bing Statistics**.
+Bing Statistics provides analytics for the Bing Search APIs. These analytics include call volume, top query strings, geographic distribution, and more. You can enable Bing Statistics in the [Azure portal](https://ms.portal.azure.com) by navigating to your Azure resource, and clicking **Enable Bing Statistics**.
 
 > [!IMPORTANT]
 > * Bing Statistics is not available with free trial subscriptions, or resources on the free `F0` pricing tier.
@@ -94,4 +94,4 @@ The following are the possible metrics. Each metric notes endpoint restrictions.
 
 The following shows the analytics that are available for each endpoint.
 
-![Distribution by endpoint support matrix](./media/cognitive-services-bing-statistics/bing-statistics-matrix.PNG)
+![Distribution by endpoint support matrix](./media/cognitive-services-bing-statistics/bing-statistics/bing-statistics-matrix.png)
