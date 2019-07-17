@@ -33,15 +33,13 @@ Your administrator or your organization will provide you with a security key if 
 > [!Note]
 > If you're unable to use a FIDO2 security key, there are other passwordless authentication methods you can use such as the Microsoft Authenticator app or Windows Hello. For more information about the Microsoft Authenticator app, see [What is the Microsoft Authenticator app?](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview). For more information about Windows Hello, see [Windows Hello overview](https://www.microsoft.com/windows/windows-hello).
 
-## Supported configurations
-
-If this feature is turned on by your administrator and organization during our public preview, you can use security keys with your work or school account, on devices running Windows 10, version 1903 or higher and the Microsoft Edge browser.
-
 ## Before you begin
 
 Before you start to register your security key, double-check that:
 
 - Your administrator has turned on this feature for use within your organization.
+
+- You're on a device running at least Windows 10, version 1903 and using the Microsoft Edge browser.
 
 - You've received a physical security key from your administrator or your organization. Your security key must be both FIDO2 and Microsoft-compliant. If you have any questions about your security key and whether it's compatible, contact your organization's help desk.
 

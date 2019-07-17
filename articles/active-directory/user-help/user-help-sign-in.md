@@ -48,7 +48,32 @@ After you set up two-step verification or security info, you'll be able to sign 
 
 2. Open the text message and type the code from your text message into the **Enter code** box.
 
+## Sign in using a security key at the lock screen
+
+1. After you've registered your security key, select the security key image from the Windows 10 lock screen.
+
+2. Insert your security key into your device's USB port and sign in to Windows using your security key PIN.
+
+    ![Security key sign-in on the Windows 10 lock screen](./media/security-info/security-info-windows-10-lock-screen-security-key.png)
+
+    >[!NOTE]
+    >If you haven't already registered your security key, you won't see the security key icon. You can register your security key by following the steps in the [Set up security info to use a security key (Preview)](security-info-setup-security-key.md#register-your-security-key) article.
+
+### Sign in on the web
+
+1. After you've registered your security key, open the Microsoft Edge browser.
+
+2. When prompted to sign-in, insert your security key into your device's USB port and sign in to Windows using your security key PIN.
+
+    ![Security key sign-in using the Microsoft Edge browser](./media/security-info/security-info-edge-security-key.png)
+
+    >[!NOTE]
+    >If you haven't already registered your security key, you won't see the security key icon. You can register your security key by following the steps in the [Set up security info to use a security key (Preview)](security-info-setup-security-key.md#register-your-security-key) article.
+    >
+    >For information about signing in using the Microsoft Authenticator app see the article, [Sign in to your accounts using the Microsoft Authenticator app](user-help-auth-app-sign-in.md).
+
 ## Sign in using another verification method
+
 If for some reason you're unable to use your primary sign-in method, you can use another previously set up verification method.
 
 1. Sign in to your account normally, and then choose the **Sign in another way** link on the **Two-step verification** page.
@@ -63,16 +88,6 @@ If for some reason you're unable to use your primary sign-in method, you can use
 2. Choose your alternative verification method, and continue with the two-step verification process.
 
 3. After you're back in your account, you can update your verification methods (if necessary). For more info about add or changing your methods, see the [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md) article.
-
-
-Sign in with passwordless credentials
-Sign in at the lock screen
-In the example below a user Bala Sandhu has already provisioned their FIDO2 security key. Bala can choose the security key credential provider from the Windows 10 lock screen and insert the security key to sign into Windows.
-
-Security key sign in at the Windows 10 lock screen
-
-Sign in on the web
-In the example below a user has already provisioned their FIDO2 security key. The user can choose to sign in on the web with their FIDO2 security key inside of the Microsoft Edge browser on Windows 10 version 1809 or higher.
 
 ## Next steps
 
