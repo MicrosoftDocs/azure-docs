@@ -41,4 +41,4 @@ Before you publish your device to the IoT Certified Device Catalog, read and acc
 
 ## Next steps
 
-The suggested next step is to learn how to [submit a Plug and Play device for certification](tutorial-certification-product.md).
+The suggested next step is to learn how to [submit a Plug and Play device for certification](tutorial-certification-test.md).
