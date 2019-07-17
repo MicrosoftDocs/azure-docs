@@ -53,7 +53,7 @@ To respond to changing pod demands, Kubernetes has a cluster autoscaler (current
 
 Cluster autoscaler is typically used alongside the horizontal pod autoscaler. When combined, the horizontal pod autoscaler increases or decreases the number of pods based on application demand, and the cluster autoscaler adjusts the number of nodes as needed to run those additional pods accordingly.
 
-Cluster autoscaler should only be tested in preview on AKS clusters with a single node pool.
+Cluster autoscaler should only be tested in preview on AKS clusters.
 
 To get started with the cluster autoscaler in AKS, see [Cluster Autoscaler on AKS][aks-cluster-autoscaler].
 
