@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 07/16/2019
+ms.date: 07/17/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -19,7 +19,7 @@ Data Box Edge is a Hardware-as-a-service solution. Microsoft ships you a cloud-m
 
 ## Use cases
 
-Here are the various scenarios where Data Box Edge can be used for rapid Machine Learning (ML) inferencing at the Edge and preprocessing data before sending it to Azure.
+Here are the various scenarios where Data Box Edge can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
 
 - **Inference with Azure Machine Learning** - With Data Box Edge, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Data Box Edge device, see 
 [Deploy Azure ML hardware accelerated models on Data Box Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
@@ -27,7 +27,7 @@ Here are the various scenarios where Data Box Edge can be used for rapid Machine
 - **Preprocess data** - Transform data before sending it to Azure to create a more actionable dataset. Preprocessing can be used to: 
 
     - Aggregate data.
-    - Modify data, for example to remove Personally Identifiable Information (PII).
+    - Modify data, for example to remove personal data.
     - Subset data to optimize storage and bandwidth, or for further analysis.
     - Analyze and react to IoT Events. 
 
