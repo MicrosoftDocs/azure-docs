@@ -365,7 +365,8 @@ Delete the resource group by using AZ CLI.
 [!code-azurecli-interactive[main](../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Create SQL Database")]
 
 # [Azure portal](#tab/azure-portal)
-There are no scripts available for the Azure portal. 
+There are no scripts available for the Azure portal.
+ 
 ---
 
 You can find other Azure SQL Database scripts here: [Azure PowerShell](sql-database-powershell-samples.md) and [Azure CLI](sql-database-cli-samples.md). 

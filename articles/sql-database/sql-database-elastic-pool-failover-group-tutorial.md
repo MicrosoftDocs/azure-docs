@@ -49,7 +49,7 @@ To complete this tutorial, make sure you have:
 
        ![Create new server for elastic pool](media/sql-database-elastic-pool-create-failover-group-tutorial/use-existing-server-for-elastic-pool.png)
 
-   - **Configure pool**: Select this option to modify your compute and then select **Gen4** under **Compute Generation**. Leave the other values at default. 
+   - **Configure pool**: Select this option to modify your compute and then select **Gen5** under **Compute Generation**. Leave the other values at default. 
 
        ![Configure compute](media/sql-database-elastic-pool-create-failover-group-tutorial/compute-for-elastic-pool.png)
 

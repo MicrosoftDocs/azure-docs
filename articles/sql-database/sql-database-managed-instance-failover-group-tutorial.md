@@ -92,7 +92,7 @@ In this step, you will create a secondary managed instance in the Azure portal, 
 ## Create a failover group
 In this step, you will create the failover group and add both managed instances to it. 
 
-1. In the [Azure portal](https://portal.azure.com), navigate to **All services** and type in `mangaged instance` in the search box. 
+1. In the [Azure portal](https://portal.azure.com), navigate to **All services** and type in `managed instance` in the search box. 
 1. (Optional) Select the star next to **SQL managed instances** to add managed instances as shortcut to your left-hand navigation bar. 
 1. Select **SQL managed instances** and select your primary managed instance, such as `sql-mi-primary`. 
 1. Under **Settings**, navigate to **Instance Failover Groups** and then choose to **Add group** to open the **Instance Failover Group** page. 

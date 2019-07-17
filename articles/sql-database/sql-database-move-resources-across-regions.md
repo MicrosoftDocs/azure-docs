@@ -84,7 +84,7 @@ Once the move completes, remove the resources in the source region to avoid unne
 - Delete the failover group using [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup). 
 - Delete each source database using [Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase) for each of the databases on the source server. This will automatically terminate geo-replication links. 
 - Delete the source server using [Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver). 
-- Remove the key vault, audit storage containers, event hub, AAD instance, and other dependent resources to stop the billing. 
+- Remove the key vault, audit storage containers, event hub, AAD instance, and other dependent resources to stop being billed for them. 
 
 ## Move elastic pools
 
@@ -136,7 +136,7 @@ Once the move completes, remove the resources in the source region to avoid unne
 - Delete the failover group using [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup).
 - Delete each source elastic pool on the source server using [Remove-AzSqlElasticPool](/powershell/module/az.sql/remove-azsqlelasticpool). 
 - Delete the source server using [Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver). 
-- Remove the key vault, audit storage containers, event hub, AAD instance, and other dependent resources to stop the billing. 
+- Remove the key vault, audit storage containers, event hub, AAD instance, and other dependent resources to stop being billed for them. 
 
 ## Move managed instance
 
