@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: add92907-0d7c-42b8-a773-f570f2d705ff
 ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

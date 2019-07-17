@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 08/16/2019
 ms.author: juliako
 
 ---
@@ -53,7 +53,7 @@ The following table lists email of feature sub teams:
 | Azure Media Player |ampinfo@microsoft.com |
 | Azure Media Explorer |amse@microsoft.com |
 | Workflow Designer |mepd@microsoft.com |
-| Live Streaming and Packaging |amslived@microsoft.com |
+| Live Streaming and Packaging |amshelp@microsoft.com |
 
 ## Next steps
 

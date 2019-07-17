@@ -7,7 +7,7 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
 ---
@@ -61,9 +61,11 @@ The following are examples of feature namespaces used by applications:
 * current_time
 * NewsArticle_TextAnalytics
 
-You can name feature namespaces following your own conventions as long as they are valid JSON keys.
+You can name feature namespaces following your own conventions as long as they are valid JSON keys. Namespaces are used to organize features into distinct sets, and to disambiguate features with similar names. You can think of namespaces as a 'prefix' that is added to feature names. Namespaces cannot be nested.
 
-In the following JSON, `user`, `state`, and `device` are feature namespaces.
+
+In the following JSON, `user`, `state`, and `device` are feature namespaces. 
+Public Preview Note: Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `state`, and `device` start with `u`, `s`, and `d`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
 
 JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
 
@@ -72,7 +74,7 @@ JSON objects can include nested JSON objects and simple property/values. An arra
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug",
+                "profileType":"AnonymousUser",
                 "latlong": [47.6, -122.1]
             }
         },

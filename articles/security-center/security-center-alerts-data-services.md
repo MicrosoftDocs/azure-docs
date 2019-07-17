@@ -6,16 +6,14 @@ documentationcenter: na
 author: monhaber
 manager: rkarlin
 editor: ''
-
 ms.assetid: da960861-0b6c-4d80-932d-898cdebb4f83
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date:  7/02/2019
-ms.author: monhaber
-
+ms.date: 7/02/2019
+ms.author: "v-mohabe"
 ---
 # Threat detection for data services in Azure Security Center
 
@@ -33,7 +31,7 @@ SQL threat detection detects anomalous activities indicating unusual and potenti
 |**Vulnerability to SQL Injection**|An application has generated a faulty SQL statement in the database. This can indicate a possible vulnerability to SQL injection attacks. There are two possible reasons for the generation of a faulty statement: Either,a defect in application code constructed the faulty SQL statement. Or, application code or stored procedures didn't sanitize user input when constructing the faulty SQL statement, which may be exploited for SQL Injection.|
 |**Potential SQL injection**|An active exploit has occurred against an identified application vulnerable to SQL injection. This means an attacker is trying to inject malicious SQL statements using the vulnerable application code or stored procedures.|
 |**Access from unusual location**|There has been a change in the access pattern to SQL server, where someone has logged on to the SQL server from an unusual geographical location. In some cases, the alert detects a legitimate action (a new application or developer maintenance). In other cases, the alert detects a malicious action (former employee, external attacker).|
-|**Access from unfamiliar principal**|There has been a change in the access pattern to the the SQL server - someone has logged on to the SQL server using an unusual principal (SQL user). In some cases, the alert detects a legitimate action (new application, developer maintenance). In other cases, the alert detects a malicious action (former employee, external attacker).|
+|**Access from unfamiliar principal**|There has been a change in the access pattern to the SQL server - someone has logged on to the SQL server using an unusual principal (SQL user). In some cases, the alert detects a legitimate action (new application, developer maintenance). In other cases, the alert detects a malicious action (former employee, external attacker).|
 |**Access from a potentially harmful application**|A potentially harmful application has been used to access the database. In some cases, the alert detects penetration testing in action. In other cases, the alert detects an attack using common attack tools.|
 |**Brute force SQL credentials**|An abnormal high number of failed logins with different credentials have occurred. In some cases, the alert detects penetration testing in action. In other cases, the alert detects brute force attack.|
 
