@@ -1,7 +1,7 @@
 ---
 title: Add typeahead queries to an index - Azure Search
 description: Enable type-ahead query actions in Azure Search by creating suggesters and formulating requests that invoke autocomplete or autosuggested query terms.
-ms.date: 05/02/2019
+ms.date: 07/16/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -102,6 +102,15 @@ Properties that define a suggester include the following:
 |`name`        |The name of the suggester. You use the name of the suggester when calling the [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) or [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
 |`searchMode`  |The strategy used to search for candidate phrases. The only mode currently supported is `analyzingInfixMatching`, which performs flexible matching of phrases at the beginning or in the middle of sentences.|
 |`sourceFields`|A list of one or more fields that are the source of the content for suggestions. Only fields of type `Edm.String` and `Collection(Edm.String)` may be sources for suggestions. Only fields that don't have a custom language analyzer set can be used.<p/>Specify only those fields that lend themselves to an expected and appropriate response, whether it's a completed string in a search bar or a dropdown list.<p/>A hotel name is a good candidate because it has precision. Verbose fields like descriptions and comments are too dense. Similarly, repetitive fields, such as categories and tags, are less effective. In the examples, we include "category" anyway to demonstrate that you can include multiple fields. |
+
+#### Analysis of SourceFields in a suggester
+
+Azure Search analyzes the field content to enable querying on individual terms. There is support for various pre-built and custom configurations to customize the analysis process. Suggesters require prefixes (edge-ngrams) to be stored in addition to the terms for incomplete matches. This is achieved by doing additional analysis over the source fields.
+
+Although the analyzed terms are produced and stored independently for search and suggestions, the analysis process for suggestions uses a pre-defined tokenizer that is derived from the [field analyzer property](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib), along with a set of token filters added on top. Using the analyzer set on the field ensures that prefixes are relevant and provide high-quality matches. **Unfortunately, this also implies that suggesters cannot be enabled on fields with custom analyzers** as they support any type of tokenizer, and not all of them can be statically combined into analyzer configuration for suggesters in a safe and compatible way.
+
+> [!NOTE] 
+>  The recommended approach to work around the above limitation is to use 2 separate fields for the same content. This will allow one of the fields to have suggesters and the other can be set up with a custom analyzer configuration.
 
 ## When to create a suggester
 
