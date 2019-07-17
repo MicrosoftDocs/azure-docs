@@ -192,7 +192,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
      
       ![Select storage account](./media/reset-local-password-without-agent/disks_select_storageaccount_classic.png)
      
-   3. Select the source container. The source container is typically *vhds*:
+   3. Check the box marked *Show classic storage accounts*, then select the source container. The source container is typically *vhds*:
      
       ![Select storage container](./media/reset-local-password-without-agent/disks_select_container_classic.png)
 
