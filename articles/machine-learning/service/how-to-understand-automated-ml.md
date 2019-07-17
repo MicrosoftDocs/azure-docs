@@ -216,12 +216,15 @@ Example 2: A regression model with more even distribution of errors
 
 ## Model explain-ability and feature importance
 
-Feature importance allows you to see how valuable each feature was in the construction of a model. This calculation is turned off by default, as it can significantly increase run time. See  Or you can run model explanations only for the best fit model. For an example, see [Best model explanation](how-to-auto-train-remote.md#explain).
+Feature importance allows you to see how valuable each feature was in the construction of a model. This calculation is turned off by default, as it can significantly increase run time.   You can enable model explanation for all models or explain only the best fit model. 
 
 You can review the feature importance score for the model overall as well as per class on a predictive model. You can see per feature how the importance compares against each class and overall.
 
 ![Feature Explain ability](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-feature-explain1.png)
 
+For more information on enabling interpretability features, see [Configure automated ML experiments in Python](how-to-configure-auto-train.md#explain-the-model-interpretability).  For an example that explains the best model, see [Best model explanation](how-to-auto-train-remote.md#explain).
+
 ## Next steps
 
-Learn more about [automated ml](concept-automated-ml.md) in Azure Machine Learning.
++ Learn more about [automated ml](concept-automated-ml.md) in Azure Machine Learning.
++ Try the [Automated Machine Learning Model Explanation](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation) sample notebook.
