@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database advanced data security overview | Microsoft Docs
-description: This topic describes an Azure SQL Database advanced data security and explains how it works and how it is different from a single or pooled database in Azure SQL Database.
+title: Azure SQL Database managed instance overview | Microsoft Docs
+description: This article describes Azure SQL Database managed instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,9 +11,9 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 06/26/2019
+ms.date: 07/18/2019
 ---
-# Use SQL Database advanced data security with virtual networks and near 100% compatibility
+# What is Azure SQL Database managed instance
 
 Managed instance is a new deployment option of Azure SQL Database, providing near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) Database Engine, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. The managed instance deployment model allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, the managed instance deployment option preserves all PaaS capabilities (automatic patching and version updates, [automated backups](sql-database-automated-backups.md), [high-availability](sql-database-high-availability.md) ), that drastically reduces management overhead and TCO.
 
@@ -71,7 +71,7 @@ The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for mana
 
 In vCore model, you can choose between generations of hardware.
 
-- **Gen4** Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD, physical cores, 7GB RAM per core, and compute sizes between 8 and 24 vCores.
+- **Gen4** Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD, physical cores, 7 GB RAM per core, and compute sizes between 8 and 24 vCores.
 - **Gen5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
 
 Find more information about the difference between hardware generations in [managed instance resource limits](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
@@ -114,6 +114,70 @@ The following list outlines the key characteristics of the Business Critical ser
 
 Find more information about the difference between service tiers in [managed instance resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
+
+## Managed instance management operations
+
+Azure SQL Database provides management operations that you can use to automatically deploy new managed instances, update their properties, and delete instances when not needed.  This section provides information about internal workflow structure of management operations and their typical durations.
+
+To support [deployments within Azure Virtual Networks (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) and ultimate isolation and security for customers, managed instance relies on [virtual clusters](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), which represent a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet. Essentially, every managed instance deployment in an empty subnet results in new virtual cluster buildout.
+
+Subsequent operations on the deployed managed instances might also have effects on the underlying virtual cluster. This affects duration of management operations, as deploying additional virtual machines comes with an overhead that needs to be considered when you plan new deployment or updates to the existing managed instances.
+
+All instance management operations can be categorized as follows:
+
+- Instance deployment (new instance creation). 
+- Instance update (changing instance properties, such as vCores, reserved storage, etc).
+- Instance deletion.
+
+Typically, operations on virtual clusters take the longest. Duration of the operations on virtual clusters varies – below are the values that you can typically expect, based on data from service telemetry:
+
+- Virtual cluster creation. This is a synchronous step in instance management operations. 90% of operations finish in 4 hours.
+- Virtual cluster resizing (expansion or shrinking). Expansion is a synchronous step in instance management update operations, while shrinking is performed asynchronously (without impact on the duration of instance management operations).  90% of cluster expansions finish in less than 2.5 hours.
+- Virtual cluster deletion. This is an asynchronous step in instance management operations, but it can be also [manually initiated](sql-database-managed-instance-delete-virtual-cluster.md) on an empty virtual cluster in which case it executes synchronously. 90% of virtual cluster deletions finish in 1.5 hours
+
+
+Additionally, management of instances may also include one of the operations on hosted databases (like in case of vCore scaling), which result in longer duration:
+
+- Attaching database files from the Azure Storage. This is a synchronous step in update instance operations such as compute (vCore) or storage scaling up or scaling down in General Purpose service tier. 90% of these operations finish in 5 minutes.
+- Always On availability group seeding. This is a synchronous step in update instance operations such as compute (vCore) or storage scaling in Business  Critical service tier as well as in changing service tier from General Purpose to Business Critical or vice versa. Duration of this operation is proportional to total database size as well as to database activity (number of active transactions). Database activity during instance update can introduce significant variance to the total operation duration. 90% of these operations execute at the speed of 220 GB / hour or higher.
+
+The following table summarizes operation structure and typical overall durations:
+
+
+|Category  |Operation  |Long-running segment  |Estimated duration  |
+|---------|---------|---------|---------|
+|Deployment |First instance in an empty subnet|Virtual cluster creation|90% of operations finish in 4 hours|
+|Deployment |First instance of another hardware generation in a non-empty subnet (for example, first Gen 5 instance in a subnet with Gen 4 instances)|Virtual cluster creation*|90% of operations finish in 4 hours|
+|Deployment |First instance creation of 4 vCores, in an empty or non-empty subnet|Virtual cluster creation**|90% of operations finish in 4 hours|
+|Deployment |Subsequent instance creation within the non-empty subnet (2nd, 3rd, etc. instance)|Virtual cluster resizing|90% of operations finish in 2.5 hours|
+|Update |Instance property change (admin password, AAD login, Azure Hybrid Benefit flag)|N/A|Up to 1 minute|
+|Update |Instance storage scaling up/down (General Purpose service tier)|- Virtual cluster resizing<br>- Attaching database files|90% of operations finish in 2.5 hours|
+|Update |Instance storage scaling up/down (Business Critical service tier)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB / hour)|
+|Update |Instance compute (vCores) scaling up and down (General Purpose)|- Virtual cluster resizing<br>- Attaching database files|90% of operations finish in 2.5 hours|
+|Update |Instance compute (vCores) scaling up and down (Business Critical)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB / hour)|
+|Update |Instance scale down to 4 vCores (General Purpose)|- Virtual cluster resizing (if done for the first time, it may require virtual cluster creation**)<br>- Attaching database files|90% of operations finish in in 4 h 5 min**|
+|Update |Instance scale down to 4 vCores (General Purpose)|- Virtual cluster resizing (if done for the first time, it may require virtual cluster creation**)<br>- Always On availability group seeding|90% of operations finish in 4 hours + time to seed all databases (220 GB / hour)|
+|Update |Instance service tier change (General Purpose to Business Critical and vice versa)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB / hour)|
+|Deletion|Instance deletion|Log tail backup for all databases|90% operations finish in up to 1 minute.<br>Note: if last instance in the subnet is deleted, this operation will schedule virtual cluster deletion after 12 hours***|
+|Deletion|Virtual cluster deletion (as user-initiated operation)|Virtual cluster deletion|90% of operations finish in up to 1.5 hours|
+
+\* Virtual cluster is built per hardware generation 
+\*\* The 4 vCores deployment option was released in June 2019 and requires a new virtual cluster version. If you had instances in target subnet, that were all created before June 12, a new virtual cluster will be deployed automatically to host 4 vCore instances.<br>
+12 hours is current configuration that might be changed in future, so do not take hard dependency on it. If you need to delete a virtual cluster earlier (to release the subnet for example), see [Delete a subnet after deleting an Azure SQL Database managed instance](sql-database-managed-instance-delete-virtual-cluster.md).
+
+### Instance availability during management
+
+By their nature, deployment and deletion are operations during which instances are not available to client applications.
+
+Managed instances are available during update, with a short downtime caused by the failover that happens at the end of the operation and typically lasts up to 10 seconds.
+
+> [!IMPORTANT]
+> Duration of failover can vary significantly in case of long-running transactions that happen on the databases due to [prolonged recovery time](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Hence it’s not recommended to scale compute or storage of Azure SQL Database managed instance or to change service tier at the same time with the long-running  transactions (data import, data processing jobs, index rebuild, etc.). Database failover that will be performed at the end of the operation will cancel ongoing transactions and result in prolonged recovery time.
+
+[Accelerated database recovery](sql-database-accelerated-database-recovery.md) is not yet available for Azure SQL Database managed instances. Once enabled, this feature will significantly reduce variability of failover time, even in case of long-running transactions.
+
+
+
 ## Advanced security and compliance
 
 The managed instance deployment option combines advanced security features provided by Azure cloud and SQL Server Database Engine.
@@ -150,7 +214,7 @@ Migration of an encrypted database to a managed instance is supported via the Az
 
 ## Azure Active Directory Integration
 
-The managed instance deployment option supports traditional SQL server Database engine logins and logins integrated with Azure Active Directory (AAD). Azure AD server principals (logins) (**public preview**) are Azure cloud version of on-premises database logins that you are using in your on-premises environment. Azure AD server principals (logins) enables you to specify users and groups from your Azure Active Directory tenant as true instance-scoped principals, capable of performing any instance-level operation, including cross-database queries within the same managed instance.
+The managed instance deployment option supports traditional SQL server Database engine logins and logins integrated with Azure Active Directory (AAD). Azure AD server principals (logins) (**public preview**) are Azure cloud version of on-premises database logins that you are using in your on-premises environment. Azure AD server principals (logins) enable you to specify users and groups from your Azure Active Directory tenant as true instance-scoped principals, capable of performing any instance-level operation, including cross-database queries within the same managed instance.
 
 A new syntax is introduced to create Azure AD server principals (logins) (**public preview**), **FROM EXTERNAL PROVIDER**. For more information on the syntax, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, and review the [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) article.
 
