@@ -1,6 +1,6 @@
 ---
-title: Create a shared access signature (SAS) using Azure Active Directory credentials with .NET - Azure Storage
-description: Learn how to create a shared access signature (SAS) using Azure Active Directory credentials in Azure Storage using the .NET client library.
+title: Create a shared access signature (SAS) on a blob container with .NET - Azure Storage
+description: Learn how to create a shared access signature (SAS) to delegate access to a blob container in Azure Storage using the .NET client library.
 services: storage
 author: tamram
 
@@ -12,45 +12,28 @@ ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Create a shared access signature (SAS) for Blob storage using Azure Active Directory credentials with .NET
+# Create a shared access signature (SAS) on a blob container with .NET
 
-A shared access signature (SAS) enables you to grant limited access to containers and blobs in your storage account. When you create a SAS, you specify its constraints, including which object or objects a client is allowed to access, what permissions they have on those objects, and how long the SAS is valid. This article shows how to use Azure Active Directory (Azure AD) credentials to create a SAS for a container or blob with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
+A shared access signature (SAS) enables you to grant limited access to containers and blobs to other clients, without compromising your account keys. When you create a SAS, you specify its constraints, including which object or objects a client is allowed to access, what permissions they have on those objects, and how long the SAS is valid. This article shows how to create a SAS for Blob storage with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
 
 ## About shared access signatures
 
-A SAS is a token that encapsulates all of the information needed to make a request to Azure Storage in a query string that is appended to a container or blob URI. The SAS token includes information about the type of resource, the permissions granted to the client, the interval over which the SAS is valid, and a signature that secures the token. Additional optional parameters may be included as well.
+types etc.
 
-A SAS token may be secured by using either your Azure AD credentials or your account key. Microsoft recommends that you use Azure AD credentials when possible as a security best practice.
-
-A SAS secured with your Azure AD credentials is called a *user delegation* SAS, because the token used to create the SAS is requested on behalf of the user. 
-
-> [!CAUTION]
-> Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS, and have a plan in place for revoking a compromised SAS. For more information, see .... 
-
-For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-shared-access-signatures.md).
-
-## Use Azure AD credentials to secure a SAS
-
-When you create a user delegation SAS using your Azure AD credentials, the signature is derived from an OAuth 2.0 token. You can acquire the OAuth 2.0 token in one of the following ways:
-
-- If your code is running in an Azure environment, such as an Azure virtual machine (VM), then you can use managed identities for Azure resources to acquire the OAuth token. For more information, see [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](../common/storage-auth-aad-msi.md).
-- If your code is running in a native application or a web application, then you can use the OAuth 2.0 authorization code flow to acquire the OAuth token. In your code to acquire the token, specify the built-in `user_impersonation` scope, which indicates that the token is being requested on behalf of the user whose credentials are provided. For more information, see [Authenticate with Azure Active Directory from an application for access to blobs and queues](../common/storage-auth-aad-app.md).
-
-After your code has acquired the token, creating the user delegation SAS is a two-step process:
-
-1. Request a user delegation key. You can specify that the key is valid for a period of up to 7 days.
-1. Use the key to create the user delegation SAS.
-
-## Acquire the OAuth 2.0 token
+## Create a service SAS
 
 
+## Create an account SAS
 
-, together with the Microsoft Azure App Authentication library for .NET (preview). 
+
+## Create a user delegation SAS
+
+### Define a callback method to acquire and renew the token
 
 ```csharp
 private static async Task<NewTokenAndFrequency> TokenRenewerAsync(Object state, CancellationToken cancellationToken)
 {
-    // Specify the resource ID for requesting an OAuth 2.0 token for Azure Storage.
+    // Specify the resource ID for requesting Azure AD tokens for Azure Storage.
     const string StorageResource = "https://storage.azure.com/";
 
     // Use the same token provider to request a new token.
@@ -79,7 +62,7 @@ private static async Task<string> GetContainerSasWithToken()
     var tokenAndFrequency = TokenRenewerAsync(azureServiceTokenProvider,
                                                 CancellationToken.None).GetAwaiter().GetResult();
 
-    // Create storage credentials using the initial token, and connect the callback function
+    // Create storage credentials using the initial token, and connect the callback function 
     // to renew the token just before it expires.
     TokenCredential tokenCredential = new TokenCredential(tokenAndFrequency.Token,
                                                             TokenRenewerAsync,
