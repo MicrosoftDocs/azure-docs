@@ -1,6 +1,6 @@
 ---
 title: Deploy secure applications on Microsoft Azure
-description: This article discusses best practices to consider during the release and response phases of your web application project.
+description: This article discusses best practices to consider during the release and response phases of your web application project. test
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
