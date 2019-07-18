@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To configure Azure AD integration with Adaptive Insights, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Adaptive Insights single sign-on enabled subscription
+* Adaptive Insights single sign-on enabled subscription (not all subscriptions come with SSO as an option)
 
 ## Scenario description
 
@@ -107,13 +107,13 @@ To configure Azure AD single sign-on with Adaptive Insights, perform the followi
     `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
 	> [!NOTE]
-	> You can get Identifier(Entity ID) and Reply URL values from the Adaptive Insights’s **SAML SSO Settings** page.
+	> You can get Identifier(Entity ID) and Reply URL values from the Adaptive Insights’s **SAML SSO Settings** page. Both of these values are the same, and they are the **Adaptive Insights SSO URL** value found at the bottom of the **SAML SSO Settings** page in the Adaptive Insights portal. You can obtain your Single Sign-on URL from within the Adaptive Insights portal by providing place holder values for the all the required fields and uploading your SSO certificate (see next step) in Administration > SAML SSO Settings. After saving the page with placeholder values, reload it to see the SSO URL at the bottom. 
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-6. On the **Set up Adaptive Insights** section, copy the appropriate URL(s) as per your requirement.
+6. On the **Set up Adaptive Insights** section, the three URLs shown will be needed in the Adaptive Insights portal in the next series of steps.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -127,15 +127,15 @@ To configure Azure AD single sign-on with Adaptive Insights, perform the followi
 
 1. In a different web browser window, sign in to your Adaptive Insights company site as an administrator.
 
-2. Go to **Admin**.
+2. Go to **Administration** from the primary application menu.
 
-	![Admin](./media/adaptivesuite-tutorial/ic805644.png "Admin")
+	![Administration](./media/adaptivesuite-tutorial/ic805644.png "Administration")
 
-3. In the **Users and Roles** section, click **Manage SAML SSO Settings**.
+3. In the **Users and Roles** section, click **SAML SSO Settings**.
 
-	![Manage SAML SSO Settings](./media/adaptivesuite-tutorial/ic805645.png "Manage SAML SSO Settings")
+	![SAML SSO Settings](./media/adaptivesuite-tutorial/ic805645.png "SAML SSO Settings")
 
-4. On the **SAML SSO Settings** page, perform the following steps:
+4. On the **SAML SSO Settings** page, perform the following steps. If you are entering these values for the first time to get the **Adaptive Insights SSO URL** then enter placeholder values and then replace these with the correct values second time around.
 
 	![SAML SSO Settings](./media/adaptivesuite-tutorial/ic805646.png "SAML SSO Settings")
 
@@ -159,7 +159,7 @@ To configure Azure AD single sign-on with Adaptive Insights, perform the followi
 
      * **Enable SAML**, select **Allow SAML SSO and direct Adaptive Insights login**.
 
-	g. Copy **Adaptive Insights SSO URL** and paste into the **Identifier(Entity ID)** and **Reply URL** textboxes in the **Adaptive Insights Domain and URLs** section in the Azure portal.
+	g. Copy **Adaptive Insights SSO URL** and paste into the **Identifier(Entity ID)** and **Reply URL** textboxes in the **Basic SAML Configuration** section in the Azure portal.
 
 	h. Click **Save**.
 
@@ -221,23 +221,23 @@ To enable Azure AD users to sign in to Adaptive Insights, they must be provision
 
 1. Sign in to your **Adaptive Insights** company site as an administrator.
 
-2. Go to **Admin**.
+2. Go to **Administration**.
 
-   ![Admin](./media/adaptivesuite-tutorial/IC805644.png "Admin")
+   ![Administration](./media/adaptivesuite-tutorial/IC805644.png "Administration")
 
-3. In the **Users and Roles** section, click **Add User**.
+3. In the **Users and Roles** section, click **Users**.
 
-   ![Add User](./media/adaptivesuite-tutorial/IC805648.png "Add User")
-
-4. In the **New User** section, perform the following steps:
+4. Click the **New User** button and perform the following steps:
 
    ![Submit](./media/adaptivesuite-tutorial/IC805649.png "Submit")
 
-   a. Type the **Name**, **Login**, **Email**, **Password** of a valid Azure Active Directory user you want to provision into the related textboxes.
+   a. Type the **Name**, **Username**, **SAML Federation ID**, and **Password** of a valid Azure Active Directory user you want to provision into the related textboxes. The SAML Federation ID is the users Azure AD login value. Note that the password does not need to be the same as the Azure AD users password. The end user will not login directly to Adaptive Insights with these credentials - a placeholder password is required.
 
-   b. Select a **Role**.
+   b. Select **Use username as email**
+   
+   c. Select a **Role**.
 
-   c. Click **Submit**.
+   d. Click **Submit**.
 
 > [!NOTE]
 > You can use any other Adaptive Insights user account creation tools or APIs provided by Adaptive Insights to provision AAD user accounts.
