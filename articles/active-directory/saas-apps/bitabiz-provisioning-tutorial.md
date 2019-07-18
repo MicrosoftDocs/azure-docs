@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07-15-2019
+ms.date: 07-19-2019
 ms.author: zhchia 
 ---
 
@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Bi
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A BitaBIZ tenant](https://bitabiz.dk/en/price/)
+* [A BitaBIZ tenant](https://bitabiz.dk/en/price/).
 * A user account in BitaBIZ with Admin permissions.
 
 ## Assigning users to BitaBIZ
@@ -90,7 +90,7 @@ Before configuring BitaBIZ for automatic user provisioning with Azure AD, you ne
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in BitaBIZ based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for BitaBIZ , following the instructions provided in the [BitaBIZ Single sign-on tutorial](Leapsome-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for BitaBIZ , following the instructions provided in the [BitaBIZ Single sign-on tutorial](BitaBIZ-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 ### To configure automatic user provisioning for BitaBIZ in Azure AD:
 
@@ -129,17 +129,17 @@ This section guides you through the steps to configure the Azure AD provisioning
 	![BitaBIZ User Attributes](media/bitabiz-provisioning-tutorial/user-attribute.png)
 
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for BitaBIZ, change the **Provisioning Status** to **On** in the **Settings** section.
+11. To enable the Azure AD provisioning service for BitaBIZ, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to BitaBIZ by choosing the desired values in **Scope** in the **Settings** section.
+12. Define the users and/or groups that you would like to provision to BitaBIZ by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-15. When you are ready to provision, click **Save**.
+13. When you are ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
@@ -152,9 +152,9 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md).
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md).
