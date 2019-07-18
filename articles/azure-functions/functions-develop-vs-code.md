@@ -53,7 +53,7 @@ Before you install and run the [Azure Functions extension][Azure Functions exten
 Other resources that you need, like an Azure storage account, are created in your subscription when you [publish by using Visual Studio Code](#publish-to-azure).
 
 > [!IMPORTANT]
-> You can develop functions locally and publish them to Azure without having to start and run them locally. To run your functions locally, you'll need to mee some additional requirements, including an automatic download of the Azure Functions Core Tools. To learn more, see [Additional requirements to run locally](#additional-requirements-to-run-locally).
+> You can develop functions locally and publish them to Azure without having to start and run them locally. To run your functions locally, you'll need to meet some additional requirements, including an automatic download of Azure Functions Core Tools. To learn more, see [Additional requirements to run locally](#additional-requirements-to-run-locally).
 
 [!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
@@ -270,7 +270,7 @@ The Azure Functions extension lets you run a Functions project on your local dev
 
 To run your Functions project locally, you must meet these additional requirements:
 
-* Install version 2.x of the [Azure Functions Core Tools](functions-run-local.md#v2). The Core Tools package is downloaded and installed automatically when you start the project locally. The Core Tools include the entire Azure Functions runtime, so download and installation might take some time.
+* Install version 2.x of [Azure Functions Core Tools](functions-run-local.md#v2). The Core Tools package is downloaded and installed automatically when you start the project locally. The Core Tools include the entire Azure Functions runtime, so download and installation might take some time.
 
 * Install the specific requirements for your chosen language:
 
@@ -388,46 +388,46 @@ After you complete these steps, calls made to the underlying Core Tools include 
 
 ## Command palette reference
 
-The Azure Functions extension provides a useful graphical interface in the area for interacting with your function apps in Azure. The same functionality is also available as commands in the command palette (F1). The following Azure Functions-specific commands are available:
+The Azure Functions extension provides a useful graphical interface in the area for interacting with your function apps in Azure. The same functionality is also available as commands in the command palette (F1). These Azure Functions commands are available:
 
 |Azure Functions command  | Description  |
 |---------|---------|
-|**Add New Settings...**  |  Creates a new application setting in Azure. To learn more, see [Publish application settings](#publish-application-settings). You may also need to [download this setting to your local settings](#download-settings-from-azure). |
-| **Configure Deployment Source...** | Connect your function app in Azure to a local Git repository. To learn more, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). |
-| **Connect to GitHub Repository...** | Connect your function app a GitHub repository. |
-| **Copy Function URL** | Gets the remote URL of an HTTP triggered function running in Azure. To learn more, see how to [get the deployed function URL](#get-deployed-function-url). |
-| **Create function app in Azure...** | Creates a new function app in your subscription in Azure. To learn more, see how to [publish to a new function app in Azure](#publish-to-azure).        |
-| **Decrypt Settings** | Use to decrypt [local settings](#local-settings-file) that have been encrypted by using `Azure Functions: Encrypt Settings`.  |
-| **Delete Function App...** | Removes an existing function app from your subscription in Azure. When there are no other apps in the App Service plan, you're given the option to delete that too. Other resources, such as storage accounts and resource groups, aren't deleted. To remove all resources, you should instead [delete the resource group](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). Your local project isn't affected. |
-|**Delete Function...**  | Removes an existing function from a function app in Azure. Because this deletion doesn't affect your local project, instead consider removing the function locally and then [republishing your project](#republish-project-files). |
-| **Delete Proxy...** | Removes an Azure Functions proxy from your function app in Azure. To learn more about proxies, see [Work with Azure Functions Proxies](functions-proxies.md). |
-| **Delete Setting...** | Deletes a function application setting in Azure. Doesn't affect settings in your local.settings.json file. |
-| **Disconnect from Repo...**  | Remove the [continuous deployment](functions-continuous-deployment.md) connection between a function app in Azure and a source control repository. |
-| **Download Remote Settings...** | Downloads settings from the chosen function app in Azure into your local.settings.json file. If the local file is encrypted, it is decrypted, updated, and encrypted again. If settings exist with different values in both locations, you are asked to choose how to proceed. Make sure that you have saved changes to your local.settings.json file before running this command. |
-| **Edit settings...** | Changes the value of an existing function application setting in Azure. Doesn't affect settings in your local.settings.json file.  |
-| **Encrypt settings** | Encrypts individual items in the `Values` array in the [local settings](#local-settings-file). In this file, `IsEncrypted` is also set to `true`, which tells the local runtime to decrypt settings before using them. Encrypt local settings to reduce the risk of leaking valuable information. In Azure, application settings are always stored encrypted. |
-| **Execute Function Now** | Starts a [timer triggered function](functions-bindings-timer.md) in Azure manually for test purposes. To learn more about triggering non-HTTP functions in Azure, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md). |
-| **Initialize Project for Use with VS Code...** | Adds the required Visual Studio Code project files to an existing Functions project. Use this command to work with a project you created using Core Tools. |
-| **Install of Update Azure Functions Core Tools** | Installs or updates the [Azure Functions Core Tools] that are used to run locally. |
+|**Add New Settings**  |  Creates a new application setting in Azure. To learn more, see [Publish application settings](#publish-application-settings). You might also need to [download this setting to your local settings](#download-settings-from-azure). |
+| **Configure Deployment Source** | Connects your function app in Azure to a local Git repository. To learn more, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). |
+| **Connect to GitHub Repository** | Connects your function app to a GitHub repository. |
+| **Copy Function URL** | Gets the remote URL of an HTTP-triggered function that's running in Azure. To learn more, see how to [get the deployed function URL](#get-deployed-function-url). |
+| **Create function app in Azure** | Creates a new function app in your subscription in Azure. To learn more, see the section on how to [publish to a new function app in Azure](#publish-to-azure).        |
+| **Decrypt Settings** | Decrypts [local settings](#local-settings-file) that have been encrypted by **Azure Functions: Encrypt Settings**.  |
+| **Delete Function App** | Removes a function app from your subscription in Azure. When there are no other apps in the App Service plan, you're given the option to delete that too. Other resources, like storage accounts and resource groups, aren't deleted. To remove all resources, you should instead [delete the resource group](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). Your local project isn't affected. |
+|**Delete Function**  | Removes an existing function from a function app in Azure. Because this deletion doesn't affect your local project, instead consider removing the function locally and then [republishing your project](#republish-project-files). |
+| **Delete Proxy** | Removes an Azure Functions proxy from your function app in Azure. To learn more about proxies, see [Work with Azure Functions Proxies](functions-proxies.md). |
+| **Delete Setting** | Deletes a function app setting in Azure. This deletion doesn't affect settings in your local.settings.json file. |
+| **Disconnect from Repo**  | Removes the [continuous deployment](functions-continuous-deployment.md) connection between a function app in Azure and a source control repository. |
+| **Download Remote Settings** | Downloads settings from the chosen function app in Azure into your local.settings.json file. If the local file is encrypted, it's decrypted, updated, and encrypted again. If there are conflicting settings in the two locations, you're asked to choose how to proceed. Be sure to save changes to your local.settings.json file before you run this command. |
+| **Edit settings** | Changes the value of an existing function app setting in Azure. This command doesn't affect settings in your local.settings.json file.  |
+| **Encrypt settings** | Encrypts individual items in the `Values` array in the [local settings](#local-settings-file). In this file, `IsEncrypted` is also set to `true`, which specifies that the local runtime will decrypt settings before using them. Encrypt local settings to reduce the risk of leaking valuable information. In Azure, application settings are always stored encrypted. |
+| **Execute Function Now** | Manually starts a [timer-triggered function](functions-bindings-timer.md) in Azure. This command is used for testing. To learn more about triggering non-HTTP functions in Azure, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md). |
+| **Initialize Project for Use with VS Code** | Adds the required Visual Studio Code project files to an existing Functions project. Use this command to work with a project that you created by using Core Tools. |
+| **Install or Update Azure Functions Core Tools** | Installs or updates [Azure Functions Core Tools], which is used to run functions locally. |
 | **Redeploy**  | Lets you redeploy project files from a connected Git repository to a specific deployment in Azure. To republish local updates from Visual Studio Code, [republish your project](#republish-project-files). |
-| **Rename Settings...** | Changes the key name of an existing function application setting in Azure. Doesn't affect settings in your local.settings.json file. After renaming settings in Azure, you should [download those changes to the local project](#download-settings-from-azure). |
+| **Rename Settings** | Changes the key name of an existing function app setting in Azure. This command doesn't affect settings in your local.settings.json file. After you rename settings in Azure, you should [download those changes to the local project](#download-settings-from-azure). |
 | **Restart** | Restarts the function app in Azure. Deploying updates also restarts the function app. |
-| **Set AzureWebJobStorage...**| Sets the value of the `AzureWebJobStorage` application setting. This setting is required by Azure functions, and is set when the function app is created in Azure. |
-| **Start** | Starts a stopped function app in Azure. | 
-| **Start Streaming Logs** | Starts the stream logs for the function app in Azure. Use streaming logs during remote troubleshooting in Azure if you need to see this information in near-real time. To learn more, see [Streaming Logs](#streaming-logs). |
-| **Stop** | Shuts-down a function app running in Azure. |
-| **Stop Streaming Logs** | Stops the stream logs for the function app in Azure. |
-| **Toggle as Slot Setting** | When enabled, makes sure that an application setting persists for a given deployment slot. |
-| **Uninstall Azure Functions Core Tools** | Removes the Azure Functions Core Tools, which is required by the extension. |
-| **Upload Local Settings...** | Uploads settings from your local.settings.json file to the chosen function app in Azure. If the local file is encrypted, it is decrypted, uploaded, and encrypted again. If settings exist with different values in both locations, you are asked to choose how to proceed. Make sure that you have saved changes to your local.settings.json file before running this command. |
+| **Set AzureWebJobsStorage**| Sets the value of the `AzureWebJobsStorage` application setting. This setting is required by Azure Functions. It's set when a function app is created in Azure. |
+| **Start** | Starts a stopped function app in Azure. |
+| **Start Streaming Logs** | Starts the streaming logs for the function app in Azure. Use streaming logs during remote troubleshooting in Azure if you need to see logging information in near-real time. To learn more, see [Streaming logs](#streaming-logs). |
+| **Stop** | Stops a function app that's running in Azure. |
+| **Stop Streaming Logs** | Stops the streaming logs for the function app in Azure. |
+| **Toggle as Slot Setting** | When enabled, ensures that an application setting persists for a given deployment slot. |
+| **Uninstall Azure Functions Core Tools** | Removes Azure Functions Core Tools, which is required by the extension. |
+| **Upload Local Settings** | Uploads settings from your local.settings.json file to the chosen function app in Azure. If the local file is encrypted, it's decrypted, uploaded, and encrypted again. If there are conflicting settings in the two locations, you're asked to choose how to proceed. Be sure to save changes to your local.settings.json file before you run this command. |
 | **View Commit in GitHub** | Shows you the latest commit in a specific deployment when your function app is connected to a repository. |
 | **View Deployment Logs** | Shows you the logs for a specific deployment to the function app in Azure. |
 
 ## Next steps
 
-To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
+To learn more about Azure Functions Core Tools, see [Work with Azure Functions Core Tools](functions-run-local.md).
 
-To learn more about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This article also links to examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    
+To learn more about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This article also provides links to examples of how to use attributes to declare the various types of bindings supported by Azure Functions.
 
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
 [Azure Functions Core Tools]: functions-run-local.md
