@@ -3,7 +3,7 @@ title: Configure liveness probes in Azure Container Instances
 description: Learn how to configure liveness probes to restart unhealthy containers in Azure Container Instances
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
