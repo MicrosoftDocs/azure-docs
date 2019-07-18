@@ -83,7 +83,7 @@ There is another way to start or stop the cluster.
     ![Start or stop commands in the Service Fabric Cluster page](./media/create-environment-service-fabric-cluster/start-stop-on-cluster-page.png)
 
 ## Configure auto startup and auto shutdown schedule
-Service Fabric clusters can also be started or stopped on a schedule. This experience is similar to the experience for virtual machines in a lab. To save money, by default, every cluster created in a lab automatically shuts down at the time defined by the lab [shutdown policy](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown). You can override by specifying whether the cluster should be shut down or by specifying the time the cluster is shut down. 
+Service Fabric clusters can also be started or stopped on a schedule. This experience is similar to the experience for virtual machines in a lab. To save money, by default, every cluster created in a lab automatically shuts down at the time defined by the lab [shutdown policy](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy). You can override by specifying whether the cluster should be shut down or by specifying the time the cluster is shut down. 
 
 ![Existing schedules for auto start and auto shutdown](./media/create-environment-service-fabric-cluster/existing-schedules.png)
 
