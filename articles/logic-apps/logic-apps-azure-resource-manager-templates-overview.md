@@ -148,6 +148,7 @@ Except for parameters that handle values that are sensitive or must be secured, 
 To secure template parameters, see these topics:
 
 * [Security recommendations for template parameters](../azure-resource-manager/template-best-practices.md#parameters)
+* [Secure template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 
 Other template sections often reference template parameters so they can use the values that pass through template parameters, for example:
@@ -169,6 +170,7 @@ Here are some best practices for defining parameters:
 * Include the `defaultValue` attribute, which can specify empty values, for all parameters except for values that are sensitive or must be secured. Always use secured parameters for user names, passwords, and secrets. To hide or protect sensitive parameter values, follow the guidance in these topics:
   
   * [Security recommendations for template parameters](../azure-resource-manager/template-best-practices.md#parameters)
+  * [Secure template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
   * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 
 * To differentiate template parameter names from workflow definition parameter names, you can use descriptive template parameter names, for example: `TemplateFabrikamPassword`
@@ -546,8 +548,8 @@ To make sure that the Logic App Designer can correctly show workflow definition 
 
 * Always use secured parameters for user names, passwords, and secrets. To hide or protect sensitive parameter values, follow the guidance in these topics:
 
-  * [Security recommendations for action and input parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters-and-inputs)
-
+  * [Security recommendations for action parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+  * [Security recommendations for parameters in workflow definitions](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow)
   * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 
 For more information about workflow definition parameters, see [Parameters - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#parameters).
