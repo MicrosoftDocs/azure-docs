@@ -57,13 +57,14 @@ An Azure IoT Edge device:
 
 - The Azure Blob Storage on IoT Edge module supports the following device configurations:
 
-  | Operating system | Architecture |
-  | ---------------- | ----- | ----- |
-  | Ubuntu Server 16.04 | AMD64 |
-  | Ubuntu Server 18.04 | AMD64 |
-  | Windows 10 IoT Enterprise | AMD64 |
-  | Windows Server 2019 | AMD64 |
-  | Raspbian-stretch | ARM32 |
+  | Operating system | AMD64 | ARM32v7 | ARM64 |
+  | ---------------- | ----- | ----- | ---- |
+  | Raspbian-stretch | No | Yes | No |  
+  | Ubuntu Server 16.04 | Yes | No | Yes (available to [install](how-to-install-iot-edge-linux-arm.md#install-a-specific-version) with [Azure IoT Edge 1.0.8-rc1 and later](https://github.com/Azure/azure-iotedge/releases)) |
+  | Ubuntu Server 18.04 | Yes | No | Yes (available to [install](how-to-install-iot-edge-linux-arm.md#install-a-specific-version) with [Azure IoT Edge 1.0.8-rc1 and later](https://github.com/Azure/azure-iotedge/releases)) |
+  | Windows 10 IoT Enterprise, build 17763 | Yes | No | No |
+  | Windows Server 2019, build 17763 | Yes | No | No |
+  
 
 Cloud resources:
 

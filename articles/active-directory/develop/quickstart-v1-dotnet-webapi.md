@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
@@ -56,12 +56,21 @@ To help secure your application, you first need to create an application in your
 
 3. In the left-hand navigation pane, select **Azure Active Directory**.
 4. Select **App registrations**, and then select **New registration**.
-5. When the **Register an application** page appears, enter a name for your application.
+5. When the **Register an application** page appears, enter a name for your application. For example, "To Do List Service".
 Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 6. Select the **Web** platform under the **Redirect URI** section and set the value to `https://localhost:44321/` (the location to which Azure AD will return tokens).
 7. When finished, select **Register**. On the app **Overview** page, note down the **Application (client) ID** value.
-6. Select **Expose an API**, then update the Application ID URI by clicking **Set**. Enter a tenant-specific identifier. For example, enter `https://contoso.onmicrosoft.com/TodoListService`.
-7. Save the configuration. Leave the portal open, because you'll also need to register your client application shortly.
+8. Select **Expose an API** and then click **Add a scope**.
+9. Accept the proposed Application ID URI (api://{clientId}) by selecting **Save and Continue**.
+10. Enter the following parameters:
+    1. For **Scope name**, enter "access_as_user".
+    1. Ensure the **Admins and users** option is selected for **Who can consent?**.
+    1. In **Admin consent display name**, enter "Access TodoListService as a user".
+    1. In **Admin consent description** type "Accesses the TodoListService Web API as a user".
+    1. In **User consent display name** type "Access TodoListService as a user".
+    1. In **User consent description** type "Accesses the TodoListService Web API as a user".
+    1. In **State**, select **Enabled**.
+11. Select **Add scope** to save the configuration. Leave the portal open, because you'll also need to register your client application shortly.
 
 ## Step 2: Set up the app to use the OWIN authentication pipeline
 
@@ -70,8 +79,8 @@ To validate incoming requests and tokens, you need to set up your application to
 1. To begin, open the solution and add the OWIN middleware NuGet packages to the TodoListService project by using the Package Manager Console.
 
     ```
-    PM> Install-Package Microsoft.Owin.Security.ActiveDirectory -ProjectName TodoListService
-    PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
+    Install-Package Microsoft.Owin.Security.ActiveDirectory -ProjectName TodoListService
+    Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
     ```
 
 2. Add an OWIN Startup class to the TodoListService project called `Startup.cs`.  Right-click the project, select **Add > New Item**, and then search for **OWIN**. The OWIN middleware will invoke the `Configuration(…)` method when your app starts.
@@ -91,7 +100,7 @@ To validate incoming requests and tokens, you need to set up your application to
 4. Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(…)` method. The parameters that you provide in `WindowsAzureActiveDirectoryBearerAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD. To use them you'll need to use classes in the `System.IdentityModel.Tokens` namespace.
 
     ```csharp
-    using System.IdentityModel.Tokens;
+    using Microsoft.IdentityModel.Tokens;
     ```
 
     ```csharp
@@ -145,9 +154,9 @@ To validate incoming requests and tokens, you need to set up your application to
 Before you can see the To Do List Service in action, you need to configure the To Do List client so it can get tokens from Azure AD and make calls to the service.
 
 1. Go back to the [Azure portal](https://portal.azure.com).
-1. Create a new application registration in your Azure AD tenant.  Enter a **Name** that describes your application to users, enter `http://TodoListClient/` for the **Redirect URI** value, and select **Public client (mobile and desktop)** in the dropdown.
+1. Create a new application registration in your Azure AD tenant.  Enter a **Name** that describes your application to users, enter `https://TodoListClient/` for the **Redirect URI** value, and select **Public client (mobile and desktop)** in the dropdown.
 1. After you finish registration, Azure AD assigns a unique application ID to your app. You’ll need this value in the next steps, so copy it from the application page.
-1. Select **API permissions**, then **Add a permission**.  Locate and select the To Do List Service, add the **user_impersonation Access TodoListService** permission under **Delegated Permissions**, and then select **Add permissions**.
+1. Select **API permissions**, then **Add a permission**.  Locate and select the **To Do List Service**, add the **user_impersonation Access TodoListService** permission under **Delegated Permissions**, and then select **Add permissions**.
 1. In Visual Studio, open `App.config` in the TodoListClient project, and then enter your configuration values in the `<appSettings>` section.
 
     * `ida:Tenant` is the name of your Azure AD tenant, for example, contoso.onmicrosoft.com.
