@@ -63,9 +63,9 @@ To configure and test Azure AD SSO with SAP Analytics Cloud, complete the follow
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
 2. **[Configure SAP Analytics Cloud SSO](#configure-sap-analytics-cloud-sso)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create SAP Analytics Cloud test user](#create-sap-analytics-cloud-test-user)** - to have a counterpart of Britta Simon in SAP Analytics Cloud that is linked to the Azure AD representation of user.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+5. **[Create SAP Analytics Cloud test user](#create-sap-analytics-cloud-test-user)** - to have a counterpart of B.Simon in SAP Analytics Cloud that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
@@ -197,7 +197,7 @@ To provision a user account:
 
 	d. In the **DISPLAY NAME** box, enter the full name of the user, like **B.Simon**.
 
-	e. In the **E-MAIL** box, enter the email address of the user, like **b.simon@contoso.com**.
+	e. In the **E-MAIL** box, enter the email address of the user, like `b.simon@contoso.com`.
 
 	f. On the **Select Roles** page, select the appropriate role for the user, and then select **OK**.
 
