@@ -30,7 +30,7 @@ Azure Logic Apps provides a [prebuilt logic apps Azure Resource Manager template
 
 For the easiest way to create valid parameterized logic app templates that are mostly ready for deployment, use Visual Studio (free Community edition or greater) and the Azure Logic Apps Tools for Visual Studio. You can then either [create your logic app in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [find and download an existing logic app from the Azure portal into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
-By downloading your logic app, you get a template that includes the definitions for your logic app and other resources such as connections. The template also *parameterizes*, or defines parameters for, the values used for deploying your logic app and other resources. You can provide the values for these parameters in a separate parameter file. That way, you can more easily change these values based on your deployment needs. For more information, see these topics:
+By downloading your logic app, you get a template that includes the definitions for your logic app and other resources such as connections. The template also *parameterizes*, or defines parameters for, the values used for deploying your logic app and other resources. You can provide the values for these parameters in a separate parameters file. That way, you can more easily change these values based on your deployment needs. For more information, see these topics:
 
 * [Create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
