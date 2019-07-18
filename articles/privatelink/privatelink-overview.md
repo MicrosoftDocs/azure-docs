@@ -40,9 +40,7 @@ Any Azure customer with an ARM VNet is able to create a service using a standard
 1. Azure customers connecting their VNets without VNet peering the VNet. This will not require non-overlapping address space as mandated by VNet Peering.  
 2. Market Place Service Providers rendering their services to other Azure customers privately in their VNets.
 
-## FAQ
 
-[!INCLUDE [Private Preview FAQ](../../includes/privatepreview-faq-include.md)]
 
 ## Next steps
 - [Create a Private Link service using Azure PowerShell](privatelink-create-powershell.md)
