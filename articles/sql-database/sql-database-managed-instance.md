@@ -13,7 +13,7 @@ ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 07/18/2019
 ---
-# What is Azure SQL Database managed instance
+# What is Azure SQL Database managed instance?
 
 Managed instance is a new deployment option of Azure SQL Database, providing near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) Database Engine, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. The managed instance deployment model allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, the managed instance deployment option preserves all PaaS capabilities (automatic patching and version updates, [automated backups](sql-database-automated-backups.md), [high-availability](sql-database-high-availability.md) ), that drastically reduces management overhead and TCO.
 
@@ -117,11 +117,11 @@ Find more information about the difference between service tiers in [managed ins
 
 ## Managed instance management operations
 
-Azure SQL Database provides management operations that you can use to automatically deploy new managed instances, update their properties, and delete instances when not needed. This section provides information about management operations and their typical durations.
+Azure SQL Database provides management operations that you can use to automatically deploy new managed instances, update instance properties, and delete instances when no longer needed. This section provides information about management operations and their typical durations.
 
 To support [deployments within Azure Virtual Networks (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) and provide isolation and security for customers, managed instance relies on [virtual clusters](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), which represent a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet. Essentially, every managed instance deployment in an empty subnet results in a new virtual cluster buildout.
 
-Subsequent operations on deployed managed instances might also have effects on its underlying virtual cluster. This affects duration of management operations, as deploying additional virtual machines comes with an overhead that needs to be considered when you plan new deployments or updates to existing managed instances.
+Subsequent operations on deployed managed instances might also have effects on its underlying virtual cluster. This affects the duration of management operations, as deploying additional virtual machines comes with an overhead that needs to be considered when you plan new deployments or updates to existing managed instances.
 
 All management operations can be categorized as follows:
 
@@ -132,16 +132,15 @@ All management operations can be categorized as follows:
 Typically, operations on virtual clusters take the longest. Duration of the operations on virtual clusters vary – below are the values that you can typically expect, based on existing service telemetry data:
 
 - Virtual cluster creation. This is a synchronous step in instance management operations. 90% of operations finish in 4 hours.
-- Virtual cluster resizing (expansion or shrinking). Expansion is a synchronous step in instance management update operations while shrinking is performed asynchronously (without impact on the duration of instance management operations). 90% of cluster expansions finish in less than 2.5 hours.
-- Virtual cluster deletion. This is an asynchronous step in instance management operations, but it can also be [manually initiated](sql-database-managed-instance-delete-virtual-cluster.md) on an empty virtual cluster, in which case it executes synchronously. 90% of virtual cluster deletions finish in 1.5 hours
+- Virtual cluster resizing (expansion or shrinking). Expansion is a synchronous step, while shrinking is performed asynchronously (without impact on the duration of instance management operations). 90% of cluster expansions finish in less than 2.5 hours.
+- Virtual cluster deletion. Deletion is an asynchronous step, but it can also be [initiated manually](sql-database-managed-instance-delete-virtual-cluster.md) on an empty virtual cluster, in which case it executes synchronously. 90% of virtual cluster deletions finish in 1.5 hours
 
 Additionally, management of instances may also include one of the operations on hosted databases (like in the case of vCore scaling), which results in longer durations:
 
-- Attaching database files from Azure Storage. This is a synchronous step in update instance operations such as compute (vCore) or storage scaling up or scaling down in the General Purpose service tier. 90% of these operations finish in 5 minutes.
-- Always On availability group seeding. This is a synchronous step in update instance operations such as compute (vCore) or storage scaling in the Business Critical service tier as well as in changing the service tier from General Purpose to Business Critical (or vice versa). Duration of this operation is proportional to the total database size as well as the database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration. 90% of these operations execute at 220 GB / hour or higher.
+- Attaching database files from Azure Storage. This is a synchronous step, such as compute (vCore), or storage scaling up or down in the General Purpose service tier. 90% of these operations finish in 5 minutes.
+- Always On availability group seeding. This is a synchronous step, such as compute (vCore), or storage scaling in the Business Critical service tier as well as in changing the service tier from General Purpose to Business Critical (or vice versa). Duration of this operation is proportional to the total database size as well as current database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration. 90% of these operations execute at 220 GB / hour or higher.
 
 The following table summarizes operations and typical overall durations:
-
 
 |Category  |Operation  |Long-running segment  |Estimated duration  |
 |---------|---------|---------|---------|
@@ -169,7 +168,7 @@ The following table summarizes operations and typical overall durations:
 
 Managed instances are not available to client applications during deployment and deletion operations.
 
-Managed instances are available during update operations There ia a short downtime caused by the failover that happens at the end of update operations that typically lasts up to 10 seconds.
+Managed instances are available during update operations but there is a short downtime caused by the failover that happens at the end of updates that typically lasts up to 10 seconds.
 
 > [!IMPORTANT]
 > Duration of a failover can vary significantly in case of long-running transactions that happen on the databases due to [prolonged recovery time](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Hence it’s not recommended to scale compute or storage of Azure SQL Database managed instance or to change service tier at the same time with the long-running transactions (data import, data processing jobs, index rebuild, etc.). Database failover that will be performed at the end of the operation will cancel ongoing transactions and result in prolonged recovery time.
