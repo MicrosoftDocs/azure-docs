@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07-12-2019
+ms.date: 07-19-2019
 ms.author: zhchia
 ---
 
@@ -92,7 +92,7 @@ Before configuring Fuze for automatic user provisioning with Azure AD, you need 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Fuze based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Fuze , following the instructions provided in the [Fuze Single sign-on tutorial](Leapsome-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Fuze , following the instructions provided in the [Fuze Single sign-on tutorial](fuze-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for Fuze in Azure AD:
 
@@ -153,10 +153,9 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md).
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
-
+* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md).
