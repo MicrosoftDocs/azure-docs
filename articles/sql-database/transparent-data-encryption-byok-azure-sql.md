@@ -67,15 +67,15 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
 
 - Grant the SQL Database server access to the key vault using its Azure Active Directory (Azure AD) Identity.  When using the Portal UI, the Azure AD identity gets automatically created and the key vault access permissions are granted to the server.  Using PowerShell to configure TDE with BYOK, the Azure AD identity must be created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-azure-sql-configure.md) and [Configure TDE with BYOK for Managed Instance](https://aka.ms/sqlmibyoktdepowershell) for detailed step-by-step instructions when using PowerShell.
 
-  > [!NOTE]
-  > If the Azure AD Identity **is accidentally deleted or the server’s permissions are revoked** using the key vault’s access policy or inadvertently by moving the server to a different tenant, the  server loses access to the key vault, and TDE encrypted databases are will be inaccessible and logons are denied until the logical server’s Azure AD Identity and permissions have been restored.  
+   > [!NOTE]
+   > If the Azure AD Identity **is accidentally deleted or the server’s permissions are revoked** using the key vault’s access policy or inadvertently by moving the server to a different tenant, the  server loses access to the key vault, and TDE encrypted databases are will be inaccessible and logons are denied until the logical server’s Azure AD Identity and permissions have been restored.  
 
 - When using firewalls and virtual networks with Azure Key Vault, you must configure the following: 
-  - Allow trusted Microsoft services to bypass this firewall – chose YES
 
+   - Allow trusted Microsoft services to bypass this firewall – chose YES
 
- > [!NOTE]
- > If TDE encrypted SQL databases lose access to the key vault because they cannot bypass the firewall, the databases will be inaccessible, and logons are denied until firewall bypass permissions have been restored.
+      > [!NOTE]
+      > If TDE encrypted SQL databases lose access to the key vault because they cannot bypass the firewall, the databases will be inaccessible, and logons are denied until firewall bypass permissions have been restored.
 
 - Enable auditing and reporting on all encryption keys: Key Vault provides logs that are easy to inject into other security information and event management (SIEM) tools. Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) is one example of a service that is already integrated.
 - To ensure high availability of encrypted databases, configure each SQL Database server with two Azure Key Vaults that reside in different regions.
