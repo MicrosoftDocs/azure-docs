@@ -1490,6 +1490,8 @@
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-provisioning-tutorial.md
+      - name: Templafy
+        href: templafy-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
       - name: Workday
