@@ -48,7 +48,7 @@ For more information about integration service environments, see
   > [!IMPORTANT]
   > Logic apps, built-in triggers, built-in actions, and connectors that run in 
   > your ISE use a pricing plan different from the consumption-based pricing plan. 
-  > For more information, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
+  > For more information about how pricing works for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
 * An [Azure virtual network](../virtual-network/virtual-networks-overview.md). 
 If you don't have a virtual network, learn how to 
@@ -271,7 +271,7 @@ compared to the global Logic Apps service, see [Isolated versus global in the IS
 
 ## Create integration account - ISE
 
-If you want to use an integration account with logic apps in an integration service environment (ISE), that integration account must use the *same environment* as the logic apps. Logic apps in an ISE can reference only integration accounts in the same ISE. Based on the [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) selected at creation, your ISE includes specific integration accounts at no additional cost. For information about this pricing model works, see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md).
+If you want to use an integration account with logic apps in an integration service environment (ISE), that integration account must use the *same environment* as the logic apps. Logic apps in an ISE can reference only integration accounts in the same ISE. Based on the [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) selected at creation, your ISE includes specific integration accounts at no additional cost. For information about this pricing model works, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
 To create an integration account that uses an ISE, [create your integration account in the usual way](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) except when you set the **Location** property, select your ISE from the **Integration service environments** section, for example:
 

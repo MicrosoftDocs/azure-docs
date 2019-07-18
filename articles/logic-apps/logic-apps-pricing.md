@@ -13,7 +13,7 @@ ms.date: 07/19/2019
 
 # Pricing model for Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) helps you create and run automated integration workflows that can scale in the cloud. This article describes how billing and pricing work for Azure Logic Apps. For specific pricing information, see [Azure Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) helps you create and run automated integration workflows that can scale in the cloud. This article describes how billing and pricing work for Azure Logic Apps. For pricing rates, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="consumption-pricing"></a>
 
@@ -58,7 +58,7 @@ For the Premium ISE SKU, the base unit has fixed capacity, so if you need more t
 > label run in the same ISE as your logic apps. Connectors 
 > that don't display the ISE label run in the global Logic Apps service.
 
-For specific pricing information, see [Azure Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="connectors"></a>
 
@@ -115,13 +115,13 @@ To choose between a Free, Basic, or Standard integration account, review these u
 
 * **Standard**: For when you have more complex B2B relationships and increased numbers of entities that you must manage
 
-For specific pricing information, see [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="data-retention"></a>
 
 ## Data retention
 
-Except for logic apps that run in an integration service environment (ISE), all the inputs and outputs that are stored in your logic app's run history get billed based on a logic app's [run retention period](logic-apps-limits-and-config.md#run-duration-retention-limits). Logic apps that run in an ISE don't incur data retention costs. For specific pricing information, see [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+Except for logic apps that run in an integration service environment (ISE), all the inputs and outputs that are stored in your logic app's run history get billed based on a logic app's [run retention period](logic-apps-limits-and-config.md#run-duration-retention-limits). Logic apps that run in an ISE don't incur data retention costs. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 To help you monitor your logic app's storage consumption, you can:
 

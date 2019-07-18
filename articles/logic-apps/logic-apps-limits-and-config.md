@@ -180,14 +180,14 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 ## Integration account limits
 
-If you use an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that's either the [Premium or Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), your ISE can have up to 5 total integration accounts with any tier combination.
+If you use an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that's either the [Premium or Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), your ISE can have up to 5 total integration accounts with any tier combination. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). For information about how pricing for ISEs works, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
 <a name="artifact-number-limits"></a>
 
 ### Artifact limits per integration account
 
 Here are the limits on the number of artifacts for each integration account tier. 
-For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). For information about how pricing works, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-acccounts).
 
 > [!NOTE] 
 > Use the Free tier only for exploratory scenarios, 

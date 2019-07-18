@@ -49,7 +49,8 @@ compares differences between an ISE and the global Logic Apps service.
 > [!NOTE]
 > Logic apps, built-in triggers, built-in actions, and connectors that run in 
 > your ISE use a pricing plan that differs from the consumption-based pricing plan. 
-> For more information, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md). 
+> For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md). 
+> For information about how the pricing model works for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 > Your ISE also has increased limits on run duration, storage retention, throughput, 
 > HTTP request and response timeouts, message sizes, and custom connector requests. 
 > For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
@@ -111,7 +112,7 @@ When you create your ISE, you can select the Developer SKU or Premium SKU. Here 
 
   Provides an ISE that you can use for production and includes SLA support, built-in triggers and actions, Standard connectors, Enterprise connectors, a single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account, options for scaling up capacity, and redundancy during recycling for a fixed monthly price.
 
-For pricing rates, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/). For information about how the pricing model works, see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md).
+For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). For information about how the pricing model works for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
 <a name="on-premises"></a>
 
@@ -150,7 +151,7 @@ integration service environment (ISE). However, those integration
 accounts must use the *same ISE* as the linked logic apps. 
 Logic apps in an ISE can reference only those integration accounts 
 that are in the same ISE. When you create an integration account, 
-you can select your ISE as the location for your integration account. For more information about the pricing model for using integration accounts with an ISE, see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+you can select your ISE as the location for your integration account. For more information about the pricing model for using integration accounts with an ISE, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
 ## Next steps
 
