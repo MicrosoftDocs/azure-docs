@@ -12,7 +12,7 @@ ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Create a shared access signature (SAS) for Blob storage using Azure Active Directory credentials with .NET
+# Create a shared access signature (SAS) for a container or blob using Azure Active Directory credentials with .NET
 
 A shared access signature (SAS) enables you to grant limited access to containers and blobs in your storage account. When you create a SAS, you specify its constraints, including which object or objects a client is allowed to access, what permissions they have on those objects, and how long the SAS is valid. This article shows how to use Azure Active Directory (Azure AD) credentials to create a SAS for a container or blob with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
 

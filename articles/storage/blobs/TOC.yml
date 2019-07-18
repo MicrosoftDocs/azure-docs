@@ -334,6 +334,10 @@
           items:
           - name: Create a delegated SAS
             items:
+            - name: PowerShell
+              href: storage-blob-delegated-sas-create-powershell.md
+            - name: Azure CLI
+              href: storage-blob-delegated-sas-create-cli.md
             - name: .NET
               href: storage-blob-delegated-sas-create-dotnet.md
       - name: Configure customer-managed keys for service encryption
