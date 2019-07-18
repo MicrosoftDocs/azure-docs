@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 07/19/2019
 ms.author: diberry
 ---
 
@@ -134,7 +134,7 @@ Below is an example of a structured QnA *.xls* file, with HTML content:
 
 ## Structured data format through import
 
-Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps QnA Maker group the question-answer pairs and attribute them to a particular data source.
+Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps QnA Maker group the question-answer pairs and attribute them to a particular data source.
 
 | Question  | Answer  | Source| Metadata (1 key: 1 value) |          
 |-----------|---------|----|---------------------|
@@ -145,14 +145,22 @@ Importing a knowledge base replaces the content of the existing knowledge base. 
 
 If you do not have pre-existing content to populate the knowledge base, you can add QnAs editorially in QnA Maker Knowledge base. Learn how to update your knowledge base [here](../How-To/edit-knowledge-base.md).
 
+<a href="#formatting-considerations"></a>
+
 ## Formatting considerations
 
-After importing a file or URL, it is converted into Markdown and stored in that format. If the conversion process is not correctly converting links in your files and URLs, you should edit the questions and answers on the **Edit** page. 
+After importing a file or URL, QnA Maker converts and stores your content in the [Markdown format](https://en.wikipedia.org/wiki/Markdown). The conversion process adds new lines in the text, such as `\n\n`. A knowledge of Markdown helps you to understand the converted content format and manage your knowledge base content. 
+
+If you add or edit your content directly in your knowledge base, you can use Markdown to create rich text content or change the content that is already in the Markdown format. QnA Maker supports much of the Markdown format to bring rich text capabilities to your content. However, the client application, such as a chat bot may not support the same set of Markdown formats. It is important to test the client application's display of answers. 
+
+Following is the list of Markdown formats that you can use in QnA Maker: 
+
 
 |Format|Purpose|
 |--|--|
 |`\n\n`| New line|
 |`\n*`|Bullet point for an ordered list|
+|test|![test](../media/qnamaker-concepts-datasources/format1.png)|
 
 ## Editing your knowledge base locally
 
