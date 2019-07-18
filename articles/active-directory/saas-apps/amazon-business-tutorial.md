@@ -39,7 +39,7 @@ To get started, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a existing Amaozn Business account.
+In this tutorial, you configure and test Azure AD SSO in an existing Amazon Business account.
 
 * Amazon Business supports **SP and IDP** initiated SSO
 * Amazon Business supports **Just In Time** user provisioning
@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** intiated mode, perform the following steps:
+1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** initiated mode, perform the following steps:
 
 	a. Click **Upload metadata file**.
 
@@ -102,7 +102,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	In the **Sign-on URL** text box, type a URL:
     `https://www.amazon.com/`
 
-1. If you do not have the **Service Provider metadata file**, on the **Basic SAML Configuration** section, if you wish to configure in **IDP** intiated mode, perform the following steps:
+1. If you do not have the **Service Provider metadata file**, on the **Basic SAML Configuration** section, if you wish to configure in **IDP** initiated mode, perform the following steps:
 
 	1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 	
@@ -170,7 +170,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Connection Data](media/amazon-business-tutorial/connection-data2.png)
 
-	1. Click on **upload a new metadata file** and upload the **Metadata XML** file, which you have downloaded from the Azure portal. After uploading the metadata file, the fields in the **Connection data** section will populate automaticaly.
+	1. Click on **upload a new metadata file** and upload the **Metadata XML** file, which you have downloaded from the Azure portal. After uploading the metadata file, the fields in the **Connection data** section will populate automatically.
 
 	1. Click **Save**.
 
@@ -178,11 +178,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Attributes](media/amazon-business-tutorial/map-attribute1.png)
 
-1. On the **Attribute mapping** section, add the requirements fileds by clicking the **+ Add a field** option and click **Save**.
+1. On the **Attribute mapping** section, add the requirements fields by clicking the **+ Add a field** option and click **Save**.
 
 	![Attributes](media/amazon-business-tutorial/map-attribute2.png)
 
-1. Your Amazon Business application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Signin to the [Azure portal](https://portal.azure.com/) and add the attributes in the **User Attributes & Claims** section. The following screenshot shows the list of default attributes.
+1. Your Amazon Business application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Sign in to the [Azure portal](https://portal.azure.com/) and add the attributes in the **User Attributes & Claims** section. The following screenshot shows the list of default attributes.
 
 	![Attributes](media/amazon-business-tutorial/map-attribute3.png)
 
