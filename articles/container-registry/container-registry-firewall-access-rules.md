@@ -40,7 +40,7 @@ If you need to allow access to specific IP addresses, download [Azure IP Ranges 
 To find the ACR REST endpoint IP ranges, search for **AzureContainerRegistry** in the JSON file.
 
 > [!IMPORTANT]
-> IP address ranges for Azure services can change, and updates are published weekly. Download the JSON file regularly, and make necessary updates in your access rules. If your scenario involves configuring network security group rules in an Azure virtual network to access Azure Container Registry, use the **AzureContainerRegistry** [service tag](#whitelist-by-service-tag) instead.
+> IP address ranges for Azure services can change, and updates are published weekly. Download the JSON file regularly, and make necessary updates in your access rules. If your scenario involves configuring network security group rules in an Azure virtual network to access Azure Container Registry, use the **AzureContainerRegistry** [service tag](#allow-access-by-service-tag) instead.
 >
 
 ### REST IP addresses for all regions
@@ -119,7 +119,7 @@ For example, create an outbound network security group rule with destination **A
 
 ## Next steps
 
-* Learn about [Azure best practices for network security](security/azure-security-network-security-best-practices.md)
+* Learn about [Azure best practices for network security](../security/azure-security-network-security-best-practices.md)
 
 * Learn more about [security groups](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview.md) in an Azure virtual network
 
