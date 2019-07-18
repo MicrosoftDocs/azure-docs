@@ -90,7 +90,7 @@ Media Services has the following long-running operations:
 * [Start Live Event](https://docs.microsoft.com/rest/api/media/liveevents/start)
 * [Stop LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
-  The **Stop** operation has a `removeOutputsOnStop` parameter which indicates whether or not to delete all associated Live Outputs.  
+  Use the `removeOutputsOnStop` parameter to delete all associated Live Outputs when stopping the event.  
 * [Reset LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
 * [Create LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [Delete LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
