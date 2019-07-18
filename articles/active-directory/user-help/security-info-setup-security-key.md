@@ -144,7 +144,7 @@ You have additional options for how your organization contacts you to verify you
 
 ## Next steps
 
-- For more information about alternate passwordless authentication methods, see [What is the Microsoft Authenticator app?](https://docs.microsoft.com/azure/active-directory/user-help8user-help-auth-app-overview) and [Windows Hello overview](https://www.microsoft.com/windows/windows-hello).
+- For more information about passwordless authentication methods, read the [Microsoft’s Azure AD begins public preview of FIDO2 security keys, enabling passwordless logins](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) blog, or read the [What is the Microsoft Authenticator app?](https://docs.microsoft.com/azure/active-directory/user-help8user-help-auth-app-overview) and [Windows Hello overview](https://www.microsoft.com/windows/windows-hello) articles.
 
 - For more detailed info about [Microsoft-compliant security keys](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
