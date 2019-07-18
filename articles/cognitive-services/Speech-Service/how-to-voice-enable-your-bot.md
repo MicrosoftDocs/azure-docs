@@ -55,14 +55,12 @@ Here's what this tutorial covers:
 
 ## Prerequisites
 
-Let's review the software and subscription key that you'll need for this tutorial.
+Let's review the hardware and software that you'll need for this tutorial.
 
-- [GitHub](https://github.com/) account
-- [Git for Windows](https://git-scm.com/download/win)
-- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or later
-
-<!-- An [Azure account with a Speech resource](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#new-azure-account), in one of the supported [Azure regions](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#voice-first-virtual-assistants) (see "Voice-first virtual assistant" regions) -->
-
+- Windows 10 PC with a microphone
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or higher
+- A [GitHub](https://github.com/) account
+- [Git for Windows](https://git-scm.com/download/win) installed
 
 ## Select the Azure region for your bot deployment
 
@@ -191,7 +189,9 @@ At this point, check your Resource Group "SpeechEchoBotTutorial-ResourceGroup" i
 | SpeechEchoBotTutorial-AppServicePlan | App Service plan | West US |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | West US |
 
-<a name="ToggleWebSocket"/>
+<!-- TOOD: This anchor does not work.Why -->
+<!-- <a name="ToggleWebSocket"/> -->
+
 At this point one small configuration chage is needed to your newly created App Service (SpeechEchoBotTutorial), so your bot can communicate with Direct Line Speech channel using websocket protocol:
 - In the [Azure portal](https://portal.azure.com), go to your new app service (named "SpeechEchoBotTutorial")
 - On the left-side menu, under "Settings", click "Configuration"
@@ -230,8 +230,9 @@ Note: it wil say "global" under Location for your Bot Channels Registration, eve
 
 TODO: Why?
 
-TODO: This anchor does not work. Why
-## <a name="BotChannelRegistration"/>Register your bot with Direct Line Speech channel
+<!-- TODO: This anchor does not work. Why? -->
+<!-- <a name="BotChannelRegistration"/> -->
+## Register your bot with Direct Line Speech channel
 
 - In the [Azure portal](https://portal.azure.com), open your SpeechEchoBotTutorial-BotRegistration resource.
 - Click on "Channels" on the left-side menu. 
@@ -243,155 +244,60 @@ TODO: This anchor does not work. Why
     - Check the box titled "Enable Streaming Endpoint". This is needed to enable the websocket protocol between the bot and Direct Line Speech channel
     - Click "Save"
 
-See [Connect a bot to Direct Line Speech (Preview)](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0)
+See also [Connect a bot to Direct Line Speech (Preview)](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0)
 
+## Test your echo-bot with Direct Line Speech Client
+
+Direct Line Speech Client is a Windows Presentation Foundation (WPF) application in C# that makes it easy to test interactions with your bot before creating a custom client application. It demonstrates how to use the [Azure Speech Services Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) to manage communication with your Azure Bot-Framework bot. Here we wil use it to test the echo-bot we deployed.
+- Got to the [GitHub repository of Direct Line Speech Client](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client) and read the text in the front page ([README.md](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/README.md))
+- Follow the Quickstart to
+    - Clone the repo
+    - Build the project in Visual Studio
+    - Run the executable DLSpeechClient.exe
+    - Configure the settings page with 
+        - The speech subscription key that you received while creating the Azure Cognitive-Services Speech resource
+        - The Azure region associated with the speech subscription key. Use the "Speech SDK Parameter" format, as indicated in the [Speech SDK region table](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#speech-to-text-text-to-speech-and-translation). For West US, enter "westus"
+    - In the main application window, enter the "Bot Secret". This is one of two secret keys you got when you registered your bot with Direct Line Speech channel. 
+       
 
 ## Troubleshooting errors in Direct Line Speech Client
 
 
 | Error | What should I check? |
 |-------|-------------|
-|Error AuthenticationFailure : WebSocket Upgrade failed with an authentication error (401). Please check for correct subscription key (or authorization token) and region name| In the Settings page of the application, make sure you entered the Speech Subscription key and its region correctly |
+|Error AuthenticationFailure : WebSocket Upgrade failed with an authentication error (401). Please check for correct subscription key (or authorization token) and region name| In the Settings page of the application, make sure you entered the Speech Subscription key and its region correctly.<br>Make sure your Bot Secret was entered correctly. |
 |Error ConnectionFailure : Connection was closed by the remote host. Error code: 1011. Error details: We could not connect to the bot before sending a message | Make sure you [checked the "Enable Streaming Endpoint"](#BotChannelRegistration) box and/or [toggled "Web sockets"](#ToggleWebSocket) to On.|
-|Error ConnectionFailure : Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a Neural Voice in its ouptut Activity [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field, but the Azure region associated with your Speech subscription key does not support Neural Voices. See [Standard and neural voices](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+|Error ConnectionFailure : Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a Neural Voice in its ouptut Activity [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field, but the Azure region associated with your Speech subscription key does not support Neural Voices. See [Standard and neural voices](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
+|Error ConnectionFailure : Connection was closed by the remote host. Error code: 1000. Error details: Exceeded maximum websocket connection idle duration(> 300000ms)| This is an expected error when the client left the connection to the channel open for more than 5 minutes without any activity |
 
 See also [Voice-first virtual assistants Preview: Frequently asked questions](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/faq-voice-first-virtual-assistants)
 
+## Make a change to the Bot and redeploy it
 
+TODO
 
+## Try out the high-quality Neural Text-to-speech voices
 
+TODO
 
+## Add Custom Wakeword
 
+TODO
 
+## Debug you bot locally
 
-<!-- ########################################################################  -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### JUNK BELOW
-- Default will be populated for you for App Name, Subscription, Resource Group, Hosting Plan and Application Insights. Keep those defaults and press "Create".
-- Wait patiently while your bot is deployed. It can take a few minutes.
-
-If deployment was successful, you will see the following message in Visual Studio's Output window:
-"Web App was published successfully https://echobot##############.azurewebsites.net/ (where '#' are digits representing your unique bot name). A web page should also open at the above URL showing the "Your bot is ready!" message.
-
-TODO - Discuss failure points and what to do?
-
-At this point, view the Azure resources that were created for you:
-- Log into the [Azure portal](https://portal.azure.com).
-- Click on "Resouces groups" on the left-side menu ([direct link](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroupBlade/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups))
-- You should see a new Resource group named EchoBot##############ResourceGroup, which will hold all Azure resources related to this project. When you click on it you will see two resources:
-    - "App Service" (named "EchoBot##############")
-    - "App Service Plan" (named "EchoBot##############Plan")
-
-See the [App Service overview](https://docs.microsoft.com/en-us/azure/app-service/overview) page for more information on Azure App Service and App Service Plans.
-
-TODO: they were created by default in "centeral US"... should we change this to westus2?
-See here: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-dotnet
-
-The next step is to register your Bot.. [TODO explain more why this is needed]
-- In the [Azure portal](https://portal.azure.com), click on "Create a resource"
-- In the search bar type "bot", and select the option "Bot Channels Registration".
-- Click on "Create"
-- Fill in the details
-    - Bot name - Enter your unique bot name (echobot##############)
-    - Subscription - Leave the deault "Free Trail"
-    - Resource group - Select your EchoBot##############ResourceGroup from the drop-down menu 
-    - Location - Enter the Azure region you decided in step ??? ("West US 2" in our case)
-    - Pricing tier - Select F0 from the drop down menu for free
-    - Messaging endpoint - Enter the URL of your web app with the /api/messages path. It should look like: https://echobot##############.azurewebsites.net/api/messages/
-    - Application insights - you can turn this off for now
-    - Click on "Auto create App ID and password", it will open another blade. Click "Auto crate App  ID and apssword".
-    - Back in the "Bot Channels Registration" blade, click "Create" at the bottom.
-
-
-TODO Discuss pricing in a separate section...
-
-Now view your resource group again, and you should see an additional "Bot Channels Registration" resource that you just created.
-
-
-Next validate again with Bot-Framework Emulator that you can chat with your deployed bot using typed text.
-
-TODO: talk about input hint (and other speech related items?)
-
-
-Include a sentence or two to explain only what is needed to complete the
-procedure.
-
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
-   ![Browser](media/contribute-how-to-mvc-tutorial/browser.png)
-1. Step 4 of the procedure
-
-## Procedure 2
-
-Include a sentence or two to explain only what is needed to complete the procedure.
-
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
-
-## Procedure 3
-
-Include a sentence or two to explain only what is needed to complete the
-procedure.
-
-
-Here is an example of a code block for Java:
-
-```java
-cluster = Cluster.build(new File("src/remote.yaml")).create();
-...
-client = cluster.connect();
-```
-
-or a code block for Azure CLI:
-
-```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-```
-
-or a code block for Azure PowerShell:
-
-```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
-```
-
+TODO
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
-
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
-
-
+If you're not going to continue using the echo-bot deployed in this tutorial, you can remove it and all its associated Azure resources by simply deleting the Azure Resource group SpeechEchoBotTutorial-ResourceGroup
+1. In the [Azure portal](https://portal.azure.com), click on "Resource Groups" from the left-side menu 
+1. Find the one named SpeechEchoBotTutorial-ResourceGroup, and click on the three dots (...) on the right side
+1. Select "Delete resource group".
 
 ## Next steps
+
+TODO
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
