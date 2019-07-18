@@ -28,10 +28,10 @@ The detection results are used to determine whether users and sign-ins are at ri
 
 ## How can I improve the detection accuracy?
 
-Because detection is an automated process it is possible that Azure AD reports false positives. 
+Because detection is an automated process, it is possible that Azure AD reports false positives. 
 You can improve the detection accuracy by providing feedback to Azure AD regarding the detection results.
 
-There are three ways to improve detection accuracy: confirm compromised sign-in, comfirm safe sign-in, and dismiss user risk. You can do so from the following reports:
+There are three ways to improve detection accuracy: confirm compromised sign-in, confirm safe sign-in, and dismiss user risk. You can do so from the following reports:
 
 - **Risky sign-ins report -** In the risky sign-ins report, you can confirm that sign-ins are safe or compromised
 - **Risky users report -** In the risky users report, you can dismiss user risk 
@@ -92,12 +92,12 @@ You can dismiss the reported user risk in:
 **What you should know:**
 
 - You can't revert this action.
-- It can take a few minutes for this action to be completed, which is why you should not re-submit your request.
+- It can take a few minutes for this action to be completed, which is why you should not resubmit your request.
 - You can only perform this action if AD manages the credentials of the user. 
 
 ## Best practices
 
-Dismissing a user's risk is one way to unblock them if they have been blocked by the User risk policy and cannot self remediate due to not having password reset and/or MFA enabled. In this situation, it is best to ensure the user then registers for password reset and MFA so they are able to self-remediate any future risk events.
+Dismissing a user's risk is one way to unblock them if they have been blocked by the User risk policy and cannot self-remediate due to not having password reset and/or MFA enabled. In this situation, it is best to ensure the user then registers for password reset and MFA so they are able to self-remediate any future risk events.
 
 ## Next steps
 

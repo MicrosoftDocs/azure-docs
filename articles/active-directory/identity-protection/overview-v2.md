@@ -79,13 +79,13 @@ The user risk is calculated by considering all the risks associated with the use
 - All risky sign-ins
 - All risk events not linked to a sign-in
 - The current user risk
-- Any risk remediation or dismissal actions performed on the user till date
+- Any risk remediation or dismissal actions performed on the user until date
 
 ## How Identity Protection detects risk  
 
-Azure AD uses machine learning to detect anomalies and suspicious activity, using both signals detected in real-time during sign-ins as well as non-real time signals related to users and their sign-in activities. Using this data, Identity Protection calculates a real-time sign-in risk each time a user authenticates, as well as determining an overall user risk level for each user. Identity Protection allows you to automatically take action on these risk detections by configuring Identity Protection user risk and Sign-In Risk policies.  
+Azure AD uses machine learning to detect anomalies and suspicious activity, using both signals detected in real time during sign-ins as well as non-real time signals related to users and their sign-in activities. Using this data, Identity Protection calculates a real-time sign-in risk each time a user authenticates, as well as determining an overall user risk level for each user. Identity Protection allows you to automatically take action on these risk detections by configuring Identity Protection user risk and Sign-In Risk policies.  
 
-To understand how Identity Protection detects risk, there are two important concepts: user risk and sign-in risk. Sign-in risk reflects the probability that a given authentication request isn’t authorized by the identity owner. There are two types of sign-in risks: real-time and total. Real-time sign-in risk is detected at the time of the given sign-in attempt (such as sign-ins from anonymous IP addresses). Total sign-in risk is the aggregate of detected real-time sign-in risks as well as any subsequent non-real-time risk events associated with the user’s sign ins (such as impossible travel). User risk reflects the overall likelihood that a bad actor has compromised a given identity. User risk contains all the risk activities for a given user, including:
+To understand how Identity Protection detects risk, there are two important concepts: user risk and sign-in risk. Sign-in risk reflects the probability that a given authentication request isn’t authorized by the identity owner. There are two types of sign-in risks: real-time and total. Real-time sign-in risk is detected at the time of the given sign-in attempt (such as sign-ins from anonymous IP addresses). Total sign-in risk is the aggregate of detected real-time sign-in risks as well as any subsequent non-real-time risk events associated with the user’s sign-ins (such as impossible travel). User risk reflects the overall likelihood that a bad actor has compromised a given identity. User risk contains all the risk activities for a given user, including:
 
 - Real-time sign-in risk
 - Subsequent sign-in risk
@@ -119,15 +119,15 @@ Now that a malicious actor tried to access Sarah’s account, let’s see what h
 1. The employee attempts to sign in to Exchange Online from Outlook. At the time of sign-in, Azure AD detects real-time risk events as well as any prior user risk. 
 2. Azure AD doesn’t detect any real-time sign-in risk, but detects high user risk due to the past risky activity in the previous scenarios.  
 3. The employee is challenged by a password reset prompt, because Contoso’s IT admin configured the Identity Protection user risk policy to require password change when a user with high risk logs in. 
-4. Since the employee is registered for SSPR and MFA, they successfully resets their password. 
+4. Since the employee is registered for SSPR and MFA, they successfully reset their password. 
 5. By resetting their password, the employee’s credentials are no longer compromised and their identity returns to a safe state. 
-6. The employee’s previous risk events are resolved and her user risk level is automatically reset as a response to mitigating the credentials compromise. 
+6. The employee’s previous risk events are resolved and their user risk level is automatically reset as a response to mitigating the credentials compromise. 
 
 ## How do I configure Identity Protection? 
 
 To get started with Identity Protection, first configure a user risk policy and a sign-in risk policy. Once these policies are configured and applied to a test group, you can simulate risk events to understand how Identity Protection will respond in your environment. The below quickstart guides provide a walkthrough on how to set up the aforementioned policies and test in your environment. 
 
-Identity Protection supports 3 roles in Azure AD to balance the management activities around your deployment: 
+Identity Protection supports three roles in Azure AD to balance the management activities around your deployment: 
 
 | Role | Can do | Cannot do |
 | --- | --- | --- |
@@ -135,7 +135,7 @@ Identity Protection supports 3 roles in Azure AD to balance the management activ
 | Security administrator | Full access to Identity Protection | Onboard Identity Protection, reset passwords for a user |
 | Security reader | Read-only access to Identity Protection | Onboard Identity Protection, remediate users, configure policies, reset passwords| 
 
-For more details, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+For more information, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
  
 ## Licensing
 

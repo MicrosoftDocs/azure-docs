@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How To: Investigate risky users and sign-ins 
 
-Using the Risky Sign-Ins and Risky Users reports you can investigate and gain insight into risk in your environment. With the ability to filter and sort the risky sign-ins and users, you can better understand potential intrusion in your organization. 
+Using the risky sign-ins and risky users reports you can investigate and gain insight into risk in your environment. With the ability to filter and sort the risky sign-ins and users, you can better understand potential intrusion in your organization. 
 
 ## Risky users report
 
