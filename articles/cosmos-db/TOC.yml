@@ -750,6 +750,8 @@
       href: sql-api-sdk-dotnet.md
     - name: .NET Core
       href: sql-api-sdk-dotnet-core.md
+    - name: .NET Standard
+      href: sql-api-sdk-dotnet-standard.md      
     - name: .NET change feed library
       href: sql-api-sdk-dotnet-changefeed.md
     - name: .NET bulk executor library 

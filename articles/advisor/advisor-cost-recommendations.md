@@ -20,7 +20,7 @@ Although certain application scenarios can result in low utilization by design, 
 
 Advisor shows you the estimated cost of continuing to run your virtual machine, so that you can choose to shut it down or resize it.
 
-If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the average CPU utilization rule on a per subscription basis.
+If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
 ## Reduce costs by eliminating unprovisioned ExpressRoute circuits
 
@@ -28,7 +28,7 @@ Advisor identifies ExpressRoute circuits that have been in the provider status o
 
 ## Reduce costs by deleting or reconfiguring idle virtual network gateways
 
-Advisor identifies virtual network gates that have been idle for over 90 days. Since these gateways are billed hourly, you should consider reconfiguring or deleting them if you don't intend to use them anymore. 
+Advisor identifies virtual network gateways that have been idle for over 90 days. Since these gateways are billed hourly, you should consider reconfiguring or deleting them if you don't intend to use them anymore. 
 
 ## Buy reserved virtual machine instances to save money over pay-as-you-go costs
 

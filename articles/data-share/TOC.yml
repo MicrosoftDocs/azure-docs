@@ -33,6 +33,12 @@
     href: how-to-delete-invitation.md
   - name: Revoke a share subscription
     href: how-to-revoke-share-subscription.md
+- name: Reference
+  items:
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.datashare
+  - name: REST API
+    href: /rest/api/datashare
 - name: Resources
   items:
   - name: Blog
