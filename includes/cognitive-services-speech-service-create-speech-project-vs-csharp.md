@@ -12,7 +12,7 @@ ms.author: wolfma
 
 1. Select **Console App (.NET Framework)**, and then select **Next**.
 
-1. In **Project name**, enter **helloworld**, and then select **Create**.
+1. In **Project name**, enter `helloworld`, and then select **Create**.
 
 1. From the menu bar in Visual Studio, select **Tools** > **Get Tools and Features**, and check whether the **.NET desktop development** workload is available. If the workload hasn't been installed, mark the checkbox, then select **Modify** to start the installation. It may take a few minutes to download and install.
 
