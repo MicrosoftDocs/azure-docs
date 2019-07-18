@@ -14,7 +14,7 @@ ms.author: swmachan
 
 # Tutorial: Create a translation app with WPF
 
-In this tutorial, you'll build a [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2017) app that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your app will call APIs from Translator Text and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+In this tutorial, you'll build a [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019) app that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your app will call APIs from Translator Text and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 What is WPF? It's a UI framework that creates desktop client apps. The WPF development platform supports a broad set of app development features, including an app model, resources, controls, graphics, layout, data binding, documents, and security. It's a subset of the .NET Framework, so if you have previously built apps with the .NET Framework using ASP.NET or Windows Forms, the programming experience should be familiar. WPF uses the Extensible app Markup Language (XAML) to provide a declarative model for app programming, which we'll review in the coming sections.
 
@@ -45,7 +45,7 @@ Before we continue, you'll need the following:
 
 * An Azure Cognitive Services subscription. [Get a Cognitive Services key](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-subscription).
 * A Windows machine
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) - Community or Enterprise
+* [Visual Studio 2019](https://www.visualstudio.com/downloads/) - Community or Enterprise
 
 > [!NOTE]
 > We recommend creating the subscription in the West US region for this tutorial. Otherwise, you'll need to change endpoints and regions in the code as you work through this exercise.  
@@ -55,10 +55,10 @@ Before we continue, you'll need the following:
 The first thing we need to do is set up our project in Visual Studio.
 
 1. Open Visual Studio. Then select **File > New > Project**.
-2. In the left panel, locate and select **Visual C#**. Then, select **WPF App (.NET Framework)** in the center panel.
+1. In **Create a new project**, left panel, locate and select **WPF App (.NET Framework)**. You can select C# from **Language** to narrow the options.
    ![Create a WPF app in Visual Studio](media/create-wpf-project-visual-studio.png)
-3. Name your project `MSTranslatorTextDemo`, set the framework version to **.NET Framework 4.5.2 or later**, then click **OK**.
-4. Your project has been created. You'll notice that there are two tabs open: `MainWindow.xaml` and `MainWindow.xaml.cs`. Throughout this tutorial, we'll be adding code to these two files. The first for the app's user interface; the latter for our calls to Translator Text and Bing Spell Check.
+1. Click **Next**, and then name your project `MSTranslatorTextDemo`, set the framework version to **.NET Framework 4.5.2** or later, then click **Create**.
+1. Your project has been created. You'll notice that there are two tabs open: `MainWindow.xaml` and `MainWindow.xaml.cs`. Throughout this tutorial, we'll be adding code to these two files. The first for the app's user interface; the latter for our calls to Translator Text and Bing Spell Check.
    ![Review your environment](media/blank-wpf-project.png)
 
 In the next section we're going to add assemblies and a NuGet package to our project for additional functionality, like JSON parsing.
@@ -73,26 +73,26 @@ Let's add assemblies to our project to serialize and deserialize objects, and to
 
 1. Locate your project in Visual Studio's Solution Explorer (right panel). Right click on your project, then select **Add > Reference...**, which opens **Reference Manager**.
    ![Add assembly references](media/add-assemblies-sample.png)
-2. The assemblies tab lists all .NET Framework assemblies that are available to reference. Use the search bar in the upper right of the screen to search for these references and add them to your project:
+1. The assemblies tab lists all .NET Framework assemblies that are available to reference. Use the search bar in the upper right of the screen to search for these references and add them to your project:
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
    * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
    * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
-3. After you've added these references to your project, you can click **OK** to close **Reference Manager**.
+1. After you've added these references to your project, you can click **OK** to close **Reference Manager**.
 
 > [!NOTE]
-> If you'd like to learn more about assembly references, see [How to: Add or remove reference using the Reference Manager](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2017).
+> If you'd like to learn more about assembly references, see [How to: Add or remove reference using the Reference Manager](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
 
 ### Install NewtonSoft.Json
 
 Our app will use NewtonSoft.Json to deserialize JSON objects. Follow these instructions to install the package.
 
 1. Locate your project in Visual Studio's Solution Explorer and right click on your project. Select **Manage NuGet Packages...**.
-2. Locate and select the **Browse** tab.
-3. Type [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) into the search bar.
+1. Locate and select the **Browse** tab.
+1. Type [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) into the search bar.
    ![Locate and install NewtonSoft.Json](media/add-nuget-packages.png)
-4. Select the package and click **Install**.
-5. When the installation is complete, close the tab.
+1. Select the package and click **Install**.
+1. When the installation is complete, close the tab.
 
 ## Create a WPF form using XAML
 
@@ -102,7 +102,7 @@ Let's take a look at what we're building.
 
 ![WPF XAML user interface](media/translator-text-csharp-xaml.png)
 
-The user interfacer includes these components:
+The user interface includes these components:
 
 | Name | Type | Description |
 |------|------|-------------|
@@ -119,7 +119,7 @@ The user interfacer includes these components:
 Let's add the code to our project.
 
 1. In Visual Studio, select the tab for `MainWindow.xaml`.
-2. Copy this code into your project and save.
+1. Copy this code into your project and save.
    ```xaml
    <Window x:Class="MSTranslatorTextDemo.MainWindow"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -154,7 +154,7 @@ Let's add the code to our project.
        </Grid>
    </Window>
    ```
-3. You should now see a preview of the app's user interface in Visual Studio. It should look similar to the image above.
+1. You should now see a preview of the app's user interface in Visual Studio. It should look similar to the image above.
 
 That's it, your form is ready. Now let's write some code to use Text Translation and Bing Spell Check.
 
@@ -174,7 +174,7 @@ That's it, your form is ready. Now let's write some code to use Text Translation
 All of our project is encapsulated in the `MainWindow : Window` class. Let's start by adding code to set your subscription key, declare endpoints for Translator Text and Bing Spell Check, and initialize the app.
 
 1. In Visual Studio, select the tab for `MainWindow.xaml.cs`.
-2. Replace the pre-populated `using` statements with the following.  
+1. Replace the pre-populated `using` statements with the following.  
    ```csharp
    using System;
    using System.Windows;
@@ -186,7 +186,7 @@ All of our project is encapsulated in the `MainWindow : Window` class. Let's sta
    using System.Text;
    using Newtonsoft.Json;
    ```
-3. Locate the `MainWindow : Window` class, and replace it with this code:
+1. Locate the `MainWindow : Window` class, and replace it with this code:
    ```csharp
    {
        // This sample uses the Cognitive Services subscription key for all services. To learn more about
@@ -236,7 +236,7 @@ All of our project is encapsulated in the `MainWindow : Window` class. Let's sta
    // In the following sections, we'll add code below this.
    }
    ```
-   1. Add your Cognitive Services subscription key and save.
+1. Add your Cognitive Services subscription key and save.
 
 In this code block, we've declared two member variables that contain information about available languages for translation:
 
