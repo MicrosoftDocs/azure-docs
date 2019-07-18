@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 
-#As a Python developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
+# As a Python developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
 # Quickstart: Analyze text content for objectionable material in Python
