@@ -95,7 +95,7 @@ $RestoredDatabase.status
 
 ## Next Steps
 - [Restore a deleted data warehouse][Restore a deleted data warehouse]
-- [Geo-restore a data warehouse][Geo-restore a data warehouse]
+- [Restore from a geo-backup data warehouse][Restore from a geo-backup data warehouse]
  
 <!--Image references-->
 
@@ -111,6 +111,9 @@ $RestoredDatabase.status
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [the tutorial to create a new user-defined restore point]:../sql-data-warehouse/sql-data-warehouse-restore-points.md
 [Install Azure PowerShell]: https://docs.microsoft.com/powershell/azure/overview
+[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
+[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
+[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
 
 <!--MSDN references-->
 [Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase

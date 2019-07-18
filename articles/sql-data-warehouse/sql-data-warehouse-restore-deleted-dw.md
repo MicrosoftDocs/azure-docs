@@ -83,7 +83,7 @@ $RestoredDatabase.status
 
 - [Restore an existing data warehouse][Restore an existing data warehouse]
 - [Restore a deleted data warehouse][Restore a deleted data warehouse]
-- [Geo-restore a data warehouse][Geo-restore a data warehouse]
+- [Restore from a geo-backup data warehouse][Restore from a geo-backup data warehouse]
 
 <!--Image references-->
 
@@ -99,6 +99,10 @@ $RestoredDatabase.status
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [support ticket]: https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket
 [Move]:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal
+[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
+[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
+[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
+
 <!--MSDN references-->
 [Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase
 

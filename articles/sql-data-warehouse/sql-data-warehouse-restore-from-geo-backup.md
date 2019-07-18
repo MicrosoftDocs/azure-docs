@@ -1,5 +1,5 @@
 ---
-title: Geo-restore an Azure SQL Data Warehouse | Microsoft Docs
+title: Restore an Azure SQL Data Warehouse from a geo-backup | Microsoft Docs
 description: How-to guide for geo-restoring an Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # Geo-restore Azure SQL Data Warehouse
 
-In this article, you learn to geo-restore your data warehouse through Azure portal and PowerShell.
+In this article, you learn to restore your data warehouse from a geo-backup through Azure portal and PowerShell.
 
 ## Before you begin
 
@@ -24,7 +24,7 @@ In this article, you learn to geo-restore your data warehouse through Azure port
 
 ## Restore from an Azure geographical region through PowerShell
 
-To geo-recover a data warehouse, use the [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet.
+To restore from a geo-backup, use the [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet.
 
 > [!NOTE]
 > You can perform a geo-restore to Gen2! To do so, specify an Gen2 ServiceObjectiveName (e.g. DW1000**c**) as an optional parameter.
@@ -68,7 +68,7 @@ The recovered database will be TDE-enabled if the source database is TDE-enabled
 
 ## Restore from an Azure geographical region through Azure portal
 
-Follow the steps outlined below to geo-restore an Azure SQL Data Warehouse:
+Follow the steps outlined below to restore an Azure SQL Data Warehouse from a geo-backup:
 
 1. Sign in to your [Azure portal][Azure portal] account.
 2. Click **+ Create a resource** and search for SQL Data Warehouse and click **Create**.
@@ -98,7 +98,7 @@ Follow the steps outlined below to geo-restore an Azure SQL Data Warehouse:
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
 [Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Geo-restore a data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
+[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
 
 <!--MSDN references-->
 [Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase

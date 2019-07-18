@@ -70,7 +70,7 @@ User-defined restore points can also be created through Azure portal.
 
 - [Restore an existing data warehouse][Restore an existing data warehouse]
 - [Restore a deleted data warehouse][Restore a deleted data warehouse]
-- [Geo-restore a data warehouse][Geo-restore a data warehouse]
+- [Restore from a geo-backup data warehouse][Restore from a geo-backup data warehouse]
 
 <!--Image references-->
 
@@ -88,7 +88,7 @@ User-defined restore points can also be created through Azure portal.
 [PowerShell]:./sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-powershell
 [Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
 [Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Geo-restore a data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
+[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
 <!--MSDN references-->
 [New-AzSqlDatabaseRestorePoint]: https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint?view=azps-2.4.0
 
