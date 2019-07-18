@@ -4,7 +4,7 @@ description: Learn how to configure multiple independent Azure Cosmos DB Trigger
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 4/15/2019
+ms.date: 05/23/2019
 ms.author: maquaran
 ---
 

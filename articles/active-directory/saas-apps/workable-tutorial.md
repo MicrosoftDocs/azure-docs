@@ -140,7 +140,7 @@ To enable SSO in Workable, contact your dedicated Workable account manager and p
 
 3. Logout URL
 
-Once Single Sign On has been enabled, your Workable account manager will let you know and you can use [Workable's SSO page](https://www.workable.com/sso/signin) to sign in using your Workable account subdomain.
+Once Single Sign On has been enabled, your Workable account manager will let you know and you can use [Workable's SSO page](https://id.workable.com/sso/signin) to sign in using your Workable account subdomain.
 
 ### Create an Azure AD test user
 
@@ -208,4 +208,4 @@ When you click the Workable tile in the Access Panel, you should be automaticall
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

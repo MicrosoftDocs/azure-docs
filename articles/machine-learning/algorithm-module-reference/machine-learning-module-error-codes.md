@@ -255,6 +255,7 @@ If the model was trained using any of the specialized training modules, connect 
 |----|----|----|
 |any classifier|[Train Model](train-model.md) |[Score Model](score-model.md)|
 |any regression model|[Train Model](train-model.md) |[Score Model](score-model.md)|
+
 <!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
 | anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
 | anomaly detection - PCA |[Train Model](train-model.md) |[Score Model](score-model.md) </br> Some additional steps are required to evaluate the model. |

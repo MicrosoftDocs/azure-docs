@@ -101,9 +101,9 @@ To configure Azure AD single sign-on with TINFOIL SECURITY, perform the followin
 
     ![TINFOIL SECURITY Domain and URLs single sign-on information](common/preintegrated.png)
 
-5. Your TINFOIL SECURITY application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+5. Your TINFOIL SECURITY application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
-	    ![image](common/edit-attribute.png)
+	    ![image](common/edit-attribute.png)
 
 6. In addition to above, TINFOIL SECURITY application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
@@ -251,5 +251,5 @@ When you click the TINFOIL SECURITY tile in the Access Panel, you should be auto
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

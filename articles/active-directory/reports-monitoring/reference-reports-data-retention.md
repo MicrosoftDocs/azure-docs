@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory report retention policies | Microsoft Docs
-description: Retention policies on report data in your Azure Active Directory
+title: How long does Azure AD store reporting data? | Microsoft Docs
+description: Learn how long Azure stores the various types of reporting data. 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -20,7 +20,7 @@ ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory report retention policies
+# How long does Azure AD store reporting data?
 
 In this article, you learn about the data retention policies for the different activity reports in Azure Active Directory. 
 

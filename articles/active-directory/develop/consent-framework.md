@@ -36,7 +36,7 @@ The following steps show you how the consent experience works for both the appli
 
 1. Assume you have a web client application that needs to request specific permissions to access a resource/API. You'll learn how to do this configuration in the next section, but essentially the Azure portal is used to declare permission requests at configuration time. Like other configuration settings, they become part of the application's Azure AD registration:
 
-    ![Permissions to other applications](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
+    ![Permissions to other applications](./media/consent-framework/permissions.png)
 
 1. Consider that your application’s permissions have been updated, the application is running, and a user is about to use it for the first time. First, the application needs to obtain an authorization code from Azure AD’s `/authorize` endpoint. The authorization code can then be used to acquire a new access and refresh token.
 
@@ -46,7 +46,7 @@ The following steps show you how the consent experience works for both the appli
 
 1. After the user has signed in, Azure AD will determine if the user needs to be shown a consent page. This determination is based on whether the user (or their organization’s administrator) has already granted the application consent. If consent has not already been granted, Azure AD prompts the user for consent and displays the required permissions it needs to function. The set of permissions that are displayed in the consent dialog match the ones selected in the **Delegated permissions** in the Azure portal.
 
-    ![User consent experience](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Shows an example of permissions displayed in the consent dialog](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see [Web API app type](web-api.md).
 
@@ -54,11 +54,10 @@ The following steps show you how the consent experience works for both the appli
 
     **To consent to an app's delegated permissions**
 
-   1. Go to the **Settings** page for your application
-   1. Select **Required permissions**.
-   1. Click on the **Grant permissions** button.
+   1. Go to the **API permissions** page for your application
+   1. Click on the **Grant admin consent** button.
 
-      ![Grant permissions for explicit admin consent](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Grant permissions for explicit admin consent](./media/consent-framework/grant-consent.png)
 
    > [!IMPORTANT]
    > Granting explicit consent using the **Grant permissions** button is currently required for single-page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested.

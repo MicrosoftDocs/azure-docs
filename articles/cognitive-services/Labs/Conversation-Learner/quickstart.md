@@ -3,13 +3,13 @@ title: How to create a Conversation Learner model using Node.js - Microsoft Cogn
 titleSuffix: Azure
 description: Learn how to create a Conversation Learner model using Node.js.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ---
 
 # Create a Conversation Learner model using Node.js

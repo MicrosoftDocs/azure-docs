@@ -78,8 +78,8 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | United States of America                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Virgin Islands - British                            |                 |                |              |      ✓     |          ✓         |
-| Virgin Islands - United States                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| British Virgin Islands                              |                 |                |              |      ✓     |          ✓         |
+| U.S. Virgin Islands                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## Asia Pacific
 
@@ -288,7 +288,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Tunisia                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Uganda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | United Arab Emirates                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| West Bank                                           |                 |                |              |      ✓     |          ✓         |
 | Yemen                                               |                 |                |              |      ✓     |          ✓         |
 | Zambia                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabwe                                            |                 |                |       ✓      |      ✓     |          ✓         |

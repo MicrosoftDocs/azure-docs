@@ -19,7 +19,7 @@ This article demonstrates how to enable monitoring for a Stream Analytics job. S
 
 Before you begin this process, you must have the following prerequisites:
 
-* Visual Studio 2017 or 2015
+* Visual Studio 2019 or 2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/) downloaded and installed
 * An existing Stream Analytics job that needs to have monitoring enabled
 
@@ -173,5 +173,5 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

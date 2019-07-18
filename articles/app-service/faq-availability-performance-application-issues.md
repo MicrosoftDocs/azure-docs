@@ -19,11 +19,11 @@ ms.author: genli
 ms.custom: seodec18
 
 ---
+# Application performance FAQs for Web Apps in Azure
+
 > [!NOTE]
 > Some of the below guidelines might only work on Windows or Linux App Services. For example, Linux App Services run in 64-bit mode by default.
 >
-
-# Application performance FAQs for Web Apps in Azure
 
 This article has answers to frequently asked questions (FAQs) about application performance issues for the [Web Apps feature of Azure App Service](https://azure.microsoft.com/services/app-service/web/).
 
@@ -158,7 +158,7 @@ Consider switching to 64-bit processes so you can take advantage of the addition
 
 Also note that a 64-bit environment requires a Basic or Standard service plan. Free and Shared plans always run in a 32-bit environment.
 
-For more information, see [Configure web apps in App Service](web-sites-configure.md).
+For more information, see [Configure web apps in App Service](configure-common.md).
 
 ## Why does my request time out after 230 seconds?
 

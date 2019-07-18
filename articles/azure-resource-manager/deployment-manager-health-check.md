@@ -6,11 +6,8 @@ documentationcenter: na
 author: mumian
 
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/08/19
+ms.date: 05/08/2019
 ms.author: jgao
 
 ---
@@ -29,7 +26,7 @@ In order to make health integration as easy as possible, Microsoft has been work
 
 ## How service health is determined
 
-[Health monitoring providers](#health-monitoring-providers) offer several mechanisms for monitoring services and alerting you of any service health issues. [Azure Monitor](/services/monitor/) is an example of one such offering. Azure Monitor can be used to create alerts when certain thresholds are exceeded. For example, your memory and CPU utilization spike beyond expected levels when you deploy a new update to your service. When notified, you can take corrective actions.
+[Health monitoring providers](#health-monitoring-providers) offer several mechanisms for monitoring services and alerting you of any service health issues. [Azure Monitor](../azure-monitor/overview.md) is an example of one such offering. Azure Monitor can be used to create alerts when certain thresholds are exceeded. For example, your memory and CPU utilization spike beyond expected levels when you deploy a new update to your service. When notified, you can take corrective actions.
 
 These health providers typically offer REST APIs so that the status of your service’s monitors can be examined programmatically. The REST APIs can either come back with a simple healthy/unhealthy signal (determined by the HTTP response code), and/or with detailed information about the signals it is receiving.
 

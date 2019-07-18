@@ -49,8 +49,10 @@
       href: data-box-gateway-troubleshoot.md
   - name: Release notes
     items:
-    - name: General availability
-      href: data-box-gateway-release-notes.md
+      - name: 1905 - Current
+        href: data-box-gateway-1905-release-notes.md
+      - name: General availability
+        href: data-box-gateway-release-notes.md
 - name: Data Box Edge
   items:
   - name: Overview
@@ -67,8 +69,10 @@
       href: data-box-edge-deploy-connect-setup-activate.md
     - name: 4 - Add, connect to share
       href: data-box-edge-deploy-add-shares.md
-    - name: 5 - Configure compute
+    - name: 5A - Configure compute (simple)
       href: data-box-edge-deploy-configure-compute.md
+    - name: 5B - Configure compute (advanced)
+      href: data-box-edge-deploy-configure-compute-advanced.md
   - name: Concepts
     items:
     - name: Review requirements
@@ -87,6 +91,8 @@
       items:
       - name: Edge compute
         href: data-box-edge-manage-compute.md
+      - name: Edge compute network
+        href: data-box-edge-extend-compute-access-modules.md
       - name: Shares
         href: data-box-edge-manage-shares.md
       - name: Users
@@ -105,6 +111,8 @@
       href: data-box-edge-return-device.md
   - name: Release notes
     items:
+    - name: 1905 - Current
+      href: data-box-gateway-1905-release-notes.md
     - name: General availability
       href: data-box-gateway-release-notes.md
 - name: Resources

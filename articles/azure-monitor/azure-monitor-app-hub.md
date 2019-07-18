@@ -52,22 +52,7 @@ ms.author: mbullwin
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                 							    </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                           </li>
 										</ul>
                                     </li>
                                     <li>
@@ -75,6 +60,13 @@ ms.author: mbullwin
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
+	                                                    <h3>What's new?</h3>
+                                                        <p>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Codeless monitoring for Azure VM and Azure virtual machine scale set applications</a><br>
+                                                            <a href="./app/kubernetes.md">Monitor Kubernetes applications</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">Status Monitor v2 for IIS apps</a><br>
+														</p>
+														<br><br>
 														<h3>Quickstarts</h3>
                                                         <p>
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
@@ -151,6 +143,7 @@ ms.author: mbullwin
                                                             <a href="./app/asp-net.md">In-depth monitoring configuration</a><br>
                                                             <a href="./app/monitor-performance-live-website-now.md">Status Monitor</a><br>
                                                             <a href="./app/azure-web-apps.md">App Service monitoring</a><br>
+                                                            <a href="./app/azure-vm-vmss-apps.md">VM and virtual machine scale set application monitoring</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Custom events and metrics</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">Open Source .NET SDK GitHub repo</a>
 														</p>

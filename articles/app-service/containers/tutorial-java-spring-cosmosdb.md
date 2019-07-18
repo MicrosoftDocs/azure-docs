@@ -77,7 +77,7 @@ The name of Cosmos DB must use only lower case letters. Note down the `documentE
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
     ```
 
-4. Get your Azure Cosmos DB key to connect to the app. Keep the he `primaryMasterKey`, `documentEndpoint` nearby as you'll need them in the next step.
+4. Get your Azure Cosmos DB key to connect to the app. Keep the `primaryMasterKey`, `documentEndpoint` nearby as you'll need them in the next step.
 
     ```bash
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>

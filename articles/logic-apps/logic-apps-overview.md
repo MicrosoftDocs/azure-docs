@@ -16,7 +16,7 @@ ms.date: 6/29/2018
 # What is Azure Logic Apps?
 
 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) 
-is a cloud service that helps you automate and orchestrate tasks, 
+is a cloud service that helps you schedule, automate, and orchestrate tasks, 
 business processes, and [workflows](#logic-app-concepts) 
 when you need to integrate apps, data, systems, 
 and services across enterprises or organizations. 
@@ -34,7 +34,7 @@ For example, here are just a few workloads you can automate with logic apps:
 and create alerts or tasks for items that need review.
 
 To build enterprise integration solutions with Azure Logic Apps, you can choose 
-from a growing gallery with [200+ connectors](../connectors/apis-list.md), 
+from a growing gallery with [hundreds of ready-to-use connectors](../connectors/apis-list.md), 
 which include services such as Azure Service Bus, Functions, and Storage; 
 SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, 
 file shares, and more. [Connectors](#logic-app-concepts) provide 
@@ -45,14 +45,7 @@ or both for creating logic apps that securely access and process data in real ti
 
 ## How does Logic Apps work? 
 
-Every logic app workflow starts with a trigger, 
-which fires when a specific event happens, 
-or when new available data meets specific criteria. 
-Many triggers include basic scheduling capabilities so 
-that you can specify how regularly your workloads run. 
-For more custom scheduling scenarios, 
-start your workflows with the Schedule trigger. 
-Learn more about [how to build schedule-based workflows](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md).
+Every logic app workflow starts with a trigger, which fires when a specific event happens, or when new available data meets specific criteria. Many triggers provided by the connectors in Logic Apps include basic scheduling capabilities so that you can set up how regularly your workloads run. For more complex scheduling or advanced recurrences, you can use a Recurrence trigger as the first step in any workflow. Learn more about [schedule-based workflows](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Each time that the trigger fires, the Logic Apps engine 
 creates a logic app instance that runs the actions in the workflow. 
@@ -246,7 +239,7 @@ For more information, see [Choose between Flow, Logic Apps, Functions, and WebJo
 Logic Apps is one of the many services hosted on Microsoft Azure. 
 So before you start, you need an Azure subscription. 
 If you don't have a subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 If you have an Azure subscription, try this 
 [quickstart to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), 

@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 06/20/2019
 ---
 
 # Auto-train a time-series forecast model
@@ -20,7 +20,15 @@ In this article, you learn how to train a time-series forecasting regression mod
 * Configure specific time-series parameters in an [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) object
 * Run predictions with time-series data
 
-> [!VIDEO https://www.youtube.com/embed/mGr_c2UnOUI]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
+
+You can use automated ML to combine techniques and approaches and get a recommended, high-quality time-series forecast. An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are “pivoted” to become additional dimensions for the regressor together with other predictors. 
+
+This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. In real-world forecasting applications, multiple factors can influence a forecast. For example, when forecasting sales, interactions of historical trends, exchange rate and price all jointly drive the sales outcome. A further benefit is that all recent innovations in regression models apply immediately to forecasting.
+
+You can [configure](#config) how far into the future the forecast should extend (the forecast horizon), as well as lags and more. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible. 
+
+Features extracted from the training data play a critical role. And, automated ML performs standard pre-processing steps and generates additional time-series features to capture seasonal effects and maximize predictive accuracy. 
 
 ## Prerequisites
 
@@ -69,6 +77,7 @@ y_test = X_test.pop("sales_quantity").values
 > not be able to accurately predict future stock values corresponding to future time-series
 > points, and model accuracy could suffer.
 
+<a name="config"></a>
 ## Configure and run experiment
 
 For forecasting tasks, automated machine learning uses pre-processing and estimation steps that are specific to time-series data. The following pre-processing steps will be executed:
@@ -85,7 +94,7 @@ The `AutoMLConfig` object defines the settings and data necessary for an automat
 |-------|-------|-------|
 |`time_column_name`|Used to specify the datetime column in the input data used for building the time series and inferring its frequency.|✓|
 |`grain_column_names`|Name(s) defining individual series groups in the input data. If grain is not defined, the data set is assumed to be one time-series.||
-|`max_horizon`|Maximum desired forecast horizon in units of time-series frequency.|✓|
+|`max_horizon`|Defines the maximum desired forecast horizon in units of time-series frequency. Units are based on the time interval of your training data, e.g. monthly, weekly that the forecaster should predict out.|✓|
 |`target_lags`|*n* periods to forward-lag target values prior to model training.||
 |`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size.||
 

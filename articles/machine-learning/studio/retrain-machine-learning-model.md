@@ -84,7 +84,7 @@ The BES sample code uploads a file from a local drive (for example, "C:\temp\Cen
 1. From the list of storage accounts, select one to store the retrained model.
 1. In the left navigation column, click **Access keys**.
 1. Copy and save the **Primary Access Key**.
-1. In the left navigation column, click **Containers**.
+1. In the left navigation column, click **Blobs**.
 1. Select an existing container, or create a new one and save the name.
 
 Locate the *StorageAccountName*, *StorageAccountKey*, and *StorageContainerName* declarations, and update the values that you saved from the portal.

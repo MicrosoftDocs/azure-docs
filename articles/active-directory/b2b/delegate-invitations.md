@@ -10,7 +10,7 @@ ms.date: 04/11/2019
 
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 
 ms.collection: M365-identity-device-management

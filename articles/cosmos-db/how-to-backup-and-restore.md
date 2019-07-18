@@ -4,7 +4,7 @@ description: This article describes how to restore Azure Cosmos DB data from a b
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
 

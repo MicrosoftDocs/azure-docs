@@ -7,7 +7,7 @@ manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 11/1/2018
-ms.author: qianw211
+ms.author: pabutler
 ---
 
 # Private offers

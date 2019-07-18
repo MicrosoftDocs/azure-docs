@@ -3,8 +3,8 @@ title: Problem adding an Azure AD Gallery application | Microsoft Docs
 description: Understand the common problems people face when adding Azure AD Gallery applications and what you can do to resolve them
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 
 ms.collection: M365-identity-device-management
 ---
@@ -37,7 +37,7 @@ If you encounter an error when clicking the **Add** button, you’ll see a **Not
 
 ## I don’t know how to set up my application once I’ve added it
 
-If you need help learning about applications, the [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) article is a good place to start.
+If you need help with learning about applications, the [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) article is a good place to start.
 
 In addition to this, the [Azure AD Applications Document Library](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) helps you to learn more about single sign-on with Azure AD and how it works.
 
@@ -45,7 +45,7 @@ In addition to this, the [Azure AD Applications Document Library](https://docs.m
 
 You can see the details of any portal notification by following the steps below:
 
-1.  Select the **Notifications** icon (the bell) in the upper right of the Azure Portal
+1.  Select the **Notifications** icon (the bell) in the upper right of the Azure portal
 
 2.  Select any notification in an **Error** state (those with a red (!) next to them).
 
@@ -90,7 +90,7 @@ See the following descriptions for more details about the notifications.
 
   -   Example – **2017-03-23T19:50:43.7583681Z**
 
-- **Internal Transaction ID** – the internal ID we can use to look the error up in our systems
+- **Internal Transaction ID** – the internal ID we can use to look up the error in our systems
 
   -   Example – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 

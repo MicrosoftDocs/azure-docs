@@ -7,7 +7,7 @@ ms.author: sngun
 ms.devlang: PowerShell
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 05/29/2018
+ms.date: 05/29/2019
 ms.reviewer: sngun
 ---
 

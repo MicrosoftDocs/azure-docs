@@ -12,9 +12,9 @@ ms.date: 04/23/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for Azure Service Bus Messaging
+# Security attributes for Azure Service Bus Messaging
 
-Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into Azure Service Bus Messaging.
+This article documents the security attributes built into Azure Service Bus Messaging.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

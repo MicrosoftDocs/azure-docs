@@ -11,11 +11,11 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 07/01/2019
 ms.author: magoedte
 ---
 
-# Collect log data with the Azure Log Analytics agent
+# Collect log data with the Log Analytics agent
 
 The Azure Log Analytics agent, previously referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent, was developed for comprehensive management across on-premises machines, computers monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), and virtual machines in any cloud. The Windows and Linux agents attach to an Azure Monitor and store collected log data from different sources in your Log Analytics workspace, as well as any unique logs or metrics as defined in a monitoring solution. 
 
@@ -29,11 +29,11 @@ Before analyzing and acting on collected data, you first need to install and con
 
 The agent for Linux and Windows communicates outbound to the Azure Monitor service over TCP port 443, and if the machine connects through a firewall or proxy server to communicate over the Internet, review requirements below to understand the network configuration required. If your IT security policies do not allow computers on the network to connect to the Internet, you can set up a [Log Analytics gateway](gateway.md) and then configure the agent to connect through the gateway to Azure Monitor logs. The agent can then receive configuration information and send data collected depending on what data collection rules and monitoring solutions you have enabled in your workspace. 
 
-If you are monitoring a computer with System Center Operations Manager 2012 R2 or later, it can be multi-homed with the Azure Monitor service to collect data and forward to the service and still be monitored by [Operations Manager](../../azure-monitor/platform/om-agents.md). With Linux computers, the agent doesn't include a health service component as the Windows agent does, and information is collected and processes by a management server on its behalf. Because Linux computers are monitored differently with Operations Manager, they do not receive configuration or collect data directly, and forward through the management group like a Windows agent-managed system does. As a result, this scenario isn't supported with Linux computers reporting to Operations Manager.  
+If you are monitoring a computer with System Center Operations Manager 2012 R2 or later, it can be multi-homed with the Azure Monitor service to collect data and forward to the service and still be monitored by [Operations Manager](../../azure-monitor/platform/om-agents.md). With Linux computers, the agent doesn't include a health service component as the Windows agent does, and information is collected and processes by a management server on its behalf. Because Linux computers are monitored differently with Operations Manager, they do not receive configuration or collect data directly, and forward through the management group like a Windows agent-managed system does. As a result, this scenario isn't supported with Linux computers reporting to Operations Manager and you need to configure the Linux computer to [report to an Operations Manager management group](../platform/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) and a Log Analytics workspace in two steps.
 
 The Windows agent can report up to four Log Analytics workspaces, while the Linux agent only supports reporting to a single workspace.  
 
-The agent for Linux and Windows isn't only for connecting to Azure Monitor, it also supports Azure Automation to host the Hybrid Runbook worker role and other services such as [Change Tracking](../../automation/change-tracking.md) and [Update Management](../../automation/automation-update-management.md). For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
+The agent for Linux and Windows isn't only for connecting to Azure Monitor, it also supports Azure Automation to host the Hybrid Runbook worker role and other services such as [Change Tracking](../../automation/change-tracking.md), [Update Management](../../automation/automation-update-management.md), and [Azure Security Center](../../security-center/security-center-intro.md). For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## Supported Windows operating systems
 The following versions of the Windows operating system are officially supported for the Windows agent:
@@ -54,7 +54,8 @@ Starting with versions released after August 2018, we are making the following c
 * New versions of AMI are not supported.  
 * Only versions that run SSL 1.x by default are supported.
 
-If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
+>[!NOTE]
+>If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
 
 * Amazon Linux 2017.09 (x64)
 * CentOS Linux 6 (x86/x64) and 7 (x64)  
@@ -62,11 +63,26 @@ If you are using a distro or version that is not currently supported and doesn't
 * Red Hat Enterprise Linux Server 6 (x86/x64) and 7 (x64)
 * Debian GNU/Linux 8 and 9 (x86/x64)
 * Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x86/x64), and 18.04 LTS (x64)
-* SUSE Linux Enterprise Server 12 (x64)
+* SUSE Linux Enterprise Server 12 (x64) and 15 (x64)
 
 >[!NOTE]
 >OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit) and OpenSSL earlier than 1.x is not supported on any platform.
 >
+
+### Agent prerequisites
+
+The following table highlights the packages required for supported Linux distros that the agent will be installed on.
+
+|Required package |Description |Minimum version |
+|-----------------|------------|----------------|
+|Glibc |	GNU C Library | 2.5-12 
+|Openssl	| OpenSSL Libraries | 1.0.x or 1.1.x |
+|Curl | cURL web client | 7.15.5 |
+|Python-ctypes | | 
+|PAM | Pluggable Authentication Modules | | 
+
+>[!NOTE]
+>Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
 
 ## TLS 1.2 protocol
 To insure the security of data in transit to Azure Monitor logs, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
