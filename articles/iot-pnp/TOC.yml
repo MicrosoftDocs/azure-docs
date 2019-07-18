@@ -24,6 +24,8 @@
     href: concepts-developer-guide.md
   - name: Common interfaces
     href: concepts-common-interfaces.md
+  - name: Model discovery
+    href: concepts-model-discovery.md
 - name: How-to guides
   items:
   - name: Install IoT explorer
@@ -34,5 +36,4 @@
     href: howto-onboard-portal.md
   - name: Manage models
     href: howto-manage-models.md
-  - name: Build a solution
-    href: howto-build-plug-and-play-solution.md
+
