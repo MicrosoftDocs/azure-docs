@@ -363,7 +363,7 @@ If you'd like to configure your Azure File sync to work with firewall and virtua
 1. Make sure your servers IP is listed under the firewall's address range.
 1. Make sure **Allow trusted Microsoft services to access this storage account** is checked.
 1. Select **Save** to save your settings.
----
+
 # [PowerShell](#tab/azure-powershell)
 Execute the following command to ensure your storage account will work with firewall and virtual network settings:
 
