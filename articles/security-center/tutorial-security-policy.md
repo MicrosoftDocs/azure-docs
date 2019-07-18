@@ -83,7 +83,7 @@ To view your security policies in Security Center:
 > - When you view assigned policies, you can see multiple assignments and you can see how each assignment is configured on its own.
 
 ## Edit security policies
-You can edit the default security policy for each of your Azure subscriptions and management groups in [Azure Policy](../governance/policy/tutorials/create-and-manage.md). To modify a security policy, you must be an owner, contributor, or security administrator of the subscription or the containing management group.
+You can edit the default security policy for each of your Azure subscriptions and management groups in [Azure Policy](../governance/policy/tutorials/create-and-manage.md). To modify a security policy, you must be an owner, or security administrator, of the subscription or the containing management group.
 
 For instructions on how to edit a security policy in Azure Policy, see and [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
