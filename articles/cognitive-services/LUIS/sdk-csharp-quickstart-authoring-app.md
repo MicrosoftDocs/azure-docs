@@ -41,17 +41,17 @@ Create a new .NET Core application in your preferred editor or IDE.
 
 1. In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `language-understanding-quickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`. 
 
-```console
-dotnet new console -n language-understanding-quickstart
-```
+  ```console
+  dotnet new console -n language-understanding-quickstart
+  ```
 
 1. Change your directory to the newly created app folder. 
 
 1. You can build the application with:
 
-```console
-dotnet build
-```
+  ```console
+  dotnet build
+  ```
 
 The build output should contain no warnings or errors. 
 
