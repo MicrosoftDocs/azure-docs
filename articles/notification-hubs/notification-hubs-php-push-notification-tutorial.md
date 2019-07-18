@@ -285,4 +285,4 @@ In this topic, we showed how to create a simple Java REST client for Notificatio
 For more information, see also the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [PHP REST wrapper sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Get started tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/

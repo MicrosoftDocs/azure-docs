@@ -93,7 +93,7 @@ Supply the following values:
 * Resource group name for the cluster, and also for network and storage resources if they are not the same as the cluster
 * Cluster location
 * Cluster network and subnet 
-* Cluster node access role 
+* Cluster node access role (use the built-in role [Avere Operator](../role-based-access-control/built-in-roles.md#avere-operator))
 * Cluster management IP address and administrative password 
 * Number of nodes to add (1, 2, or 3)
 * Node instance type and cache size values 
@@ -108,7 +108,7 @@ If you are not using the prototype, you must construct a command like the follow
    --add-nodes --nodes NODE_COUNT \
    --management-address CLUSTER_IP --admin-password ADMIN_PASSWORD \
    --instance-type TYPE --node-cache-size SIZE \
-   --azure-role ROLE_NAME \
+   --azure-role "Avere Operator" \
    --log ~/vfxt.log
 ```
 
@@ -182,7 +182,7 @@ You can destroy node instances permanently by deleting them in the Azure portal.
 
 ### Delete additional cluster resources from the Azure portal
 
-If you created additional resources specifically for the vFXT cluster, you might want to remove them as part of tearing down the cluster. You should not destroy elements that contain data you need, or any items that are shared with other projects.
+If you created additional resources specifically for the vFXT cluster, you might want to remove them as part of tearing down the cluster. Do not destroy elements that contain data you need, or any items that are shared with other projects.
 
 In addition to deleting the cluster nodes, consider removing these components: 
 

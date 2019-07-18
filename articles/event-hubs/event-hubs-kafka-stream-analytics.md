@@ -33,7 +33,7 @@ To complete this quickstart, make sure you have the following prerequisites:
 
 * An Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
-* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a Maven binary archive.
+* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive.
 * [Git](https://www.git-scm.com/)
 * An **Azure Storage account**. If you don't have one, [create one](../storage/common/storage-quickstart-create-account.md) before proceeding further. The Stream Analytics job in this walkthrough stores the output data in an Azure blob storage. 
 
@@ -130,7 +130,7 @@ The query in the Stream Analytics job passes through the data without performing
 
 ### Configure job input
 
-1. In the notification message, select ** Go to resource** to see the **Stream Analytics job** page. 
+1. In the notification message, select **Go to resource** to see the **Stream Analytics job** page. 
 2. Select **Inputs** in the **JOB TOPOLOGY** section on the left menu.
 3. Select **Add stream input**, and then select **Event Hub**. 
 
@@ -160,7 +160,7 @@ The query in the Stream Analytics job passes through the data without performing
  
 
 ### Define a query
-After you have a Stream Analytics job setup to read an incoming data stream, the next step is to create a transformation that analyzes data in real time. You define the transformation query by using [Stream Analytics Query Language](https://msdn.microsoft.com/library/dn834998.aspx). In this walkthrough, you define a query that passes through the data without performing any transformation.
+After you have a Stream Analytics job setup to read an incoming data stream, the next step is to create a transformation that analyzes data in real time. You define the transformation query by using [Stream Analytics Query Language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). In this walkthrough, you define a query that passes through the data without performing any transformation.
 
 1. Select **Query**.
 2. In the query window, replace `[YourOutputAlias]` with the output alias you created earlier.

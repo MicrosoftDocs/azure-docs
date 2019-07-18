@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB and Azure Functions can be used together 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 05/28/2019
 ms.author: sngun
 ---
 
@@ -92,21 +92,21 @@ In retail implementations, when a user adds an item to their basket you now have
 
 1. You can create multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. Note that when multiple functions listen to the same change feed, a new lease collection is required for each function. For more information about lease collections, see [Understanding the Change Feed Processor library](change-feed-processor.md).
 2. Whenever a new item is added to a users shopping cart, each function is independently invoked by the change feed from the shopping cart container.
-    * One function may use the contents of the current basket to change the display of other items the user might be interested in.
-    * Another function may update inventory totals.
-    * Another function may send customer information for certain products to the marketing department, who sends them a promotional mailer. 
+   * One function may use the contents of the current basket to change the display of other items the user might be interested in.
+   * Another function may update inventory totals.
+   * Another function may send customer information for certain products to the marketing department, who sends them a promotional mailer. 
 
-    Any department can create an Azure Cosmos DB trigger by listening to the change feed, and be sure they won't delay critical order processing events in the process.
+     Any department can create an Azure Cosmos DB trigger by listening to the change feed, and be sure they won't delay critical order processing events in the process.
 
 In all of these use cases, because the function has decoupled the app itself, you don’t need to spin up new app instances all the time. Instead, Azure Functions spins up individual functions to complete discrete processes as needed.
 
 ## Tooling
 
-Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal and in Visual Studio 2017.
+Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal and in Visual Studio 2019.
 
 * In the Azure Functions portal, you can create an Azure Cosmos DB trigger. For quickstart instructions, see [Create an Azure Cosmos DB trigger in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc).
 * In the Azure Cosmos DB portal, you can add an Azure Cosmos DB trigger to an existing Azure Function app in the same resource group.
-* In Visual Studio 2017, you can create an Azure Cosmos DB trigger using the [Azure Functions Tools for Visual Studio 2017](../azure-functions/functions-develop-vs.md):
+* In Visual Studio 2019, you can create an Azure Cosmos DB trigger using the [Azure Functions Tools](../azure-functions/functions-develop-vs.md):
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
 

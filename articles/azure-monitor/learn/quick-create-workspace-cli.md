@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/12/2019
 ms.author: magoedte
 ---
 
@@ -38,6 +38,8 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a workspace
 Create a workspace with [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). The following example creates a workspace named *TestWorkspace* in the resource group *Lab* in the *eastus* location using a Resource Manager template from your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. Or you can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+
+For information about regions supported, see [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/) and search for Azure Monitor from the **Search for a product** field. 
 
 The following parameters set a default value:
 
@@ -91,7 +93,7 @@ The following parameters set a default value:
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -106,12 +108,12 @@ The following parameters set a default value:
     }
     ```
 
-2. Edit the template to meet your requirements.  Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
+2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.   
 4. You are ready to deploy this template. Use the following commands from the folder containing the template:
 
     ```azurecli
-    azure group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
+    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:

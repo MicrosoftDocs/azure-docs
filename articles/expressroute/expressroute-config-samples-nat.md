@@ -239,7 +239,7 @@ NAT Commands:
        }
 
 ### 5. Configure BGP to advertise selective prefixes in each direction
-Refer to samples in [Routing configuration samples ](expressroute-config-samples-routing.md) page.
+Refer to samples in [Routing configuration samples](expressroute-config-samples-routing.md) page.
 
 ### 6. Create policies
     routing-options {

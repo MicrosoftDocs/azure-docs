@@ -2,14 +2,14 @@
 title: Applications types that can be used in Azure Active Directory B2C | Microsoft Docs
 description: Learn about the types of applications you can use in the Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 
 ---
@@ -87,14 +87,14 @@ The web API can then use the token to verify the API caller's identity and to ex
 A web API can receive tokens from many types of clients, including web applications, desktop and mobile applications, single page applications, server-side daemons, and other web APIs. Here's an example of the complete flow for a web application that calls a web API:
 
 1. The web application executes a policy and the user completes the user experience.
-2. Azure AD B2C returns an `access_token` and an authorization code to the browser.
-3. The browser posts the `access_token` and authorization code to the redirect URI.
-4. The web server validates the `access token` and sets a session cookie.
-5. The `access_token` is provided to Azure AD B2C with the authorization code, application client ID, and credentials.
+2. Azure AD B2C returns an (OpenID Connect) `id_token` and an authorization code to the browser.
+3. The browser posts the `id_token` and authorization code to the redirect URI.
+4. The web server validates the `id_token` and sets a session cookie.
+5. The web server asks Azure AD B2C for an `access_token` by providing it with the authorization code, application client ID, and client credentials.
 6. The `access_token` and `refresh_token` are returned to the web server.
 7. The web API is called with the `access_token` in an authorization header.
 8. The web API validates the token.
-9. Secure data is returned to the web server.
+9. Secure data is returned to the web application.
 
 To learn more about authorization codes, refresh tokens, and the steps for getting tokens, read about the [OAuth 2.0 protocol](active-directory-b2c-reference-oauth-code.md).
 
@@ -104,7 +104,7 @@ To learn how to secure a web API by using Azure AD B2C, check out the web API tu
 
 Applications that are installed on devices, such as mobile and desktop applications, often need to access back-end services or web APIs on behalf of users. You can add customized identity management experiences to your native applications and securely call back-end services by using Azure AD B2C and the [OAuth 2.0 authorization code flow](active-directory-b2c-reference-oauth-code.md).  
 
-In this flow, the application executes [policies](active-directory-b2c-reference-policies.md) and receives an `authorization_code` from Azure AD after the user completes the policy. The `authorization_code` represents the application's permission to call back-end services on behalf of the user who is currently signed in. The application can then exchange the `authorization_code` in the background for an `id_token` and a `refresh_token`.  The application can use the `id_token` to authenticate to a back-end web API in HTTP requests. It can also use the `refresh_token` to get a new `id_token` when an older one expires.
+In this flow, the application executes [policies](active-directory-b2c-reference-policies.md) and receives an `authorization_code` from Azure AD after the user completes the policy. The `authorization_code` represents the application's permission to call back-end services on behalf of the user who is currently signed in. The application can then exchange the `authorization_code` in the background for an `access_token` and a `refresh_token`.  The application can use the `access_token` to authenticate to a back-end web API in HTTP requests. It can also use the `refresh_token` to get a new `access_token` when an older one expires.
 
 ## Current limitations
 

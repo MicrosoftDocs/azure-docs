@@ -3,7 +3,7 @@ title: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to
 description: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub.
 author: liydu
 ms.author: liydu
-ms.date: 12/18/2018
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -25,7 +25,7 @@ The [MXChip IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino-comp
 
 To complete the steps in this tutorial, first do the following tasks:
 
-* Prepare your DevKit by following the steps in [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Configure your DevKit's Wi-Fi and prepare your development environment by following the "Prepare the development environment" section steps in [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
 * Upgrade to the latest firmware (1.3.0 or later) with the [Update DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) tutorial.
 * Create and link an IoT Hub with a Device Provisioning service instance by following the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](/azure/iot-dps/quick-setup-auto-provision).
 
@@ -123,7 +123,7 @@ Press the **Reset** button on your DevKit. You should see **DPS Connected!** on 
 
 If you encounter problems, refer to the Iot DevKit [FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/), or reach out to the following channels for support:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## Next steps

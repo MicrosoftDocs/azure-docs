@@ -43,7 +43,6 @@ sections:
     items:
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts">Utilize the Resource Manager template reference</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-multiple-instances">Create multiple instances of an Azure resource</a>.
-    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-move-resources">Move resources</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources">Set resource deployment order</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-conditions">Use conditions</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-key-vault">Integrate Azure Key Vault</a>.
@@ -74,6 +73,6 @@ sections:
     - title: Command-Line
       html: <p><a href="/cli/azure/resource">Azure CLI</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
     - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/azure/">Python</a></p>
+      html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/api/overview/azure/resources?view=azure-python">Python</a></p>
     - title: REST
       html: <p><a href="/rest/api/resources/">REST API</a></p>

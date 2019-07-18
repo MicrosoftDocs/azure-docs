@@ -2,14 +2,14 @@
 title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
 description: Specify the RelyingParty element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -204,7 +204,7 @@ The **OutputClaim** element contains the following attributes:
 ### SubjectNamingInfo
 
 With the **SubjectNameingInfo** element, you control the value of the token subject:
-- **JTW token** - the `sub` claim. This is a principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform safe authorization checks, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. For more information, see [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
+- **JWT token** - the `sub` claim. This is a principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform safe authorization checks, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. For more information, see [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
 - **SAML token** - the `<Subject><NameID>` element which identifies the subject element.
 
 The **SubjectNamingInfo** element contains the following attribute:

@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 05/23/2019
 ms.author: sngun
 
 ---
@@ -164,7 +164,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-tcnative</artifactId>
-      <version>2.0.7.Final</version>
+      <version>2.0.20.Final</version>
       <classifier>linux-x86_64</classifier>
     </dependency>
     ```
@@ -200,7 +200,7 @@ For other platforms (Red Hat, Windows, Mac, etc.) refer to these instructions ht
 
     The complexity of a query impacts how many request units are consumed for an operation. The number of predicates, nature of the predicates, number of UDFs, and the size of the source data set all influence the cost of query operations.
 
-    To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) header to measure the number of request units consumed by these operations. You can also look at the equivalent RequestCharge property in ResourceResponse<T> or FeedResponse<T>.
+    To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) header to measure the number of request units consumed by these operations. You can also look at the equivalent RequestCharge property in ResourceResponse\<T> or FeedResponse\<T>.
 
     ```Java
     ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,

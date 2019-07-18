@@ -1,9 +1,8 @@
-﻿---
+---
 title: Azure SQL Job automation | Microsoft Docs
 description: 'Use Job Automation to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases'
 services: sql-database
 ms.service: sql-database
-ms.subservice: database-features
 ms.custom: 
 ms.devlang: 
 ms.topic: overview
@@ -20,6 +19,8 @@ Every job logs the status of execution and also automatically retries the operat
 You can define target database or groups of Azure SQL databases where the job will be executed, and also define schedules for running a job.
 A job handles the task of logging in to target database. You also define, maintain, and persist Transact-SQL scripts to be executed across a group of Azure SQL databases.
 
+## When to use automated jobs
+
 There are several scenarios when you could use job automation:
 
 - Automate management tasks and schedule then to run every weekday, after hours, etc.
@@ -31,8 +32,10 @@ There are several scenarios when you could use job automation:
   - Aggregate data from a collection of Azure SQL databases into a single destination table.
   - Execute longer running data processing queries across a large set of databases, for example the collection of customer telemetry. Results are collected into a single destination table for further analysis.
 - Data movements
- - Create jobs that replicate changes made in your databases to other databases or collect updates made in remote databases and apply changed in the database.
- - Create jobs that load data from or to your databases using SQL Server Integration Services (SSIS).
+  - Create jobs that replicate changes made in your databases to other databases or collect updates made in remote databases and apply changed in the database.
+  - Create jobs that load data from or to your databases using SQL Server Integration Services (SSIS).
+
+## Overview
 
 The following job scheduling technologies are available in Azure SQL Database:
 
@@ -153,9 +156,9 @@ Some of the SQL Agent features that are available in SQL Server are not supporte
 - SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.
 - Enabling/disabling Agent is currently not supported in Managed Instance. SQL Agent is always running.
 - Notifications are partially supported
- - Pager is not supported.
- - NetSend is not supported.
- - Alerts are not yet not supported.
+  - Pager is not supported.
+  - NetSend is not supported.
+  - Alerts are not yet not supported.
 - Proxies are not supported.
 - Eventlog is not supported.
 

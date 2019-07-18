@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: This quickstart shows how to create a public load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 tags: azure-resource-manager
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: mvc
 ---
 # Quickstart: Create a load balancer to load balance VMs using Azure CLI
@@ -141,7 +141,7 @@ Create a network security group rule to allow inbound connections through port 8
 ```
 ### Create NICs
 
-Create three network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the Public IP address and the network security group. 
+Create two network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the Public IP address and the network security group. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -159,7 +159,7 @@ done
 
 ## Create backend servers
 
-In this example, you create three virtual machines to be used as backend servers for the load balancer. To verify that the load balancer was successfully created, you also install NGINX on the virtual machines .
+In this example, you create two virtual machines to be used as backend servers for the load balancer. To verify that the load balancer was successfully created, you also install NGINX on the virtual machines .
 
 ### Create an Availability set
 

@@ -3,14 +3,14 @@ title: Azure Resource Manager support for Load Balancer | Microsoft Docs
 description: Using powershell for Load Balancer with Azure Resource Manager. Using templates for load balancer
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Using Azure Resource Manager Support with Azure Load Balancer
@@ -25,9 +25,9 @@ With Resource Manager, Azure Load Balancer contains the following child resource
 
 * Front-end IP configuration – a Load balancer can include one or more frontend IP addresses, otherwise known as a virtual IPs (VIPs). These IP addresses serve as ingress for the traffic.
 * Back-end address pool – these are IP addresses associated with the virtual machine Network Interface Card (NIC) to which load is distributed.
-* Load balancing rules – a rule property maps a given frontend IP and port combination to a set of backend IP addresses and port combination. A single load balancer can have multiple load balancing rules. Each rule is a combination of a frontend IP and port and backend IP and port associated with VMs.
+* Load balancing rules – a rule property maps a given frontend IP and port combination to a set of back-end IP addresses and port combination. A single load balancer can have multiple load balancing rules. Each rule is a combination of a frontend IP and port and back-end IP and port associated with VMs.
 * Probes – probes enable you to keep track of the health of VM instances. If a health probe fails, the VM instance is taken out of rotation automatically.
-* Inbound NAT rules – NAT rules defining the inbound traffic flowing through the frontend IP and distributed to the backend IP.
+* Inbound NAT rules – NAT rules defining the inbound traffic flowing through the frontend IP and distributed to the back-end IP.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
@@ -53,7 +53,7 @@ Examples of templates:
 
 Get started with Azure Resource Manager cmdlets, command line tools, and REST APIs
 
-* [Azure Networking Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.network#networking) can be used to create a Load Balancer.
+* [Azure Networking Cmdlets](https://docs.microsoft.com/powershell/module/az.network#networking) can be used to create a Load Balancer.
 * [How to create a load balancer using Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
 * [Using the Azure CLI with Azure Resource Management](../xplat-cli-azure-resource-manager.md)
 * [Load Balancer REST APIs](https://msdn.microsoft.com/library/azure/mt163651.aspx)

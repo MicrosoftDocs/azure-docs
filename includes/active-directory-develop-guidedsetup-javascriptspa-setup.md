@@ -4,7 +4,7 @@ description: include file
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -18,58 +18,61 @@ ms.custom: include file
 
 ---
 
-## Setting up your web server or project
+## Set up your web server or project
 
-> Prefer to download this sample's project instead?
-> - [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) for a local web server, such as Node
+> Prefer to download this sample's project instead? Do either of the following:
+> 
+> - To run the project with a local web server, such as Node.js, [download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
-> or
-> - [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
+> - (Optional) To run the project with the IIS server, [download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip).
 >
-> And then  skip to the [Configuration step](#register-your-application) to configure the code sample before executing it.
+> And then, to configure the code sample before you execute it, skip to the [configuration step](#register-your-application).
 
 ## Prerequisites
-A local web server such as [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/) is required to run this tutorial.
 
-Instructions in this guide are based on both Node.js and Visual Studio 2017, but feel free to use any other development environment or Web Server.
+* To run this tutorial, you need a local web server, such as [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+
+* If you're using Node.js to run the project, install an integrated development environment (IDE), such as [Visual Studio Code](https://code.visualstudio.com/download), to edit the project files.
+
+* Instructions in this guide are based on both Node.js and Visual Studio 2017, but you can use any other development environment or web server.
 
 ## Create your project
 
-> ### Option 1: Node/ other web servers
-> Make sure you have installed [Node.js](https://nodejs.org/en/download/), then follow the step below:
+> ### Option 1: Node.js or other web servers
+> Make sure you have installed [Node.js](https://nodejs.org/en/download/), and then do the following:
 > -	Create a folder to host your application.
-
-<p/><!-- -->
-
+>
 > ### Option 2: Visual Studio
-> If you are using Visual Studio and are creating a new project, follow the steps below to create a new Visual Studio solution:
-> 1.	In Visual Studio:  **File > New > Project**
-> 2.	Under **Visual C#\Web**, select **ASP.NET Web Application (.NET Framework)**
-> 3.	Enter a name for your application and select **OK**
-> 4.	Under **New ASP.NET Web Application**, select **Empty**
+> If you're using Visual Studio and are creating a new project, do the following:
+> 1. In Visual Studio, select **File** > **New** > **Project**.
+> 1. Under **Visual C#\Web**, select **ASP.NET Web Application (.NET Framework)**.
+> 1. Enter a name for your application, and then select **OK**.
+> 1. Under **New ASP.NET Web Application**, select **Empty**.
 
+## Create the SPA UI
+1. Create an *index.html* file for your JavaScript SPA. If you're using Visual Studio, select the project (project root folder), right-click and select **Add** > **New Item** > **HTML page**, and name the file *index.html*.
 
-## Create your single page application’s UI
-1.	Create an `index.html` file for your JavaScript SPA. If you are using Visual Studio, select the project (project root folder), right click and select: **Add > New Item > HTML page** and name it index.html.
+1. In the *index.html* file, add the following code:
 
-2.	Add the following code to your page:
-```html
-<!DOCTYPE html>
-<html>
-<head>
-        <title>Quickstart for MSAL JS</title>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-        <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-</head>
-<body>
-        <h2>Welcome to MSAL.js Quickstart</h2><br/>
-        <h4 id="WelcomeMessage"></h4>
-        <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
-    	<pre id="json"></pre>
-        <script>
-            //JS code
-        </script>
-</body>
-</html>
-```
+   ```html
+   <!DOCTYPE html>
+   <html>
+   <head>
+       <title>Quickstart for MSAL JS</title>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.js"></script>
+   </head>
+   <body>
+       <h2>Welcome to MSAL.js Quickstart</h2><br/>
+       <h4 id="WelcomeMessage"></h4>
+       <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
+       <pre id="json"></pre>
+       <script>
+           //JS code
+       </script>
+   </body>
+   </html>
+   ```
+
+   > [!TIP]
+   > You can replace the version of MSAL.js in the preceding script with the latest released version under [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).

@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 
@@ -23,6 +23,9 @@ ms.custom: seodec18
 This article lists common problems that you might encounter when you configure a domain or SSL certificate for your web apps in Azure App Service. It also describes possible causes and solutions for these problems.
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Certificate problems
 
@@ -84,13 +87,84 @@ This problem can occur for any of the following reasons:
 - The subscription reached the limit of purchases that are allowed on a subscription.
 
     **Solution**: App Service certificates have a limit of 10 certificate purchases for the Pay-As-You-Go and EA subscription types. For other subscription types, the limit is 3. To increase the limit, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- The App Service certificate was marked as fraud. You received the following error message: "Your certificate has been flagged for possible fraud. The request is currently under review. If the certificate does not become usable within 24 hours, please contact Azure Support."
+- The App Service certificate was marked as fraud. You received the following error message: "Your certificate has been flagged for possible fraud. The request is currently under review. If the certificate does not become usable within 24 hours, contact Azure Support."
 
     **Solution**: If the certificate is marked as fraud and isn't resolved after 24 hours, follow these steps:
 
     1. Sign in to the [Azure portal](https://portal.azure.com).
     2. Go to **App Service Certificates**, and select the certificate.
     3. Select **Certificate Configuration** > **Step 2: Verify** > **Domain Verification**. This step sends an email notice to the Azure certificate provider to resolve the problem.
+
+## Custom domain problems
+
+### A custom domain returns a 404 error 
+
+#### Symptom
+
+When you browse to the site by using the custom domain name, you receive the following error message:
+
+"Error 404-Web app not found."
+
+#### Cause and solution
+
+**Cause 1** 
+
+The custom domain that you configured is missing a CNAME or A record. 
+
+**Solution for cause 1**
+
+- If you added an A record, make sure that a TXT record is also added. For more information, see [Create the A record](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
+- If you don't have to use the root domain for your app, we recommend that you use a CNAME record instead of an A record.
+- Don't use both a CNAME record and an A record for the same domain. This issue can cause a conflict and prevent the domain from being resolved. 
+
+**Cause 2** 
+
+The internet browser might still be caching the old IP address for your domain. 
+
+**Solution for Cause 2**
+
+Clear the browser. For Windows devices, you can run the command `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the app's IP address. 
+
+### You can't add a subdomain 
+
+#### Symptom
+
+You can't add a new host name to an app to assign a subdomain.
+
+#### Solution
+
+- Check with subscription administrator to make sure that you have permissions to add a host name to the app.
+- If you need more subdomains, we recommend that you change the domain hosting to Azure Domain Name Service (DNS). By using Azure DNS, you can add 500 host names to your app. For more information, see [Add a subdomain](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+
+### DNS can't be resolved
+
+#### Symptom
+
+You received the following error message:
+
+"The DNS record could not be located."
+
+#### Cause
+This problem occurs for one of the following reasons:
+
+- The time to live (TTL) period has not expired. Check the DNS configuration for your domain to determine the TTL value, and then wait for the period to expire.
+- The DNS configuration is incorrect.
+
+#### Solution
+- Wait for 48 hours for this problem to resolve itself.
+- If you can change the TTL setting in your DNS configuration, change the value to 5 minutes to see whether this resolves the problem.
+- Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the app's IP address. If it doesn't, configure the A record to the correct IP address of the app.
+
+### You need to restore a deleted domain 
+
+#### Symptom
+Your domain is no longer visible in the Azure portal.
+
+#### Cause 
+The owner of the subscription might have accidentally deleted the domain.
+
+#### Solution
+If your domain was deleted fewer than seven days ago, the domain has not yet started the deletion process. In this case, you can buy the same domain again on the Azure portal under the same subscription. (Be sure to type the exact domain name in the search box.) You won't be charged again for this domain. If the domain was deleted more than seven days ago, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help with restoring the domain.
 
 ## Domain problems
 
@@ -192,105 +266,61 @@ This problem occurs for one of the following reasons:
     |Record type|Host|Point to|
     |------|------|-----|
     |A|@|IP address for an app|
-    |TXT|@|<app-name>.azurewebsites.net|
-    |CNAME|www|<app-name>.azurewebsites.net|
+    |TXT|@|`<app-name>.azurewebsites.net`|
+    |CNAME|www|`<app-name>.azurewebsites.net`|
 
-### DNS can't be resolved
+## FAQ
 
-#### Symptom
+**Do I have to configure my custom domain for my website once I buy it?**
 
-You received the following error message:
+When you purchase a domain from the Azure portal, the App Service application is automatically configured to use that custom domain. You don’t have to take any additional steps. For more information, watch [Azure App Service Self Help: Add a Custom Domain Name](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) on Channel9.
 
-"The DNS record could not be located."
+**Can I use a domain purchased in the Azure portal to point to an Azure VM instead?**
 
-#### Cause
-This problem occurs for one of the following reasons:
+Yes, you can point the domain to a VM. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md).
 
-- The time to live (TTL) period has not expired. Check the DNS configuration for your domain to determine the TTL value, and then wait for the period to expire.
-- The DNS configuration is incorrect.
+**Is my domain hosted by GoDaddy or Azure DNS?**
 
-#### Solution
-- Wait for 48 hours for this problem to resolve itself.
-- If you can change the TTL setting in your DNS configuration, change the value to 5 minutes to see whether this resolves the problem.
-- Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the app's IP address. If it doesn't, configure the A record to the correct IP address of the app.
+App Service Domains use GoDaddy for domain registration and Azure DNS to host the domains. 
 
-### You need to restore a deleted domain 
+**I have auto-renew enabled but still received a renewal notice for my domain via email. What should I do?**
 
-#### Symptom
-Your domain is no longer visible in the Azure portal.
+If you have auto-renew enabled, you do not need to take any action. The notice email is provided to inform you that the domain is close to expiring and to renew manually if auto-renew is not enabled.
 
-#### Cause 
-The owner of the subscription might have accidentally deleted the domain.
+**Will I be charged for Azure DNS hosting  my domain?**
 
-#### Solution
-If your domain was deleted fewer than seven days ago, the domain has not yet started the deletion process. In this case, you can buy the same domain again on the Azure portal under the same subscription. (Be sure to type the exact domain name in the search box.) You won't be charged again for this domain. If the domain was deleted more than seven days ago, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help to restore the domain.
+The initial cost of domain purchase applies to domain registration only. In addition to the registration cost, there are incurring charges for Azure DNS based on your usage. For more information, see [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/) for more details.
 
-### A custom domain returns a 404 error 
+**I purchased my domain earlier from the Azure portal and want to move from GoDaddy hosting to Azure DNS hosting. How can I do this？**
 
-#### Symptom
+It is not mandatory to migrate to Azure DNS hosting. If you do want to migrate to Azure DNS, the domain management experience in the Azure portal about provides information on steps necessary to move to Azure DNS. If the domain was purchased through App Service, migration from GoDaddy hosting to Azure DNS is relatively seamless procedure.
 
-When you browse to the site by using the custom domain name, you receive the following error message:
+**I would like to purchase my domain from App Service Domain but can I host my domain on GoDaddy instead of Azure DNS?**
 
-"Error 404-Web app not found."
+Beginning July 24, 2017, App Service domains purchased in the portal are hosted on Azure DNS. If you prefer to use a different hosting provider, you must go to their website to obtain a domain hosting solution.
 
+**Do I have to pay for privacy protection for my domain?**
 
-#### Cause and solution
+When you purchase a domain through the Azure portal, you can choose to add privacy at no additional cost. This is one of the benefits of purchasing your domain through Azure App Service.
 
-**Cause 1** 
+**If I decide I no longer want my domain, can I get my money back?**
 
-The custom domain that you configured is missing a CNAME or A record. 
+When you purchase a domain, you are not charged for a period of five days, during which time you can decide that you do not want the domain. If you do decide you don’t want the domain within that five-day period, you are not charged. (.uk domains are an exception to this. If you purchase a .uk domain, you are charged immediately and you cannot be refunded.)
 
-**Solution for cause 1**
+**Can I use the domain in another Azure App Service app in my subscription?**
 
-- If you added an A record, make sure that a TXT record is also added. For more information, see [Create the A record](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
-- If you don't have to use the root domain for your app, we recommend that you use a CNAME record instead of an A record.
-- Don't use both a CNAME record and an A record for the same domain. This can cause a conflict and prevent the domain from being resolved. 
+Yes. When you access the Custom Domains and SSL blade in the Azure portal, you see the domains that you have purchased. You can configure your app to use any of those domains.
 
-**Cause 2** 
+**Can I transfer a domain from one subscription to another subscription?**
 
-The internet browser might still be caching the old IP address for your domain. 
+You can move a domain to another subscription/resource group using the [Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) PowerShell cmdlet.
 
-**Solution for Cause 2**
+**How can I manage my custom domain if I don’t currently have an Azure App Service app?**
 
-Clear the browser. For Windows devices, you can run the command `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the app's IP address. 
+You can manage your domain even if you don’t have an App Service Web App. Domain can be used for Azure services like Virtual machine, Storage etc. If you intend to use the domain for App Service Web Apps, then you need to include a Web App that is not on the Free App Service plan in order to bind the domain to your web app.
 
-### You can't add a subdomain 
+**Can I move a web app with a custom domain to another subscription or from App Service Environment v1 to V2?**
 
-#### Symptom
+Yes, you can move your web app across subscriptions. Follow the guidance in [How to move resources in Azure](../azure-resource-manager/resource-group-move-resources.md). There are a few limitations when moving the web app. For more information, see [Limitations for moving App Service resources](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
-You can't add a new host name to an app to assign a subdomain.
-
-#### Solution
-
-- Check with subscription administrator to make sure that you have permissions to add a host name to the app.
-- If you need more subdomains, we recommend that you change the domain hosting to Azure DNS. By using Azure DNS, you can add 500 host names to your app. For more information, see [Add a subdomain](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+After moving the web app, the host name bindings of the domains within the custom domains setting should remain the same. No additional steps are required to configure the host name bindings.

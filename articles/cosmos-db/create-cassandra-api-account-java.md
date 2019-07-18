@@ -38,7 +38,7 @@ This tutorial covers the following tasks:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 
-2. Select **Create a resource** > **Databases** > **Azure Cosmos DB**. 
+2. Select **Create a resource** > **Databases** > **Azure Cosmos DB**. 
 
 3. In the **New account** pane, enter the settings for the new Azure Cosmos account. 
 
@@ -47,12 +47,12 @@ This tutorial covers the following tasks:
    |ID   |   Enter a unique name    | Enter a unique name to identify this Azure Cosmos account. <br/><br/>Because cassandra.cosmosdb.azure.com is appended to the ID that you provide to create your contact point, use a unique but identifiable ID.         |
    |API    |  Cassandra   |  The API determines the type of account to create. <br/> Select **Cassandra**, because in this article you will create a wide-column database that can be queried by using Cassandra Query Language (CQL) syntax.  |
    |Subscription    |  Your subscription        |  Select Azure subscription that you want to use for this Azure Cosmos account.        |
-   |Resource Group   | Enter a name    |  Select **Create New**, and then enter a new resource-group name for your account. For simplicity, you can use the same name as your ID.    |
+   |Resource Group   | Enter a name    |  Select **Create New**, and then enter a new resource-group name for your account. For simplicity, you can use the same name as your ID.    |
    |Location    |  Select the region closest to your users    |  Select the geographic location in which to host your Azure Cosmos account. Use the location that's closest to your users, to give them the fastest access to the data.    |
 
    ![Create account with portal](./media/create-cassandra-api-account-java/create-account.png)
 
-4. Select **Create**. <br/>The account creation takes a few minutes. After the resource is created, you can see the **Deployment succeeded** notification on the right side of the portal.
+4. Select **Create**. <br/>The account creation takes a few minutes. After the resource is created, you can see the **Deployment succeeded** notification on the right side of the portal.
 
 ## Get the connection details of your account  
 

@@ -41,10 +41,11 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 ## Create a data factory
 
-1. On the left menu, select **New** > **Data + Analytics** > **Data Factory**: 
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
    
-   ![Create a new data factory](./media/load-azure-sql-data-warehouse/new-azure-data-factory-menu.png)
-1. In the **New data factory** page, provide values for the fields that are shown in the following image:
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
+2. In the **New data factory** page, provide values for the fields that are shown in the following image:
       
    ![New data factory page](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
@@ -54,8 +55,8 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
     * **Version**: Select **V2**.
     * **Location**: Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations and regions. These data stores include Azure Data Lake Store, Azure Storage, Azure SQL Database, and so on.
 
-1. Select **Create**.
-1. After creation is complete, go to your data factory. You see the **Data Factory** home page as shown in the following image:
+3. Select **Create**.
+4. After creation is complete, go to your data factory. You see the **Data Factory** home page as shown in the following image:
    
    ![Data factory home page](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
 
@@ -80,7 +81,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     ![Select Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and passworkd. Click **Test connection** to validate the settings, then select **Finish**.
+    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Finish**.
    
     ![Configure Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
@@ -102,7 +103,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     ![Select Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and passworkd. Click **Test connection** to validate the settings, then select **Finish**.
+    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Finish**.
    
     ![Configure Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 

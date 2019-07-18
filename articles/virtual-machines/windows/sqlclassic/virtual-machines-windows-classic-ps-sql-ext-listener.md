@@ -119,7 +119,7 @@ Create the availability group listener in two steps. First, create the client ac
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## Test the availability group listener (over the internet)
-In order to access the listener from outside the virtual network, you must be using external/public load balancing (described in this topic) rather than ILB, which is only accesible within the same VNet. In the connection string, you specify the cloud service name. For example, if you had a cloud service with the name *mycloudservice*, the sqlcmd statement would be as follows:
+In order to access the listener from outside the virtual network, you must be using external/public load balancing (described in this topic) rather than ILB, which is only accessible within the same VNet. In the connection string, you specify the cloud service name. For example, if you had a cloud service with the name *mycloudservice*, the sqlcmd statement would be as follows:
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 

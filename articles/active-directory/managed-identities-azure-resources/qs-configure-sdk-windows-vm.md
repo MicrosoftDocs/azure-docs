@@ -3,7 +3,7 @@ title: Use an Azure SDK to configure a VM with managed identities for Azure reso
 description: Step by step instructions for configuring and using managed identities for Azure resources on an Azure VM, using an Azure SDK.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 

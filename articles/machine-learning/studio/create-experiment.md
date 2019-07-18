@@ -54,15 +54,15 @@ Here's how to get the dataset into your experiment.
 
 1. The experiment is given a default name that you can see at the top of the canvas. Select this text and rename it to something meaningful, for example, **Automobile price prediction**. The name doesn't need to be unique.
 
-    ![Rename the experiment][rename-experiment]
+    ![Rename the experiment](./media/create-experiment/rename-experiment.png)
 
 1. To the left of the experiment canvas is a palette of datasets and modules. Type **automobile** in the Search box at the top of this palette to find the dataset labeled **Automobile price data (Raw)**. Drag this dataset to the experiment canvas.
 
-    ![Find the automobile dataset and drag it onto the experiment canvas][type-automobile]
+    ![Find the automobile dataset and drag it onto the experiment canvas](./media/create-experiment/type-automobile.png)
 
 To see what this data looks like, click the output port at the bottom of the automobile dataset then select **Visualize**.
 
-![Click the output port and select "Visualize"][select-visualize]
+![Click the output port and select "Visualize"](./media/create-experiment/select-visualize.png)
 
 > [!TIP]
 > Datasets and modules have input and output ports represented by small circles - input ports at the top, output ports at the bottom.
@@ -72,7 +72,7 @@ At any time, you can click the output port of a dataset or module to see what th
 
 In this dataset, each row represents an automobile, and the variables associated with each automobile appear as columns. We'll predict the price in far-right column (column 26, titled "price") using the variables for a specific automobile.
 
-![View the automobile data in the data visualization window][visualize-auto-data]
+![View the automobile data in the data visualization window](./media/create-experiment/visualize-auto-data.png)
 
 Close the visualization window by clicking the "**x**" in the upper-right corner.
 
@@ -87,37 +87,37 @@ First, we add a module that removes the **normalized-losses** column completely.
 
 1. Type **select columns** in the search box at the top of the module palette to find the [Select Columns in Dataset][select-columns] module. Then drag it to the experiment canvas. This module allows us to select which columns of data we want to include or exclude in the model.
 
-1. Connect the output port of the **Automobile price data (Raw)** dataset to the input port of the [Select Columns in Dataset][select-columns] module.
+1. Connect the output port of the **Automobile price data (Raw)** dataset to the input port of the Select Columns in Dataset.
 
-    ![Add the "Select Columns in Dataset" module to the experiment canvas and connect it][type-select-columns]
+    ![Add the "Select Columns in Dataset" module to the experiment canvas and connect it](./media/create-experiment/type-select-columns.png)
 
 1. Click the [Select Columns in Dataset][select-columns] module and click **Launch column selector** in the **Properties** pane.
 
-    - On the left, click **With rules**
-    - Under **Begin With**, click **All columns**. These rules direct [Select Columns in Dataset][select-columns] to pass through all the columns (except those columns we're about to exclude).
-    - From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. A list of columns is displayed. Select **normalized-losses**, and it's added to the text box.
-    - Click the check mark (OK) button to close the column selector (on the lower right).
+   - On the left, click **With rules**
+   - Under **Begin With**, click **All columns**. These rules direct [Select Columns in Dataset][select-columns] to pass through all the columns (except those columns we're about to exclude).
+   - From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. A list of columns is displayed. Select **normalized-losses**, and it's added to the text box.
+   - Click the check mark (OK) button to close the column selector (on the lower right).
 
-    ![Launch the column selector and exclude the "normalized-losses" column][launch-column-selector]
+     ![Launch the column selector and exclude the "normalized-losses" column](./media/create-experiment/launch-column-selector.png)
 
-    Now the properties pane for **Select Columns in Dataset** indicates that it will pass through all columns from the dataset except **normalized-losses**.
+     Now the properties pane for **Select Columns in Dataset** indicates that it will pass through all columns from the dataset except **normalized-losses**.
 
-    ![The properties pane shows that the "normalized-losses" column is excluded][showing-excluded-column]
+     ![The properties pane shows that the "normalized-losses" column is excluded](./media/create-experiment/showing-excluded-column.png)
 
-    > [!TIP] 
-    > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case double-click the [Select Columns in Dataset][select-columns] module and type the comment "Exclude normalized losses."
+     > [!TIP] 
+     > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case double-click the [Select Columns in Dataset][select-columns] module and type the comment "Exclude normalized losses."
 
-    ![Double-click a module to add a comment][add-comment]
+     ![Double-click a module to add a comment](./media/create-experiment/add-comment.png)
 
 1. Drag the [Clean Missing Data][clean-missing-data] module to the experiment canvas and connect it to the [Select Columns in Dataset][select-columns] module. In the **Properties** pane, select **Remove entire row** under **Cleaning mode**. These options direct [Clean Missing Data][clean-missing-data] to clean the data by removing rows that have any missing values. Double-click the module and type the comment "Remove missing value rows."
 
-    ![Set the cleaning mode to "Remove entire row" for the "Clean Missing Data" module][set-remove-entire-row]
+    ![Set the cleaning mode to "Remove entire row" for the "Clean Missing Data" module](./media/create-experiment/set-remove-entire-row.png)
 
 1. Run the experiment by clicking **RUN** at the bottom of the page.
 
     When the experiment has finished running, all the modules have a green check mark to indicate that they finished successfully. Notice also the **Finished running** status in the upper-right corner.
 
-    ![After running it, the experiment should look something like this][early-experiment-run]
+    ![After running it, the experiment should look something like this](./media/create-experiment/early-experiment-run.png)
 
 > [!TIP]
 > Why did we run the experiment now? By running the experiment, the column definitions for our data pass from the dataset, through the [Select Columns in Dataset][select-columns] module, and through the [Clean Missing Data][clean-missing-data] module. This means that any modules we connect to [Clean Missing Data][clean-missing-data] will also have this same information.
@@ -138,7 +138,7 @@ Let's build a model that uses a subset of the features in our dataset. You can c
 
 1. Drag another [Select Columns in Dataset][select-columns] module to the experiment canvas. Connect the left output port of the [Clean Missing Data][clean-missing-data] module to the input of the [Select Columns in Dataset][select-columns] module.
 
-    ![Connect the "Select Columns in Dataset" module to the "Clean Missing Data" module][connect-clean-to-select]
+    ![Connect the "Select Columns in Dataset" module to the "Clean Missing Data" module](./media/create-experiment/connect-clean-to-select.png)
 
 1. Double-click the module and type "Select features for prediction."
 
@@ -150,7 +150,7 @@ Let's build a model that uses a subset of the features in our dataset. You can c
 
 1. Click the check mark (OK) button.
 
-    ![Select the columns (features) to include in the prediction][select-columns-to-include]
+    ![Select the columns (features) to include in the prediction](./media/create-experiment/select-columns-to-include.png)
 
 This module produces a filtered dataset containing only the features we want to pass to the learning algorithm we'll use in the next step. Later, you can return and try again with a different selection of features.
 
@@ -172,7 +172,7 @@ We'll use our data for both training the model and testing it by splitting the d
 
 1. Click the [Split Data][split] module to select it. Find the **Fraction of rows in the first output dataset** (in the **Properties** pane to the right of the canvas) and set it to 0.75. This way, we'll use 75 percent of the data to train the model, and hold back 25 percent for testing.
 
-    ![Set the split fraction of the "Split Data" module to 0.75][set-split-data-percentage]
+    ![Set the split fraction of the "Split Data" module to 0.75](./media/create-experiment/set-split-data-percentage.png)
 
     > [!TIP]
     > By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
@@ -183,19 +183,19 @@ We'll use our data for both training the model and testing it by splitting the d
 
 1. Find and drag the [Train Model][train-model] module to the experiment canvas. Connect the output of the [Linear Regression][linear-regression] module to the left input of the [Train Model][train-model] module, and connect the training data output (left port) of the [Split Data][split] module to the right input of the [Train Model][train-model] module.
 
-    ![Connect the "Train Model" module to both the "Linear Regression" and "Split Data" modules][connect-train-model]
+    ![Connect the "Train Model" module to both the "Linear Regression" and "Split Data" modules](./media/create-experiment/connect-train-model.png)
 
 1. Click the [Train Model][train-model] module, click **Launch column selector** in the **Properties** pane, and then select the **price** column. **Price** is the value that our model is going to predict.
 
     You select the **price** column in the column selector by moving it from the **Available columns** list to the **Selected columns** list.
 
-    ![Select the price column for the "Train Model" module][select-price-column]
+    ![Select the price column for the "Train Model" module](./media/create-experiment/select-price-column.png)
 
 1. Run the experiment.
 
 We now have a trained regression model that can be used to score new automobile data to make price predictions.
 
-![After running, the experiment should now look something like this][second-experiment-run]
+![After running, the experiment should now look something like this](./media/create-experiment/second-experiment-run.png)
 
 ## Predict new automobile prices
 
@@ -203,21 +203,21 @@ Now that we've trained the model using 75 percent of our data, we can use it to 
 
 1. Find and drag the [Score Model][score-model] module to the experiment canvas. Connect the output of the [Train Model][train-model] module to the left input port of [Score Model][score-model]. Connect the test data output (right port) of the [Split Data][split] module to the right input port of [Score Model][score-model].
 
-    ![Connect the "Score Model" module to both the "Train Model" and "Split Data" modules][connect-score-model]
+    ![Connect the "Score Model" module to both the "Train Model" and "Split Data" modules](./media/create-experiment/connect-score-model.png)
 
 1. Run the experiment and view the output from the [Score Model][score-model] module by clicking the output port of [Score Model][score-model] and select **Visualize**. The output shows the predicted values for price and the known values from the test data.  
 
-    ![Output of the "Score Model" module][score-model-output]
+    ![Output of the "Score Model" module](./media/create-experiment/score-model-output.png)
 
 1. Finally, we test the quality of the results. Select and drag the [Evaluate Model][evaluate-model] module to the experiment canvas, and connect the output of the [Score Model][score-model] module to the left input of [Evaluate Model][evaluate-model]. The final experiment should look something like this:
 
-    ![The final experiment][complete-linear-regression-experiment]
+    ![The final experiment](./media/create-experiment/complete-linear-regression-experiment.png)
 
 1. Run the experiment.
 
 To view the output from the [Evaluate Model][evaluate-model] module, click the output port, and then select **Visualize**.
 
-![Evaluation results for the experiment][evaluation-results]
+![Evaluation results for the experiment](./media/create-experiment/evaluation-results.png)
 
 The following statistics are shown for our model:
 
@@ -239,35 +239,6 @@ In this quickstart, you created a simple experiment using a sample dataset. To e
 
 > [!div class="nextstepaction"]
 > [Tutorial: Develop a predictive solution in Studio](tutorial-part1-credit-risk.md)
-
-<!-- Images -->
-[sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png
-[rename-experiment]: ./media/create-experiment/rename-experiment.png
-[visualize-auto-data]:./media/create-experiment/visualize-auto-data.png
-[select-visualize]: ./media/create-experiment/select-visualize.png
-[showing-excluded-column]:./media/create-experiment/showing-excluded-column.png
-[set-remove-entire-row]:./media/create-experiment/set-remove-entire-row.png
-[early-experiment-run]:./media/create-experiment/early-experiment-run.png
-[select-columns-to-include]:./media/create-experiment/select-columns-to-include.png
-[second-experiment-run]:./media/create-experiment/second-experiment-run.png
-[connect-score-model]:./media/create-experiment/connect-score-model.png
-[evaluation-results]:./media/create-experiment/evaluation-results.png
-[complete-linear-regression-experiment]:./media/create-experiment/complete-linear-regression-experiment.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[type-automobile]:./media/create-experiment/type-automobile.png
-[type-select-columns]:./media/create-experiment/type-select-columns.png
-[launch-column-selector]:./media/create-experiment/launch-column-selector.png
-[add-comment]:./media/create-experiment/add-comment.png
-[connect-clean-to-select]:./media/create-experiment/connect-clean-to-select.png
-
-[set-split-data-percentage]:./media/create-experiment/set-split-data-percentage.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[connect-train-model]:./media/create-experiment/connect-train-model.png
-[select-price-column]:./media/create-experiment/select-price-column.png
-
-[score-model-output]:./media/create-experiment/score-model-output.png
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

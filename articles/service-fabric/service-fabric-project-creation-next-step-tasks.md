@@ -3,8 +3,8 @@ title: Service Fabric project creation next steps | Microsoft Docs
 description: Learn about the application project you just created in Visual Studio.  Learn how to build services using tutorials and learn more about developing services for Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 
 ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
-ms.author: rwike77
+ms.author: atsenthi
 
 ---
 # Your Service Fabric application and next steps

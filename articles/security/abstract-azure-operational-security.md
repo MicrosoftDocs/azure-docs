@@ -14,7 +14,7 @@ ms.service: security
 ## Abstract
 Microsoft Azure operational security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Azure. Azure operational security is built on a framework that incorporates the knowledge gained through various capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Center program, and deep awareness of the cybersecurity threat landscape. 
 This white paper outlines how you can approach operational security by using Azure. It covers several Azure services, including:
-* Azure Log Analytics
+* Azure Monitor logs
 * Azure Backup
 * Azure Security Center
 * Azure Monitor

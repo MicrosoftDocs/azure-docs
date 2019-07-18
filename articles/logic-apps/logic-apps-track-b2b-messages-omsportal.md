@@ -1,5 +1,5 @@
 ---
-title: Track B2B messages with Log Analytics - Azure Logic Apps | Microsoft Docs
+title: Track B2B messages with Azure Monitor logs - Azure Logic Apps | Microsoft Docs
 description: Track B2B communication for integration accounts and Azure Logic Apps with Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 10/19/2018
 ---
 
-# Track B2B messages with Azure Log Analytics
+# Track B2B messages with Azure Monitor logs
 
 After you set up B2B communication between trading partners 
 in your integration account, those partners can exchange 
 messages with protocols such as AS2, X12, and EDIFACT. 
 To check that these messages are processed correctly, 
 you can track these messages with 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
+[Azure Monitor logs](../log-analytics/log-analytics-overview.md). 
 For example, you can use these web-based tracking 
 capabilities for tracking messages:
 
@@ -34,6 +34,8 @@ capabilities for tracking messages:
 > [retiring in January 2019](../azure-monitor/platform/oms-portal-transition.md), 
 > replaces those steps with Azure Log Analytics instead. 
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Prerequisites
 
 * A logic app that's set up with diagnostics logging. Learn 
@@ -44,7 +46,7 @@ and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-
 [how to create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 and [how to set up monitoring and logging for that account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* If you haven't already, [publish diagnostic data to Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* If you haven't already, [publish diagnostic data to Azure Monitor logs](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 * After you meet the previous requirements, you also need a Log Analytics workspace, 
 which you use for tracking B2B communication through Log Analytics. 
@@ -53,9 +55,9 @@ If you don't have a Log Analytics workspace, learn
 
 ## Install Logic Apps B2B solution
 
-Before you can have Log Analytics track B2B messages for your logic app, 
-add the **Logic Apps B2B** solution to Log Analytics. Learn more about 
-[adding solutions to Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+Before you can have Azure Monitor logs track B2B messages for your logic app, 
+add the **Logic Apps B2B** solution to Azure Monitor logs. Learn more about 
+[adding solutions to Azure Monitor logs](../azure-monitor/learn/quick-create-workspace.md).
 
 1. In the [Azure portal](https://portal.azure.com), 
 select **All services**. In the search box, 
@@ -166,7 +168,7 @@ on the **Log Search** page, choose a message from the message list.
    * To search results with prebuilt queries, choose **Favorites**.
 
    * Learn [how to build queries by adding filters](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). 
-   Or learn more about [how to find data with log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   Or learn more about [how to find data with log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
 
    * To change query in the search box, update the query with the 
    columns and values that you want to use as filters.
@@ -277,7 +279,7 @@ Here are the name formats for each downloaded EDIFACT message folder and files.
 
 ## Next steps
 
-* [Query for B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Query for B2B messages in Azure Monitor logs](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [AS2 tracking schemas](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12 tracking schemas](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Custom tracking schemas](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

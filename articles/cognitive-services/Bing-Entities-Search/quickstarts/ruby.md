@@ -61,7 +61,7 @@ While this application is written in Ruby, the API is a RESTful Web service comp
     request['Ocp-Apim-Subscription-Key'] = subscriptionKey
     ```
 
-3. Send the request, and print the resposne
+3. Send the request, and print the response
 
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -111,7 +111,7 @@ A successful response is returned in JSON, as shown in the following example:
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [
@@ -142,4 +142,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
 * [What is the Bing Entity Search API](../search-the-web.md)
-* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

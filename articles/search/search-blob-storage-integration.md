@@ -4,7 +4,7 @@ description: Crawl text content in Azure Blob storage for Azure Search indexing,
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein 
 manager: cgronlun
 ms.author: magottei
@@ -33,7 +33,7 @@ A common scenario that makes it easy to sort through blobs of any content type i
 ## Image search
 Azure Search’s full-text search, faceted navigation, and sorting capabilities can now be applied to the metadata of images stored in blobs.
 
-If these images are pre-processed using the [Computer Vision API](https://www.microsoft.com/cognitive-services/computer-vision-api) from Microsoft’s Cognitive Services, then it is possible to index the visual content found in each image including OCR and handwriting recognition. We are working on adding OCR and other image processing capabilities directly to Azure Search, if you are interested in these capabilities, submit a request on our [UserVoice](https://aka.ms/azsuv) or [email us](mailto:azscustquestions@microsoft.com).
+Cognitive search includes image processing skills such as [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md) that make it possible to index the visual content found in each image.
 
 ## Index and search through JSON blobs
 Azure Search can be configured to extract structured content found in blobs that contain JSON. Azure Search can read JSON blobs and parse the structured content into the appropriate fields of an Azure Search document. Azure Search can also take blobs that contain an array of JSON objects and map each element to a separate Azure Search document.
@@ -47,5 +47,5 @@ Azure Search can be added to blobs directly from the Blob storage portal page.
 
 Click **Add Azure Search** to launch a flow where you can select an existing Azure Search service or create a new service. If you create a new service, you are navigated out of your Storage account's portal experience. You can navigate back to the Storage portal page and re-select the **Add Azure Search** option, where you can select the existing service.
 
-### Next Steps
+## Next Steps
 Learn more about the Azure Search Blob Indexer in the full [documentation](https://aka.ms/azsblobindexer).

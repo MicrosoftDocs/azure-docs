@@ -26,6 +26,8 @@ If you do not already have a virtual network gateway and do not want to create o
 
 ### <a name="before"></a>Before you begin
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * These steps assume that both VNets have already been created. If you are using this article as an exercise and don't have VNets, there are links in the steps to help you create them.
 * Verify that the address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
 * Install the latest PowerShell cmdlets for both Resource Manager and Service Management (classic). In this article, we use both the Azure portal and PowerShell. PowerShell is required to create the connection from the classic VNet to the Resource Manager VNet. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). 
@@ -109,7 +111,7 @@ If you already have a VNet with a VPN gateway, verify that the gateway is Dynami
 1. On the **New VPN Connection** page, select the **Create gateway immediately** checkbox.
 2. Click **Optional gateway configuration** to open the **Gateway configuration** page.
 
-  ![Open gateway configuration page](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Open gateway configuration page")
+   ![Open gateway configuration page](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Open gateway configuration page")
 3. Click **Subnet - Configure required settings** to open the **Add subnet** page. The **Name** is already configured with the required value: **GatewaySubnet**.
 4. The **Address range** refers to the range for the gateway subnet. Although you can create a gateway subnet with a /29 address range (3 addresses), we recommend creating a gateway subnet that contains more IP addresses. This will accommodate future configurations that may require more available IP addresses. If possible, use /27 or /28. If you are using these steps as an exercise, you can refer to the [Example values](#values). For this example, we use '10.0.0.32/28'. Click **OK** to create the gateway subnet.
 5. On the **Gateway configuration** page, **Size** refers to the gateway SKU. Select the gateway SKU for your VPN gateway.
@@ -187,16 +189,16 @@ In this section, you replace the placeholder IP address that you used when speci
 2. On the page for your virtual network, click **Overview**.
 3. In the **VPN connections** section, click the name of your local site in the graphic.
 
-  ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN Connections")
+   ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN Connections")
 4. On the **Site-to-site VPN connections** page, click the name of the site.
 
-  ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Local site name")
+   ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Local site name")
 5. On the connection page for your local site, click the name of the local site to open the **Local site** page.
 
-  ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Open local site")
+   ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Open local site")
 6. On the **Local site** page, replace the **VPN gateway IP address** with the IP address of the Resource Manager gateway.
 
-  ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Gateway IP address")
+   ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Gateway IP address")
 7. Click **OK** to update the IP address.
 
 ## <a name="RMtoclassic"></a>Section 4 - Create Resource Manager to classic connection
@@ -223,19 +225,19 @@ In these steps, you configure the connection from the classic VNet to the Resour
 Open the PowerShell console with elevated rights and log in to your Azure account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell. The following cmdlet prompts you for the login credentials for your Azure Account for the Resource Manager deployment model:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Get a list of your Azure subscriptions.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 If you have more than one subscription, specify the subscription that you want to use.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzSubscription -SubscriptionName "Name of subscription"
 ```
 
 Next, log in to use the classic PowerShell cmdlets (Service Management). Use the following command to add your Azure account for the classic deployment model:

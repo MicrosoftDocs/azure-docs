@@ -9,7 +9,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ---
-# Quickstart: Build a Cassandra app with Python and Azure Cosmos DB
+# Quickstart: Build a Cassandra app with Python SDK and Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)

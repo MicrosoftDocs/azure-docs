@@ -4,7 +4,7 @@ description: Scheduled events using the Azure Metadata service for on your Windo
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 
@@ -41,8 +41,10 @@ Many applications can benefit from time to prepare for virtual machine maintenan
 Using Scheduled Events your application can discover when maintenance will occur and trigger tasks to limit its impact. Enabling scheduled events gives your virtual machine a minimum amount of time before the maintenance activity is performed. See the Event Scheduling section below for details.
 
 Scheduled Events provides events in the following use cases:
-- Platform initiated maintenance (e.g. Host OS Update)
+- [Platform initiated maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
+- Degraded hardware
 - User initiated maintenance (e.g. user restarts or redeploys a VM)
+- [Low-Priority VM eviction](https://azure.microsoft.com/blog/low-priority-scale-sets) in scale sets
 
 ## The Basics  
 
@@ -51,16 +53,17 @@ Azure Metadata service exposes information about running Virtual Machines using 
 ### Endpoint Discovery
 For VNET enabled VMs, the metadata service is available from a static non-routable IP, `169.254.169.254`. The full endpoint for the latest version of Scheduled Events is: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01`
 
 If the Virtual Machine is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
 Refer to this sample to learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### Version and Region Availability
-The Scheduled Events Service is versioned. Versions are mandatory and the current version is `2017-08-01`.
+The Scheduled Events Service is versioned. Versions are mandatory and the current version is `2017-11-01`.
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - |
+| 2017-11-01 | General Availability | All | <li> Added support for Low-priority VM eviction EventType 'Preempt'<br> | 
 | 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for IaaS VMs<br><li>Metadata Header requirement enforced for all requests | 
 | 2017-03-01 | Preview | All |<li>Initial release
 
@@ -87,7 +90,7 @@ You can query for Scheduled Events simply by making the following call:
 
 #### Powershell
 ```
-curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @{"Metadata"="true"}
+curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @{"Metadata"="true"}
 ```
 
 A response contains an array of scheduled events. An empty array means that there are currently no events scheduled.
@@ -98,11 +101,11 @@ In the case where there are scheduled events, the response contains an array of 
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
-            "NotBefore": {timeInUTC},              
+            "NotBefore": {timeInUTC},
         }
     ]
 }
@@ -113,7 +116,7 @@ The DocumentIncarnation is an ETag and provides an easy way to inspect if the Ev
 |Property  |  Description |
 | - | - |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for few seconds. The CPU is suspended, but there is no impact on memory, open files, or network connections. <li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). |
+| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there is no impact on memory or open files. <li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). <li>`Preempt`: The Low-priority Virtual Machine is being deleted (ephemeral disks are lost).|
 | ResourceType | Type of resource this event impacts. <br><br> Values: <ul><li>`VirtualMachine`|
 | Resources| List of resources this event impacts. This is guaranteed to contain machines from at most one [Update Domain](manage-availability.md), but may not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided; the event will no longer be returned when the event is completed.
@@ -127,9 +130,11 @@ Each event is scheduled a minimum amount of time in the future based on event ty
 | Freeze| 15 minutes |
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
+| Preempt | 30 seconds |
 
 ### Event Scope		
-Scheduled events are delivered to:		  
+Scheduled events are delivered to:
+ - Standalone Virtual Machines
  - All Virtual Machines in a Cloud Service		
  - All Virtual Machines in an Availability Set		
  - All Virtual Machines in a Scale Set Placement Group. 		
@@ -153,7 +158,7 @@ The following is the json expected in the `POST` request body. The request shoul
 
 #### Powershell
 ```
-curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```
 
 > [!NOTE] 
@@ -164,7 +169,7 @@ curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": 
 
 The following sample queries the metadata service for scheduled events and approves each outstanding event.
 
-```PowerShell
+```powershell
 # How to get scheduled events 
 function Get-ScheduledEvents($uri)
 {
@@ -176,7 +181,7 @@ function Get-ScheduledEvents($uri)
 
 # How to approve a scheduled event
 function Approve-ScheduledEvent($eventId, $uri)
-{    
+{
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
     $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
@@ -199,7 +204,7 @@ function Handle-ScheduledEvents($scheduledEvents)
 
 # Set up the scheduled events URI for a VNET-enabled VM
 $localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-08-01' -f $localHostIP 
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-11-01' -f $localHostIP 
 
 # Get events
 $scheduledEvents = Get-ScheduledEvents $scheduledEventURI

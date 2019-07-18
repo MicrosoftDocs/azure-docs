@@ -22,8 +22,8 @@ ms.author: willzhan
 
 In addition to protecting content for online streaming, media content subscription and rental services offer downloadable content that works when you are not connected to the internet. You might need to download content onto your phone or tablet for playback in airplane mode when flying disconnected from the network. Additional scenarios, in which you might want to download content:
 
-- Some content providers may disallow DRM license delivery beyond a country's border. If a user wants to watch content while traveling abroad, offline download is needed.
-- In some countries, Internet availability and/or bandwidth is limited. Users may choose to download content to be able to watch it in high enough resolution for satisfactory viewing experience.
+- Some content providers may disallow DRM license delivery beyond a country/region's border. If a user wants to watch content while traveling abroad, offline download is needed.
+- In some countries/regions, Internet availability and/or bandwidth is limited. Users may choose to download content to be able to watch it in high enough resolution for satisfactory viewing experience.
 
 This article discusses how to implement offline mode playback for DASH content protected by Widevine on Android devices. Offline DRM allows you to provide subscription, rental, and purchase models for your content, enabling customers of your services to easily take content with them when disconnected from the internet.
 
@@ -35,6 +35,9 @@ For building the Android player apps, we outline three options:
 > * Build a player using Encrypted Media Extension (EME) and Media Source Extension (MSE) in Chrome mobile browser v62 or later
 
 The article also answers some common questions related to offline streaming of Widevine protected content.
+
+> [!NOTE]
+> Offline DRM is only billed for making a single request for a license when you download the content. Any errors are not billed.
 
 ## Prerequisites 
 
@@ -141,7 +144,7 @@ If you upgrade your mobile Chrome browser to v62 (or higher) on an Android phone
 
 The above open-source PWA app is authored in Node.js. If you want to host your own version on an Ubuntu server, keep in mind the following common encountered issues that can prevent playback:
 
-1. CORS issue: The sample video in the sample app is hosted in https://storage.googleapis.com/biograf-video-files/videos/. Google has set up CORS for all their test samples hosted in Google Cloud Storage bucket. They are served with CORS headers, specifying explicitly the CORS entry: https://biograf-155113.appspot.com (the domain in which google hosts their sample) preventing access by any other sites. If you try, you will see the following HTTP error: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https://13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+1. CORS issue: The sample video in the sample app is hosted in https://storage.googleapis.com/biograf-video-files/videos/. Google has set up CORS for all their test samples hosted in Google Cloud Storage bucket. They are served with CORS headers, specifying explicitly the CORS entry: https://biograf-155113.appspot.com (the domain in which google hosts their sample) preventing access by any other sites. If you try, you will see the following HTTP error: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
 2. Certificate issue: Starting from Chrome v 58, EME for Widevine requires HTTPS. Therefore, you need to host the sample app over HTTPS with an X509 certificate. A usual test certificate does not work due to the following requirements: You need to obtain a certificate meeting the following minimum requirements:
     - Chrome and Firefox require SAN-Subject Alternative Name setting to exist in the certificate
     - The certificate must have trusted CA and a self-signed development certificate does not work

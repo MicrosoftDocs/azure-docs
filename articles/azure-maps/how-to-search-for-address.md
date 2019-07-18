@@ -2,18 +2,25 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: How to search for an address using the Azure Maps Search service  | Microsoft Docs 
 description: Learn how to search for an address using the Azure Maps Search service
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ---
 
 # Find an address using the Azure Maps search service
 
 The Maps search service is a set of RESTful APIs designed for developers to search for addresses, places, points of interest, business listings, and other geographic information. The service assigns a latitude/longitude to a specific address, cross street, geographic feature, or point of interest (POI). Latitude and longitude values returned by the search can be used as parameters in other Maps services like route and traffic flow.
+
+In this article you will learn, how to:
+
+* Search for an address using [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Search for an address along with properties and coordinates
+* Make a [Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to search for a street address
+* Search for a cross street using [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
 ## Prerequisites
 
@@ -33,7 +40,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
 2. On the Builder tab, select the **GET** HTTP method and enter the request URL for your API endpoint.
 
-    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Fuzzy Search](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|
@@ -45,7 +52,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
 
-    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Fuzzy Search](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | Key | Value |
     |------------------|-------------------------|
@@ -57,7 +64,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
     The ambiguous query string of "pizza" returned 10 [point of interest result](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) results with categories falling in "pizza" and "restaurant". Each result returns a street address, latitude / longitude values, view port, and entry points for the location.
   
-    The results are varied for this query, not tied to any particular reference location. You can use the **countrySet** parameter to specify only the countries for which your application needs coverage, as the default behavior is to search the entire world, potentially returning unnecessary results.
+    The results are varied for this query, not tied to any particular reference location. You can use the **countrySet** parameter to specify only the countries/regions for which your application needs coverage, as the default behavior is to search the entire world, potentially returning unnecessary results.
 
 5. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -71,7 +78,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
   
 6. In Params, enter the following Key / Value pairs and click **Send**:
 
-    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Fuzzy Search](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
     | Key | Value |
     |-----|------------|
@@ -85,7 +92,7 @@ You can pass a complete or partial street address to the search address API and 
 1. In Postman, click **New Request** | **GET request** and name it **Address Search**.
 2. On the Builder tab, select the **GET** HTTP method, enter the request URL for your API endpoint, and select an authorization protocol, if any.
 
-    ![Address Search ](./media/how-to-search-for-address/address_search_url.png)
+    ![Address Search](./media/how-to-search-for-address/address_search_url.png)
   
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|
@@ -95,7 +102,7 @@ You can pass a complete or partial street address to the search address API and 
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
   
-    ![Address Search ](./media/how-to-search-for-address/address_search_params.png)
+    ![Address Search](./media/how-to-search-for-address/address_search_params.png)
   
     | Key | Value |
     |------------------|-------------------------|
@@ -126,7 +133,7 @@ You can pass a complete or partial street address to the search address API and 
 
 2. On the Builder tab, select the **GET** HTTP method and enter the request URL for your API endpoint.
   
-    ![Reverse Address Search URL ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Reverse Address Search URL](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|
@@ -136,7 +143,7 @@ You can pass a complete or partial street address to the search address API and 
   
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
   
-    ![Reverse Address Search Parameters ](./media/how-to-search-for-address/reverse_address_search_params.png)
+    ![Reverse Address Search Parameters](./media/how-to-search-for-address/reverse_address_search_params.png)
   
     | Key | Value |
     |------------------|-------------------------|
@@ -186,7 +193,7 @@ You can pass a complete or partial street address to the search address API and 
 
 2. On the Builder tab, select the **GET** HTTP method and enter the request URL for your API endpoint.
   
-    ![Reverse Address Cross Street Search ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Reverse Address Cross Street Search](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|

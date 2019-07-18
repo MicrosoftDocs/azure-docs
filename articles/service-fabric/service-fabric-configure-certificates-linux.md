@@ -4,7 +4,7 @@ description: Configure certificates for your app with the Service Fabric runtime
 services: service-fabric
 documentationcenter: NA
 author: JimacoMS2
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
-ms.author: v-jamebr
+ms.author: chackdan
 
 ---
 # Certificates and security on Linux clusters

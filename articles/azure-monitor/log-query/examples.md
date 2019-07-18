@@ -30,11 +30,11 @@ This example searches the **Events** table for records in which **EventLog** is 
 Event
 | where EventLog == "Application" 
 | where TimeGenerated > ago(24h) 
-| where RenderedDescription == "cryptographic"
+| where RenderedDescription contains "cryptographic"
 ```
 
 ### Search events related to unmarshaling
-Search tables **Event** and **SecurityEvents** for records that mention _unmashaling_.
+Search tables **Event** and **SecurityEvents** for records that mention _unmarshaling_.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"

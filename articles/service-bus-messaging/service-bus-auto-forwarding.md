@@ -19,7 +19,7 @@ ms.author: aschhab
 ---
 # Chaining Service Bus entities with autoforwarding
 
-The Service Bus *autoforwarding* feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When autoforwarding is enabled, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination). It is still possible to send a message to the destination entity directly. Also, it is not possible to chain a subqueue, such as a deadletter queue, to another queue or topic.
+The Service Bus *autoforwarding* feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When autoforwarding is enabled, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination). It is still possible to send a message to the destination entity directly.
 
 ## Using autoforwarding
 
@@ -42,6 +42,10 @@ You can also use autoforwarding to decouple message senders from receivers. For 
 ![Auto-forwarding scenario][1]
 
 If Alice goes on vacation, her personal queue, rather than the ERP topic, fills up. In this scenario, because a sales representative has not received any messages, none of the ERP topics ever reach quota.
+
+> [!NOTE]
+> When autoforwarding is setup, the value for AutoDeleteOnIdle on the destination is automatically set to the maximum value of the data type.
+> This is done to ensure that there is always a destination to forward the message to.
 
 ## Autoforwarding considerations
 

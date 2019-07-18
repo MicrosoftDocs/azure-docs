@@ -33,7 +33,7 @@ There are three levels of support:
 
 ### Experimental languages
 
-The experimental languages in version 1.x don't scale well and don't support all bindings. For example, experimental support for PowerShell in 1.x is limited to version 5.1, because that is what's installed by default on the VMs on which function apps run. If you want to run PowerShell scripts, consider [Azure Automation](https://azure.microsoft.com/services/automation/).
+The experimental languages in version 1.x don't scale well and don't support all bindings.
 
 Don't use experimental features for anything that you rely on, as there is no official support for them. Support cases should not be opened for problems with experimental languages. 
 

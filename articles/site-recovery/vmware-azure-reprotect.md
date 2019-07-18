@@ -1,12 +1,12 @@
 ---
 title: Reprotect VMs from Azure to an on-premises site during disaster recovery of VMware VMs and physical servers | Microsoft Docs
 description: After failover to Azure during disaster recovery of VMware VMs and physical servers, learn how to fail back from Azure to the on-premises site.
-author: rajani-janaki-ram
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/17/2018
-ms.author: rajanaki
+ms.date: 3/12/2019
+ms.author: mayg
 ---
 
 # Reprotect and fail back machines to an on-premises site after failover to Azure
@@ -109,7 +109,6 @@ Note the following information:
 
 ## Common issues
 
-- Currently, Site Recovery supports failing back only to a VMFS or vSAN datastore. An NFS datastore isn't supported. Due to this limitation, the datastore selection input on the reprotect screen is empty for NFS datastores, or it shows the vSAN datastore but fails during the job. If you intend to fail back, you can create a VMFS datastore on-premises and fail back to it. This failback causes a full download of the VMDK.
 - If you perform a read-only user vCenter discovery and protect virtual machines, protection succeeds, and failover works. During reprotection, failover fails because the datastores can't be discovered. A symptom is that the datastores aren't listed during reprotection. To resolve this problem, you can update the vCenter credentials with an appropriate account that has permissions and then retry the job. 
 - When you fail back a Linux virtual machine and run it on-premises, you can see that the Network Manager package has been uninstalled from the machine. This uninstallation occurs because the Network Manager package is removed when the virtual machine is recovered in Azure.
 - When a Linux virtual machine is configured with a static IP address and is failed over to Azure, the IP address is acquired from DHCP. When you fail over to on-premises, the virtual machine continues to use DHCP to acquire the IP address. Manually sign in to the machine, and then set the IP address back to a static address if necessary. A Windows virtual machine can acquire its static IP address again.

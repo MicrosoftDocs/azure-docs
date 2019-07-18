@@ -4,7 +4,7 @@ description: You can create Service Fabric clusters on any VMs or computers runn
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
@@ -29,7 +29,7 @@ On Azure, we provide integration with other Azure features and services, which m
 * **Azure Resource Manager:** Use of Azure Resource Manager allows easy management of all resources used by the cluster as a unit and simplifies cost tracking and billing.
 * **Service Fabric Cluster as an Azure Resource** A Service Fabric cluster is an Azure resource, so you can model it like you do other resources in Azure.
 * **Integration with Azure Infrastructure** Service Fabric coordinates with the underlying Azure infrastructure for OS, network, and other upgrades to improve availability and reliability of your applications.  
-* **Diagnostics:** On Azure, we provide integration with Azure diagnostics and Log Analytics.
+* **Diagnostics:** On Azure, we provide integration with Azure diagnostics and Azure Monitor logs.
 * **Auto-scaling:** For clusters on Azure, we provide built-in auto-scaling functionality due to Virtual Machine scale-sets. In on-premises and other cloud environments, you have to build your own auto-scaling feature or scale manually using the APIs that Service Fabric exposes for scaling clusters.
 
 ## Benefits of standalone clusters

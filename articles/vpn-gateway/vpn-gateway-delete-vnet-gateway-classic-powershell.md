@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017

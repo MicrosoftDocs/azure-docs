@@ -24,7 +24,7 @@ Throughout the lifecycle of a virtual machine scale set, you may need to run one
 
 If you need to create a virtual machine scale set, you can [create a scale set with Azure PowerShell](quick-create-powershell.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## View information about a scale set
 To view the overall information about a scale set, use [Get-AzVmss](/powershell/module/az.compute/get-azvmss). The following example gets information about the scale set named *myScaleSet* in the *myResourceGroup* resource group. Enter your own names as follows:
@@ -88,7 +88,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 
 
 ## Restart VMs in a scale set
-To restart one or more VMs in a scale set, use [Retart-AzVmss](/powershell/module/az.compute/restart-azvmss). The `-InstanceId` parameter allows you to specify one or more VMs to restart. If you do not specify an instance ID, all VMs in the scale set are restarted. To restart multiple VMs, separate each instance ID with a comma.
+To restart one or more VMs in a scale set, use [Restart-AzVmss](/powershell/module/az.compute/restart-azvmss). The `-InstanceId` parameter allows you to specify one or more VMs to restart. If you do not specify an instance ID, all VMs in the scale set are restarted. To restart multiple VMs, separate each instance ID with a comma.
 
 The following example restarts instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your own values as follows:
 

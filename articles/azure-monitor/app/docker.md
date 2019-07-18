@@ -11,11 +11,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
 
 ---
-# Monitor Docker applications in Application Insights
+# Monitor Docker applications in Application Insights (Deprecated)
+
+> [!NOTE]
+> This solution has been deprecated. To learn more about our current investments in container monitoring we recommend checking out [Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 Lifecycle events and performance counters from [Docker](https://www.docker.com/) containers can be charted on Application Insights. Install the [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) image in a container in your host, and it will display performance counters for the host, as well as for the other images.
 
@@ -25,10 +28,7 @@ When you run the [Application Insights image](https://hub.docker.com/r/microsoft
 
 * Lifecycle telemetry about all the containers running on the host - start, stop, and so on.
 * Performance counters for all the containers. CPU, memory, network usage, and more.
-* If you [installed Application Insights SDK for Java](../../azure-monitor/app/java-live.md) in the apps running in the containers, all the telemetry of those apps will have additional properties identifying the container and host machine. So for example, if you have instances of an app running in more than one host, you can easily filter your app telemetry by host.
-
-> [!NOTE]
-> This solution has been deprecated. To learn more about our current investments in container monitoring we recommend checking out [Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+* If you [installed Application Insights SDK for Java](../../azure-monitor/app/java-get-started.md) in the apps running in the containers, all the telemetry of those apps will have additional properties identifying the container and host machine. So for example, if you have instances of an app running in more than one host, you can easily filter your app telemetry by host.
 
 ## Set up your Application Insights resource
 
@@ -36,7 +36,7 @@ When you run the [Application Insights image](https://hub.docker.com/r/microsoft
    
     *Which resource should I use?* If the apps that you are running on your host were developed by someone else, then you need to [create a new Application Insights resource](../../azure-monitor/app/create-new-resource.md ). This is where you view and analyze the telemetry. (Select 'General' for the app type.)
    
-    But if you're the developer of the apps, then we hope you [added Application Insights SDK](../../azure-monitor/app/java-live.md) to each of them. If they're all really components of a single business application, then you might configure all of them to send telemetry to one resource, and you'll use that same resource to display the Docker lifecycle and performance data. 
+    But if you're the developer of the apps, then we hope you [added Application Insights SDK](../../azure-monitor/app/java-get-started.md) to each of them. If they're all really components of a single business application, then you might configure all of them to send telemetry to one resource, and you'll use that same resource to display the Docker lifecycle and performance data. 
    
     A third scenario is that you developed most of the apps, but you are using separate resources to display their telemetry. In that case, you probably also want to create a separate resource for the Docker data.
 

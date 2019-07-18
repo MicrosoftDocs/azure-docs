@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Learn how to enable alert events, and probe health status logging for public Basic Load Balancer
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,10 +12,10 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
-# Log analytics for public Basic Load Balancer
+# Azure Monitor logs for public Basic Load Balancer
 
 >[!IMPORTANT] 
 >Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md) which exposes telemetry via multi-dimensional metrics in Azure Monitor.
@@ -27,13 +27,13 @@ You can use different types of logs in Azure to manage and troubleshoot Basic Lo
 * **Health probe logs:** You can use this log to view problems detected by your health probe, such as the number of instances in your backend-pool that are not receiving requests from the load balancer because of health probe failures. This log is written to when there is a change in the health probe status.
 
 > [!IMPORTANT]
-> Log analytics currently works only for public Basic load balancers. Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
+> Azure Monitor logs currently works only for public Basic load balancers. Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## Enable logging
 
 Audit logging is automatically enabled for every Resource Manager resource. You need to enable event and health probe logging to start collecting the data available through those logs. Use the following steps to enable logging.
 
-Sign-in to the [Azure portal](http://portal.azure.com). If you don't already have a load balancer, [create a load balancer](load-balancer-get-started-internet-arm-ps.md) before you continue.
+Sign-in to the [Azure portal](https://portal.azure.com). If you don't already have a load balancer, [create a load balancer](load-balancer-get-started-internet-arm-ps.md) before you continue.
 
 1. In the portal, click **Browse**.
 2. Select **Load Balancers**.

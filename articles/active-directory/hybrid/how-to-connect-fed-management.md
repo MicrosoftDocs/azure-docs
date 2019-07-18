@@ -27,7 +27,7 @@ This article describes how to manage and customize Active Directory Federation S
 |:--- |:--- |
 | **Manage AD FS** | |
 | [Repair the trust](#repairthetrust) |How to repair the federation trust with Office 365. |
-| [Federate with Azure AD using alternate login ID ](#alternateid) | Configure federation using alternate login ID  |
+| [Federate with Azure AD using alternate login ID](#alternateid) | Configure federation using alternate login ID  |
 | [Add an AD FS server](#addadfsserver) |How to expand an AD FS farm with an additional AD FS server. |
 | [Add an AD FS Web Application Proxy server](#addwapserver) |How to expand an AD FS farm with an additional Web Application Proxy (WAP) server. |
 | [Add a federated domain](#addfeddomain) |How to add a federated domain. |

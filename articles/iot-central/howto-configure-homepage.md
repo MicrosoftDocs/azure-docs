@@ -1,40 +1,47 @@
 ---
-title: Configure the Homepage of your Azure IoT Central application | Microsoft Docs
-description: As a builder, learn how to configure the Homepage of your Azure IoT Central application.
+title: Configure the Azure IoT Central application dashboard | Microsoft Docs
+description: As a builder, learn how to configure the default Azure IoT Central application dashboard.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2018
+ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
 ---
 
-# Configuring Homepage
+# Configure the application dashboard
 
-The Homepage is the page that loads when users who have access to the application navigate to the application's URL. If you selected either the "Sample Contoso" or "Sample Devkits" Application Templates while creating your application, your application will have pre-defined Homepages. If on the other hand you selected the "Custom Application" Application Template, your Homepage will be blank.
+The **Dashboard** is the page that loads when users who have access to the application navigate to the application's URL. If you selected either the **Sample Contoso** or **Sample Devkits** application template to create your application, your application has a pre-defined dashboard. If you chose the **Custom Application** application template, your dashboard is blank.
 
-For example, here's the Homepage for applications based on the "Sample Contoso" template. To customize the Homepage for your application, first select **Edit** on the top right. 
+> [!NOTE]
+> Users can also [create their own personal dashboards](howto-personalize-dashboard.md) to use instead of the default application dashboard.
 
-![Homepage for applications based on the "Sample Contoso" template](media/howto-configure-homepage/image1.png)
+## Add tiles
 
-Selecting **Edit**, will open the dashboard library in a panel to the left. There are many types of tiles and dashboard primitives that can be added to customize your Homepage.
+The following screenshot shows the dashboard in an application created from the **Sample Contoso** template. To customize the default dashboard for your application, select **Edit** at the top right of the page.
 
-![Dashboard library](media/howto-configure-homepage/image2.png)
+![Dashboard for applications based on the "Sample Contoso" template](media/howto-configure-homepage/image1a.png)
 
-For example, you can add a **Settings and Properties** tile to show a selection of the current values of settings and properties. To do so, first select a **Device Template** then select a **Device Instance**. After that give the tile a title and select a **Setting** or a **Property** to display. In this case we've selected **Set Temperature**. Clicking **Done** will cause this tile to appear on the Homepage.
+Selecting **Edit**, opens the dashboard library panel. The library contains the tiles and dashboard primitives you can use to customize the dashboard.
 
-!["Configure Device Details" form with details for settings and properties](media/howto-configure-homepage/image3.png)
+![Dashboard library](media/howto-configure-homepage/image2a.png)
 
-Now when an operator views the Homepage, they can see this tile that displays the properties or settings of the device:
+For example, you can add a **Device Settings and Properties** tile to show a selection of the current settings and properties values for a device. To do so, first select a **Device Template** then select a **Device Instance**. After that give the tile a title and select a **Setting** or a **Property** to display. The following screenshot shows settings and properties selected to add to the tile. Select **Done** to save the change to the dashboard.
 
-!["Dashboard" tab with displayed settings and properties for the tile](media/howto-configure-homepage/image4.png)
+!["Configure Device Details" form with details for settings and properties](media/howto-configure-homepage/image3a.png)
 
-Play around with the various other tile types in the library to discover how you can customize your application's Homepage even more.
+Now when an operator views the default application dashboard, they see the new tile with the **Set Temperature** setting for the device:
+
+!["Dashboard" tab with displayed settings and properties for the tile](media/howto-configure-homepage/image4a.png)
+
+You can explore other tile types in the library to discover how to further customize the default application dashboard.
+
+To learn more about how to use tiles in Azure IoT Central, see [Use dashboard tiles](howto-use-tiles.md).
 
 ## Next steps
 
-Now that you've learned how to configure your Azure IoT Central Homepage, you can:
+Now that you've learned how to configure your Azure IoT Central default application dashboard, you can:
 
 > [!div class="nextstepaction"]
 > [Learn how to prepare and upload images](howto-prepare-images.md)

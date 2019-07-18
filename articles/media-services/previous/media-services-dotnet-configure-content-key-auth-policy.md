@@ -13,9 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
-ms.author: juliako;mingfeiy
-
+ms.date: 03/18/2019
+ms.author: juliako
 ---
 # Dynamic encryption: Configure a content key authorization policy
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -98,7 +97,7 @@ To configure the token restriction option, you need to use an XML to describe th
 ```csharp
 #### Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
-    <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
         <xs:sequence>
           <xs:element name="ClaimType" nillable="true" type="xs:string" />

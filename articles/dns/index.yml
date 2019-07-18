@@ -89,8 +89,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.dns">PowerShell</a></p><p><a href="/cli/azure/network/traffic-manager">Azure CLI</a></p>
+      html: <p><a href="/powershell/module/az.dns">PowerShell</a></p><p><a href="/cli/azure/network/traffic-manager">Azure CLI</a></p>
     - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.dns">Java</a></p><p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p><p><a href="http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.dns">Python</a></p>
+      html: <p><a href="/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.dns">Java</a></p><p><a href="https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p><p><a href="https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.dns">Python</a></p>
     - title: REST
       html: <p><a href="/rest/api/dns/">REST API Reference</a></p>

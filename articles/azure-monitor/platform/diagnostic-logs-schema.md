@@ -1,12 +1,12 @@
 ---
 title: Azure Diagnostic Logs supported services and schemas
 description: Understand the supported services and event schema for Azure Diagnostic Logs.
-author: johnkemnetz
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
 ms.date: 10/11/2018
-ms.author: johnkem
+ms.author: robb
 ms.subservice: logs
 ---
 # Supported services, schemas, and categories for Azure Diagnostic Logs
@@ -41,7 +41,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 
 | Service | Schema & Docs |
 | --- | --- |
-| Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) and [Sign Ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) and [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API Management Diagnostic Logs](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gateways |[Diagnostics Logging for Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
@@ -49,7 +49,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Azure Batch |[Azure Batch diagnostic logging](../../batch/batch-diagnostics.md) |
 | Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL diagnostic logs](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Cognitive Services | Schema not available. |
+| Cognitive Services | [Diagnostic Logging for Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Content Delivery Network | [Azure Diagnostic Logs for CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB Logging](../../cosmos-db/logging.md) |
 | Data Factory | [Monitor Data Factories using Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
@@ -203,4 +203,3 @@ The schema for resource diagnostic logs varies depending on the resource and log
 * [Stream resource diagnostic logs to **Event Hubs**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Change resource diagnostic settings using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Analyze logs from Azure storage with Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-

@@ -5,12 +5,12 @@ description: 'Trade secret of data science: Get others to do your work for you. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
-author: garyericson
-ms.author: garye
+author: sdgilley
+ms.author: sgilley
 ms.custom: seodec18
-ms.date: 01/05/2018
+ms.date: 03/22/2019
 ---
 # Copy other people's work to do data science
 ## Video 5: Data Science for Beginners series
@@ -47,7 +47,7 @@ One of the trade secrets of data science is getting other people to do your work
 
 Microsoft has a cloud-based service called [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) that you're welcome to try for free. It provides you with a workspace where you can experiment with different machine learning algorithms, and, when you've got your solution worked out, you can launch it as a web service.
 
-Part of this service is something called the **[Azure AI Gallery](https://gallery.azure.ai/)**. It contains resources, including a collection of Azure Machine Learning experiments, or models, that people have built and contributed for others to use. These experiments are a great way to leverage the thought and hard work of others to get you started on your own solutions. Everyone is welcome to browse through it.
+Part of this service is something called the **[Azure AI Gallery](https://gallery.azure.ai/)**. It contains resources, including a collection of Azure Machine Learning Studio experiments, or models, that people have built and contributed for others to use. These experiments are a great way to leverage the thought and hard work of others to get you started on your own solutions. Everyone is welcome to browse through it.
 
 ![Azure AI Gallery](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -83,8 +83,8 @@ There are other experiments in the [Azure AI Gallery](https://gallery.azure.ai) 
 
 [Azure AI Gallery](https://gallery.azure.ai) is a place to find working experiments that you can use as a starting point for your own solutions.
 
-Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning.
+Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning Studio.
 
 ## Next steps
-* [Try your first data science experiment with Azure Machine Learning](create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](what-is-machine-learning.md)
+* [Try your first data science experiment with Azure Machine Learning Studio](create-experiment.md)
+* [Get an introduction to Machine Learning on Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

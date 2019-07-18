@@ -3,8 +3,8 @@ title: Use an Azure Files based volume in a Service Fabric Mesh application | Mi
 description: Learn how to store state in an Azure Service Fabric Mesh application by mounting an Azure Files based volume inside a service using the Azure CLI.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: 
 ms.service: service-fabric-mesh
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter 
 ---
 
@@ -82,7 +82,7 @@ To mount the volume in your service, add a `volumeRefs` to the `codePackages` el
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -114,7 +114,7 @@ To mount the volume in your service, add a `volumeRefs` to the `codePackages` el
       "type": "string",
       "defaultValue": "TestVolumeData",
       "metadata": {
-        "description": "Folder in which to store the state. Provide a empty value to create a unique folder for each container to store the state. A non-empty value will retain the state across deployments, however if more than one applications are using the same folder, the counter may update more frequently."
+        "description": "Folder in which to store the state. Provide an empty value to create a unique folder for each container to store the state. A non-empty value will retain the state across deployments, however if more than one applications are using the same folder, the counter may update more frequently."
       }
     }
   },

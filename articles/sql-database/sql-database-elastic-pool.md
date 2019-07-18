@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 02/28/2019
 ---
 # Elastic pools help you manage and scale multiple Azure SQL databases
 
@@ -128,7 +128,7 @@ In cases where you can't use tooling, the following step-by-step can help you es
 
 ### Elastic jobs and elastic pools
 
-With a pool, management tasks are simplified by running scripts in **[elastic jobs](sql-database-elastic-jobs-overview.md)**. An elastic job eliminates most of tedium associated with large numbers of databases. To begin, see [Getting started with Elastic jobs](sql-database-elastic-jobs-getting-started.md).
+With a pool, management tasks are simplified by running scripts in **[elastic jobs](elastic-jobs-overview.md)**. An elastic job eliminates most of tedium associated with large numbers of databases.
 
 For more information about other database tools for working with multiple databases, see [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md).
 
@@ -196,6 +196,20 @@ By default, the chart in the **Database Resource Utilization** blade will show t
 You can also select more metrics to view side by side in this database table to get a more complete view of your databases performance.
 
 For more information, see [create SQL Database alerts in Azure portal](sql-database-insights-alerts-portal.md).
+
+## Customer case studies
+
+- [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
+
+  SnelStart used elastic pools with Azure SQL Database to rapidly expand its business services at a rate of 1,000 new Azure SQL Databases per month.
+
+- [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
+
+  Umbraco uses elastic pools with Azure SQL Database to quickly provision and scale services for thousands of tenants in the cloud.
+
+- [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+
+  Daxko/CSI uses elastic pools with Azure SQL Database to accelerate its development cycle and to enhance its customer services and performance.
 
 ## Next steps
 

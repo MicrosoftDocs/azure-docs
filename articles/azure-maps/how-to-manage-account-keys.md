@@ -3,7 +3,7 @@ title: Manage your Azure Maps account | Microsoft Docs
 description: You can use the Azure portal to manage your Azure Maps account.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/12/2018
+ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -38,10 +38,14 @@ You then see a confirmation page. You can confirm the deletion of your account b
 
 ## Next steps
 
-* Learn how to manage an Azure Maps account pricing tier:
-    > [!div class="nextstepaction"]	
-    > [Manage a pricing tier](./how-to-manage-pricing-tier.md)
+Setup authentication with Azure Maps:
+> [!div class="nextstepaction"]
+> [Manage authentication](how-to-manage-authentication.md)
 
-* Learn how to see the API usage metrics for your Azure Maps account:
-    > [!div class="nextstepaction"]	
-    > [View usage metrics](./how-to-view-api-usage.md)
+Learn how to manage an Azure Maps account pricing tier:
+> [!div class="nextstepaction"]	
+> [Manage a pricing tier](how-to-manage-pricing-tier.md)
+
+Learn how to see the API usage metrics for your Azure Maps account:
+> [!div class="nextstepaction"]	
+> [View usage metrics](how-to-view-api-usage.md)

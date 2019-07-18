@@ -13,9 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/08/2019
-ms.author: juliako;dbgeorge
-
+ms.date: 03/14/2019
+ms.author: juliako
 ---
 # Use the Haivision KB live encoder to send a single bitrate live stream  
 > [!div class="op_single_selector"]

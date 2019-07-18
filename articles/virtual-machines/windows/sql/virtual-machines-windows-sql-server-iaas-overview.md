@@ -9,7 +9,7 @@ tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2018
@@ -79,7 +79,7 @@ To bring your own license, you can either convert an existing pay-per-usage SQL 
 
 It is possible to deploy an older image of SQL Server that is not available in the Azure Portal using PowerShell. To view all available images using Powershell, use the following command:
 
-  ```PowerShell
+  ```powershell
   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
   ```
 

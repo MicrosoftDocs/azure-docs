@@ -4,7 +4,7 @@ description: Create a Linux VM on Azure by using the Azure classic CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
-ms.author: v-livech
+ms.author: gwallace
 
 ---
 # Create a Linux VM using the Azure classic CLI
@@ -22,7 +22,7 @@ ms.author: v-livech
 This article shows how to quickly deploy a Linux virtual machine (VM) on Azure by using the `azure vm quick-create` command in the Azure command-line interface (CLI). The `quick-create` command deploys a VM inside a basic, secure infrastructure that you can use to prototype or test a concept rapidly.
 
 > [!NOTE]
-To create a VM using the Azure CLI, see [Create a VM with the Azure CLI](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> To create a VM using the Azure CLI, see [Create a VM with the Azure CLI](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 You can also quickly deploy a Linux VM by using the [Azure portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -180,7 +180,7 @@ Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
     https://landscape.canonical.com/
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 0 packages can be updated.
 0 updates are security updates.

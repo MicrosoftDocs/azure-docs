@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -20,7 +20,7 @@ You must:
 - Have an active Azure subscription that can be used for the Import/Export service.
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-quickstart-create-account.md).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
-- Have a FedEx/DHL account.  
+- Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`. 
     - The account must be valid, should have balance, and must have return shipping capabilities.
     - Generate a tracking number for the export job.
     - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported. 
@@ -77,8 +77,8 @@ Perform the following steps to create an export job in the Azure portal.
 
 4. In **Return shipping info**:
 
-    - Select the carrier from the dropdown list.
-    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. 
+    - Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
+    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your export job is complete. 
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
 
         > [!TIP] 

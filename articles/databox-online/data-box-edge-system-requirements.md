@@ -7,10 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 04/03/2019
 ms.author: alkohli
 ---
-# Azure Data Box Edge system requirements (preview)
+# Azure Data Box Edge system requirements
 
 This article describes the important system requirements for your Microsoft Azure Data Box Edge solution and for the clients connecting to Azure Data Box Edge. We recommend that you review the information carefully before you deploy your Data Box Edge. You can refer back to this information as necessary during the deployment and subsequent operation.
 
@@ -18,9 +18,6 @@ The system requirements for the Data Box Edge include:
 
 - **Software requirements for hosts** - describes the supported platforms, browsers for the local configuration UI, SMB clients, and any additional requirements for the clients that access the device.
 - **Networking requirements for the device** - provides information about any networking requirements for the operation of the physical device.
-
-> [!IMPORTANT]
-> Data Box Edge is in preview. Please review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
 
 ## Supported OS for clients connected to device
 
@@ -58,10 +55,7 @@ Use the following table for port configuration for the servers hosting Azure IoT
 
 | Port no. | In or out | Port scope | Required | Guidance |
 |----------|-----------|------------|----------|----------|
-| TCP 5671 (AMQP)| Out       | WAN        | Yes      | Default communication protocol for IoT Edge. Must be open if Azure IoT Edge is not configured for other supported protocols or AMQP is the desired communication protocol. <br>5672 for AMQP is not supported by IoT Edge. <br>Block this port when Azure IoT Edge uses a different IoT Hub supported protocol. |
-| TCP 443 (HTTPS)| Out       | WAN        | Yes      | Outbound open for IoT Edge   provisioning. If you have a transparent gateway with leaf devices that may send method   requests. In this case, port 443 does not need to be open to external networks to connect to IoT Hub or provide IoT Hub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open inbound from the internal network. |
-| TCP 5671 (AMQP) | In        |            | No       | Inbound connections should be blocked.|
-| TCP 443 (HTTPS) | In        |            | In some cases, see comments | Inbound connections should be opened only for specific scenarios. If non-HTTP protocols such as AMQP, MQTT cannot be configured, the messages can be sent over WebSockets using port 443. |
+| TCP 443 (HTTPS)| Out       | WAN        | Yes      | Outbound open for IoT Edge   provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS).|
 
 For complete information, go to [Firewall and port configuration rules for IoT Edge deployment](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 
@@ -81,16 +75,59 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 
 ### URL patterns for compute feature
 
-| URL pattern                      | Component or functionality                     |   |
-|----------------------------------|---------------------------------------------|---|
-| `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |   |
-| https://\*.azurecr.io                     | Personal and third-party container registries (optional) |   |
-| https://\*.azure-devices.net              | IoT Hub access (required)                             |   |
+| URL pattern                      | Component or functionality                     |   
+|----------------------------------|---------------------------------------------|
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |
+| https://\*.azurecr.io                     | Personal and third-party container registries (optional) | 
+| https://\*.azure-devices.net              | IoT Hub access (required)                             | 
+
+### URL patterns for gateway for Azure Government
+
+[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
+### URL patterns for compute for Azure Government
+
+| URL pattern                      | Component or functionality                     |  
+|----------------------------------|---------------------------------------------|
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft container registry (required)               |
+| https://\*.azure-devices.us              | IoT Hub access (required)           |
+| https://\*.azurecr.us                    | Personal and third-party container registries (optional) | 
 
 ## Internet bandwidth
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
+## Compute sizing considerations
+
+Use your experience while developing and testing your solution to ensure there is enough capacity on your Data Box Edge device and you get the optimal performance from your device.
+
+Factors you should consider include:
+
+- **Container specifics** - Think about the following.
+
+    - How many containers are in your workload? You could have a lot of lightweight containers versus a few resource-intensive ones.
+    - What are the resources allocated to these containers versus what are the resources they are consuming?
+    - How many layers do your containers share?
+    - Are there unused containers? A stopped container still takes up disk space.
+    - In which language are your containers written?
+- **Size of the data processed** - How much data will your containers be processing? Will this data consume disk space or the data will be processed in the memory?
+- **Expected performance** - What are the desired performance characteristics of your solution? 
+
+To understand and refine the performance of your solution, you could use:
+
+- The compute metrics available in the Azure portal. Go to your Data Box Edge resource and then go to **Monitoring > Metrics**. Look at the **Edge compute - Memory usage** and **Edge compute - Percentage CPU** to understand the available resources and how are the resources getting consumed.
+- The monitoring commands available via the PowerShell interface of the device such as:
+
+    - `dkr` stats to get a live stream of container(s) resource usage statistics. The command supports CPU, memory usage, memory limit, and network IO metrics.
+    - `dkr system df` to get information regarding the amount of disk space used. 
+    - `dkr image [prune]` to clean up unused images and free up space.
+    - `dkr ps --size` to view the approximate size of a running container. 
+
+    For more information on the available commands, go to [Monitor and troubleshoot compute modules](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+
+Finally, make sure that you validate your solution on your dataset and quantify the performance on Data Box Edge before deploying in production.
+
+
 ## Next step
 
-- [Deploy your Azure Data Box Edge](data-box-Edge-deploy-prep.md)
+- [Deploy your Azure Data Box Edge](data-box-edge-deploy-prep.md)

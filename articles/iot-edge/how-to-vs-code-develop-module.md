@@ -7,7 +7,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 01/12/2019
+ms.date: 06/25/2019
 ms.topic: article
 ms.service: iot-edge
 
@@ -40,11 +40,7 @@ You'll also need to install some additional, language-specific tools in order to
 
 - C#, including Azure Functions: [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
 
-- Python: [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation). Once Pip is installed, install the **Cookiecutter** package with the following command:
-
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
+- Python: [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation).
 
 - Node.js: [Node.js](https://nodejs.org). You'll also want to install [Yeoman](https://www.npmjs.com/package/yo) and the [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
@@ -64,6 +60,8 @@ Unless you're developing your module in C, you also need the Python-based [Azure
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
+> [!NOTE]
+> If you have multiple Python including pre-installed python 2.7 (for example, on Ubuntu or macOS), make sure you are using the correct `pip` or `pip3` to install **iotedgehubdev**
 
 > [!NOTE]
 > To test your module on a device, you'll need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows](quickstart.md). If you are running IoT Edge daemon on your development machine, you might need to stop EdgeHub and EdgeAgent before you move to next step.
@@ -96,7 +94,7 @@ There are four items within the solution:
 
 - A **.vscode** folder contains debug configurations.
 
-- A **modules** folder has subfolders for each module. At this point, you only have one. But you can add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**.
+- A **modules** folder has subfolders for each module.  Within the folder for each module there is a file, **module.json**, that controls how modules are built and deployed.  This file would need to be modified to change the module deployment container regristry from localhost to a remote registry. At this point, you only have one module.  But you can add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**.
 
 - An **.env** file lists your environment variables. If Azure Container Registry is your registry, you'll have an Azure Container Registry username and password in it.
 
@@ -151,7 +149,7 @@ To set up and start the simulator, run the command **Azure IoT Edge: Start IoT E
 
 1. Prepare your environment for debugging according to the requirements of your development language, set a breakpoint in your module, and select the debug configuration to use:
    - **C#**
-     - In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to build .Net Core application.
+     - In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to build .NET Core application.
 
        ```cmd
        dotnet build
@@ -162,7 +160,7 @@ To set up and start the simulator, run the command **Azure IoT Edge: Start IoT E
      - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (.NET Core)** from the dropdown.
 
         > [!NOTE]
-        > If your .Net Core `TargetFramework` is not consistent with your program path in `launch.json`, you'll need to manually update the program path in `launch.json` to match the `TargetFramework` in your .csproj file so that Visual Studio Code can successfully launch this program.
+        > If your .NET Core `TargetFramework` is not consistent with your program path in `launch.json`, you'll need to manually update the program path in `launch.json` to match the `TargetFramework` in your .csproj file so that Visual Studio Code can successfully launch this program.
 
    - **Node.js**
      - In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to install Node packages
@@ -259,6 +257,7 @@ When debugging modules using this method, your modules are running on top of the
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
+
    - Add the following single line of code to the callback you want to debug:
 
       ```python
@@ -347,6 +346,12 @@ You can skip this section if your modules are running on the same machine as Vis
 
 > [!NOTE]
 > The preceding example shows how to debug IoT Edge modules on containers. It added exposed ports to your module's container `createOptions` settings. After you finish debugging your modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
+
+## Build and debug a module remotely
+
+With recent changes in both the Docker and Moby engines to support SSH connections, and a new setting in Azure IoT Tools that enables injection of environment settings into the Visual Studio Code command palette and Azure IoT Edge terminals, you can now build and debug modules on remote devices.
+
+See this [IoT Developer blog entry](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) for more information and step-by-step instructions.
 
 ## Next steps
 

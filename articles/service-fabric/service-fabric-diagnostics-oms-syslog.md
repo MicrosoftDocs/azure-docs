@@ -4,7 +4,7 @@ description: Learn how to monitor Linux cluster events from Syslog
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -21,6 +21,8 @@ ms.author: srrengar
 # Service Fabric Linux cluster events in Syslog
 
 Service Fabric exposes a set of platform events to inform you of important activity in your cluster. The full list of events that are exposed is available [here](service-fabric-diagnostics-event-generation-operational.md). There are variety of ways through which these events can be consumed. In this article, we are going to discuss how to configure Service Fabric to write these events to Syslog.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Introduction
 
@@ -90,8 +92,8 @@ Here are the changes to call out
     }
 ```
 
-## Log Analytics integration
-You can read these Syslog events in a monitoring tool such as Log Analytics. You can create a Log Analytics workspace by using the Azure Marketplace using these [instructions].(../azure-monitor/learn/quick-create-workspace.md)
+## Azure Monitor logs integration
+You can read these Syslog events in a monitoring tool such as Azure Monitor logs. You can create a Log Analytics workspace by using the Azure Marketplace using these [instructions].(../azure-monitor/learn/quick-create-workspace.md)
 You also need to add the Log Analytics agent to your cluster to collect and send this data to the workspace. This is the same agent used to collect performance counters. 
 
 1. Navigate to the `Advanced Settings` blade
@@ -118,6 +120,6 @@ The example above is of a NodeDown event. You can view the full list of events [
 
 ## Next steps
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics
-* [Use View Designer to create custom views in Log Analytics](../log-analytics/log-analytics-view-designer.md)
-* Reference for how to [Log Analytics integration with Syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs
+* [Use View Designer to create custom views in Azure Monitor logs](../log-analytics/log-analytics-view-designer.md)
+* Reference for how to [Azure Monitor logs integration with Syslog](../log-analytics/log-analytics-data-sources-syslog.md).

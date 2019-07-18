@@ -45,7 +45,7 @@ To back up your Windows Server System State, you need to create a Recovery Servi
     Or
     * select **Use existing** and click the drop-down menu to see the available list of Resource groups.
 
-  For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+   For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent.
 
@@ -124,9 +124,9 @@ Now that you've created a vault, configure it for backing up Windows System Stat
     The vault credentials download to your Downloads folder. After the vault credentials finish downloading, you see a pop-up asking if you want to open or save the credentials. Click **Save**. If you accidentally click **Open**, let the dialog that attempts to open the vault credentials, fail. You cannot open the vault credentials. Proceed to the next step. The vault credentials are in the Downloads folder.   
 
     ![vault credentials finished downloading](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
-> [!NOTE]
-> The vault credentials must be saved only to a location that is local to the Windows Server on which you intend to use the agent.
->
+   > [!NOTE]
+   > The vault credentials must be saved only to a location that is local to the Windows Server on which you intend to use the agent.
+   >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 

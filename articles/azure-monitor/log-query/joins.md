@@ -19,7 +19,7 @@ ms.author: bwren
 # Joins in Azure Monitor log queries
 
 > [!NOTE]
-> You should complete [Get started with Azure Monitor log analytics](get-started-portal.md) and [Azure Monitor log queries](get-started-queries.md) before completing this lesson.
+> You should complete [Get started with Azure Monitor Log Analytics](get-started-portal.md) and [Azure Monitor log queries](get-started-queries.md) before completing this lesson.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -98,7 +98,7 @@ Consider the following points for optimal performance:
 
 - Use a time filter on each table to reduce the records that must be evaluated for the join.
 - Use `where` and `project` to reduce the numbers of rows and columns in the input tables before the join.
-* If one table is always smaller than the other, use it as the left side of the join.
+- If one table is always smaller than the other, use it as the left side of the join.
 
 
 ## Next steps

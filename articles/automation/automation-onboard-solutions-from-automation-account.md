@@ -3,9 +3,9 @@ title: Learn how to onboard Update Management, Change Tracking, and Inventory so
 description: Learn how to onboard an Azure Virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 10/16/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
@@ -22,27 +22,14 @@ Sign in to Azure at https://portal.azure.com
 
 Navigate to your Automation account and select either **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**.
 
-Choose the Log analytics workspace and Automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
+Choose the Log Analytics workspace and Automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
 ![Onboard Inventory solution](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-When enabling solutions, only certain regions are supported for linking a Log Analytics Workspace and an Automation Account.
-
-The following table shows the supported mappings:
-
-|**Log Analytics Workspace Region**|**Azure Automation Region**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS|WestCentralUS|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+> [!NOTE]
+> When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
+>
+> For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
 
 The Change Tracking and Inventory solution provides the ability to [track changes](automation-vm-change-tracking.md) and [inventory](automation-vm-inventory.md) on your virtual machines. In this step, you enable the solution on a virtual machine.
 
@@ -50,7 +37,7 @@ When the change tracking and inventory solution onboarding notification complete
 
 The Update Management solution allows you to manage updates and patches for your Azure Windows VMs. You can assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to the VM. This action enabled the solution for your VM.
 
-Select **Update management** under **UPDATE MANAGEMENT**. The Log analytics workspace selected is the same workspace used in the preceding step. Click **Enable** to onboard the Update management solution. The solution takes up to 15 minutes to enable.
+Select **Update management** under **UPDATE MANAGEMENT**. The Log Analytics workspace selected is the same workspace used in the preceding step. Click **Enable** to onboard the Update management solution. The solution takes up to 15 minutes to enable.
 
 ![Onboard update solution](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
@@ -85,7 +72,7 @@ Select either saved search to view the query used to populate the group. The fol
 
 From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
 
-Click **+ Add Azure VMs**, select one or more VMs from the list. Virtual machines that can't be enabled are greyed out and unable to be selected. On the **Enable Update Management** page, click **Enable**. This action adds the selected VMs to the computer group saved search for the solution.
+Click **+ Add Azure VMs**, select one or more VMs from the list. Virtual machines that can't be enabled are greyed out and unable to be selected. Azure VMs can exist in any region no matter the location of your Automation Account. On the **Enable Update Management** page, click **Enable**. This action adds the selected VMs to the computer group saved search for the solution.
 
 ![Enable Azure VMs](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
@@ -123,7 +110,7 @@ The following solutions are dependent on a Log Analytics workspace:
 * [Change Tracking](automation-change-tracking.md)
 * [Start/Stop VMs during off-hours](automation-solution-vm-management.md)
 
-If you decide you no longer wish to integrate your Automation account with Log Analytics, you can unlink your account directly from the Azure portal.  Before you continue, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you've imported to understand the steps required to remove it.
+If you decide you no longer wish to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal.  Before you continue, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you've imported to understand the steps required to remove it.
 
 After you remove these solutions, you can complete the following steps to unlink your Automation account.
 
@@ -151,6 +138,8 @@ If you used the Start and Stop VMs during off-hours solution, optionally you may
 * Start and stop VM runbook schedules
 * Start and stop VM runbooks
 * Variables
+
+Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
 
 ## Next steps
 

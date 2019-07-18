@@ -88,7 +88,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Transactions are actually being used in both of these examples. In the first example, each individual call is an implicit transaction. In the second example, an explicit transaction wraps all of the calls. Per the documentation for the [write-ahead transaction log](https://msdn.microsoft.com/library/ms186259.aspx), log records are flushed to the disk when the transaction commits. So by including more calls in a transaction, the write to the transaction log can delay until the transaction is committed. In effect, you are enabling batching for the writes to the server’s transaction log.
 
-The following table shows some ad-hoc testing results. The tests performed the same sequential inserts with and without transactions. For more perspective, the first set of tests ran remotely from a laptop to the database in Microsoft Azure. The second set of tests ran from a cloud service and database that both resided within the same Microsoft Azure datacenter (West US). The following table shows the duration in milliseconds of sequential inserts with and without transactions.
+The following table shows some ad hoc testing results. The tests performed the same sequential inserts with and without transactions. For more perspective, the first set of tests ran remotely from a laptop to the database in Microsoft Azure. The second set of tests ran from a cloud service and database that both resided within the same Microsoft Azure datacenter (West US). The following table shows the duration in milliseconds of sequential inserts with and without transactions.
 
 **On-Premises to Azure**:
 
@@ -162,7 +162,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-In the previous example, the **SqlCommand** object inserts rows from a table-valued parameter, **@TestTvp**. The previously created **DataTable** object is assigned to this parameter with the **SqlCommand.Parameters.Add** method. Batching the inserts in one call significantly increases the performance over sequential inserts.
+In the previous example, the **SqlCommand** object inserts rows from a table-valued parameter, **\@TestTvp**. The previously created **DataTable** object is assigned to this parameter with the **SqlCommand.Parameters.Add** method. Batching the inserts in one call significantly increases the performance over sequential inserts.
 
 To improve the previous example further, use a stored procedure instead of a text-based command. The following Transact-SQL command creates a stored procedure that takes the **SimpleTestTableType** table-valued parameter.
 
@@ -186,7 +186,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 In most cases, table-valued parameters have equivalent or better performance than other batching techniques. Table-valued parameters are often preferable, because they are more flexible than other options. For example, other techniques, such as SQL bulk copy, only permit the insertion of new rows. But with table-valued parameters, you can use logic in the stored procedure to determine which rows are updates and which are inserts. The table type can also be modified to contain an “Operation” column that indicates whether the specified row should be inserted, updated, or deleted.
 
-The following table shows ad-hoc test results for the use of table-valued parameters in milliseconds.
+The following table shows ad hoc test results for the use of table-valued parameters in milliseconds.
 
 | Operations | On-Premises to Azure (ms) | Azure same datacenter (ms) |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 There are some cases where bulk copy is preferred over table-valued parameters. See the comparison table of Table-Valued parameters versus BULK INSERT operations in the article [Table-Valued Parameters](https://msdn.microsoft.com/library/bb510489.aspx).
 
-The following ad-hoc test results show the performance of batching with **SqlBulkCopy** in milliseconds.
+The following ad hoc test results show the performance of batching with **SqlBulkCopy** in milliseconds.
 
 | Operations | On-Premises to Azure (ms) | Azure same datacenter (ms) |
 | --- | --- | --- |
@@ -271,7 +271,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 This example is meant to show the basic concept. A more realistic scenario would loop through the required entities to construct the query string and the command parameters simultaneously. You are limited to a total of 2100 query parameters, so this limits the total number of rows that can be processed in this manner.
 
-The following ad-hoc test results show the performance of this type of insert statement in milliseconds.
+The following ad hoc test results show the performance of this type of insert statement in milliseconds.
 
 | Operations | Table-valued parameters (ms) | Single-statement INSERT (ms) |
 | --- | --- | --- |
@@ -292,7 +292,7 @@ The **DataAdapter** class allows you to modify a **DataSet** object and then sub
 
 ### Entity framework
 
-Entity Framework does not currently support batching. Different developers in the community have attempted to demonstrate workarounds, such as override the **SaveChanges** method. But the solutions are typically complex and customized to the application and data model. The Entity Framework codeplex project currently has a discussion page on this feature request. To view this discussion, see [Design Meeting Notes - August 2, 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+Entity Framework does not currently support batching. Different developers in the community have attempted to demonstrate workarounds, such as override the **SaveChanges** method. But the solutions are typically complex and customized to the application and data model. The Entity Framework codeplex project currently has a discussion page on this feature request. To view this discussion, see [Design Meeting Notes - August 2, 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### XML
 

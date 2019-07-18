@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure SQL Database - Features
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: Azure SQL Database - Features
+  meta.description: Learn about the features in Azure SQL Database.
+  services: sql-database
+  author: jovanpop-msft
+  manager: craigg
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang:
+  ms.topic: overview
+  ms.date: 02/06/2019
+  ms.author: jovanpop-msft
+sections:
+
+- items:
+  - type: paragraph
+    text: Azure SQL Database is more than a classic relational database engine that enables you to query data using SQL language. Database features in Azure SQL Database enable you to do more powerfull operations and implement advanced scenarios.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+      - title: In-memory technologies
+        href: /azure/sql-database/sql-database-in-memory
+        html: <p>Implement high-performance applications using in-memory technologies.</p>
+      - title: Multi-model capabilities
+        href: /azure/sql-database/sql-database-multi-model-features
+        html: <p>Learn about Graph, JSON, XML, Spatial features in Azure SQL Database.</p>
+      - title: Transactional replication
+        href: /azure/sql-database/sql-database-managed-instance-transactional-replication
+        html: <p>Replicate your data between Azure SQL Database and SQL Server tables.</p>
+      - title: Data Sync
+        href: /azure/sql-database/sql-database-sync-data
+        html: <p>Synchronize the data across multiple SQL databases and SQL Server instances.</p>
+      - title: Job automation
+        href: /azure/sql-database/sql-database-job-automation-overview
+        html: <p>Schedule repetitive tasks using SQL Agent and Elastic jobs.</p>
+      - title: Temporal tables
+        href: /azure/sql-database/sql-database-temporal-tables
+        html: <p>Track and analyze the full history of changes in your data.</p>
+- title: More resources
+  items:
+  - type: list
+    style: ordered
+    items:
+    - html: Learn about the <a href="/azure/sql-database/sql-database-features">differences between SQL Server and Azure SQL database features</a>.
+    - html: Learn how to use these features in <a href="/azure/sql-database/sql-database-howto">Howto guides</a>.

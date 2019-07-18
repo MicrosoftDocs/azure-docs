@@ -4,8 +4,8 @@ description: Take application consistent backup of the virtual machine from Azur
 services: backup, virtual-machines-windows
 documentationcenter: ''
 author: trinadhk
-manager: jeconnoc
-ms.service: backup, virtual-machines-windows
+manager: gwallace
+ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk

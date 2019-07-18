@@ -1,0 +1,113 @@
+- name: Database Migration Service Documentation
+  href: index.yml
+
+- name: Overview
+  items:
+  - name: What is Database Migration Service (DMS)?
+    href: dms-overview.md
+
+- name: Quickstarts
+  items:
+  - name: Create Service - Portal
+    href: quickstart-create-data-migration-service-portal.md
+
+- name: Tutorials
+  items:
+  - name: Migrate SQL Server to Azure SQL DB offline
+    href: tutorial-sql-server-to-azure-sql.md
+  - name: Migrate SQL Server to Azure SQL DB online
+    href: tutorial-sql-server-azure-sql-online.md
+  - name: Migrate SQL Server to Azure SQL DB Managed Instance offline
+    href: tutorial-sql-server-to-managed-instance.md
+  - name: Migrate SQL Server to Azure SQL DB Managed Instance online
+    href: tutorial-sql-server-managed-instance-online.md
+  - name: Migrate RDS SQL Server to Azure SQL DB or Azure SQL DB Managed Instance online
+    href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
+  - name: Migrate MySQL to Azure DB for MySQL online
+    href: tutorial-mysql-azure-mysql-online.md
+  - name: Migrate RDS MySQL to Azure DB for MySQL online
+    href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
+  - name: Migrate PostgreSQL to Azure DB for PostgreSQL online
+    href: tutorial-postgresql-azure-postgresql-online.md
+  - name: Migrate RDS PostgreSQL to Azure DB for PostgreSQL online
+    href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
+  - name: Migrate MongoDB to Azure Cosmos DB Mongo API offline
+    href: tutorial-mongodb-cosmos-db.md
+  - name: Migrate MongoDB to Azure Cosmos DB Mongo API online
+    href: tutorial-mongodb-cosmos-db-online.md
+  - name: Migrate Oracle to Azure Database for PostgreSQL online
+    href: tutorial-oracle-azure-postgresql-online.md  
+
+- name: How-to guides
+  items:
+  - name: Use PowerShell to migrate SQL Server to Azure SQL DB
+    href: howto-sql-server-to-azure-sql-powershell.md
+  - name: Use PowerShell to migrate SQL Server to Azure SQL DB MI
+    href: howto-sql-server-to-azure-sql-mi-powershell.md
+  - name: Monitor migration activity
+    href: how-to-monitor-migration-activity.md
+  - name: Migrate SSIS packages to Azure SQL Database
+    href: how-to-migrate-ssis-packages.md
+  - name: Migrate SSIS packages to an Azure SQL Database managed instance
+    href: how-to-migrate-ssis-packages-managed-instance.md
+
+- name: Resources
+  items:
+  - name: Database migration scenario status
+    href: resource-scenario-status.md
+  - name: Overview of prerequisites
+    href: pre-reqs.md
+  - name: Network topologies for Azure SQL DB Managed Instance migrations
+    href: resource-network-topologies.md
+  - name: Troubleshooting and known issues
+    items:
+    - name: Troubleshoot source database connectivity issues
+      href: known-issues-troubleshooting-dms-source-connectivity.md
+    - name: Troubleshoot common issues and errors
+      href: known-issues-troubleshooting-dms.md
+    - name: Known Issues - Online migration to Azure SQL DB
+      href: known-issues-azure-sql-online.md
+    - name: Known Issues - Online migration to Azure DB for MySQL
+      href: known-issues-azure-mysql-online.md
+    - name: Known Issues - Online migration to Azure DB for PostgreSQL
+      href: known-issues-azure-postgresql-online.md
+  - name: Videos
+    items:
+    - name: Use the Database Migration Guide
+      href: https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/
+    - name: The migration process and recommended tools/services
+      href: https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/
+    - name: Address prerequisites and create a DMS instance
+      href: https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/
+    - name: Migrate SQL Server 2008 to Azure SQL Database Managed Instance
+      href: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
+    - name: Migrate PostgreSQL to Azure Database for PostgreSQL
+      href: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
+    - name: Monitor an online migration and perform cutover
+      href: https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/
+    - name: Migrate Oracle to Azure SQL Database
+      href: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
+    - name: Migrate MongoDB to Azure Cosmos DB
+      href: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
+  - name: Tools and guidance
+    items:
+    - name: Service and tools available for data migration scenarios
+      href: dms-tools-matrix.md
+    - name: Database Migration Guide
+      href: https://aka.ms/datamigration
+    - name: Data Migration Assistant
+      href: https://aka.ms/dma
+    - name: SQL Server Migration Assistant
+      href: https://aka.ms/ssma
+    - name: Database Experimentation Assistant
+      href: https://aka.ms/dea-docs
+  - name: Frequently Asked Questions
+    href: faq.md
+  - name: User Voice Feedback
+    href: https://feedback.azure.com/forums/906100-azure-database-migration-service
+  - name: Pricing
+    href: https://aka.ms/dms-pricing
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=database-migration
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

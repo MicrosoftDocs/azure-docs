@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi

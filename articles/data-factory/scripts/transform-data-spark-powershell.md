@@ -19,7 +19,9 @@ ms.author: shlo
 
 This sample PowerShell script creates a pipeline that transforms data in the cloud by running Spark program on an Azure HDInsight Spark cluster. 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## Prerequisites
 * **Azure Storage account**. Create a python script and an input file, and upload them to the Azure storage. The output from the spark program is stored in this storage account. The on-demand Spark cluster uses the same storage account as its primary storage.  
@@ -73,12 +75,12 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
 After you run the sample script, you can use the following command to remove the resource group and all resources associated with it:
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourceGroupName
+Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
 To remove the data factory from the resource group, run the following command: 
 
 ```powershell
-Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
 ## Script explanation
@@ -87,13 +89,13 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Create a data factory. |
-| [Set-AzureRmDataFactoryV2LinkedService](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2linkedservice) | Creates a linked service in the data factory. A linked service links a data store or compute to a data factory. |
-| [Set-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2pipeline) | Creates a pipeline in the data factory. A pipeline contains one or more activities that performs a certain operation. In this pipeline, a spark activity transforms data by running a program on an Azure HDInsight Spark cluster. |
-| [Invoke-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/invoke-azurermdatafactoryv2pipeline) | Creates a run for the pipeline. In other words, runs the pipeline. |
-| [Get-AzureRmDataFactoryV2ActivityRun](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2activityrun) | Gets details about the run of the activity (activity run) in the pipeline. 
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Create a data factory. |
+| [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/set-Azdatafactoryv2linkedservice) | Creates a linked service in the data factory. A linked service links a data store or compute to a data factory. |
+| [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/set-Azdatafactoryv2pipeline) | Creates a pipeline in the data factory. A pipeline contains one or more activities that performs a certain operation. In this pipeline, a spark activity transforms data by running a program on an Azure HDInsight Spark cluster. |
+| [Invoke-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/invoke-Azdatafactoryv2pipeline) | Creates a run for the pipeline. In other words, runs the pipeline. |
+| [Get-AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | Gets details about the run of the activity (activity run) in the pipeline. 
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
 ## Next steps

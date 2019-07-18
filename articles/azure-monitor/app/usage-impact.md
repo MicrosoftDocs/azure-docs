@@ -59,7 +59,7 @@ use filters on the primary and secondary events to get more specific.
 2. Choose “Country or region” in **analyze how its** dropdown
 3. For the **impacts the usage of** dropdown, select a custom event that corresponds to a UI element on the page view you chose in step 1.
 
-In this case, the results no longer fit into a continuous x-axis model as they did in the first example. Instead, a visualization similar to a segmented funnel is presented. Sort by **Usage** to view the variation of conversion to your custom event based on country.
+In this case, the results no longer fit into a continuous x-axis model as they did in the first example. Instead, a visualization similar to a segmented funnel is presented. Sort by **Usage** to view the variation of conversion to your custom event based on country/region.
 
 
 ## How does the Impact tool calculate these conversion rates?

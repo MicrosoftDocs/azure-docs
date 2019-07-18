@@ -110,6 +110,8 @@
         items:  
         - name: Frequently asked questions
           href: traffic-analytics-faq.md
+        - name: Schema and Data Aggregation
+          href: traffic-analytics-schema.md
       - name: Use Power BI
         href: network-watcher-visualize-nsg-flow-logs-power-bi.md
       - name: Use Elastic Stack
@@ -153,11 +155,11 @@
   - name: Azure CLI
     href: /cli/azure/network/watcher
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network/#network_watcher
+    href: /powershell/module/az.network/#network_watcher
   - name: Java
     href: /java/api/com.microsoft.azure.management.network
   - name: Ruby
-    href: http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher
+    href: https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher
   - name: Python
     href: /python/api/overview/azure/network
   - name: .NET

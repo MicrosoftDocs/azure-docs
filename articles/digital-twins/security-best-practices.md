@@ -6,8 +6,8 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/15/2019
-ms.author: adgera
+ms.date: 07/08/2019
+ms.author: v-adgera
 ---
 
 # Security best practices

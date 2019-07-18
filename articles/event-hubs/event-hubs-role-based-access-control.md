@@ -10,7 +10,7 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/21/2019
 ms.author: shvija
 
 ---
@@ -24,8 +24,13 @@ For Azure Event Hubs, the management of namespaces and all related resources thr
 An application that uses Azure AD RBAC does not need to handle SAS rules and keys or any other access tokens specific to Event Hubs. The client app interacts with Azure AD to establish an authentication context, and acquires an access token for Event Hubs. With domain user accounts that require interactive login, the application never handles any credentials directly.
 
 ## Event Hubs roles and permissions
+Azure provides the following built-in RBAC roles for authorizing access to an Event Hubs namespace:
 
-For the initial public preview, you can only add Azure AD accounts and service principals to the "Owner" or "Contributor" roles of an Event Hubs namespace. This operation grants the identity full control over all entities in the namespace. Management operations that change the namespace topology are initially only supported though Azure resource management and not through the native Event Hubs REST management interface. This support also means that the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object cannot be used with an Azure AD account.  
+The [Azure Event Hubs Data Owner (Preview)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) role enables data access to an Event Hubs namespace and its entities (queues, topics, subscriptions, and filters)
+
+>[!IMPORTANT]
+> We earlier supported adding managed identity to the **Owner** or **Contributor** role. However, data access privileges for **Owner** and **Contributor** role are no longer honored. If you are using the **Owner** or **Contributor** role, switch to using the **Azure Event Hubs Data Owner (Preview)** role.
+
 
 ## Use Event Hubs with an Azure AD domain user account
 
@@ -41,7 +46,7 @@ If you still want to create a specific account for this scenario, [follow these 
 
 ### Create an Event Hubs namespace
 
-Next, [create an Event Hubs namespace](event-hubs-create.md) in one of the Azure regions that have Event Hubs preview support for RBAC: **US East**, **US East 2**, or **West Europe**. 
+Next, [create an Event Hubs namespace](event-hubs-create.md). 
 
 Once the namespace is created, navigate to its **Access Control (IAM)** page on the portal, and then click **Add role assignment** to add the Azure AD user account to the Owner role. If you use your own user account and you created the namespace, you are already in the Owner role. To add a different account to the role, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**. The user account now has access to the Event Hubs namespace, and to the event hub you previously created.
  
@@ -49,7 +54,7 @@ Once the namespace is created, navigate to its **Access Control (IAM)** page on 
 
 Before you can run the sample application, register it in Azure AD and approve the consent prompt that permits the application to access Event Hubs on its behalf. 
 
-Because the sample application is a console application, you must register a native application and add API permissions for **Microsoft.EventHub** to the "required permissions" set. Native applications also need a **redirect-URI** in Azure AD that serves as an identifier; the URI does not need to be a network destination. Use `http://eventhubs.microsoft.com` for this example, because the sample code already uses that URI.
+Because the sample application is a console application, you must register a native application and add API permissions for **Microsoft.EventHub** to the "required permissions" set. Native applications also need a **redirect-URI** in Azure AD that serves as an identifier; the URI does not need to be a network destination. Use `https://eventhubs.microsoft.com` for this example, because the sample code already uses that URI.
 
 The detailed registration steps are explained in [this tutorial](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Follow the steps to register a **Native** app, and then follow the update instructions to add the **Microsoft.EventHub** API to the required permissions. As you follow the steps, make note of the **TenantId** and the **ApplicationId**, as you will need these values to run the application.
 

@@ -4,7 +4,7 @@ description: Explains why Linux VM device names change and how to solve the prob
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 
@@ -33,15 +33,17 @@ You may experience the following problems when running Linux VMs in Microsoft Az
 
 Device paths in Linux aren't guaranteed to be consistent across restarts. Device names consist of major numbers (letters) and minor numbers. When the Linux storage device driver detects a new device, the driver assigns major and minor numbers from the available range to the device. When a device is removed, the device numbers are freed for reuse.
 
-The problem occurs because device scanning in Linux is scheduled by the SCSI subsystem to happen asynchronously. As a result, a device path name can vary across restarts. 
+The problem occurs because device scanning in Linux is scheduled by the SCSI subsystem to happen asynchronously. As a result, a device path name can vary across restarts.
 
 ## Solution
 
-To resolve this problem, use persistent naming. There are four ways to use persistent naming: by filesystem label, by UUID, by ID, or by path. We recommend using the filesystem label or UUID for Azure Linux VMs. 
+To resolve this problem, use persistent naming. There are four ways to use persistent naming: by filesystem label, by UUID, by ID, or by path. We recommend using the filesystem label or UUID for Azure Linux VMs.
 
-Most distributions provide the `fstab` **nofail** or **nobootwait** parameters. These parameters enable a system to boot when the disk fails to mount at startup. Check your distribution documentation for more information about these parameters. For information on how to configure a Linux VM to use a UUID when you add a data disk, see [Connect to the Linux VM to mount the new disk](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk). 
+Most distributions provide the `fstab` **nofail** or **nobootwait** parameters. These parameters enable a system to boot when the disk fails to mount at startup. Check your distribution documentation for more information about these parameters. For information on how to configure a Linux VM to use a UUID when you add a data disk, see [Connect to the Linux VM to mount the new disk](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 When the Azure Linux agent is installed on a VM, the agent uses Udev rules to construct a set of symbolic links under the /dev/disk/azure path. Applications and scripts use Udev rules to identify disks that are attached to the VM, along with the disk type and disk LUNs.
+
+If you have already edited your fstab in such a way that your VM is not booting and you are unable to SSH to your VM, you can use the [VM Serial Console](./serial-console-linux.md) to enter [single user mode](./serial-console-grub-single-user-mode.md) and modify your fstab.
 
 ### Identify disk LUNs
 
@@ -60,11 +62,11 @@ Applications use LUNs to find all of the attached disks and to construct symboli
         ├── lun1 -> ../../../sdd
         ├── lun1-part1 -> ../../../sdd1
         ├── lun1-part2 -> ../../../sdd2
-        └── lun1-part3 -> ../../../sdd3                                    
-                                 
+        └── lun1-part3 -> ../../../sdd3
+
 LUN information from the Linux guest account is retrieved by using `lsscsi` or a similar tool:
 
-       $ sudo lsscsi
+      $ sudo lsscsi
 
       [1:0:0:0] cd/dvd Msft Virtual CD/ROM 1.0 /dev/sr0
 
@@ -78,32 +80,32 @@ LUN information from the Linux guest account is retrieved by using `lsscsi` or a
 
 The guest LUN information is used with Azure subscription metadata to locate the VHD in Azure Storage that contains the partition data. For example, you can use the `az` CLI:
 
-    $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks                                        
-    [                                                                                                                                                                  
-    {                                                                                                                                                                  
-    "caching": "None",                                                                                                                                              
-      "createOption": "empty",                                                                                                                                         
-    "diskSizeGb": 1023,                                                                                                                                             
-      "image": null,                                                                                                                                                   
-    "lun": 0,                                                                                                                                                        
-    "managedDisk": null,                                                                                                                                             
-    "name": "testVM-20170619-114353",                                                                                                                    
-    "vhd": {                                                                                                                                                          
-      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"                                                       
-    }                                                                                                                                                              
-    },                                                                                                                                                                
-    {                                                                                                                                                                   
-    "caching": "None",                                                                                                                                               
-    "createOption": "empty",                                                                                                                                         
-    "diskSizeGb": 512,                                                                                                                                              
-    "image": null,                                                                                                                                                   
-    "lun": 1,                                                                                                                                                        
-    "managedDisk": null,                                                                                                                                             
-    "name": "testVM-20170619-121516",                                                                                                                    
-    "vhd": {                                                                                                                                                           
-      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"                                                       
-      }                                                                                                                                                            
-      }                                                                                                                                                             
+    $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
+    [
+    {
+    "caching": "None",
+      "createOption": "empty",
+    "diskSizeGb": 1023,
+      "image": null,
+    "lun": 0,
+    "managedDisk": null,
+    "name": "testVM-20170619-114353",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
+    }
+    },
+    {
+    "caching": "None",
+    "createOption": "empty",
+    "diskSizeGb": 512,
+    "image": null,
+    "lun": 1,
+    "managedDisk": null,
+    "name": "testVM-20170619-121516",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
+      }
+      }
     ]
 
 ### Discover filesystem UUIDs by using blkid
@@ -135,7 +137,7 @@ Any additional partitions from the `blkid` list reside on a data disk. Applicati
 
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
-    
+
 ### Get the latest Azure Storage rules
 
 To get the latest Azure Storage rules, run the following commands:

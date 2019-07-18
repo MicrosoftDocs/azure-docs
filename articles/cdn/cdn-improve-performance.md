@@ -8,12 +8,12 @@ manager: danielgi
 editor: ''
 
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 02/28/2018
 ms.author: magattus
 
 ---
@@ -27,13 +27,11 @@ There are two ways to enable file compression:
 
 > [!IMPORTANT]
 > Azure CDN configuration changes can take some time to propagate through the network: 
-- For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
-- For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
-- For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes in 10 minutes. 
->
+> - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
+> - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
+> - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes in 10 minutes. 
+> 
 > If you're setting up compression for the first time for your CDN endpoint, consider waiting 1-2 hours before you troubleshoot to ensure the compression settings have propagated to the POPs.
-> 
-> 
 
 ## Enabling compression
 The standard and premium CDN tiers provide the same compression functionality, but the user interface differs. For more information about the differences between standard and premium CDN tiers, see [Azure CDN Overview](cdn-overview.md).
@@ -45,28 +43,28 @@ The standard and premium CDN tiers provide the same compression functionality, b
 > 
 
 1. From the CDN profile page, select the CDN endpoint you want to manage.
-   
+
     ![CDN profile endpoints](./media/cdn-file-compression/cdn-endpoints.png)
-   
+
     The CDN endpoint page opens.
 2. Select **Compression**.
 
     ![CDN compression selection](./media/cdn-file-compression/cdn-compress-select-std.png)
-   
+
     The compression page opens.
 3. Select **On** to turn on compression.
-   
+
     ![CDN file compression options](./media/cdn-file-compression/cdn-compress-standard.png)
 4. Use the default MIME types, or modify the list by adding or removing MIME types.
-   
+
    > [!TIP]
    > Although it is possible, it is not recommended to apply compression to compressed formats. For example, ZIP, MP3, MP4, or JPG.
    > 
-   
+
    > [!NOTE]
    > Modifying the default list of MIME types is currently not supported in Azure CDN Standard from Microsoft.
    > 
- 
+
 5. After making your changes, select **Save**.
 
 ### Premium CDN profiles
@@ -75,23 +73,23 @@ The standard and premium CDN tiers provide the same compression functionality, b
 > 
 
 1. From the CDN profile page, select **Manage**.
-   
+
     ![CDN Manage select](./media/cdn-file-compression/cdn-manage-btn.png)
-   
+
     The CDN management portal opens.
 2. Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout. Select **Compression**.
 
     ![CDN compression selection](./media/cdn-file-compression/cdn-compress-select.png)
-   
+
     The compression options are displayed.
-   
+
     ![CDN file compression options](./media/cdn-file-compression/cdn-compress-files.png)
 3. Enable compression by selecting **Compression Enabled**. Enter the MIME types you want to compress as a comma-delimited list (no spaces) in the **File Types** box.
-   
+
    > [!TIP]
    > Although it is possible, it is not recommended to apply compression to compressed formats. For example, ZIP, MP3, MP4, or JPG.
    > 
-    
+
 4. After making your changes, select **Update**.
 
 ## Compression rules
@@ -99,14 +97,14 @@ The standard and premium CDN tiers provide the same compression functionality, b
 ### Azure CDN Standard from Microsoft profiles
 
 For **Azure CDN Standard from Microsoft** profiles, only eligible files are compressed. To be eligible for compression, a file must:
--Be of a MIME type that has been [configured for compression](#enabling-compression).
--Be larger than 1 KB
--Be smaller than 8 MB
+- Be of a MIME type that has been [configured for compression](#enabling-compression).
+- Be larger than 1 KB
+- Be smaller than 8 MB
 
 These profiles support the following compression encodings:
 - gzip (GNU zip)
 - brotli 
- 
+
 If the request supports more than one compression type, brotli compression takes precedence.
 
 When a request for an asset specifies gzip compression and the request results in a cache miss, Azure CDN performs gzip compression of the asset directly on the POP server. Afterward, the compressed file is served  from the cache.
@@ -115,14 +113,14 @@ When a request for an asset specifies gzip compression and the request results i
 
 For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, only eligible files are compressed. To be eligible for compression, a file must:
 - Be larger than 128 bytes
-- Be smaller than 1 MB
- 
+- Be smaller than 3 MB
+
 These profiles support the following compression encodings:
 - gzip (GNU zip)
 - DEFLATE
 - bzip2
 - brotli 
- 
+
 If the request supports more than one compression type, those compression types take precedence over brotli compression.
 
 When a request for an asset specifies brotli compression (HTTP header is `Accept-Encoding: br`) and the request results in a cache miss, Azure CDN performs brotli compression of the asset directly on the POP server. Afterward, the compressed file is served from the cache.

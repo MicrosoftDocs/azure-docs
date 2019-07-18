@@ -33,9 +33,9 @@ Install a configuration/process server in your source environment to build the s
 1. Sign in to the Azure Germany portal.
 1. Compare the OS versions of the VMs you want to migrate against the [support matrix](../site-recovery/vmware-physical-secondary-support-matrix.md).
 1. Set up a new VM in your source Azure Virtual Network instance to act as the configuration server:
-  1. Select **DS4v3** or higher (4 to 8 cores, 16-GB memory).
-  1. Attach an additional disk that has at least 1 TB of available space (for the VM images).
-  1. Use Windows Server 2012 R2 or later.
+   1. Select **DS4v3** or higher (4 to 8 cores, 16-GB memory).
+   1. Attach an additional disk that has at least 1 TB of available space (for the VM images).
+   1. Use Windows Server 2012 R2 or later.
 1. Make sure that ports 443 and 9443 are open for the subnet in both directions.
 1. Sign in to the new VM (ConfigurationServer).
 1. In your remote desktop session, sign in to the global Azure portal by using your global Azure credentials.
@@ -69,8 +69,7 @@ A .zip file that has several files in it downloads. The PowerShell, Azure CLI, R
 For more information:
 
 - Refresh your knowledge by completing the [Site Recovery tutorials](https://docs.microsoft.com/azure/site-recovery/#step-by-step-tutorials).
-- Get information about how to [export a Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-- Learn how to [export a Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
+- Get information about how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 - Learn more about [physical-to-Azure disaster recovery by using Site Recovery](../site-recovery/physical-azure-disaster-recovery.md).
 - Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 - Learn more about how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
@@ -120,7 +119,7 @@ To redeploy cloud services by using the REST API:
     https://management.core.windows.net/<subscription-id>/services/hostedservices
     ```
 
-1. Create a new deployment by using the [Create Deployment API](https://msdn.microsoft.com/library/azure/ee460813.aspx). To find your `.cspkg` and `.cscfg` definitions, you can call the [Get Package API](https://msdn.microsoft.com/library/azure/jj154121.aspx).
+1. Create a new deployment by using the [Create Deployment API](/previous-versions/azure/reference/ee460813(v=azure.100)). To find your `.cspkg` and `.cscfg` definitions, you can call the [Get Package API](/previous-versions/azure/reference/jj154121(v=azure.100)).
 
     ```http
     https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deploymentslots/production
@@ -170,14 +169,13 @@ For more information:
 Migrating Azure Functions resources from Azure Germany to global Azure isn't supported at this time. We recommend that you export the Resource Manager template, change the location, and then redeploy to the target region.
 
 > [!IMPORTANT]
-> Change location, Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
+> Change location, Key Vault secrets, certificates, App Settings, and other GUIDs to be consistent with the new region.
 
 For more information:
 
 - Refresh your knowledge by completing the [Functions tutorials](https://docs.microsoft.com/azure/azure-functions/#step-by-step-tutorials).
-- Learn how to [export a Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Learn how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 - Review the [Azure Functions overview](../azure-functions/functions-overview.md).
-- Learn how to [export a Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
 - Get an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 - Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -191,10 +189,9 @@ To migrate virtual machine scale sets to global Azure, export the Resource Manag
 For more information:
 
 - Refresh your knowledge by completing the [virtual machine scale set tutorials](https://docs.microsoft.com/azure/virtual-machine-scale-sets/#step-by-step-tutorials).
-- Learn how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md).
+- Learn how to [export Azure Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 - Review the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 - Get an overview of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md).
-- Learn how to [export a Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
 - Read an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 - Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -208,9 +205,8 @@ Currently, apps that you created by using the Web Apps feature of Azure App Serv
 For more information:
 
 - Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
-- Learn how to [export a Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Learn how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 - Review the [App Service overview](../app-service/overview.md).
-- Learn how to [export a Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
 - Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 - Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
 

@@ -6,11 +6,11 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/26/2017
+ms.date: 12/26/2018
 ms.author: rimman
 
 ---
-# Build a web app using Azure Cosmos DB's API for MongoDB and Java SDK
+# Quickstart: Build a web app using Azure Cosmos DB's API for MongoDB and Java SDK
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -28,7 +28,7 @@ This quickstart demonstrates how to create a Cosmos account with [Azure Cosmos D
 ## Prerequisites
 
 Before you can run this sample, you must have the following prerequisites:
-* JDK 1.7+ (Run `apt-get install default-jdk` if you don't have JDK)
+* [Install the JDK for Azure and Azure Stack JDK version 8](https://aka.ms/azure-jdks)
 * Maven (Run `apt-get install maven` if you don't have Maven)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

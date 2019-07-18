@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
-ms.author: rli; juliako;
+ms.date: 03/20/2019
+ms.author: ril
+ms.reviewer: juliako
 
 ---
 # Redact faces with Azure Media Analytics walkthrough
@@ -126,6 +127,6 @@ If you are a developer trying to parse the JSON annotation data, look inside Mod
 ## Related links
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 [Announcing Face Redaction for Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/)

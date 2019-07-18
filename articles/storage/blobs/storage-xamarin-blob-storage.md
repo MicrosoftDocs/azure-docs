@@ -3,13 +3,13 @@ title: How to use object (Blob) storage from Xamarin | Microsoft Docs
 description: The Azure Storage client library for Xamarin enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an application that uses Azure Blob storage.
 services: storage
 documentationcenter: xamarin
-author: michaelhauss
-
+author: mhopkins-msft
 
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: michaelhauss
+ms.author: mhopkins
+ms.reviewer: seguler
 ---
 
 # How to use Blob Storage from Xamarin
@@ -152,7 +152,7 @@ namespace XamarinApp.iOS
             public override void DidReceiveMemoryWarning ()
             {
                 base.DidReceiveMemoryWarning ();
-                // Release any cached data, images, etc that aren't in use.
+                // Release any cached data, images, etc. that aren't in use.
             }
         }
     }
@@ -165,7 +165,7 @@ namespace XamarinApp.iOS
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=391641
 
 namespace XamarinApp.WinPhone
 {
@@ -228,7 +228,7 @@ namespace XamarinApp.WinPhone
 ## Run the application
 You can now run this application in an Android or Windows Phone emulator. You can also run this application in an iOS emulator, but this will require a Mac. For specific instructions on how to do this, please read the documentation for [connecting Visual Studio to a Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
-Once you run your app, it will create the container `mycontainer` in your Storage account. It should contain the blob, `myblob`, which has the text, `Hello, world!`. You can verify this by using the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+Once you run your app, it will create the container `mycontainer` in your Storage account. It should contain the blob, `myblob`, which has the text, `Hello, world!`. You can verify this by using the [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 ## Next steps
 In this tutorial, you learned how to create a cross-platform application in Xamarin that uses Azure Storage, specifically focusing on one scenario in Blob Storage. However, you can do a lot more with not only Blob Storage, but also with Table, File, and Queue Storage. Please check out the following articles to learn more:

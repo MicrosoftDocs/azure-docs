@@ -29,7 +29,7 @@ ms.author: sngun
 | |  |
 |---|---|
 |**Download SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-cosmos-python)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
 |**Get started**|[Get started with the Python SDK](sql-api-python-application.md)|

@@ -2,12 +2,12 @@
 title: Azure Backup FAQ
 description: 'Answers to common questions about: Azure Backup features including Recovery Services vaults, what it can back up, how it works, encryption, and limits. '
 services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.author: raynew
+ms.date: 07/07/2019
+ms.author: dacurwin
 ---
 
 # Azure Backup - Frequently asked questions
@@ -34,7 +34,8 @@ No. Backup data stored in a vault can't be moved to a different vault.
 No. A Recovery Services vault can only change storage options before any backups have been stored.
 
 ### Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
-No, ILR isn't supported.
+- ILR is supported for Azure VMs backed up by Azure VM backup. For more information see, [article](backup-azure-restore-files-from-vm.md)
+- ILR is not supported for online recovery points of on-premises VMs backed up by Azure backup Server or System Center DPM.
 
 
 ## Azure Backup agent
@@ -45,37 +46,6 @@ No, ILR isn't supported.
 - For the agent used to backup up Azure file folders, read this [FAQ](backup-azure-file-folder-backup-faq.md).
 
 
-## VMware and Hyper-V backup
-
-### Can I back up VMware vCenter servers to Azure?
-Yes. You can use Azure Backup Server to back up VMware vCenter Server and ESXi hosts to Azure.
-
-- [Learn more](backup-mabs-protection-matrix.md) about supported versions.
-- [Follow these steps](backup-azure-backup-server-vmware.md) to back up a VMware server.
-
-### Do I need a separate license to recover an full on-premises VMware/Hyper-V cluster?
-You don't need separate licensing for VMware/Hyper-V protection.
-
-- If you're a System Center customer, use System Center Data Protection Manager (DPM) to protect VMware VMs.
-- If you aren't a System Center customer, you can use Azure Backup Server (pay-as-you-go) to protect VMware VMs.
-
-## DPM and Azure Backup Server backup
-
-### Which DPM versions are supported?
-Supported DPM versions are summarized in the [support matrix](backup-azure-dpm-introduction.md#prerequisites-and-limitations). We recommend that you install the latest DPM updates, and run the [latest version](https://aka.ms/azurebackup_agent) of the Azure Backup agent on the DPM server.
-
-### Can I register the server to multiple vaults?
-No. A DPM or Azure Backup server can be registered to only one vault.
-
-### Can I use Azure Backup Server to create a Bare Metal Recovery (BMR) backup for a physical server? <br/>
-Yes.
-
-### Can I use DPM to back up apps in Azure Stack?
-No. You can use Azure Backup to protect Azure Stack, Azure Backup doesn't support using DPM to back up apps in Azure Stack.
-
-### If I've installed Azure Backup agent to protect my files and folders, can I install System Center DPM to back up on-premises workloads to Azure?
-Yes. But you should set up DPM first, and then install the Azure Backup agent.  Installing components in this order ensures that the Azure Backup agent works with DPM. Installing the agent before installing DPM isn't advised or supported.
-
 ## General backup
 
 ### Are there limits on backup scheduling?
@@ -85,10 +55,9 @@ Yes.
 - You back up Azure VMs once a day.
 
 ### What operating systems are supported for backup?
-
 Azure Backup supports these operating systems for backing up files and folders, and apps protected by Azure Backup Server and DPM.
 
-**OS**| **SKU** |**Details**
+**OS** | **SKU** | **Details**
 --- | --- | ---
 Workstation | |
 Windows 10 64 bit | Enterprise, Pro, Home | Machines should be running the latest services packs and updates.
@@ -96,7 +65,8 @@ Windows 8.1 64 bit | Enterprise, Pro | Machines should be running the latest ser
 Windows 8 64 bit | Enterprise, Pro | Machines should be running the latest services packs and updates.
 Windows 7 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Machines should be running the latest services packs and updates.
 Server | |
-Windows Server 2016 64 bit | Standard, Datacenter, Essentials | Wit the latest service packs/updates.
+Windows Server 2019 64 bit | Standard, Datacenter, Essentials | With the latest service packs/updates.
+Windows Server 2016 64 bit | Standard, Datacenter, Essentials | With the latest service packs/updates.
 Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | With the latest service packs/updates.
 Windows Server 2012 64 bit | Datacenter, Foundation, Standard | With the latest service packs/updates.
 Windows Storage Server 2016 64 bit | Standard, Workgroup | With the latest service packs/updates.
@@ -112,7 +82,7 @@ For Azure VM Linux backups, Azure Backup supports [the list of distributions end
 Sizes limits are as follows:
 
 OS/machine | Size limit of data source
---- | --- | ---
+--- | ---
 Windows 8 or later | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 or later | 54,400 GB
@@ -134,7 +104,7 @@ BMR/System state |Each individual copy of BMR or system state of the machine bei
 There is no limit on the amount of data you can back up using a Recovery Services vault.
 
 ### Why is the size of the data transferred to the Recovery Services vault smaller than the data selected for backup?
- Data backed up from Azure Backup Agent, DPM, and Azure Backup Server is compressed and encrypted before being transferred. With compression and encryption is applied, the data in the vault is 30-40% smaller.
+Data backed up from Azure Backup Agent, DPM, and Azure Backup Server is compressed and encrypted before being transferred. With compression and encryption is applied, the data in the vault is 30-40% smaller.
 
 ### Can I delete individual files from a recovery point in the vault?
 No, Azure Backup doesn't support deleting or purging individual items from stored backups.
@@ -168,18 +138,18 @@ No. The time to recover the oldest or the newest point is the same. Each recover
 ### If each recovery point is like a full point, does it impact the total billable backup storage?
 Typical long-term retention point products store backup data as full points.
 
-    - The full points are storage *inefficient* but are easier and faster to restore.
-    - Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time
+- The full points are storage *inefficient* but are easier and faster to restore.
+- Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time
 
 Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This ensures that your ingress and egress bandwidth is used efficiently. The amount of data storage, and the time needed to recover the data, is kept to a minimum. Learn more about [incremental backups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
 
 ### Is there a limit on the number of recovery points that can be created?
 You can create up to 9999 recovery points per protected instance. A protected instance is a computer, server (physical or virtual), or workload that backs up to Azure.
 
-- Learn more about [backup and retention](./backup-introduction-to-azure-backup.md#backup-and-retention).
-- Learn about [protected instances](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?
+- Learn more about [backup and retention](./backup-overview.md#backup-and-retention).
 
-### How many times can I recovery data that's backed up to Azure?
+
+### How many times can I recover data that's backed up to Azure?
 There is no limit on the number of recoveries from Azure Backup.
 
 ### When restoring data, do I pay for the egress traffic from Azure?

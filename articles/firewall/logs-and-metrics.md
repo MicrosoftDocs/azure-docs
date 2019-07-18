@@ -13,7 +13,7 @@ ms.author: victorh
 
 You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 
-You can access some of these logs through the portal. Logs can be sent to [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Log Analytics or by different tools such as Excel and Power BI.
+You can access some of these logs through the portal. Logs can be sent to [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Azure Monitor logs or by different tools such as Excel and Power BI.
 
 ## Diagnostic logs
 
@@ -21,7 +21,7 @@ You can access some of these logs through the portal. Logs can be sent to [Log A
 
 * **Application rule log**
 
-   The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Log Analytics only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
+   The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
 
    ```
    Category: application rule logs.
@@ -44,7 +44,7 @@ You can access some of these logs through the portal. Logs can be sent to [Log A
 
 * **Network rule log**
 
-   The Network rule log is saved to a storage account, streamed to Event hubs and/or sent Log Analytics only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
+   The Network rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
 
    ```
    Category: network rule logs.
@@ -70,7 +70,7 @@ You have three options for storing your logs:
 
 * **Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
 * **Event hubs**: Event hubs are a great option for integrating with other security information and event management (SEIM) tools to get alerts on your resources.
-* **Log Analytics**: Log Analytics is best used for general real-time monitoring of your application or looking at trends.
+* **Azure Monitor logs**: Azure Monitor logs is best used for general real-time monitoring of your application or looking at trends.
 
 ## Activity logs
 

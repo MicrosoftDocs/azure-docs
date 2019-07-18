@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
 ---
 
@@ -59,13 +59,13 @@ The old dataset and the new dataset must be combined in a single .zip file (for 
 
 **A**: Deployments will NOT be automatically updated.
 
-If you have adapted and deployed a model with baseline V1.0, that deployment will remain as is. Customers can decommision the deployed model, re-adapt using the newer version of the baseline and re-deploy.
+If you have adapted and deployed a model with baseline V1.0, that deployment will remain as is. Customers can decommission the deployed model, re-adapt using the newer version of the baseline and re-deploy.
 
 **Q: What if I need higher concurrency for my deployed model than what is offered in the portal?**
 
 **A**: You can scale up your model in increments of 20 concurrent requests.
 
-Contact us if you require a higher scale.
+Contact [Speech support](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) if you require a higher scale.
 
 **Q: Can I download my model and run it locally?**
 
@@ -79,7 +79,12 @@ Contact us if you require a higher scale.
 
 **A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Speech to text](speech-to-text.md).
 
-If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
+**Q: How I am charged for dual channel audio?**
+
+**A**: If you submit each channel separately (each channel in its own file), you will be charged per the duration of the each file. If you submit a single file with each channel multiplexed together, then you will be charged for the duration of the single file.
+
+> [!IMPORTANT]
+> If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
 
 ## Importing data
 

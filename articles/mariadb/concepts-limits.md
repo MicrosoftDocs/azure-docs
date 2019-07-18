@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/15/2019
 ---
 # Limitations in Azure Database for MariaDB
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service.
@@ -22,10 +22,12 @@ The maximum number of connections per pricing tier and vCores are as follows:
 |General Purpose| 8| 1250|
 |General Purpose| 16| 2500|
 |General Purpose| 32| 5000|
+|General Purpose| 64| 10000|
 |Memory Optimized| 2| 600|
 |Memory Optimized| 4| 1250|
 |Memory Optimized| 8| 2500|
 |Memory Optimized| 16| 5000|
+|Memory Optimized| 32| 10000|
 
 When connections exceed the limit, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
@@ -77,6 +79,9 @@ Requires super privileges to create and is restricted. If importing data using a
 
 ### VNet service endpoints
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
+
+### Storage size
+- Please refer to [pricing tiers](concepts-pricing-tiers.md) for the storage size limits per pricing tier.
 
 ## Current known issues
 - MariaDB server instance displays the incorrect server version after connection is established. To get the correct server instance engine version, use the `select version();` command.

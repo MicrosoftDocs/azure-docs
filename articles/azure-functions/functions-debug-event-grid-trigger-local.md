@@ -4,7 +4,7 @@ description: Learn to locally debug Azure functions triggered by an Event Grid e
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, serverless architecture
 
 ms.service: azure-functions
@@ -58,7 +58,7 @@ As the utility is set up, the command window should look similar to the followin
 
 Copy the **HTTPS** URL generated when *ngrok* is run. This value is used when configuring the event grid event endpoint.
 
- ## Add a storage event
+## Add a storage event
 
 Open the Azure portal and navigate to a storage account and click on the **Events** option.
 

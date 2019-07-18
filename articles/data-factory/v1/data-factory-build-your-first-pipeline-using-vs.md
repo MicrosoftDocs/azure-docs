@@ -22,7 +22,6 @@ robots: noindex
 # Tutorial: Create a data factory by using Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Overview and prerequisites](data-factory-build-your-first-pipeline.md)
-> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
@@ -58,6 +57,9 @@ Here are the steps you perform as part of this walkthrough:
 5. After you publish, you use Azure portal blades and Monitoring & Management App to monitor the pipeline. 
   
 ### Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps. You can also select the **Overview and prerequisites** option in the drop-down list at the top to switch to the article. After you complete the prerequisites, switch back to this article by selecting **Visual Studio** option in the drop-down list.
 2. To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.  
 3. You must have the following installed on your computer:
@@ -113,7 +115,7 @@ With on-demand HDInsight linked service, The HDInsight cluster is automatically 
             }
         }
 	}
-	```
+    ```
 
     The following table provides descriptions for the JSON properties used in the snippet:
 
@@ -126,7 +128,7 @@ With on-demand HDInsight linked service, The HDInsight cluster is automatically 
 	> [!IMPORTANT]
 	> The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (linkedServiceName). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice is processed unless there is an existing live cluster (timeToLive). The cluster is automatically deleted when the processing is done.
 	> 
-	> As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
+	> As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Use tools such as [Microsoft Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
 
     For more information about JSON properties, see [Compute linked services](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) article. 
 4. Save the **HDInsightOnDemandLinkedService1.json** file.
@@ -203,7 +205,7 @@ Now, you create the output dataset to represent output data stored in the Azure 
             }
         }
     }
-	```
+    ```
     The JSON snippet defines a dataset called **AzureBlobOutput** that represents output data produced by the hive activity in the pipeline. You specify that the output data is produced by the hive activity is placed in the blob container called `adfgetstarted` and the folder called `partitioneddata`. 
  	
 	The **availability** section specifies that the output dataset is produced on a monthly basis. The output dataset drives the schedule of the pipeline. The pipeline runs monthly between its start and end times. 
@@ -264,7 +266,7 @@ You have created the Azure Storage linked service, and input and output datasets
             "isPaused": false
         }
     }
-	```
+    ```
 
 	> [!IMPORTANT]
 	> Replace `<storageaccountname>` with the name of your storage account.
@@ -309,8 +311,8 @@ In this step, you publish the Data Factory entities (linked services, datasets, 
    5. Select the **region** for the data factory.
    6. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.)
 
-	> [!IMPORTANT]
-	> If you receive the error **Data factory name “DataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.   
+      > [!IMPORTANT]
+      > If you receive the error **Data factory name “DataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.   
 1. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.
 
 	![Publish items page](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
@@ -323,14 +325,14 @@ Important points to note:
 
 - If you receive the error: **This subscription is not registered to use namespace Microsoft.DataFactory**, do one of the following and try publishing again:
 	- In Azure PowerShell, run the following command to register the Data Factory provider.
-		```PowerShell	
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-		```
+		```powershell	
+		Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
+        ```
 		You can run the following command to confirm that the Data Factory provider is registered.
 
-		```PowerShell
-		Get-AzureRmResourceProvider
-		```
+		```powershell
+		Get-AzResourceProvider
+        ```
 	- Login using the Azure subscription in to the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 - The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
 - To create Data Factory instances, you need to be an admin or co-admin of the Azure subscription
@@ -410,7 +412,7 @@ You can also use Monitor & Manage application to monitor your pipelines. For det
 -  The Data Factory creates a **Linux-based** HDInsight cluster for you with the preceding JSON. See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
 - The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (linkedServiceName). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice is processed unless there is an existing live cluster (timeToLive). The cluster is automatically deleted when the processing is done.
     
-	As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
+	As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use tools such as [Microsoft Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
 - Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. 
 - This tutorial does not show how copy data by using Azure Data Factory. For a tutorial on how to copy data using Azure Data Factory, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -474,9 +476,9 @@ Add a configuration file for each environment by performing the following steps:
 	        }
 	    ]
 	}
-	```
+    ```
 
-    This example configures connectionString property of an Azure Storage linked service and an Azure SQL linked service. Notice that the syntax for specifying name is [JsonPath](http://goessner.net/articles/JsonPath/).   
+    This example configures connectionString property of an Azure Storage linked service and an Azure SQL linked service. Notice that the syntax for specifying name is [JsonPath](https://goessner.net/articles/JsonPath/).   
 
     If JSON has a property that has an array of values as shown in the following code:  
 
@@ -491,7 +493,7 @@ Add a configuration file for each environment by performing the following steps:
             "type": "String"
         }
     ],
-	```
+    ```
 
     Configure properties as shown in the following configuration file (use zero-based indexing):
 
@@ -512,7 +514,7 @@ Add a configuration file for each environment by performing the following steps:
         "name": "$.properties.structure[1].type",
         "value": "String"
     }
-	```
+    ```
 
 ### Property names with spaces
 If a property name has spaces in it, use square brackets as shown in the following example (Database server name):
@@ -560,6 +562,7 @@ You can chain two activities (run one activity after another) by setting the out
 
 
 ## See Also
+
 | Topic | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory and how to use them to construct data-driven workflows for your scenario or business. |

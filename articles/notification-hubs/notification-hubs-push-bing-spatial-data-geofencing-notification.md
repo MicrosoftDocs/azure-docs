@@ -59,12 +59,12 @@ In this tutorial, you take the following steps:
 
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. In the **Upload a data source** page, do the following actions:
-    1. Select **pipe** for **Data format**.
-    2. Browse and select the `NotificationHubGeofence.pipe` file that you created in the previous step.
-    3. Select **Upload** button.
+   1. Select **pipe** for **Data format**.
+   2. Browse and select the `NotificationHubGeofence.pipe` file that you created in the previous step.
+   3. Select **Upload** button.
 
-    > [!NOTE]
-    > You might be prompted to specify a new key for the **Master Key** that is different from the **Query Key**. Simply create a new key through the dashboard and refresh the data source upload page.
+      > [!NOTE]
+      > You might be prompted to specify a new key for the **Master Key** that is different from the **Query Key**. Simply create a new key through the dashboard and refresh the data source upload page.
 6. Once you upload the data file, you need to make sure that you publish the data source. Select **Data sources** -> **Manage Data Sources** like you did before.
 7. Select your data source in the list, and choose **Publish** in the **Actions** column.
 
@@ -108,11 +108,11 @@ In this tutorial, you take the following steps:
     ```
     Specify the following parameters to get it working:
 
-    * **Data Source ID** and **Data Source Name** – in Bing Maps API, data sources contain various bucketed metadata, such as locations and business hours of operation.  
-    * **Entity Name** – the entity you want to use as a reference point for the notification.
-    * **Bing Maps API Key** – The key that you obtained earlier when you created the Bing Dev Center account.
+   * **Data Source ID** and **Data Source Name** – in Bing Maps API, data sources contain various bucketed metadata, such as locations and business hours of operation.  
+   * **Entity Name** – the entity you want to use as a reference point for the notification.
+   * **Bing Maps API Key** – The key that you obtained earlier when you created the Bing Dev Center account.
 
-    Now that you have the data source ready, you can start working on the UWP application.
+     Now that you have the data source ready, you can start working on the UWP application.
 2. Enable location services for your application. Open the `Package.appxmanifest` file in **Solution Explorer**.
 
     ![](./media/notification-hubs-geofence/vs-package-manifest.png)

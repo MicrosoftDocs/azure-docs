@@ -26,9 +26,13 @@ The preview sample script requires the Event Grid module. To install, run
 
 ## Sample script - stable
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-resource-group/subscribe-to-resource-group.ps1 "Subscribe to resource group")]
 
 ## Sample script - preview module
+
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-resource-group-preview/subscribe-to-resource-group-preview.ps1 "Subscribe to resource group")]
 
@@ -38,7 +42,7 @@ This script uses the following command to create the event subscription. Each co
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmEventGridSubscription](https://docs.microsoft.com/powershell/module/azurerm.eventgrid/new-azurermeventgridsubscription) | Create an Event Grid subscription. |
+| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Create an Event Grid subscription. |
 
 ## Next steps
 

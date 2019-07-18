@@ -4,7 +4,7 @@ description: Learn to create and upload an Azure virtual hard disk (VHD) that co
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 
@@ -70,7 +70,7 @@ The mechanism for rebuilding the initrd or initramfs image may vary depending on
 ### Resizing VHDs
 VHD images on Azure must have a virtual size aligned to 1 MB.  Typically, VHDs created using Hyper-V are aligned correctly.  If the VHD isn't aligned correctly, you may receive an error message similar to the following when you try to create an image from your VHD.
 
-* The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).
+* The VHD http:\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).
 
 In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet.  If you aren't running in a Windows environment, we recommend using `qemu-img` to convert (if needed) and resize the VHD.
 
@@ -168,13 +168,13 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
     ```
     Graphical and quiet boot isn't useful in a cloud environment, where we want all logs sent to the serial port. The `crashkernel` option may be left configured if needed, but note that this parameter reduces the amount of available memory in the VM by at least 128 MB, which may be problematic for smaller VM sizes.
 
-2. Install the Azure Linux Agent.
+1. Install the Azure Linux Agent.
   
     The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or Deb package (the package is typically called WALinuxAgent or walinuxagent).  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
 
-3. Ensure that the SSH server is installed, and configured to start at boot time.  This configuration is usually the default.
+1. Ensure that the SSH server is installed, and configured to start at boot time.  This configuration is usually the default.
 
-4. Don't create swap space on the OS disk.
+1. Don't create swap space on the OS disk.
   
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. The local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (step 2 above), modify the following parameters in /etc/waagent.conf as needed.
     ```  
@@ -184,15 +184,15 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
     ```
-* Run the following commands to deprovision the virtual machine.
+1. Run the following commands to deprovision the virtual machine.
   
-    ```
-    sudo waagent -force -deprovision
-    export HISTSIZE=0
-    logout
-    ```  
-  > [!NOTE]
-  > On Virtualbox you may see the following error after running `waagent -force -deprovision` that says `[Errno 5] Input/output error`. This error message is not critical and can be ignored.
+     ```
+     sudo waagent -force -deprovision
+     export HISTSIZE=0
+     logout
+     ```  
+   > [!NOTE]
+   > On Virtualbox you may see the following error after running `waagent -force -deprovision` that says `[Errno 5] Input/output error`. This error message is not critical and can be ignored.
 
 * Shut down the virtual machine and upload the VHD to Azure.
 

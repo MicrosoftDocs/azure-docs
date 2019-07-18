@@ -1,13 +1,12 @@
 ---
 title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - data migration best practices
 description: Learn data migration best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 04/08/2019
 ms.author: hrasheed
 ---
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - data migration best practices
@@ -23,14 +22,13 @@ There are two main options to migrate data from on-premises to Azure environment
     2. Express Route - ExpressRoute is an Azure service that lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a colocation facility. ExpressRoute connections do not go over the public Internet, and offer higher security, reliability, and speeds with lower latencies than typical connections over the Internet. For more information, see [Create and modify an ExpressRoute circuit](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     1. Data Box online data transfer - Data Box Edge and Data Box Gateway are online data transfer products that act as network storage gateways to manage data between your site and Azure. Data Box Edge, an on-premises network device, transfers data to and from Azure and uses artificial intelligence (AI)-enabled edge compute to process data. Data Box Gateway is a virtual appliance with storage gateway capabilities. For more information, see [Azure Data Box Documentation - Online Transfer](https://docs.microsoft.com/azure/databox-online/).
 1.  Shipping data Offline
-    1. Import / Export service - you can send physical disks to Azure and they will be uploaded for you. For more information, see [What is Azure Import/Export service?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
-    1. Data Box offline data transfer - Data Box, Data Box Disk, and Data Box Heavy devices help you transfer large amounts of data to Azure when the network isn’t an option. These offline data transfer devices are shipped between your organization and the Azure datacenter. They use AES encryption to help protect your data in transit, and they undergo a thorough post-upload sanitization process to delete your data from the device. For more information, see [Azure Data Box Documentation - Offline Transfer](https://docs.microsoft.com/azure/databox/).
+    1. Data Box offline data transfer - Data Box, Data Box Disk, and Data Box Heavy devices help you transfer large amounts of data to Azure when the network isn’t an option. These offline data transfer devices are shipped between your organization and the Azure datacenter. They use AES encryption to help protect your data in transit, and they undergo a thorough post-upload sanitization process to delete your data from the device. For more information on the Data Box offline transfer devices, see [Azure Data Box Documentation - Offline Transfer](https://docs.microsoft.com/azure/databox/). For more information on migration of Hadoop clusters, see [Use Azure Data Box to migrate from an on-premises HDFS store to Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 The following table has approximate data transfer duration based on the data volume and network bandwidth. Use a Data box if the data migration is expected to take more than three weeks.
 
-|**Data Qty**|**Network Bandwidth**|||
-|---|---|---|---|
-|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**
+|**Data Qty**|**Network Bandwidth**||||
+|---|---|---|---|---|
+|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**|
 |1 TB|2 days|1 day| 2 hours|14 minutes|
 |10 TB|22 days|10 days|1 day|2 hours|
 |35 TB|76 days|34 days|3 days|8 hours|
@@ -88,7 +86,7 @@ The hive metastore can be migrated either by using the scripts or by using the D
 
 #### Hive metastore migration using scripts
 
-1. Generate the Hive DDLs from on-prem Hive metastore. This step can be done using a [wrapper bash script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Generate the Hive DDLs from on premises Hive metastore. This step can be done using a [wrapper bash script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
 1. Edit the generated DDL to replace HDFS url with WASB/ADLS/ABFS URLs.
 1. Run the updated DDL on the metastore from the HDInsight cluster.
 1. Make sure that the Hive metastore version is compatible between on-premises and cloud.
@@ -105,7 +103,7 @@ The hive metastore can be migrated either by using the scripts or by using the D
 ### Apache Ranger
 
 - Export on-premises Ranger policies to xml files.
-- Transform on-prem specific HDFS-based paths to WASB/ADLS using a tool like XSLT.
+- Transform on premises specific HDFS-based paths to WASB/ADLS using a tool like XSLT.
 - Import the policies on to Ranger running on HDInsight.
 
 ## Next steps

@@ -43,7 +43,7 @@ The default database option is Titan, which is $3.50. We don’t show the cost d
 ## I am running MySQL on my own Azure virtual machine. Can I connect my Azure web app to my database?
 Yes. You can connect your web app to your database as long as your Azure VM has given remote access to your web app. For more information, see [Install MySQL on a virtual machine](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## In which countries are ClearDB Premium MySQL clusters supported?
+## In which countries/regions are ClearDB Premium MySQL clusters supported?
 ClearDB Premium MySQL clusters are available in all Azure regions worldwide with the exception of India, Australia, Brazil South, and China.
 
 ## Can I create a new cluster prior to creating a database with ClearDB premium cluster solution?
@@ -62,7 +62,7 @@ Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend eithe
 In the [Azure portal](https://portal.azure.com), you can scale up a ClearDB shared hosting database. Read this [article](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) to learn more. We currently don't support upgrade for ClearDB Premium clusters in the Azure portal.
 
 ## I can’t see my ClearDB database in Azure portal?
-If you created a ClearDB database in classic, you will not be able to see your database in the [Azure Portal](https://portal.azure.com). There is no work-around for this scenario.
+If you created a ClearDB database in classic, you will not be able to see your database in the [Azure portal](https://portal.azure.com). There is no work-around for this scenario.
 
 ## Who do I contact for support when my database is down?
 Contact [ClearDB support](https://www.cleardb.com/developers/help/support) for any database related issues. Be prepared to provide them with your Azure subscription information.
@@ -74,7 +74,7 @@ No. You cannot create additional users but you can create additional databases o
 Yes, Basic series databases can be upgraded in-place (Basic 60 through Basic 500). Pro series can be upgraded in-place (Pro 125 through Pro 1000) except for Pro 60. We do not support upgrading Pro 60 database currently. 
 
 ## When I migrate my resources from one subscription to another, does my ClearDB MySQL database get migrated as well?
-When you perform resource migration across subscriptions, some [limitations](azure-resource-manager/resource-group-move-resources.md#app-service-limitations) apply. A ClearDB MySQL database is a third-party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
+When you perform resource migration across subscriptions, some [limitations](azure-resource-manager/move-support-resources.md) apply. A ClearDB MySQL database is a third-party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
 
 ## I hit the spending limit on my subscription. I removed the limit and my App Service is online, however the database is not accessible. How do I re-enable the ClearDB database?
 Contact [ClearDB support](https://www.cleardb.com/developers/help/support) to re-enable the database. Provide them with your Azure subscription information and database name.

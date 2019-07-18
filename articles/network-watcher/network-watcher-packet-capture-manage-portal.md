@@ -3,8 +3,8 @@ title: Manage packet captures with Azure Network Watcher - Azure portal | Micros
 description: Learn how to manage the packet capture feature of Network Watcher using the Azure portal.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: 
 
 ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 09/10/2018
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Manage packet captures with Azure Network Watcher using the portal
@@ -58,8 +58,8 @@ If a network security group is associated to the network interface, or subnet th
      - **Remote IP address**: Filters the packet capture for packets where the remote IP address matches this value.
      - **Remote port**: Filters the packet capture for packets where the remote port matches this value.
     
-    > [!NOTE]
-    > Port and IP address values can be a single value, range of values, or a range, such as 80-1024, for port. You can define as many filters as you need.
+     > [!NOTE]
+     > Port and IP address values can be a single value, range of values, or a range, such as 80-1024, for port. You can define as many filters as you need.
 
 4. Select **OK**.
 
@@ -84,7 +84,7 @@ In the packet capture view, select **...** on the right-side of the packet captu
 
 ## Download a packet capture
 
-Once your packet capture session has completed, the capture file is uploaded to blob storage or to a local file on the virtual machine. The storage location of the packet capture is defined during creation of the packet capture. A convenient tool to access capture files saved to a storage account is Microsoft Azure Storage Explorer, which you can [download](http://storageexplorer.com/).
+Once your packet capture session has completed, the capture file is uploaded to blob storage or to a local file on the virtual machine. The storage location of the packet capture is defined during creation of the packet capture. A convenient tool to access capture files saved to a storage account is Microsoft Azure Storage Explorer, which you can [download](https://storageexplorer.com/).
 
 If a storage account is specified, packet capture files are saved to a storage account at the following location:
 

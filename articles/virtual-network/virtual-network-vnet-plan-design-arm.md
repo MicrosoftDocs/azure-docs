@@ -3,8 +3,8 @@ title: Plan Azure virtual networks | Microsoft Docs
 description: Learn how to plan for virtual networks based on your isolation, connectivity, and location requirements.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
-ms.author: jdial
+ms.author: kumud
 
 ---
 # Plan virtual networks
@@ -73,7 +73,7 @@ You can filter network traffic to and from resources in a virtual network using 
 - If different VMs within a subnet need different security rules applied to them, you can associate the network interface in the VM to one or more application security groups. A security rule can specify an application security group in its source, destination, or both. That rule then only applies to the network interfaces that are members of the application security group. Learn more about [network security groups](security-overview.md) and [application security groups](security-overview.md#application-security-groups).
 - Azure creates several default security rules within each network security group. One default rule allows all traffic to flow between all resources in a virtual network. To override this behavior, use network security groups, custom routing to route traffic to an NVA, or both. It's recommended that you familiarize yourself with all of Azure's [default security rules](security-overview.md#default-security-rules) and understand how network security group rules are applied to a resource.
 
-You can view sample designs for implementing a DMZ between Azure and the internet using an [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) or [network security groups](virtual-networks-dmz-nsg.md).
+You can view sample designs for implementing a perimeter network (also known as a DMZ) between Azure and the internet using an [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 ### Traffic routing
 
@@ -109,7 +109,7 @@ Azure utilizes [role based access control](../role-based-access-control/overview
 
 Azure Policy enables you to create, assign, and manage policy definitions. Policy definitions enforce different rules over your resources, so the resources stay compliant with your organizational standards and service level agreements. Azure Policy runs an evaluation of your resources, scanning for resources that are not compliant with the policy definitions you have. For example, you can define and apply a policy that allows creation of virtual networks in only a specific resource group or region. Another policy can require that every subnet has a network security group associated to it. The policies are then evaluated when creating and updating resources.
 
-Policies are applied to the following hierarchy: Subscription, management group, and resource group. Learn more about [Azure policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or deploy some virtual network [policy template](policy-samples.md) samples.
+Policies are applied to the following hierarchy: Subscription, management group, and resource group. Learn more about [Azure policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or deploy some virtual network [policy template](policy-samples.md) samples.
 
 ## Next steps
 

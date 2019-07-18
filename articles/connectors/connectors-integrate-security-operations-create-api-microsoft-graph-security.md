@@ -8,7 +8,7 @@ author: preetikr
 ms.author: preetikr
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.date: 01/30/19
+ms.date: 01/30/2019
 tags: connectors
 ---
 

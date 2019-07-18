@@ -1,7 +1,6 @@
 ---
 title: Manage resources for Apache Spark cluster on Azure HDInsight 
 description: Learn how to use manage resources for Spark clusters on Azure HDInsight for better performance.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -41,7 +40,7 @@ Spark History Server is the web UI for completed and running Spark applications.
     https://<ClusterName>.azurehdinsight.net/sparkhistory
     ```
 
-    Replace <ClusterName> with your Spark cluster name.
+    Replace `<ClusterName>` with your Spark cluster name.
 
 The Spark History Server web UI looks like:
 

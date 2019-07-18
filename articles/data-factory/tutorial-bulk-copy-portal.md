@@ -70,9 +70,10 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
 
 ## Create a data factory
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
    
-   ![New->DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 1. In the **New data factory** page, enter **ADFTutorialBulkCopyDF** for the **name**. 
       
      ![New data factory page](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)
@@ -83,24 +84,24 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
 1. Select your Azure **subscription** in which you want to create the data factory. 
 1. For the **Resource Group**, do one of the following steps:
      
-      - Select **Use existing**, and select an existing resource group from the drop-down list. 
-      - Select **Create new**, and enter the name of a resource group.   
+   - Select **Use existing**, and select an existing resource group from the drop-down list. 
+   - Select **Create new**, and enter the name of a resource group.   
          
-      To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
 1. Select **V2** for the **version**.
 1. Select the **location** for the data factory. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 1. Select **Pin to dashboard**.     
 1. Click **Create**.
 1. On the dashboard, you see the following tile with status: **Deploying data factory**. 
 
-    ![deploying data factory tile](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
+     ![deploying data factory tile](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
 1. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
-    ![Data factory home page](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
+     ![Data factory home page](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
 1. Click **Author & Monitor** tile to launch the Data Factory UI application in a separate tab.
 1. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image:  
 
-    ![Get started page](./media/tutorial-bulk-copy-portal/get-started-page.png)
+     ![Get started page](./media/tutorial-bulk-copy-portal/get-started-page.png)
 
 ## Create linked services
 You create linked services to link your data stores and computes to a data factory. A linked service has the connection information that the Data Factory service uses to connect to the data store at runtime. 
@@ -175,10 +176,10 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
 
 1. Switch to the **Connection** tab, and do the following steps: 
 
-    1. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
-    1. Select any table for **Table**. This table is a dummy table. You specify a query on the source dataset when creating a pipeline. The query is used to extract data from the Azure SQL database. Alternatively, you can click **Edit** check box, and enter **dummyName** as the table name. 
+   1. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
+   1. Select any table for **Table**. This table is a dummy table. You specify a query on the source dataset when creating a pipeline. The query is used to extract data from the Azure SQL database. Alternatively, you can click **Edit** check box, and enter **dummyName** as the table name. 
 
-    ![Source dataset connection page](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
+      ![Source dataset connection page](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
  
 
 ### Create a dataset for sink SQL Data Warehouse
@@ -210,7 +211,7 @@ The **GetTableListAndTriggerCopyData** pipeline performs two steps:
 * Looks up the Azure SQL Database system table to get the list of tables to be copied.
 * Triggers the pipeline **IterateAndCopySQLTables** to do the actual data copy.
 
-The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. For each table in the list, it copies data from the table in Azure SQL Database to Azure SQL Data Warehouse using staged copy and PolyBase.
+The  **IterateAndCopySQLTables** takes a list of tables as a parameter. For each table in the list, it copies data from the table in Azure SQL Database to Azure SQL Data Warehouse using staged copy and PolyBase.
 
 ### Create the pipeline IterateAndCopySQLTables
 

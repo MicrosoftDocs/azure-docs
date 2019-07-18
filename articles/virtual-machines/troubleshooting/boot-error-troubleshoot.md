@@ -3,7 +3,7 @@ title: 'Troubleshoot boot errors in Azure Virtual Machines | Microsoft Docs'
 description: This article helps link you to articles to troubleshoot boot errors in Azure Virtual Machines.
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: cshepard
 editor: ''
 

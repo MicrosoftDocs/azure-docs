@@ -17,7 +17,7 @@ ms.author: victorh
 ---
 # Create an application gateway with internal redirection using the Azure CLI
 
-You can use the Azure CLI to configure [web traffic redirection](application-gateway-multi-site-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create a backend pool using a virtual machines scale set. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate pool. This tutorial assumes that you own multiple domains and uses examples of *www.contoso.com* and *www.contoso.org*.
+You can use the Azure CLI to configure [web traffic redirection](application-gateway-multi-site-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create a backend pool using a virtual machines scale set. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate pool. This tutorial assumes that you own multiple domains and uses examples of *www\.contoso.com* and *www\.contoso.org*.
 
 In this article, you learn how to:
 
@@ -97,7 +97,7 @@ It may take several minutes for the application gateway to be created. After the
 
 ## Add listeners and rules 
 
-A listener is required to enable the application gateway to route traffic appropriately to the backend pool. In this tutorial, you create two listeners for your two domains. In this example, listeners are created for the domains of *www.contoso.com* and *www.contoso.org*.
+A listener is required to enable the application gateway to route traffic appropriately to the backend pool. In this tutorial, you create two listeners for your two domains. In this example, listeners are created for the domains of *www\.contoso.com* and *www\.contoso.org*.
 
 Add the backend listeners that are needed to route traffic using [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
@@ -120,7 +120,7 @@ az network application-gateway http-listener create \
 
 ### Add the redirection configuration
 
-Add the redirection configuration that sends traffic from *www.consoto.org* to the listener for *www.contoso.com* in the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
+Add the redirection configuration that sends traffic from *www\.consoto.org* to the listener for *www\.contoso.com* in the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -209,7 +209,7 @@ Enter your domain name into the address bar of your browser. Such as, http://www
 
 ![Test contoso site in application gateway](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Change the address to your other domain, for example http://www.contoso.org and you should see that the traffic has been redirected back to the listener for www.contoso.com.
+Change the address to your other domain, for example http://www.contoso.org and you should see that the traffic has been redirected back to the listener for www\.contoso.com.
 
 ## Next steps
 

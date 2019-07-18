@@ -3,7 +3,7 @@ title: Use compute-intensive Azure VMs with Batch | Microsoft Docs
 description: How to take advantage of HPC and GPU VM sizes in Azure Batch pools
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 
 ms.service: batch
@@ -44,6 +44,7 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA drivers | Enable inter-node communication, disable concurrent task execution |
 | [NC, NCv2, NCv3, NDv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 16.04 LTS, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A | 
 | [NV, NVv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS, or<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers | N/A |
+
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
 
 ### Windows pools - Virtual machine configuration
@@ -53,6 +54,7 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, or<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>Windows RDMA drivers | Enable inter-node communication, disable concurrent task execution |
 | [NC, NCv2, NCv3, ND, NDv2 series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>2012 R2 (Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers| N/A | 
 | [NV, NVv2 series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID drivers | N/A |
+
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
 
 ### Windows pools - Cloud services configuration
@@ -96,7 +98,7 @@ To configure a specialized VM size for your Batch pool, you have several options
 
 To run CUDA applications on a pool of Windows NC nodes, you need to install NVDIA GPU drivers. The following sample steps use an application package to install the NVIDIA GPU drivers. You might choose this option if your workload depends on a specific GPU driver version.
 
-1. Download a setup package for the GPU drivers on Windows Server 2016 from the [NVIDIA website](https://www.nvidia.com/Download/index.aspx) - for example, [version 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Save the file locally using a short name like *GPUDriverSetup.exe*.
+1. Download a setup package for the GPU drivers on Windows Server 2016 from the [NVIDIA website](https://www.nvidia.com/Download/index.aspx) - for example, [version 411.82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Save the file locally using a short name like *GPUDriverSetup.exe*.
 2. Create a zip file of the package.
 3. Upload the package to your Batch account. For steps, see the [application packages](batch-application-packages.md) guidance. Specify an application id such as *GPUDriver*, and a version such as *411.82*.
 1. Using the Batch APIs or Azure portal, create a pool in the virtual machine configuration with the desired number of nodes and scale. The following table shows sample settings to install the NVIDIA GPU drivers silently using a start task:

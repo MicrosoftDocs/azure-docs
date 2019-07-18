@@ -2,13 +2,14 @@
 title: Azure Quickstart - Create a blob in object storage using PHP | Microsoft Docs 
 description: Quickly learn to transfer objects to/from Azure Blob storage using PHP
 services: storage
-author: roygara
+author: mhopkins-msft
 
 ms.service: storage
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: rogarana
+ms.author: mhopkins
+ms.reviewer: seguler
 ---
 
 #  Transfer objects to/from Azure Blob storage using PHP
@@ -20,7 +21,7 @@ In this quickstart, you learn how to use PHP to upload, download, and list block
 
 Make sure you have the following additional prerequisites installed:
 
-* [PHP](http://php.net/downloads.php)
+* [PHP](https://php.net/downloads.php)
 * [Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)
 
 ## Download the sample application
@@ -70,7 +71,7 @@ This is the content of the blob uploaded: Hello Azure!
 ```
 When you press the button displayed, the sample program deletes the storage container and the files. Before you continue, check your server's folder for the two files. You can open them and see they are identical.
 
-You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
+You can also use a tool such as the [Azure Storage Explorer](https://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
 After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the sample does, open the example.rb file to look at the code. 
 

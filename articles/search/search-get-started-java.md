@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Search in Java - Azure Search
-description: How to build a hosted cloud search application on Azure using Java as your programming language.
+title: 'Java Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
+description: Explains how to create an index, load data, and run queries using Java and the Azure Search REST APIs.
 services: search
 author: jj09
 manager: jlembicz
@@ -10,7 +10,7 @@ ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
 ---
-# Get started with Azure Search in Java
+# Quickstart: Create an Azure Search index in Java
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -19,7 +19,7 @@ ms.custom: seodec2018
 
 Learn how to build a custom Java search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
 
-To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure Portal](https://portal.azure.com). See [Create an Azure Search service in the portal](search-create-service-portal.md) for step-by-step instructions.
+To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com). See [Create an Azure Search service in the portal](search-create-service-portal.md) for step-by-step instructions.
 
 We used the following software to build and test this sample:
 
@@ -30,7 +30,7 @@ We used the following software to build and test this sample:
 ## About the data
 This sample application uses data from the [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
-In this application, the **SearchServlet.java** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Predefined credentials and connection  information to the online data source are provided in the program code. In terms of data access, no further configuration is necessary.
+In this application, the **SearchServlet.java** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from an Azure SQL Database. Predefined credentials and connection  information to the online data source are provided in the program code. In terms of data access, no further configuration is necessary.
 
 > [!NOTE]
 > We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply, and you can modify this code to use a bigger dataset. For details about capacity for each pricing tier, see [Limits and constraints](search-limits-quotas-capacity.md).
@@ -45,15 +45,15 @@ The following list describes the files that are relevant to this sample.
 * SearchServiceClient.java: Handles HTTP requests
 * SearchServiceHelper.java: A helper class that provides static methods
 * Document.java: Provides the data model
-* config.properties: Sets the Search service URL and api-key
+* config.properties: Sets the Search service URL and `api-key`
 * pom.xml: A Maven dependency
 
 <a id="sub-2"></a>
 
-## Find the service name and api-key of your Azure Search service
-All REST API calls into Azure Search require that you provide the service URL and an api-key. 
+## Find the service name and `api-key` of your Azure Search service
+All REST API calls into Azure Search require that you provide the service URL and an `api-key`. 
 
-1. Sign in to the [Azure Portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the jump bar, click **Search service** to list all of the Azure Search services provisioned for your subscription.
 3. Select the service you want to use.
 4. On the service dashboard, you'll see tiles for essential information as well as the key icon for accessing the admin keys.
@@ -78,10 +78,10 @@ All subsequent file modifications and run statements will be made against files 
 3. Click **Finish**.
 4. Use **Project Explorer** to view and edit the files. If it's not already open, click **Window** > **Show View** > **Project Explorer** or use the shortcut to open it.
 
-## Configure the service URL and api-key
-1. In **Project Explorer**, double-click **config.properties** to edit the configuration settings containing the server name and api-key.
-2. Refer to the steps earlier in this article, where you found the service URL and api-key in the [Azure Portal](https://portal.azure.com), to get the values you will now enter into **config.properties**.
-3. In **config.properties**, replace "Api Key" with the api-key for your service. Next, service name (the first component of the URL https://servicename.search.windows.net) replaces "service name" in the same file.
+## Configure the service URL and `api-key`
+1. In **Project Explorer**, double-click **config.properties** to edit the configuration settings containing the server name and `api-key`.
+2. Refer to the steps earlier in this article, where you found the service URL and `api-key` in the [Azure portal](https://portal.azure.com), to get the values you will now enter into **config.properties**.
+3. In **config.properties**, replace "API Key" with the `api-key` for your service. Next, service name (the first component of the URL https://servicename.search.windows.net) replaces "service name" in the same file.
    
     ![][5]
 

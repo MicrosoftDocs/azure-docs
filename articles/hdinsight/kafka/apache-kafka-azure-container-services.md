@@ -1,7 +1,6 @@
 ---
 title: Use Azure Kubernetes Service with Kafka on HDInsight 
 description: Learn how to use Kafka on HDInsight from container images hosted in Azure Kubernetes Service (AKS).
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -30,7 +29,7 @@ This document assumes that you are familiar with creating and using the followin
 * Azure Kubernetes Service
 * Azure Virtual Networks
 
-This document also assumes that you have walked through the [Azure Kubernetes Service tutorial](../../aks/tutorial-kubernetes-prepare-app.md). This tutorial creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
+This document also assumes that you have walked through the [Azure Kubernetes Service tutorial](../../aks/tutorial-kubernetes-prepare-app.md). This article creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
 
 ## Architecture
 
@@ -75,17 +74,17 @@ If you do not already have an AKS cluster, use one of the following documents to
 
 5. To configure the peering between the HDInsight network and the AKS cluster network, select the virtual network and then select __Peerings__. Select __+ Add__ and use the following values to populate the form:
 
-    * __Name__: Enter a unique name for this peering configuration.
-    * __Virtual network__: Use this field to select the virtual network for the **AKS cluster**.
+   * __Name__: Enter a unique name for this peering configuration.
+   * __Virtual network__: Use this field to select the virtual network for the **AKS cluster**.
 
-    Leave all other fields at the default value, then select __OK__ to configure the peering.
+     Leave all other fields at the default value, then select __OK__ to configure the peering.
 
 6. To configure the peering between the AKS cluster network and the HDInsight network, select the __AKS cluster virtual network__, and then select __Peerings__. Select __+ Add__ and use the following values to populate the form:
 
-    * __Name__: Enter a unique name for this peering configuration.
-    * __Virtual network__: Use this field to select the virtual network for the __HDInsight cluster__.
+   * __Name__: Enter a unique name for this peering configuration.
+   * __Virtual network__: Use this field to select the virtual network for the __HDInsight cluster__.
 
-    Leave all other fields at the default value, then select __OK__ to configure the peering.
+     Leave all other fields at the default value, then select __OK__ to configure the peering.
 
 ## Install Apache Kafka on HDInsight
 

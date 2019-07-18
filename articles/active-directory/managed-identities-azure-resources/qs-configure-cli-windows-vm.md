@@ -3,7 +3,7 @@ title: How to configure system and user-assigned managed identities on an Azure 
 description: Step by step instructions for configuring system and user-assigned managed identities on an Azure VM using Azure CLI.
 services: active-directory
 documentationcenter: 
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
@@ -103,12 +103,8 @@ If you have a virtual machine that no longer needs system-assigned identity and 
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
-
-To remove the managed identity for Azure resources VM extension (planned for deprecation in January 2019), user `-n ManagedIdentityExtensionForWindows` or `-n ManagedIdentityExtensionForLinux` switch (depending on the type of VM) with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/):
-
-```azurecli-interactive
-az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
-```
+> [!NOTE]
+> If you have provisioned the managed identity for Azure resources VM extension (to be deprecated), you need to remove it using [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/). For more information, see [Migrate from VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
 
 ## User-assigned managed identity
 
@@ -131,7 +127,7 @@ To assign a user-assigned identity to a VM during its creation, your account nee
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   The response contains details for the user-assigned managed identity created, similar to the following. The resource id value assigned to the user-assigned managed identity is used in the following step.
+   The response contains details for the user-assigned managed identity created, similar to the following. The resource ID value assigned to the user-assigned managed identity is used in the following step.
 
    ```json
    {

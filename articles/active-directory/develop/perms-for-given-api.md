@@ -1,10 +1,10 @@
 ---
-title: How to select permissions for a given API | Microsoft Docs
+title: Select permissions for a given API | Microsoft Docs
 description: Learn about how permissions requests work for client and resource applications for applications you are developing
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: celested
+ms.date: 07/15/2019
+ms.author: ryanwi
 
 ms.collection: M365-identity-device-management
 ---

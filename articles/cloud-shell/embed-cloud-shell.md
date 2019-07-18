@@ -3,7 +3,7 @@ title: Embed Azure Cloud Shell | Microsoft Docs
 description: Learn to embed Azure Cloud Shell.
 services: cloud-shell
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
  
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
-ms.author: juluk
+ms.author: damaerte
 ---
 # Embed Azure Cloud Shell
 
@@ -44,6 +44,7 @@ The HTML to embed a pop-up Cloud Shell is below:
 ## Customize experience
 
 Set a specific shell experience by augmenting your URL.
+
 |Experience   |URL   |
 |---|---|
 |Most recently used shell   |[shell.azure.com](https://shell.azure.com)           |

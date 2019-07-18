@@ -3,17 +3,14 @@ title: Create predictive data pipelines using Azure Data Factory | Microsoft Doc
 description: Learn how to create a predictive pipeline by using Azure Machine Learning - Batch Execution Activity in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 01/16/2018
-ms.author: douglasl
-
+ms.date: 02/20/2019
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 ---
 # Create predictive pipelines using Azure Machine Learning and Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +24,7 @@ ms.author: douglasl
 3. **Deploy it as a web service**. You can publish your scoring experiment as an Azure web service. You can send data to your model via this web service end point and receive result predictions from the model.
 
 ### Data Factory and Machine Learning together
-Azure Data Factory enables you to easily create pipelines that use a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. Using the **Batch Execution Activity** in an Azure Data Factory pipeline, you can invoke an Azure Machine Learning studio web service to make predictions on the data in batch.
+Azure Data Factory enables you to easily create pipelines that use a published [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) web service for predictive analytics. Using the **Batch Execution Activity** in an Azure Data Factory pipeline, you can invoke an Azure Machine Learning studio web service to make predictions on the data in batch.
 
 Over time, the predictive models in the Azure Machine Learning studio scoring experiments need to be retrained using new input datasets. You can retrain a model from a Data Factory pipeline by doing the following steps:
 
@@ -44,7 +41,6 @@ You create an **Azure Machine Learning** linked service to link an Azure Machine
 {
     "type" : "linkedServices",
     "name": "AzureMLLinkedService",
-    "apiVersion" : "2017-09-01-preview",
     "properties": {
         "type": "AzureML",
         "typeProperties": {

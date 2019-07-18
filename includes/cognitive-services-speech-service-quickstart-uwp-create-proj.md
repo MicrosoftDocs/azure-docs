@@ -2,11 +2,11 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/13/2018
+ms.date: 2/20/2019
 ms.author: erhopf
 ---
 
-1. Start Visual Studio 2017.
+1. Start Visual Studio 2019.
 
 1. Make sure the **Universal Windows Platform development** workload is available. Choose **Tools** > **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, close the dialog box.
 
@@ -18,7 +18,7 @@ ms.author: erhopf
 
     ![Screenshot of New Project dialog box](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. The Speed SDK requires that your application be built for the Windows 10 Fall Creators Update or later. In the **New Universal Windows Platform Project** window that pops up, choose **Windows 10 Fall Creators Update (10.0; Build 16299)** as **Minimum version**. In the **Target version** box, select this or any later version, and then click **OK**.
+1. The Speech SDK requires that your application is built for the Windows 10 Fall Creators Update or later. In the **New Universal Windows Platform Project** window that pops up, choose **Windows 10 Fall Creators Update (10.0; Build 16299)** as **Minimum version**. In the **Target version** box, select this version or any later version, and then click **OK**.
 
     ![Screenshot of the New Universal Windows Platform Project window](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 
@@ -44,7 +44,7 @@ ms.author: erhopf
 1. The following output line appears in the Package Manager console.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.2.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.5.0' to helloworld
    ```
 
 1. Because the application uses the microphone for speech input, add the **Microphone** capability to the project. In Solution Explorer, double-click **Package.appxmanifest** to edit your application manifest. Then switch to the **Capabilities** tab, select the box for the **Microphone** capability, and save your changes.

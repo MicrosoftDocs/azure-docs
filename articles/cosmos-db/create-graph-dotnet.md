@@ -6,11 +6,11 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 05/21/2019
 ms.author: lbosq
 
 ---
-# Azure Cosmos DB: Build a .NET Framework or Core application using the Gremlin API
+# Quickstart: Build a .NET Framework or Core application using the Azure Cosmos DB Gremlin API account
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -27,9 +27,7 @@ This quick start demonstrates how to create an Azure Cosmos DB [Gremlin API](gra
 
 ## Prerequisites
 
-If you don't already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
-
-If you already have Visual Studio 2017 installed, make sure to be installed up to [Visual Studio 2017 Update 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
+If you don't already have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -155,7 +153,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. From the [Azure portal](https://portal.azure.com/), navigate to your graph database account. In the **Overview** tab, you can see two endpoints- 
  
-   **.Net SDK URI** - This value is used when you connect to the graph account by using Microsoft.Azure.Graphs library. 
+   **.NET SDK URI** - This value is used when you connect to the graph account by using Microsoft.Azure.Graphs library. 
 
    **Gremlin Endpoint** - This value is used when you connect to the graph account by using Gremlin.Net library.
 

@@ -4,7 +4,7 @@ description: Learn about the lifecycle events in Service Fabric Reliable Service
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: timlt
+manager: chackdan
 
 ms.assetid:
 ms.service: service-fabric
@@ -84,7 +84,7 @@ Like stateless services, the lifecycle events during shutdown are the same as du
 
 1. These events occur in parallel:
     - Any open listeners are closed. `CommunicationListener.closeAsync()` is called on each listener.
-    - The cancellation token that was passed to `runAsync()` is cancelled. A call to the cancellation token's `isCancelled()` method returns `true`, and if called, the token's `throwIfCancellationRequested()` method throws an `OperationCanceledException`.
+    - The cancellation token that was passed to `runAsync()` is canceled. A call to the cancellation token's `isCancelled()` method returns `true`, and if called, the token's `throwIfCancellationRequested()` method throws an `OperationCanceledException`.
 2. After `closeAsync()` finishes on each listener and `runAsync()` also finishes, the service's `StatefulServiceBase.onChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
    > [!NOTE]  

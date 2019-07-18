@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
-ms.date: 01/31/18
+ms.date: 01/31/2018
 ---
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 helps you orchestrate and integrate different services 
-by providing [100+ ready-to-use connectors](../connectors/apis-list.md), 
+by providing [hundreds of ready-to-use connectors](../connectors/apis-list.md), 
 ranging from on-premises SQL Server or SAP to Microsoft Cognitive Services. 
 The Logic Apps service is "serverless", so you don't have to worry about scale or instances. 
 All you have to do is define the workflow with a trigger and the actions that the workflow performs. 

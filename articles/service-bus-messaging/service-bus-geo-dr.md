@@ -60,6 +60,17 @@ The setup process is as follows -
 
 3. Create pairing between the Primary namespace and Secondary namespace to obtain the ***alias***.
 
+    >[!NOTE] 
+    > If you have [migrated your Azure Service Bus Standard namespace to Azure Service Bus Premium](service-bus-migrate-standard-premium.md), then you must use the pre-existing alias (i.e. your Service Bus Standard namespace connection string) to create the disaster recovery configuration through the **PS/CLI** or **REST API**.
+    >
+    >
+    > This is because, during migration, your Azure Service Bus Standard namespace connection string/DNS name itself becomes an alias to your Azure Service Bus Premium namespace.
+    >
+    > Your client applications must utilize this alias (i.e. the Azure Service Bus Standard namespace connection string) to connect to the Premium namespace where the disaster recovery pairing has been setup.
+    >
+    > If you use the Portal to setup the Disaster recovery configuration, then the portal will abstract this caveat from you.
+
+
 4. Use the ***alias*** obtained in step 3 to connect your client applications to the Geo-DR enabled primary namespace. Initially, the alias points to the primary namespace.
 
 5. [Optional] Add some monitoring to detect if a failover is necessary.
@@ -117,7 +128,7 @@ Note the following considerations to keep in mind with this release:
 
 2. The fact that no data is replicated means that currently active sessions are not replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, new scheduled messages and new duplicates will work. 
 
-3. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) at least once.
+3. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once.
 
 4. Synchronizing entities can take some time, approximately 50-100 entities per minute. Subscriptions and rules also count as entities.
 
@@ -126,7 +137,7 @@ Note the following considerations to keep in mind with this release:
 The Service Bus Premium SKU also supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region.
 
 > [!NOTE]
-> The Availability Zones support for Azure Service Bus Premium is only available in [Azure regions](../availability-zones/az-overview.md#regions-that-support-availability-zones) where availability zones are present.
+> The Availability Zones support for Azure Service Bus Premium is only available in [Azure regions](../availability-zones/az-overview.md#services-support-by-region) where availability zones are present.
 
 You can enable Availability Zones on new namespaces only, using the Azure portal. Service Bus does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
 

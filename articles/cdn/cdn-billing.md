@@ -1,4 +1,4 @@
-﻿---
+---
 title: Understanding Azure CDN billing | Microsoft Docs
 description: This FAQ describes how Azure CDN billing works.
 services: cdn
@@ -8,7 +8,7 @@ manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na

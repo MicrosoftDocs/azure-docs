@@ -196,7 +196,6 @@ val bulkCopyConfig = Config(Map(
   "databaseName"      -> "MyDatabase",
   "user"              -> "username",
   "password"          -> "*********",
-  "databaseName"      -> "zeqisql",
   "dbTable"           -> "dbo.Clients",
   "bulkCopyBatchSize" -> "2500",
   "bulkCopyTableLock" -> "true",
@@ -213,5 +212,5 @@ If you haven't already, download the Spark connector for Azure SQL Database and 
 -	[Sample Azure Databricks notebooks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Sample scripts (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Azure Databricks documentation](https://docs.microsoft.com/azure/azure-databricks/).
+You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Azure Databricks documentation](https://docs.microsoft.com/azure/azure-databricks/).
 

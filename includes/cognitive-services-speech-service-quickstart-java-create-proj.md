@@ -2,7 +2,7 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/12/2018
+ms.date: 2/20/2019
 ms.author: erhopf
 ---
 
@@ -40,7 +40,7 @@ ms.author: erhopf
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-   * Also add a `dependencies` element, with the Speech SDK version 1.2.0 as a dependency:
+   * Also add a `dependencies` element, with the Speech SDK version 1.6.0 as a dependency:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

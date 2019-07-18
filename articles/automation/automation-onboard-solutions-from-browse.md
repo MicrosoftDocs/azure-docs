@@ -3,9 +3,9 @@ title: Learn how to onboard Update Management, Change Tracking, and Inventory so
 description: Learn how to onboard an Azure Virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 06/06/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
@@ -14,15 +14,15 @@ ms.custom: mvc
 
 Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. There are multiple ways to onboard machines, you can onboard the solution [from a virtual machine](automation-onboard-solutions-from-vm.md), from your [Automation account](automation-onboard-solutions-from-automation-account.md), when browsing virtual machines, or by [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions when browsing virtual machines in Azure.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to Azure at https://portal.azure.com
+Sign in to Azure at https://portal.azure.com
 
 ## Enable solutions
 
 In the Azure portal, navigate to **Virtual machines**.
 
-Using the checkboxes, select the virtual machines you wish to onboard with Change Tracking and Inventory or Update Management. Onboarding is available for up to three different resource groups at a time.
+Using the checkboxes, select the virtual machines you wish to onboard with Change Tracking and Inventory or Update Management. Onboarding is available for up to three different resource groups at a time. Azure VMs can exist in any region no matter the location of your Automation Account.
 
 ![List of VMs](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -45,7 +45,7 @@ Use the filter controls to select virtual machines from different subscriptions,
 
 ![Onboard Update management solution](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Review the choices for the Log analytics workspace and Automation account. An existing workspace and Automation Account are selected by default. If you want to use a different Log Analytics workspace and Automation Account, click **CUSTOM** to select them from the **Custom Configuration** page. When you choose a Log Analytics workspace, a check is made to determine if it is linked with an Automation Account. If a linked Automation Account is found, you will see the following screen. When done, click **OK**.
+Review the choices for the Log Analytics workspace and Automation account. An existing workspace and Automation Account are selected by default. If you want to use a different Log Analytics workspace and Automation Account, click **CUSTOM** to select them from the **Custom Configuration** page. When you choose a Log Analytics workspace, a check is made to determine if it is linked with an Automation Account. If a linked Automation Account is found, you will see the following screen. When done, click **OK**.
 
 ![Select workspace and account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -53,23 +53,10 @@ If the workspace selected is not linked to an Automation Account, you'll see the
 
 ![No workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-When enabling solutions, only certain regions are supported for linking a Log Analytics Workspace and an Automation Account.
-
-The following table shows the supported mappings:
-
-|**Log Analytics Workspace Region**|**Azure Automation Region**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS|WestCentralUS|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+> [!NOTE]
+> When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
+>
+> For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
 
 Deselect the checkbox next to any virtual machine that you don't want to enable. Virtual machines that can't be enabled are already deselected.
 
@@ -83,7 +70,7 @@ The following solutions are dependent on a Log Analytics workspace:
 * [Change Tracking](automation-change-tracking.md)
 * [Start/Stop VMs during off-hours](automation-solution-vm-management.md)
 
-If you decide you no longer wish to integrate your Automation account with Log Analytics, you can unlink your account directly from the Azure portal. Before you proceed, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you have imported to understand the steps required to remove it.
+If you decide you no longer wish to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal. Before you proceed, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you have imported to understand the steps required to remove it.
 
 After you remove these solutions, you can perform the following steps to unlink your Automation account.
 
@@ -111,6 +98,8 @@ If you used the Start/Stop VMs during off-hours solution, optionally you may wan
 * Start and stop VM runbook schedules
 * Start and stop VM runbooks
 * Variables
+
+Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
 
 ## Troubleshooting
 
@@ -142,7 +131,7 @@ When onboarding multiple machines, there may be machines that show as **Cannot e
 
 **Cause**: Virtual machines that use the classic deployment model are not supported.
 
-**Solution**: Migrate the virtual machine to the resource manager deployment model. To learn how to do this, see [Migrate classic deployment model resources](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Solution**: Migrate the virtual machine to the Resource Manager deployment model. To learn how to do this, see [Migrate classic deployment model resources](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### VM is stopped. (deallocated)
 

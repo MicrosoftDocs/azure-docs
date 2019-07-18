@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 06/25/2019
 ms.author: jingwang
 
 ---
@@ -27,13 +27,16 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 You can copy data from an Oracle database to any supported sink data store. You also can copy data from any supported source data store to an Oracle database. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this Oracle connector supports the following versions of an Oracle database. It also supports Basic or OID authentications:
+Specifically, this Oracle connector supports:
 
-- Oracle 12c R1 (12.1)
-- Oracle 11g R1, R2 (11.1, 11.2)
-- Oracle 10g R1, R2 (10.1, 10.2)
-- Oracle 9i R1, R2 (9.0.1, 9.2)
-- Oracle 8i R3 (8.1.7)
+- The following versions of an Oracle database:
+  - Oracle 12c R1 (12.1)
+  - Oracle 11g R1, R2 (11.1, 11.2)
+  - Oracle 10g R1, R2 (10.1, 10.2)
+  - Oracle 9i R1, R2 (9.0.1, 9.2)
+  - Oracle 8i R3 (8.1.7)
+- Copying data using **Basic** or **OID** authentications.
+- Parallel copy from Oracle source. See [Parallel copy from Oracle](#parallel-copy-from-oracle) section with details.
 
 > [!Note]
 > Oracle proxy server is not supported.
@@ -93,7 +96,7 @@ The following properties are supported for the Oracle linked service.
         openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
         ```
 
-        **Example:** creates a PKCS12 trustsotre file named MyTrustStoreFile with a password
+        **Example:** creates a PKCS12 truststore file named MyTrustStoreFile with a password
 
         ```
         openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
@@ -187,16 +190,24 @@ For a full list of sections and properties available for defining activities, se
 
 ### Oracle as a source type
 
+> [!TIP]
+>
+> Learn more from [Parallel copy from Oracle](#parallel-copy-from-oracle) section on how to load data from Oracle efficiently using data partitioning.
+
 To copy data from Oracle, set the source type in the copy activity to **OracleSource**. The following properties are supported in the copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **OracleSource**. | Yes |
-| oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. | No |
+| oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook corresponding built-in partition parameter(s) in your query. See examples in [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
+| partitionOptions | Specifies the data partitioning options used to load data from Oracle. <br>Allow values are: **None** (default), **PhysicalPartitionsOfTable** and **DynamicRange**.<br>When partition option is enabled (not 'None'), please also configure **[`parallelCopies`](copy-activity-performance.md#parallel-copy)** setting on copy activity e.g. as 4, which determines the parallel degree to concurrently load data from Oracle database. | No |
+| partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when partition option is not `None`. | No |
+| partitionNames | The list of physical partitions that needs to be copied. <br>Apply when partition option is `PhysicalPartitionsOfTable`. If you use query to retrieve source data, hook `?AdfTabularPartitionName` in WHERE clause. See example in [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
+| partitionColumnName | Specify the name of the source column **in integer type** that will be used by range partitioning for parallel copy. If not specified, the primary key of the table will be auto detected and used as partition column. <br>Apply when partition option is `DynamicRange`. If you use query to retrieve source data, hook  `?AdfRangePartitionColumnName` in WHERE clause. See example in [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
+| partitionUpperBound | Maximum value of the partition column to copy data out. <br>Apply when partition option is `DynamicRange`. If you use query to retrieve source data, hook `?AdfRangePartitionUpbound` in WHERE clause. See example in [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
+| PartitionLowerBound | Minimum value of the partition column to copy data out. <br>Apply when partition option is `DynamicRange`. If you use query to retrieve source data, hook `?AdfRangePartitionLowbound` in WHERE clause. See example in [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
 
-If you don't specify "oracleReaderQuery", the columns defined in the "structure" section of the dataset are used to construct a query (`select column1, column2 from mytable`) to run against the Oracle database. If the dataset definition doesn't have "structure", all columns are selected from the table.
-
-**Example:**
+**Example: copy data using basic query without partition**
 
 ```json
 "activities":[
@@ -227,6 +238,8 @@ If you don't specify "oracleReaderQuery", the columns defined in the "structure"
     }
 ]
 ```
+
+See more examples in [Parallel copy from Oracle](#parallel-copy-from-oracle) section.
 
 ### Oracle as a sink type
 
@@ -268,6 +281,54 @@ To copy data to Oracle, set the sink type in the copy activity to **OracleSink**
         }
     }
 ]
+```
+
+## Parallel copy from Oracle
+
+Data factory Oracle connector provides built-in data partitioning to copy data from Oracle in parallel with great performance. You can find data partitioning options on copy activity -> Oracle source:
+
+![Partition options](./media/connector-oracle/connector-oracle-partition-options.png)
+
+When you enable partitioned copy, data factory runs parallel queries against your Oracle source to load data by partitions. The parallel degree is configured and controlled via **[`parallelCopies`](copy-activity-performance.md#parallel-copy)** setting on copy activity. For example, if you set `parallelCopies` as four, data factory concurrently generates and runs four queries based on your specified partition option and settings, each retrieving portion of data from your Oracle database.
+
+You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from Oracle database. The following are the suggested configurations for different scenarios:
+
+| Scenario                                                     | Suggested settings                                           |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Full load from large table with physical partitions          | **Partition option**: Physical partitions of table. <br><br/>During execution, data Factory automatically detect the physical partitions and copy data by partitions. |
+| Full load from large table without physical partitions while with an integer column for data partitioning | **Partition options**: Dynamic range partition.<br>**Partition column**: Specify the column used to partition data. If not specified, primary key column is used. |
+| Load large amount of data using custom query, underneath with physical partitions | **Partition option**: Physical partitions of table.<br>**Query**: `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**Partition name**: Specify the partition name(s) to copy data from. If not specified, ADF will automatically detect the physical partitions on the table you specified in Oracle dataset.<br><br>During execution, data factory replace `?AdfTabularPartitionName` with the actual partition name and send to Oracle. |
+| Load large amount of data using custom query, underneath without physical partitions while with an integer column for data partitioning | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data. You can partition against column with integer data type.<br>**Partition upper bound** and **partition lower bound**: Specify if you want to filter against partition column to only retrieve data between lower and upper range.<br><br>During execution, data factory replace `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`, and `?AdfRangePartitionLowbound` with the actual column name and value ranges for each partition, and send to Oracle. <br>For example, if your partition column "ID" set with lower bound as 1 and upper bound as 80, with parallel copy set as 4, ADF retrieve data by 4 partitions with ID between [1,20], [21, 40], [41, 60], and [61, 80]. |
+
+**Example: query with physical partition**
+
+```json
+"source": {
+    "type": "OracleSource",
+    "query": "SELECT * FROM <TABLENAME> PARTITION(\"?AdfTabularPartitionName\") WHERE <your_additional_where_clause>",
+    "partitionOption": "PhysicalPartitionsOfTable",
+    "partitionSettings": {
+        "partitionNames": [
+            "<partitionA_name>",
+            "<partitionB_name>"
+        ]
+    }
+}
+```
+
+**Example: query with dynamic range partition**
+
+```json
+"source": {
+    "type": "OracleSource",
+    "query": "SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>",
+    "partitionOption": "DynamicRange",
+    "partitionSettings": {
+        "partitionColumnName": "<partition_column_name>",
+        "partitionUpperBound": "<upper_value_of_partition_column>",
+        "partitionLowerBound": "<lower_value_of_partition_column>"
+    }
+}
 ```
 
 ## Data type mapping for Oracle

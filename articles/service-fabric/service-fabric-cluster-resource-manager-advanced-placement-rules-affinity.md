@@ -4,11 +4,11 @@ description: Overview of configuring affinity for Service Fabric Services
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
@@ -55,6 +55,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 Affinity is represented via one of several correlation schemes, and has two different modes. The most common mode of affinity is what we call NonAlignedAffinity. In NonAlignedAffinity, the replicas or instances of the different services are placed on the same nodes. The other mode is AlignedAffinity. Aligned Affinity is useful only with stateful services. Configuring two stateful services to have aligned affinity ensures that the primaries of those services are placed on the same nodes as each other. It also causes each pair of secondaries for those services to be placed on the same nodes. It is also possible (though less common) to configure NonAlignedAffinity for stateful services. For NonAlignedAffinity, the different replicas of the two stateful services would run on the same nodes, but their primaries could end up on different nodes.
 
 <center>
+
 ![Affinity Modes and Their Effects][Image1]
 </center>
 
@@ -65,6 +66,7 @@ An affinity relationship is best effort. It does not provide the same guarantees
 Today the Cluster Resource Manager isn't able to model chains of affinity relationships. What this means is that a service that is a child in one affinity relationship can’t be a parent in another affinity relationship. If you want to model this type of relationship, you effectively have to model it as a star, rather than a chain. To move from a chain to a star, the bottommost child would be parented to the first child’s parent instead. Depending on the arrangement of your services, you may have to do this multiple times. If there's no natural parent service, you may have to create one that serves as a placeholder. Depending on your requirements, you may also want to look into [Application Groups](service-fabric-cluster-resource-manager-application-groups.md).
 
 <center>
+
 ![Chains vs. Stars in the Context of Affinity Relationships][Image2]
 </center>
 

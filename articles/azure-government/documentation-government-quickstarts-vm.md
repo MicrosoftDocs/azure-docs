@@ -13,7 +13,8 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/10/2018
-ms.author: yujhongmicrosoft; juliako
+ms.author: juliako
+ms.reviewer: yujhongmicrosoft
 
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government and provision a VM in the Azure Government cloud because i want to be sure that my agency meets government security and compliance requirements.
 ---
@@ -107,7 +108,7 @@ Scroll to the bottom of the window on the right and click **Create**. In the **B
 |Password|A password| Choose a password that you will remember!|
 |Subscription|Your subscription||
 |Resource group|vnettestgroup|Choose existing resource, same group as you created earlier.|
-|Location|USGov Virginia|Our virtual network is hosted in Virginia, so this VM has to be in the US Virginia region as well.||
+|Location|USGov Virginia|Our virtual network is hosted in Virginia, so this VM has to be in the US Virginia region as well.|
 
 Open the Supported disk type dropdown box and select HDD. Click **View All** in the options at the top right corner. Scroll down the A4_v2 size and select it. Click on Select.
 

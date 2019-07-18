@@ -6,15 +6,15 @@ metadata:
   title: Azure SQL Database Documentation - Tutorials, API Reference
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: CarlRabeler
+  author: stevestein
   manager: craigg
   ms.service: sql-database
   ms.subservice: service
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: overview
-  ms.date: 01/25/2019
-  ms.author: carlrab
+  ms.date: 03/04/2019
+  ms.author: sstein
 abstract:
   description: Azure SQL Database is a general-purpose relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server Database Engine. SQL Database is a high-performance, reliable, and secure cloud database that you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.
   aside:
@@ -60,7 +60,7 @@ sections:
           src: media/index/i_elasticpool.svg
         title: Elastic pools
       - href: /azure/sql-database/sql-database-managed-instance-index
-        html: <p>Use the Managed Instance to easily migrate your on-premises databases to the fully managed Azure PaaS database service with minimal or no database code changes.</p>
+        html: <p>Use the Managed Instance to get a fully managed SQL Server Database Engine Instance hosted in Azure cloud, with minimal or no database code changes needed for migration from on-premises databases.</p>
         image:
           src: media/index/i_mi.svg
         title: Managed instance
@@ -116,7 +116,7 @@ sections:
         values:
           - href: /azure/sql-database/sql-database-managed-instance-get-started
           - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+          - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
 - title: Step-by-Step Tutorials
   items:
@@ -125,7 +125,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Get started with <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">a single database</a> and a <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">managed instance</a> using our quickstart guides.
+    - html: Get started with a <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">single database</a> and a <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">managed instance</a> using our quickstart guides.
     - html: Create and design the schema for a new single database using <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> or <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
     - html: Migrate an existing database to Azure using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">a native SQL Server backup file</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">the Database Migration Assistant</a>, or <a href="/azure/sql-database/sql-database-import">by importing a BACPAC file</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
@@ -171,7 +171,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.sql/#sql">Azure PowerShell</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (Elastic DB)</a></p><p><a href="/cli/azure/sql">Azure CLI</a></p>
+      html: <p><a href="/powershell/module/Az.Sql/">Azure PowerShell</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (Elastic DB)</a></p><p><a href="/cli/azure/sql">Azure CLI</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
     - title: REST

@@ -4,7 +4,7 @@ description: How to use CMD and PowerShell commands within SAC in Azure Windows 
 services: virtual-machines-windows
 documentationcenter: ''
 author: alsin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -114,7 +114,7 @@ When limited to methods available in Windows by default, PowerShell can be a bet
 ### Disable Windows Firewall
 `netsh advfirewall set allprofiles state off`
 
-You can use this command when troubleshooting to temporarily rule out the Windows Firewall. It will be enable on next restart or when you enaable it using the command below. Do not stop the Windows Firewall service (MPSSVC) or Base Filtering Engine (BFE) service as way to rule out the Windows Firewall. Stopping MPSSVC or BFE will result in all connectivity being blocked.
+You can use this command when troubleshooting to temporarily rule out the Windows Firewall. It will be enable on next restart or when you enable it using the command below. Do not stop the Windows Firewall service (MPSSVC) or Base Filtering Engine (BFE) service as way to rule out the Windows Firewall. Stopping MPSSVC or BFE will result in all connectivity being blocked.
 ### Enable Windows Firewall
 `netsh advfirewall set allprofiles state on`
 ## Manage Users and Groups
@@ -243,8 +243,8 @@ To run PowerShell in SAC, after you reach a CMD prompt, type:
 
 `powershell <enter>`
 
->[!CAUTION]
-Remove the PSReadLine module from the PowerShell session before running any other PowerShell commands. There is a known issue where extra characters may be introduced in text pasted from the clipboard if PSReadLine is running in a PowerShell session in SAC.
+> [!CAUTION]
+> Remove the PSReadLine module from the PowerShell session before running any other PowerShell commands. There is a known issue where extra characters may be introduced in text pasted from the clipboard if PSReadLine is running in a PowerShell session in SAC.
 
 First check if PSReadLine is loaded. It is loaded by default on Windows Server 2016, Windows 10, and later versions of Windows. It would only be present on earlier Windows versions if it had been manually installed. 
 

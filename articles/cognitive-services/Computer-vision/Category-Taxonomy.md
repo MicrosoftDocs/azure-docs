@@ -9,12 +9,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: reference
-ms.date: 12/19/2016
+ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ---
 
-# 86-Categories Taxonomy
+# Computer Vision 86-category taxonomy
 
 abstract_
 
@@ -187,5 +187,3 @@ trans_bus
 trans_car
 
 trans_trainstation
-
-

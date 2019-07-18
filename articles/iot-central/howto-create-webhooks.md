@@ -3,7 +3,7 @@ title: Create webhooks on rules in Azure IoT Central | Microsoft Docs
 description: Create webhooks in Azure IoT Central to automatically notify other applications when rules fire.
 author: viv-liu
 ms.author: viviali
-ms.date: 09/17/2018
+ms.date: 06/16/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -14,22 +14,29 @@ manager: peterpr
 
 *This topic applies to builders and administrators.*
 
-Webhooks enable you to connect your IoT Central app to other applications and services for remote monitoring and notifications. Webhooks automatically notify other applications and services you connect whenever a rule is triggered in your IoT Central app. Your IoT Central app will send a POST request to the other application's HTTP endpoint whenever a rule is triggered. The payload will contain device details and rule trigger details. 
+Webhooks enable you to connect your IoT Central app to other applications and services for remote monitoring and notifications. Webhooks automatically notify other applications and services you connect whenever a rule is triggered in your IoT Central app. Your IoT Central app sends a POST request to the other application's HTTP endpoint whenever a rule is triggered. The payload contains device details and rule trigger details.
 
-## How to set up the webhook
-In this example, you will connect to RequestBin to get notified when rules fire using webhooks. 
+## Set up the webhook
 
-1. Open [RequestBin](http://requestbin.net/). 
-1. Create a new RequestBin and copy the **Bin URL**. 
+In this example, you connect to RequestBin to get notified when rules fire using webhooks.
+
+1. Open [RequestBin](https://requestbin.net/).
+
+1. Create a new RequestBin and copy the **Bin URL**.
+
 1. Create a [telemetry rule](howto-create-telemetry-rules.md) or an [event rule](howto-create-event-rules.md). Save the rule and add a new action.
-![Webhook creation screen](media/howto-create-webhooks/webhookcreate.PNG)
-1. Choose the webhook action and provide a display name and paste the Bin URL as the Callback URL. 
+
+    ![Webhook creation screen](media/howto-create-webhooks/webhookcreate.png)
+
+1. Choose the webhook action and provide a display name and paste the Bin URL as the Callback URL.
+
 1. Save the rule.
 
-Now when the rule is triggered, you should see a new request appear in RequestBin.
+Now when the rule is triggered, you see a new request appear in RequestBin.
 
 ## Payload
-When a rule is triggered, an HTTP POST request is made to the callback URL containing a json payload with the measurements, device, rule, and application details. For a telemetry rule, the payload can look like the following:
+
+When a rule is triggered, an HTTP POST request is made to the callback URL containing a json payload with the measurements, device, rule, and application details. For a telemetry rule, the payload looks like the following:
 
 ```json
 {
@@ -78,9 +85,11 @@ When a rule is triggered, an HTTP POST request is made to the callback URL conta
 ```
 
 ## Known limitations
+
 Currently there is no programmatic way of subscribing/unsubscribing from these webhooks through an API.
 
 If you have ideas for how to improve this feature, post your suggestions to our [Uservoice forum](https://feedback.azure.com/forums/911455-azure-iot-central).
 
 ## Next steps
-Now that you have learned how to set up and use webhooks, the suggested next step is to explore [building workflows in Microsoft Flow](howto-add-microsoft-flow.md).
+
+Now that you've learned how to set up and use webhooks, the suggested next step is to explore [building workflows in Microsoft Flow](howto-add-microsoft-flow.md).

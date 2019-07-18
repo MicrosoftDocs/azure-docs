@@ -1,15 +1,9 @@
 ---
 title: How to create Azure Resource Manager template
 description: Describes the process of authoring an Azure Resource Manager template. 
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
 ---
@@ -33,15 +27,15 @@ For a tutorial of installing the Resource Manager tools extension and how to use
 
 Let's review the parts of the template to understand how the template works. Your template may not have every section. The sections you want to focus on are:
 
-* The [parameters](resource-manager-templates-parameters.md) section, which shows the values you can specify during deployment to customize the infrastructure that is deployed. 
+* The [parameters](resource-group-authoring-templates.md#parameters) section, which shows the values you can specify during deployment to customize the infrastructure that is deployed. 
 
-* The [variables](resource-manager-templates-variables.md) section, which shows values that are used throughout the template.
+* The [variables](resource-group-authoring-templates.md#variables) section, which shows values that are used throughout the template.
 
 * The [functions](resource-group-authoring-templates.md#functions) section, which shows customized template expressions that are used in your template.
 
-* The [resources](resource-manager-templates-resources.md) section, which shows the Azure resources that are deployed to your subscription.
+* The [resources](resource-group-authoring-templates.md#resources) section, which shows the Azure resources that are deployed to your subscription.
 
-* The [outputs](resource-manager-templates-outputs.md) section, which shows the values that are returned after deployment has finished.
+* The [outputs](resource-group-authoring-templates.md#outputs) section, which shows the values that are returned after deployment has finished.
 
 ## Look for similar templates
 
@@ -93,7 +87,7 @@ You can add tags to your resources to logically organize by categories, and divi
 }
 ```
 
-You can also apply tags dynamically from parameters. For more information, see [tags in template](resource-manager-templates-resources.md#tags).
+You can also apply tags dynamically from parameters. For more information, see [tags in template](resource-group-using-tags.md#templates).
 
 ## Review template functions
 
@@ -171,7 +165,7 @@ The following example conditionally deploys a storage account:
 }
 ```
 
-For more information, see the [condition element](resource-manager-templates-resources.md#condition).
+For more information, see the [condition element](resource-group-authoring-templates.md#condition).
 
 ## Review dependencies
 

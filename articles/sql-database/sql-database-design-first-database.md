@@ -5,8 +5,8 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.topic: tutorial
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/08/2019

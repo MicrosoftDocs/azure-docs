@@ -54,8 +54,8 @@ When you try to connect to a VM, you experience the following scenarios:
 This problem occurs because Remote Desktop Services isn't running on the VM. The cause can depend on the following scenarios: 
 
 - The TermService service is set to **Disabled**. 
-- The TermService service is crashing or hanging. 
-- The TermService is not starting because of to a incorrect configuration.
+- The TermService service is crashing or not responding. 
+- The TermService is not starting because of to an incorrect configuration.
 
 ## Solution
 
@@ -96,16 +96,17 @@ To troubleshoot this issue, use the Serial Console. Or else [repair the VM offli
 
     |  Error |  Suggestion |
     |---|---|
-    |5- ACCESS DENIED |See [TermService service is stopped because of an Access Denied error](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |See [TermService service is disabled](#termService-service-is-disabled).  |  
-    |1058 - ERROR_SERVICE_DISABLED  |See [TermService service crashes or hangs](#termService-service-crashes-or-hangs).  |
+    |5- ACCESS DENIED |See [TermService service is stopped because of an Access Denied error](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |See [TermService service is disabled](#termservice-service-is-disabled).  |  
+    |1058 - ERROR_SERVICE_DISABLED  |See [TermService service crashes or hangs](#termservice-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.|
-    |1067 - ERROR_PROCESS_ABORTED  |See [TermService service crashes or hangs](#termService-service-crashes-or-hangs).  |
+    |1067 - ERROR_PROCESS_ABORTED  |See [TermService service crashes or hangs](#termservice-service-crashes-or-hangs).  |
     |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |See [TermService service fails because of logon failure](#termService-service-fails-because-of-logon-failure) |
-    |1070 - ERROR_SERVICE_START_HANG   | See [TermService service crashes or hangs](#termService-service-crashes-or-hangs). |
-    |1077 - ERROR_SERVICE_NEVER_STARTED   | See [TermService service is disabled](#termService-service-is-disabled).  |
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |See [TermService service fails because of logon failure](#termservice-service-fails-because-of-logon-failure) |
+    |1070 - ERROR_SERVICE_START_HANG   | See [TermService service crashes or hangs](#termservice-service-crashes-or-hangs). |
+    |1077 - ERROR_SERVICE_NEVER_STARTED   | See [TermService service is disabled](#termservice-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. |
-    |1753   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.   |   |5- ACCESS DENIED |See [TermService service is stopped because of an Access Denied error](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    |1753   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.   |
     
 #### TermService service is stopped because of an Access Denied problem
 
@@ -202,7 +203,7 @@ To troubleshoot this issue, use the Serial Console. Or else [repair the VM offli
 
 1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
 2. Start a Remote Desktop connection to the recovery VM. Make sure that the attached disk is flagged as **Online** in the Disk Management console. Note the drive letter that's assigned to the attached OS disk.
-3.  Open an elevated command prompt instance (**Run as administrator**). Then run the following script. We assume that the drive letter that's assigned to the attached OS disk is **F**. Replace it with the appropriate value in your VM. 
+3. Open an elevated command prompt instance (**Run as administrator**). Then run the following script. We assume that the drive letter that's assigned to the attached OS disk is **F**. Replace it with the appropriate value in your VM. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv

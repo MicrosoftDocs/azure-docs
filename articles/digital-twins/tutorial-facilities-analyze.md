@@ -2,12 +2,12 @@
 title: 'Tutorial: Analyze events from Azure Digital Twins setup | Microsoft Docs'
 description: Learn how to visualize and analyze events from your Azure Digital Twins spaces, with Azure Time Series Insights, by using the steps in this tutorial.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
 ms.date: 12/18/2018
-ms.author: dkshir
+ms.author: alinast
 ---
 
 # Tutorial: Visualize and analyze events from your Azure Digital Twins spaces by using Time Series Insights
@@ -47,7 +47,7 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 1. Enter a **Name** for your Event Hubs namespace. Choose **Standard** for **Pricing tier**, your **Subscription**, the **Resource group** that you used for your Digital Twins instance, and the **Location**. Select **Create**.
 
-1. In the Event Hubs namespace deployment, select the namespace under **RESOURCE**.
+1. In the Event Hubs namespace deployment, select the **Overview** pane, then select **Go to resource**.
 
     ![Event Hubs namespace after deployment](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
@@ -85,13 +85,13 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
       - UdfCustom
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     - type: EventHub
       eventTypes:
       - DeviceMessage
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     ```
 
 1. Replace the placeholders `Primary_connection_string_for_your_event_hub` with the value of **Connection string--primary key** for the event hub. Make sure the format of this connection string is as follows:
@@ -106,7 +106,7 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. Replace the placeholders `Name_of_your_Event_Hubs_namespace` with the name of your Event Hubs namespace.
+1. Replace the placeholders `Name_of_your_Event_Hub` with the name of your Event Hub.
 
     > [!IMPORTANT]
     > Enter all values without any quotes. Make sure there's at least one space character after the colons in the YAML file. You can also validate your YAML file contents by using any online YAML validator, such as [this tool](https://onlineyamltools.com/validate-yaml).
@@ -127,17 +127,19 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 1. Search for and select a new **Time Series Insights** resource. Select **Create**.
 
-1. Enter a **Name** for your Time Series Insights instance, and then select your **Subscription**. Select the **Resource group** that you used for your Digital Twins instance, and your **Location**. Select **Create**.
+1. Enter a **Name** for your Time Series Insights instance, and then select your **Subscription**. Select the **Resource group** that you used for your Digital Twins instance, and your **Location**. Select **Next: Event Source** button or the **Event Source** tab.
 
     ![Selections for creating a Time Series Insights instance](./media/tutorial-facilities-analyze/create-tsi.png)
 
-1. After the instance is deployed, open the Time Series Insights environment, and then open its **Event Sources** pane. Select the **Add** button at the top to add a consumer group.
-
-1. In the **New event source** pane, enter a **Name**, and make sure the other values are selected correctly. Select **ManageSend** for **Event hub policy name**, and then select the consumer group that you created in the previous section for **Event hub consumer group**. Select **Create**.
+1. In the **Event Source** tab, enter a **Name**, select **Event Hub** as the **Source type**, and make sure the other values are selected correctly. Select **ManageSend** for **Event Hub access policy name**, and then select the consumer group that you created in the previous section for **Event Hub consumer group**. Select **Review + create**.
 
     ![Selections for creating an event source](./media/tutorial-facilities-analyze/tsi-event-source.png)
 
-1. Open the **Overview** pane for your Time Series Insights environment, and select the **Go to Environment** button at the top. If you get a data access warning, open the **Data Access Policies** pane for your Time Series Insights instance, select **Add**, select **Contributor** as the role, and select the appropriate user.
+1. In the **Review + Create** pane, review the information you entered, and select **Create**.
+
+1. In the deployment pane, select the Time Series Insights resource you just created. It opens the **Overview** pane for your Time Series Insights environment.
+
+1. Select the **Go to Environment** button at the top. If you get a data access warning, open the **Data Access Policies** pane for your Time Series Insights instance, select **Add**, select **Contributor** as the role, and select the appropriate user.
 
 1. The **Go to Environment** button opens the [Time Series Insights explorer](../time-series-insights/time-series-insights-explorer.md). If it doesn't show any events, simulate device events by browsing to the **device-connectivity** project of your Digital Twins sample, and running `dotnet run`.
 
@@ -155,7 +157,7 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 If you want to stop exploring Azure Digital Twins beyond this point, feel free to delete resources created in this tutorial:
 
-1. From the left menu in the [Azure portal](http://portal.azure.com), select **All resources**, select your Digital Twins resource group, and then select **Delete**.
+1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, select your Digital Twins resource group, and then select **Delete**.
 
     > [!TIP]
     > If you experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Please retry deleting your instance.

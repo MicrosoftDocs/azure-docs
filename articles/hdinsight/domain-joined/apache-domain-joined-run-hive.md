@@ -1,7 +1,6 @@
 ---
 title: Configure Hive policies in HDInsight with Enterprise Security Package - Azure
 description: Learn how to configure Apache Ranger policies for Hive in an Azure HDInsight service with Enterprise Security Package.
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -32,7 +31,7 @@ Learn how to configure Apache Ranger policies for Apache Hive. In this article, 
     Currently, Ranger only works with Yarn and Hive.
 
 ## Create Domain users
-See [Create a HDInsight cluster with ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), for information on how to create hiveruser1 and hiveuser2. You use the two user accounts in this tutorial.
+See [Create a HDInsight cluster with ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), for information on how to create hiveruser1 and hiveuser2. You use the two user accounts in this article.
 
 ## Create Ranger policies
 In this section, you create two Ranger policies for accessing hivesampletable. You give select permission on different set of columns. Both users were created using [Create a HDInsight cluster with ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). In the next section, you will test the two policies in Excel.

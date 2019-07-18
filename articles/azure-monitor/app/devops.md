@@ -162,7 +162,7 @@ When an alert is raised, Application Insights can automatically create a work it
 ## Next steps
 Getting started with Application Insights is easy. The main options are:
 
-* Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](../../azure-monitor/app/java-live.md) and [IIS servers](../../azure-monitor/app/monitor-performance-live-website-now.md), and also for [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
+* [IIS servers](../../azure-monitor/app/monitor-performance-live-website-now.md), and also for [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
 * Instrument your project during development. You can do this for [ASP.NET](../../azure-monitor/app/asp-net.md) or [Java](../../azure-monitor/app/java-get-started.md) apps, as well as [Node.js](../../azure-monitor/app/nodejs.md) and a host of [other types](../../azure-monitor/app/platforms.md). 
 * Instrument [any web page](../../azure-monitor/app/javascript.md) by adding a short code snippet.
 

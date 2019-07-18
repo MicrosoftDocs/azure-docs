@@ -4,7 +4,7 @@ description: High availability for NFS on Azure VMs on SUSE Linux Enterprise Ser
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
 
 ---
@@ -40,6 +40,7 @@ ms.author: sedusch
 
 [sles-hae-guides]:https://www.suse.com/documentation/sle-ha-12/
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
+[suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
@@ -73,6 +74,7 @@ Read the following SAP Notes and papers first
 * [SUSE Linux Enterprise High Availability Extension 12 SP3 best practices guides][sles-hae-guides]
   * Highly Available NFS Storage with DRBD and Pacemaker
 * [SUSE Linux Enterprise Server for SAP Applications 12 SP3 best practices guides][sles-for-sap-bp]
+* [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
 
 ## Overview
 
@@ -178,6 +180,9 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          * Repeat the steps above for port 2049 and TCP for NW2
       1. 2049 UDP for NW2
          * Repeat the steps above for port 2049 and UDP for NW2
+
+> [!IMPORTANT]
+> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### Create Pacemaker cluster
 
@@ -425,9 +430,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    When using drbd to synchronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be a rare situation but you still want to handle and resolve a split brain as fast as possible. It is therefore important to be notified when a split brain happened.
 
-   Read [the official drbd documentation](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) on how to set up a split brain notification.
+   Read [the official drbd documentation](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) on how to set up a split brain notification.
 
-   It is also possible to automatically recover from a split brain scenario. For more information, read [Automatic split brain recovery policies](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
+   It is also possible to automatically recover from a split brain scenario. For more information, read [Automatic split brain recovery policies](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
    
 ### Configure Cluster Framework
 

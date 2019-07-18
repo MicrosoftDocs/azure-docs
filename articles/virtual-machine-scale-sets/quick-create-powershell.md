@@ -1,4 +1,4 @@
-﻿---
+---
 title: Quickstart - Create a virtual machine scale set with Azure PowerShell | Microsoft Docs
 description: Learn how to quickly create a virtual machine scale with Azure PowerShell
 services: virtual-machine-scale-sets
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/18
+ms.date: 11/08/2018
 ms.author: cynthn
 ---
 
@@ -27,7 +27,7 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## Create a scale set

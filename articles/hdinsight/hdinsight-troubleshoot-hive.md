@@ -2,10 +2,9 @@
 title: Troubleshoot Hive by using Azure HDInsight 
 description: Get answers to common questions about working with Apache Hive and Azure HDInsight.
 keywords: Azure HDInsight, Hive, FAQ, troubleshooting guide, common questions
-services: hdinsight
 ms.service: hdinsight
 author: dharmeshkakadia
-ms.author: dharmeshkakadia
+ms.author: dkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
 ---
@@ -28,13 +27,13 @@ Learn about the top questions and their resolutions when working with Apache Hiv
     for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
     ```
 
-  This command generates a file named allatables.sql.
+   This command generates a file named allatables.sql.
 
 3. Copy the file alltables.sql to the new HDInsight cluster, and then run the following command:
 
-  ```apache
-  hive -f alltables.sql
-  ```
+   ```apache
+   hive -f alltables.sql
+   ```
 
 The code in the resolution steps assumes that data paths on the new cluster are the same as the data paths on the old cluster. If the data paths are different, you can manually edit the generated alltables.sql file to reflect any changes.
 
@@ -51,21 +50,21 @@ The code in the resolution steps assumes that data paths on the new cluster are 
 
 2. To view Hive client logs, use the following command:
 
-  ```apache
-  /tmp/<username>/hive.log 
-  ```
+   ```apache
+   /tmp/<username>/hive.log 
+   ```
 
 3. To view Hive metastore logs, use the following command:
 
-  ```apache
-  /var/log/hive/hivemetastore.log 
-  ```
+   ```apache
+   /var/log/hive/hivemetastore.log 
+   ```
 
 4. To view Hiveserver logs, use the following command:
 
-  ```apache
-  /var/log/hive/hiveserver2.log 
-  ```
+   ```apache
+   /var/log/hive/hiveserver2.log 
+   ```
 
 ### Additional reading
 
@@ -78,21 +77,21 @@ The code in the resolution steps assumes that data paths on the new cluster are 
 
 1. Specify a configuration key-value pair when you start the Hive shell. For more information, see [Additional reading](#additional-reading-end).
 
-  ```apache
-  hive -hiveconf a=b 
-  ```
+   ```apache
+   hive -hiveconf a=b 
+   ```
 
 2. To list all effective configurations on Hive shell, use the following command:
 
-  ```apache
-  hive> set;
-  ```
+   ```apache
+   hive> set;
+   ```
 
-  For example, use the following command to start Hive shell with debug logging enabled on the console:
+   For example, use the following command to start Hive shell with debug logging enabled on the console:
 
-  ```apache
-  hive -hiveconf hive.root.logger=ALL,console 
-  ```
+   ```apache
+   hive -hiveconf hive.root.logger=ALL,console 
+   ```
 
 ### Additional reading
 
@@ -108,19 +107,19 @@ The code in the resolution steps assumes that data paths on the new cluster are 
 
 2. At a command prompt, run the following command:
    
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
+   ```
 
 3. To list other analyzers that can be used to analyze Tez DAG, use the following command:
 
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
+   ```
 
-  You must provide an example program as the first argument.
+   You must provide an example program as the first argument.
 
-  Valid program names include:
+   Valid program names include:
     - **ContainerReuseAnalyzer**: Print container reuse details in a DAG
     - **CriticalPath**: Find the critical path of a DAG
     - **LocalityAnalyzer**: Print locality details in a DAG

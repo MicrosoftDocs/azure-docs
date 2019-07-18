@@ -1,0 +1,65 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Sentinel Preview Documentation
+metadata:
+  title: Azure Sentinel Preview Documentation - Tutorials, Quickstarts | Microsoft Doc
+  meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
+  services: sentinel
+  author: cmcclister
+  manager: carolz
+  ms.service: azure-sentinel
+  ms.subservice: azure-sentinel
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 02/28/19
+  ms.author: cmcclister
+abstract:
+  description: Azure Sentinel Preview is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale. Get limitless cloud speed and scale to help focus on what really matters. Easily collect data from all your cloud or on-premises assets, Office 365, Azure resources, and other clouds. Effectively detect threats with built-in machine learning from Microsoft’s security analytics experts. Automate threat response, using built-in orchestration and automation playbooks.
+sections:
+- title: 5-Minute Quickstarts
+  items: 
+  - type: paragraph
+    text: Learn how to onboard your data to Azure Sentinel, and get visibility into your data, and potential threats.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: media/index/deploy.svg
+      text: Onboard Azure Sentinel
+      href: /azure/sentinel/quickstart-onboard
+    - image: 
+        src: media/index/get-started.svg
+      text: Get started with Azure Sentinel
+      href: /azure/sentinel/quickstart-get-visibility
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to define security policies, protect your resources against malicious activity, and respond to security alerts and incidents.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sentinel/tutorial-detect-threats">Detect threats with Azure Sentinel</a>
+    - html: <a href="/azure/sentinel/tutorial-respond-threats-playbook">Set up automated threat responses</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Introduction to Security in Azure
+      href: https://docs.microsoft.com/learn/azure
+      image: 
+        src: media/index/tutorial.svg
+        href: https://docs.microsoft.com/learn/azure
+
+  - type: paragraph
+    text: <a href="/learn/browse/?term=security">More interactive learning...</a>
+
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - html: <a href="https://azure.microsoft.com/updates/?product=sentinel">Service updates</a>

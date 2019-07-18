@@ -23,7 +23,7 @@ The **calchistogram** REST API is used to calculate the distribution of attribut
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 ``` 
 <br>
-  
+
 ## Request Parameters
 
 Name  |Value | Required?  |Description

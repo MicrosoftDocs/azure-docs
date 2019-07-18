@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
-ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
+ms.author: erikre
+ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 
 ---
 # How to Send Email Using SendGrid from Java in an Azure Deployment
-The following example shows you how you can use SendGrid to send emails from a web page hosted in Azure. The resulting application will prompt the user for email values, as shown in the following screen shot.
+The following example shows you how you can use SendGrid to send emails from a web page hosted in Azure. The resulting application will prompt the user for email values, as shown in the following screenshot.
 
 ![Email form][emailform]
 
-The resulting email will look similar to the following screen shot.
+The resulting email will look similar to the following screenshot.
 
 ![Email message][emailsent]
 
@@ -34,7 +35,7 @@ You'll need to do the following to use the code in this topic:
 
 You must also have your own SendGrid username and password, to be able to send the email. To get started with SendGrid, see [How to send email using SendGrid from Java](store-sendgrid-java-how-to-send-email.md).
 
-Additionally, familiarity with the information at [Creating a Hello World Application for Azure in Eclipse](https://msdn.microsoft.com/library/windowsazure/hh690944), or with other techniques for hosting Java applications in Azure if you are not using Eclipse, is highly recommended.
+Additionally, familiarity with the information at [Creating a Hello World Application for Azure in Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app?view=azure-java-stable), or with other techniques for hosting Java applications in Azure if you are not using Eclipse, is highly recommended.
 
 ## Create a web form for sending email
 The following code shows how to create a web form to retrieve user data for sending email. For purposes of this content, the JSP file is named **emailform.jsp**.
@@ -200,7 +201,7 @@ The following code, which is called when you complete the form in emailform.jsp,
     </body>
     </html>
 
-In addition to sending the email, emailform.jsp provides a result for the user; an example is the following screen shot:
+In addition to sending the email, emailform.jsp provides a result for the user; an example is the following screenshot:
 
 ![Send mail result][emailresult]
 
@@ -210,7 +211,6 @@ Deploy your application to the compute emulator and within a browser run emailfo
 This code was provided to show you how to use SendGrid in Java on Azure. Before deploying to Azure in production, you may want to add more error handling or other features. For example: 
 
 * You could use Azure storage blobs or SQL Database to store email addresses and email messages, instead of using a web form. For information about using Azure storage blobs in Java, see [How to Use the Blob Storage Service from Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). For information about using SQL Database in Java, see [Using SQL Database in Java](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java).
-* You could use `RoleEnvironment.getConfigurationSettings` to retrieve the SendGrid username and password from your deployment's configuration settings, instead of using the web form to retrieve those values. For information about the `RoleEnvironment` class, see [Using the Azure Service Runtime Library in JSP](https://msdn.microsoft.com/library/windowsazure/hh690948) and the Azure Service Runtime package documentation at <http://dl.windowsazure.com/javadoc>.
 * For more information about using SendGrid in Java, see [How to send email using SendGrid from Java](store-sendgrid-java-how-to-send-email.md).
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg

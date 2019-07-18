@@ -6,7 +6,7 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, seodec18"
@@ -15,41 +15,40 @@ ms.custom: "mvc, seodec18"
 
 # Tutorial: Perform image classification at the edge with Custom Vision Service
 
-Azure IoT Edge can make your IoT solution more efficient by moving workloads out of the cloud and to the edge. This capability lends itself well to services that process a lot of data, like computer vision models. The [Custom Vision Service](../cognitive-services/custom-vision-service/home.md) lets you build custom image classifiers and deploy them to devices as containers. Together, these two services enable you to find insights from images or video streams without having to transfer all of the data off site first. Custom Vision provides a classifier that compares an image against a trained model to generate insights. 
+Azure IoT Edge can make your IoT solution more efficient by moving workloads out of the cloud and to the edge. This capability lends itself well to services that process a lot of data, like computer vision models. The [Custom Vision Service](../cognitive-services/custom-vision-service/home.md) lets you build custom image classifiers and deploy them to devices as containers. Together, these two services enable you to find insights from images or video streams without having to transfer all of the data off site first. Custom Vision provides a classifier that compares an image against a trained model to generate insights.
 
-For example, Custom Vision on an IoT Edge device could determine whether a highway is experiencing higher or lower traffic than normal, or whether a parking garage has available parking spots in a row. These insights can be shared with another service to take action. 
+For example, Custom Vision on an IoT Edge device could determine whether a highway is experiencing higher or lower traffic than normal, or whether a parking garage has available parking spots in a row. These insights can be shared with another service to take action.
 
-
-In this tutorial, you learn how to: 
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Build an image classifier with Custom Vision.
 > * Develop an IoT Edge module that queries the Custom Vision web server on your device.
 > * Send the results of the image classifier to IoT Hub.
+
+<center>
+
+![Diagram - Tutorial architecture, stage and deploy classifier](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+</center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-An Azure IoT Edge device:
+Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place: 
 
-* You can use your development machine or a virtual machine as an Edge device by following the steps in the [quickstart for Linux](quickstart-linux.md).
-* Currently, the Custom Vision module is available only as a Linux container for x64 architectures. 
+* A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
+* A [Linux device running Azure IoT Edge](quickstart-linux.md)
+* A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
 
-Cloud resources:
-
-* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
-* A container registry. This tutorial uses [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/). 
-    * Know the credentials for your container registry [admin account](../container-registry/container-registry-authentication.md#admin-account).
-
-Development resources:
+To develop an IoT Edge module with the Custom Vision service, install the following additional prerequisites on your development machine: 
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension for Visual Studio Code
 * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension for Visual Studio Code
-* [Docker CE](https://docs.docker.com/install/)
 
 ## Build an image classifier with Custom Vision
 
@@ -71,10 +70,11 @@ Once your image classifier is built and trained, you can export it as a Docker c
    | ----- | ----- |
    | Name | Provide a name for your project, like **EdgeTreeClassifier**. |
    | Description | Optional project description. |
-   | Resource Group | Accept the default **Limited trial**. |
+   | Resource Group | Select one of your Azure Resource Groups that includes a Custom Vision Service Resource or **create new** if you haven't yet added one. |
    | Project Types | **Classification** |
-   | Classification Types | **Multiclass (single tag per image)** | 
+   | Classification Types | **Multiclass (single tag per image)** |
    | Domains | **General (compact)** |
+   | Export Capabilities | **Basic platforms (Tensorflow, CoreML, ONNX, ...)** |
 
 5. Select **Create project**.
 
@@ -138,17 +138,9 @@ A solution is a logical way of developing and organizing multiple modules for a 
 
 1. In Visual Studio Code, select **View** > **Terminal** to open the VS Code integrated terminal.
 
-2. In the integrated terminal, enter the following command to install (or update) **cookiecutter**, which you use to create the IoT Edge python module template in VS Code:
+1. Select **View** > **Command Palette** to open the VS Code command palette. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Ensure the directory where cookiecutter will be installed is in your environment’s `Path` in order to make it possible to invoke it from a command prompt.
-
-3. Select **View** > **Command Palette** to open the VS Code command palette. 
-
-4. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
+1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
 
    | Field | Value |
    | ----- | ----- |
@@ -161,6 +153,22 @@ A solution is a logical way of developing and organizing multiple modules for a 
    ![Provide Docker image repository](./media/tutorial-deploy-custom-vision/repository.png)
 
 The Visual Studio Code window loads your IoT Edge solution workspace.
+
+### Add your registry credentials
+
+The environment file stores the credentials for your container registry and shares them with the IoT Edge runtime. The runtime needs these credentials to pull your private images onto the IoT Edge device.
+
+1. In the VS Code explorer, open the .env file.
+2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
+3. Save this file.
+
+### Select your target architecture
+
+Currently, Visual Studio Code can develop modules for Linux AMD64 and Linux ARM32v7 devices. You need to select which architecture you're targeting with each solution, because the container is built and run differently for each architecture type. The default is Linux AMD64. 
+
+1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window. 
+
+2. In the command palette, select the target architecture from the list of options. For this tutorial, we're using an Ubuntu virtual machine as the IoT Edge device, so will keep the default **amd64**. 
 
 ### Add your image classifier
 
@@ -384,28 +392,6 @@ The IoT Edge extension for Visual Studio Code provides a template in each IoT Ed
 
 7. Save the **deployment.template.json** file.
 
-### Add your registry credentials
-
-The prerequisites for this tutorial listed a container registry, which is necessary to store the container images for the modules that you created. You need to provide access credentials for your registry in two places: in Visual Studio Code so that you can build and push your images to the registry, and in the deployment manifest so that your IoT Edge device can pull and deploy the images. 
-
-If you're using Azure Container Registry, make sure you know the username, login server, and password for the [admin account](../container-registry/container-registry-authentication.md#admin-account). 
-
-1. In Visual Studio Code, open the integrated terminal by selecting **View** > **Terminal**. 
-
-2. Enter the following command in the integrated terminal: 
-
-    ```csh/sh
-    docker login -u <registry username> <registry login server>
-    ```
-
-3. When prompted, provide your registry password and press **Enter**.
-
-4. Open the **.env** file in the solution folder. This file is git ignored and stores your registry credentials so that you don't have to hardcode them into the deployment template file. 
-
-5. Provide the username and password for your container registry, without quotation marks around the values. 
-
-6. Save the **.env** file.
-
 ## Build and deploy your IoT Edge solution
 
 With both modules created and the deployment manifest template configured, you're ready to build the container images and push them to your container registry. 
@@ -418,13 +404,7 @@ First, build and push your solution to your container registry.
 2. Notice that a new folder was added to your solution, **config**. Expand this folder and open the **deployment.json** file inside.
 3. Review the information in the deployment.json file. The deployment.json file is created (or updated) automatically based on the deployment template file that you configured and information from the solution, including the .env file and the module.json files. 
 
-Next, set up access to your IoT Hub from within Visual Studio Code. 
-
-1. In the VS Code command palette, select **Azure IoT Hub: Select IoT Hub**.
-2. Follow the prompts to sign in to your Azure account. 
-3. In the command palette, select your Azure subscription then select your IoT Hub. 
-
-Finally, select your device and deploy your solution.
+Next, select your device and deploy your solution.
 
 1. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
 2. Right-click on the device that you want to target with your deployment and select **Create deployment for single device**. 
@@ -448,7 +428,7 @@ From your device, view the logs of the cameraCapture module to see the messages 
    iotedge logs cameraCapture
    ```
 
-From Visual Studio Code, right-click on the name of your IoT Edge device and select **Start monitoring D2C message**. 
+From Visual Studio Code, right-click on the name of your IoT Edge device and select **Start Monitoring Built-in Event Endpoint**. 
 
 The results from the Custom Vision module, which are sent as messages from the cameraCapture module, include the probability that the image is of either a hemlock or cherry tree. Since the image is hemlock, you should see the probability as 1.0. 
 
@@ -457,12 +437,9 @@ The results from the Custom Vision module, which are sent as messages from the c
 
 If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device. 
 
-Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges. 
+Otherwise, you can delete the local configurations and the Azure resources that you used in this article to avoid charges. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
 
 
 ## Next steps
@@ -474,4 +451,4 @@ If you want to try a more in-depth version of this scenario with a live camera f
 Continue on to the next tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Find averages using a floating window in Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Store data at the edge with SQL Server databases](tutorial-store-data-sql-server.md)

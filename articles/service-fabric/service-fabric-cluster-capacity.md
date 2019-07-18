@@ -4,7 +4,7 @@ description: Service Fabric cluster capacity planning considerations. Nodetypes,
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 07/09/2019
 ms.author: chackdan
 
 ---
@@ -24,9 +24,9 @@ For any production deployment, capacity planning is an important step. Here are 
 * The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
 * The reliability and durability characteristics of the cluster
 
-> [!NOTE]
-> You should minimally review all **Not Allowed** upgrade policy values during planning. This is to ensure that you set the values appropriately and to mitigate burning down of your cluster later because of unchangeable system configuration settings. 
-> 
+> [!NOTE]
+> You should minimally review all **Not Allowed** upgrade policy values during planning. This is to ensure that you set the values appropriately and to mitigate burning down of your cluster later because of unchangeable system configuration settings. 
+> 
 
 Let us briefly review each of these items.
 
@@ -73,21 +73,21 @@ The durability tier is used to indicate to the system the privileges that your V
 | Durability tier  | Required minimum number of VMs | Supported VM SKUs                                                                  | Updates you make to your virtual machine scale set                               | Updates and maintenance initiated by Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Gold             | 5                              | Full-node SKUs dedicated to a single customer (for example, L32s, GS5, G5, DS15_v2, D15_v2) | Can be delayed until approved by the Service Fabric cluster | Can be paused for 2 hours per UD to allow additional time for replicas to recover from earlier failures |
-| Silver           | 5                              | VMs of single core or above                                                        | Can be delayed until approved by the Service Fabric cluster | Cannot be delayed for any significant period of time                                                    |
-| Bronze           | 1                              | All                                                                                | Will not be delayed by the Service Fabric cluster           | Cannot be delayed for any significant period of time                                                    |
+| Silver           | 5                              | VMs of single core or above with at least 50 GB of local SSD                      | Can be delayed until approved by the Service Fabric cluster | Cannot be delayed for any significant period of time                                                    |
+| Bronze           | 1                              | VMs with at least 50 GB of local SSD                                              | Will not be delayed by the Service Fabric cluster           | Cannot be delayed for any significant period of time                                                    |
 
 > [!WARNING]
 > Node types running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed, which might impact your workloads. Use only Bronze for node types that run only stateless workloads. For production workloads, running Silver or above is recommended. 
-
+> 
 > Regardless of any durability level, [Deallocation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) operation on VM Scale Set will destroy the cluster
 
 **Advantages of using Silver or Gold durability levels**
- 
+ 
 - Reduces the number of required steps in a scale-in operation (that is, node deactivation and Remove-ServiceFabricNodeState is called automatically).
 - Reduces the risk of data loss due to a customer-initiated in-place VM SKU change operation or Azure infrastructure operations.
 
 **Disadvantages of using Silver or Gold durability levels**
- 
+ 
 - Deployments to your virtual machine scale set and other related Azure resources can be delayed, can time out, or can be blocked entirely by problems in your cluster or at the infrastructure level. 
 - Increases the number of [replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (for example, primary swaps) due to automated node deactivations during Azure infrastructure operations.
 - Takes nodes out of service for periods of time while Azure platform software updates or hardware maintenance activities are occurring. You may see nodes with status Disabling/Disabled during these activities. This reduces the capacity of your cluster temporarily, but should not impact the availability of your cluster or applications.
@@ -104,10 +104,10 @@ Use Silver or Gold durability for all node types that host stateful services you
 ### Operational recommendations for the node type that you have set to silver or gold durability level.
 
 - Keep your cluster and applications healthy at all times, and make sure that applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (like replica in build is stuck) in a timely fashion.
-- Adopt safer ways to make a VM SKU change (Scale up/down): Changing the VM SKU of a virtual machine scale set is inherently an unsafe operation and so should be avoided if possible. Here is the process you can follow to avoid common issues.
+- Adopt safer ways to make a VM SKU change (Scale up/down): Changing the VM SKU of a virtual machine scale set requires a number of steps and considerations. Here is the process you can follow to avoid common issues.
 	- **For non-primary node types:** It is recommended that you create new virtual machine scale set, modify the service placement constraint to include the new virtual machine scale set/node type and then reduce the old virtual machine scale set instance count to zero, one node at a time (this is to make sure that removal of the nodes do not impact the reliability of the cluster).
-	- **For the primary node type:** Our recommendation is that you do not change VM SKU of the primary node type. Changing of the primary node type SKU is not supported. If the reason for the new SKU is capacity, we recommend adding more instances. If that not possible, create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you are running stateless applications on your cluster, deploy your applications to the new cluster.  You have nothing to restore. If you decide to go the unsupported route and want to change the VM SKU, then make modifications to the virtual machine scale set Model definition to reflect the new SKU. If your cluster has only one node type, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
-	
+	- **For the primary node type:** If the VM SKU you have selected is at capacity and you would like to change to a larger VM SKU, follow our guidance on [vertical scaling for a primary node type](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type). 
+
 - Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled.
 - Each virtual machine scale set with durability level Silver or Gold must map to its own node type in the Service Fabric cluster. Mapping multiple virtual machine scale sets to a single node type will prevent coordination between the Service Fabric cluster and the Azure infrastructure from working properly.
 - Do not delete random VM instances, always use virtual machine scale set scale down feature. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to properly load balance amongst the service instances/Service replicas.
@@ -156,11 +156,11 @@ Since the capacity needs of a cluster is determined by workload you plan to run 
 For production workloads: 
 
 - It's recommended to dedicate your clusters primary NodeType to system services, and use placement constraints to deploy your application to secondary NodeTypes.
-- The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent with a minimum of 14 GB of local SSD.
-- The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent with a minimum of 14 GB of local SSD. 
-- The 14-GB local SSD is a minimum requirement. Our recommendation is a minimum of 50 GB. For your workloads, especially when running Windows containers, larger disks are required. 
+- The recommended VM SKU is Standard D2_V2 or equivalent with a minimum of 50 GB of local SSD.
+- The minimum supported use VM SKU is Standard_D2_V3 or Standard D1_V2 or equivalent with a minimum of 50 GB of local SSD. 
+- Our recommendation is a minimum of 50 GB. For your workloads, especially when running Windows containers, larger disks are required. 
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
-- Standard A1 SKU is not supported for production workloads for performance reasons.
+- A series VM SKUs are not supported for production workloads for performance reasons.
 - Low-priority VMs are not supported.
 
 > [!WARNING]
@@ -178,10 +178,10 @@ So for production workloads, the minimum recommended non-Primary Node type size 
 
 For production workloads 
 
-- The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent with a minimum of 14 GB of local SSD.
-- The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent with a minimum of 14 GB of local SSD. 
+- The recommended VM SKU is Standard D2_V2 or equivalent with a minimum of 50 GB of local SSD.
+- The minimum supported use VM SKU is Standard_D2_V3 or Standard D1_V2 or equivalent with a minimum of 50 GB of local SSD. 
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
-- Standard A1 SKU is not supported for production workloads for performance reasons.
+- A series VM SKUs are not supported for production workloads for performance reasons.
 
 ## Non-primary node type - capacity guidance for stateless workloads
 
@@ -193,10 +193,10 @@ This guidance of stateless Workloads that you are running on the non-primary nod
 
 For production workloads 
 
-- The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent. 
+- The recommended VM SKU is Standard D2_V2 or equivalent. 
 - The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent. 
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
-- Standard A1 SKU is not supported for production workloads for performance reasons.
+- A series VM SKUs are not supported for production workloads for performance reasons.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 

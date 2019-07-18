@@ -23,7 +23,7 @@ This article describes how to troubleshoot some of the common routing issues you
 ### Symptom
 - You have created a Front Door but a request to the Frontend host is returning an HTTP 400 status code.
 
- - You have created a DNS mapping from a custom domain to the frontend host you have configured. However, sending a request to the custom domain hostname returns an HTTP 400 status code and does not appear to route to the backend(s) you have configured.
+  - You have created a DNS mapping from a custom domain to the frontend host you have configured. However, sending a request to the custom domain hostname returns an HTTP 400 status code and does not appear to route to the backend(s) you have configured.
 
 ### Cause
 - This symptom can happen if you have not configured a routing rule for the custom domain that you added as a frontend host. A routing rule needs to be explicitly added for that frontend host, even if one has already been configured for the frontend host under the Front Door subdomain (*.azurefd.net) that your custom domain has a DNS mapping to.
@@ -49,11 +49,11 @@ There are several possible causes for this symptom:
     - Ensure that you have waited ~10 minutes for the configuration to be deployed.
 
 2. Check the Backend Settings
-     - Navigate to the backend pool that the request should be routing to (depends on how you have the routing rule configured) and verify that the _backend host type_ and backend host name are correct. If the backend is a custom host, ensure that you have spelled it correctly. 
+   - Navigate to the backend pool that the request should be routing to (depends on how you have the routing rule configured) and verify that the _backend host type_ and backend host name are correct. If the backend is a custom host, ensure that you have spelled it correctly. 
 
-     - Check your HTTP and HTTPS ports. In most cases, 80 and 443 (respectively), are correct and no changes will be required. However, there is a chance that your backend is not configured this way and is listening on a different port.
+   - Check your HTTP and HTTPS ports. In most cases, 80 and 443 (respectively), are correct and no changes will be required. However, there is a chance that your backend is not configured this way and is listening on a different port.
 
-    - Check the _Backend host header_ configured for the backends that the Frontend host should be routing to. In most cases, this header should be the same as the _Backend host name_. However, an incorrect value can cause various HTTP 4xx status codes if the backend expects something different. If you input the IP address of your backend, you might need to set the _Backend host header_ to the hostname of the backend.
+     - Check the _Backend host header_ configured for the backends that the Frontend host should be routing to. In most cases, this header should be the same as the _Backend host name_. However, an incorrect value can cause various HTTP 4xx status codes if the backend expects something different. If you input the IP address of your backend, you might need to set the _Backend host header_ to the hostname of the backend.
 
 
 3. Check the Routing Rule Settings

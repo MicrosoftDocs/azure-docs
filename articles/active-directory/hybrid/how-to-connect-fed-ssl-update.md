@@ -5,7 +5,7 @@ services: active-directory
 manager: daveba
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
-ms.service: active-directory  
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,7 +16,7 @@ author: billmath
 ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
----    
+---
 
 # Update the SSL certificate for an Active Directory Federation Services (AD FS) farm
 

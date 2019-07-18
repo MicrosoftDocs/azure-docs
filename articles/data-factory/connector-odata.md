@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 07/02/2019
 ms.author: jingwang
 
 ---
@@ -67,7 +67,7 @@ The following properties are supported for an OData linked service:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         },
         "connectVia": {
@@ -230,7 +230,7 @@ To copy data from OData, set the **source** type in Copy Activity to **Relationa
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity source must be set to **RelationalSource**. | Yes |
-| query | OData query options for filtering data. Example: `"?$select=Name,Description&$top=5"`.<br/><br/>**Note**: The OData connector copies data from the combined URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. For more information, see [OData URL components](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| query | OData query options for filtering data. Example: `"$select=Name,Description&$top=5"`.<br/><br/>**Note**: The OData connector copies data from the combined URL: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. For more information, see [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
 
 **Example**
 
@@ -254,7 +254,7 @@ To copy data from OData, set the **source** type in Copy Activity to **Relationa
         "typeProperties": {
             "source": {
                 "type": "RelationalSource",
-                "query": "?$select=Name,Description&$top=5"
+                "query": "$select=Name,Description&$top=5"
             },
             "sink": {
                 "type": "<sink type>"

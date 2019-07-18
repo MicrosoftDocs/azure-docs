@@ -3,6 +3,7 @@ title: Tutorial - Create a geo-replicated Docker registry in Azure
 description: Create an Azure container registry, configure geo-replication, prepare a Docker image, and deploy it to the registry. Part one of a three-part series.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: tutorial
@@ -37,7 +38,7 @@ Azure Cloud Shell does not include the Docker components required to complete ev
 
 ## Create a container registry
 
-Sign in to the [Azure portal](http://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 Select **Create a resource** > **Containers** > **Azure Container Registry**.
 
@@ -240,7 +241,7 @@ Advance to the next tutorial to deploy your container to multiple Web Apps for C
 
 <!-- LINKS - External -->
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
-[aspnet-core]: http://dot.net
+[aspnet-core]: https://dot.net
 [dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
 [dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
 [dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

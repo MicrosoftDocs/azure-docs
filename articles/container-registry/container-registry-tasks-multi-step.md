@@ -3,9 +3,11 @@ title: Automate image build, test, and patch with Azure Container Registry multi
 description: An introduction to multi-step tasks, a feature of ACR Tasks in Azure Container Registry that provides task-based workflows for building, testing, and patching container images in the cloud.
 services: container-registry
 author: dlepow
+manager: gwallace
+
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 03/28/2019
 ms.author: danlep
 ---
 
@@ -27,8 +29,6 @@ For example, you can run a task with steps that automate the following logic:
 
 All steps are performed within Azure, offloading the work to Azure's compute resources and freeing you from infrastructure management. Besides your Azure container registry, you pay only for the resources you use. For information on pricing, see the **Container Build** section in [Azure Container Registry pricing][pricing].
 
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 ## Common task scenarios
 
@@ -50,8 +50,8 @@ A multi-step task in ACR Tasks is defined as a series of steps within a YAML fil
 
 The following snippets show how to combine these task step types. Multi-step tasks can be as simple as building a single image from a Dockerfile and pushing to your registry, with a YAML file similar to:
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
@@ -59,8 +59,8 @@ steps:
 
 Or more complex, such as this fictitious multi-step definition which includes steps for build, test, helm package, and helm deploy (container registry and Helm repository configuration not shown):
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - id: build-web
     build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
@@ -145,14 +145,6 @@ Run ID: yd14 was successful after 19s
 ```
 
 For more information about automated builds on Git commit or base image update, see the [Automate image builds](container-registry-tutorial-build-task.md) and [Base image update builds](container-registry-tutorial-base-image-update.md) tutorial articles.
-
-## Preview feedback
-
-While the multi-step task feature of ACR Tasks is in preview, we invite you to provide feedback. Several feedback channels are available:
-
-* [Issues](https://aka.ms/acr/issues) - View existing bugs and issues, and log new ones
-* [UserVoice](https://aka.ms/acr/uservoice) - Vote on existing feature requests or create new requests
-* [Discuss](https://aka.ms/acr/feedback) - Engage in Azure Container Registry discussion with the Stack Overflow community
 
 ## Next steps
 
