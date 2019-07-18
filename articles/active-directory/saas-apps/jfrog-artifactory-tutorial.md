@@ -64,9 +64,9 @@ To configure and test Azure AD SSO with JFrog Artifactory, complete the followin
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
 2. **[Configure JFrog Artifactory SSO](#configure-jfrog-artifactory-sso)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create JFrog Artifactory test user](#create-jfrog-artifactory-test-user)** - to have a counterpart of Britta Simon in JFrog Artifactory that is linked to the Azure AD representation of user.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+5. **[Create JFrog Artifactory test user](#create-jfrog-artifactory-test-user)** - to have a counterpart of B.Simon in JFrog Artifactory that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
@@ -122,6 +122,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 ### Configure JFrog Artifactory SSO
 
 To configure single sign-on on **JFrog Artifactory** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [JFrog Artifactory support team](https://support.jfrog.com). They set this setting to have the SAML SSO connection set properly on both sides.
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -154,7 +155,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create JFrog Artifactory test user
 
-In this section, a user called Britta Simon is created in JFrog Artifactory. JFrog Artifactory supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in JFrog Artifactory, a new one is created after authentication.
+In this section, a user called B.Simon is created in JFrog Artifactory. JFrog Artifactory supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in JFrog Artifactory, a new one is created after authentication.
 
 ### Test SSO 
 
