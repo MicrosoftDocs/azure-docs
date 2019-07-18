@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Integrate Amazon Business with Azure Active Directory
 
-In this tutorial, you'll learn how to integrate Amazon Business with Azure Active Directory (Azure AD). When you integrate Amazon Business with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Amazon Business with Azure Active Directory (Azure AD). When you integrate [Amazon Business](https://www.amazon.com/b2b/info/amazon-business?layout=landing) with Azure AD, you can:
 
 * Control in Azure AD who has access to Amazon Business.
 * Enable your users to be automatically signed-in to Amazon Business with their Azure AD accounts.
@@ -35,7 +35,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
-* Amazon Business single sign-on (SSO) enabled subscription.
+* An Amazon Business single sign-on (SSO) enabled subscription. To create an Amazon Business account go [here](https://www.amazon.com/business/register/org/landing?ref_=ab_reg_mlp)
 
 ## Scenario description
 
@@ -57,9 +57,9 @@ To configure the integration of Amazon Business into Azure AD, you need to add A
 
 ## Configure and test Azure AD single sign-on
 
-Configure and test Azure AD SSO with Amazon Business using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Amazon Business.
+Configure and test Azure AD SSO with Amazon Business using a test user called **B.Simon**.
 
-To configure and test Azure AD SSO with Amazon Business, complete the following building blocks:
+To configure and test Azure AD SSO with Amazon Business, complete the following building steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
 2. **[Configure Amazon Business SSO](#configure-amazon-business-sso)** - to configure the Single Sign-On settings on application side.
@@ -182,7 +182,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](media/amazon-business-tutorial/map-attribute2.png)
 
-1. Scroll down to **Amazon connection data** and clcik on the **Download** to download the **Metadata XML file**. Use this **Metadata XML file** on the **Basic SAML Configuration** section.
+1. Scroll down to **Amazon connection data** and click on the **Download** to download the **Metadata XML file**. Use this **Metadata XML file** on the **Basic SAML Configuration** section.
 
 	![Copy configuration URLs](media/amazon-business-tutorial/amazon-connect.png)
 
