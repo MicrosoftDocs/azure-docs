@@ -131,24 +131,24 @@ All management operations can be categorized as follows:
 
 Typically, operations on virtual clusters take the longest. Duration of the operations on virtual clusters vary – below are the values that you can typically expect, based on existing service telemetry data:
 
-- Virtual cluster creation. This is a synchronous step in instance management operations. 90% of operations finish in 4 hours.
-- Virtual cluster resizing (expansion or shrinking). Expansion is a synchronous step, while shrinking is performed asynchronously (without impact on the duration of instance management operations). 90% of cluster expansions finish in less than 2.5 hours.
-- Virtual cluster deletion. Deletion is an asynchronous step, but it can also be [initiated manually](sql-database-managed-instance-delete-virtual-cluster.md) on an empty virtual cluster, in which case it executes synchronously. 90% of virtual cluster deletions finish in 1.5 hours
+- **Virtual cluster creation**. This is a **synchronous step** in instance management operations. **90%** of operations finish in **4 hours**.
+- **Virtual cluster resizing** (expansion or shrinking). Expansion is a **synchronous step**, while shrinking is performed asynchronously (without impact on the duration of instance management operations). **90%** of cluster expansions finish in less than **2.5 hours**.
+- **Virtual cluster deletion**. Deletion is an **asynchronous step**, but it can also be [initiated manually](sql-database-managed-instance-delete-virtual-cluster.md) on an empty virtual cluster, in which case it executes synchronously. **90%** of virtual cluster deletions finish in **1.5 hours**.
 
-Additionally, management of instances may also include one of the operations on hosted databases (like in the case of vCore scaling), which results in longer durations:
+Additionally, management of instances may also include one of the operations on hosted databases, which results in longer durations:
 
-- Attaching database files from Azure Storage. This is a synchronous step, such as compute (vCore), or storage scaling up or down in the General Purpose service tier. 90% of these operations finish in 5 minutes.
-- Always On availability group seeding. This is a synchronous step, such as compute (vCore), or storage scaling in the Business Critical service tier as well as in changing the service tier from General Purpose to Business Critical (or vice versa). Duration of this operation is proportional to the total database size as well as current database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration. 90% of these operations execute at 220 GB / hour or higher.
+- **Attaching database files from Azure Storage**. This is a **synchronous step**, such as compute (vCore), or storage scaling up or down in the **General Purpose** service tier. **90% of these operations finish in 5 minutes**.
+- **Always On availability group seeding**. This is a **synchronous step**, such as compute (vCore), or storage scaling in the **Business Critical** service tier as well as in changing the service tier from **General Purpose to Business Critical** (or **vice versa**). Duration of this operation is proportional to the total database size as well as current database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration. **90%** of these operations execute at **220 GB / hour or higher**.
 
 The following table summarizes operations and typical overall durations:
 
 |Category  |Operation  |Long-running segment  |Estimated duration  |
 |---------|---------|---------|---------|
-|Deployment |First instance in an empty subnet|Virtual cluster creation|90% of operations finish in 4 hours|
+|**Deployment** |First instance in an empty subnet|Virtual cluster creation|90% of operations finish in 4 hours|
 |Deployment |First instance of another hardware generation in a non-empty subnet (for example, first Gen 5 instance in a subnet with Gen 4 instances)|Virtual cluster creation*|90% of operations finish in 4 hours|
 |Deployment |First instance creation of 4 vCores, in an empty or non-empty subnet|Virtual cluster creation**|90% of operations finish in 4 hours|
 |Deployment |Subsequent instance creation within the non-empty subnet (2nd, 3rd, etc. instance)|Virtual cluster resizing|90% of operations finish in 2.5 hours|
-|Update |Instance property change (admin password, AAD login, Azure Hybrid Benefit flag)|N/A|Up to 1 minute|
+|**Update** |Instance property change (admin password, AAD login, Azure Hybrid Benefit flag)|N/A|Up to 1 minute|
 |Update |Instance storage scaling up/down (General Purpose service tier)|- Virtual cluster resizing<br>- Attaching database files|90% of operations finish in 2.5 hours|
 |Update |Instance storage scaling up/down (Business Critical service tier)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB / hour)|
 |Update |Instance compute (vCores) scaling up and down (General Purpose)|- Virtual cluster resizing<br>- Attaching database files|90% of operations finish in 2.5 hours|
@@ -156,13 +156,14 @@ The following table summarizes operations and typical overall durations:
 |Update |Instance scale down to 4 vCores (General Purpose)|- Virtual cluster resizing (if done for the first time, it may require virtual cluster creation**)<br>- Attaching database files|90% of operations finish in in 4 h 5 min**|
 |Update |Instance scale down to 4 vCores (General Purpose)|- Virtual cluster resizing (if done for the first time, it may require virtual cluster creation**)<br>- Always On availability group seeding|90% of operations finish in 4 hours + time to seed all databases (220 GB / hour)|
 |Update |Instance service tier change (General Purpose to Business Critical and vice versa)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB / hour)|
-|Deletion|Instance deletion|Log tail backup for all databases|90% operations finish in up to 1 minute.<br>Note: if last instance in the subnet is deleted, this operation will schedule virtual cluster deletion after 12 hours***|
+|**Deletion**|Instance deletion|Log tail backup for all databases|90% operations finish in up to 1 minute.<br>Note: if last instance in the subnet is deleted, this operation will schedule virtual cluster deletion after 12 hours***|
 |Deletion|Virtual cluster deletion (as user-initiated operation)|Virtual cluster deletion|90% of operations finish in up to 1.5 hours|
 
 \* Virtual cluster is built per hardware generation.
 
-\*\* The 4 vCores deployment option was released in June 2019 and requires a new virtual cluster version. If you had instances in the target subnet that were all created before June 12, a new virtual cluster will be deployed automatically to host 4 vCore instances.<br>
-12 hours is the current configuration but that might change in the future, so don't take a hard dependency on it. If you need to delete a virtual cluster earlier (to release the subnet for example), see [Delete a subnet after deleting an Azure SQL Database managed instance](sql-database-managed-instance-delete-virtual-cluster.md).
+\*\* The 4 vCores deployment option was released in June 2019 and requires a new virtual cluster version. If you had instances in the target subnet that were all created before June 12, a new virtual cluster will be deployed automatically to host 4 vCore instances.
+
+\*\*\* 12 hours is the current configuration but that might change in the future, so don't take a hard dependency on it. If you need to delete a virtual cluster earlier (to release the subnet for example), see [Delete a subnet after deleting an Azure SQL Database managed instance](sql-database-managed-instance-delete-virtual-cluster.md).
 
 ### Instance availability during management
 
