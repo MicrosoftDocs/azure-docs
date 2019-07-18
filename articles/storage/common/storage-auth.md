@@ -26,6 +26,8 @@ The following table describes the options that Azure Storage offers for authoriz
 |Azure Queues     |[Supported](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Supported](storage-dotnet-shared-access-signature-part-1.md)         |[Supported](storage-auth-aad.md)         |Not supported         |
 |Azure Tables     |[Supported](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Supported](storage-dotnet-shared-access-signature-part-1.md)         |Not supported         |Not supported         |
 
+Each authorization option is briefly described below:
+
 - **Azure Active Directory (Azure AD) integration** for blobs, files, and queues. Azure AD provides role-based access control (RBAC) for fine-grained control over a client's access to resources in a storage account. 
 
     For more information regarding Azure AD integration for blobs and queues, see [Authenticating requests to Azure Storage using Azure Active Directory](storage-auth-aad.md).
