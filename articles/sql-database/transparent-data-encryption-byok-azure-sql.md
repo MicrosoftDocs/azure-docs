@@ -72,8 +72,7 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
 
 - When using firewalls and virtual networks with Azure Key Vault, you must configure the following: 
 
-   - Allow trusted Microsoft services to bypass this firewall – chose YES
-
+   - Allow trusted Microsoft services to bypass this firewall, choose YES.
       > [!NOTE]
       > If TDE encrypted SQL databases lose access to the key vault because they cannot bypass the firewall, the databases will be inaccessible, and logons are denied until firewall bypass permissions have been restored.
 
