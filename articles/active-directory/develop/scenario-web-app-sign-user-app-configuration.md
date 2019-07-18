@@ -55,7 +55,7 @@ In ASP.NET Core, a Web application signing-in users with the Microsoft identity 
     "Instance": "https://login.microsoftonline.com/",
 
     // Azure AD Audience among:
-    // - the tenant Id as a a GUID obtained from the azure portal to sign-in users in your organization
+    // - the tenant Id as a GUID obtained from the azure portal to sign-in users in your organization
     // - "organizations" to sign-in users in any work or school accounts
     // - "common" to sign-in users with any work and school account or Microsoft personal account
     // - "consumers" to sign-in users with Microsoft personal account only

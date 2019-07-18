@@ -41,8 +41,7 @@ When using the [Face - Detect] API, assign the model version with the `recogniti
 
 Optionally, you can specify the _returnRecognitionModel_ parameter (default **false**) to indicate whether _recognitionModel_ should be returned in response. So, a request URL for the [Face - Detect] REST API will look like this:
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]
-&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
 If you are using the client library, you can assign the value for `recognitionModel` by passing a string representing the version.
 If you leave it unassigned, the default model version (_recognition_01_) will be used. See the following code example for the .NET client library.

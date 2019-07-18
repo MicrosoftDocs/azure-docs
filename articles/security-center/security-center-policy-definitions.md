@@ -6,7 +6,6 @@ documentationcenter: na
 author: monhaber
 manager: barbkess
 editor: ''
-
 ms.assetid: c89cb1aa-74e8-4ed1-980a-02a7a25c1a2f
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/19/2019
-ms.author: monhaber
-
+ms.author: "v-mohabe"
 ---
 # Azure security policies monitored by Security Center
 This article provides a list of Azure Policy definitions that you can monitor in Azure Security Center. For more information about security policies, see [Working with security policies](tutorial-security-policy.md).
