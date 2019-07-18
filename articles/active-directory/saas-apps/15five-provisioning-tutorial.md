@@ -55,7 +55,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![15Five Admin Console](media/15five-provisioning-tutorial/image00.png)
 
-2.	Under **SCIM intergration > Generate OAuth token**.
+2.	Under **SCIM integration > Generate OAuth token**.
 
 	![15Five Add SCIM](media/15five-provisioning-tutorial/image02.png)
 
