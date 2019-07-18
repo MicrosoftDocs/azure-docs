@@ -20,28 +20,39 @@ A _device capability model_ (DCM) describes the capabilities of a plug and play 
 
 To complete this quickstart, you need to install the following software on your local machine:
 
-### Install Visual Studio Code
-
-Install the latest version of Visual Studio Code from [https://code.visualstudio.com/](https://code.visualstudio.com/).
+* [Visual Studio 2019](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/).
+* [Git](https://git-scm.com/download/).
+* [CMake](https://cmake.org/download/).
+* [Visual Studio Code](https://code.visualstudio.com/).
 
 ### Install Azure IoT Device Workbench
 
-Install the Azure IoT Device Workbench extension from a VSIX file. Use the following steps to install the extension in VS Code. The extension can't be installed from Windows Explorer:
+Install the Azure IoT Device Workbench extension from a .vsix file. Use the following steps to install the extension in VS Code. The extension can't be installed from Windows Explorer:
 
-1. Download the VSIX file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr).
-1. In VS Code, select **Extensions**.
-1. Select the **...** menu dropdown.
+1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr). Latest version: `0.10.7-rc`.
+1. In VS Code, select **Extensions ** tab.
 1. Select **Install from VSIX**.
+    ![Install Azure IoT Device Workbench extension](media/quickstart-create-pnp-device/install-vsix.png)
 1. Select the .vsix file you downloaded.
 1. Select **Install**.
 
-    ![Install Azure IoT Device Workbench extension](media/quickstart-create-pnp-device/install-vsix.png)
+> [!NOTE]
+> The above experience will be replaced by directly installing from VS Code marketplace after IoT Plug and Play go public preview.
+
+> [!NOTE]
+> If you have problem on using the extension. Follow this step to reinstall it from scratch.
+> 1. Uninstall the IoT Device Workbench
+> 1. Close VS Code
+> 1. Navigate to `C:\Users\{yourname}\.vscode\extensions` folder
+> 1. Remove all `vsciot-vscode.vscode-iot-workbench-[version]` folders
+> 1. Open VS Code and then re-install from the .vsix file
+
 
 ### Install the Azure IoT explorer
 
 Download and install the Azure IoT explorer tool from the [latest release](https://github.com/Azure/azure-iot-explorer/releases) page.
 
-### Azure IoT Hub
+### Create an IoT hub and register a device
 
 You also need an Azure IoT hub with at least one registered device in your Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -49,46 +60,120 @@ You also need an Azure IoT hub with at least one registered device in your Azure
 1. Create a device identity in an Azure IoT Hub. If you don't have one, follow these instructions to [register a device](../iot-hub/quickstart-send-telemetry-node.md#create-an-iot-hub).
 1. Retrieve your hub connection string and make a note of it. You use this connection string later in this quickstart.
 
-## Author your model
+## Prepare the development environment
 
-In this quickstart, you use an existing sample device capability model and associated interfaces. Download the [device capability model and interface samples](https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview-utopia/digitaltwin_client/samples).
+### Get Azure IoT device SDK for C
 
-## Implement the device code
+In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT C device SDK.
 
-Now you have a device capability model, you can generate the device code that implements the model.
+1. Open a command prompt. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c-pnp) GitHub repository:
 
-### Generate the C code stub
-
-To generate the C code stub in VS code:
-
-1. Use **Ctrl+Shift+P** to open the command palette, enter **Azure IoT Plug and Play**, and select **Generate Device Code Stub**.
-    ![Select device code stub generator](media/quickstart-create-pnp-device/command-generate-device-code.png)
-
-1. Choose the **EnvironmentalSensorX4000.capabilitymodel.json** DCM file you added the repository:
-    ![Choose your DCM](media/quickstart-create-pnp-device/select-dcm.png)
-
-1. Choose **ANSI C** as your language:
-    ![Choose language](media/quickstart-create-pnp-device/device-lang.png)
-
-1. Choose **General platform** as your platform:
-   ![Choose the target platform](media/quickstart-create-pnp-device/reveal-in-folder.png)
-
-1. Choose a folder to store the generated the C source files.
-
-### Implement the stubbed functions
-
-Implement the stubbed functions in VS Code:
-
-1. Open the generated **device_model.c** file.
-1. Update the code as shown in the following snippet:
-
-    ```c
-    implementations of functions
+        
+    ```cmd/sh
+    git clone https://github.com/Azure/azure-iot-sdk-c-pnp --recursive -b public-preview-utopia
     ```
 
-### Build the code
+    You should expect this operation to take several minutes to complete.
 
-### Run the device app using command `the command`
+1. Create a `pnp_app` subdirectory in the root of the the local clone of the repository. This is the folder you use for the device model files and device code stub.
+
+    ```cmd/sh
+    cd azure-iot-sdk-c-pnp
+    mkdir pnp_app
+    ```
+
+## Author your model
+
+In this quickstart, you use an existing sample device capability model and associated interfaces.
+
+1. Download the [device capability model and interface samples](https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview-utopia/digitaltwin_client/samples) and save files into `pnp_app` folder.
+
+1. Open `pnp_app` folder with VS Code. You can view the files with intellisence 
+    ![Device capability model](media/quickstart-create-pnp-device/dcm.png)
+
+## Publish device model files to model repository
+
+The device capability model and interface files are required to publish to your organizational model repository to be used for validation with **Azure IoT Explorer**. You can publish the files within VS Code.
+
+1. With the folder with DCM files open, use **Ctrl+Alt+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
+
+1. Select `SampleDevice.capabilitymodel.json` and `EnvironmentalSensor.interface.json` files.
+
+1. Enter your organizational Model Repository connection string, which you can get from [Azure Device Builder](https://aka.ms/adbtest) portal with signed in with your Microsoft Partner ID.
+
+    > [!NOTE]
+    > The connection string is required for the first time.
+
+1. In VS Code output window and notification, you can check the files have been published successfully.
+
+    > [!NOTE]
+    > If you get errors on publishing the device model files, you can try use command **IoT Plug and Play: Sign out Model Repository** to sign out and go through the steps again.
+
+1. To verify on the Model Repository, use **Ctrl+Alt+P** to open the command palette, type and select **IoT Plug & Play: Open Organizational Repository**.
+
+1. You can search to find the device capability model and interface files in the Model Repository view.
+    ![Org model repo](media/quickstart-create-pnp-device/org-model-repo.png)
+
+## Generate the C code stub
+
+Now you have a DCM and its associated interfaces, you can generate the device code that implements the model. To generate the C code stub in VS code:
+
+1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub**.
+
+    The first time you use the IoT Plug and Play Code Generator utility, it takes a few seconds to download.
+
+1. Choose the DCM file you want to use to generate the device code stub.
+
+1. Enter the project name **sample_device**, it will be the name of your device application.
+
+1. Choose **ANSI C** as your language.
+
+1. Choose **CMake Project** as your project type.
+
+1. Choose **Via IoT Hub device connection string** as connection method.
+
+1. VS Code opens a new window with generated device code stub files.
+    ![Device code](media/quickstart-create-pnp-device/device-code.png)
+
+## Build the code
+
+You use the device SDK to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+
+1. In VS Code, open `CMakeLists.txt` in the device SDK root folder.
+
+1. Add the line below at the bottom of the `CMakeLists.txt` file to include the device code stub folder when compiling:
+
+    ```
+    add_subdirectory(pnp_app/sample_device)
+    ```
+
+1. Create a cmake subdirectory in the the device SDK root folder, and navigate to that folder:
+
+    ```cmd\sh
+    mkdir cmake
+    cd cmake
+    ```
+
+1. Run the following commands to build the device SDK and the generated code stub:
+
+    ```cmd\sh
+    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -Dskip_samples:BOOL=ON
+    cmake --build . -- /m /p:Configuration=Release
+    ```
+
+    > [!NOTE]
+    > If cmake can't find your C++ compiler, you get build errors when you run the previous command. If that happens, try running this command at the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
+
+1. After the build completes successfully, run your application passing the IoT hub device connection string as parameter.
+
+    ```cmd\sh
+    cd azure-iot-sdk-c-pnp\cmake\pnp_app\sample_device\Release\
+    sample_device.exe "[IoT Hub device connection string]"
+    ```
+
+1. The device application starts sending data to IoT Hub.
+
+    ![Device app running](media/quickstart-create-pnp-device/device-app-running.png)
 
 ## Validate the code
 
