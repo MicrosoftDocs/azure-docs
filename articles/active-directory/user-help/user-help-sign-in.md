@@ -12,7 +12,7 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
-ms.custom: "user-help, seo-update-azuread-jan"
+ms.custom: user-help
 ms.collection: M365-identity-device-management
 ---
 
