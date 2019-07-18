@@ -10,7 +10,7 @@ ms.date: 07/05/2019
 ms.author: rogarana
 ---
 
-# Enable Azure Active Directory Domain Service authentication over SMB for Azure Files (Preview)
+# Enable Azure Active Directory Domain Service authentication over SMB for Azure Files (preview)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 For an overview of Azure Active Directory (Azure AD) authentication over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files (Preview)](storage-files-active-directory-overview.md).
@@ -18,7 +18,7 @@ For an overview of Azure Active Directory (Azure AD) authentication over SMB for
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Overview of the workflow
-Before you enable Azure AD DS authentication over SMB for Azure Files, verify that your Azure AD and Azure Storage environments are properly configured. We recommend that you walk through the [prerequisites](#prerequisites) to make sure you've performed all the required steps.
+Before you enable Azure AD DS authentication over SMB for Azure Files, verify that your Azure AD and Azure Storage environments are properly configured. We recommend that you walk through the [prerequisites](#prerequisites) to make sure you've done all the required steps.
 
 Next, grant access to Azure Files resources with Azure AD credentials by following these steps: 
 
@@ -91,7 +91,7 @@ To enable Azure AD DS authentication over SMB using Azure PowerShell:
 Install-Module -Name Az.Storage -AllowPrerelease -Force -AllowClobber
 ```
 
-1. Create a new storage account, then call [Set-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) and set the **EnableAzureActiveDirectoryDomainServicesForFile** parameter to **true**. In the example below, remember to replace the placeholder values with your own values. (If you were using the previous Preview module, the parameter for feature enablement is **EnableAzureFilesAadIntegrationForSMB**.)
+1. Create a new storage account, then call [Set-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) and set the **EnableAzureActiveDirectoryDomainServicesForFile** parameter to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous Preview module, the parameter for feature enablement is **EnableAzureFilesAadIntegrationForSMB**.)
 
 ```powershell
 # Create a new storage account
@@ -177,14 +177,14 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 ```
 
 ## Configure NTFS permissions over SMB 
-After you assign share-level permissions with RBAC, you must assign proper NTFS permissions at the root, directory, or file level. Think of share-level permissions as the high-level gatekeeper that determines whether a user can access the share, while NTFS permissions act at a more granular level to determine what operations the user can perform at the directory or file level. 
+After you assign share-level permissions with RBAC, you must assign proper NTFS permissions at the root, directory, or file level. Think of share-level permissions as the high-level gatekeeper that determines whether a user can access the share. Whereas NTFS permissions act at a more granular level to determine what operations the user can do at the directory or file level.
 
 Azure Files supports the full set of NTFS basic and advanced permissions. You can view and configure NTFS permissions on directories and files in an Azure file share by mounting the share and then running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) or [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) command. 
 
 > [!NOTE]
-> The preview release supports viewing permissions with Windows File Explorer only. Editing permissions is not yet supported.
+> The preview release supports viewing permissions with Windows File Explorer only. Editing permissions are not yet supported.
 
-To configure NTFS permissions with super-user permissions, you must mount the share by using your storage account key from your domain-joined VM. Follow the instructions in the next section to mount an Azure file share from the command prompt and to configure NTFS permissions accordingly.
+To configure NTFS super-user permissions, you must mount the share by using your storage account key from your domain-joined VM. Follow the instructions in the next section to mount an Azure file share from the command prompt and to configure NTFS permissions accordingly.
 
 The following sets of permissions are supported on the root directory of a file share:
 
@@ -198,20 +198,20 @@ The following sets of permissions are supported on the root directory of a file 
 
 ### Mount a file share from the command prompt
 
-Use the Windows **net use** command to mount the Azure file share. Remember to replace the placeholder values in the example with your own values. For more information about mounting file shares, see [Mount an Azure file share and access the share in Windows](storage-how-to-use-files-windows.md).
+Use the Windows **net use** command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Mount an Azure file share and access the share in Windows](storage-how-to-use-files-windows.md).
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
 ```
 
 ### Configure NTFS permissions with icacls
-Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values shown in brackets in the example with your own values.
+Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
 
 ```
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-For more information on how to use icacls to set NTFS permissions and on the different type of permissions supported, see [the command-line reference for icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+For more information on how to use icacls to set NTFS permissions and on the different types of supported permissions, see [the command-line reference for icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
 ## Mount a file share from a domain-joined VM 
 
@@ -219,7 +219,7 @@ You're ready to verify that you can use your Azure AD credentials to access an A
 
 ![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-active-directory-enable/azure-active-directory-authentication-dialog.png)
 
-Next, use the following command to mount the Azure file share. Remember to replace the placeholder values with your own values. Because you have already been authenticated, you don't need to provide the storage account key or the Azure AD user name and password. Azure AD over SMB supports a single sign-on experience using Azure AD credentials.
+Use the following command to mount the Azure file share. Remember to replace the placeholder values with your own values. Because you have already been authenticated, you don't need to provide the storage account key or the Azure AD user name and password. Azure AD over SMB supports a single sign-on experience using Azure AD credentials.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
