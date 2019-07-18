@@ -44,6 +44,7 @@ An [*integration service environment* (ISE)](../logic-apps/connect-virtual-netwo
 * The following [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) usage at no additional cost based on the [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) selected at creation:
 
   * **Premium**: A single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
+
   * **Developer**: Multiple [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration accounts
 
   You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic.
