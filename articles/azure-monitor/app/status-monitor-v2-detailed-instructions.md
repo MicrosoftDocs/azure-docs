@@ -25,11 +25,10 @@ To get started, you need an instrumentation key. For more information, see [Crea
 
 ## Run PowerShell as Admin with an elevated execution policy
 
-**Run as Admin**
+### Run as Admin
 
 PowerShell needs Administrator-level permissions to make changes to your computer.
-
-**Execution Policies**
+### Execution policy
 - Description: By default, running PowerShell scripts is disabled. We recommend allowing RemoteSigned scripts for only the Current scope.
 - Reference: [About Execution Policies](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) and [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
