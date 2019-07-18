@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/20/2019
+ms.date: 07/12/2019
 ---
 
 # Enable logging in Azure Machine Learning service
@@ -88,7 +88,8 @@ from azureml.core.webservice import Webservice
 service = Webservice.deploy_from_image(deployment_config=your_config,
                                        image=image,
                                        name="example-image",
-                                       workspace=ws)
+                                       workspace=ws
+                                       )
 
 service.wait_for_deployment(show_output=True)
 ```
