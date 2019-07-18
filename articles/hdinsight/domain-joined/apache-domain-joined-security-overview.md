@@ -14,7 +14,7 @@ ms.date: 07/11/2019
 
 Azure HDInsight offers a number of methods to address your enterprise security needs. Most of these solutions are optional, and are not activated by default. This flexibility allows you to choose the security features that are most important to you, and helps you to avoid paying for features that you don't want. This also means that it is your responsibility to make sure that the correct solutions are enabled for your setup and environment.
 
-In this article we will look at security in two different ways. The first way divides security solutions along the lines of four traditional security pillars: perimeter security, authentication, authorization, and encryption.
+This article looks at security solutions by dividing security solutions along the lines of four traditional security pillars: perimeter security, authentication, authorization, and encryption.
 
 This article also introduces the **Azure HDInsight Enterprise Security Package (ESP)**, which provides Active Directory-based authentication, multi-user support, and role-based access control for HDInsight clusters.
 
