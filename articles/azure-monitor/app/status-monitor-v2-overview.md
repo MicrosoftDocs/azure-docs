@@ -39,6 +39,7 @@ Status Monitor v2 is located here: https://www.powershellgallery.com/packages/Az
 - [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
 - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
+- [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
 ## Troubleshooting
 - [Troubleshooting](status-monitor-v2-troubleshoot.md)
