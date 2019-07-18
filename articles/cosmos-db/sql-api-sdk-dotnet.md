@@ -14,6 +14,7 @@ ms.author: sngun
 # Azure Cosmos DB .NET SDK for SQL API: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
+> * [.NET](sql-api-sdk-dotnet-standard.md)
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -30,19 +31,15 @@ ms.author: sngun
 |---|---|
 |**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
 |**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
-|**Samples**|[.NET code samples](sql-api-dotnet-samples.md)|
+|**Samples**|[.NET code samples](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
 |**Get started**|[Get started with the Azure Cosmos DB .NET SDK](sql-api-get-started.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Current supported framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 ## Release notes
 
-### <a name="3.0.0.1-preview"/>3.0.0.1-preview
-* Preview 1 of [Version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) of the .NET SDK for public preview.
-* Target .NET Standard, which supports .NET framework 4.6.1+ and .NET Core 2.0+
-* New object model, with top-level CosmosClient and methods split across relevant CosmosDatabases, CosmosContainers and CosmosItems classes. 
-* Support for streams. 
-* Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned. 
+> [!NOTE]
+> If you are using .NET Framework, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard. 
 
 ### <a name="2.5.1"/>2.5.1
 
@@ -342,7 +339,7 @@ ms.author: sngun
 ### <a name="1.3.0"/>1.3.0
 * Added support for modifying indexing policies.
   * New ReplaceDocumentCollectionAsync method in DocumentClient
-  * New IndexTransformationProgress property in ResourceResponse<T> for tracking percent progress of index policy changes
+  * New IndexTransformationProgress property in ResourceResponse\<T> for tracking percent progress of index policy changes
   * DocumentCollection.IndexingPolicy is now mutable
 * Added support for spatial indexing and query.
   * New Microsoft.Azure.Documents.Spatial namespace for serializing/deserializing spatial types like Point and Polygon

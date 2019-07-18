@@ -4,7 +4,7 @@ description: Use C# and Azure Resource Manager to deploy a virtual machine and a
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
