@@ -72,13 +72,13 @@ After you run the Enable command, complete these steps:
 
 ### IIS Nested Applications
 
-As of v1.0, we do not instrument nested applications in IIS. 
-We are tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
+We don't instrument nested applications in IIS in version 1.0
+We're tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
 
-### Advanced SDK Configuration is not available.
+### Advanced SDK Configuration isn't available.
 
-As of v1.0, the SDK configuration is not exposed to the end user. 
-We are tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
+The SDK configuration isn't exposed to the end user in version 1.0
+We're tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
 
 	
 	
