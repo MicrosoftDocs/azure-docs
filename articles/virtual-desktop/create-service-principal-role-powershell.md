@@ -33,11 +33,7 @@ Before you can create service principals and role assignments, you need to do th
     Install-Module AzureAD
     ```
 
-2. Run the following cmdlets with the values in quotes replaced by the values relevant to your session.
-
-    ```powershell
-    $myTenantName = "<my-tenant-name>"
-    ```
+2. [Download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)
 
 3. Follow all instructions in this article in the same PowerShell session. It might not work if you close the window and return to it later.
 
@@ -51,30 +47,6 @@ $aadContext = Connect-AzureAD
 $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayName "Windows Virtual Desktop Svc Principal"
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
-
-## Create a role assignment in Windows Virtual Desktop Preview
-
-Now that you’ve created a service principal, you can use it to sign in to Windows Virtual Desktop. Make sure to sign in with an account that has permissions to create the role assignment.
-
-First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
-
-Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and create a role assignment for the service principal.
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
-```
-
-## Sign in with the service principal
-
-After you create a role assignment for the service principal, make sure the service principal can sign in to Windows Virtual Desktop by running the following cmdlet:
-
-```powershell
-$creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
-```
-
-After you've signed in, make sure everything works by testing a few Windows Virtual Desktop PowerShell cmdlets with the service principal.
 
 ## View your credentials in PowerShell
 
@@ -99,6 +71,34 @@ Here are the three credentials you should write down and the cmdlets you need to
     ```powershell
     $svcPrincipal.AppId
     ```
+
+## Create a role assignment in Windows Virtual Desktop Preview
+
+Next you will create an RDS role assignment in Windows Virtual Desktop for the service principal, which will allow the service principal to sign in to Windows Virtual Desktop. Make sure to use an account that has permissions to create RDS role assignments.
+
+Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and display your RDS tenants.
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+Get-RdsTenant | FL
+```
+
+Use the TenantName for the correct Tenant and run the following PowerShell cmdlets to create a role assignment for the service principal in the specified tenant.
+
+```powershell
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName "<my-rds-tenantname>"
+```
+
+## Sign in with the service principal
+
+After you create a role assignment for the service principal, make sure the service principal can sign in to Windows Virtual Desktop by running the following cmdlet:
+
+```powershell
+$creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
+```
+
+After you've signed in, make sure everything works by testing a few Windows Virtual Desktop PowerShell cmdlets with the service principal.
 
 ## Next steps
 
