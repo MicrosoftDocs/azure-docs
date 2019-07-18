@@ -65,6 +65,9 @@ Now that you have a custom subdomain associated with your resource, you're going
    New-AzRoleAssignment -ObjectId <SERVICE_PRINCIPAL_OBJECTID> -Scope <ACCOUNT_ID> -RoleDefinitionName "Cognitive Services User"
    ```
 
+> [!NOTE]
+> Keep in mind that AAD role assignments may take up to five minutes to propagate.
+
 ### Sample request
 
 In this sample, a password is used to authenticate the service principal. The token provided is then used to call the Computer Vision API.
