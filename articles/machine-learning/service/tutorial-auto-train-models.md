@@ -752,6 +752,13 @@ RunDetails(local_run).show()
 ![Jupyter widget run details](./media/tutorial-auto-train-models/automl-dash-output.png)
 ![Jupyter widget plot](./media/tutorial-auto-train-models/automl-chart-output.png)
 
+The same results are stored in your workspace.  You can get a link to the results from the run:
+
+```
+local_run.get_portal_url()
+```
+  
+
 ### Option 2: Get and examine all run iterations in Python
 
 You can also retrieve the history of each experiment and explore the individual metrics for each iteration run. By examining RMSE (root_mean_squared_error) for each individual model run, you see that most iterations are predicting the taxi fair cost within a reasonable margin ($3-4).

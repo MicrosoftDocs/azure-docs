@@ -217,7 +217,13 @@ Here is a static image of the widget.  In the notebook, you can click on any lin
 ![widget table](./media/how-to-auto-train-remote/table.png)
 ![widget plot](./media/how-to-auto-train-remote/plot.png)
 
-The widget displays a URL you can use to see and explore the individual run details.
+The widget displays a URL you can use to see and explore the individual run details.  
+
+If you aren't in a Jupyter notebook, you can display the URL  from the run itself:
+
+```
+remote_run.get_portal_url()
+```
 
 ### View logs
 
