@@ -29,13 +29,13 @@ ADF natively supports flexible schemas that change from execution to execution s
 
 * When you've selected this option, all incoming fields will be read from your source on every Data Flow execution and will be passed through the entire flow to the Sink.
 
-* All newly detected columns (aka drifted columns) will arrive as String data type by default. In your Source Transformation, choose "Infer drifted column types" if you wish to have ADF automatically infer data types from the source.
+* All newly detected columns (drifted columns) will arrive as String data type by default. In your Source Transformation, choose "Infer drifted column types" if you wish to have ADF automatically infer data types from the source.
 
 * Make sure to use "Auto-Map" to map all new fields in the Sink Transformation so that all new fields get picked-up and landed in your destination and set "Allow Schema Drift" on the Sink as well.
 
 <img src="media/data-flow/automap.png" width="400">
 
-* Everything will work when new fields are introduced in that scenario with a simple Source -> Sink (aka Copy) mapping.
+* Everything will work when new fields are introduced in that scenario with a simple Source -> Sink (Copy) mapping.
 
 * To add transformations in that workflow that handles schema drift, you can use pattern matching to match columns by name, type, and value.
 
