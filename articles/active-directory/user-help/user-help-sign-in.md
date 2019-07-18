@@ -57,7 +57,7 @@ After you set up two-step verification or security info, you'll be able to sign 
 
     ![Security key sign-in on the Windows 10 lock screen](./media/security-info/security-info-windows-10-lock-screen-security-key.png)
 
-### Sign in using a security key and the Microsoft Edge browser
+## Sign in using a security key and the Microsoft Edge browser
 
 1. After you've registered your security key, open the Microsoft Edge browser.
 
