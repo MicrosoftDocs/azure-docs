@@ -63,6 +63,25 @@ You can view the Traffic View data in a tabular format in Azure portal. There is
 
 When you use Traffic View, you are billed based on the number of data points used to create the insights presented. Currently, the only data point type used is the queries received against your Traffic Manager profile. For more details on the pricing, visit the [Traffic Manager pricing page](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
+## FAQs
+
+* [What does Traffic View do?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-does-traffic-view-do)
+
+* [How can I benefit from using Traffic View?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-benefit-from-using-traffic-view)
+
+* [How is Traffic View different from the Traffic Manager metrics available through Azure monitor?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
+
+* [Does Traffic View use EDNS Client Subnet information?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-view-use-edns-client-subnet-information)
+
+* [How many days of data does Traffic View use?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-days-of-data-does-traffic-view-use)
+
+* [How does Traffic View handle external endpoints?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-handle-external-endpoints)
+
+* [Do I need to enable Traffic View for each profile in my subscription?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
+
+* [How can I turn off Traffic View?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-turn-off-traffic-view)
+
+* [How does Traffic View billing work?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-billing-work)
 
 ## Next steps
 
