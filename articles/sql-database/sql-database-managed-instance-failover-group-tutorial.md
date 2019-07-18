@@ -69,7 +69,7 @@ In this step, you will create a virtual network for the secondary managed instan
 
 To verify the subnet range of your primary virtual network, follow these steps:
 1. In the [Azure portal](https://portal.azure.com), navigate to your resource group and select the virtual network for your primary instance. 
-1. Select **Subnets** under **Settings** and note the **Address range**. The secondary managed instance range cannot overlap this. 
+1. Select **Subnets** under **Settings** and note the **Address range**. The subnet address range of the virtual network for the secondary managed instance cannot overlap this. 
 
 
    ![Primary subnet](media/sql-database-managed-instance-failover-group-tutorial/verify-primary-subnet-range.png)
