@@ -16,7 +16,7 @@ the NIST SP 800-53 R4 controls. For more information about the controls, see [NI
 The following mappings are to the **NIST SP 800-53 (Rev. 4)** controls. Use the navigation on the
 right to jump directly to a specific control mapping. Many of the mapped controls are implemented
 with an [Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative,
-open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **[Preview]:
+open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **\[Preview\]:
 Audit NIST SP 800-53 R4 controls and deploy specific VM Extensions to support audit requirements**
 built-in policy initiative.
 
@@ -128,8 +128,8 @@ without passwords. This blueprint also assigns an Azure Policy definition that h
 unrestricted access to storage accounts. Monitoring these indicators can help you ensure remote
 access methods comply with your security policy.
 
-- [Preview]: Audit Linux VMs that allow remote connections from accounts without passwords
-- [Preview]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
+- \[Preview\]: Audit Linux VMs that allow remote connections from accounts without passwords
+- \[Preview\]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
 - Audit unrestricted network access to storage accounts
 - Remote debugging should be turned off for API App
 - Remote debugging should be turned off for Function App
@@ -141,13 +141,13 @@ Log data collected by Azure Monitor is stored in a Log Analytics workspace enabl
 configuration and management. This blueprint helps you ensure events are logged by assigning [Azure Policy](../../../policy/overview.md)
 definitions that audit and enforce deployment of the Log Analytics agent on Azure virtual machines.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
 ## AU-5 Response to Audit Processing Failures
 
@@ -166,13 +166,13 @@ Log data collected by Azure Monitor is stored in a Log Analytics workspace enabl
 reporting and analysis. This blueprint helps you ensure events are logged by assigning [Azure Policy](../../../policy/overview.md)
 definitions that audit and enforce deployment of the Log Analytics agent on Azure virtual machines.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
 ## AU-12 Audit Generation
 
@@ -183,13 +183,13 @@ for other Azure resource types. These policy definitions also audit configuratio
 to provide insight into operations that are performed within Azure resources. Additionally, auditing
 and Advanced Data Security are configured on SQL servers.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
 - Advanced data security should be enabled on your managed instances
@@ -270,12 +270,12 @@ configuration of the password encryption type for Windows virtual machines. Moni
 indicators helps you ensure that system authenticators comply with your organization’s
 identification and authentication policy.
 
-- [Preview]: Audit Linux VMs that do not have the passwd file permissions set to 0644
-- [Preview]: Audit Linux VMs that have accounts without passwords
-- [Preview]: Audit Windows VMs that do not store passwords using reversible encryption
-- [Preview]: Deploy requirements to audit Linux VMs that do not have the passwd file permissions set to 0644
-- [Preview]: Deploy requirements to audit Linux VMs that have accounts without passwords
-- [Preview]: Deploy requirements to audit Windows VMs that do not store passwords using reversible encryption
+- \[Preview\]: Audit Linux VMs that do not have the passwd file permissions set to 0644
+- \[Preview\]: Audit Linux VMs that have accounts without passwords
+- \[Preview\]: Audit Windows VMs that do not store passwords using reversible encryption
+- \[Preview\]: Deploy requirements to audit Linux VMs that do not have the passwd file permissions set to 0644
+- \[Preview\]: Deploy requirements to audit Linux VMs that have accounts without passwords
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not store passwords using reversible encryption
 
 ## IA-5 (1) Authenticator Management | Password-Based Authentication
 
@@ -285,18 +285,18 @@ password requirements. Awareness of virtual machines in violation of the passwor
 helps you take corrective actions to ensure passwords for all virtual machine user accounts comply
 with your organization’s password policy.
 
-- [Preview]: Audit Windows VMs that allow re-use of the previous 24 passwords
-- [Preview]: Audit Windows VMs that do not have a maximum password age of 70 days
-- [Preview]: Audit Windows VMs that do not have a minimum password age of 1 day
-- [Preview]: Audit Windows VMs that do not have the password complexity setting enabled
-- [Preview]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Preview]: Audit Windows VMs that do not store passwords using reversible encryption
-- [Preview]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
-- [Preview]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
-- [Preview]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
-- [Preview]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
-- [Preview]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Preview]: Deploy requirements to audit Windows VMs that do not store passwords using reversible encryption
+- \[Preview\]: Audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Audit Windows VMs that do not have a minimum password age of 1 day
+- \[Preview\]: Audit Windows VMs that do not have the password complexity setting enabled
+- \[Preview\]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Audit Windows VMs that do not store passwords using reversible encryption
+- \[Preview\]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not store passwords using reversible encryption
 
 ## RA-5 Vulnerability Scanning
 
@@ -446,13 +446,13 @@ Analytics agent, and enhanced security settings for SQL databases, storage accou
 resources. These capabilities can help you detect anomalous behavior and indicators of attacks so
 you can take appropriate action.
 
-- [Preview]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
-- [Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Linux VMs
-- [Preview]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
-- [Preview]: Deploy Log Analytics Agent for Windows VMs
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- \[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Linux VMs
+- \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
+- \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Advanced data security should be enabled on your managed instances
 - Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
