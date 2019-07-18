@@ -52,7 +52,7 @@ This section describes issues and limitations with using blob APIs and Data Lake
 
 * You can't use both Blob APIs and Data Lake Storage APIs to write to the same instance of a file.
 
-* If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.comrest/api/storageservices/get-block-list) blob API.
+* If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API.
 
 * You can overwrite a file by using either Data Lake Storage Gen2 APIs or Blob APIs. This won't affect file properties.
 
