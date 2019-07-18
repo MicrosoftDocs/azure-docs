@@ -10,7 +10,7 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 05/02/2019
+ms.date: 07/16/2019
 ms.custom: seodec18
 ---
 
@@ -271,6 +271,11 @@ df = dflow.to_pandas_dataframe()
 The SDK includes the methods [`drop_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) and [`filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) to let you filter out columns or rows.
 
 ### Initial setup
+
+> [!Note]
+> The URL in this same example is not a complete URL. Instead, it refers to the demo folder in the blob. The full URL to the data is https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
+
+What we are doing in the tutorial is to load all files inside the folder and aggregate the result into green_df_raw, and yellow_df_raw.
 
 ```python
 import azureml.dataprep as dprep

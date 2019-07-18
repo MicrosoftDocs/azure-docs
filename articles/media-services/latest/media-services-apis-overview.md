@@ -89,6 +89,8 @@ Media Services has the following long-running operations:
 * [Delete Live Event](https://docs.microsoft.com/rest/api/media/liveevents/delete)
 * [Start Live Event](https://docs.microsoft.com/rest/api/media/liveevents/start)
 * [Stop LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
+
+  Stopping a Live Event has a `removeOutputsOnStop` parameter which indicates whether or not to delete all associated Live Outputs.  
 * [Reset LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
 * [Create LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [Delete LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
@@ -99,9 +101,9 @@ Media Services has the following long-running operations:
 * [Stop StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
 * [Scale StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
 
-Only one long-running operation is supported for a given Live Event or any of its associated Live Outputs. Once started, a long running operation must complete before starting a subsequent long-running operation on the same LiveEvent or any associated Live Outputs. For Live Events with multiple Live Outputs, you must await the completion of a long running operation on one Live Output before triggering a long running operation on another Live Output. 
+On successful submission of a long operation you receive a '202 Accepted' and must poll for operation completion using the returned operation ID.
 
-Stopping a Live Event has a parameter to delete all associated Live Outputs. On successful submission of a long operation you receive a '202 Accepted' and must poll for operation completion using the returned operation ID. 
+Only one long-running operation is supported for a given Live Event or any of its associated Live Outputs. Once started, a long running operation must complete before starting a subsequent long-running operation on the same LiveEvent or any associated Live Outputs. For Live Events with multiple Live Outputs, you must await the completion of a long running operation on one Live Output before triggering a long running operation on another Live Output. 
 
 ## SDKs
 

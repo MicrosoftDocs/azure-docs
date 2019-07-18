@@ -5,7 +5,7 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 07/16/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -239,6 +239,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 
 | HRESULT | HRESULT (decimal) | Error string | Issue | Remediation |
 |---------|-------------------|--------------|-------|-------------|
+| 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | The tiered file on the server is not accessible. This issue occurs if the tiered file was not recalled prior to deleting a server endpoint. | To resolve this issue, see [Tiered files are not accessible on the server after deleting a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | A file or directory change can't be synced yet because a dependent folder is not yet synced. This item will sync after the dependent changes are synced. | No action required. |
 | 0x8007007b | -2147024773 | ERROR_INVALID_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles. |
@@ -248,8 +249,9 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | A file was changed during sync, so it needs to be synced again. | No action required. |
 
+
 #### Handling unsupported characters
-If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error code 0x8007007b), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-tool) can be used to identify characters that are not supported.
+If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error code 0x8007007b), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-cmdlet) can be used to identify characters that are not supported.
 
 The table below contains all of the unicode characters Azure File Sync does not yet support.
 
@@ -792,14 +794,14 @@ There are two main classes of failures that can happen via either failure path:
 
 The following sections indicate how to troubleshoot cloud tiering issues and determine if an issue is a cloud storage issue or a server issue.
 
-<a id="monitor-tiering-activity"></a>**How to monitor tiering activity on a server**  
+### How to monitor tiering activity on a server  
 To monitor tiering activity on a server, use Event ID 9003, 9016 and 9029 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - Event ID 9003 provides error distribution for a server endpoint. For example, Total Error Count, ErrorCode, etc. Note, one event is logged per error code.
 - Event ID 9016 provides ghosting results for a volume. For example, Free space percent is, Number of files ghosted in session, Number of files failed to ghost, etc.
 - Event ID 9029 provides ghosting session information for a server endpoint. For example, Number of files attempted in the session, Number of files tiered in the session, Number of files already tiered, etc.
 
-<a id="monitor-recall-activity"></a>**How to monitor recall activity on a server**  
+### How to monitor recall activity on a server
 To monitor recall activity on a server, use Event ID 9005, 9006, 9009 and 9059 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - Event ID 9005 provides recall reliability for a server endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
@@ -807,7 +809,7 @@ To monitor recall activity on a server, use Event ID 9005, 9006, 9009 and 9059 i
 - Event ID 9009 provides recall session information for a server endpoint. For example, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, etc.
 - Event ID 9059 provides application recall distribution for a server endpoint. For example, ShareId, Application Name, and TotalEgressNetworkBytes.
 
-<a id="files-fail-tiering"></a>**Troubleshoot files that fail to tier**  
+### How to troubleshoot files that fail to tier
 If files fail to tier to Azure Files:
 
 1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent. 
@@ -823,7 +825,7 @@ If files fail to tier to Azure Files:
 > [!NOTE]
 > An Event ID 9003 is logged once an hour in the Telemetry event log if a file fails to tier (one event is logged per error code). The Operational and Diagnostic event logs should be used if additional information is needed to diagnose an issue.
 
-<a id="files-fail-recall"></a>**Troubleshoot files that fail to be recalled**  
+### How to troubleshoot files that fail to be recalled  
 If files fail to be recalled:
 1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent.
     1. Verify the files exist in the Azure file share.
@@ -835,7 +837,88 @@ If files fail to be recalled:
 > [!NOTE]
 > An Event ID 9006 is logged once per hour in the Telemetry event log if a file fails to recall (one event is logged per error code). The Operational and Diagnostic event logs should be used if additional information is needed to diagnose an issue.
 
-<a id="files-unexpectedly-recalled"></a>**Troubleshoot files unexpectedly recalled on a server**  
+### Tiered files are not accessible on the server after deleting a server endpoint
+Tiered files on a server will become inaccessible if the files are not recalled prior to deleting a server endpoint.
+
+Errors logged if tiered files are not accessible
+- When syncing a file, error code -2147942467 (0x80070043 - ERROR_BAD_NET_NAME) is logged in the ItemResults event log
+- When recalling a file, error code -2134376393 (0x80c80037 - ECS_E_SYNC_SHARE_NOT_FOUND) is logged in the RecallResults event log
+
+Restoring access to your tiered files is possible if the following conditions are met:
+- Server endpoint was deleted within past 30 days
+- Cloud endpoint was not deleted 
+- File share was not deleted
+- Sync group was not deleted
+
+If the above conditions are met, you can restore access to the files on the server by recreating the server endpoint at the same path on the server within the same sync group within 30 days. 
+
+If the above conditions are not met, restoring access is not possible as these tiered files on the server are now orphaned. Please follow the instructions below to remove the orphaned tiered files.
+
+**Notes**
+- When tiered files are not accessible on the server, the full file should still be accessible if you access the Azure file share directly.
+- To prevent orphaned tiered files in the future, follow the steps documented in [Remove a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint) when deleting a server endpoint.
+
+<a id="get-orphaned"></a>**How to get the list of orphaned tiered files** 
+
+1. Verify Azure File Sync agent version v5.1 or later is installed.
+2. Run the following PowerShell commands to list orphaned tiered files:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+3. Save the OrphanTieredFiles.txt output file in case files need to be restored from backup after they are deleted.
+
+<a id="remove-orphaned"></a>**How to remove orphaned tiered files** 
+
+*Option 1: Delete the orphaned tiered files*
+
+This option deletes the orphaned tiered files on the Windows Server but requires removing the server endpoint if it exists due to recreation after 30 days or is connected to a different sync group. File conflicts will occur if files are updated on the Windows Server or Azure file share before the server endpoint is recreated.
+
+1. Verify Azure File Sync agent version v5.1 or later is installed.
+2. Backup the Azure file share and server endpoint location.
+3. Remove the server endpoint in the sync group (if exists) by following the steps documented in [Remove a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint).
+
+> [!Warning]  
+> If the server endpoint is not removed prior to using the Remove-StorageSyncOrphanedTieredFiles cmdlet, deleting the orphaned tiered file on the server will delete the full file in the Azure file share. 
+
+4. Run the following PowerShell commands to list orphaned tiered files:
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+5. Save the OrphanTieredFiles.txt output file in case files need to be restored from backup after they are deleted.
+6. Run the following PowerShell commands to delete orphaned tiered files:
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFilesRemoved = Remove-StorageSyncOrphanedTieredFiles -Path <folder path containing orphaned tiered files> -Verbose
+$orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
+```
+**Notes** 
+- Tiered files modified on the server that are not synced to the Azure file share will be deleted.
+- Tiered files which are accessible (not orphan) will not be deleted.
+- Non-tiered files will remain on the server.
+
+7. Optional: Recreate the server endpoint if deleted in step 3.
+
+*Option 2: Mount the Azure file share and copy the files locally that are orphaned on the server*
+
+This option doesn’t require removing the server endpoint but requires sufficient disk space to copy the full files locally.
+
+1. [Mount](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) the Azure file share on the Windows Server that has orphaned tiered files.
+2. Run the following PowerShell commands to list orphaned tiered files:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+3. Use the OrphanTieredFiles.txt output file to identify orphaned tiered files on the server.
+4. Overwrite the orphaned tiered files by copying the full file from the Azure file share to the Windows Server.
+
+### How to troubleshoot files unexpectedly recalled on a server  
 Antivirus, backup, and other applications that read large numbers of files cause unintended recalls unless they respect the skip offline attribute and skip reading the content of those files. Skipping offline files for products that support this option helps avoid unintended recalls during operations like antivirus scans or backup jobs.
 
 Consult with your software vendor to learn how to configure their solution to skip reading offline files.

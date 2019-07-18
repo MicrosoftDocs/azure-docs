@@ -3,6 +3,7 @@ title: Use a managed identity with Azure Container Registry Tasks
 description: Provide an Azure Container Registry task access to Azure resources including other private container registries by assigning a managed identity for Azure Resources.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
