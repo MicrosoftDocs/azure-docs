@@ -7,9 +7,9 @@ ms.author: danlep
 ---
 ### Database tier
 
-The Database tier contains the database instances. The database can be either an Oracle DB, Oracle RAC, or Oracle Exadata Database system. 
+The Database tier contains the database instances for the application. The database can be either an Oracle DB, Oracle RAC, or Oracle Exadata Database system. 
 
-If you use an Oracle DB, the database can be deployed on Azure using the Marketplace image, or you can bring your own image and deploy it in an IaaS model. Alternatively, you may use the interconnect between Azure and OCI to deploy the Oracle DB in a PaaS model on OCI. 
+If the choice is to use Oracle DB, the database instance may be deployed on Azure via the Oracle DB images available on the Azure Marketplace. Alternatively, you may use the use the interconnect between Azure and OCI to deploy the Oracle DB in a PaaS model on OCI.
 
 For Oracle RAC, you may deploy Oracle RAC on Azure CloudSimple in IaaS model or in OCI in PaaS model. It is recommended that you use a two-node RAC system. 
 

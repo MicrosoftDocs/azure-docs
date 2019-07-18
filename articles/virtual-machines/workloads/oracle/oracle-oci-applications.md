@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/16/2019
+ms.date: 07/18/2019
 ms.author: rogirdh
 ms.custom: 
 ---
@@ -22,7 +22,7 @@ Microsoft and Oracle have worked together to enable customers to deploy Oracle a
 
 OCI offers multiple Oracle database options for Oracle applications, including DBaaS, Exadata Cloud Service, Oracle RAC, and Infrastructure-as-a-Service (IaaS). Currently, Autonomous Database is not a supported back-end for Oracle applications.
 
-There are [multiple options](oracle-overview.md) for deploying Oracle applications in Azure, including in a high availability and secure manner. Azure also offers [Oracle database VM images](oracle-vm-solutions.md) that you can deploy if you choose to run your Oracle applications entirely on Azure.
+There are [multiple options](oracle-overview.md) for deploying Oracle applications in Azure, including in a highly available and secure manner. Azure also offers [Oracle database VM images](oracle-vm-solutions.md) that you can deploy if you choose to run your Oracle applications entirely on Azure.
 
 The following sections outline architecture recommendations by both Microsoft and Oracle to deploy Oracle E-Business Suite, JD Edwards EnterpriseOne, and PeopleSoft in a cross-cloud configuration or entirely in Azure. Microsoft and Oracle have tested these applications and confirmed that the performance meets standards set by Oracle for these applications.
 
@@ -42,7 +42,7 @@ When deploying an application using the cross-cloud interconnect, you may contin
 
 ## E-Business Suite
 
-Oracle E-Business Suite (EBS) is a suite of applications including Supply Chain Management (SCM) and Customer Relationship Management (CRM). To take advantage of OCI’s managed database portfolio, EBS can be deployed using the cross-cloud interconnect between Microsoft Azure and OCI. In this configuration, the presentation and application tiers run in Azure and the database tier in OCI. See the following architecture diagram:
+Oracle E-Business Suite (EBS) is a suite of applications including Supply Chain Management (SCM) and Customer Relationship Management (CRM). To take advantage of OCI’s managed database portfolio, EBS can be deployed using the cross-cloud interconnect between Microsoft Azure and OCI. In this configuration, the presentation and application tiers run in Azure and the database tier in OCI, as illustrated in the following architecture diagram (Figure 1).
 
 ![E-Business Suite cross-cloud architecture](media/oracle-oci-applications/ebs-arch-cross-cloud.png)
 
@@ -50,7 +50,7 @@ Oracle E-Business Suite (EBS) is a suite of applications including Supply Chain 
 
 In this architecture, the virtual network in Azure is connected to a virtual cloud network in OCI using the cross-cloud interconnect. The application tier is set up in Azure, whereas the database is set up in OCI. It is recommended to deploy each component to its own subnet with network security groups to allow traffic only from specific subnets on specific ports.
 
-The architecture can also be adapted for deployment entirely on Azure with highly available Oracle databases configured using Oracle Data Guard in two availability zones in a region. The following diagram is an example of this architectural pattern:
+The architecture can also be adapted for deployment entirely on Azure with highly available Oracle databases configured using Oracle Data Guard in two availability zones in a region. The following diagram (Figure 2) is an example of this architectural pattern:
 
 ![E-Business Suite Azure-only architecture](media/oracle-oci-applications/ebs-arch-azure.png)
 
@@ -87,9 +87,9 @@ Once your infrastructure is setup, E-Business Suite can be installed by followin
 
 ## JD Edwards EnterpriseOne
 
-Oracle's JD Edwards EnterpriseOne is an integrated applications suite of comprehensive enterprise resource planning software. It is a multi-tiered application that can be set up with either an Oracle or SQL Server database backend. This section discusses details on deploying JD Edwards EnterpriseOne with an Oracle database back-end in OCI or in Azure.
+Oracle's JD Edwards EnterpriseOne is an integrated applications suite of comprehensive enterprise resource planning software. It is a multi-tiered application that can be set up with either an Oracle or SQL Server database backend. This section discusses details on deploying JD Edwards EnterpriseOne with an Oracle database back-end either in OCI or in Azure.
 
-In the following recommended architecture, the administration, presentation, and middle tiers are deployed to the virtual network in Azure. The database is deployed in the virtual cloud network in OCI.
+In the following recommended architecture (Figure 3), the administration, presentation, and middle tiers are deployed to the virtual network in Azure. The database is deployed in a virtual cloud network in OCI.
 
 As with E-Business Suite, you can set up an optional bastion tier for secure administrative purposes. Use the bastion VM host as a jump server to access the application and database instances.
 
@@ -99,7 +99,7 @@ As with E-Business Suite, you can set up an optional bastion tier for secure adm
 
 In this architecture, the virtual network in Azure is connected to the virtual cloud network in OCI using the cross-cloud interconnect. The application tier is set up in Azure, whereas the database is set up in OCI. It is recommended to deploy each component to its own subnet with network security groups to allow traffic only from specific subnets on specific ports.
 
-The architecture can also be adapted for deployment entirely on Azure with highly available Oracle databases configured using Oracle Data Guard in two availability zones in a region. The following diagram is an example of this architectural pattern:
+The architecture can also be adapted for deployment entirely on Azure with highly available Oracle databases configured using Oracle Data Guard in two availability zones in a region. The following diagram (Figure 4) is an example of this architectural pattern:
 
 ![JD Edwards EnterpriseOne Azure-only architecture](media/oracle-oci-applications/jdedwards-arch-azure.png)
 
@@ -153,7 +153,7 @@ Oracle's PeopleSoft application suite contains software for human resources and 
 
 It is recommended that each tier of the software suite be deployed in its own subnet. An Oracle database or Microsoft SQL Server is required as the backend database for the application. This section discusses details on deploying PeopleSoft with an Oracle database backend.
 
-The following is a canonical architecture for deploying the PeopleSoft application suite in a cross-cloud architecture.
+The following is a canonical architecture for deploying the PeopleSoft application suite in a cross-cloud architecture (Figure 5).
 
 ![PeopleSoft cross-cloud architecture](media/oracle-oci-applications/peoplesoft-arch-cross-cloud.png)
 
@@ -161,7 +161,7 @@ The following is a canonical architecture for deploying the PeopleSoft applicati
 
 In this sample architecture, the virtual network in Azure is connected to the virtual cloud network in OCI using the cross-cloud interconnect. The application tier is set up in Azure, whereas the database is set up in OCI. It is recommended to deploy each component to its own subnet with network security groups to allow traffic only from specific subnets on specific ports.
 
-The architecture can also be adapted for deployment entirely on Azure with highly available Oracle databases configured using Oracle Data Guard in two availability zones in a region. The following diagram is an example of this architectural pattern:
+The architecture can also be adapted for deployment entirely on Azure with highly available Oracle databases configured using Oracle Data Guard in two availability zones in a region. The following diagram (Figure 6) is an example of this architectural pattern:
 
 ![PeopleSoft Azure-only architecture](media/oracle-oci-applications/peoplesoft-arch-azure.png)
 
