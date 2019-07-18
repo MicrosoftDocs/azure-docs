@@ -23,7 +23,7 @@ docker run --rm -it -p 5000:5000 \
 --mount type=bind,src=/home/azureuser/output,target=/output \
 <registry-location>/<image-name> \
 Eula=accept \
-Billing=<billing-endpoint> \
+Billing=<endpoint> \
 ApiKey=<api-key> \
 HTTP_PROXY=<proxy-url> \
 HTTP_PROXY_CREDS=<proxy-user>:<proxy-password> \
