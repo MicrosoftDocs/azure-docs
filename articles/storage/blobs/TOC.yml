@@ -330,6 +330,12 @@
             href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Use the Azure Storage REST API
             href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Create shared access signatures
+          items:
+          - name: Create a delegated SAS
+            items:
+            - name: .NET
+              href: storage-blob-delegated-sas-create-dotnet.md
       - name: Configure customer-managed keys for service encryption
         items:
         - name: Portal
