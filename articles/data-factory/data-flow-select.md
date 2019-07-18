@@ -18,7 +18,7 @@ The Select transform allows you to alias an entire stream, or columns in that st
 
 ![Self-join](media/data-flow/selfjoin.png "Self-join")
 
-In the above diagram, the Select transform is at the top. This is aliasing the original stream to "OrigSourceBatting". In the higlighted Join transform below it, you can see that we use this Select alias stream as the right-hand join, allowing us to reference the same key in both the Left & Right side of the Inner Join.
+In the above diagram, the Select transform is at the top. This is aliasing the original stream to "OrigSourceBatting". In the highlighted Join transform below it, you can see that we use this Select alias stream as the right-hand join, allowing us to reference the same key in both the Left & Right side of the Inner Join.
 
 Select can also be used as a way de-select columns from your data flow. For example, if you have 6 columns defined in your sink, but you only wish to pick a specific 3 to transform and then flow to the sink, you can select just those 3 by using the select transform.
 
