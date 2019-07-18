@@ -39,15 +39,24 @@ Learn more about how billing works for [triggers](#triggers) and [actions](#acti
 An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides a private, isolated, and dedicated way for you to create and run logic apps that can access resources in an Azure virtual network. For new logic apps that run inside an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for these capabilities:
 
 * [Built-in triggers and actions](../connectors/apis-list.md#built-in)
+
 * [Standard connectors](../connectors/apis-list.md#managed-connectors)
+
 * [Enterprise connectors](../connectors/apis-list.md#enterprise-connectors) with as many connections as you want
-* The following [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) usage at no additional cost based on the [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) selected at creation:
 
-  * **Premium**: A single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
+* [Integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) usage at no additional cost based on your [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
-  * **Developer**: Up to 5 [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration accounts
+  * **Premium SKU**: A single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
-  Additional costs apply to non-Free integration accounts that you add beyond any integration accounts that are included with an ISE SKU. Either ISE SKU can have up to 5 total integration accounts with any tier combination. You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic.
+  * **Developer SKU**: A single [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
+
+  Each ISE SKU is limited to 5 total integration accounts. For an additional cost, you can add more integration accounts, based on your ISE SKU:
+
+  * **Premium SKU**: Add up to four more Standard accounts only (no Free or Basic accounts).
+
+  * **Developer SKU**: Add up to four more Standard accounts only (no Free or Basic accounts).
+
+You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic. For more information about integration account limits, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 For the Premium ISE SKU, the base unit has fixed capacity, so if you need more throughput, you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), either during creation or afterwards. The Developer ISE SKU doesn't have the capability to add more scale units. Logic apps that run in an ISE don't incur data retention costs.
 
@@ -101,11 +110,13 @@ Disabled logic apps aren't charged because they can't create new instances while
 
 ## Integration accounts
 
-A fixed pricing model applies to [integration accounts](logic-apps-enterprise-integration-create-integration-account.md) where you can explore, develop, and test the [B2B and EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) features in Azure Logic Apps at no additional cost. Each integration account can store up to specific [numbers of artifacts](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits), which include trading partners, agreements, maps, schemas, assemblies, certificates, batch configurations, and so on. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+A [fixed pricing model](https://azure.microsoft.com/pricing/details/logic-apps) applies to [integration accounts](logic-apps-enterprise-integration-create-integration-account.md) where you can explore, develop, and test the [B2B and EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) features in Azure Logic Apps at no additional cost.
 
-Azure Logic Apps offers Free, Basic, and Standard integration accounts. The Basic and Standard tiers are supported by the Logic Apps service-level agreement (SLA), while the Free tier is not supported by an SLA and has limits on throughput and usage. Except for Free tier integration accounts, you can have more than one integration account in each Azure region.
+Each Azure subscription can have up to a [specific limit of integration accounts](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits.md#integration-account-limits). Each integration account can store up to specific [limit of artifacts](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits), which include trading partners, agreements, maps, schemas, assemblies, certificates, batch configurations, and so on.
 
-If you have an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that's either the [Premium or Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), your ISE can have up to 5 total integration accounts with any tier combination. Additional costs apply to non-Free integration accounts that you add beyond any integration accounts that are included with an ISE SKU. To learn how the fixed pricing model works for an ISE, see the previous [Fixed pricing model](#fixed-pricing) section in this topic.
+Azure Logic Apps offers Free, Basic, and Standard integration accounts. The Basic and Standard tiers are supported by the Logic Apps service-level agreement (SLA), while the Free tier is not supported by an SLA and has limits on throughput and usage. Except for Free tier integration accounts, you can have more than one integration account in each Azure region. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+If you have an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), either [Premium or Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), your ISE can have 5 total integration accounts. To learn how the fixed pricing model works for an ISE, see the previous [Fixed pricing model](#fixed-pricing) section in this topic. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 To choose between a Free, Basic, or Standard integration account, review these use case descriptions:
 
@@ -114,8 +125,6 @@ To choose between a Free, Basic, or Standard integration account, review these u
 * **Basic**: For when you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity
 
 * **Standard**: For when you have more complex B2B relationships and increased numbers of entities that you must manage
-
-For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="data-retention"></a>
 
