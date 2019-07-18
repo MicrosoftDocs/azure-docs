@@ -113,7 +113,7 @@ To start a spark-shell session, do the following steps:
 
 ### Connecting and running queries on Enterprise Security Package (ESP) clusters
 
-The Enterprise Security Package (ESP) provides enterprise-grade capabilities like Active Directory-based authentication, multi-user support, and role-based access control for Apache Hadoop clusters in Azure HDInsight. For more information on ESP, see [An introduction to Apache Hadoop security with Enterprise Security Package](../domain-joined/apache-domain-joined-introduction.md).
+The Enterprise Security Package (ESP) provides enterprise-grade capabilities like Active Directory-based authentication, multi-user support, and role-based access control for Apache Hadoop clusters in Azure HDInsight. For more information on ESP, see [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 1. Follow the initial steps 1 and 2 under [Connecting and running queries](#connecting-and-running-queries).
 1. Type `kinit` and login with a domain user.
