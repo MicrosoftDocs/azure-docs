@@ -74,12 +74,12 @@
       href: security-info-setup-text-msg.md
     - name: Set up phone calls
       href: security-info-setup-phone-number.md
+    - name: Set up security key
+      href: security-info-setup-security-key.md      
     - name: Set up email
       href: security-info-setup-email.md
     - name: Set up security questions
       href: security-info-setup-questions.md
-    - name: Set up security key
-      href: security-info-setup-security-key.md
   - name: Manage app passwords
     href: security-info-app-passwords.md
   - name: How to sign in
