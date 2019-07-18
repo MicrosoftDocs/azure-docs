@@ -3,8 +3,8 @@ title: 'Tutorial: Configure 15Five for automatic user provisioning with Azure Ac
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to 15Five.
 services: active-directory
 documentationcenter: ''
-author: zchia
-writer: zchia
+author: zhchia
+writer: zhchia
 manager: beatrizd
 
 ms.assetid: a276c004-9f71-4efc-8cca-1f615760249f
