@@ -34,7 +34,7 @@ To complete this tutorial, make sure you have:
 
 
 > [!IMPORTANT]
-> Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this tutorial. Database-level firewall rules will replicate automatically to the secondary server.
+> Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this tutorial. Database-level firewall rules will replicate automatically to the secondary database.
 >
 > For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](sql-database-server-level-firewall-rule.md).  
 
@@ -51,15 +51,15 @@ In this step, you will create the resource group and the primary managed instanc
 
    | **Field** | Value |
    | --- | --- |
-   | **Subscription** |  The subscription where your primary managed instance resides. |
+   | **Subscription** |  The subscription where your primary managed instance was created. |
    | **Managed instance name** |Type in a name for your primary managed instance, such as `primary-sql-mi`  | 
    | **Managed instance admin login** | The login you want to use for your primary managed instance, such as `azureuser`. |
    | **Password** | A complex password that will be used by the admin login for the new secondary managed instance.  |
    | **Collation** | The collation for your secondary managed instance. *SQL_Latin1_General_CP1_CI_AS* is provided by default. |
-   | **Location**| The location where your resource group resides.  |
+   | **Location**| The location where your managed instance is created.  |
    | **Virtual network**| Create a new virtual network for your managed instance. |
    | **Connection type**| Leave this as **Proxy (Default)** and optionally select the checkbox next to **Enable public endpoint**. |
-   | **Resource group**| The resource group where your primary managed instance resides. |
+   | **Resource group**| The resource group where your primary managed instance was created. |
    | &nbsp; | &nbsp; |
 
    ![Create primary MI](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
@@ -89,7 +89,7 @@ To create a virtual network, follow these steps:
     | **Subscription** | The subscription where your primary managed instance and resource group reside.  |
     | **Location** | The location where you will deploy your secondary managed instance; this should be different than the location for your primary managed instance.  |
     | **Subnet** | The name for your subnet. `default` is filled in for you by default. |
-    | **Address range**| The address range for your subnet. This must be different than the subnet used by the virtual network of your primary managed instance, such as `10.128.0.0/24`.  |
+    | **Address range**| The address range for your subnet. This must be different than the subnet address range used by the virtual network of your primary managed instance, such as `10.128.0.0/24`.  |
     | &nbsp; | &nbsp; |
 
     ![Secondary virtual network values](media/sql-database-managed-instance-failover-group-tutorial/secondary-virtual-network.png)
@@ -108,18 +108,18 @@ In this step, you will create a secondary managed instance in the Azure portal, 
  
     | **Field** | Value |
     | --- | --- |
-    | **Subscription** |  The subscription where your primary managed instance resides. |
+    | **Subscription** |  The subscription where your primary managed instance is. |
     | **Managed instance name** | The name of your new secondary managed instance, such as `sql-mi-secondary`  | 
     | **Managed instance admin login** | The login you want to use for your new secondary managed instance, such as `azureuser`. |
     | **Password** | A complex password that will be used by the admin login for the new secondary managed instance.  |
     | **Collation** | The collation for your secondary managed instance. *SQL_Latin1_General_CP1_CI_AS* is provided by default. |
-    | **Location**| The location where your resource group resides. This must be a different region than where your primary managed instance is.  |
+    | **Location**| The location where you want to deploy your secondary managed instance. This must be a different region than where your primary managed instance is.  |
     | **Virtual network**| Select the virtual network that was created in section 2, such as `vnet-sql-mi-secondary`. |
-    | **Resource group**| The resource group where your primary managed instance resides. |
+    | **Resource group**| The resource group where your primary managed instance is. |
     | &nbsp; | &nbsp; |
 
 1. Select the checkbox next to *I want to use this managed instance as an Instance Failover Group secondary*. 
-1. From the **DnsZonePartner managed instance** drop-down, select the managed instance you want to act as the primary.
+1. From the **Primary Managed Instance** drop-down, select the managed instance you want to act as the primary.
 
    ![Secondary MI values](media/sql-database-managed-instance-failover-group-tutorial/secondary-sql-mi-values.png)
 
