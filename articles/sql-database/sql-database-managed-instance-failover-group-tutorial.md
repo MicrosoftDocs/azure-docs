@@ -33,11 +33,6 @@ To complete this tutorial, make sure you have:
 - An Azure subscription, [create a free account](https://azure.microsoft.com/free/) if you don't already have one. 
 
 
-> [!IMPORTANT]
-> Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this tutorial. Database-level firewall rules will replicate automatically to the secondary database.
->
-> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](sql-database-server-level-firewall-rule.md).  
-
 ## 1 - Create resource group and primary managed instance
 In this step, you will create the resource group and the primary managed instance for your failover group using the Azure portal. 
 

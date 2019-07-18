@@ -37,7 +37,7 @@ To complete this tutorial, make sure you have:
 ## 2 - Add single database to elastic pool
 
 1. Choose **Create a resource** in the upper left-hand corner of the [Azure portal](https://portal.azure.com).
-1. Type `elastic pool` in the search box, select the **SQL Elastic database pool** icon, and then select **Create**. 
+1. Type `elastic pool` in the search box, press enter, select the **SQL Elastic database pool** icon, and then select **Create**. 
 
     ![Choose elastic pool from the marketplace](media/sql-database-elastic-pool-create-failover-group-tutorial/elastic-pool-market-place.png)
 
@@ -45,13 +45,11 @@ To complete this tutorial, make sure you have:
    - **Name**: Provide a unique name for your elastic pool, such as `myElasticPool`. 
    - **Subscription**: Select your subscription from the drop-down.
    - **ResourceGroup**: Select `myResourceGroup` from the drop-down, the resource group you created in section 1 from the drop-down. 
-   - **Server**: Select *Configure required settings* and then choose the server, `mysqlserver` you created in section 1 from the list of available servers. 
+   - **Server**: Select the server you created in section 1 from the drop down.  
 
        ![Create new server for elastic pool](media/sql-database-elastic-pool-create-failover-group-tutorial/use-existing-server-for-elastic-pool.png)
 
-   - **Configure pool**: Select this option to modify your compute and then select **Gen5** under **Compute Generation**. Leave the other values at default. 
-
-       ![Configure compute](media/sql-database-elastic-pool-create-failover-group-tutorial/compute-for-elastic-pool.png)
+   - **Compute + storage**: Select **Configure elastic pool** to configure your compute, storage, and add your single database to your elastic pool. On the **Pool Settings** tab, leave the default of Gen5, with 2 vCores and 32gb. 
 
 1. On the **Configure** page, select the **Databases** tab, and then choose to **Add database**. Choose the database you created in section 1 and then select **Apply** to add it to your elastic pool. Select **Apply** again to apply your elastic pool settings and close the **Configure** page. 
 
