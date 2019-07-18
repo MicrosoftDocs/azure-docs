@@ -59,7 +59,7 @@ The following JSON shows an example of *createUiDefinition.json* file for Azure 
           {
             "name": "zipFileBlobUri",
             "type": "Microsoft.Common.TextBox",
-            "defaultValue": "https://raw.githubusercontent.com/raosuhas/azure-quickstart-templates/master/201-managed-application-with-customprovider/artifacts/functionzip/functionpackage.zip",
+            "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
             "label": "The Uri to the uploaded function zip file",
             "toolTip": "The Uri to the uploaded function zip file",
             "visible": true
