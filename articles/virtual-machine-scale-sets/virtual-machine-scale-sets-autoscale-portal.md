@@ -23,23 +23,21 @@ When you create a scale set, you define the number of VM instances that you wish
 
 This article shows you how to create autoscale rules in the Azure portal that monitor the performance of the VM instances in your scale set. These autoscale rules increase or decrease the number of VM instances in response to these performance metrics. You can also complete these steps with [Azure PowerShell](tutorial-autoscale-powershell.md) or the [Azure CLI](tutorial-autoscale-cli.md).
 
-
 ## Prerequisites
 To create autoscale rules, you need an existing virtual machine scale set. You can create a scale set with the [Azure portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), or [Azure CLI](quick-create-cli.md).
-
 
 ## Create a rule to automatically scale out
 If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or disk, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
 
 1. Open the Azure portal and select **Resource groups** from the menu on the left-hand side of the dashboard.
-2. Select the resource group that contains your scale set, then choose your scale set from the list of resources.
-3. Choose **Scaling** from the menu on the left-hand side of the scale set window. Select the button to **Enable autoscale**:
+1. Select the resource group that contains your scale set, then choose your scale set from the list of resources.
+1. Choose **Scaling** from the menu on the left-hand side of the scale set window. Select the button to **Enable autoscale**:
 
     ![Enable autoscale in the Azure portal](media/virtual-machine-scale-sets-autoscale-portal/enable-autoscale.png)
 
-4. Enter a name for your settings, such as *autoscale*, then select the option to **Add a rule**.
+1. Enter a name for your settings, such as *autoscale*, then select the option to **Add a rule**.
 
-5. Let's create a rule that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 10-minute period. When the rule triggers, the number of VM instances is increased by 20%. In scale sets with a small number of VM instances, you could set the **Operation** to *Increase count by* and then specify *1* or *2* for the *Instance count*. In scale sets with a large number of VM instances, an increase of 10% or 20% VM instances may be more appropriate.
+1. Let's create a rule that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 10-minute period. When the rule triggers, the number of VM instances is increased by 20%. In scale sets with a small number of VM instances, you could set the **Operation** to *Increase count by* and then specify *1* or *2* for the *Instance count*. In scale sets with a large number of VM instances, an increase of 10% or 20% VM instances may be more appropriate.
 
     Specify the following settings for your rule:
     
@@ -61,12 +59,12 @@ If your application demand increases, the load on the VM instances in your scale
 
 6. To create the rule, select **Add**
 
-##Setting up VMSS auto scaling using Memory metrics
+## Setting up VMSS auto scaling using Memory metrics
 When Scaling Based on the CPU in VMSS you can use the host metrics to create the auto scale rules. The metrics are available by default in any windows Linux VMSS.
  
-For Windows OS based metrics, the metrics are defined Differently for Windows or Linux VMSS instance. It's possible to implement Programmatically by CLI.
+For Windows OS based metrics, the metrics are defined differently for Windows or Linux VMSS instance. It's possible to implement programmatically by using CLI.
  
-VMSS for Windows Based Machine
+VMSS for Windows-based machine
  
 Steps for Installation.
 1.       Copy the below script to notepad and save the file as "config.txt" 
