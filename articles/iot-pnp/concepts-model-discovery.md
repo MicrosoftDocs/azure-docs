@@ -1,5 +1,5 @@
 ---
-title: Implement model discovery in an IoT Solution | Microsoft Docs
+title: Implement IoT Plug and Play model discovery | Microsoft Docs
 description: As a solution developer, learn about how you can implement IoT Plug and Play model discovery in your solution.
 author: ChrisGMsft
 ms.author: chrisgre
