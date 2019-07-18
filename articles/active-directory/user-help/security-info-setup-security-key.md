@@ -51,12 +51,18 @@ You must prepare your security key to work with Windows and a unique PIN before 
 
 2. Select **Security Info**, select **Add method**, and then select **Security key** from the **Add a method** drop-down list.
 
+    ![Add method box, with Security key selected](media/security-info/security-info-security-key-add-method.png)
+
 3. Select **Add**, and then select the type of security key you have, either **USB device** or **NFC device**.
+
+    ![Choose whether you have a USB or NFC type of security key](media/security-info/security-info-security-key-choose-type.png)
 
     > [!Note]
     > If you aren't sure which type of security key you have, refer to the manufacturer's documentation. If you aren't sure about the manufacturer, contact your organization's help desk for assistance.
 
 4. Have your security key physically available and then in the **Security key** box, select **Next**.
+
+    ![Security key start registration box](media/security-info/security-info-security-key-start-setup.png)
 
     A new box appears to help walk you through setting up your new sign-in method.
 
@@ -74,9 +80,15 @@ You must prepare your security key to work with Windows and a unique PIN before 
 
 8. Return to the **Security info** page, type a name you'll recognize later for your new security key, and then select **Next**.
 
+    ![Security info page, naming your security key](media/security-info/security-info-security-key-name.png)
+
     Your security key is registered and ready for you to use for sign in to your work or school account.
 
 9. Select **Done** to close the **Security key** box.
+
+    The **Security info** page is updated with your security key information.
+
+    ![Security info page, with all registered methods shown](media/security-info/security-info-security-key-configured.png)
 
 ## Delete a security key from your security info
 
