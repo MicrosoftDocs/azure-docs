@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 07/19/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -146,7 +146,7 @@ and then choose **Review + create**, for example:
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you want to create your environment |
    | **Integration Service Environment Name** | Yes | <*environment-name*> | The name to give your environment |
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment |
-   | **SKU** | Yes | **Premium** or **Developer (No SLA)** | The ISE level to create. For differences between these SKUs, see [ISE SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). |
+   | **SKU** | Yes | **Premium** or **Developer (No SLA)** | The ISE SKU to create and use. For differences between these SKUs, see [ISE SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). |
    | **Additional capacity** | Premium: <br>Yes <p><p>Developer: <br>Not applicable | Premium: <br>0 to 10 <p><p>Developer: <br>Not applicable | The number of additional processing units to use for this ISE resource. To add capacity after creation, see [Add ISE capacity](#add-capacity). |
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, [create an Azure virtual network first](../virtual-network/quick-create-portal.md). <p>**Important**: You can *only* perform this injection when you create your ISE. |
    | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating and deploying resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet).  |
@@ -271,12 +271,7 @@ compared to the global Logic Apps service, see [Isolated versus global in the IS
 
 ## Create integration account - ISE
 
-If you want to use an integration account with logic apps in an integration service environment (ISE), that integration account must use the *same environment* as the logic apps. Logic apps in an ISE can reference only integration accounts in the same ISE.
-
-Based on your [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), your ISE includes one integration account:
-
-* Premium ISE: A [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
-* Developer ISE (no SLA): A [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account. The Developer ISE supports only the Free tier integration account.
+If you want to use an integration account with logic apps in an integration service environment (ISE), that integration account must use the *same environment* as the logic apps. Logic apps in an ISE can reference only integration accounts in the same ISE. Based on the [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) selected at creation, your ISE includes specific integration accounts at no additional cost. For information about this pricing model works, see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md).
 
 To create an integration account that uses an ISE, [create your integration account in the usual way](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) except when you set the **Location** property, select your ISE from the **Integration service environments** section, for example:
 

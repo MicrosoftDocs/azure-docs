@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 07/19/2019
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
@@ -105,13 +105,11 @@ When you create your ISE, you can select the Developer SKU or Premium SKU. Here 
 
 * **Developer**
 
-  Provides a lower-cost ISE that you can use for experimentation, development, and testing, but not for production or performance testing. The Developer SKU includes built-in triggers and actions, Standard connectors, Enterprise connectors, and a [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account for a fixed monthly price.
-
-  However, this SKU doesn't include any service-level agreement (SLA), options for scaling capacity, or redundancy during recycling, which means that you might experience delays or downtime. Your ISE can use only the Free tier integration account.
+  Provides a lower-cost ISE that you can use for experimentation, development, and testing, but not for production or performance testing. The Developer SKU includes built-in triggers and actions, Standard connectors, Enterprise connectors, and [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration accounts for a fixed monthly price. However, this SKU doesn't include any service-level agreement (SLA), options for scaling up capacity, or redundancy during recycling, which means that you might experience delays or downtime.
 
 * **Premium**
 
-  Provides an ISE that you can use for production and includes SLA support, built-in triggers and actions, Standard connectors, Enterprise connectors, a [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account, options for scaling capacity, and redundancy during recycling for a fixed monthly price.
+  Provides an ISE that you can use for production and includes SLA support, built-in triggers and actions, Standard connectors, Enterprise connectors, a single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account, options for scaling up capacity, and redundancy during recycling for a fixed monthly price.
 
 For pricing rates, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/). For information about how the pricing model works, see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md).
 
