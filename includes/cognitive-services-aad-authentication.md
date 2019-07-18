@@ -38,6 +38,9 @@ The first step is to create a custom subdomain.
 
 Now that you have a custom subdomain associated with your resource, you're going to need to assign a role to a service principal.
 
+> [!NOTE]
+> Keep in mind that AAD role assignments may take up to five minutes to propagate.
+
 1. First, let's register an [AAD application](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
 
    ```azurecli-interactive
@@ -64,9 +67,6 @@ Now that you have a custom subdomain associated with your resource, you're going
    ```azurecli-interactive
    New-AzRoleAssignment -ObjectId <SERVICE_PRINCIPAL_OBJECTID> -Scope <ACCOUNT_ID> -RoleDefinitionName "Cognitive Services User"
    ```
-
-> [!NOTE]
-> Keep in mind that AAD role assignments may take up to five minutes to propagate.
 
 ### Sample request
 
