@@ -54,11 +54,11 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Druva Admin Console](media/druva-provisioning-tutorial/menubar.png)
 
-2. On the inSync Management Console menu bar, click **Manage** > Deployments > **Users**.
+2. On the inSync Management Console menu bar, click **Manage** > **Deployments** > **Users**.
 
 	![Druva Add SCIM](media/druva-provisioning-tutorial/manage.png)
 
-3.	Navigate > Settings > **Click on Generate Token**.
+3.	Navigate > **Settings** > **Click on Generate Token**.
 
 	![Druva Add SCIM](media/druva-provisioning-tutorial/settings.png)
 
@@ -113,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5.	Under the Admin Credentials section, input `https://apis.druva.com/insync/scim` in Tenant 		URL. Input the Auth Token value in Secret Token. Click Test Connection to ensure Azure AD can 	connect to Druva. If the connection fails, ensure your Druva account has Admin 					permissions and try again.
+5.	Under the Admin Credentials section, input `https://apis.druva.com/insync/scim` in **Tenant 	URL**. Input the **Auth Token** value in **Secret Token**. Click **Test Connection** to 		ensure 	Azure AD can connect to Druva. If the connection fails, ensure your Druva account has 	Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
