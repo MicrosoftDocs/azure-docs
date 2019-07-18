@@ -208,8 +208,8 @@
           - name: Micrometer Metrics
             displayname: java
             href: app/micrometer-java.md
-        - name: Micrometer Metrics (2.5.0-BETA)
-          href: app/micrometer-java-25-beta.md
+          - name: Micrometer Metrics (2.5.0-BETA)
+            href: app/micrometer-java-25-beta.md
           - name: Spring Boot app
             displayname: java
             href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
