@@ -69,6 +69,19 @@ After you run the Enable command, complete these steps:
 	    <add name="ManagedHttpModuleHelper" type="Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.ManagedHttpModuleHelper, Microsoft.AppInsights.IIS.ManagedHttpModuleHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" preCondition="managedHandler,runtimeVersionv4.0" />
 	</modules>
 	```
+
+### IIS Nested Applications
+
+As of v1.0, we do not instrument nested applications in IIS. 
+We are tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
+
+### Advanced SDK Configuration is not available.
+
+As of v1.0, the SDK configuration is not exposed to the end user. 
+We are tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
+
+	
+	
 ## Troubleshooting
 	
 ### Troubleshooting PowerShell
