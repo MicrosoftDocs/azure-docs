@@ -47,7 +47,7 @@ aks_name = "aks-gpu"
 
 # Check to see if the cluster already exists
 try:
-    compute_target = ComputeTarget(workspace=ws, name=aks_name)
+    aks_target = ComputeTarget(workspace=ws, name=aks_name)
     print('Found existing compute target')
 except ComputeTargetException:
     print('Creating a new compute target...')
@@ -193,7 +193,7 @@ print("prediction:", resp.text)
 
 ## Clean up the resources
 
-Delete your resources after you're done with this example.
+If you created the AKS cluster specifically for this example, delete your resources after you're done.
 
 > [!IMPORTANT]
 > Azure bills you based on how long the AKS cluster is deployed. Make sure to clean it up after you are done with it.
