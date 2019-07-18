@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 06/19/2019
+ms.date: 07/19/2019
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -180,11 +180,13 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 ## Integration account limits
 
+If you use an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that's either the [Premium or Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), your ISE can have up to 5 total integration accounts with any tier combination.
+
 <a name="artifact-number-limits"></a>
 
 ### Artifact limits per integration account
 
-Here are the limits on the number of artifacts for each integration account. 
+Here are the limits on the number of artifacts for each integration account tier. 
 For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 > [!NOTE] 
