@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 07/18/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -135,7 +135,7 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
 ### Create OutSystems Azure AD test user
 
-In this section, a user called Britta Simon is created in OutSystems. OutSystems supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in OutSystems, a new one is created after authentication.
+In this section, a user called B.Simon is created in OutSystems. OutSystems supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in OutSystems, a new one is created after authentication.
 
 ### Test SSO
 
