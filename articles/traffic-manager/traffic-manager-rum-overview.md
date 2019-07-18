@@ -30,7 +30,7 @@ Over time, this happens many times and across many networks leading to Traffic M
 
 When you use Real User Measurements, you are billed based on the number of measurements sent to Traffic Manager. For more details on the pricing, visit the [Traffic Manager pricing page](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-### FAQs
+## FAQs
 
 * [What are the benefits of using Real User Measurements?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-benefits-of-using-real-user-measurements)
 
