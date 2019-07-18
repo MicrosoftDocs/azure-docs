@@ -25,7 +25,7 @@ If you have a [Microsoft Customer Agreement](#check-your-access-to-a-microsoft-c
 - Billing profile Owner
 - Contributor
 - Reader
-- Invoice manager to get your invoices. 
+- Invoice manager
 
 For more information about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
