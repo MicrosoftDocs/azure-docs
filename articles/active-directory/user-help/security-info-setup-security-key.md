@@ -144,6 +144,10 @@ You have additional options for how your organization contacts you to verify you
 
 ## Next steps
 
-- For more information abo7t alternate passwordless authentication methods, see [What is the Microsoft Authenticator app?](https://docs.microsoft.com/azure/active-directory/user-help8user-help-auth-app-overview) and [Windows Hello overview](https://www.microsoft.com/windows/windows-hello).
-- 
-- Detailed info about [Microsoft-compliant security keys](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
+- For more information about alternate passwordless authentication methods, see [What is the Microsoft Authenticator app?](https://docs.microsoft.com/azure/active-directory/user-help8user-help-auth-app-overview) and [Windows Hello overview](https://www.microsoft.com/windows/windows-hello).
+
+- For more detailed info about [Microsoft-compliant security keys](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
+
+- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
+
+- Get troubleshooting tips and help for sign-in problems in the [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
