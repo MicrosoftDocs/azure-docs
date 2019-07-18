@@ -2,7 +2,8 @@
 title: Azure Kinect body index map
 description: Using body index maps
 author: qm13
-ms.author: yijwan, quentinm
+ms.author: quentinm
+ms.reviewer: yijwan
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual

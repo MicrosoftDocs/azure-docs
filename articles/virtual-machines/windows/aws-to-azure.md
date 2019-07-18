@@ -4,7 +4,7 @@ description: Move an Amazon Web Services (AWS) EC2 Windows instance to an Azure 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

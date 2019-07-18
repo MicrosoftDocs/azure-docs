@@ -164,7 +164,8 @@ The admin consent does not accept a scope parameter, so any permissions being re
 #### To configure the list of statically requested permissions for an application
 
 1. Go to your application in the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience, or [create an app](quickstart-register-app.md) if you haven't already.
-2. Locate the **Microsoft Graph Permissions** section, and then add the permissions that your app requires.
+2. Locate the **API Permissions** section, and within the API permissions click Add a permission.
+3. Select **Microsoft Graph** from the list of available APIs and then add the permissions that your app requires.
 3. **Save** the app registration.
 
 ### Recommended: Sign the user into your app
