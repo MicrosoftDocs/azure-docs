@@ -28,7 +28,7 @@ You can use security keys as a passwordless sign-in method within your organizat
 
 We currently support several designs and providers of security keys using the [Fast Identity Online (FIDO)](https://fidoalliance.org/fido2/) (FIDO2) passwordless authentication method. This method allows you to sign in to your work or school account once to get access to all of your organization's cloud-based resources and supported browsers.
 
-Your administrator or your organization will provide you with a security key if they require it for your work or school account. There are different types of security keys you can use, for example a USB key that you plug in to your device or a NFC key that you tap on an NFC reader. You can find out more information about your security key, including what type it is, from the manufacturer's documentation.
+Your administrator or your organization will provide you with a security key if they require it for your work or school account. There are different types of security keys you can use, for example a USB key that you plug in to your device or an NFC key that you tap on an NFC reader. You can find out more information about your security key, including what type it is, from the manufacturer's documentation.
 
 > [!Note]
 > If you're unable to use a FIDO2 security key, there are other passwordless authentication methods you can use such as the Microsoft Authenticator app or Windows Hello. For more information about the Microsoft Authenticator app, see [What is the Microsoft Authenticator app?](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview). For more information about Windows Hello, see [Windows Hello overview](https://www.microsoft.com/windows/windows-hello).
@@ -70,7 +70,7 @@ You must prepare your security key to work with Windows and a unique PIN before 
 
     - If your security key is a USB device, insert your security key into the USB port of your device.
 
-    - If your security key is a NFC device, tap your security key to your reader.
+    - If your security key is an NFC device, tap your security key to your reader.
 
 6. Type your unique security key PIN into the **Windows security** box, and then select **OK**.
 
