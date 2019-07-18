@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: rkarlin 
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 07/17/2019
 ---
 
 # Query data in Azure Data Lake using Azure Data Explorer (Preview)
@@ -26,6 +26,9 @@ Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Stora
 
 ## Create an external table
 
+ > [!NOTE]
+ > Currently supported storage accounts are Azure Blob Storage or Azure Data Lake Storage Gen2. Currently supported data formats are json, csv, tsv and txt.
+
 1. Use the `.create external table` command to create an external table in Azure Data Explorer. Additional external table commands such as `.show`, `.drop`, and `.alter` are documented in [External table commands](/azure/kusto/management/externaltables).
 
     ```Kusto
@@ -40,13 +43,31 @@ Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Stora
 
     This query creates daily partitions *container1/yyyy/MM/dd/all_exported_blobs.csv*. Increased performance is expected with more granular partitioning. For example, queries over external tables with daily partitions, such as the one above, will have better performance than those queries with monthly partitioned tables.
 
-    > [!NOTE]
-    > Currently supported storage accounts are Azure Blob Storage or Azure Data Lake Storage Gen2. Currently supported data formats are csv, tsv and txt.
-
 1. The external table is visible in the left pane of the Web UI
 
     ![external table in web UI](media/data-lake-query-data/external-tables-web-ui.png)
+
+### Create an external table with json format
+
+You can create an external table with json format. For more information see 
+
+1. Use the `.create external table` command to create a table named *ExternalBlob_Json*:
+
+```Kusto
+.create external table ExternalBlob_Json (id:int, name: string, gender: string)
+kind=blob
+dataformat=json
+( 
+   h@'https://custppecus.blob.core.windows.net/json?st=2019-06-12T09%3A56%3A22Z&se=2020-06-13T09%3A56%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=uJ0BKgGaUdOQVMGLH%2FNUWnmuU5tYGybJLutA7emIlx8%3D'
+)
+```
  
+1. Use specific json mapping named *mappingName* with `.create external table`:
+
+```kusto
+.create external table ExternalBlob_Json json mapping 'mappingName' "[{\"column\": \"id\", \"path\": \"$.id2\"},{\"column\": \"name\", \"path\": \"$.name\"},{\"column\": \"gender\", \"path\": \"$.gender\"}]"
+```
+
 ### External table permissions
  
 * The database user can create an external table. The table creator automatically becomes the table administrator.
@@ -63,6 +84,14 @@ external_table("ArchivedProducts") | take 100
 
 > [!TIP]
 > Intellisense isn't currently supported on external table queries.
+
+### Query an external table with json format
+
+To query an external table with json format, use the `external_table()` function, and provide both table name and mapping name as the function arguments. In the query below, if *mappingName* is not provided, Kusto will use the default mapping.
+
+```kusto
+external_table(‘ExternalBlob_Json’, ‘mappingName’)
+```
 
 ## Query external and ingested data together
 
