@@ -191,7 +191,7 @@ Each Azure subscription has these integration account limits:
   | ISE SKU | Limit |
   |---------|-------|
   | **Premium** | 5 total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) only, no Free or Basic |
-  | **Developer** | 5 total - one Free and four Standard only, no Basic |
+  | **Developer** | 5 total - Free (limited to 1), Standard, or both, but no Basic |
   |||
 
 Additional costs apply to integration accounts that you add beyond the integration accounts that are included with an ISE. To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).

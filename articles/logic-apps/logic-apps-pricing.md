@@ -50,11 +50,11 @@ An [*integration service environment* (ISE)](../logic-apps/connect-virtual-netwo
 
   * **Developer SKU**: A single [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
-  Each ISE SKU is limited to 5 total integration accounts. For an additional cost, you can add more integration accounts, based on your ISE SKU:
+  Each ISE SKU is limited to 5 total integration accounts. For an additional cost, you have more integration accounts, based on your ISE SKU:
 
-  * **Premium SKU**: Add up to four more Standard accounts only (no Free or Basic accounts).
+  * **Premium SKU**: Up to four more Standard accounts, no Free or Basic accounts
 
-  * **Developer SKU**: Add up to four more Standard accounts only (no Free or Basic accounts).
+  * **Developer SKU**: Either up to 4 more Standard accounts or up to 5 total Standard accounts, no Basic accounts
 
 You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic. For more information about integration account limits, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
