@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 07/18/2019
 ms.author: magoedte
 ---
 
@@ -41,11 +41,11 @@ Identifying the number of workspaces you need is influenced by one or more of th
 
 IT organizations today are modeled following either a centralized, decentralized, or an in-between hybrid of both structures. As a result, the following workspace deployment models have been commonly used to map to one of these organizational structures:
 
-* Centralized: All logs are stored in a central workspace and administered by a single team. In this scenario, it is easy to manage, search across resources, and cross-correlate logs. The workspace can grow significantly depending on the amount of data collected from multiple resources in your subscription, with additional administrative overhead to maintain access control to different users.
+* Centralized: All logs are stored in a central workspace and administered by a single team, with Azure Monitor providing differentiated access per-team. In this scenario, it is easy to manage, search across resources, and cross-correlate logs. The workspace can grow significantly depending on the amount of data collected from multiple resources in your subscription, with additional administrative overhead to maintain access control to different users.
 * Decentralized: Each team has their own workspace created in a resource group that they own and manage, and log data is segregated per resource. In this scenario, the workspace can be kept secure and access control is consistent with resource access, but it's difficult to cross-correlate logs. Users who need a broad view of many resources cannot analyze the data in a meaningful way.
 * Hybrid: Security audit compliance requirements further complicate this scenario because many organizations implement both deployment models in parallel. This commonly results in a complex, expensive, and hard-to-maintain configuration with gaps in logs coverage.
 
-While the centralized workspace design comes with minor trade-offs compared to the other deployment models, the resource-context access mode alleviates the need to configure scoped permissions to particular tables in the workspace.  
+While the centralized workspace design comes with minor trade-offs compared to the other deployment models, the resource-context access mode alleviates the need to configure scoped permissions to particular tables in the workspace.
 
 When using the Log Analytics agents to collect data, you need to understand the following in order to plan your agent deployment:
 
@@ -85,7 +85,6 @@ Users have two options for accessing the data:
 > - Computers outside of Azure
 > - Service Fabric
 > - Application Insights
-> - Containers
 >
 > You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](log-standard-properties.md#_resourceid) property, then data is available to resource-centric queries.
 
@@ -119,7 +118,7 @@ When a user accesses the workspace in workspace-context mode, workspace permissi
 This is the default setting for all workspaces created after March 2019.
 
 > [!NOTE]
-> If a user has only resource permissions to the workspace, they will only be able to access the workspace using resource-context mode.
+> If a user has only resource permissions to the workspace, they will only be able to access the workspace using resource-context mode assuming the workspace access mode set to **Use resource or workspace permissions**.
 
 ## Recommendations
 
