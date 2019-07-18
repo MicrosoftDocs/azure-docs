@@ -352,7 +352,7 @@ if ($cloudTieringDesired) {
 
 ---
 
-## Configure firewall and vnet settings
+## Configure firewall and VNet settings
 
 # [Portal](#tab/azure-portal)
 If you'd like to configure your Azure File sync to work with firewall and virtual network settings, do the following:
