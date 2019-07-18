@@ -36,16 +36,13 @@ When you create a user delegation SAS using your Azure AD credentials, the signa
 - If your code is running in an Azure environment, such as an Azure virtual machine (VM), then you can use managed identities for Azure resources to acquire the OAuth token. For more information, see [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](../common/storage-auth-aad-msi.md).
 - If your code is running in a native application or a web application, then you can use the OAuth 2.0 authorization code flow to acquire the OAuth token. In your code to acquire the token, specify the built-in `user_impersonation` scope, which indicates that the token is being requested on behalf of the user whose credentials are provided. For more information, see [Authenticate with Azure Active Directory from an application for access to blobs and queues](../common/storage-auth-aad-app.md).
 
-After your code has acquired the token, creating the user delegation SAS is a two-step process:
-
-1. Request a user delegation key. You can specify that the key is valid for a period of up to 7 days.
-1. Use the key to create the user delegation SAS.
+This article shows how to use a managed identity to acquire the token.
 
 ## Acquire the OAuth 2.0 token
 
+[!INCLUDE [storage-app-auth-lib-include](../../../includes/storage-app-auth-lib-include.md)]
 
-
-, together with the Microsoft Azure App Authentication library for .NET (preview). 
+Next, create a callback method that acquires the token and renews it before it expires:
 
 ```csharp
 private static async Task<NewTokenAndFrequency> TokenRenewerAsync(Object state, CancellationToken cancellationToken)
@@ -69,7 +66,20 @@ private static async Task<NewTokenAndFrequency> TokenRenewerAsync(Object state, 
 }
 ```
 
-### Get a user delegation SAS
+## Get a user delegation SAS
+
+After your code has acquired the token, creating the user delegation SAS is a two-step process:
+
+1. Request a user delegation key. You can specify that the key is valid for a period of up to 7 days. Use one of the following methods to request the user delegation key:
+    - [GetUserDelegationKey](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkey)
+    - [GetUserDelegationKeyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkeyasync)
+1. Use the key to create the user delegation SAS. Use one of the following methods to create the SAS, depending on whether you are creating the SAS on a container or on a blob:
+    - [GetUserDelegationSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getuserdelegationsharedaccesssignature) (**CloudBlobContainer** object)
+    - [GetUserDelegationSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getuserdelegationsharedaccesssignature) (**CloudBlob** object)
+
+### Get a user delegation SAS for a container
+
+The following example invokes the callback method to acquire and renew the token, then uses the token to get the user delegation key. The code passes the user delegation key to the [GetUserDelegationSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getuserdelegationsharedaccesssignature) method to get the SAS token.
 
 ```csharp
 private static async Task<string> GetContainerSasWithToken()
@@ -139,8 +149,15 @@ private static async Task<string> GetContainerSasWithToken()
 }
 ```
 
+### Get a user delegation SAS for a blob
 
+```csharp
+code
+```
 
-## Test a container SAS
+[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
 
+## See also
 
+- [Get User Delegation Key operation](/rest/api/storageservices/get-user-delegation-key)
+- [Delegating Access with a Shared Access Signature](/rest/api/storageservices/delegating-access-with-a-shared-access-signature)
