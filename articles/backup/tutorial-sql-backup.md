@@ -139,19 +139,19 @@ Configure backup as follows:
 
     ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. In **Choose backup policy**, select a policy, then click **OK**.
+5. In **Choose backup policy**, select a policy, then click **OK**.
 
-   - Select the default policy: HourlyLogBackup.
+   - Select the default policy: HourlyLogBackup.
    - Choose an existing backup policy previously created for SQL.
    - Define a new policy based on your RPO and retention range.
 
      ![Select Backup policy](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. On **Backup** menu, select **Enable backup**.
+6. On **Backup** menu, select **Enable backup**.
 
     ![Enable the chosen backup policy](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Track the configuration progress in the **Notifications** area of the portal.
+7. Track the configuration progress in the **Notifications** area of the portal.
 
     ![Notification area](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -241,5 +241,5 @@ Continue to the next tutorial to restore an Azure virtual machine from disk.
 
 > [!div class="nextstepaction"]
 > [Restore SQL Server databases on Azure VMs](./restore-sql-database-azure-vm.md)
- 
+ 
 

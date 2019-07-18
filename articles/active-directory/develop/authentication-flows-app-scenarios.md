@@ -123,7 +123,7 @@ Like for desktop applications, to acquire a token to call a Web API, a mobile ap
 Some scenarios, involving conditional access related to the device ID, or a device being enrolled require a [broker](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS) to be installed on a device. Examples of brokers are Microsoft Company portal (on Android), Microsoft Authenticator (Android and iOS). MSAL is now capable of interacting with brokers.
 
 > [!NOTE]
-> Your mobile app (using MSAL.iOS, MSAL.Android, or MSAL.NET/Xamarin) can have app protection policies applied to it (for instance prevent the user to  copy some protected text). This is [managed by Intune](https://docs.microsoft.com/en-gb/intune/app-sdk) and recognized by Intune as a managed app. The [Intune SDK](https://docs.microsoft.com/en-gb/intune/app-sdk-get-started) is separate from MSAL libraries, and it talks to AAD on its own.
+> Your mobile app (using MSAL.iOS, MSAL.Android, or MSAL.NET/Xamarin) can have app protection policies applied to it (for instance prevent the user to  copy some protected text). This is [managed by Intune](https://docs.microsoft.com/intune/app-sdk) and recognized by Intune as a managed app. The [Intune SDK](https://docs.microsoft.com/intune/app-sdk-get-started) is separate from MSAL libraries, and it talks to AAD on its own.
 
 See [Mobile app that calls web APIs](scenario-mobile-overview.md) for details
 
