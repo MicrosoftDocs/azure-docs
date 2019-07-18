@@ -37,7 +37,7 @@ This article specifically talks about how to use the Data Box Heavy to migrate y
 
 ## Workflow overview
 
-This workflow requires you to perform steps on Azure Data Box Heavy as well as on Share Point online.
+This workflow requires you to perform steps on Azure Data Box Heavy as well as on SharePoint Online.
 The following steps relate to your Azure Data Box Heavy.
 
 1. Order Azure Data Box Heavy.
@@ -46,7 +46,7 @@ The following steps relate to your Azure Data Box Heavy.
 4. After the copy is complete, ship the device back as per the instructions.
 5. Wait for the data to completely upload to Azure.
 
-The following steps relate to Share Point online.
+The following steps relate to SharePoint Online.
 
 6. Create a VM in the Azure portal and mount the Azure file share on it.
 7. Install the SPMT tool on the Azure VM.
