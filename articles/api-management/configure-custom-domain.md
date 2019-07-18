@@ -70,6 +70,16 @@ To perform the steps described in this article, you must have:
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
+## DNS configuration
+
+When configuring DNS for your custom domain name, you have two options:
+
+- Configure a CNAME-record that points to the endpoint of your configured custom domain name.
+- Configure an A-record that points to your API Management gateway IP address.
+
+> [!NOTE]
+> Although the API Managment instance IP address is static, it may change in a few scenarios. Because of this it's recommended to use CNAME when configuring custom domain. Take that into consideration when choosing DNS configuration method. Read more in the [API Mananagement FAQ](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules).
+
 ## Next steps
 
 [Upgrade and scale your service](upgrade-and-scale.md)
