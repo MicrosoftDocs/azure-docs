@@ -58,11 +58,11 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![15Five Admin Console](media/15five-provisioning-tutorial/image00.png)
 
-3.	Under **SCIM integration > Generate OAuth token**.
+3.	Under **SCIM integration** > Generate **OAuth token**.
 
 	![15Five Add SCIM](media/15five-provisioning-tutorial/image02.png)
 
-4.	Copy the values for **SCIM 2.0 base URL and Access Token** and paste them into Tenant URL and Secret Token in Azure AD. Click Save to complete the provisioning setup on 15Five.
+4.	Copy the values for **SCIM 2.0 base** URL and **Access Token**. This value will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your 15Five application in the Azure portal.
 	
 	![15Five Add SCIM](media/15five-provisioning-tutorial/image03.png)
 
@@ -113,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5.	Under the Admin Credentials section, input the **SCIM 2.0 Base  URL and Access Token** values retrieved earlier in Tenant URL and Secret Token respectively. Click Test Connection to ensure Azure AD can connect to 15Five. If the connection fails, ensure your 15Five account has Admin permissions and try again.
+5.	Under the Admin Credentials section, input the **SCIM 2.0 Base  URL and Access Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to 15Five. If the connection fails, ensure your 15Five account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
