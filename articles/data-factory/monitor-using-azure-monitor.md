@@ -380,13 +380,13 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ### Log Analytics Schema
 
-Log Analytics inherits the schema from Azure Monitor with the following exceptions
+Log Analytics inherits the schema from Azure Monitor with the following exceptions:
 
-* The first letter in each column name will be capitalized, for instance *correlationId* in Azure Monitor will be *CorrelationId* in Log Analytics
-* The column *Level* will be dropped
-* The dynamic column *properties* will be preserved as a the below dynamic json blob type:
+* The first letter in each column name will be capitalized, for instance *correlationId* in Azure Monitor will be *CorrelationId* in Log Analytics.
+* The column *Level* will be dropped.
+* The dynamic column *properties* will be preserved as the below dynamic JSON blob type:
 
-    | Azure Monitor Column | Log Analytics Column | Type |
+    | Azure Monitor column | Log Analytics column | Type |
     | --- | --- | --- |
     | $.properties.UserProperties | UserProperties | Dynamic |
     | $.properties.Annotations | Annotations | Dynamic |
@@ -404,9 +404,9 @@ Log Analytics inherits the schema from Azure Monitor with the following exceptio
 
 Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
-ADFV2 emits the following metrics
+ADFV2 emits the following metrics:
 
-| **Metric**           | **Metric Display Name**         | **Unit** | **Aggregation Type** | **Description**                                       |
+| **Metric**           | **Metric display name**         | **Unit** | **Aggregation type** | **Description**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRuns | Succeeded pipeline runs metrics | Count    | Total                | Total pipelines runs succeeded within a minute window |
 | PipelineFailedRuns   | Failed pipeline runs metrics    | Count    | Total                | Total pipelines runs failed within a minute window    |
@@ -415,7 +415,7 @@ ADFV2 emits the following metrics
 | TriggerSucceededRuns | Succeeded trigger runs metrics  | Count    | Total                | Total trigger runs succeeded within a minute window   |
 | TriggerFailedRuns    | Failed trigger runs metrics     | Count    | Total                | Total trigger runs failed within a minute window      |
 
-To access the metrics, follow the instructions in the article - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+To access the metrics, complete the instructions in [Azure Monitor data platform](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ## Monitor Data Factory Metrics with Azure Monitor
 
@@ -454,7 +454,7 @@ Enable Diagnostic Settings for your data factory.
 After a few moments, the new setting appears in your list of settings for this data factory, and diagnostic logs are streamed to that workspace as soon as new event data is generated. There may be up to 15 minutes between when an event is emitted and when it appears in Log Analytics.
 
 > [!NOTE]
-> Because of an explicit limit of any given Azure Log table not having more than 500 columns, **it is highly recommended to use Resource Specific mode**. For more information, see [Log Analytics Known Limitations](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics)
+> Because of an explicit limit of any given Azure Log table not having more than 500 columns, **it is highly recommended to use Resource Specific mode**. For more information, see [Log Analytics Known Limitations](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
 
 ### Install Azure Data Factory Analytics from Azure Marketplace
 
@@ -498,7 +498,7 @@ You can visualize the above metrics, look at the queries behind these metrics, e
 
 ## Alerts
 
-Log in to the Azure portal and click **Monitor -&gt; Alerts** to create alerts.
+Sign in to the Azure portal and click **Monitor** > **Alerts** to create alerts.
 
 ![Alerts in the portal menu](media/monitor-using-azure-monitor/alerts_image3.png)
 
