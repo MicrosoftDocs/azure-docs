@@ -34,8 +34,8 @@ This list includes the method-based articles. Each article provides details abou
 
 |Article |Description |
 |------|------------|
-|[Set up security info for an authenticator app](security-info-setup-auth-app.md)|Describes how to modify your security info method for the Microsoft Authenticator app.|
-|[Set up security info for text messaging](security-info-setup-text-msg.md)|Describes how to modify your security info method for text messaging.|
-|[Set up security info to use phone calls](security-info-setup-phone-number.md)|Describes how to modify your security info method for phone calls.|
-|[Set up security info to use email](security-info-setup-email.md)|Describes how to modify your security info method to use an email address.|
-|[Set up security info to use pre-defined security questions](security-info-setup-questions.md)|Describes how to modify your security info method to use security questions.|
+| [Set up security info for an authenticator app](security-info-setup-auth-app.md) ]Describes how to modify your security info method for the Microsoft Authenticator app.|
+| [Set up security info for text messaging](security-info-setup-text-msg.md) ]Describes how to modify your security info method for text messaging.|
+| [Set up security info to use phone calls](security-info-setup-phone-number.md) ]Describes how to modify your security info method for phone calls.|
+| [Set up security info to use email](security-info-setup-email.md) ]Describes how to modify your security info method to use an email address.|
+| [Set up security info to use pre-defined security questions](security-info-setup-questions.md) ]Describes how to modify your security info method to use security questions.|
