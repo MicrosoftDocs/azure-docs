@@ -39,7 +39,7 @@ To get started, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Azure AD SSO in a existing Amaozn Business account.
 
 * Amazon Business supports **SP and IDP** initiated SSO
 * Amazon Business supports **Just In Time** user provisioning
@@ -63,9 +63,9 @@ To configure and test Azure AD SSO with Amazon Business, complete the following 
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
 2. **[Configure Amazon Business SSO](#configure-amazon-business-sso)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Amazon Business test user](#create-amazon-business-test-user)** - to have a counterpart of Britta Simon in Amazon Business that is linked to the Azure AD representation of user.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+5. **[Create Amazon Business test user](#create-amazon-business-test-user)** - to have a counterpart of B.Simon in Amazon Business that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
@@ -150,11 +150,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **New user account defaults**, click on the **Edit**.
 
-	![New user account defaults](media/amazon-business-tutorial/default-group1.png)
+	![Default group](media/amazon-business-tutorial/default-group1.png)
 
 1. On the **New user account defaults**, perform the following steps:
 
-	![Copy configuration URLs](media/amazon-business-tutorial/dafault-group2.png)
+	![Default group](media/amazon-business-tutorial/dafault-group2.png)
 
 	1. Select the group according to your organization.
 
@@ -164,11 +164,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Scroll down to **Connection data** and click **Edit**.
 
-	![Copy configuration URLs](media/amazon-business-tutorial/connection-data1.png)
+	![Connection Data](media/amazon-business-tutorial/connection-data1.png)
 
 1. On the **Connection data** section, perform the following steps:
 
-	![Copy configuration URLs](media/amazon-business-tutorial/connection-data2.png)
+	![Connection Data](media/amazon-business-tutorial/connection-data2.png)
 
 	1. Click on **upload a new metadata file** and upload the **Metadata XML** file, which you have downloaded from the Azure portal. After uploading the metadata file, the fields in the **Connection data** section will populate automaticaly.
 
@@ -176,15 +176,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Scroll down to **Attribute mapping** section and click **Edit**.
 
-	![Copy configuration URLs](media/amazon-business-tutorial/map-attribute1.png)
+	![Attributes](media/amazon-business-tutorial/map-attribute1.png)
 
 1. On the **Attribute mapping** section, add the requirements fileds by clicking the **+ Add a field** option and click **Save**.
 
-	![Copy configuration URLs](media/amazon-business-tutorial/map-attribute2.png)
+	![Attributes](media/amazon-business-tutorial/map-attribute2.png)
+
+1. Your Amazon Business application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Signin to the [Azure portal](https://portal.azure.com/) and add the attributes in the **User Attributes & Claims** section. The following screenshot shows the list of default attributes.
+
+	![Attributes](media/amazon-business-tutorial/map-attribute3.png)
 
 1. Scroll down to **Amazon connection data** and click on the **Download** to download the **Metadata XML file**. Use this **Metadata XML file** on the **Basic SAML Configuration** section.
 
-	![Copy configuration URLs](media/amazon-business-tutorial/amazon-connect.png)
+	![Connection](media/amazon-business-tutorial/amazon-connect.png)
 
 ### Create an Azure AD test user
 
