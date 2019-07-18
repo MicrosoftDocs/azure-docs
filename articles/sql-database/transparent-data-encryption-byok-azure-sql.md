@@ -105,7 +105,7 @@ If the logical SQL server loses access to the customer-managed TDE protector in 
 - To monitor database state and to enable alerting for loss of TDE Protector access, configure the following Azure features:
     - [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview). An inaccessible database that has lost access to the TDE Protector will show as "Unavailable" after the first connection to the database has been denied.
     - [Action Groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) can be defined to send you notifications and alerts based on your preferences, e.g. Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
-    -[Activity Log](https://docs.microsoft.com/en-us/azure/service-health/alerts-activity-log-service-notifications) when access to the TDE protector in the customer-managed key vault fails, entries are added to the activity log.  Creating alerts for these events will enable you to reinstate access as soon as possible.
+    - [Activity Log](https://docs.microsoft.com/en-us/azure/service-health/alerts-activity-log-service-notifications) when access to the TDE protector in the customer-managed key vault fails, entries are added to the activity log.  Creating alerts for these events will enable you to reinstate access as soon as possible.
     
 
 ## High Availability, Geo-Replication, and Backup / Restore
