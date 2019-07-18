@@ -92,7 +92,7 @@ The monthly cost trend feature in labs allows you to see how much you have spent
 
 This feature helps you to easily identify the resources that cost the most so that you can take actions to reduce the lab spending. For example, the cost of a VM is based on the size of the VM. The larger the size of the VM, more is the cost. You can easily find the size of a VM and the owner, so that you can talk to the VM owner to understand why such VM size is needed and whether there is a chance to lower the size.
 
-[Auto-shutdown policy](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown) helps you to reduce the cost by shutting down lab VMs at a particular time of the day. However, a lab user can opt out of the shutdown policy, which increases the cost of running the VM. You can select a VM in the table to see if it has been opted-out of the auto-shutdown policy. If that's the case, you can talk to the VM owner to find why the VM has been opted-out of the policy.
+[Auto-shutdown policy](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) helps you to reduce the cost by shutting down lab VMs at a particular time of the day. However, a lab user can opt out of the shutdown policy, which increases the cost of running the VM. You can select a VM in the table to see if it has been opted-out of the auto-shutdown policy. If that's the case, you can talk to the VM owner to find why the VM has been opted-out of the policy.
  
 ## Next steps
 Here are some things to try next:
