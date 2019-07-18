@@ -150,7 +150,7 @@ integration service environment (ISE). However, those integration
 accounts must use the *same ISE* as the linked logic apps. 
 Logic apps in an ISE can reference only those integration accounts 
 that are in the same ISE. When you create an integration account, 
-you can select your ISE as the location for your integration account.
+you can select your ISE as the location for your integration account. For more information about the pricing model for using integration accounts with an ISE, see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
 ## Next steps
 
