@@ -16,12 +16,12 @@ The following table illustrates the default and maximum limits of the number of 
 
 > | Resource | Default limit  | Maximum limit |
 > | --- | --- | --- |
-> | Standard managed disks | 25,000 | 50,000 |
-> | Standard SSD managed disks | 25,000 | 50,000 |
-> | Premium managed disks | 25,000 | 50,000 |
-> | Standard_LRS snapshots | 25,000 | 50,000 |
-> | Standard_ZRS snapshots | 25,000 | 50,000 |
-> | Managed image | 25,000 | 50,000 |
+> | Standard managed disks | 50,000 | 50,000 |
+> | Standard SSD managed disks | 50,000 | 50,000 |
+> | Premium managed disks | 50,000 | 50,000 |
+> | Standard_LRS snapshots | 50,000 | 50,000 |
+> | Standard_ZRS snapshots | 50,000 | 50,000 |
+> | Managed image | 50,000 | 50,000 |
 
 * **For Standard storage accounts:** A Standard storage account has a maximum total request rate of 20,000 IOPS. The total IOPS across all of your virtual machine disks in a Standard storage account should not exceed this limit.
   
