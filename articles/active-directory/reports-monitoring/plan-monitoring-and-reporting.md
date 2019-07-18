@@ -1,7 +1,7 @@
 ---
 
 title: Plan an Active Directory reporting and monitoring deployment
-description: Describes how to plan and execute implmenetaitno of reporting and monitoring
+description: Describes how to plan and execute implmentation of reporting and monitoring.
 services: active-directory
 documentationcenter: ''
 author: BarbaraSelden
