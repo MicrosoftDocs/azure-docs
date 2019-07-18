@@ -370,7 +370,7 @@ Execute the following command to ensure your storage account will work with fire
 ```powershell
 Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
 ```
-
+---
 
 ## Onboarding with Azure File Sync
 The recommended steps to onboard on Azure File Sync for the first with zero downtime while preserving full file fidelity and access control list (ACL) are as follows:
