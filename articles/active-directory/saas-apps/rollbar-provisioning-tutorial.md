@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07-14-2019
+ms.date: 07-19-2019
 ms.author: zhchia
 ---
 
@@ -97,7 +97,7 @@ Before configuring Rollbar for automatic user provisioning with Azure AD, you ne
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Rollbar based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Rollbar , following the instructions provided in the [Rollbar Single sign-on tutorial](Leapsome-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Rollbar , following the instructions provided in the [Rollbar Single sign-on tutorial](rollbar-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for Rollbar in Azure AD:
 
