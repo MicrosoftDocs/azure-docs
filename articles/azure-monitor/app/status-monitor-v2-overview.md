@@ -20,14 +20,11 @@ It replaces [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/
 The module provides codeless instrumentation of .NET web apps hosted with IIS.
 Telemetry is sent to the Azure portal, where you can [monitor](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) your app.
 
-> [!IMPORTANT]
-> Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## PowerShell Gallery
 
-The PowerShell Gallery is located here: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Status Monitor v2 is located here: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+
+![PowerShell Gallery](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
 ## Instructions
