@@ -187,9 +187,9 @@ If you use an [*integration service environment* (ISE)](../logic-apps/connect-vi
 ### Artifact limits per integration account
 
 Here are the limits on the number of artifacts for each integration account tier. 
-For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). To learn how pricing and billing work for integration accounts, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-acccounts).
+For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). To learn how pricing and billing work for integration accounts, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts).
 
-> [!NOTE] 
+> [!NOTE]
 > Use the Free tier only for exploratory scenarios, 
 > not production scenarios. This tier restricts 
 > throughput and usage, and has no service-level agreement (SLA).
