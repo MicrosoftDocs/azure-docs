@@ -132,7 +132,11 @@ There are two required installers for Azure AD password protection. They're avai
         ```
 
         > [!NOTE]
-        > This mode fails if Azure Multi-Factor Authentication is required. In that case, use one of the previous two authentication modes.
+        > This mode fails if Azure Multi-Factor Authentication is required. In that case, use one of the previous two authentication modes, or use one of the workarounds below. We recommend that MFA requirements be bypassed for test purposes only.
+        >
+        > If your Azure account is specifically configured to require MFA, you may instead use a different account that does not require MFA.
+        >
+        > You may also see MFA being required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this, you may either use a different account that does not require MFA, or you can temporarily relax the Azure Device Registration MFA requirement. To do this, go to the Azure management portal, then go to Azure Active Directory, then Devices, then Device Settings, then set "Require Multi-Factor Auth to join devices" to No.  Be sure to reconfigure this setting back to Yes once registration is complete.
 
        You don't currently have to specify the *-ForestCredential* parameter, which is reserved for future functionality.
 
@@ -153,7 +157,7 @@ There are two required installers for Azure AD password protection. They're avai
         ```
 
         > [!NOTE]
-        > This mode won't work on Server Core operating systems. Instead use one of the following two authentication modes. Also, this mode might fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable that Configuration, register the proxy, and then re-enable it.  
+        > This mode won't work on Server Core operating systems. Instead use one of the following two authentication modes. Also, this mode might fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable that Configuration, register the forest, and then re-enable it.  
 
      * Device-code authentication mode:
 
@@ -172,7 +176,11 @@ There are two required installers for Azure AD password protection. They're avai
         ```
 
         > [!NOTE]
-        > This mode fails if Azure Multi-Factor Authentication is required. In that case, use one of the previous two authentication modes.
+        > This mode fails if Azure Multi-Factor Authentication is required. In that case, use one of the previous two authentication modes, or use one of the workarounds below. We recommend that MFA requirements be bypassed for test purposes only.
+        >
+        > If your Azure account is specifically configured to require MFA, you may instead use a different account that does not require MFA.
+        >
+        > You may also see MFA being required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this, you may either use a different account that does not require MFA, or you can temporarily relax the Azure Device Registration MFA requirement. To do this, go to the Azure management portal, then go to Azure Active Directory, then Devices, then Device Settings, then set "Require Multi-Factor Auth to join devices" to No.  Be sure to reconfigure this setting back to Yes once registration is complete.
 
        These examples only succeed if the currently signed-in user is also an Active Directory domain administrator for the root domain. If this isn't the case, you can supply alternative domain credentials via the *-ForestCredential* parameter.
 
