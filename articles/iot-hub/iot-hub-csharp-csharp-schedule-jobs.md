@@ -55,14 +55,6 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## Get the IoT hub connection string
-
-In this article, you create a backend service that schedules a job to invoke a direct method on a device, schedules a job to update the device twin, and monitors the progress of each job. To perform these operations, your service needs the **service connect** and **registry read** permissions. There is no default shared access policy that contains only these two permissions, so you need to create one.
-
-[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
-
-For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](iot-hub-devguide-security.md#access-control-and-permissions).
-
 ## Create a simulated device app
 
 In this section, you create a .NET console app that responds to a direct method called by the solution back end.
@@ -149,6 +141,12 @@ In this section, you create a .NET console app that responds to a direct method 
 > [!NOTE]
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as connection retry), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 > 
+
+## Get the IoT hub connection string
+
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
 ## Schedule jobs for calling a direct method and sending device twin updates
 
