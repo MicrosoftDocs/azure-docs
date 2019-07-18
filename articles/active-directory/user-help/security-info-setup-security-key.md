@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
@@ -49,36 +49,34 @@ You must prepare your security key to work with Windows and a unique PIN before 
 
 1. Go to the **My Profile** page at https://myprofile.microsoft.com and sign in if you haven't already done so.
 
-2. Select **Security Info** from the left navigation pane.
+2. Select **Security Info**, select **Add method**, and then select **Security key** from the **Add a method** drop-down list.
 
-3. From the **Security info** page, select **Add method**, and then select **Security key** from the **Add a method** drop-down list.
+3. Select **Add**, and then select the type of security key you have, either **USB device** or **NFC device**.
 
-4. Select **Add**, and then select the type of security key you have, either **USB device** or **NFC device**.
+    > [!Note]
+    > If you aren't sure which type of security key you have, refer to the manufacturer's documentation. If you aren't sure about the manufacturer, contact your organization's help desk for assistance.
 
-    >[!Note]
-    >If you aren't sure which type of security key you have, refer to the manufacturer's documentation. If you aren't sure about the manufacturer, contact your organization's help desk for assistance.
-
-5. Have your security key physically available and then in the **Security key** box, select **Next**.
+4. Have your security key physically available and then in the **Security key** box, select **Next**.
 
     A new box appears to help walk you through setting up your new sign-in method.
 
-6. In the **Setting up your new sign-in method** box, select **Next**, and then:
+5. In the **Setting up your new sign-in method** box, select **Next**, and then:
 
     - If your security key is a USB device, insert your security key into the USB port of your device.
 
     - If your security key is a NFC device, tap your security key to your reader.
 
-7. Type your unique security key PIN into the **Windows security** box, and then select **OK**.
+6. Type your unique security key PIN into the **Windows security** box, and then select **OK**.
 
     You'll return to the **Setting up your new sign-in method** box.
 
-8. Select **Next**.
+7. Select **Next**.
 
-9. Return to the **Security info** page, type a name you'll recognize later for your new security key, and then select **Next**.
+8. Return to the **Security info** page, type a name you'll recognize later for your new security key, and then select **Next**.
 
     Your security key is registered and ready for you to use for sign in to your work or school account.
 
-10. Select **Done** to close the **Security key** box.
+9. Select **Done** to close the **Security key** box.
 
 ## Delete a security key from your security info
 
@@ -124,16 +122,28 @@ You can create a new security key PIN for your security key.
 
 1. Open the Windows Settings app, select **Accounts**, select **Sign-in options**, select **Security Key**, and then select **Manage**.
 
-2. Insert your security key into the USB port or tap your NFC reader to verify your identity.
-
+2. Insert your security key into the USB port or tap your NFC reader to verify your identity.5
 3. Select **Add** from the **Security Key PIN** area, type and confirm your new security key PIN, and then select **OK**.
 
-    The security key is updated with the new security key PIN for use with your work or school account. If you decide to change your PIN again, you can select the **Change** button.
-
+    The security key is updated with the new security key PIN for use with your work or school account. If you decide to change your PIN again, you can select the **Change** button.6
 4. Select **Close** to close the **Manage** screen.
+
+## Additional security info methods
+
+You have additional options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
+
+- **Authenticator app.** Download and use an authenticator app to get either an approval notification or a randomly generated approval code for two-step verification or password reset. For step-by-step instructions about how to set up and use the Microsoft Authenticator app, see [Set up security info to use an authenticator app](security-info-setup-auth-app.md).
+
+- **Mobile device text.** Enter your mobile device number and get a text a code you'll use for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a text message (SMS), see [Set up security info to use text messaging (SMS)](security-info-setup-text-msg.md).
+
+- **Mobile device or work phone call.** Enter your mobile device number and get a phone call for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a phone number, see [Set up security info to use phone calls](security-info-setup-phone-number.md).
+
+- **Email address.** Enter your work or school email address to get an email for password reset. This option isn't available for two-step verification. For step-by-step instructions about how to set up your email, see [Set up security info to use email](security-info-setup-email.md).
+
+- **Security questions.** Answer some security questions created by your administrator for your organization. This option is only available for password reset and not for two-step verification. For step-by-step instructions about how to set up your security questions, see the [Set up security info to use security questions](security-info-setup-questions.md) article.
 
 ## Next steps
 
-- For more information about alternate passwordless authentication methods, see [What is the Microsoft Authenticator app?](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview) and [Windows Hello overview](https://www.microsoft.com/windows/windows-hello).
-
+- For more information abo7t alternate passwordless authentication methods, see [What is the Microsoft Authenticator app?](https://docs.microsoft.com/azure/active-directory/user-help8user-help-auth-app-overview) and [Windows Hello overview](https://www.microsoft.com/windows/windows-hello).
+- 
 - Detailed info about [Microsoft-compliant security keys](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)

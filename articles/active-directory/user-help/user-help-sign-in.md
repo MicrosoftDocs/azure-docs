@@ -4,24 +4,25 @@ description: Learn about how to sign in using the various identity verification 
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: librown
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 07/18/2019
 ms.author: lizross
 ms.custom: "user-help, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
 # Sign in using two-step verification or security info
+
 After you set up two-step verification or security info, you'll be able to sign in to your account using your specified authentication method.
 
 > [!Note]
 > If you're still using the two-step verification experience, you'll need to set up your authentication methods by following the instructions in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
-> 
+>
 > If your administrator has turned on the security info experience, you'll need to set your authentication methods using these step-by-step articles:<ul><li>[Set up security info to use an authentication app](security-info-setup-auth-app.md)</li><li>[Set up security info to use text messaging](security-info-setup-text-msg.md)</li><li>[Set up security info to use a phone call](security-info-setup-phone-number.md)</li><li>[Set up security info to use a security key](security-info-setup-security-key.md)</li></ul>
 
 ## Sign in using an authenticator app notification on your mobile device
@@ -56,7 +57,7 @@ After you set up two-step verification or security info, you'll be able to sign 
 
     ![Security key sign-in on the Windows 10 lock screen](./media/security-info/security-info-windows-10-lock-screen-security-key.png)
 
-### Sign in using a security key and a Microsoft Edge page
+### Sign in using a security key and the Microsoft Edge browser
 
 1. After you've registered your security key, open the Microsoft Edge browser.
 
