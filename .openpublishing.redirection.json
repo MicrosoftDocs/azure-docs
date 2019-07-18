@@ -23610,7 +23610,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/storage/storage-dotnet-shared-access-signature-part-1.md",
+      "source_path": "articles/storage/common/storage-dotnet-shared-access-signature-part-1.md",
       "redirect_url": "/azure/storage/common/storage-shared-access-signatures",
       "redirect_document_id": true
     },
