@@ -17,7 +17,7 @@ Blob APIs now work with accounts that have a hierarchical namespace. This unlock
 Until recently, you might have had to maintain separate storage solutions for object storage and analytics storage. That's because Azure Data Lake Storage Gen2 had limited ecosystem support. It also had limited access to Blob service features such as diagnostic logging. A fragmented storage solution is hard to maintain because you have to move data between accounts to accomplish various scenarios. You no longer have to do that.
 
 > [!NOTE]
-> Multi-protocol access on Data Lake Storage is in public preview, and is available only in the **West US 2** and **West Central US** regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this page](http://aka.ms/blobinteropsignup).
+> Multi-protocol access on Data Lake Storage is in public preview, and is available only in the **West US 2** and **West Central US** regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this page](https://aka.ms/blobinteropsignup).
 
 ## Use the entire ecosystem of applications, tools, and services
 
