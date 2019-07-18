@@ -60,14 +60,15 @@ If your application demand increases, the load on the VM instances in your scale
 6. To create the rule, select **Add**
 
 ## Setting up VMSS auto scaling using Memory metrics
-When Scaling Based on the CPU in VMSS you can use the host metrics to create the auto scale rules. The metrics are available by default in any windows Linux VMSS.
+When scaling based on the CPU in VMSS, you can use the host metrics to create the auto scale rules. The metrics are available by default in any windows Linux VMSS.
  
 For Windows OS based metrics, the metrics are defined differently for Windows or Linux VMSS instance. It's possible to implement programmatically by using CLI.
  
-VMSS for Windows-based machine
+VMSS for a Windows-based machine
  
 Steps for Installation.
-1.       Copy the below script to notepad and save the file as "config.txt" 
+1. Copy the below script to notepad and save the file as "config.txt" 
+
 {
   "WadCfg": {
     "DiagnosticMonitorConfiguration": {
@@ -143,17 +144,20 @@ Steps for Installation.
 }
  
 Note:  Edit config.txt -> change the resourceid and storage account name.
-2.       Copy the below script to the notepad and save the file as “protected settings. Json” 
+
+1. Copy the below script to the notepad and save the file as “protected settings. Json” 
+
 {
   "storageAccountName": "STORAGE ACCOUNT NAME",
   "storageAccountSasToken": "SAS TOKEN"
 }
- Note:  Edit protected settings. Json -> change the storage account name and exclude “?” in SAS TOKEN, Make sure to have the SAS token valid for a longer period, else scaling will not work as it depends on Guest Metrics. If the SAS token is expired then we need remove the extension and re-deploy it once again.
+
+Note:  Edit protected settings. Json -> change the storage account name and exclude “?” in SAS TOKEN, Make sure to have the SAS token valid for a longer period, else scaling will not work as it depends on Guest Metrics. If the SAS token is expired then we need remove the extension and re-deploy it once again.
  
-3.       Run the below CLI Command
+1. Run the following CLI Command:
 az vmss diagnostics set --resource-group xxx --vmss-name xxx --settings config.txt --protected-settings protected-settings. Json.
  
-4.       Once the provision is successful you will be able to view the Guest metrics.
+1. After the provision is successful you will be able to view the Guest metrics.
 Installation of diagnostic extension in VMSS for Linux (may be we can link this content to a separate page)
 1.	Copy the below script to the notepad and save the file as “config.txt” 
  
@@ -350,20 +354,20 @@ Installation of diagnostic extension in VMSS for Linux (may be we can link this 
   }
 }
  
-Note:  Edit config.txt -> change the resourceid and storage account name.
-5.       Copy the below script to notepad and save the file as “protected settings. Json” 
+   Note:  Edit config.txt -> change the resourceid and storage account name.
+
+1.       Copy the below script to notepad and save the file as “protected settings. Json” 
 {
   "storageAccountName": "STORAGE ACCOUNT NAME",
   "storageAccountSasToken": "SAS TOKEN"
 }
  Note: Edit protected settings. Json -> change the storage account name and exclude "?" In SAS TOKEN, Make sure to have the SAS token valid for a longer period. If SAS token is expired then we need to remove the extension and re-deploy.
  
-3. Run the below CLI Command
+1. Run the below CLI Command
  
-az vmss diagnostics set --resource-group xxx --vmss-name xxx --settings config.txt --protected-settings protected-settings. Json.
+   az vmss diagnostics set --resource-group xxx --vmss-name xxx --settings config.txt --protected-settings protected-settings. Json.
  
-4. Once you've got your hands on the Guest metrics.
-
+1. Once you've got your hands on the Guest metrics.
 
 ## Create a rule to automatically scale in
 On an evening or weekend, your application demand may decrease. If this decreased load is consistent over a period of time, you can configure autoscale rules to decrease the number of VM instances in the scale set. This scale-in action reduces the cost to run your scale set as you only run the number of instances required to meet the current demand.
