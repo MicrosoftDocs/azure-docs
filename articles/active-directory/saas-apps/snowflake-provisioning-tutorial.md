@@ -58,7 +58,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![snowflake Add SCIM](media/snowflake-provisioning-tutorial/image01.png)
 
-3. Copy the generated value from the textfield and click **Done**. This value will be entered in the **Secret Token** field in the Provisioning tab of your snowflake application in the Azure portal.
+3. Copy the generated value from the text field and click **Done**. This value will be entered in the **Secret Token** field in the Provisioning tab of your snowflake application in the Azure portal.
 
 	![snowflake Add SCIM](media/snowflake-provisioning-tutorial/image02.png)
 
