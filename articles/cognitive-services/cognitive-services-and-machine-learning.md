@@ -1,5 +1,5 @@
 ---
-title: Cognitive services and machine learning
+title: Cognitive Services and machine learning
 titlesuffix: Azure Cognitive Services
 description: Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning.
 services: cognitive-services
@@ -7,7 +7,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 07/18/2019
 ms.author: diberry
 ---
 # Cognitive Services and machine learning
@@ -44,19 +44,26 @@ Machine learning is provided using [Azure Machine Learning (AML) products and se
 
 ## What is a Cognitive Service?
 
-A Cognitive Service provides part or all of the components in a machine learning solution: data, algorithm, and trained model. The list of services includes: fully trained models, customizable models you can bring your own data to, or completely customizable models. Use the models with your own data. 
+A Cognitive Service provides part or all of the components in a machine learning solution: data, algorithm, and trained model. These services are meant to require general knowledge about your data without needing experience with machine learning or data science. These services provide both REST API(s) and language-based SDKs. As a result, you need to have programming language knowledge to use the services.
 
-These services are meant to require general knowledge about your data without needing experience with machine learning or data science. These services provide both REST API(s) and language-based SDKs. As a result, you need to have programming language knowledge to use the services.
+## How are Cognitive Services and Azure Machine Learning (AML) similar?
+
+Both have the end-goal of applying artificial intelligence (AI) to enhance business operations, though how provides this in the respective offerings is different. 
+
+Generally, the audiences are different:
+
+* Cognitive Services are for developers without machine-learning experience.
+* Azure Machine Learning is tailored for data scientists. 
 
 ## How is a Cognitive Service different from machine learning?
 
-Cognitive Services provides a trained model for you. This brings data and an algorithm together, available from a REST API(s) or SDK. You can implement this service within minutes, depending on your scenario. Cognitive Services provides answers to general problems such as key phrases in text or item identification in images. 
+A Cognitive Service provides a trained model for you. This brings data and an algorithm together, available from a REST API(s) or SDK. You can implement this service within minutes, depending on your scenario.  A Cognitive Service provides answers to general problems such as key phrases in text or item identification in images. 
 
 Machine learning is a process that generally requires a longer period of time to implement successfully. This time is spent on data collection, cleaning, transformation, algorithm selection, model training, and deployment to get to the same level of functionality provided by a Cognitive Service. With machine learning, it is possible to provide answers to any kind of problem including highly specialized or specific problems. These machine learning problems require familiarity with one or more of the following: subject matter, machine learning, data science.
 
 ## What kind of data do you have?
 
-Cognitive Services can require no, some, or all custom data for the trained model. 
+Cognitive Services, as a group of services, can require none, some, or all custom data for the trained model. 
 
 ### No additional training data required
 
@@ -76,27 +83,27 @@ A service may need real-time or near-real time data to build an effective model.
 
 The following data categorizes each service by which kind of data it allows or requires.
 
-|Cognitive service|No training data required|You provide some or all training data|Real-time or near real-time data collection|
+|Cognitive Service|No training data required|You provide some or all training data|Real-time or near real-time data collection|
 |--|--|--|--|
-|[Anomaly detector](./Anomaly-Detector/overview.md)|x|x|x|
-|Bing search services|x|||
-|[Computer vision](./Computer-vision/Home.md)|x|||
-|[Content moderator](./Content-Moderator/overview.md)|x||x|
-|[Custom vision](./Custom-Vision-Service/home.md)||x||
+|[Anomaly Detector](./Anomaly-Detector/overview.md)|x|x|x|
+|Bing Search |x|||
+|[Computer Vision](./Computer-vision/Home.md)|x|||
+|[Content Moderator](./Content-Moderator/overview.md)|x||x|
+|[Custom Vision](./Custom-Vision-Service/home.md)||x||
 |[Face](./Face/Overview.md)|x|x||
-|[Form recognizer](./form-recognizer/overview.md)||x||
-|[Immersive reader](./immersive-reader/overview.md)|x|||
-|[Ink recognizer](./Ink-recognizer/overview.md)|x|x||
-|[Language understanding (LUIS)](./LUIS/what-is-luis.md)||x||
+|[Form Recognizer](./form-recognizer/overview.md)||x||
+|[Immersive Reader](./immersive-reader/overview.md)|x|||
+|[Ink Recognizer](./Ink-recognizer/overview.md)|x|x||
+|[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
-|[Speaker recognizer](./speaker-recognition/home.md)||x||
-|[Speech text-to-speech (TTS)](speech-service/text-to-speech.md)|x|x||
-|[Speech speech-to-text (STT)](/speech-service/speech-to-text.md)|x|x||
-|[Speech translation](speech-service/speech-translation.md)|x|||
-|[Text analytics](./text-analytics/overview.md)|x|||
-|[Translator text](./translator/translator-info-overview.md)|x|||
-|[Translator text - custom translator]()||x||
+|[Speaker Recognizer](./speaker-recognition/home.md)||x||
+|[Speech Text-to-speech (TTS)](speech-service/text-to-speech.md)|x|x||
+|[Speech Speech-to-text (STT)](/speech-service/speech-to-text.md)|x|x||
+|[Speech Translation](speech-service/speech-translation.md)|x|||
+|[Text Analytics](./text-analytics/overview.md)|x|||
+|[Translator Text](./translator/translator-info-overview.md)|x|||
+|[Translator Text - custom translator]()||x||
 
 *Personalizer only needs training data collected by the service (as it operates in real-time) to evaluate your policy and data. Personalizer does not need large historical datasets for up-front or batch training. 
 
@@ -110,8 +117,8 @@ Each service provides information about your data. You can combine services toge
 
 ## Next steps
 
-* Create your Cognitive Services account in the [Azure portal](cognitive-services-apis-create-account.md) or with [Azure CLI](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account-cli).
-* Learn how to [authenticate](authentication.md) to an Cognitive service.
+* Create your Cognitive Service account in the [Azure portal](cognitive-services-apis-create-account.md) or with [Azure CLI](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account-cli).
+* Learn how to [authenticate](authentication.md) to an Cognitive Service.
 * Use [diagnostic logging](diagnostic-logging.md) for issue identification and debugging. 
-* Deploy a Cognitive service in a Docker [container](cognitive-services-container-support.md).
+* Deploy a Cognitive Service in a Docker [container](cognitive-services-container-support.md).
 * Keep up to date with [service updates](https://azure.microsoft.com/updates/?product=cognitive-services).
