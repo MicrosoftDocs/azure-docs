@@ -19,11 +19,6 @@ This article describes how to onboard to the PowerShell Gallery and download the
 It describes the most common parameters that you'll need to get started.
 It also includes manual instructions in case you don't have internet access.
 
-> [!IMPORTANT]
-> Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Get an instrumentation key
 
 To get started, you need an instrumentation key. For more information, see [Create an Application Insights resource](create-new-resource.md#copy-the-instrumentation-key).
