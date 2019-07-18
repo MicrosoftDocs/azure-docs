@@ -103,7 +103,7 @@ plt.axis("off")
 
 ## Upload image from local storage
 
-In order to analyse a local image you need to set the Content-Type to octet-stream and instead of json put a byte array inside the post request.
+If you want to analyze a local image, set the Content-Type header to application/octet-stream, and set the request body to a byte array instead of JSON data..
 
 ```python
 image_path = "<path-to-local-image-file>"
