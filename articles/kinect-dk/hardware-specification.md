@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Kinect DK hardware specification
 description: Azure Kinect DK specifications and capabilities
 author: tesych
@@ -62,7 +62,7 @@ Azure Kinect DK integrates a Microsoft designed 1-Megapixel Time-of-Flight (ToF)
 
 ## Color camera supported operating modes
 
-Azure Kinect DK includes an OV12A10 12MP CMOS sensor rolling shutter sensor. The native operating modes are listed below:
+Azure Kinect DK includes an OV12A10 12MP CMOS sensor rolling shutter sensor. RGB camera color space: BT.601 full range [0..255]. The native operating modes are listed below:
 
 |             RGB Camera Resolution (HxV)  |          Aspect Ratio  |          Format Options   |          Frame Rates (FPS)  |          Nominal FOV (HxV)(post-processed)  |
 |------------------------------------------|------------------------|---------------------------|-----------------------------|---------------------------------------------|
