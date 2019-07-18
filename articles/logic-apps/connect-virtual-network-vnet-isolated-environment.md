@@ -19,12 +19,14 @@ For scenarios where your logic apps and integration accounts need access to an
 An ISE is a private and isolated environment that uses dedicated storage and other 
 resources that are kept separate from the public or "global" Logic Apps service. 
 This separation also reduces any impact that other Azure tenants might have on 
-your apps' performance. Your ISE is *injected* into to your Azure virtual network, 
-which then deploys the Logic Apps service into your virtual network. An ISE also has increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
+your apps' performance.
 
-When you create a logic app or integration account, select this ISE as their location. Your logic app or integration account can then directly access resources, such as virtual machines (VMs), servers, systems, and services, in your virtual network.
+When you create an ISE, Azure *injects* that ISE into your Azure virtual network, which then deploys the Logic Apps service into your virtual network. When you create a logic app or integration account, select your ISE as their location. Your logic app or integration account can then directly access resources, such as virtual machines (VMs), servers, systems, and services, in your virtual network.
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
+
+An ISE has increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md). To learn more about ISEs, see 
+[Access to Azure Virtual Network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 This article shows how to complete these tasks:
 
@@ -36,18 +38,15 @@ This article shows how to complete these tasks:
 
 * Create an integration account for your logic apps in your ISE.
 
-For more information about integration service environments, see 
-[Access to Azure Virtual Network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+> [!IMPORTANT]
+> Logic apps, built-in triggers, built-in actions, and connectors that run in 
+> your ISE use a pricing plan different from the consumption-based pricing plan. 
+> To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
-
-  > [!IMPORTANT]
-  > Logic apps, built-in triggers, built-in actions, and connectors that run in 
-  > your ISE use a pricing plan different from the consumption-based pricing plan. 
-  > To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
 * An [Azure virtual network](../virtual-network/virtual-networks-overview.md). 
 If you don't have a virtual network, learn how to 

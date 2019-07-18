@@ -20,9 +20,7 @@ To set up this access, you can
 [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
 where you can run your logic apps and create your integration accounts.
 
-When you create an ISE, Azure deploys a private and isolated 
-instance of the Logic Apps service into your Azure virtual network. 
-This private instance uses dedicated resources such as storage, 
+When you create an ISE, Azure *injects* that ISE into your Azure virtual network, which then deploys a private and isolated instance of the Logic Apps service into your Azure virtual network. This private instance uses dedicated resources such as storage, 
 and runs separately from the public "global" Logic Apps service. 
 Separating your isolated private instance and the public global 
 instance also helps reduce the impact that other Azure tenants 
@@ -46,7 +44,7 @@ This overview describes more details about how an ISE gives your logic apps
 and integration accounts direct access to your Azure virtual network and 
 compares differences between an ISE and the global Logic Apps service.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Logic apps, built-in triggers, built-in actions, and connectors that run in 
 > your ISE use a pricing plan that differs from the consumption-based pricing plan. 
 > To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
