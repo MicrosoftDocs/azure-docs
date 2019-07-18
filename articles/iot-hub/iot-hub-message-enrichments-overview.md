@@ -34,7 +34,7 @@ The value can be any of the following examples:
 
 * Information from the device twin, such as its path. Examples would be *$twin.tags.field* and *$twin.tags.latitude*.
 
-   > ![NOTE]
+   > [!NOTE]
    > At this time, only $iothubname, $twin.tags, $twin.properties.desired, and $twin.properties.reported are supported variables for message enrichment.
 
 ## Applying enrichments
