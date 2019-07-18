@@ -15,11 +15,11 @@ ms.custom: seodec18
 
 # QnA Maker knowledge base limits and boundaries
 
-QnA Maker limits provided below are a combination of the [Azure Search pricing tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) and the [QnA Maker pricing tier limits](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). You need to know both sets of limits to understand how many knowledge bases your can create per resource and how large each knowledge base can grow.
+QnA Maker limits provided below are a combination of the [Azure Search pricing tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) and the [QnA Maker pricing tier limits](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). You need to know both sets of limits to understand how many knowledge bases you can create per resource and how large each knowledge base can grow.
 
-## Knowledge Bases
+## Knowledge bases
 
-* Maximum number of knowledge bases based on [Azure Search tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
+The maximum number of knowledge bases is based on [Azure Search tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
 
 |**Azure Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
