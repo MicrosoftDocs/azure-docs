@@ -41,7 +41,7 @@ Here are the features available via the Speech SDK and REST APIs:
 
 ## Get started with speech-to-text
 
-We offer quickstarts in most popular programming languages, each designed to have you running code in less than 10 minutes. [This table](https://aka.ms/csspeech#5-minute-quickstarts#5-minute-quickstarts) includes a complete list of Speech SDK quickstarts organized by platfrom and language.  API reference can also be found [here](https://aka.ms/csspeech#5-minute-quickstarts#reference).
+We offer quickstarts in most popular programming languages, each designed to have you running code in less than 10 minutes. [This table](https://aka.ms/csspeech#5-minute-quickstarts) includes a complete list of Speech SDK quickstarts organized by platfrom and language.  API reference can also be found [here](https://aka.ms/csspeech#reference).
 
 If you prefer to use the speech-to-text REST service, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
