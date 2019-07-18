@@ -3,8 +3,8 @@ title: 'Tutorial: Configure 15Five for automatic user provisioning with Azure Ac
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to 15Five.
 services: active-directory
 documentationcenter: ''
-author: zhchia
-writer: zhchia
+author: zchia
+writer: zchia
 manager: beatrizd
 
 ms.assetid: a276c004-9f71-4efc-8cca-1f615760249f
@@ -50,16 +50,19 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup 15Five for provisioning
 
+1. Sign in to your [15Five Admin Console](https://my.15five.com/). Navigate > Features> Click on **Integrations**.
 
-1. Sign in to your [15Five Admin Console](https://my.15five.com/). Click on **SCIM 2.0**.
+	![15Five Admin Console](media/15five-provisioning-tutorial/integration.png)
+
+2.	Click on **SCIM 2.0**.
 
 	![15Five Admin Console](media/15five-provisioning-tutorial/image00.png)
 
-2.	Under **SCIM integration > Generate OAuth token**.
+3.	Under **SCIM integration > Generate OAuth token**.
 
 	![15Five Add SCIM](media/15five-provisioning-tutorial/image02.png)
 
-3.	Copy the values for **SCIM 2.0 base URL and Access Token** and paste them into Tenant URL and Secret Token in Azure AD. Click Save to complete the provisioning setup on 15Five.
+4.	Copy the values for **SCIM 2.0 base URL and Access Token** and paste them into Tenant URL and Secret Token in Azure AD. Click Save to complete the provisioning setup on 15Five.
 	
 	![15Five Add SCIM](media/15five-provisioning-tutorial/image03.png)
 
