@@ -49,24 +49,24 @@ Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Stora
 
 ### Create an external table with json format
 
-You can create an external table with json format. For more information see 
+You can create an external table with json format. For more information see [External table commands](/azure/kusto/management/externaltables)
 
 1. Use the `.create external table` command to create a table named *ExternalBlob_Json*:
 
-```Kusto
-.create external table ExternalBlob_Json (id:int, name: string, gender: string)
-kind=blob
-dataformat=json
-( 
-   h@'https://custppecus.blob.core.windows.net/json?st=2019-06-12T09%3A56%3A22Z&se=2020-06-13T09%3A56%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=uJ0BKgGaUdOQVMGLH%2FNUWnmuU5tYGybJLutA7emIlx8%3D'
-)
-```
+    ```Kusto
+    .create external table ExternalBlob_Json (id:int, name: string, gender: string)
+    kind=blob
+    dataformat=json
+    ( 
+       h@'https://custppecus.blob.core.windows.net/json?st=2019-06-12T09%3A56%3A22Z&se=2020-06-13T09%3A56%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=uJ0BKgGaUdOQVMGLH%2FNUWnmuU5tYGybJLutA7emIlx8%3D'
+    )
+    ```
  
 1. Use specific json mapping named *mappingName* with `.create external table`:
 
-```kusto
-.create external table ExternalBlob_Json json mapping 'mappingName' "[{\"column\": \"id\", \"path\": \"$.id2\"},{\"column\": \"name\", \"path\": \"$.name\"},{\"column\": \"gender\", \"path\": \"$.gender\"}]"
-```
+    ```kusto
+    .create external table ExternalBlob_Json json mapping 'mappingName' "[{\"column\": \"id\", \"path\": \"$.id2\"},{\"column\": \"name\", \"path\": \"$.name\"},{\"column\": \"gender\", \"path\": \"$.gender\"}]"
+    ```
 
 ### External table permissions
  
