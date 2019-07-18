@@ -71,7 +71,7 @@ In this section you will upload and manually tag images to help train the detect
 
     ![Images uploaded, in Untagged section](./media/getting-started-build-a-detector/images-untagged.png)
 
-1. Click and drag a rectangle around the object in your image. Then, enter a new tag name with the **+** button, or select an existing tag from the drop-down list. Click the arrow on the right to save your tags and move on to the next image.
+1. Click and drag a rectangle around the object in your image. Then, enter a new tag name with the **+** button, or select an existing tag from the drop-down list. It's very important to tag every instance of the object(s) you want to detect, because the detector uses the untagged background area as a negative example in training. When you're done tagging, click the arrow on the right to save your tags and move on to the next image.
 
     ![Tagging an object with a rectangular selection](./media/getting-started-build-a-detector/image-tagging.png)
 
@@ -89,7 +89,7 @@ The training process should only take a few minutes. During this time, informati
 
 ## Evaluate the detector
 
-After training has completed, the model's performance is calculated and displayed. The Custom Vision service uses the images that you submitted for training to calculate precision, recall, and mean average precision, using a process called [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). Precision and recall are two different measurements of the effectiveness of a detector:
+After training has completed, the model's performance is calculated and displayed. The Custom Vision service uses the images that you submitted for training to calculate precision, recall, and mean average precision. Precision and recall are two different measurements of the effectiveness of a detector:
 
 - **Precision** indicates the fraction of identified classifications that were correct. For example, if the model identified 100 images as dogs, and 99 of them were actually of dogs, then the precision would be 99%.
 - **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were actually 100 images of apples, and the model identified 80 as apples, the recall would be 80%.
