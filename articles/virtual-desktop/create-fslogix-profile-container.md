@@ -43,10 +43,10 @@ This article will not cover best practices for securing access to the Azure NetA
 
 ![The storage age with a red arrow pointing at the create storage button.](media/0058ca9f19a387c86319f51d5b4b9562.png)
 
-5. Once Azure Cloud Shell loads run the following two commands. Make sure to use correct subscription ID.
+5. Once Azure Cloud Shell loads, run the following two commands.
 
 ```shell
-az account set --subscription <subscriptionId>
+az account set --subscription <subscriptionID>
 ```
 
 ```shell
@@ -55,32 +55,30 @@ az provider register --namespace Microsoft.NetApp --wait
 
 ![](media/3be21e3963ae3ebd7ae051b3d9fa727a.png)
 
-6. From left hand side select **All services** and in the search box enter **Azure NetApp Files.**
+1. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
 
 ![](media/6546f1ab07c5c0ef0e04b68b5f426472.png)
 
-7. Select **Azure NetApp Files**, then select **Create**.
+7. Select **Azure NetApp Files** in the search results, then select **Create**.
 
-8. Select the **Add** button. This will open **New NetApp account** blade. Enter:
+8. Select the **Add** button.
+9. When the **New NetApp account** blade opens, enter the following values:
 
-  - **Name** – name of NetApp account
-
-  - **Subscription** – same subscription that was used in previous steps
-
-  - **Resource group** – existing or a new resource group
-
-  -**Location** – region where NetApp account will be created. This region must be the same region where the session host VMs are located.
+  - For **Name**, enter your NetApp account name.
+  - For **Subscription**, enter the subscription for the storage account you set up in step 4.
+  - For **Resource group**, enter either an existing resource group you want to use or create a new one.
+  - For **Location**, enter the region for your NetApp account. This region must be the same region as your session host VMs.
 
    >[!NOTE]
    >Currently Azure NetApp Files does not support mounting of a volume across regions.
 
-9. Select **Create**.This will start a deployment. Wait for its completion.
+10. When you're finished, select **Create** to create your NetApp account.
 
 ![](media/55dca1c987220ce419042bd1dfb88b56.png)
 
 ![](media/516368c855c833539e9b0ee2c8868207.png)
 
-10. Once the NetApp account has been created select it and create a capacity pool.
+10. In the **Azure NetApp Files** menu, select your new account to create a capacity pool.
 
 ![](media/9d20bba46a64e1c78fda4e25e1ddaa3f.png)
 
@@ -88,46 +86,40 @@ az provider register --namespace Microsoft.NetApp --wait
 
 ![](media/187f244eed643633e1867c7c2e71c06e.png)
 
-11. This will open a **New capacity pool** blade. Enter:
+11. When the **New capacity pool** blade opens, enter the following values:
 
-**Name** – name for the capacity pool
-
-**Service level** – select value from the drop down. Our recommendation for most environments is premium.
-
-**Size (TiB)** – enter size that fits your needs. Please note that as of the writing of this document the minimum size is 4 TiB.
+  - For **Name**, enter a name for the new capacity pool.
+  - For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
+  - For **Size (TiB)**, enter the capacity pool size that best fits your needs. The minimum size is 4 TiB.
 
 ![](media/d5bb782f55d1e1b2ab49e22910e19a32.png)
 
-12. Select **OK**.
+12. When you're finished, select **OK**.
 
-13. Select **Active Directory** connections and then select **Join** button to trigger **Join Active Directory** configuration wizard.
+13. Next, select **Active Directory connections**, then select the **Join** button to open the **Join Active Directory** page.
 
 ![](media/03f68f9f13b185c0521d694b1e9e225e.png)
 
-14. In the **Join Active Directory** configuration wizard enter:
+14. Enter the following values in the **Join Active Directory** page:
 
-**Primary DNS** – IP address of the DNS server in your environment that can resolve the domain name.
+  - For **Primary DNS**, enter the IP address of the DNS server in your environment that can resolve the domain name.
+  - For **Domain**, enter your fully qualified domain name (FQDN).
+  - For **SMB Server (Computer Account) Prefix**, enter the string you want to append to the computer account name.
+  - For **Username**, enter the name of the account with permissions to perform domain join.
+  - For **Password**, enter the account's password.
 
-**Domain** – FQDN
-
-**SMB Server (Computer Account) Prefix** – string to be appended to the computer account.
-
-**Username** – account with permissions to perform domain join.
-
-**Password**
-
->[!NOTE]
->It is a good practice to confirm that the computer account specified in **Join Active Directory** configuration wizard has appeared in your domain controller under **Computers.**
+  >[!NOTE]
+  >It's best practice to confirm that the computer account specified in **Join Active Directory** configuration wizard has appeared in your domain controller under **Computers.**
 
 ![](media/53e367f2c72d5902bbfa82a1a7dd77ea.png)
 
-15. Select **Volumes**, then select **Add volume** to create a new volume.
+1.  Next, you'll need to create a new volume. Select **Volumes**, then select **Add volume**.
 
 ![](media/39f0c687e1cf89fb2448c0470e745418.png)
 
 ![](media/3aa9d3d9cd06f12c925e7d3d3dcd9c34.png)
 
-16. In the **Create a volume** blade enter:
+1.  When the **Create a volume** blade opens, enter the following values:
 
 **Volume name** – name for the new volume
 
