@@ -90,7 +90,7 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
    > [!NOTE]
    > For testing purposes, it is possible to create a key with Azure Key Vault, however this key cannot be escrowed, because  the private key can never leave the key vault.  Always back up and escrow keys used to encrypt production data, as the loss of the key (accidental deletion in key vault, expiration etc.) results in permanent data loss.
 
-- If you use a key with an expiration date – implement an expiration warning system to rotate the key before it expires: **once the key expires, the encrypted databases lose access to their TDE Protector and will be inaccessible and all logons will be denied until the key has been rotated to a new key**.
+- If you use a key with an expiration date – implement an expiration warning system to rotate the key before it expires: **once the key expires, the encrypted databases lose access to their TDE Protector and will be inaccessible** and all logons will be denied until the key has been rotated to a new key.
 - Ensure the key is enabled and has permissions to perform *get*, *wrap key*, and *unwrap key* operations.
 - Create an Azure Key Vault key backup before using the key in Azure Key Vault for the first time. Learn more about the [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) command.
 - Create a new backup whenever any changes are made to the key (for example, add ACLs, add tags, add key attributes).
