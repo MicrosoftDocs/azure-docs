@@ -25,4 +25,4 @@ ms.collection: M365-identity-device-management
 # Quickstart: Build a .NET web API that integrates with Azure AD for authentication and authorization
 
 > [!NOTE]
-> When you create new web API, the recommendation is now to follow the Microsoft identity platform (v2.0) ASP.NET Core Web API incremental tutorial: [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2#calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2)
+> When you create new web APIs, the recommendation is now to follow the Microsoft identity platform (v2.0) ASP.NET Core Web API incremental tutorial: [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2#calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2)
