@@ -1,6 +1,6 @@
 ---
 title: Install Azure IoT Edge on Linux | Microsoft Docs
-description: Azure IoT Edge installation instructions on Linux AMD64 devices running Ubuntu
+description: Azure IoT Edge installation instructions on Linux devices running Ubuntu or Raspbian
 author: kgremban
 manager: philmea
 # this is the PM responsible
@@ -8,17 +8,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 07/19/2019
 ms.author: kgremban
 ms.custom: seodec18
 ---
-# Install the Azure IoT Edge runtime on Linux (x64)
+# Install the Azure IoT Edge runtime on Debian-based Linux systems
 
-The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud.
+The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
-
-This article lists the steps to install the Azure IoT Edge runtime on your Ubuntu Linux x64 (Intel/AMD) IoT Edge device. Refer to [Azure IoT Edge supported systems](support.md#operating-systems) for a list of supported AMD64 operating systems.
+This article lists the steps to install the Azure IoT Edge runtime on your Linux IoT Edge device. Refer to [Azure IoT Edge supported systems](support.md#operating-systems) for a list of supported Linux operating systems.
 
 > [!NOTE]
 > Packages in the Linux software repositories are subject to the license terms located in each package (/usr/share/doc/*package-name*). Read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
@@ -31,22 +29,23 @@ Use the following sections to install the most recent version of the Azure IoT E
 
 Prepare your device for the IoT Edge runtime installation.
 
+Install the repository configuration. Choose the **16.04** or **18.04** command that matches your device operating system:
 
-Install the repository configuration. Choose either the **16.04** or **18.04** code snippet as appropriate for your release of Ubuntu:
-
-> [!NOTE]
-> Make sure you choose the code snippet from the correct code box for your version of Ubuntu.
-
-* For **Ubuntu 16.04**:
+* **Ubuntu 16.04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
-* For **Ubuntu 18.04**:
+* **Ubuntu 18.04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
-   
+
+* **Raspbian Stretch**:
+   ```bash
+   curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+   ```
+
 Copy the generated list.
 
    ```bash

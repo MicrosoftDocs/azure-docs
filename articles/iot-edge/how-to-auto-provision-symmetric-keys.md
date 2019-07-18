@@ -161,8 +161,7 @@ You'll need the following information when provisioning your device:
 
 Follow the instructions for your device's architecture. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning.
 
-* [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md)
-* [Install the Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md)
 
 The section in the configuration file for symmetric key provisioning looks like this:
 
@@ -184,7 +183,7 @@ Replace the placeholder values for `{scope_id}`, `{registration_id}`, and `{symm
 
 Follow the instructions to install the IoT Edge runtime on the device for which you generated a derived device key. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning.
 
-[Install and automatically provision IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[Install and automatically provision IoT Edge on Windows](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## Verify successful installation
 
