@@ -79,7 +79,7 @@ An organization can have multiple publishers associated with a Commercial Market
 >[!Note]
 >Before adding a new publisher, you can review your existing publishers by logging into Partner Center, and select **Account Settings** -> **Publishers** to see a list of existing Publishers.
 
-Another user from the same tenant can add a new publisher by following the steps below:
+Another user from the same Azure Active Directory tenant can add a new publisher by following the steps below:
 
 1. Kick off the sign-up flow at [Microsoft Partner Center](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/azureisv).
 1. Select **Sign in with a work account** and enter your work email address.
@@ -88,7 +88,7 @@ Another user from the same tenant can add a new publisher by following the steps
 1. Update the **publisher details** on the form. <br>
 
    a) **Publisher Name**: The name that will get displayed in Azure Marketplace or AppSource with the offer. <br>
-   b) **PublisherID**: An identifier used by Partner Center to uniquely identify your publisher. The default for this field maps to an existing `PublisherID` in the system, which cannot be reused, and therefore this field needs to be updated. <br>
+   b) **PublisherID**: An identifier used by Partner Center to uniquely identify your publisher. The default for this field maps to an existing and unique `PublisherID` in the system, which cannot be reused, and therefore this field needs to be updated. <br>
    c) **Contact information**: Update the contact information when necessary.
 
 1. After you complete the process, you can manage your newly created publisher by going to the **Commercial Marketplace** program listed in the left navigation menu. If you don't see the **Commercial Marketplace** program, refresh the page.  The new publisher will appear in the **Publishers** list.
