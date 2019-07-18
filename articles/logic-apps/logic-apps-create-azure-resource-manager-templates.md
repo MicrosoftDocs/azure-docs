@@ -28,17 +28,18 @@ Azure Logic Apps provides a [prebuilt logic apps Azure Resource Manager template
 
 ## Create templates with Visual Studio
 
-For the easiest way to create valid parameterized Resource Manager templates for logic app deployment, use Visual Studio and the Azure Logic Apps Tools for Visual Studio. By downloading your logic app from the Azure portal into Visual Studio, you get a template that includes the definitions for your logic app and other resources such as connections.
+For the easiest way to create valid parameterized logic app templates that are mostly ready for deployment, use Visual Studio (free Community edition or greater) and the Azure Logic Apps Tools for Visual Studio. You can then either [create your logic app in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [find and download an existing logic app from the Azure portal into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
-The template also *parameterizes*, or defines parameters for, the values used for deploying your logic app and other resources. You can provide the values for these parameters in a separate parameter file. That way, you can more easily change these values based on your deployment needs. For more information, see these topics:
+By downloading your logic app, you get a template that includes the definitions for your logic app and other resources such as connections. The template also *parameterizes*, or defines parameters for, the values used for deploying your logic app and other resources. You can provide the values for these parameters in a separate parameter file. That way, you can more easily change these values based on your deployment needs. For more information, see these topics:
 
-* [Overview: Automate deployment for logic apps with Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md)
 * [Create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
 
+<a name="azure-powershell"></a>
+
 ## Create templates with Azure PowerShell
 
-You can create Resource Manager templates by using PowerShell with the [LogicAppTemplate module](https://github.com/jeffhollan/LogicAppTemplateCreator). This open-source module first evaluates your logic app and any connections that the logic app uses. The module then generates template resources with the necessary parameters for deployment.
+You can create Resource Manager templates by using Azure PowerShell with the [LogicAppTemplate module](https://github.com/jeffhollan/LogicAppTemplateCreator). This open-source module first evaluates your logic app and any connections that the logic app uses. The module then generates template resources with the necessary parameters for deployment.
 
 For example, suppose you have a logic app that receives a message from an Azure Service Bus queue and uploads data to an Azure SQL database. The module preserves all the orchestration logic and parameterizes the SQL and Service Bus connection strings so that you can provide and change those values based on your deployment needs.
 
