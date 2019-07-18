@@ -1,6 +1,6 @@
 ---
 
-title: Plan an Active Directory reporting and monitoring deployment
+title: Plan an Azure Active Directory reporting and monitoring deployment
 description: Describes how to plan and execute implmentation of reporting and monitoring.
 services: active-directory
 documentationcenter: ''
@@ -23,7 +23,7 @@ ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ---
 
-Plan an Azure Active Directory reporting and monitoring deployment
+# Plan an Azure Active Directory reporting and monitoring deployment
 
 Your Azure Active Directory (Azure AD) reporting and monitoring solution depends on your legal, security, and operational requirements and your existing environment and processes. This article presents the various design options and guides you to the right deployment strategy.
 
@@ -157,7 +157,7 @@ The following roles can read Azure AD reports:
 
 Learn More About [Azure AD Administrative Roles](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
-*Always apply the concept of least privileges to reduce the risk of an account compromise*. Consider implementing [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) to further secure your organization.
+*Always apply the concept of least privileges to reduce the risk of an account compromise*. Consider implementing [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) to further secure your organization.
 
 ##  
 
@@ -185,9 +185,7 @@ Depending on the decisions you have made earlier using the design guidance above
 
 * [Interpret sign in logs schema in Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema)
 
- 
-
-[Stream Azure AD logs to an Azure event hub](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)
+ * [Stream Azure AD logs to an Azure event hub](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)
 
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk)
 
