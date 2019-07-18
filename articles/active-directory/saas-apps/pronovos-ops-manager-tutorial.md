@@ -63,9 +63,9 @@ To configure and test Azure AD SSO with ProNovos Ops Manager, complete the follo
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
 2. **[Configure ProNovos Ops Manager SSO](#configure-pronovos-ops-manager-sso)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create ProNovos Ops Manager test user](#create-pronovos-ops-manager-test-user)** - to have a counterpart of Britta Simon in ProNovos Ops Manager that is linked to the Azure AD representation of user.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+5. **[Create ProNovos Ops Manager test user](#create-pronovos-ops-manager-test-user)** - to have a counterpart of B.Simon in ProNovos Ops Manager that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
@@ -129,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create ProNovos Ops Manager test user
 
-In this section, you create a user called Britta Simon in ProNovos Ops Manager. Work with [ProNovos Ops Manager support team](mailto:support@pronovos.com) to add the users in the ProNovos Ops Manager platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in ProNovos Ops Manager. Work with [ProNovos Ops Manager support team](mailto:support@pronovos.com) to add the users in the ProNovos Ops Manager platform. Users must be created and activated before you use single sign-on.
 
 ### Test SSO 
 
