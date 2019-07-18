@@ -111,7 +111,7 @@
         - name: Authorize with Shared Key
           href: /rest/api/storageservices/authorize-with-shared-key
         - name: Authorize with SAS
-          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../common/storage-shared-access-signatures.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Anonymous access to blobs
           href: storage-manage-access-to-resources.md
       - name: Immutable blobs
