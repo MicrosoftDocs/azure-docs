@@ -24,6 +24,7 @@ Add a SQL Database managed instance to a failover group. In this article, you wi
 
   > [!NOTE]
   > Creating a managed instance can take a significant amount of time. As a result, this tutorial could take several hours to complete. 
+  > Using failover groups with managed instances is in currently in preview. 
 
 ## Prerequisites
 
@@ -63,11 +64,44 @@ In this step, you will create the resource group and the primary managed instanc
 
    ![Create primary MI](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
 
-## Create a secondary managed instance
+## 2 - Create a virtual network
+In this step, you will create a virtual network for the secondary managed instance. This step is necessary because there is a requirement that the subnet of the primary and secondary managed instances have non-overlapping address ranges. 
+
+To verify the subnet range of your primary virtual network, follow these steps:
+1. In the [Azure portal](https://portal.azure.com), navigate to your resource group and select the virtual network for your primary instance. 
+1. Select **Subnets** under **Settings** and note the **Address range**. The secondary managed instance range cannot overlap this. 
+
+
+   ![Primary subnet](media/sql-database-managed-instance-failover-group-tutorial/verify-primary-subnet-range.png)
+
+To create a virtual network, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** and search for *virtual network*. 
+1. Select the **Virtual Network** option published by Microsoft and then select **Create** on the next page. 
+1. Fill out the required fields to configure the virtual network for your secondary managed instance, and then select **Create**. 
+
+   The following table shows the values necessary for the secondary virtual network:
+
+    | **Field** | Value |
+    | --- | --- |
+    | **Name** |  The name for the virtual network to be used by the secondary managed instance, such as `vnet-sql-mi-secondary`. |
+    | **Address space** | The address space for your virtual network, such as `10.128.0.0/16`. | 
+    | **Subscription** | The subscription where your primary managed instance and resource group reside.  |
+    | **Location** | The location where you will deploy your secondary managed instance; this should be different than the location for your primary managed instance.  |
+    | **Subnet** | The name for your subnet. `default` is filled in for you by default. |
+    | **Address range**| The address range for your subnet. This must be different than the subnet used by the virtual network of your primary managed instance, such as `10.128.0.0/24`.  |
+    | &nbsp; | &nbsp; |
+
+    ![Secondary virtual network values](media/sql-database-managed-instance-failover-group-tutorial/secondary-virtual-network.png)
+
+
+
+
+## 3 - Create a secondary managed instance
 In this step, you will create a secondary managed instance in the Azure portal, which will also configure the networking between the two managed instances. 
 
 1. In the [Azure portal](http://portal.azure.com), select **Create a resource** and search for *Azure SQL Managed Instance*. 
-1. Select the **Azure SQL Managed Instance** option published by Microsoft, and then select **Create** on the next blade.
+1. Select the **Azure SQL Managed Instance** option published by Microsoft, and then select **Create** on the next page.
 1. Fill out the required fields to configure your secondary managed instance. 
 
    The following table shows the values necessary for the secondary managed instance:
@@ -80,7 +114,7 @@ In this step, you will create a secondary managed instance in the Azure portal, 
     | **Password** | A complex password that will be used by the admin login for the new secondary managed instance.  |
     | **Collation** | The collation for your secondary managed instance. *SQL_Latin1_General_CP1_CI_AS* is provided by default. |
     | **Location**| The location where your resource group resides. This must be a different region than where your primary managed instance is.  |
-    | **Virtual network**| Create a new virtual network for the secondary managed instance, as the two managed instances need to be in different vNets. |
+    | **Virtual network**| Select the virtual network that was created in section 2, such as `vnet-sql-mi-secondary`. |
     | **Resource group**| The resource group where your primary managed instance resides. |
     | &nbsp; | &nbsp; |
 
@@ -89,7 +123,7 @@ In this step, you will create a secondary managed instance in the Azure portal, 
 
    ![Secondary MI values](media/sql-database-managed-instance-failover-group-tutorial/secondary-sql-mi-values.png)
 
-## Create a failover group
+## 4 - Create a failover group
 In this step, you will create the failover group and add both managed instances to it. 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to **All services** and type in `managed instance` in the search box. 
@@ -105,7 +139,7 @@ In this step, you will create the failover group and add both managed instances 
 
 1. Once failover group deployment is complete, you will be taken back to the **Failover group** page. 
 
-## Test failover
+## 5 - Test failover
 In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal. 
 
 1. Navigate to your managed instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
