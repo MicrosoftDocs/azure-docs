@@ -4,7 +4,7 @@ description: Provides an overview of assessment calculations in the Server Asses
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 18/07/2019
+ms.date: 07/18/2019
 ms.author: hamusa
 ---
 
