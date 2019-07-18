@@ -75,10 +75,10 @@ To perform the steps described in this article, you must have:
 When configuring DNS for your custom domain name, you have two options 
 
 1. Configure an CNAME-record pointing to the endpoint you configure custom domain name for.
-1. Configure an A-record pointing to your API Management Gateway IP address.
+1. Configure an A-record pointing to your API Management gateway IP address.
 
 > [!NOTE]
-> Although the API Managment Instance IP address is static, it may change in a few scenarios. Because of this it's recommended to use CNAME when configuring custom domain. Take that into consideration when choosing DNS configuration method. Read more in the [API Mananagement FAQ](api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
+> Although the API Managment instance IP address is static, it may change in a few scenarios. Because of this it's recommended to use CNAME when configuring custom domain. Take that into consideration when choosing DNS configuration method. Read more in the [API Mananagement FAQ](api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 
 ## Next steps
 
