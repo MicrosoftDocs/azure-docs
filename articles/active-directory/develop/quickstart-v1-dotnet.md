@@ -25,4 +25,4 @@ ms.collection: M365-identity-device-management
 # Quickstart: Sign in users and call the Microsoft Graph API from a .NET Desktop (WPF) app
 
 > [!NOTE]
-> When you create new desktop application, the recommendation is now to follow the Microsoft identity platform (v2.0) quickstart: [Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app](quickstart-v2-windows-desktop.md)
+> When you create new desktop applications, the recommendation is now to follow the Microsoft identity platform (v2.0) quickstart: [Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app](quickstart-v2-windows-desktop.md)

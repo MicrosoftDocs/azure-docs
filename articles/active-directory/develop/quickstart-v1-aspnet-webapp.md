@@ -23,4 +23,4 @@ ms.collection: M365-identity-device-management
 # Quickstart: Add sign-in with Microsoft to an ASP.NET web app
 
 > [!NOTE]
-> When you create new web app, the recommendation is now to follow the Microsoft identity platform (v2.0) quickstart: [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)
+> When you create new web applications, the recommendation is now to follow the Microsoft identity platform (v2.0) quickstart: [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)

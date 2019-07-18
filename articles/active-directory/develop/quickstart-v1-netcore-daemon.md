@@ -25,4 +25,4 @@ ms.collection: M365-identity-device-management
 # Quickstart: Acquire a token and call Microsoft Graph API from a console app using app's identity
 
 > [!NOTE]
-> When you create new .NET daemon application, the recommendation is now to follow the Microsoft identity platform (v2.0) quickstart: [Quickstart: Acquire a token and call Microsoft Graph API from a console app using app's identity](quickstart-v2-netcore-daemon.md)
+> When you create new .NET daemon applications, the recommendation is now to follow the Microsoft identity platform (v2.0) quickstart: [Quickstart: Acquire a token and call Microsoft Graph API from a console app using app's identity](quickstart-v2-netcore-daemon.md)

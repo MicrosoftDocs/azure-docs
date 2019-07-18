@@ -24,4 +24,4 @@ ms.collection: M365-identity-device-management
 # Quickstart: Build a Xamarin app that integrates Microsoft sign-in
 
 > [!NOTE]
-> When you create new Xamarin app, the recommendation is now to follow the Microsoft identity platform (v2.0) sample: [Integrate Microsoft identity and the Microsoft Graph into a Xamarin forms app using MSAL](https://github.com/azure-samples/active-directory-xamarin-native-v2#integrate-microsoft-identity-and-the-microsoft-graph-into-a-xamarin-forms-app-using-msal) without the optional steps.
+> When you create new Xamarin applications, the recommendation is now to follow the Microsoft identity platform (v2.0) sample: [Integrate Microsoft identity and the Microsoft Graph into a Xamarin forms app using MSAL](https://github.com/azure-samples/active-directory-xamarin-native-v2#integrate-microsoft-identity-and-the-microsoft-graph-into-a-xamarin-forms-app-using-msal) without the optional steps.
