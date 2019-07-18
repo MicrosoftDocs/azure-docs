@@ -91,7 +91,7 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
 
 ### Guidelines for monitoring the TDE with Azure Key Vault configuration
 
-- If the logical SQL server loses access to the customer-managed TDE protector in Azure Key Vault, the database will deny all connections and appear inaccessible in the Azure Portal.  The most common causes for this are:
+If the logical SQL server loses access to the customer-managed TDE protector in Azure Key Vault, the database will deny all connections and appear inaccessible in the Azure Portal.  The most common causes for this are:
 - Key vault accidentally deleted or behind a firewall
 - Key vault key accidentally deleted or expired
 - The logical SQL Server instance AppId accidentally deleted
