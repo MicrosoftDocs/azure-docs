@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/12/2019
+ms.date: 7/18/2019
 ms.author: raiye
 
 ---
@@ -37,7 +37,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 19-07   |  [4506964]  |  .NET 4.5.2 Security   |  4.68  |  July 9, 2019  |
 |  Rel 19-07   |  [4506977]  |  .NET 3.5 Security   |  4.68  |  July 9, 2019  |
 |  Rel 19-07   |  [4507457]  |  Windows Security   |  4.68  |  July 9, 2019  |
-|  Rel 19-07   |  [4506986]  |  .NET 4.8 Security   |  5.33  |  July 9, 2019  |
 |  Rel 19-07   |  [4507460]  |  Windows Security   |  5.33  |  July 9, 2019  |
 |  Rel 19-07   |  [4506998]  |  .NET 3.5 & 4.7.2 Security   |  6.9  |  July 9, 2019  |
 |  Rel 19-07   |  [4507469]  |  Windows Security   |  6.9  |  July 9, 2019  |
@@ -58,7 +57,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4506964]: https://support.microsoft.com/kb/4506964
 [4506977]: https://support.microsoft.com/kb/4506977
 [4507457]: https://support.microsoft.com/kb/4507457
-[4506986]: https://support.microsoft.com/kb/4506986
 [4507460]: https://support.microsoft.com/kb/4507460
 [4506998]: https://support.microsoft.com/kb/4506998
 [4507469]: https://support.microsoft.com/kb/4507469
