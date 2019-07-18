@@ -49,7 +49,7 @@ Next, add variables for your Content Moderator subscription key and endpoint URL
 
 A string of multiline text from a file will be moderated. Include the [content_moderator_text_moderation.txt](https://github.com/Azure-Samples/cognitive-services-content-moderator-samples/blob/master/documentation-samples/python/content_moderator_text_moderation.txt) file into your local root folder and add its file name to your variables:
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=snippet_TextModerationFile)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=snippet_Textmoderationfile)]
 
 ## Query the Moderator service
 
@@ -59,7 +59,7 @@ Create a **ContentModeratorClient** instance using your subscription key and end
 
 Then, use your client with its member **TextModerationOperations** instance to call the moderation API with the function `screen_text`. See the **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** reference documentation for more information on how to call it.
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=snippet_TextModeration)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=snippet_Textmoderation)]
 
 ## Check the printed response
 
