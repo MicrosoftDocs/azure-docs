@@ -70,7 +70,7 @@ The recursive DNS service caches the DNS responses it receives. The DNS resolver
 
 * [What types of traffic can be routed using Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
 
-* [Does Traffic Manager support 'sticky' sessions?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+* [Does Traffic Manager support "sticky" sessions?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
 
 * [Why am I seeing an HTTP error when using Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
@@ -78,7 +78,7 @@ The recursive DNS service caches the DNS responses it receives. The DNS resolver
 
 * [What application protocols can I use with Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
 
-* [Can I use Traffic Manager with a 'naked' domain name?](https://docs.microsoft.com/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+* [Can I use Traffic Manager with a "naked" domain name?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
 
 * [Does Traffic Manager consider the client subnet address when handling DNS queries?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
 
