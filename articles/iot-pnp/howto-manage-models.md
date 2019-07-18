@@ -113,8 +113,19 @@ az iot pnp interface delete --interface [Interface Id] --repository [Model repo 
 
 ## Visual Studio Code
 
-The third option to manage the models in repo is VSC. Here is how to do it.
+To open the Model Repository view in VS Code.
+
+1. Open VS Code, use **Ctrl+Alt+P**, type and select **IoT Plug and Play: Open Model Repository**.
+
+1. You can choose to **Open Public Model Repository** or **Open Organizational Model Repository**. For organizational model repository, you need to enter your model repository connection string.
+
+1. A new tab opens the Model Repository view.
+    ![Model repo view](media/howto-manage-models/model-repo-view.png)
+
+    You can add, download and delete device capability models and interfaces from it. And search for specific item from the list.
+
+1. To switch to another organizational model repository, use **Ctrl+Alt+P**, type and select **IoT Plug and Play: Sign out Model Repository**. Then use open model repository command again.
 
 ## Next steps
 
-The suggested next step is to learn how to [submit a Plug and Play device for certification](tutorial-certification-test.md).
+The suggested next step is to learn how to [submit a Plug and Play device for certification](tutorial-certification-product.md).
