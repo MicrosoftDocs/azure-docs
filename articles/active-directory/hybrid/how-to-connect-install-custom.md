@@ -81,8 +81,8 @@ After entering the forest name and clicking  **Add Directory**, a pop-up dialog 
 
 ![Connect Directory](./media/how-to-connect-install-custom/connectdir02.png)
 
-#### Enterprise Admin and Domain admin accounts not supported
-As of build #.#.###.# it is no longer supported to use an enterprise admin or a domain admin account as the AD DS Connector account.  If you attempt to enter an account that is an enterprise admin or domain admin when specifying **use existing account**, you will receive an error.
+#### Enterprise Admin and Domain Admin accounts not supported
+As of build #.#.###.# it is no longer supported to use an Enterprise Admin or a Domain Admin account as the AD DS Connector account.  If you attempt to enter an account that is an enterprise admin or domain admin when specifying **use existing account**, you will receive an error.
 
 ### Azure AD sign-in configuration
 This page allows you to review the UPN domains present in on-premises AD DS and which have been verified in Azure AD. This page also allows you to configure the attribute to use for the userPrincipalName.
