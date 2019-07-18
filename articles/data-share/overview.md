@@ -74,6 +74,7 @@ Access controls can be set on the Azure Data Share resource level to ensure it i
 
 Azure Data Share leverages Managed Identities for Azure Resources (previously known as MSIs) for automatic identity management in Azure Active Directory. Managed identities for Azure Resources are leveraged for access to the storage accounts that are being used for data sharing. There is no exchange of credentials between a data provider and a data consumer. For more information, refer to the [Managed Identities for Azure Resources page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
 
+
 ## Supported regions
 
 For a list of Azure regions that make Azure Data Share available, please refer to the [products available by region](https://azure.microsoft.com/global-infrastructure/services/) page and search for Azure Data Share. 
