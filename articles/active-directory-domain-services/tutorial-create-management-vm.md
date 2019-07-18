@@ -16,7 +16,9 @@ ms.author: iainfou
 
 # Tutorial: Create a management VM to configure and administer an Azure Active Directory Domain Services managed domain
 
-This tutorial shows you how to create a Windows VM in Azure and install the required tools to administer an Azure AD DS managed domain.
+Azure Active Directory Domain Services (AD DS) provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You administer this managed domain using the same Remote Server Administration Tools (RSAT) as with an on-premises Active Directory Domain Services domain. As Azure AD DS is a managed service, there are some administrative tasks that you can't perform, such as using remote desktop protocol (RDP) to connect to the domain controllers.
+
+This tutorial shows you how to create a Windows Server VM in Azure and install the required tools to administer an Azure AD DS managed domain.
 
 In this tutorial, you learn how to:
 
@@ -47,7 +49,7 @@ In this tutorial, you create and configure a management VM using the Azure porta
 
 ## Available administrative tasks in Azure AD DS
 
-Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You consume these domain services without deploying, managing, and patching domain controllers. This approach changes some of the available management tasks you can do, and what privileges you have within the managed domain. These tasks and permissions may be different than what you experience with a regular on-premises Active Directory Domain Services environment. You also can't connect to domain controllers on the Azure AD DS managed domain using Remote Desktop.
+Azure AD DS provides a managed domain for your users, applications, and services to consume. This approach changes some of the available management tasks you can do, and what privileges you have within the managed domain. These tasks and permissions may be different than what you experience with a regular on-premises Active Directory Domain Services environment. You also can't connect to domain controllers on the Azure AD DS managed domain using Remote Desktop.
 
 ### Administrative tasks you can perform on an Azure AD DS managed domain
 
