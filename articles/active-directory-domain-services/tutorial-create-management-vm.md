@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 07/18/2019
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create a management VM and install the required tools to connect to and manage an Azure Active Directory Domain Services instance.
@@ -21,7 +21,9 @@ This tutorial shows you how to create a Windows VM in Azure and install the requ
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * 
+> * Understand the differences in available administrative tasks
+> * Install the Active Directory administrative tools on a Windows Server VM
+> * Use the Active Directory Administrative Center to perform common tasks
 
 If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -35,6 +37,8 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+* A Windows Server VM that is joined to the Azure AD DS managed domain.
+    * If needed, the [previous tutorial creates a Windows Server VM and joins it to a managed domain][create-join-windows-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
 
 ## Sign in to the Azure portal
@@ -47,7 +51,7 @@ Azure Active Directory Domain Services (Azure AD DS) provides managed domain ser
 
 ### Administrative tasks you can perform on an Azure AD DS managed domain
 
-Members of the *AAD DC Administrators* group are granted privileges on the Azure AD DS managed domain that enable them to do tasks such as:
+Members of the *AAD DC Administrators* group are granted privileges on the Azure AD DS managed domain that enables them to do tasks such as:
 
 * Join machines to the managed domain.
 * Configure the built-in group policy object (GPO) for the *AADDC Computers* and *AADDC Users* containers in the managed domain.
@@ -57,7 +61,7 @@ Members of the *AAD DC Administrators* group are granted privileges on the Azure
 
 ### Administrative privileges you don't have on an Azure AD DS managed domain
 
-As Azure AD DS is managed service that provides activities such as patching, monitoring, and taking backups. The Azure AD DS managed domain is locked down and you don't have privileges to do certain administrative tasks on the domain. Some examples of tasks you can't do include the following:
+As Azure AD DS is managed service that provides activities such as patching, monitoring, and taking backups. The Azure AD DS managed domain is locked down and you don't have privileges to do certain administrative tasks on the domain. Some of the following examples are tasks you can't do:
 
 * You don't have *Domain Administrator* or *Enterprise Administrator* privileges for the managed domain.
 * You can't extend the schema of the managed domain.
@@ -78,14 +82,14 @@ To get started, connect to the Windows Server VM as follows:
 1. In the Azure portal, select **Resource groups** on the left-hand side. Choose the resource group where your VM was created, such as *myResourceGroup*, then select the VM, such your VM, such as *VM*.
 1. In the **Overview** pane of the VM, select **Connect**.
 
-    ![Connect to Windows virtual machine in the Azure portal](./media/join-windows-vm/connect-to-vm.png)
+    ![Connect to Windows virtual machine in the Azure portal](./media/tutorial-create-management-vm/connect-vm.png)
 
 1. Select the option to *Download RDP File*. Save this RDP file in your web browser.
 1. To connect to your VM, open the downloaded RDP file. If prompted, select **Connect**.
 1. Enter the credentials of a user that's part of the *Azure AD DC administrators* group, such as *dee@contoso100.com*
 1. If you see a certificate warning during the sign in process, select **Yes** or **Continue** to connect.
 
-## Install Active Directory administration tools
+## Install Active Directory administrative tools
 
 Azure AD DS managed domains are managed using the administrative tools as on-premises AD DS environments, such as the Active Directory Administrative Center (ADAC) or AD PowerShell. These tools can be installed as part of the Remote Server Administration Tools (RSAT) optional feature on Windows Server and client computers. Members of the *AAD DC Administrators* group can then administer Azure AD DS managed domains remotely using these AD administrative tools from a computer that is joined to the managed domain.
 
@@ -99,49 +103,42 @@ To install the Active Directory Administration tools on a domain-joined VM, comp
 1. On the **Server Roles** page, click **Next**.
 1. On the **Features** page, expand the **Remote Server Administration Tools** node, then expand the **Role Administration Tools** node. Choose **AD DS and AD LDS Tools** feature from the list of role administration tools, then select **Next**.
 
-    ![Features page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-ad-tools.png)
+    ![Install the 'AD DS and AD LDS Tools' from the Features page](./media/tutorial-create-management-vm/install-features.png)
 
 1. On the **Confirmation** page, select **Install** to install the AD and AD LDS tools feature on the virtual machine. It may take a minute or two to install the administrative tools.
 1. When feature installation is complete, select **Close** to exit the **Add Roles and Features** wizard.
 
+## Use Active Directory administrative tools
 
+With the administrative tools installed, let's see how to use them to administer the Azure AD DS managed domain. Make sure that you're signed in with a user account that's a member of the *AAD DC Administrators* group.
 
-## Connect to and explore the managed domain
+1. From the **Start** menu, select **Windows Administrative Tools**. The AD administrative tools installed in the previous step are listed.
 
-Now, you can use Windows Server AD administrative tools to explore and administer the managed domain. Make sure that you're signed in with a user account that's a member of the *AAD DC Administrators* group.
+    ![List of Administrative Tools installed on the server](./media/tutorial-create-management-vm/list-admin-tools.png)
 
-1. From the Start screen, click **Administrative Tools**. You should see the AD administrative tools installed on the virtual machine.
+1. Select **Active Directory Administrative Center**.
+1. To explore the Azure AD DS managed domain, choose the domain name in the left pane, such as *contoso100.com*. Two containers named *AADDC Computers* and *AADDC Users* are at the top of the list.
 
-    ![Administrative Tools installed on server](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
-2. Click **Active Directory Administrative Center**.
+    ![List the available containers part of the Azure AD DS managed domain](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 
-    ![Active Directory Administrative Center](./media/active-directory-domain-services-admin-guide/adac-overview.png)
-3. To explore the domain, click the domain name in the left pane (for example, 'contoso100.com'). Notice two containers called 'AADDC Computers' and 'AADDC Users' respectively.
+1. To see the users and groups that belong to the Azure AD DS managed domain, select the **AADDC Users** container. The user accounts and groups from your Azure AD tenant are listed in this container.
 
-    ![ADAC - view domain](./media/active-directory-domain-services-admin-guide/adac-domain-view.png)
-4. Click the container called **AADDC Users** to see all users and groups belonging to the managed domain. You should see user accounts and groups from your Azure AD tenant show up in this container. Notice in this example, a user account for the user called 'bob' and a group called 'AAD DC Administrators' are available in this container.
+    In the following example output, a user account for the user called *contosoadmin* and a group called *AAD DC Administrators* are shown in this container.
 
-    ![ADAC - domain users](./media/active-directory-domain-services-admin-guide/adac-aaddc-users.png)
-5. Click the container called **AADDC Computers** to see the computers joined to this managed domain. You should see an entry for the current virtual machine, which is joined to the domain. Computer accounts for all computers that are joined to the Azure AD Domain Services managed domain are stored in this 'AADDC Computers' container.
+    ![View the list of Azure AD DS domain users in the Active Directory Administrative Center](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
-    ![ADAC - domain joined computers](./media/active-directory-domain-services-admin-guide/adac-aaddc-computers.png)
+1. To see the computers that are joined to the Azure AD DS managed domain, select the **AADDC Computers** container. An entry for the current virtual machine, such as *myVM*, is listed. Computer accounts for all computers that are joined to the Azure AD DS managed domain are stored in this *AADDC Computers* container.
 
-<br>
-
-## Related Content
-* [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
-* [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Deploy Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx)
-
-
-
+Common Active Directory Administrative Center actions such as resetting a user account password or managing group membership are available. You can also use the *Active Directory Module for Windows PowerShell*, installed as part of the administrative tools, to manage common actions in your Azure AD DS managed domain.
 
 ## Next steps
 
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * 
+> * Understand the differences in available administrative tasks
+> * Install the Active Directory administrative tools on a Windows Server VM
+> * Use the Active Directory Administrative Center to perform common tasks
 
 To safely interact with your Azure AD DS managed domain, enable secure Lightweight Directory Access Protocol (LDAPS).
 
