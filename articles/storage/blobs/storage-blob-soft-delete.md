@@ -273,13 +273,10 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## Should I use soft delete?
-If there is a chance that your data is accidentally modified or deleted by an application or another storage account user, we recommend turning on soft delete. Soft delete is one part of a data protection strategy and can help prevent inadvertent data loss.
+## Are there any special considerations for using soft delete?
+If there is a chance that your data is accidentally modified or deleted by an application or another storage account user, we recommend turning on soft delete. Enabling soft delete for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. You can mitigate this by storing the frequently overwritten data in a seperate storage account with soft delete disabled. 
 
 ## FAQ
-**Are there any special considerations for using soft delete?**  
-Enabling soft delete for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. You can mitigate this by storing the frequently overwritten data in a seperate storage account with soft delete disabled. 
-
 **For which storage types can I use soft delete?**  
 Currently, soft delete is only available for blob (object) storage.
 

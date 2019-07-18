@@ -32,7 +32,7 @@ In this part of the tutorial, you use Azure Machine Learning service for the fol
 Container Instances is a great solution for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [how to deploy and where](how-to-deploy-and-where.md).
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.8.
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.41.
 
 ## Prerequisites
 Skip to [Set the development environment](#start) to read through the notebook steps.  

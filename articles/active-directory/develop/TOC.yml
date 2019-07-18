@@ -55,7 +55,7 @@
       items:
       - name: .NET Core console (daemon)
         href: quickstart-v2-netcore-daemon.md
-      - name: ASP.NET daemon Web app
+      - name: ASP.NET daemon web app
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Tutorials
     items:
@@ -81,8 +81,8 @@
     href: sample-v2-code.md
   - name: Concepts
     items:
-    - name: Application types
-      href: v2-app-types.md
+    - name: Authentication flows and app scenarios
+      href: authentication-flows-app-scenarios.md
     - name: Application scenarios
       items:
       - name: Sign-in audience
@@ -139,6 +139,8 @@
           href: scenario-protected-web-api-app-registration.md
         - name: Code configuration
           href: scenario-protected-web-api-app-configuration.md
+        - name: Verification of scopes or app roles
+          href: scenario-protected-web-api-verification-scope-app-roles.md
         - name: Move to production
           href: scenario-protected-web-api-production.md
       - name: Web API that calls web APIs
@@ -225,20 +227,26 @@
             href: msal-client-application-configuration.md
           - name: Initialize applications (.NET)
             href: msal-net-initializing-client-applications.md
+          - name: Client assertions (.NET)
+            href: msal-net-client-assertions.md
           - name: Initialize applications (JS)
             href: msal-js-initializing-client-applications.md
         - name: Handle errors and exceptions
-          href: msal-handling-exceptions.md
+          href: msal-handling-exceptions.md        
         - name: Logging
           href: msal-logging.md
         - name: Single sign-on (JS)
           href: msal-js-sso.md
         - name: Prompt behavior (JS)
-          href: msal-js-prompt-behavior.md
-        - name: Provide your own HttpClient (.NET)
-          href: msal-net-provide-httpclient.md
+          href: msal-js-prompt-behavior.md 
+        - name: ADFS support (.NET)
+          href: msal-net-adfs-support.md
         - name: Integrate with Azure AD B2C
-          href: msal-b2c-overview.md
+          items:
+          - name: JavaScript
+            href: msal-b2c-overview.md
+          - name: .NET
+            href: msal-net-aad-b2c-considerations.md
         - name: Considerations and known issues
           items:
             - name: MSAL.NET
@@ -252,9 +260,7 @@
               - name: Xamarin iOS
                 href: msal-net-xamarin-ios-considerations.md
               - name: Universal Windows Platform
-                href: msal-net-uwp-considerations.md
-              - name: Apply an AAD B2C policy
-                href: msal-net-aad-b2c-considerations.md
+                href: msal-net-uwp-considerations.md              
             - name: MSAL.js
               items:
               - name: Considerations using IE
@@ -263,10 +269,12 @@
                 href: msal-js-known-issues-ie-edge-browsers.md
               - name: Known issues- Safari 
                 href: msal-js-known-issues-safari-browser.md
-    - name: Authentication
+    - name: Authentication protocol
       items:
       - name: Authentication basics
         href: authentication-scenarios.md
+      - name: Application types and OAuth2.0
+        href: v2-app-types.md      
       - name: OAuth 2.0 and OpenID Connect protocols
         href: active-directory-v2-protocols.md
       - name: OpenID Connect
@@ -295,6 +303,10 @@
       items:
       - name: Applications and service principals
         href: app-objects-and-service-principals.md
+      - name: How and why apps are added to Azure AD
+        href: active-directory-how-applications-are-added.md
+      - name: Redirect URI/reply URL restrictions and limitations
+        href: reply-url.md
       - name: Single tenant and multi-tenant apps
         href: single-and-multi-tenant-apps.md
     - name: Permissions and consent
@@ -360,6 +372,14 @@
               href: msal-net-instantiate-confidential-client-config-options.md
             - name: Get consent for several resources
               href: msal-net-user-gets-consent-for-multiple-resources.md
+            - name: Provide your own HttpClient
+              href: msal-net-provide-httpclient.md
+        - name: MSAL.js
+          items:
+            - name: Avoid page reloads
+              href: msal-js-avoid-page-reloads.md
+            - name: Pass custom state in authentication requests
+              href:  msal-js-pass-custom-state-authentication-request.md
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service
@@ -519,7 +539,7 @@
         href: consent-framework.md
       - name: Application consent experiences
         href: application-consent-experience.md
-    - name: Conditional access
+    - name: Conditional Access
       href: conditional-access-dev-guide.md
     - name: National Clouds
       href: authentication-national-cloud.md

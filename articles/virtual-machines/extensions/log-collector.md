@@ -4,7 +4,7 @@ description: Describes the AzureLogCollector VM extension, which collects all th
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: squillace
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: aa033a65-8eb8-4cae-9f91-0f80cbb55ae4

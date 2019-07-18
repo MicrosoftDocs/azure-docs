@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2019
-ms.author: dadobali
+ms.author: ryanwi
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how Android native apps can call an API that requires access tokens by Microsoft identity platform endpoint.
 ms.collection: M365-identity-device-management
@@ -101,6 +101,8 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >          }
 >       ]
 >    }
+>    ```
+> 
 > 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
 > 1. Paste the following activity to the **manifest\application** node:	
 >    ```xml
@@ -117,7 +119,11 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >        </intent-filter>
 >    </activity>
 >    ```
-> > 1. Run the app! 
+> 1. Run the app! 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 > 1. Extract and open the Project in Android Studio.

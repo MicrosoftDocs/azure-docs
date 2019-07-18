@@ -3,13 +3,13 @@ title: What is Conversation Learner? - Microsoft Cognitive Services | Microsoft 
 titleSuffix: Azure
 description: Learn about Conversation Learner and how it works.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ---
 
 # What is Conversation Learner?

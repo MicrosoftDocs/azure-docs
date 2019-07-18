@@ -3,7 +3,7 @@ title: Provision a pool in a virtual network - Azure Batch | Microsoft Docs
 description: How to create a Batch pool in an Azure virtual network so that compute nodes can communicate securely with other VMs in the network, such as a file server.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.service: batch
 ms.topic: article
@@ -53,7 +53,7 @@ You might have requirements in your organization to redirect (force) Internet-bo
 
 To ensure that your Azure Batch pool compute nodes work in a VNet that has forced tunneling enabled, you must add the following [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) for that subnet:
 
-* The Batch service needs to communicate with pool compute nodes for scheduling tasks. To enable this communication, add a user-defined route for each IP address used by the Batch service in the region where your Batch account exists. To obtain the list of IP addresses of the Batch service, please contact Azure Support.
+* The Batch service needs to communicate with pool compute nodes for scheduling tasks. To enable this communication, add a user-defined route for each IP address used by the Batch service in the region where your Batch account exists. To learn how to obtain the list of IP addresses of the Batch service, see [Service tags in on-premises](../virtual-network/security-overview.md#service-tags-in-on-premises)
 
 * Ensure that outbound traffic to Azure Storage (specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net`) is not blocked via your on-premises network appliance.
 

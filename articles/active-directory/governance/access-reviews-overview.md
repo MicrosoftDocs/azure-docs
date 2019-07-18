@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/22/2019
+ms.date: 06/05/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -53,8 +53,8 @@ Depending on what you want to review, you will create your access review in Azur
 | --- | --- | --- | --- |
 | Security group members</br>Office group members | Specified reviewers</br>Group owners</br>Self-review | Azure AD access reviews</br>Azure AD groups | Access panel |
 | Assigned to a connected app | Specified reviewers</br>Self-review | Azure AD access reviews</br>Azure AD enterprise apps (in preview) | Access panel |
-| Azure AD role | Specified reviewers</br>Self-review | Azure AD PIM | Azure portal |
-| Azure resource role | Specified reviewers</br>Self-review | Azure AD PIM | Azure portal |
+| Azure AD role | Specified reviewers</br>Self-review | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
+| Azure resource role | Specified reviewers</br>Self-review | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
 
 ## Which users must have licenses?
 
@@ -78,7 +78,7 @@ Here are some example scenarios to help you determine the number of licenses you
 
 For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
-## Get started with access reviews
+## Learn about access reviews
 
 To learn more about creating and performing access reviews, watch this short demo:
 
@@ -88,31 +88,7 @@ If you are ready to deploy access reviews in your organization, follow these ste
 
 >[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
-## Enable access reviews
-
-To enable access reviews, follow these steps.
-
-1. As a Global administrator or User administrator, sign in to the [Azure portal](https://portal.azure.com) where you want to use access reviews.
-
-1. Click **All services** and find the access reviews service.
-
-1. Click **Access reviews**.
-
-    ![All services - Access reviews](./media/access-reviews-overview/all-services-access-reviews.png)
-
-1. In the navigation list, click **Onboard** to open the **Onboard access reviews** page.
-
-    ![Access reviews onboard](./media/access-reviews-overview/onboard-button.png)
-
-1. Click **Create** to enable access reviews in the current directory.
-
-    ![Onboard access reviews](./media/access-reviews-overview/onboard-access-reviews.png)
-
-    The next time you start access reviews, the access review options will be enabled.
-
-    ![Access reviews enabled](./media/access-reviews-overview/access-reviews-enabled.png)
-
-## License requirements for using Azure AD access reviews
+## License requirements
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 

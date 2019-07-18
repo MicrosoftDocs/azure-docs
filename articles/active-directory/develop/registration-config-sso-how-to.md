@@ -1,5 +1,5 @@
 ---
-title: How to configure a new multi-tenant application | Microsoft Docs
+title: Configure application single sign-on | Microsoft Docs
 description: How to configure single sign-on for a custom application you are developing and registering with Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 
 ms.collection: M365-identity-device-management
 ---
 
-# How to configure a new multi-tenant application
+# How to configure single sign-on for an application
 
 Enabling federated single sign-on (SSO) in your app is automatically enabled when federating through Azure AD for OpenID Connect, SAML 2.0, or WS-Fed. If your end users are having to sign in despite already having an existing session with Azure AD, it’s likely your app may be misconfigured.
 

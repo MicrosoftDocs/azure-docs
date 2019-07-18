@@ -4,9 +4,9 @@ description: This article describes how to manage your Run As accounts with Powe
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
-ms.date: 05/21/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -49,7 +49,7 @@ To create or update a Run As account, you must have specific privileges and perm
 |Create or remove an Automation certificate|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Contributor on Resource Group         |Automation Account Resource Group|
 |Create or remove an Automation connection|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contributor on Resource Group |Automation Account Resource Group|
 
-<sup>1</sup> Non-admin users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be a **Global Administrator** in Azure AD.
+<sup>1</sup> Non-admin users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be what is defined in the preceding table.
 
 If you aren't a member of the subscription’s Active Directory instance before you're added to the **Global Administrator** role of the subscription, you're added as a guest. In this situation, you receive a `You do not have permissions to create…` warning on the **Add Automation Account** page. Users who were added to the **Global Administrator** role first can be removed from the subscription's Active Directory instance and re-added to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
 
@@ -99,7 +99,7 @@ This PowerShell script includes support for the following configurations:
 
 1. Save the following script on your computer. In this example, save it with the filename *New-RunAsAccount.ps1*.
 
-   The script uses multiple Azure Resource Manager cmdlets to create resources. The following table shows the cmdlets and their permissions needed.
+   The script uses multiple Azure Resource Manager cmdlets to create resources. The preceding [permissions](#permissions) table shows the cmdlets and their permissions needed.
 
     ```powershell
     #Requires -RunAsAdministrator
@@ -363,15 +363,37 @@ To renew the certificate, do the following:
 
 1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
-## Limiting Run As account permissions
+## <a name="limiting-run-as-account-permissions"></a>Limiting Run As account permissions
 
-To control targeting of automation against resources in Azure Automation, the Run As account by default is granted contributor rights in the subscription. If you need to restrict what the RunAs service principal can do, you can remove the account from the contributor role to the subscription and add it as a contributor to the resource groups you want to specify.
+To control targeting of automation against resources in Azure, you can run the [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) script in the PowerShell gallery to change your existing Run As Account service principal to create and use a custom role definition. This role will have permissions to all resources except [Key Vault](https://docs.microsoft.com/azure/key-vault/). 
 
-In the Azure portal, select **Subscriptions** and choose the subscription of your Automation Account. Select **Access control (IAM)** and then select the **Role assignments** tab. Search for the service principal for your Automation Account (it looks like \<AutomationAccountName\>_unique identifier). Select the account and click **Remove** to remove it from the subscription.
+> [!IMPORTANT]
+> After running the `Update-AutomationRunAsAccountRoleAssignments.ps1` script, runbooks that access KeyVault through the use of RunAs accounts will no longer work. You should review runbooks in your account for calls to Azure KeyVault.
+>
+> To enable access to KeyVault from Azure Automation runbooks you would need to [add the RunAs account to KeyVault’s permissions](#add-permissions-to-key-vault).
 
-![Subscription contributors](media/manage-runas-account/automation-account-remove-subscription.png)
+If you need to restrict what the RunAs service principal can do further, you can add other resource types to the `NotActions` of the custom role definition. The following example restricts access to `Microsoft.Compute`. If you add this to the **NotActions** of the role definition, this role will not be able to access any Compute resource. To learn more about role definitions, see [Understand role definitions for Azure resources](../role-based-access-control/role-definitions.md).
 
-To add the service principal to a resource group, select the resource group in the Azure portal and select **Access control (IAM)**. Select **Add role assignment**, this opens the **Add role assignment** page. For **Role**, select **Contributor**. In the **Select** text box type in the name of the service principal for your Run As account, and select it from the list. Click **Save** to save the changes. Complete these steps for the resources groups you want to give your Azure Automation Run As service principal access to.
+```powershell
+$roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
+$roleDefinition.NotActions.Add("Microsoft.Compute/*")
+$roleDefinition | Set-AzureRMRoleDefinition
+```
+
+To determine if the Service Principal used by your Run As Account is in the **Contributor** or a custom role definition go to your Automation Account and under **Account Settings**, select **Run as accounts** > **Azure Run As Account**. Under **Role** you'll find the role definition that is being used. 
+
+[![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+
+To determine the role definition used by the Automation Run As accounts for multiple subscriptions or Automation Accounts, you can use the [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) script in the PowerShell Gallery.
+
+### Add permissions to Key Vault
+
+If you want to allow Azure Automation to manage Key Vault and your Run As Account service principal is using a custom role definition you'll need to take additional steps to allow this behavior:
+
+* Grant permissions to the Key Vault
+* Set the Access Policy
+
+You can use the [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) script in the PowerShell Gallery to give your Run As Account permissions to KeyVault, or visit [Grant applications access to a key vault](../key-vault/key-vault-group-permissions-for-apps.md) for more details on settings permissions on KeyVault.
 
 ## Misconfiguration
 

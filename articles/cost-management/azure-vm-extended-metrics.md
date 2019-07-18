@@ -23,7 +23,7 @@ After you enable metric collection, you can:
 - Control your costs by sizing according to usage.
 - Get cost effective sizing optimization recommendations from Cloudyn.
 
-For example, you might want to monitor the CPU % and Memory % of your Azure VMs. The Azure VM metrics correspond to _[Host] Percentage CPU_ and _[Guest] Memory percentage_.
+For example, you might want to monitor the CPU % and Memory % of your Azure VMs. The Azure VM metrics correspond to _Percentage CPU_ and _\Memory\% Committed Bytes In Use_.
 
 > [!NOTE]
 > Extended metric data collection is only supported with Azure guest-level monitoring. Cloudyn is not compatible with the Azure Monitor logs VM extension.
@@ -39,7 +39,7 @@ In the preceding example, a limited set of standard metrics are available for yo
 
 ## Enable extended metrics in the Azure portal
 
-Standard metrics are host computer metrics. The _[Host] Percentage CPU_ metric is one example. There are also basic metrics for guest VMs and they're also called extended metrics. Examples of extended metrics include _[Guest] Memory percentage_ and _[Guest] Memory available_.
+Standard metrics are host computer metrics. The _Percentage CPU_ metric is one example. There are also basic metrics for guest VMs and they're also called extended metrics. Examples of extended metrics include _\Memory\% Committed Bytes In Use_ and _\Memory\Available Bytes_.
 
 Enabling extended metrics is straightforward. For each VM, enable guest-level monitoring. When you enable guest-level monitoring, the Azure diagnostics agent is installed on the VM. By default, a basic set of extended metrics are added. The following process is the same for classic and regular VMs and the same for Windows and Linux VMs.
 

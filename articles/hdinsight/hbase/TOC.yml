@@ -11,16 +11,16 @@
     href: apache-hbase-phoenix-squirrel-linux.md
   - name: Query Apache HBase - HBase Shell
     href: ./query-hbase-with-hbase-shell.md
-- name: Get started
+- name: Tutorials
   items:
-  - name: Start with Apache HBase & NoSQL
+  - name: Use Apache HBase in HDInsight
     href: apache-hbase-tutorial-get-started-linux.md
+- name: Concepts
+  items: 
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
   - name: Cluster capacity planning
     href: ../hdinsight-capacity-planning.md
-- name: Concepts
-  items: 
   - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
   - name: HDInsight 4.0
@@ -236,6 +236,10 @@
     href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   - name: Network access
     items:
+    - name: HDInsight virtual network architecture
+      href: ../hdinsight-virtual-network-architecture.md
+    - name: Use firewall to restrict outbound traffic
+      href: ../hdinsight-restrict-outbound-traffic.md
     - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md
     - name: Connect HDInsight with on-premises network
@@ -260,7 +264,5 @@
   items:
   - name: Windows clusters
     items:
-    - name: Migrate Windows clusters to Linux clusters
-      href: ../hdinsight-migrate-from-windows-to-linux.md
     - name: Migrate .NET solutions to Linux clusters
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md

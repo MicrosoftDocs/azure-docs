@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/09/2019
 ---
 # Create and configure Enterprise Security Package clusters in Azure HDInsight
 
 The Enterprise Security Package for Azure HDInsight gives you access to Active Directory-based authentication, multi-user support, and role-based access control for your Apache Hadoop clusters in Azure. HDInsight ESP clusters enable organizations, which adhere to strict corporate security policies, to process sensitive data securely.
 
-The goal of this guide is correctly configured the necessary resources so that on-premises users can sign in to an ESP enabled HDInsight cluster. This article walks through the steps needed to create an Enterprise Security Package enabled Azure HDInsight Cluster. The steps will cover creating a Windows IaaS VM with Active Directory & Domain Name Services (DNS) enabled. This server will act as a replacement for your **actual** on-premises environment and will enable you to proceed through the setup and configuration steps so that you can repeat them later in your own environment. This guide will also help you create a hybrid identity environment using password hash sync with Azure Active Directory.
+The goal of this guide is to correctly configure the necessary resources so that on-premises users can sign in to an ESP enabled HDInsight cluster. This article walks through the steps needed to create an Enterprise Security Package enabled Azure HDInsight Cluster. The steps will cover creating a Windows IaaS VM with Active Directory & Domain Name Services (DNS) enabled. This server will act as a replacement for your **actual** on-premises environment and will enable you to proceed through the setup and configuration steps so that you can repeat them later in your own environment. This guide will also help you create a hybrid identity environment using password hash sync with Azure Active Directory.
 
 This guide is meant to complement [Use Enterprise Security Package in HDInsight](apache-domain-joined-architecture.md)
 
@@ -96,6 +96,22 @@ You have now created your Active Directory environment, along with two users and
 
 These users will be synchronized with Azure AD.
 
+### Create a new Azure Active Directory
+
+1. Sign in to the Azure portal.
+1. Click **Create a resource** and type **directory**. Select **Azure Active Directory** > **Create**.
+1. Enter **HDIFabrikam** under **Organization name**.
+1. Enter **HDIFabrikamoutlook** under **Initial domain name**.
+1. Click **Create**.
+1. On the left in the Azure portal, click **Azure Active Directory**.
+1. If necessary, click **Switch directory** to change to the new directory that you created **HDIFabrikamoutlook**.
+1. Under **Manage** click **Custom domain names** > **Add custom domain**.
+1. Enter **HDIFabrikam.com** under **Custom domain name** and click **Add domain**.
+
+![create a new azure active directory](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png)
+
+![create a new custom domain](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-custom-domain.png)
+
 ## Configure your Azure AD tenant
 
 Overview: Now you will configure your Azure AD tenant so that you can synchronize users and groups from on-premises AD to the cloud.
@@ -156,7 +172,7 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 
 ### Create an user-assigned managed identity
 
-Create an user-assigned managed identity that will be used to configure Azure Azure Active Directory Domain Services (Azure AD-DS). For more information on creating a user-assigned managed identity, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+Create an user-assigned managed identity that will be used to configure Azure Active Directory Domain Services (Azure AD-DS). For more information on creating a user-assigned managed identity, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
 1. Sign in to the Azure portal.
 1. Click **Create a resource** and type **managed identity**. Select **User Assigned Managed Identity** > **Create**.
@@ -167,16 +183,6 @@ Create an user-assigned managed identity that will be used to configure Azure Az
 1. Click **Create**.
 
 ![create a new user-assigned managed identity](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image082.png)
-
-### Create a new Azure Active Directory
-
-1. Sign in to the Azure portal.
-1. Click **Create a resource** and type **directory**. Select **Azure Active Directory** > **Create**.
-1. Enter **HDIFabrikam** under **Organization name**.
-1. Enter **HDIFabrikamoutlook** under **Initial domain name**.
-1. Click **Create**.
-
-![create a new azure active directory](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png)
 
 ### Enable Azure Active Directory Domain Services
 
@@ -196,7 +202,7 @@ For more information, see [Enable Azure Active Directory Domain Services using t
 1. Sign in to the Azure portal.
 1. Click **Create resource**, enter **Domain services** and select **Azure AD Domain Services**.
 1. On the **Basics** screen complete the following steps:
-    1. Under **Directory name** select the Azure Active Directory created for this tutorial, **HDIFabrikam**.
+    1. Under **Directory name** select the Azure Active Directory created for this article, **HDIFabrikam**.
     1. Enter a **DNS domain name** of **HDIFabrikam.com**.
     1. Select your subscription.
     1. Specify the resource group **HDIFabrikam-CentralUS** and the **Location** of **Central US**.
@@ -207,7 +213,7 @@ For more information, see [Enable Azure Active Directory Domain Services using t
 
     ![select network](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
 
-1. On the **Administrator group** screen, you should see a notification that a group named **AAD DC Administrators** has already been created to administer this group. You can optionally modify membership of this group, but it is not required for the steps of this tutorial. Click **OK**.
+1. On the **Administrator group** screen, you should see a notification that a group named **AAD DC Administrators** has already been created to administer this group. You can optionally modify membership of this group, but it is not required for the steps of this article. Click **OK**.
 
     ![view administrator group](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
 
@@ -299,7 +305,7 @@ click **Next**.
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | Allow |
-        | Priority | <Desired Number> |
+        | Priority | \<Desired Number\> |
         | Name | Port_LDAP_636 |
 
     ![inbound security rule](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
@@ -321,7 +327,7 @@ This step requires the following pre-requisites:
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Create a peer relationship between the Virtual Network that is hosting AADDS (`HDIFabrikam-AADDSVNET`) and the Virtual Network that will host the ESP enabled HDInsight cluster (`HDIFabrikam-HDIVNet `). Use the following powershell code to peer these two virtual networks.
+1. Create a peer relationship between the Virtual Network that is hosting AADDS (`HDIFabrikam-AADDSVNET`) and the Virtual Network that will host the ESP enabled HDInsight cluster (`HDIFabrikam-HDIVNet`). Use the following powershell code to peer these two virtual networks.
 
     ```powershell
     Add-AzVirtualNetworkPeering -Name 'HDIVNet-AADDSVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS')

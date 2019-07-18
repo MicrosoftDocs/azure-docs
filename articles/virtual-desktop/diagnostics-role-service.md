@@ -51,6 +51,14 @@ The **-ActivityId** parameter returns a specific diagnostic activity if it exist
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid>
 ```
 
+### View error messages for a failed activity by activity ID
+
+To view the error messages for a failed activity, you must run the cmdlet with the **-Detailed** parameter. You can view the list of errors by running the **Select-Object** cmdlet.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantname> -ActivityId <ActivityGuid> -Detailed | Select-Object -ExpandProperty Errors
+```
+
 ### Filter diagnostic activities by user
 
 The **-UserName** parameter returns a list of diagnostic activities initiated by the specified user, as shown in the following example cmdlet.

@@ -83,7 +83,7 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
   + [Entity recognition](text-analytics-how-to-entity-linking.md)  
 
 
-6. Click **Send** to submit the request. You can submit up to 100 requests per minute. 
+6. Click **Send** to submit the request. See the [data limits](../overview.md#data-limits) section in the overview for information on the number of requests you can send per minute and second.
 
    In Postman, the response is displayed in the next window down, as a single JSON document, with an item for each document ID provided in the request.
 

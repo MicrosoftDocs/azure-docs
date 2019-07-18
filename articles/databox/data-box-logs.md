@@ -1,39 +1,39 @@
 ---
-title: Track and log Azure Data Box events| Microsoft Docs 
-description: Describes how to track and log events at the various stages of your Azure Data Box order.
+title: Track and log Azure Data Box, Azure Data Box Heavy events| Microsoft Docs 
+description: Describes how to track and log events at the various stages of your Azure Data Box and Azure Data Box Heavy order.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 06/03/2019
 ms.author: alkohli
 ---
 
-# Tracking and event logging for your Azure Data Box
+# Tracking and event logging for your Azure Data Box and Azure Data Box Heavy
 
-A Data Box order goes through the following steps: order, set up, data copy, return, upload to Azure and verify, and data erasure. Corresponding to each step in the order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
+A Data Box or Data Box Heavy order goes through the following steps: order, set up, data copy, return, upload to Azure and verify, and data erasure. Corresponding to each step in the order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
 
-The following table shows a summary of the Data Box order steps and the tools available to track and audit the order during each step.
+The following table shows a summary of the Data Box or Data Box Heavy order steps and the tools available to track and audit the order during each step.
 
 | Data Box order stage       | Tool to track and audit                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Create order               | [Set up access control on the order via RBAC](#set-up-access-control-on-the-order)                                                    |
 | Order processed            | [Track the order](#track-the-order) through <ul><li> Azure portal </li><li> Shipping carrier website </li><li>Email notifications</ul> |
 | Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)                                              |
-| Data copy to device        | [View *error.xml* files](#view-error-log-during-data-copy-to-data-box) for data copy                                                             |
+| Data copy to device        | [View *error.xml* files](#view-error-log-during-data-copy) for data copy                                                             |
 | Prepare to ship            | [Inspect the BOM files](#inspect-bom-during-prepare-to-ship) or the manifest files on the device                                      |
 | Data upload to Azure       | [Review *copylogs*](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
-| Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                                                   |
+| Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                |
 
-This article describes in detail the various mechanisms or tools available to track and audit Data Box order.
+This article describes in detail the various mechanisms or tools available to track and audit Data Box or Data Box Heavy order. The information in this article applies to both, Data Box and Data Box Heavy. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
 
 ## Set up access control on the order
 
 You can control who can access your order when the order is first created. Set up Role-based Access Control (RBAC) roles at various scopes to control the access to the Data Box order. An RBAC role determines the type of access – read-write, read-only, read-write to a subset of operations.
 
-The two Data Box roles that can be defined are:
+The two roles that can be defined for the Azure Data Box service are:
 
 - **Data Box Reader** - have read-only access to an order(s) as defined by the scope. They can only view details of an order. They can’t access any other details related to storage accounts or edit the order details such as address and so on.
 - **Data Box Contributor** - can only create an order to transfer data to a given storage account *if they already have write access to a storage account*. If they do not have access to a storage account, they can't even create a Data Box order to copy data to the account. This role does not define any Storage account related permissions nor grants access to storage accounts.  
@@ -66,9 +66,9 @@ You can track your order through the Azure portal and through the shipping carri
 
 - Each sign into the Data Box is logged real time. However, this information is only available in the [Audit logs](#audit-logs) after the order is successfully completed.
 
-## View error log during data copy to Data Box
+## View error log during data copy
 
-During the data copy to Data Box, an error file is generated if there are any issues with the data being copied.
+During the data copy to Data Box or Data Box Heavy, an error file is generated if there are any issues with the data being copied.
 
 ### Error.xml file
 
@@ -143,7 +143,7 @@ Here is a sample of the *error.xml* for different errors when copying to Azure F
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-In each of the above cases, resolve the errors before you proceed to the next step. For more information on the errors received during data copy to Data Box via SMB or NFS protocols, go to [Troubleshoot Data Box issues](data-box-troubleshoot.md). For information on errors received during data copy to Data Box via REST, go to [Troubleshoot Data Box Blob storage issues](data-box-troubleshoot-rest.md).
+In each of the above cases, resolve the errors before you proceed to the next step. For more information on the errors received during data copy to Data Box via SMB or NFS protocols, go to [Troubleshoot Data Box and Data Box Heavy issues](data-box-troubleshoot.md). For information on errors received during data copy to Data Box via REST, go to [Troubleshoot Data Box Blob storage issues](data-box-troubleshoot-rest.md).
 
 ## Inspect BOM during prepare to ship
 
@@ -153,7 +153,7 @@ During prepare to ship, a list of files known as the Bill of Materials (BOM) or 
 - Use this file to verify against the actual sizes of the files.
 - Verify that the *crc64* corresponds to a non-zero string. <!--A null value for crc64 indicates that there was a reparse point error)-->
 
-For more information on the errors received during prepare to ship, go to [Troubleshoot Data Box issues](data-box-troubleshoot.md).
+For more information on the errors received during prepare to ship, go to [Troubleshoot Data Box and Data Box Heavy issues](data-box-troubleshoot.md).
 
 ### BOM or manifest file
 
@@ -199,7 +199,7 @@ For each order that is processed, the Data Box service creates *copylog* in the 
 
 A Cyclic Redundancy Check (CRC) computation is done during the upload to Azure. The CRCs from the data copy and after the data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
 
-By default, logs are written to a container named copylog. The logs are stored with the following naming convention:
+By default, logs are written to a container named `copylog`. The logs are stored with the following naming convention:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -241,7 +241,41 @@ Here is an example of a copylog where the upload completed with errors:
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
+Here is an example of a `copylog` where the containers that did not conform to Azure naming conventions were renamed during the data upload to Azure.
 
+The new unique names for containers are in the format `DataBox-GUID` and the data for the container are put into the new renamed container. The `copylog` specifies the old and the new container name for container.
+
+```xml
+<ErroredEntity Path="New Folder">
+   <Category>ContainerRenamed</Category>
+   <ErrorCode>1</ErrorCode>
+   <ErrorMessage>The original container/share/blob has been renamed to: DataBox-3fcd02de-bee6-471e-ac62-33d60317c576 :from: New Folder :because either the name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>Container</Type>
+</ErroredEntity>
+```
+
+Here is an example of a `copylog` where the blobs or files that did not conform to Azure naming conventions, were renamed during the data upload to Azure. The new blob or file names are converted to SHA256 digest of relative path to container and are uploaded to path based on destination type. The destination can be block blobs, page blobs, or Azure Files.
+
+The `copylog` specifies the old and the new blob or file name and the path in Azure.
+
+```xml
+<ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: PageBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDir9856b9ab-6acb-4bc3-8717-9a898bdb1f8c\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: AzureFile/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDirf92f6ca4-3828-4338-840b-398b967d810b\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: BlockBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity>
+```
 
 ## Get chain of custody logs after data erasure
 
@@ -249,7 +283,7 @@ After the data is erased from the Data Box disks as per the NIST SP 800-88 Revis
 
 ### Audit logs
 
-Audit logs contain information on power-on and share access on the Data Box when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
+Audit logs contain information on power-on and share access on the Data Box or Data Box Heavy when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
 
 Here is a sample of the audit log from a Data Box:
 
@@ -306,7 +340,7 @@ The authentication information fields provide detailed information about this sp
 
 ## Download order history
 
-Order history is available in Azure portal. If the order is complete and the device cleanup (data erasure from the disks) is complete, then go to **Data Box order > Order details**. **Download order history** option is available. For more information, see [Download order history](data-box-portal-admin.md#download-order-history).
+Order history is available in Azure portal. If the order is complete and the device cleanup (data erasure from the disks) is complete, then go to your device order and navigate to **Order details**. **Download order history** option is available. For more information, see [Download order history](data-box-portal-admin.md#download-order-history).
 
 If you scroll through the order history, you see:
 
@@ -320,7 +354,7 @@ Here is a sample of the order history log from Azure portal:
 -------------------------------
 Microsoft Data Box Order Report
 -------------------------------
-Name                                               : gus-pinto                              
+Name                                               : gus-poland                              
 StartTime(UTC)                              : 9/19/2018 8:49:23 AM +00:00                       
 DeviceType                                     : DataBox                                           
 -------------------
@@ -358,11 +392,11 @@ Time(UTC)                 | Activity                       | Status          | D
 Data Box Log Links
 ------------------
 Account Name         : gusacct
-Copy Logs Path       : databoxcopylog/gus-pinto_<Device-serial-no>_CopyLog_<GUID>.xml
+Copy Logs Path       : databoxcopylog/gus-poland_<Device-serial-no>_CopyLog_<GUID>.xml
 Audit Logs Path      : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ```
 
 ## Next steps
 
-- Learn how to [Troubleshoot issues on your Data Box](data-box-troubleshoot.md).
+- Learn how to [Troubleshoot issues on your Data Box and Data Box Heavy](data-box-troubleshoot.md).

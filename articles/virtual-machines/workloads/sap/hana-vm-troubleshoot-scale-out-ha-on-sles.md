@@ -4,7 +4,7 @@ description: Guide to check and troubleshoot a complex SAP HANA scale-out high-a
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermannd
-manager: jeconnoc
+manager: gwallace
 editor: 
 
 

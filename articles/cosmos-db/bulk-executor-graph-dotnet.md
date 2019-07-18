@@ -5,7 +5,7 @@ author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.date: 04/26/2019
+ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
 ---

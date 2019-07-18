@@ -24,7 +24,7 @@ abstract:
       src: media/index/video.png
       width: 250  
     title: Watch video (9:58)
-    href: https://www.youtube.com/watch?v=GBDSBInvz08
+    href: https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/
     width: 250  
 sections:   
 - title: 5-Minute Quickstarts

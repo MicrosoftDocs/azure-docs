@@ -8,7 +8,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 05/13/2019
+ms.date: 06/19/2019
 ---
 
 # Reference for trigger and action types in Workflow Definition Language for Azure Logic Apps
@@ -1193,7 +1193,7 @@ For the `includeTrigger` attribute, you can specify `true` or `false` values.
 *Example 1*
 
 This action runs code that gets your logic app's name and returns 
-the text "Hello world from <logic-app-name>" as the result. 
+the text "Hello world from \<logic-app-name>" as the result. 
 In this example, the code references the workflow's name by 
 accessing the `workflowContext.workflow.name` property through 
 the read-only `workflowContext` object. For more information about 
@@ -1812,7 +1812,7 @@ this action can use for the column header names:
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <CSV *or* HTML>| String | The format for the table you want to create | 
+| \<CSV *or* HTML>| String | The format for the table you want to create | 
 | <*array*> | Array | The array or expression that provides the source items for the table <p>**Note**: If the source array is empty, the action creates an empty table. | 
 |||| 
 
@@ -2959,7 +2959,7 @@ the action's inputs.
 
 ### Run in high throughput mode
 
-For a single logic app run, the number of actions that execute every 5 minutes has a 
+For a single logic app definition, the number of actions that execute every 5 minutes has a 
 [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). 
 To raise this limit to the [maximum](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) 
 possible, set the `operationOptions` property to `OptimizedForHighThroughput`. 
