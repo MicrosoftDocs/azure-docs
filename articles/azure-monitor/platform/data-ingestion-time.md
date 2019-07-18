@@ -10,7 +10,7 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2019
+ms.date: 07/18/2019
 ms.author: bwren
 ---
 # Log data ingestion time in Azure Monitor
@@ -57,7 +57,7 @@ Some solutions do not collect their data from an agent and may use a collection 
 Refer to the documentation for each solution to determine its collection frequency.
 
 ### Pipeline-process time
-Once log records are ingested into the Azure Monitor pipeline, they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5-15 seconds. Some management solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, the Network Performance Monitoring aggregates incoming data over 3-minute intervals, effectively adding 3-minute latency. Another process that adds latency is the process that handles custom logs. In some cases, this process might add few minutes of latency to logs that are collected from files by the agent.
+Once log records are ingested into the Azure Monitor pipeline (as identified in the [_TimeReceived](log-standard-properties.md#_TimeReceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5-15 seconds. Some management solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, the Network Performance Monitoring aggregates incoming data over 3-minute intervals, effectively adding 3-minute latency. Another process that adds latency is the process that handles custom logs. In some cases, this process might add few minutes of latency to logs that are collected from files by the agent.
 
 ### New custom data types provisioning
 When a new type of custom data is created from a [custom log](data-sources-custom-logs.md) or the [Data Collector API](data-collector-api.md), the system creates a dedicated storage container. This is a one-time overhead that occurs only on the first appearance of this data type.
@@ -84,7 +84,7 @@ The following table specifies how you can determine the different times for a re
 | Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### Ingestion latency delays
-You can measure the latency of a specific record by comparing the result of the [ingestion_time()](/azure/kusto/query/ingestiontimefunction) function to the _TimeGenerated_ field. This data can be used with various aggregations to find how ingestion latency behaves. Examine some percentile of the ingestion time to get insights for large amount of data. 
+You can measure the latency of a specific record by comparing the result of the [ingestion_time()](/azure/kusto/query/ingestiontimefunction) function to the _TimeGenerated_ property. This data can be used with various aggregations to find how ingestion latency behaves. Examine some percentile of the ingestion time to get insights for large amount of data. 
 
 For example, the following query will show you which computers had the highest ingestion time over the current day: 
 
@@ -101,8 +101,8 @@ If you want to drill down on the ingestion time for a specific computer over a p
 ``` Kusto
 Heartbeat 
 | where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
-| extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
-| summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
+| extend IngestionEndpointLatencyMin = todouble(datetime_diff("Second",_TimeReceived,TimeGenerated))/60 
+| summarize percentiles(E2EIngestionLatencyMin,50,95), percentiles(IngestionEndpointLatencyMin,50,95) by bin(TimeGenerated,30m) 
 | render timechart  
 ```
  
@@ -112,7 +112,8 @@ Use the following query to show computer ingestion time by the country/region th
 Heartbeat 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
+| extend IngestionEndpointLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95),percentiles(IngestionEndpointLatency,50,95) by RemoteIPCountry 
 ```
  
 Different data types originating from the agent might have different ingestion latency time, so the previous queries could be used with other types. Use the following query to examine the ingestion time of various Azure services: 
@@ -121,7 +122,8 @@ Different data types originating from the agent might have different ingestion l
 AzureDiagnostics 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
+| extend IngestionEndpointLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95), percentiles(IngestionEndpointLatency,50,95) by ResourceProvider
 ```
 
 ### Resources that stop responding 
