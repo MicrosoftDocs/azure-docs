@@ -38,28 +38,28 @@ pip install azure-cognitiveservices-vision-contentmoderator
 
 Create a new Python script named _ContentModeratorQS.py_ and add the following code to import the necessary parts of the SDK. The pretty print module is included for an easier to read JSON response.
 
-[!code-python[i](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=imports)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=imports)]
 
 
 ## Initialize variables
 
 Next, add variables for your Content Moderator subscription key and endpoint URL. You will need to add the name `CONTENT_MODERATOR_SUBSCRIPTION_KEY` to your environment variables and add your subscription key as its value. For your base endpoint URL, add `CONTENT_MODERATOR_ENDPOINT` to your environment variables with your region-specific URL as its value, for example `https://westus.api.cognitive.microsoft.com`. Free trial subscription keys are generated in the **westus** region.
 
-[!code-python[a](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=authentication)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=authentication)]
 
 A string of multiline text from a file will be moderated. Include the [content_moderator_text_moderation.txt](https://github.com/Azure-Samples/cognitive-services-content-moderator-samples/blob/master/documentation-samples/python/content_moderator_text_moderation.txt) file into your local root folder and add its file name to your variables:
 
-[!code-python[tmf](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModerationFile)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModerationFile)]
 
 ## Query the Moderator service
 
 Create a **ContentModeratorClient** instance using your subscription key and endpoint URL. 
 
-[!code-python[c](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=client)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=client)]
 
 Then, use your client with its member **TextModerationOperations** instance to call the moderation API with the function `screen_text`. See the **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** reference documentation for more information on how to call it.
 
-[!code-python[tm](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModeration)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModeration)]
 
 ## Check the printed response
 
