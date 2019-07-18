@@ -741,7 +741,7 @@ Explore the results of automatic training with a Jupyter widget or by examining 
 
 ### Option 1: Add a Jupyter widget to see results
 
-If you use a Jupyter notebook, use this Jupyter notebook widget to see a graph and a table of all results:
+If you use a Jupyter notebook, use this [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) to see a graph and a table of all results:
 
 
 ```python
