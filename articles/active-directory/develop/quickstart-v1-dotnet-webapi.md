@@ -24,5 +24,8 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Build a .NET web API that integrates with Azure AD for authentication and authorization
 
-> [!NOTE]
-> When you create new web APIs, the recommendation is now to follow the Microsoft identity platform (v2.0) ASP.NET Core Web API incremental tutorial: [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2#calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2)
+[Microsoft identity platform](v2-overview.md) is an evolution of the Azure Active Directory (Azure AD) developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs such as Microsoft Graph or APIs that developers have built.
+
+[Microsoft Authentication Library (MSAL)](msal-overview.md) enables developers to acquire tokens from the Microsoft identity platform endpoint in order to access secured Web APIs. Active Directory Authentication Library (ADAL) integrates with the Azure AD for developers (v1.0) endpoint, where MSAL integrates with the Microsoft identity platform (v2.0) endpoint.
+
+For new web APIs, we recommend you use Microsoft identity platform (v2.0) and MSAL to acquire tokens and access secured web APIs: [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2#calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2)

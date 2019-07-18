@@ -22,5 +22,8 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Add sign-in with Microsoft to an ASP.NET web app
 
-> [!NOTE]
-> When you create new web applications, the recommendation is now to follow the Microsoft identity platform (v2.0) quickstart: [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)
+[Microsoft identity platform](v2-overview.md) is an evolution of the Azure Active Directory (Azure AD) developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs such as Microsoft Graph or APIs that developers have built.
+
+[Microsoft Authentication Library (MSAL)](msal-overview.md) enables developers to acquire tokens from the Microsoft identity platform endpoint in order to access secured Web APIs. Active Directory Authentication Library (ADAL) integrates with the Azure AD for developers (v1.0) endpoint, where MSAL integrates with the Microsoft identity platform (v2.0) endpoint.
+
+For new web applications, we recommend you use Microsoft identity platform (v2.0) and MSAL to acquire tokens and access secured web APIs: [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md).

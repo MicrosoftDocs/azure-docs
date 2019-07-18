@@ -462,6 +462,10 @@
         href: quickstart-v1-xamarin.md
     - name: Service-to-service
       href: quickstart-v1-dotnet.md
+    - name: Daemon apps
+      items:
+      - name: .NET Core console (daemon)
+        href: quickstart-v1-netcore-daemon.md
   - name: Samples
     href: sample-v1-code.md
   - name: Concepts
