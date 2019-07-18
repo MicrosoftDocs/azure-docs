@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 07/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -40,7 +40,7 @@ To verify that the module is ready to use, match the version returned by the fol
 get-module azureadpreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azureadpreview               {Add-AzureADAdministrati...}
+  Binary     2.0.0.115    azureadpreview               {Add-AzureADMSAdministrati...}
 ```
 
 Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, see the online reference documentation for [Azure AD preview module](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17).
@@ -53,18 +53,18 @@ Now you can start using the cmdlets in the module. For a full description of the
 
 ``` PowerShell
 # Get the user and role definition you want to link
- $user = Get-AzureADUser -Filter "userPrincipalName eq 'cburl@f128.info'"
-$roleDefinition = Get-AzureADRoleDefinition -Filter "displayName eq 'Application Support Administrator'"
+ $user = Get-AzureADMSUser -Filter "userPrincipalName eq 'cburl@f128.info'"
+$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Application Support Administrator'"
 
 # Get app registration and construct resource scope for assignment.
     "displayName eq 'f/128 Filter Photos'"
 $resourceScopes = '/' + $appRegistration.objectId
 
 # Create a scoped role assignment
-$roleAssignment = New-AzureADRoleAssignment -ResourceScopes $resourceScopes -RoleDefinitionId $roleDefinition.objectId -PrincipalId $user.objectId
+$roleAssignment = New-AzureADMSRoleAssignment -ResourceScopes $resourceScopes -RoleDefinitionId $roleDefinition.objectId -PrincipalId $user.objectId
 ```
 
-To assign the role to a service principal instead of a user, use the [Get-AzureADServicePrincipal cmdlet](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
+To assign the role to a service principal instead of a user, use the [Get-AzureADMSServicePrincipal cmdlet](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
 
 ## Delete a role assignment
 
