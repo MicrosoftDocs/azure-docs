@@ -26,14 +26,14 @@ when manually correcting configuration drift.
 ## Correct drift of Windows virtual machines using PowerShell
 
 For step by step instructions using
-the Run Command feature on Windows virtual machines, see the
-[documentation here](/azure/virtual-machines/windows/run-command).
+the Run Command feature on Windows virtual machines, see the documentation page
+[Run PowerShell scripts in your Windows VM with Run Command](/azure/virtual-machines/windows/run-command).
 
 To force an Azure Automation State Configuration node
 to download the latest configuration and apply it,
 use the `Update-DscConfiguration` cmdlet.
 For details, see the
-[cmdlet documentation](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration).
+cmdlet documentation [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration).
 
 ```powershell
 Update-DscConfiguration -Wait -Verbose
@@ -45,11 +45,12 @@ Similar functionality is not currently available for Linux servers.
 The only option is to repeat the registration process.
 For Azure nodes this can be performed from the portal
 or using Az Automation cmdlets.
-Details about this process is
-[documented here](/azure/automation/automation-dsc-onboarding#azure-portal).
+Details about this process are documented in the documenation page
+[Onboarding machines for management by Azure Automation State Configuration](/azure/automation/automation-dsc-onboarding#azure-portal).
 For hybrid nodes,
-this can be performed using the
-[included Python scripts](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
+this can be performed using the included Python scripts.
+See the documentation in
+[PowerShell DSC for Linux repo](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 
 ## Next steps
 
