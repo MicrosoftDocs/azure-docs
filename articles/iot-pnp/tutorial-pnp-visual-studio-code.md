@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 To work with the device capability model in this tutorial, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/download): VS Code is available for multiple platforms
-* Azure IoT Workbench extension for VS Code:
+* Azure IoT Device Workbench extension for VS Code:
     1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr).
     1. In VS Code, select **Extensions** tab.
     1. Select **Install from VSIX**.
@@ -62,7 +62,7 @@ To test your device code in this tutorial, you need:
 
 ## Model your device
 
-You use the _digital twin definition language_ to create a device capability model. A model typically consists of multiple _interface_ definition files and a single model file. The **Azure IoT Workbench extension for VS Code** includes tools to help you create and edit these JSON files.
+You use the _digital twin definition language_ to create a device capability model. A model typically consists of multiple _interface_ definition files and a single model file. The **Azure IoT Device Workbench extension for VS Code** includes tools to help you create and edit these JSON files.
 
 ### Create the interface file
 
@@ -72,7 +72,7 @@ To create an interface file that defines the capabilities of your IoT device in 
 
 1. Launch Visual Studio code and use **Ctrl+Shift+P** to open the command palette.
 
-1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Create Interface** command.
+1. Enter **Plug and Play** and then select the **IoT Plug & Play: Create Interface** command.
 
 1. Browse to and select the **devicemodel** folder you created.
 
@@ -220,7 +220,7 @@ To create a model file that specifies the interfaces your Plug and Play device i
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
-1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Create Capability Model** command. Then enter **SensorboxModel** as the name of the model. VS Code creates a sample interface file called **SensorboxModel.capabilitymodel.json**.
+1. Enter **Plug and Play** and then select the **IoT Plug & Play: Create Capability Model** command. Then enter **SensorboxModel** as the name of the model. VS Code creates a sample interface file called **SensorboxModel.capabilitymodel.json**.
 
 1. Replace the contents of this file with the following JSON and replace `{your name}` in the `@id` field and in the `EnvironmentalSensor` interface with the same value you used in the **EnvironmentalSensor.interface.json** file. The interface ID must be unique to save the interface in the repository:
 
@@ -267,7 +267,7 @@ You now have the three files that make up your device capability model:
 
 ## Publish the model
 
-For IoT hub to read your device capability model, you need to publish it in your organizational repository. To publish from Visual Studio code, you need the connection string for the organizational repository:
+For your IoT hub to read your device capability model, you need to publish it in your organizational repository. To publish from Visual Studio code, you need the connection string for the organizational repository:
 
 1. Navigate to the [Azure Certified for IoT portal](https://aka.ms/ACFI).
 
@@ -281,7 +281,7 @@ To open your organizational repository in VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
-1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Open Model Repository** command.
+1. Enter **Plug and Play** and then select the **IoT Plug & Play: Open Model Repository** command.
 
 1. Select **Open Organizational Model Repository** and paste in your connection string.
 
@@ -291,7 +291,7 @@ To publish your device capability model and interfaces to your organizational re
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
-1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Submit files to Model Repository** command.
+1. Enter **Plug and Play** and then select the **IoT Plug & Play: Submit files to Model Repository** command.
 
 1. Select the **EnvironmentalSensor.interface.json** and **SensorboxModel.capabilitymodel.json** files and select **OK**.
 
@@ -299,11 +299,11 @@ Your files are now stored in your organizational repository.
 
 ## Generate code
 
-You can use the **Azure IoT Workbench extension for VS Code** to generate skeleton C code from your model. To generate the stub code in VS Code:
+You can use the **Azure IoT Device Workbench extension for VS Code** to generate skeleton C code from your model. To generate the stub code in VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
-1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Generate Device Code Stub** command.
+1. Enter **Plug and Play** and then select the **IoT Plug & Play: Generate Device Code Stub** command.
 
 1. Select your **SensorboxModel.capabilitymodel.json** capability model file.
 
@@ -320,13 +320,13 @@ VS Code generates the skeleton C code and saves the files in the **sensorbox_app
 ## Update the generated code
 
 > [!NOTE]
-> Bug bash: View the stub implementations in **SensorboxModel.c**.
+> Bug bash: View the stub implementations in **SensorboxModel_impl.c**.
 
 Before you can build and run the code, you need to implement the stubbed properties, telemetry, and commands.
 
 To provide implementations for the stubbed code in VS Code:
 
-1. Open the **SensorboxModel.c** file.
+1. Open the **SensorboxModel_impl.c** file.
 
 1. Add code to implement the stubbed functions.
 
@@ -336,7 +336,7 @@ To provide implementations for the stubbed code in VS Code:
 
 Before you run the code to test your plug and play device with an Azure IoT hub, you need to compile the code.
 
-The readme file in the **sample_app* folder that contains the generated code includes instructions for building and running the code on Windows and Linux. The following section includes instructions for retrieving a device connection string to use when you run the device code.
+Follow the instructions in the **Readme.md** file in the **sensorbox_app** folder to build and run the code on Windows. The following section includes instructions for retrieving a device connection string to use when you run the device code.
 
 ## Test the code
 
