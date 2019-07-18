@@ -30,12 +30,14 @@ By default MsExchUserHoldPolcies is synchronized by Azure AD Connect directly to
 The following tables describe the flow:
 
 Inbound from on-premises Active Directory:
-|Active Directory attribute|Attribute name|Flow type|Metaverse attribute|Sync Rule
+
+|Active Directory attribute|Attribute name|Flow type|Metaverse attribute|Sync Rule|
 |-----|-----|-----|-----|-----|
 |On-premises Active Directory|msExchUserHoldPolicies|Direct|msExchUserHoldPolices|In from AD - User Exchange|
 
 Outbound to Azure AD:
-|Metaverse attribute|Attribute name|Flow type|Azure AD attribute|Sync Rule
+
+|Metaverse attribute|Attribute name|Flow type|Azure AD attribute|Sync Rule|
 |-----|-----|-----|-----|-----|
 |Azure Active Directory|msExchUserHoldPolicies|Direct|msExchUserHoldPolicies|Out to AAD – UserExchangeOnline|
 
@@ -44,13 +46,15 @@ By default cloudMsExchUserHoldPolicies is synchronized by Azure AD Connect direc
 
 The following tables describe the flow:
 
-Inbound from on-premises Active Directory:
-|Active Directory attribute|Attribute name|Flow type|Metaverse attribute|Sync Rule
+Inbound from Azure AD:
+
+|Active Directory attribute|Attribute name|Flow type|Metaverse attribute|Sync Rule|
 |-----|-----|-----|-----|-----|
 |On-premises Active Directory|cloudMsExchUserHoldPolicies|Direct|cloudMsExchUserHoldPolicies|In from AAD - User Exchange|
 
-Outbound to Azure AD:
-|Metaverse attribute|Attribute name|Flow type|Azure AD attribute|Sync Rule
+Outbound to on-premises Active Directory:
+
+|Metaverse attribute|Attribute name|Flow type|Azure AD attribute|Sync Rule|
 |-----|-----|-----|-----|-----|
 |Azure Active Directory|cloudMsExchUserHoldPolicies|IF(NOT NULL)|msExchUserHoldPolicies|Out to AD – UserExchangeOnline|
 
