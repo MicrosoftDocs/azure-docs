@@ -116,8 +116,6 @@
         href: devtest-lab-internal-support-message.md
       - name: Set policies and schedules
         href: devtest-lab-set-lab-policy.md
-      - name: Set policies for the lab
-        href: devtest-lab-get-started-with-lab-policies.md 
       - name: Configure a lab to use a remote desktop gateway
         href: configure-lab-remote-desktop-gateway.md
       - name: Post announcement in a lab
@@ -182,8 +180,6 @@
         href: devtest-lab-attach-detach-data-disk.md
       - name: Start VMs using Automation runbooks
         href: start-machines-use-automation-runbooks.md
-      - name: Import a VM
-        href: devtest-lab-import-vm.md
       - name: Import virtual machines from another lab
         href: import-virtual-machines-from-another-lab.md
     - name: Use environments in a lab
