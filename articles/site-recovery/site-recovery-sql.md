@@ -27,7 +27,7 @@ Before you start, make sure you understand SQL Server disaster recovery capabili
 
 Your choice of a BCDR technology to recover SQL Server instances should be based on your recovery time objective (RTO) and recovery point objective (RPO) needs as described in the following table. Combine Site Recovery with the failover operation of your chosen technology to orchestrate recovery of your entire application.
 
-Deployment type | BCDR technology | Expected RTO for SQL | Expected RPO for SQL |
+Deployment type | BCDR technology | Expected RTO for SQL Server | Expected RPO for SQL Server |
 --- | --- | --- | ---
 SQL Server on an Azure infrastructure as a service (IaaS) virtual machine (VM) or at on-premises.| [Always On availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | The time taken to make the secondary replica as primary. | Because replication to the secondary replica is asynchronous, there's some data loss.
 SQL Server on an Azure IaaS VM or at on-premises.| [Failover clustering (Always On FCI)](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | The time taken to fail over between the nodes. | Because Always On FCI uses shared storage, the same view of the storage instance is available on failover.
@@ -106,7 +106,7 @@ Some BCDR technologies such as SQL Always On don’t natively support test failo
 
 	![Screenshot of window labeled Content_AG showing server names and statuses](./media/site-recovery-sql/bring-listener-online.png)
 
-1. Create a load balancer. For each availability group listener, create one IP address from the front-end IP pool. Also add the SQL VM to the back-end pool.
+1. Create a load balancer. For each availability group listener, create one IP address from the front-end IP pool. Also add the SQL Server VM to the back-end pool.
 
 	 ![Screenshot of window titled "SQL-AlwaysOn-LB - Frontend IP Pool](./media/site-recovery-sql/create-load-balancer1.png)
 
@@ -144,7 +144,7 @@ Site Recovery doesn't provide guest cluster support when replicating to an Azure
 
 For SQL Server Standard clusters, failback after an unplanned failover requires a SQL Server backup and restore. This operation is done from the mirror instance to the original cluster with re-establishment of the mirror.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 ### How does SQL Server get licensed when used with Site Recovery?
 
