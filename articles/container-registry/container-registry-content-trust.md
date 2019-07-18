@@ -192,7 +192,7 @@ To disable content trust for your registry, navigate to the registry in the Azur
 
 * See [Content trust in Docker][docker-content-trust] for additional information about content trust. While several key points were touched on in this article, content trust is an extensive topic and is covered more in-depth in the Docker documentation.
 
-* See the [Azure Pipelines](~/azure/devops/pipelines/build/content-trust) documentation for an example of using content trust when you build and push a Docker image.
+* See the [Azure Pipelines](/azure/devops/pipelines/build/content-trust) documentation for an example of using content trust when you build and push a Docker image.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png
