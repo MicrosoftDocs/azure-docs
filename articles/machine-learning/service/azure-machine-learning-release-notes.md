@@ -35,6 +35,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **Bug fixes and improvements**
   + [Insert fixes and improvements below. Link github issues resolved with this release]
+  + Model description can now properly be updated after registration
+  + Model and Image deletion now provides more information about upstream objects that depend on them which causes the delete to fail
 
 
 ## 2019-07-09
