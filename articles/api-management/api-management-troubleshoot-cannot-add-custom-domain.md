@@ -18,11 +18,11 @@ ms.author: tehnoonr
 
 # Failed to update API Management service hostnames
 
-This article describes the " Failed to update API Management service hostnames" error that you may experience when you add a custom domain for Azure API Management service. It provides troubleshooting steps to help resolve the issues. 
+This article describes the "Failed to update API Management service hostnames" error that you may experience when you add a custom domain for Azure API Management service. It provides troubleshooting steps to help resolve the issues. 
 
 ## Symptom
 
- When you try to add a custom domain for your API Management service by using a certificate from an Azure key vault, you receive the following error message:
+When you try to add a custom domain for your API Management service by using a certificate from an Azure key vault, you receive the following error message:
 
 - Failed to update API Management service hostnames. Request to resource 'https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0' failed with StatusCode: Forbidden for RequestId: . Exception message: Operation returned an invalid status code 'Forbidden'.
 
