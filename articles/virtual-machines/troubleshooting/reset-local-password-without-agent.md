@@ -21,18 +21,21 @@ You can reset the local Windows password of a VM in Azure using the [Azure porta
 
 > [!WARNING]
 > Only use this process as a last resort. Always try to reset a password using the [Azure portal or Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) first.
-> 
-> 
 
 ## Overview of the process
 The core steps for performing a local password reset for a Windows VM in Azure when there is no access to the Azure guest agent is as follows:
 
-* Delete the source VM. The virtual disks are retained.
-* Attach the source VM's OS disk to another VM on the same location within your Azure subscription. This VM is referred to as the troubleshooting VM.
-* Using the troubleshooting VM, create some config files on the source VM's OS disk.
-* Detach the VM's OS disk from the troubleshooting VM.
-* Use a Resource Manager template to create a VM, using the original virtual disk.
-* When the new VM boots, the config files you create update the password of the required user.
+1. Delete the source VM. The virtual disks are retained.
+
+2. Attach the source VM's OS disk to another VM on the same location within your Azure subscription. This VM is referred to as the troubleshooting VM.
+
+3. Using the troubleshooting VM, create some config files on the source VM's OS disk.
+
+4. Detach the VM's OS disk from the troubleshooting VM.
+
+5. Use a Resource Manager template to create a VM, using the original virtual disk.
+
+6. When the new VM boots, the config files you create update the password of the required user.
 
 > [!NOTE]
 > You can automate the following processes:
@@ -174,11 +177,11 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
 > [!NOTE]
 > The steps do not apply to Windows domain controllers. It only works on standalone server or a server that is a member of a domain.
 
-Always try to reset a password using the [Azure portal or Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before trying the following steps. Make sure you have a backup of your VM before you start. 
+Always try to reset a password using the [Azure portal or Azure PowerShell](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/reset-rdp) before trying the following steps. Make sure you have a backup of your VM before you start. 
 
 1. Delete the affected VM in Azure portal. Deleting the VM only deletes the metadata, the reference of the VM within Azure. The virtual disks are retained when the VM is deleted:
    
-   * Select the VM in the Azure portal, click *Delete*:
+   * Select the VM in the Azure portal, then click *Delete*:
      
      ![Delete existing VM](./media/reset-local-password-without-agent/delete-vm-classic.png)
 
@@ -258,8 +261,9 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
 
 7. In Azure portal, detach the disk from the troubleshooting VM:
    
-   * Select the troubleshooting VM in the Azure portal, click *Disks*.
-   * Select the data disk attached in step 2, click *Detach:*, then click *OK*.
+   1. Select the troubleshooting VM in the Azure portal, click *Disks*.
+   
+   2. Select the data disk attached in step 2, click *Detach:*, then click *OK*.
 
      ![Detach disk](./media/reset-local-password-without-agent/data-disks-classic.png)
      
