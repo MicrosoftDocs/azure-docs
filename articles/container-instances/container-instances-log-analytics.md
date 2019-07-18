@@ -3,6 +3,7 @@ title: Container instance logging with Azure Monitor logs
 description: Learn how to send container output (STDOUT and STDERR) to Azure Monitor logs.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: overview
