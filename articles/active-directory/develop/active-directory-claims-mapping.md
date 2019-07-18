@@ -1,5 +1,5 @@
 ---
-title: Customize claims emitted in tokens for a specific app in an Azure AD tenant (Public Preview)
+title: Customize claims for an app in an Azure AD tenant (Public Preview)
 description: This page describes Azure Active Directory claims mapping.
 services: active-directory
 author: rwike77
