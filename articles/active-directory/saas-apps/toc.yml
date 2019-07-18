@@ -1487,7 +1487,7 @@
       - name: Slack
         href: slack-provisioning-tutorial.md
       - name: Snowflake
-        href: snowflake--provisioning-tutorial.md
+        href: snowflake-provisioning-tutorial.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
