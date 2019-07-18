@@ -97,64 +97,6 @@ The ASP.NET player application uses HTTPS as a best practice, so Media Player is
 * Avoid mixed content. Both the player application and Media Player should use HTTP or HTTPS. When playing mixed content, the silverlightSS tech requires clearing a mixed-content warning. The flashSS tech handles mixed content without a mixed-content warning.
 * If your streaming endpoint was created before August 2014, it won't support HTTPS. In this case, create and use a new streaming endpoint for HTTPS.
 
-### What is Azure Active Directory signing key rollover?
-
-Signing key rollover is an important point to take into consideration in your implementation. If you ignore it, the finished system eventually stops working completely, within six weeks at the most.
-
-Azure AD uses industry standards to establish trust between itself and applications that use Azure AD. Specifically, Azure AD uses a signing key that consists of a public and private key pair. When Azure AD creates a security token that contains information about the user, it's signed by Azure AD with a private key before it's sent back to the application. To verify that the token is valid and originated from Azure AD, the application must validate the token's signature. The application uses the public key exposed by Azure AD that is contained in the tenant's federation metadata document. This public key, and the signing key from which it derives, is the same one used for all tenants in Azure AD.
-
-For more information on Azure AD key rollover, see [Important information about signing key rollover in Azure AD](../../active-directory/active-directory-signing-key-rollover.md).
-
-Between the [public-private key pair](https://login.microsoftonline.com/common/discovery/keys/):
-
-* The private key is used by Azure AD to generate a JWT.
-* The public key is used by an application such as DRM license delivery services in Media Services to verify the JWT.
-
-For security purposes, Azure AD rotates the certificate periodically (every six weeks). In the case of security breaches, the key rollover can occur any time. Therefore, the license delivery services in Media Services need to update the public key used as Azure AD rotates the key pair. Otherwise, token authentication in Media Services fails and no license is issued.
-
-To set up this service, you set TokenRestrictionTemplate.OpenIdConnectDiscoveryDocument when you configure DRM license delivery services.
-
-Here's the JWT flow:
-
-* Azure AD issues the JWT with the current private key for an authenticated user.
-* When a player sees a CENC with multi-DRM protected content, it first locates the JWT issued by Azure AD.
-* The player sends a license acquisition request with the JWT to license delivery services in Media Services.
-* The license delivery services in Media Services use the current/valid public key from Azure AD to verify the JWT before issuing licenses.
-
-DRM license delivery services always check for the current/valid public key from Azure AD. The public key presented by Azure AD is the key used to verify a JWT issued by Azure AD.
-
-What if the key rollover happens after Azure AD generates a JWT but before the JWT is sent by players to DRM license delivery services in Media Services for verification?
-
-Because a key can be rolled over at any moment, more than one valid public key is always available in the federation metadata document. Media Services license delivery can use any of the keys specified in the document. Because one key might be rolled soon, another might be its replacement, and so forth.
-
-### Where is the access token?
-
-If you look at how a web app calls an API app under [Application identity with OAuth 2.0 client credentials grant](../../active-directory/develop/web-api.md), the authentication flow is as follows:
-
-* A user signs in to Azure AD in the web application. For more information, see [Web browser to web application](../../active-directory/develop/web-app.md).
-* The Azure AD authorization endpoint redirects the user agent back to the client application with an authorization code. The user agent returns the authorization code to the client application's redirect URI.
-* The web application needs to acquire an access token so that it can authenticate to the web API and retrieve the desired resource. It makes a request to the Azure AD token endpoint and provides the credential, client ID, and web API's application ID URI. It presents the authorization code to prove that the user consented.
-* Azure AD authenticates the application and returns a JWT access token that's used to call the web API.
-* Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a "Bearer" designation in the "Authorization" header of the request to the web API. The web API then validates the JWT. If validation is successful, it returns the desired resource.
-
-In this application identity flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [authorization flow diagram](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) describes how authorization-code-grant flow works.
-
-License acquisition with token restriction follows the same trusted subsystem pattern. The license delivery service in Media Services is the web API resource, or the "back-end resource" that a web application needs to access. So where is the access token?
-
-The access token is obtained from Azure AD. After successful user authentication, an authorization code is returned. The authorization code is then used, together with the client ID and the app key, to exchange for the access token. The access token is used to access a "pointer" application that points to or represents the Media Services license delivery service.
-
-To register and configure the pointer app in Azure AD, take the following steps:
-
-1. In the Azure AD tenant:
-
-   * Add an application (resource) with the sign-on URL `https://[resource_name].azurewebsites.net/`. 
-   * Add an app ID with the URL `https://[aad_tenant_name].onmicrosoft.com/[resource_name]`.
-2. Add a new key for the resource app.
-3. Update the app manifest file so that the groupMembershipClaims property has the value "groupMembershipClaims": "All".
-4. In the Azure AD app that points to the player web app, in the section **Permissions to other applications**, add the resource app that was added in step 1. Under **Delegated permission**, select **Access [resource_name]**. This option gives the web app permission to create access tokens that access the resource app. Do this for both the local and deployed version of the web app if you develop with Visual Studio and the Azure web app.
-
-The JWT issued by Azure AD is the access token used to access the pointer resource.
-
 ### What about live streaming?
 
 You can use exactly the same design and implementation to protect live streaming in Media Services by treating the asset associated with a program as a VOD asset. To provide a multi-DRM protection of the live content, apply the same setup/processing to the Asset as if it were a VOD asset before you associate the Asset with the Live Output.
