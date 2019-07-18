@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 07/18/2019
 ms.author: alkohli
 ---
 
@@ -62,8 +62,8 @@ Take the following steps to copy data to your Data Box Heavy.
 2. After you receive your Data Box Heavy, [Set up the Data Box Heavy](data-box-heavy-deploy-set-up.md). You'll cable and configure both the nodes on your device.
 3. [Copy data to Azure Data Box Heavy](data-box-heavy-deploy-copy-data.md). While copying, make sure to:
 
-    - Use only the *AzureFile* folder in the Data Box Heavy to copy the data. This is because you want the data to end up in an Azure file share, not in block blobs or page blobs.
-    - Copy files to a folder within *AzureFile* folder. A subfolder within *AzureFile* folder creates a file share. Files copied directly to *AzureFile* folder fail and are uploaded as block blobs. This is the file share that you will mount on your VM in the next step.
+    - Use only the *StorageAccountName_AzFile* folder in the Data Box Heavy to copy the data. This is because you want the data to end up in an Azure file share, not in block blobs or page blobs.
+    - Copy files to a folder within *StorageAccountName_AzFile* folder. A subfolder within *StorageAccountName_AzFile* folder creates a file share. Files copied directly to *StorageAccountName_AzFile* folder fail and are uploaded as block blobs. This is the file share that you will mount on your VM in the next step.
     - Copy data to both nodes of your Data Box Heavy.
 3. Run [Prepare to ship](data-box-heavy-deploy-picked-up.md#prepare-to-ship) on your device. A successful prepare to ship ensures a successful upload of files to Azure.
 4. [Return the device](data-box-heavy-deploy-picked-up.md#ship-data-box-heavy-back).
