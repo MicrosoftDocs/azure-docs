@@ -136,7 +136,7 @@ There are two required installers for Azure AD password protection. They're avai
         >
         > If your Azure account is specifically configured to require MFA, you may instead use a different account that does not require MFA.
         >
-        > You may also see MFA being required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this, you may either use a different account that does not require MFA, or you can temporarily relax the Azure Device Registration MFA requirement. To do this, go to the Azure management portal, then go to Azure Active Directory, then Devices, then Device Settings, then set "Require Multi-Factor Auth to join devices" to No.  Be sure to reconfigure this setting back to Yes once registration is complete.
+        > You may also see MFA required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this, you may either use a different account that does not require MFA, or you can temporarily relax the Azure Device Registration MFA requirement. To do this, go to the Azure management portal, then go to Azure Active Directory, then Devices, then Device Settings, then set "Require Multi-Factor Auth to join devices" to No.  Be sure to reconfigure this setting back to Yes once registration is complete.
 
        You don't currently have to specify the *-ForestCredential* parameter, which is reserved for future functionality.
 
@@ -180,7 +180,7 @@ There are two required installers for Azure AD password protection. They're avai
         >
         > If your Azure account is specifically configured to require MFA, you may instead use a different account that does not require MFA.
         >
-        > You may also see MFA being required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this, you may either use a different account that does not require MFA, or you can temporarily relax the Azure Device Registration MFA requirement. To do this, go to the Azure management portal, then go to Azure Active Directory, then Devices, then Device Settings, then set "Require Multi-Factor Auth to join devices" to No.  Be sure to reconfigure this setting back to Yes once registration is complete.
+        > You may also see MFA required if Azure Device Registration (which is used under the covers by Azure AD Password Protection) has been configured to globally require MFA. To workaround this, you may either use a different account that does not require MFA, or you can temporarily relax the Azure Device Registration MFA requirement. To do this, go to the Azure management portal, then go to Azure Active Directory, then Devices, then Device Settings, then set "Require Multi-Factor Auth to join devices" to No.  Be sure to reconfigure this setting back to Yes once registration is complete.
 
        These examples only succeed if the currently signed-in user is also an Active Directory domain administrator for the root domain. If this isn't the case, you can supply alternative domain credentials via the *-ForestCredential* parameter.
 
