@@ -58,7 +58,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Templafy Add SCIM](media/templafy-provisioning-tutorial/image01.png)
 
-3. Copy the **the Scim Api Key** value and click **Done**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Templafy application in the Azure portal.
+3. Copy **the SCIM Api Key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Templafy application in the Azure portal.
 
 	![Templafy Add SCIM](media/templafy-provisioning-tutorial/image02.png)
 
