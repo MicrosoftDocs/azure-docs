@@ -18,44 +18,44 @@ Learn how to deploy the language detection container. This procedure shows you h
 
 ## Prerequisites
 
-This procedure requires several tools that must be installed and run locally. Do not use Azure Cloud shell.
+This procedure requires several tools that must be installed and run locally. Don't use Azure Cloud Shell. You need the following:
 
-* Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* [Git](https://git-scm.com/downloads) for your operating system so you can clone the [sample](https://github.com/Azure-Samples/cognitive-services-containers-samples) used in this procedure.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* [Git](https://git-scm.com/downloads) for your operating system so that you can clone the [sample](https://github.com/Azure-Samples/cognitive-services-containers-samples) used in this procedure.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Docker engine](https://www.docker.com/products/docker-engine) and validate that the Docker CLI works in a console window.
 * [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
 * An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
-    * **Text Analytics** resource with F0 or Standard pricing tiers only.
-    * **Cognitive Services** resource with the S0 pricing tier.
+    * **Azure Text Analytics** resource with F0 or standard pricing tiers only.
+    * **Azure Cognitive Services** resource with the S0 pricing tier.
 
-## Running the sample
+## Run the sample
 
-This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the Cognitive Services container. You need to push both these images to your own Azure Container Registry. Once they are on your own registry, create an Azure Kubernetes Service to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results.
+This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the Cognitive Services container. You need to push both these images to your own Azure Container Registry. After they're on your own registry, create an Azure Kubernetes Service (AKS) to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers' performance. Access the client application with an HTTP request and see the results.
 
 ![Conceptual idea of running sample containers](../media/how-tos/container-instance-sample/containers.png)
 
 ## The sample containers
 
-The sample has two container images, one for the frontend website. The second image is the language detection container returning the detected language (culture) of text. Both containers are accessible from an external IP when you are done.
+The sample has two container images. One is for the front-end website. The second image is the language detection container that returns the detected language (culture) of text. Both containers are accessible from an external IP when you're finished.
 
-### The language-frontend container
+### The language front-end container
 
 This website is equivalent to your own client-side application that makes requests of the language detection endpoint. When the procedure is finished, you get the detected language of a string of characters by accessing the website container in a browser with `http://<external-IP>/<text-to-analyze>`. An example of this URL is `http://132.12.23.255/helloworld!`. The result in the browser is `English`.
 
 ### The language container
 
-The language detection container, in this specific procedure, is accessible to any external request. The container hasn't been changed in any way so the standard Cognitive Services container-specific language detection API is available.
+The language detection container, in this specific procedure, is accessible to any external request. The container hasn't been changed in any way, so the standard Cognitive Services container-specific language detection API is available.
 
 For this container, that API is a POST request for language detection. As with all Cognitive Services containers, you can learn more about the container from its hosted Swagger information, `http://<external-IP>:5000/swagger/index.html`.
 
 Port 5000 is the default port used with the Cognitive Services containers.
 
-## Create Azure Container Registry service
+## Create an Azure Container Registry service
 
-To deploy the container to the Azure Kubernetes Service, the container images need to be accessible. Create your own Azure Container Registry service to host the images.
+To deploy the container to the Azure Kubernetes Service, the container images must be accessible. Create your own Azure Container Registry service to host the images.
 
-1. Sign in to the Azure CLI
+1. Sign in to the Azure CLI.
 
     ```azurecli
     az login
@@ -67,13 +67,13 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
     az group create --name cogserv-container-rg --location westus
     ```
 
-1. Create your own Azure Container Registry with the format of your name then `registry`, such as `pattyregistry`. Do not use dashes or underline characters in the name.
+1. Create your own Azure Container Registry with the format of your name followed by `registry`. An example is `pattyregistry`. Don't use dashes or underline characters in the name.
 
     ```azurecli
     az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
     ```
 
-    Save the results to get the **loginServer** property. This will be part of the hosted container's address, used later in the `language.yml` file.
+    Save the results to get the **loginServer** property. This property will be part of the hosted container's address, which is used later in the `language.yml` file.
 
     ```console
     > az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
@@ -97,13 +97,13 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
     }
     ```
 
-1. Sign in to your container registry. You need to login before you can push images to your registry.
+1. Sign in to your container registry. You need to sign in before you can push images to your registry.
 
     ```azurecli
     az acr login --name pattyregistry
     ```
 
-## Get website Docker image
+## Get the website Docker image
 
 1. The sample code used in this procedure is in the Cognitive Services containers samples repository. Clone the repository to have a local copy of the sample.
 
@@ -111,7 +111,7 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
     git clone https://github.com/Azure-Samples/cognitive-services-containers-samples
     ```
 
-    Once the repository is on your local computer, find the website in the [\dotnet\Language\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) directory. This website acts as the client application calling the language detection API hosted in the language detection container.  
+    After the repository is on your local computer, find the website in the [\dotnet\Language\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) directory. This website acts as the client application that calls the language detection API hosted in the language detection container.  
 
 1. Build the Docker image for this website. Make sure the console is in the [\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) directory where the Dockerfile is located when you run the following command:
 
@@ -121,15 +121,15 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
 
     To track the version on your container registry, add the tag with a version format, such as `v1`. 
 
-1. Push the image to your container registry. This may take a few minutes. 
+1. Push the image to your container registry. This step might take a few minutes. 
 
     ```console
     docker push pattyregistry.azurecr.io/language-frontend:v1
     ```
 
-    If you get an `unauthorized: authentication required` error, login with the `az acr login --name <your-container-registry-name>` command. 
+    If you get an `unauthorized: authentication required` error, log in with the `az acr login --name <your-container-registry-name>` command. 
 
-    When the process is done, the results should be similar to:
+    When the process is finished, the results should be similar to:
 
     ```console
     > docker push pattyregistry.azurecr.io/language-frontend:v1
@@ -143,21 +143,21 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
     v1: digest: sha256:31930445deee181605c0cde53dab5a104528dc1ff57e5b3b34324f0d8a0eb286 size: 1580
     ```
 
-## Get language detection Docker image 
+## Get the language detection Docker image 
 
-1. Pull the latest version of the Docker image to the local machine. This may take a few minutes. If there is a newer version of this container, change the value from `1.1.006770001-amd64-preview` to the newer version. 
+1. Pull the latest version of the Docker image to the local machine. This step might take a few minutes. If there's a newer version of this container, change the value from `1.1.006770001-amd64-preview` to the newer version. 
 
     ```console
     docker pull mcr.microsoft.com/azure-cognitive-services/language:1.1.006770001-amd64-preview
     ```
 
-1. Tag image with your container registry. Find the latest version and replace the version `1.1.006770001-amd64-preview` if you have a more recent version. 
+1. Tag the image with your container registry. Find the latest version, and replace the version `1.1.006770001-amd64-preview` if you have a more recent version. 
 
     ```console
     docker tag mcr.microsoft.com/azure-cognitive-services/language pattiyregistry.azurecr.io/language:1.1.006770001-amd64-preview
     ```
 
-1. Push the image to your container registry. This may take a few minutes. 
+1. Push the image to your container registry. This step might take a few minutes. 
 
     ```console
     docker push pattyregistry.azurecr.io/language:1.1.006770001-amd64-preview
@@ -167,7 +167,7 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
 
 The following steps are needed to get the required information to connect your container registry with the Azure Kubernetes Service you create later in this procedure.
 
-1. Create service principal.
+1. Create a service principal.
 
     ```azurecli
     az ad sp create-for-rbac --skip-assignment
@@ -207,7 +207,7 @@ The following steps are needed to get the required information to connect your c
     az role assignment create --assignee <appId> --scope <acrId> --role Reader
     ```
 
-## Create Azure Kubernetes Service
+## Create the Azure Kubernetes Service
 
 1. Create the Kubernetes cluster. All the parameter values are from previous sections except the name parameter. Choose a name that indicates who created it and its purpose, such as `patty-kube`. 
 
@@ -215,7 +215,7 @@ The following steps are needed to get the required information to connect your c
     az aks create --resource-group cogserv-container-rg --name patty-kube --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
     ```
 
-    This step may take a few minutes. The result is: 
+    This step might take a few minutes. The result is: 
 
     ```console
     > az aks create --resource-group cogserv-container-rg --name patty-kube --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
@@ -287,7 +287,7 @@ The following steps are needed to get the required information to connect your c
 
 This section uses the **kubectl** CLI to talk with the Azure Kubernetes Service. 
 
-1. Before loading the orchestration definition, check **kubectl** has access to the nodes.
+1. Before you load the orchestration definition, check to make sure that **kubectl** has access to the nodes.
 
     ```console
     kubectl get nodes
@@ -302,25 +302,25 @@ This section uses the **kubectl** CLI to talk with the Azure Kubernetes Service.
     aks-nodepool1-13756812-1   Ready     agent     6m        v1.9.11
     ```
 
-1. Copy the following file and name it `language.yml`. The file has a `service` section and a `deployment` section each for the two container types, the `language-frontend` website container and the `language` detection container. 
+1. Copy the following file, and name it `language.yml`. The file has a `service` section and a `deployment` section each for the two container types, the `language-frontend` website container and the `language` detection container. 
 
     [!code-yml[Kubernetes orchestration file for the Cognitive Services containers sample](~/samples-cogserv-containers/Kubernetes/language/language.yml "Kubernetes orchestration file for the Cognitive Services containers sample")]
 
-1. Change the language-frontend deployment lines of `language.yml` based on the following table to add your own container registry image names, client secret, and text analytics settings.
+1. Change the language front-end deployment lines of `language.yml` based on the following table to add your own container registry image names, client secret, and text analytics settings.
 
-    Language-frontend deployment settings|Purpose|
+    Language front-end deployment settings|Purpose|
     |--|--|
-    |Line 32<br> `image` property|Image location for the frontend image in your Container Registry<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
+    |Line 32<br> `image` property|Image location for the front-end image in your container registry<br>`<container-registry-name>.azurecr.io/language-frontend:v1`.|
     |Line 44<br> `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|
 
 1. Change the language deployment lines of `language.yml` based on the following table to add your own container registry image names, client secret, and text analytics settings.
 
     |Language deployment settings|Purpose|
     |--|--|
-    |Line 78<br> `image` property|Image location for the language image in your Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
+    |Line 78<br> `image` property|Image location for the language image in your container registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`.|
     |Line 95<br> `name` property|Container Registry secret for the image, referred to as `<client-secret>` in a previous section.|
-    |Line 91<br> `apiKey` property|Your text analytics resource key|
-    |Line 92<br> `billing` property|The billing endpoint for your text analytics resource.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+    |Line 91<br> `apiKey` property|Your text analytics resource key.|
+    |Line 92<br> `billing` property|The billing endpoint for your Text Analytics resource.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`.|
 
     Because the **apiKey** and **billing endpoint** are set as part of the Kubernetes orchestration definition, the website container doesn't need to know about these or pass them as part of the request. The website container refers to the language detection container by its orchestrator name `language`. 
 
@@ -342,7 +342,7 @@ This section uses the **kubectl** CLI to talk with the Azure Kubernetes Service.
 
 ## Get external IPs of containers
 
-For the two containers, verify the `language-frontend` and `language` services are running and get the external IP address. 
+For the two containers, verify that the `language-frontend` and `language` services are running and get the external IP address. 
 
 ```console
 kubectl get all
@@ -380,17 +380,17 @@ If the `EXTERNAL-IP` for the service is shown as pending, rerun the command unti
 
 ## Test the language detection container
 
-Open a browser and navigate to the external IP of the `language` container from the previous section: `http://<external-ip>:5000/swagger/index.html`. You can use the `Try it` feature of the API to test the language detection endpoint. 
+Open a browser and go to the external IP of the `language` container from the previous section: `http://<external-ip>:5000/swagger/index.html`. Use the `Try it` feature of the API to test the language detection endpoint. 
 
 ![View the container's swagger documentation](../media/how-tos/container-instance-sample/language-detection-container-swagger-documentation.png)
 
 ## Test the client application container
 
-Change the URL in the browser to the external IP of the `language-frontend` container using the following format: `http://<external-ip>/helloworld`. The English culture text of `helloworld` is predicted as `English`.
+Change the URL in the browser to the external IP of the `language-frontend` container by using the following format: `http://<external-ip>/helloworld`. The English culture text of `helloworld` is predicted as `English`.
 
 ## Clean up resources
 
-When you are done with the cluster, delete the Azure resource group. 
+When you're finished with the cluster, delete the Azure resource group. 
 
 ```azure-cli
 az group delete --name cogserv-container-rg
@@ -402,8 +402,8 @@ az group delete --name cogserv-container-rg
 
 ## Next steps 
 
-* Use more [Cognitive Services Containers](../../cognitive-services-container-support.md)
-* Use the [Text Analytics Connected Service](../vs-text-connected-service.md)
+* Use more [Cognitive Services Containers](../../cognitive-services-container-support.md).
+* Use the [Text Analytics Connected Service](../vs-text-connected-service.md).
 
 
 <!--
