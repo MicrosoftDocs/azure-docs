@@ -7,6 +7,6 @@
  ms.author: pafarley
 ---
 
-Note the **Probability Threshold** slider on the left pane of the **Performance** tab. This is the threshold for a predicted probability to be considered correct when computing precision and recall.
+Note the **Probability Threshold** slider on the left pane of the **Performance** tab. This is the level of confidence that a prediction needs to havein order to be considered correct (for the purposes of calculating precision and recall). 
 
-Interpreting prediction calls with a high probability threshold tends to return results with high precision at the expense of recall (the found classifications are correct, but many were not found); a low probability threshold does the opposite (most of the actual classifications were found, but there are false positives within that set). With this in mind, you should set the probability threshold according to the specific needs of your project. Later, on the client side, you should use the same probability threshold value as a filter when receiving prediction results from the model.
+When you interpret prediction calls with a high probability threshold, they tend to return results with high precision at the expense of recall&mdash;the detected classifications are correct, but many were left undetected). A low probability threshold does the opposite&mdash;most of the actual classifications are detected, but there are false positives within that set. With this in mind, you should set the probability threshold according to the specific needs of your project. Later, when you're receiving prediction results on the client side, you should use the same probability threshold value as you used here.
