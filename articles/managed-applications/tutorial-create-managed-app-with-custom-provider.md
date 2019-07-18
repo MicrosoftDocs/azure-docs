@@ -27,11 +27,11 @@ This tutorial includes the following steps:
 
 To complete this tutorial, you need to know:
 
-* How to [Create and publish a managed application definition](publish-service-catalog-app.md)
-* How to [Deploy Service Catalog app through Azure portal](deploy-service-catalog-quickstart.md)
-* How to [Create Azure portal user interface for your managed application](create-uidefinition-overview.md)
-* [View definition artifact](concepts-view-definition.md) capabilities
-* [Azure Custom Provider](custom-providers-overview.md) capabilities
+* How to [Create and publish a managed application definition](publish-service-catalog-app.md).
+* How to [Deploy Service Catalog app through Azure portal](deploy-service-catalog-quickstart.md).
+* How to [Create Azure portal user interface for your managed application](create-uidefinition-overview.md).
+* [View definition artifact](concepts-view-definition.md) capabilities.
+* [Azure Custom Provider](custom-providers-overview.md) capabilities.
 
 ## User interface definition
 
@@ -126,9 +126,9 @@ The complete *mainTemplate.json* sample can be found at [Reference: Deployment t
 To define user interface that includes custom actions and custom resources in your managed application, you need to author **viewDefinition.json** artifact. For more information about view definition artifact, see [View definition artifact in Azure Managed Applications](concepts-view-definition.md).
 
 In this tutorial, you define:
-* *Overview* page with toolbar button that represents a custom action `TestAction` with basic text input.
-* *Users* page that represents a custom resource type `users`.
-* Custom resource action `users/contextAction` in *Users* page that will be performed in a context of custom resource of type `users`.
+* An *Overview* page with toolbar button that represents a custom action `TestAction` with basic text input.
+* A *Users* page that represents a custom resource type `users`.
+* A custom resource action `users/contextAction` in *Users* page that will be performed in a context of custom resource of type `users`.
 
 The following example shows view configuration for an "Overview" page:
 
@@ -330,12 +330,15 @@ After the service catalog application instance has been deployed, you have two n
 You can go to managed application instance and perform **custom action** in "Overview" page, create **users** custom resource in "Users" page and run **custom context action** on custom resource.
 
 * Go to "Overview" page and click "Ping Action" button:
+
 ![Perform custom action](./media/managed-application-with-custom-providers/perform-custom-action.png)
 
 * Go to "Users" page and click "Add" button. Provide inputs for creating a resource and submit the form:
+
 ![Create custom resource](./media/managed-application-with-custom-providers/create-custom-resource.png)
 
 * Go to "Users" page, select a "users" resource and click "Custom Context Action":
+
 ![Create custom resource](./media/managed-application-with-custom-providers/perform-custom-resource-action.png)
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
@@ -344,6 +347,6 @@ You can go to managed application instance and perform **custom action** in "Ove
 
 If you have questions about Azure Managed Applications, try asking on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-managedapps). A similar question may have already been asked and answered, so check first before posting. Add the tag `azure-managedapps` to get a fast response!
 
-## Next Steps
+## Next steps
 
-> To publish your managed application to the Azure Marketplace, see [Azure managed applications in the Marketplace](publish-marketplace-app.md).
+To publish your managed application to the Azure Marketplace, see [Azure managed applications in the Marketplace](publish-marketplace-app.md).
