@@ -138,7 +138,7 @@ Typically, operations on virtual clusters take the longest. Duration of the oper
 Additionally, management of instances may also include one of the operations on hosted databases, which results in longer durations:
 
 - **Attaching database files from Azure Storage**. This is a synchronous step, such as compute (vCore), or storage scaling up or down in the General Purpose service tier. **90% of these operations finish in 5 minutes**.
-- **Always On availability group seeding**. This is a synchronous step, such as compute (vCore), or storage scaling in the **Business Critical** service tier as well as in changing the service tier from General Purpose to Business Critical (or vice versa). Duration of this operation is proportional to the total database size as well as current database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration. **90% of these operations execute at 220 GB / hour or higher**.
+- **Always On availability group seeding**. This is a synchronous step, such as compute (vCore), or storage scaling in the Business Critical service tier as well as in changing the service tier from General Purpose to Business Critical (or vice versa). Duration of this operation is proportional to the total database size as well as current database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration. **90% of these operations execute at 220 GB / hour or higher**.
 
 The following table summarizes operations and typical overall durations:
 
