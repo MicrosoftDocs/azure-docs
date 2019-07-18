@@ -3,7 +3,7 @@ title: Microsoft identity platform Android quickstart | Azure
 description: Learn how Android applications can call an API that require access tokens by Microsoft identity platform endpoint.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: rwike77
 manager: CelesteDG
 editor: ''
 
