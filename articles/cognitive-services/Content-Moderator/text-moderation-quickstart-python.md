@@ -15,6 +15,8 @@ ms.author: pafarley
 # As a Python developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
+[!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
+
 # Quickstart: Analyze text content for objectionable material in Python
 
 This article provides information and code samples to help you get started using the Content Moderator SDK for Python. You will learn how to execute term-based filtering and classification of text content with the aim of moderating potentially objectionable material.
