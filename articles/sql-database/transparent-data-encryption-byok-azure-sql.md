@@ -70,9 +70,9 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
    > [!NOTE]
    > If the Azure AD Identity **is accidentally deleted or the server’s permissions are revoked** using the key vault’s access policy or inadvertently by moving the server to a different tenant, the  server loses access to the key vault, and TDE encrypted databases are will be inaccessible and logons are denied until the logical server’s Azure AD Identity and permissions have been restored.  
 
-- When using firewalls and virtual networks with Azure Key Vault, you must configure the following: 
-
+- When using firewalls and virtual networks with Azure Key Vault, you must configure the following:
    - Allow trusted Microsoft services to bypass this firewall, choose YES.
+   
       > [!NOTE]
       > If TDE encrypted SQL databases lose access to the key vault because they cannot bypass the firewall, the databases will be inaccessible, and logons are denied until firewall bypass permissions have been restored.
 
