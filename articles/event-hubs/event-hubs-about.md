@@ -31,6 +31,8 @@ The following scenarios are some of the scenarios where you can use Event Hubs:
 
 [!VIDEO https://www.youtube.com/embed/45wgY-VSk9I]
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/45wgY-VSk9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Why use Event Hubs?
 
 Data is valuable only when there is an easy way to process and get timely insights from data sources. Event Hubs provides a distributed stream processing platform with low latency and seamless integration, with data and analytics services inside and outside Azure to build your complete big data pipeline.
