@@ -83,7 +83,7 @@ When any of the above events are captured by Schedule Event service, it will get
 
 [Create a Log Analytics workspace](/azure/azure-monitor/learn/quick-create-workspace). The Log Analytics workspace acts as a repository and we will [configure event log collection](/azure/azure-monitor/platform/agent-data-sources#configuring-data-sources) to capture the Windows application logs. Make sure you select the **Information event** type for **Application**.
 
-Connect the virtual machine to the workspace. To route the Scheduled Events to the Events Log, which will be saved as Application log by our service, you will need to connect your virtual machine to your Log Analytics workspace.  To connect the Virtual Machine to Log Analytics from the Azure portal, go to your Log Analytics workspace , find your virtual machine and click on “Connect”. This will install the [Microsoft Monitoring agent](/azure/virtual-machines/extensions/oms-windows) in your virtual machine, which will import all the Windows events to Log Analytics. 
+ To route the Scheduled Events to the Events Log, which will be saved as Application log by our service, you will need to connect your virtual machine to your Log Analytics workspace.  To connect the Virtual Machine to Log Analytics from the Azure portal, go to your Log Analytics workspace , find your virtual machine and click on “Connect”. This will install the [Microsoft Monitoring agent](/azure/virtual-machines/extensions/oms-windows) in your virtual machine, which will import all the Windows events to Log Analytics. 
 
 
 
