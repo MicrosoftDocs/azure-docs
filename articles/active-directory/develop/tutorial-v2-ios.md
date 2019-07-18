@@ -7,6 +7,7 @@ author: danieldobalian
 manager: CelesteDG
 
 ms.service: active-directory
+ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/15/2019

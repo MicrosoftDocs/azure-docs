@@ -19,12 +19,6 @@ When you enable monitoring, you might experience issues that prevent data collec
 This article lists all known issues and provides troubleshooting examples.
 If you come across an issue that's not listed here, you can contact us on [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
-
-> [!IMPORTANT]
-> Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Known issues
 
 ### Conflicting DLLs in an app's bin directory
@@ -75,6 +69,19 @@ After you run the Enable command, complete these steps:
 	    <add name="ManagedHttpModuleHelper" type="Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.ManagedHttpModuleHelper, Microsoft.AppInsights.IIS.ManagedHttpModuleHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" preCondition="managedHandler,runtimeVersionv4.0" />
 	</modules>
 	```
+
+### IIS Nested Applications
+
+We don't instrument nested applications in IIS in version 1.0
+We're tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
+
+### Advanced SDK Configuration isn't available.
+
+The SDK configuration isn't exposed to the end user in version 1.0
+We're tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
+
+	
+	
 ## Troubleshooting
 	
 ### Troubleshooting PowerShell
