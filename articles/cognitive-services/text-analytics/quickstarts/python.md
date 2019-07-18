@@ -287,6 +287,7 @@ Use the Requests library to send the documents to the API. Add your subscription
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
 response  = requests.post(entities_url, headers=headers, json=documents)
 entities = response.json()
+pprint(entities)
 ```
 
 ### Output
