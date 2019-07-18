@@ -1486,7 +1486,7 @@
         href: servicenow-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
-      - name: snowflake
+      - name: Snowflake
         href: snowflake--provisioning-tutorial.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
