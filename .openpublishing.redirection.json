@@ -15336,6 +15336,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-rp.md",
+      "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/load-balancer/load-balancer-configure-sqlao.md",
       "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener",
       "redirect_document_id": false
@@ -40231,6 +40236,42 @@
     {
       "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi.md",
       "redirect_url": "https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Academic-Knowledge/GraphSearchMethod.md",
+      "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Academic-Knowledge/JSONSearchSyntax.md",
+      "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Academic-Knowledge/LambdaSearchSyntax.md",
+      "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/curl-disk.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
     }
   ]

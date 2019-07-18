@@ -9,7 +9,7 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 07/15/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
 ---
 
@@ -23,7 +23,7 @@ This article explains how you can publish an application to the marketplace and 
 
 To complete this article, you must already have the .zip file for your managed application definition. For more information, see [Create service catalog application](publish-service-catalog-app.md).
 
-In addition, there are several business prerequisites. They are:
+There are several business prerequisites. They are:
 
 * Your company or its subsidiary must be located in a country/region where sales are supported by the marketplace.
 * Your product must be licensed in a way that is compatible with billing models supported by the marketplace.
@@ -33,14 +33,7 @@ In addition, there are several business prerequisites. They are:
 * Agree to the terms of the Azure Marketplace Participation Policies and Publisher Agreement.
 * Agree to comply with the Terms of Use, Microsoft Privacy Statement, and Microsoft Azure Certified Program Agreement.
 
-## Become a publisher
-
-To become a publisher in the Azure Marketplace, you must:
-
-1. Create a Microsoft ID - Create your Microsoft account using an email address that belongs to your company's domain, but not to a single individual. This email address is used for both the Microsoft Developer Center and Cloud Partner Portal. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
-1. Submit [Azure Marketplace Nomination Form](https://aka.ms/ampnomination) - For **Solution that you intend to publish?** select **Managed Application**. Once the form is submitted, the Marketplace Onboarding team reviews the application and validates the request. The approval process can take one to three days. When your nomination is approved, you receive a promotional code to waive the registration fee for the developer center. If you do **not** complete the Marketplace Nomination Form, you're asked to pay a $99 registration fee.
-1. Register in [Developer Center](https://dev.windows.com/registration?accountprogram=azure) - Microsoft validates that your organization is a valid legal entity with a valid TAX ID for the country/region in which it's registered. The approval process can take 5 to 10 days. To avoid the registration fee, use the promotional code you received in email from the nomination process. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
-1. Sign in to [Cloud Partner Portal](https://cloudpartner.azure.com) - In the publisher profile, associate your Developer Center account with the Marketplace Publisher Profile. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
+You must also have a Marketplace account. To create an account, see [How to create a Commercial Marketplace account in Partner Center](..//marketplace/partner-center-portal/create-account.md).
 
 ## Create a new Azure application offer
 
