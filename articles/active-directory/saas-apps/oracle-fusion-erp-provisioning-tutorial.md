@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2019
+ms.date: 07/19/2019
 ms.author: zhchia
 ---
 
@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Or
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant
-* [A Oracle Fusion ERP tenant](https://www.oracle.com/applications/erp/)
+* [A Oracle Fusion ERP tenant](https://www.oracle.com/applications/erp/).
 * A user account in Oracle Fusion ERP with Admin permissions.
 
 ## Assign Users to Oracle Fusion ERP 
@@ -90,7 +90,10 @@ To configure Oracle Fusion ERP for automatic user provisioning with Azure AD, yo
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Oracle Fusion ERP  based on user and/or group assignments in Azure AD.
 
-### To configure automatic user provisioning for Oracle Fusion ERP  in Azure AD:
+> [!TIP]
+> You may also choose to enable SAML-based single sign-on for Oracle Fusion ERP , following the instructions provided in the [Oracle Fusion ERP Single sign-on tutorial](oracle-fusion-erp-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+
+### To configure automatic user provisioning for Fuze in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
@@ -113,7 +116,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 	![Oracle Fusion ERP  Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/admin.png)
 
 	> [!NOTE]
-	> This Admin Username and Admin Password are same which were used earlier in logging into the Oracle Fusion ERP application.
+	> This Admin Username and Admin Password are the same which were used earlier in logging into the Oracle Fusion ERP application.
 	
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
