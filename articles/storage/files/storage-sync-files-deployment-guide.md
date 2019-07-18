@@ -360,7 +360,7 @@ If you'd like to configure your Azure File sync to work with firewall and virtua
 1. From the Azure portal, navigate to the storage account you want to secure.
 1. Select the **Firewalls and virtual networks** button on the lefthand menu.
 1. Select **Selected networks** under **Allow access from**.
-1. Make sure your servers IP or virtual network is listed under the firewall's address range.
+1. Make sure your servers IP or virtual network is listed under the appropriate section.
 1. Make sure **Allow trusted Microsoft services to access this storage account** is checked.
 1. Select **Save** to save your settings.
 
