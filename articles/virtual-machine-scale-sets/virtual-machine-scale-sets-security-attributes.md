@@ -2,7 +2,7 @@
 title: Common security attributes for Azure Virtual Machine Scale Sets
 description: A checklist of common security attributes for evaluating Azure Virtual Machine Scale Sets
 services: virtual-machine-scale-sets
-ms.service: virtual-machines-scale-sets
+ms.service: virtual-machine-scale-sets
 documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
