@@ -31,8 +31,43 @@ In this article, we will walk you through how to capture maintenance Scheduled E
 ## Set up steps
 
 1.	Create a [Windows Virtual Machine in an Availability Set](tutorial-availability-sets.md). Scheduled Events provide notifications about changes that can affect any of the virtual machines in your availability set, Cloud Service, Virtual Machine Scale Set or standalone VMs. In this example, the Azure Virtual machines were part of an Availability Set. We will be running a [service](https://github.com/microsoft/AzureScheduledEventsService) that polls for scheduled events on one of the VMs that will act as a collector, to get events for all of the other VMs in the availability set.    
+------
+
+Go through the tutorial and create the 2 initial VMs.
+
+Don't delete the group. Create a 3rd VM called myCollectorVM in the same availability set, but have the 3rd VM use the custom script extension to install the PowerShell script:
+
+New-AzVm `
+   -ResourceGroupName "myResourceGroupAvailability" `
+   -Name "myCollectorVM" `
+   -Location "East US" `
+   -VirtualNetworkName "myVnet" `
+   -SubnetName "mySubnet" `
+   -SecurityGroupName "myNetworkSecurityGroup" `
+   -PublicIpAddressName "myPublicIpAddress3" `
+   -AvailabilitySetName "myAvailabilitySet" `
+   -Credential $cred
+   
+$fileUri = @("https://raw.githubusercontent.com/microsoft/AzureScheduledEventsService/master/Powershell/SchService.ps1")
+$settings = @{"fileUris" = $fileUri};
+$protectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File SchService.ps1 -Setup; powershell -ExecutionPolicy Unrestricted -File SchService.ps1 -Start"};
+
+Set-AzVMExtension `
+    -ResourceGroupName "myResourceGroupAvailability"  `
+    -ExtensionName "Collector" `
+    -VMName "myCollectorVM" `
+    -Location "East US" `
+    -Publisher Microsoft.Compute `
+    -ExtensionType CustomScriptExtension `
+    -TypeHandlerVersion 1.9 `
+	-Settings $settings `
+    -ProtectedSettings $protectedSettings 
+	
+	
+
+
 1.	[Create a Log Analytics workspace](/azure/azure-monitor/learn/quick-create-workspace). The Log Analytics workspace acts as a repository and we will [configure event log collection](/azure/azure-monitor/platform/agent-data-sources#configuring-data-sources) to capture the Windows application logs. Make sure you select the **Information event** type for **Application**.
-1.	Connect the virtual machine to the workspace. To route the Scheduled Events to the Events Log, which will be saved as Application logs by our service, you will need to connect your virtual machine to your Log Analytics workspace.  To connect the Virtual Machine to Log Analytics from the Azure portal, go to your Log Analytics workspace , find your virtual machine and click on “Connect”. This will install the [Microsoft Monitoring agent](/azure/virtual-machines/extensions/oms-windows) in your virtual machine, which will import all the Windows events to Log Analytics. 
+1.	Connect the virtual machine to the workspace. To route the Scheduled Events to the Events Log, which will be saved as Application log by our service, you will need to connect your virtual machine to your Log Analytics workspace.  To connect the Virtual Machine to Log Analytics from the Azure portal, go to your Log Analytics workspace , find your virtual machine and click on “Connect”. This will install the [Microsoft Monitoring agent](/azure/virtual-machines/extensions/oms-windows) in your virtual machine, which will import all the Windows events to Log Analytics. 
 
 
 
