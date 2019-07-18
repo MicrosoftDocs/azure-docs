@@ -81,7 +81,7 @@ If your applications, tools, or products are using the Bing Speech APIs or Custo
 
 ## Reference docs
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Speech SDK](https://aka.ms/csspeech)
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [REST API: Speech-to-text](rest-speech-to-text.md)
 * [REST API: Text-to-speech](rest-text-to-speech.md)
