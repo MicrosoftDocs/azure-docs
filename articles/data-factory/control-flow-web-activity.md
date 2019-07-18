@@ -20,7 +20,7 @@ ms.author: shlo
 Web Activity can be used to call a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 
 > [!NOTE]
-> Web activity can only call publicly exposed URLs. It’s not supported for URLs hosted in private VNet.
+> Web Activity can call only publicly exposed URLs. It’s not supported for URLs that are hosted in a private virtual network.
 
 ## Syntax
 
