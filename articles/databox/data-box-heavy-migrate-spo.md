@@ -71,7 +71,7 @@ Take the following steps to copy data to your Data Box Heavy.
 
 ## Use SPMT to migrate data
 
-After you receive confirmation from the Azure data team that your data copy has completed, you can now proceed to migrate your data to SharePoint Online.
+After you receive confirmation from the Azure data team that your data copy has completed, proceed to migrate your data to SharePoint Online.
 
 For best performance and connectivity, we recommend that you create an Azure Virtual Machine (VM).
 
