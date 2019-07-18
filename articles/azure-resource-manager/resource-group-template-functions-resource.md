@@ -561,6 +561,8 @@ A common use of the resourceGroup function is to create resources in the same lo
 ]
 ```
 
+You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](resource-group-using-tags.md#apply-tags-from-resource-group).
+
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) returns the properties of the resource group.
