@@ -47,7 +47,7 @@ You must add the following four JAR files from the Apache Qpid JMS AMQP 1.0 dist
 ### Java Naming and Directory Interface (JNDI)
 JMS uses the Java Naming and Directory Interface (JNDI) to create a separation between logical names and physical names. Two types of JMS objects are resolved using JNDI: ConnectionFactory and Destination. JNDI uses a provider model into which you can plug different directory services to handle name resolution duties. The Apache Qpid JMS AMQP 1.0 library comes with a simple properties file-based JNDI Provider that is configured using a properties file of the following format:
 
-```
+```TEXT
 # servicebus.properties - sample JNDI configuration
 
 # Register a ConnectionFactory in JNDI using the form:
@@ -297,7 +297,7 @@ public class JmsQueueQuickstart {
 Pass the **Connection String** from the Shared Access Policies to run the application.
 Below is the output of the form by running the Application:
 
-```
+```Output
 > mvn clean package
 >java -jar ./target/jmsqueuequickstart-1.0.0-jar-with-dependencies.jar -c "<CONNECTION_STRING>"
 
@@ -329,7 +329,7 @@ Closing queue client.
 ## AMQP disposition and Service Bus operation mapping
 Here is how an AMQP disposition translates to a Service Bus operation:
 
-```
+```Output
 ACCEPTED = 1; -> Complete()
 REJECTED = 2; -> DeadLetter()
 RELEASED = 3; (just unlock the message in service bus, will then get redelivered)

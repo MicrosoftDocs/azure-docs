@@ -20,22 +20,13 @@ ms.custom: mvc
 ---
 # Quickstart: Use Azure Cache for Redis with a .NET Core app
 
-
-
-This quickstart shows you how to get started using Microsoft Azure Cache for Redis with .NET Core. Microsoft Azure Cache for Redis is based on the popular open-source Azure Cache for Redis. It gives you access to a secure, dedicated Azure Cache for Redis, managed by Microsoft. A cache created using Azure Cache for Redis is accessible from any application within Microsoft Azure.
-
-In this quickstart, you will use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C\# code in a .NET Core console app. You will create a cache, configure the .NET Core client app. Then, you will add, and update objects in the cache. 
-
-You can use any code editor to complete the steps in this quickstart. However, [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
-
-![Console app completed](./media/cache-dotnet-core-quickstart/cache-console-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+In this quickstart, you incorporate Azure Cache for Redis into a .NET Core app to have access to a secure, dedicated cache that is accessible from any application within Azure. You specifically use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C# code in a .NET Core console app. 
 
 ## Prerequisites
 
-* [.NET SDK 2.0](https://www.microsoft.com/net/learn/get-started/windows) or later.
-* The StackExchange.Redis client requires [.NET Framework 4 or higher](https://www.microsoft.com/net/download/dotnet-framework-runtime).
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- [.NET Core SDK](https://dotnet.microsoft.com/download)
+- [.NET Framework 4 or higher](https://www.microsoft.com/net/download/dotnet-framework-runtime), which is required by the StackEdchange.Redis client.
 
 ## Create a cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
