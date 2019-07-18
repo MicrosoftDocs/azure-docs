@@ -9,11 +9,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Extract printed text (OCR) using the REST API and Python in Computer Vision
+
+# Quickstart: Extract printed text (OCR) using the Computer Vision REST API and Python
 
 In this quickstart, you extract printed text with optical character recognition (OCR) from an image by using Computer Vision's REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
@@ -34,9 +35,9 @@ To create and run the sample, do the following steps:
 
 1. Copy the following code into a text editor.
 1. Make the following changes in code where needed:
-    1. Replace the value of `subscription_key` with your subscription key.
-    1. Replace the value of `vision_base_url` with the endpoint URL for the Computer Vision resource in the Azure region where you obtained your subscription keys, if necessary.
-    1. Optionally, replace the value of `image_url` with the URL of a different image from which you want to extract printed text.
+   1. Replace the value of `subscription_key` with your subscription key.
+   1. Replace the value of `vision_base_url` with the endpoint URL for the Computer Vision resource in the Azure region where you obtained your subscription keys, if necessary.
+   1. Optionally, replace the value of `image_url` with the URL of a different image from which you want to extract printed text.
 1. Save the code as a file with an `.py` extension. For example, `get-printed-text.py`.
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python get-printed-text.py`.
@@ -44,7 +45,7 @@ To create and run the sample, do the following steps:
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from PIL import Image
@@ -70,8 +71,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \
     "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'language': 'unk', 'detectOrientation': 'true'}
-data    = {'url': image_url}
+params = {'language': 'unk', 'detectOrientation': 'true'}
+data = {'url': image_url}
 response = requests.post(ocr_url, headers=headers, params=params, json=data)
 response.raise_for_status()
 
@@ -94,7 +95,8 @@ for word in word_infos:
     bbox = [int(num) for num in word["boundingBox"].split(",")]
     text = word["text"]
     origin = (bbox[0], bbox[1])
-    patch  = Rectangle(origin, bbox[2], bbox[3], fill=False, linewidth=2, color='y')
+    patch = Rectangle(origin, bbox[2], bbox[3],
+                      fill=False, linewidth=2, color='y')
     ax.axes.add_patch(patch)
     plt.text(origin[0], origin[1], text, fontsize=20, weight="bold", va="top")
 plt.axis("off")
@@ -221,5 +223,4 @@ A successful response is returned in JSON. The sample webpage parses and display
 
 Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
-> [!div class="nextstepaction"]
-> [Computer Vision API Python Tutorial](../Tutorials/PythonTutorial.md)
+> [!div class="nextstepaction"][computer vision api python tutorial](../Tutorials/PythonTutorial.md)
