@@ -12306,11 +12306,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/lab-services/compare-lab-types.md",
-      "redirect_url": "/azure/lab-services/lab-services-overview#types-of-labs",
-      "redirect_document_id": false
-    },    
-    {
       "source_path": "articles/lab-services/devtest-lab-get-started-with-lab-policies.md",
       "redirect_url": "/azure/lab-services/devtest-lab-set-lab-policy",
       "redirect_document_id": false
