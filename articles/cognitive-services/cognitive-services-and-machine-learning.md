@@ -115,6 +115,13 @@ The services are used in any application that can make REST API(s) or SDK calls.
 
 Each service provides information about your data. You can combine services together to chain solutions such as converting speech (audio) to text, translating the text into many languages, then using the translated languages to get answers from a knowledge base. While Cognitive Services can be used to create intelligent solutions on their own, they can also be combined with traditional machine learning projects to supplement models or accelerate the development process. 
 
+Cognitive Services that provide exported models for other machine learning tools:
+
+|Cognitive Service|Model information|
+|--|--|
+|Custom Vision|Export for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
+
+
 ## Next steps
 
 * Create your Cognitive Service account in the [Azure portal](cognitive-services-apis-create-account.md) or with [Azure CLI](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account-cli).
