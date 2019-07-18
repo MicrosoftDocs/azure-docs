@@ -45,7 +45,9 @@ NPM can monitor connectivity between networks and applications in any part of th
 * South East Asia
 * South East Australia
 * South UK
+* Central India
 * US Government Virginia
+
 
 The list of supported regions for ExpressRoute Monitor is available in the [documentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
 

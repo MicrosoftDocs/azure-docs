@@ -276,7 +276,7 @@ The following tables list the update classifications in Update Management, with 
 |Tools     | A utility or feature that helps complete one or more tasks.        |
 |Updates     | An update to an application or file that currently is installed.        |
 
-### Linux
+### <a name="linux-2"></a>Linux
 
 |Classification  |Description  |
 |---------|---------|
