@@ -25,7 +25,7 @@ There are two types of [holds](https://docs.microsoft.com/en-us/Exchange/policy-
 The MsExchUserHoldPolcies and cloudMsExchUserHoldPolicies attributes allow on-premises AD and Azure AD to determine which users are under a hold depending on whether they are using on-premises Exchange or Exchange on-line.
 
 ## msExchUserHoldPolicies synchronization flow
-By default MsExchUserHoldPolcies is sychronized by Azure AD Connect directly to the msExchUserHoldPolicies attribute in the metaverse and then to the msExchUserHoldPolices attribute in Azure AD
+By default MsExchUserHoldPolcies is synchronized by Azure AD Connect directly to the msExchUserHoldPolicies attribute in the metaverse and then to the msExchUserHoldPolices attribute in Azure AD
 
 The following tables describe the flow:
 
@@ -40,7 +40,7 @@ Outbound to Azure AD:
 |Azure Active Directory|msExchUserHoldPolicies|Direct|msExchUserHoldPolicies|Out to AAD – UserExchangeOnline|
 
 ## cloudMsExchUserHoldPolicies synchronization flow
-By default cloudMsExchUserHoldPolicies is sychronized by Azure AD Connect directly to the cloudMsExchUserHoldPolicies attribute in the metaverse. Then, if msExchUserHoldPolices is not null in the metaverse, the attribute in flowed out to Active Directory.
+By default cloudMsExchUserHoldPolicies is synchronized by Azure AD Connect directly to the cloudMsExchUserHoldPolicies attribute in the metaverse. Then, if msExchUserHoldPolices is not null in the metaverse, the attribute in flowed out to Active Directory.
 
 The following tables describe the flow:
 
@@ -55,17 +55,17 @@ Outbound to Azure AD:
 |Azure Active Directory|cloudMsExchUserHoldPolicies|IF(NOT NULL)|msExchUserHoldPolicies|Out to AD – UserExchangeOnline|
 
 ## Information on the attribute behavior
-The msExchangeUserHoldPolicies is a single authority attribute.  A single authority attribute can be set on an object (in this case, user object) in the on-premises directory or in the cloud directory.  The Start of Authority rules dictate that if the attribute is synchronized from on-premises, then Azure AD will not be allowed to update this attribute.
+The msExchangeUserHoldPolicies is a single authority attribute.  A single authority attribute can be set on an object (in this case, user object) in the on-premises directory or in the cloud directory.  The Start of Authority rules dictate, that if the attribute is synchronized from on-premises, then Azure AD will not be allowed to update this attribute.
 
-To allow users to set hold policies on a user object in the cloud, the cloudMSExchangeUserHoldPolicies attribute is used, because the Azure AD cannot set msExchangeUserHoldPolicies directly.  This will then synchronize back to the on-premises directory if, the msExchangeUserHoldPolicies is not null.
+To allow users to set a hold policy on a user object in the cloud, the cloudMSExchangeUserHoldPolicies attribute is used. This attribute is used because Azure AD cannot set msExchangeUserHoldPolicies directly based on the rules explained above.  This attribute will then synchronize back to the on-premises directory if, the msExchangeUserHoldPolicies is not null and replace the current value of msExchangeUserHoldPolicies.
 
 Under certain circumstances, for instance, if both were changed on-premise and in Azure at the same time, this could cause some issues.  
 
 The following are important things to remember:
 
-- Any value set in Azure AD (except NULL) will always flow down and overwrite the on-premises (AD) value.  If you always edit the value for a particular User in Azure then you should be fine.
+- Any value set in Azure AD (except NULL) will always flow down and overwrite the on-premises (AD) value.  If you always edit the value for a particular User in Azure, then you should be fine.
 
-- A value set in Active Directory (on-premises) **MAY** flow to the cloud assuming some cloud value has not already been set.  If you always edit the value for a particular User in Active Directory then you should be fine.
+- A value set in Active Directory (on-premises) **MAY** flow to the cloud assuming some cloud value has not already been set.  If you always edit the value for a particular User in Active Directory, then you should be fine.
 
 Problems can arise if changes are made both on-premises and in the cloud.
 
