@@ -9,6 +9,7 @@ editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev 
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
