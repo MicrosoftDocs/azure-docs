@@ -29,7 +29,7 @@ To complete this quickstart, you need to install the following software on your 
 
 Install the Azure IoT Device Workbench extension from a .vsix file. Use the following steps to install the extension in VS Code. The extension can't be installed from Windows Explorer:
 
-1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr). Latest version: `0.10.7-rc`.
+1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr). Latest version: `0.10.8`.
 1. In VS Code, select **Extensions ** tab.
 1. Select **Install from VSIX**.
     ![Install Azure IoT Device Workbench extension](media/quickstart-create-pnp-device/install-vsix.png)
