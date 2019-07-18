@@ -48,7 +48,7 @@ Install yarn dependencies, and add dependencies `request` and `dotenv`, which wi
 
 ```bash
 yarn
-yarn add request-promise
+yarn add request
 yarn add dotenv
 ```
 
@@ -76,7 +76,7 @@ SUBDOMAIN={YOUR_SUBDOMAIN}
 
 Be sure not to commit this file into source control, as it contains secrets that should not be made public.
 
-Next, open _app.js_ and add the following to the top of the file. This loads the subscription key and endpoint as environment variables into Node.
+Next, open _app.js_ and add the following to the top of the file. This loads the properties defined in the .env file as environment variables into Node.
 
 ```javascript
 require('dotenv').config();
@@ -85,14 +85,14 @@ require('dotenv').config();
 Open the _routes\index.js_ file and the following import at the top of the file:
 
 ```javascript
-var request = require('request-promise');
+var request = require('request');
 ```
 
 Next, add the following code directly below that line. This code creates an API endpoint that acquires an AAD authentication token using your service principal password, and then returns that token. There is also a second endpoint for retrieving the subdomain.
 
 ```javascript
-router.get('/getimmersivereadertoken', async function(req, res) {
-  await request.post ({
+router.get('/getimmersivereadertoken', function(req, res) {
+  request.post ({
           headers: {
               'content-type': 'application/x-www-form-urlencoded'
           },
@@ -116,7 +116,7 @@ router.get('/getimmersivereadertoken', async function(req, res) {
 
 router.get('/subdomain', function (req, res) {
     return res.send(process.env.SUBDOMAIN);
-})
+});
 ```
 
 Th **getimmersivereadertoken** API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)) to prevent unauthorized users from obtaining tokens to use against your Immersive Reader service and billing; that work is beyond the scope of this tutorial.
@@ -168,7 +168,7 @@ Th **getimmersivereadertoken** API endpoint should be secured behind some form o
             });
         }
 
-        function launchImmersiveReader() {
+        async function launchImmersiveReader() {
             const content = {
                 title: document.getElementById('title').innerText,
                 chunks: [{
