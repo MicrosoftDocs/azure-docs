@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: hkanna
+ms.author: matd
 ---
 
 # StorSimple as a backup target with Backup Exec

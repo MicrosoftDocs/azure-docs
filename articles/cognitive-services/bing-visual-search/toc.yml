@@ -59,7 +59,8 @@
   - name: Get insights using token
     href: use-insights-token.md
   - name: Resize and crop thumbnails
-    href: resize-and-crop-thumbnails.md
+    maintainContext: true
+    href: ../bing-web-search/resize-and-crop-thumbnails.md
   - name: Search for an image Using image insight tokens
     href: tutorial-visual-search-insights-token.md
   - name: Create a Single-page Web app

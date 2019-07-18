@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: rajraj
+ms.author: drewm
 
 ---
 # Choosing the right number of fault domains for virtual machine scale set
@@ -43,4 +43,4 @@ az vmss create \
 It takes a few minutes to create and configure all the scale set resources and VMs.
 
 ## Next steps
-- Learn more about [availability and redundancy features](../virtual-machines/windows/regions-and-availability.md) for Azure environments.
+- Learn more about [availability and redundancy features](../virtual-machines/windows/availability.md) for Azure environments.
