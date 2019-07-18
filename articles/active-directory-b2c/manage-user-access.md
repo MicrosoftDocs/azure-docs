@@ -26,7 +26,7 @@ This article discusses how to manage user access to your applications by using A
 
 ## Control minor access
 
-Applications and organizations may decide to block minors from using applications and services that are not targeted to this audience. Alternatively, applications and organizations may decide to accept minors and subsequently manage the parental consent, and deliver permissible experiences for minors as dictated by business rules and allowed by regulation. 
+Applications and organizations may decide to block minors from using applications and services that are not targeted to this audience. Alternatively, applications and organizations may decide to accept minors and subsequently manage the parental consent, and deliver permissible experiences for minors as dictated by business rules and allowed by regulation.
 
 If a user is identified as a minor, you can set the user flow in Azure AD B2C to one of three options:
 
@@ -44,7 +44,7 @@ The following is an example of a user flow for gathering parental consent:
 
 1. An [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) operation identifies the user as a minor and returns the user data to the application in the form of an unsigned JSON token.
 
-2. The application processes the JSON token and shows a screen to the minor, notifying them that parental consent is required and requesting the consent of a parent online. 
+2. The application processes the JSON token and shows a screen to the minor, notifying them that parental consent is required and requesting the consent of a parent online.
 
 3. Azure AD B2C shows a sign-in journey that the user can sign in to normally and issues a token to the application that is set to include **legalAgeGroupClassification = “minorWithParentalConsent”**. The application collects the email address of the parent and verifies that the parent is an adult. To do so, it uses a trusted source, such as a national ID office, license verification, or credit card proof. If verification is successful, the application prompts the minor to sign in by using the Azure AD B2C user flow. If consent is denied (for example, if **legalAgeGroupClassification = “minorWithoutParentalConsent”**), Azure AD B2C returns a JSON token (not a login) to the application to restart the consent process. It is optionally possible to customize the user flow so that a minor or an adult can regain access to a minor’s account by sending a registration code to the minor’s email address or the adult’s email address on record.
 
@@ -56,7 +56,7 @@ For more information about **legalAgeGroupClassification**, **consentProvidedFor
 
 ## Gather date of birth and country/region data
 
-Applications may rely on Azure AD B2C to gather the date of birth (DOB) and country/region information from all users during registration. If this information does not already exist, the application can request it from the user during the next authentication (sign-in) journey. Users cannot proceed without providing their DOB and country/region information. Azure AD B2C uses the information to determine whether the individual is considered a minor according to the regulatory standards of that country/region. 
+Applications may rely on Azure AD B2C to gather the date of birth (DOB) and country/region information from all users during registration. If this information does not already exist, the application can request it from the user during the next authentication (sign-in) journey. Users cannot proceed without providing their DOB and country/region information. Azure AD B2C uses the information to determine whether the individual is considered a minor according to the regulatory standards of that country/region.
 
 A customized user flow can gather DOB and country/region information and use Azure AD B2C claims transformation to determine the **ageGroup** and persist the result (or persist the DOB and country/region information directly) in the directory.
 
@@ -70,7 +70,7 @@ The following steps show the logic that is used to calculate **ageGroup** from t
 
     b. Compare the minimum birth date with the actual birth date. If the minimum birth date is before the user’s birth date, the calculation returns **Minor** as the age group calculation.
 
-3. If the **MinorNoConsentRequired** node is present in the country element, repeat steps 2a and 2b using the value from **MinorNoConsentRequired**. The output of 2b returns **MinorNoConsentRequired** if the minimum birth date is before the user’s birth date. 
+3. If the **MinorNoConsentRequired** node is present in the country element, repeat steps 2a and 2b using the value from **MinorNoConsentRequired**. The output of 2b returns **MinorNoConsentRequired** if the minimum birth date is before the user’s birth date.
 
 4. If neither calculation returns true, the calculation returns **Adult**.
 
@@ -108,11 +108,11 @@ You can capture terms of use acceptance under the following scenarios:
 
 The following image shows the recommended user flow:
 
-![Acceptance user flow](./media/manage-user-access/user-flow.png) 
+![Flow chart diagram showing the recommended acceptance user flow](./media/manage-user-access/user-flow.png)
 
 The following is an example of a DateTime based terms of use consent in a claim:
 
-```
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="GetNewUserAgreeToTermsOfUseConsentDateTime" TransformationMethod="GetCurrentDateTime">
     <OutputClaims>
@@ -135,7 +135,7 @@ The following is an example of a DateTime based terms of use consent in a claim:
 
 The following is an example of a Version based terms of use consent in a claim:
 
-```
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="GetEmptyTermsOfUseConsentVersionForNewUser" TransformationMethod="CreateStringClaim">
     <InputParameters>
@@ -166,7 +166,7 @@ The following is an example of a Version based terms of use consent in a claim:
       <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="outputClaim" />
     </OutputClaims>
   </ClaimsTransformation>
-</ClaimsTransformations> 
+</ClaimsTransformations>
 ```
 
 ## Next steps

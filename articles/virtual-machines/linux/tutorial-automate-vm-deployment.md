@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use cloud-init and Key Vault to 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 

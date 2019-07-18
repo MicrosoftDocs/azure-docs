@@ -29,6 +29,8 @@ Enabling AzureAD-DS is a prerequisite before you can create a HDInsight cluster 
 
 When Azure AD-DS is enabled, all users and objects start synchronizing from Azure Active Directory (AAD) to Azure AD-DS by default. The length of the sync operation depends on the number of objects in Azure AD. The sync could take a few days for hundreds of thousands of objects. 
 
+The domain name that you use with Azure AD-DS must be 39 characters or less, to work with HDInsight.
+
 You can choose to sync only the groups that need access to the HDInsight clusters. This option of syncing only certain groups is called *scoped synchronization*. See [Configure Scoped Synchronization from Azure AD to your managed domain](../../active-directory-domain-services/scoped-synchronization.md) for instructions.
 
 When enabling secure LDAP, put the domain name in the subject name and the subject alternative name in the certificate. For example, if your domain name is *contoso100.onmicrosoft.com*, make sure that exact name exists in your certificate subject name and subject alternative name. For more information, see [Configure secure LDAP for an Azure AD-DS managed domain](../../active-directory-domain-services/configure-ldaps.md). Below is an example of creating a self-signed cert and have the domain name (*contoso100.onmicrosoft.com*) in both Subject name and DnsName (Subject alternate name):

@@ -42,7 +42,7 @@ You can create a pipeline that has a copy activity to move data from an HTTP sou
 
 - The easiest way to create a pipeline is to use the Copy Data wizard. For a quick walkthrough of creating a pipeline by using the Copy Data wizard, see [Tutorial: Create a pipeline by using the Copy wizard](data-factory-copy-data-wizard-tutorial.md).
 
-- You can also use the following tools to create a pipeline: the **Azure portal**, **Visual Studio**, **Azure PowerShell**, an **Azure Resource Manager template**, the **.NET API**, or the **REST API**. For step-by-step instructions on how to create a pipeline that has a copy activity, see the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). For JSON samples that copy data from an HTTP source to Azure Blob storage, see [JSON examples](#json-examples).
+- You can also use the following tools to create a pipeline: the **Visual Studio**, **Azure PowerShell**, an **Azure Resource Manager template**, the **.NET API**, or the **REST API**. For step-by-step instructions on how to create a pipeline that has a copy activity, see the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). For JSON samples that copy data from an HTTP source to Azure Blob storage, see [JSON examples](#json-examples).
 
 ## Linked service properties
 
@@ -65,7 +65,7 @@ Set **authenticationType** to **Basic**, **Digest**, or **Windows**. In addition
 
 | Property | Description | Required |
 | --- | --- | --- |
-| username | The user name to use to access the HTTP endpoint. | Yes |
+| userName | The user name to use to access the HTTP endpoint. | Yes |
 | password | The password for the user (**username**). | Yes |
 
 **Example: Using Basic, Digest, or Windows authentication**
@@ -228,7 +228,7 @@ See [File and compression formats in Azure Data Factory](data-factory-supported-
 
 ## JSON examples
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data from an HTTP source to Azure Blob storage. However, data can be copied *directly* from any of the sources to any of the sinks [that are supported](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data from an HTTP source to Azure Blob storage. However, data can be copied *directly* from any of the sources to any of the sinks [that are supported](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
 
 **Example: Copy data from an HTTP source to Azure Blob storage**
 

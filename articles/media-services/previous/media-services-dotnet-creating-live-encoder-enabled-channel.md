@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: juliako;anilmur
+ms.author: anilmur
+ms.reviewer: juliako
 
 ---
 # How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET
@@ -37,7 +38,7 @@ For more conceptual information related to Channels that are enabled for live en
 The following steps describe tasks involved in creating common live streaming applications.
 
 > [!NOTE]
-> Currently, the max recommended duration of a live event is 8 hours. Please contact amslived@microsoft.com if you need to run a Channel for longer periods of time.
+> Currently, the max recommended duration of a live event is 8 hours. Please contact amshelp@microsoft.com if you need to run a Channel for longer periods of time.
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP or Smooth Streaming. For more information, see [Azure Media Services RTMP Support and Live Encoders](https://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -92,7 +93,7 @@ The following are required to complete the tutorial.
 * A webcam and an encoder that can send a single bitrate live stream.
 
 ## Considerations
-* Currently, the max recommended duration of a live event is 8 hours. Please contact amslived@Microsoft.com if you need to run a Channel for longer periods of time.
+* Currently, the max recommended duration of a live event is 8 hours. Please contact amshelp@microsoft.com if you need to run a Channel for longer periods of time.
 * There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
 ## Download sample
