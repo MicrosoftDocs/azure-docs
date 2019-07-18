@@ -1,5 +1,5 @@
 ---
-title: Managed application createUiDefinition artifact reference
+title: Azure Managed Application createUiDefinition artifact reference
 description: This article is a reference to createUiDefinition artifact.
 services: managed-applications
 ms.service: managed-applications
@@ -79,5 +79,5 @@ The following JSON shows an example of *createUiDefinition.json* file for Azure 
 ## Next steps
 
 - [Tutorial: Create managed application with custom actions and resources](tutorial-create-managed-app-with-custom-provider.md)
-- [Reference: Deployment template artifact](reference-maintemplate-artifact.md)
-- [Reference: View definition artifact](reference-viewdefinition-artifact.md)
+- [Reference: Deployment template artifact](reference-main-template-artifact.md)
+- [Reference: View definition artifact](reference-view-definition-artifact.md)

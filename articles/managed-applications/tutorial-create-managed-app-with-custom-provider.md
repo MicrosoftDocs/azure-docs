@@ -1,5 +1,5 @@
 ---
-title: Create managed application with custom actions and resources
+title: Create Azure Managed Application with custom actions and resources
 description: This tutorial describes how to create an Azure Managed Application with an Azure Custom Provider.
 services: managed-applications
 ms.service: managed-applications
@@ -119,7 +119,7 @@ In this tutorial, you will create one `users` resource type, `ping` custom actio
 }
 ```
 
-The complete *mainTemplate.json* sample can be found at [Reference: Deployment template artifact](reference-maintemplate-artifact.md).
+The complete *mainTemplate.json* sample can be found at [Reference: Deployment template artifact](reference-main-template-artifact.md).
 
 ## View definition artifact
 
@@ -171,7 +171,7 @@ The example below includes "Users" resources page configuration with custom reso
   }
 ```
 
-The complete *viewDefinition.json* sample can be found at [Reference: View definition artifact](reference-viewdefinition-artifact.md).
+The complete *viewDefinition.json* sample can be found at [Reference: View definition artifact](reference-view-definition-artifact.md).
 
 ## Managed application definition
 

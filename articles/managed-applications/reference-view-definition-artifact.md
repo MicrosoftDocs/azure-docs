@@ -1,5 +1,5 @@
 ---
-title: Managed application view definition artifact reference
+title: Azure Managed Application view definition artifact reference
 description: This article is a reference to view definition artifact.
 services: managed-applications
 ms.service: managed-applications
@@ -86,4 +86,4 @@ The following JSON shows an example of *viewDefinition.json* file for Azure Mana
 
 - [Tutorial: Create managed application with custom actions and resources](tutorial-create-managed-app-with-custom-provider.md)
 - [Reference: User interface elements artifact](reference-createuidefinition-artifact.md)
-- [Reference: Deployment template artifact](reference-maintemplate-artifact.md)
+- [Reference: Deployment template artifact](reference-main-template-artifact.md)

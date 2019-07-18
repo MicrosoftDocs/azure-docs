@@ -90,9 +90,9 @@
     - name: User interface elements
       href: reference-createuidefinition-artifact.md
     - name: Deployment template
-      href: reference-maintemplate-artifact.md
+      href: reference-main-template-artifact.md
     - name: View definition
-      href: reference-viewdefinition-artifact.md
+      href: reference-view-definition-artifact.md
   - name: Azure CLI
     href: /cli/azure/managedapp
   - name: PowerShell

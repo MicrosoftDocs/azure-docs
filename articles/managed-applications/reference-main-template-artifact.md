@@ -1,5 +1,5 @@
 ---
-title: Managed application deployment template artifact reference
+title: Azure Managed Application deployment template artifact reference
 description: This article is a reference to deployment template artifact.
 services: managed-applications
 ms.service: managed-applications
@@ -188,4 +188,4 @@ The following JSON shows an example of *mainTemplate.json* file for Azure Manage
 
 - [Tutorial: Create managed application with custom actions and resources](tutorial-create-managed-app-with-custom-provider.md)
 - [Reference: User interface elements artifact](reference-createuidefinition-artifact.md)
-- [Reference: View definition artifact](reference-viewdefinition-artifact.md)
+- [Reference: View definition artifact](reference-view-definition-artifact.md)
