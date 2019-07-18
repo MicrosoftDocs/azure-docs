@@ -43,6 +43,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    ![New search window](./media/quickstart-sql-vm-create-portal/select-sql-2017-vm-image.png)
 
+1. Select **Create**.
+
+   ![New search window](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
 ## <a id="configure"></a> Provide basic details
 
