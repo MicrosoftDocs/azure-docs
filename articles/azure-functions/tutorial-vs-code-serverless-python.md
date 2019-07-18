@@ -467,17 +467,7 @@ In this section, you add a storage binding to the HttpExample function created e
             )
     ```
 
-1. To test these changes locally, you must define an environment variable for the connection string. First, open *local.settings.json* and copy the value for `AzureWebJobsStorage`. Then, on the command line, define an environment variable named `AZURE_STORAGE_CONNECTION_STRING` using that value (without the surrounding quotes):
-
-    ```bash
-    export AZURE_STORAGE_CONNECTION_STRING=<connection_string_from_local_settings_json>
-    ```
-
-    ```ps
-    set AZURE_STORAGE_CONNECTION_STRING=<connection_string_from_local_settings_json>
-    ```
-
-1. In Visual Studio Code, start the debugger again by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. As before the **Output** window should show the endpoints in your project.
+1. To test these changes locally, start the debugger again in Visual Studio Code by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. As before the **Output** window should show the endpoints in your project.
 
 1. In a browser, visit the URL `http://localhost:7071/api/HttpExample?name=VS%20Code` to create a request to the HttpExample endpoint, which should also write a message to the queue.
 
