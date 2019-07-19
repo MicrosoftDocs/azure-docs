@@ -281,7 +281,6 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 In this example, the configuration contains the following items:
 
-* A directory that contains assets needed to inference
 * That this model requires Python
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
 * The conda file that describes the Python packages needed to inference
