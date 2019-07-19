@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
---- 
+---
 
 # Azure Data Factory Alter Row Transformation
 

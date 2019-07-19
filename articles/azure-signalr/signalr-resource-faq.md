@@ -12,7 +12,7 @@ ms.author: zhshang
 ## Is Azure SignalR Service ready for production use?
 
 Yes.
-For our announcement of general availability, see [Azure SignalR Service now generally available](https://azure.microsoft.com/en-us/blog/azure-signalr-service-now-generally-available/). 
+For our announcement of general availability, see [Azure SignalR Service now generally available](https://azure.microsoft.com/blog/azure-signalr-service-now-generally-available/). 
 
 [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) is fully supported.
 

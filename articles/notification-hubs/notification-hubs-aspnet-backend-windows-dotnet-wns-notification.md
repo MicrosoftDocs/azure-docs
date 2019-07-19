@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
 ---
 
@@ -49,13 +49,13 @@ This tutorial builds on the notification hub and Visual Studio project that you 
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## Update the code for the client project
+## Update the code for the UWP client
 
 In this section, you update the code in the project you completed for the [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) tutorial. The project should already be associated with the Windows store. It also should be configured to use your notification hub. In this section, you add code to call the new WebAPI backend and use it for registering and sending notifications.
 
 1. In Visual Studio, open the solution you created for the [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-2. In Solution Explorer, right-click the **WindowsApp** project and then click **Manage NuGet Packages**.
-3. On the left-hand side, click **Online**.
+2. In Solution Explorer, right-click the Universal Windows Platform (UWP) project and then click **Manage NuGet Packages**.
+3. On the left-hand side, select **Browse**.
 4. In the **Search** box, type **Http Client**.
 5. In the results list, click **System.Net.Http**, and click **Install**. Complete the installation.
 6. Back in the NuGet **Search** box, type **Json.net**. Install the **Newtonsoft.json** package, and then close the NuGet Package Manager window.

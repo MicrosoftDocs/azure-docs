@@ -1,0 +1,86 @@
+- name: Anomaly Detector Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+    - name: What is the Anomaly Detector API?
+      href: overview.md  
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: REST API
+      items:
+        - name: Using C#
+          href: quickstarts/detect-data-anomalies-csharp.md
+        - name: Using Java
+          href: quickstarts/detect-data-anomalies-java.md
+        - name: Using Python
+          href: quickstarts/detect-data-anomalies-python.md
+    - name: SDK
+      items:
+        - name: Using C#
+          href: quickstarts/detect-data-anomalies-csharp-sdk.md
+        - name: Using Python
+          href: quickstarts/detect-data-anomalies-python-sdk.md
+- name: Tutorials
+  items:
+    - name: Visualize anomalies as a batch using Power BI
+      href: tutorials/batch-anomaly-detection-powerbi.md
+    - name: Anomaly detection on streaming data using Azure Databricks
+      href: tutorials/anomaly-detection-streaming-databricks.md
+- name: How-to guides
+  items:
+    - name: Identify anomalies in your data
+      href: how-to/identify-anomalies.md
+    - name: Use containers
+      items:
+      - name: Install and run containers
+        displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
+        href: anomaly-detector-container-howto.md
+      - name: Configure containers
+        href: anomaly-detector-container-configuration.md
+        displayName: docker, container, apikey, billing, log, mount, run, pull, port
+      - name: Use container instances
+        href: how-to/deploy-anomaly-detection-on-container-instances.md
+- name: Concepts
+  items: 
+    - name: Anomaly Detection API best practices
+      href: concepts/anomaly-detection-best-practices.md
+- name: Reference
+  items:
+    - name: REST API Reference
+      href: https://aka.ms/anomaly-detector-rest-api-ref
+    - name: SDKs
+      items:
+        - name: .NET
+          href: https://aka.ms/anomaly-detector-dotnet-ref
+        - name: Go
+          href: https://go.microsoft.com/fwlink/?linkid=2089915
+        - name: Python
+          href: https://go.microsoft.com/fwlink/?linkid=2090370
+        - name: Node.js
+          href: https://go.microsoft.com/fwlink/?linkid=2090788
+- name: Resources
+  items:
+    - name: Pricing
+      href: https://aka.ms/adpricing
+    - name: Regional availability 
+      href: https://aka.ms/adregion
+    - name: User-generated content
+      href: user-generated-content.md
+    - name: Join the Anomaly Detector Advisors group on Microsoft Teams
+      href: https://aka.ms/adadvisorsjoin
+    - name: Reference solution architecture
+      href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
+    - name: Compliance
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+- name: Support
+  items:
+    - name: Get support
+      href: https://aka.ms/adsupport
+    - name: Stack Overflow
+      href: https://aka.ms/adso
+    - name: MSDN
+      href: https://aka.ms/admsdn
+    - name: User voice
+      href: https://aka.ms/aduservoice

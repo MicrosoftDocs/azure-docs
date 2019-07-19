@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 06/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
@@ -17,6 +17,10 @@ ms.custom: secdec18
 For users with Azure Enterprise agreements, a combination of permissions granted in the Azure portal and the Enterprise (EA) portal define a user's level of access to Azure Cost Management data. For users with other Azure account types, a user's level of access is to Cost Management data is simpler. This article walks you through assigning access to Cost Management data. After the combination of permissions is assigned, the user views data in Cost Management based the scope that they have access to and on the scope that they select in the Azure portal.
 
 The scope that a user selects is used throughout Cost Management to provide data consolidation and to control access to cost information. When using scopes, users don't multi-select them. Instead, they select a larger scope that child scopes roll up to and then they filter-down to what they want to view. Data consolidation is important to understand because some people shouldn't have access to a parent scope that child scopes roll up to.
+
+Watch the [How to assign access with Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) video to learn about assigning access to view costs and charges with Azure role-based access control.
+
+>[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
 ## Cost Management scopes
 
@@ -161,6 +165,13 @@ Access to a resource group requires at least the Cost Management Reader (or Read
 7. Under **Assign access to**, select **Azure AD user, group, or application**.
 8. To assign access, search for and then select the user.
 9. Click **Save**.
+
+## Cross-tenant authentication issues
+
+Currently, Azure Cost Management has limited support for cross-tenant authentication. In some circumstances when you try to authenticate across tenants, you may receive an **Access denied** error in cost analysis. This issue might occur if you configure role-based access control (RBAC) to another tenant's subscription and then try to view cost data.
+
+*To work around the problem*: After you configure cross-tenant RBAC, wait an hour. Then, try to view costs in cost analysis or grant Cost Management access to users in both tenants.  
+
 
 ## Next steps
 

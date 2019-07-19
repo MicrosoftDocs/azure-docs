@@ -1,5 +1,4 @@
 ---
-ms.assetid: 
 title: Azure Key Vault security worlds | Microsoft Docs
 ms.service: key-vault
 ms.topic: conceptual

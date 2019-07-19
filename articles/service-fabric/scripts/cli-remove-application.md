@@ -4,7 +4,7 @@ description: Remove an application from an Azure Service Fabric cluster using th
 services: service-fabric
 documentationcenter: 
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: 
 tags: azure-service-management
 

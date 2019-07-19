@@ -3,6 +3,7 @@ title: Quickstart - Create a private Docker registry in Azure - Azure CLI
 description: Quickly learn to create a private Docker container registry with the Azure CLI.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: quickstart
@@ -90,13 +91,13 @@ Output:
 ```
 Result
 ----------------
-busybox
+hello-world
 ```
 
-The following example lists the tags on the **busybox** repository.
+The following example lists the tags on the **hello-world** repository.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository busybox --output table
+az acr repository show-tags --name <acrName> --repository hello-world --output table
 ```
 
 Output:

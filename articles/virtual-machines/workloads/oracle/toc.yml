@@ -1,0 +1,36 @@
+- name: Overview
+  items:
+  - name: Oracle solutions overview
+    href: oracle-overview.md
+  - name: Solutions on Azure VMs
+    href: oracle-vm-solutions.md
+  - name: Solutions with OCI - Preview
+    href: oracle-oci-overview.md
+- name: Quickstarts
+  items:
+  - name: Create an Oracle DB
+    href: oracle-database-quick-create.md
+- name: Tutorials
+  items:
+  - name: Configure Oracle ASM
+    href: configure-oracle-asm.md
+  - name: Configure Oracle Data Guard
+    href: configure-oracle-dataguard.md
+  - name: Configure Oracle GoldenGate
+    href: configure-oracle-golden-gate.md
+- name: Concepts
+  items:
+  - name: Architect an Oracle DB
+    href: oracle-design.md
+  - name: Backup strategy for Oracle DB
+    href: oracle-backup-recovery.md
+  - name: Oracle disaster recovery options
+    href: oracle-disaster-recovery.md
+- name: How-to guides
+  items:
+  - name: Interconnect Azure and OCI - Preview
+    href: configure-azure-oci-networking.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

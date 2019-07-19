@@ -6,15 +6,17 @@ author: banisadr
 
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 05/16/2019
 ms.author: babanisa
 
 ---
-# Build your own disaster recovery for Custom Topics in Event Grid
-
+# Build your own disaster recovery for custom topics in Event Grid
 Disaster recovery focuses on recovering from a severe loss of application functionality. This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a particular region.
 
 In this tutorial, you'll learn how to create an active-passive failover architecture for custom topics in Event Grid. You'll accomplish failover by mirroring your topics and subscriptions across two regions and then managing a failover when a topic becomes unhealthy. The architecture in this tutorial fails over all new traffic. it's important to be aware, with this setup, events already in flight won't be recovered until the compromised region is healthy again.
+
+> [!NOTE]
+> Event Grid supports automatic geo disaster recovery (GeoDR) on the server side now. You can still implement client-side disaster recovery logic if you want a greater control on the failover process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md).
 
 ## Create a message endpoint
 

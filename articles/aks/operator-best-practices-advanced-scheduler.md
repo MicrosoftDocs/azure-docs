@@ -2,12 +2,12 @@
 title: Operator best practices - Advanced scheduler features in Azure Kubernetes Services (AKS)
 description: Learn the cluster operator best practices for using advanced scheduler features such as taints and tolerations, node selectors and affinity, or inter-pod affinity and anti-affinity in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
+ms.author: mlearned 
 ---
 
 # Best practices for advanced scheduler features in Azure Kubernetes Service (AKS)
@@ -27,12 +27,14 @@ This best practices article focuses on advanced Kubernetes scheduling features f
 
 When you create your AKS cluster, you can deploy nodes with GPU support or a large number of powerful CPUs. These nodes are often used for large data processing workloads such as machine learning (ML) or artificial intelligence (AI). As this type of hardware is typically an expensive node resource to deploy, limit the workloads that can be scheduled on these nodes. You may instead wish to dedicate some nodes in the cluster to run ingress services, and prevent other workloads.
 
+This support for different nodes is provided by using multiple node pools. An AKS cluster provides one or more node pools. Support for multiple node pools in AKS is currently in preview.
+
 The Kubernetes scheduler can use taints and tolerations to restrict what workloads can run on nodes.
 
 * A **taint** is applied to a node that indicates only specific pods can be scheduled on them.
 * A **toleration** is then applied to a pod that allows them to *tolerate* a node's taint.
 
-When you deploy a pod to an AKS cluster, Kubernetes only schedules pods on nodes where a toleration is aligned with the taint. As an example, assume you have a nodepool in your AKS cluster for nodes with GPU support. You define name, such as *gpu*, then a value for scheduling. If you set this value to *NoSchedule*, the Kubernetes scheduler can't schedule pods on the node if the pod doesn't define the appropriate toleration.
+When you deploy a pod to an AKS cluster, Kubernetes only schedules pods on nodes where a toleration is aligned with the taint. As an example, assume you have a node pool in your AKS cluster for nodes with GPU support. You define name, such as *gpu*, then a value for scheduling. If you set this value to *NoSchedule*, the Kubernetes scheduler can't schedule pods on the node if the pod doesn't define the appropriate toleration.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -49,13 +51,13 @@ spec:
   containers:
   - name: tf-mnist
     image: microsoft/samples-tf-mnist-demo:gpu
-  resources:
-    requests:
-      cpu: 0.5
-      memory: 2Gi
-    limits:
-      cpu: 4.0
-      memory: 16Gi
+    resources:
+      requests:
+        cpu: 0.5
+        memory: 2Gi
+      limits:
+        cpu: 4.0
+        memory: 16Gi
   tolerations:
   - key: "sku"
     operator: "Equal"
@@ -68,6 +70,25 @@ When this pod is deployed, such as using `kubectl apply -f gpu-toleration.yaml`,
 When you apply taints, work with your application developers and owners to allow them to define the required tolerations in their deployments.
 
 For more information about taints and tolerations, see [applying taints and tolerations][k8s-taints-tolerations].
+
+For more information about how to use multiple node pools in AKS, see [Create and manage multiple node pools for a cluster in AKS][use-multiple-node-pools].
+
+### Behavior of taints and tolerations in AKS
+
+When you upgrade a node pool in AKS, taints and tolerations follow a set pattern as they're applied to new nodes:
+
+- **Default clusters without virtual machine scale support**
+  - Let's assume you have a two-node cluster - *node1* and *node2*. When you upgrade, an additional node (*node3*) is created.
+  - The taints from *node1* are applied to *node3*, then *node1* is then deleted.
+  - Another new node is created (named *node1*, since the previous *node1* was deleted), and the *node2* taints are applied to the new *node1*. Then, *node2* is deleted.
+  - In essence *node1* becomes *node3*, and *node2* becomes *node1*.
+
+- **Clusters that use virtual machine scale sets** (currently in preview in AKS)
+  - Again, let's assume you have a two-node cluster - *node1* and *node2*. You upgrade the node pool.
+  - Two additional nodes are created, *node3* and *node4*, and the taints are passed on respectively.
+  - The original *node1* and *node2* are deleted.
+
+When you scale a node pool in AKS, taints and tolerations do not carry over by design.
 
 ## Control pod scheduling using node selectors and affinity
 
@@ -132,11 +153,11 @@ spec:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: hardware
-          operator: In
-          values: highmem
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: hardware
+            operator: In
+            values: highmem
 ```
 
 The *IgnoredDuringExecution* part of the setting indicates that if the node labels change, the pod shouldn't be evicted from the node. The Kubernetes scheduler only uses the updated node labels for new pods being scheduled, not pods already scheduled on the nodes.
@@ -174,3 +195,4 @@ This article focused on advanced Kubernetes scheduler features. For more informa
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

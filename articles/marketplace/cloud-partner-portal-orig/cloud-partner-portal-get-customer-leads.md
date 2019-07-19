@@ -1,20 +1,12 @@
 ---
-title: Configure customer leads | Microsoft Docs
+title: Configure customer leads | Azure Marketplace
 description: Configure customer leads in the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 

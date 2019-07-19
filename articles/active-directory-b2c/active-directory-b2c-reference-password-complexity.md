@@ -2,14 +2,14 @@
 title: Password complexity - Azure Active Directory B2C | Microsoft Docs
 description: How to configure complexity requirements for passwords supplied by consumers in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -19,7 +19,7 @@ Azure Active Directory (Azure AD) B2C supports changing the complexity requireme
 
 ## Password rule enforcement
 
-During sign-up or password reset, an end user must supply a password that meets the complexity rules. Password complexity rules are enforced per user flow. It is possible to have one user flow require a four-digit pin during sign-up while another user flow requires a eight character string during sign-up. For example, you may use a user flow with different password complexity for adults than for children.
+During sign-up or password reset, an end user must supply a password that meets the complexity rules. Password complexity rules are enforced per user flow. It is possible to have one user flow require a four-digit pin during sign-up while another user flow requires an eight character string during sign-up. For example, you may use a user flow with different password complexity for adults than for children.
 
 Password complexity is never enforced during sign-in. Users are never prompted during sign-in to change their password because it doesn't meet the current complexity requirement.
 

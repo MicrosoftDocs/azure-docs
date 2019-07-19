@@ -3,8 +3,8 @@ title: Problems signing in to a non-gallery application configured for federated
 description: Guidance for the specific problems you may face when signing in to an application configured for SAML-based federated single sign-on with Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 
 ms.collection: M365-identity-device-management

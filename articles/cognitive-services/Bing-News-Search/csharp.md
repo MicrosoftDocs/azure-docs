@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -21,7 +21,7 @@ While this application is written in C#, the API is a RESTful Web service compat
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
 * If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 

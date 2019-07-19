@@ -22,8 +22,8 @@ ms.author: willzhan
 
 In addition to protecting content for online streaming, media content subscription and rental services offer downloadable content that works when you are not connected to the internet. You might need to download content onto your phone or tablet for playback in airplane mode when flying disconnected from the network. Additional scenarios, in which you might want to download content:
 
-- Some content providers may disallow DRM license delivery beyond a country's border. If a user wants to watch content while traveling abroad, offline download is needed.
-- In some countries, Internet availability and/or bandwidth is limited. Users may choose to download content to be able to watch it in high enough resolution for satisfactory viewing experience.
+- Some content providers may disallow DRM license delivery beyond a country/region's border. If a user wants to watch content while traveling abroad, offline download is needed.
+- In some countries/regions, Internet availability and/or bandwidth is limited. Users may choose to download content to be able to watch it in high enough resolution for satisfactory viewing experience.
 
 This article discusses how to implement offline mode playback for DASH content protected by Widevine on Android devices. Offline DRM allows you to provide subscription, rental, and purchase models for your content, enabling customers of your services to easily take content with them when disconnected from the internet.
 
@@ -35,6 +35,9 @@ For building the Android player apps, we outline three options:
 > * Build a player using Encrypted Media Extension (EME) and Media Source Extension (MSE) in Chrome mobile browser v62 or later
 
 The article also answers some common questions related to offline streaming of Widevine protected content.
+
+> [!NOTE]
+> Offline DRM is only billed for making a single request for a license when you download the content. Any errors are not billed.
 
 ## Prerequisites 
 

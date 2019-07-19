@@ -33,7 +33,7 @@ During the process of admin takeover, you can prove ownership as described in [A
 
 Some products that include SharePoint and OneDrive, such as Office 365, do not support external takeover. If that is your scenario, or if you are an admin and want to take over an unmanaged or "shadow" tenant create by users who used self-service sign-up, you can do this with an internal admin takeover.
 
-1. Create a user context in the unmanaged tenant through signing up with such as Power BI. For convenience of example, these steps assume that path.
+1. Create a user context in the unmanaged tenant through signing up for Power BI. For convenience of example, these steps assume that path.
 
 2. Open the [Power BI site](https://powerbi.com) and select **Start Free**. Enter a user account that uses the domain name for the organization; for example, `admin@fourthcoffee.xyz`. After you enter in the verification code, check your email for the confirmation code.
 

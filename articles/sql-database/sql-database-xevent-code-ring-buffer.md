@@ -217,7 +217,7 @@ To view the results, we clicked the cell under the column header **target_data_X
 
 Then in the results pane we clicked the cell under the column header **target_data_XML**. This click created another file tab in ssms.exe in which the content of the result cell was displayed, as XML.
 
-The output is shown in the following block. It looks long, but it is just two **<event>** elements.
+The output is shown in the following block. It looks long, but it is just two **\<event>** elements.
 
 &nbsp;
 

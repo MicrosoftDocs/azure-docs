@@ -5,7 +5,7 @@ description: Learn how to troubleshoot Windows VM issues in Azure by connecting 
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-windows
@@ -24,7 +24,7 @@ If your Windows virtual machine (VM) in Azure encounters a boot or disk error, y
 > [!Important]
 > The scripts in this article only apply to the VMs that use [Managed Disk](../windows/managed-disks-overview.md). 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Recovery process overview
 We can now use Azure PowerShell to change the OS disk for a VM. We no longer need to delete and recreate the VM.

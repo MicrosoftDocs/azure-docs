@@ -4,7 +4,7 @@ description: Learn how to query containers in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: mjbrown
 ---
 

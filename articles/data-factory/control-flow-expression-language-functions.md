@@ -63,7 +63,7 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 ### Examples
 
 #### A dataset with a parameter
-In the following example, the BlobDataset takes a parameter named **path**. Its value is used to set a value for the **folderPath** property by using the following expressions: `@{dataset().path}`. 
+In the following example, the BlobDataset takes a parameter named **path**. Its value is used to set a value for the **folderPath** property by using the expression: `dataset().path`. 
 
 ```json
 {
@@ -136,6 +136,9 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
     }
 }
 ```
+#### Tutorial
+This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
+
   
 ## Functions  
  You can call functions within expressions. The following sections provide information about the functions that can be used in an expression.  

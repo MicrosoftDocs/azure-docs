@@ -93,7 +93,7 @@ These instructions are for building the sample on Windows. For other environment
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
-    The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+    You should expect this operation to take several minutes to complete.
 
 1. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder.
 
@@ -165,9 +165,16 @@ These instructions are for building the sample on Windows. For other environment
 
 <!-- For a client app that can receive sampling decisions from the cloud, check out [this sample](https://aka.ms/iottracingCsample).  -->
 
-### Using third-party clients
+### Workaround for third-party clients
 
-If you're not using the C SDK and still would like to preview distributed tracing for IoT Hub, construct the message to contain a `tracestate` application property with the creation time of the message in the unix timestamp format. For example, `tracestate=timestamp=1539243209`. To control the percentage of messages containing this property, implement logic to listen to cloud-initiated events such as twin updates.
+It's **not trivial** to preview the distributed tracing feature without using the C SDK. Thus, this approach is not recommended.
+
+First, you must implement all the IoT Hub protocol primitives in your messages by following the dev guide [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md). Then, edit the protocol properties in the MQTT/AMQP messages to add `tracestate` as **system property**. Specifically,
+
+* For MQTT, add `%24.tracestate=timestamp%3d1539243209` to the message topic, where `1539243209` should be replaced with the creation time of the message in the unix timestamp format. As an example, refer to the implementation [in the C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
+* For AMQP, add `key("tracestate")` and `value("timestamp=1539243209")` as message annotation. For a reference implementation, see [here](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
+
+To control the percentage of messages containing this property, implement logic to listen to cloud-initiated events such as twin updates.
 
 ## Update sampling options 
 

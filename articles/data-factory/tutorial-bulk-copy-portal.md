@@ -70,9 +70,10 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
 
 ## Create a data factory
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
    
-   ![New->DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 1. In the **New data factory** page, enter **ADFTutorialBulkCopyDF** for the **name**. 
       
      ![New data factory page](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)
@@ -210,7 +211,7 @@ The **GetTableListAndTriggerCopyData** pipeline performs two steps:
 * Looks up the Azure SQL Database system table to get the list of tables to be copied.
 * Triggers the pipeline **IterateAndCopySQLTables** to do the actual data copy.
 
-The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. For each table in the list, it copies data from the table in Azure SQL Database to Azure SQL Data Warehouse using staged copy and PolyBase.
+The  **IterateAndCopySQLTables** takes a list of tables as a parameter. For each table in the list, it copies data from the table in Azure SQL Database to Azure SQL Data Warehouse using staged copy and PolyBase.
 
 ### Create the pipeline IterateAndCopySQLTables
 

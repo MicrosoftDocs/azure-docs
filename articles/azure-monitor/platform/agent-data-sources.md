@@ -16,7 +16,7 @@ ms.author: bwren
 ---
 
 # Agent data sources in Azure Monitor
-The data that Azure Monitor collects from agents is defined by the data sources that you configure.  The data from agents is stored as [log data](data-collection.md) with a set of records.  Each data source creates records of a particular type with each type having its own set of properties.
+The data that Azure Monitor collects from agents is defined by the data sources that you configure.  The data from agents is stored as [log data](data-platform-logs.md) with a set of records.  Each data source creates records of a particular type with each type having its own set of properties.
 
 ![Log data collection](media/agent-data-sources/overview.png)
 

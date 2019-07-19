@@ -19,7 +19,7 @@ The two key pieces of information for a LUIS account are the user account and th
 
 ## Authoring key
 
-This single, region-specific authoring key, on the **Settings** page, allows you to author all your apps from the [LUIS](luis-reference-regions.md) portal as well as the [authoring APIs](https://aka.ms/luis-authoring-api). As a convenience, the authoring key is allowed to make a [limited](luis-boundaries.md) number of endpoint queries each month.
+This single, region-specific authoring key, on the **Settings** page, allows you to author all your apps from the [LUIS](luis-reference-regions.md) portal as well as the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087). As a convenience, the authoring key is allowed to make a [limited](luis-boundaries.md) number of endpoint queries each month.
 
 [![LUIS Settings page](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 

@@ -3,6 +3,7 @@ title: Using Azure Storage with a Jenkins continuous integration solution
 description: This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution.
 ms.topic: article
 ms.author: tarcher
+
 author: tarcher
 services: devops
 ms.service: storage

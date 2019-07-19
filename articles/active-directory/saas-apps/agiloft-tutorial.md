@@ -163,13 +163,13 @@ To configure Azure AD single sign-on with Agiloft, perform the following steps:
 
 	![Agiloft Configuration](./media/agiloft-tutorial/setup4.png)
 
-	a. In **IdP Entity Id / Issuer** textbox, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
+	a. In **IdP Entity Id / Issuer** textbox, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
 
-	b. In **IdP Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+	b. In **IdP Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-	c. In **IdP Logout URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
+	c. In **IdP Logout URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
 
-	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **IdP Provided X.509 certificate contents** textbox.
+	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **IdP Provided X.509 certificate contents** textbox.
 
 	e. Click **Finish**.
 
@@ -240,4 +240,4 @@ When you click the Agiloft tile in the Access Panel, you should be automatically
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

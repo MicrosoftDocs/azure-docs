@@ -4,16 +4,17 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: 2f6dbd70-c2db-4ae9-99ee-976c3090d214
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/25/2018
+ms.topic: tutorial
+ms.date: 04/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -21,144 +22,157 @@ ms.collection: M365-identity-device-management
 # Tutorial: Azure Active Directory integration with Spotinst
 
 In this tutorial, you learn how to integrate Spotinst with Azure Active Directory (Azure AD).
-
 Integrating Spotinst with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Spotinst.
-- You can enable your users to automatically get signed-on to Spotinst (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* You can control in Azure AD who has access to Spotinst.
+* You can enable your users to be automatically signed-in to Spotinst (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Spotinst, you need the following items:
 
-- An Azure AD subscription
-- A Spotinst single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
+* Spotinst single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Spotinst from the gallery
-2. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+
+* Spotinst supports **SP and IDP** initiated SSO
 
 ## Adding Spotinst from the gallery
+
 To configure the integration of Spotinst into Azure AD, you need to add Spotinst from the gallery to your list of managed SaaS apps.
 
 **To add Spotinst from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade][2]
-	
+	![The Enterprise applications blade](common/enterprise-applications.png)
+
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+	![The New application button](common/add-new-app.png)
 
 4. In the search box, type **Spotinst**, select **Spotinst** from result panel then click **Add** button to add the application.
 
-	![Spotinst in the results list](./media/spotinst-tutorial/tutorial_spotinst_addfromgallery.png)
+	![Spotinst in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Spotinst based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Spotinst is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Spotinst needs to be established.
+In this section, you configure and test Azure AD single sign-on with Spotinst based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Spotinst needs to be established.
 
 To configure and test Azure AD single sign-on with Spotinst, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Spotinst test user](#create-a-spotinst-test-user)** - to have a counterpart of Britta Simon in Spotinst that is linked to the Azure AD representation of user.
+2. **[Configure Spotinst Single Sign-On](#configure-spotinst-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+5. **[Create Spotinst test user](#create-spotinst-test-user)** - to have a counterpart of Britta Simon in Spotinst that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Spotinst application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Spotinst, perform the following steps:**
+To configure Azure AD single sign-on with Spotinst, perform the following steps:
 
-1. In the Azure portal, on the **Spotinst** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Spotinst** application integration page, select **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/spotinst-tutorial/tutorial_spotinst_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-3. On the **Spotinst Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![Spotinst Domain and URLs single sign-on information](./media/spotinst-tutorial/tutorial_spotinst_url1.png)
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	a. Check **Show advanced URL settings**.
+	![Edit Basic SAML Configuration](common/edit-urls.png)
+
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
+
+    ![Spotinst Domain and URLs single sign-on information](common/idp-preintegrated-relay.png)
+
+	a. Check **Set additional URLs**.
 
 	b. In the **Relay State** textbox, type a value: `<ID>`
 
-	c. If you wish to configure the application in **SP** initiated mode, in the **Sign on URL** textbox, type the URL: `https://console.spotinst.com`
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+    ![Spotinst Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+
+    In the **Sign-on URL** text box, type the URL:
+    `https://console.spotinst.com/auth/saml`
 
 	> [!NOTE]
 	> The Relay State value is not real. You will update the Relay State value with the actual Relay State value, which is explained later in the tutorial.
 
-4. Spotinst application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for it.
+6. Spotinst application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	![Configure Single Sign-On](./media/spotinst-tutorial/tutorial_Spotinst_attribute.png)
+	![image](common/edit-attribute.png)
 
-5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+7. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
 
-	| Attribute Name | Attribute Value |
-	| ---------------| --------------- |
+	| Name | Source Attribute|
+	| -----| --------------- |
 	| Email | user.mail |
 	| FirstName | user.givenname |
 	| LastName | user.surname |
-	
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Single Sign-On](./media/spotinst-tutorial/tutorial_attribute_04.png)
+	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![Configure Single Sign-On](./media/spotinst-tutorial/tutorial_attribute_05.png)
+	![image](common/new-save-attribute.png)
+
+	![image](common/new-attribute-details.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
+	c. Leave the **Namespace** blank.
 
-	d. Leave the **Namespace** blank.
+	d. Select Source as **Attribute**.
 
-	e. Click **Ok**
+	e. From the **Source attribute** list, type the attribute value shown for that row.
 
-6. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+	f. Click **Ok**
 
-	![The Certificate download link](./media/spotinst-tutorial/tutorial_spotinst_certificate.png) 
+	g. Click **Save**.
 
-7. Click **Save** button.
+8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![Configure Single Sign-On Save button](./media/spotinst-tutorial/tutorial_general_400.png)
+	![The Certificate download link](common/metadataxml.png)
 
-8. In a different web browser window, login to Spotinst as a Security Administrator.
+9. On the **Set up Spotinst** section, copy the appropriate URL(s) as per your requirement.
 
-9. Click on the **user icon** on the top right side of the screen and click **Settings**.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+	a. Login URL
+
+	b. Azure AD Identifier
+
+	c. Logout URL
+
+### Configure Spotinst Single Sign-On
+
+1. In a different web browser window, sign in to Spotinst as a Security Administrator.
+
+2. Click on the **user icon** on the top right side of the screen and click **Settings**.
 
 	![Spotinst settings](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
-10. Click on the **SECURITY** tab on the top and then select **Identity Providers** and perform the following steps:
+3. Click on the **SECURITY** tab on the top and then select **Identity Providers** and perform the following steps:
 
 	![Spotinst security](./media/spotinst-tutorial/tutorial_spotinst_security.png)
 
-	a. Copy the **Relay State** value for your instance and paste it in **Relay State** textbox in **Spotinst Domain and URLs** section on Azure portal.
+	a. Copy the **Relay State** value for your instance and paste it in **Relay State** textbox in **Basic SAML Configuration** section on Azure portal.
 
 	b. Click **BROWSE** to upload the metadata xml file that you have downloaded from Azure portal
 
@@ -168,41 +182,59 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-   ![Create an Azure AD test user][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+2. Select **New user** at the top of the screen.
 
-    ![The Azure Active Directory button](./media/spotinst-tutorial/create_aaduser_01.png)
+    ![New user Button](common/new-user.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+3. In the User properties, perform the following steps.
 
-    ![The "Users and groups" and "All users" links](./media/spotinst-tutorial/create_aaduser_02.png)
+    ![The User dialog box](common/user-properties.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
-    ![The Add button](./media/spotinst-tutorial/create_aaduser_03.png)
-
-4. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/spotinst-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
 
-### Create a Spotinst test user
+### Assign the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Spotinst.
+
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Spotinst**.
+
+	![Enterprise applications blade](common/enterprise-applications.png)
+
+2. In the applications list, select **Spotinst**.
+
+	![The Spotinst link in the Applications list](common/all-applications.png)
+
+3. In the menu on the left, select **Users and groups**.
+
+    ![The "Users and groups" link](common/users-groups-blade.png)
+
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+
+    ![The Add Assignment pane](common/add-assign-user.png)
+
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+
+7. In the **Add Assignment** dialog click the **Assign** button.
+
+### Create Spotinst test user
 
 The objective of this section is to create a user called Britta Simon in Spotinst.
 
-1. If you have configured the application in the **SP** intiated mode, perform the following steps:
+1. If you have configured the application in the **SP** initiated mode, perform the following steps:
 
-   a. In a different web browser window, login to Spotinst as a Security Administrator.
+   a. In a different web browser window, sign in to Spotinst as a Security Administrator.
 
    b. Click on the **user icon** on the top right side of the screen and click **Settings**.
 
@@ -218,67 +250,23 @@ The objective of this section is to create a user called Britta Simon in Spotins
 
 	* In the **Full Name** textbox, enter the full name of user like **BrittaSimon**.
 
-	* In the **Email** textbox, enter the email address of the user like **brittasimon\@contoso.com**.
+	* In the **Email** textbox, enter the email address of the user like `brittasimon\@contoso.com`.
 
 	* Select your organization-specific details for the **Organization Role, Account Role, and Accounts**.
 
-2. If you have configured the application in the **IDP** intiated mode, There is no action item for you in this section. Spotinst supports just-in-time provisioning, which is by default enabled. A new user is created during an attempt to access Spotinst if it doesn't exist yet.
+2. If you have configured the application in the **IDP** initiated mode, There is no action item for you in this section. Spotinst supports just-in-time provisioning, which is by default enabled. A new user is created during an attempt to access Spotinst if it doesn't exist yet.
 
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Spotinst.
-
-![Assign the user role][200] 
-
-**To assign Britta Simon to Spotinst, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-2. In the applications list, select **Spotinst**.
-
-	![The Spotinst link in the Applications list](./media/spotinst-tutorial/tutorial_spotinst_app.png)  
-
-3. In the menu on the left, click **Users and groups**.
-
-	![The "Users and groups" link][202]
-
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![The Add Assignment pane][203]
-
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-6. Click **Select** button on **Users and groups** dialog.
-
-7. Click **Assign** button on **Add Assignment** dialog.
-	
-### Test single sign-on
+### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Spotinst tile in the Access Panel, you should get automatically signed-on to your Spotinst application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+When you click the Spotinst tile in the Access Panel, you should be automatically signed in to the Spotinst for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/spotinst-tutorial/tutorial_general_01.png
-[2]: ./media/spotinst-tutorial/tutorial_general_02.png
-[3]: ./media/spotinst-tutorial/tutorial_general_03.png
-[4]: ./media/spotinst-tutorial/tutorial_general_04.png
-
-[100]: ./media/spotinst-tutorial/tutorial_general_100.png
-
-[200]: ./media/spotinst-tutorial/tutorial_general_200.png
-[201]: ./media/spotinst-tutorial/tutorial_general_201.png
-[202]: ./media/spotinst-tutorial/tutorial_general_202.png
-[203]: ./media/spotinst-tutorial/tutorial_general_203.png
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

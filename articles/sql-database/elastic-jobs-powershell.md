@@ -17,7 +17,7 @@ ms.date: 03/13/2019
 
 [Elastic jobs](sql-database-job-automation-overview.md#elastic-database-jobs) enable the running of one or more Transact-SQL (T-SQL) scripts in parallel across many databases.
 
-In this tutorial you learn the steps required to run a query across multiple databases:
+In this tutorial, you learn the steps required to run a query across multiple databases:
 
 > [!div class="checklist"]
 > * Create an Elastic Job agent
@@ -65,7 +65,7 @@ Get-Module Az.Sql
 
 Creating an Elastic Job agent requires a database (S0 or higher) for use as the [Job database](sql-database-job-automation-overview.md#job-database). 
 
-*The script below creates a new resource group, server, and database for use as the Job database. The script below also creates a second server with 2 blank databases to execute jobs against.*
+*The script below creates a new resource group, server, and database for use as the Job database. The script below also creates a second server with two blank databases to execute jobs against.*
 
 Elastic Jobs has no specific naming requirements so you can use whatever naming conventions you want, as long as they conform to any [Azure requirements](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -123,7 +123,7 @@ $Db2
 
 ## Enable the Elastic Jobs preview for your subscription
 
-To use Elastic Jobs, register the feature in your Azure subscription by running the following command (this only needs to be run once in each subscription where you want to use Elastic Jobs):
+To use Elastic Jobs, register the feature in your Azure subscription by running the following command. Run this command once for the subscription in which you intend to provision the Elastic Job agent. Subscriptions that only contain databases that are job targets don't need to be registered.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
@@ -279,6 +279,23 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 # Get the job target execution details
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
+
+### Job execution states
+
+The following table lists the possible job execution states:
+
+|State|Description|
+|:---|:---|
+|**Created** | The job execution was just created and is not yet in progress.|
+|**InProgress** | The job execution is currently in progress.|
+|**WaitingForRetry** | The job execution wasn’t able to complete its action and is waiting to retry.|
+|**Succeeded** | The job execution has completed successfully.|
+|**SucceededWithSkipped** | The job execution has completed successfully, but some of its children were skipped.|
+|**Failed** | The job execution has failed and exhausted its retries.|
+|**TimedOut** | The job execution has timed out.|
+|**Canceled** | The job execution was canceled.|
+|**Skipped** | The job execution was skipped because another execution of the same job step was already running on the same target.|
+|**WaitingForChildJobExecutions** | The job execution is waiting for its child executions to complete.|
 
 ## Schedule the job to run later
 

@@ -4,7 +4,7 @@ description: Learn how to create, debug, and deploy your first actor-based servi
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/16/2018
+ms.date: 07/10/2019
 ms.author: vturecek
 
 ---
@@ -30,7 +30,7 @@ Before you start, ensure that you have the Service Fabric development environmen
 
 ## Create a new project in Visual Studio
 
-Launch Visual Studio 2015 or later as an administrator, and then create a new **Service Fabric Application** project:
+Launch Visual Studio 2019 or later as an administrator, and then create a new **Service Fabric Application** project:
 
 ![Service Fabric tools for Visual Studio - new project][1]
 

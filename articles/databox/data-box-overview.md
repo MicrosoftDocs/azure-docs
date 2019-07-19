@@ -8,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure.
 ---
@@ -105,13 +105,16 @@ Throughout this process, you are notified via email on all status changes. For m
 
 ## Region availability
 
-Data Box can transfer data based on the region in which service is deployed, country to which the device is shipped, and the target Azure storage account where you transfer the data. 
+Data Box can transfer data based on the region in which service is deployed, country/region to which the device is shipped, and the target Azure storage account where you transfer the data. 
 
 - **Service availability** - For this release, the Data Box service is available in the following regions:
     - All regions in the United States - West Central US, West US2, West US, South Central US, Central US, North Central US, East US, and East US2.
     - European Union - West Europe and North Europe.
     - UK - UK South and UK West.
     - France - France Central and France South.
+    - Japan - Japan East and Japan West.
+    - Australia - Australia East and Australia Southeast.
+    - Canada - Canada East and Canada Central.
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions where the service is available.  
 

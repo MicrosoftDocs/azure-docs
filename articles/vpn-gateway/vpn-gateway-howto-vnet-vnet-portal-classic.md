@@ -36,6 +36,8 @@ This article helps you create a VPN gateway connection between virtual networks.
 
 ![VNet to VNet Connectivity Diagram](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## About VNet-to-VNet connections
 
 Connecting a virtual network to another virtual network (VNet-to-VNet) in the classic deployment model using a VPN gateway is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE.
@@ -215,19 +217,19 @@ In the following steps, you will connect to your Azure account and download and 
 2. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
    Check the subscriptions for the account.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 
    If you have more than one subscription, select the subscription that you want to use.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
    Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.

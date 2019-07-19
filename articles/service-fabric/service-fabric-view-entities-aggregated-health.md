@@ -4,7 +4,7 @@ description: Describes how to query, view, and evaluate Azure Service Fabric ent
 services: service-fabric
 documentationcenter: .net
 author: oanapl
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: fa34c52d-3a74-4b90-b045-ad67afa43fe5
@@ -1049,7 +1049,7 @@ The queries that contain **HealthState** for entities are:
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Some of the queries return paged results. The return of these queries is a list derived from [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). If the results do not fit a message, only a page is returned and a ContinuationToken that tracks where enumeration stopped. Continue to call the same query and pass in the continuation token from the previous query to get next results.
+> Some of the queries return paged results. The return of these queries is a list derived from [PagedList\<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). If the results do not fit a message, only a page is returned and a ContinuationToken that tracks where enumeration stopped. Continue to call the same query and pass in the continuation token from the previous query to get next results.
 
 ### Examples
 The following code gets the unhealthy applications in the cluster:

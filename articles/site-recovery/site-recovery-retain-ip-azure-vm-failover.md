@@ -2,7 +2,7 @@
 title: Retain IP addresses during Azure VM failover with Azure Site Recovery | Microsoft Docs
 description: Describes how to retain IP addresses when failing over Azure VMs for disaster recovery to a secondary region with Azure Site Recovery
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
@@ -38,13 +38,13 @@ Here's the architecture before failover.
         - East Asia has a VNet (**Source VNet**) with address space 10.1.0.0/16.
         - East Asia has workloads split across three subnets in the VNet:
             - **Subnet 1**: 10.1.1.0/24
-            - **Subnet 2**: 10.1.2.0/24,
+            - **Subnet 2**: 10.1.2.0/24
             - **Subnet 3**: 10.1.3.0/24
     - Secondary (target) region is Azure Southeast Asia
         - Southeast Asia has a recovery VNet (**Recovery VNet**) identical to **Source VNet**.
         - Southeast Asia has an additional VNet (**Azure VNet**) with address space 10.2.0.0/16.
         - **Azure VNet** contains a subnet (**Subnet 4**) with address space 10.2.4.0/24.
-        - Replica nodes for SQL Server Always On, domain controller etc are located in **Subnet 4**.
+        - Replica nodes for SQL Server Always On, domain controller etc. are located in **Subnet 4**.
     - **Source VNet** and **Azure VNet** are connected with a VPN site-to-site connection.
     - **Recovery VNet** is not connected with any other virtual network.
     - **Company A** assigns/verifies target IP addresses for replicated items. The target IP is the same as source IP for each VM.
@@ -89,7 +89,7 @@ Before failover, the architecture is as follows:
         - **Recovery VNet 1** and **Recovery VNet 2** each have two subnets that match the subnets in **Source VNet 1** and **Source VNet 2**
         - Southeast Asia has an additional VNet (**Azure VNet**) with address space 10.3.0.0/16.
         - **Azure VNet** contains a subnet (**Subnet 4**) with address space 10.3.4.0/24.
-        - Replica nodes for SQL Server Always On, domain controller etc are located in **Subnet 4**.
+        - Replica nodes for SQL Server Always On, domain controller etc. are located in **Subnet 4**.
 - There are a number of site-to-site VPN connections: 
     - **Source VNet 1** and **Azure VNet**
     - **Source VNet 2** and **Azure VNet**
@@ -128,11 +128,11 @@ Here’s what the network architecture looks like before failover.
 - East Asia has a VNet (**Source VNet**) with address space 10.1.0.0/16.
   - East Asia has workloads split across three subnets in **Source VNet**:
     - **Subnet 1**: 10.1.1.0/24
-    - **Subnet 2**: 10.1.2.0/24,
-    - **Subnet 3**: 10.1.3.0/24utilizing an Azure virtual network with address space 10.1.0.0/16. This virtual network is named **Source VNet**
+    - **Subnet 2**: 10.1.2.0/24
+    - **Subnet 3**: 10.1.3.0/24, utilizing an Azure virtual network with address space 10.1.0.0/16. This virtual network is named **Source VNet**
       - The secondary (target) region is Azure Southeast Asia:
   - Southeast Asia has a recovery VNet (**Recovery VNet**) identical to **Source VNet**.
-- VMs in East Asia are connected to an on-premises datacenter with Azure ExpressRoute or site-to-site-VPN.
+- VMs in East Asia are connected to an on-premises datacenter with Azure ExpressRoute or site-to-site VPN.
 - To reduce RTO, Company B provisions gateways on Recovery VNet in Azure Southeast Asia prior to failover.
 - Company B assigns/verifies target IP addresses for replicated VMs. The target IP address is the same as source IP address for each VM.
 

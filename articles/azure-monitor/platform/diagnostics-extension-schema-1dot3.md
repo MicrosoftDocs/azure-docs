@@ -25,7 +25,7 @@ This page is valid for versions 1.3 and newer (Azure SDK 2.4 and newer). Newer c
 
 The configuration file described here is used to set diagnostic configuration settings when the diagnostics monitor starts.  
 
-The extension is used in conjunction with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
+The extension is used in conjunction with other Microsoft diagnostics products like Azure Monitor, which includes Application Insights and Log Analytics.
 
 
 

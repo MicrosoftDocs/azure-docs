@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to generate an Azure Service Fabric
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
-manager: timlt
+manager: chackdan
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, Containers, Microservices, Service Fabric, Azure
@@ -117,7 +117,7 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 For Service Fabric to pull the container images from Azure Container Registry, we need to provide the credentials in the **ApplicationManifest.xml**.
 
-Log in to your ACR instance. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
+Sign in to your ACR instance. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
 
 ```bash
 az acr login --name <acrName>

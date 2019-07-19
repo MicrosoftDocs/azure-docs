@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
@@ -33,11 +33,14 @@ This Azure Media Services (AMS) community page discusses different ways you can 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Discussion
+
 ### Twitter
+
 Use the [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) twitter handle to contact us or follow updates on Twitter. 
 You can use the [@AzureSupport](https://twitter.com/azuresupport) twitter handle to request support on Twitter.  
 
 ### Online forums
+
 The following forums can be used for asking questions about current products and features.
 
 Currently, MSDN is Media Services team's primary community forum.
@@ -45,19 +48,13 @@ Currently, MSDN is Media Services team's primary community forum.
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 The team also monitors questions tagged on Stack Overflow with 'azure-media-services'.
+
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## Contact the team
-Azure Media Services primary support email is: **amshelp\@microsoft.com**.
 
-The following table lists email of feature sub teams:
+Azure Media Services primary support email is: **amshelp@microsoft.com**.
 
-| Feature | Email |
-| --- | --- |
-| Azure Media Analytics |amsanalytics@microsoft.com |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure Media Explorer |amse@microsoft.com |
-| Workflow Designer |mepd@microsoft.com |
-| File Streaming and Packaging |amsstreaming@microsoft.com |
-| Live Streaming and Packaging |amslived@microsoft.com |
+## Next steps
 
+[Overview](media-services-overview.md)

@@ -3,6 +3,7 @@ title: Lock an image in Azure Container Registry
 description: Set attributes for a container image or repository so it can't be deleted or overwritten in an Azure container registry.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
@@ -31,6 +32,24 @@ However, when you deploy a container image to production, you might need an *imm
 See the following sections for examples.
 
 ## Lock an image or repository 
+
+### Show the current repository attributes
+To see the current attributes of a repository, run the following [az acr repository show][az-acr-repository-show] command:
+
+```azurecli
+az acr repository show \
+    --name myregistry --repository myrepo
+    --output jsonc
+```
+
+### Show the current image attributes
+To see the current attributes of a tag, run the following [az acr repository show][az-acr-repository-show] command:
+
+```azurecli
+az acr repository show \
+    --name myregistry --image image:tag \
+    --output jsonc
+```
 
 ### Lock an image by tag
 

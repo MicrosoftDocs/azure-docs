@@ -11,7 +11,7 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 06/03/2019
 ---
 # Email notifications for automatic tuning
 
@@ -53,14 +53,9 @@ If you have several Azure subscriptions for which you would like to build the sa
 
 ## Update Azure Automation modules
 
-The PowerShell script to retrieve Automatic tuning recommendation uses [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) and [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) commands for which update of Azure Modules to the version 4 and above is required.
+The PowerShell script to retrieve Automatic tuning recommendation uses [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) and [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) commands for which Azure Module version 4 and above is required.
 
-Follow these steps to update Azure PowerShell modules:
-
-- Access the Automation app pane, and select “**Modules**” on the left-hand side menu (scroll down as this menu item is under Shared Resources).
-- In the Modules pane, click on “**Update Azure Modules**” at the top, and wait until the message “Azure modules have been updated” is displayed. This process can take a few minutes to complete.
-
-![Update Azure automation modules](./media/sql-database-automatic-tuning-email-notifications/howto-email-02.png)
+- In case your Azure Modules need updating, see [Az module support in Azure Automation](../automation/az-modules.md).
 
 ## Create Azure Automation Runbook
 
@@ -85,7 +80,7 @@ In the header of the provided PowerShell script, you need to replace `<SUBSCRIPT
 
 In case of several subscriptions, you can add them as comma-delimited to the “$subscriptions” property in the header of the script.
 
-```PowerShell
+```powershell
 # PowerShell script to retrieve Azure SQL Database Automatic tuning recommendations.
 #
 # Provided “as-is” with no implied warranties or support.

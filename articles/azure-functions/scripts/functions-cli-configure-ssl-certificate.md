@@ -22,7 +22,7 @@ This sample script creates a function app in App Service with its related resour
 * A valid .PFX file and its password for the SSL certificate you want to upload and bind.
 * Have configured an A record in your custom domain that points to your web app's default domain name. For more information, see the [Map custom domain instructions for Azure App Service](https://aka.ms/appservicecustomdns).
 
-To bind an SSL certificate, your function app must be created in an App Service plan and not in a consumption plan.
+To bind an SSL certificate, your function app must be created in a Premium plan or an App Service plan and not in a Consumption plan.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

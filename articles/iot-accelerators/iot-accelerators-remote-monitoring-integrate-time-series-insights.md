@@ -232,6 +232,9 @@ Configure the environment of `basic` deployment for the updated microservices.
 
 1. Restart the docker containers using `sudo ./start.sh` from the VM.
 
+> [!NOTE]
+> The above configuration of environment variables is valid for Remote Monitoring versions before 1.0.2
+
 ### Standard deployments
 
 Configure the environment of `standard` deployment for the updated micro services above

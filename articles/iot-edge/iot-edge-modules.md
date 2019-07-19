@@ -64,15 +64,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## Offline capabilities
 
-Azure IoT Edge supports offline operations on your IoT Edge devices. These capabilities are limited for now. Additional offline capabilities are available in public preview. For more information, see [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md).
-
-IoT Edge modules can be offline for extended periods as long as the following requirements are met: 
-
-* **Message time-to-live (TTL) has not expired**. The default value for message TTL is two hours, but can be changed higher or lower in the Store and forward configuration in the IoT Edge hub settings. 
-* **Modules don't need to reauthenticate with the IoT Edge hub when offline**. Modules can only authenticate with IoT Edge hubs that have an active connection with an IoT hub. Modules need to reauthenticate if they are restarted for any reason. Modules can still send messages to the IoT Edge hub after their SAS token has expired. When connectivity resumes, the IoT Edge hub requests a new token from the module and validates it with the IoT hub. If successful, the IoT Edge hub forwards the module messages it has stored, even the messages that were sent while the module's token was expired. 
-* **The module that sent the messages while offline is still functional when connectivity resumes**. Upon reconnecting to IoT Hub, the IoT Edge hub needs to validate a new module token (if the previous one expired) before it can forward the module messages. If the module is not available to provide a new token, the IoT Edge hub cannot act on the module's stored messages. 
-* **The IoT Edge hub has disk space to store the messages**. By default, messages are stored in the IoT Edge hub container's filesystem. There is a configuration option to specify a mounted volume to store the messages instead. In either case, there needs to be space available to store the messages for deferred delivery to IoT Hub.  
-
+Azure IoT Edge modules can operate offline indefinitely after syncing with IoT Hub at least once. IoT Edge devices can also extend this offline capability to other IoT devices. For more information, see [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md).
 
 ## Next steps
  - [Understand the requirements and tools for developing IoT Edge modules](module-development.md)

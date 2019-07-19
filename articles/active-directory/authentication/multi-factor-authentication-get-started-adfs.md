@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 <center>
 
-![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+![Azure MFA and ADFS getting started](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 If your organization has federated your on-premises Active Directory with Azure Active Directory using AD FS, there are two options for using Azure Multi-Factor Authentication.
 

@@ -3,11 +3,11 @@ title: Azure IoT Hub Device Provisioning Service - Symmetric key attestation
 description: This article provides a conceptual overview of symmetric key attestation using IoT Device Provisioning Service.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/18/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps 
-manager: timlt
+manager: philmea
 ---
 
 # Symmetric key attestation
@@ -70,7 +70,7 @@ This exact example is used in the [How to provision legacy devices using symmetr
 
 Once a registration ID has been defined for the device, the symmetric key for the enrollment group is used to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) hash of the registration ID to produce a derived device key. The hashing of the registration ID can be performed with the following C# code:
 
-```C#
+```csharp
 using System; 
 using System.Security.Cryptography; 
 using System.Text;  
@@ -87,7 +87,7 @@ public static class Utils
 } 
 ```
 
-```C#
+```csharp
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
 

@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -25,7 +25,7 @@ Automation State Configuration.
 To complete the examples in this article, the following are required:
 
 - An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](automation-sec-configure-azure-runas-account.md).
-- An Azure Resource Manager VM (not Classic) running Windows Server 2008 R2 or later. For instructions on creating a VM, see [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- An Azure Resource Manager VM (not Classic) running a [supported operating system](automation-dsc-overview.md#operating-system-requirements). For instructions on creating a VM, see [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## Creating a DSC configuration
 
@@ -165,9 +165,9 @@ State Configuration](automation-dsc-onboarding.md).
 1. On the **Virtual machine** detail page, click **+ Connect**.
 
    > [!IMPORTANT]
-   > This must be an Azure Resource Manager VM running Windows Server 2008 R2 or later.
+   > This must be an Azure Resource Manager VM running a [supported operating system](automation-dsc-overview.md#operating-system-requirements).
 
-1. In the **Registration** page, select the name of the node configuration you want to apply to the VM in the **Node configuration name** box. Providing a name at this point is optional. You can change the assigned node configuration after onboarding the node.
+2. In the **Registration** page, select the name of the node configuration you want to apply to the VM in the **Node configuration name** box. Providing a name at this point is optional. You can change the assigned node configuration after onboarding the node.
    Check **Reboot Node if Needed**, then click **OK**.
 
    ![Screenshot of the Registration blade](./media/automation-dsc-getting-started/RegisterVM.png)

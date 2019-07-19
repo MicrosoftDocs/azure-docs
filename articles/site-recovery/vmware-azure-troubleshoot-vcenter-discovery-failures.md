@@ -41,8 +41,8 @@ In general, the proxy is used to communicate to public networks; such as communi
 
 The following situations occur when this issue is encountered:
 
-- The vCenter server <vCenter> is not reachable because of the error: The remote server returned an error: (503) Server Unavailable
-- The vCenter server <vCenter> is not reachable because of the error: The remote server returned an error: Unable to connect to the remote server.
+- The vCenter server \<vCenter> is not reachable because of the error: The remote server returned an error: (503) Server Unavailable
+- The vCenter server \<vCenter> is not reachable because of the error: The remote server returned an error: Unable to connect to the remote server.
 - Unable to connect to vCenter/ESXi server.
 
 To resolve the issue:

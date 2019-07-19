@@ -2,21 +2,19 @@
 title: Rewrite HTTP headers in Azure Application Gateway
 description: This article provides information on how to create an Azure Application Gateway and rewrite HTTP headers using Azure PowerShell
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 4/30/2019
 ms.author: absha
 ---
-# Tutorial: Create an application gateway and rewrite HTTP headers
+
+# Create an application gateway and rewrite HTTP headers
 
 You can use Azure PowerShell to
 configure [rules to rewrite HTTP request and response headers](rewrite-http-headers.md) when you create the new [autoscaling and zone-redundant application gateway SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
-> [!IMPORTANT] 
-> The autoscaling and zone-redundant application gateway SKU is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details. 
-
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -32,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-This tutorial requires that you run Azure PowerShell locally. You must have Az module version 1.0.0 or later installed. Run `Import-Module Az` and then`Get-Module Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
+This article requires that you run Azure PowerShell locally. You must have Az module version 1.0.0 or later installed. Run `Import-Module Az` and then`Get-Module Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
 
 ## Sign in to Azure
 
@@ -173,5 +171,4 @@ First explore the resources that were created with the application gateway. Then
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create an application gateway with URL path-based routing rules](./tutorial-url-route-powershell.md)
+- [Create an application gateway with URL path-based routing rules](./tutorial-url-route-powershell.md)

@@ -32,10 +32,13 @@ Digital rights management (DRM)/Advanced Encryption Standard (AES) encryption of
 Besides protecting content for online streaming over various streaming protocols, offline mode for protected content is also an often-requested feature. Offline-mode support is needed for the following scenarios:
 
 * Playback when internet connection isn't available, such as during travel.
-* Some content providers might disallow DRM license delivery beyond a country's border. If users want to watch content while traveling outside of the country, offline download is needed.
-* In some countries, internet availability and/or bandwidth is still limited. Users might choose to download first to be able to watch content in a resolution that is high enough for a satisfactory viewing experience. In this case, the issue typically isn't network availability but limited network bandwidth. Over-the-top (OTT)/online video platform (OVP) providers request offline-mode support.
+* Some content providers might disallow DRM license delivery beyond a country/region's border. If users want to watch content while traveling outside of the country/region, offline download is needed.
+* In some countries/regions, internet availability and/or bandwidth is still limited. Users might choose to download first to be able to watch content in a resolution that is high enough for a satisfactory viewing experience. In this case, the issue typically isn't network availability but limited network bandwidth. Over-the-top (OTT)/online video platform (OVP) providers request offline-mode support.
 
 This article covers FairPlay Streaming (FPS) offline-mode support that targets devices running iOS 10 or later. This feature isn't supported for other Apple platforms, such as watchOS, tvOS, or Safari on macOS.
+
+> [!NOTE]
+> Offline DRM is only billed for making a single request for a license when you download the content. Any errors are not billed.
 
 ## Prerequisites
 

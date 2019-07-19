@@ -1,7 +1,6 @@
 ---
 title: Understand the lifecycle of a blueprint
 description: Learn about the lifecycle that a blueprint goes through and details about each stage.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/01/2019

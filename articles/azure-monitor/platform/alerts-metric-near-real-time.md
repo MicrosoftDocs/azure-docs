@@ -14,7 +14,7 @@ ms.subservice: alerts
 
 Azure Monitor now supports a [new metric alert type](../../azure-monitor/platform/alerts-overview.md) which has significant benefits over the older [classic metric alerts](../../azure-monitor/platform/alerts-classic.overview.md). Metrics are available for [large list of Azure services](../../azure-monitor/platform/metrics-supported.md). The newer alerts support a (growing) subset of the resource types. This article lists that subset.
 
-You can also use newer metric alerts on popular Log Analytics logs extracted as metrics. For more information, view [Metric Alerts for Logs](../../azure-monitor/platform/alerts-metric-logs.md).
+You can also use newer metric alerts on popular log data stored in a Log Analytics workspace extracted as metrics. For more information, view [Metric Alerts for Logs](../../azure-monitor/platform/alerts-metric-logs.md).
 
 ## Portal, PowerShell, CLI, REST support
 Currently, you can create newer metric alerts only in the Azure portal, [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/), or [Resource Manager Templates](../../azure-monitor/platform/alerts-metric-create-templates.md). Support for configuring newer alerts using PowerShell and Azure CLI versions 2.0 and higher is coming soon.
@@ -39,6 +39,8 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.DataFactory/factories     |   Yes     |[Data Factories V2](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactoryfactories)|
 |Microsoft.DBforMySQL/servers     |   N/A      |[DB for MySQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    N/A     | [DB for PostgreSQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
+|Microsoft.Devices/IotHubs    | N/A     |[IoT Hub Metrics](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs)
+|Microsoft.Devices/provisioningServices    | Yes     |[DPS Metrics](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesprovisioningservices)
 |Microsoft.EventHub/namespaces     |  Yes      |[Event Hubs](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
 |Microsoft.KeyVault/vaults| No | [Vaults](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
@@ -61,6 +63,10 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 
 
 ## Payload schema
+
+> [!NOTE]
+> You can also use the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
+
 
 The POST operation contains the following JSON payload and schema for all near newer metric alerts when an appropriately configured [action group](../../azure-monitor/platform/action-groups.md) is used:
 

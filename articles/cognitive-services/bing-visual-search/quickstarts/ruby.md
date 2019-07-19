@@ -3,19 +3,19 @@ title: "Quickstart: Get image insights using Bing Visual Search REST API and Rub
 titleSuffix: Azure Cognitive Services
 description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/27/2019
+ms.date: 4/02/2019
 ms.author: rosh
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Ruby
 
-This quickstart uses the Ruby programming language to call Bing Visual Search and display results. A Post request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
+This quickstart uses the Ruby programming language to call Bing Visual Search and display results. A POST request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ To run this quickstart:
 
 ## Project and required modules
 
-Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. The `base64` library is used to encode the file name string. 
+Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. The `base64` library is used to encode the file name string: 
 
 ```
 require 'net/https'
@@ -40,7 +40,7 @@ require 'base64'
 
 ## Define variables
 
-The following code assigns required variables. Confirm that the endpoint is correct and replace the `accessKey` value with a subscription key from your Azure account.  The `batchNumber` is a guid required for leading and trailing boundaries of the Post data.  The `fileName` variable identifies the image file for the Post.  The `if` block tests for a valid subscription key.
+The following code assigns required variables. Confirm that the endpoint is correct and replace the `accessKey` value with a subscription key from your Azure account.  The `batchNumber` is a GUID required for leading and trailing boundaries of the POST data.  The `fileName` variable identifies the image file for the POST.  The `if` block tests for a valid subscription key.
 
 ```
 accessKey = "ACCESS-KEY"
@@ -57,9 +57,9 @@ end
 
 ```
 
-## Form data for Post request
+## Form data for POST request
 
-The image data to Post is enclosed by leading and trailing boundaries.  The following functions set the boundaries.
+The image data to POST is enclosed by leading and trailing boundaries. The following functions set the boundaries:
 
 ```
 def BuildFormDataStart(batNum, fileName)
@@ -70,10 +70,9 @@ end
 def BuildFormDataEnd(batNum)
     return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
 end
-
 ```
 
-Next construct the endpoint URI and an array to contain the Post body.  Use the previous function to load the start boundary into the array. Read the image file into the array. Then, read the end boundary into the array. 
+Next, construct the endpoint URI and an array to contain the POST body.  Use the previous function to load the start boundary into the array. Read the image file into the array. Then, read the end boundary into the array:
 
 ```
 uri = URI(uri + path)
@@ -87,12 +86,11 @@ post_body << BuildFormDataStart(batchNumber, fileName)
 post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 
 post_body << BuildFormDataEnd(batchNumber)
-
 ```
 
 ## Create the HTTP request
 
-Set the `Ocp-Apim-Subscription-Key` header.  Create the request.  Then, assign the header and content type.  Join the Post body created previously to the request.
+Set the `Ocp-Apim-Subscription-Key` header.  Create the request. Then, assign the header and content type. Join the POST body created previously to the request:
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -106,7 +104,7 @@ request.body = post_body.join
 
 ## Request and response
 
-Ruby sends the request and gets the response with the following line of code.
+Ruby sends the request and gets the response with the following line of code:
 
 ```
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -117,7 +115,7 @@ end
 
 ## Print the results
 
-Print the headers of the response. Then use the JSON library to format output.
+Print the headers of the response, and use the JSON library to format output:
 
 ```
 puts "\nRelevant Headers:\n\n"
@@ -134,7 +132,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## Results
 
-The following JSON is a segment of the output.
+The following JSON is a segment of the output:
 
 ```
 Relevant Headers:
@@ -283,4 +281,4 @@ JSON Response:
 
 > [!div class="nextstepaction"]
 > [Bing Visual Search overview](../overview.md)
-> [Build a Custom Search web app](../tutorial-bing-visual-search-single-page-app.md)
+> [Build a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)

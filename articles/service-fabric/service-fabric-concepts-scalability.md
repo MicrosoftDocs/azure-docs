@@ -4,7 +4,7 @@ description: Describes how to scale Service Fabric services
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d

@@ -21,8 +21,7 @@ When using the `Ocp-Apim-Subscription-Key` header, you're only required to provi
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-When using the `Authorization: Bearer` header, you're required to make a request to the `issueToken` endpoint. In this request, you exchange your subscription key for an access token that's valid for 10 minutes. In the next few sections you'll learn how to get a token, use a token, and refresh a token.
-
+When using the `Authorization: Bearer` header, you're required to make a request to the `issueToken` endpoint. In this request, you exchange your subscription key for an access token that's valid for 10 minutes. In the next few sections you'll learn how to get a token, and use a token.
 
 ### How to get an access token
 
@@ -84,9 +83,6 @@ curl -v -X POST
 This C# class illustrates how to get an access token. Pass your Speech Service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the value of `FetchTokenUri` to match the region for your subscription.
 
 ```cs
-/*
-    * This class demonstrates how to get a valid access token.
-    */
 public class Authentication
 {
     public static readonly string FetchTokenUri =

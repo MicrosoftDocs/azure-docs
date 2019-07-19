@@ -6,7 +6,7 @@ ms.date: 11/09/2018
 ms.author: jroth
 ---
 
-## Key transactions (maximum transactions allowed in 10 seconds, per vault per region<sup>1</sup>):
+#### Key transactions (maximum transactions allowed in 10 seconds, per vault per region<sup>1</sup>):
 
 |Key type|HSM key<br>CREATE key|HSM key<br>All other transactions|Software key<br>CREATE key|Software key<br>All other transactions|
 |:---|---:|---:|---:|---:|
@@ -29,7 +29,7 @@ ms.author: jroth
 > - 125 RSA 4,096-bit HSM-key GET transactions
 > - 124 RSA 4,096-bit HSM-key GET transactions and 8 RSA 2,048-bit HSM-key GET transactions
 
-## Secrets, managed storage account keys, and vault transactions:
+#### Secrets, managed storage account keys, and vault transactions:
 | Transactions type | Maximum transactions allowed in 10 seconds, per vault per region<sup>1</sup> |
 | --- | --- |
 | All transactions |2,000 |

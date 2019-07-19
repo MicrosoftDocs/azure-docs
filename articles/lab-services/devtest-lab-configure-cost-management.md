@@ -68,7 +68,7 @@ DevTest Labs lets you better manage the costs in  your lab by setting a spending
    - Specify a **Target cost**. For example, how much you plan to spend on this lab in the time period you defined.
    - Select to enable or disable any threshold you want reported – in increments of 25% – up to 125% of your specified **Target cost**.
       - **Notify**: When this threshold is met, you are notified by a webhook URL you specify.
-      - **Plot on chart**: When this threshold is met, the results are plotted on the cost trend graph that you can view, as described in [Viewing the Monthly Estimated Cost Trend chart](#viewing-the-monthly-estimated-cost-trend-chart).
+      - **Plot on chart**: When this threshold is met, the results are plotted on the cost trend graph that you can view, as described in Viewing the Monthly Estimated Cost Trend chart.
    - If you choose to **Notify** when the threshold is met, you must specify a webhook URL. In the Cost integrations area, select **Click here to add an integration**. Enter a **Webhook URL** in the Configure notification pane and then select **OK**.
 
        ![Configure notification pane](./media/devtest-lab-configure-cost-management/configure-notification.png)
@@ -92,7 +92,7 @@ The monthly cost trend feature in labs allows you to see how much you have spent
 
 This feature helps you to easily identify the resources that cost the most so that you can take actions to reduce the lab spending. For example, the cost of a VM is based on the size of the VM. The larger the size of the VM, more is the cost. You can easily find the size of a VM and the owner, so that you can talk to the VM owner to understand why such VM size is needed and whether there is a chance to lower the size.
 
-[Auto-shutdown policy](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown) helps you to reduce the cost by shutting down lab VMs at a particular time of the day. However, a lab user can opt out of the shutdown policy, which increases the cost of running the VM. You can select a VM in the table to see if it has been opted-out of the auto-shutdown policy. If that's the case, you can talk to the VM owner to find why the VM has been opted-out of the policy.
+[Auto-shutdown policy](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) helps you to reduce the cost by shutting down lab VMs at a particular time of the day. However, a lab user can opt out of the shutdown policy, which increases the cost of running the VM. You can select a VM in the table to see if it has been opted-out of the auto-shutdown policy. If that's the case, you can talk to the VM owner to find why the VM has been opted-out of the policy.
  
 ## Next steps
 Here are some things to try next:

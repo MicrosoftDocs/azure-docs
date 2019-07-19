@@ -58,7 +58,7 @@ A point-to-site Virtual Private Network is the simplest form of secure connectio
 
 ### Site-to-Site VPN
 
-A site-to-site Virtual Private Network allows for secure communication between Azure-based Dedicated HSMs and your on-premises IT. A reason to do this is having a backup facility for the HSM’s on-premise and needing a connection between the two for running the backup.
+A site-to-site Virtual Private Network allows for secure communication between Azure-based Dedicated HSMs and your on-premises IT. A reason to do this is having a backup facility for the HSM’s on-premises and needing a connection between the two for running the backup.
 
 ## Connecting virtual networks
 

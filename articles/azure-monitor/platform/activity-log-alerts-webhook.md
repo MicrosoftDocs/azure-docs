@@ -16,6 +16,10 @@ For more information on activity log alerts, see how to [create Azure activity l
 
 For information on action groups, see how to [create action groups](../../azure-monitor/platform/action-groups.md).
 
+> [!NOTE]
+> You can also use the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
+
+
 ## Authenticate the webhook
 The webhook can optionally use token-based authorization for authentication. The webhook URI is saved with a token ID, for example, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
 
@@ -23,6 +27,7 @@ The webhook can optionally use token-based authorization for authentication. The
 The JSON payload contained in the POST operation differs based on the payload's data.context.activityLog.eventSource field.
 
 ### Common
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -49,7 +54,9 @@ The JSON payload contained in the POST operation differs based on the payload's 
     }
 }
 ```
+
 ### Administrative
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -74,43 +81,130 @@ The JSON payload contained in the POST operation differs based on the payload's 
         "properties": {}
     }
 }
-
 ```
+
+### Security
+
+```json
+{
+	"schemaId":"Microsoft.Insights/activityLogs",
+	"data":{"status":"Activated",
+		"context":{
+			"activityLog":{
+				"channels":"Operation",
+				"correlationId":"2518408115673929999",
+				"description":"Failed SSH brute force attack. Failed brute force attacks were detected from the following attackers: [\"IP Address: 01.02.03.04\"].  Attackers were trying to access the host with the following user names: [\"root\"].",
+				"eventSource":"Security",
+				"eventTimestamp":"2017-06-25T19:00:32.607+00:00",
+				"eventDataId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+				"level":"Informational",
+				"operationName":"Microsoft.Security/locations/alerts/activate/action",
+				"operationId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+				"properties":{
+					"attackers":"[\"IP Address: 01.02.03.04\"]",
+					"numberOfFailedAuthenticationAttemptsToHost":"456",
+					"accountsUsedOnFailedSignInToHostAttempts":"[\"root\"]",
+					"wasSSHSessionInitiated":"No","endTimeUTC":"06/25/2017 19:59:39",
+					"actionTaken":"Detected",
+					"resourceType":"Virtual Machine",
+					"severity":"Medium",
+					"compromisedEntity":"LinuxVM1",
+					"remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)]",
+					"attackedResourceType":"Virtual Machine"
+				},
+				"resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/Microsoft.Security/locations/centralus/alerts/Sec-07f2-4d74-aaf0-03d2f53d5a33",
+				"resourceGroupName":"contoso",
+				"resourceProviderName":"Microsoft.Security",
+				"status":"Active",
+				"subscriptionId":"12345-5645-123a-9867-123b45a6789",
+				"submissionTimestamp":"2017-06-25T20:23:04.9743772+00:00",
+				"resourceType":"MICROSOFT.SECURITY/LOCATIONS/ALERTS"
+			}
+		},
+		"properties":{}
+	}
+}
+```
+
+### Recommendation
+
+```json
+{
+	"schemaId":"Microsoft.Insights/activityLogs",
+	"data":{
+		"status":"Activated",
+		"context":{
+			"activityLog":{
+				"channels":"Operation",
+				"claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
+				"caller":"Microsoft.Advisor",
+				"correlationId":"123b4c54-11bb-3d65-89f1-0678da7891bd",
+				"description":"A new recommendation is available.",
+				"eventSource":"Recommendation",
+				"eventTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+				"httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
+				"eventDataId":"1bf234ef-e45f-4567-8bba-fb9b0ee1dbcb",
+				"level":"Informational",
+				"operationName":"Microsoft.Advisor/recommendations/available/action",
+				"properties":{
+					"recommendationSchemaVersion":"1.0",
+					"recommendationCategory":"HighAvailability",
+					"recommendationImpact":"Medium",
+					"recommendationName":"Enable Soft Delete to protect your blob data",
+					"recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/recommendationTypeId/12dbf883-5e4b-4f56-7da8-123b45c4b6e6",
+					"recommendationType":"12dbf883-5e4b-4f56-7da8-123b45c4b6e6"
+				},
+				"resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/microsoft.storage/storageaccounts/contosoStore",
+				"resourceGroupName":"CONTOSO",
+				"resourceProviderName":"MICROSOFT.STORAGE",
+				"status":"Active",
+				"subStatus":"",
+				"subscriptionId":"12345-5645-123a-9867-123b45a6789",
+				"submissionTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+				"resourceType":"MICROSOFT.STORAGE/STORAGEACCOUNTS"
+			}
+		},
+		"properties":{}
+	}
+}
+```
+
 ### ServiceHealth
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
     "data": {
-    "status": "Activated",
-    "context": {
-        "activityLog": {
-        "channels": "Admin",
-        "correlationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
-        "description": "Active: Virtual Machines - Australia East",
-        "eventSource": "ServiceHealth",
-        "eventTimestamp": "2017-10-18T23:49:25.3736084+00:00",
-        "eventDataId": "6fa98c0f-334a-b066-1934-1a4b3d929856",
-        "level": "Informational",
-        "operationName": "Microsoft.ServiceHealth/incident/action",
-        "operationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
-        "properties": {
-            "title": "Virtual Machines - Australia East",
-            "service": "Virtual Machines",
-            "region": "Australia East",
-            "communication": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
-            "incidentType": "Incident",
-            "trackingId": "0NIH-U2O",
-            "impactStartTime": "2017-10-18T02:48:00.0000000Z",
-            "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"}],\"ServiceName\":\"Virtual Machines\"}]",
-            "defaultLanguageTitle": "Virtual Machines - Australia East",
-            "defaultLanguageContent": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
-            "stage": "Active",
-            "communicationId": "636439673646212912",
-            "version": "0.1.1"
-        },
-        "status": "Active",
-        "subscriptionId": "45529734-0ed9-4895-a0df-44b59a5a07f9",
-        "submissionTimestamp": "2017-10-18T23:49:28.7864349+00:00"
+        "status": "Activated",
+        "context": {
+            "activityLog": {
+            "channels": "Admin",
+            "correlationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
+            "description": "Active: Virtual Machines - Australia East",
+            "eventSource": "ServiceHealth",
+            "eventTimestamp": "2017-10-18T23:49:25.3736084+00:00",
+            "eventDataId": "6fa98c0f-334a-b066-1934-1a4b3d929856",
+            "level": "Informational",
+            "operationName": "Microsoft.ServiceHealth/incident/action",
+            "operationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
+            "properties": {
+                "title": "Virtual Machines - Australia East",
+                "service": "Virtual Machines",
+                "region": "Australia East",
+                "communication": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+                "incidentType": "Incident",
+                "trackingId": "0NIH-U2O",
+                "impactStartTime": "2017-10-18T02:48:00.0000000Z",
+                "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"}],\"ServiceName\":\"Virtual Machines\"}]",
+                "defaultLanguageTitle": "Virtual Machines - Australia East",
+                "defaultLanguageContent": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+                "stage": "Active",
+                "communicationId": "636439673646212912",
+                "version": "0.1.1"
+            },
+            "status": "Active",
+            "subscriptionId": "45529734-0ed9-4895-a0df-44b59a5a07f9",
+            "submissionTimestamp": "2017-10-18T23:49:28.7864349+00:00"
         }
     },
     "properties": {}
@@ -118,7 +212,10 @@ The JSON payload contained in the POST operation differs based on the payload's 
 }
 ```
 
+For specific schema details on service health notification activity log alerts, see [Service health notifications](../../azure-monitor/platform/service-notifications.md). Additionally, learn how to [configure service health webhook notifications with your existing problem management solutions](../../service-health/service-health-alert-webhook-guide.md).
+
 ### ResourceHealth
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -146,7 +243,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
                 "resourceGroupName": "<resource group>",
                 "resourceProviderName": "Microsoft.Resourcehealth/healthevent/action",
                 "status": "Active",
-                "subscriptionId": "<subscription Id",
+                "subscriptionId": "<subscription Id>",
                 "submissionTimestamp": "2018-09-04T23:11:06.1607287+00:00",
                 "resourceType": "Microsoft.Compute/virtualMachines"
             }
@@ -154,10 +251,6 @@ The JSON payload contained in the POST operation differs based on the payload's 
     }
 }
 ```
-
-For specific schema details on service health notification activity log alerts, see [Service health notifications](../../azure-monitor/platform/service-notifications.md). Additionally, learn how to [configure service health webhook notifications with your existing problem management solutions](../../service-health/service-health-alert-webhook-guide.md).
-
-For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](../../azure-monitor/platform/activity-logs-overview.md).
 
 | Element name | Description |
 | --- | --- |
@@ -188,6 +281,8 @@ For specific schema details on all other activity log alerts, see [Overview of t
 | properties |Properties of the event. |
 | status |String. Status of the operation. Common values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
 | subStatus |Usually includes the HTTP status code of the corresponding REST call. It might also include other strings that describe a substatus. Common substatus values include OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), and Gateway Timeout (HTTP Status Code: 504). |
+
+For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](../../azure-monitor/platform/activity-logs-overview.md).
 
 ## Next steps
 * [Learn more about the activity log](../../azure-monitor/platform/activity-logs-overview.md).

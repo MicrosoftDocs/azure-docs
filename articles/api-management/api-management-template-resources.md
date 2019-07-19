@@ -40,6 +40,29 @@ Azure API Management provides the following types of resources for use in the de
   
 ```  
   
+The following localization options are supported:
+
+| Locale    | Language               |
+|-----------|------------------------|
+| "en"      | "English"              |
+| "cs"      | "Čeština"              |
+| "de"      | "Deutsch"              |
+| "es"      | "Español"              |
+| "fr"      | "Français"             |
+| "hu"      | "Magyar"               |
+| "it"      | "Italiano"             |
+| "ja-JP"   | "日本語"                |
+| "ko"      | "한국어"                |
+| "nl"      | "Nederlands"           |
+| "pl"      | "Polski"               |
+| "pt-br"   | "Português (Brasil)"   |
+| "pt-pt"   | "Português (Portugal)" |
+| "ru"      | "Русский"              |
+| "sv"      | "Svenska"              |
+| "tr"      | "Türkçe"               |
+| "zh-hans" | "中文(简体)"           |
+| "zh-hant" | "中文(繁體)"           |
+
  Refer to the following tables for the string resources available for use in your developer portal templates. Use the table name as the prefix for the string resources in that table.  
   
 -   [ApisStrings](#ApisStrings)  

@@ -29,6 +29,8 @@ The following diagram indicates the flow of data through the Azure Data Box solu
 
 ![Data Box security](media/data-box-security/data-box-security-2.png)
 
+As the data flows through this solution, events are logged and logs are generated. For more information, go to [Tracking and event logging for your Azure Data Box](data-box-logs.md).
+
 ## Security features
 
 Data Box provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. The security features for this solution are for the disk and for the associated service ensuring the security of the data stored on them. 
@@ -43,24 +45,25 @@ The Data Box device is protected by the following features:
 - Runs only Data Box-specific software.
 - Boots up in a locked state.
 - Controls device access via device unlock password.
-- Access credentials to copy data in and out of the device.
+- Access credentials to copy data in and out of the device. All access to the **Device credentials** page in Azure portal are logged in the [activity logs](data-box-logs.md#query-activity-logs-during-setup).
 
 ### Data Box data protection
 
 The data that flows in and out of Data Box is protected by the following features:
 
-- AES 256-bit encryption for Data-at-rest. 
+- AES 256-bit encryption for Data-at-rest.
 - Encrypted protocols can be used for data-in-flight.
-- Secure erasure of data from device once upload to Azure is complete. Data erasure is in accordance with NIST 800-88r1 standards.
+- Secure erasure of data from device once upload to Azure is complete. Data erasure is in accordance with NIST 800-88r1 standards. The data erasure event is recorded in the [order history](data-box-logs.md#download-order-history).
 
 ### Data Box service protection
 
 The Data Box service is protected by the following features.
 
 - Access to the Data Box service requires that your organization has an Azure subscription that includes Data Box. Your subscription governs the features that you can access in the Azure portal.
-- Because the Data Box service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx). 
-- The Data Box service stores unlock password that is used to unlock the device in the service. 
-- The Data box service stores order details and status in the service. This information is deleted when the order is deleted. 
+- Because the Data Box service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx).
+- Access to the Data Box order can be controlled via the use of Role-based Access Control (RBAC) roles. For more information, see [Set up access control for Data Box order](data-box-logs.md#set-up-access-control-on-the-order)
+- The Data Box service stores unlock password that is used to unlock the device in the service.
+- The Data box service stores order details and status in the service. This information is deleted when the order is deleted.
 
 ## Managing personal data
 

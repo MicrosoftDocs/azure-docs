@@ -4,7 +4,7 @@ description: This article walks through the experience of deploying a Service Fa
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25

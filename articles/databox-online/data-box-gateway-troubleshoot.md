@@ -6,17 +6,13 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: gateway
-ms.topic: overview
-ms.date: 02/26/2019
+ms.topic: article
+ms.date: 03/20/2019
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Data Box Gateway issues 
 
 This article describes how to troubleshoot issues on your Azure Data Box Gateway. 
-
-> [!IMPORTANT]
-> - Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
-
 In this article, you learn how to:
 
 > [!div class="checklist"]
@@ -48,7 +44,7 @@ Do the following steps to collect a Support package.
 
     ![Click add user](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
-2. After the Support package is created, click **Download Support package**. A zipped package is downloaded on the path you chose. You can unzip the package and the view the system log files.
+2. After the Support package is created, click **Download Support package**. A zipped package is downloaded on the path you chose. You can unzip the package.
 
     ![Click add user](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 

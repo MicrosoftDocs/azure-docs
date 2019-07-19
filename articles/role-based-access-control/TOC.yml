@@ -17,6 +17,9 @@
     href: quickstart-assign-role-user-portal.md
   - name: Grant a user access - PowerShell
     href: tutorial-role-assignments-user-powershell.md
+  - name: Grant a user access - Resource Manager Template
+    displayName: ARM, resource manager template
+    href: tutorial-role-assignments-user-template.md
   - name: Grant a group access - PowerShell
     href: tutorial-role-assignments-group-powershell.md
   - name: Create a custom role - PowerShell
@@ -27,11 +30,9 @@
   items:
   - name: Understand role definitions
     href: role-definitions.md
-  - name: Understand deny assignments
-    href: deny-assignments.md
   - name: PIM for Azure resources
     href: pim-azure-resource.md
-  - name: Conditional access for Azure management
+  - name: Conditional Access for Azure management
     href: conditional-access-azure-management.md
 - name: How-to guides
   items:
@@ -49,13 +50,18 @@
       href: role-assignments-template.md
   - name: Deny access
     items:
+    - name: Deny assignments
+      href: deny-assignments.md
     - name: Portal
       href: deny-assignments-portal.md
+    - name: PowerShell
+      href: deny-assignments-powershell.md
     - name: REST API
       href: deny-assignments-rest.md
   - name: Custom roles
-    href: custom-roles.md
     items:
+    - name: Overview
+      href: custom-roles.md
     - name: PowerShell
       href: custom-roles-powershell.md
     - name: Azure CLI
@@ -87,6 +93,7 @@
   - name: REST API
     href: /rest/api/authorization/
   - name: Resource Manager templates
+    displayName: ARM
     items:
     - name: Role Assignments
       href: /azure/templates/microsoft.authorization/roleassignments

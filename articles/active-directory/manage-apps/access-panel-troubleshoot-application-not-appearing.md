@@ -3,8 +3,8 @@ title: An assigned application is not appearing on the access panel | Microsoft 
 description: Troubleshoot why an application is not appearing in the Access Panel 
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2018
-ms.author: celested
+ms.author: mimart
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
 ---
@@ -395,7 +395,7 @@ To add an application from the Azure AD Gallery, follow the steps below:
 
 After a short period, you be able to see the application’s configuration pane.
 
-#### Configure the application for password single sign-on
+#### <a name="configure-the-application-for-password-single-sign-on-1"></a> Configure the application for password single sign-on
 
 To configure single sign-on for an application, follow the steps below:
 

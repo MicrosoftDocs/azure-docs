@@ -48,7 +48,7 @@
       - name: Users, groups, and roles
         tocHref: /azure/active-directory/users-groups-roles/
         topicHref: /azure/active-directory/users-groups-roles/
-      - name: Identity governance
+      - name: Identity Governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
       - name: Application management
@@ -99,9 +99,15 @@
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
+  - name: ASC for IoT
+    tocHref: /azure/asc-for-iot/
+    topicHref: /azure/asc-for-iot/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
+  - name: Azure Blockchain Service
+    tocHref: /azure/blockchain/service
+    topicHref: /azure/blockchain/service
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
@@ -136,12 +142,12 @@
   - name: Azure Germany
     tocHref: /azure/germany/
     topicHref: /azure/germany/
-  - name: Azure China 21Vianet
-    tocHref: /azure/china/
-    topicHref: /azure/china/
   - name: Azure NetApp Files
     tocHref: /azure/azure-netapp-files/
     topicHref: /azure/azure-netapp-files/
+  - name: Azure VMware Solution by CloudSimple
+    tocHref: /azure/vmware-cloudsimple/
+    topicHref: /azure/vmware-cloudsimple/
   - name: Azure portal customization
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/\
@@ -225,6 +231,9 @@
     - name: Academic Knowledge
       tocHref: /azure/cognitive-services/academic-knowledge/
       topicHref: /azure/cognitive-services/academic-knowledge/home
+    - name: Anomaly Detector
+      tocHref: /azure/cognitive-services/anomaly-detector/
+      topicHref: /azure/cognitive-services/anomaly-detector/
     - name: Bing Autosuggest
       tocHref: /azure/cognitive-services/Bing-Autosuggest/
       topicHref: /azure/cognitive-services/Bing-Autosuggest/
@@ -252,6 +261,9 @@
     - name: Bing Web Search
       tocHref: /azure/cognitive-services/bing-web-search/
       topicHref: /azure/cognitive-services/bing-web-search/
+    - name: Bing Local Business Search
+      tocHref: /azure/cognitive-services/bing-local-business-search/
+      topicHref: /azure/cognitive-services/bing-local-business-search/
     - name: Computer Vision
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/
@@ -324,6 +336,18 @@
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
       topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
+    - name: Form Recognizer
+      tocHref: /azure/cognitive-services/form-recognizer/
+      topicHref: /azure/cognitive-services/form-recognizer/
+    - name: Ink Recognizer
+      tocHref: /azure/cognitive-services/Ink-Recognizer/
+      topicHref: /azure/cognitive-services/Ink-Recognizer/
+    - name: Personalizer
+      tocHref: /azure/cognitive-services/personalizer/
+      topicHref: /azure/cognitive-services/personalizer/
+    - name: Immersive Reader
+      tocHref: /azure/cognitive-services/immersive-reader/
+      topicHref: /azure/cognitive-services/immersive-reader/
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -333,6 +357,9 @@
   - name: AKS
     tocHref: /azure/aks/
     topicHref: /azure/aks/
+  - name: OpenShift
+    tocHref: /azure/openshift/
+    topicHref: /azure/openshift/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
@@ -343,6 +370,9 @@
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
+  - name: Bastion
+    tocHref: /azure/bastion/
+    topicHref: /azure/bastion/
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
@@ -435,7 +465,7 @@
         topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
       - name: ML Services
         tocHref: /azure/hdinsight/r-server
-        topicHref: /azure/hdinsight/r-server-overview
+        topicHref: /azure/hdinsight/r-server/r-server-overview
       - name: Spark
         tocHref: /azure/hdinsight/spark
         topicHref: /azure/hdinsight/spark/apache-spark-overview
@@ -479,6 +509,12 @@
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
+  - name: Azure Kinect DK
+    tocHref: /azure/kinect-dk/
+    topicHref: /azure/kinect-dk/
+  - name: Lab Services
+    tocHref: /azure/lab-services/
+    topicHref: /azure/lab-services/    
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
@@ -492,6 +528,10 @@
       - name: Service
         tocHref: /azure/machine-learning/service
         topicHref: /azure/machine-learning/service/
+        items:
+        - name: Algorithm and Module Reference
+          tocHref: /azure/machine-learning/algorithm-module-reference
+          topicHref: /azure/machine-learning/algorithm-module-reference/module-reference
       - name: Studio
         tocHref: /azure/machine-learning/studio
         topicHref: /azure/machine-learning/studio/
@@ -548,6 +588,9 @@
   - name: Notification Hubs
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/
+  - name: Open Datasets
+    tocHref: /azure/open-datasets/
+    topicHref: /azure/open-datasets/
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
@@ -584,6 +627,10 @@
   - name: Security
     tocHref: /azure/security/
     topicHref: /azure/security/
+    items:
+      - name: Develop
+        tocHref: /azure/security/develop/
+        topicHref: /azure/security/develop/ 
   - name: Security Center
     tocHref: /azure/security-center/
     topicHref: /azure/security-center/
@@ -656,6 +703,9 @@
         tocHref: /azure/virtual-machines/workloads/
         topicHref: /azure/virtual-machines/workloads/workloads
         items:
+          - name: High Performance Computing
+            tocHref: /azure/virtual-machines/workloads/hpc/
+            topicHref: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
           - name: SAP
             tocHref: /azure/virtual-machines/workloads/sap/
             topicHref: /azure/virtual-machines/workloads/sap/get-started
@@ -671,14 +721,14 @@
         items:
           - name: Linux classic deployments
             tocHref: /azure/virtual-machines/linux/classic/
-            topicHref: /azure/virtual-machines/linux/classic/
+            topicHref: /previous-versions/azure/virtual-machines/linux/classic/
       - name: Windows
         tocHref: /azure/virtual-machines/windows/
         topicHref: /azure/virtual-machines/windows/
         items:
           - name: Windows classic deployments
             tocHref: /azure/virtual-machines/windows/classic/
-            topicHref: /azure/virtual-machines/windows/classic/
+            topicHref: /previous-versions/azure/virtual-machines/windows/classic/
           - name: SQL VM
             tocHref: /azure/virtual-machines/windows/sql
             topicHref: /azure/virtual-machines/windows/sql

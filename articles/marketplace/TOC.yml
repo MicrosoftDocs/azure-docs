@@ -1,0 +1,480 @@
+- name: Azure Marketplace and AppSource documentation
+  href: index.md
+  items:
+  - name: Azure Marketplace and AppSource roadmap
+    href: ./marketplace-roadmap.md
+  - name: Azure Marketplace policies and terms
+    href: ./policies-terms.md
+  - name: Azure Marketplace and AppSource overview and benefits
+    href: ./marketplace-publishers-guide.md
+    items:
+#    - name: Become a publisher on the marketplace
+#      href: ./become-publisher.md
+#      items:
+#      - name: Create a Microsoft account
+#        href: ./guidelines.md
+#      - name: Register in Dev Center
+#        href: ./register-dev-center.md
+    - name: One marketplace, two storefronts
+      href: ./comparing-appsource-azure-marketplace.md
+    - name: Publishing options and considerations
+      href: ./determine-your-listing-type.md
+      items:
+      - name: Lead management
+        href: ./lead-management-for-cloud-marketplace.md
+      - name: Transacting in Azure Marketplace
+        href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+      - name: Private Offers
+        href: ./private-offers.md
+      - name: Standard Contract
+        href: ./standard-contract.md
+      - name: Azure partner customer usage attribution
+        href: ./azure-partner-customer-usage-attribution.md
+    - name: Publishing guide by offer type
+      href: ./publisher-guide-by-offer-type.md
+      items:
+      - name: Virtual Machines
+        href: ./marketplace-virtual-machines.md
+      - name: "Azure Applications: solution templates"
+        href: ./marketplace-solution-templates.md
+      - name: "Azure Applications: managed applications"
+        href: ./marketplace-managed-apps.md
+      - name: SaaS Apps
+        href: ./marketplace-saas-applications-technical-publishing-guide.md
+      - name: Containers
+        href: ./marketplace-containers.md
+      - name: IoT Edge modules
+        href: ./iot-edge-module.md
+      - name: Consulting Service
+        href: ./consulting-services.md
+      - name: Office 365, Dynamics 365, and Power BI publishing guide
+        href: ./appsource-offer-publishing-guide.md
+      - name: Enable an AppSource and Marketplace listing by using Azure Active Directory
+        href: ./enable-appsource-marketplace-using-azure-ad.md
+    - name: Marketing best practices
+      href: ./gtm-marketing-best-practices.md
+      items:
+      - name: Offer listing best practices
+        href: ./gtm-offer-listing-best-practices.md
+      - name: How to get featured
+        href: ./gtm-how-to-get-featured.md
+      - name: Marketplace content validation
+        href: ./marketplace-criteria-content-validation.md
+      - name: Cloud Solution Providers
+        href: ./cloud-solution-providers.md
+    - name: Your marketplace benefits
+      href: ./gtm-your-marketplace-benefits.md
+      items:
+#      - name: Promote your business with Microsoft
+#        href: ./gtm-promote-your-business.md
+      - name: Preferred solutions
+        href: ./preferred-solutions.md
+      - name: Integrated solutions
+        href: ./integrated-solutions.md
+    - name: Support for Azure Marketplace and AppSource
+      href: ./support-azure-marketplace.md
+      items:
+      - name: Marketplace FAQs
+        href: ./marketplace-faq-publisher-guide.md
+      - name: Geographic availability and currencies
+        href: ./marketplace-geo-availability-currencies.md
+- name: Cloud Partner Portal
+  href: ./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
+  items:
+  - name: Portal Tour
+    href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
+    items:
+    - name: Portal navigation
+      href: ./cloud-partner-portal/portal-tour/cpp-portal-navigation.md
+    - name: New offer menu
+      href: ./cloud-partner-portal/portal-tour/cpp-new-offer-menu.md
+    - name: All offers page
+      href: ./cloud-partner-portal/portal-tour/cpp-all-offers-page.md
+    - name: Approvals page
+      href: ./cloud-partner-portal/portal-tour/cpp-approvals-page.md
+    - name: All publishers page
+      href: ./cloud-partner-portal/portal-tour/cpp-all-publishers-page.md
+    - name: Users page
+      href: ./cloud-partner-portal/portal-tour/cpp-users-page.md
+    - name: Audit history page
+      href: ./cloud-partner-portal/portal-tour/cpp-history-page.md
+    - name: Insights page
+      href: ./cloud-partner-portal/portal-tour/cpp-insights-page.md
+  - name: Portal management
+    href: ./cloud-partner-portal/portal-manage/cpp-portal-management.md
+    items:
+    - name: Prerequisites for managing accounts
+      href: ./cloud-partner-portal/portal-manage/cpp-manage-prerequisites.md
+    - name: Manage publisher profiles
+      href: ./cloud-partner-portal/portal-manage/cpp-manage-publisher-profile.md
+    - name: Manage users
+      href: ./cloud-partner-portal/portal-manage/cpp-manage-users.md
+  - name: Business management
+    items:
+    - name: SEO guidance
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md
+    - name: GDPR compliance
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md
+    - name: Private SKUs
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md
+    - name: Manage leads
+      items:
+      - name: Configure customer leads
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md
+      - name: Azure table
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md
+      - name: Dynamics
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md
+      - name: HTTPS Endpoint
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md
+      - name: Marketo
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md
+      - name: Salesforce
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md
+    - name: Seller Insights
+      items:
+      - name: Getting Started
+        href: ./cloud-partner-portal-orig/si-getting-started.md
+      - name: What's new
+        href: ./cloud-partner-portal-orig/si-changes.md
+      - name: Web analytics
+        href: ./cloud-partner-portal-orig/web-analytics.md
+      - name: Definitions
+        href: ./cloud-partner-portal-orig/si-insights-definitions-v4.md
+      - name: Insights FAQ
+        href: ./cloud-partner-portal-orig/si-faqs.md
+  - name: Marketplace offers
+    href: ./cloud-partner-portal/cpp-marketplace-offers.md
+    items:
+    - name: Manage offers
+      href: ./cloud-partner-portal/manage-offers/cpp-manage-offers.md
+      items:
+      - name: Create offer
+        href: ./cloud-partner-portal/manage-offers/cpp-create-offer.md
+      - name: Publish offer
+        href: ./cloud-partner-portal/manage-offers/cpp-publish-offer.md
+      - name: View offer status
+        href: ./cloud-partner-portal/manage-offers/cpp-view-status-offer.md
+      - name: Update offer
+        href: ./cloud-partner-portal/manage-offers/cpp-update-offer.md
+      - name: Delete offer
+        href: ./cloud-partner-portal/manage-offers/cpp-delete-offer.md
+    - name: Test Drive
+      items:
+      - name: What is Test Drive?
+        href: ./cloud-partner-portal/test-drive/what-is-test-drive.md
+      - name: Azure Resource Manager Test Drive
+        href: ./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md
+      - name: Hosted Test Drive
+        href: ./cloud-partner-portal/test-drive/hosted-test-drive.md
+      - name: Logic app Test Drive
+        href: ./cloud-partner-portal/test-drive/logic-app-test-drive.md
+      - name: Transforming examples for Test Drive
+        href: ./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md
+      - name: Marketing and best practices
+        href: ./cloud-partner-portal/test-drive/marketing-and-best-practices.md
+    - name: Azure application offer
+      href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
+      items:
+      - name: Prerequisites
+        href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
+      - name: Create Azure application offer
+        href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
+        items:
+        - name: Offer Settings tab
+          href: ./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md
+        - name: SKUs tab
+          href: ./cloud-partner-portal/azure-applications/cpp-skus-tab.md
+        - name: Test Drive tab
+          href: ./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md
+        - name: Marketplace tab
+          href: ./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md
+        - name: Support tab
+          href: ./cloud-partner-portal/azure-applications/cpp-support-tab.md
+      - name: Create technical assets
+        href: ./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md
+      - name: Publish Azure application offer
+        href: ./cloud-partner-portal/azure-applications/cpp-publish-offer.md
+      - name: Handling review feedback
+        href: ./cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md
+      - name: Update existing offer
+        href: ./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md
+    - name: Consulting services
+      href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
+      items:
+      - name: Prerequisites
+        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
+      - name: Create a consulting service offer
+        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
+        items:
+        - name: Offer settings tab
+          href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md
+        - name: Storefront details tab
+          href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md
+      - name: Publish consulting service offer
+        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md
+    - name: Containers offer
+      href: ./cloud-partner-portal/containers/cpp-containers-offer.md
+      items:
+      - name: Prerequisites
+        href: ./cloud-partner-portal/containers/cpp-prerequisites.md
+      - name: Create container offer
+        href: ./cloud-partner-portal/containers/cpp-create-offer.md
+        items:
+        - name: Offer settings tab
+          href: ./cloud-partner-portal/containers/cpp-offer-settings-tab.md
+        - name: SKUs tab
+          href: ./cloud-partner-portal/containers/cpp-skus-tab.md
+        - name: Marketplace tab
+          href: ./cloud-partner-portal/containers/cpp-marketplace-tab.md
+        - name: Support tab
+          href: ./cloud-partner-portal/containers/cpp-support-tab.md
+      - name: Create container technical assets
+        href: ./cloud-partner-portal/containers/cpp-create-technical-assets.md
+      - name: Publish container offer
+        href: ./cloud-partner-portal/containers/cpp-publish-offer.md
+      - name: Update existing offer
+        href: ./cloud-partner-portal/containers/cpp-update-existing-offer.md
+    - name: Dynamics 365 for Business Central offer
+      href: ./cloud-partner-portal-orig/cpp-business-central-offer.md
+      items:
+      - name: Publish overview
+        href: ./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md
+      - name: Create new offer
+        href: ./cloud-partner-portal-orig/d365-finance-create-new-offer.md
+      - name: Offer settings
+        href: ./cloud-partner-portal-orig/d365-finance-create-offer-settings.md
+      - name: Technical details
+        href: ./cloud-partner-portal-orig/d365-finance-create-offer-technical-details.md
+      - name: Storefront details
+        href: ./cloud-partner-portal-orig/d365-finance-create-storefront-details.md
+      - name: Publish process
+        href: ./cloud-partner-portal-orig/d365-finance-app-publishing-process.md
+    - name: Dynamics 365 for Customer Engagement offer
+      href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
+      items:
+      - name: Prerequisites
+        href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
+      - name: Create Customer Engagement offer
+        href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
+        items:
+        - name: Offer Settings tab
+          href: ./cloud-partner-portal/dyn365ce/cpp-offer-settings-tab.md
+        - name: Technical Info tab
+          href: ./cloud-partner-portal/dyn365ce/cpp-technical-info-tab.md
+        - name: Test Drive tab
+          href: ./cloud-partner-portal/dyn365ce/cpp-testdrive-tab.md
+        - name: Storefront Details tab
+          href: ./cloud-partner-portal/dyn365ce/cpp-storefront-details-tab.md
+        - name: Contacts tab
+          href: ./cloud-partner-portal/dyn365ce/cpp-contacts-tab.md
+      - name: Create Customer Engagement technical assets
+        href: ./cloud-partner-portal/dyn365ce/cpp-create-technical-assets.md
+      - name: Publish Customer Engagement offer
+        href: ./cloud-partner-portal/dyn365ce/cpp-publish-offer.md
+    - name: Dynamics 365 for Operations offer
+      href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
+      items:
+      - name: Prerequisites
+        href: ./cloud-partner-portal-orig/pre-requisites.md
+      - name: How to publish
+        href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
+      - name: LCS subscription
+        href: ./cloud-partner-portal-orig/lcs-subscription.md
+      - name: Code upgrade
+        href: ./cloud-partner-portal-orig/code-upgrade.md
+      - name: Data entities
+        href: ./cloud-partner-portal-orig/data-entities.md
+      - name: BPM and methodologies
+        href: ./cloud-partner-portal-orig/bpm-and-methodologies.md
+      - name: Help wiki
+        href: ./cloud-partner-portal-orig/help-wiki.md
+    - name: IoT Edge module offer
+      href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
+      items:
+      - name: Prerequisites
+        href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
+      - name: Create IoT Edge module offer
+        href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
+        items:
+        - name: Offer Settings tab
+          href: ./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md
+        - name: SKUs tab
+          href: ./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md
+        - name: Marketplace tab
+          href: ./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md
+        - name: Support tab
+          href: ./cloud-partner-portal/iot-edge-module/cpp-support-tab.md
+      - name: Create IoT Edge module technical assets
+        href: ./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md
+      - name: Publish IoT Edge module offer
+        href: ./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md
+      - name: Update existing offer
+        href: ./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md
+    - name: Power BI App offer
+      href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
+      items:
+      - name: Prerequisites
+        href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
+      - name: Create Power BI App offer
+        href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
+        items:
+        - name: Offer Settings tab
+          href: ./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md
+        - name: Technical Info tab
+          href: ./cloud-partner-portal/power-bi/cpp-technical-info-tab.md
+        - name: Storefront Details tab
+          href: ./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md
+        - name: Contacts tab
+          href: ./cloud-partner-portal/power-bi/cpp-contacts-tab.md
+      - name: Create Power BI App technical assets
+        href: ./cloud-partner-portal/power-bi/cpp-create-technical-assets.md
+      - name: Publish Power BI App offer
+        href: ./cloud-partner-portal/power-bi/cpp-publish-offer.md
+      - name: Update existing offer
+        href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
+    - name: SaaS application offer
+      href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
+    - name: Virtual machine offer
+      href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
+      items:
+      - name: Prerequisites
+        href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
+      - name: Create VM offer
+        href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
+        items:
+        - name: Offer Settings tab
+          href: ./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md
+        - name: SKUs tab
+          href: ./cloud-partner-portal/virtual-machine/cpp-skus-tab.md
+        - name: Test Drive tab
+          href: ./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md
+        - name: Marketplace tab
+          href: ./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md
+        - name: Support tab
+          href: ./cloud-partner-portal/virtual-machine/cpp-support-tab.md
+      - name: Create VM technical assets
+        href: ./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md
+        items:
+        - name: Create VHD
+          href: ./cloud-partner-portal/virtual-machine/cpp-create-vhd.md
+        - name: Common VHD creation issues
+          href: ./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md
+        - name: Connect to VM
+          href: ./cloud-partner-portal/virtual-machine/cpp-connect-vm.md
+        - name: Configure VM
+          href: ./cloud-partner-portal/virtual-machine/cpp-configure-vm.md
+        - name: Windows Remote Management
+          href: ./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md
+          items:
+          - name: Configure WinRM after VM creation
+            href: ./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md
+        - name: Deploy VM
+          href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md
+          items:
+          - name: Create a user VM image
+            href: ./cloud-partner-portal/virtual-machine/cpp-create-user-image.md
+          - name: Create key vault certificate
+            href: ./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md
+            items:
+            - name: Key vault deployment template
+              href: ./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md
+        - name: Deploy VM from user VHD
+          href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md
+          items:
+          - name: VHD Deployment Template
+            href: ./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md
+          - name: Deploy a VM from marketplace
+            href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md
+        - name: Certify VM image
+          href: ./cloud-partner-portal/virtual-machine/cpp-certify-vm.md
+        - name: VM self-test client
+          href: ./cloud-partner-portal/virtual-machine/cpp-selftest-client.md
+        - name: Get SAS URI
+          href: ./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md
+        - name: Common SAS URL issues
+          href: ./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md
+      - name: Publish VM offer
+        href: ./cloud-partner-portal/virtual-machine/cpp-publish-offer.md
+      - name: Update existing offer
+        href: ./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md
+  - name: API Reference
+    items:
+    - name: Overview
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
+    - name: Prerequisites
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
+    - name: Considerations
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
+    - name: Concurrency control
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md
+    - name: Retrieve offers
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
+    - name: Retrieve specific offer
+      href: ./cloud-partner-portal-orig//cloud-partner-portal-api-retrieve-specific-offer.md
+    - name: Add or modify an offer
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
+    - name: Retrieve offer status
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offer-status.md
+    - name: Publish an offer
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-publish-offer.md
+    - name: Retrieve operations
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-operations.md
+    - name: Cancel operations
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-cancel-operations.md
+    - name: Go live
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
+    - name: Pricing for virtual machine offers
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
+    - name: Troubleshooting authentication errors
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
+  - name: Getting support
+    href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
+- name: Commercial Marketplace Portal in Partner Center
+  items: 
+  - name: Overview
+    items:
+    - name: What is Commercial Marketplace?
+      href: ./partner-center-portal/commercial-marketplace-overview.md
+  - name: Account Management
+    items:
+    - name: Create a new Partner Center account
+      href: ./partner-center-portal/create-account.md
+    - name: Manage your Partner Center account
+      href: ./partner-center-portal/manage-account.md
+    - name: Find or create a company work account
+      href: ./partner-center-portal/company-work-accounts.md
+    - name: Account Migration from CPP to Partner Center
+      href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
+  - name: Create a new offer
+    items:
+    - name: Offer creation checklist
+      href: ./partner-center-portal/offer-creation-checklist.md
+    - name: Create a SaaS offer
+      href: ./partner-center-portal/create-new-saas-offer.md
+    - name: SaaS metered billing
+      href: ./partner-center-portal/saas-metered-billing.md
+      items:
+      - name: Marketplace metering service APIs - FAQ
+        href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+      - name: Marketplace metering service APIs
+        href: ./partner-center-portal/marketplace-metering-service-apis.md   
+    - name: SaaS Fulfillment APIs
+      href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+      items:
+      - name: Register a SaaS application
+        href: ./partner-center-portal/pc-saas-registration.md
+      - name: SaaS Fulfillment APIs v2
+        href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+      - name: SaaS Fulfillment APIs v1 (deprecated)
+        href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
+      - name: SaaS fulfillment APIs - FAQ
+        href: ./partner-center-portal/saas-fulfillment-apis-faq.md        
+  - name: Publishing status
+    href: ./partner-center-portal/publishing-status.md
+  - name: Update existing offers
+    href: ./partner-center-portal/update-existing-offer.md
+  - name: Support options
+    href: ./partner-center-portal/support.md
+  - name: Partner Center Analytics
+    href: ./partner-center-portal/analytics.md

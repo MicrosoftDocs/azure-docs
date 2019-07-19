@@ -273,7 +273,7 @@ The following types of authenticated and anonymous requests are logged.
 
 Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role-based access control, application usage monitoring, rich auditing,and security monitoring and alerting.
 
--	Improve application security with Azure AD multifactor authentication and conditional access.
+-	Improve application security with Azure AD multifactor authentication and Conditional Access.
 
 -	Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
 

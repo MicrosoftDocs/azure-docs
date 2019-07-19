@@ -11,13 +11,13 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 03/11/2019
+ms.date: 05/03/2019
 ms.author: juliako
 ms.custom: seodec18
 
 ---
 
-# How to encode with a custom transform by using .NET
+# How to encode with a custom transform - .NET
 
 When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets based on industry best practices as demonstrated in the [Streaming files](stream-files-tutorial-with-api.md) tutorial. You can also build a custom preset to target your specific scenario or device requirements.
 
@@ -30,7 +30,7 @@ When creating custom presets, the following considerations apply:
 
 ## Prerequisites 
 
-[Create a Media Services account](create-account-cli-how-to.md). <br/>Make sure to remember the resource group name and the Media Services account name. 
+[Create a Media Services account](create-account-cli-how-to.md)
 
 ## Download the sample
 
@@ -44,7 +44,7 @@ The custom preset sample is located in the [EncodeCustomTransform](https://githu
 
 ## Create a transform with a custom preset 
 
-When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transforms), you need to specify what you want it to produce as an output. The required parameter is a [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput) object, as shown in the code below. Each **TransformOutput** contains a **Preset**. **Preset** describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The following **TransformOutput** creates custom codec and layer output settings.
+When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transforms), you need to specify what you want it to produce as an output. The required parameter is a [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput) object, as shown in the code below. Each **TransformOutput** contains a **Preset**. The **Preset** describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The following **TransformOutput** creates custom codec and layer output settings.
 
 When creating a [Transform](https://docs.microsoft.com/rest/api/media/transforms), you should first check if one already exists using the **Get** method, as shown in the code that follows. In Media Services v3, **Get** methods on entities return **null** if the entity doesn't exist (a case-insensitive check on the name).
 

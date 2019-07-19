@@ -3,6 +3,7 @@ title: Azure Resource Manager template samples - Azure Container Instances
 description: Azure Resource Manager template samples for Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
@@ -21,7 +22,7 @@ For deployment options, see the [Deployment](#deployment) section. If you'd like
 | | |
 |-|-|
 | **Applications** ||
-| [Wordpress][app-wp] | Creates a WordPress website and its MySQL database in a container instance. The WordPress site content and MySQL database are persisted to an Azure Files share. |
+| [WordPress][app-wp] | Creates a WordPress website and its MySQL database in a container group. The WordPress site content and MySQL database are persisted to an Azure Files share. Also creates an application gateway to expose public network access to WordPress. |
 | [MS NAV with SQL Server and IIS][app-nav] | Deploys a single Windows container with a fully featured self-contained Dynamics NAV / Dynamics 365 Business Central environment. |
 | **Volumes** ||
 | [emptyDir][vol-emptydir] | Deploys two Linux containers that share an emptyDir volume. |

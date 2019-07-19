@@ -4,7 +4,7 @@ description: Conceptual documentation for Service Fabric Backup and Restore
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
-manager: timlt
+manager: chackdan
 editor: subramar,zhol
 
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349

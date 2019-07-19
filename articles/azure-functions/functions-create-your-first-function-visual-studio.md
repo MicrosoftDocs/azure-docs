@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application.
 
-In this article, you learn how to use the Visual Studio 2017 tools for Azure Functions to locally create and test a "hello world" function. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2017.
+In this article, you learn how to use the Visual Studio 2019 tools for Azure Functions to locally create and test a "hello world" function. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2019.
 
 ![Function localhost response in the browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -30,7 +30,7 @@ This topic includes [a video](#watch-the-video) that demonstrates the same basic
 
 To complete this tutorial:
 
-* Install [Visual Studio 2017](https://azure.microsoft.com/downloads/) and ensure that the **Azure development** workload is also installed.
+* Install [Visual Studio 2019](https://azure.microsoft.com/downloads/) and ensure that the **Azure development** workload is also installed.
 
 * Make sure you have the [latest Azure Functions tools](functions-develop-vs.md#check-your-tools-version).
 

@@ -52,7 +52,7 @@ To complete this tutorial, you need:
 
 * Maven 3.  <br/> [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) describes how to install [Maven](https://maven.apache.org/what-is-maven.html) for this tutorial on either Windows or Linux.
 
-* [Node.js version 0.10.0 or later](https://nodejs.org).
+* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 ## Create an IoT hub
 

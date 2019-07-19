@@ -58,7 +58,7 @@ The following is a list of common words used with Azure Maps.
 
 <a name="bearing"></a> **Bearing**: The horizontal direction of a point in relation to another point. This is expressed as an angle relative to north, from 0-degrees  to 360-degrees in a clockwise direction. 
 
-<a name="boundary"></a> **Boundary**: A line or polygon separating adjacent political entities, such as countries, districts, and properties. A boundary is a line that may or may not follow physical features, such as rivers, mountains, or walls.
+<a name="boundary"></a> **Boundary**: A line or polygon separating adjacent political entities, such as countries/regions, districts, and properties. A boundary is a line that may or may not follow physical features, such as rivers, mountains, or walls.
 
 <a name="bounds"></a> **Bounds**: See [Bounding box](#bounding-box).
 
@@ -86,13 +86,13 @@ The following is a list of common words used with Azure Maps.
 
 <a name="coordinate-system"></a> **Coordinate system**: A reference framework used to define the positions of points in space in two or three dimensions.
 
-<a name="country-code"></a> **Country code**: A unique identifier for a country based on the ISO standard. ISO2 is a two-character code for a country (for example, US), which ISO3 represents a three-character code (for example, USA).
+<a name="country-code"></a> **Country code**: A unique identifier for a country/region based on the ISO standard. ISO2 is a two-character code for a country (for example, US), which ISO3 represents a three-character code (for example, USA).
 
-<a name="country-subdivision"></a> **Country subdivision**: A first-level subdivision of a country, commonly known as a state or province.
+<a name="country-subdivision"></a> **Country subdivision**: A first-level subdivision of a country/region, commonly known as a state or province.
 
-<a name="country-secondary-subdivision"></a> **Country secondary subdivision**: A second-level subdivision of a country, commonly known as a county.
+<a name="country-secondary-subdivision"></a> **Country secondary subdivision**: A second-level subdivision of a country/region, commonly known as a county.
 
-<a name="country-tertiary-subdivision"></a> **Country tertiary subdivision**: A third-level subdivision of a country, typically a named area such as a ward.
+<a name="country-tertiary-subdivision"></a> **Country tertiary subdivision**: A third-level subdivision of a country/region, typically a named area such as a ward.
 
 <a name="cross-street"></a> **Cross street**: A point where two or more streets intersect.
 
@@ -278,7 +278,7 @@ The following is a list of common words used with Azure Maps.
 
 <a name="post-code"></a> **Post code**: See [Postal code](#postal-code).
 
-<a name="postal-code"></a> **Postal code**: A series of letters or numbers, or both, in a specific format, used by the postal service of a country to divide geographic areas into zones in order to simplify delivery of mail.
+<a name="postal-code"></a> **Postal code**: A series of letters or numbers, or both, in a specific format, used by the postal service of a country/region to divide geographic areas into zones in order to simplify delivery of mail.
 
 <a name="prime-meridian"></a> **Prime meridian**: A line of longitude that represents 0-degrees longitude. Generally, longitude values decrease when traveling in a westerly direction until 180-degrees and increase when traveling in easterly directions to -180-degrees. 
 
@@ -346,11 +346,11 @@ The following is a list of common words used with Azure Maps.
 
 <a name="terrain"></a> **Terrain**: An area of land having a particular characteristic, such as sandy terrain or mountainous terrain.
 
-<a name="thematic-maps"></a> **Thematic maps**: A thematic map is a simple map made to reflect a theme about a geographic area. A common scenario for this type of map is to color the administrative regions such as countries based on some metric of data.
+<a name="thematic-maps"></a> **Thematic maps**: A thematic map is a simple map made to reflect a theme about a geographic area. A common scenario for this type of map is to color the administrative regions such as countries/regions based on some metric of data.
 
 <a name="tile-layer"></a> **Tile layer**: A layer displayed by assembling map tiles (rectangular sections) into a continuous layer. The tiles are either raster image tiles or vector tiles. Raster tile layers are typically rendered ahead of time and stored as images on a server. This can take up a lot of storage space. Vector tile layers are rendered on the fly within the client application, thus the server side storage requirements are smaller.
 
-<a name="time-zone"></a> **Time zone**: A region of the globe that observes a uniform standard time for legal, commercial, and social purposes. Time zones tend to follow the boundaries of countries and their subdivisions.
+<a name="time-zone"></a> **Time zone**: A region of the globe that observes a uniform standard time for legal, commercial, and social purposes. Time zones tend to follow the boundaries of countries/regions and their subdivisions.
 
 <a name="transaction"></a> **Transaction**: Azure Maps uses a transactional licensing model where;
 
@@ -393,5 +393,5 @@ The following is a list of common words used with Azure Maps.
 
 <a name="zip-code"></a> **Zip code**: See [Postal code](#postal-code).
 
-<a name="Zoom level"></a> **Zoom level**: Specifies the level of detail and how much of the map is visible. When zoomed all the way out a level 0, the full world map will often be in view but will show limited details such as country names and borders as well as and ocean names. When zoomed in closer to level 17, the map will display an area of a few city blocks with detailed road information. For more information, see the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.
+<a name="Zoom level"></a> **Zoom level**: Specifies the level of detail and how much of the map is visible. When zoomed all the way out a level 0, the full world map will often be in view but will show limited details such as country/region names and borders as well as and ocean names. When zoomed in closer to level 17, the map will display an area of a few city blocks with detailed road information. For more information, see the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.
 

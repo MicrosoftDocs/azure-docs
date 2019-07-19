@@ -1,0 +1,15 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Machine Learning
+    tocHref: /azure/architecture/
+    topicHref: /azure/machine-learning/index
+    items:
+    - name: Studio
+      tocHref: /azure/architecture/data-guide/technology-choices/
+      topicHref: /azure/machine-learning/studio/index
+      items:
+      - name: Data Architecture Guide
+        tocHref: /azure/architecture/data-guide/
+        topicHref: /azure/architecture/data-guide/index

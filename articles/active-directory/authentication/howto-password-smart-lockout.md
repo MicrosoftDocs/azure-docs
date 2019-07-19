@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 06/28/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -37,8 +37,10 @@ Smart lockout can be integrated with hybrid deployments, using password hash syn
 
 When using [pass-through authentication](../hybrid/how-to-connect-pta.md), you need to make sure that:
 
-   * The Azure AD lockout threshold is **less** than the Active Directory account lockout threshold. Set the values so that the Active Directory account lockout threshold is at least two or three times longer than the Azure AD lockout threshold. 
-   * The Azure AD lockout duration **in seconds** is **longer** than the Active Directory reset account lockout counter after duration **minutes**.
+* The Azure AD lockout threshold is **less** than the Active Directory account lockout threshold. Set the values so that the Active Directory account lockout threshold is at least two or three times longer than the Azure AD lockout threshold. 
+* The Azure AD lockout duration must be set longer than the Active Directory reset account lockout counter after duration. Be aware that the Azure AD duration is set in seconds, while the AD duration is set in minutes. 
+
+For example, if you want your Azure AD counter to be higher than AD, then Azure AD would be 120 seconds (2 minutes) while your on prem AD is set to 1 minute (60 seconds).
 
 > [!IMPORTANT]
 > Currently an administrator can't unlock the users' cloud accounts if they have been locked out by the Smart Lockout capability. The administrator must wait for the lockout duration to expire.
@@ -52,7 +54,7 @@ Use the following instructions to verify your on-premises Active Directory accou
 3. Browse to **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Account Policies** > **Account Lockout Policy**.
 4. Verify your **Account lockout threshold** and **Reset account lockout counter after** values.
 
-![Modify the on-premises Active Directory account lockout policy using a Group Policy Object](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Modify the on-premises Active Directory account lockout policy](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## Manage Azure AD smart lockout values
 
@@ -75,9 +77,7 @@ When the smart lockout threshold is triggered, you will get the following messag
 
 **Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin.**
 
-
 ## Next steps
 
-[Find out how to ban bad passwords in your organization using Azure AD.](howto-password-ban-bad.md)
-
-[Configure self-service password reset to allow users to unlock their own accounts.](quickstart-sspr.md)
+* [Find out how to ban bad passwords in your organization using Azure AD.](howto-password-ban-bad.md)
+* [Configure self-service password reset to allow users to unlock their own accounts.](quickstart-sspr.md)

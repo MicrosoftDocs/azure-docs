@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
-ms.author: alkohli;
+ms.author: alkohli
 
 ---
 # Contact Microsoft Support
@@ -60,7 +60,7 @@ Depending upon your [support plan](https://azure.microsoft.com/support/plans/), 
 4. In the **New support request** blade, click **Step 3 Contact information**. In the **Contact information** blade, do the following steps:
 
    1. In the **Contact options**, provide your preferred contact method (phone or email) and the language. The response time is automatically selected based on your subscription plan.
-   2. In the Contact information, provide your name, email, optional contact, country. Select the **Save contact changes for future support requests** check box.
+   2. In the Contact information, provide your name, email, optional contact, country/region. Select the **Save contact changes for future support requests** check box.
    3. Click **Create**.
    
        ![Contact MS Support via new portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   

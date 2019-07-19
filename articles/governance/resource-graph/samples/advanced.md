@@ -1,7 +1,6 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including VMSS capacity, listing all tags used, and matching virtual machines with regular expressions.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -20,7 +19,7 @@ to understand how to compose requests for the resources you're looking for.
 We'll walk through the following advanced queries:
 
 > [!div class="checklist"]
-> - [Get VMSS capacity and size](#vmss-capacity)
+> - [Get virtual machine scale set capacity and size](#vmss-capacity)
 > - [List all tag names](#list-all-tags)
 > - [Virtual machines matched by regex](#vm-regex)
 
@@ -43,7 +42,7 @@ virtual machine size and the capacity of the scale set. The query uses the `toin
 cast the capacity to a number so that it can be sorted. Finally, the columns are renamed into
 custom named properties.
 
-```Query
+```kusto
 where type=~ 'microsoft.compute/virtualmachinescalesets'
 | where name contains 'contoso'
 | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name
@@ -63,7 +62,7 @@ Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' 
 This query starts with the tag and builds a JSON object listing all unique tag names and their
 corresponding types.
 
-```Query
+```kusto
 project tags
 | summarize buildschema(tags)
 ```
@@ -92,7 +91,7 @@ The **matches regex \@** allows us to define the regex to match, which is `^Cont
 
 After matching by name, the query projects the name and orders by name ascending.
 
-```Query
+```kusto
 where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
 | project name
 | order by name asc

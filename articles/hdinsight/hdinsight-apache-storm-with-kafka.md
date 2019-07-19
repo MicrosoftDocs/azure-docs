@@ -1,16 +1,16 @@
 ---
 title: 'Tutorial: Use Apache Storm to read and write data with Apache Kafka - Azure HDInsight'
 description: Learn how to create a streaming pipeline using Apache Storm and Apache Kafka on HDInsight. In this tutorial, you use the KafkaBolt and KafkaSpout components to stream data from Kafka.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 06/25/2019
 #Customer intent: As a developer, I want to learn how to build a streaming pipeline that uses Storm and Kafka to process streaming data.
----
+--- 
+
 # Tutorial: Use Apache Storm with Apache Kafka on HDInsight
 
 This tutorial demonstrates how to use an [Apache Storm](https://storm.apache.org/) topology to read and write data with [Apache Kafka](https://kafka.apache.org/) on HDInsight. This tutorial also demonstrates how to persist data to the [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) compatible storage on the Storm cluster.
@@ -75,7 +75,7 @@ Apache Storm provides the several components for working with Apache Kafka. The 
     * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: Maps from the tuple data structure used inside the Storm topology to fields stored in Kafka.
 
 These components are available in the `org.apache.storm : storm-kafka` package. Use the package version that matches the Storm version. For HDInsight 3.6, the Storm version is 1.1.0.
-You also need the `org.apache.kafka : kafka_2.10` package, which contains additional Kafka components. Use the package version that matches the Kafka version. For HDInsight 3.6, the Kafka version is 0.10.0.0.
+You also need the `org.apache.kafka : kafka_2.10` package, which contains additional Kafka components. Use the package version that matches the Kafka version. For HDInsight 3.6, the Kafka version is 1.1.1.
 
 The following XML is the dependency declaration in the `pom.xml` for an [Apache Maven](https://maven.apache.org/) project:
 
@@ -90,7 +90,7 @@ The following XML is the dependency declaration in the `pom.xml` for an [Apache 
 <dependency>
     <groupId>org.apache.kafka</groupId>
     <artifactId>kafka_2.10</artifactId>
-    <version>0.10.0.0</version>
+    <version>1.1.1</version>
     <!-- Exclude components that are loaded from the Storm cluster at runtime -->
     <exclusions>
         <exclusion>
@@ -625,15 +625,9 @@ To remove the resource group using the Azure portal:
 2. Locate the resource group to delete, and then right-click the __More__ button (...) on the right side of the listing.
 3. Select __Delete resource group__, and then confirm.
 
-> [!WARNING]  
-> HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use.
-> 
-> Deleting a Kafka on HDInsight cluster deletes any data stored in Kafka.
-
 ## Next steps
 
 In this tutorial, you learned how to use an [Apache Storm](https://storm.apache.org/) topology to write to and read from [Apache Kafka](https://kafka.apache.org/) on HDInsight. You also learned how to store data to the [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) compatible storage used by HDInsight.
 
-To learn more about using Kafka on HDInsight, see the [Use Apache Kafka Producer and Consumer API](kafka/apache-kafka-producer-consumer-api.md) document.
-
-For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+> [!div class="nextstepaction"]
+> [Use Apache Kafka Producer and Consumer API](kafka/apache-kafka-producer-consumer-api.md)

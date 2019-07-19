@@ -15,7 +15,7 @@ ms.author: jowargo
 
 # Set up push notifications in a notification hub in the Azure portal
 
-Azure Notification Hubs provides a push engine that's easy to use and that scales out. Use Notification Hubs to send notifications to any platform (iOS, Android, Windows, Kindle, Baidu) and from any back end (cloud or on-premises). For more information, see [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
+Azure Notification Hubs provides a push engine that's easy to use and that scales out. Use Notification Hubs to send notifications to any platform (iOS, Android, Windows, Baidu) and from any back end (cloud or on-premises). For more information, see [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
 In this quickstart, you'll use the platform notification system (PNS) settings in Notification Hubs to set up push notifications on multiple platforms. The quickstart shows you the steps to take in the Azure portal.
 
@@ -25,7 +25,7 @@ If you haven't already created a notification hub, create one now. For more info
 
 To set up Apple Push Notification Service (APNS):
 
-1. In the Azure portal, in the **Notification Hub**, select **Apple (APNS)**.
+1. In the Azure portal, on the **Notification Hub** page, select **Apple (APNS)** from the left menu.
 
 1. For **Authentication Mode**, select either **Certificate** or **Token**.
 
@@ -38,18 +38,18 @@ To set up Apple Push Notification Service (APNS):
 
    b. If you select **Token**:
 
-   * Enter the values for **Key Id**, **Bundle Id**, **Team Id**, and **Token**.
+   * Enter the values for **Key ID**, **Bundle ID**, **Team ID**, and **Token**.
    * Select **Sandbox** mode. Or, to send push notifications to users who purchased your app from the store, select **Production** mode.
 
      ![Screenshot of an APNS token configuration in the Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
 
-For for more information, see [Push notifications to iOS by using Azure Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+For more information, see [Push notifications to iOS by using Azure Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 
 ## Google Firebase Cloud Messaging
 
 To set up push notifications for Google Firebase Cloud Messaging (FCM):
 
-1. In the Azure portal, in the **Notification Hub**, select **Google (GCM/FCM)**. 
+1. In the Azure portal, on the **Notification Hub** page, select **Google (GCM/FCM)** from the left menu. 
 2. Paste the **API Key** for the FCM project that you saved earlier. 
 3. Select **Save**. 
 
@@ -63,7 +63,7 @@ For more information, see [Push notifications to Android devices by using Notifi
 
 To set up Windows Push Notification Service (WNS):
 
-1. In the Azure portal, in the **Notification Hub**, select **Windows (WNS)**.
+1. In the Azure portal, on the **Notification Hub** page, select **Windows (WNS)** from the left menu.
 2. Enter values for **Package SID** and **Security Key**.
 3. Select **Save**.
 
@@ -75,7 +75,7 @@ For information, see [Send notifications to UWP apps by using Azure Notification
 
 To set up Microsoft Push Notification Service (MPNS) for Windows Phone: 
 
-1. In the Azure portal, in the **Notification Hub**, select **Windows Phone (MPNS)**.
+1. In the Azure portal, on the **Notification Hub** page, select **Windows Phone (MPNS)** from the left menu.
 1. Enable either unauthenticated or authenticated push notifications:
 
    a. To enable unauthenticated push notifications, select **Enable unauthenticated push** > **Save**.
@@ -91,23 +91,12 @@ To set up Microsoft Push Notification Service (MPNS) for Windows Phone:
 
 For more information, see [Push notifications to Windows Phone apps by using Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md).
       
-## Amazon Device Messaging
-
-To set up push notifications for Amazon Device Messaging (ADM):
-
-1. In the Azure portal, in the **Notification Hub**, select **Amazon (ADM)**.
-2. Enter values for **Client ID** and **Client Secret**.
-3. Select **Save**.
-    
-   ![Screenshot of ADM settings in the Azure portal](./media/notification-hubs-kindle-get-started/notification-hub-adm-settings.png)
-
-For more information, see [Get started with Notification Hubs for Kindle apps](notification-hubs-kindle-amazon-adm-push-notification.md).
 
 ## Baidu (Android China)
 
 To set up push notifications for Baidu:
 
-1. In the Azure portal, in the **Notification Hub**, select **Baidu (Android China)**. 
+1. In the Azure portal, on the **Notification Hub** page, select **Baidu (Android China)** from the left menu. 
 2. Enter the **Api Key** that you obtained from the Baidu console in the Baidu cloud push project. 
 3. Enter the **Secret Key** that you obtained from the Baidu console in the Baidu cloud push project. 
 4. Select **Save**. 
@@ -127,5 +116,4 @@ To learn more about how to push notifications to various platforms, see these tu
 - [Push notifications to Android devices by using Notification Hubs and Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)
 - [Push notifications to a UWP app running on a Windows device](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
 - [Push notifications to a Windows Phone 8 app by using MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
-- [Push notifications to a Kindle application](notification-hubs-kindle-amazon-adm-push-notification.md)
 - [Push notifications by using Notification Hubs and Baidu cloud push](notification-hubs-baidu-china-android-notifications-get-started.md)

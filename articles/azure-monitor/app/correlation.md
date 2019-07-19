@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
 ---
@@ -29,7 +29,7 @@ Every outgoing operation, such as an HTTP call to another component, is represen
 
 You can build a view of the distributed logical operation by using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. These fields also define the causality order of telemetry calls.
 
-In a microservices environment, traces from components can go to different storage items. Every component can have its own instrumentation key in Application Insights. To get telemetry for the logical operation, you must query data from every storage item. When the number of storage items is huge, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request, and the second identifies which component returned the response of the dependency call.
+In a microservices environment, traces from components can go to different storage items. Every component can have its own instrumentation key in Application Insights. To get telemetry for the logical operation, the Application Insights UX queries data from every storage item. When the number of storage items is huge, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request, and the second identifies which component returned the response of the dependency call.
 
 ## Example
 
@@ -178,6 +178,11 @@ The [Application Insights SDK for Java](../../azure-monitor/app/java-get-started
 
 Currently, automatic context propagation across messaging technologies (such Kafka, RabbitMQ, or Azure Service Bus) isn't supported. However, it's possible to code such scenarios manually by using the `trackDependency` and `trackRequest` APIs. In these APIs, a dependency telemetry represents a message being enqueued by a producer, and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
 
+### Telemetry correlation in Asynchronous Java Application
+
+In order to correlate telemetry in Asynchronous Spring Boot application, please follow [this](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) in-depth article. It provides guidance for instrumenting Spring's [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) as well as [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
+
+
 <a name="java-role-name"></a>
 ## Role name
 
@@ -206,7 +211,7 @@ At times, you might want to customize the way component names are displayed in t
 ## Next steps
 
 - Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md).
-- Learn more about [setting cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud_rolename) for other SDKs.
+- Learn more about [setting cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) for other SDKs.
 - Onboard all components of your microservice on Application Insights. Check out the [supported platforms](../../azure-monitor/app/platforms.md).
 - See the [data model](../../azure-monitor/app/data-model.md) for Application Insights types.
 - Learn how to [extend and filter telemetry](../../azure-monitor/app/api-filtering-sampling.md).

@@ -4,7 +4,7 @@ description: Step by step instructions for configuring system and user-assigned 
 services: active-directory
 documentationcenter: 
 author: priyamohanram
-manager: daveba
+manager: MarkusVi
 editor: 
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 

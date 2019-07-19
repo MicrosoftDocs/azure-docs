@@ -8,9 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.custom: seodec18
 ---
 # Troubleshoot the Speech SDK
 

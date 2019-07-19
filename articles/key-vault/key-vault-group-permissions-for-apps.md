@@ -2,15 +2,11 @@
 title: Grant permission to many applications to access an Azure key vault - Azure Key Vault | Microsoft Docs
 description: Learn how to grant permission to many applications to access a key vault
 services: key-vault
-documentationcenter: ''
 author: amitbapat
 manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid: 785d4e40-fb7b-485a-8cbc-d9c8c87708e6
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat

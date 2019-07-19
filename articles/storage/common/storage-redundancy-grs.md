@@ -2,11 +2,13 @@
 title: Geo-redundant storage (GRS) for cross-regional durability in Azure Storage | Microsoft Docs
 description: Geo-redundant storage (GRS) replicates your data between two regions that are hundreds of miles apart. GRS protects against hardware failures in the datacenter as well as regional disasters.
 services: storage
-author: tolandmike
+author: tamram
+
 ms.service: storage
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: jeking
+ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
 ---
 

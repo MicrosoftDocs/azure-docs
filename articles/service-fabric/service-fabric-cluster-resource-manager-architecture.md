@@ -4,7 +4,7 @@ description: An architectural overview of Service Fabric Cluster Resource Manage
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b

@@ -52,7 +52,7 @@ New-AzResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 ## Azure PowerShell cmdlets for Stream Analytics
 The following Azure PowerShell cmdlets can be used to monitor and manage Azure Stream Analytics jobs. Note that Azure PowerShell has different versions. 
-**In the examples listed the first command is for Azure PowerShell 0.9.8, the second command is for Azure PowerShell 1.0.** The Azure PowerShell 1.0 commands will always have "AzureRM" in the command.
+**In the examples listed the first command is for Azure PowerShell 0.9.8, the second command is for Azure PowerShell 1.0.** The Azure PowerShell 1.0 commands will always have "Az" in the command.
 
 ### Get-AzureStreamAnalyticsJob | Get-AzStreamAnalyticsJob
 Lists all Stream Analytics jobs defined in the Azure subscription or specified resource group, or gets job information about a specific job within a resource group.
@@ -194,7 +194,7 @@ Get-AzStreamAnalyticsQuota –Location "Central US"
 
 This PowerShell command returns information about the quota and usage of streaming units in the Central US region.
 
-### Get-AzureStreamAnalyticsTransformation | GetAzureRMStreamAnalyticsTransformation
+### Get-AzureStreamAnalyticsTransformation | Get-AzStreamAnalyticsTransformation
 Gets information about a specific transformation defined in a Stream Analytics job.
 
 **Example 1**
@@ -544,7 +544,7 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx

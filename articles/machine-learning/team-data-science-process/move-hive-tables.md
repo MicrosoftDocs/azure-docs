@@ -41,7 +41,7 @@ Hive queries can be submitted by using:
 2. [Submit Hive queries with the Hive Editor](#hive-editor)
 3. [Submit Hive queries with Azure PowerShell Commands](#ps)
 
-Hive queries are SQL-like. If you are familiar with SQL, you may find the [Hive for SQL Users Cheat Sheet](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) useful.
+Hive queries are SQL-like. If you are familiar with SQL, you may find the [Hive for SQL Users Cheat Sheet](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) useful.
 
 When submitting a Hive query, you can also control the destination of the output from Hive queries, whether it be on the screen or to a local file on the head node or to an Azure blob.
 
@@ -106,7 +106,7 @@ If you open the default container of the Hadoop cluster using Azure Storage Expl
 ![Azure Storage Explorer showing output of the Hive query](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Submit Hive queries with the Hive Editor
-You can also use the Query Console (Hive Editor) by entering a URL of the form *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* into a web browser. You must be logged in the see this console and so you need your Hadoop cluster credentials here.
+You can also use the Query Console (Hive Editor) by entering a URL of the form *https:\//\<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* into a web browser. You must be logged in the see this console and so you need your Hadoop cluster credentials here.
 
 ### <a name="ps"></a> 3. Submit Hive queries with Azure PowerShell Commands
 You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -135,7 +135,7 @@ Here are the descriptions of the fields that you need to plug in and other confi
 * **\<table name\>**: the name of the table that you want to create within the specified database. If you want to use the default database, the table can be directly referred by *\<table name\>* without \<database name\>.
 * **\<field separator\>**: the separator that delimits fields in the data file to be uploaded to the Hive table.
 * **\<line separator\>**: the separator that delimits lines in the data file.
-* **\<storage location\>**: the Azure storage location to save the data of Hive tables. If you do not specify *LOCATION \<storage location\>*, the database and the tables are stored in *hive/warehouse/* directory in the default container of the Hive cluster by default. If you want to specify the storage location, the storage location has to be within the default container for the database and tables. This location has to be referred as location relative to the default container of the cluster in the format of *'wasb:///<directory 1>/'* or *'wasb:///<directory 1>/<directory 2>/'*, etc. After the query is executed, the relative directories are created within the default container.
+* **\<storage location\>**: the Azure storage location to save the data of Hive tables. If you do not specify *LOCATION \<storage location\>*, the database and the tables are stored in *hive/warehouse/* directory in the default container of the Hive cluster by default. If you want to specify the storage location, the storage location has to be within the default container for the database and tables. This location has to be referred as location relative to the default container of the cluster in the format of *'wasb:///\<directory 1>/'* or *'wasb:///\<directory 1>/\<directory 2>/'*, etc. After the query is executed, the relative directories are created within the default container.
 * **TBLPROPERTIES("skip.header.line.count"="1")**: If the data file has a header line, you have to add this property **at the end** of the *create table* query. Otherwise, the header line is loaded as a record to the table. If the data file does not have a header line, this configuration can be omitted in the query.
 
 ## <a name="load-data"></a>Load data to Hive tables
@@ -143,7 +143,7 @@ Here is the Hive query that loads data into a Hive table.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<path to blob data\>**: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the *\<path to blob data\>* should be in the format *'wasb:///<directory in this container>/<blob file name>'*. The blob file can also be in an additional container of the HDInsight Hadoop cluster. In this case, *\<path to blob data\>* should be in the format *'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **\<path to blob data\>**: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the *\<path to blob data\>* should be in the format *'wasb://\<directory in this container>/\<blob file name>'*. The blob file can also be in an additional container of the HDInsight Hadoop cluster. In this case, *\<path to blob data\>* should be in the format *'wasb://\<container name>\<storage account name>.blob.core.windows.net/\<blob file name>'*.
 
   > [!NOTE]
   > The blob data to be uploaded to Hive table has to be in the default or additional container of the storage account for the Hadoop cluster. Otherwise, the *LOAD DATA* query fails complaining that it cannot access the data.

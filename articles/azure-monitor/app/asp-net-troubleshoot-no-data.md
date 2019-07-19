@@ -22,6 +22,16 @@ ms.author: mbullwin
 * If you are consistently seeing the same fraction, it's probably due to adaptive [sampling](../../azure-monitor/app/sampling.md). To confirm this, open Search (from the overview blade) and look at an instance of a Request or other event. At the bottom of the properties section click "..." to get full property details. If Request Count > 1, then sampling is in operation.
 * Otherwise, it's possible that you're hitting a [data rate limit](../../azure-monitor/app/pricing.md#limits-summary) for your pricing plan. These limits are applied per minute.
 
+*I'm experiencing data loss randomly.*
+
+* Check if you are experiencing data loss at [Telemetry Channel](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
+
+* Check for any known issues in Telemetry Channel [Github repo](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
+
+*I'm experiencing data loss in Console App or on Web App when app is about to stop.*
+
+* SDK channel keeps telemetry in buffer, and sends them in batches. If the application is shutting down, you may need to explicitly call [Flush()](api-custom-events-metrics.md#flushing-data). Behavior of `Flush()` depends on the actual [channel](telemetry-channels.md#built-in-telemetry-channels) used.
+
 ## No data from my server
 *I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
 
@@ -38,7 +48,7 @@ ms.author: mbullwin
 * Not all types of .NET project are supported by the tools. Web and WCF projects are supported. For other project types such as desktop or service applications, you can still [add an Application Insights SDK to your project manually](../../azure-monitor/app/windows-desktop.md).
 * Make sure you have [Visual Studio 2013 Update 3 or later](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). It comes pre-installed with Developer Analytics tools, which provide the Application Insights SDK.
 * Select **Tools**, **Extensions and Updates** and check that **Developer Analytics Tools** is installed and enabled. If so, click **Updates** to see if there's an update available.
-* Open the New Project dialog and choose ASP.NET Web application. If you see the Application Insights option there, then the tools are installed. If not, try uninstalling and then re-installing the Application Insights Tools.
+* Open the New Project dialog and choose ASP.NET Web application. If you see the Application Insights option there, then the tools are installed. If not, try uninstalling and then re-installing the Developer Analytics Tools.
 
 ## <a name="q02"></a>Adding Application Insights failed
 *When I try to add Application Insights to an existing project, I see an error message.*
@@ -54,7 +64,6 @@ Fix:
 * Check that you provided sign-in credentials for the right Azure account.
 * In your browser, check that you have access to the [Azure portal](https://portal.azure.com). Open Settings and see if there is any restriction.
 * [Add Application Insights to your existing project](../../azure-monitor/app/asp-net.md): In Solution Explorer, right click your project and choose "Add Application Insights."
-* If it still isn't working, follow the [manual procedure](../../azure-monitor/app/windows-services.md) to add a resource in the portal and then add the SDK to your project.
 
 ## <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
 Looks like something went wrong while you were installing Application Insights or maybe a logging adapter.
@@ -82,7 +91,7 @@ Fix:
 * Select **Tools**, **Extensions and Updates** and check that **Developer Analytics tools** is installed and enabled. If so, click **Updates** to see if there's an update available.
 * Right-click your project in Solution Explorer. If you see the command **Application Insights > Configure Application Insights**, use it to connect your project to the resource in the Application Insights service.
 
-Otherwise, your project type isn't directly supported by the Application Insights tools. To see your telemetry, sign in to the [Azure portal](https://portal.azure.com), choose Application Insights on the left navigation bar, and select your application.
+Otherwise, your project type isn't directly supported by the Developer Analytics tools. To see your telemetry, sign in to the [Azure portal](https://portal.azure.com), choose Application Insights on the left navigation bar, and select your application.
 
 ## 'Access denied' on opening Application Insights from Visual Studio
 *The 'Open Application Insights' menu command takes me to the Azure portal, but I get an 'access denied' error.*
@@ -203,7 +212,9 @@ Follow these instructions to capture troubleshooting logs for your framework.
 
 ### .NET Core
 
-1. Install the [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) package from NuGet. The version you install must match the current installed version of `Microsoft.ApplicationInsights`
+1. Install the [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) package from NuGet. The version you install must match the current installed version of `Microsoft.ApplicationInsights`
+
+The latest version of Microsoft.ApplicationInsights.AspNetCore is 2.7.1, and it refers to Microsoft.ApplicationInsights version 2.10. Hence the version of Microsoft.AspNet.ApplicationInsights.HostingStartup to be installed should be 2.10.0
 
 2. Modify `ConfigureServices` method in your `Startup.cs` class.:
 
@@ -220,6 +231,27 @@ Follow these instructions to capture troubleshooting logs for your framework.
 3. Restart process so that these new settings are picked up by SDK
 
 4. Revert these changes when you are finished.
+
+
+## <a name="PerfView"></a> Collect logs with PerfView
+[PerfView](https://github.com/Microsoft/perfview) is a free diagnostics and performance-analysis tool that help isolate CPU, memory, and other issues by collecting and visualizing diagnostics information from many sources.
+
+The Application Insights SDK log EventSource self-troubleshooting logs that can be captured by PerfView.
+
+To collect logs, download PerfView and run this command:
+```cmd
+PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore
+```
+
+You can modify these parameters as needed:
+- **MaxCollectSec**. Set this parameter to prevent PerfView from running indefinitely and affecting the performance of your server.
+- **OnlyProviders**. Set this parameter to only collect logs from the SDK. You can customize this list based on your specific investigations. 
+- **NoGui**. Set this parameter to collect logs without the Gui.
+
+
+For more information,
+- [Recording performance traces with PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
+- [Application Insights Event Sources](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
 ## Still not working...
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

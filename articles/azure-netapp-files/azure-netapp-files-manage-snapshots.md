@@ -67,7 +67,7 @@ Currently, you can restore a snapshot only to a new volume.
 
     *   **Virtual network**  
         Specify the Azure virtual network (Vnet) from which you want to access the volume.  
-        The Vnet you specify must have a subnet delegated to Azure NetApp Files. You can access Azure NetApp Files only from the same Vnet or from a Vnet that is in the same region as the volume through Vnet peering. You can access the volume from your on-premise network through Express Route. 
+        The Vnet you specify must have a subnet delegated to Azure NetApp Files. You can access Azure NetApp Files only from the same Vnet or from a Vnet that is in the same region as the volume through Vnet peering. You can access the volume from your on-premises network through Express Route. 
 
     * **Subnet**  
         Specify the subnet that you want to use for the volume.  

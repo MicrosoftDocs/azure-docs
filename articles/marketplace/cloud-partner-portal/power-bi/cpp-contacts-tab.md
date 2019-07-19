@@ -1,20 +1,12 @@
 ---
-title: Contacts information for a Power BI App offer - Azure Marketplace | Microsoft Docs
+title: Contacts information for a Power BI App offer | Azure Marketplace 
 description: Configure Contacts fields for a Power BI App offer for the Microsoft AppSource Marketplace. 
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.author: pbutlerm
+ms.date: 04/24/2019
+ms.author: pabutler
 ---
 
 # Power BI App Contacts tab
@@ -27,18 +19,18 @@ Use the **Contacts** tab of the **New Offer** page to provide technical and user
 
 ## Contacts fields 
 
-The following table describes the purpose of each field: 
+The following table describes the purpose of each field.  Required fields are indicted by an asterisk (*). 
 
 |   Field               |   Description                                                            |
 |-----------------------|--------------------------------------------------------------------------|
 | *Engineering Contact* | Serves as a technical contact between AppSource and your organization.    |
-| **Name**              | The name of the person or group that serves as technical or engineering support. |
-| **Email**             | The email address of this technical contact.                                  |
-| **Phone**             | The phone number of technical support.                                       |
+| **Name\***              | The name of the person or group that serves as technical or engineering support. |
+| **Email\***             | The email address of this technical contact.                                  |
+| **Phone\***             | The phone number of technical support.                                       |
 | *Support Contact*     | Receives support tickets opened by customers within AppSource.            |
-| **Name**              | The name of the person or group that serves as customer support.              |
-| **Email**             | The email address of customer support.                                        |
-|  |  |
+| **Name\***              | The name of the person or group that serves as customer support.              |
+| **Email\***             | The email address of customer support.                                        |
+|   |   |
 
 
 ## Next steps

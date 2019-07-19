@@ -4,7 +4,7 @@ description: Learn about the lifecycle events in Service Fabric Reliable Service
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: timlt
+manager: chackdan
 
 ms.assetid:
 ms.service: service-fabric

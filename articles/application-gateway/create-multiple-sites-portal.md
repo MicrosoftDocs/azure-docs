@@ -1,19 +1,19 @@
 ---
-title: Create an application gateway that hosts multiple web sites  - Azure portal
-description: Learn how to create an application gateway that hosts multiple web sites using the Azure portal.
+title: Tutorial - Create an application gateway that hosts multiple web sites using the Azure portal
+description: In this tutorial, you learn how to create an application gateway that hosts multiple web sites using the Azure portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 2/20/2019
+ms.topic: tutorial
+ms.date: 4/18/2019
 ms.author: victorh
-
+#Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can host multiple sites.
 ---
-# Create and configure an application gateway to host multiple web sites using the Azure portal
+# Tutorial: Create and configure an application gateway to host multiple web sites using the Azure portal
 
-You can use the Azure portal to [configure the hosting of multiple web sites](multiple-site-overview.md) when you create an [application gateway](overview.md). In this article, you define backend address pools using virtual machines. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This article assumes that you own multiple domains and uses examples of *www.contoso.com* and *www.fabrikam.com*.
+You can use the Azure portal to [configure the hosting of multiple web sites](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you define backend address pools using virtual machines. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This tutorial assumes that you own multiple domains and uses examples of *www.contoso.com* and *www.fabrikam.com*.
 
-In this article, you learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an application gateway
@@ -141,7 +141,7 @@ In this example, you create two virtual machines to be used as backend servers f
 
 Rules are processed in the order they are listed, and traffic is directed using the first rule that matches regardless of specificity. For example, if you have a rule using a basic listener and a rule using a multi-site listener both on the same port, the rule with the multi-site listener must be listed before the rule with the basic listener in order for the multi-site rule to function as expected. 
 
-In this example, you create two new rules and delete the default rule that was created when you created the application gateway. 
+In this example, you create two new rules and delete the default rule created when you created the application gateway.
 
 1. Click **Rules** and then click **Basic**.
 2. Enter *contosoRule* for the name.
@@ -174,6 +174,18 @@ After the application gateway is created with its public IP address, you can get
 
     ![Test fabrikam site in application gateway](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
+## Clean up resources
+
+When you no longer need the resources that you created with the application gateway, remove the resource group. By removing the resource group, you also remove the application gateway and all its related resources.
+
+To remove the resource group:
+
+1. On the left menu of the Azure portal, select **Resource groups**.
+2. On the **Resource groups** page, search for **myResourceGroupAG** in the list, then select it.
+3. On the **Resource group page**, select **Delete resource group**.
+4. Enter *myResourceGroupAG* for **TYPE THE RESOURCE GROUP NAME** and then select **Delete**
+
 ## Next steps
 
-[Configure App Service with Application Gateway](create-web-app.md)
+> [!div class="nextstepaction"]
+> [Learn more about what you can do with Azure Application Gateway](application-gateway-introduction.md)

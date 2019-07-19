@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 07/16/2019
 ms.author: shvija 
 
 ---
 
-# Receive events from Azure Event Hubs using Event Processor Host
+# Event processor host
 
 Azure Event Hubs is a powerful telemetry ingestion service that can be used to stream millions of events at low cost. This article describes how to consume ingested events using the *Event Processor Host* (EPH); an intelligent consumer agent that simplifies the management of checkpointing, leasing, and parallel event readers.  
 
@@ -80,7 +80,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 Next, instantiate an [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance. Depending on the overload, when creating the [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance in the constructor, the following parameters are used:
 
-- **hostName:** the name of each consumer instance. Each instance of **EventProcessorHost** must have a unique value for this variable within a consumer group, so it's best not to hard code this value.
+- **hostName:** the name of each consumer instance. Each instance of **EventProcessorHost** must have a unique value for this variable within a consumer group, so don't hard code this value.
 - **eventHubPath:** The name of the event hub.
 - **consumerGroupName:** Event Hubs uses **$Default** as the name of the default consumer group, but it is a good practice to create a consumer group for your specific aspect of processing.
 - **eventHubConnectionString:** The connection string to the event hub, which can be retrieved from the Azure portal. This connection string should have **Listen** permissions on the event hub.
@@ -122,7 +122,7 @@ Here, each host acquires ownership of a partition for a certain duration (the le
 
 Each call to [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) delivers a collection of events. It is your responsibility to handle these events. If you want to make sure the processor host processes every message at least once, you need to write your own keep retrying code. But be cautious about poisoned messages.
 
-It is recommended that you do things relatively fast; that is, do as little processing as possible. Instead, use consumer groups. If you need to write to storage and do some routing, it is generally better to use two consumer groups and have two [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementations that run separately.
+It is recommended that you do things relatively fast; that is, do as little processing as possible. Instead, use consumer groups. If you need to write to storage and do some routing, it is better to use two consumer groups and have two [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementations that run separately.
 
 At some point during your processing, you might want to keep track of what you have read and completed. Keeping track is critical if you must restart reading, so you don't return to the beginning of the stream. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) simplifies this tracking by using *checkpoints*. A checkpoint is a location, or offset, for a given partition, within a given consumer group, at which point you are satisfied that you have processed the messages. Marking a checkpoint in **EventProcessorHost** is accomplished by calling the [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) method on the [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) object. This operation is done within the [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) method but can also be done in [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 
@@ -138,7 +138,7 @@ By default, [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor
 
 ## Shut down gracefully
 
-Finally, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) enables a clean shutdown of all partition readers and should always be called when shutting down an instance of [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Failure to do so can cause delays when starting other instances of **EventProcessorHost** due to lease expiration and Epoch conflicts. Epoch management is covered in detail in this [blog post](https://blogs.msdn.microsoft.com/gyan/2014/09/02/event-hubs-receiver-epoch/)
+Finally, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) enables a clean shutdown of all partition readers and should always be called when shutting down an instance of [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Failure to do so can cause delays when starting other instances of **EventProcessorHost** due to lease expiration and Epoch conflicts. Epoch management is covered in detail in the [Epoch](#epoch) section of the article. 
 
 ## Lease management
 Registering an event processor class with an instance of EventProcessorHost starts event processing. The host instance obtains leases on some partitions of the Event Hub, possibly grabbing some from other host instances, in a way that converges on an even distribution of partitions across all host instances. For each leased partition, the host instance creates an instance of the provided event processor class, then receives events from that partition, and passes them to the event processor instance. As more instances get added and more leases are grabbed, EventProcessorHost eventually balances the load among all consumers.
@@ -156,6 +156,32 @@ Additionally, one overload of [RegisterEventProcessorAsync](/dotnet/api/microsof
 - [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout): If this parameter is **true**, [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) is called when the underlying call to receive events on a partition times out. This method is useful for taking time-based actions during periods of inactivity on the partition.
 - [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider): Enables a function pointer or lambda expression to be set, which is called to provide the initial offset when a reader begins reading a partition. Without specifying this offset, the reader starts at the oldest event, unless a JSON file with an offset has already been saved in the storage account supplied to the [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) constructor. This method is useful when you want to change the behavior of the reader startup. When this method is invoked, the object parameter contains the partition ID for which the reader is being started.
 - [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs): Enables you to receive notification of any underlying exceptions that occur in [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). If things are not working as you expect, this event is a good place to start looking.
+
+## Epoch
+
+Here is how the receive epoch works:
+
+### With Epoch
+Epoch is a unique identifier (epoch value) that the service uses, to enforce partition/lease ownership. You create an Epoch-based receiver using the [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) method. This method creates an Epoch-based receiver. The receiver is created for a specific event hub partition from the specified consumer group.
+
+The epoch feature provides users the ability to ensure that there is only one receiver on a consumer group at any point in time, with the following rules:
+
+- If there is no existing receiver on a consumer group, the user can create a receiver with any epoch value.
+- If there is a receiver with an epoch value e1 and a new receiver is created with an epoch value e2 where e1 <= e2, the receiver with e1 will be disconnected automatically, receiver with e2 is created successfully.
+- If there is a receiver with an epoch value e1 and a new receiver is created with an epoch value e2 where e1 > e2, then creation of e2 with fail with the error: A receiver with epoch e1 already exists.
+
+### No Epoch
+You create a non-Epoch-based receiver using the [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) method. 
+
+There are some scenarios in stream processing where users would like to create multiple receivers on a single consumer group. To support such scenarios, we do have ability to create a receiver without epoch and in this case we allow upto 5 concurrent receivers on the consumer group.
+
+### Mixed Mode
+We don’t recommend application usage where you create a receiver with epoch and then switch to no-epoch or vice-versa on the same consumer group. However, when this behavior occurs, the service handles it using the following rules:
+
+- If there is a receiver already created with epoch e1 and is actively receiving events and a new receiver is created with no epoch, the creation of new receiver will fail. Epoch receivers always take precedence in the system.
+- If there was a receiver already created with epoch e1 and got disconnected, and a new receiver is created with no epoch on a new MessagingFactory, the creation of new receiver will succeed. There is a caveat here that our system will detect the “receiver disconnection” after ~10 minutes.
+- If there are one or more receivers created with no epoch, and a new receiver is created with epoch e1, all the old receivers get disconnected.
+
 
 ## Next steps
 
