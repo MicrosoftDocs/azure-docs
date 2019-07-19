@@ -73,7 +73,7 @@ A failed start task also causes Batch to set the node [state](https://docs.micro
 
 As with any task, there can be many causes for the start task failing.  To troubleshoot, check the stdout, stderr, and any further task-specific log files.
 
-Start tasks must be re-entrant, as it is possible the start task is run multiple times on the same node; the start task is run when a node is re-imaged or rebooted. In rare cases, a start task will be run after an event caused a node reboot, where one of the operating system or ephemeral disks was re-imaged while the other wasn't. Since Batch start tasks (like all Batch tasks) run from the ephemeral disk, usually this is not a problem, but in some instances where the start task is installing an application to the operating system disk and keeping other data on the ephemeral disk, this can cause problems because things are out of sync. Be aware that this is a possibility and protect your application accordingly if you are using both disks.
+Start tasks must be re-entrant, as it is possible the start task is run multiple times on the same node; the start task is run when a node is reimaged or rebooted. In rare cases, a start task will be run after an event caused a node reboot, where one of the operating system or ephemeral disks was reimaged while the other wasn't. Since Batch start tasks (like all Batch tasks) run from the ephemeral disk, this is not normally a problem, but in some instances where the start task is installing an application to the operating system disk and keeping other data on the ephemeral disk, this can cause problems because things are out of sync. Protect your application accordingly if you are using both disks.
 
 ### Application package download failure
 
@@ -128,7 +128,7 @@ Other files are written out for each task that is run on a node, such as stdout 
 The size of the temporary drive depends on the VM size. One consideration when picking a VM size is to ensure the temporary drive has enough space.
 
 - In the Azure portal when adding a pool, the full list of VM sizes can be displayed and there is a 'Resource Disk Size' column.
-- The articles describing all VM sizes have tables with a 'Temp Storage' column; e.g. [Compute Optimized VM sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute)
+- The articles describing all VM sizes have tables with a 'Temp Storage' column; for example [Compute Optimized VM sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute)
 
 For files written out by each task, a retention time can be specified for each task that determines how long the task files are kept before being automatically cleaned up. The retention time can be reduced to lower the storage requirements.
 
