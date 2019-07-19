@@ -2,7 +2,7 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/1o/2019
+ms.date: 07/19/2019
 ms.author: larryfr
 ---
 
