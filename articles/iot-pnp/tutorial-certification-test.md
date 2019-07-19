@@ -47,7 +47,7 @@ To certify your IoT Plug and Play device, your device must meet the following re
 
 **Product** is a friendly name for a product model that a customer can purchase. To add a product:
 
-1. Sign in to the portal.
+1. Sign in to the [Azure Certified for IoT](https://aka.ms/ACFI) portal.
 1. Go to the **Products** page in the portal from the left menu and select **+ New**.
 1. Enter your friendly product name and select **Create**. The name entered here is different from the name displayed in the device catalog.
 

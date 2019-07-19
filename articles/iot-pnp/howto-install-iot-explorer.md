@@ -34,10 +34,10 @@ To use the Azure IoT explorer tool, you need:
 
 ## Install Azure IoT explorer
 
-Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. The following instructions assume that the most recent release is 0.8.4. If there's a more recent version, use that version instead. Download and run the appropriate file for your operating system, for example:
+Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. At the time of writing, the most recent release is 0.9.1. Download and run the appropriate file for your operating system, for example:
 
-- For Windows, download and run `Azure.IoT.Explorer.Setup.0.8.4.exe`. If you see a **Windows Security Alert** from **Windows Firewall**, select **Allow Access**.
-- For iOS, download and run `Azure.IoT.Explorer.Setup.0.8.4.dmg`.
+- For Windows, download and run `Azure.IoT.Explorer.Setup.x.y.z.exe`. If you see a **Windows Security Alert** from **Windows Firewall**, select **Allow Access**.
+- For iOS, download and run `Azure.IoT.Explorer.Setup-x.y.z.dmg`.
 
 ## Use Azure IoT explorer
 
