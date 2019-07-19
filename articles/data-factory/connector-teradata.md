@@ -236,7 +236,7 @@ To copy data from Teradata, the following properties are supported in the copy a
 
 ## Parallel copy from Teradata
 
-The Data Factory Teradata connector provides built-in data partitioning to copy data from Teradata in parallel. You can find data partitioning options on the **Source** tabe of the copy activity.
+The Data Factory Teradata connector provides built-in data partitioning to copy data from Teradata in parallel. You can find data partitioning options on the **Source** table of the copy activity.
 
 ![Screenshot of partition options](./media/connector-teradata/connector-teradata-partition-options.png)
 
