@@ -36,13 +36,13 @@ All Azure Policies and Initiatives are assigned to an assignment scope. This sco
 
 Assigning a new Azure Policy or Initiative will not affect existing Azure resources. In addition, Azure Policy can enable an organisation to view the compliance of existing Azure resources. Any resources that have been identified as being non-compliant can be remediated at the organisation's discretion
 
-### Azure Policy and Initiatives in Action
+### Azure Policy and initiatives in action
 
-The currently available in built Azure Policy and Initiative definitions can be found under the Definition node in the Policy section of the Azure Portal:
+The available built-in Azure Policy and initiative definitions can be found under the Definition node in the Policy section of the Azure Portal:
 
-![In-built Azure Policy Definitions](media/policy-definitions.png)
+![Built-In Azure Policy Definitions](media/policy-definitions.png)
 
-Using the library of built in definitions, an administrator can quickly search for Policies that meet an organisational requirement, review the policy definition and assign the Policy to the appropriate resources. For example, the ACSC ISM highlights the requirement for multi-factor authentication (MFA) to be enabled for all privileged users, and all users with access to important data repositories. An administrator can simply search for "MFA" amongst the Azure Policy definitions:
+Using the library of built-in definitions, an administrator can quickly search for Policies that meet an organisational requirement, review the policy definition and assign the Policy to the appropriate resources. For example, the ACSC ISM highlights the requirement for multi-factor authentication (MFA) to be enabled for all privileged users, and all users with access to important data repositories. An administrator can simply search for "MFA" amongst the Azure Policy definitions:
 
 ![Azure MFA Policies](media/mfa-policies.png)
 
@@ -93,7 +93,7 @@ The resources deployed using an Azure Blueprint can also be configured with [Azu
 
 Microsoft is developing Azure Blueprint templates that when deployed, define Azure Resources, Azure RBAC, and Azure Policy configuration in-line with specific regulatory requirements. The current library of available Azure Blueprint definitions can be viewed in the Azure Portal.
 
-### Azure Blueprint Artifacts
+### Azure Blueprint artifacts
 
 When creating an Azure Blueprint, administrators are able to start with a blank Blueprint template, or use one of the existing sample Blueprints as a starting point. Administrators are able to add artifacts to the Blueprint that will be configured as part of deployment:
 
@@ -105,6 +105,13 @@ Each of these artifacts can also be configured with parameters. These values are
 
 Microsoft is developing Azure PowerShell and CLI cmdlets to create and manage Azure Blueprints with the intention that a Blueprint could be maintained and deployed by an organisation via a CI/CD pipeline.
 
-### Next Steps
+### Next steps
 
+This article explained how governance and security can be enforced with Azure Policy and Azure Blueprints. Now that you've been exposed at a high-level, learn how to use each service in more detail:
 
+* [Azure Policy Overview](https://docs.microsoft.com/en-us/azure/governance/policy/overview)
+* [Azure Blueprints Overview](https://azure.microsoft.com/en-us/services/blueprints/)
+* [Azure Policy Samples](https://docs.microsoft.com/en-us/azure/governance/policy/samples/index)
+* [Azure Policy Samples Repository](https://github.com/Azure/azure-policy)
+* [Azure Policy Definition Structure](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure)
+* [Azure Policy Effects](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/effects)
