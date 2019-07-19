@@ -34,18 +34,18 @@ Usually, you associate your content key policy with your [Streaming Locator](str
 > Please review the following recommendations.
 
 * You should design a limited set of policies for your Media Service account and re-use them for your streaming locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
-*  We recommend that you do not create a new Content Key Policy per Asset. 
+* We recommend that you do not create a new Content Key Policy per Asset. 
 
-  Here is an example that demonstrates why it is not recommended to create a new policy per asset:<br/>
-  If a mistake was made in setting up a policy, it could break your end to end workflow for a large number of assets.<br/>
-  However, having an issue with the policy has a higher chance of being noticed right away and corrected. 
+   Here is an example that demonstrates why it is not recommended to create a new policy per asset:<br/>
+   If a mistake was made in setting up a policy, it could break your end to end workflow for a large number of assets.<br/>
+   However, having an issue with the policy has a higher chance of being noticed right away and corrected. 
 * If you do need to create a new policy, you have to create a new Streaming Locator for the asset.
 * Content Key Policies are updatable. It can take up to 15 minutes for the key delivery caches to update and pick up the updated policy. 
 
-  By updating the policy you are overwriting your existing CDN cache which could cause playback issue for customers that are using cached content.  
+   By updating the policy you are overwriting your existing CDN cache which could cause playback issue for customers that are using cached content.  
 * It is recommended to let Media Services to autogenerate content keys. Typically, you would use a long lived key and check for the policies existence with `Get`. To get the key, you need to call a separate action method to get secrets or credentials, see the example that follows.
 
-### Example
+## Example
 
 To get to the key, use `GetPolicyPropertiesWithSecretsAsync`, as shown in the [Get a signing key from the existing policy](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) example.
 
