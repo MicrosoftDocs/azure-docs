@@ -1,5 +1,5 @@
 ---
-title: Protect your content using Media Services dynamic encryption - Azure | Microsoft Docs
+title: Protect your content by using Media Services dynamic encryption - Azure | Microsoft Docs
 description: This article gives an overview of content protection with dynamic encryption. It also talks about streaming protocols and encryption types.
 services: media-services
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
 ms.custom: seodec18
-#Customer intent: As a developer who works on subsystems of online streaming/multiscreen solutions that need to deliver protected content, I want to make sure that content is delivered protected with DRM or AES-128. That's why i am using Media Services to deliver the live and on-demand content encrypted dynamically with AES-128 or any of the three major digital rights management DRM systems.
+#Customer intent: As a developer who works on subsystems of online streaming/multiscreen solutions that need to deliver protected content, I want to make sure that delivered content is protected with DRM or AES-128.
 ---
-# Content protection with dynamic encryption
+# Protect your content by using Media Services dynamic encryption
 
-You can use Azure Media Services to secure your media from the time it leaves your computer through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
+You can use Azure Media Services to help secure your media from the time it leaves your computer through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients.  
 
 In Media Services v3, a content key is associated with Streaming Locator (see [this example](protect-with-aes128.md)). If using the Media Services key delivery service, you can let Azure Media Services generate the content key for you. You should generate the content key yourself if you are using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two data centers.
 
@@ -27,78 +27,89 @@ When a stream is requested by a player, Media Services uses the specified key to
 
 You can use the REST API, or a Media Services client library to configure authorization and authentication policies for your licenses and keys.
 
-The following image illustrates the Media Services content protection workflow: 
+The following image illustrates the workflow for Media Services content protection:
 
-![Protect content](./media/content-protection/content-protection.svg)
+![Workflow for Media Services content protection](./media/content-protection/content-protection.svg)
+  
+&#42; *Dynamic encryption supports AES-128 clear key, CBCS, and CENC. For details, see the [support matrix](#streaming-protocols-and-encryption-types).*
 
-&#42; *dynamic encryption supports AES-128 "clear key", CBCS, and CENC. For details see the support matrix [here](#streaming-protocols-and-encryption-types).*
-
-This article explains concepts and terminology relevant to understanding content protection with Media Services.
+This article explains concepts and terminology that help you understand content protection with Media Services.
 
 ## Main components of a content protection system
 
-To successfully complete your "content protection" system/application design, you need to fully understanding the scope of the effort. The following list gives an overview of three parts you would need to implement. 
-
-1. Azure Media Services code
-  
-   The [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) sample shows you how to implement multi-DRM system with Media Services v3 using .NET. It also shows how to use Media Services license/key delivery service. You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
-  
-   The example shows how to:
-
-   1. Create and configure a [Content Key Policies](content-key-policy-concept.md). You create a **Content Key Policy** to configure how the content key (that provides secure access to your Assets) is delivered to end clients.    
-
-      * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
-      * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and/or [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the used DRMs.
-
-        ```
-        ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
-        ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
-        ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
-        ```
-   2. Create a [Streaming Locator](streaming-locators-concept.md) that is configured to stream the encrypted asset. 
-  
-      The **Streaming Locator** has to be associated with a [Streaming Policy](streaming-policy-concept.md). In the example, we set 
-      StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. The PlayReady and 
-      Widevine encryptions are applied, the key is delivered to the playback client based on the configured DRM licenses. If 
-      you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
-      
-      The Streaming Locator is also associated with the **Content Key Policy** that was defined.
-    
-   3. Create a test token.
-
-      The **GetTokenAsync** method shows how to create a test token.
-   4. Build the streaming URL.
-
-      The **GetDASHStreamingUrlAsync** method shows how to build the streaming URL. In this case, the URL streams the **DASH** content.
-
-2. Player with AES or DRM client. A video player app based on a player SDK (either native or browser-based) needs to meet the following requirements:
-   * The player SDK supports the needed DRM clients
-   * The player SDK supports the required streaming protocols: Smooth, DASH, and/or HLS
-   * The player SDK needs to be able to handle passing a JWT token in license acquisition request
-  
-     You can create a player by using the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
-
-     For testing AES or CENC (Widevine and/or PlayReady) encrypted content, you can use [Azure Media Player](https://aka.ms/azuremediaplayer). Make sure you click on "Advanced options" and check your encryption options.
-
-     If you want to test FairPlay encrypted content, use [this test player](https://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. 
-    
-     You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, Microsoft Edge/IE11 for PlayReady, Safari on macOS for FairPlay.
-
-3. Secure Token Service (STS), which issues JSON Web Token (JWT) as access token for backend resource access. You can use the AMS license delivery services as the backend resource. An STS has to define the following:
-
-   * Issuer and audience (or scope)
-   * Claims, which are dependent on business requirements in content protection
-   * Symmetric or asymmetric verification for signature verification
-   * Key rollover support (if necessary)
-
-     You can use [this STS tool](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) to test STS, which supports all 3 types of verification key: symmetric, asymmetric, or Azure AD with key rollover. 
+To successfully complete your content protection system, you need to fully understand the scope of the effort. The following sections give an overview of three parts that you'd need to implement. 
 
 > [!NOTE]
-> It is highly recommended to focus and fully test each part (described above) before moving onto the next part. To test your "content protection" system, use the tools specified in the list above.  
+> We highly recommended that you focus and fully test each part in the following sections before you move on to the next part. To test your content protection system, use the tools specified in the sections.
+
+### Media Services code
+  
+The [DRM sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) shows you how to implement a multi-DRM system with Media Services v3 by using .NET. It also shows how to use the Media Services license/key delivery service.   
+  
+You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). To see what makes sense to combine, see [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types).
+
+The example shows how to:
+
+1. Create and configure a [content key policy](content-key-policy-concept.md).    
+
+   You create a content key policy to configure how the content key (which provides secure access to your assets) is delivered to end clients:  
+ 
+   * Define license delivery authorization. Specify the logic of the authorization check based on claims in JSON Web Token (JWT).
+   * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and/or [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the DRMs.
+
+     ```
+     ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+     ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+     ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+     ```
+2. Create a [streaming locator](streaming-locators-concept.md) that's configured to stream the encrypted asset. 
+  
+   The streaming locator has to be associated with a [streaming policy](streaming-policy-concept.md). In the example, we set `StreamingLocator.StreamingPolicyName` to the "Predefined_MultiDrmCencStreaming" policy. 
+      
+   The PlayReady and Widevine encryptions are applied, and the key is delivered to the playback client based on the configured DRM licenses. If you also want to encrypt your stream with CBCS (FairPlay), use the "Predefined_MultiDrmStreaming" policy.
+
+   The streaming locator is also associated with the content key policy that you defined.
+3. Create a test token.
+
+   The `GetTokenAsync` method shows how to create a test token.
+4. Build the streaming URL.
+
+   The `GetDASHStreamingUrlAsync` method shows how to build the streaming URL. In this case, the URL streams the DASH content.
+
+### Player with an AES or DRM client 
+
+A video player app based on a player SDK (either native or browser-based) needs to meet the following requirements:
+
+* The player SDK supports the needed DRM clients.
+* The player SDK supports the required streaming protocols: Smooth, DASH, and/or HLS.
+* The player SDK can handle passing a JWT token in a license acquisition request.
+
+You can create a player by using the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
+
+For testing AES or CENC (Widevine and/or PlayReady) encrypted content, you can use [Azure Media Player](https://aka.ms/azuremediaplayer). Make sure that you select **Advanced options** and check your encryption options.
+
+If you want to test FairPlay encrypted content, use [this test player](https://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs, along with AES-128 clear key encryption. 
+
+Choose the right browser to test different DRMs:
+
+* Chrome, Opera, or Firefox for Widevine
+* Microsoft Edge or Internet Explorer 11 for PlayReady
+* Safari on macOS for FairPlay
+
+### Security token service
+
+A security token service (STS) issues JWT as the access token for back-end resource access. You can use the Azure Media Services license/key delivery service as the back-end resource. An STS has to define the following:
+
+* Issuer and audience (or scope)
+* Claims, which are dependent on business requirements in content protection
+* Symmetric or asymmetric verification for signature verification
+* Key rollover support (if necessary)
+
+You can use [this STS tool](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) to test the STS. It supports all three types of verification keys: symmetric, asymmetric, or Azure Active Directory (Azure AD) with key rollover. 
 
 ## Streaming protocols and encryption types
 
-You can use Media Services to deliver your content encrypted dynamically with AES clear key or DRM encryption by using PlayReady, Widevine, or FairPlay. Currently, you can encrypt the HTTP Live Streaming (HLS), MPEG DASH, and Smooth Streaming formats. Each protocol supports the following encryption methods:
+You can use Media Services to deliver your content encrypted dynamically with AES clear key or DRM encryption by using PlayReady, Widevine, or FairPlay. Currently, you can encrypt the HTTP Live Streaming (HLS), MPEG DASH, and Smooth Streaming formats. Each protocol supports the following encryption methods.
 
 ### HLS
 
@@ -112,11 +123,11 @@ The HLS protocol supports the following container formats and encryption schemes
 |MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
 |CMAF(fmp4) |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cenc)`|
 
-HLS/CMAF + FairPlay (including HEVC / H.265) is supported on the following devices:
+HLS/CMAF + FairPlay (including HEVC/H.265) is supported on the following devices:
 
-* iOS v11 or higher 
-* iPhone 8 or above
-* MacOS high Sierra with Intel 7th Gen CPU
+* iOS 11 or later 
+* iPhone 8 or later
+* MacOS High Sierra with Intel 7th Generation CPU
 
 ### MPEG-DASH
 
@@ -144,7 +155,7 @@ Common browsers support the following DRM clients:
 |Browser|Encryption|
 |---|---|
 |Chrome|Widevine|
-|Microsoft Edge, IE 11|PlayReady|
+|Edge, Internet Explorer 11|PlayReady|
 |Firefox|Widevine|
 |Opera|Widevine|
 |Safari|FairPlay|
@@ -193,9 +204,9 @@ For REST examples that use custom key and license acquisition URLs, see [Streami
 
 ## Troubleshoot
 
-If you get the `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` error, make sure you specify the appropriate Streaming Policy.
+If you get the `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` error, make sure that you specify the appropriate streaming policy.
 
-If you get errors that end with `_NOT_SPECIFIED_IN_URL`, make sure that you specify the encryption format in the URL. For example, `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types).
+If you get errors that end with `_NOT_SPECIFIED_IN_URL`, make sure that you specify the encryption format in the URL. An example is `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types).
 
 ## Ask questions, give feedback, get updates
 
