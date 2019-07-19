@@ -1,5 +1,5 @@
 ---
-title: Verify the Sentiment Analysis container instance
+title: Verify the sentiment analysis container instance
 titleSuffix: Azure Cognitive Services
 description: Learn how to verify the sentiment analysis container instance.
 services: cognitive-services

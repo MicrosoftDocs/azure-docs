@@ -1,5 +1,5 @@
 ---
-title: Run Azure Kubernetes Services
+title: Run Azure Kubernetes Service
 titleSuffix: Text Analytics - Azure Cognitive Services
 description: Deploy the Text Analytics containers with the sentiment analysis image to Azure Kubernetes Services, and test it in a web browser.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 06/21/2019
 ms.author: dapine
 ---
 
-# Deploy a sentiment analysis container to Azure Kubernetes Services
+# Deploy a sentiment analysis container to Azure Kubernetes Service
 
 Learn how to deploy the Azure Cognitive Services [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) container with the sentiment analysis image to Azure Kubernetes Service (AKS). This procedure shows how to create a Text Analytics resource, how to create an associated sentiment analysis image, and how to exercise this orchestration of the two from a browser. Using containers can shift your attention away from managing infrastructure to instead focusing on application development.
 
