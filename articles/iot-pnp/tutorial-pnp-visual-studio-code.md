@@ -183,7 +183,7 @@ To create an interface file that defines the capabilities of your IoT device in 
 
     This interface defines device properties such as **Customer Name**, telemetry types such as **Temperature**, and commands such as **turnon**.
 
-1. Add a command capability called **blink** at the end of this interface file. Try typing the definition to see how intellisense, autocomplete, and validation can help you edit an interface definition:
+1. Add a command capability called **blink** at the end of this interface file. Be sure to add a comma before you add the command. Try typing the definition to see how intellisense, autocomplete, and validation can help you edit an interface definition:
 
     ```json
     {
