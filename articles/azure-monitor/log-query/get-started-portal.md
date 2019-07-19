@@ -175,7 +175,7 @@ You can save either the entire query page, or a single query as a function. Func
 ![Save function](media/get-started-portal/save-function.png)
 
 >[!NOTE]
->The following characters are supported - `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` when saving or editing a query.
+>The following characters are supported - `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` in the **Name** field when saving or editing it.
 
 Log Analytics queries are always saved to a selected workspace, and shared with other users of that workspace.
 
