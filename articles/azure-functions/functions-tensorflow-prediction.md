@@ -1,6 +1,6 @@
 ---
 title: Make Predictions with TensorFlow and Azure Functions | Microsoft Docs
-description: How to consume TensorFlow models in Azure Functions
+description: How to apply TensorFlow models in Azure Functions
 services: functions
 author: anthonychu
 manager: jeconnoc
@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 07/19/2019
 ms.author: antchu
 ms.custom: mvc
 ---
@@ -43,23 +43,60 @@ The repository contains a few folders.
 - **resources** - TensorFlow model and helper libraries
 - **frontend** - a frontend website that calls the function app
 
-## Create an Azure Functions project
+## Create and activate a Python virtual environment
 
-Change into the **start** folder and use the Azure Functions Core Tools to initialize a Python function app project in the folder.
+Azure Functions requires Python 3.6 or higher. We recommend creating a virtual environment with the correct version of Python.
+
+Change into the *start* folder and identify the Python executable that you'll use to create the virtual environment. Commonly, it is available as `python` or `python3`.
+
+> [!NOTE]
+> If you have the Python Launcher `py` installed on Windows, use `py -3.6` instead of `python` in the following commands.
+
+Confirm the version of your Python executable.
 
 ```bash
 cd start
-func init --worker-runtime python
+python --version
 ```
 
-Create and activate a Python virtual environment in a folder named `.env`.
+In the **start** folder, use the correct version of Python to create a Python virtual environment in a folder named `.env`.
 
 ```bash
-python3.6 -m venv .env
+python -m venv .env
+```
+
+Activate the virtual environment.
+
+*Linux and macOS*
+
+```bash
 source .env/bin/activate
 ```
 
-Open the **start** folder in an editor and examine the files that were created. The files are required but you won't modify them in this tutorial.
+*Windows*
+
+```powershell
+.env\Scripts\activate
+```
+
+The terminal prompt should now be prefixed with `(.env)` that indicates you have properly activated the virtual environment. Confirm that `python` in the virtual environment has the correct version.
+
+```bash
+python --version
+```
+
+> [!NOTE]
+> For the remainder of the tutorial, you'll be running commands in the virtual environment. If you need to reactivate the virtual environment in a terminal, execute the appropriate activate command for your operating system.
+
+## Create an Azure Functions project
+
+Use the Azure Functions Core Tools to initialize a Python function app in the folder.
+
+```bash
+func init --worker-runtime python
+```
+
+A function app can contain one or more Azure Functions. Open the **start** folder in an editor and examine some of files that were created.
 
 - **local.settings.json** - application settings used for local development
 - **host.json** - settings for the Azure Functions host and extensions
@@ -90,40 +127,40 @@ func start
 
 Open a browser and navigate to `http://localhost:7071/api/classify?name=Azure`. The function should return *Hello Azure!*
 
-Type `Ctrl-C` to stop the function app.
+Use `Ctrl-C` to stop the function app.
 
 ## Import a TensorFlow model
 
 For this tutorial, you'll use a TensorFlow model that was built with and exported from Azure Custom Vision Service. If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the repository](https://github.com/anthonychu/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
-Copy the models from **resources/models** into the **classify** folder.
-
-*Windows*
-
-```powershell
-copy ..\resources\models\* classify
-```
+The model consists of two files in the **<repository-root>/resources/model** folder: *model.db* and *labels.txt*. Copy them into into the **classify** function's folder.
 
 *Linux and macOS*
 
 ```bash
-cp ../resources/models/* classify
+cp ../resources/model/* classify
+```
+
+*Windows*
+
+```powershell
+copy ..\resources\model\* classify
 ```
 
 ## Import the helper functions
 
 Some helper functions for preparing the input image and making a prediction using TensorFlow are in a file named **predict.py** in the **resources** folder. Copy this file info the **classify** function's folder.
 
-*Windows*
-
-```powershell
-copy ..\resources\predict.py classify
-```
-
 *Linux and macOS*
 
 ```bash
 cp ../resources/predict.py classify
+```
+
+*Windows*
+
+```powershell
+copy ..\resources\predict.py classify
 ```
 
 ### Install dependencies
@@ -134,27 +171,33 @@ The helper library has some dependencies that need to be installed. In the termi
 pip install tensorflow
 pip install Pillow
 pip install requests
+```
+
+Save the dependencies in **requirements.txt**.
+
+```bash
 pip freeze > requirements.txt
 ```
 
 ### Caching the model in global variables
 
-In the editor, open **predict.py** and look at the `_initialize` function near the top of the file. Notice that the TensorFlow model is loaded from disk the first time the function is run and save to global variables. The loading from disk is skipped on subsequent executions of the `_initialize` function. Caching the model in memory with this technique speeds up later predictions.
+In the editor, open **predict.py** and look at the `_initialize` function near the top of the file. Notice that the TensorFlow model is loaded from disk the first time the function is executed and save to global variables. The loading from disk is skipped in subsequent executions of the `_initialize` function. Caching the model in memory with this technique speeds up later predictions.
 
 ## Update function to run prediction
 
-Open **classify/__init__.py** in your editor. Import the **predict** library that you added to the same folder earlier. Add this `import` statement beneath the other imports in the file.
+Open **classify/__init__.py** in your editor. Import the **predict** library that you added to the same folder earlier. Add the following `import` statements below the other imports in the file.
 
 ```python
-from . import predict
+import json
+from .predict import predict_image_from_url
 ```
 
-Change the function body to the following.
+Replace the function body to the following.
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:
     image_url = req.params.get('img')
-    results = predict.predict_image_from_url(image_url)
+    results = predict_image_from_url(image_url)
 
     headers = {
         "Content-type": "application/json",
@@ -184,18 +227,20 @@ Keep the function app running.
 
 ### Test the web app
 
-There is a simple frontend web app in the **frontend** folder that consumes the HTTP API in the function app. Open a *separate* terminal and change to the **frontend** folder. Start an HTTP server with Python.
+There is a simple frontend web app in the **frontend** folder that consumes the HTTP API in the function app.
+
+Open a *separate* terminal and change to the **frontend** folder. Start an HTTP server with your Python 3.6 executable.
 
 ```bash
 cd <location of the frontend folder>
-python3 -m http.server
+python -m http.server
 ```
 
 In a browser, navigate to the HTTP server's URL. A web app should appear. Find a public URL of a dog or cat photo and enter it into the textbox. When you click submit, the function app is called and a prediction is returned and displayed on the page.
 
 ## Next steps
 
-In this tutorial, you learned how to build and customize an API on Azure Functions to make predictions using TensorFlow. You also learned how to call the API using a web application. You can use these techniques to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
+In this tutorial, you learned how to build and customize an HTTP API on Azure Functions to make predictions using TensorFlow. You also learned how to call the API using a web application. You can use these techniques to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
 
 The following references may be helpful as you develop your application further:
 
