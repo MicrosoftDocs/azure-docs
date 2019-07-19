@@ -71,7 +71,7 @@ If the configuration passes validation, review and then select "Create" in the "
 
 ![Review and create a new private cloud](./media/create-private-cloud/ss6-review-create.png)
 
-Once the deployment has succeeded, navigate to the new private cloud in your resources and review the overview information. Confirm the configuration, and then select "Admin" to retrieve the credentials to access vCenter and NSX-T manager. Establishing that access is covered in the [Access a private cloud Tutorial][tutorials-access-private-cloud].
+Once the deployment has succeeded, navigate to the new private cloud in your resources and review the overview information. Confirm the configuration, and then select "Admin" to retrieve the credentials to access vCenter and NSX-T manager. Establishing that access is covered in another tutorial.
 
 ![Review overview information of new private cloud](./media/create-private-cloud/ss7-view-overview.png)
 
