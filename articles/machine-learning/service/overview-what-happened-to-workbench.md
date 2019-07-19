@@ -72,7 +72,8 @@ You won't lose any code or work. In the older version, projects are cloud entiti
 
 Much of the project content was already on your local machine. So you just need to create a config file in that directory and reference it in your code to connect to your workspace. To continue using the local directory containing your files and scripts, specify the directory's name in the ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python command or using the `az ml project attach` CLI command.  For example:
 ```python
-run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
+run = exp.submit(source_directory=script_folder,
+                 script='train.py', run_config=run_config_system_managed)
 ```
 
 [Create a workspace](setup-create-workspace.md#portal) to get started.

@@ -57,13 +57,13 @@ Each of these options is described in the [detailed instructions](status-monitor
   
 - How do I verify that the enablement succeeded?
 
-   There's no cmdlet to verify enablement succeeded.
-We recommend you use [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) to quickly determine if your app is sending telemetry.
+  - The [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) cmdlet can be used to verify that enablement succeeded.
+  - We recommend you use [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) to quickly determine if your app is sending telemetry.
 
-   You can also use [Log Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry:
-   ```Kusto
-   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-   ```
+  - You can also use [Log Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry:
+      ```Kusto
+      union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+      ```
 
 ## Next steps
 
