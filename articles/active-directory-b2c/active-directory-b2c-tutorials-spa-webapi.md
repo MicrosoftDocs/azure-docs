@@ -125,28 +125,29 @@ To allow your single page application to call the ASP.NET Core web API, you need
     }
     ````
 
-### Configure the single page application
+### Configure the single-page application
 
-The single page application uses Azure AD B2C for user sign-up, sign-in, and calls the protected ASP.NET Core web API. You update the single page application to call the .NET Core web API.
+The single-page application (SPA) from the [previous tutorial](active-directory-b2c-tutorials-spa.md) in the series uses Azure AD B2C for user sign-up and sign-in, and calls the protected ASP.NET Core web API. In this section, you update the single page application to call the .NET Core web API.
 
-To change the app settings:
+To change the settings in the SPA:
 
-1. Open the `index.html` file.
-1. Configure the sample with the Azure AD B2C tenant registration information. In the following code, add your tenant name to **b2cScopes** and change the **webApi** value to the *applicationURL* value that you previously recorded:
+1. Open the `index.html` file in the project you downloaded or cloned in the previous tutorial ([active-directory-b2c-javascript-msal-singlepageapp][github-js-spa]).
+1. **TODO: Add instruction on getting FULL SCOPE VALUE from the portal**
+1. Configure the sample with the Azure AD B2C tenant registration information.
+
+   In the `appConfig` definition, replace the `b2cScopes` value with the URI for the . Next, change the `webApi` value to the *applicationURL* value from the previous section. For example:
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
-    var applicationConfig = {
-        clientID: '<application-ID>',
-        authority: "https://<your-tenant-name>.b2clogin.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_signupsignin1",
-        b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/api/Hello.Read"],
-        webApi: 'http://localhost:5000/api/values',
+    var appConfig = {
+      b2cScopes: ["https://marsmatest.onmicrosoft.com/api/Hello.Read"],
+      webApi: "http://localhost:5000/"
     };
     ```
 
-## Run the SPA application and web API
+## Run the SPA and web API
 
-You need to run both the Node.js single page application and the .NET Core web API.
+You need to run both the Node.js single-page application and the .NET Core web API.
 
 ### Run the ASP.NET Core Web API
 
@@ -188,3 +189,6 @@ In this tutorial, you learned how to:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](tutorial-add-identity-providers.md)
+
+<!-- Links - EXTERNAL -->
+[github-js-spa]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
