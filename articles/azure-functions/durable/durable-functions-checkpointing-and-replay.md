@@ -22,7 +22,7 @@ In spite of this, Durable Functions ensures reliable execution of orchestrations
 
 Suppose you have the following orchestrator function:
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]

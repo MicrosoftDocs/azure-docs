@@ -12,7 +12,7 @@ ms.date: 04/11/2019
 ms.author: aahi
 ---
 
-# Quickstart: Check spelling with the Bing Spell Check REST API and C#
+# Quickstart: Check spelling with the Bing Spell Check REST API and C\#
 
 Use this quickstart to make your first call to the Bing Spell Check REST API. This simple C# application sends a request to the API and returns a list of suggested corrections. While this application is written in C#, the API is a RESTful Web service compatible with most programming languages. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 

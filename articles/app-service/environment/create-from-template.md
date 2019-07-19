@@ -153,7 +153,7 @@ After the template finishes, apps on the ILB ASE can be accessed over HTTPS. The
 
 However, just like apps that run on the public multitenant service, developers can configure custom host names for individual apps. They also can configure unique SNI SSL certificate bindings for individual apps.
 
-## App Service Environment v1 ##
+## App Service Environment v1
 App Service Environment has two versions: ASEv1 and ASEv2. The preceding information was based on ASEv2. This section shows you the differences between ASEv1 and ASEv2.
 
 In ASEv1, you manage all of the resources manually. That includes the front ends, workers, and IP addresses used for IP-based SSL. Before you can scale out your App Service plan, you must scale out the worker pool that you want to host it.

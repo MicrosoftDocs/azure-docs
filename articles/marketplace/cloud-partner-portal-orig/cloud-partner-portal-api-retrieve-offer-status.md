@@ -10,15 +10,13 @@ ms.author: pabutler
 ---
 
 
-Retrieve offer status 
-=====================
+# Retrieve offer status
 
 Retrieves the current status of the offer.
 
   `GET  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/status?api-version=2017-10-31`
 
-URI parameters
---------------
+## URI parameters
 
 |  **Name**       |   **Description**                            |  **Data type** |
 |  -------------  |  ------------------------------------------  |  ------------  |
@@ -28,8 +26,7 @@ URI parameters
 |  |  |
 
 
-Header
-------
+## Header
 
 |  Name           |  Value               |
 |  -------------  | -------------------  |
@@ -38,8 +35,7 @@ Header
 |  |  |
 
 
-Body example
-------------
+## Body example
 
 ### Response
 

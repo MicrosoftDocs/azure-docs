@@ -12,7 +12,7 @@ ms.date: 06/13/2019
 ms.author: swmachan
 ---
 
-# Quickstart: Use the Translator Text API to transliterate text using C#
+# Quickstart: Use the Translator Text API to transliterate text using C\#
 
 In this quickstart, you'll learn how to transliterate (convert) text from one script to another using .NET Core (C#), C# 7.1 or later, and the Translator Text REST API. In the sample provided, Japanese is transliterated to use the Latin alphabet.
 

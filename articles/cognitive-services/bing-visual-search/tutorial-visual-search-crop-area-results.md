@@ -12,7 +12,7 @@ ms.date: 04/26/2019
 ms.author: rosh
 ---
 
-# Tutorial: Crop an image with the Bing Visual Search SDK for C#
+# Tutorial: Crop an image with the Bing Visual Search SDK for C\#
 
 The Bing Visual Search SDK enables you to crop an image before finding similar online images. This application crops a single person from an image containing several people, and then returns search results containing similar images found online.
 

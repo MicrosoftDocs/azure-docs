@@ -13,7 +13,7 @@ ms.date: 04/26/2019
 ms.author: scottwhi
 ---
 
-# Quickstart: Get image insights using the Bing Visual Search REST API and C#
+# Quickstart: Get image insights using the Bing Visual Search REST API and C\#
 
 This quickstart demonstrates how to upload an image to the Bing Visual Search API and to view the insights that it returns.
 

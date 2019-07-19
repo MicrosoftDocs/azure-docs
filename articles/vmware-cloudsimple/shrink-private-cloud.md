@@ -1,4 +1,4 @@
---- 
+---
 title: Shrink Azure VMware Solution by CloudSimple Private Cloud
 description: Describes how to shrink a CloudSimple Private Cloud.
 author: sharaths-cs 

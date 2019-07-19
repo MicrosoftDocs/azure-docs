@@ -15,8 +15,7 @@ ms.author: pabutler
 This article provides a walk-through of the Cloud Partner Portal. Learn what you can do using the Cloud Partner Portal to work with offers on [Azure Marketplace](https://azuremarketplace.microsoft.com/) and on
 [AppSource](https://appsource.microsoft.com/).
 
-Portal tour
------------
+## Portal tour
 
 The Cloud Partner Portal contains everything you need to offer and operate a successful business on the cloud. Here's a quick overview of the parts of this site that you'll likely use the most often.
 

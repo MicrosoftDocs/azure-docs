@@ -1,4 +1,4 @@
---- 
+---
 title: Map Azure subscription to resource pools on Azure VMware Solution by CloudSimple
 description: Describes how to map a resource pool on Azure VMware Solution by CloudSimple to your Azure subscription
 author: sharaths-cs

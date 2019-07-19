@@ -140,7 +140,7 @@ For .NET applications and functions, the simplest way to work with managed ident
     
 To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference](/azure/key-vault/service-to-service-authentication) and the [App Service and KeyVault with managed identities for Azure resources .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
-## Get a token using C#
+## Get a token using C\#
 
 ```csharp
 using System;

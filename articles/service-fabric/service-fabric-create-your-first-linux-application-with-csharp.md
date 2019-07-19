@@ -31,7 +31,7 @@ Before you get started, make sure that you have [set up your Linux development e
 
 You will also want to install the [Service Fabric CLI](service-fabric-cli.md)
 
-### Install and set up the generators for C#
+### Install and set up the generators for C\#
 Service Fabric provides scaffolding tools which help you create Service Fabric applications from a terminal using Yeoman template generators. Follow these steps to set up the Service Fabric Yeoman template generators for C#:
 
 1. Install nodejs and NPM on your machine

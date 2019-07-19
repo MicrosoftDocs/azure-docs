@@ -10,8 +10,7 @@ ms.author: pabutler
 ---
 
 
-Automate offer publishing
-=========================
+# Automate offer publishing
 
 You can also programmatically automate the VM publishing workflow, using the APIs 
 in the [API Reference](./cloud-partner-portal-api-overview.md) section. There are 
@@ -19,8 +18,7 @@ two distinct scenarios to consider while
 planning automation: offer initial publishing and subsequent offer publishing.
 
 
-Offer initial publishing
--------------------------
+## Offer initial publishing
 
 When you publish an offer for the first time, it requires a few additional steps before uploading to the marketplace.  For example, you must prepare the metadata and create an offer draft. The initial publishing workflow is shown in the following diagram.
 
@@ -73,8 +71,7 @@ The following sample code demonstrates these steps.
 ```
 
 
-Subsequent offer publishing
----------------------------
+## Subsequent offer publishing
 
 Once the virtual machine (VM) offer is integrated into a continuous integration pipeline,
 you can automate the publishing workflow to run every time a new virtual hard disk

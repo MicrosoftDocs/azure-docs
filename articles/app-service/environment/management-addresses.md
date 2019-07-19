@@ -24,7 +24,7 @@ All ASEs have a public VIP which management traffic comes into. The incoming man
 
 The addresses noted below can be configured in a route table to avoid asymmetric routing problems with the management traffic. Routes act on traffic at the IP level and do not have an awareness of traffic direction or that the traffic is a part of a TCP reply message. If the reply address for a TCP request is different than the address it was sent to, you have an asymmetric routing problem. To avoid asymmetric routing problems with your ASE management traffic, you need to ensure that replies are sent back from the same address they were sent to. For details on how to configure your ASE to operate in an environment where outbound traffic is sent on premises, read [Configure your ASE with forced tunneling][forcedtunnel]
 
-## List of management addresses ##
+## List of management addresses
 
 | Region | Addresses |
 |--------|-----------|
@@ -88,7 +88,7 @@ The management addresses can be placed in a route table with a next hop of inter
 
 After your route table is created, you need to set it on your ASE subnet.  
 
-## Get your management addresses from API ##
+## Get your management addresses from API
 
 You can list the management addresses that match to your ASE with the following API call.
 

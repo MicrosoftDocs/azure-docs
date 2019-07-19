@@ -50,7 +50,7 @@ library(devtools)
 install_github('<user>/<repo>')
 ```
 
-## F#
+## F\#
 
 Packages in F# can be installed from [nuget.org](https://www.nuget.org) by calling the Paket dependency manager from within code cells. First, load the Paket manager:
 

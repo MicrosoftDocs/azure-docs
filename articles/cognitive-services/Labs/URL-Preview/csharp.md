@@ -13,7 +13,7 @@ ms.date: 03/16/2018
 ms.author: rosh
 ---
 
-# Quickstart: URL Preview query in C#
+# Quickstart: URL Preview query in C\#
 
 The following C# example creates a Url Preview for the SwiftKey Web site: https://swiftkey.com/en.
 

@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 02/06/2019
 ms.author: aahi
 ---
-# Quickstart: Search for images using the Bing Image Search REST API and C#
+# Quickstart: Search for images using the Bing Image Search REST API and C\#
 
 Use this quickstart to start sending search requests to the Bing Image Search API. This C# application sends a search query to the API, and displays the URL of the first image in the results. While this application is written in C#, the API is a RESTful web service compatible with most programming languages.
 

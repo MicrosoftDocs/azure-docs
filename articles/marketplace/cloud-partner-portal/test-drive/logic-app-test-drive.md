@@ -9,19 +9,16 @@ ms.date: 09/13/2018
 ms.author: pabutler
 ---
 
-Logic App Test Drive
-====================
+# Logic App Test Drive
 
 This article is for Publishers who have their offer on AppSource and want to build their Test Drive that connects with a Dynamics AX/CRM instance or any other resource beyond just Azure.
 
-How to build a Logic App Test Drive
------------------------------------
+## How to build a Logic App Test Drive
 
 Test Drive documentation for Logic App Test Drives is currently still on GitHub for
 [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) and [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app), go there to read more.
 
-How to publish a Test Drive
----------------------------
+## How to publish a Test Drive
 
 Now that you have your Test Drive built, this section walks through each of the fields required for you to successfully publish your Test Drive.
 
@@ -134,8 +131,7 @@ Given we are using the application to deploy to the subscription, we need to add
 > You cannot use the Azure App Registration Preview because it does not currently generate a base64 encoded key.
 
 
-Next steps
-----------
+## Next steps
 
 Now that you have all of your Test Drive fields filled out, go through and **Republish** your offer. Once your Test Drive has passed the certification process, you should go an extensively test the customer experience in the **preview** of your offer. Start a Test Drive in the UI and verify that your Test Drives are being fully deployed correctly.
 

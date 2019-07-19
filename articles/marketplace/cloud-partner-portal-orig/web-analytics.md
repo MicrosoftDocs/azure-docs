@@ -18,8 +18,7 @@ ms.author: pabutler
 ---
 
 
-Web Analytics
-=============
+# Web Analytics
 
 This article provides you with instructions on how to learn and use Web Analytics to best grow your business. Currently this Insights tab is available for any AppSource offers.
 
@@ -29,8 +28,7 @@ Now that you've built and published your offer, the next part of your journey is
 
 You will see a rich dashboard for your Publisher ID that has been  built with Microsoft Power BI and enables you to see each of your offers\' data, which is refreshed daily.
 
-**Microsoft Campaigns**
------------------------
+## Microsoft Campaigns
 
 In order to grow your offers and track the growth of your offers, we have enabled the ability to use **Microsoft campaigns** on the Cloud Partner Portal. Campaigns are a newly supported feature for the
 marketplace that will allow for you to track the different channels that are sending customers into your app details page.
@@ -94,8 +92,7 @@ Here is an example:
         utm\_source added to this URL**) =
         [https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
-How to evaluate the success of a Campaign
------------------------------------------
+## How to evaluate the success of a Campaign
 
 ### **Page Visits by campaign**
 
@@ -120,8 +117,7 @@ users are coming to the marketplace under. \_NoCampaign means that the
 customer did not have a campaign ID in the url when they navigated to
 the marketplace.
 
-**Next Steps**
---------------
+## Next Steps
 
 Now that you have the ability to track your offers' success, we want to encourage you to create your own campaigns.
 

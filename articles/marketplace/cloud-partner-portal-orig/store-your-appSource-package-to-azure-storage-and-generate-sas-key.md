@@ -17,8 +17,7 @@ ms.date: 09/18/2018
 ms.author: pabutler
 ---
 
-Store your AppSource Package to Azure storage and generate a URL with SAS key
-=============================================================================
+# Store your AppSource Package to Azure storage and generate a URL with SAS key
 
 To maintain security of your files, all partners must store their
 AppSource package file in an Azure blob storage account and use a SAS key to

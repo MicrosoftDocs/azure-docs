@@ -713,7 +713,7 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 ## Geofencing and geospatial queries
 Azure Stream Analytics provides built-in geospatial functions that can be used to implement scenarios such as fleet management, ride sharing, connected cars, and asset tracking. Geospatial data can be ingested in either GeoJSON or WKT formats as part of event stream or reference data. For more information, refer to the [Geofencing and geospatial aggregation scenarios with Azure Stream Analytics](geospatial-scenarios.md) article.
 
-## Language extensibility through JavaScript and C#
+## Language extensibility through JavaScript and C\#
 Azure Stream Ananlytics query langugae can be extended with custom functions written in JavaScript or C# languages. For more information see the foolowing articles:
 * [Azure Stream Analytics JavaScript user-defined functions](stream-analytics-javascript-user-defined-functions.md)
 * [Azure Stream Analytics JavaScript user-defined aggregates](stream-analytics-javascript-user-defined-aggregates.md)

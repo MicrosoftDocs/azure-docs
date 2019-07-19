@@ -174,7 +174,7 @@ The Durable Functions extension has built-in webhooks that manage long-running o
 
 Here are some examples of how to use the HTTP API pattern:
 
-#### C#
+#### C\#
 
 ```csharp
 // An HTTP-triggered function starts a new orchestrator function instance.

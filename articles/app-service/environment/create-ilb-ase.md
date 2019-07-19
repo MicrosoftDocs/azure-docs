@@ -39,7 +39,7 @@ With an ILB ASE, you can do things such as:
 -   Host apps in the cloud that aren't listed in public DNS servers.
 -   Create internet-isolated back-end apps, which your front-end apps can securely integrate with.
 
-### Disabled functionality ###
+### Disabled functionality
 
 There are some things that you can't do when you use an ILB ASE:
 
@@ -47,7 +47,7 @@ There are some things that you can't do when you use an ILB ASE:
 -   Assign IP addresses to specific apps.
 -   Buy and use a certificate with an app through the Azure portal. You can obtain certificates directly from a certificate authority and use them with your apps. You can't obtain them through the Azure portal.
 
-## Create an ILB ASE ##
+## Create an ILB ASE
 
 To create an ILB ASE:
 
@@ -73,7 +73,7 @@ To create an ILB ASE:
 
 7. Select **Review and Create** then select **Create**.
 
-## Create an app in an ILB ASE ##
+## Create an app in an ILB ASE
 
 You create an app in an ILB ASE in the same way that you create an app in an ASE normally.
 
@@ -119,7 +119,7 @@ If you don't want to create your own build agent, you need to use a CI system th
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. This domain appears in the app's publishing profile and in the app's portal blade (**Overview** > **Essentials** and also **Properties**). If you have an ILB ASE with the domain suffix *&lt;ASE name&gt;.appserviceenvironment.net*, and an app named *mytest*, use *mytest.&lt;ASE name&gt;.appserviceenvironment.net* for FTP and *mytest.scm.contoso.net* for web deployment.
 
-## Configure an ILB ASE with a WAF device ##
+## Configure an ILB ASE with a WAF device
 
 You can combine a web application firewall (WAF) device with your ILB ASE to only expose the apps that you want to the internet and keep the rest only accessible from in the VNet. This enables you to build secure multi-tier applications among other things.
 
@@ -129,7 +129,7 @@ To learn more about how to configure your ILB ASE with a  WAF device, see [Confi
 
 ILB ASEs that were made before May 2019 required you to set the domain suffix during ASE creation. They also required you to upload a default certificate that was based on that domain suffix. Also, with an older ILB ASE you can't perform single sign-on to the Kudu console with apps in that ILB ASE. When configuring DNS for an older ILB ASE, you need to set the wildcard A record in a zone that matches to your domain suffix. 
 
-## Get started ##
+## Get started
 
 * To get started with ASEs, see [Introduction to App Service environments][Intro]. 
 

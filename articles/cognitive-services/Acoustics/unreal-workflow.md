@@ -64,7 +64,7 @@ By default, the Project Acoustics simulation has a radius of 45 meters around th
 
 ![Screenshot of Wwise attenuation curves](media/atten-curve.png)
 
-### Post Mixer Equalization ###
+### Post Mixer Equalization
  One other thing you may want to do is add a post mixer equalizer. You can treat the Project Acoustics bus as a typical reverb bus (in default reverb mode) and put a filter on it to do equalization. You can see a sample of this in the Project Acoustics Wwise Sample Project.
 
 ![Screenshot of Wwise post-mixer EQ](media/wwise-post-mixer-eq.png)

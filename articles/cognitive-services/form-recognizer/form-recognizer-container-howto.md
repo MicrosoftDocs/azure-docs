@@ -230,7 +230,7 @@ The container provides websocket-based query endpoint APIs, which you access thr
 
 By default, the Form Recognizer SDK uses the online services. To use the container, you need to change the initialization method. See the examples below.
 
-#### For C#
+#### For C\#
 
 Change from using this Azure-cloud initialization call:
 

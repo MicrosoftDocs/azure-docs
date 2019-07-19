@@ -39,7 +39,7 @@ CC		|Conference instance total citation count			|Int32		|none
 ECC		|Conference instance total estimated citation count	|Int32		|none
 
 
-## Extended Metadata Attributes ##
+## Extended Metadata Attributes
 
 Name    | Description               
 --------|---------------------------	

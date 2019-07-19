@@ -9,8 +9,7 @@ ms.date: 09/13/2018
 ms.author: pabutler
 ---
 
-Go Live
-=======
+# Go Live
 
 This API starts the process for pushing an app to production. This operation is usually
 long-running. This call uses the notification email list
@@ -18,8 +17,7 @@ from the [Publish](./cloud-partner-portal-api-publish-offer.md) API operation.
 
  `POST  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/golive?api-version=2017-10-31` 
 
-URI parameters
---------------
+## URI parameters
 
 |  **Name**      |   **Description**                                                           | **Data type** |
 |  --------      |   ---------------                                                           | ------------- |
@@ -29,8 +27,7 @@ URI parameters
 |  |  |  |
 
 
-Header
-------
+## Header
 
 |  **Name**       |     **Value**       |
 |  ---------      |     ----------      |
@@ -39,8 +36,7 @@ Header
 |  |  |
 
 
-Body example
-------------
+## Body example
 
 ### Response
 

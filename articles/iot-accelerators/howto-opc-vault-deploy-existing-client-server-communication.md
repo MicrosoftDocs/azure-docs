@@ -129,7 +129,7 @@ opcclient-123456 | [13:40:12 INF] Value (ActionId: 000 ActionType: 'OpcTestActio
 ```
 If you see this output, then the OPC PLC is now trusting the OPC client and vice versa, since both have now certificates signed by a CA and both trust certificates that were signed by this CA.
 
-### A testbed for OPC Publisher ###
+### A testbed for OPC Publisher
 
 **Quickstart**
 

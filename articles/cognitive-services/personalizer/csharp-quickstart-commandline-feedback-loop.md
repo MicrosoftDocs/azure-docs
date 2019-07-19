@@ -14,7 +14,7 @@ ms.author: edjez
 
 ---
 
-# Quickstart: Personalize content using C# 
+# Quickstart: Personalize content using C\#
 
 Display personalized content in this C# quickstart with the Personalizer service.
 

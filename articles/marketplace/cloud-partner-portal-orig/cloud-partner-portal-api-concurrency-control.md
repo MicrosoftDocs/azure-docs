@@ -22,8 +22,7 @@ offer two strategies for concurrency control.
     regardless of whether another application has modified it since the
     last read time.
 
-Optimistic concurrency workflow
--------------------------------
+## Optimistic concurrency workflow
 
 We recommend using the optimistic concurrency strategy, with the
 following workflow, to guarantee that no unexpected edits are made to your

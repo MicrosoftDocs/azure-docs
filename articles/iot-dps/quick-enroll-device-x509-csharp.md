@@ -12,7 +12,7 @@ ms.devlang: csharp
 ms.custom: mvc
 ---
  
-# Quickstart: Enroll X.509 devices to the Device Provisioning Service using C#
+# Quickstart: Enroll X.509 devices to the Device Provisioning Service using C\#
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 

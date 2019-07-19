@@ -17,8 +17,7 @@ ms.date: 09/13/2018
 ms.author: pabutler
 ---
 
-How to fill out the Technical Info form
-===========================================
+# How to fill out the Technical Info form
 
 1.  In the **Choose Application Type** section, upload your extension
     package file (.app) and any extension package files your extension

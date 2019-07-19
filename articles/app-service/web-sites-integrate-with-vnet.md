@@ -145,7 +145,7 @@ Here are some things to keep in mind before connecting your web app to a virtual
 * The VNet must be in the same subscription as your App Service Plan(ASP).
 * The apps that integrate with a VNet use the DNS that is specified for that VNet.
 
-### Set up a gateway in your VNet ###
+### Set up a gateway in your VNet
 
 If you already have a gateway configured with point-to-site addresses, you can skip to configuring VNet Integration with your app.  
 To create a gateway:
@@ -298,7 +298,7 @@ Additional debug steps include:
 
 * bring up an application on a VM and test access to that host and port from the console from your app using **tcpping**
 
-#### On-premises resources ####
+#### On-premises resources
 
 If your app cannot reach a resource on-premises, then check if you can reach the resource from your VNet. Use the **test-netconnection** PowerShell command to check for TCP access. If your VM can't reach your on-premises resource, your VPN or ExpressRoute connection may not be configured properly.
 

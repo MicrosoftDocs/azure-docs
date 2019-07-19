@@ -10,14 +10,12 @@ ms.author: pabutler
 ---
 
 
-Pricing for virtual machine offers
-==================================
+# Pricing for virtual machine offers
 
 There are three ways to specify pricing for virtual machine offers: customized core pricing, per-core pricing, and spreadsheet pricing.
 
 
-Customized core pricing
------------------------
+## Customized core pricing
 
 Pricing is specific for each region and core combination. Every region in the sell list must be specified in the
 **virtualMachinePricing**/**regionPrices** section of the definition.  Use the correct currency codes for each [region](#regions) in
@@ -64,8 +62,7 @@ your request.  The following example demonstrates these requirements:
 ```
 
 
-Per-core pricing
-----------------
+## Per-core pricing
 
 In this case, the publishers specify one price in USD for their SKU and
 all other prices are automatically generated. The price per core is
@@ -84,8 +81,7 @@ specified in the **single** parameter in the request.
 ```
 
 
-Spreadsheet pricing
--------------------
+## Spreadsheet pricing
 
 The publisher may also upload their pricing spreadsheet to a temporary
 storage location, then include the URI in the request like other file
@@ -105,14 +101,12 @@ spreadsheet URI and the evaluated prices for the region.
      }
 ```
 
-New core sizes added on 7/2/2019
----------------------------
+## New core sizes added on 7/2/2019
 
 VM publishers were notified on July 2, 2019 of the addition of new prices for new Azure virtual machine sizes (based on the number of cores).  The new prices are for the core sizes 10, 44, 48, 60, 120, 208, and 416.  For existing VM offers new prices for these cores sizes were automatically calculated based on current prices.  Publishers have until August 1, 2019 to review the additional prices and make any desired changes.  After this date, if not already re-published by the publisher, the automatically calculated prices for these new core sizes will take effect.
 
 
-Regions
--------
+## Regions
 
 The following table shows the different regions that you can specify for
 customized core pricing, and their corresponding currency codes.

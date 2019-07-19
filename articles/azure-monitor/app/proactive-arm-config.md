@@ -31,8 +31,6 @@ You can configure the following settings for a smart detection rule:
 To allow configuring the rule settings via Azure Resource Manager, the smart detection rule configuration is now available as an inner resource within the Application Insights resource, named **ProactiveDetectionConfigs**.
 For maximal flexibility, each smart detection rule can be configured with unique notification settings.
 
-## 
-
 ## Examples
 
 Below are a few examples showing how to configure the settings of smart detection rules using Azure Resource Manager templates.

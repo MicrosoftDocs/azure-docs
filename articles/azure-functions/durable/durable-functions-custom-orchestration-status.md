@@ -22,7 +22,7 @@ Custom orchestration status lets you set a custom status value for your orchestr
 
 Clients can poll the status end point and display a progress UI that visualizes the current execution stage. The following sample demonstrates progress sharing:
 
-#### C#
+#### C\#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -77,7 +77,7 @@ module.exports = async function(context, name) {
 
 And then the client will receive the output of the orchestration only when `CustomStatus` field is set to "London":
 
-#### C#
+#### C\#
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -149,7 +149,7 @@ module.exports = async function(context, req) {
 
 Another interesting scenario is segmenting users by returning customized output based on unique characteristics or interactions. With the help of custom orchestration status, the client-side code will stay generic. All main modifications will happen on the server side as shown in the following sample:
 
-#### C#
+#### C\#
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -224,7 +224,7 @@ module.exports = df.orchestrator(function*(context) {
 
 The orchestrator can provide unique instructions to the clients via the custom state. The custom status instructions will be mapped to the steps in the orchestration code:
 
-#### C#
+#### C\#
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -283,7 +283,7 @@ module.exports = df.orchestrator(function*(context) {
 
 In the following sample, the custom status is set first;
 
-### C#
+### C\#
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext context)

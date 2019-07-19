@@ -12,7 +12,7 @@ ms.date: 04/26/2019
 ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
 ---
-# Quickstart: Translator Speech API with C#
+# Quickstart: Translator Speech API with C\#
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]

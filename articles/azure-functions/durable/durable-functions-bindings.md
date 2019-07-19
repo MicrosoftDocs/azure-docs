@@ -63,7 +63,7 @@ The orchestration trigger binding supports both inputs and outputs. Here are som
 
 The following is an example of what the simplest "Hello World" orchestrator function might look like:
 
-#### C#
+#### C\#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -93,7 +93,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Most orchestrator functions call activity functions, so here is a "Hello World" example that demonstrates how to call an activity function:
 
-#### C#
+#### C\#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -163,7 +163,7 @@ The activity trigger binding supports both inputs and outputs, just like the orc
 
 The following is an example of what a simple "Hello World" activity function might look like:
 
-#### C#
+#### C\#
 
 ```csharp
 [FunctionName("SayHello")]

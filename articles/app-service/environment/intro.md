@@ -17,9 +17,9 @@ ms.author: ccompy
 ms.custom: mvc
 ms.custom: seodec18
 ---
-# Introduction to the App Service Environments #
+# Introduction to the App Service Environments
  
-## Overview ##
+## Overview
 
 The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your:
 
@@ -45,7 +45,7 @@ ASEs are isolated to running only a single customer's applications and are alway
 * ASEs can be used to configure security architecture, as shown in the AzureCon Deep Dive. To see how the security architecture shown in the AzureCon Deep Dive was configured, see the [article on how to implement a layered security architecture](app-service-app-service-environment-layered-security.md) with App Service environments.
 * Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAFs). For more information, see [Web application firewall (WAF)][AppGW].
 
-## Dedicated environment ##
+## Dedicated environment
 
 An ASE is dedicated exclusively to a single subscription and can host 100 App Service Plan instances. The range can span 100 instances in a single App Service plan to 100 single-instance App Service plans, and everything in between.
 
@@ -61,7 +61,7 @@ Customers do not need to manage front ends and workers. All infrastructure is au
 
 There is a flat monthly rate for an ASE that pays for the infrastructure and doesn't change with the size of the ASE. In addition, there is a cost per App Service plan vCPU. All apps hosted in an ASE are in the Isolated pricing SKU. For information on pricing for an ASE, see the [App Service pricing][Pricing] page and review the available options for ASEs.
 
-## Virtual network support ##
+## Virtual network support
 
 The ASE feature is a deployment of the Azure App Service directly into a customer's Azure resource manager virtual network. To learn more about Azure virtual networks, see the [Azure virtual networks FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). An ASE always exists in a virtual network, and more precisely, within a subnet of a virtual network. You can use the security features of virtual networks to control inbound and outbound network communications for your apps.
 
@@ -75,7 +75,7 @@ For more information on how ASEs work with virtual networks and on-premises netw
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
 
-## App Service Environment v1 ##
+## App Service Environment v1
 
 App Service Environment has two versions: ASEv1 and ASEv2. The preceding information was based on ASEv2. This section shows you the differences between ASEv1 and ASEv2. 
 

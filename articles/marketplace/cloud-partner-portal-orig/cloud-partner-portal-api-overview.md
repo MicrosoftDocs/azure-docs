@@ -10,8 +10,7 @@ ms.author: pabutler
 ---
 
 
-Cloud Partner Portal API Reference
-==================================
+# Cloud Partner Portal API Reference
 
 The Cloud Partner Portal REST APIs allow the programmatic retrieval and
 manipulation of workloads, offers, and publisher profiles. The APIs use
@@ -22,8 +21,7 @@ Portal REST APIs. The payload samples in this document are for reference
 only and are subject to change as new functionality is added.
 
 
-Prerequisites and considerations
--------------------------------
+## Prerequisites and considerations
 
 Before using the APIs, you should review:
 
@@ -36,8 +34,8 @@ strategies available for calling these APIs.
 versioning and error handling.
 
 
-Common tasks
-------------
+## Common tasks
+
 This reference details APIs to perform the following common tasks.
 
 

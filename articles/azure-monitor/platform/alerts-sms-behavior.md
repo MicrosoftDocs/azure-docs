@@ -10,7 +10,7 @@ ms.author: dukek
 ms.subservice: alerts
 ---
 # SMS Alert Behavior in Action Groups
-## Overview ##
+## Overview
 Action groups enable you to configure a list of actions. These groups are used when defining alerts; ensuring that a particular action group is notified when the alert is triggered. One of the actions supported is SMS; SMS notifications support bi-directional communication. A user may respond to an SMS to:
 
 - **Unsubscribe from alerts:** A user may unsubscribe from all SMS alerts for all action groups, or a single action group.

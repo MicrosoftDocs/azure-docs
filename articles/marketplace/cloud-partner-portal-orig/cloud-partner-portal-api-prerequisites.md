@@ -10,20 +10,17 @@ ms.author: pabutler
 ---
 
 
-API Prerequisites
-================
+# API Prerequisites
 
 There are two required programmatic assets that you need to use the Cloud Partner Portal APIs: a service principal and an Azure Active Directory (Azure AD) access token.
 
 
-Create a service principal in your Azure Active Directory tenant
-----------------------------------------------------------------
+## Create a service principal in your Azure Active Directory tenant
 
 First, you need to create a service principal in your Azure AD tenant. This tenant will be assigned its own set of permissions in the Cloud Partner Portal. Your code will call APIs using as this tenant instead of using your personal credentials.  For a full explanation of creating a service principal, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
 
-Add the service principal to your account
------------------------------------------
+## Add the service principal to your account
 
 Now that you've created the service principal in your tenant, you can add it
 as a user to your Cloud Partner Portal account. Just like a user, the
@@ -63,8 +60,7 @@ Use the following steps to add the service principal:
    ![Add a service principal](./media/cloud-partner-portal-api-prerequisites/add-service-principal.jpg)
 
 
-Get an Azure AD access token
-----------------------------
+## Get an Azure AD access token
 
 The Cloud Partner Portal APIs use the following assets and protocols during authentication:
 

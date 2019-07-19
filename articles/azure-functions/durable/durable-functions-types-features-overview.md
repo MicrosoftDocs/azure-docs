@@ -102,7 +102,7 @@ The following examples demonstrate cross-function app orchestration in C# and Ja
 
 Here are some examples of cross-function app orchestration:
 
-#### C#
+#### C\#
 
 ```csharp
 [FunctionName("OrchestratorA")]

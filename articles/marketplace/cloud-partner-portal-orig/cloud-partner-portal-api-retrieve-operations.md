@@ -10,8 +10,7 @@ ms.author: pabutler
 ---
 
 
-Retrieve operations
-===================
+# Retrieve operations
 
 Retrieves all the operations on the offer or to get a particular operation for the specified operationId. The client may use
 query parameters to filter on running operations.
@@ -25,8 +24,7 @@ query parameters to filter on running operations.
 ```
 
 
-URI parameters
---------------
+## URI parameters
 
 |  **Name**          |      **Description**                                                                                           | **Data type** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
@@ -38,8 +36,7 @@ URI parameters
 |  |  |  |
 
 
-Header
-------
+## Header
 
 |  **Name**          |  **Value**           |
 |  ---------------   | -------------------- |
@@ -48,8 +45,7 @@ Header
 |  |  |
 
 
-Body example
-------------
+## Body example
 
 ### Response
 

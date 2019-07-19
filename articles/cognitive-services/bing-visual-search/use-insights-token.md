@@ -56,7 +56,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 For examples that use the insights token, see [C#](#use-with-c) | [Java](#use-with-java) | [Node.js](#use-with-nodejs) | [Python](#use-with-python).
 
-## Use with C#
+## Use with C\#
 
 ### C# prerequisites
 

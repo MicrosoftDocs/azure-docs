@@ -129,7 +129,7 @@ The method returns a JSON object with the following properties:
 
 This method returns `null` if the instance either doesn't exist or has not yet started running.
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("GetStatus")]
@@ -187,7 +187,7 @@ Rather than query one instance in your orchestration at a time, you might find i
 
 You can use the `GetStatusAsync` (.NET) or `getStatusAll` (JavaScript) method to query the statuses of all orchestration instances. In .NET, you can pass a `CancellationToken` object in case you want to cancel it. The method returns objects with the same properties as the `GetStatusAsync` method with parameters.
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("GetAllStatus")]
@@ -238,7 +238,7 @@ What if you don't really need all the information that a standard instance query
 
 Use the `GetStatusAsync` (.NET) or `getStatusBy` (JavaScript) method to get a list of orchestration instances that match a set of predefined filters.
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("QueryStatus")]
@@ -310,7 +310,7 @@ If you have an orchestration instance that is taking too long to run, or you jus
 
 You can use the [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class (.NET), or the `terminate` method of the `DurableOrchestrationClient` class (JavaScript). The two parameters are an `instanceId` and a `reason` string, which are written to logs and to the instance status. A terminated instance stops running as soon as it reaches the next `await` (.NET) or `yield` (JavaScript) point, or it terminates immediately if it's already on an `await` or `yield`.
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -366,7 +366,7 @@ The parameters to [RaiseEventAsync](https://azure.github.io/azure-functions-dura
 * **EventName**: The name of the event to send.
 * **EventData**: A JSON-serializable payload to send to the instance.
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("RaiseEvent")]
@@ -490,7 +490,7 @@ The methods return an instance of [HttpManagementPayload](https://azure.github.i
 
 Activity functions can send an instance of these objects to external systems to monitor or raise events to an orchestration:
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("SendInstanceInfo")]
@@ -541,7 +541,7 @@ For example, let's say you have a workflow involving a series of [human approval
 > [!NOTE]
 > The *rewind* feature doesn't support rewinding orchestration instances that use durable timers.
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("RewindInstance")]

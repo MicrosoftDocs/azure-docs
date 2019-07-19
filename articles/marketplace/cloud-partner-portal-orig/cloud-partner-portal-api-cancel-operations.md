@@ -24,8 +24,7 @@ the operation.
 
   `POST https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/cancel?api-version=2017-10-31`
 
-URI parameters
---------------
+## URI parameters
 
 |  **Name**    |      **Description**                                  |    **Data type**  |
 | ------------ |     ----------------                                  |     -----------   |
@@ -35,8 +34,7 @@ URI parameters
 |  |  |  |
 
 
-Header
-------
+## Header
 
 |  **Name**              |  **Value**         |
 |  ---------             |  ----------        |
@@ -45,8 +43,7 @@ Header
 |  |  |
 
 
-Body example
-------------
+## Body example
 
 ### Request
 

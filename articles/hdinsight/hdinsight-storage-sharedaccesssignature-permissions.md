@@ -201,7 +201,7 @@ Open the `SASToken.py` file and replace `storage_account_name`, `storage_account
 
 You may need to execute `pip install --upgrade azure-storage` if you receive the error message `ImportError: No module named azure.storage`.
 
-### Using C#
+### Using C\#
 
 1. Open the solution in Visual Studio.
 

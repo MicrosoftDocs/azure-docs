@@ -26,7 +26,7 @@ The rate limit thresholds are:
 - A phone number or email can be part of action groups across many subscriptions. Rate limiting applies across all subscriptions. It applies as soon as the threshold is reached, even if messages are sent from multiple subscriptions.
 - When an email address is rate limited, an additional notification is sent to communicate the rate limiting. The email states when the rate limiting expires.
 
-## Next steps ##
+## Next steps
 * Learn more about [SMS alert behavior](alerts-sms-behavior.md).
 * Get an [overview of activity log alerts](alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

@@ -14,7 +14,7 @@ ms.author: diberry
 #Customer intent: As an API or REST developer new to the LUIS service, I want to programmatically add an example utterance to an intent and train the model using C#. 
 ---
 
-# Quickstart: Change model using C#
+# Quickstart: Change model using C\#
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 

@@ -12,7 +12,7 @@ ms.date: 03/26/2019
 ms.author: aahi
 ---
 
-# Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and C# 
+# Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and C\#
 
 Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This C# application sends two API requests containing JSON-formatted time series data, and gets the responses.
 

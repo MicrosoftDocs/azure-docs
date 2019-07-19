@@ -10,30 +10,25 @@ ms.author: pabutler
 ---
 
 
-Cloud Partner Portal GDPR compliance
-====================================
+# Cloud Partner Portal GDPR compliance
 
 [General Data Protection Regulation (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en/) is a European Union (EU) data protection and privacy law. The GDPR imposes rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents.
 
 Cloud Partner Portal provides detailed information regarding its processing of customer data and the security measures used to protect that data. This information is accessible via its in-product experiences.
 
-Discover
---------
+## Discover
 
 Cloud Partner Portal gives access to all your data in the Users tab. You can identify your personal data there. To learn how to add/remove users, see our [documentation](./cloud-partner-portal-manage-users.md).
 
-Manage
-------
+## Manage
 
 You can manage your personal data by pressing delete on your User account in the Users tab. We have roles of an **owner** and a **contributor** that can be assigned to each specific user, and both can be assigned/copied/updated/deleted.
 
-Consent
--------
+## Consent
 
 For managing consent in Cloud Partner Portal, you are always initially shown a publisher agreement contract, to which you need to agree to in order to be a publisher with Microsoft. If you do not consent to the publisher agreement contract, then we restrict the publisher to not be able to sell with Microsoft.
 
-Related links
--------------
+## Related links
 
 -   [How and where Microsoft sends customers\' data, including geo locations](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 -   [Sub-contractors who have access to customers\' data](https://aka.ms/Online_Serv_Subcontractor_List)

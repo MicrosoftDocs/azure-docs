@@ -9,16 +9,14 @@ ms.date: 09/13/2018
 ms.author: pabutler
 ---
 
-Create or modify an offer
-=========================
+# Create or modify an offer
 
 This call updates a specific offer within the publisher namespace or creates a new offer.
 
   `PUT https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31`
 
 
-URI parameters
---------------
+## URI parameters
 
 |  **Name**         |  **Description**                      |  **Data type**  |
 |  --------         |  ----------------                     |  -------------  |
@@ -27,8 +25,7 @@ URI parameters
 | api-version       |  Latest version of the API            |   Date           |
 |  |  |  |
 
-Header
-------
+## Header
 
 |  **Name**        |  **Value**               |
 |  ---------       |  ----------              | 
@@ -37,8 +34,7 @@ Header
 |  |  |
 
 
-Body example
-------------
+## Body example
 
 The following example creates an offer with offerID of `contosovirtualmachine`.
 
@@ -250,8 +246,7 @@ The following example creates an offer with offerID of `contosovirtualmachine`.
 |  |  |
 
 
-Uploading artifacts
--------------------
+## Uploading artifacts
 
 Artifacts, such as images and logos, should be shared by uploading them to
 an accessible location on the web, then including each as a URI in the PUT

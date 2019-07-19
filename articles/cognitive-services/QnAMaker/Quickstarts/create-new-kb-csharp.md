@@ -14,7 +14,7 @@ ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically create a knowledge base using C#. 
 ---
 
-# Quickstart: Create a knowledge base in QnA Maker using C#
+# Quickstart: Create a knowledge base in QnA Maker using C\#
 
 This quickstart walks you through programmatically creating and publishing a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request. 
 

@@ -10,8 +10,7 @@ ms.author: pabutler
 ---
 
 
-Create a Microsoft Developer account
-====================================
+# Create a Microsoft Developer account
 
 This article describes how to become an approved Microsoft Developer for Azure Marketplace publishing.
 

@@ -20,7 +20,7 @@ For background jobs you often need to ensure that only one instance of a particu
 
 The following C# and JavaScript examples show an HTTP-trigger function that creates a singleton background job orchestration. The code ensures that only one instance exists for a specified instance ID.
 
-### C#
+### C\#
 
 ```cs
 [FunctionName("HttpStartSingle")]

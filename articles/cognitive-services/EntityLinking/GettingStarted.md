@@ -13,7 +13,7 @@ ms.date: 07/06/2016
 ms.author: davl
 ---
 
-# Tutorial: Build an Entity Linking app with C#
+# Tutorial: Build an Entity Linking app with C\#
 
 Microsoft's Entity Linking is a natural language processing tool to analyze text and link named-entities to relevant entries in a knowledge base. 
 

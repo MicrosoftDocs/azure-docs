@@ -9,8 +9,7 @@ ms.date: 09/13/2018
 ms.author: pabutler
 ---
 
-Private SKUs and Plans
-============
+# Private SKUs and Plans
 
 Private SKUs enable you to restrict the availability of SKUs to specific
 customers. When a SKU is marked private, it's not available in any
@@ -36,8 +35,7 @@ You can use private SKUs to handle the following scenarios:
 If you only want to change the price, you can reuse the disks from
 another SKU in the same offer. With private SKUs, you don't have to resubmit disks across SKUs.
 
-Mark a SKU private
----------------------
+## Mark a SKU private
 
 To mark a SKU as private, toggle the option asking if the SKU is
 private:
@@ -54,8 +52,7 @@ audience for the private SKU.
 >[!NOTE]
 >After it's published, a public SKU can't be made private.
 
-Select an image
-------------------
+## Select an image
 
 You can provide new disks for the private SKU or reuse the same disks already provided in another SKU, only modifying the pricing or description. To reuse the disks, select **Yes**  as a response to the "Does this SKU re-use image from a public SKU" prompt.
 
@@ -77,8 +74,7 @@ SKU's image. Behind the scenes, the image for the private SKU will also
 be updated automatically. Similarly, if you delete the image from the
 underlying SKU, the image would also be removed from the private SKU.
 
-Restricting the audience
-------------------------
+## Restricting the audience
 
 Private offers can be found and deployed only by targeted users.
 Currently we support targeting users using subscription Ids.
@@ -105,13 +101,11 @@ manual entry, the old list of subscription Ids with access to the SKU is
 not retained. A warning is displayed and the list is only overwritten
 upon saving the offer.
 
-Sync Private subscriptions
--------------------------
+## Sync Private subscriptions
 
 When adding subscriptions to a published offer with a Private SKU or Plan, you do not need to re-publish the offer to add audience information. Simply use an Azure subscription ID (Plans and SKUs) or Tenant ID (Plans only) to add audience.
 
-Previewing Private offers
--------------------------
+## Previewing Private offers
 
 During the preview/staging step, only the offer level preview
 subscriptions will be able to access the SKU. This is the testing stage

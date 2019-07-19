@@ -13,7 +13,7 @@ ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Extract printed text (OCR) using the Computer Vision REST API and C#
+# Quickstart: Extract printed text (OCR) using the Computer Vision REST API and C\#
 
 In this quickstart, you will extract printed text with optical character recognition (OCR) from an image by using Computer Vision's REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) feature, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 

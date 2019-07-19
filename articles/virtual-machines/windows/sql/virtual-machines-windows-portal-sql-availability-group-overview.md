@@ -19,7 +19,7 @@ ms.author: mikeray
 
 ---
 
-# Introducing SQL Server Always On availability groups on Azure virtual machines #
+# Introducing SQL Server Always On availability groups on Azure virtual machines
 
 This article introduces SQL Server availability groups on Azure Virtual Machines. 
 

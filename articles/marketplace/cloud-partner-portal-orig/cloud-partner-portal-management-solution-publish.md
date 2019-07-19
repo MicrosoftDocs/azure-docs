@@ -11,8 +11,7 @@ ms.author: pabutler
 ---
 
 
-Publish an Azure Management Solution to Azure Marketplace 
-========================================================
+# Publish an Azure Management Solution to Azure Marketplace
 
 > [!IMPORTANT]
 > This SKU option is currently in preview and not yet available for general use. Do not use unless you have been directed to by Microsoft.

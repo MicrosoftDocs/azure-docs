@@ -30,7 +30,7 @@ When you create a timer that expires at 4:30 pm, the underlying Durable Task Fra
 
 The following example illustrates how to use durable timers for delaying execution. The example is issuing a billing notification every day for ten days.
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -69,7 +69,7 @@ module.exports = df.orchestrator(function*(context) {
 
 This example illustrates how to use durable timers to implement timeouts.
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("TryGetQuote")]

@@ -115,7 +115,7 @@ The [response](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerrun
 }
 ```
 
-## Use QnA Maker with a bot in C#
+## Use QnA Maker with a bot in C\#
 
 The bot framework provides access to the QnA Maker's properties:
 

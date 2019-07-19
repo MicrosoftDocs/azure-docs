@@ -14,7 +14,7 @@ ms.date: 06/05/2019
 ms.custom: seodec18
 ---
 
-# Manage GA reference data for an Azure Time Series Insights environment by using C#
+# Manage GA reference data for an Azure Time Series Insights environment by using C\#
 
 This article describes an example C# project you can compile to manage reference data for an Azure Time Series Insights environment.
 

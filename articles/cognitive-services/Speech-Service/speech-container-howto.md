@@ -223,7 +223,7 @@ The container provides websocket-based query endpoint APIs, that are accessed th
 
 By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method. See the examples below.
 
-#### For C#
+#### For C\#
 
 Change from using this Azure-cloud initialization call:
 

@@ -10,8 +10,7 @@ ms.date: 09/13/2018
 ms.author: pabutler
 ---
 
-Test Drive Marketing and Best Practices
-=======================================
+# Test Drive Marketing and Best Practices
 
 Azure Marketplace Test Drive is a great tool for marketers, and we recommend be incorporated in your go-to-market efforts when you launch. We have several best practices we recommend you do immediately when you publish that will greatly support generating more leads from Test Drive:
 
@@ -22,8 +21,7 @@ Azure Marketplace Test Drive is a great tool for marketers, and we recommend be 
 - **Sales training and tools**: Set up a training session with your sales teams to demo the test drive experience and come up with a few ways they can engage their leads and customers with it. Sales folks can set up a demo with multiple contacts at a company then send each of them the link to the test drive afterwards to take it themselves.
 - **Trade shows and conferences**: Got a booth at an industry event that prospective customers will be attending? Set up a few laptops at the booth and have your test drives running so that customers can take the test drive at your booth, then talk to them about the product during and after their experience!
 
-Lead Management
----------------
+## Lead Management
 
 Now that you're generating highly qualified leads from test drive, you'll want to ensure you have incorporated these leads into your sales and marketing channels and you engage with prospects to turn them into paying customers. Here are some recommended practices with regards to
 driving leads through your sales cycle:

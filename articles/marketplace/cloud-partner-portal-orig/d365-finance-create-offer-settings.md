@@ -9,8 +9,7 @@ ms.date: 09/17/2018
 ms.author: pabutler
 ---
 
-How to fill out the Offer Settings form
-=======================================
+# How to fill out the Offer Settings form
 
 The offer settings form is a basic form to specify the offer settings.
 The required fields are described below.

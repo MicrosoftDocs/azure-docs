@@ -10,8 +10,7 @@ ms.author: pabutler
 ---
 
 
-How to create your new Microsoft Dynamics 365 Business Central offer
-====================================================================
+# How to create your new Microsoft Dynamics 365 Business Central offer
 
 After you have built your app, you must define all the attributes that
 will determine how your app will be listed in Microsoft AppSource. For

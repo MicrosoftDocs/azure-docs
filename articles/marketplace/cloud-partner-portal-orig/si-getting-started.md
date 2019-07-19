@@ -17,21 +17,18 @@ ms.date: 09/14/2018
 ms.author: pabutler
 ---
 
-Getting Started with Seller Insights
-====================================
+# Getting Started with Seller Insights
 
 This article discusses the Seller Insights feature available to you within the [Cloud Partner Portal](https://cloudpartner.azure.com/#insights).
 
 
-Insights Tour
--------------
+## Insights Tour
 
 The Cloud Partner Portal offers you insights related to your Azure and VS
 Marketplace customers and usage. Here's a quick overview of the various data and
 insights that you will likely interact with the most.
 
-Top Navigation Bar
-------------------
+## Top Navigation Bar
 
 After you select **Insights** from the left menubar, you will see a
 navigation bar across the top indicating which insights modules you have access
@@ -61,8 +58,7 @@ inside of your organization to change your permissions if you need access to
 these modules.
 
 
-Tips:
------
+## Tips:
 
 -   Be sure to adjust the dates to view the information you are most interested in.
 -   Download the transaction level data to perform additional analysis on the
@@ -72,8 +68,7 @@ Tips:
     permissions, see [Manage users](./cloud-partner-portal-manage-users.md).
 
 
-Finding More Help
------------------
+## Finding More Help
 
 - [Seller Insights Definitions](./si-insights-definitions-v4.md) - Find definitions for metrics and data
 

@@ -20,8 +20,7 @@ The following user permissions are need for completing the steps in this article
 - You need to be an admin on your Dynamics CRM Online instance to install a solution.
 - You need to be a tenant admin to create a new service account for lead service.
 
-Install the solution
---------------------
+## Install the solution
 
 1.  Download the [Microsoft Marketplace Lead Writer solution](https://mpsapiprodwus.blob.core.windows.net/documentation/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip) and save it locally.
 

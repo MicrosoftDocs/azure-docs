@@ -10,8 +10,7 @@ ms.author: pabutler
 ---
 
 
-Retrieve a specific offer
-=========================
+# Retrieve a specific offer
 
 Retrieves the specified offer within the publisher namespace.  
 
@@ -30,8 +29,7 @@ You can also retrieve a particular version of the offer, or retrieve the offer i
 ```
 
 
-URI parameters
---------------
+## URI parameters
 
 
 | **Name**    | **Description**                                                                          | **Data type** |
@@ -44,8 +42,7 @@ URI parameters
 |  |  |  |
 
 
-Header
-------
+## Header
 
 |  **Name**          |   **Value**            |
 |  ---------------   |  --------------        |
@@ -54,8 +51,7 @@ Header
 |  |  |
 
 
-Body example
-------------
+## Body example
 
 ### Response
 

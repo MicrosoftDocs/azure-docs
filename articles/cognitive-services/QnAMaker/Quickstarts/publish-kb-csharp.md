@@ -14,7 +14,7 @@ ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically publish a knowledge base using C#. 
 ---
 
-# Quickstart: Publish a knowledge base in QnA Maker using C#
+# Quickstart: Publish a knowledge base in QnA Maker using C\#
 
 This REST-based quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Search index and creates an endpoint that can be called in your application or chat bot.
 

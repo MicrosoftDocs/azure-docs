@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ---
 
-# Create an Azure Data Explorer cluster and database by using C#
+# Create an Azure Data Explorer cluster and database by using C\#
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)

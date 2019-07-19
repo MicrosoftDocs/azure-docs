@@ -18,7 +18,7 @@ ms.author: ccompy
 ms.custom: seodec18
 
 ---
-# Azure App Service Access Restrictions #
+# Azure App Service Access Restrictions
 
 Access Restrictions enable you to define a priority ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, there is then an implicit "deny all" that exists at the end of the list.
 
@@ -32,7 +32,7 @@ The ability to restrict access to your web app from an Azure Virtual Network (VN
 
 ![access restrictions flow](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
-## Adding and editing Access Restriction rules in the portal ##
+## Adding and editing Access Restriction rules in the portal
 
 To add an access restriction rule to your app, use the menu to open **Network**>**Access Restrictions** and click on **Configure Access Restrictions**
 
@@ -78,7 +78,7 @@ To delete a rule, click the **...** on your rule and then click **remove**.
 
 ![delete access restriction rule](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-## Blocking a single IP Address ##
+## Blocking a single IP Address
 
 When adding your first IP Restriction rule, the service will add an explicit **deny all** rule with a priority of 2147483647. In practice, the explicit **deny all** rule will be last rule executed and will block access to any IP address that is not explicitly allowed using an **Allow** rule.
 
@@ -92,7 +92,7 @@ In addition to being able to control access to your app, you can also restrict a
 
 ![list access restrictions](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
-## Programmatic manipulation of access restriction rules ##
+## Programmatic manipulation of access restriction rules
 
 There currently is no CLI or PowerShell for the new Access Restrictions capability but the values can be set manually with an [Azure REST API](https://docs.microsoft.com/rest/api/azure/) PUT operation on the app configuration in Resource Manager. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
 

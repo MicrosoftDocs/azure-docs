@@ -13,7 +13,7 @@ ms.date: 01/10/2019
 ms.author: pafarley
 
 ---
-# Content Moderator REST samples in C#
+# Content Moderator REST samples in C\#
 
 The following list includes links to code samples built using the Azure Content Moderator API.
 

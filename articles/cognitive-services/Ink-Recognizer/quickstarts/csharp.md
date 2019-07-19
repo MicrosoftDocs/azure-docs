@@ -12,7 +12,7 @@ ms.date: 05/02/2019
 ms.author: aahi
 ---
 
-# Quickstart: Recognize digital ink with the Ink Recognizer REST API and C#
+# Quickstart: Recognize digital ink with the Ink Recognizer REST API and C\#
 
 Use this quickstart to begin sending digital ink strokes to the Ink Recognizer API. This C# application sends an API request containing JSON-formatted ink stroke data, and gets the response.
 

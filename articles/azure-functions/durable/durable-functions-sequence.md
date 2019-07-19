@@ -80,7 +80,7 @@ The *function.json* file for the activity function `E1_SayHello` is similar to t
 
 The implementation of `E1_SayHello` is a relatively trivial string formatting operation.
 
-### C#
+### C\#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 

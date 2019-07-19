@@ -13,7 +13,7 @@ ms.date: 06/18/2019
 ms.author: aahi
 ---
 
-# Build a console app search client in C#
+# Build a console app search client in C\#
 
 This tutorial shows how to build a simple .NET Core console app that allows users to query the Bing Web Search API and display ranked results.
 

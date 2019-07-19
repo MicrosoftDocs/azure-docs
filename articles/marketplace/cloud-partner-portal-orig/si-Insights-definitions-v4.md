@@ -17,8 +17,7 @@ ms.date: 09/13/2018
 ms.author: pabutler
 ---
 
-Seller Insights Definitions
-=======================
+# Seller Insights Definitions
 
 The following table provides definitions for many of the terms used in Seller Insights.
 

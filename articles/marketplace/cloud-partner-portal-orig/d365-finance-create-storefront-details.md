@@ -18,8 +18,7 @@ ms.author: pabutler
 ---
 
 
-How to fill out the Storefront Details form
-===========================================
+# How to fill out the Storefront Details form
 
 Simply listing your app's features and functionality will not convert
 prospects to buyers. For more information about how to best market your

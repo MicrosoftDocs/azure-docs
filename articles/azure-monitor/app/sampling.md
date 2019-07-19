@@ -293,7 +293,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
     ```
 
-### Configuring fixed-rate sampling in JAVA ###
+### Configuring fixed-rate sampling in JAVA
 
 1. Download and configure your web application with latest [application insights java SDK](../../azure-monitor/app/java-get-started.md)
 

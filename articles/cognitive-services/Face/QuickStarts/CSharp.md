@@ -14,7 +14,7 @@ ms.author: pafarley
 #Customer intent: As a C# developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
 
-# Quickstart: Detect faces in an image using the Face REST API and C#
+# Quickstart: Detect faces in an image using the Face REST API and C\#
 
 In this quickstart, you will use the Azure Face REST API with C# to detect human faces in an image.
 

@@ -12,8 +12,7 @@ ms.author: pabutler
 # API Considerations
 
 
-API versioning
---------------
+## API versioning
 
 There may be multiple versions of the API that are available at the same
 time. Clients must indicate which version they wish to invoke use by
@@ -34,8 +33,7 @@ body.
     }
 ```            
 
-Errors
-------
+## Errors
 
 The API responds to errors with the corresponding HTTP status codes and
 optionally, additional information in the response serialized as JSON.
@@ -44,8 +42,7 @@ the request before fixing the underlying cause. For example, in the
 sample response above, fix the API version parameter before resending
 the request.
 
-Authorization header
---------------------
+## Authorization header
 
 For all the APIs in this reference, you must pass the authorization
 header along with the bearer token obtained from Azure Active

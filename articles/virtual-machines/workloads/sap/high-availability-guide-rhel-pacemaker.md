@@ -77,11 +77,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Register your virtual machines and attach it to a pool that contains repositories for RHEL 7.
 
-   <pre><code>sudo subscription-manager register
+   ```
+   sudo subscription-manager register
    # List the available pools
    sudo subscription-manager list --available --matches '*SAP*'
    sudo subscription-manager attach --pool=&lt;pool id&gt;
-   </code></pre>
+   ```
 
    Note that by attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. More information is available [here](https://aka.ms/rhel-byos).
 
@@ -89,17 +90,19 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    In order to install the required packages, enable the following repositories.
 
-   <pre><code>sudo subscription-manager repos --disable "*"
+   ```
+   sudo subscription-manager repos --disable "*"
    sudo subscription-manager repos --enable=rhel-7-server-rpms
    sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-rpms
    sudo subscription-manager repos --enable=rhel-sap-for-rhel-7-server-rpms
    sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-eus-rpms
-   </code></pre>
+   ```
 
 1. **[A]** Install RHEL HA Add-On
 
-   <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
-   </code></pre>
+   ```
+   sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
+   ```
 
    > [!IMPORTANT]
    > We recommend the following versions of Azure Fence agent (or later) for customers to benefit from a faster failover time, if a resource stop fails or the cluster nodes cannot communicate which each other anymore:  
@@ -109,53 +112,60 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > For more information, see [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711)
 
    Check the version of the Azure fence agent. If necessary, update it to a version equal to or later than the stated above.
-   <pre><code># Check the version of the Azure Fence Agent
-    sudo yum info fence-agents-azure-arm
-   </code></pre>
+   ```
+   # Check the version of the Azure Fence Agent
+   sudo yum info fence-agents-azure-arm
+   ```
 
 1. **[A]** Setup host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands. The benefit of using /etc/hosts is that your cluster becomes independent of DNS, which could be a single point of failures too.
 
-   <pre><code>sudo vi /etc/hosts
-   </code></pre>
+   ```
+   sudo vi /etc/hosts
+   ```
 
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
 
-   <pre><code># IP address of the first cluster node
-   <b>10.0.0.6 prod-cl1-0</b>
+   ```
+   # IP address of the first cluster node
+   10.0.0.6 prod-cl1-0
    # IP address of the second cluster node
-   <b>10.0.0.7 prod-cl1-1</b>
-   </code></pre>
+   10.0.0.7 prod-cl1-1
+   ```
 
 1. **[A]** Change hacluster password to the same password
 
-   <pre><code>sudo passwd hacluster
-   </code></pre>
+   ```
+   sudo passwd hacluster
+   ```
 
 1. **[A]** Add firewall rules for pacemaker
 
    Add the following firewall rules to all cluster communication between the cluster nodes.
 
-   <pre><code>sudo firewall-cmd --add-service=high-availability --permanent
+   ```
+   sudo firewall-cmd --add-service=high-availability --permanent
    sudo firewall-cmd --add-service=high-availability
-   </code></pre>
+   ```
 
 1. **[A]** Enable basic cluster services
 
    Run the following commands to enable the Pacemaker service and start it.
 
-   <pre><code>sudo systemctl start pcsd.service
+   ```
+   sudo systemctl start pcsd.service
    sudo systemctl enable pcsd.service
-   </code></pre>
+   ```
 
 1. **[1]** Create Pacemaker cluster
 
    Run the following commands to authenticate the nodes and create the cluster. Set the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance].
 
-   <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
-   sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
+   ```
+   sudo pcs cluster auth prod-cl1-0 prod-cl1-1 -u hacluster
+   sudo pcs cluster setup --name nw1-azr prod-cl1-0 prod-cl1-1 --token 30000
    sudo pcs cluster start --all
 
    # Run the following command until the status of both nodes is online
@@ -164,14 +174,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
-   # Current DC: <b>prod-cl1-1</b> (version 1.1.18-11.el7_5.3-2b07d5c5a9) - partition with quorum
+   # Current DC: prod-cl1-1 (version 1.1.18-11.el7_5.3-2b07d5c5a9) - partition with quorum
    # Last updated: Fri Aug 17 09:18:24 2018
-   # Last change: Fri Aug 17 09:17:46 2018 by hacluster via crmd on <b>prod-cl1-1</b>
+   # Last change: Fri Aug 17 09:17:46 2018 by hacluster via crmd on prod-cl1-1
    #
    # 2 nodes configured
    # 0 resources configured
    #
-   # Online: [ <b>prod-cl1-0</b> <b>prod-cl1-1</b> ]
+   # Online: [ prod-cl1-0 prod-cl1-1 ]
    #
    # No resources
    #
@@ -180,12 +190,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #   corosync: active/disabled
    #   pacemaker: active/disabled
    #   pcsd: active/enabled
-   </code></pre>
+   ```
 
 1. **[A]** Set Expected Votes
 
-   <pre><code>sudo pcs quorum expected-votes 2
-   </code></pre>
+   ```
+   sudo pcs quorum expected-votes 2
+   ```
 
 ## Create STONITH device
 
@@ -249,21 +260,23 @@ Repeat the steps above for the second cluster node.
 
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
 
-<pre><code>
+```
 sudo pcs property set stonith-timeout=900
-</code></pre>
+```
 
 Use the following command to configure the fence device.
 
 > [!NOTE]
 > Option 'pcmk_host_map' is ONLY required in the command, if the RHEL host names and the Azure node names are NOT identical. Refer to the bold section in the command.
 
-<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> power_timeout=240 pcmk_reboot_timeout=900</code></pre>
+```
+sudo pcs stonith create rsc_st_azure fence_azure_arm login="login ID" passwd="password" resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7" power_timeout=240 pcmk_reboot_timeout=900```
 
 ### **[1]** Enable the use of a STONITH device
 
-<pre><code>sudo pcs property set stonith-enabled=true
-</code></pre>
+```
+sudo pcs property set stonith-enabled=true
+```
 
 ## Next steps
 

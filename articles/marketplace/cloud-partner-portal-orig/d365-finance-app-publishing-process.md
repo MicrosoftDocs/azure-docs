@@ -113,8 +113,7 @@ the right column. You can click on the status to see the publishing flow
 status in detail for your offer.
 
 
-Error Handling
---------------
+## Error Handling
 
 During the publishing process, an error may be encountered. If an error
 is encountered, you will receive a notification email informing you that
@@ -132,8 +131,7 @@ If you are having issues resolving an error, you should open a support
 request to get help from our support engineers.
 
 
-Canceling the publishing request
---------------------------------
+## Canceling the publishing request
 
 You might start the process of publishing and have a need to cancel your
 request. You can only cancel a publishing request once the publish

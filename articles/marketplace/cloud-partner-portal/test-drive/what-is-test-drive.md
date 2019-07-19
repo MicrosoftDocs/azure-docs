@@ -10,8 +10,7 @@ ms.date: 09/13/2018
 ms.author: pabutler
 ---
 
-What is Test Drive?
-===================
+# What is Test Drive?
 
 Test Drive is a great way to showcase your offer to potential customers by giving them the option to \'try before you buy\', resulting in increased conversion and the generation of highly qualified leads.
 
@@ -20,8 +19,7 @@ pre-built Test Drive experience: a hands-on, self-guided trial of your product\'
 
 Test Drive allows you to bring your product to life and generate highly qualified leads in the process.
 
-How does a Test Drive work?
----------------------------
+## How does a Test Drive work?
 
 A potential customer discovers your application on the Marketplace,
 signs in and agrees to the terms of use. At this point, the customer
@@ -61,8 +59,7 @@ No matter how complex your application, your Microsoft Test Drive helps you brin
     an interactive Power BI visual should use this type of Test Drive.
     All you need to upload here is your embedded Power BI URL.
 
-What goes on in the background?
--------------------------------
+## What goes on in the background?
 
 The Test Drive service is built to continuously support and serve your
 customers without requiring any manual effort from you. As a Publisher, your job is to manage and configure the Test Drive settings from theCloud Partner Portal, and then that setting will directly be available for your customers.
@@ -72,8 +69,7 @@ each Test Drive becomes a managed instance that will be deployed on
 demand for the customer requesting it. Once a Test Drive instance is
 assigned, the Test Drive is available for use for the set amount of time and then it is deleted to create room for another customer.
 
-Next steps
-----------
+## Next steps
 
 Now that you know what a Test Drive is all about, go visit the specific Test Drive type that you want to go publish to learn all about the required fields needed.
 

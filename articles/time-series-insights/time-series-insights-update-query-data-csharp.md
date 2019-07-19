@@ -14,7 +14,7 @@ ms.date: 05/09/2019
 ms.custom: seodec18
 ---
 
-# Query data from the Azure Time Series Insights Preview environment using C#
+# Query data from the Azure Time Series Insights Preview environment using C\#
 
 This C# example demonstrates how to query data from the Azure Time Series Insights Preview environment.
 

@@ -64,7 +64,7 @@ An object's transform at the time of the probe calculation (via the Probes tab, 
 
 A navigation mesh is used to place probe points for simulation. You can use Unreal's [Nav Mesh Bounds Volume](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html), or you can specify your own navigation mesh. You must tag at least one object as **Acoustics Navigation**. If you use Unreal's Navigation mesh, make sure you have it built first.
 
-### Acoustics Volumes ###
+### Acoustics Volumes
 
 There is further, advanced customization you can make on your navigation areas with **Acoustics Volumes**. **Acoustics Volumes** are actors you can add to your scene that allow you to select areas to include and ignore from the navigation mesh. The actor exposes a property that can be switched between "Include" and "Exclude". "Include" volumes ensure only areas of the navigation mesh inside them are considered and "Exclude" volumes mark those areas to be ignored. "Exclude" volumes are always applied after "Include" volumes. Make sure to tag **Acoustics Volumes** as **Acoustics Navigation** through the usual process in the Objects tab. These actors are ***not*** automatically tagged.
 
