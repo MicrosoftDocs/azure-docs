@@ -91,6 +91,10 @@ When Contoso enables device-based Conditional Access policies for their corporat
 
 If the B2B user’s device isn't managed by Contoso, access of B2B users from the partner organizations is blocked in whatever context these policies are enforced. However, Contoso can create exclusion lists containing specific partner users to exclude them from the device-based Conditional Access policy.
 
+#### Mobile application management policies for B2B
+
+Conditional Access app protection policies cannot be applied to B2B users because the inviting organization has no visibility into the B2B user's home organization.
+
 #### Location-based Conditional Access for B2B
 
 Location-based Conditional Access policies can be enforced for B2B users if the inviting organization is able to create a trusted IP address range that defines their partner organizations.

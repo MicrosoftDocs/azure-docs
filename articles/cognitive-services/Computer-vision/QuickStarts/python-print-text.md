@@ -101,6 +101,21 @@ for word in word_infos:
 plt.axis("off")
 ```
 
+## Upload image from local storage
+
+If you want to analyze a local image, set the Content-Type header to application/octet-stream, and set the request body to a byte array instead of JSON data.
+
+```python
+image_path = "<path-to-local-image-file>"
+# Read the image into a byte array
+image_data = open(image_path, "rb").read()
+# Set Content-Type to octet-stream
+headers = {'Ocp-Apim-Subscription-Key': subscription_key, 'Content-Type': 'application/octet-stream'}
+# put the byte array into your post request
+response = requests.post(ocr_url, headers=headers, params=params, data = image_data)
+```
+
+
 ## Examine the response
 
 A successful response is returned in JSON. The sample webpage parses and displays a successful response in the command prompt window, similar to the following example:
