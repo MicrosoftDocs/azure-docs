@@ -40,7 +40,7 @@ Install the Azure IoT Device Workbench extension from a .vsix file. Use the foll
 > The above experience will be replaced by directly installing from VS Code marketplace after IoT Plug and Play go public preview.
 
 > [!NOTE]
-> If you have problem on using the extension. Follow this step to reinstall it from scratch.
+> If you have problem on using the extension, such as *command 'iotworkbench.iotPnPOpenRepository' not found*. Follow this step to reinstall the extension from scratch.
 > 1. Uninstall the IoT Device Workbench
 > 1. Close VS Code
 > 1. Navigate to `C:\Users\{yourname}\.vscode\extensions` folder
