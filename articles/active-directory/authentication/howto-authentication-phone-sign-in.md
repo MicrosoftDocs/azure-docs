@@ -38,7 +38,7 @@ Instead of seeing a prompt for a password after entering a username, a person wh
 Follow the steps in the article [Enable passwordless sign in for Azure AD](howto-authentication-passwordless-enable.md#enable-new-passwordless-authentication-methods), to enable passwordless authentication methods in your directory.
 
 > [!NOTE]
-> If you have previously enabled this feature for your tenant using a powershell script, setting a new policy for users and groups will overwrite the existing tenant-wide policy. 
+> If you previously enabled this feature for your tenant by using a PowerShell script, setting a new policy for users and groups overwrites the existing tenant-wide policy. 
 >
 
 ## How do my end users enable phone sign-in?
