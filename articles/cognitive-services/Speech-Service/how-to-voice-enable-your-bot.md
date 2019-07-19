@@ -241,10 +241,10 @@ See also [Connect a bot to Direct Line Speech (Preview)](https://docs.microsoft.
 
 ## Test your echo-bot with Direct Line Speech Client
 
-Direct Line Speech Client is a Windows Presentation Foundation (WPF) application in C# that makes it easy to test interactions with your bot before creating a custom client application. It demonstrates how to use the [Azure Speech Services Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) to manage communication with your Azure Bot-Framework bot. Here you wil use it to test the echo-bot you just deployed.
+Direct Line Speech Client is a Windows Presentation Foundation (WPF) application in C# that makes it easy to test interactions with your bot before creating a custom client application. It demonstrates how to use the [Azure Speech Services Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) to manage communication with your Azure Bot-Framework bot. It has simple UI for configuration, viewing Bot-Framework Activities received from the Bot, Adaptive Cards and custome wakeword support. Here you wil use it to test the echo-bot you just deployed.
 - Before you start, make sure your microphone and speakers (or headpones) are working properly and set to a good level (Windows Settings --> System --> Sound)
 - Got to the [GitHub repository of Direct Line Speech Client](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client) and read the text in the front page ([README.md](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/README.md))
-- Follow the Quickstart to
+- Follow the [Quickstart](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/README.md#quickstart) there to:
     - Clone the repo
     - Build the project in Visual Studio
     - Run the executable DLSpeechClient.exe
@@ -254,7 +254,7 @@ Direct Line Speech Client is a Windows Presentation Foundation (WPF) application
     - In the top of the main application window, enter the "Bot Secret". This is one of two secret keys you got when you registered your bot with Direct Line Speech channel. 
        
 Click on "Reconnect" and make sure you see the message "Press the mic button, or type to start talking to your bot" at the bottom bar on the Window.
-Press the microphone and say a few words in English. The recognized text will appear at the bottom bar as you speak, and after you are done, the bot will reply with the same words, prefixed with "echo".
+Press the microphone and say a few words in English. The recognized text will appear at the bottom bar as you speak, and after you are done, the bot will reply with the same words, prefixed with "echo". You also have the option to type text to communicate with the bot.
 
 ### Troubleshooting errors in Direct Line Speech Client
 
@@ -262,6 +262,7 @@ Error messages will be shown in red in the main application window.
 
 | Error | What should you do? |
 |-------|----------------------|
+|App Error (see log for details): Microsoft.CognitiveServices.Speech.csharp : Value cannot be null. Parameter name: speechConfig | This is a client application error. Make sure you have a non-empty value for *Bot Secret* in the main app window | 
 |Error AuthenticationFailure : WebSocket Upgrade failed with an authentication error (401). Please check for correct subscription key (or authorization token) and region name| In the Settings page of the application, make sure you entered the Speech Subscription key and its region correctly.<br>Make sure your Bot Secret was entered correctly. |
 |Error ConnectionFailure : Connection was closed by the remote host. Error code: 1011. Error details: We could not connect to the bot before sending a message | Make sure you [checked the "Enable Streaming Endpoint"](#BotChannelRegistration) box and/or [toggled "Web sockets"](#ToggleWebSocket) to On.<br>Make sure your Azure App Service is running. If it is, try restarting your App Service.|
 |Error ConnectionFailure : Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a Neural Voice in its output Activity [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field, but the Azure region associated with your Speech subscription key does not support Neural Voices. See [Standard and neural voices](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
@@ -271,9 +272,42 @@ See also [Voice-first virtual assistants Preview: Frequently asked questions](ht
 
 ### Seeing Bot-Framework Activities
 
-TODO: Talk about the JSOB blob shown in the tool
+In the "Activity Log" window of the Direct Line Speech client application (top right region in the main Window) you will see a time-stamped log of Activities the application received from the bot. Selecting one of them will show the associated Activity in its JSON format. For example, below is the echo-bot's Activity reply to the input "Hello and welcome". Read about the different [fields in the Activity](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md). In particual, notice the [Text](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#text)  and [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) fields.
+```json
+{
+    "attachments":[],
+    "channelData":{
+        "conversationalAiData":{
+             "requestInfo":{
+                 "interactionId":"8d5cb416-73c3-476b-95fd-9358cbfaebfa",
+                 "version":"0.2"
+             }
+         }
+    },
+    "channelId":"directlinespeech",
+    "conversation":{
+        "id":"129ebffe-772b-47f0-9812-7c5bfd4aca79",
+        "isGroup":false
+    },
+    "entities":[],
+    "from":{
+        "id":"SpeechEchoBotTutorial-BotRegistration"
+    },
+    "id":"89841b4d-46ce-42de-9960-4fe4070c70cc",
+    "inputHint":"acceptingInput",
+    "recipient":{
+        "id":"129ebffe-772b-47f0-9812-7c5bfd4aca79|0000"
+    },
+    "replyToId":"67c823b4-4c7a-4828-9d6e-0b84fd052869",
+    "serviceUrl":"urn:botframework:websocket:directlinespeech",
+    "speak":"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Echo: Hello and welcome.</voice></speak>",
+    "text":"Echo: Hello and welcome.",
+    "timestamp":"2019-07-19T20:03:51.1939097Z",
+    "type":"message"
+}
+```
 
-## What made the echo-bot speak?
+## What made the bot speak?
 
 In your clone of the BotBuilder-Samples repo, open the file *\experimental\directline-speech\csharp_dotnetcore\02.echo-bot\Bots\echo-bot.cs* ([GitHub link](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/directline-speech/csharp_dotnetcore/02.echo-bot/Bots/EchoBot.cs))
 
@@ -303,7 +337,7 @@ TODO
 
 TODO
 
-## Debug you bot locally
+## Debug your bot locally
 
 TODO
 
@@ -316,9 +350,13 @@ If you're not going to continue using the echo-bot deployed in this tutorial, yo
 
 ## Next steps
 
-TODO
+Build your own client application with the Speech SDK:
+* [C# (UWP)](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstart-virtual-assistant-csharp-uwp), [Java (Windows, macOS, Linux)](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstart-virtual-assistant-java-jre), or [Java (Android)](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstart-virtual-assistant-java-jre) Quickstart documentation
+* [Speech SDK sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk#voice-first-virtual-assistants-quickstarts) for C#(UWP) and Java (Windows, macOS, Linux)
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
+Build and deploy your own voice-enabled Bot:
+* Build a [Bot-Framework Bot](https://dev.botframework.com/). Register it with [Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) and [customize your bot for voice](https://docs.microsoft.com/en-us/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0). 
+* Explore existing [Bot-Framework solutions](https://github.com/microsoft/botframework-solutions): Build a [custom voice-first virtual assistant](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/voice-first-virtual-assistants) and [voice-enable it](https://github.com/microsoft/botframework-solutions/blob/master/docs/howto/assistant/csharp/speechenablement.md).
+
+
 
