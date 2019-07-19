@@ -134,8 +134,8 @@ By default, the function is configured with an authentication level of *function
     "direction": "in",
     "name": "req",
     "methods": [
-    "get",
-    "post"
+        "get",
+        "post"
     ]
 }
 ```
