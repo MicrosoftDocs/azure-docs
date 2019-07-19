@@ -121,7 +121,7 @@ This section shows how to debug remotely using the project you create in [Create
 
 3. Delete the `About()` method and insert the following code in its place.
 
-``` c#
+```csharp
 public ActionResult About()
 {
     string currentTime = DateTime.Now.ToLongTimeString();
@@ -240,7 +240,7 @@ If your function [wrote logs](https://github.com/Azure/azure-webjobs-sdk/wiki), 
 * While you're debugging, the server is sending data to Visual Studio, which could affect bandwidth charges. For information about bandwidth rates, see [Azure Pricing](https://azure.microsoft.com/pricing/calculator/).
 * Make sure that the `debug` attribute of the `compilation` element in the *Web.config* file is set to true. It is set to true by default when you publish a debug build configuration.
 
-``` xml
+```xml
 <system.web>
   <compilation debug="true" targetFramework="4.5" />
   <httpRuntime targetFramework="4.5" />
@@ -278,7 +278,7 @@ For information about how to create application logs in WebJobs, see [How to wor
 ### Add tracing statements to the application
 1. Open *Controllers\HomeController.cs*, and replace the `Index`, `About`, and `Contact` methods with the following code in order to add `Trace` statements and a `using` statement for `System.Diagnostics`:
 
-```c#
+```csharp
 public ActionResult Index()
 {
     Trace.WriteLine("Entering Index method");

@@ -100,14 +100,14 @@ To allow your single page application to call the ASP.NET Core web API, you need
 
 1. In **Startup.cs**, add CORS to the `ConfigureServices()` method.
 
-    ```C#
+    ```csharp
     public void ConfigureServices(IServiceCollection services) {
       services.AddCors();
     ```
 
 1. In **Startup.cs**, configure CORS in the `Configure()` method.
 
-    ```C#
+    ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
       app.UseCors(builder =>
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
