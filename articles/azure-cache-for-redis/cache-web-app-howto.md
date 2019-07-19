@@ -22,8 +22,6 @@ ms.custom: mvc
 ---
 # Quickstart: Use Azure Cache for Redis with an ASP.NET web app 
 
-## Introduction
-
 In this quickstart, you use Visual Studio 2019 to create an ASP.NET web application that connects to Azure Cache for Redis to store and retrieve data from the cache. You then deploy the app to Azure App Service.
 
 ## Prerequisites
