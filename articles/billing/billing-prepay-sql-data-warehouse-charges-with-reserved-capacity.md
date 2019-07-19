@@ -6,7 +6,7 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 07/19/2019
 ms.author: banders
 ---
 
@@ -58,9 +58,9 @@ For example, assume your total consumption of SQL Data Warehouse is DW3000c. You
 
 ## Cancellations and exchanges
 
-If you need to cancel your SQL Data Warehouse reserved capacity, there might be a 12% early termination fee. Refunds are based on the lowest price of either your purchase price or the current price of the reservation. Refunds are limited to $50,000.00 per year. The refund you receive is the remaining prorated balance minus the 12% early termination fee. To request a cancellation, go to the reservation in the Azure portal and select **Refund** to create a support request.
+If you need to cancel your SQL Data Warehouse reserved capacity, there might be a 12% early termination fee. Refunds are based on the lowest price of either your purchase price or the current price of the reservation. Refunds are limited to $50,000.00 per year. The refund you receive is the remaining prorated balance minus the 12% early termination fee. To cancel, go to the reservation in the Azure portal and select **Refund**.
 
-If you need to change your SQL Data Warehouse reserved capacity to another region or term, you can exchange it for another reservation that's of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. The one or three-year term starts when you create the new reservation. To request an exchange, open the reservation in the Azure portal, and select **Exchange** to create a support request.
+If you need to change your SQL Data Warehouse reserved capacity to another region or term, you can exchange it for another reservation that's of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. The one or three-year term starts when you create the new reservation. To exchange, open the reservation in the Azure portal, and select **Exchange**.
 
 For more information about how to exchange or refund reservations, see [Reservation exchanges and refunds](billing-azure-reservations-self-service-exchange-and-refund.md).
 
