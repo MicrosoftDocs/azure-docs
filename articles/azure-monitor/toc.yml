@@ -179,7 +179,7 @@
           displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
           href: app/asp-net.md
         - name: .NET Console
-          displayname: console, .NET, dotnet console, dotenet, c#, csharp, NET
+          displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
           href: app/console.md
         - name: ILogger
           displayname: ilogger, logging, log 
@@ -295,7 +295,7 @@
         - name: Performance testing
           href: app/performance-testing.md
         - name: Troubleshooting
-          displayname: availability, troublshoot, troubleshoot availability
+          displayname: availability, troubleshoot, troubleshoot availability
           href: app/troubleshoot-availability.md
       - name: Distributed tracing
         items:
