@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Run a notebook in the cloud"
 titleSuffix: Azure Machine Learning service
-description: This tutorial shows you how to get started with Azure Machine Learning service and use a managed notebook server in the cloud. 
+description: This tutorial shows you how to get started with the Azure Machine Learning service and use a managed notebook server in the cloud. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,9 +13,9 @@ ms.custom: seodec18
 
 ---
 
-# Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning service
+# Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning
 
-This quickstart teaches you how to start using Azure Machine Learning service by using a managed notebook server in the cloud. No installation is required. If you want to instead install the SDK into your own Python environment, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).
+This quickstart teaches you how to start using the Azure Machine Learning service by using a managed notebook server in the cloud. No installation is required. If you want to instead install the SDK into your own Python environment, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).
 
 This quickstart shows you how to use the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md) to keep track of your machine learning (ML) experiments. You do this by creating a [notebook virtual machine (preview)](how-to-configure-environment.md#notebookvm): a secure, cloud-based Azure workstation that provides a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. You then run a Python notebook on this virtual machine (VM) that logs values into the workspace.
 
@@ -28,17 +28,17 @@ To do this, take the following actions:
 * Run the notebook.
 * View the logged error values in your workspace. The following example shows how the workspace helps you keep track of information generated in a script.
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree).
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## Create a workspace
 
-If you have an Azure Machine Learning service workspace, skip to the [next section](#create-notebook). Otherwise, create one now.
+If you have an Azure Machine Learning workspace, skip to the [next section](#create-notebook). Otherwise, create one now.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="create-notebook"></a>Create a notebook VM
 
- From your workspace, create a cloud resource to start using Jupyter notebooks. This resource is a cloud-based platform that's preconfigured with everything you need to run Azure Machine Learning service.
+ From your workspace, create a cloud resource to start using Jupyter notebooks. This resource is a cloud-based platform that's preconfigured with everything you need to run the Azure Machine Learning service.
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/). If you're not sure how to locate your workspace in the portal, see how to [view your workspace](how-to-manage-workspace.md#view).
 
@@ -144,9 +144,9 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 ## Next steps
 
-After completing these tasks, go to the Jupyter Notebook web page. In the **Quickstart** folder, open and run the **02.deploy-web-service.ipynb** notebook to learn how to deploy a web service.
+After you complete these tasks, go to the Jupyter Notebook webpage. In the **Quickstart** folder, open and run the **02.deploy-web-service.ipynb** notebook to learn how to deploy a web service.
 
-Also on the Jupyter Notebook web page, browse through other notebooks in the samples folder to learn more about Azure Machine Learning service.
+Also on the Jupyter Notebook webpage, browse through other notebooks in the samples folder to learn more about the Azure Machine Learning service.
 
 For an in-depth workflow experience, follow Machine Learning tutorials to train and deploy a model:  
 
