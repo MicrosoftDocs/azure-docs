@@ -88,3 +88,20 @@ ms.author: grgale
 * [Analyze Log Data in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/log-query-overview)
 * [Stream Azure Monitor Logs to an Event Hub](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/stream-monitoring-data-event-hubs)
 * [Event Hub Security and Authentication](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-authentication-and-security-model-overview)
+
+## Azure Policy and Azure Blueprints
+
+### Further Reading
+
+* [Azure Policy Overview](https://docs.microsoft.com/en-us/azure/governance/policy/overview)
+* [Azure Blueprints Overview](https://azure.microsoft.com/en-us/services/blueprints/)
+* [Azure Policy Samples](https://docs.microsoft.com/en-us/azure/governance/policy/samples/index)
+* [Azure Policy Samples Repository](https://github.com/Azure/azure-policy)
+* [Azure Policy Definition Structure](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure)
+* [Azure Policy Effects](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/effects)
+
+### Related Documentation
+
+* [Azure Governance](https://docs.microsoft.com/en-us/azure/governance/)
+* [Azure Management Groups](https://docs.microsoft.com/en-us/azure/governance/management-groups/)
+* [Azure Role Based Access Control](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
