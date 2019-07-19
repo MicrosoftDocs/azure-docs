@@ -89,7 +89,7 @@ namespace MyNamespace
         public HttpTrigger(IMyService service, IHttpClientFactory httpClientFactory)
         {
             _service = service;
-            _client = httpClientFactory.CreateClient();;
+            _client = httpClientFactory.CreateClient();
         }
 
         [FunctionName("GetPosts")]
