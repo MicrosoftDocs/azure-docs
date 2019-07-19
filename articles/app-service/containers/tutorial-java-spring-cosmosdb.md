@@ -1,5 +1,6 @@
 ---
 title: Build Java web app on Linux
+titleSuffix: Azure App Service
 description: Build, deploy, and scale Spring Boot Java Web apps with Azure App Service on Linux and Azure Cosmos DB.
 author: rloutlaw
 ms.author: routlaw
@@ -10,7 +11,6 @@ ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc
 ms.custom: seodec18
-ms.titleSuffix: Azure App Service
 ---
 
 # Tutorial: Build a Java web app using Spring and Azure Cosmos DB
