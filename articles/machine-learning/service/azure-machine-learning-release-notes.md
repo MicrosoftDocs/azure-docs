@@ -112,12 +112,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-opendatasets**
     + Pin pyarrow of opendatasets to old versions (<0.14.0) because of memory issue newly introduced there.
     +  Move azureml-contrib-opendatasets to azureml-opendatasets. - Allow open dataset classes to be registered to AML workspace and leverage AML Dataset capabilities seamlessly. - Improve NoaaIsdWeather enrich performance in non-SPARK version significantly.
-  + **azureml-pipeline-core**
-    + `hash_paths parameter for all pipeline steps is deprecated and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
-  + **azureml-pipeline-internal**
-    + `hash_paths parameter for all pipeline steps is deprecated and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
   + **azureml-pipeline-steps**
-    + `hash_paths parameter for all pipeline steps is deprecated and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
     + DBFS Datastore is now supported for Inputs and Outputs in DatabricksStep.
     + Updated documentation for Azure Batch Step with regards to inputs/outputs.
     + In AzureBatchStep, changed *delete_batch_job_after_finish* default value to *true*.
@@ -127,7 +122,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Updated documentation on get_output to reflect the actual return type and provide additional notes on retrieving key properties.
     + Update NimbusML dependency to 1.2.0 version (current latest).
     + add expected values to automl output
-    + `hash_paths parameter for all pipeline steps is deprecated and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
   + **azureml-train-core**
     + Strings are now accepted as compute target for Automated Hyperparameter Tuning
     + The unused RunConfiguration setting auto_prepare_environment has been marked as deprecated.
