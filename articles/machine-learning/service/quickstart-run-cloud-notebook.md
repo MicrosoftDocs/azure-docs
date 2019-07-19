@@ -28,11 +28,11 @@ To do this, take the following actions:
 * Run the notebook.
 * View the logged error values in your workspace. The following example shows how the workspace helps you keep track of information generated in a script.
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning service](https://aka.ms/AMLFree).
 
 ## Create a workspace
 
-If you have an Azure Machine Learning workspace, skip to the [next section](#create-notebook). Otherwise, create one now.
+If you have an Azure Machine Learning service workspace, skip to the [next section](#create-notebook). Otherwise, create one now.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -98,7 +98,7 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
     ![Authenticate](media/quickstart-run-cloud-notebook/authenticate.png)
 
-1. When the code cell is complete, the cell number __[2]__ appears. If you had to sign in, you will see a successful authentication status message.   If you didn't have to sign in, you won't see any output for this cell. You'll only see the number, which appears to show that the cell ran successfully.
+1. When the code cell run is successful, the cell number __[2]__ appears. If you had to sign in, you will see a successful authentication status message.   If you didn't have to sign in, you won't see any output for this cell. You'll only see the number, which appears to show that the cell ran successfully.
 
     ![Success message](media/quickstart-run-cloud-notebook/success.png)
 
