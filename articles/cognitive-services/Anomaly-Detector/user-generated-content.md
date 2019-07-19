@@ -26,7 +26,7 @@ Some of the following links are hosted on websites that are external to Microsof
 
 * [Time-Series Anomaly Detection Service at Microsoft - KDD 2019](https://arxiv.org/abs/1906.03821)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ERTaAnwCarM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Time-Series Anomaly Detection Service at Microsoft](media/srcnn.png)](http://www.youtube.com/watch?v=ERTaAnwCarM "Time-Series Anomaly Detection Service at Microsoft")
 
 ## Technical blogs
 
