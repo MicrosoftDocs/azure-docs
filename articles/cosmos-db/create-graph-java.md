@@ -145,13 +145,13 @@ Now go back to the Azure portal to get your connection information and copy it i
 
 2. In the git terminal window, use the following command to install the required Java packages.
 
-   ```
+   ```git
    mvn package
    ```
 
 3. In the git terminal window, use the following command to start the Java application.
     
-    ```
+    ```git
     mvn exec:java -D exec.mainClass=GetStarted.Program
     ```
 
