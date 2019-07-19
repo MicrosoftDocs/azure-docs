@@ -582,7 +582,7 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
 5. In a new browser window, go to the URL that is shown under **FTP hostname** or **FTPS hostname** in the **Overview** page for your app.
 
-6. Log in using the FTP credentials that you created earlier (including the app name prefix for the user name).
+6. Sign in using the FTP credentials that you created earlier (including the app name prefix for the user name).
 
     The browser shows the root folder of the app.
 
