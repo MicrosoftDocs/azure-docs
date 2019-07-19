@@ -130,15 +130,15 @@ The Teradata linked service supports the following properties:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Teradata dataset.
+This section provides a list of properties supported by the Teradata dataset. For a full list of sections and properties available for defining datasets, see [Datasets](concepts-datasets-linked-services.md).
 
 To copy data from Teradata, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **TeradataTable** | Yes |
-| database | Name of Teradata database. | No (if "query" in activity source is specified) |
-| table | Name of the table in the Teradata database. | No (if "query" in activity source is specified) |
+| type | The type property of the dataset must be set to `TeradataTable`. | Yes |
+| database | The name of the Teradata database. | No (if "query" in activity source is specified) |
+| table | The name of the table in the Teradata database. | No (if "query" in activity source is specified) |
 
 **Example:**
 
@@ -158,7 +158,7 @@ To copy data from Teradata, the following properties are supported:
 
 > [!NOTE]
 >
-> If you were using "RelationalTable" type dataset as the following, it is still supported as-is, while you are suggested to use the new one going forward.
+> `RelationalTable` type dataset is still supported. Going forward, however, you should use the new one.
 
 **Previous payload:**
 
@@ -178,31 +178,31 @@ To copy data from Teradata, the following properties are supported:
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Teradata source.
+This section provides a list of properties supported by Teradata source. For a full list of sections and properties available for defining activities, see [Pipelines](concepts-pipelines-activities.md). 
 
-### Teradata as source
+### Teradata as a source type
 
 > [!TIP]
 >
-> Learn more from [Parallel copy from Teradata](#parallel-copy-from-teradata) section on how to load data from Teradata efficiently using data partitioning.
+> To load data from Teradata efficiently by using data partitioning, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section.
 
 To copy data from Teradata, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **TeradataSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook corresponding built-in partition parameter(s) in your query. See examples in [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No (if table in dataset is specified) |
-| partitionOptions | Specifies the data partitioning options used to load data from Teradata. <br>Allow values are: **None** (default), **Hash** and **DynamicRange**.<br>When partition option is enabled (not 'None'), please also configure **[`parallelCopies`](copy-activity-performance.md#parallel-copy)** setting on copy activity e.g. as 4, which determines the parallel degree to concurrently load data from Teradata database. | No |
-| partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when partition option is not `None`. | No |
-| partitionColumnName | Specify the name of the source column **in integer type** that will be used by range partitioning for parallel copy. If not specified, the primary key of the table will be auto detected and used as partition column. <br>Apply when partition option is `Hash` or `DynamicRange`. If you use query to retrieve source data, hook `?AdfHashPartitionCondition` or  `?AdfRangePartitionColumnName` in WHERE clause. See example in [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
-| partitionUpperBound | Maximum value of the partition column to copy data out. <br>Apply when partition option is `DynamicRange`. If you use query to retrieve source data, hook `?AdfRangePartitionUpbound` in WHERE clause. See example in [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
-| PartitionLowerBound | Minimum value of the partition column to copy data out. <br>Apply when partition option is `DynamicRange`. If you use query to retrieve source data, hook `?AdfRangePartitionLowbound` in WHERE clause. See example in [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
+| type | The type property of the copy activity source must be set to `TeradataSource`. | Yes |
+| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No (if table in dataset is specified) |
+| partitionOptions | Specifies the data partitioning options used to load data from Teradata. <br>Allow values are: **None** (default), **Hash** and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), also configure the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. This determines the parallel degree to concurrently load data from a Teradata database. For example, you might set this to 4. | No |
+| partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when partition option isn't `None`. | No |
+| partitionColumnName | Specify the name of the source column **in integer type** that will be used by range partitioning for parallel copy. If not specified, the primary key of the table is auto-detected and used as the partition column. <br>Apply when the partition option is `Hash` or `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfHashPartitionCondition` or  `?AdfRangePartitionColumnName` in WHERE clause. See example in [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
+| partitionUpperBound | Maximum value of the partition column to copy data out. <br>Apply when partition option is `DynamicRange`. If you use query to retrieve source data, hook `?AdfRangePartitionUpbound` in the WHERE clause. For an example, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
+| PartitionLowerBound | Minimum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionLowbound` in the WHERE clause. For an example, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
 
 > [!NOTE]
 >
-> If you were using "RelationalSource" type copy source, it is still supported as-is, but doesn't support the new built-in parallel load from Teradata (partition options). You are suggested to use this new one going forward.
+> `RelationalSource` type copy source is still supported, but it doesn't support the new built-in parallel load from Teradata (partition options). Going forward, you should use the new one.
 
-**Example: copy data using basic query without partition**
+**Example: copy data using a basic query without partition**
 
 ```json
 "activities":[
@@ -236,19 +236,19 @@ To copy data from Teradata, the following properties are supported in the copy a
 
 ## Parallel copy from Teradata
 
-Data factory Teradata connector provides built-in data partitioning to copy data from Teradata in parallel with great performance. You can find data partitioning options on copy activity -> Teradata source:
+The Data Factory Teradata connector provides built-in data partitioning to copy data from Teradata in parallel. You can find data partitioning options on the **Source** tabe of the copy activity.
 
-![Partition options](./media/connector-teradata/connector-teradata-partition-options.png)
+![Screenshot of partition options](./media/connector-teradata/connector-teradata-partition-options.png)
 
-When you enable partitioned copy, data factory runs parallel queries against your Teradata source to load data by partitions. The parallel degree is configured and controlled via **[`parallelCopies`](copy-activity-performance.md#parallel-copy)** setting on copy activity. For example, if you set `parallelCopies` as four, data factory concurrently generates and runs four queries based on your specified partition option and settings, each retrieving portion of data from your Teradata database.
+When you enable partitioned copy, Data Factory runs parallel queries against your Teradata source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings. Each query retrieves a portion of data from your Teradata database.
 
-You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from Teradata database. The following are the suggested configurations for different scenarios:
+It's a good idea to enable parallel copy with data partitioning, especially when you load large amount of data from your Teradata database. The following are suggested configurations for different scenarios:
 
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Full load from large table                                   | **Partition option**: Hash. <br><br/>During execution, data Factory automatically detect PK column, apply hash against it and copy data by partitions. |
-| Load large amount of data using custom query                 | **Partition option**: Hash.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used for apply hash partition. If not specified, ADF will automatically detect the PK column of the table you specified in Teradata dataset.<br><br>During execution, data factory replace `?AdfHashPartitionCondition` with the hash partition logic and send to Teradata. |
-| Load large amount of data using custom query, having an integer column with evenly distributed value for range partitioning | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data. You can partition against column with integer data type.<br>**Partition upper bound** and **partition lower bound**: Specify if you want to filter against partition column to only retrieve data between lower and upper range.<br><br>During execution, data factory replace `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`, and `?AdfRangePartitionLowbound` with the actual column name and value ranges for each partition, and send to Teradata. <br>For example, if your partition column "ID" set with lower bound as 1 and upper bound as 80, with parallel copy set as 4, ADF retrieve data by 4 partitions with ID between [1,20], [21, 40], [41, 60], and [61, 80]. |
+| Full load from large table.                                   | **Partition option**: Hash. <br><br/>During execution, Data Factory automatically detects the PK column, applies a hash against it, and copies data by partitions. |
+| Load large amount of data by using a custom query.                 | **Partition option**: Hash.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used for apply hash partition. If not specified, Data Factory automatically detects the PK column of the table you specified in the Teradata dataset.<br><br>During execution, Data Factory replaces `?AdfHashPartitionCondition` with the hash partition logic, and sends to Teradata. |
+| Load large amount of data by using a custom query, having an integer column with evenly distributed value for range partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data. You can partition against the column with integer data type.<br>**Partition upper bound** and **partition lower bound**: Specify if you want to filter against the partition column to retrieve data only between the lower and upper range.<br><br>During execution, Data Factory replaces `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`, and `?AdfRangePartitionLowbound` with the actual column name and value ranges for each partition, and sends to Teradata. <br>For example, if your partition column "ID" set with the lower bound as 1 and the upper bound as 80, with parallel copy set as 4, Data Factory retrieves data by 4 partitions. Their IDs are between [1,20], [21, 40], [41, 60], and [61, 80], respectively. |
 
 **Example: query with hash partition**
 
@@ -280,9 +280,9 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 ## Data type mapping for Teradata
 
-When copying data from Teradata, the following mappings are used from Teradata data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When you copy data from Teradata, the following mappings apply. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Teradata data type | Data factory interim data type |
+| Teradata data type | Data Factory interim data type |
 |:--- |:--- |
 | BigInt |Int64 |
 | Blob |Byte[] |
@@ -326,4 +326,4 @@ When copying data from Teradata, the following mappings are used from Teradata d
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
