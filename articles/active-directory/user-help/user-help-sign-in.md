@@ -78,7 +78,7 @@ If for some reason you're unable to use your primary sign-in method, you can use
 
     >[!Note]
     >If you don't see the **Sign in another way** link, it means that you haven't set up any other verification methods and that you'll have to contact your administrator for help signing into your account. After your administrator helps you to sign in, make sure you add additional verification methods. For more info about adding verification methods, see the [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md) article.
-    > 
+    >
     >If you see the **Sign in another way** link, but still don't see any other verification methods, you'll have to contact your administrator for help signing in to your account.
 
 2. Choose your alternative verification method, and continue with the two-step verification process.
@@ -89,7 +89,7 @@ If for some reason you're unable to use your primary sign-in method, you can use
 
 - Learn about security info in the [Security info (preview) overview](user-help-security-info-overview.md) article.
 
-- Learn about two-step verification in the [Two-step verification overview](user-help-two-step-verification-overview.md) article. 
+- Learn about two-step verification in the [Two-step verification overview](user-help-two-step-verification-overview.md) article.
 
 - Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/)
 
