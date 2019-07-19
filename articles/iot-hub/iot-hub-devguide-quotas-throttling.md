@@ -24,7 +24,7 @@ The tier also determines the throttling limits that IoT Hub enforces on all oper
 
 ### IoT Plug and Play
 
-During public preview, IoT Plug and Play devices will send separate messages per interface, which may increase the number of messages counted towards your [message quota](../iot-hub/iot-hub-devguide-quotas-throttling.md).
+During public preview, IoT Plug and Play devices will send separate messages per interface, which may increase the number of messages counted towards your message quota.
 
 ## Operation throttles
 
