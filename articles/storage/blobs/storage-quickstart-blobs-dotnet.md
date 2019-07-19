@@ -88,7 +88,7 @@ dotnet add package Microsoft.Azure.Storage.Blob
 
 From the project directory:
 
-1. Open the Program.cs file in your editor
+1. Open the *Program.cs* file in your editor
 2. Remove the `Console.WriteLine` statement
 3. Add `using` directives
 4. Create a `ProcessAsync` method where the main code for the example will reside
