@@ -65,7 +65,7 @@ cd start
 python --version
 ```
 
-Use the correct version of Python to create a Python virtual environment in a folder named `.env`.
+Use the correct version of Python to create a Python virtual environment in a folder named **.env**.
 
 ```bash
 python -m venv .env
@@ -152,7 +152,7 @@ Open a browser and navigate to `http://localhost:7071/api/classify?name=Azure`. 
 
 Use `Ctrl-C` to stop the function app.
 
-## Import a TensorFlow model
+## Import the TensorFlow model
 
 You'll use a pre-built TensorFlow model that was trained with and exported from Azure Custom Vision Service. If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the repository](https://github.com/anthonychu/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
@@ -170,7 +170,7 @@ cp ../resources/model/* classify
 copy ..\resources\model\* classify
 ```
 
-## Import the helper functions
+## Add the helper functions and dependencies
 
 Some helper functions for preparing the input image and making a prediction using TensorFlow are in a file named *predict.py* in the *resources* folder. Copy this file into the *classify* function's folder.
 
@@ -206,7 +206,7 @@ pip freeze > requirements.txt
 
 In the editor, open **predict.py** and look at the `_initialize` function near the top of the file. Notice that the TensorFlow model is loaded from disk the first time the function is executed and save to global variables. The loading from disk is skipped in subsequent executions of the `_initialize` function. Caching the model in memory with this technique speeds up later predictions.
 
-## Update function to run prediction
+## Update function to run predictions
 
 Open **classify/\_\_init\_\_.py** in your editor. Import the **predict** library that you added to the same folder earlier. Add the following `import` statements below the other imports in the file.
 
