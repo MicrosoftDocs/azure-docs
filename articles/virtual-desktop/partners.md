@@ -92,5 +92,5 @@ Workspot extends the value of Windows Virtual Desktop by simplifying the provisi
 
 ## Next steps
 
-- [Learn more about Windows Virtual Desktop](overview.md)
-- [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+- [Learn more about Windows Virtual Desktop.](overview.md)
+- [Create a tenant in Windows Virtual Desktop.](tenant-setup-azure-active-directory.md)
