@@ -32,7 +32,7 @@ Create your resource group and single database using the Azure portal.
 4. In the **Database Details** section, type or select the following values:
 
    - **Database name**: Enter `mySampleDatabase`.
-   - **Server**: Select **Create new** and enter the following values and then select **Select**.
+   - **Server**: Select **Create new**, enter the following values and then select **Select**.
        - **Server name**: Type `mysqlserver`; along with some numbers for uniqueness.
        - **Server admin login**: Type `azureuser`.
        - **Password**: Type a complex password that meets password requirements.

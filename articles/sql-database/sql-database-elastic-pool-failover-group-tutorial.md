@@ -44,7 +44,7 @@ To complete this tutorial, make sure you have:
 1. Configure your elastic pool with the following values:
    - **Name**: Provide a unique name for your elastic pool, such as `myElasticPool`. 
    - **Subscription**: Select your subscription from the drop-down.
-   - **ResourceGroup**: Select `myResourceGroup` from the drop-down, the resource group you created in section 1 from the drop-down. 
+   - **ResourceGroup**: Select `myResourceGroup` from the drop-down, the resource group you created in section 1. 
    - **Server**: Select the server you created in section 1 from the drop down.  
 
        ![Create new server for elastic pool](media/sql-database-elastic-pool-create-failover-group-tutorial/use-existing-server-for-elastic-pool.png)
@@ -55,7 +55,7 @@ To complete this tutorial, make sure you have:
 
     ![Add SQL DB to elastic pool](media/sql-database-elastic-pool-create-failover-group-tutorial/add-database-to-elastic-pool.png)
 
-1. Select **Create** to create your elastic pool. 
+1. Select **Review + create** to review your elastic pool settings and then select **Create** to create your elastic pool. 
 
 
 ## 3 - Create the failover group 
