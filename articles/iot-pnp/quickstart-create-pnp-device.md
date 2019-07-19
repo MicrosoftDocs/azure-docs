@@ -86,7 +86,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 
 In this quickstart, you use an existing sample device capability model and associated interfaces.
 
-1. Download the [device capability model and interface samples](https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview-utopia/digitaltwin_client/samples) and save files into `pnp_app` folder.
+1. Download the [device capability model](https://github.com/Azure/azure-iot-sdk-c-pnp/blob/public-preview-utopia/digitaltwin_client/samples/SampleDevice.capabilitymodel.json) and [interface sample](https://github.com/Azure/azure-iot-sdk-c-pnp/blob/public-preview-utopia/digitaltwin_client/samples/digitaltwin_sample_environmental_sensor/EnvironmentalSensor.interface.json) and save files into `pnp_app` folder.
 
 1. In the files you downloaded, replace `<YOUR_COMPANY_NAME_HERE>` in the `@id` and `schema` fields with a unique value. Use only the characters a-z, A-Z, 0-9, and underscore. For more more information, see [Digital Twin identifier format](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
 
