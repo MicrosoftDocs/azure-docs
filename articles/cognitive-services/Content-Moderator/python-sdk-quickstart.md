@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 07/18/2019
 ms.author: pafarley
 ---
 
@@ -37,7 +37,7 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 * Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for 7 days for free. After you sign up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * View your resource on the [Azure Portal](https://portal.azure.com/)
 
-After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `CONTENTMODERATOR_SUBSCRIPTION_KEY`. 
+After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `CONTENTMODERATOR_SUBSCRIPTION_KEY`. Also create an environment variable for the region string, named `CONTENTMODERATOR_LOCATION`.
  
 ### Create a python script
 
@@ -58,7 +58,6 @@ from azure.cognitiveservices.vision.contentmoderator.models import (
 from msrest.authentication import CognitiveServicesCredentials
 ```
 
-
 Create variables for your resource's Azure location and your key as an environment variable. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable.
 
 ```python
@@ -68,10 +67,10 @@ subscription_key = os.environ.get("CONTENTMODERATOR_SUBSCRIPTION_KEY")
 
 ### Install the client library
 
-After installing Python, you can install the client library with:
+You can install the Content Moderator client library with the following command:
 
 ```console
-pip install --upgrade azure-cognitiveservices-[product]
+pip install --upgrade azure-cognitiveservices-vision-contentmoderator
 ```
 
 ## Object model
@@ -93,9 +92,12 @@ pip install --upgrade azure-cognitiveservices-[product]
 These code snippets show you how to do the following with the Computer Vision client library for Python:
 
 * [Authenticate the client](#authenticate-the-client)
-* [link to example task 1]()
-* [link to example task 2]()
-* [link to example task 3]()
+* Moderate text
+* Use custom terms list
+* Moderate images
+* Use custom image list
+* Moderate video
+* Moderate video transcripts
 
 ### Authenticate the client
 
