@@ -40,8 +40,8 @@ To restore an existing data warehouse from a restore point use the [Restore-AzSq
 5. Pick the desired restore point using the RestorePointCreationDate.
 
 6. Restore the data warehouse to the desired restore point using [Restore-AzSqlDatabase][Restore-AzSqlDatabase] PowerShell cmdlet.
-    1. To restore the SQL Data Warehouse to a different logical server, make sure to specify the other logical server name.  This logical server can also be in a different resource group and region.
-    2. To restore to a different subscription, use the  'Move' button to move the logical server to another subscription.
+        1. To restore the SQL Data Warehouse to a different logical server, make sure to specify the other logical server name.  This logical server can also be in a different resource group and region.
+        2. To restore to a different subscription, use the  'Move' button to move the logical server to another subscription.
 
 7. Verify that the restored data warehouse is online.
 

@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # User-defined restore points
 
-In this article, you learn to create a new user-defined restore point for Azure SQL Data Warehouse using [PowerShell][PowerShell] and [Azure portal][Azure portal].
+In this article, you learn to create a new user-defined restore point for Azure SQL Data Warehouse using PowerShell and Azure portal.
 
 ## Create user-defined restore points through PowerShell
 
@@ -84,8 +84,7 @@ User-defined restore points can also be created through Azure portal.
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Azure portal]: :./sql-data-warehouse-restore-points.md#create-a-new-user-defined-restore-points-through-the-azure-portal
-[PowerShell]:./sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-powershell
+[PowerShelldoc]:./sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-powershell
 [Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
 [Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
 [Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md

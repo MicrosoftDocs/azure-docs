@@ -80,9 +80,7 @@ $RestoredDatabase.status
     ![Specify Database Name](./media/sql-data-warehouse-restore-deleted-dw/restoring_deleted_21.png)
 
 ## Next Steps
-
 - [Restore an existing data warehouse][Restore an existing data warehouse]
-- [Restore a deleted data warehouse][Restore a deleted data warehouse]
 - [Restore from a geo-backup data warehouse][Restore from a geo-backup data warehouse]
 
 <!--Image references-->

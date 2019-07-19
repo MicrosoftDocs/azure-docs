@@ -24,7 +24,7 @@ In this article, you learn to restore your data warehouse from a geo-backup thro
 
 ## Restore from an Azure geographical region through PowerShell
 
-To restore from a geo-backup, use the [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet.
+To restore from a geo-backup, use the [Get-AzSqlDatabaseGeoBackup][Get-AzSqlDatabaseGeoBackup] and [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet.
 
 > [!NOTE]
 > You can perform a geo-restore to Gen2! To do so, specify an Gen2 ServiceObjectiveName (e.g. DW1000**c**) as an optional parameter.
@@ -71,13 +71,16 @@ The recovered database will be TDE-enabled if the source database is TDE-enabled
 Follow the steps outlined below to restore an Azure SQL Data Warehouse from a geo-backup:
 
 1. Sign in to your [Azure portal][Azure portal] account.
-2. Click **+ Create a resource** and search for SQL Data Warehouse and click **Create**.
+1. Click **+ Create a resource** and search for SQL Data Warehouse and click **Create**.
+
     ![New DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore_new.png)
-3. Fill out the information requested in the **Basics** tab and click **Next: Additional settings**.
+1. Fill out the information requested in the **Basics** tab and click **Next: Additional settings**.
+
     ![Basics](./media/sql-data-warehouse-restore-from-geo-backup/georestore_dw.png)
-4. For **Use existing data** parameter, select **Backup** and select the appropriate backup from the scroll down options. Click **Review + Create**.
-    ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore_select.png)
-5. Once the data warehouse has been restored, check that the **Status** is Online.
+1. For **Use existing data** parameter, select **Backup** and select the appropriate backup from the scroll down options. Click **Review + Create**.
+ 
+   ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore_select.png)
+2. Once the data warehouse has been restored, check that the **Status** is Online.
 
 ## Next Steps
 - [Restore an existing data warehouse][Restore an existing data warehouse]
@@ -100,8 +103,10 @@ Follow the steps outlined below to restore an Azure SQL Data Warehouse from a ge
 [Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
 [Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
 
+
 <!--MSDN references-->
 [Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase
+[Get-AzSqlDatabaseGeoBackup]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasegeobackup
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
