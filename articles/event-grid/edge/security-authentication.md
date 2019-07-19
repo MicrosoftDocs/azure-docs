@@ -13,7 +13,7 @@ services: event-grid
 
 ## Event Grid IoT Edge security and authentication
 
-Security and Authentication is an advanced concept and requires familiarity with Event Grid basics first. Start [here](concepts.md) if new to Event Grid on edge. Event Grid module builds on the existing security infrastructure already available on IoT Edge.
+Security and Authentication is an advanced concept and requires familiarity with Event Grid basics first. Start here if new to Event Grid on edge. Event Grid module builds on the existing security infrastructure already available on IoT Edge.
 
 The following sections describe in detail how the following are secured and authentication:-
 

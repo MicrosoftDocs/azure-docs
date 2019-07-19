@@ -1,15 +1,11 @@
 - name: Event Grid IoT Edge Documentation
-  href: index.yml
+  href: 
 - name: Concepts
   items:
-  - name: Event Grid concepts
-    href: concepts.md
   - name: Security and authentication
     href: security-authentication.md
   - name: Delivery and retry
     href: delivery-retry.md
-  - name: Event filtering
-    href: event-filtering.md
   - name: Event sources
     href: event-sources.md
   - name: Event handlers
