@@ -31,7 +31,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + **azureml-automl-core** - Enabled the ONNX model conversion for the remote compute target. **azureml-train-automl** - Added the support of ONNX models for the remote compute target.
   + **azureml-train-automl**
     + **azureml-automl-core** - Enabled the ONNX model conversion for the remote compute target. **azureml-train-automl** - Added the support of ONNX models for the remote compute target.
-
+  + Azure Machine Learning now provides ability to resume training from a previous run, checkpoint or model files.
+    + Learn how to [use estimators to resume training from a previous run](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
 + **Bug fixes and improvements**
   + **automl-client-core-nativeclient**
