@@ -1,14 +1,15 @@
 ---
-title: Install and run containers - Anomaly detector
+title: How to install and run containers for using Anomaly Detector API
 titleSuffix: Azure Cognitive Services
 description: Use the Anomaly Detector API's advanced algorithms to identify anomalies in your time series data.
 services: cognitive-services
-author: aahill
+author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
-ms.subservice: anomaly-detection
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: aahi
+ms.subservice: anomaly-detector
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
 ---
 
 # Install and run Anomaly Detector containers

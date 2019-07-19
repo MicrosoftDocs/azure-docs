@@ -1,6 +1,6 @@
 ---
 title: Azure security features that help with identity management | Microsoft Docs
-description: " This article provides an overview of the core Azure security features that help with identity management. Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation, such as Multi-Factor Authentication and conditional access policies. "
+description: " This article provides an overview of the core Azure security features that help with identity management. Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation, such as Multi-Factor Authentication and Conditional Access policies. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -20,7 +20,7 @@ Customer intent: As an IT Pro or decision maker I am trying to learn about ident
 # Azure identity management security overview
 
  Identity management is the process of authenticating and authorizing [security principals](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals). It also involves controlling information about those principals (identities). Security principals (identities) may include services, applications, users, groups, etc.
- Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud. Such protection enables additional levels of validation, such as Multi-Factor Authentication and conditional access policies. Monitoring suspicious activity through advanced security reporting, auditing, and alerting helps mitigate potential security issues. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) provides single sign-on (SSO) to thousands of cloud software as a service (SaaS) apps and access to web apps that you run on-premises.
+ Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud. Such protection enables additional levels of validation, such as Multi-Factor Authentication and Conditional Access policies. Monitoring suspicious activity through advanced security reporting, auditing, and alerting helps mitigate potential security issues. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) provides single sign-on (SSO) to thousands of cloud software as a service (SaaS) apps and access to web apps that you run on-premises.
  
 By taking advantage of the security benefits of Azure Active Directory (Azure AD), you can:
 
@@ -70,7 +70,7 @@ Learn more:
 * [Enabling Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-enable.md)
 * [Publish applications using Azure AD Application Proxy](../active-directory/active-directory-application-proxy-publish.md)
 * [Single sign-on with Application Proxy](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-* [Working with conditional access](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+* [Working with Conditional Access](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## Multi-Factor Authentication
 
@@ -125,9 +125,9 @@ Learn more:
 
 ## Device registration
 
-Azure AD device registration is the foundation for device-based [conditional access](../active-directory/active-directory-conditional-access-device-registration-overview.md) scenarios. When a device is registered, Azure AD device registration provides the device with an identity that it uses to authenticate the device when a user signs in. The authenticated device  and the attributes of the device can then be used to enforce conditional access policies for applications that are hosted in the cloud and on-premises.
+Azure AD device registration is the foundation for device-based [Conditional Access](../active-directory/active-directory-conditional-access-device-registration-overview.md) scenarios. When a device is registered, Azure AD device registration provides the device with an identity that it uses to authenticate the device when a user signs in. The authenticated device  and the attributes of the device can then be used to enforce Conditional Access policies for applications that are hosted in the cloud and on-premises.
 
-When combined with a mobile device management solution such as Intune, the device attributes in Azure AD are updated with additional information about the device. You can then create conditional access rules that enforce access from devices to meet your standards for security and compliance.
+When combined with a mobile device management solution such as Intune, the device attributes in Azure AD are updated with additional information about the device. You can then create Conditional Access rules that enforce access from devices to meet your standards for security and compliance.
 
 Learn more:
 

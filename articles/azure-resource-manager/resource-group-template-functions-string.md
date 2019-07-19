@@ -1,16 +1,9 @@
 ---
 title: Azure Resource Manager template functions - string | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template to work with strings.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 

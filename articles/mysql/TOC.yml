@@ -89,12 +89,20 @@
       href: concepts-business-continuity.md
     - name: Backup and restore
       href: concepts-backup.md
-  - name: Monitor
+  - name: Monitor and tune
     items:
-    - name: Monitor
+    - name: Monitor and tune
       href: concepts-monitoring.md
-    - name: Server logs
+    - name: Slow query logs
       href: concepts-server-logs.md
+    - name: Audit logs
+      href: concepts-audit-logs.md
+    - name: Query Store
+      href: concepts-query-store.md
+    - name: Query Performance Insight
+      href: concepts-query-performance-insight.md
+    - name: Performance Recommendations
+      href: concepts-performance-recommendations.md
   - name: Development
     items:
     - name: Drivers and tools compatibility
@@ -165,10 +173,16 @@
       href: howto-auto-grow-storage-portal.md
   - name: Access server logs
     items:
-    - name: Azure portal
-      href: howto-configure-server-logs-in-portal.md
-    - name: Azure CLI
-      href: howto-configure-server-logs-in-cli.md
+    - name: Slow query logs
+      items: 
+      - name: Azure portal
+        href: howto-configure-server-logs-in-portal.md
+      - name: Azure CLI
+        href: howto-configure-server-logs-in-cli.md
+    - name: Audit logs
+      items: 
+      - name: Azure portal
+        href: howto-configure-audit-logs-portal.md
   - name: Monitor
     items:
     - name: Create alerts on metrics

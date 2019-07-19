@@ -2,12 +2,12 @@
 title: Operator best practices - Cluster security in Azure Kubernetes Services (AKS)
 description: Learn the cluster operator best practices for how to manage cluster security and upgrades in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Best practices for cluster security and upgrades in Azure Kubernetes Service (AKS)

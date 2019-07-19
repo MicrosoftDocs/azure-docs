@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Features | Microsoft Docs'
 description: Features of Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
-# Azure AD Domain Services
-## Features
+# Features provided by Azure Active Directory Domain Services
+
 The following features are available in Azure AD Domain Services managed domains.
 
 * **Simple deployment experience:** You can enable Azure AD Domain Services for your Azure AD directory using just a few clicks. Your managed domain includes cloud-only user accounts and user accounts synchronized from an on-premises directory.

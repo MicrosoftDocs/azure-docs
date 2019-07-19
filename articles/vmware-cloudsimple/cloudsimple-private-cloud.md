@@ -57,7 +57,7 @@ Users consume the stack through native VMware tools, including:
 
 You can deploy dedicated nodes in Azure locations. Then you can manage them with Azure and CloudSimple. A private cloud consists of one or more vSphere clusters, and each cluster contains 3 to 16 nodes.
 
-You can create a private cloud using purchased nodes:
+You can create a private cloud using provisioned nodes:
 
 * Pay-as-you-go nodes
 * Reserved, dedicated nodes

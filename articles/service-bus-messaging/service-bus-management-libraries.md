@@ -161,7 +161,7 @@ namespace SBusADApp
 ```
 
 > [!IMPORTANT]
-> For a complete example, see the [.NET management sample on GitHub]((https://github.com/Azure-Samples/service-bus-dotnet-management/)). 
+> For a complete example, see the [.NET management sample on GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
 
 ## Next steps
 [Microsoft.Azure.Management.ServiceBus API reference](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

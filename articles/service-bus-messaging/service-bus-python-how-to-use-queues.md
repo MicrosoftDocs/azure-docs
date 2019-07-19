@@ -41,7 +41,7 @@ The **ServiceBusClient** object enables you to work with queues. Add the followi
 from azure.servicebus import ServiceBusClient
 ```
 
-The following code creates a **ServiceBusClient** object. Replace `mynamespace`, `sharedaccesskeyname`, and `sharedaccesskey` with your namespace, shared access signature (SAS) key name, and value.
+The following code creates a **ServiceBusClient** object. Replace `<CONNECTION STRING>` with your servicebus connectionstring.
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')

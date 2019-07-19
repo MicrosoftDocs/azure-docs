@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.devlang: 
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/23/2018
+ms.date: 06/19/2019
 ms.author: markvi
 
 #As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control.
@@ -126,6 +126,7 @@ Learn how to use a managed identity with a Linux VM:
 * [Access Azure Storage by using an access key](tutorial-linux-vm-access-storage.md)
 * [Access Azure Storage by using shared access signatures](tutorial-linux-vm-access-storage-sas.md)
 * [Access a non-Azure AD resource with Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
+* [Access Azure Container Registry](../../container-registry/container-registry-authentication-managed-identity.md)
 
 Learn how to use a managed identity with other Azure services:
 
@@ -136,6 +137,7 @@ Learn how to use a managed identity with other Azure services:
 * [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
+* [Azure Container Registry Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
 
 ## What Azure services support the feature?<a name="which-azure-services-support-managed-identity"></a>
 

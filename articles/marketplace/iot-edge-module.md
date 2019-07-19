@@ -7,7 +7,7 @@ manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 09/22/2018
-ms.author: qianw211
+ms.author: pabutler
 ---
 
 # IoT Edge modules

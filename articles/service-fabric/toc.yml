@@ -73,10 +73,14 @@
       href: service-fabric-tutorial-upgrade-cluster.md
     - name: 5- Delete a cluster
       href: service-fabric-tutorial-delete-cluster.md
-  - name: Create a standalone cluster on AWS
+  - name: Create a standalone cluster 
     items:
-    - name: 1- Create the infrastructure on AWS
-      href: service-fabric-tutorial-standalone-create-infrastructure.md
+    - name: 1- Create the infrastructure
+      items:
+      - name: Using AWS
+        href: service-fabric-tutorial-standalone-create-infrastructure.md
+      - name: Using Azure
+        href: service-fabric-tutorial-standalone-azure-create-infrastructure.md
     - name: 2- Set up Service Fabric
       href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
     - name: 3- Deploy an application into the cluster
@@ -695,6 +699,8 @@
     items:
     - name: Diagnose common scenarios
       href: service-fabric-diagnostics-common-scenarios.md
+    - name: Diagnose code package errors
+      href: service-fabric-diagnostics-code-package-errors.md
     - name: Monitor applications
       items:
       - name: Add logging to your application

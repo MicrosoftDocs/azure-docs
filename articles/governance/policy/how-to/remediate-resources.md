@@ -60,10 +60,6 @@ the role. To get the ID for the 'Contributor' role in your environment, use the 
 az role definition list --name 'Contributor'
 ```
 
-```azurepowershell-interactive
-Get-AzRoleDefinition -Name 'Contributor'
-```
-
 ## Manually configure the managed identity
 
 When creating an assignment using the portal, Azure Policy both generates the managed identity and

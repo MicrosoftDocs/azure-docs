@@ -4,7 +4,7 @@ description: Use Azure portal to export an Azure Resource Manager template from 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
 ---
 # Single and multi-resource export to template in Azure portal
@@ -12,6 +12,8 @@ ms.author: tomfitz
 To assist with creating Azure Resource Manager templates, you can export a template from existing resources. The exported template helps you understand the JSON syntax and properties that deploy your resources. To automate future deployments, start with the exported template and modify it for your scenario.
 
 Resource Manager enables you to pick one or more resources for exporting to a template. You can focus on exactly the resources you need in the template.
+
+This article shows how to export templates through the portal. You can also use [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 
 ## Choose the right export option
 
@@ -108,7 +110,7 @@ You can export the template that was used to deploy existing resources. The temp
 
 ## Next steps
 
-- To learn Azure Resource Manager, see [Azure Resource Manager overview](./resource-group-overview.md).
+- Learn how to export templates with [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 - To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./resource-group-authoring-templates.md).
 - To learn how to develop templates, see the [step-by-step tutorials](/azure/azure-resource-manager/).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

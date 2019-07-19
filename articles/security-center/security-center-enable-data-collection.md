@@ -42,12 +42,12 @@ When automatic provisioning is On, Security Center provisions the Microsoft Moni
 
 
 To enable automatic provisioning of the Microsoft Monitoring Agent:
-1. Under the Security Center main menu, select **Security policy**.
-2. Click **Edit settings** in the Settings column of the desired subscription in the list.
+1. Under the Security Center main menu, select **Pricing & settings**.
+2. Click on the applicable subscription
 
    ![Select subscription][7]
 
-3. Under **Security policy**, select **Data Collection**.
+3. Select **Data Collection**.
 4. Under **Auto Provisioning**, select **On** to enable automatic provisioning.
 5. Select **Save**.
 
@@ -128,12 +128,12 @@ To select an existing Log Analytics workspace:
 
 5. Select the pricing tier for the desired workspace you intend to set the Microsoft Monitoring agent. <br>To use an existing workspace, set the pricing tier for the workspace. This will install a security Center solution on the workspace if one is not already present.
 
-    a.  In the Security Center main menu, select **Security policy**.
+    a.  In the Security Center main menu, select **Pricing & settings**.
      
-    b.	Select the desired Workspace in which you intend to connect the agent by clicking **Edit settings** in the Settings column of the desired subscription in the list.
-        ![Select workspace][8]
+    b.	Select the desired Workspace in which you intend to connect the agent.
+        ![Select workspace][7]
     c. Set the pricing tier.
-        ![Select pricing tier][9] 
+        ![Select pricing tier][9]
    
    >[!NOTE]
    >If the workspace already has a **Security** or **SecurityCenterFree** solution enabled, the pricing will be set automatically. 
@@ -163,8 +163,8 @@ These sets were designed to address typical scenarios. Make sure to evaluate whi
 
 To determine the events that will belong to the **Common** and **Minimal** event sets, we worked with customers and industry standards to learn about the unfiltered frequency of each event and their usage. We used the following guidelines in this process:
 
-- **Minimal** - Make sure that this set covers only events that might indicate a successful breach and important events that have a very low volume. For example, this set contains user successful and failed login (event IDs 4624, 4625), but it doesn’t contain logout which is important for auditing but not meaningful for detection and has relatively high volume. Most of the data volume of this set is the login events and process creation event (event ID 4688).
-- **Common** - Provide a full user audit trail in this set. For example, this set contains both user logins and user logoff (event ID 4634). We include auditing actions like security group changes, key domain controller Kerberos operations, and other events that are recommended by industry organizations.
+- **Minimal** - Make sure that this set covers only events that might indicate a successful breach and important events that have a very low volume. For example, this set contains user successful and failed login (event IDs 4624, 4625), but it doesn’t contain sign out which is important for auditing but not meaningful for detection and has relatively high volume. Most of the data volume of this set is the login events and process creation event (event ID 4688).
+- **Common** - Provide a full user audit trail in this set. For example, this set contains both user logins and user sign outs (event ID 4634). We include auditing actions like security group changes, key domain controller Kerberos operations, and other events that are recommended by industry organizations.
 
 Events that have very low volume were included in the Common set as the main motivation to choose it over all the events is to reduce the volume and not to filter out specific events.
 
@@ -189,7 +189,7 @@ Here is a complete breakdown of the Security and App Locker event IDs for each s
 >
 
 To choose your filtering policy:
-1. On the **Security policy Data Collection** blade, select your filtering policy under **Security Events**.
+1. On the **Data Collection** page, select your filtering policy under **Security Events**.
 2. Select **Save**.
 
    ![Choose filtering policy][5]
@@ -200,8 +200,10 @@ The following use cases specify how automatic provision works in cases when ther
 
 - Microsoft Monitoring Agent is installed on the machine, but not as an extension (Direct agent)<br>
 If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center will install the Microsoft Monitoring Agent extension, and may upgrade the Microsoft Monitoring agent to the latest version.
-The agent installed will continue to report to its already configured workspace(s), and additionally will report to the workspace configured in Security Center (Multi-homing is supported).
+The agent installed will continue to report to its already configured workspace(s), and additionally will report to the workspace configured in Security Center (Multi-homing is supported on Windows machines).
 If the configured workspace is a user workspace (not Security Center's default workspace), then you will need to install the "security/"securityFree" solution on it for Security Center to start processing events from VMs and computers reporting to that workspace.<br>
+<br>
+For Linux machines, Agent multi-homing is not yet supported - hence, if an existing agent installation is detected, automatic provisioning will not occur and the machine's configuration will not be altered.
 <br>
 For existing machines on subscriptions onboarded to Security Center before 2019-03-17, when an existing agent will be detected, the Microsoft Monitoring Agent extension will not be installed and the machine will not be affected. For these machines, see to the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines.
 

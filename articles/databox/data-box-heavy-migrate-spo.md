@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/05/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ The Microsoft Azure Data Box is a service that lets you order a device from the 
 
 - [Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) with 35-TB usable capacity per order for small-to-medium datasets.
 - [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) with 80-TB usable capacity per device for medium-to-large datasets.
-- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) with 770-TB usable capacity per device for large datasets. Data Box Heavy is currently in preview.
+- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) with 770-TB usable capacity per device for large datasets.
 
 This article specifically talks about how to use the Data Box Heavy to migrate your file share content to SharePoint Online.
 
@@ -77,7 +77,7 @@ For best performance and connectivity, we recommend that you create an Azure Vir
 
 1. Sign into the Azure portal, and then [Create a virtual machine](../virtual-machines/windows/quick-create-portal.md).
 2. [Mount the Azure file share onto the VM](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer).
-3. [Download the SharePoint Migration tool](http://spmtreleasescus.blob.core.windows.net/install/default.htm) and install it on your Azure VM.
+3. [Download the SharePoint Migration tool](https://spmtreleasescus.blob.core.windows.net/install/default.htm) and install it on your Azure VM.
 4. Start the SharePoint Migration Tool. Click **Sign in** and enter your Office 365 username and password.
 5. When prompted **Where is your data?**, select **File share**. Enter the path to your Azure file share where your data is located.
 6. Follow the remaining prompts as normal, including your target location. For more information, go to [How to use the SharePoint Migration Tool](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).

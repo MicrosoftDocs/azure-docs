@@ -57,9 +57,9 @@ There are two primary ways in which you can enable your users to single sign-on 
 
 Using Azure AD for password-based SSO requires deploying a browser extension that will securely retrieve the credentials and fill out the login forms. Define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include:
 
-- [Group Policy for Internet Explorer ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [System Center Configuration Manager (SCCM) for Internet Explorer ](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
-- [User driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- [Group Policy for Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
+- [System Center Configuration Manager (SCCM) for Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [User driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 To learn more, see [How to configure password single sign on](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 
@@ -140,9 +140,9 @@ For information about MCAS, see the [Microsoft Cloud App Security overview](http
 
 ### Use Conditional Access
 
-With conditional access, you can automate criteria-based access control decisions for your cloud apps.
+With Conditional Access, you can automate criteria-based access control decisions for your cloud apps.
 
-Conditional access policies are enforced after the first-factor authentication has been completed. Therefore, conditional access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can use signals from these events to determine access. For example the sign-in risk level, location of the request, and so on can be used. For more information about Conditional Access, see [the overview](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) and the [deployment plan](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
+Conditional Access policies are enforced after the first-factor authentication has been completed. Therefore, Conditional Access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can use signals from these events to determine access. For example the sign-in risk level, location of the request, and so on can be used. For more information about Conditional Access, see [the overview](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) and the [deployment plan](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
 
 ## Azure SSO technical requirements
 

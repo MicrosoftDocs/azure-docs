@@ -160,7 +160,7 @@ catch(MsalUiRequiredException e)
 
 ### Via the protocol
 
-We don't recommend using the protocol directly. If you do, the app won’t support some single sign-on (SSO), device management, and conditional access scenarios.
+We don't recommend using the protocol directly. If you do, the app won’t support some single sign-on (SSO), device management, and Conditional Access scenarios.
 
 When you use the protocol to get tokens for mobile apps, you need to make two requests: get an authorization code and exchange it for a token.
 

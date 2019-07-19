@@ -14,6 +14,8 @@ Azure Resource Graph is designed for working with and getting information about 
 Azure environment. Resource Graph makes getting this data fast, even when querying thousands of
 records. Resource Graph has several options for working with these large data sets.
 
+For guidance on working with queries at a high frequency, see [Guidance for throttled requests](./guidance-for-throttled-requests.md).
+
 ## Data set result size
 
 By default, Resource Graph limits any query to returning only **100** records. This control
@@ -105,11 +107,11 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 > The query must **project** the **id** field in order for pagination to work. If it's missing from
 > the query, the response won't include the **$skipToken**.
 
-For an example, see [Next page query](/rest/api/azureresourcegraph/resources/resources#next_page_query)
+For an example, see [Next page query](/rest/api/azureresourcegraph/resources/resources#next-page-query)
 in the REST API docs.
 
 ## Next steps
 
-- See the language in use in [Starter queries](../samples/starter.md)
-- See advanced uses in [Advanced queries](../samples/advanced.md)
-- Learn to [explore resources](explore-resources.md)
+- See the language in use in [Starter queries](../samples/starter.md).
+- See advanced uses in [Advanced queries](../samples/advanced.md).
+- Learn to [explore resources](explore-resources.md).
