@@ -53,7 +53,7 @@ Perform the following steps to create a support request:
 
         ![Problem](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-2.png)
 
-4. On the Review + Create tab, review the information related to Support ticket. Select **Create**. 
+4. On the **Review + Create** tab, review the information related to Support ticket. Select **Create**. 
 
     ![Problem](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
