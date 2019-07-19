@@ -37,7 +37,7 @@ Create a new project in Visual Studio, using the ASP.NET Core Web Application te
 
 ## Acquire an AAD authentication token
 
-You need some values from the AAD auth configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
+You need some values from the AAD authentication configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
 
 ````text
 TenantId     => Azure subscription TenantId
@@ -57,7 +57,7 @@ Right-click on the project in the _Solution Explorer_ and choose **Manage User S
 }
 ```
 
-Open _Controllers\HomeController.cs_, and replace the `HomeController` class with the following code.
+Open _Controllers\HomeController.cs_, and replace the file with the following code.
 
 ```csharp
 using System;
@@ -104,13 +104,17 @@ namespace QuickstartSampleWebApp.Controllers
 
         public IActionResult Index()
         {
-            ViewData["Subdomain"] = Subdomain;
-
             return View();
         }
 
+        [Route("subdomain")]
+        public string GetSubdomain()
+        {
+            return Subdomain;
+        }
+
         [Route("token")]
-        public async Task<string> Token()
+        public async Task<string> GetToken()
         {
             return await GetTokenAsync();
         }
@@ -136,83 +140,70 @@ namespace QuickstartSampleWebApp.Controllers
 
 ## Add the Microsoft.IdentityModel.Clients.ActiveDirectory NuGet package
 
-The HomeController.cs code above uses objects from the **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet package so you will need to add a reference to that package in your project.
+The code above uses objects from the **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet package so you will need to add a reference to that package in your project.
 
-Open the NuGet Package Manager Console from Tools -> NuGet Package Manager -> Package Manager Console and type in the following at the console prompt:
+Open the NuGet Package Manager Console from **Tools -> NuGet Package Manager -> Package Manager Console** and type in the following:
 
-    >Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.1.0
+```powershell
+    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.1.0
+```
 
 ## Add sample content
 
 Now, we'll add some sample content to this web app. Open _Views\Home\Index.cshtml_ and replace the automatically generated code with this sample:
 
 ```html
-<html>
-<head>
-    <meta charset='utf-8'>
-    <title>Immersive Reader Example: Document</title>
+<h1 id='title'>Geography</h1>
+<span id='content'>
+    <p>The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers. Landforms are sometimes called physical features. It is important for students to know about the physical geography of Earth. The seasons, the atmosphere and all the natural processes of Earth affect where people are able to live. Geography is one of a combination of factors that people use to decide where they want to live.</p>
+</span>
+
+<div class='immersive-reader-button' data-button-style='iconAndText' onclick='launchImmersiveReader()'></div>
+
+@section scripts {
     <script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js'></script>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-
+    <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
     <script type='text/javascript'>
-        var Subdomain = '@Html.Raw(ViewData["Subdomain"])';
-    </script>
-</head>
-<body>
-    <h1 id='title'>Geography</h1>
-    <span id='content'>
-        <p>The study of Earth’s landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers. Landforms are sometimes called physical features. It is important for students to know about the physical geography of Earth. The seasons, the atmosphere and all the natural processes of Earth affect where people are able to live. Geography is one of a combination of factors that people use to decide where they want to live.</p>
-        <p>The physical features of a region are often rich in resources. Within a nation, mountain ranges become natural borders for settlement areas. In the U.S., major mountain ranges are the Sierra Nevada, the Rocky Mountains, and the Appalachians.</p>
-        <p>Fresh water sources also influence where people settle. People need water to drink. They also need it for washing. Throughout history, people have settled near fresh water. Living near a water source helps ensure that people have the water they need. There was an added bonus, too. Water could be used as a travel route for people and goods. Many Americans live near popular water sources, such as the Mississippi River, the Colorado River and the Great Lakes.</p>
-        <p>Mountains and deserts have been settled by fewer people than the plains areas. However, they have valuable resources of their own.</p>
-    </span>
-
-    <button onclick='handleLaunchImmersiveReader()'>
-        Immersive Reader
-    </button>
-
-    <script type='text/javascript'>
-        function getImmersiveReaderTokenAsync() {
-            return new Promise((resolve, reject) => {
-                $.ajax({
-                    url: '/token',
-                    type: 'GET',
-                    success: token => {
-                        resolve(token);
-                    },
-                    error: err => {
-                        console.log('Error in getting token!', err);
-                        reject(err);
-                    }
-                });
+    function getImmersiveReaderTokenAsync() {
+        return new Promise((resolve) => {
+            $.ajax({
+                url: '/token',
+                type: 'GET',
+                success: token => {
+                    resolve(token);
+                }
             });
-        }
+        });
+    }
 
-        async function handleLaunchImmersiveReader() {
-            const data = {
-                title: document.getElementById('title').innerText,
-                chunks: [ {
-                    content: document.getElementById('content').innerText,
-                    lang: 'en'
-                } ]
-            };
+    function getSubdomainAsync() {
+        return new Promise((resolve) => {
+            $.ajax({
+                url: '/subdomain',
+                type: 'GET',
+                success: subdomain => {
+                    resolve(subdomain);
+                }
+            });
+        });
+    }
 
-            const options = {
-                uiZIndex: 1000000
-            }
+    async function launchImmersiveReader() {
+        const content = {
+            title: document.getElementById('title').innerText,
+            chunks: [ {
+                content: document.getElementById('content').innerText,
+                lang: 'en'
+            } ]
+        };
 
-            const token = await getImmersiveReaderTokenAsync();
+        const token = await getImmersiveReaderTokenAsync();
+        var subdomain = await getSubdomainAsync();
 
-            ImmersiveReader.launchAsync(token, Subdomain, data, options)
-                .then(() => {
-                    console.log('success');
-                }, (error) => {
-                    console.log('error! ' + error);
-                });
-        }
+        ImmersiveReader.launchAsync(token, subdomain, content, { uiZIndex: 1000000 });
+    }
     </script>
-</body>
-</html>
+}
 ```
 
 ## Build and run the app

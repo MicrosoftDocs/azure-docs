@@ -72,7 +72,7 @@ Now that you have a custom subdomain associated with your resource, you need to 
 
    ```azurecli-interactive
    $password = <YOUR_PASSWORD>
-   $aadApp = New-AzADApplication -DisplayName <APP_DISPLAY_NAME> -IdentifierUris <APP_URIS> -Password $password
+   $aadApp = New-AzADApplication -DisplayName ImmersiveReaderAAD -IdentifierUris http://ImmersiveReaderAAD -Password $password
 
    // Display the AAD app info
    $aadApp
