@@ -40,7 +40,7 @@ The client code running on your device sets an application property, `temperatur
 }
 ```
 
-In this topic, you set up routing on your IoT hub to send messages in which `temperatureAlert = true` to a Service Bus endpoint, and you set up a logic app that triggers on the messages arriving at the Service Bus endpoint and sends you an email notification.
+In this topic, you set up routing on your IoT hub to send messages in which the `temperatureAlert` property is `true` to a Service Bus endpoint. You then set up a logic app that triggers on the messages arriving at the Service Bus endpoint and sends you an email notification.
 
 ## What you do
 
