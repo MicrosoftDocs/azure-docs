@@ -36,7 +36,7 @@ Azure Data Explorer is a fast, fully managed data analytics service for real-tim
 
 1. Create your cluster by using the following code:
 
-    ```C#-interactive
+    ```csharp
     var resourceGroupName = "testrg";
     var clusterName = "mykustocluster";
     var location = "Central US";
@@ -69,7 +69,7 @@ Azure Data Explorer is a fast, fully managed data analytics service for real-tim
 
 1. Run the following command to check whether your cluster was successfully created:
 
-    ```C#-interactive
+    ```csharp
     kustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
     ```
 
@@ -79,7 +79,7 @@ If the result contains `ProvisioningState` with the `Succeeded` value, then the 
 
 1. Create your database by using the following code:
 
-    ```c#-interactive
+    ```csharp
     var hotCachePeriod = new TimeSpan(3650, 0, 0, 0);
     var softDeletePeriod = new TimeSpan(3650, 0, 0, 0);
     var databaseName = "mykustodatabase";
@@ -98,7 +98,7 @@ If the result contains `ProvisioningState` with the `Succeeded` value, then the 
 
 2. Run the following command to see the database that you created:
 
-    ```c#-interactive
+    ```csharp
     kustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName);
     ```
 
@@ -109,7 +109,7 @@ You now have a cluster and a database.
 * If you plan to follow our other articles, keep the resources you created.
 * To clean up resources, delete the cluster. When you delete a cluster, it also deletes all the databases in it. Use the following command to delete your cluster:
 
-    ```C#-interactive
+    ```csharp
     kustoManagementClient.Clusters.Delete(resourceGroupName, clusterName);
     ```
 
