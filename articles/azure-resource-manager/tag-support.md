@@ -496,7 +496,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.DataMigration
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| services | Yes | Yes |
+| services | No | No |
 | services/projects | Yes | Yes |
 
 ## Microsoft.DBforMariaDB
