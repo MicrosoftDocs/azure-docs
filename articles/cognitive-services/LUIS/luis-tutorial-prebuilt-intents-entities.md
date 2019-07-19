@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 07/16/2018
 ms.author: diberry
 ---
 
@@ -56,7 +56,7 @@ LUIS provides several prebuilt intents to help with common user intentions.
    * Utilities.StartOver
    * Utilities.Stop
 
-     These intents are helpful to determine where, in the conversation, the user is and what they are asking to do. 
+     These intents are helpful to determine where, in the conversation, the user is and what they are asking to do. These intents include usage of entities. These entities are automatically added to the LUIS app: number, ordinal, and Utilities.DirectionalReference. 
 
 
 ## Add prebuilt entities to help with common data type extraction

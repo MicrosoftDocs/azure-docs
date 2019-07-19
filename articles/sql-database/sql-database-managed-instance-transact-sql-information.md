@@ -470,6 +470,7 @@ Cross-instance service broker isn't supported:
 
 ### VNET
 - VNet can be deployed using Resource Model - Classic Model for VNet is not supported.
+- After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
 - Some services such as App Service Environments, Logic apps, and Managed Instances (used for Geo-replication, Transactional replication, or via linked servers) cannot access Managed Instances in different regions if their VNets are connected using [global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resource via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
 ## <a name="Changes"></a> Behavior changes
@@ -549,7 +550,7 @@ A managed instance places verbose information in error logs, and much of it isn'
 
 The `TransactionScope` class in .NET doesn't work if two queries are sent to two databases within the same instance under the same transaction scope:
 
-```C#
+```csharp
 using (var scope = new TransactionScope())
 {
     using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))

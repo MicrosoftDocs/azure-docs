@@ -64,7 +64,7 @@ Select an Azure virtual machine to onboard.
 
 If the machine does not have the PowerShell desired state extension installed and the power state is running, click **Connect**.
 
-Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/dsc/metaconfig4)
+Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/dsc/managing-nodes/metaconfig)
 required for your use case, and optionally a node configuration to assign to the VM.
 
 ![onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)

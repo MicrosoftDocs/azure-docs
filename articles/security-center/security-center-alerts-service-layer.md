@@ -6,7 +6,6 @@ documentationcenter: na
 author: monhaber
 manager: rkarlin
 editor: ''
-
 ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-
+ms.author: "v-mohabe"
 ---
 
 # Threat detection for Azure service layer in Azure Security Center
