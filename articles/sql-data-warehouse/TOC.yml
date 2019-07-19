@@ -281,7 +281,7 @@
       href: sql-data-warehouse-manage-monitor.md
     - name: Monitor Gen2 cache
       href: sql-data-warehouse-how-to-monitor-cache.md
-  - name: Back up and restore
+  - name: Backup and restore
     items:
     - name: Create restore points
       href: sql-data-warehouse-restore-points.md
