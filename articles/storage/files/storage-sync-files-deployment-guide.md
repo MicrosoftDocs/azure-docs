@@ -364,6 +364,7 @@ If you'd like to configure your Azure File sync to work with firewall and virtua
 1. Make sure **Allow trusted Microsoft services to access this storage account** is checked.
 1. Select **Save** to save your settings.
 
+![Configuring firewall and vnet settings to work with Azure File sync](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 
 ## Onboarding with Azure File Sync
 The recommended steps to onboard on Azure File Sync for the first with zero downtime while preserving full file fidelity and access control list (ACL) are as follows:
