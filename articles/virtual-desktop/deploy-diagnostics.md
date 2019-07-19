@@ -1,5 +1,13 @@
 ---
-title: Deploy WVD-Diagnostics-UX
+title: Deploy the diagnostics tool for Windows Virtual Desktop - Azure
+description: How to deploy the diagnostics UX tool for Windows Virtual Desktop.
+services: virtual-desktop
+author: Heidilohr
+
+ms.service: virtual-desktop
+ms.topic: conceptual
+ms.date: 03/21/2019
+ms.author: helohr
 ---
 
 # Deploy diagnostics for Windows Virtual Desktop
