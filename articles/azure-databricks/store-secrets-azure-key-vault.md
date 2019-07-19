@@ -49,7 +49,7 @@ Sign in to the [Azure portal](https://portal.azure.com/). This tutorial can't be
 
    ![Upload file to container](./media/store-secrets-azure-key-vault/upload-txt-file.png)
 
-6. Return to your storage account and select **Access keys** under **Settings**. Copy and paste **Storage account name** and **key 1** to a text editor so they are available when you create the key vault secret.
+6. Return to your storage account and select **Access keys** under **Settings**. Copy **Storage account name** and **key 1** to a text editor for later use in this tutorial.
 
    ![Find storage account access keys](./media/store-secrets-azure-key-vault/storage-access-keys.png)
 
@@ -63,13 +63,13 @@ Sign in to the [Azure portal](https://portal.azure.com/). This tutorial can't be
 
    ![Create a Key Vault resource](./media/store-secrets-azure-key-vault/create-key-vault-resource.png)
 
-3. On the **Create key vault** page, enter the following information and keep the default values for the remaining fields:
+3. On the **Create key vault** page, enter the following information, and keep the default values for the remaining fields:
 
    |Property|Description|
    |--------|-----------|
    |Name|A unique name for your key vault.|
    |Subscription|Choose a subscription.|
-   |Resource group|Choose a resource group or create a a new one.|
+   |Resource group|Choose a resource group or create a new one.|
    |Location|Choose a location.|
 
    ![Azure key vault properties](./media/store-secrets-azure-key-vault/create-key-vault-properties.png)
@@ -80,7 +80,7 @@ Sign in to the [Azure portal](https://portal.azure.com/). This tutorial can't be
 
    ![Generate new key vault secret](./media/store-secrets-azure-key-vault/generate-import-secrets.png)
 
-5. On the **Create a secret** page, provide the following information and keep the default values for the remaining fields:
+5. On the **Create a secret** page, provide the following information, and keep the default values for the remaining fields:
 
    |Property|Value|
    |--------|-----------|
@@ -88,7 +88,7 @@ Sign in to the [Azure portal](https://portal.azure.com/). This tutorial can't be
    |Name|Friendly name for your storage account key.|
    |Value|key1 from your storage account.|
 
-   ![Properties for new key vault secret](./media/store-secrets-azure-key-vault/create-secret.png)
+   ![Properties for new key vault secret](./media/store-secrets-azure-key-vault/create-storage-secret.png)
 
 6. Save the key name in a text editor for use later in this tutorial, and select **Create**. Then, navigate to the **Properties** menu. Copy the **DNS Name** and **Resource ID** to a text editor for use later in the tutorial.
 
@@ -138,18 +138,25 @@ Sign in to the [Azure portal](https://portal.azure.com/). This tutorial can't be
 
    ![Create a new Azure Databricks notebook](./media/store-secrets-azure-key-vault/create-new-notebook.png)
 
-4. Enter a notebook name, set the language to Python, and set the cluster to the name of the cluster you created in the previous step.
+4. Enter a notebook name, and set the language to Python. Set the cluster to the name of the cluster you created in the previous step.
 
-5. Run the following command to mount your blob storage container. Be sure to change the values for your container name, storage account name, mount name, configuration key, scope name, and key name.
+5. Run the following command to mount your blob storage container. Remember to change the values for the following properties:
+
+   * your-container-name
+   * your-storage-account-name
+   * mount-name
+   * config-key
+   * scope-name
+   * key-name
 
    ```python
-  dbutils.fs.mount(
-  source = "wasbs://<your-container-name>@<your-storage-account-name>.blob.core.windows.net",
-  mount_point = "/mnt/<mount-name>",
-  extra_configs = {"<conf-key>":dbutils.secrets.get(scope = "<scope-name>", key = "<key-name>")})
+   dbutils.fs.mount(
+   source = "wasbs://<your-container-name>@<your-storage-account-name>.blob.core.windows.net",
+   mount_point = "/mnt/<mount-name>",
+   extra_configs = {"<conf-key>":dbutils.secrets.get(scope = "<scope-name>", key = "<key-name>")})
    ```
 
-   * **mount-name** is a DBFS path representing where the Blob Storage container or a folder inside the container (specified in source) will be mounted in DBFS. You can choose any name for this.
+   * **mount-name** is a DBFS path representing where the Blob Storage container or a folder inside the container (specified in source) will be mounted.
    * **conf-key** can be either
       `fs.azure.account.key.<\your-storage-account-name>.blob.core.windows.net` or `fs.azure.sas.<\your-container-name>.<\your-storage-account-name>.blob.core.windows.net`
    * **scope-name** is the name of the secret scope you created in the previous section. 
@@ -170,7 +177,7 @@ Sign in to the [Azure portal](https://portal.azure.com/). This tutorial can't be
    ```python
    df.show()
    ```
-![Show dataframe](./media/store-secrets-azure-key-vault/command3.png)
+   ![Show dataframe](./media/store-secrets-azure-key-vault/command3.png)
 
 8. To unmount your blob storage, run the following command:
 
