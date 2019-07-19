@@ -6,7 +6,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 07/01/2019
+ms.date: 07/22/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
@@ -22,10 +22,10 @@ The Azure IoT Edge Tools for Visual Studio provides the following benefits:
 - Code your Azure IoT modules in C or C# while having all of the benefits of Visual Studio development.
 - Manage Azure IoT Edge devices and modules with UI.
 
-This article shows you how to use the Azure IoT Edge Tools for Visual Studio 2019 to develop your IoT Edge modules. You also learn how to deploy your project to your Azure IoT Edge device.
+This article shows you how to use the Azure IoT Edge Tools for Visual Studio 2019 to develop your IoT Edge modules. You also learn how to deploy your project to your Azure IoT Edge device. Currently, Visual Studio 2019 provides support for modules written in C and C#. The supported device architectures are Windows X64 and Linux X64 or ARM32. For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
 
-> [!TIP]
-> The IoT Edge project structure created by Visual Studio is not the same as in Visual Studio Code.
+>[!NOTE]
+>Develop and debugging support for Linux ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information about how to set up your instance of Visual Studio Code to support ARM64 module development, see [blog post]().
   
 ## Prerequisites
 
@@ -89,6 +89,9 @@ After your Visual Studio 2019 is ready, you also need the following tools and co
 ### Create an Azure IoT Edge project
 
 The Azure IoT Edge project template in Visual Studio creates a project that can be deployed to Azure IoT Edge devices in Azure IoT Hub. First you create an Azure IoT Edge solution, and then you generate the first module in that solution. Each IoT Edge solution can contain more than one module.
+
+> [!TIP]
+> The IoT Edge project structure created by Visual Studio is not the same as in Visual Studio Code.
 
 1. In Visual Studio new project dialog, search and select **Azure IoT Edge** project and click **Next**. In project configuration window, enter a name for your project and specify the location, and then select **Create**. The default project name is **AzureIoTEdgeApp1**.
 

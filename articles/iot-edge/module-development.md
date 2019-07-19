@@ -61,18 +61,29 @@ Create a ModuleClient instance to connect your module to the IoT Edge hub runnin
 
 IoT Edge supports multiple operating systems, device architectures, and development languages so that you can build the scenario that matches your needs. Use this section to understand your options for developing custom IoT Edge modules. You can learn more about tooling support and requirements for each language in [Prepare your development and test environment for IoT Edge](development-environment.md).
 
-| Development language | Device architecture | Development tools |
-| -------------------- | ------------------- | ----------------- |
-| C | Linux AMD64<br>Linux ARM32 | Visual Studio Code<br>Visual Studio 2017/2019 |
-|   | Windows AMD64 | Visual Studio 2017/2019 |
-| C# | Linux AMD64<br>Linux ARM32 | Visual Studio Code<br>Visual Studio 2017/2019 |
-|    | Windows AMD64 | Visual Studio Code (no debugging capabilities)<br>Visual Studio 2017/2019 |
-| Java | Linux AMD64<br>Linux ARM32 | Visual Studio Code |
-| Node.js | Linux AMD64<br>Linux ARM32 | Visual Studio Code |
-| Python | Linux AMD64<br>Linux ARM32 | Visual Studio Code |
+### Linux
+
+For all languages in the following table, IoT Edge supports development for AMD64 and ARM32 Linux devices. 
+
+| Development language | Development tools |
+| -------------------- | ----------------- |
+| C | Visual Studio Code<br>Visual Studio 2017/2019 |
+| C# | Visual Studio Code<br>Visual Studio 2017/2019 |
+| Java | Visual Studio Code |
+| Node.js | Visual Studio Code |
+| Python | Visual Studio Code |
 
 >[!NOTE]
->Develop and debugging support for ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The support for ARM64 development matches that of ARM32. For more information about how to set up your instance of Visual Studio Code to support ARM64 module development, see [blog post](). 
+>Develop and debugging support for ARM64 Linux devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information about how to set up your development environment to support ARM64 modules, see [blog post](). 
+
+### Windows
+
+For all languages in the following table, IoT Edge supports development for AMD64 Windows devices.
+
+| Development language | Development tools |
+| -------------------- | ----------------- |
+| C | Visual Studio 2017/2019 |
+| C# | Visual Studio Code (no debugging capabilities)<br>Visual Studio 2017/2019 |
 
 ## Next steps
 
