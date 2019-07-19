@@ -112,7 +112,10 @@ Promote your business with Microsoft by creating a marketplace listing. Selectin
 List your offer to customers for free by providing a valid URL (beginning with http or https) where they can access your app.  For example: `https://contoso.com/saas-app`
 
 ##### Free trial (Listing)
-List your offer to customers with a link to a free trial by providing a valid URL (beginning with http or https) where they can access your app.  For example: `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+List your offer to customers with a link to a free trial by providing a valid URL (beginning with http or https) where they can acquire a trial through [1-click authentication using AAD](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  For example: `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+
+> [!NOTE]
+> The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (AAD) to automate account creation in your app. Microsoft Accounts (MSA) are not supported for authentication using this token.
 
 ##### Contact me
 Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
