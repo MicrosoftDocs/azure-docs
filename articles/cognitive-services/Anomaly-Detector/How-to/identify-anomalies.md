@@ -68,3 +68,5 @@ The following examples show an Anomaly Detector API result at different sensitiv
 
 * [What is the Anomaly Detector API?](../overview.md)
 * [Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API](../quickstarts/detect-data-anomalies-csharp.md)
+
+[!INCLUDE [join-anomaly-detector-advisors](../includes/join-anomaly-detector-advisors.md)]
