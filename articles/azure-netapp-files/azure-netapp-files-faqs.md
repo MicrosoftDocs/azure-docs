@@ -128,7 +128,7 @@ No, it’s not currently supported.  Azure NetApp Files support Active Directory
 
 ### Is an Active Directory connection required for SMB access? 
 
-Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection.  See [Create an SMB volume](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes#create-an-smb-volume) for details. 
+Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection.  See [Create an SMB volume](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) for details. 
 
 ### How many Active Directory connections are supported?
 

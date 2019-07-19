@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
@@ -90,7 +90,7 @@ To set up Azure AD, go to the **Basic SAML Configuration** heading and select it
 
 The following two fields are required:
 
-- **Identifier**. This value should uniquely identify the application for which single sign-on is being configured. You can find this value as the **Issuer** element in the **AuthnRequest** (SAML request) sent by the application. This value also appears as the **Entity ID** in any SAML metadata provided by the application. Check the application’s SAML documentation for details on what its **Entity ID** or **Audience** value is.
+- **Identifier (Entity ID)**. This value should uniquely identify the application for which single sign-on is being configured. You can find this value as the **Issuer** element in the **AuthnRequest** (SAML request) sent by the application. This value also appears as the **Entity ID** in any SAML metadata provided by the application. Check the application’s SAML documentation for details on what its **Entity ID** or **Audience** value is.
 
   The following code shows how the **Identifier** or **Issuer** appears in the SAML request that the application sends to Azure AD:
 
@@ -104,20 +104,9 @@ The following two fields are required:
   </samlp:AuthnRequest>
   ```
 
-- **Reply URL**. The reply URL is where the application expects to receive the SAML token. This URL is also referred to as the assertion consumer service (ACS) URL. Check the application’s SAML documentation for details on what its SAML token reply URL or ACS URL is.
-
-  To configure multiple reply URLs, you can use the following PowerShell script.
-
-  ```powershell
-  $sp = Get-AzureADServicePrincipal -SearchString "<Exact app name>"
-  $app = Get-AzureADApplication -SearchString "<Exact app name>"
-  $urllist = New-Object "System.Collections.Generic.List[String]"
-  $urllist.Add("<reply URL 1>")
-  $urllist.Add("<reply URL 2>")
-  $urllist.Add("<reply URL 3>")
-  Set-AzureADApplication -ObjectId $app.ObjectId -ReplyUrls $urllist
-  Set-AzureADServicePrincipal -ObjectId $sp.ObjectId -ReplyUrls $urllist
-  ```
+- **Reply URL**. The reply URL is where the application expects to receive the SAML token. This URL is also referred to as the assertion consumer service (ACS) URL. Check the application’s SAML documentation for details on what its SAML token reply URL or ACS URL is. 
+  
+  To specify multiple reply URLs, use the additional fields in the **Reply URL** section. You might need to add multiple reply URLs if you have multiple subdomains, for example. Or, when testing an app, you can save setup time by specifying all reply URLs (local host and public URLs) at one time.
 
 The following three fields are optional:
 
