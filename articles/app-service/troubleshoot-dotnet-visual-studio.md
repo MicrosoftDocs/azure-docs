@@ -278,7 +278,7 @@ For information about how to create application logs in WebJobs, see [How to wor
 ### Add tracing statements to the application
 1. Open *Controllers\HomeController.cs*, and replace the `Index`, `About`, and `Contact` methods with the following code in order to add `Trace` statements and a `using` statement for `System.Diagnostics`:
 
-```c#
+```csharp
 public ActionResult Index()
 {
     Trace.WriteLine("Entering Index method");
