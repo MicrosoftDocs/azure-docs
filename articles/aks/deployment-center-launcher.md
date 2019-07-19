@@ -116,7 +116,7 @@ Deployment Center automatically creates and configures the necessary steps from 
 
 1. Select **Pipelines**, and then select **Releases**.
 
-1. To edit the release pipeline, select **Edit** .
+1. To edit the release pipeline, select **Edit**.
 
 1. Select **Drop** from **Artifacts**. In the previous steps, the construction pipeline you examined produces the output used for the artifact. 
 
