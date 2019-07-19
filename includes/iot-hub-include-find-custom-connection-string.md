@@ -19,7 +19,7 @@ To create a shared access policy that grants **service connect** and **registry 
 
 3. From the top menu above the list of policies, select **Add**.
 
-4. On the **Add a shared access policy** pane, enter a name for your policy. Under **Permissions**, select **Registry read** and **Service connect**, and then select **Create**.
+4. On the **Add a shared access policy** pane, enter a descriptive name for your policy; for example: *serviceAndRegistryRead*. Under **Permissions**, select **Registry read** and **Service connect**, and then select **Create**.
 
     ![Show how to add a new shared access policy](./media/iot-hub-include-find-custom-connection-string/iot-hub-add-custom-policy.png)
 
