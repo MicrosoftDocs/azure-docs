@@ -94,6 +94,9 @@ For more information on how to configure the SetupEntryPoint, see [Configure the
 
 A Service Fabric Service **Endpoint** is an example of a Service Fabric Resource. A Service Fabric Resource can be declared/changed without changing the compiled code. Access to the Service Fabric Resources that are specified in the service manifest can be controlled through the **SecurityGroup** in the application manifest. When an Endpoint Resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly. Read more about [specifying or overriding endpoint resources](service-fabric-service-manifest-resources.md).
 
+> [!WARNING]
+> By ServiceFabric design static ports should not conflict with application port range. If you specify a static port, assign it outside of application port range otherwise it can cause port conflicts. With release 6.5CU2 we will issue **Warning** for the same and we may break the application deployment with future releases.
+
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
