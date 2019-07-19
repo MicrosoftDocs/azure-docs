@@ -15,13 +15,14 @@ This article lists the Windows Virtual Desktop's partners in alphabetical order.
 
 ## Active Cypher
 
-![Active Cypher Logo](./media/partners/activecypher.png)
+![Active Cypher Logo](./media/partners/active-cypher.png)
 
 Active Cypher is a Windows Virtual Desktop value-added services provider that equips IT with encryption technology to help protect the enterprise from breaches and data loss. With Active Cypher, innovative encryption technology supports the overall file protection strategy to run Windows Virtual Desktop on Azure.
 
 When used with Windows Virtual Desktop, Active Cypher provides additional capabilities to enable accessibility and mobility of user data while preventing inadvertent data loss. With Active Cypher, existing group security policies and permissions in Azure Information Protection can be leveraged to encrypt user files while using Windows Virtual Desktop.
 
-[Go to partner website.](https://activecypher.com/)
+- [See the joint solution brief.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oNLu)
+- [Go to the partner website.](https://activecypher.com/)
 
 ## CloudJumper
 
@@ -31,7 +32,8 @@ CloudJumper is a Windows Virtual Desktop value-added services provider that equi
 
 CloudJumper’s software, Cloud Workspace Management Suite extends the value of Windows Virtual Desktop by simplifying deployment and ongoing administration tasks in Azure. From a single pane of glass, IT can provision, manage and optimize infrastructure for user workspaces. CloudJumper’s Simple Script Triggering Engine integrates with IT service platforms to automate tasks involved in provisioning Windows Virtual Desktop. Additionally, CloudJumper APIs allow further extensibility and integration with other enterprise systems like ServiceNow and BMC Ready.
 
-[Go to partner website.](https://cloudjumper.com/wvd/)
+- [See the joint solution brief.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mg)
+- [Go to the partner website.](https://cloudjumper.com/wvd/)
 
 ## Lakeside Software
 
@@ -41,7 +43,8 @@ Lakeside Software is a Windows Virtual Desktop value-added services provider tha
 
 Lakeside Software’s digital experience monitoring solution, SysTrack, can help provide a great user experience by tracking performance and identifying ideal workloads for migration. SysTrack works to extend the value of Windows Virtual Desktop through right-sizing assessments and continuous monitoring of user environments.
 
-[Go to partner website.](https://www.lakesidesoftware.com/assessments/wvd)
+- [See the joint solution brief.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q)
+- [Go to the partner website.](https://www.lakesidesoftware.com/assessments/wvd)
 
 ## Liquidware
 
@@ -51,7 +54,8 @@ Liquidware is a Windows Virtual Desktop value-added services provider that deliv
 
 Liquidware Essentials extends the value of Windows Virtual Desktop by efficiently harvesting user profiles and gathering key user data to streamline migration of user environments to Azure. Additionally, Liquidware Essentials simplifies image management by unifying user profiles and layering apps based on configurable rights management settings.
 
-[Go to partner website.](https://www.liquidware.com/solutions/solutions-platform/microsoft)
+- [See the joint solution brief.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1)
+- [Go to the partner website.](https://www.liquidware.com/solutions/solutions-platform/microsoft)
 
 ## Nerdio
 
@@ -61,7 +65,8 @@ Nerdio is an Azure IT automation platform that makes it easy to deploy and manag
 
 Nerdio extends the value of Windows Virtual Desktop by making it easy to provision Azure resources and streamline deployment. With Nerdio for Azure, IT can automatically deploy and manage a complete Azure environment, including Windows Virtual Desktop, in under two hours.
 
-[Go to partner website.](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/)
+- [See the joint solution brief.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh)
+- [Go to the partner website.](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/)
 
 ## ThinPrint
 
@@ -71,7 +76,8 @@ ThinPrint is a Windows Virtual Desktop value-added services provider that delive
 
 ThinPrint’s ezeep solution extends the value of Windows Virtual Desktop by enabling the connection to existing enterprise print infrastructure. ezeep gives users control over printing in the enterprise no matter where they are. Using ezeep, users can bridge the gap between Windows Virtual Desktop and printing hardware.
 
-[Go to partner website.](http://www.ezeep.com/wvd-printing)
+- [See the joint solution brief.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas)
+- [Go to partner website.](http://www.ezeep.com/wvd-printing)
 
 ## Workspot
 
@@ -81,7 +87,8 @@ Workspot is a Windows Virtual Desktop value-added services provider that equips 
 
 Workspot extends the value of Windows Virtual Desktop by simplifying the provisioning process of cloud desktop infrastructure. With Workspot, resources can be easily scaled up and down to meet the needs of different users and uses cases. Workspot can optimize deployments for high-performance GPU workstations necessary for CAD and engineering users, as well as Windows applications and Windows 10 desktops for all business users.
 
-[Go to partner website.](https://www.workspot.com/wvd)
+- [See the joint solution brief.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P)
+- [Go to partner website.](https://www.workspot.com/wvd)
 
 ## Next steps
 
