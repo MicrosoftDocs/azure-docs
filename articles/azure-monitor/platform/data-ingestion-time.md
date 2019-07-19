@@ -73,14 +73,12 @@ This process currently takes about 5 minutes when there is low volume of data bu
 
 
 ## Checking ingestion time
-Ingestion time may vary for different resources under different circumstances. You can use log queries to identify specific behavior of your environment.
-
-The following table specifies how you can determine the different times for a record as it's created and sent to Azure Monitor.
+Ingestion time may vary for different resources under different circumstances. You can use log queries to identify specific behavior of your environment. The following table specifies how you can determine the different times for a record as it's created and sent to Azure Monitor.
 
 | Step | Property or Function | Comments |
 |:---|:---|:---|
-| Record created at data source | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) |  If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. |
-| Record received by Azure Monitor ingestion endpoint | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| Record created at data source | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. |
+| Record received by Azure Monitor ingestion endpoint | [_TimeReceived](log-standard-properties.md#_TimeReceived) | |
 | Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### Ingestion latency delays
@@ -92,18 +90,20 @@ For example, the following query will show you which computers had the highest i
 Heartbeat
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by Computer 
-| top 20 by percentile_E2EIngestionLatency_95 desc  
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
+| top 20 by percentile_E2EIngestionLatency_95 desc
 ```
  
 If you want to drill down on the ingestion time for a specific computer over a period of time, use the following query which also visualizes the data in a graph: 
 
 ``` Kusto
 Heartbeat 
-| where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
-| extend IngestionEndpointLatencyMin = todouble(datetime_diff("Second",_TimeReceived,TimeGenerated))/60 
-| summarize percentiles(E2EIngestionLatencyMin,50,95), percentiles(IngestionEndpointLatencyMin,50,95) by bin(TimeGenerated,30m) 
-| render timechart  
+| where TimeGenerated > ago(24h) //and Computer == "ContosoWeb2-Linux"  
+| extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
+| extend AgentLatencyMin = todouble(datetime_diff("Second",_TimeReceived,TimeGenerated))/60 
+| summarize percentiles(E2EIngestionLatencyMin,50,95), percentiles(AgentLatencyMin,50,95) by bin(TimeGenerated,30m) 
+| render timechart
 ```
  
 Use the following query to show computer ingestion time by the country/region they are located in which is based on their IP address: 
@@ -112,8 +112,8 @@ Use the following query to show computer ingestion time by the country/region th
 Heartbeat 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| extend IngestionEndpointLatency = _TimeReceived - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95),percentiles(IngestionEndpointLatency,50,95) by RemoteIPCountry 
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95),percentiles(AgentLatency,50,95) by RemoteIPCountry 
 ```
  
 Different data types originating from the agent might have different ingestion latency time, so the previous queries could be used with other types. Use the following query to examine the ingestion time of various Azure services: 
@@ -122,8 +122,8 @@ Different data types originating from the agent might have different ingestion l
 AzureDiagnostics 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| extend IngestionEndpointLatency = _TimeReceived - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95), percentiles(IngestionEndpointLatency,50,95) by ResourceProvider
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by ResourceProvider
 ```
 
 ### Resources that stop responding 

@@ -17,8 +17,13 @@ ms.author: bwren
 # Standard properties in Azure Monitor Logs
 Data in Azure Monitor Logs is [stored as a set of records in either a Log Analytics workspace or Application Insights application](../log-query/logs-structure.md), each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
 
+> [!NOTE]
+> Some of the standard propertis will not show in the schema view or intellisense in Log Analytics, and they won't show in query results unless you explicitly specify each property in the output.
+
 ## TimeGenerated and timestamp
-The **TimeGenerated** (Log Analytics workspace) and **timestamp** (Application Insights application) properties contain the date and time that the record was created by the data source. It provides a common property to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses TimeGenerated or timestamp to filter the results.
+The **TimeGenerated** (Log Analytics workspace) and **timestamp** (Application Insights application) properties contain the date and time that the record was created by the data source. See [Log data ingestion time in Azure Monitor](data-ingestion-time.md) for more details.
+
+**TimeGenerated** and **timestamp** provide a common property to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses TimeGenerated or timestamp to filter the results. 
 
 ### Examples
 
@@ -42,11 +47,9 @@ exceptions
 ```
 
 ## \_TimeReceived
-The **\_TimeReceived** property contains the date and time that the record was received by the Azure Monitor ingestion point in the Azure cloud. This can be useful for identifying latency issues between the data source and the cloud, a networking issue for example.
+The **\_TimeReceived** property contains the date and time that the record was received by the Azure Monitor ingestion point in the Azure cloud. This can be useful for identifying latency issues between the data source and the cloud. An example would would be a networking issue causing a delay with data being sent from an agent. See [Log data ingestion time in Azure Monitor](data-ingestion-time.md) for more details.
 
-The **\_TimeReceived** property will not show in the schema view or intellisense, and it won't show in query results unless you explicitly specify it in the output.
-
-The following query gives the average latency by hour from for event records from an agent. This includes the time from the agent to the cloud and and the total time for the record to be available for log queries.
+The following query gives the average latency by hour for event records from an agent. This includes the time from the agent to the cloud and and the total time for the record to be available for log queries.
 
 ```Kusto
 Event
@@ -72,7 +75,6 @@ search *
 ## \_ItemId
 The **\_ItemId** property holds a unique identifier for the record.
 
-The **\_ItemId** property will not show in the schema view or intellisense, and it won't show in query results unless you explicitly specify it in the output.
 
 ## \_ResourceId
 The **\_ResourceId** property holds a unique identifier for the resource that the record is associated with. This gives you a standard property to use to scope your query to only records from a particular resource, or to join related data across multiple tables.
@@ -123,8 +125,6 @@ Use these `union withsource = tt *` queries sparingly as scans across data types
 ## \_IsBillable
 The **\_IsBillable** property specifies whether ingested data is billable. Data with **\_IsBillable** equal to _false_ are collected for free and not billed to your Azure account.
 
-The **\_IsBillable** property will not show in the schema view or intellisense, and it won't show in query results unless you explicitly specify it in the output.
-
 ### Examples
 To get a list of computers sending billed data types, use the following query:
 
@@ -152,7 +152,6 @@ union withsource = tt *
 ## \_BilledSize
 The **\_BilledSize** property specifies the size in bytes of data that will be billed to your Azure account if **\_IsBillable** is true.
 
-The **\_BilledSize** property will not show in the schema view or intellisense, and it won't show in query results unless you explicitly specify it in the output.
 
 ### Examples
 To see the size of billable events ingested per computer, use the `_BilledSize` property which provides the size in bytes:
