@@ -13,7 +13,7 @@ monikerRange: 'vsts'
 
 # Deployment Center in Azure DevOps
 
-Deployment Center in Azure DevOps simplifies setting up a robust Azure DevOps pipeline for your application. By default, Deployment Center configures an Azure DevOps pipeline to deploy your application updates to the Kubernetes cluster. You can extend the default configured Azure DevOps pipeline and also add richer capabilities: approvals before deploying, provisioning additional Azure resources, running scripts, upgrading your application, and even running more validation tests.
+Deployment Center in Azure DevOps simplifies setting up a robust Azure DevOps pipeline for your application. By default, Deployment Center configures an Azure DevOps pipeline to deploy your application updates to the Kubernetes cluster. You can extend the default configured Azure DevOps pipeline and also add richer capabilities: the ability to gain approval before deploying, provision additional Azure resources, run scripts, upgrade your application, and even run more validation tests.
 
 In this tutorial, you will:
 
@@ -27,7 +27,7 @@ In this tutorial, you will:
 
 * An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-* Azure Kubernetes Service (AKS) cluster.
+* An Azure Kubernetes Service (AKS) cluster.
 
 ## Create an AKS cluster
 
@@ -38,24 +38,24 @@ In this tutorial, you will:
 1. To create the AKS cluster, run the following commands:
 
     ```cmd
-    # The following command creates a resource group in the South India location:
+    # Create a resource group in the South India location:
 
     az group create --name azooaks --location southindia
 
-    # The following command creates a cluster named azookubectl with one node.
+    # Create a cluster named azookubectl with one node.
 
     az aks create --resource-group azooaks --name azookubectl --node-count 1 --enable-addons monitoring --generate-ssh-keys
     ```
 
 ## Deploy application updates to a K8s cluster
 
-1. Go to the resource group you created in the previous section.
+1. Go to the resource group that you created in the previous section.
 
-1. Select the AKS cluster, and then select **Deployment Center (preview)** under the left blade settings. Select **Get started**.
+1. Select the AKS cluster, and then select **Deployment Center (preview)** on the left blade. Select **Get started**.
 
    ![settings](media/deployment-center-launcher/settings.png)
 
-1. Choose the location of the code and select **Next**. Then select one the currently supported repositories: **[Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** or **GitHub**.
+1. Choose the location of the code and select **Next**. Then, select one of the currently supported repositories: **[Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** or **GitHub**.
 
     Azure Repos is a set of version control tools that help you manage your code. Whether your software project is large or small, using version control as early as possible is a good idea.
 
@@ -68,7 +68,7 @@ In this tutorial, you will:
         ![GitHub](media/deployment-center-launcher/github.gif)
 
 
-1. We're going to analyze the repository and detect your Dockerfile. If you want to update it, you can edit the identified port number.
+1. Deployment Center analyzes the repository and detects your Dockerfile. If you want to update the Dockerfile, you can edit the identified port number.
 
     ![Application Settings](media/deployment-center-launcher/application-settings.png)
 
@@ -84,7 +84,7 @@ In this tutorial, you will:
 
 1. Select the link to see the ongoing pipeline.
 
-1. You'll see the successful logs as shown here after the deployment is complete.
+1. You'll see the successful logs after the deployment is complete.
 
     ![Logs](media/deployment-center-launcher/logs.png)
 
@@ -96,23 +96,23 @@ Deployment Center automatically configures your Azure DevOps organization's CI/C
 
 1. Select the build number from the list of successful logs to view the build pipeline for your project.
 
-1. Select the ellipsis (...) in the top-right corner. A menu shows several options such as queuing a new build, retaining a build, and editing the build pipeline. Select **Edit pipeline**. 
+1. Select the ellipsis (...) in the top-right corner. A menu shows several options, such as queuing a new build, retaining a build, and editing the build pipeline. Select **Edit pipeline**. 
 
 1. You can examine the different tasks for your build pipeline in this pane. The build performs various tasks, such as collecting sources from the Git repository, creating an image, pushing an image to the container registry, and publishing outputs that are used for deployments.
 
-1. Select the name of the build pipeline at the top of the build pipeline.
+1. Select the name of the build pipeline at the top of the pipeline.
 
 1. Change your build pipeline name to something more descriptive, select **Save & queue**, and then select **Save**.
 
 1. Under your build pipeline, select **History**. This pane shows an audit trail of your recent build changes. Azure DevOps monitors any changes made to the build pipeline and allows you to compare versions.
 
-1. Select **Triggers**. Optionally, you can include or exclude branches from the CI process.
+1. Select **Triggers**. You can include or exclude branches from the CI process.
 
 1. Select **Retention**. You can specify policies to keep or remove a number of builds, depending on your scenario.
 
 ## Examine the CD pipeline
 
-Deployment Center automatically creates and configures the necessary steps from your Azure DevOps organization to your Azure subscription. These steps include setting up an Azure service connection to authenticate your Azure subscription with Azure DevOps. The automated process also creates a release pipeline, which provides CD to Azure.
+Deployment Center automatically creates and configures the relationship between your Azure DevOps organization and your Azure subscription. The steps involved include setting up an Azure service connection to authenticate your Azure subscription with Azure DevOps. The automated process also creates a release pipeline, which provides continuous delivery to Azure.
 
 1. Select **Pipelines**, and then select **Releases**.
 
@@ -120,9 +120,9 @@ Deployment Center automatically creates and configures the necessary steps from 
 
 1. Select **Drop** from **Artifacts**. In the previous steps, the construction pipeline you examined produces the output used for the artifact. 
 
-1. Select the **Continuous deployment** trigger on the right of the **Drop** icon. This release pipeline has an enabled CD trigger that runs a deployment whenever a new build artifact is available. Optionally, you can disable the trigger to require manual execution for your deployments.
+1. Select the **Continuous deployment** trigger on the right of the **Drop** icon. This release pipeline has an enabled CD trigger that runs a deployment whenever a new build artifact is available. You can also disable the trigger to require manual execution for your deployments.
 
-1. To examine all the tasks for your pipeline, select **Tasks**. The release sets the tiller environment, configures the imagePullSecrets, installs Helm tools, and deploys the Helm charts to the K8s cluster.
+1. To examine all the tasks for your pipeline, select **Tasks**. The release sets the tiller environment, configures the `imagePullSecrets` parameter, installs Helm tools, and deploys the Helm charts to the K8s cluster.
 
 1. To view the release history, select **View releases**. 
 
@@ -130,7 +130,7 @@ Deployment Center automatically creates and configures the necessary steps from 
 
 1. Select **Commits**. This view shows code commits related to this deployment. Compare releases to see the commit differences between deployments.
 
-1. Select **Logs**. The logs contain useful deployment information. During and after deployments, you can view them.
+1. Select **Logs**. The logs contain useful deployment information, which you can view during and after deployments.
 
 ## Clean-up resources
 
