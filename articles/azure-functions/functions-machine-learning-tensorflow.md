@@ -65,7 +65,7 @@ cd start
 python --version
 ```
 
-In the **start** folder, use the correct version of Python to create a Python virtual environment in a folder named `.env`.
+Use the correct version of Python to create a Python virtual environment in a folder named `.env`.
 
 ```bash
 python -m venv .env
