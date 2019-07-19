@@ -35,7 +35,7 @@ You may use any editor of your choice. [Visual Studio Code](https://code.visuals
 
 ## Clone the tutorial repository
 
-Open a terminal and clone the repository using Git. If you do not have Git, you can browse to the [GitHub repository](https://github.com/anthonychu/functions-python-tensorflow-tutorial) and download it as a zip file.
+Open a terminal and clone the repository using Git. If you don't have Git, you can browse to the [GitHub repository](https://github.com/anthonychu/functions-python-tensorflow-tutorial) and download it as a zip file.
 
 ```bash
 git clone https://github.com/anthonychu/functions-python-tensorflow-tutorial.git
@@ -53,7 +53,7 @@ The repository contains a few folders.
 
 Azure Functions requires Python 3.6 or higher. We recommend creating a virtual environment with the correct version of Python.
 
-Change into the *start* folder and identify the Python executable that you'll use to create the virtual environment. Commonly, it is available as `python` or `python3`.
+Change into the *start* folder and identify the Python executable that you'll use to create the virtual environment. Commonly, it's available as `python` or `python3`.
 
 > [!NOTE]
 > If you have the Python Launcher `py` installed on Windows, use `py -3.6` instead of `python` in the following commands.
@@ -85,7 +85,7 @@ source .env/bin/activate
 .env\Scripts\activate
 ```
 
-The terminal prompt should now be prefixed with `(.env)` that indicates you have properly activated the virtual environment. Confirm that `python` in the virtual environment has the correct version.
+The terminal prompt is now prefixed with `(.env)` that indicates you have properly activated the virtual environment. Confirm that `python` in the virtual environment has the correct version.
 
 ```bash
 python --version
@@ -137,9 +137,9 @@ Use `Ctrl-C` to stop the function app.
 
 ## Import a TensorFlow model
 
-For this tutorial, you'll use a TensorFlow model that was built with and exported from Azure Custom Vision Service. If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the repository](https://github.com/anthonychu/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
+You'll use a pre-built TensorFlow model that was trained with and exported from Azure Custom Vision Service. If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the repository](https://github.com/anthonychu/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
-The model consists of two files in the **<repository-root>/resources/model** folder: *model.db* and *labels.txt*. Copy them into into the **classify** function's folder.
+The model consists of two files in the **<repository-root>/resources/model** folder: *model.db* and *labels.txt*. Copy them into the **classify** function's folder.
 
 *Linux and macOS*
 
@@ -233,7 +233,7 @@ Keep the function app running.
 
 ### Test the web app
 
-There is a simple frontend web app in the **frontend** folder that consumes the HTTP API in the function app.
+There's a simple frontend web app in the **frontend** folder that consumes the HTTP API in the function app.
 
 Open a *separate* terminal and change to the **frontend** folder. Start an HTTP server with your Python 3.6 executable.
 
