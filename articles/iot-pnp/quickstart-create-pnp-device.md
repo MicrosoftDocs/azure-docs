@@ -88,7 +88,10 @@ In this quickstart, you use an existing sample device capability model and assoc
 
 1. Download the [device capability model and interface samples](https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview-utopia/digitaltwin_client/samples) and save files into `pnp_app` folder.
 
-1. Open `pnp_app` folder with VS Code. You can view the files with intellisence 
+1. In the files you downloaded, replace `<YOUR_COMPANY_NAME_HERE>` in the `@id` and `schema` fields with a unique value. Use only the characters a-z, A-Z, 0-9, and underscore. For more more information, see [Digital Twin identifier format](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
+
+1. Open `pnp_app` folder with VS Code. You can view the files with intellisense:
+
     ![Device capability model](media/quickstart-create-pnp-device/dcm.png)
 
 ## Publish device model files to model repository
@@ -109,18 +112,14 @@ The device capability model and interface files are required to publish to your 
     > [!NOTE]
     > If you get errors on publishing the device model files, you can try use command **IoT Plug and Play: Sign out Model Repository** to sign out and go through the steps again.
 
-1. To verify on the Model Repository, use **Ctrl+Alt+P** to open the command palette, type and select **IoT Plug & Play: Open Organizational Repository**.
-
-1. You can search to find the device capability model and interface files in the Model Repository view.
-    ![Org model repo](media/quickstart-create-pnp-device/org-model-repo.png)
-
 ## Generate the C code stub
 
 Now you have a DCM and its associated interfaces, you can generate the device code that implements the model. To generate the C code stub in VS code:
 
 1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub**.
 
-    The first time you use the IoT Plug and Play Code Generator utility, it takes a few seconds to download.
+    > [!NOTE]
+    > The first time you use the IoT Plug and Play Code Generator utility, it takes a few seconds to download.
 
 1. Choose the DCM file you want to use to generate the device code stub.
 
@@ -179,9 +178,12 @@ You use the device SDK to build the generated device code stub. The application 
 
 Use the Azure IoT explorer to validate the code:
 
-1. Open Azure IoT explorer, you see the connect page.
+1. Open Azure IoT explorer, you see the **App configurations** page.
 1. Enter your IoT Hub connection string and click **Connect**.
-1. After you connect, you see the device overview page. Find the device identity you created previously, and select it to view more details.
+1. After you connect, you see the device overview page.
+1. To add your organizational repository, select **Settings**, then **+ New**, and then **Organization repository**.
+1. Add the connection string for your organizational repository. You can find this on the connection strings page for your company repository in the [Azure Certified for IoT](https://aka.ms/adbtest) portal. Select **Connect**.
+1. On the device overview page, find the device identity you created previously, and select it to view more details.
 1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the plug and play primitives - properties, commands and telemetry.
 1. Select the **Telemetry** page to view the telemetry data the device is sending.
 1. Select the **Properties(non-writable)** page to view the non-writable properties reported by the device.

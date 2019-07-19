@@ -34,7 +34,7 @@ You also need the Plug and Play device that you create in the [Quickstart: Use a
 
 ## Store a capability model and interfaces
 
-For Plug and Play devices, you must author a capability model and interfaces that define the capabilities of the device as JSON files.
+For IoT Plug and Play devices, you must author a capability model and interfaces that define the capabilities of the device as JSON files.
 
 You can store these JSON files in three different locations:
 
@@ -59,11 +59,11 @@ To include the **Device Information** interface in your device model, add the in
 
 ```json
 {
-  "@id": "urn:azureiot:sample:ThermostatDevice:1",
+  "@id": "urn:yourcompanyname:sample:ThermostatDevice:1",
   "@type": "CapabilityModel",
   "displayName": "Thermostat T-1000",
   "implements": [
-    "urn:azureiot:sample:Thermostat:1",
+    "urn:yourcompanyname:sample:Thermostat:1",
     "urn:azureiot:DeviceManagement:DeviceInformation:1"
   ],
   "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
