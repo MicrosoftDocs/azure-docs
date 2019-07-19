@@ -10,6 +10,15 @@ ms.author: grgale
 
 # Additional Documentation and Resources by focus area
 
+## General references for all security and governance in Azure Australia
+
+* Microsoft Service Trust Portal Australia Page at [https://servicetrust.microsoft.com/ViewPage/Australia](https://servicetrust.microsoft.com/ViewPage/Australia) or [https://aka.ms/au-irap](https://aka.ms/au-irap)|
+* [Microsoft Trust Center CCSL Page](https://www.microsoft.com/en-us/trustcenter/compliance/ccsl)
+* [Azure Security and Compliance Blueprints for PROTECTED](https://aka.ms/au-protected)
+* [Tenant Isolation in Microsoft Azure](https://docs.microsoft.com/en-us/azure/security/azure-isolation)
+* [Australian Information Security Manual](https://www.cyber.gov.au/ism)
+* [Australian Cyber Security Centre (ACSC) Certified Cloud List](https://www.cyber.gov.au/irap/asd-certified-cloud-services)
+
 ## Azure Key Vault
 
 ### Related Documentation
@@ -28,7 +37,6 @@ ms.author: grgale
 
 ## Identity Federation
 
-* [Azure Certification Documents](https://aka.ms/azureirap)
 * [Azure AD Connect - Installation Guide](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-install-roadmap)
 * [Password Write-Back](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-writeback)
 * [Install and Run the IDFix Tool](https://docs.microsoft.com/en-us/office365/enterprise/install-and-run-idfix)

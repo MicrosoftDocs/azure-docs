@@ -8,13 +8,17 @@ ms.date: 04/25/2019
 ms.author: grgale
 ---
 
-# Gateway Logging, Auditing and Visibility in Azure Australia
+# Gateway logging, auditing and visibility in Azure Australia
 
 Detecting and responding to cyber security threats relies on generating, collecting and analysing data related to the operation of a system.
 
 This article assists you to implement tools in Azure for the logging, auditing and visibility required for Commonwealth entities to manage the security of their systems deployed in Azure, and includes a reference architecture that aligns with the ACSC Consumer Guidance and the intent of the ISM.
 
-## Australian Cyber Security Centre (ACSC) Requirements
+Gateways act as information flow control mechanisms at the network layer and may also control information at the higher layers of the Open System Interconnect (OSI) model. Gateways are necessary to control data flows between security domains and prevent unauthorised access from external networks. Given the criticality of gateways in controlling the flow of information between security domains, any failure, particularly at higher classifications, may have serious consequences. As such, robust mechanisms for alerting personnel to situations that may cause cyber security incidents are especially important for gateways.
+
+Implementing logging and alerting capabilities for gateways can assist in detecting cyber security incidents, attempted intrusions and unusual usage patterns. In addition, storing event logs on a separate secure log server increases the difficulty for an adversary to delete logging information in order to destroy evidence of a targeted cyber intrusion.
+
+## Australian Cyber Security Centre (ACSC) requirements
 
 The overall security requirements for Commonwealth systems are defined in the ACSC Information Security Manual (ISM). To assist Commonwealth entities to meet these requirements within Azure, the *ACSC CONSUMER GUIDE – Microsoft Azure at PROTECTED* and *ACSC CERTIFICATION REPORT – Microsoft Azure* publications detail the following specific requirements related to Logging, Auditing, and Visibility:
 

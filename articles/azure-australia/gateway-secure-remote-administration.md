@@ -12,7 +12,7 @@ ms.author: grgale
 
 It's critical to the availability and integrity of any system that administrative activities are conducted securely and are controlled. Administrative activities should be done from a secure device, over a secure connection, and be backed by strong authentication and authorisation processes. Secure Remote Administration ensures that only authorised actions are performed and only by authorised administrators.
 
-This guide provides information on implementing a secure remote administration capability for an internet accessible system hosted in Azure that aligns with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the ACSC’s Information Security Manual (ISM).
+This article provides information on implementing a secure remote administration capability for an internet accessible system hosted in Azure that aligns with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the ACSC’s Information Security Manual (ISM).
 
 ## Australian Cyber Security Centre (ACSC) requirements
 
@@ -30,7 +30,7 @@ This document discusses the importance of secure administration and suggests one
 |Jump boxes|A jump box is a hardened remote access server, commonly utilising Microsoft’s Remote Desktop Services or Secure Shell (SSH) software. Jump boxes act as a stepping point for administrators accessing critical systems with all administrative actions performed from the dedicated host.|
 |
 
-This guide provides a reference architecture for how the elements above can be used for secure administration of systems deployed in Azure.
+This article provides a reference architecture for how the elements above can be used for secure administration of systems deployed in Azure.
 
 ## Architecture
 
@@ -50,7 +50,7 @@ The architecture is designed to ensure that a privileged account is granted only
 |Strong Authorisation |<ul><li>Identity and Access Management (IAM)</li><li>Privileged Identity Management (PIM)</li><li>Conditional Access</li></ul>|<ul><li>Privileged access control</li></ul>|
 |||
 
-**Note:** For more information on the Logging and auditing element, see the [Azure Perimeter Protection Guide – Logging, Auditing, and Visibility](https://aka.ms/appg-lav)
+**Note:** For more information on the Logging and auditing element, see the article on [Gateway logging, auditing, and visibility](gateway-logging-auditing-visibility.md)
 
 ## Administration workflow
 
@@ -88,7 +88,7 @@ Once the privileged account has completed the steps to gain administrative acces
 
 ## General guidance
 
-When implementing the components listed in this guide, the following general guidance applies:
+When implementing the components listed in this article, the following general guidance applies:
 
 * Validate the region availability of services, ensuring that all data remains within authorised locations and deploy to AU Central or AU Central 2 as the first preference for PROTECTED workloads
 
@@ -100,7 +100,7 @@ When implementing the components listed in this guide, the following general gui
 
 * Ensure virtual machines, especially Active Directory Domain Controllers, are stored in encrypted storage accounts and utilise Azure Disk Encryption
 
-* Create and maintain robust identity and administrative privilege management processes and governance to underpin the technical controls listed in this guide
+* Create and maintain robust identity and administrative privilege management processes and governance to underpin the technical controls listed in this article
 
 |Resource|URL|
 |---|---|
@@ -159,7 +159,7 @@ Group Policy is used to control the configuration of operating systems and appli
 
 ### Jump Server / Bastion Host
 
-The Jump Server / Bastion Host is a centralised point for administration. It has the tools required to perform administrative duties, but also has the network access necessary to connect to resources on administrative ports. The Jump Server is the central point for administering Virtual Machine workloads in this secure remote administration guide, but it can also be configured as the authorised point for administering Platform as a Service (PaaS) capabilities such as SQL. Access to PaaS capabilities can be restricted on a per service basis using identity and network controls.
+The Jump Server / Bastion Host is a centralised point for administration. It has the tools required to perform administrative duties, but also has the network access necessary to connect to resources on administrative ports. The Jump Server is the central point for administering Virtual Machine workloads in this article, but it can also be configured as the authorised point for administering Platform as a Service (PaaS) capabilities such as SQL. Access to PaaS capabilities can be restricted on a per service basis using identity and network controls.
 
 |Resources|Link|
 |---|---|

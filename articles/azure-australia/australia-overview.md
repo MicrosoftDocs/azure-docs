@@ -26,21 +26,23 @@ The following diagram shows the Azure defence-in-depth model. For example, Micro
 
 ![alt text](media/defenceindepth.png)
 
-This article outlines the foundational principles for securing your services and applications, with guidance and best practices on how to apply these principles. In other words, how customers should make smart use of Azure Australia to meet the obligations and responsibilities that are required for a solution that handles Government sensitive and classified information.
-
-## Next Steps
+These articles outline the foundational principles for securing your services and applications, with guidance and best practices on how to apply these principles. In other words, how customers should make smart use of Azure Australia to meet the obligations and responsibilities that are required for a solution that handles Government sensitive and classified information.
 
 There are two categories of documentation provided for Australian Government agencies migrating to Azure.
 
-### Securing your Azure environment
+## Security in Azure Australia
 
 Identity, role-based access control, data protection through encryption and rights management, and effective monitoring and configuration control are key elements that you need to implement. In this section there are a series of articles explaining the built-in capabilities of Azure and how they relate to the ISM and ASD Essential 8.
 
-Start with [Securing your data in Azure](securing-your-data.md)
+These articles can be accessed through the menu under Concepts -> Security in Azure Australia.
 
-### Building a Gateway in Azure
+## Gateways in Azure Australia
 
 Another key step for Government agencies is the establishment of perimeter security capabilities. These capabilities are generally called Secure Internet Gateways (SIG) and when using Azure it is your responsibility to ensure these protections are in place. Microsoft does not operate a SIG; however, with the combination of our Edge services that protect all customers, and specific services deployed within your Azure environment you can operate an equivalent capability.
 
-Start with
-[Gateway auditing, logging and visibility](gateway-logging-auditing-visibility.md).
+These articles can be accessed through the menu under Concepts -> Gateways in Azure Australia.
+
+## Next Steps
+
+* If your key focus is securing your data in Azure, start with [Data Security](securing-your-data.md)
+* If your key focus is building a Gateway in Azure, start with [Gateway auditing, logging and visibility](gateway-logging-auditing-visibility.md).

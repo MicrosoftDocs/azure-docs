@@ -1,14 +1,14 @@
 ---
-title: Securing your data in Azure and complying with Australian requirements
+title: Data security in Azure Australia
 description: Configuring Azure within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: Galey801
 ms.service: azure-australia
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 07/19/2019
 ms.author: grgale
 ---
 
-# Securing your data in Azure and complying with Australian requirements
+# Data security in Azure Australia
 
 The overarching principles for securing customer data are:
 

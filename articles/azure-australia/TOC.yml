@@ -6,9 +6,9 @@
     href: australia-overview.md
 - name: Concepts
   items:
-  - name: Securing your Azure environment
+  - name: Security in Azure Australia
     items:
-      - name: Securing your data in Azure
+      - name: Data Security
         href: securing-your-data.md
       - name: Azure VPN Gateway configuration
         href: vpn-gateway.md
@@ -22,29 +22,31 @@
         href: asr-backup.md
       - name: Azure system monitoring
         href: system-monitoring.md
-      - name: Ensuring security with Azure Policy
+      - name: Security compliance with Azure Policy and Azure Blueprints
         href: azure-policy.md  
-  - name: Build a Gateway in Azure Australia
+  - name: Gateways in Azure Australia
     items:
       - name: Gateway logging, auditing and visibility
         href: gateway-logging-auditing-visibility.md
       - name: Gateway secure remote administration
         href: gateway-secure-remote-administration.md
       - name: Gateway data ingress control
-        href: gateway-ingress-traffic.md  
+        href: gateway-ingress-traffic.md
+      - name: Gateway data egress control
+        href: gateway-egress-traffic.md
 - name: Resources
   items:
-  - name: Azure Australia Security Explained
+  - name: Azure Australia security explained
     href: security-explained.md
-  - name: Azure Australia Additional Resources
+  - name: Azure Australia additional resources
     href: reference-library.md
-  - name: Australian Cyber Security Centre (ACSC) Website
+  - name: Australian Cyber Security Centre (ACSC) website
     href: https://cyber.gov.au/
   - name: Australian Certified Cloud Services List (CCSL)
     href: https://acsc.gov.au/infosec/irap/certified_clouds.htm
-  - name: Australia Page on the Microsoft Service Trust Portal
+  - name: Australia page on the Microsoft Service Trust Portal
     href: https://aka.ms/au-irap
-  - name: Australia PROTECTED Blueprints for IaaS and PaaS Web Applications
+  - name: Australia PROTECTED Blueprints for IaaS and PaaS web applications
     href: https://aka.ms/au-protected
   - name: Pricing
     href: https://azure.microsoft.com/pricing/
