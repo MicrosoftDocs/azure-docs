@@ -24,7 +24,9 @@ ms.author: robinsh
 
 You learn how to create a logic app that connects your IoT hub and your mailbox for temperature monitoring and notifications.
 
-The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above 30 C, it sets this property to `true`; otherwise, it sets the property to `false`. Messages arriving at your IoT hub look similar to the following, with the telemetry data contained in the payload and the `temperatureAlert` property contained in the application properties:
+The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above 30 C, it sets this property to `true`; otherwise, it sets the property to `false`.
+
+Messages arriving at your IoT hub look similar to the following, with the telemetry data contained in the payload and the `temperatureAlert` property contained in the application properties:
 
 ```json
 {
