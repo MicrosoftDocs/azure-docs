@@ -41,17 +41,17 @@ For example, assume your total consumption of SQL Data Warehouse is DW3000c. You
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** > **Reservations**.
 3. Select a subscription. Use the Subscription list to choose the subscription that's used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
-  - For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage.
-  - For Pay-As-You-Go subscription, the charges are billed to the credit card or invoice payment method on the subscription.
+   - For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage.
+   - For Pay-As-You-Go subscription, the charges are billed to the credit card or invoice payment method on the subscription.
 4. Select a scope. Use the Scope list to choose a subscription scope.
-  - **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
-  - **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
-  - **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
-    - For enterprise customers, the billing context is the EA enrollment.
-    - For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.
+   - **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
+   - **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
+   - **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
+   - For enterprise customers, the billing context is the EA enrollment.
+   - For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.
 5. Select a region to choose an Azure region that's covered by the reserved capacity.
 6. Choose a quantity. Enter the quantity of 100 Data Warehouse units (cDWU) that you want to purchase.    
-  For example, a quantity of 30 would give you 3,000 cDWU of reserved capacity every hour.
+   For example, a quantity of 30 would give you 3,000 cDWU of reserved capacity every hour.
 7. Review the SQL Data Warehouse reserved capacity reservation cost in the **Costs** section.
 8. Select **Purchase**.
 9. Select **View this Reservation** to see your purchase status.
