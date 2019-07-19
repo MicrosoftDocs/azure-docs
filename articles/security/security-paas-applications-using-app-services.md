@@ -35,7 +35,7 @@ It doesn't matter how good your security is if you lose your subscription keys. 
 ## Restrict incoming source IP addresses
 [App Service Environments](../app-service/environment/intro.md) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups (NSGs). If you are unfamiliar with Azure Virtual Networks (VNETs), this is a capability that allows you to place many of your Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md).
 
-For App Service on Windows, you can also restrict IP addresses dynamically by configuring the web.config. For more information, see [Dynamic IP Security <dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+For App Service on Windows, you can also restrict IP addresses dynamically by configuring the web.config. For more information, see [Dynamic IP Security](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 
 ## Next steps
