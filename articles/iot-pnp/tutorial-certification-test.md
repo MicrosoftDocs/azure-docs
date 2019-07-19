@@ -48,16 +48,16 @@ To certify your IoT Plug and Play device, your device must meet the following re
 **Product** is a friendly name for a product model that a customer can purchase. To add a product:
 
 1. Sign in to the portal.
-1. Go to the **Overview** page in the portal and select **+ Add your product**.
+1. Go to the **Products** page in the portal from the left menu and select **+ New**.
 1. Enter your friendly product name and select **Create**. The name entered here is different from the name displayed in the device catalog.
 
 ## Add product information
 
-After you've successfully created the product in the portal, the product is displayed in the **Overview** page. To add the product information:
+After you've successfully created the product in the portal, the product is displayed in the **Products** page. To add the product information:
 
-1. Select the **Add information** link found on the **Overview** page in the portal. The link is in the **Next action** column.
-1. Enter information about your product in the product information page, and make sure you complete all the required fields.
-1. Select **Save**.
+1. Select the created product link found on the **Product** page in the product column. The state should be in draft state.
+1. Click **Edit** link next to **Product information** header. Enter information about your product in the product information page, and make sure you complete all the required fields.
+1. Select **Save**. **Save** button only appears when you complete all the required fields. If the fields are incomplete, the button will say **Save and finish later**.
 1. Review the content you entered.
 
 ## Connect and discover interfaces
