@@ -1,6 +1,6 @@
 ---
-title: Use Azure Quickstart Templates to configure Always On availability group for SQL Server on an Azure VM
-description: "Use Azure Quickstart Templates to create the Windows Failover cluster, join SQL Server VMs to the cluster, create the listener, and configure the Internal Load Balancer in Azure."
+title: Use Azure quickstart templates to configure an Always On availability group for SQL Server on an Azure VM
+description: "Use Azure quickstart templates to create the Windows failover cluster, join SQL Server VMs to the cluster, create the listener, and configure the Internal Load Balancer instance in Azure."
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -17,29 +17,29 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Use Azure Quickstart Templates to configure Always On availability group for SQL Server on an Azure VM
-This article describes how to use the Azure Quickstart Templates to partially automate the deployment of an Always On availability group configuration for SQL Server Virtual Machines in Azure. There are two Azure Quickstart Templates that are used in this process. 
+# Use Azure quickstart templates to configure an Always On availability group for SQL Server on an Azure VM
+This article describes how to use the Azure quickstart templates to partially automate the deployment of an Always On availability group configuration for SQL Server virtual machines in Azure. There are two Azure quickstart templates that are used in this process. 
 
    | Template | Description |
    | --- | --- |
-   | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Creates the Windows Failover Cluster and joins the SQL Server VMs to it. |
-   | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Creates the availability group listener and configures the Internal Load Balancer. This template can only be used if the Windows Failover Cluster was created with the **101-sql-vm-ag-setup** template. |
+   | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Creates the Windows failover cluster and joins the SQL Server VMs to it. |
+   | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Creates the availability group listener and configures the Internal Load Balancer instance. This template can be used only if the Windows failover cluster was created with the **101-sql-vm-ag-setup** template. |
    | &nbsp; | &nbsp; |
 
-Other parts of the availability group configuration must be done manually, such as creating the availability group, and creating the Internal Load Balancer. This article provides the sequence of automated and manual steps.
+Other parts of the availability group configuration must be done manually, such as creating the availability group and creating the internal load balancer. This article provides the sequence of automated and manual steps.
  
 
 ## Prerequisites 
-To automate the setup of an Always On availability group using quickstart templates, you must already have the following prerequisites: 
-- An [Azure Subscription](https://azure.microsoft.com/free/).
+To automate the setup of an Always On availability group by using quickstart templates, you must already have the following prerequisites: 
+- An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or greater) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the same availability set or availability zone that have been [registered with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md).  
-- Two available (not used by any entity) IP addresses, one for the Internal Load Balancer, and one for the availability group listener within the same subnet as the availability group. If an existing load balancer is being used, then only one available IP address is needed.  
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) that are in the same availability set or availability zone and that have been [registered with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md).  
+- Two available (not used by any entity) IP addresses, one for the Internal Load Balancer instance, and one for the availability group listener within the same subnet as the availability group. If an existing load balancer is being used, only one available IP address is needed.  
 
 ## Permissions
-The following permissions are necessary to configure the Always On availability group using Azure Quickstart Templates: 
+The following permissions are necessary to configure the Always On availability group by using Azure quickstart templates: 
 
-- An existing domain user account that has permission to 'Create Computer Object' in the domain.  For example, a domain admin account typically has sufficient permission (ex: account@domain.com). _This account should also be part of the local administrator group on each VM to create the cluster._
+- An existing domain user account that has Create Computer Object permission in the domain.  For example, a domain admin account typically has sufficient permission (for example: account@domain.com). _This account should also be part of the local administrator group on each VM to create the cluster._
 - The domain user account that controls the SQL Server service. 
 
 
@@ -59,7 +59,7 @@ Once your SQL Server VMs have been registered with the SQL VM new resource provi
    | **Existing Vm List** | The SQL Server VMs you want to participate in the availability group, and as such, be part of this new cluster. Separate these values with a comma and a space (ex: SQLVM1, SQLVM2). |
    | **SQL Server Version** | Select the SQL Server version of your SQL Server VMs from the drop-down. Currently only SQL 2016 and SQL 2017 images are supported. |
    | **Existing Fully Qualified Domain Name** | The existing FQDN for the domain in which your SQL Server VMs reside. |
-   | **Existing Domain Account** | An existing domain user account that has permission to 'Create Computer Object' in the domain as the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) is created during template deployment. For example, a domain admin account typically has sufficient permission (ex: account@domain.com). *This account should also be part of the local administrator group on each VM to create the cluster.*| 
+   | **Existing Domain Account** | An existing domain user account that has Create Computer Object permission in the domain as the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) is created during template deployment. For example, a domain admin account typically has sufficient permission (ex: account@domain.com). *This account should also be part of the local administrator group on each VM to create the cluster.*| 
    | **Domain Account Password** | The password for the previously mentioned domain user account. | 
    | **Existing Sql Service Account** | The domain user account that controls the [SQL Server service](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) during availability group deployment (ex: account@domain.com). |
    | **Sql Service Password** | The password used by the domain user account that controls the SQL Server service. |
