@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2019
+ms.date: 07/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -79,11 +79,96 @@ To use the template, you must specify the following inputs:
 }
 ```
 
-The following shows an example of a Reader role assignment to a user after deploying the template.
+The following shows an example of a Reader role assignment to a user for a resource group after deploying the template.
 
 ![Role assignment using a template](./media/role-assignments-template/role-assignment-template.png)
 
 The scope of the role assignment is determined from the level of the deployment. Both resource group and subscription level deployment commands are shown in this article.
+
+## Assign role to resource
+
+If you need to create a role assignment at the level of a resource, the format of the role assignment is different. You provide the resource provider namespace and resource type of the resource to assign the role to. You also include the name of the resource in the name of the role assignment.
+
+For the type and name of the role assignment, use the following format:
+
+```json
+"type": "{resource-provider-namespace}/{resource-type}/providers/roleAssignments",
+"name": "{resource-name}/Microsoft.Authorization/{role-assign-GUID}"
+```
+
+The following template deploys a storage account and assigns a role to it. You deploy it with the resource group commands.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "principalId": {
+      "type": "string",
+      "metadata": {
+        "description": "The principal to assign the role to"
+      }
+    },
+    "builtInRoleType": {
+      "type": "string",
+      "allowedValues": [
+        "Owner",
+        "Contributor",
+        "Reader"
+      ],
+      "metadata": {
+        "description": "Built-in role to assign"
+      }
+    },
+    "roleNameGuid": {
+      "type": "string",
+      "defaultValue": "[newGuid()]",
+      "metadata": {
+        "description": "A new GUID used to identify the role assignment"
+      }
+    },
+    "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {
+    "Owner": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
+    "Contributor": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
+    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+          "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
+      "apiVersion": "2018-09-01-preview",
+      "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', parameters('roleNameGuid'))]",
+      "dependsOn": [
+          "[variables('storageName')]"
+      ],
+      "properties": {
+        "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+        "principalId": "[parameters('principalId')]"
+      }
+    }
+  ]
+}
+```
+
+The following shows an example of a Contributor role assignment to a user for a storage account after deploying the template.
+
+![Role assignment using a template](./media/role-assignments-template/role-assignment-template-resource.png)
 
 ## Deploy template using Azure PowerShell
 
@@ -103,7 +188,7 @@ To deploy the previous template to either a resource group or a subscription usi
 
 1. The template generates a default value for the GUID that is used to identify the role assignment. If you need to specify a specific GUID, pass that value in for the roleNameGuid parameter. The identifier has the format: `11111111-1111-1111-1111-111111111111`
 
-To assign the role at the level of a resource group, follow these steps:
+To assign the role at the level of a resource or resource group, follow these steps:
 
 1. Create an example resource group.
 
@@ -163,7 +248,7 @@ To deploy the previous template using the Azure CLI to either a resource group o
 
 1. The template generates a default value for the GUID that is used to identify the role assignment. If you need to specify a specific GUID, pass that value in for the roleNameGuid parameter. The identifier has the format: `11111111-1111-1111-1111-111111111111`
 
-To assign the role at the level of a resource group, follow these steps:
+To assign the role at the level of a resource or resource group, follow these steps:
 
 1. Create an example resource group.
 
@@ -250,87 +335,6 @@ az deployment create --location centralus --template-file rbac-rg.json --paramet
 ```
 
 It has a similar output to the deployment command for resource groups.
-
-## Assign role to resource
-
-If you need to create a role assignment at the level of a resource, the format of the role assignment is different. You provide the resource provider namespace and resource type of the resource to assign the role to. You also include the name of the resource in the name of the role assignment.
-
-For the type and name of the role assignment, use the following format:
-
-```json
-"type": "{resource-provider-namespace}/{resource-type}/providers/roleAssignments",
-"name": "{resource-name}/Microsoft.Authorization/{role-assign-GUID}"
-```
-
-The following template deploys a storage account and assigns a role to it. You deploy it with the resource group commands.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "The principal to assign the role to"
-      }
-    },
-    "builtInRoleType": {
-      "type": "string",
-      "allowedValues": [
-        "Owner",
-        "Contributor",
-        "Reader"
-      ],
-      "metadata": {
-        "description": "Built-in role to assign"
-      }
-    },
-    "roleNameGuid": {
-      "type": "string",
-      "defaultValue": "[newGuid()]",
-      "metadata": {
-        "description": "A new GUID used to identify the role assignment"
-      }
-    },
-    "location": {
-        "type": "string",
-        "defaultValue": "[resourceGroup().location]"
-    }
-  },
-  "variables": {
-    "Owner": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
-    "Contributor": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
-    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
-    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "apiVersion": "2019-04-01",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-          "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {}
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
-      "apiVersion": "2018-09-01-preview",
-      "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', parameters('roleNameGuid'))]",
-      "dependsOn": [
-          "[variables('storageName')]"
-      ],
-      "properties": {
-        "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-        "principalId": "[parameters('principalId')]"
-      }
-    }
-  ]
-}
-```
 
 ## Next steps
 
