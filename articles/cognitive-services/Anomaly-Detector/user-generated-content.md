@@ -22,12 +22,6 @@ Some of the following links are hosted on websites that are external to Microsof
 * [Interactive demo with animation](https://aka.ms/adDemo)
 * [Azure Notebook demo](https://aka.ms/adNotebook)
 
-## Paper
-
-* [Time-Series Anomaly Detection Service at Microsoft - KDD 2019](https://arxiv.org/abs/1906.03821)
-
-[![Time-Series Anomaly Detection Service at Microsoft](media/srcnn.png)](http://www.youtube.com/watch?v=ERTaAnwCarM "Time-Series Anomaly Detection Service at Microsoft")
-
 ## Technical blogs
 
 * [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)

@@ -65,6 +65,12 @@ After signing up:
 1. Send a request to the Anomaly Detector API with your data.
 1. Process the API response by parsing the returned JSON message.
 
+## Algorithms
+
+* Please refer to this technical blog [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) about the algorithms under the hood.
+* Please refer to this paper [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (accepted by KDD 2019) for the cutting-edge SR-CNN algorithms developed by Microsoft.
+[![Time-Series Anomaly Detection Service at Microsoft](media/srcnn.png)](http://www.youtube.com/watch?v=ERTaAnwCarM "Time-Series Anomaly Detection Service at Microsoft")
+
 ## Next steps
 
 * [Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API](quickstarts/detect-data-anomalies-csharp.md)
