@@ -6,7 +6,6 @@ documentationcenter: na
 author: monhaber
 manager: rkarlin
 editor: ''
-
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
-ms.author: monhaber
-
+ms.author: "v-mohabe"
 ---
 
 # Protect Azure data and storage services in Azure Security Center

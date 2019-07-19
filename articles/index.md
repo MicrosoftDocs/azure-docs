@@ -104,14 +104,14 @@ featureFlags:
                                             <div class="cardText">
                                                 <h3>Secure and manage resources</h3>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/security-center/">Azure Security Center</a></li>
-                                                    <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
-                                                    <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
-                                                    <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
-                                                    <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
+                                                    <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/azure/governance/policy/">Azure Policy</a></li>
+                                                    <li><a class="barLink" href="/azure/security-center/">Azure Security Center</a></li>
+                                                    <li><a class="barLink" href="/azure/lighthouse/">Azure Lighthouse</a></li>
+                                                    <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -717,6 +717,12 @@ featureFlags:
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Storage Gen1</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-share/">
+                                                <img src="media/index/data-share.svg" alt="" />
+                                                <p>Azure Data Share</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1877,6 +1883,12 @@ featureFlags:
                                                 <p>Azure SignalR Service</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/lighthouse/">
+                                                <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                <p>Azure Lighthouse</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -2556,6 +2568,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure NetApp Files</h3>
                                                     <p>Enterprise-grade NFS file service powered by NetApp</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-share/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/data-share.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Data Share</h3>
+                                                    <p>A simple and safe service for sharing big data with external organizations</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5820,6 +5851,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
                                                     <p>Massively scalable, secure data lake storage built on Blob storage</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/lighthouse/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Lighthouse</h3>
+                                                    <p>Manage customer resources at scale</p>
                                                 </div>
                                             </div>
                                         </div>

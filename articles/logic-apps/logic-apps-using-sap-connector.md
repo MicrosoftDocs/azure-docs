@@ -24,8 +24,7 @@ The SAP connector uses the [SAP .NET Connector (NCo) library](https://support.sa
 
 For these operations, the SAP connector supports basic authentication through usernames and passwords. The connector also supports [Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true). SNC can be used for SAP NetWeaver single sign-on (SSO) or for additional security capabilities provided by an external security product.
 
-The SAP connector integrates with on-premises SAP systems through the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). In send scenarios, for example, when a message is sent from a logic app to an SAP system, the data gateway acts as an RFC client and forwards the requests received from the logic app to SAP.
-Likewise, in receive scenarios, the data gateway acts as an RFC server that receives requests from SAP and forwards them to the logic app.
+The SAP connector integrates with on-premises SAP systems through the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). In send scenarios, for example, when a message is sent from a logic app to an SAP system, the data gateway acts as an RFC client and forwards the requests received from the logic app to SAP. Likewise, in receive scenarios, the data gateway acts as an RFC server that receives requests from SAP and forwards them to the logic app.
 
 This article shows how to create example logic apps that integrate with SAP while covering the previously described integration scenarios.
 
@@ -36,18 +35,25 @@ This article shows how to create example logic apps that integrate with SAP whil
 To follow along with this article, you need these items:
 
 * An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+
 * The logic app from where you want to access your SAP system and a trigger that starts your logic app's workflow. If you're new to logic apps, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
 * Your [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
+
 * Download and install the latest [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) on any on-premises computer. Make sure you set up your gateway in the Azure portal before you continue. The gateway helps you securely access on-premises data and resources. For more information, see [Install an on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+
 * If you use SNC with SSO, make sure the gateway is running as a user that's mapped against the SAP user. To change the default account, select **Change account**, and enter the user credentials.
 
   ![Change gateway account](./media/logic-apps-using-sap-connector/gateway-account.png)
 
 * If you enable SNC with an external security product, copy the SNC library or files on the same machine where the gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM.
-* Download and install the latest SAP client library, which is currently [SAP Connector (NCo) 3.0.21.0 for Microsoft .NET Framework 4.0 and Windows 64 bit (x64)](https://softwaredownloads.sap.com/file/0020000001865512018), on the same computer as the on-premises data gateway. Install this version or later for these reasons:
+
+* Download and install the latest SAP client library, which is currently [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019), on the same computer as the on-premises data gateway. Install this version or later for these reasons:
 
   * Earlier SAP NCo versions might become deadlocked when more than one IDoc message is sent at the same time. This condition blocks all later messages that are sent to the SAP destination, which causes the messages to time out.
+  
   * The on-premises data gateway runs only on 64-bit systems. Otherwise, you get a "bad image" error because the data gateway host service doesn't support 32-bit assemblies.
+  
   * Both the data gateway host service and the Microsoft SAP Adapter use .NET Framework 4.5. The SAP NCo for .NET Framework 4.0 works with processes that use .NET runtime 4.0 to 4.7.1. The SAP NCo for .NET Framework 2.0 works with processes that use .NET runtime 2.0 to 3.5, but no longer works with the latest on-premises data gateway.
 
 * Message content you can send to your SAP server, such as a sample IDoc file, must be in XML format and include the namespace for the SAP action you want to use.
@@ -298,21 +304,21 @@ On the designer toolbar, select **Save**.
 
    **Create an on-premises SAP connection**
 
-    1. Provide the connection information for your SAP server. For the **Data Gateway** property, select the data gateway you created in the Azure portal for your gateway installation.
+   1. Provide the connection information for your SAP server. For the **Data Gateway** property, select the data gateway you created in the Azure portal for your gateway installation.
 
-       - If the **Logon Type** property is set to **Application Server**, these properties, which usually appear optional, are required:
+      - If the **Logon Type** property is set to **Application Server**, these properties, which usually appear optional, are required:
 
-         ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+        ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-       - If the **Logon Type** property is set to **Group**, these properties, which usually appear optional, are required:
+      - If the **Logon Type** property is set to **Group**, these properties, which usually appear optional, are required:
 
-         ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+        ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-        By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
+      By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
-    1. When you're finished, select **Create**. 
+   1. When you're finished, select **Create**. 
    
-       Logic Apps sets up and tests your connection to make sure that the connection works properly.
+      Logic Apps sets up and tests your connection to make sure that the connection works properly.
 
 1. Provide the path to the artifact for which you want to generate the schema.
 
@@ -354,16 +360,15 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 1. Enter the details for the action, including your Azure subscription, Azure resource group, and integration account. To add SAP tokens to the fields, click inside the boxes for those fields, and select from the dynamic content list that appears.
 
-    1. Open the **Add new parameter** list, and select the **Location** and **Properties** fields.
+   1. Open the **Add new parameter** list, and select the **Location** and **Properties** fields.
 
-    1. Provide details for these new fields as shown in this example.
+   1. Provide details for these new fields as shown in this example.
 
-       ![Enter details for Azure Resource Manager action](media/logic-apps-using-sap-connector/azure-resource-manager-action.png)
+      ![Enter details for Azure Resource Manager action](media/logic-apps-using-sap-connector/azure-resource-manager-action.png)
 
    The SAP **Generate schemas** action generates schemas as a collection, so the designer automatically adds a **For each** loop to the action. Here's an example that shows how this action appears:
 
    ![Azure Resource Manager action with "for each" loop](media/logic-apps-using-sap-connector/azure-resource-manager-action-foreach.png)  
-
    > [!NOTE]
    > The schemas use base64-encoded format. 
    > To upload the schemas to an integration account, 
@@ -394,7 +399,7 @@ Before you start, make sure that you met the previously listed [prerequisites](#
 * For SSO, the gateway is running as a user that's mapped to an SAP user.
 * The SNC library that provides the additional security functions is installed on the same machine as the data gateway. Some examples include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM.
 
-To enable SNC for your requests to or from the SAP system, select the **Use SNC** check box in the SAP connection and provide these properties:
+   To enable SNC for your requests to or from the SAP system, select the **Use SNC** check box in the SAP connection and provide these properties:
 
    ![Configure SAP SNC in connection](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
@@ -456,14 +461,16 @@ When messages are sent with **Safe Typing** enabled, the DATS and TIMS response 
 <TIME>235959</TIME>
 ```
 
-
 ## Known issues and limitations
 
 Here are the currently known issues and limitations for the SAP connector:
 
 * Only a single send to SAP call or message works with tRFC. The BAPI commit pattern, such as making multiple tRFC calls in the same session, isn't supported.
+
 * The SAP trigger doesn't support receiving batch IDocs from SAP. This action might result in RFC connection failure between your SAP system and the data gateway.
+
 * The SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior. For send scenarios, data gateway clusters are supported.
+
 * The SAP connector currently doesn't support SAP router strings. The on-premises data gateway must exist on the same LAN as the SAP system you want to connect.
 
 ## Connector reference

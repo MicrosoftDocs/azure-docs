@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: web-language-model
 ms.topic: overview
 ms.date: 08/12/2016
-ms.author: pibehre
+ms.author: piyush
 ROBOTS: NOINDEX
 ---
 # What is the Web Language Model API? (Preview)
