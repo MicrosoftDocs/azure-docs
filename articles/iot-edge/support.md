@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 This article provides details about which systems and components are supported by IoT Edge, whether officially or in preview. 
 
-If you experience problems while using the Azure IoT Edge service, there are a variety of ways to seek support. Try one of the following channels for support:
+If you experience problems while using the Azure IoT Edge service, there are several ways to seek support. Try one of the following channels for support:
 
 **Reporting bugs** – The majority of development that goes into the Azure IoT Edge product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the project. Fixes rapidly make their way from the project in to product updates.
 
@@ -24,7 +24,8 @@ If you experience problems while using the Azure IoT Edge service, there are a v
 **Feature requests** – The Azure IoT Edge product tracks feature requests via the product’s [User Voice page](https://feedback.azure.com/forums/907045-azure-iot-edge).
 
 ## Container engines
-Azure IoT Edge needs a container engine to launch modules since they are implemented as containers. Microsoft provides a container engine, moby-engine, to fulfill this requirement. It is based on the Moby open-source project. Docker CE and Docker EE are other popular container engines. They are also based on the Moby open-source project and are compatible with Azure IoT Edge. Microsoft provides best effort support for systems using those container engines; however, Microsoft does not have the ability to ship fixes for issues in them. For this reason, Microsoft recommends using moby-engine on production systems.
+
+Azure IoT Edge modules are implemented as containers, so IoT Edge needs a container engine to launch them. Microsoft provides a container engine, moby-engine, to fulfill this requirement. This container engine is based on the Moby open-source project. Docker CE and Docker EE are other popular container engines. They're also based on the Moby open-source project and are compatible with Azure IoT Edge. Microsoft provides best effort support for systems using those container engines; however, Microsoft can't ship fixes for issues in them. For this reason, Microsoft recommends using moby-engine on production systems.
 
 <br>
 <center>
@@ -55,13 +56,13 @@ The systems listed in the following table are supported by Microsoft, either gen
 
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| Raspbian-stretch | No | Yes | Yes (Public preview) |
-| Ubuntu Server 16.04 | Yes | No | Yes (Public preview) |
-| Ubuntu Server 18.04 | Yes | No | Yes (Public preview) |
+| Raspbian-stretch | No | Yes | Public preview |
+| Ubuntu Server 16.04 | Yes | No | No |
+| Ubuntu Server 18.04 | Yes | No | No |
 | Windows 10 IoT Enterprise, build 17763 | Yes | No | No |
 | Windows Server 2019, build 17763 | Yes | No | No |
 | Windows Server IoT 2019, build 17763 | Yes | No | No |
-| Windows 10 IoT Core, build 17763 | Yes (Public preview) | No | No |
+| Windows 10 IoT Core, build 17763 | Public preview | No | No |
 
 
 The Windows operating systems listed above are the requirements for devices that run Windows containers on Windows. This configuration is the only supported configuration for production. The Azure IoT Edge installation packages for Windows allow the use of Linux containers on Windows; however, this configuration is for development and testing only. Use of Linux containers on Windows is not a supported configuration for production. Any version of Windows 10 build 14393 or newer and Windows Server 2016 or newer can be used for this development scenario.
