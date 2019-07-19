@@ -11,7 +11,7 @@ ms.service: event-grid
 services: event-grid
 ---
 
-Event Grid module accepts and delivers events in JSON format. There are currently two schemas that are supported by Event Grid :-
+Event Grid module accepts and delivers events in JSON format. There are currently two schemas that are supported by Event Grid: -
 
 1. **EventGridSchema** 
 1. **CustomSchema**
@@ -69,9 +69,9 @@ All events have the following top-level data:
         },
         "dataVersion": "1.0"
     }]
-    ```
+```
 
-## Custom Schema
+## CustomEvent Schema
 
 In custom schema there are no mandatory properties that are enforced like the EventGrid schema. Publishing entity can control the event schema entirely. This provides maximum flexibility and enables scenarios where you have a event-based system already in place and would like to reuse existing events and/or do not want to be tied down to a specific schema.
 
@@ -88,4 +88,4 @@ No mandatory properties. It is completely up to the publishing entity to determi
             "model": "Monster"
         }
     }]
-    ```
+```

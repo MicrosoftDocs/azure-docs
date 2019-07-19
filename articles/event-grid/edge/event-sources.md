@@ -19,5 +19,4 @@ Event sources refer to entities that publish events to Event Grid module. Any en
 * Non-IoT applications
 
 >[!IMPORTANT]
-
-[Security and Authentication](security-authentication.md) documentation describes the various options available to securely expose Event Grid functionality to Non-IoT Applications. 
+>[Security and Authentication](security-authentication.md) documentation describes the various options available to securely expose Event Grid functionality to Non-IoT Applications. 

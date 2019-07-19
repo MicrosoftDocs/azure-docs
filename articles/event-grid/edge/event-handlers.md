@@ -20,5 +20,4 @@ Event handlers refer to entities that subscribe to events. They are entities tha
 * Event Grid in the cloud
 
 >[!IMPORTANT]
-
-[Security and Authentication](security-authentication.md) documentation describes the various options available to securely expose Event Grid functionality to Non-IoT Applications.
+>[Security and Authentication](security-authentication.md) documentation describes the various options available to securely expose Event Grid functionality to Non-IoT Applications.
