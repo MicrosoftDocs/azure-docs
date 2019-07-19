@@ -63,7 +63,9 @@ The following table lists the property names and their description for creating 
 > [!NOTE]
 > The Azure SQL Database offering is supported for a job output in Stream Analytics, but an Azure virtual machine running SQL Server with a database attached or in a SQL Azure Managed Instance is not supported yet. This is subject to change in future releases.
 
-## Blob storage
+## Blob storage and Azure Data Lake Gen2
+
+Egress to Azure Data Lake Gen2 is offered as a public preview feature.
 
 Azure Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud. For an introduction on Blob storage and its usage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 

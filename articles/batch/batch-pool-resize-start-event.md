@@ -3,7 +3,7 @@ title: "Azure Batch pool resize start event | Microsoft Docs"
 description: Reference for Batch pool resize start event.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.assetid: 
 ms.service: batch

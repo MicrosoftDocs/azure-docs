@@ -116,7 +116,7 @@ The tenant/global admin can grant permissions as follows
 
 #### Assign Application Developer role 
 
-The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+The tenant/global admin can assign the Application Developer role to an account. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Assign permissions to create Key Vault
 
