@@ -173,17 +173,15 @@ To set the redirect URI:
 3.  Navigate to **app registrations** and select the app you want to deploy.
 4.  In the left panel, under manage section, select **Authentication**.
 5.  Enter the desired redirect URI, then select **Save**.
-
 <!--Can I get a better idea of what the UI for step 5 looks like?-->
-
-1. Select **Public client (mobile & desktop)** in the dropdown under Type.
-2. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
+6. Select **Public client (mobile & desktop)** in the dropdown under Type.
+7. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    ![The redirect URI page](media/8fc125e527af5dbfac48b9f026d18b10.png)
 
-3. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, contosoapp45) and navigate to the URL associated with it; for example, <https://contosoapp45.azurewebsites.net>.
-4. Sign in using the appropriate Azure Active Directory user account.
-5.   Select **Accept** to provide consent and use the Diagnostics-UX application.
+8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, contosoapp45) and navigate to the URL associated with it; for example, <https://contosoapp45.azurewebsites.net>.
+9. Sign in using the appropriate Azure Active Directory user account.
+10.   Select **Accept** to provide consent and use the Diagnostics-UX application.
 
 ## Distribute the diagnostics UX
 
