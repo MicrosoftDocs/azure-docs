@@ -99,6 +99,8 @@ Azure Web Application Firewall (WAF) provides protection to your web application
 
 Customers can choose to deploy [Azure WAF with Application Gateway](../application-gateway/waf-overview.md) which provides regional protection to entities in public and private address space. Customers can also choose to deploy [Azure WAF with Front Door](../frontdoor/waf-overview.md) which provides protection at the network edge to public endpoints.
 
+![Web Application Firewall](./media/networking-overview/waf-overview.png)
+
 
 ### <a name="firewall"></a>Azure Firewall
 Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. Using Azure Firewall, you can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall uses a static public IP address for your virtual network resources allowing outside firewalls to identify traffic originating from your virtual network. 
