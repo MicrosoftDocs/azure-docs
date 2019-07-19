@@ -29,9 +29,11 @@ Use the Azure Blob Storage client library for .NET to:
 
 ## Requirements
 
+You **must** have the following accounts and software to complete this quickstart. 
+
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* [NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet-core), or later, for your operating system. Be sure to get the SDK and not the runtime.
+* [NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core), or later, for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
 
