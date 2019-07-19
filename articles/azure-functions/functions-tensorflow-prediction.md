@@ -15,7 +15,13 @@ ms.custom: mvc
 
 # Make Predictions with TensorFlow and Azure Functions
 
-In this tutorial, you'll learn how Azure Functions allows you to import a TensorFlow model and apply it to make predictions. You'll create a serverless HTTP API endpoint in Python that takes an input image and predicts if the image contains a dog or a cat. You'll also learn how to consume the serverless API from a web application.
+In this tutorial, you'll learn how Azure Functions allows you to import a TensorFlow machine learning model and apply it to make predictions.
+
+> [!div class="checklist"]
+> * Initialize a local environment for developing Azure Functions in Python
+> * Import a custom TensorFlow machine learning model into a function app
+> * Build an HTTP API for predicting of a photo contains a dog or a cat
+> * Consume the API from a web application
 
 ## Prerequisites 
 
