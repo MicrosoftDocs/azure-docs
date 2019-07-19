@@ -9,11 +9,7 @@ ms.subservice: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: article
-<<<<<<< HEAD
-ms.date: 12/05/2018
-=======
 ms.date: 07/19/2019
->>>>>>> 910918fbee44f629e91063a277ef527478611c92
 ms.author: normesta
 ---
 

@@ -13,9 +13,6 @@ ms.author: normesta
 
 This article shows you how to use PowerShell to manage directories in storage accounts that have a hierarchical namespace.
 
-> [!NOTE]
-> The content featured in this article uses terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is persisted as a *blob*, and a *file system* is persisted as a *container*.
-
 ## Connect to the storage account
 
 1. Open a Windows PowerShell command window.
@@ -83,17 +80,19 @@ $dir3 = Move-AzStorageBlobDirectory -Context $ctx -SrcContainer $containerName -
 
 Delete a directory by using the `Remove-AzStorageBlobDirectory` cmdlet.
 
+This example deletes a directory named `my-directory` directory. 
+
 ```powershell
 $containerName = "mycontainer"
-$directory = "my-new-directory"
+$directory = "my-directory"
 Remove-AzStorageBlobDirectory -Context $ctx -Container $containerName -Path $directory 
 ```
 
 ## Upload a file to a directory
 
-Do blah by using the blah.
+Upload a directory by using the `Set-AzStorageBlobContent` cmdlet.
 
-This example does blah.
+This example uploads a file named `text1.txt` to the `my-directory` directory. 
 
 ```powershell
 $containerName = "mycontainer"
@@ -104,9 +103,9 @@ Set-AzStorageBlobContent -Context $ctx -File $localSrcFile -Container $container
 
 ## Download a file from a directory
 
-Do blah by using the blah.
+Download a file from a directory by using the `Get-AzStorageBlobFromDirectory` cmdlet.
 
-This example does blah.
+This example downloads a file named `text1.txt` from the `my-directory` directory. 
 
 ```powershell
 $containerName = "mycontainer"
@@ -117,9 +116,9 @@ $blob
 
 ## List the contents of a directory
 
-Do blah by using the blah.
+List the contents of a directory by using the `Get-AzStorageBlobFromDirectory` cmdlet.
 
-This example does blah.
+This example lists the contents of the `my-directory` directory. 
 
 ```powershell
 $containerName = "mycontainer"

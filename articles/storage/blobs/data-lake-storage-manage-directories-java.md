@@ -14,12 +14,11 @@ ms.component: data-lake-storage-gen2
 
 This article shows you how to use Java to manage directories in storage accounts that have a hierarchical namespace. 
 
-> [!NOTE]
-> The content featured in this article uses terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is persisted as a *blob*, and a *file system* is persisted as a *container*. 
-
 ## Connect to the storage account 
 
-Comment here.
+First, parse the connection string by calling the [parse](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account.parse?view=azure-java-legacy) method of a [CloudStorageAccount](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account?view=azure-java-legacy) object. 
+
+Then, create an object that represents Blob storage in your storage account by calling the [createCloudBlobClient](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account.createcloudblobclient?view=azure-java-legacy) method.
 
 ```java
 
@@ -34,7 +33,11 @@ Replace the `<connection-string>` placeholder value with the connection string o
 
 ## Create a directory
 
-Intro text here
+Create a directory reference by calling the **getDirectoryReference** method.
+
+Create a directory by using the **create** method of a **CloudBlobDirectory** object. 
+
+This example adds a directory named `my-directory` to a container and then adds a sub-directory named `my-subdirectory` to the directory named `my-directory`. 
 
 ```java
 static void CreateDirectory(CloudBlobClient cloudBlobClient, String containerName)
@@ -55,9 +58,33 @@ throws URISyntaxException, StorageException{
 }
 ```
 
+## Rename a directory
+
+Need explanation here.
+
+```java
+static void RenameDirectory(CloudBlobClient cloudBlobClient, String containerName)
+    throws URISyntaxException, StorageException {
+
+    CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.getContainerReference(containerName);
+
+    if (cloudBlobContainer != null){
+        CloudBlobDirectory cloudBlobDirectory =
+            cloudBlobContainer.getDirectoryReference("my-directory-2/my-directory");
+
+        if (cloudBlobDirectory != null){
+            // Need snippet here. Question pending. 
+
+        }
+    }
+
+} 
+```
+
 ## Move a directory
 
-Intro text here
+Need explanation here.
 
 ```java
 static void MoveDirectory(CloudBlobClient cloudBlobClient, String containerName)
@@ -88,33 +115,13 @@ throws URISyntaxException, StorageException{
 }
 ```
 
-## Rename a directory
 
-Intro text here
-
-```java
-static void RenameDirectory(CloudBlobClient cloudBlobClient, String containerName)
-    throws URISyntaxException, StorageException {
-
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.getContainerReference(containerName);
-
-    if (cloudBlobContainer != null){
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.getDirectoryReference("my-directory-2/my-directory");
-
-        if (cloudBlobDirectory != null){
-            // Need snippet here. Question pending. 
-
-        }
-    }
-
-} 
-```
 
 ## Delete a directory
 
-Intro text here
+Delete a directory by calling the **delete** method of a **CloudBlobDirectory** object.
+
+This example deletes a directory named `my-directory`. 
 
 ```java
 static void DeleteDirectory(CloudBlobClient cloudBlobClient, String containerName) 
@@ -138,7 +145,9 @@ throws URISyntaxException, StorageException{
 
 ## Upload a file to a directory
 
-Intro text here
+First, create a blob reference in the target directory by calling the **getBlockBlobReference** method of a **CloudBlobDirectory** object. This returns a **CloudBlockBlob** object. Upload a file by calling the **uploadFromFile** method of a **CloudBlockBlob** object.
+
+This example uploads a file to a directory named `my-directory`
 
 ```java
 static void UploadFilesToDirectory(CloudBlobClient cloudBlobClient, 
@@ -169,7 +178,7 @@ throws URISyntaxException, StorageException, IOException{
 
 ## Download a file from a directory
 
-Intro text here
+First, create a blob reference in the source directory by calling the **getBlockBlobReference** method of a **CloudBlobDirectory** object. This returns a **CloudBlockBlob** object. Download that blob by calling the **downloadToFileAsync** method of a **CloudBlockBlob** object.
 
 ```java
 static void GetFileFromDirectory(CloudBlobClient cloudBlobClient, 
@@ -199,7 +208,11 @@ throws URISyntaxException, StorageException, IOException{
 
 ## List the contents of a directory
 
-Intro text here
+To list containers in your storage account, call the **listBlobsSegmented** of a **CloudBlobDirectory** object.
+
+This example asynchronously lists the contents of a directory by calling the **ListBlobsSegmentedAsync** method of a a **CloudBlobDirectory** object.
+
+This example uses the continuation token to get the next segment of result.
 
 ```java
 static void ListDirectoryContents(CloudBlobClient cloudBlobClient, String containerName)

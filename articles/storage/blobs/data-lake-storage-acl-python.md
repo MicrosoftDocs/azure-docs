@@ -14,9 +14,6 @@ ms.component: data-lake-storage-gen2
 
 This article shows you how to use Python to manage directories in storage accounts that have a hierarchical namespace. 
 
-> [!NOTE]
-> The content featured in this article uses terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is persisted as a *blob*, and a *file system* is persisted as a *container*. 
-
 ## Connect to the storage account
 
 Comment
@@ -36,9 +33,8 @@ def initialize_storage_account(storage_account_name, storage_account_key):
 
 Get the access permissions of a directory by calling the [BlockBlobService.get_path_access_control](https://www.microsoft.com) method. Pass these items as parameters to the method:
 
-* The name of the container.
-
-* The path of the directory.
+- The name of the container.
+- The path of the directory.
 
 The following example returns a [PathProperties](https://www.microsoft.com) instance that contains the access control list (ACL) of the directory.
 
@@ -73,11 +69,9 @@ This string means that the owning user has read, write, and execute permissions.
 
 Set the access permissions of a directory by calling the [BlockBlobService.set_directory_permissions](https://www.microsoft.com) method. Pass these items as parameters to the method:
 
-* The name of the container.
-
-* The path of the directory.
-
-* The short form of the desired ACL.
+- The name of the container.
+- The path of the directory.
+- The short form of the desired ACL.
 
 This example gives read access to all users.
 
@@ -96,7 +90,14 @@ For more information about access control lists, see [Access control in Azure Da
 
 ## Get the ACL of a file
 
-Comment here.
+Get the access permissions of a file by calling the [BlockBlobService.get_path_access_control](https://www.microsoft.com) method. Pass these items as parameters to the method:
+
+- The name of the container.
+- The path of the file.
+
+The following example returns a [PathProperties](https://www.microsoft.com) instance that contains the access control list (ACL) of the file.
+
+This example gets the ACL of the `my-file.txt` file and then prints the short form of ACL to the console.
 
 ```python
 def get_file_ACL(container_name):
@@ -112,9 +113,21 @@ def get_file_ACL(container_name):
         print(e)
 ```
 
+The short form of an ACL might look something like the following:
+
+`user::rwx,group::r-x,other::---`
+
+This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+
 ## Set the ACL of a file
 
-Comment here.
+Set the access permissions of a file by calling the [BlockBlobService.set_directory_permissions](https://www.microsoft.com) method. Pass these items as parameters to the method:
+
+- The name of the container.
+- The path of the file.
+- The short form of the desired ACL.
+
+This example gives read access to all users.
 
 ```python
 def set_file_ACL(container_name):

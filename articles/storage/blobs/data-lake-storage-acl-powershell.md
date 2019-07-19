@@ -13,9 +13,6 @@ ms.author: normesta
 
 This article shows you how to use PowerShell to manage directory and file access permissions in storage accounts that have a hierarchical namespace. 
 
-> [!NOTE]
-> The content featured in this article uses terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is persisted as a *blob*, and a *file system* is persisted as a *container*.
-
 ## Connect to the storage account
 
 1. Open a Windows PowerShell command window.
@@ -50,15 +47,14 @@ This article shows you how to use PowerShell to manage directory and file access
    $ctx = $storageAccount.Context
    ```
 
-   * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
-
-   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+- Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+- Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 ## Get the access control list (ACL) of a directory
 
-Do blah by using the blah.
+Get the access permissions of a directory by using the `Get-AzStorageBlobFromDirectory` with the `-FetchPermission` flag.
 
-This example does blah.
+This example gets the ACL of a directory and then prints the short form of ACL to the console.
 
 ```powershell
 $containerName = "mycontainer"
@@ -67,11 +63,19 @@ $dir
 $dir.CloudBlobDirectory.Properties
 ```
 
+The short form of an ACL might look something like the following:
+
+`user::rwx group::r-x other::--`
+
+This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+
 ## Set the ACL of a directory
 
-Do blah by using the blah.
+Use the `New-AzStorageBlobPathACL` cmdlet to set ACLs for the owning user, owning group, or other users. 
 
-This example does blah.
+Use the `Set-AzStorageBlobDirectory` to commit the ACLs.
+
+This example sets ACLs on a file for the owning user, owning group, or other users.
 
 ```powershell
 $containerName = "mycontainer"
@@ -86,9 +90,9 @@ $blob.ICloudBlob.PathProperties
 
 ## Get the ACL of a file
 
-Do blah by using the blah.
+Get the access permissions of a file by using the `Get-AzStorageBlobFromDirectory` with the `-FetchPermission` and `BlobRelativePath` flags.
 
-This example does blah.
+This example gets the ACL of a file and then prints the short form of ACL to the console.
 
 ```powershell
 $containerName = "mycontainer"
@@ -97,11 +101,19 @@ $blob = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -
 $blob
 ```
 
+The short form of an ACL might look something like the following:
+
+`user::rwx group::r-x other::--`
+
+This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+
 ## Set the ACL of a file
 
-Do blah by using the blah.
+Use the `New-AzStorageBlobPathACL` cmdlet to set ACLs for the owning user, owning group, or other users. 
 
-This example does blah.
+Use the `Set-AzStorageBlob` to commit the ACLs.
+
+This example sets ACLs on a file for the owning user, owning group, or other users.
 
 ```powershell
 $containerName = "mycontainer"

@@ -14,9 +14,6 @@ ms.component: data-lake-storage-gen2
 
 This article shows you how to use Java to manage directory and file access permissions in storage accounts that have a hierarchical namespace. 
 
-> [!NOTE]
-> The content featured in this article uses terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is persisted as a *blob*, and a *file system* is persisted as a *container*.
-
 ## Connect to the storage account 
 
 Comment here.
@@ -34,7 +31,11 @@ Replace the `<connection-string>` placeholder value with the connection string o
 
 ## Get the access control list (ACL) for a directory
 
-Intro text here
+Get the access permissions of a directory by calling the **CloudBlobDirectory.downloadSecurityInfo** method.
+
+Call the **CloudBlobDirectory.getAccessControlList** method to return a collection of ACLs.
+
+This example gets the ACL of the `my-directory` directory and then prints the short form of ACL to the console.
 
 ```java
 static void GetDirectoryACL(CloudBlobClient cloudBlobClient, String containerName)
@@ -65,9 +66,15 @@ throws URISyntaxException, StorageException{
 
 ```
 
+The short form of an ACL might look something like the following:
+
+`user::rwx group::r-x other::--`
+
+This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+
 ## Set the ACL for a directory
 
-Intro text here
+Need to get a working example of this.
 
 ```java
 static void SetDirectoryACL(CloudBlobClient cloudBlobClient, String containerName)
@@ -101,7 +108,11 @@ throws URISyntaxException, StorageException{
 
 ## Get the ACL of a file
 
-Comment
+Get the access permissions of a file by calling the **CloudBlockBlob.downloadSecurityInfo** method.
+
+Call the **CloudBlockBlob.getAccessControlList** method to return a collection of ACLs.
+
+This example gets the ACL of a file and then prints the short form of ACL to the console.
 
 ```java
 static void GetFileACL(CloudBlobClient cloudBlobClient, String containerName,
@@ -140,7 +151,7 @@ String blobName) throws URISyntaxException, StorageException{
 
 ## Set the ACL of a file
 
-Comment
+Need to get a working example of this
 
 ```java
 static void SetFileACL(CloudBlobClient cloudBlobClient, String containerName, String blobName)
