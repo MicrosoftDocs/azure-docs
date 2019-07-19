@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 07/19/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -89,21 +89,13 @@ See the section FIDO2 Security Keys, in the article [What is passwordless?](conc
 > [!NOTE]
 > If you purchase and plan to use NFC based security keys you will need a supported NFC reader.
 
-## Enable passwordless authentication methods
+## Enable passwordless authentication method
 
 ### Enable the combined registration experience
 
-Registration features for FIDO2 security keys rely on the combined registration preview. Follow the steps below to enable the combined registration preview.
+Registration features for passwordless authentication methods rely on the combined registration preview. Follow the steps in the article [Enable combined security information registration (preview)](howto-registration-mfa-sspr-combined.md), to enable the combined registration preview.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Browse to **Azure Active Directory** > **User Settings**
-   1. Click on **Manage user feature preview settings**
-   1. Under **Users can use preview features for registering and managing security info - enhanced**.
-      1. Choose **Selected** and choose a group of users who will participate in the preview.
-      1. Or choose **All** to enable for everyone in your directory.
-1. Click **Save**
-
-### Enable new passwordless authentication methods
+### Enable new passwordless authentication method
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Browse to **Azure Active Directory** > **Authentication methods** > **Authentication method policy (Preview)**
@@ -144,7 +136,7 @@ Registration features for FIDO2 security keys rely on the combined registration 
 
 To configure the Microsoft Authenticator app for phone sign in, follow the guidance in the article [Sign in to your accounts using the Microsoft Authenticator app](../user-help/user-help-auth-app-sign-in.md).
 
-## Sign in with passwordless credentials
+## Sign in with passwordless credential
 
 ### Sign in at the lock screen
 
@@ -175,6 +167,8 @@ Users relying on WIA SSO that use managed credentials like FIDO2 security keys o
 We are working on supporting a feature that allows UPN change on hybrid AADJ and AADJ devices. If a user’s UPN changes, you can no longer modify FIDO2 security keys to account for that. So the only approach is to reset the device and the user has to re-register.
 
 ## Next steps
+
+
 
 [Learn about device registration](../devices/overview.md)
 

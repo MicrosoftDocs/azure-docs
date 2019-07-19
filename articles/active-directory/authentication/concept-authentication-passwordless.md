@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 07/19/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,6 +29,8 @@ We recognize that each organization has different needs when it comes to authent
 
 Allow your employee’s phone to become a passwordless authentication method. You may already be using the Microsoft Authenticator App as a convenient multi-factor authentication option in addition to a password. But now, it’s available as a passwordless option.
 
+![Sign-in Microsoft Edge with Microsoft Authenticator app](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
+
 It turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign in to any platform or browser by getting a notification to their phone, matching a number displayed on the screen to the one on their phone and then using their biometric (touch or face) or PIN to confirm.
 
 ## FIDO2 security keys
@@ -36,6 +38,8 @@ It turns any iOS or Android phone into a strong, passwordless credential by allo
 FIDO2 security keys are an unphishable standards-based passwordless authentication method that can come in any form factor. Fast Identity Online (FIDO) is an open standard for passwordless authentication. It allows users and organizations to leverage the standard to sign in to their resources without a username or password using an external security key or a platform key built into a device.
 
 For public preview, employees can use external security keys to sign in to their Azure Active Directory Joined Windows 10 machines (running version 1809 or higher) and get single-sign on to their cloud resources. They can also sign in to supported browsers.
+
+![Sign-in Microsoft Edge with a security key](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
 While there are many keys that are FIDO2 certified by the FIDO Alliance, Microsoft requires some optional extensions of the FIDO2 CTAP specification to be implemented by the vendor to ensure maximum security and the best experience.
 
@@ -73,7 +77,9 @@ FIDO2 security keys are a great option for enterprises who are very security sen
 
 ## Next steps
 
-[Enable passwordless options in your organization](howto-authentication-passwordless-enable.md)
+[Enable FIDO2 security key passwordlesss options in your organization](howto-authentication-passwordless-security-key.md)
+
+[Enable phone-based passwordless options in your organization](howto-authentication-passwordless-phone.md)
 
 ### External Links
 
