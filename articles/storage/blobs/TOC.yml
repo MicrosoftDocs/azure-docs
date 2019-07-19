@@ -667,12 +667,6 @@
         href: ../blobs/storage-java-how-to-use-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Python
         href: ../blobs/storage-python-how-to-use-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Manage
-      items:
-        - name: PowerShell
-          href: ../blobs/data-lake-storage-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Storage Explorer
-          href: ../blobs/data-lake-storage-explorer.md
     - name: Migrate data
       items:
         - name: Upgrade from Data Lake Storage Gen1
