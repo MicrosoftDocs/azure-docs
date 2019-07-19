@@ -139,19 +139,6 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
     }
     ```
 
-   If you are using a proxy object to connect to Azure Cosmos DB, you should instead use the following code block to create the cosmosClient object. The sample in this document doesn't use a proxy object, so the example below is just for your reference:
-
-   ```csharp
-   HttpClientHandler handler = new HttpClientHandler()
-   {
-     Proxy = proxyObject
-     UseProxy = true,
-   };
-   //Pass handler to the constructor of DocumentClient.
-   CosmosClient cosmosClient = new cosmosClient(new Uri(EndpointUrl), PrimaryKey, handler);
-   
-   ```
-
 1. Add the following code to run the **GetStartedDemoAsync** asynchronous task from your **Main** method. The **Main** method will catch exceptions and write them to the console.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=Main)]
