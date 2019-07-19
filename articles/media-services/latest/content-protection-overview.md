@@ -164,6 +164,8 @@ Common browsers support the following DRM clients:
 
 You can control who has access to your content by configuring the content key policy. Media Services supports multiple ways of authorizing users who make key requests. You must configure the content key policy. The client (player) must meet the policy before the key can be delivered to the client. The content key policy can have *open* or *token* restriction. 
 
+An open-restricted content key policy may be used when you want to issue license to anyone without authorization. For example, if your revenue is ad-based and not subscription-based.  
+
 With a token-restricted content key policy, the content key is sent only to a client that presents a valid JWT token or a simple web token in the license/key request. This token must be issued by an STS. 
 
 You can use Azure AD as an STS or deploy a custom STS. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services license/key delivery service returns the requested license or key to the client if both of these conditions exist:
