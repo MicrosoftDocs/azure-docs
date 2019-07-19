@@ -133,10 +133,10 @@
     href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
   - name: Passwordless
     items: 
-      - name: Enable passwordless
-        href: howto-authentication-passwordless-enable.md
+      - name: Passwordless security keys
+        href: howto-authentication-passwordless-security-key.md
       - name: Passwordless phone sign-in
-        href: howto-authentication-phone-sign-in.md
+        href: howto-authentication-passwordless-phone.md
   - name: Certificate-based authentication
     items:
     - name: Get started with certificate auth
