@@ -81,12 +81,12 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 1. Open the **B2C-WebAPI.sln** solution in Visual Studio.
 1. Open the **appsettings.json** file.
-1. Modify the `AzureAdB2C` block to reflect your tenant name, the application ID of the web application, the name of your sign-up/sign-in policy, and the scopes you defined earlier. The block should look similar to the following example (with appropriate `Tenant` and `ClientId` values):
+1. Modify the `AzureAdB2C` block to reflect your tenant name, the application ID of the web API application, the name of your sign-up/sign-in policy, and the scopes you defined earlier. The block should look similar to the following example (with appropriate `Tenant` and `ClientId` values):
 
     ```json
     "AzureAdB2C": {
-      "Tenant": "<your tenant name>.onmicrosoft.com",
-      "ClientId": "<webapp-application-ID>",
+      "Tenant": "<your-tenant-name>.onmicrosoft.com",
+      "ClientId": "<webapi-application-ID>",
       "Policy": "B2C_1_signupsignin1",
 
       "ScopeRead": "Hello.Read",
@@ -101,19 +101,29 @@ To allow your single page application to call the ASP.NET Core web API, you need
 1. In **Startup.cs**, add CORS to the `ConfigureServices()` method.
 
     ```csharp
-    public void ConfigureServices(IServiceCollection services) {
-      services.AddCors();
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddCors();
     ```
 
 1. In **Startup.cs**, configure CORS in the `Configure()` method.
 
     ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
-      app.UseCors(builder =>
-        builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+    {
+        app.UseCors(builder =>
+            builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
-1. Open the **launchSettings.json** file under **Properties**, locate the **iisSettings** *applicationURL* setting, and set the port number to the one registered for the API Reply URL `http://localhost:5000`.
+1. Under **Properties** in the Solution Explorer, open the **launchSettings.json** file, then find the `iisExpress` block.
+1. Update the `applicationURL` value with the port number your specified when you registered the *webapi1* application in an earlier step. For example:
+
+    ```json
+    "iisExpress": {
+      "applicationUrl": "http://localhost:5000/",
+      "sslPort": 0
+    }
+    ````
 
 ### Configure the single page application
 
