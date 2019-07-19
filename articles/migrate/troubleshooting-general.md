@@ -4,8 +4,8 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.author: raynew
+ms.date: 07/19/2019
+ms.author: musa
 ---
 
 # Troubleshoot Azure Migrate
@@ -116,9 +116,31 @@ If the issue still happens in the latest version, it could be because the collec
 3. Identify the correct port number to connect to the vCenter.
 4. Finally check if the vCenter server is up and running.
 
+
+### The appliance could not be registered successfully to the Azure Migrate project (Error ID: 60052)
+
+This error is due to insufficient permissions on the Azure account used to register the appliance. Ensure that the Azure user account used to register the appliance has at least 'Contributor' access on the subscription. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about the required Azure roles and permissions.
+
+### The appliance could not be registered successfully to the Azure Migrate project (Error ID: 60039)
+
+The Azure Migrate project selected by you to register the appliance is not found, causing the registration to fail. Go to the Azure portal and check if the project exists in your resource group. If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) about creating a new Azure Migrate project.
+
+### Azure key vault management operation failed (Error ID: 60030, 60031)
+
+Ensure that the Azure user account used to register the appliance has at least 'Contributor' access on the subscription. Also, check if the account has access to the Key Vault specified in the error message and retry the operation. If the issue persists, contact Microsoft support. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about the required Azure roles and permissions.
+
+### Discovery could not be initiated due to the error. The operation failed for the given list of hosts or clusters (Error ID: 60028)
+
+Discovery couldn't be started on the hosts listed in the error due to a problem in accessing or retrieving VM information; the rest of the hosts you had added have been successfully added. Add again the hosts in the error using the **Add host** option. If there is a validation error, review the remediation guidance to fix the errors and try **Save and start discovery** again.
+
+### Azure Active Directory (AAD) operation failed. The error occurred while creating or updating the AAD application (Error ID: 60025)
+
+The Azure user account used to register the appliance does not have access to the AAD application specified in the error message. Check whether you are the owner of the AAD application. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about AAD application permissions.
+
+
 ## Discovery issues
 
-### I started discovery but I don't see the discovered VMs on Azure portal. Server Assessment and Server Migrate tiles show a status of "Discovery in progress"
+### I started discovery but I don't see the discovered VMs on Azure portal. Server Assessment and Server Migration tiles show a status of "Discovery in progress"
 After starting discovery from the appliance, allow some time for the discovered machines to show up on the Azure portal. It takes around 15 minutes for a VMware discovery, and around 2 minutes per added host for a Hyper-V discovery. If you continue to see "Discovery in progress" even after this time, click **Refresh** on the **Servers** tab. This should show the count of the discovered servers in the Server Assessment and Server Migration tiles.
 
 
