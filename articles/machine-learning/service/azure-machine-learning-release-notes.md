@@ -78,7 +78,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Add support for token authentication in AKS webservices. 
     + Add `get_token()` method to `Webservice` objects.
     + Added CLI support to manage machine learning datasets.
-    + Enter release notes (if required) here using markdown syntax.
     + `Datastore.register_azure_blob_container` now optionally takes a `blob_cache_timeout` value (in seconds) which configures blobfuse's mount parameters to enable cache expiration for this datastore. The default is no timeout, i.e. when a blob is read, it will stay in the local cache until the job is finished. Most jobs will prefer this setting, but some jobs need to read more data from a large dataset than will fit on their nodes. For these jobs, tuning this parameter will help them succeed. Take care when tuning this parameter: setting the value too low can result in poor performance, as the data used in an epoch may expire before being used again. This means that all reads will be done from blob storage (i.e. the network) rather than the local cache, which negatively impacts training times.
     + Enable customer to compare two datasets
     + Model description can now properly be updated after registration
@@ -114,22 +113,21 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Pin pyarrow of opendatasets to old versions (<0.14.0) because of memory issue newly introduced there.
     +  Move azureml-contrib-opendatasets to azureml-opendatasets. - Allow open dataset classes to be registered to AML workspace and leverage AML Dataset capabilities seamlessly. - Improve NoaaIsdWeather enrich performance in non-SPARK version significantly.
   + **azureml-pipeline-core**
-    + `hash_paths parameter for all pipeline steps is deprecate and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
+    + `hash_paths parameter for all pipeline steps is deprecated and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
   + **azureml-pipeline-internal**
-    + `hash_paths parameter for all pipeline steps is deprecate and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
+    + `hash_paths parameter for all pipeline steps is deprecated and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
   + **azureml-pipeline-steps**
-    + `hash_paths parameter for all pipeline steps is deprecate and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
+    + `hash_paths parameter for all pipeline steps is deprecated and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
     + DBFS Datastore is now supported for Inputs and Outputs in DatabricksStep.
-    + Enter release notes (if required) here using markdown syntax. Updated documentation for Azure Batch Step with regards to inputs/outputs.
+    + Updated documentation for Azure Batch Step with regards to inputs/outputs.
     + In AzureBatchStep, changed *delete_batch_job_after_finish* default value to *true*.
   + **azureml-telemetry**
-    + Enter release notes (if required) here using markdown syntax.
     +  Move azureml-contrib-opendatasets to azureml-opendatasets. - Allow open dataset classes to be registered to AML workspace and leverage AML Dataset capabilities seamlessly. - Improve NoaaIsdWeather enrich performance in non-SPARK version significantly.
   + **azureml-train-automl**
     + Updated documentation on get_output to reflect the actual return type and provide additional notes on retrieving key properties.
     + Update NimbusML dependency to 1.2.0 version (current latest).
     + add expected values to automl output
-    + `hash_paths parameter for all pipeline steps is deprecate and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
+    + `hash_paths parameter for all pipeline steps is deprecated and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
   + **azureml-train-core**
     + Strings are now accepted as compute target for Automated Hyperparameter Tuning
     + The unused RunConfiguration setting auto_prepare_environment has been marked as deprecated.
