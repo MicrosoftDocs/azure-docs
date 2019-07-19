@@ -175,11 +175,6 @@ You can use Azure AD as an STS or deploy a custom STS. The STS must be configure
 
 When you configure the token-restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the STS that issues the token. The audience, sometimes called scope, describes the intent of the token or the resource that the token authorizes access to. The Media Services license/key delivery service validates that these values in the token match the values in the template.
 
-Customers often use a custom STS to:
-
-* Include custom claims in the token to select between different `ContentKeyPolicyOption` classes with different DRM license parameters (a subscription license versus a rental license). 
-* Include a claim that represents the content key identifier of the key that the token grants access to.
-
 ### Token replay prevention
 
 The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. The customer can add a claim of type `urn:microsoft:azure:mediaservices:maxuses` in the token, where the value is the number of times the token can be used to acquire a license or key. All subsequent requests with the same token to Key Delivery will return an unauthorized response. See how to add the claim in the [DRM sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
@@ -192,6 +187,27 @@ The *Token Replay Prevention* feature allows Media Services customers to set a l
 * Playback fails if the token has exceeded the `maxuses` value set by the customer.
 * This feature can be used for all existing protected content (only the token issued needs to be changed).
 * This feature works with both JWT and SWT.
+
+## Using a custom STS
+
+A customer might choose to use a custom STS to provide JWTs. Reasons include:
+
+* The IDP used by the customer doesn't support STS. In this case, a custom STS might be an option.
+* The customer might need more flexible or tighter control to integrate STS with the customer's subscriber billing system. For example, an MVPD operator might offer multiple OTT subscriber packages, such as premium, basic, and sports. The operator might want to match the claims in a token with a subscriber's package so that only the contents in a specific package are made available. In this case, a custom STS provides the needed flexibility and control.
+* To include custom claims in the token to select between different ContentKeyPolicyOptions with different DRM license parameters (a subscription license versus a rental license).
+* To include a claim representing the content key identifier of the key that the token grants access to.
+
+When you use a custom STS, two changes must be made:
+
+* When you configure license delivery service for an asset, you need to specify the security key used for verification by the custom STS instead of the current key from Azure AD. (More details follow.) 
+* When a JTW token is generated, a security key is specified instead of the private key of the current X509 certificate in Azure AD.
+
+There are two types of security keys:
+
+* Symmetric key: The same key is used to generate and to verify a JWT.
+* Asymmetric key: A public-private key pair in an X509 certificate is used with a private key to encrypt/generate a JWT and with the public key to verify the token.
+
+If you use .NET Framework/C# as your development platform, the X509 certificate used for an asymmetric security key must have a key length of at least 2048. This is a requirement of the class System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Otherwise, the following exception is thrown: IDX10630: The 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' for signing cannot be smaller than '2048' bits.
 
 ## Custom key and license acquisition URL
 
