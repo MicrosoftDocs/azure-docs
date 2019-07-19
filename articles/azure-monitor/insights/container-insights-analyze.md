@@ -277,7 +277,7 @@ Azure Monitor for containers includes four workbooks to get you started:
 
     - Disk % usage for all disks
     - Free disk space for all disks
-    - A table showing for each nodes disk, its % used space, trend of % used space, free disk space (GiB), and trend of free disk space (GiB). When a row is selected in the table, % used space and free disk space (GiB) is shown below 
+    - A grid showing for each nodes disk, its % used space, trend of % used space, free disk space (GiB), and trend of free disk space (GiB). When a row is selected in the table, % used space and free disk space (GiB) is shown below 
 
 2. **Disk IO** - Presents interactive disk utilization charts for each disk presented to the node within a container by the following perspectives:
 
@@ -289,10 +289,9 @@ Azure Monitor for containers includes four workbooks to get you started:
     - Overview by node grid summarizes total operation, total errors, and successful operations by percent and trend for each node.
     - Overview by operation type summarizes for each operation the total operation, total errors, and successful operations by percent and trend.
 
-4. **Network** - Presents interactive network utilization charts for each nodes network adapter.  
+4. **Network** - Presents interactive network utilization charts for each nodes network adapter and a grid presenting the key performance indicators to help measure the performance of your network adapters.  
 
-
-You access this workbook by selecting **Disk capacity** from the **View Workbooks** drop-down list.  
+You access these workbooks by selecting each one from the **View Workbooks** drop-down list.  
 
 ![View Workbooks drop-down list](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
