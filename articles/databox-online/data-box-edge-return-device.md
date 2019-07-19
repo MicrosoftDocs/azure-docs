@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 07/19/2019
 ms.author: alkohli
 ---
 
@@ -105,16 +105,17 @@ You're notified after the device and the associated resource is successfully del
 
 ## Get a replacement device
 
-To get a replacement device, you need to take the following steps:
+A replacement device is needed when the existing device has a hardware failure or needs an upgrade. Take the following steps when your device has a hardware issue:
 
-1. Follow all the steps to return the device with the following modifications:
-    1. Wait to erase the data on the device.
-    2. [Open a Support ticket](#open-a-support-ticket). In the ticket, also mention that that you need a replacement device.
-    3. After you receive the replacement device, [erase the data on the device](#erase-data-from-the-device).
-    4. [Schedule a pickup](#schedule-a-pickup).
+1. [Open a Support ticket for hardware issue](#open-a-support-ticket). Microsoft Support will determine that a Field Replacement Unit (FRU) is not available for this instance or the device needs a hardware upgrade. In either case, Support will order a replacement device.
+2. [Create a new resource](data-box-edge-deploy-prep.md#create-a-new-resource) for the replacement device. Make sure to select the check box against **I have a Data Box Edge device**. 
+3. After you receive a replacement device, [install](data-box-edge-deploy-install.md) and [activate](data-box-edge-deploy-connect-setup-activate.md) the replacement device against the new resource.
+4. Follow all the steps to return the original device:
+    1. Open another ticket to return the original device.
+    2. [Erase the data on the device](#erase-data-from-the-device).
+    3. [Schedule a pickup](#schedule-a-pickup).
     5. [Delete the resource](#delete-the-resource) associated with the returned device.
-2. [Create a new resource](data-box-edge-deploy-prep.md#create-a-new-resource) for the device. Make sure to select the check box against **I have a Data Box Edge device**. 
-3. [Install](data-box-edge-deploy-install.md) and [activate](data-box-edge-deploy-connect-setup-activate.md) the replacement device against the new resource.
+
 
 
 ## Next steps
