@@ -3,7 +3,7 @@ title: Mobile app that calls web APIs - app's code configuration | Microsoft ide
 description: Learn how to build a mobile app that calls web APIs (app's code configuration)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory

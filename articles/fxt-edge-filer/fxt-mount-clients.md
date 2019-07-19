@@ -38,7 +38,7 @@ To learn about round-robin DNS load balancing for the cluster, read [Configure D
 
 A simpler method for small installations is to use a script to assign IP addresses throughout the range at client mount time. 
 
-Other load-balancing methods might be appropriate for large or complicated systems. Consult your Microsoft representative or open a support request for help. (Azure Load Balancer is currently *not supported* with Azure FXT Edge Filer.)
+Other load-balancing methods might be appropriate for large or complicated systems. Consult your Microsoft representative or open a [support request](fxt-support-ticket.md) for help. (Azure Load Balancer is currently *not supported* with Azure FXT Edge Filer.)
 
 ## Create the mount command 
 

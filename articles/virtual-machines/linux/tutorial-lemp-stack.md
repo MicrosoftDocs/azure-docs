@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to install the LEMP stack on a Linu
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
