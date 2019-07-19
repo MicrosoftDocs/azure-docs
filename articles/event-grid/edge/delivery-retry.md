@@ -1,7 +1,7 @@
 ---
 title: Delivery and Retry - Azure Event Grid IoT Edge | Microsoft Docs 
 description: Delivery and Retry in Event Grid on IoT Edge.  
-author: vkukke
+author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: 
@@ -11,7 +11,7 @@ ms.service: event-grid-on-edge
 services: event-grid-on-edge
 ---
 
-## Overview
+# Delivery and Retry
 
 Event Grid provides durable delivery. It tries to deliver each message at least once for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there is a failure, Event Grid retries delivery based on a fixed **retry schedule** and **retry policy**.  Currently Event Grid module delivers an event at a time to the subscriber. The payload is however an array with a single event.
 
@@ -42,8 +42,8 @@ There are two pre-configured back off queues that determine the schedule on whic
 
 There are two configurations that determine retry policy. They are:-
 
-1. Maximum number of attempts
-1. Event TTL
+* Maximum number of attempts
+* Event TTL
 
 An event will be dropped if either of the limits of the retry policy is reached. The retry schedule itself was described above.
 

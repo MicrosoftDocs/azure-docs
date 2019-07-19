@@ -1,9 +1,9 @@
 ---
 title: REST API - Azure Event Grid IoT Edge | Microsoft Docs 
 description: REST API on Event Grid on IoT Edge.  
-author: hitesh
+author: VidyaKukke
 manager: rajarv
-ms.author: hitesh
+ms.author: vkukke
 ms.reviewer: 
 ms.date: 07/18/2019
 ms.topic: article
