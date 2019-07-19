@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 07/19/2019
 ms.author: tehnoonr
 ---
 
