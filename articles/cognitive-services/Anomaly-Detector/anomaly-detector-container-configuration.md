@@ -99,8 +99,8 @@ Replace value in brackets, `{}`, with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-|{BILLING_KEY} | The endpoint key of the Anomaly Detector resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | The billing endpoint value including region.|`https://westus2.api.cognitive.microsoft.com`|
+|{API_KEY} | The endpoint key of the Anomaly Detector resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | The billing endpoint value including region.|`https://westus2.api.cognitive.microsoft.com`|
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](anomaly-detector-container-howto.md#billing).
@@ -116,8 +116,8 @@ The following Docker examples are for the Anomaly Detector container.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
 ### Logging example with command-line arguments
@@ -126,6 +126,6 @@ The following Docker examples are for the Anomaly Detector container.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```

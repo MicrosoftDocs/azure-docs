@@ -2,7 +2,7 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/10/2019
+ms.date: 07/19/2019
 ms.author: larryfr
 ---
 
@@ -12,18 +12,18 @@ The entries in the `deploymentconfig.json` document map to the parameters for [A
 | ----- | ----- | ----- |
 | `computeType` | NA | The compute target. For AKS, the value must be `aks`. |
 | `autoScaler` | NA | Contains configuration elements for autoscale. See the autoscaler table. |
-| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Whether or not to enable autoscaling for the web service. If `numReplicas` = `0`, `True`; otherwise, `False`. |
+| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Whether to enable autoscaling for the web service. If `numReplicas` = `0`, `True`; otherwise, `False`. |
 | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | The minimum number of containers to use when autoscaling this web service. Default, `1`. |
 | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | The maximum number of containers to use when autoscaling this web service. Default, `10`. |
 | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | How often the autoscaler attempts to scale this web service. Default, `1`. |
 | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | The target utilization (in percent out of 100) that the autoscaler should attempt to maintain for this web service. Default, `70`. |
 | `dataCollection` | NA | Contains configuration elements for data collection. |
-| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Whether or not to enable model data collection for the web service. Default, `False`. |
-| `authEnabled` | `auth_enabled` | Whether or not to enable authentication for the web service. Default, `True`. |
-| `containerResourceRequirements` | NA | Contains configuration elements for the CPU and memory allocated for the container. |
+| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Whether to enable model data collection for the web service. Default, `False`. |
+| `authEnabled` | `auth_enabled` | Whether to enable authentication for the web service. Default, `True`. |
+| `containerResourceRequirements` | NA | Container for the CPU and memory entities. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate for this web service. Defaults, `0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
-| `appInsightsEnabled` | `enable_app_insights` | Whether or not to enable Application Insights logging for the web service. Default, `False`. |
+| `appInsightsEnabled` | `enable_app_insights` | Whether to enable Application Insights logging for the web service. Default, `False`. |
 | `scoringTimeoutMs` | `scoring_timeout_ms` | A timeout to enforce for scoring calls to the web service. Default, `60000`. |
 | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | The maximum concurrent requests per node for this web service. Default, `1`. |
 | `maxQueueWaitMs` | `max_request_wait_time` | The maximum time a request will stay in thee queue (in milliseconds) before a 503 error is returned. Default, `500`. |
@@ -38,7 +38,7 @@ The entries in the `deploymentconfig.json` document map to the parameters for [A
 | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Number of seconds after which the liveness probe times out. Defaults to 2 seconds. Minimum value is 1 |
 | &emsp;&emsp;`successThreshold` | `success_threshold` | Minimum consecutive successes for the liveness probe to be considered successful after having failed. Defaults to 1. Minimum value is 1. |
 | &emsp;&emsp;`failureThreshold` | `failure_threshold` | When a Pod starts and the liveness probe fails, Kubernetes will try failureThreshold times before giving up. Defaults to 3. Minimum value is 1. |
-| `namespace` | `namespace` | The Kubernetes namespace that the webservice is deployed into. Up to 63 lowercase alphanumeric ('a'-'z', '0'-'9') and hyphen ('-') characters. The first and last characters cannot be hyphens. |
+| `namespace` | `namespace` | The Kubernetes namespace that the webservice is deployed into. Up to 63 lowercase alphanumeric ('a'-'z', '0'-'9') and hyphen ('-') characters. The first and last characters can't be hyphens. |
 
 The following JSON is an example deployment configuration for use with the CLI:
 

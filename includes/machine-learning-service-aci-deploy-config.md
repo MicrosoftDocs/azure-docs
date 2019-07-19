@@ -2,7 +2,7 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/10/2019
+ms.date: 07/19/2019
 ms.author: larryfr
 ---
 
@@ -11,13 +11,13 @@ The entries in the `deploymentconfig.json` document map to the parameters for [A
 | JSON entity | Method parameter | Description |
 | ----- | ----- | ----- |
 | `computeType` | NA | The compute target. For ACI, the value must be `ACI`. |
-| `containerResourceRequirements` | NA | Contains configuration elements for the CPU and memory allocated for the container. |
-| &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate for this web service. Defaults, `0.1` |
+| `containerResourceRequirements` | NA | Container for the CPU and memory entities. |
+| &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate. Defaults, `0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
 | `location` | `location` | The Azure region to deploy this Webservice to. If not specified the Workspace location will be used. More details on available regions can be found here: [ACI Regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
-| `authEnabled` | `auth_enabled` | Whether or not to enable auth for this Webservice. Defaults to False |
-| `sslEnabled` | `ssl_enabled` | Whether or not to enable SSL for this Webservice. Defaults to False. |
-| `appInsightsEnabled` | `enable_app_insights` | Whether or not to enable AppInsights for this Webservice. Defaults to False |
+| `authEnabled` | `auth_enabled` | Whether to enable auth for this Webservice. Defaults to False |
+| `sslEnabled` | `ssl_enabled` | Whether to enable SSL for this Webservice. Defaults to False. |
+| `appInsightsEnabled` | `enable_app_insights` | Whether to enable AppInsights for this Webservice. Defaults to False |
 | `sslCertificate` | `ssl_cert_pem_file` | The cert file needed if SSL is enabled |
 | `sslKey` | `ssl_key_pem_file` | The key file needed if SSL is enabled |
 | `cname` | `ssl_cname` | The cname for if SSL is enabled |

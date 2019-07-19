@@ -359,7 +359,6 @@ clf = Pipeline(steps=[('preprocessor', preprocessor),
                       ('classifier', LogisticRegression(solver='lbfgs'))])
 
 
-
 # append classifier to preprocessing pipeline.
 # now we have a full prediction pipeline.
 clf = Pipeline(steps=[('preprocessor', preprocessor),
@@ -369,11 +368,11 @@ clf = Pipeline(steps=[('preprocessor', preprocessor),
 # clf.steps[-1][1] returns the trained classification model
 # pass transformation as an input to create the explanation object
 # "features" and "classes" fields are optional
-tabular_explainer = TabularExplainer(clf.steps[-1][1], 
-                                    initialization_examples=x_train, 
-                                    features=dataset_feature_names, 
-                                    classes=dataset_classes, 
-                                    transformations=preprocessor) 
+tabular_explainer = TabularExplainer(clf.steps[-1][1],
+                                     initialization_examples=x_train,
+                                     features=dataset_feature_names,
+                                     classes=dataset_classes,
+                                     transformations=preprocessor)
 ```
 
 In case you want to run the example with the list of fitted transformer tuples, use the following code: 
@@ -386,24 +385,26 @@ from sklearn_pandas import DataFrameMapper
 
 # assume that we have created two arrays, numerical and categorical, which holds the numerical and categorical feature names
 
-numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
+numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(
+    strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
 
-categorical_transformations = [([f], OneHotEncoder(handle_unknown='ignore', sparse=False)) for f in categorical]
+categorical_transformations = [([f], OneHotEncoder(
+    handle_unknown='ignore', sparse=False)) for f in categorical]
 
 transformations = numeric_transformations + categorical_transformations
 
 # append model to preprocessing pipeline.
 # now we have a full prediction pipeline.
 clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
-                    ('classifier', LogisticRegression(solver='lbfgs'))])
+                      ('classifier', LogisticRegression(solver='lbfgs'))])
 
 # clf.steps[-1][1] returns the trained classification model
 # pass transformation as an input to create the explanation object
 # "features" and "classes" fields are optional
-tabular_explainer = TabularExplainer(clf.steps[-1][1], 
-                                     initialization_examples=x_train, 
-                                     features=dataset_feature_names, 
-                                     classes=dataset_classes, 
+tabular_explainer = TabularExplainer(clf.steps[-1][1],
+                                     initialization_examples=x_train,
+                                     features=dataset_feature_names,
+                                     classes=dataset_classes,
                                      transformations=transformations)
 ```
 
