@@ -33,7 +33,7 @@ In this tutorial, you will:
 
 1. Sign in to your [Azure portal](https://portal.azure.com/).
 
-1. Select [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) on the menu in the upper-right corner of the Azure portal.
+1. Select [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) on the right side of the top menu bar in the Azure portal.
 
 1. To create the AKS cluster, run the following commands:
 
@@ -124,7 +124,7 @@ Deployment Center automatically creates and configures the relationship between 
 
 1. To examine all the tasks for your pipeline, select **Tasks**. The release sets the tiller environment, configures the `imagePullSecrets` parameter, installs Helm tools, and deploys the Helm charts to the K8s cluster.
 
-1. To view the release history, select **View releases**. 
+1. To view the release history, select **View releases**.
 
 1. To see the summary, select **Release**. Select any of the stages to explore multiple menus, such as a release summary, associated work items, and tests. 
 
@@ -134,11 +134,11 @@ Deployment Center automatically creates and configures the relationship between 
 
 ## Clean-up resources
 
-You can delete the related resources that you created when you don't need them anymore. Use the Delete functionality on the DevOps Projects dashboard.
+You can delete the related resources that you created when you don't need them anymore. Use the delete functionality on the DevOps Projects dashboard.
 
 ## Next steps
 
-You can also modify these build and release pipelines to meet the needs of your team. Or, you can use this CI/CD pattern as a template for your other pipelines. In this tutorial, you learned how to:
+You can also modify these build and release pipelines to meet the needs of your team. Or, you can use this CI/CD model as a template for your other pipelines. In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Configure a DevOps pipeline to deploy your application updates to the k8s cluster.
