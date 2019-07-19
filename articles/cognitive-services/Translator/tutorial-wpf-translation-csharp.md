@@ -44,7 +44,7 @@ This list includes the Cognitive Services used in this tutorial. Follow the link
 Before we continue, you'll need the following:
 
 * An Azure Cognitive Services subscription. [Get a Cognitive Services key](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-subscription).
-* A Windows machine
+* A Windows computer
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/) - Community or Enterprise
 
 > [!NOTE]
@@ -55,13 +55,14 @@ Before we continue, you'll need the following:
 The first thing we need to do is set up our project in Visual Studio.
 
 1. Open Visual Studio. Then select **File > New > Project**.
-1. In **Create a new project**, left panel, locate and select **WPF App (.NET Framework)**. You can select C# from **Language** to narrow the options.
-   ![Create a WPF app in Visual Studio](media/create-wpf-project-visual-studio.png)
-1. Click **Next**, and then name your project `MSTranslatorTextDemo`, set the framework version to **.NET Framework 4.5.2** or later, then click **Create**.
-1. Your project has been created. You'll notice that there are two tabs open: `MainWindow.xaml` and `MainWindow.xaml.cs`. Throughout this tutorial, we'll be adding code to these two files. The first for the app's user interface; the latter for our calls to Translator Text and Bing Spell Check.
+1. In **Create a new project**, locate and select **WPF App (.NET Framework)**. You can select C# from **Language** to narrow the options.
+1. Click **Next**, and then name your project `MSTranslatorTextDemo`, set the framework version to **.NET Framework 4.7.2** or later, and then click **Create**.
+   ![Enter the name and framework version in Visual Studio](media/name-wpf-project-visual-studio.png)
+
+Your project has been created. You'll notice that there are two tabs open: `MainWindow.xaml` and `MainWindow.xaml.cs`. Throughout this tutorial, we'll be adding code to these two files. We'll modify `MainWindow.xaml` for the app's user interface. We'll modify `MainWindow.xaml.cs` for our calls to Translator Text and Bing Spell Check.
    ![Review your environment](media/blank-wpf-project.png)
 
-In the next section we're going to add assemblies and a NuGet package to our project for additional functionality, like JSON parsing.
+In the next section, we're going to add assemblies and a NuGet package to our project for additional functionality, like JSON parsing.
 
 ## Add references and NuGet packages to your project
 
@@ -90,7 +91,9 @@ Our app will use NewtonSoft.Json to deserialize JSON objects. Follow these instr
 1. Locate your project in Visual Studio's Solution Explorer and right click on your project. Select **Manage NuGet Packages...**.
 1. Locate and select the **Browse** tab.
 1. Type [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) into the search bar.
-   ![Locate and install NewtonSoft.Json](media/add-nuget-packages.png)
+
+    ![Locate and install NewtonSoft.Json](media/nuget-package-manager.png)
+
 1. Select the package and click **Install**.
 1. When the installation is complete, close the tab.
 
@@ -119,7 +122,7 @@ The user interface includes these components:
 Let's add the code to our project.
 
 1. In Visual Studio, select the tab for `MainWindow.xaml`.
-1. Copy this code into your project and save.
+1. Copy this code into your project, and then select **File > Save MainWindow.xaml** to save your changes.
    ```xaml
    <Window x:Class="MSTranslatorTextDemo.MainWindow"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -245,7 +248,7 @@ In this code block, we've declared two member variables that contain information
 |`languageCodes` | Array of strings |C aches the language codes. The Translator service uses short codes, such as `en` for English, to identify languages. |
 |`languageCodesAndTitles` | Sorted dictionary | Maps the "friendly" names in the user interface back to the short codes used in the API. Kept sorted alphabetically without regard for case. |
 
-Then, within the `MainWindow` constructor, we've added error handling with `HandleExceptions`. This ensures that an alert is provided if an exception isn't handled. Then a check is run to confirm the subscription key provided is 32 characters in length. An error is thrown if the key is less than/greater than 32 characters.
+Then, within the `MainWindow` constructor, we've added error handling with `HandleExceptions`. This error handling ensures that an alert is provided if an exception isn't handled. Then a check is run to confirm the subscription key provided is 32 characters in length. An error is thrown if the key is less than/greater than 32 characters.
 
 If there are keys that are at least the right length, the `InitializeComponent()` call gets the user interface rolling by locating, loading, and instantiating the XAML description of the main app window.
 
@@ -318,7 +321,7 @@ The JSON response is parsed and converted to a dictionary. Then the language cod
 
 ## Populate language drop-down menus
 
-The user interface is defined using XAML, so you don't need to do much to set it up besides call `InitializeComponent()`. The one thing you need to do is add the friendly language names to the **Translate from** and **Translate to** drop-down menus, this is done with the `PopulateLanguageMenus()` method.
+The user interface is defined using XAML, so you don't need to do much to set it up besides call `InitializeComponent()`. The one thing you need to do is add the friendly language names to the **Translate from** and **Translate to** drop-down menus. The `PopulateLanguageMenus()` method adds the names.
 
 1. In Visual Studio, open the tab for `MainWindow.xaml.cs`.
 2. Add this code to your project below the `GetLanguagesForTranslate()` method:
@@ -408,7 +411,7 @@ Additionally, this method evaluates the confidence score of the response. If the
 
 ## Spell check the source text
 
-Now we're going to create a method to spell check our source text using the Bing Spell Check API. This ensures that we'll get back accurate translations from Translator Text API. Any corrections to the source text are passed along in our translation request when the **Translate** button is clicked.
+Now we're going to create a method to spell check our source text using the Bing Spell Check API. Spell checking ensures that we'll get back accurate translations from Translator Text API. Any corrections to the source text are passed along in our translation request when the **Translate** button is clicked.
 
 1. In Visual Studio, open the tab for `MainWindow.xaml.cs`.
 2. Add this code to your project below the `DetectLanguage()` method:
@@ -475,7 +478,7 @@ private string CorrectSpelling(string text)
 The last thing that we need to do is create a method that is invoked when the **Translate** button in our user interface is clicked.
 
 1. In Visual Studio, open the tab for `MainWindow.xaml.cs`.
-2. Add this code to your project below the `CorrectSpelling()` method and save:  
+1. Add this code to your project below the `CorrectSpelling()` method and save:  
    ```csharp
    // ***** PERFORM TRANSLATION ON BUTTON CLICK
    private async void TranslateButton_Click(object sender, EventArgs e)
