@@ -49,12 +49,14 @@ CycleCloud collects pricing for instances running in all cloud providers. The da
 Includes:
 
 * Base price of VMs, including preview-only machine types, at standard "pay-as-you-go" rates
-* Linux/Windows surcharges
+* Linux/Windows rates
+* Regular/low priority
+* Boot disks and other disks (7.8.0+)
 
 Does NOT Include:
-
-* Boot disks
-* Attached disks
+* Other software charges
+* Reserved-VM rates
+* Volume-usage discounts
 
 > [!NOTE]
 > All usage and cost numbers are **approximations**.

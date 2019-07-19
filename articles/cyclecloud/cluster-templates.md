@@ -1,52 +1,18 @@
 ---
 title: Azure CycleCloud Cluster Templates | Microsoft Docs
 description: Use or Build Cluster Templates within Azure CycleCloud
-author: KimliW
-ms.date: 08/01/2018
+author: adriankjohnson
+ms.date: 07/17/2019
 ms.author: adjohnso
 ---
 
 # Cluster Templates
 
-In Azure CycleCloud, you can create new templates or edit existing ones to take advantage of [interruptible (low-priority)](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) instances, or VPC to extend your own network into the cloud. The Azure CycleCloud CLI tools ship with some cluster templates already defined, located in the `~/.cycle` directory. For example, the file `slurm_template.txt` defines a basic two-node Slurm cluster. To create a new cluster, use the existing information as a template and copy it to a new file. Add your own specifications, and give the file a unique name:
-
-``` ini
-[cluster CustomSlurm]
-Autoscale = true
-
-[[node defaults]]
-UsePublicNetwork = true
-Credentials = azure
-ImageName = cycle.image.centos7
-SubnetId = my-resourcegroup/cyclevnet/compute
-Region = eastus
-KeyPairLocation = ~/.ssh/cyclecloud.pem
-...
-[[node master]]
-MachineType = Standard_D12_v2
-IsReturnProxy = true
-...
-[[nodearray execute]]
-MachineType = Standard_H16r
-MaxCoreCount = 128
-Interruptible = false
-  [[[configuration]]]
-  [[[cluster-init slurm:execute:1.0.0]]]
-  [[[network-interface eth0]]]
-  AssociatePublicIpAddress = false
-```
-
-By adding the above section a new cluster template called `custom_slurm_cluster`, a new cluster is defined for Azure using `Standard_D12_v2` for the master node, `Standard_H16r` for the execute nodes, and will autoscale to a maximum of 128 cores. To import and run this new cluster type, enter:
-
-```azurecli-interactive
-$ cyclecloud import custom_demo_cluster -f ~/.cycle/slurm_template.txt -c custom_slurm_cluster
-
-$ cyclecloud start custom_demo_cluster
-```
+Azure CycleCloud uses templates to define cluster configurations. A number of templates are included in CycleCloud by default and a full list of supported templates is [available in GitHub](https://github.com/Azure?q=cyclecloud). You can create new templates or you can customize existing ones. For instance, you may want to customize an existing template to take advantage of [low-priority](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) VMs, or you might want to add a VPC to extend your own network.
 
 ## Configuration Notation
 
-Azure CycleCloud cluster templates all have the option of having one or more [[[configuration]]]
+Azure CycleCloud cluster templates all have the option of having one or more **[[[configuration]]]**
 sections which belong to a node or nodearray. These sections specify software configuration
 options about the nodes being started by CycleCloud. Dotted notation is used to specify
 the attributes you wish to configure:
@@ -86,9 +52,7 @@ A node/nodearray can also contain multiple configuration sections if needed:
 
 ## Cluster Template Parameters
 
-Cluster templates can contain parameters that alter the values of certain parts of a cluster
-without having to modify the template itself. This is particularly useful in cases where many similar
-clusters with minor differences are desired such as deploying development and production environments. The syntax for specifying a parameter within a cluster template is to prefix a variable with a '$'. A basic template example (non-functional) with some parameters could look like:
+Cluster templates can contain parameters that alter the values of certain parts of a cluster without having to modify the template itself. This is particularly useful in cases where many similar clusters with minor differences are desired such as deploying development and production environments. The syntax for specifying a parameter within a cluster template is to prefix a variable with a '$'. A basic template example (non-functional) with some parameters could look like:
 
 ``` ini
 # template.txt
