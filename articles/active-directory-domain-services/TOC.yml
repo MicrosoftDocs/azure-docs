@@ -8,8 +8,6 @@
       href: comparison.md
     - name: Compare with Azure AD join
       href: active-directory-ds-compare-with-azure-ad-join.md
-    - name: Features
-      href: active-directory-ds-features.md
 - name: Tutorials
   expanded: true
   items:
