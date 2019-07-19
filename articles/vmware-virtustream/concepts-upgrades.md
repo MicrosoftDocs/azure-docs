@@ -18,13 +18,13 @@ One of the key benefits of AVS by Virstustream private clouds is that the platfo
 
 ## AVS by Virtustream private cloud software upgrades
 
-The AVS by Virtustream private cloud platform includes vSphere, ESXi, vSAN, and NSX-T software. This bundle of VMware software includes specific versions that are validated to deliver private cloud capabilities and enable automated lifecycle management. Upgrades do not require downtime and the capacity, function, and performance of your private clouds is maintained throughout the upgrade process.
+The AVS by Virtustream private cloud platform includes VMware vSphere, ESXi, vSAN, and NSX-T software. This bundle includes specific versions of each VMware software component. The bundle is tested and validated for new installations and automated lifecycle management of the platform.
 
-The regular and automated upgrades ensure that you have the latest features and updates of the private cloud software. The upgrade cadence is for all private clouds to be within one version of the latest release of the validated software bundle. You will be notified of planned upgrades to your private cloud, and you can defer the upgrade if your private cloud is within one version of the latest release.
+The lifecycle management upgrade process doesn't require downtime for your private clouds. The regular and automated upgrades ensure that you are using the latest version of the AVS by Virtustream private cloud software. The upgrade cadence policy is for all private clouds to be within one version of the latest release of the validated software bundle. You are notified of planned upgrades to your private cloud, and you can defer the upgrade if your private cloud is within one version of the latest release.
 
-Critical patches or updates will applied when they are validated. You will be notified in advance but will not be able to defer the upgrade. This policy ensures that your private cloud has critical patches and updates applied immediately.
+Critical patches or updates will applied when they are validated. You will be notified in advance but cannot defer critical upgrades. This policy ensures that your private cloud has critical patches and updates applied immediately.
 
-See the [private clouds and clusters concept article][concepts-private-clouds-clusters] or the [FAQ][faq] for the latest VMware software versions used in the AVS by Virtustream private cloud software bundle.
+VMware software versions are provided in the [private clouds and clusters concept article][concepts-private-clouds-clusters] and the [FAQ][faq].
 
 ## Next steps
 
