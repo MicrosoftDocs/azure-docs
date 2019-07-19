@@ -29,7 +29,7 @@ For information about the support policy for Azure VMs, see [Microsoft server so
 > [!NOTE]
 > The instructions in this article apply to:
 >1. The 64-bit version of Windows Server 2008 R2 and later Windows Server operating systems. For information about running a 32-bit operating system in Azure, see [Support for 32-bit operating systems in Azure VMs](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
->2. If any Disaster Recovery tool will be use to migrate the workload like Azure Site Recovery or Azure Migrate, this process is still require to be done and followed on the Guest OS to prepare the image prior the migration.
+>2. If any Disaster Recovery tool will be used to migrate the workload, like Azure Site Recovery or Azure Migrate, this process is still required to be done and followed on the Guest OS to prepare the image prior the migration.
 
 ## Convert the virtual disk to a fixed size and to VHD
 
