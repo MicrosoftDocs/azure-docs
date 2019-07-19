@@ -7,7 +7,7 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 06/20/2019
+ms.date: 067/20/2019
 ms.author: mhopkins
 ms.subservice: blobs
 ---
