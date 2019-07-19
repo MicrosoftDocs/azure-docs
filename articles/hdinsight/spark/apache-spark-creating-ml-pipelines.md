@@ -50,19 +50,23 @@ from pyspark.sql import Row
 LabeledDocument = Row("BuildingID", "SystemInfo", "label")
 
 # Define a function that parses the raw CSV file and returns an object of type LabeledDocument
+
+
 def parseDocument(line):
     values = [str(x) for x in line.split(',')]
     if (values[3] > values[2]):
         hot = 1.0
     else:
-        hot = 0.0        
+        hot = 0.0
 
     textValue = str(values[4]) + " " + str(values[5])
 
     return LabeledDocument((values[6]), textValue, hot)
 
+
 # Load the raw HVAC.csv file, parse it using the function
-data = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+data = sc.textFile(
+    "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 training = documents.toDF()

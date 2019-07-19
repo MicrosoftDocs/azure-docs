@@ -5,6 +5,8 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev 
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
