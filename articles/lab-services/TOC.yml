@@ -172,6 +172,8 @@
         href: devtest-lab-resize-vm.md
       - name: Redeploy a VM
         href: devtest-lab-redeploy-vm.md
+      - name: Configure autoshutdown of a VM 
+        href: configure-auto-shutdown-vm.md
       - name: Create and manage claimable VMs
         href: devtest-lab-add-claimable-vm.md
       - name: Configure secrets
