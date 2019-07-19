@@ -84,13 +84,14 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 
 ```python
 udp_collection = {
-                'id': self.udp_collection_name,
-                'conflictResolutionPolicy': {
-                    'mode': 'LastWriterWins',
-                    'conflictResolutionPath': '/myCustomId'
-                    }
-                }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'LastWriterWins',
+        'conflictResolutionPath': '/myCustomId'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 ## Create a custom conflict resolution policy using a stored procedure
@@ -255,13 +256,14 @@ After your container is created, you must create the `resolver` stored procedure
 
 ```python
 udp_collection = {
-  'id': self.udp_collection_name,
-  'conflictResolutionPolicy': {
-      'mode': 'Custom',
-      'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-      }
-  }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom',
+        'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 After your container is created, you must create the `resolver` stored procedure.
@@ -337,11 +339,11 @@ const {
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)
 manual_collection = {
-                    'id': self.manual_collection_name,
-                    'conflictResolutionPolicy': {
-                          'mode': 'Custom'
-                        }
-                    }
+    'id': self.manual_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom'
+    }
+}
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 

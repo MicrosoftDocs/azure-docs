@@ -36,7 +36,7 @@ import uamqp
 import urllib
 import time
 
-# Use generate_sas_token implementation available here: 
+# Use generate_sas_token implementation available here:
 # https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
 from helper import generate_sas_token
 
@@ -44,11 +44,13 @@ iot_hub_name = '<iot-hub-name>'
 hostname = '{iot_hub_name}.azure-devices.net'.format(iot_hub_name=iot_hub_name)
 policy_name = 'service'
 access_key = '<primary-or-secondary-key>'
-operation = '<operation-link-name>' # example: '/messages/devicebound'
+operation = '<operation-link-name>'  # example: '/messages/devicebound'
 
-username = '{policy_name}@sas.root.{iot_hub_name}'.format(iot_hub_name=iot_hub_name, policy_name=policy_name)
+username = '{policy_name}@sas.root.{iot_hub_name}'.format(
+    iot_hub_name=iot_hub_name, policy_name=policy_name)
 sas_token = generate_sas_token(hostname, access_key, policy_name)
-uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username),
+                                  urllib.quote_plus(sas_token), hostname, operation)
 
 # Create a send or receive client
 send_client = uamqp.SendClient(uri, debug=True)
@@ -73,10 +75,11 @@ msg_id = str(uuid.uuid4())
 msg_content = b"Message content goes here!"
 device_id = '<device-id>'
 to = '/devices/{device_id}/messages/devicebound'.format(device_id=device_id)
-ack = 'full' # Alternative values are 'positive', 'negative', and 'none'
-app_props = { 'iothub-ack': ack }
+ack = 'full'  # Alternative values are 'positive', 'negative', and 'none'
+app_props = {'iothub-ack': ack}
 msg_props = uamqp.message.MessageProperties(message_id=msg_id, to=to)
-msg = uamqp.Message(msg_content, properties=msg_props, application_properties=app_props)
+msg = uamqp.Message(msg_content, properties=msg_props,
+                    application_properties=app_props)
 
 # Send the message by using the send client that you created and connected to the IoT hub earlier
 send_client.queue_message(msg)
@@ -95,27 +98,28 @@ operation = '/messages/serviceBound/feedback'
 
 # ...
 # Re-create the URI by using the preceding feedback path and authenticate it
-uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username),
+                                  urllib.quote_plus(sas_token), hostname, operation)
 
 receive_client = uamqp.ReceiveClient(uri, debug=True)
 batch = receive_client.receive_message_batch(max_batch_size=10)
 for msg in batch:
-  print('received a message')
-  # Check content_type in message property to identify feedback messages coming from device
-  if msg.properties.content_type == 'application/vnd.microsoft.iothub.feedback.json':
-    msg_body_raw = msg.get_data()
-    msg_body_str = ''.join(msg_body_raw)
-    msg_body = json.loads(msg_body_str)
-    print(json.dumps(msg_body, indent=2))
-    print('******************')
-    for feedback in msg_body:
-      print('feedback received')
-      print('\tstatusCode: ' + str(feedback['statusCode']))
-      print('\toriginalMessageId: ' + str(feedback['originalMessageId']))
-      print('\tdeviceId: ' + str(feedback['deviceId']))
-      print
-  else:
-    print('unknown message:', msg.properties.content_type)
+    print('received a message')
+    # Check content_type in message property to identify feedback messages coming from device
+    if msg.properties.content_type == 'application/vnd.microsoft.iothub.feedback.json':
+        msg_body_raw = msg.get_data()
+        msg_body_str = ''.join(msg_body_raw)
+        msg_body = json.loads(msg_body_str)
+        print(json.dumps(msg_body, indent=2))
+        print('******************')
+        for feedback in msg_body:
+            print('feedback received')
+            print('\tstatusCode: ' + str(feedback['statusCode']))
+            print('\toriginalMessageId: ' + str(feedback['originalMessageId']))
+            print('\tdeviceId: ' + str(feedback['deviceId']))
+            print
+    else:
+        print('unknown message:', msg.properties.content_type)
 ```
 
 As shown in the preceding code, a cloud-to-device feedback message has a content type of *application/vnd.microsoft.iothub.feedback.json*. You can use the properties in the message's JSON body to infer the delivery status of the original message:
@@ -155,11 +159,14 @@ iot_hub_name = '<iot-hub-name>'
 hostname = '{iot_hub_name}.azure-devices.net'.format(iot_hub_name=iot_hub_name)
 policy_name = 'service'
 access_key = '<primary-or-secondary-key>'
-operation = '/messages/events/ConsumerGroups/{consumer_group}/Partitions/{p_id}'.format(consumer_group='$Default', p_id=0)
+operation = '/messages/events/ConsumerGroups/{consumer_group}/Partitions/{p_id}'.format(
+    consumer_group='$Default', p_id=0)
 
-username = '{policy_name}@sas.root.{iot_hub_name}'.format(policy_name=policy_name, iot_hub_name=iot_hub_name)
+username = '{policy_name}@sas.root.{iot_hub_name}'.format(
+    policy_name=policy_name, iot_hub_name=iot_hub_name)
 sas_token = generate_sas_token(hostname, access_key, policy_name)
-uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username),
+                                  urllib.quote_plus(sas_token), hostname, operation)
 
 # Optional filtering predicates can be specified by using endpoint_filter
 # Valid predicates include:
@@ -170,29 +177,35 @@ uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus
 endpoint_filter = b'amqp.annotation.x-opt-sequence-number > 2995'
 
 # Helper function to set the filtering predicate on the source URI
+
+
 def set_endpoint_filter(uri, endpoint_filter=''):
-  source_uri = uamqp.address.Source(uri)
-  source_uri.set_filter(endpoint_filter)
-  return source_uri
+    source_uri = uamqp.address.Source(uri)
+    source_uri.set_filter(endpoint_filter)
+    return source_uri
 
-receive_client = uamqp.ReceiveClient(set_endpoint_filter(uri, endpoint_filter), debug=True)
+
+receive_client = uamqp.ReceiveClient(
+    set_endpoint_filter(uri, endpoint_filter), debug=True)
 try:
-  batch = receive_client.receive_message_batch(max_batch_size=5)
+    batch = receive_client.receive_message_batch(max_batch_size=5)
 except uamqp.errors.LinkRedirect as redirect:
-  # Once a redirect error is received, close the original client and recreate a new one to the re-directed address
-  receive_client.close()
+    # Once a redirect error is received, close the original client and recreate a new one to the re-directed address
+    receive_client.close()
 
-  sas_auth = uamqp.authentication.SASTokenAuth.from_shared_access_key(redirect.address, policy_name, access_key)
-  receive_client = uamqp.ReceiveClient(set_endpoint_filter(redirect.address, endpoint_filter), auth=sas_auth, debug=True)
+    sas_auth = uamqp.authentication.SASTokenAuth.from_shared_access_key(
+        redirect.address, policy_name, access_key)
+    receive_client = uamqp.ReceiveClient(set_endpoint_filter(
+        redirect.address, endpoint_filter), auth=sas_auth, debug=True)
 
 # Start receiving messages in batches
 batch = receive_client.receive_message_batch(max_batch_size=5)
 for msg in batch:
-  print('*** received a message ***')
-  print(''.join(msg.get_data()))
-  print('\t: ' + str(msg.annotations['x-opt-sequence-number']))
-  print('\t: ' + str(msg.annotations['x-opt-offset']))
-  print('\t: ' + str(msg.annotations['x-opt-enqueued-time']))
+    print('*** received a message ***')
+    print(''.join(msg.get_data()))
+    print('\t: ' + str(msg.annotations['x-opt-sequence-number']))
+    print('\t: ' + str(msg.annotations['x-opt-offset']))
+    print('\t: ' + str(msg.annotations['x-opt-enqueued-time']))
 ```
 
 For a given device ID, the IoT hub uses a hash of the device ID to determine which partition to store its messages in. The preceding code snippet demonstrates how events are received from a single such partition. However, note that a typical application often needs to retrieve events that are stored in all event hub partitions.
@@ -218,7 +231,7 @@ import uamqp
 import urllib
 import uuid
 
-# Use generate_sas_token implementation available here: 
+# Use generate_sas_token implementation available here:
 # https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
 from helper import generate_sas_token
 
@@ -226,11 +239,15 @@ iot_hub_name = '<iot-hub-name>'
 hostname = '{iot_hub_name}.azure-devices.net'.format(iot_hub_name=iot_hub_name)
 device_id = '<device-id>'
 access_key = '<primary-or-secondary-key>'
-username = '{device_id}@sas.{iot_hub_name}'.format(device_id=device_id, iot_hub_name=iot_hub_name)
-sas_token = generate_sas_token('{hostname}/devices/{device_id}'.format(hostname=hostname, device_id=device_id), access_key, None)
+username = '{device_id}@sas.{iot_hub_name}'.format(
+    device_id=device_id, iot_hub_name=iot_hub_name)
+sas_token = generate_sas_token('{hostname}/devices/{device_id}'.format(
+    hostname=hostname, device_id=device_id), access_key, None)
 
-operation = '<operation-link-name>' # e.g., '/devices/{device_id}/messages/devicebound'
-uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+# e.g., '/devices/{device_id}/messages/devicebound'
+operation = '<operation-link-name>'
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username),
+                                  urllib.quote_plus(sas_token), hostname, operation)
 
 receive_client = uamqp.ReceiveClient(uri, debug=True)
 send_client = uamqp.SendClient(uri, debug=True)
@@ -253,37 +270,45 @@ The following code snippet uses the [uAMQP library in Python](https://github.com
 ```python
 # ...
 # Create a receive client for the cloud-to-device receive link on the device
-operation = '/devices/{device_id}/messages/devicebound'.format(device_id=device_id)
-uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+operation = '/devices/{device_id}/messages/devicebound'.format(
+    device_id=device_id)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username),
+                                  urllib.quote_plus(sas_token), hostname, operation)
 
 receive_client = uamqp.ReceiveClient(uri, debug=True)
 while True:
-  batch = receive_client.receive_message_batch(max_batch_size=5)
-  for msg in batch:
-    print('*** received a message ***')
-    print(''.join(msg.get_data()))
+    batch = receive_client.receive_message_batch(max_batch_size=5)
+    for msg in batch:
+        print('*** received a message ***')
+        print(''.join(msg.get_data()))
 
-    # Property 'to' is set to: '/devices/device1/messages/devicebound',
-    print('\tto:                     ' + str(msg.properties.to))
+        # Property 'to' is set to: '/devices/device1/messages/devicebound',
+        print('\tto:                     ' + str(msg.properties.to))
 
-    # Property 'message_id' is set to value provided by the service
-    print('\tmessage_id:             ' + str(msg.properties.message_id))
+        # Property 'message_id' is set to value provided by the service
+        print('\tmessage_id:             ' + str(msg.properties.message_id))
 
-    # Other properties are present if they were provided by the service
-    print('\tcreation_time:          ' + str(msg.properties.creation_time))
-    print('\tcorrelation_id:         ' + str(msg.properties.correlation_id))
-    print('\tcontent_type:           ' + str(msg.properties.content_type))
-    print('\treply_to_group_id:      ' + str(msg.properties.reply_to_group_id))
-    print('\tsubject:                ' + str(msg.properties.subject))
-    print('\tuser_id:                ' + str(msg.properties.user_id))
-    print('\tgroup_sequence:         ' + str(msg.properties.group_sequence))
-    print('\tcontent_encoding:       ' + str(msg.properties.content_encoding))
-    print('\treply_to:               ' + str(msg.properties.reply_to))
-    print('\tabsolute_expiry_time:   ' + str(msg.properties.absolute_expiry_time))
-    print('\tgroup_id:               ' + str(msg.properties.group_id))
+        # Other properties are present if they were provided by the service
+        print('\tcreation_time:          ' + str(msg.properties.creation_time))
+        print('\tcorrelation_id:         ' +
+              str(msg.properties.correlation_id))
+        print('\tcontent_type:           ' + str(msg.properties.content_type))
+        print('\treply_to_group_id:      ' +
+              str(msg.properties.reply_to_group_id))
+        print('\tsubject:                ' + str(msg.properties.subject))
+        print('\tuser_id:                ' + str(msg.properties.user_id))
+        print('\tgroup_sequence:         ' +
+              str(msg.properties.group_sequence))
+        print('\tcontent_encoding:       ' +
+              str(msg.properties.content_encoding))
+        print('\treply_to:               ' + str(msg.properties.reply_to))
+        print('\tabsolute_expiry_time:   ' +
+              str(msg.properties.absolute_expiry_time))
+        print('\tgroup_id:               ' + str(msg.properties.group_id))
 
-    # Message sequence number in the built-in event hub
-    print('\tx-opt-sequence-number:  ' + str(msg.annotations['x-opt-sequence-number']))
+        # Message sequence number in the built-in event hub
+        print('\tx-opt-sequence-number:  ' +
+              str(msg.annotations['x-opt-sequence-number']))
 ```
 
 ### Send telemetry messages (device client)
