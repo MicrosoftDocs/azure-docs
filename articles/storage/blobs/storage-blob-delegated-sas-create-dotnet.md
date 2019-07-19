@@ -24,6 +24,10 @@ A SAS token may be secured by using either your Azure AD credentials or your acc
 
 A SAS secured with your Azure AD credentials is called a *user delegation* SAS, because the token used to create the SAS is requested on behalf of the user. 
 
+Every SAS is signed with a key. To create a user delegation SAS, you must first request a user delegation key, which is then used to sign the SAS. The user delegation key is analogous to the account key used to sign a service SAS or an account SAS, except that it relies on your Azure AD credentials.
+
+
+
 > [!CAUTION]
 > Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS, and have a plan in place for revoking a compromised SAS. For more information, see .... 
 
@@ -66,13 +70,19 @@ private static async Task<NewTokenAndFrequency> TokenRenewerAsync(Object state, 
 }
 ```
 
+## Get the user delegation key
+
+
+
+After your code has acquired the OAuth 2.0 token, you can use the token to request a user delegation key. You can specify that the key is valid for a period of up to 7 days. Use one of the following methods to request the user delegation key:
+
+- [GetUserDelegationKey](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkey)
+- [GetUserDelegationKeyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkeyasync)
+
+
+
 ## Get a user delegation SAS
 
-After your code has acquired the token, creating the user delegation SAS is a two-step process:
-
-1. Request a user delegation key. You can specify that the key is valid for a period of up to 7 days. Use one of the following methods to request the user delegation key:
-    - [GetUserDelegationKey](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkey)
-    - [GetUserDelegationKeyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkeyasync)
 1. Use the key to create the user delegation SAS. Use one of the following methods to create the SAS, depending on whether you are creating the SAS on a container or on a blob:
     - [GetUserDelegationSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getuserdelegationsharedaccesssignature) (**CloudBlobContainer** object)
     - [GetUserDelegationSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getuserdelegationsharedaccesssignature) (**CloudBlob** object)

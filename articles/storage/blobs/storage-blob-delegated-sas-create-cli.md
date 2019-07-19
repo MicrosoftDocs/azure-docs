@@ -22,7 +22,7 @@ A SAS is a token that encapsulates all of the information needed to make a reque
 
 A SAS token may be secured by using either your Azure AD credentials or your account key. Microsoft recommends that you use Azure AD credentials when possible as a security best practice.
 
-A SAS secured with your Azure AD credentials is called a *user delegation* SAS, because the token used to create the SAS is requested on behalf of the user. 
+A SAS secured with your Azure AD credentials is called a *user delegation* SAS, because the token used to create the SAS is requested on behalf of the user.
 
 > [!CAUTION]
 > Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS, and have a plan in place for revoking a compromised SAS. For more information, see .... 

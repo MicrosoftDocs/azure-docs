@@ -332,7 +332,7 @@
             href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Create shared access signatures
           items:
-          - name: Create a delegated SAS
+          - name: Create a user delegation SAS
             items:
             - name: PowerShell
               href: storage-blob-delegated-sas-create-powershell.md
