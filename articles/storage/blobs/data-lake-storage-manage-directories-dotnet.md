@@ -1,6 +1,6 @@
 ---
-title: Use .NET with Azure Data Lake Storage Gen2
-description: Use the Azure Storage Client Library for .NET to interact with Azure Blob storage accounts that have a hierarchical namespace.
+title: Create and manage directories in Azure Storage by using .NET
+description: Use the Azure Storage Client Library for .NET to create and manage directories in Azure Blob storage accounts that have a hierarchical namespace.
 services: storage
 author: normesta
 ms.service: storage
@@ -10,7 +10,7 @@ ms.topic: article
 ms.component: data-lake-storage-gen2
 ---
 
-# Use .NET with Azure Data Lake Storage Gen2
+# Create and manage directories in Azure Storage by using .NET
 
 This article shows you how to use the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).NET to manage directories in storage accounts that have a hierarchical namespace. 
 
@@ -41,14 +41,7 @@ public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageCon
 }
 ```
 
-### APIs featured in this snippet 
-
-> [!div class="checklist"] 
-> * [CloudStorageAccount.TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) method 
-> * [CloudStorageAccount.CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet) method
-
-
-## Add directory to a file system (container)
+## Create a directory
 
 Create a directory reference by calling the [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
 
@@ -72,9 +65,12 @@ public async Task CreateDirectory(CloudBlobClient cloudBlobClient,
         CloudBlobDirectory cloudBlobDirectory =
             cloudBlobContainer.GetDirectoryReference("my-directory");
 
-        await cloudBlobDirectory.CreateAsync();
+        if (cloudBlobDirectory != null)
+        {
+            await cloudBlobDirectory.CreateAsync();
 
-        await cloudBlobDirectory.GetDirectoryReference("my-subdirectory").CreateAsync();
+            await cloudBlobDirectory.GetDirectoryReference("my-subdirectory").CreateAsync();
+        }
     }
 }
 ```
@@ -110,6 +106,8 @@ public async Task MoveDirectory(CloudBlobClient cloudBlobClient,
 
         }
     }
+
+}
 ```
 ## Rename a directory
 
@@ -140,7 +138,7 @@ public async Task RenameDirectory(CloudBlobClient cloudBlobClient,
 }
 ```
 
-## Delete a directory from a file system (container)
+## Delete a directory
 
 The following example deletes a directory by calling the [CloudBlobDirectory.Delete](https://www.microsoft.com) method. 
 
@@ -171,7 +169,26 @@ public void DeleteDirectory(CloudBlobClient cloudBlobClient,
 Comment here.  
 
 ```cs
-Code here.
+public async Task UploadFileToDirectory(CloudBlobClient cloudBlobClient,
+    string sourceFilePath, string containerName, string blobName)
+{
+    CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.GetContainerReference(containerName);
+
+    if (cloudBlobContainer != null)
+    {
+        CloudBlobDirectory cloudBlobDirectory =
+            cloudBlobContainer.GetDirectoryReference("my-directory");
+
+        if (cloudBlobDirectory != null)
+        {
+            CloudBlockBlob cloudBlockBlob =
+                cloudBlobDirectory.GetBlockBlobReference(blobName);
+
+            await cloudBlockBlob.UploadFromFileAsync(sourceFilePath);
+        }
+    }
+}
 ```
 
 ## Download a file from a directory
@@ -179,7 +196,28 @@ Code here.
 Comment here.  
 
 ```cs
-Code here.
+public async Task DownloadFileFromDirectory(CloudBlobClient cloudBlobClient,
+    string containerName, string blobName, string destinationFile)
+{
+    CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.GetContainerReference(containerName);
+
+    if (cloudBlobContainer != null)
+    {
+        CloudBlobDirectory cloudBlobDirectory =
+            cloudBlobContainer.GetDirectoryReference("my-directory");
+
+        if (cloudBlobDirectory != null)
+        {
+            CloudBlockBlob cloudBlockBlob =
+                    cloudBlobDirectory.GetBlockBlobReference(blobName);
+
+            await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
+        }
+
+
+    }
+}
 ```
 
 ## List the contents of a directory
@@ -187,7 +225,37 @@ Code here.
 Comment here.  
 
 ```cs
-Code here.
+public async Task ListFilesInDirectory(CloudBlobClient cloudBlobClient, string containerName)
+{
+    CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.GetContainerReference(containerName);
+
+    if (cloudBlobContainer != null)
+    {
+
+        CloudBlobDirectory cloudBlobDirectory =
+            cloudBlobContainer.GetDirectoryReference("my-directory");
+
+        if (cloudBlobDirectory != null)
+        {
+            BlobContinuationToken blobContinuationToken = null;
+            do
+            {
+                var resultSegment = await cloudBlobDirectory.ListBlobsSegmentedAsync(blobContinuationToken);
+
+                // Get the value of the continuation token returned by the listing call.
+                blobContinuationToken = resultSegment.ContinuationToken;
+                foreach (IListBlobItem item in resultSegment.Results)
+                {
+                    Console.WriteLine(item.Uri);
+                }
+            } while (blobContinuationToken != null);
+            // Loop while the continuation token is not null.
+        }
+
+    }
+
+}
 ```
 
 [!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]

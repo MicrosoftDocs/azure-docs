@@ -1,6 +1,6 @@
 ---
-title: Use .NET with Azure Data Lake Storage Gen2
-description: Use the Azure Storage Client Library for .NET to interact with Azure Blob storage accounts that have a hierarchical namespace.
+title: Manage directory and file access permissions in Azure Storage by using .NET
+description: Use the Azure Storage Client Library for .NET to manage directory and file access permissions in Azure Blob storage accounts that have a hierarchical namespace.
 services: storage
 author: normesta
 ms.service: storage
@@ -10,51 +10,13 @@ ms.topic: article
 ms.component: data-lake-storage-gen2
 ---
 
-# Use .NET with Azure Data Lake Storage Gen2
+# Managed directory and file access permissions in Azure Storage by using .NET
 
-This guide shows you how to use .NET to interact with objects, manage directories, and set directory-level access permissions (access-control lists) in storage accounts that have a hierarchical namespace. 
-
-To use the snippets presented in this article, you'll need to create a storage account, and then enable the hierarchical namespace feature on that account. See [Create a storage account](data-lake-storage-quickstart-create-account.md).
+This article shows you how to use the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).NET to manage directory and file access permissions in storage accounts that have a hierarchical namespace. 
 
 > [!NOTE]
-> The content featured in this article uses terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is persisted as a *blob*, and a *file system* is persisted as a *container*. 
+> The content featured in this article uses terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is persisted as a *blob*, and a *file system* is persisted as a *container*.
 
-## Set up your development environment
-
-What you install depends on the operating system that you are running on your development computer.
-
-### Windows
-
-* Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
-
-* Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional. 
-
-* Install the [Azure Storage APIs for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
-
-### Linux
-
-* Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
-
-* Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
-
-* Install the [Azure Storage APIs for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
-
-### macOS
-
-* Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos).
-
-* Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
-
-* Install the [Azure Storage APIs for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
-
-## Add library references to your code file
-
-Add these using statements to your code file.
-
-```cs
-using Microsoft.Azure.Storage;
-using Microsoft.Azure.Storage.Blob;
-```
 ## Connect to the storage account 
 
 First, parse the connection string by calling the [CloudStorageAccount.TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) method. 
@@ -79,151 +41,6 @@ public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageCon
 }
 ```
 
-### APIs featured in this snippet 
-
-> [!div class="checklist"] 
-> * [CloudStorageAccount.TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) method 
-> * [CloudStorageAccount.CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet) method
-
-## Perform common blob tasks 
-
-You can use the same set of APIs to interact with your data objects regardless of whether the account has a hierarchical namespace. To find snippets that help you perform common tasks such as creating a container (file system), uploading and downloading blobs (files), and deleting blobs and containers, see [Quickstart: Use .NET to create a blob in object storage](storage-quickstart-blobs-dotnet.md).
-
-The rest of this article presents snippets that help you perform tasks related only to accounts that have a hierarchical namespace. 
-
-## Add directory to a file system (container)
-
-Create a directory reference by calling the [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
-
-Create a directory instance by calling the [CloudBlobDirectory.CreateAsync](https://www.microsoft.com) method.
-
-This example adds a directory named `my-directory` to a container and then adds a sub-directory named `my-subdirectory` to the directory named `my-directory`. 
-
-```cs
-public async Task CreateDirectory(CloudBlobClient cloudBlobClient,
-    string containerName)
-{
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
-
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory");
-
-        await cloudBlobDirectory.CreateAsync();
-
-        await cloudBlobDirectory.GetDirectoryReference("my-subdirectory").CreateAsync();
-    }
-}
-```
-
-### APIs featured in this snippet
-
-> [!div class="checklist"]
-> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
-> * [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
-> * [CloudBlobDirectory.CreateAsync](https://www.microsoft.com) method.
-
-## Rename or move a directory
-
-Move or rename a directory by calling the [MoveAsync](https://www.microsoft.com) method. Pass the Uri of the desired directory location as a parameter. 
-
-This example moves a directory named `my-directory` to a sub-directory of another directory named `my-directory-2`. 
-
-```cs
-public async Task MoveDirectory(CloudBlobClient cloudBlobClient,
-    string containerName)
-{
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
-
-    if (cloudBlobContainer != null)
-    {
-        // Get source directory
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null)
-        {
-            // Get destination directory
-            CloudBlobDirectory cloudBlobDestinationDirectory =
-                cloudBlobContainer.GetDirectoryReference("my-directory-2");
-
-            if (cloudBlobDestinationDirectory != null)
-            {
-                await cloudBlobDirectory.MoveAsync(new Uri(cloudBlobDestinationDirectory.Uri.AbsoluteUri + "my-directory/"));
-            }
-
-        }
-    }
-```
-
-This example renames that sub-directory to `my-directory-renamed`.
-
-```cs
-public async Task RenameDirectory(CloudBlobClient cloudBlobClient,
-    string containerName)
-{
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
-
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory-2/my-directory");
-
-        if (cloudBlobDirectory != null)
-        {
-            await cloudBlobDirectory.MoveAsync(new Uri(cloudBlobContainer.Uri.AbsoluteUri + 
-                "/my-directory-2/my-directory-renamed"));
-
-        }
-    }
-
-}
-```
-
-### APIs featured in these snippets
-
-> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
-> * [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
-> * [CloudBlobDirectory.MoveAsync](https://www.microsoft.com) method.
-
-## Delete a directory from a file system (container)
-
-The following example deletes a directory by calling the [CloudBlobDirectory.Delete](https://www.microsoft.com) method. 
-
-This method deletes a directory named `my-directory` from the `my-directory-2` directory.  
-
-```cs
-public void DeleteDirectory(CloudBlobClient cloudBlobClient,
-    string containerName)
-{
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
-
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory-2/my-directory");
-
-        if (cloudBlobDirectory != null)
-        {
-            cloudBlobDirectory.Delete();
-        }
-    }
-
-}
-```
-
-### APIs featured in this snippet
-
-> [!div class="checklist"]
-> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
-> * [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
-> * [CloudBlobDirectory.Delete](https://www.microsoft.com) method.
-
 ## Get the access control list (ACL) for a directory
 
 Get the access permissions of a directory by calling the [cloudBlobDirectory.FetchAccessControlsAsync](https://www.microsoft.com) method. 
@@ -244,7 +61,7 @@ public async Task GetDirectoryACLs(CloudBlobClient cloudBlobClient,
     if (cloudBlobContainer != null)
     {
         CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory-2");
+            cloudBlobContainer.GetDirectoryReference("my-directory");
 
         if (cloudBlobDirectory != null)
         {
@@ -260,7 +77,6 @@ public async Task GetDirectoryACLs(CloudBlobClient cloudBlobClient,
             Console.WriteLine(ACLs);
         }
     }
-
 }
 ```
 
@@ -269,14 +85,6 @@ The short form of an ACL might look something like the following:
 `user::rwx group::r-x other::--`
 
 This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-
-### APIs featured in this snippet
-
-> [!div class="checklist"]
-> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
-> * [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
-> * [CloudBlobDirectory.FetchAccessControls](https://www.microsoft.com) method.
-> * [cloudBlobDirectory.PathProperties.ACL](https://www.microsoft.com) property.
 
 ## Set the ACL for a directory
 
@@ -300,6 +108,7 @@ public async Task SetDirectoryACLs(CloudBlobClient cloudBlobClient,
         {
             await cloudBlobDirectory.FetchAccessControlsAsync();
 
+
             foreach (PathAccessControlEntry entry in cloudBlobDirectory.PathProperties.ACL)
             {
                 switch (entry.AccessControlType)
@@ -322,18 +131,100 @@ public async Task SetDirectoryACLs(CloudBlobClient cloudBlobClient,
             cloudBlobDirectory.SetAcl();
         }
     }
+}
+```
+For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+
+
+## Get the ACL of a file
+
+Comment
+
+```cs
+public async Task GetFileACL(CloudBlobClient cloudBlobClient,
+    string containerName, string blobName)
+{
+    CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.GetContainerReference(containerName);
+
+    if (cloudBlobContainer != null)
+    {
+        CloudBlobDirectory cloudBlobDirectory =
+            cloudBlobContainer.GetDirectoryReference("my-directory");
+
+        if (cloudBlobDirectory != null)
+        {
+            CloudBlockBlob cloudBlockBlob =
+                cloudBlobDirectory.GetBlockBlobReference(blobName);
+
+            await cloudBlockBlob.FetchAccessControlsAsync();
+
+            string ACLs = "";
+
+            foreach (PathAccessControlEntry entry in cloudBlockBlob.PathProperties.ACL)
+            {
+                ACLs = ACLs + entry.ToString() + " ";
+            }
+
+            Console.WriteLine(ACLs);
+        }
+    }
 
 }
 ```
 
-For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+## Set the ACL of a file
 
-### APIs featured in this snippet
+Comment here.
 
-> [!div class="checklist"]
-> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
-> * [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
-> * [CloudBlobDirectory.SetAcl](https://www.microsoft.com) method.
+```cs
+public async Task SetFileACL(CloudBlobClient cloudBlobClient,
+    string containerName, string blobName)
+{
+    CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.GetContainerReference(containerName);
+
+    if (cloudBlobContainer != null)
+    {
+        CloudBlobDirectory cloudBlobDirectory =
+            cloudBlobContainer.GetDirectoryReference("my-directory");
+
+        if (cloudBlobDirectory != null)
+        {
+            CloudBlockBlob cloudBlockBlob =
+                cloudBlobDirectory.GetBlockBlobReference(blobName);
+
+            await cloudBlockBlob.FetchAccessControlsAsync();
+
+
+            foreach (PathAccessControlEntry entry in cloudBlockBlob.PathProperties.ACL)
+            {
+                switch (entry.AccessControlType)
+                {
+                    case AccessControlType.Other:
+                        entry.Permissions.Read = true;
+                        break;
+
+                    case AccessControlType.Group:
+                        // set permissions for the owning group.
+                        break;
+
+                    case AccessControlType.User:
+                        // set permissions for the owning user.
+                        break;
+                }
+
+            }
+
+            cloudBlockBlob.SetAcl();
+
+        }
+    }
+
+}
+```
+
+[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
 
 ## Next steps
 
