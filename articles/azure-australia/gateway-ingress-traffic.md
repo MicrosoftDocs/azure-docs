@@ -366,4 +366,4 @@ Azure Policy is a key component for enforcing and maintaining the integrity of t
 
 ## Next steps
 
-Review the article on [Gateway Egress Traffic Management and Control](gateway-egress-control.md) for details on managing traffic flows from your Azure environment to other networks using your Gateway components in Azure.
+Review the article on [Gateway Egress Traffic Management and Control](gateway-egress-traffic.md) for details on managing traffic flows from your Azure environment to other networks using your Gateway components in Azure.
