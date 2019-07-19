@@ -20,7 +20,7 @@ A _device capability model_ (DCM) describes the capabilities of a plug and play 
 
 To complete this quickstart, you need to install the following software on your local machine:
 
-* [Visual Studio 2019](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/).
+* [Visual Studio](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/).
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 * [Visual Studio Code](https://code.visualstudio.com/).
@@ -40,7 +40,7 @@ Install the Azure IoT Device Workbench extension from a .vsix file. Use the foll
 > The above experience will be replaced by directly installing from VS Code marketplace after IoT Plug and Play go public preview.
 
 > [!NOTE]
-> If you have problem on using the extension. Follow this step to reinstall it from scratch.
+> If you have problem on using the extension, such as *command 'iotworkbench.iotPnPOpenRepository' not found*. Follow this step to reinstall the extension from scratch.
 > 1. Uninstall the IoT Device Workbench
 > 1. Close VS Code
 > 1. Navigate to `C:\Users\{yourname}\.vscode\extensions` folder
@@ -99,7 +99,7 @@ The device capability model and interface files are required to publish to your 
 
 1. Select `SampleDevice.capabilitymodel.json` and `EnvironmentalSensor.interface.json` files.
 
-1. Enter your organizational Model Repository connection string, which you can get from [Azure Device Builder](https://aka.ms/adbtest) portal with signed in with your Microsoft Partner ID.
+1. Enter your organizational Model Repository connection string, which you can get from [Azure Device Builder](https://aka.ms/adbtest) portal with signed in with a Microsoft work or school account, or your Microsoft Partner ID if you have one.
 
     > [!NOTE]
     > The connection string is required for the first time.

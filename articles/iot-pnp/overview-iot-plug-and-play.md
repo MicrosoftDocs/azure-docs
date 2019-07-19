@@ -15,15 +15,15 @@ manager: philmea
 
 # What is Azure IoT Plug and Play (preview)?
 
-IoT Plug and Play enables solution developers to integrate devices with their solutions without writing any embedded code. At the core of IoT Plug and Play, is a schema that describes device capabilities. This schema, called a _device capability model_, is a JSON-LD document. This schema is structured as a set of interfaces that include definitions of:
+IoT Plug and Play enables solution developers to integrate devices with their solutions without writing any embedded code. At the core of IoT Plug and Play is a _device capability model_ schema that describes device capabilities. This schema is a JSON-LD document that's structured as a set of interfaces that include definitions of:
 
-- _Properties_ that are the read-only and read/write state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a read/write property.
+- _Properties_ that represent the read-only and read/write state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a read/write property.
 - _Telemetry_ that is the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or information message.
 - _Commands_ that describe a function or operation that can be done on a device. For example, a command could reboot a gateway or take a picture using a remote camera.
 
 You can reuse interfaces across device capability models to make collaboration easier and to speed up development.
 
-To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-twins/about-digital-twins.md), the IoT Plug and Play schema is defined using the [Digital Twin Definition Language (DTDL)](https://aka.ms/DTDL). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enables easier adoption across services and tooling. Additionally, there's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/overview-iot-central.md), and other Azure services remain the same.
+To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-twins/about-digital-twins.md), the IoT Plug and Play schema is defined using the [Digital Twin Definition Language (DTDL)](https://aka.ms/DTDL). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enable easier adoption across services and tooling. Additionally, there's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/overview-iot-central.md), and other Azure services remain the same.
 
 Solutions built on IoT Hub or IoT Central can benefit IoT Plug and Play.
 
@@ -77,4 +77,4 @@ During public preview, IoT Hub device streams are available in the North Europe,
 
 ## Next steps
 
-Now that you have an overview of IoT Plug and Play, the suggested next step is to try out the [IoT Plug and Play quickstart](https://docs.microsoft.com/azure/iot-pnp/).
+Now that you have an overview of IoT Plug and Play, the suggested next step is to try out the [IoT Plug and Play quickstart](./quickstart-create-pnp-device.md).
