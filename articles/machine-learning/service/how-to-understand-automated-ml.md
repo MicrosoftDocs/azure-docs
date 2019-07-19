@@ -1,5 +1,5 @@
 ---
-title: Understand automated ml results
+title: Understand automated ML results
 titleSuffix: Azure Machine Learning service
 description: Learn how to view and understand charts and metrics for each of your automated machine learning runs. 
 services: machine-learning
@@ -54,7 +54,7 @@ After running an automated machine learning experiment, a history of the runs ca
 
 You also see these same results during a run when you use the `RunDetails`[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 
-## <a href="classification"></a> Classification results
+## <a name="classification"></a> Classification results
 
 Thee following metrics and charts are available for every classification model that you build using the automated machine learning capabilities of Azure Machine Learning
 
