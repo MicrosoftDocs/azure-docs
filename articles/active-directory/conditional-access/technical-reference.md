@@ -200,6 +200,8 @@ This setting applies to the following client apps:
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
+- Microsoft Cortana
+- Microsoft Dynamics 365
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
@@ -238,8 +240,11 @@ In your Conditional Access policy, you can require an app protection policy be p
 
 This setting applies to the following client apps:
 
+- Microsoft Cortana
+- Microsoft Edge
 - Microsoft OneDrive
 - Microsoft Outlook
+- Microsoft Planner
 
 **Remarks**
 
