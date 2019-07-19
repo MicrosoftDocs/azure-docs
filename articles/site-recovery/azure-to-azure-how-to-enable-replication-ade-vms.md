@@ -28,17 +28,21 @@ To enable replication of Disk Encryption-enabled VMs from the Azure portal, the 
     - Create
     - Get
 
--	Key vault secret permissions
-    - List
-    - Create
-    - Get
-
+- Key vault secret permissions
+    - Secret Management Operations
+    	- Get
+    	- List
+	- Set
+	
 - Key vault key permissions (required only if the VMs use key encryption key to encrypt disk encryption keys)
-    - List
-    - Get
-    - Create
-    - Encrypt
-    - Decrypt
+    - Key Management Operations
+    	- Get
+	- List
+	- Create
+	
+    - Cryptographic Operations
+    	- Decrypt
+    	- Encrypt
 
 To manage permissions, go to the key vault resource in the portal. Add the required permissions for the user. The following example shows how to enable permissions to the key vault *ContosoWeb2Keyvault*, which is in the source region.
 
