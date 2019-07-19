@@ -76,8 +76,7 @@ If you specify an instance, it will be collected as a dimension "CounterInstance
 To collect system performance counters and send them to Application Insights, you can adapt the snippet below:
 
 
-``` C#
-
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec")));
@@ -86,7 +85,7 @@ To collect system performance counters and send them to Application Insights, yo
 
 Or you can do the same thing with custom metrics you created:
 
-``` C#
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(photo)\# Items Sold", "Photo sales"));

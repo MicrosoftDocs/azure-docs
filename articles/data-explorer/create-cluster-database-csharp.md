@@ -17,7 +17,6 @@ ms.date: 06/03/2019
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
 
 Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this article, you create a cluster and a database by using C#.
 
@@ -27,7 +26,7 @@ Azure Data Explorer is a fast, fully managed data analytics service for real-tim
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-## Install C# nuget
+## Install C# Nuget
 
 1. Install the [Azure Data Explorer (Kusto) nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
@@ -38,24 +37,24 @@ Azure Data Explorer is a fast, fully managed data analytics service for real-tim
 1. Create your cluster by using the following code:
 
     ```C#-interactive
-    string resourceGroupName = "testrg";	
-	string clusterName = "mykustocluster";
-    string location = "Central US";
-    AzureSku sku = new AzureSku("D13_v2", 5);
-    Cluster cluster = new Cluster(location, sku);
-	
-	var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
+    var resourceGroupName = "testrg";
+    var clusterName = "mykustocluster";
+    var location = "Central US";
+    var sku = new AzureSku("D13_v2", 5);
+    var cluster = new Cluster(location, sku);
+
+    var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
     var credential = new ClientCredential(clientId: "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx", clientSecret: "xxxxxxxxxxxxxx");
-	var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential).Result;
-	
-	var credentials = new TokenCredentials(result.AccessToken, result.AccessTokenType);
-	 
-	KustoManagementClient KustoManagementClient = new KustoManagementClient(credentials)
+    var result = await authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
+
+    var credentials = new TokenCredentials(result.AccessToken, result.AccessTokenType);
+
+    var kustoManagementClient = new KustoManagementClient(credentials)
     {
-		SubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+        SubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
     };
 
-    KustoManagementClient.Clusters.CreateOrUpdate(resourceGroupName, clusterName, cluster);
+    kustoManagementClient.Clusters.CreateOrUpdate(resourceGroupName, clusterName, cluster);
     ```
 
    |**Setting** | **Suggested value** | **Field description**|
@@ -71,7 +70,7 @@ Azure Data Explorer is a fast, fully managed data analytics service for real-tim
 1. Run the following command to check whether your cluster was successfully created:
 
     ```C#-interactive
-    KustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
+    kustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
     ```
 
 If the result contains `ProvisioningState` with the `Succeeded` value, then the cluster was successfully created.
@@ -81,12 +80,12 @@ If the result contains `ProvisioningState` with the `Succeeded` value, then the 
 1. Create your database by using the following code:
 
     ```c#-interactive
-	TimeSpan hotCachePeriod = new TimeSpan(3650, 0, 0, 0);
-	TimeSpan softDeletePeriod = new TimeSpan(3650, 0, 0, 0);
-	string databaseName = "mykustodatabase";
-	Database database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
-	
-	KustoManagementClient.Databases.CreateOrUpdate(resourceGroupName, clusterName, databaseName, database);
+    var hotCachePeriod = new TimeSpan(3650, 0, 0, 0);
+    var softDeletePeriod = new TimeSpan(3650, 0, 0, 0);
+    var databaseName = "mykustodatabase";
+    var database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
+
+    kustoManagementClient.Databases.CreateOrUpdate(resourceGroupName, clusterName, databaseName, database);
     ```
 
    |**Setting** | **Suggested value** | **Field description**|
@@ -100,7 +99,7 @@ If the result contains `ProvisioningState` with the `Succeeded` value, then the 
 2. Run the following command to see the database that you created:
 
     ```c#-interactive
-    KustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName);
+    kustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName);
     ```
 
 You now have a cluster and a database.
@@ -111,7 +110,7 @@ You now have a cluster and a database.
 * To clean up resources, delete the cluster. When you delete a cluster, it also deletes all the databases in it. Use the following command to delete your cluster:
 
     ```C#-interactive
-    KustoManagementClient.Clusters.Delete(resourceGroupName, clusterName);
+    kustoManagementClient.Clusters.Delete(resourceGroupName, clusterName);
     ```
 
 ## Next steps

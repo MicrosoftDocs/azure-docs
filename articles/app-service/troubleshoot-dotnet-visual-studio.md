@@ -655,7 +655,7 @@ There are no thorough and up-to-date introductions to ASP.NET tracing available 
 * [Tracing in ASP.NET MVC Razor Views](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Besides tracing in Razor views, the post also explains how to create an error filter in order to log all unhandled exceptions in an MVC application. For information about how to log all unhandled exceptions in a Web Forms application, see the Global.asax example in [Complete Example for Error Handlers](/previous-versions/bb397417(v=vs.140)) on MSDN. In either MVC or Web Forms, if you want to log certain exceptions but let the default framework handling take effect for them, you can catch and rethrow as in the following example:
 
-``` c#
+```csharp
 try
 {
    // Your code that might cause an exception to be thrown.
