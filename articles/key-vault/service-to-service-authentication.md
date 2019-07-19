@@ -206,11 +206,16 @@ To use a client certificate for service principal authentication
 
 1. Replace `{KeyVaultCertificateSecretIdentifier}` in this connection string with the certificate identifier:
 
-```
-RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
-```
+    ```
+    RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
+    ```
 
-If, for instance your key vault was called "myKeyVault" and you created a certificate called 'myCert', the certificate identifier would be `https://myKeyVault.vault.azure.net/secrets/myCert`, and the connection string would be `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert`.
+    If, for instance your key vault was called "myKeyVault" and you created a certificate called 'myCert', the certificate identifier would be:
+
+    ```
+    RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert
+    ```
+
 
 ## Connection String Support
 

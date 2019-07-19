@@ -25,7 +25,7 @@ This article focuses on the following environments and tools:
 
 * [The Data Science Virtual Machine (DSVM)](#dsvm): A pre-configured development or experimentation environment in the Azure cloud that's designed for data science work and can be deployed to either CPU only VM instances or GPU-based instances. Python 3, Conda, Jupyter Notebooks, and the Azure Machine Learning SDK are already installed. The VM comes with popular machine learning and deep learning frameworks, tools, and editors for developing machine learning solutions. It's probably the most complete development environment for machine learning on the Azure platform.
 
-* [The Jupyter Notebook](#jupyter): If you're already using the Jupyter Notebook, the SDK has some extras that you should install.
+* [Jupyter Notebooks](#jupyter): If you're already using the Jupyter Notebook, the SDK has some extras that you should install.
 
 * [Visual Studio Code](#vscode): If you use Visual Studio Code, it has some useful extensions that you can install.
 
@@ -188,16 +188,10 @@ When you're using a local computer (which might also be a remote virtual machine
     pip install azureml-sdk[notebooks,automl]
     ```
 
-    Use this command to install the Azure Machine Learning Data Prep SDK on its own:
-
-    ```shell
-    pip install azureml-dataprep
-    ```
-
    > [!NOTE]
    > If you get a message that PyYAML can't be uninstalled, use the following command instead:
    >
-   > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+   > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
 
    It will take several minutes to install the SDK. See the [install guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information on installation options.
 
@@ -226,6 +220,12 @@ The procedure in the [Local computer](#local) section installs necessary compone
     ```shell
     conda activate myenv
     ```
+    
+1. Clone [the GitHub repository](https://aka.ms/aml-notebooks) for a set of sample notebooks.
+
+    ```CLI
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
 
 1. Launch the Jupyter Notebook server with the following command:
 
@@ -246,8 +246,9 @@ The procedure in the [Local computer](#local) section installs necessary compone
     import sys
     sys.path
     ```
-
+    
 1. To configure the Jupyter Notebook to use your Azure Machine Learning service workspace, go to the [Create a workspace configuration file](#workspace) section.
+
 
 ### <a id="vscode"></a>Visual Studio Code
 

@@ -7,7 +7,7 @@ manager: sivan
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: srinathvasireddy
+ms.author: srinathv
 ---
 
 # Troubleshoot Azure virtual machine backup
