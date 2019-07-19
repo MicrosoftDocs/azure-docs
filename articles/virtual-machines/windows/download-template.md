@@ -4,7 +4,7 @@ description: Download the templatefor a VM to help with automating deployments i
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

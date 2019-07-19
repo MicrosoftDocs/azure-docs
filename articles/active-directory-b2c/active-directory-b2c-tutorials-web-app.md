@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- [Create user flows](tutorial-create-user-flows.md) to enable user experiences in your application. 
+- [Create user flows](tutorial-create-user-flows.md) to enable user experiences in your application.
 - Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
 
 ## Update the application
@@ -72,9 +72,9 @@ You change the sample to use the application that's registered in your tenant, w
 
 1. Click **Sign up / Sign in** to sign up as a user of the application. The **b2c_1_signupsignin1** user flow is used.
 2. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't have an account yet, select **Sign up now**. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the user flow.
-3. Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes. 
+3. Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes.
 
-    ![Sign-up workflow](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.png)
+    ![Sign-up page shown as part of sign-in/sign-up workflow](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.PNG)
 
 4. Click **Create** to create a local account in the Azure AD B2C tenant.
 
