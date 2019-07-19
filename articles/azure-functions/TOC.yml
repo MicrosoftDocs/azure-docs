@@ -62,7 +62,7 @@
   - name: Create a serverless web app
     href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr  
   - name: Machine learning with TensorFlow
-    href: functions-tensorflow-prediction.md 
+    href: functions-machine-learning-tensorflow.md 
   - name: Create a custom Linux image
     href: functions-create-function-linux-custom-image.md
   - name: Functions on IoT Edge device
