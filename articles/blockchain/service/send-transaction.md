@@ -24,6 +24,7 @@ You use Azure Blockchain Development Kit to:
 > * Create a smart contract
 > * Deploy a smart contract
 > * Execute a smart contract function via a transaction
+> * Query contract state
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -86,7 +87,7 @@ The project structure looks like the following example:
 
    ![Solidity project](./media/send-transaction/solidity-project.png)
 
-## Build smart contract
+## Build a smart contract
 
 Smart contracts are located in the project's **contracts** directory. You compile smart contracts before you deploy them to a blockchain. Use the **Build Contracts** command to compile all the smart contracts in your project.
 
@@ -99,7 +100,7 @@ Azure Blockchain Development Kit uses Truffle to compile the smart contracts.
 
 ![Compile output](./media/send-transaction/compile-output.png)
 
-## Deploy smart contract
+## Deploy a smart contract
 
 Truffle uses migration scripts to deploy your contracts to an Ethereum network. Migrations are JavaScript files located in the project's **migrations** directory.
 
@@ -111,7 +112,7 @@ Azure Blockchain Development Kit uses Truffle to execute the migration script to
 
 ![Successfully deployed contract](./media/send-transaction/deploy-contract.png)
 
-## Execute contract function
+## Call a contract function
 
 The **HelloBlockchain** contract's **SendRequest** function changes the **RequestMessage** state variable. Changing the state of a blockchain network is done via a transaction. You can create a script to execute the **SendRequest** function via a transaction.
 
