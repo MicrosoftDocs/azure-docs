@@ -157,7 +157,7 @@ This section contains the following examples:
 > * Copy all containers, directories, and files to another storage account
 
 > [!NOTE]
-> In the current release, you have to append a SAS token to each source URL. If you provide authorization credentials by using Azure Active Directory (AD), you can omit the the SAS token only from the destination URL. 
+> In the current release, you have to append a SAS token to each source URL. If you provide authorization credentials by using Azure Active Directory (AD), you can omit the SAS token only from the destination URL. 
 
 ### Copy a blob to another storage account
 

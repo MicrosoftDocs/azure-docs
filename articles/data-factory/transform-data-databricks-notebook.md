@@ -65,7 +65,7 @@ definition:
 
 ## Supported libraries for Databricks activities
 
-In the above Databricks activity definition, you specify these library types: *jar*, *egg*, *maven*, *pypi*, *cran*.
+In the above Databricks activity definition, you specify these library types: *jar*, *egg*, *whl*, *maven*, *pypi*, *cran*.
 
 ```json
 {
@@ -75,6 +75,12 @@ In the above Databricks activity definition, you specify these library types: *j
         },
         {
             "egg": "dbfs:/mnt/libraries/library.egg"
+        },
+	{
+      	    "whl": "dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl"
+        },
+        {
+            "whl": "dbfs:/mnt/libraries/wheel-libraries.wheelhouse.zip"
         },
         {
             "maven": {

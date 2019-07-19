@@ -9,8 +9,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
-ms.author: tyao;kumud
-
+ms.author: kumud
+ms.reviewer: tyao
 ---
 
 # Configure bot protection for web application firewall (Preview)

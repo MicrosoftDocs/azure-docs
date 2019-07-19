@@ -4,6 +4,7 @@ description: Deploy Azure API for FHIR using PowerShell.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: mihansen

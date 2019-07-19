@@ -6,7 +6,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/30/2019
 ---
 # Configure outbound network traffic for Azure HDInsight clusters using Firewall (Preview)

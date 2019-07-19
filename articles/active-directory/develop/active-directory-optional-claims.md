@@ -189,7 +189,7 @@ In addition to the standard optional claims set, you can also configure tokens t
 
 > [!Note]
 > - Directory schema extensions are an Azure AD-only feature, so if your application manifest requests a custom extension and an MSA user logs into your app, these extensions will not be returned.
-> - Azure AD optional claims only work with the Azure AD extension and doesn't work work with the Microsoft Graph directory extension. Both APIs require the `Directory.ReadWriteAll` permission, which can only be consented by admins.
+> - Azure AD optional claims only work with the Azure AD extension and doesn't work with the Microsoft Graph directory extension. Both APIs require the `Directory.ReadWriteAll` permission, which can only be consented by admins.
 
 ### Directory extension formatting
 
