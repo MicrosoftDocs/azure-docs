@@ -35,10 +35,10 @@ You may use any editor of your choice. [Visual Studio Code](https://code.visuals
 
 ## Clone the tutorial repository
 
-Open a terminal and clone the repository using Git. If you don't have Git, you can browse to the [GitHub repository](https://github.com/anthonychu/functions-python-tensorflow-tutorial) and download it as a zip file.
+Open a terminal and clone the repository using Git. If you don't have Git, you can browse to the [GitHub repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial) and download it as a zip file.
 
 ```bash
-git clone https://github.com/anthonychu/functions-python-tensorflow-tutorial.git
+git clone https://github.com/Azure-Samples/functions-python-tensorflow-tutorial.git
 cd functions-python-tensorflow-tutorial
 ```
 
@@ -154,7 +154,7 @@ Use `Ctrl-C` to stop the function app.
 
 ## Import the TensorFlow model
 
-You'll use a pre-built TensorFlow model that was trained with and exported from Azure Custom Vision Service. If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the repository](https://github.com/anthonychu/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
+You'll use a pre-built TensorFlow model that was trained with and exported from Azure Custom Vision Service. If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
 The model consists of two files in the **<repository-root>/resources/model** folder: *model.db* and *labels.txt*. Copy them into the **classify** function's folder.
 
