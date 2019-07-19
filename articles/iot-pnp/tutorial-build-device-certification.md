@@ -34,15 +34,15 @@ You also need the Plug and Play device that you create in the [Quickstart: Use a
 
 ## Store a capability model and interfaces
 
-For Plug and Play devices, you must author a capability model and interfaces that define the capabilities of the device as JSON files.
+For IoT Plug and Play devices, you must author a capability model and interfaces that define the capabilities of the device as JSON files.
 
 You can store these JSON files in three different locations:
 
-- The global model repository.
+- The public model repository.
 - Your organizational model repository.
 - On your device.
 
-Currently, to certify your device, the files must be stored either in your organizational model repository, or in the global model repository.
+Currently, to certify your device, the files must be stored either in your organizational model repository, or in the public model repository.
 
 ## Include the required interfaces
 
@@ -52,15 +52,18 @@ To pass the certification process, you must include and implement the **Device I
 "@id": "urn:azureiot:DeviceManagement:DeviceInformation:1"
 ```
 
+> [!NOTE]
+> If you completed the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md), you've already included the **Device Information** interface in your model.
+
 To include the **Device Information** interface in your device model, add the interface ID to the `implements` property of the capability model:
 
 ```json
 {
-  "@id": "urn:azureiot:sample:ThermostatDevice:1",
+  "@id": "urn:yourcompanyname:sample:ThermostatDevice:1",
   "@type": "CapabilityModel",
   "displayName": "Thermostat T-1000",
   "implements": [
-    "urn:azureiot:sample:Thermostat:1",
+    "urn:yourcompanyname:sample:Thermostat:1",
     "urn:azureiot:DeviceManagement:DeviceInformation:1"
   ],
   "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
@@ -71,11 +74,11 @@ To view the **Device Information** interface in VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
-1. Enter **Plug and Play** and then select the **Azure IoT Plug and Play: Open Model Repository** command. Choose **Global Model Repository**. The global model repository opens in VS Code.
+1. Enter **Plug and Play** and then select the **IoT Plug and Play Open Model Repository** command. Choose **Open Public Model Repository**. The public model repository opens in VS Code.
 
-1. In the global model repository, enter **Device Information** in the search field.
+1. In the public model repository, select the **Interfaces** tab, select the filter icon, and enter **Device Information** in the filter field.
 
-1. To create a local copy of the **Device Information** interface, select it in the search results, and then select **Download**.
+1. To create a local copy of the **Device Information** interface, select it in the filtered list, and then select **Download**. VS Code displays the interface file.
 
 To view the **Device Information** interface using the Azure CLI:
 

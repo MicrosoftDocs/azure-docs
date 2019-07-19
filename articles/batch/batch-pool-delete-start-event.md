@@ -3,7 +3,7 @@ title: "Azure Batch pool delete start event | Microsoft Docs"
 description: Reference for Batch pool delete start event.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.assetid: 
 ms.service: batch

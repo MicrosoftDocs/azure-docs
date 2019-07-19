@@ -70,22 +70,16 @@ You can use the extension to view and interact with IoT Plug and Play devices th
 
 #### List devices and interfaces
 
-List all IoT Plug and Play devices on an IoT Hub:
+List all devices on an IoT Hub:
 
 ```cmd/sh
-az iot digitaltwin list-devices --hub-name {YourIoTHubName}
-```
-
-List all IoT Plug and Play devices on an IoT Hub that implement a target interface:
-
-```cmd/sh
-az iot digitaltwin list-devices --interface {YourInterfaceID} --hub-name {YourIoTHubName}
+az iot hub device-identity list--hub-name {YourIoTHubName}
 ```
 
 List all interfaces registered by an IoT Plug and Play device:
 
 ```cmd/sh
-az iot digitaltwin list-interfaces --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
+az iot dt list-interfaces --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
 ```
 
 #### Properties
@@ -93,13 +87,13 @@ az iot digitaltwin list-interfaces --hub-name {YourIoTHubName}  --device-id {You
 List all properties and property values for a device:
 
 ```cmd/sh
-az iot digitaltwin list-properties --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
+az iot dt list-properties --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
 ```
 
 Set the value of a read-write property:
 
 ```cmd/sh
-az iot digitaltwin update-property --property-name {TwinPropertyName} --property-value {TwinPropertyValue} --interface {YourInterfaceID} --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
+az iot dt update-property --property-name {TwinPropertyName} --property-value {TwinPropertyValue} --interface {YourInterfaceID} --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
 ```
 
 #### Commands
@@ -107,13 +101,13 @@ az iot digitaltwin update-property --property-name {TwinPropertyName} --property
 List all commands for a device:
 
 ```cmd/sh
-az iot digitaltwin list-commands --login {YourIoTHubConnectionString}--device-id {YourDeviceID} --repository {PlugAndPlayRepositoryEndpoint}
+az iot dt list-commands --login {YourIoTHubConnectionString}--device-id {YourDeviceID} --repository {PlugAndPlayRepositoryEndpoint}
 ```
 
 Invoke a command:
 
 ```cmd/sh
-az iot digitaltwin invoke-command --command-name [Interface Command Name] --command-payload {CommandPayloadOrFilePath} --interface {YourInterfaceID} --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
+az iot dt invoke-command --command-name [Interface Command Name] --command-payload {CommandPayloadOrFilePath} --interface {YourInterfaceID} --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
 ```
 
 #### Telemetry
@@ -121,13 +115,13 @@ az iot digitaltwin invoke-command --command-name [Interface Command Name] --comm
 Monitor all IoT Plug and Play telemetry from all devices and interfaces:
 
 ```cmd/sh
-az iot digitaltwin monitor-events --hub-name {YourIoTHubName}
+az iot dt monitor-events --hub-name {YourIoTHubName}
 ```
 
 Monitor all telemetry from a particular IoT Plug and Play device:
 
 ```cmd/sh
-az iot digitaltwin monitor-events --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
+az iot dt monitor-events --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
 ```
 
 ### Manage interfaces in a model repository

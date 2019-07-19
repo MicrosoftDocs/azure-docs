@@ -13,7 +13,7 @@ manager: philmea
 # As a device builder, I want to use VS Code to create and test a new device capability model so I can prepare devices that are simple to connect an IoT solution.
 ---
 
-# Tutorial: Create a test a device capability model using Visual Studio Code
+# Tutorial: Create and test a device capability model using Visual Studio Code
 
 This tutorial shows you how, as a device developer, to use Visual Studio code to create a _device capability model_. You can use the model to generate code to run on a device that connects to an Azure IoT Hub instance in the cloud.
 
@@ -55,7 +55,7 @@ To build the generated C code on Windows in this tutorial, you need:
 
 To test your device code in this tutorial, you need:
 
-* [Plug and Play Device Explorer](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/PnP-DeviceExplorer/README.md)
+* The [IoT Plug and Play Device Explorer](https://github.com/Azure/azure-iot-explorer/releases).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -78,7 +78,7 @@ To create an interface file that defines the capabilities of your IoT device in 
 
 1. Then enter **EnvironmentalSensor** as the name of the interface and press **Enter**. VS Code creates a sample interface file called **EnvironmentalSensor.interface.json**.
 
-1. Replace the contents of this file with the following JSON and replace `{your name}` in the `@id` field with a unique value. The interface ID must be unique to save the interface in the repository:
+1. Replace the contents of this file with the following JSON and replace `{your name}` in the `@id` field with a unique value. Use only the characters a-z, A-Z, 0-9, and underscore. For more more information, see [Digital Twin identifier format](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format). The interface ID must be unique to save the interface in the repository:
 
     ```json
     {
@@ -183,7 +183,7 @@ To create an interface file that defines the capabilities of your IoT device in 
 
     This interface defines device properties such as **Customer Name**, telemetry types such as **Temperature**, and commands such as **turnon**.
 
-1. Add a command capability called **blink** at the end of this interface file. Try typing the definition to see how intellisense, autocomplete, and validation can help you edit an interface definition:
+1. Add a command capability called **blink** at the end of this interface file. Be sure to add a comma before you add the command. Try typing the definition to see how intellisense, autocomplete, and validation can help you edit an interface definition:
 
     ```json
     {
@@ -370,7 +370,7 @@ When you run the code, it connects to IoT Hub and starts sending sample telemetr
     sensorbox_app.exe {your device connection string}
     ```
 
-1. Use the Plug and Play Device Explorer to interact with the Plug and Play device connected to your IoT hub.
+1. Use the Azure IoT explorer tool to interact with the Plug and Play device connected to your IoT hub. For more information, see [Install and use Azure IoT explorer](./howto-install-iot-explorer.md).
 
 ## Next steps
 
