@@ -160,15 +160,23 @@ Common browsers support the following DRM clients:
 |Opera|Widevine|
 |Safari|FairPlay|
 
-## Control content access
+## Controlling content access
 
-You can control who has access to your content by configuring the content key policy. Media Services supports multiple ways of authorizing users who make key requests. You must configure the content key policy. The client (player) must meet the policy before the key can be delivered to the client. The content key policy can have **open** or **token** restriction. 
+You can control who has access to your content by configuring the content key policy. Media Services supports multiple ways of authorizing users who make key requests. You must configure the content key policy. The client (player) must meet the policy before the key can be delivered to the client. The content key policy can have *open* or *token* restriction. 
 
-With a token-restricted content key policy, the content key is sent only to a client that presents a valid JSON Web Token (JWT) or simple web token (SWT) in the key/license request. This token must be issued by a security token service (STS). You can use Azure Active Directory as an STS or deploy a custom STS. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service returns the requested key/license to the client if the token is valid and the claims in the token match those configured for the key/license.
+With a token-restricted content key policy, the content key is sent only to a client that presents a valid JWT token or a simple web token in the license/key request. This token must be issued by an STS. 
 
-When you configure the token restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the secure token service that issues the token. The audience, sometimes called scope, describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
+You can use Azure AD as an STS or deploy a custom STS. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services license/key delivery service returns the requested license or key to the client if both of these conditions exist:
 
-Customers often use a custom STS to include custom claims in the token to select between different ContentKeyPolicyOptions with different DRM license parameters (a subscription license versus a rental license) or to include a claim representing the content key identifier of the key that the token grants access to.
+* The token is valid. 
+* The claims in the token match those configured for the license or key.
+
+When you configure the token-restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the STS that issues the token. The audience, sometimes called scope, describes the intent of the token or the resource that the token authorizes access to. The Media Services license/key delivery service validates that these values in the token match the values in the template.
+
+Customers often use a custom STS to:
+
+* Include custom claims in the token to select between different `ContentKeyPolicyOption` classes with different DRM license parameters (a subscription license versus a rental license). 
+* Include a claim that represents the content key identifier of the key that the token grants access to.
 
 ### Token replay prevention
 
@@ -185,12 +193,20 @@ The *Token Replay Prevention* feature allows Media Services customers to set a l
 
 ## Custom key and license acquisition URL
 
-Use the following templates if you want to specify a different key and license delivery service (not Media Services). The two replaceable fields in the templates are there so that you can share your Streaming Policy across many Assets instead of creating a Streaming Policy per Asset. 
+Use the following templates if you want to specify a different license/key delivery service (not Media Services). The two replaceable fields in the templates are there so that you can share your streaming policy across many assets instead of creating a streaming policy per asset. 
 
-* EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate - Template for the URL of the custom service delivering keys to end-user players. Not required when using Azure Media Services for issuing keys. The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
-* StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate - Template for the URL of the custom service delivering licenses to end-user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested. 
-* StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate - Same as above, only for Widevine. 
-* StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate - Same as above, only for FairPlay.  
+* `EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate`: Template for the URL of the custom service that delivers keys to end-user players. It isn't required when you're using Azure Media Services for issuing keys. 
+
+   The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are:
+   * `{AlternativeMediaId}`, which is replaced with the value of StreamingLocatorId.AlternativeMediaId.
+   * `{ContentKeyId}`, which is replaced with the value of the identifier of the requested key.
+* `StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate`: Template for the URL of the custom service that delivers licenses to end-user players. It isn't required when you're using Azure Media Services for issuing licenses. 
+
+   The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are:  
+   * `{AlternativeMediaId}`, which is replaced with the value of StreamingLocatorId.AlternativeMediaId.
+   * `{ContentKeyId}`, which is replaced with the value of the identifier of the requested key. 
+* `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: Same as the previous template, only for Widevine. 
+* `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: Same as the previous template, only for FairPlay.  
 
 For example:
 
@@ -198,9 +214,9 @@ For example:
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
 ```
 
-The `ContentKeyId` has a value of the key being requested and the `AlternativeMediaId` can be used if you want to map the request to an entity on your side. For example, the `AlternativeMediaId` can be used to help you look up permissions.
+`ContentKeyId` has a value of the requested key. You can use `AlternativeMediaId` if you want to map the request to an entity on your side. For example, `AlternativeMediaId` can be used to help you look up permissions.
 
-For REST examples that use custom key and license acquisition URLs, see [Streaming Policies - Create](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)
+ For REST examples that use custom license/key acquisition URLs, see [Streaming Policies - Create](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
 
 ## Troubleshoot
 
