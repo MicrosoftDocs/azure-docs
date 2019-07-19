@@ -22,22 +22,117 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ## 2019-07-15
 
-### Azure Machine Learning SDK for Python v1.0.TBD
+### Azure Machine Learning SDK for Python v1.0.53
 
 + **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
-  
-  + **Preview features**
-    + [Contrib features below] 
+  + **automl-client-core-nativeclient**
+    + **azureml-automl-core** - Enabled the ONNX model conversion for the remote compute target. **azureml-train-automl** - Added the support of ONNX models for the remote compute target.
+  + **azureml-automl-core**
+    + **azureml-automl-core** - Enabled the ONNX model conversion for the remote compute target. **azureml-train-automl** - Added the support of ONNX models for the remote compute target.
+  + **azureml-train-automl**
+    + **azureml-automl-core** - Enabled the ONNX model conversion for the remote compute target. **azureml-train-automl** - Added the support of ONNX models for the remote compute target.
 
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
 
 + **Bug fixes and improvements**
-  + [Insert fixes and improvements below. Link github issues resolved with this release]
-  + Model description can now properly be updated after registration
-  + Model and Image deletion now provides more information about upstream objects that depend on them which causes the delete to fail
-
+  + **automl-client-core-nativeclient**
+    + Fix the bug about loosing columns types after the transformation (bug linked); 
+    + Allow y_query to be an object type containing None(s) at the begin (#459519).
+  + **azure-cli-ml**
+    + CLI commands "model deploy" and "service update" now accept parameters, config files, or a combination of the two. Parameters have precedence over attributes in files.
+    + Model description can now be updated after registration
+  + **azureml-automl-core**
+    + Update NimbusML dependency to 1.2.0 version (current latest).
+    + Adding support for Nimbus ML estimators & pipelines to be used within AutoML estimators.
+    + Fixing a bug in the Ensemble selection procedure which was unnecessarily growing the resulting ensemble even if the scores remained constant.
+    + Enable re-use of some featurizations across CV Splits for forecasting tasks. This speeds up the run-time of the setup run by roughly a factor of `n_cross_validations` for expensive featurizations like lags and rolling windows.
+    + Addressing an issue if time is out of pandas supported time range. We now raise a `DataException` if time is less than `pd.Timestamp.min` or greater than `pd.Timestamp.max`
+    + Allow different frequencies in train and test sets if they can be aligned. For example year quarter starting at January and at October.
+    + The property "partameters" was added to the TimeSeriesTransformer.
+    + Remove old exception classes.
+    + The target lags parameter is now provided by the integer value or by the list of integers. If the integer was provided, only one lag will be created, if the list will be provided, the unique values of lags will be taken. ```target_lags=[1, 2, 2, 4]``` will create lags of one, 2 and 4 periods.
+    + Fix the bug about loosing columns types after the transformation (bug linked);
+    + Allow y_query to be an object type containing None(s) at the begin (#459519).
+    + add expected values to automl output
+  + **azureml-contrib-datadrift**
+    +  Move azureml-contrib-opendatasets to azureml-opendatasets. - Allow open dataset classes to be registered to AML workspace and leverage AML Dataset capabilities seamlessly. - Improve NoaaIsdWeather enrich performance in non-SPARK version significantly.
+  + **azureml-contrib-explain-model**
+    + Fixed transformations argument for LIME explainer for raw feature importance in azureml-contrib-explain-model package
+    + added segmentations to image explanations in image explainer for AzureML-contrib-explain-model package
+    + add scipy sparse support for LimeExplainer
+    + add batch_size to mimic explainer when include_local=False for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel
+  + **azureml-contrib-featureengineering**
+    + Use one or two sentences - Use past tense - End with period Example: -Fixed the issue in useful_util, this time it actually works.
+    + Fix for calling set_featurizer_timeseries_params(): dict value type change and null check - Add notebook for timeseries featurizer
+    + Update NimbusML dependency to 1.2.0 version (current latest).
+  + **azureml-core**
+    + Added the ability to attach DBFS datastores in the AzureML CLI 
+    + Fixed the bug with datastore upload where an empty folder is created if `target_path` started with `/`
+    + Fixed deepcopy issue in ServicePrincipalAuthentication.
+    + Added the "az ml environment show" and "az ml environment list" commands to the CLI.
+    + Environments now support specifying a base_dockerfile as an alternative to an already-built base_image.
+    + The unused RunConfiguration setting auto_prepare_environment has been marked as deprecated.
+    + Model description can now be updated after registration
+    + Bugfix: Model and Image delete now provides more information about retrieving upstream objects that depend on them if delete fails due to an upstream dependency.
+    + Fixed bug that printed blank duration for deployments that occur when creating a workspace for some environments.
+    + Improved workspace create failure exceptions. Such that users don't see "Unable to create workspace. Unable to find..." as the message and instead see the actual creation failure.
+    + Add support for token authentication in AKS webservices. 
+    + Add `get_token()` method to `Webservice` objects.
+    + Added CLI support to manage machine learning datasets.
+    + Enter release notes (if required) here using markdown syntax.
+    + `Datastore.register_azure_blob_container` now optionally takes a `blob_cache_timeout` value (in seconds) which configures blobfuse's mount parameters to enable cache expiration for this datastore. The default is no timeout, i.e. when a blob is read, it will stay in the local cache until the job is finished. Most jobs will prefer this setting, but some jobs need to read more data from a large dataset than will fit on their nodes. For these jobs, tuning this parameter will help them succeed. Take care when tuning this parameter: setting the value too low can result in poor performance, as the data used in an epoch may expire before being used again. This means that all reads will be done from blob storage (i.e. the network) rather than the local cache, which negatively impacts training times.
+    + Enable customer to compare two datasets
+    + Model description can now properly be updated after registration
+    + Model and Image deletion now provides more information about upstream objects that depend on them which causes the delete to fail
+    + Improve resource utilization of remote runs using azureml.mlflow.
+  + **azureml-dataprep**
+    + Improve error thrown when attempting to read Parquet Dataset from remote source (which is not currently supported).
+    +  Improve handling of pandas DataFrames with non-string Column Indexes
+    + Improved the performance of to_pandas_dataframe in Datasets
+    + Dataflow objects can now be iterated over, producing a sequence of records.
+    + Fixed a bug where `Dataflow.read_pandas_dataframe` would fail when the `in_memory` argument is set to True.
+    + Increase robustness of DataPrep SDK
+    + Add `_summarize_each` as experimental feature to `azureml.dataprep.Dataflow`.
+    + Add topValues and bottomValues summarize
+    + Expose `set_diagnostics_collection()` to allow for programmatic enabling/disabling of the telemetry collection
+  + **azureml-explain-model**
+    + Fixed transformations argument for LIME explainer for raw feature importance in azureml-contrib-explain-model package
+    + add scipy sparse support for LimeExplainer
+    + added shap linear explainer wrapper, as well as another level to tabular explainer for explaining linear models
+    + for mimic explainer in explain model library, fixed error when include_local=False for sparse data input
+    + add expected values to automl output
+    + fixed permutation feature importance when transformations argument supplied to get raw feature importance
+    + add batch_size to mimic explainer when include_local=False for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel
+    + for model explainability library, fixed blackbox explainers where pandas dataframe input is required for prediction
+    + Fixed a bug where `explanation.expected_values` would sometimes return a float rather than a list with a float in it.
+  + **azureml-mlflow**
+    + Improve performance of mlflow.set_experiment(experiment_name)
+    + Fix bug in use of InteractiveLoginAuthentication for mlflow tracking_uri
+    + Improve the documentation of the azureml-mlflow package
+    + Patch bug where mlflow.log_artifacts("my_dir") would save artifacts under "my_dir/<artifact-paths>" instead of "<artifact-paths>" - [x] I investigated optional gates failures and do not introduce any new failures - [] I am too lazy even to read this section
+    + Improve resource utilization of remote runs using azureml.mlflow.
+  + **azureml-opendatasets**
+    + Pin pyarrow of opendatasets to old versions (<0.14.0) because of memory issue newly introduced there.
+    +  Move azureml-contrib-opendatasets to azureml-opendatasets. - Allow open dataset classes to be registered to AML workspace and leverage AML Dataset capabilities seamlessly. - Improve NoaaIsdWeather enrich performance in non-SPARK version significantly.
+  + **azureml-pipeline-core**
+    + `hash_paths parameter for all pipeline steps is deprecate and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
+  + **azureml-pipeline-internal**
+    + `hash_paths parameter for all pipeline steps is deprecate and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
+  + **azureml-pipeline-steps**
+    + `hash_paths parameter for all pipeline steps is deprecate and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
+    + DBFS Datastore is now supported for Inputs and Outputs in DatabricksStep.
+    + Enter release notes (if required) here using markdown syntax. Updated documentation for Azure Batch Step with regards to inputs/outputs.
+    + In AzureBatchStep, changed *delete_batch_job_after_finish* default value to *true*.
+  + **azureml-telemetry**
+    + Enter release notes (if required) here using markdown syntax.
+    +  Move azureml-contrib-opendatasets to azureml-opendatasets. - Allow open dataset classes to be registered to AML workspace and leverage AML Dataset capabilities seamlessly. - Improve NoaaIsdWeather enrich performance in non-SPARK version significantly.
+  + **azureml-train-automl**
+    + Updated documentation on get_output to reflect the actual return type and provide additional notes on retrieving key properties.
+    + Update NimbusML dependency to 1.2.0 version (current latest).
+    + add expected values to automl output
+    + `hash_paths parameter for all pipeline steps is deprecate and will be removed in future. By default contents of the source_directory is hashed (except files listed in .amlignore or .gitignore).`
+  + **azureml-train-core**
+    + Strings are now accepted as compute target for Automated Hyperparameter Tuning
+    + The unused RunConfiguration setting auto_prepare_environment has been marked as deprecated.
 
 ## 2019-07-09
 
