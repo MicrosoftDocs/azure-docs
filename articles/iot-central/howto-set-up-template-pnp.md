@@ -77,7 +77,7 @@ After you create a device capability model, you can:
 
 - Add interfaces to the model. A model must have at least one interface.
 - Edit model metadata such as its ID, namespace, and name.
-- Delete the model
+- Delete the model.
 
 ## Create an interface
 
@@ -107,7 +107,7 @@ The following table shows the configuration settings for a  telemetry capability
 | ----- | ----------- |
 | Display Name | The display name for the telemetry value used on dashboards and forms. |
 | Name | The name of the field in the telemetry message. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
-| Capability Type | Telemetry |
+| Capability Type | Telemetry. |
 | Semantic Type | The semantic type of the telemetry such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
 | Schema | The telemetry data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
 | Severity | Only available for the event semantic type. **Error**, **Information**, or **Warning**. |
@@ -127,7 +127,7 @@ The following table shows the configuration settings for a  property capability:
 | ----- | ----------- |
 | Display Name | The display name for the property value used on dashboards and forms. |
 | Name | The name of the property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
-| Capability Type | Property |
+| Capability Type | Property. |
 | Semantic Type | The semantic type of the property such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
 | Schema | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
 | Writeable | If the property isn't writeable, the device can report property values to IoT Central. If the property is writeable, the device can report property values to IoT Central and IoT Central can send property updates to the device.
@@ -140,7 +140,7 @@ The following table shows the configuration settings for a  property capability:
 
 ### Commands
 
-You can call device commands from IoT Central. Commands optionally pass parameters to the device and receive a response from the device. For example, you could call a command to reboot a device in ten-seconds time.
+You can call device commands from IoT Central. Commands optionally pass parameters to the device and receive a response from the device. For example, you could call a command to reboot a device in ten seconds.
 
 The following table shows the configuration settings for a  command capability:
 
