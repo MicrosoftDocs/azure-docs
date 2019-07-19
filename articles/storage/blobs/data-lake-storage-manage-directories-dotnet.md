@@ -335,6 +335,8 @@ For more information about access control lists, see [Access control in Azure Da
 > * [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
 > * [CloudBlobDirectory.SetAcl](https://www.microsoft.com) method.
 
+[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
+
 ## Next steps
 
 Explore more APIs in the [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) namespace of the [Azure Storage APIs for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) docs.
