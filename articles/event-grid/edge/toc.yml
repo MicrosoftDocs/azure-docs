@@ -1,4 +1,5 @@
 - name: Event Grid IoT Edge Documentation
+  href: index.yml
 - name: Concepts
   items:
   - name: Event Grid concepts
