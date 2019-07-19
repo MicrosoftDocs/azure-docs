@@ -40,7 +40,7 @@ Other resources that you need, such as an Azure Storage account, are created in 
 > [!NOTE]
 > In Visual Studio 2017, the Azure development workload installs the Azure Functions Tools as a separate extension. When you update your Visual Studio 2017, also make sure that you are using the [most recent version](#check-your-tools-version) of the Azure Functions tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017. 
 
-### Check your tools version in Visual Studio 2017
+### <a name="check-your-tools-version"></a>Check your tools version in Visual Studio 2017
 
 1. From the **Tools** menu, choose **Extensions and Updates**. Expand **Installed** > **Tools** and choose **Azure Functions and Web Jobs Tools**.
 
