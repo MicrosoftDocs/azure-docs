@@ -10,11 +10,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 07/16/2019
+ms.date: 07/19/2019
 ms.author: lahugh
 ---
 
-# Cost analysis and budget for Azure Batch
+# Cost analysis and budgets for Azure Batch
 
 There's no charge for Azure Batch itself, only the underlying compute resources and software licenses used to run Batch workloads. On a high level, costs are incurred from virtual machines (VMs) in a pool, data transfer from the VM, or any input or output data stored in the cloud. Let's take a look at some key components of Batch to understand where costs come from, how to set a budget for a pool or account, and some techniques for making your Batch workloads more cost efficient.
 
@@ -22,7 +22,9 @@ There's no charge for Azure Batch itself, only the underlying compute resources 
 
 Virtual machines are the most significant resource used for Batch processing. The cost of using VMs for Batch is calculated based on the type, quantity, and the duration of use. VM billing options include [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) or [reservation](../billing/billing-save-compute-costs-reservations.md) (pay in advance). Both payment options have different benefits depending on your compute workload, and both payment models will affect your bill differently.
 
-When applications are deployed to Batch nodes (VMs) using [application packages](batch-application-packages.md), you are billed for the Azure Storage resources that your application packages consume. You are also billed for the storage of any input or output files, such as resource files and other log data. In general, the cost of storage data associated with Batch is much lower than the cost of compute resources.
+When applications are deployed to Batch nodes (VMs) using [application packages](batch-application-packages.md), you are billed for the Azure Storage resources that your application packages consume. You are also billed for the storage of any input or output files, such as resource files and other log data. In general, the cost of storage data associated with Batch is much lower than the cost of compute resources. Each VM in a pool created with **VirtualMachineConfiguration** has an associated OS disk that uses Azure-managed disks. Azure-managed disks have an additional cost, and other disk performance tiers have different costs as well.
+
+Batch pools use networking resources. In particular, for **VirtualMachineConfiguration** pools standard load balancers are used, which require static IP addresses. The load balancers used by Batch are visible for **User Subscription** accounts, but are not visible for **Batch Service** accounts. Standard load balancers incur charges for all data passed to and from Batch pool VMs; select Batch APIs that retrieve data from pool nodes (such as Get Task/Node File), task application packages, resource/output files, and container images will incur charges.
 
 ### Additional services
 
@@ -69,9 +71,11 @@ Low-priority VMs reduce the cost of Batch workloads by taking advantage of surpl
 
 Learn more about how to set up low-priority VMs for your workload at [Use low-priority VMs with Batch](batch-low-pri-vms.md).
 
-### Premium storage virtual machines
+### Virtual machine OS disk type
 
-Most VM-series have sizes that support both premium and non-premium storage. Virtual machines with premium storage capabilities are more expensive than VMs without premium storage. If premium storage isn't necessary for your workload, consider using a non-premium VM size to reduce your monthly bill. See [Designing for high performance](..//virtual-machines/windows/premium-storage-performance.md) to learn more about premium storage and performance.
+There are multiple [VM OS disk types](../virtual-machines/windows/disks-types.md). Most VM-series have sizes that support both premium and standard storage. When an ‘s’ VM size is selected for a pool, Batch configures premium SSD OS disks. When the ‘non-s’ VM size is selected, then the cheaper, standard HDD disk type is used. For example, premium SSD OS disks are used for `Standard_D2s_v3` and standard HDD OS disks are used for `Standard_D2_v3`.
+
+Premium SSD OS disks are more expensive, but have higher performance and VMs with premium disks can start slightly quicker than VMs with standard HDD OS disks. With Batch, the OS disk is often not used much as the applications and task files are located on the VMs temporary SSD disk. Therefore in many cases, there's no need to pay the increased cost for the premium SSD that is provisioned when a ‘s’ VM size is specified.
 
 ### Reserved virtual machine instances
 
