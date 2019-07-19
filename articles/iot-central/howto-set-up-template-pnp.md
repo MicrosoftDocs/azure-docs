@@ -31,6 +31,13 @@ From this device template, an operator can create and connect real fan devices. 
 > [!NOTE]
 > Only builders and administrators can create, edit, and delete device templates. Any user can create devices on the **Device Explorer** page from existing device templates.
 
+As a builder, you have several options for creating device templates:
+
+- Design the device template in IoT Central and then implement its device capability model in your device code.
+- Import a device capability model from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat) and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
+- Create a device capability model using Visual Studio code. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device capability model from a repository and creates a simple device template for you.
+- Create a device capability model using Visual Studio code. Implement your device code from the model. Manually import the device capability model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
+
 ## Create a device template
 
 A device template contains:
@@ -40,7 +47,7 @@ A device template contains:
 - _Customizations_ let the builder override some of the definitions in the device capability model. For example, the builder could override the name of a device property. Property names appear in IoT Central dashboards and forms.
 - _Dashboards and forms_ let the builder create a UI that lets operators monitor and manage the devices connected to your application.
 
-To create a device template:
+To create a device template in IoT Central:
 
 1. Go to the **Device Definitions** page in your IoT Central application.
 1. Select **+ New**, then select **Custom**.
