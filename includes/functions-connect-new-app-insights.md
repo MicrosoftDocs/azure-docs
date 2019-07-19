@@ -23,7 +23,7 @@ Functions makes it easy to add Application Insights integration to a function ap
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | Unique app name | It's easiest to use the same name as your function app, which must be unique in your subscription. | 
-    | **Location** | West Europe | If possible, use the same [region](https://azure.microsoft.com/regions/) as your function app, or one that's close to it. |
+    | **Location** | West Europe | If possible, use the same [region](https://azure.microsoft.com/regions/) as your function app, or one that's close to that region. |
 
 1. Select **OK**. The Application Insights resource is created in the same resource group and subscription as your function app. After the resource is created, close the Application Insights window.
 

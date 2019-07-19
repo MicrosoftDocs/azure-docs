@@ -12,7 +12,7 @@ You can use the Azure Functions extension to create and test functions and deplo
 
 1. In Visual Studio Code, open **Extensions** and search for **azure functions**, or [select this link in Visual Studio Code](vscode:extension/ms-azuretools.vscode-azurefunctions).
 
-1. Select **Install** to install the extension for Visual Studio Code.
+1. Select **Install** to install the extension for Visual Studio Code:
 
     ![Install the extension for Azure Functions](./media/functions-install-vs-code-extension/vscode-install-extension.png)
 

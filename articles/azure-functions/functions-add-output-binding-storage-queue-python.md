@@ -27,7 +27,7 @@ Before you start this article, complete the steps in [part 1 of the Python quick
 
 ## Download the function app settings
 
-In the previous quickstart article, you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the local.settings.json file. Run the following the Azure Functions Core Tools command to download settings to local.settings.json, replacing `<APP_NAME>` with the name of your function app from the previous article:
+In the previous quickstart article, you created a function app in Azure, along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the local.settings.json file. Run the following Azure Functions Core Tools command to download settings to local.settings.json, replacing `<APP_NAME>` with the name of your function app from the previous article:
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
@@ -44,7 +44,7 @@ You need the value `AzureWebJobsStorage`, which is the Storage account connectio
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-You can now add a the Storage output binding to your project.
+You can now add the Storage output binding to your project.
 
 ## Add an output binding
 
@@ -134,7 +134,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Because the previous article had you enable extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
+> Because in the previous quickstart you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
 
 Copy the URL of your `HttpTrigger` function from the runtime output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and run the request. You should see the same response in the browser as you did in the previous article.
 
@@ -189,7 +189,7 @@ You can [examine the Storage queue message](#query-the-storage-queue) to verify 
 
 ## Next steps
 
-You've updated your HTTP triggered function to write data to a Storage queue. To learn more about developing Azure Functions with Python, see the [Azure Functions Python developer guide](functions-reference-python.md) and [Azure Functions triggers and bindings](functions-triggers-bindings.md).
+You've updated your HTTP-triggered function to write data to a Storage queue. To learn more about developing Azure Functions with Python, see the [Azure Functions Python developer guide](functions-reference-python.md) and [Azure Functions triggers and bindings](functions-triggers-bindings.md).
 
 Next, you should enable Application Insights monitoring for your function app:
 
