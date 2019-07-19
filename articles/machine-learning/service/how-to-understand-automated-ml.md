@@ -19,7 +19,7 @@ In this article, you learn how to view and understand the charts and metrics for
 Learn more about:
 + [Metrics, charts, and curves for classification models](#classification)
 + [Metrics, charts, and graphs for regression models](#regression)
-+ [Model explain ability](#model-explain-ability-and-feature-importance)
++ [Model interpretability and feature importance](#explain-model)
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ After running an automated machine learning experiment, a history of the runs ca
 
 You also see these same results during a run when you use the `RunDetails`[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 
-## Classification results
+## <a href="classification"></a> Classification results
 
 Thee following metrics and charts are available for every classification model that you build using the automated machine learning capabilities of Azure Machine Learning
 
@@ -164,7 +164,7 @@ Example 1: A more well-calibrated model
 Example 2: An over-confident model
 ![An over-confident model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
-## Regression results
+## <a name="regression"></a> Regression results
 
 Thee following metrics and charts are available for every regression model that you build using the automated machine learning capabilities of Azure Machine Learning
 
@@ -215,7 +215,7 @@ Example 1: A regression model with bias in its errors
 Example 2: A regression model with more even distribution of errors
 ![A regression model with more even distribution of errors](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
-## Model interpretability and feature importance
+## <a name="explain-model"></a> Model interpretability and feature importance
 
 Feature importance allows you to see how valuable each feature was in the construction of a model. This calculation is turned off by default, as it can significantly increase run time.   You can enable model explanation for all models or explain only the best fit model.
 
