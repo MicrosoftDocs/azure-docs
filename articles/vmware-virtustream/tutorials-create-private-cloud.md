@@ -15,7 +15,7 @@ ms.custom:
 
 # Tutorial: Create an Azure VMware Solution by Virtustream private cloud
 
-AVS by Virtustream private clouds provide Azure-based environments to run VMware virtual machines (VMs). In this tutorial you plan and then create a private cloud. Using the Azure portal, you learn how to:
+AVS by Virtustream private clouds provide Azure-based environments to run VMware virtual machines (VMs). In this tutorial, you plan and then create a private cloud. Using the Azure portal, you learn how to:
 
 > [!div class="checklist"]
 > * Prepare for a deployment
@@ -23,13 +23,13 @@ AVS by Virtustream private clouds provide Azure-based environments to run VMware
 > * Request ExpressRoute authorization keys
 > * Enable internet and Azure connectivity
 
-The next tutorial provides the instructions for deploying resources to a VNet in your subscription. An ExpressRoute gateway in that VNet will be used to peer with an ExpressRoute circuit in your private cloud. Most of the procedures in the second tutorial can be performed before this tutorial.
+The next tutorial provides the instructions for deploying resources to a VNet in your subscription. An ExpressRoute gateway in that VNet will be used to peer with an ExpressRoute circuit in your private cloud. Most of the procedures in the second tutorial can be done before this tutorial is started.
 
 ## Prerequisites
 
-It's recommended that you first plan the private network address space that is used for the management access and vMotion networks in your private cloud. The private network address space should be unique across the VNets in your Azure subscription and, if you're planning to connect to on-premises environments, it's also recommended it's unique across your on-premises networks.
+It's recommended you first plan the private network address space for your private cloud. This network address space for the management access and vMotion networks in your private cloud. The private network address space should be unique across the VNets in your Azure subscription and, if you plan to connect from on-premises environments, it's also recommended that it's unique across your on-premises networks.
 
-You will plan for the type and number of hosts that you'll use in your private cloud clusters. Resource and resource group names are also required, and you're required to know or create those to complete this tutorial.
+You also plan for the type and number of hosts that you'll use in your private cloud clusters. Resource and resource group names are also required, and you're required to know or create those in order to complete this tutorial.
 
 This tutorial also requires that you have an Azure subscription, access to the Portal, and that the Microsoft.VMwareVirtustream resource provider is registered in your subscription. Following the instructions in [resource provider][Azure resource providers and types] documentation, search for Virtustream. This screenshot shows what will appear if the resource provider is registered in your subscription.
 
@@ -43,7 +43,7 @@ Prerequisites:
 - The host types to be used in private cloud clusters (see this link for a description)
 - the number of hosts to be used in each cluster
 - an existing VNet with an ExpressRoute gateway in your subscription (see this link for instructions)
-- optionally, and if you intend to enable ExpressRoute Global Reach, an authorization key and resource ID of an ExpressRoute circuit that connects your on-premises environments to an Azure VNet. Use these instructions to [generate auth key][generate an authorization key]. This can be done after creating a private cloud.
+- optionally, and if you intend to enable ExpressRoute Global Reach, an authorization key and resource ID of an ExpressRoute circuit that connects your on-premises environments to an Azure VNet. Use these instructions to [generate auth key][generate an authorization key]. This is work that can be done after creating a private cloud.
 
 ## Create a private Cloud 
 
@@ -61,9 +61,9 @@ Select "Create".
 
 In the "Basics" tab, enter the required information and then select "Next".
 
-![Complete the create private cloud "Basics" form](./media/create-private-cloud/ss4-create-basics.png)
+![Create private cloud "Basics" form](./media/create-private-cloud/ss4-create-basics.png)
 
-In the "Tags" tab, create or select tags that will be associated with the new private cloud and then select "Next". In this example, the "environment" tag with value "Production" is used.
+In the "Tags" context blade, create or select tags that will be associated with the new private cloud. Once tags are created, * and then select **Next**. In this example, the "environment" tag with value "Production" is used.
 
 ![Add tags for the new private cloud](./media/create-private-cloud/ss5-create-tags.png)
 
@@ -79,11 +79,11 @@ Once the deployment has succeeded, navigate to the new private cloud in your res
 
 ## Request an ExpressRoute authorization key and resource ID
 
-Select the ExpressRoute tab and "Request an authorization key". An authorization key and resource ID will be provided and you'll use them to establish private peering from a VNet in your subscription to the ER circuit for this private cloud. 
+Select the ExpressRoute tab and "Request an authorization key". An authorization key and resource ID are provided. You use them to establish private peering from a VNet in your subscription to the ER circuit for this private cloud.
 
 ![Request an authorization key for ER private peering](./media/create-private-cloud/ss9-request-auth-key.png)
 
-The procedures for using the authorization key and resource ID to establish peering are provided in the [Create VNet resources Tutorial][tutorial-create-vnet-resources]. Once the VNet resources and the peering have been established, you'll be able to connect to the private cloud.
+The procedures for using the authorization key and resource ID to establish peering are provided in the [Create VNet resources Tutorial][tutorial-create-vnet-resources]. Once the VNet resources and the peering have been established, you can connect to the private cloud.
 
 ## Establish Global Reach on ExpressRoute Circuit to on-premises environment
 
