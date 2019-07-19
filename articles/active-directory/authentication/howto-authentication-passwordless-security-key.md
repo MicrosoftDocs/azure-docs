@@ -59,7 +59,7 @@ To target specific device groups to enable the credential provider, use the foll
       1. Value: 1 
 1. This policy can be assigned to specific users, devices, or groups. More information can be found in the article [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
 
-![Intune custom device configuration policy creation](./media/howto-authentication-passwordless-enable/intune-custom-profile.png)
+![Intune custom device configuration policy creation](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 
 ### Enable credential provider via provisioning package
 
@@ -142,13 +142,13 @@ To configure the Microsoft Authenticator app for phone sign in, follow the guida
 
 In the example below a user Bala Sandhu has already provisioned their FIDO2 security key. Bala can choose the security key credential provider from the Windows 10 lock screen and insert the security key to sign into Windows.
 
-![Security key sign in at the Windows 10 lock screen](./media/howto-authentication-passwordless-enable/fido2-windows-10-1903-sign-in-lock-screen.png)
+![Security key sign in at the Windows 10 lock screen](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-sign-in-lock-screen.png)
 
 ### Sign in on the web
 
 In the example below a user has already provisioned their FIDO2 security key. The user can choose to sign in on the web with their FIDO2 security key inside of the Microsoft Edge browser on Windows 10 version 1809 or higher.
 
-![Security key sign in Microsoft Edge](./media/howto-authentication-passwordless-enable/fido2-windows-10-1903-edge-sign-in.png)
+![Security key sign in Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 
 ## Known issues
 
