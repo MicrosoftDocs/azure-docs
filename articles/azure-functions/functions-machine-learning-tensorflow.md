@@ -231,7 +231,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 The function receives an image URL in a query string parameter named `img`. The imported `predict_image_from_url` function downloads the image and predicts the result with the TensorFlow model. The function then returns an HTTP response with the results.
 
-Because the HTTP endpoint will be called by a web page hosted on another domain, the HTTP response includes a `Access-Control-Allow-Origin` header to satisfy the browser's Cross-Origin Resource Sharing requirements.
+Because the HTTP endpoint will be called by a web page hosted on another domain, the HTTP response includes an `Access-Control-Allow-Origin` header to satisfy the browser's Cross-Origin Resource Sharing requirements.
 
 > [!NOTE]
 > In a production application, consider changing `*` to a specific origin for added security.
