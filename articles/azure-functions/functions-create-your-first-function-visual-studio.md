@@ -11,7 +11,7 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 07/04/2019
+ms.date: 07/19/2019
 ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
 
@@ -68,10 +68,7 @@ You must have a function app in your Azure subscription before you can publish y
 
 ## Next steps
 
-You have used Visual Studio to create and publish a C# function app with a simple HTTP triggered function. To learn more about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md).
+You have used Visual Studio to create and publish a C# function app in Azure with a simple HTTP triggered function. To learn more about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md).
 
 > [!div class="nextstepaction"]
 > [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs.md)
-
-* [Learn how to add input and output bindings that integrate with other services.](functions-develop-vs.md#add-bindings)
-* 

@@ -37,11 +37,11 @@ In the [previous quickstart article](functions-create-first-function-vs-code.md)
 
 1. Under **AzureWebJobsStorage**, copy the **Remote** string value to **Local**, and then select **OK**. 
 
-The storage binding, which uses the `AzureWebJobsStorage` setting for the connection, can now connect to you Queue storage when running locally.
+The storage binding, which uses the `AzureWebJobsStorage` setting for the connection, can now connect to your Queue storage when running locally.
 
 ## Register binding extensions
 
-Because you are using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project. With the exception of HTTP and timer triggers, bindings are implemented as extension packages. 
+Because you're using a Queue storage output binding, you need the Storage bindings extension installed before you run the project. Except for HTTP and timer triggers, bindings are implemented as extension packages. 
 
 1. From the **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**. 
 
@@ -67,7 +67,7 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 [!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
 
-A new queue named **outqueue** is created in your storage account by the Functions runtime when the output binding is first used. You'll use Cloud Explorer to verify that the queue was created along with the new message.
+A new queue named `outqueue` is created in your storage account by the Functions runtime when the output binding is first used. You'll use Cloud Explorer to verify that the queue was created along with the new message.
 
 ## Examine the output queue
 
