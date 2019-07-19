@@ -7,8 +7,8 @@ ms.author: vkukke
 ms.reviewer: 
 ms.date: 07/18/2019
 ms.topic: article
-ms.service: event-grid-on-edge
-services: event-grid-on-edge
+ms.service: event-grid
+services: event-grid
 ---
 
 Event sources refer to entities that publish events to Event Grid module. Any entity that can do HTTP POST could be an event source publisher. It can be both IoT Edge modules as well as non-IoT applications.

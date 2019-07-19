@@ -7,8 +7,8 @@ ms.author: vkukke
 ms.reviewer: 
 ms.date: 07/18/2019
 ms.topic: article
-ms.service: event-grid-on-edge
-services: event-grid-on-edge
+ms.service: event-grid
+services: event-grid
 ---
 
 Event Grid module accepts and delivers events in JSON format. There are currently two schemas that are supported by Event Grid :-

@@ -7,8 +7,8 @@ ms.author: vkukke
 ms.reviewer: 
 ms.date: 07/18/2019
 ms.topic: article
-ms.service: event-grid-on-edge
-services: event-grid-on-edge
+ms.service: event-grid
+services: event-grid
 ---
 
 Event handlers refer to entities that subscribe to events. They are entities that can handle HTTP POST requests. Subscribers can be other IoT Edge modules, non-IoT Applications, Webhooks (for example, Azure Functions) as well as Event Grid in the cloud.

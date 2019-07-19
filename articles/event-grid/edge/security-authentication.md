@@ -7,8 +7,8 @@ ms.author: vkukke
 ms.reviewer: 
 ms.date: 07/18/two019
 ms.topic: article
-ms.service: event-grid-on-edge
-services: event-grid-on-edge
+ms.service: event-grid
+services: event-grid
 ---
 
 ## Event Grid IoT Edge security and authentication

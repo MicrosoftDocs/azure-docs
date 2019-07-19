@@ -7,7 +7,7 @@ ms.author: Bahram
 ms.reviewer: 
 ms.date: 07/18/2019
 ms.topic: article
-ms.service: event-grid-on-edge
-services: event-grid-on-edge
+ms.service: event-grid
+services: event-grid
 ---
 
