@@ -1,5 +1,5 @@
 ---
-title: Identity Federation within Azure Australia
+title: Identity Federation in Azure Australia
 description: Guidance on configuring identity federation within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
@@ -8,7 +8,7 @@ ms.date: 05/31/2019
 ms.author: grgale
 ---
 
-# Identity federation within Azure Australia
+# Identity federation in Azure Australia
 
 Identity Management and Federation with Public Cloud offerings is one of the most crucial first-steps for using the cloud. Microsoft's Azure Active Directory service stores user information to enable access to cloud services and is a pre-requisite for consuming other Azure services.
 

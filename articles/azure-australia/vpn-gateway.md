@@ -1,14 +1,14 @@
 ---
-title: Azure VPN Gateway configuration for Australian Government agencies
-description: Implementing VPN Gateway in Azure Australia by Government agencies
+title: Azure VPN Gateway in Azure Australia
+description: Implementing VPN Gateway in Azure Australia to be compliant with the ISM and effectively protect Australian Government agencies
 author: galey801
 ms.service: azure-australia
 ms.topic: article
-ms.date: 06/11/19
+ms.date: 07/19/2019
 ms.author: grgale
 ---
 
-# Azure VPN Gateway configuration for Australian Government agencies
+# Azure VPN Gateway in Azure Australia
 
 A critical service with any public cloud is the secure connection of cloud resources and services to existing on-premises systems.  The service that provides this capability in Azure is the Azure VPN Gateway (VPN Gateway). This article outlines the key considerations with configuring the VPN Gateway to comply with the Australian Signals Directorate’s (ASD) [Information Security Manual Controls](https://acsc.gov.au/infosec/ism/) (ISM).
 

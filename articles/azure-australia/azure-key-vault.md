@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault use by Australian Government agencies
+title: Azure Key Vault in Azure Australia
 description: Guidance on configuring and using Azure Key Vault for key management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
@@ -8,7 +8,7 @@ ms.date: 06/11/2019
 ms.author: grgale
 ---
 
-# Azure Key Vault use by Australian Government agencies
+# Azure Key Vault in Azure Australia
 
 The secure storage of cryptographic keys and management of the cryptographic key lifecycle are critical elements within cryptographic systems.  The service that provides this capability in Azure is the Azure Key Vault. Key Vault has been IRAP security accessed and ACSC certified for PROTECTED.  This article outlines the key considerations when using Key Vault to comply with the Australian Signals Directorate’s (ASD) [Information Security Manual Controls](https://acsc.gov.au/infosec/ism/) (ISM).
 
@@ -158,6 +158,6 @@ SSE is used for managed disks but customer-managed keys are not supported.  Encr
 
 ## Next Steps
 
-Review the article on [Securing Customer Data](securing-your-data.md)
+Review the article on [Data Security](securing-your-data.md)
 
 Review additional Azure Key Vault documentation and tutorials in the [Reference Library](reference-library.md)

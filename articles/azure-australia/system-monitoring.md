@@ -1,5 +1,5 @@
 ---
-title: System Monitoring to ensure you are secure in Azure
+title: System Monitoring for Security in Azure
 description: Guidance on configuring System Monitoring within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
@@ -8,7 +8,7 @@ ms.date: 04/25/2019
 ms.author: grgale
 ---
 
-# System Monitoring to ensure you are secure in Azure
+# System Monitoring for Security in Azure
 
 It is critical that all organisations implement robust security strategies that include real time monitoring and routine security assessments to enhance the day to day operational security of their IT environments. The same security considerations have to be made when moving workloads into a cloud environment. Security within a cloud environment is a joint effort between the customer and the cloud provider. This guide will outline four services which Microsoft Azure provides to facilitate these requirements with consideration to the recommendations contained within the [Australian Cyber Security Centre's (ACSC) Information Security Manual Controls](https://acsc.gov.au/infosec/ism/index.htm) (ISM), specifically, the implementation of centralised event logging, event log auditing, and security vulnerability assessment and management. The Microsoft Azure services are:
 
@@ -21,7 +21,7 @@ The ACSC Consumer Guide for Microsoft Azure strongly recommends that these servi
 
 ### Azure Security Center
 
-Azure Security Center provides a unified security management console that enables Azure customers to monitor and enhance the security of both Azure resources and their hosted data. Azure Security Center provides Azure customers with Secure Score, a score based on an analysis of the state of best practice configuration from Azure Advisor and the overall compliance of Azure Policy.
+[Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) provides a unified security management console that enables Azure customers to monitor and enhance the security of both Azure resources and their hosted data. Azure Security Center provides Azure customers with Secure Score, a score based on an analysis of the state of best practice configuration from Azure Advisor and the overall compliance of Azure Policy.
 
 Azure Security Center provides Azure customers with the following features:
 
@@ -38,7 +38,7 @@ The Security Center "Standard" tier also provides cloud-based security controls 
 
 ### Azure Monitor
 
-Azure Monitor is the centralised logging solution for all Azure Resources, and includes Log Analytics and Application Insights. Two key data types are collected from Azure resources: logs and metrics. Once collected in Azure Monitor, logging information can be used by a wide range of tools and for a variety of purposes.
+[Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) is the centralised logging solution for all Azure Resources, and includes Log Analytics and Application Insights. Two key data types are collected from Azure resources: logs and metrics. Once collected in Azure Monitor, logging information can be used by a wide range of tools and for a variety of purposes.
 
 ![Azure Monitor Overview](media/overview.png)
 
@@ -46,7 +46,7 @@ Azure Monitor also includes the "Azure Activity Log". The SActivity Log stores a
 
 ### Azure Advisor
 
-Azure Advisor analyses supported Azure resources, system-generated log files, and current resource configurations within your Azure subscription. The analysis provided in Azure Advisor is generated in real time and based upon Microsoft's recommended best practices. Any supported Azure resources added to your environment will be analysed and appropriate recommendations will be provided. Azure Advisor recommendations are categorised into four best practice categories:
+[Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-overview) analyses supported Azure resources, system-generated log files, and current resource configurations within your Azure subscription. The analysis provided in Azure Advisor is generated in real time and based upon Microsoft's recommended best practices. Any supported Azure resources added to your environment will be analysed and appropriate recommendations will be provided. Azure Advisor recommendations are categorised into four best practice categories:
 
 * Security
 * High Availability
@@ -63,7 +63,7 @@ The information gathered by Azure Advisor provides administrators with:
 
 ### Azure Policy
 
-Azure Policy provides the ability to apply rules that govern the types of Azure resources and their allowed configuration. Policy can be used to control resource creation and configuration, or it can be used to audit configuration settings across an environment. These audit results can be used to form the basis of remediation activities. Azure Policy differs from role-based access control (RBAC); Azure Policy is used to restrict resources and their configuration, RBAC is used to restrict privileged access to Azure users.
+[Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) provides the ability to apply rules that govern the types of Azure resources and their allowed configuration. Policy can be used to control resource creation and configuration, or it can be used to audit configuration settings across an environment. These audit results can be used to form the basis of remediation activities. Azure Policy differs from role-based access control (RBAC); Azure Policy is used to restrict resources and their configuration, RBAC is used to restrict privileged access to Azure users.
 
 Whether the specific policy is being enforced or the effect of the policy is being audited, policy compliance is continually monitored, and overall and resource-specific compliance information is provided to administrators. Azure Policy compliance data is provided to Azure Security Center and forms part of the Secure Score.
 
@@ -144,11 +144,4 @@ To begin working with Azure Security Center as well as making full use of Azure 
 
 ## Next Steps
 
-This article explained how various built-in security capabilities within Azure assist you to maintain visibility and protection of your Azure environment. Now that you've been exposed at a high-level, learn how to use each service in more detail:
-
-* [Azure Security Center Overview](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
-* [Azure Monitor Overview](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
-* [Azure Advisor Overview](https://docs.microsoft.com/en-us/azure/advisor/advisor-overview)
-* [Azure Policy Overview](https://docs.microsoft.com/en-us/azure/governance/policy/overview)
-* [Azure Event Hub Overview](https://docs.microsoft.com/en-us/azure/event-hubs/)
-* [Azure Sentinel Overview](https://docs.microsoft.com/en-us/azure/sentinel/)
+Review the article on [Azure Policy and Azure Blueprints](azure-policy.md) for details on implementing governance and control over your Azure Australia resources to ensure policy and regulatory compliance.

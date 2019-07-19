@@ -134,3 +134,7 @@ For Azure Government and Office 365 US Government for Defense we have put additi
 That doesn’t mean that Azure in Australia cannot be used for ITAR/EAR, but you need to clearly understand the restrictions imposed on you through your export licence and you must implement additional protections to meet those obligations before using Azure to store that data. For example you might need to build nationality as an attribute into Azure Active Directory, use Azure Information Protection to enforce encryption rules over the data and limit it to only US and whatever other nationalities are included on the export licence, encrypt all data on premises before storing in Azure, using customer key or Hold Your Own Key for ITAR data, and the list goes on......
 
 Because ITAR is not a formal certification, you need to understand what the restrictions and limitations associated with the export licence are and then work through whether there are sufficient controls in Azure to meet those requirements. In this case one of the issues to closely consider is the access by our engineers who may not be a nationality approved on the export licence.
+
+## Next steps
+
+Review the article on [Azure VPN Gateway](vpn-gateway.md) for ISM compliant configuration and implementation of VPN connectivbity to Azure Australia

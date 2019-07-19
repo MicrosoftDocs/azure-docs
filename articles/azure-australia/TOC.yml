@@ -12,9 +12,9 @@
         href: securing-your-data.md
       - name: Azure VPN Gateway configuration
         href: vpn-gateway.md
-      - name: Azure Key Vault use 
+      - name: Azure Key Vault 
         href: azure-key-vault.md
-      - name: Identity federation in Azure Australia
+      - name: Identity federation
         href: identity-federation.md
       - name: RBAC and PIM
         href: rbac-pim.md
@@ -22,7 +22,7 @@
         href: asr-backup.md
       - name: Azure system monitoring
         href: system-monitoring.md
-      - name: Security compliance with Azure Policy and Azure Blueprints
+      - name: Azure Policy and Azure Blueprints
         href: azure-policy.md  
   - name: Gateways in Azure Australia
     items:
