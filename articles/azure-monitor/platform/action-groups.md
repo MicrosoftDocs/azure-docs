@@ -5,7 +5,7 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/08/2019
+ms.date: 7/19/2019
 ms.author: dukek
 ms.subservice: alerts
 ---
@@ -119,6 +119,7 @@ Source IP address ranges
  - 13.106.54.19
  - 13.106.38.142
  - 13.106.38.148
+ - 13.106.57.183
  - 13.106.57.196
  - 52.244.68.117
  - 52.244.65.137

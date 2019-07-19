@@ -43,7 +43,7 @@ When you are receiving too many throttled requests, or exceed your target latenc
 2. **Increase Search Tier:**  Azure Search comes in a [number of tiers](https://azure.microsoft.com/pricing/details/search/) and each of these tiers offers different levels of performance.  In some cases, you may have so many queries that the tier you are on cannot provide sufficiently low latency rates, even when replicas are maxed out. In this case, you may want to consider leveraging one of the higher search tiers such as the Azure Search S3 tier that is well-suited for scenarios with large numbers of documents and extremely high query workloads.
 
 ## Scaling for slow individual queries
-Another reason for high latency rates is a single query taking too long to complete. In this case, adding replicas will not help. Two options possible options that might help include the following:
+Another reason for high latency rates is a single query taking too long to complete. In this case, adding replicas will not help. Two possible options that might help include the following:
 
 1. **Increase Partitions** A partition is a mechanism for splitting your data across extra resources. Adding a second partition splits data into two, a third partition splits it into three, and so forth. One positive side-effect is that slower queries sometimes perform faster due to parallel computing. We have noted parallelization on low selectivity queries, such as queries that match many documents, or facets providing counts over a large number of documents. Since significant computation is required to score the relevancy of the documents, or to count the numbers of documents, adding extra partitions helps queries complete faster.  
    
