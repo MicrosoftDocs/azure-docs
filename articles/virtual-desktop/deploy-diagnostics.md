@@ -105,7 +105,7 @@ Here's how to set up the recommended performance counters in your existing Log A
 
     -   User Input Delay per Session(\*)\\Max Input Delay
 
-For more detailed information about the performance counters, see [Windows and Linux performance data sources in Azure Monitor](articles\azure-monitor\platform\data-sources-performance-counters.md).
+For more detailed information about the performance counters, see [Windows and Linux performance data sources in Azure Monitor](..\azure-monitor\platform\data-sources-performance-counters.md).
 
 >[!NOTE]
 >Any additional counters you configure won’t show up in the diagnostics tool itself. To make it appear in the diagnostics tool, you need to configure the tool's config file. Instructions for how to do this with advanced administration will be available in GitHub at a later date.
@@ -209,7 +209,7 @@ To set the Redirect URI:
 
 Before you distribute the UX for usage ensure that the following permissions are applied:
 
-- Users need read access for log analytics. For more details, see [Get started with roles, permissions, and security with Azure Monitor](articles\azure-monitor\platform\roles-permissions-security.md).
+- Users need read access for log analytics. For more details, see [Get started with roles, permissions, and security with Azure Monitor](..\azure-monitor\platform\roles-permissions-security.md).
 -  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop Preview](delegated-access-virtual-desktop.md).
 
 You also need to give your users the following information:
