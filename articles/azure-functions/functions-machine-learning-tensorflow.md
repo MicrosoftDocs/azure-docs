@@ -222,7 +222,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     image_url = req.params.get('img')
     results = predict_image_from_url(image_url)
 
-    headers = {`
+    headers = {
         "Content-type": "application/json",
         "Access-Control-Allow-Origin": "*"
     }
