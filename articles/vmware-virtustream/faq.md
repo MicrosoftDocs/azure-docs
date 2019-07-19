@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions for Azure VMware Solution by Virtustream (AVS by Virtustream)
-description: Provides answers to some of the common questions about Azure VMware Solution by Virtustream (AVS by Virtustream).
+title: Frequently asked questions for Azure VMware Solution by Virtustream
+description: Provides answers to some of the common questions about Azure VMware Solution by Virtustream.
 services:
 author: v-jetome
 
@@ -11,16 +11,15 @@ ms.author: v-jetome
 
 ---
 
-# Frequently asked questions about Azure VMware Solution by Virtustream (AVS by Virtustream)
+# Frequently asked questions about Azure VMware Solution by Virtustream
 
-This article addresses frequently asked **internal and external** questions about AVS by Virturstream.
-
+This article addresses frequently asked **internal and external** questions about Azure VMware Solution (AVS) by Virturstream.
 
 ## General
 
 **What is Azure VMware Solution by Virtustream?**
 
-As enterprises pursue IT modernization strategies to improve business agility, reduce costs, and accelerate innovation, hybrid cloud platforms have emerged as key enablers of customers’ digital transformation. Azure VMware Solution by Virtustream (AVS by Virtustream) combines VMware’s enterprise-class Software Defined Data Center (SDDC) software with Microsoft Azure global cloud service ecosystem, managed by Virtustream to meet performance, availability, and security and compliance requirements.
+As enterprises pursue IT modernization strategies to improve business agility, reduce costs, and accelerate innovation, hybrid cloud platforms have emerged as key enablers of customers’ digital transformation. AVS by Virtustream combines VMware’s Software Defined Data Center (SDDC) software with Microsoft Azure global cloud service ecosystem. The solution is managed by Virtustream to meet performance, availability, security, and compliance requirements.
 
 ## AVS by Virtustream Service
 
@@ -30,19 +29,19 @@ At launch, it will be available in US West and US East in North America. Amsterd
 
 **Can workloads running in an Azure VMware Solution by Virtustream instance consume or integrate with Azure services?**
 
-All Azure services will be available to AVS solution customers.  Performance and availability limitations for specific services will need to be addressed on a case-by-case basis.  
+All Azure services will be available to AVS solution customers. Performance and availability limitations for specific services will need to be addressed on a case-by-case basis.
 
 **Do I use the same tools that I use now to manage private cloud resources?**
 
 Yes. The Azure portal is used for deployment and a number of management operations. vCenter and NSX Manager are used to manage vSphere and NSX-T resources.
 
-**Will I be able to manage a private cloud with my on-premises vCenter?**
+**Can I manage a private cloud with my on-premises vCenter?**
 
-At launch, AVS by Virtustream will not support a single pane-of-glass management across on-premises and private cloud environments. Private cloud clusters will be managed with vCenter and NSX Manager local to a private cloud.
+At launch, AVS by Virtustream won't support a single pane-of-glass management across on-premises and private cloud environments. Private cloud clusters will be managed with vCenter and NSX Manager local to a private cloud.
 
-**Will I be able to use vRealize Suite running on-premises?** 
+**Can I use vRealize Suite running on-premises?** 
 
-Full support for the vRealize Suite will not be guaranteed at launch.  Specific integrations and use cases may be evaluated on a case-by-case basis. 
+Full support for the vRealize Suite isn't guaranteed at launch.  Specific integrations and use cases may be evaluated on a case-by-case basis. 
 
 **Can I migrate vSphere VMs from on-premises environments to AVS by Virtustream private clouds?**
 
@@ -50,7 +49,7 @@ Yes. VM migration and vMotion can be used to move VMs to a private cloud if stan
 
 **Is a specific version of vSphere required in on-premises environments?**
 
-In order to perform vMotion, you will need to run vSphere 6.0 or later in on-premises environments.
+To use vMotion, you will need to run vSphere 6.0 or later in on-premises environments.
 
 **What does the change control process look like?**
 
@@ -60,7 +59,7 @@ Updates made to the service itself will follow Microsoft Azure’s standard chan
 
 **Is there more than one type of host available?**
 
-There are two types of hosts available: General Purpose and High-end servers. 
+There are two types of hosts available: General Purpose and High-end servers.
 
 **What are the CPU specifications in each type of host?**
 
@@ -70,13 +69,13 @@ THe General Purpose servers have dual 10 core 2.2 GHz Intel CPUs.
 
 **How much memory is in each host?**
 
-The High-End servers have 576GB of RAM and the General Purpose hosts have 192 GB RAM.
+The High-End servers have 576 GB of RAM and the General Purpose hosts have 192 GB RAM.
 
 **What is the storage capacity of each host?**
 
-Each High-End ESXi host has two VSAN diskgroups with a capacity tier of 15.2 TB and a 3.2 TB NVMe cache tier (1.6 TB in each diskgroup).
+Each High-end ESXi host has two VSAN diskgroups with a capacity tier of 15.2 TB and a 3.2 TB NVMe cache tier (1.6 TB in each diskgroup).
 
-THe General Purpose ESXi hosts have two VSAN diskgroups with a capacity tier of 7.68 TB and a 1.6 TB NVMe cache tier (1.6 TB in each diskgroup).
+THe General-purpose ESXi hosts have two VSAN diskgroups with a capacity tier of 7.68 TB and a 1.6 TB NVMe cache tier (1.6 TB in each diskgroup).
 
 **How much network bandwidth is available in each ESXi host?**
 
@@ -98,11 +97,11 @@ No. General Purpose and High-end hosts cannot be mixed in a cluster, though clus
 
 **What are the minimum and maximum number of hosts per cluster?**
 
-Clusters are scalable between 4 and 16 ESXi hosts. Trial clusters are limited to three hosts.
+Clusters can scale between 3 and 16 ESXi hosts. Trial clusters are limited to three hosts.
 
-**Are clusters scalable?**
+**Can I scale my private cloud clusters?**
 
-Yes, clusters can be scaled in or out between the minimum and maximum number of ESXi hosts. Trial clusters are not scalable.
+Yes, clusters scale between the minimum and maximum number of ESXi hosts. Trial clusters are limited to three hosts.
 
 **What are trial clusters?**
 
@@ -126,51 +125,51 @@ Yes, NSX-T 2.3 is used for the software defined networking in AVS by Virtustream
 
 No. NSX-T is the only supported version of NSX.
 
-**Is NSX required in the on-premises environments or networks that connect or interact with a private cloud.**
+**Is NSX required in on-premises environments or networks that connect to a private cloud.**
 
-No, customers are not required to use NSX on-premises in order to connect or interact with an AVS by Virtustream private cloud.
+No, you are not required to use NSX on-premises.
 
 **What is the upgrade and update schedule for VMware software in a private cloud?**
 
-The VMware private cloud software will be kept within one version of the most recent release of the software bundle form VMware. The private cloud software versions may be different than the most recent versions of the individual software components (ESXi, NSX-T, vCenter, VSAN).
+The private cloud software bundle upgrades are done to keep the software within one version of the most recent release of the software bundle form VMware. The private cloud software versions may be different than the most recent versions of the individual software components (ESXi, NSX-T, vCenter, VSAN).
 
 **How often will the private cloud software stack be updated?**
 
-The update frequency will depend on the VMware private cloud software release cadence, but it's expected to be on a regular basis with rolling upgrades that will not impact private cloud availability or workloads.
+The private cloud software is upgraded on a schedule that tracks with the release of the software bundle from VMware. Your private cloud doesn't require downtime for upgrades.
 
 ## Connectivity
 
 **What network IP address planning is required to incorporate private clouds with on-premises environments?**
 
-A private network /22 address space is required to deploy an AVS by Virtustream private cloud. This private address space should not overlap with other VNets in a subscription, or with on-premises networks.
+A private network /22 address space is required to deploy an AVS by Virtustream private cloud. This private address space shouldn't overlap with other VNets in a subscription, or with on-premises networks.
  
 **How do I connect from on-premises environments to an AVS by Virtustream private cloud?**
 
 You can connect to the service in one of two methods: 
 - With a VM or application gateway deployed on an Azure VNet that is peered through ExpressRoute to the private cloud.
-- Through ExpressRoute Global Reach from on-premises datacenter to Azure ExpressRoute circuit.  
+- Through ExpressRoute Global Reach from on-premises datacenter to Azure ExpressRoute circuit.
 
 **How do I connect a workload VM to the internet or an Azure service endpoint?**
 
-In the Azure portal, enable internet connectivity for a private cloud. In NSX-T manager, create an NSX-T T1 router and a logical switch. With vCenter, deploy a VM on the network segment defined by the logical switch. That VM will have network access to the internet and to Azure services.
+In the Azure portal, enable internet connectivity for a private cloud. With NSX-T manager, create an NSX-T T1 router and a logical switch. You then use vCenter to deploy a VM on the network segment defined by the logical switch. That VM will have network access to the internet and to Azure services.
 
 **Do I need to restrict access from the internet to VMs on logical networks in a private cloud?**
 
-No. Network traffic inbound from the internet directly to private clouds is not allowed.
+No. Network traffic inbound from the internet directly to private clouds isn't allowed.
 
 **Do I need to restrict internet access from VMs on logical networks to the internet?**
 
-Yes. You will need to use NSX-T manager to create a firewall that restricts VM access to the internet.
+Yes. You'll need to use NSX-T manager to create a firewall that restricts VM access to the internet.
 
 ## Accounts and privileges
 
 **What accounts and privileges will I get with my new AVS by Virtustream private cloud?**
 
-You are provided credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There is also a CloudAdmin group that can used to incorporate Azure Active Directory. For more information, see [Access and Identity Concepts][concepts-identity].
+You are provided credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There is also a CloudAdmin group that can be used to incorporate Azure Active Directory. For more information, see [Access and Identity Concepts][concepts-identity].
 
 **Can have administrator access to ESXi hosts?**
 
-No, administrator access to ESXi is limited in order to meet security and solution requirements.
+No, administrator access to ESXi is restricted to meet the security requirements of the solution.
 
 **What privileges and permissions will I have in vCenter?**
 
@@ -180,7 +179,7 @@ You will have CloudAdmin group privileges. For more information, see [Access and
 
 You will have full administrator privileges on NSX-T and can manage role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts][concepts-identity].
 
-Note: A T0 router is created and configured as part of a private cloud deployment and any modification to it or the Edge Node VMs could affect connectivity to the workload VMs running in a private cloud.
+Note: A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the Edge node VMs could affect connectivity to your private cloud.
 
 **Is Azure Active Directory (AD) integrated with my private cloud.**
 
@@ -188,9 +187,9 @@ Yes, Azure AD is natively integrated with your AVS by Virtustream private and is
 
 ## Billing and Support
 
-**How do I request support for my AVS by Virtustream private cloud?** 
+**How do I request support for my AVS by Virtustream private cloud?**
 
-Since this a Microsoft solution, Microsoft or the CSP selling the solution will offer the first line support. For Microsoft, a Service Request is the first step with Virtustream/VMware engaged for any internal assistance and/or escalations that are needed. 
+Since this a Microsoft solution, Microsoft or the CSP selling the solution will offer the first line support. For Microsoft, a Service Request is the first step with Virtustream/VMware engaged for any internal assistance and/or escalations that are needed.
 
 **What costs are associated with data ingress and egress for an AVS by Virtustream private cloud?**
 
@@ -200,7 +199,7 @@ When considering the data ingress/egress costs for AVS by Virtustream, customers
 
 **Who supports AVS by Virtustream?**
 
-Microsoft provides primary support for the platform, with VMware and Virtustream providing tier two and tier three support.
+Microsoft provides primary support for the platform, with VMware and Virtustream providing tiers two and three support.
 
 **What accounts do I need to create an AVS by Virtustream private cloud?**
 
