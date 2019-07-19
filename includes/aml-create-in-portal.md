@@ -33,10 +33,10 @@ ms.date: 05/21/2019
 
    Field|Description
    ---|---
-   Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and differentiate from workspaces created by others.  
+   Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.  
    Subscription |Select the Azure subscription that you want to use.
-   Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. 
-   Location | Select the location closest to your users and the data resources. This location is where the workspace is created.
+   Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. 
+   Location | Select the location closest to your users and the data resources to create your workspace.
 
 1. Review your workspace configuration, and select **Create**. It can take a few moments to create the workspace.
 

@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 07/18/2019
 ms.author: magoedte
 ---
 
@@ -268,20 +268,35 @@ The icons in the status field indicate the online statuses of pods, as described
 | ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|  
 | ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |  
 
-## Disk capacity workbook
+## Workbooks
 Workbooks combine text, [log queries](../log-query/query-language.md), [metrics](../platform/data-platform-metrics.md), and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
-Azure Monitor for containers includes a workbook to get you started, **Disk capacity**.  This workbook presents interactive disk usage charts for each disk presented to the node within a container by the following perspectives:
+Azure Monitor for containers includes four workbooks to get you started:
 
-- Disk % usage for all disks
-- Free disk space for all disks
-- A table showing for each nodes disk, its % used space, trend of % used space, free disk space (GiB), and trend of free disk space (GiB). When a row is selected in the table, % used space and free disk space (GiB) is shown below 
+- **Disk capacity**: Presents interactive disk usage charts for each disk presented to the node within a container by the following perspectives:
 
-You access this workbook by selecting **Disk capacity** from the **View Workbooks** drop-down list.  
+    - Disk % usage for all disks
+    - Free disk space for all disks
+    - A grid showing for each nodes disk, its % used space, trend of % used space, free disk space (GiB), and trend of free disk space (GiB). When a row is selected in the table, % used space and free disk space (GiB) is shown below 
+
+- **Disk IO**: Presents interactive disk utilization charts for each disk presented to the node within a container by the following perspectives:
+
+    - Disk I/O summarized across all disks by read bytes/sec, writes bytes/sec, and read and write bytes/sec trends 
+    - Eight performance charts showing key performance indicators to help measure and identify disk I/O bottlenecks.
+
+- **Kubelet**: Includes two grids that show key node operating statistics:
+
+    - Overview by node grid summarizes total operation, total errors, and successful operations by percent and trend for each node.
+    - Overview by operation type summarizes for each operation the total operation, total errors, and successful operations by percent and trend.
+
+- **Network**: Presents interactive network utilization charts for each nodes network adapter and a grid presenting the key performance indicators to help measure the performance of your network adapters.  
+
+You access these workbooks by selecting each one from the **View Workbooks** drop-down list.  
 
 ![View Workbooks drop-down list](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
-
 ## Next steps
+
 - Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures. 
+
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
