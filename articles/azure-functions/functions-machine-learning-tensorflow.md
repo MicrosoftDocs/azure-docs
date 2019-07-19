@@ -112,7 +112,7 @@ A function app can contain one or more Azure Functions. Open the **start** folde
 
 The application requires a single HTTP API endpoint that takes an image URL as the input and returns a prediction of whether the image contains a dog or a cat.
 
-In the terminal, use the Azure Functions Core Tools to scaffold a new HTTP function named **classify**.
+In the terminal, use the Azure Functions Core Tools to scaffold a new HTTP function named *classify*.
 
 ```bash
 func new --language python --template HttpTrigger --name classify
@@ -120,7 +120,7 @@ func new --language python --template HttpTrigger --name classify
 
 A new folder named **classify** is created, containing two files.
 
-- **__init__.py** - the main function
+- **\_\_init\_\_.py** - the main function
 - **function.json** - a file describing the function's trigger and its input and output bindings
 
 ### Change the function authentication level
@@ -172,7 +172,7 @@ copy ..\resources\model\* classify
 
 ## Import the helper functions
 
-Some helper functions for preparing the input image and making a prediction using TensorFlow are in a file named **predict.py** in the **resources** folder. Copy this file info the **classify** function's folder.
+Some helper functions for preparing the input image and making a prediction using TensorFlow are in a file named *predict.py* in the *resources* folder. Copy this file into the *classify* function's folder.
 
 *Linux and macOS*
 
@@ -188,7 +188,7 @@ copy ..\resources\predict.py classify
 
 ### Install dependencies
 
-The helper library has some dependencies that need to be installed. In the terminal with the virtual environment activated, run these commands in the function app root that contains **requirements.txt**.
+The helper library has some dependencies that need to be installed. In the terminal with the virtual environment activated, run these commands in the function app root that contains *requirements.txt*.
 
 ```bash
 pip install tensorflow
@@ -208,7 +208,7 @@ In the editor, open **predict.py** and look at the `_initialize` function near t
 
 ## Update function to run prediction
 
-Open **classify/__init__.py** in your editor. Import the **predict** library that you added to the same folder earlier. Add the following `import` statements below the other imports in the file.
+Open **classify/\_\_init\_\_.py** in your editor. Import the **predict** library that you added to the same folder earlier. Add the following `import` statements below the other imports in the file.
 
 ```python
 import json
@@ -222,7 +222,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     image_url = req.params.get('img')
     results = predict_image_from_url(image_url)
 
-    headers = {
+    headers = {`
         "Content-type": "application/json",
         "Access-Control-Allow-Origin": "*"
     }
@@ -250,7 +250,7 @@ Keep the function app running.
 
 ### Test the web app
 
-There's a simple frontend web app in the **frontend** folder that consumes the HTTP API in the function app.
+There's a simple frontend web app in the *frontend* folder that consumes the HTTP API in the function app.
 
 Open a *separate* terminal and change to the **frontend** folder. Start an HTTP server with your Python 3.6 executable.
 
