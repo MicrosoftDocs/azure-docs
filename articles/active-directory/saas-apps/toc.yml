@@ -243,7 +243,7 @@
         href: cimpl-tutorial.md
       - name: Cisco Cloud
         href: ciscocloud-tutorial.md
-      - name: Cisco Cloudlock
+      - name: The Cloud Security Fabric
         href: ciscocloudlock-tutorial.md
       - name: Cisco Webex
         href: cisco-spark-tutorial.md
@@ -637,6 +637,8 @@
         href: jamfprosamlconnector-tutorial.md
       - name: JDA Cloud
         href: jdacloud-tutorial.md
+      - name: JFrog Artifactory
+        href: jfrog-artifactory-tutorial.md
       - name: JIRA SAML SSO by Microsoft
         href: jiramicrosoft-tutorial.md
       - name: JIRA SAML SSO by Microsoft (V5.2)
