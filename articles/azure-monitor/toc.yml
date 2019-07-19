@@ -498,6 +498,8 @@
           href: insights/container-insights-alerts.md
         - name: Agent management
           href: insights/container-insights-manage-agent.md
+        - name: Configure agent collection settings
+          href: insights/container-insights-agent-config.md
         - name: Update to enable metrics
           href: insights/container-insights-update-metrics.md
         - name: Troubleshooting
@@ -613,8 +615,6 @@
           href: insights/vminsights-workbooks.md
         - name: Analyze data with log queries
           href: insights/vminsights-log-search.md
-        - name: Configure agent collection settings
-          href: insights/container-insights-agent-config.md
         - name: Disable monitoring
           href: insights/vminsights-optout.md
       - name: Capacity and performance solution
