@@ -63,10 +63,24 @@ You can quickly deploy a new Azure IoT Central application and then customize it
 - Telemetry it sends.
 - Business properties that an operator can modify.
 - Device properties that are set by a device and are read-only in the application.
-- Thresholds the application responds to.
-- Settings that determine the behavior of the device.
+- Properties set by an operator that determine the behavior of the device.
 
-You can immediately test your device templates and application with simulated data that Azure IoT Central generates for you.
+This device template includes:
+
+- A _device capability model_ that describes the capabilities a device should implement such as the telemetry it sends and the properties it reports.
+- Cloud properties that are not stored on the device.
+- Customizations, dashboards, and forms that are part of your IoT Central application.
+
+### Create device templates
+
+As a builder, you have several options for creating device templates:
+
+- Design the device template in IoT Central and then implement its device capability model in your device code.
+- Import a device capability model from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat) and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
+- Create a device capability model using Visual Studio code. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device capability model from a repository and creates a simple device template for you.
+- Create a device capability model using Visual Studio code. Implement your device code from the model. Manually import the device capability model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
+
+### Customize the UI
 
 As a builder, you can also customize the Azure IoT Central application UI for the operators who are responsible for the day-to-day use of the application. Customizations that a builder can make include:
 

@@ -31,6 +31,13 @@ From this device template, an operator can create and connect real fan devices. 
 > [!NOTE]
 > Only builders and administrators can create, edit, and delete device templates. Any user can create devices on the **Device Explorer** page from existing device templates.
 
+As a builder, you have several options for creating device templates:
+
+- Design the device template in IoT Central and then implement its device capability model in your device code.
+- Import a device capability model from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat) and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
+- Create a device capability model using Visual Studio code. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device capability model from a repository and creates a simple device template for you.
+- Create a device capability model using Visual Studio code. Implement your device code from the model. Manually import the device capability model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
+
 ## Create a device template
 
 A device template contains:
@@ -40,7 +47,7 @@ A device template contains:
 - _Customizations_ let the builder override some of the definitions in the device capability model. For example, the builder could override the name of a device property. Property names appear in IoT Central dashboards and forms.
 - _Dashboards and forms_ let the builder create a UI that lets operators monitor and manage the devices connected to your application.
 
-To create a device template:
+To create a device template in IoT Central:
 
 1. Go to the **Device Definitions** page in your IoT Central application.
 1. Select **+ New**, then select **Custom**.
@@ -70,7 +77,7 @@ After you create a device capability model, you can:
 
 - Add interfaces to the model. A model must have at least one interface.
 - Edit model metadata such as its ID, namespace, and name.
-- Delete the model
+- Delete the model.
 
 ## Create an interface
 
@@ -100,7 +107,7 @@ The following table shows the configuration settings for a  telemetry capability
 | ----- | ----------- |
 | Display Name | The display name for the telemetry value used on dashboards and forms. |
 | Name | The name of the field in the telemetry message. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
-| Capability Type | Telemetry |
+| Capability Type | Telemetry. |
 | Semantic Type | The semantic type of the telemetry such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
 | Schema | The telemetry data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
 | Severity | Only available for the event semantic type. **Error**, **Information**, or **Warning**. |
@@ -120,7 +127,7 @@ The following table shows the configuration settings for a  property capability:
 | ----- | ----------- |
 | Display Name | The display name for the property value used on dashboards and forms. |
 | Name | The name of the property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
-| Capability Type | Property |
+| Capability Type | Property. |
 | Semantic Type | The semantic type of the property such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
 | Schema | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
 | Writeable | If the property isn't writeable, the device can report property values to IoT Central. If the property is writeable, the device can report property values to IoT Central and IoT Central can send property updates to the device.
@@ -133,7 +140,7 @@ The following table shows the configuration settings for a  property capability:
 
 ### Commands
 
-You can call device commands from IoT Central. Commands optionally pass parameters to the device and receive a response from the device. For example, you could call a command to reboot a device in ten-seconds time.
+You can call device commands from IoT Central. Commands optionally pass parameters to the device and receive a response from the device. For example, you could call a command to reboot a device in ten seconds.
 
 The following table shows the configuration settings for a  command capability:
 
