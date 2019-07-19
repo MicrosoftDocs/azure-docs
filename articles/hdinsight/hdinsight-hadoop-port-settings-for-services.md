@@ -101,7 +101,7 @@ Examples:
 | NodeManager |All worker nodes |30050 |&nbsp; |The address of the container manager |
 | NodeManager web UI |All worker nodes |30060 |HTTP |Resource Manager interface |
 | Timeline address |Head nodes |10200 |RPC |The Timeline service RPC service. |
-| Timeline web UI |Head nodes |8181 |HTTP |The Timeline service web UI |
+| Timeline web UI |Head nodes |8188 |HTTP |The Timeline service web UI |
 
 ### Hive ports
 
