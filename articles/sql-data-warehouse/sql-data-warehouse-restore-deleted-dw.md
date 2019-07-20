@@ -69,15 +69,15 @@ $RestoredDatabase.status
 2. Navigate to the SQL server your deleted data warehouse was hosted on.
 3. Select the **Deleted databases** icon in the table of contents.
 
-    ![Deleted Databases](./media/sql-data-warehouse-restore-deleted-dw/restoring_deleted_01.png)
+    ![Deleted Databases](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-01.png)
 
 4. Select the deleted SQL Data Warehouse that you want to restore.
 
-    ![Select Deleted Databases](./media/sql-data-warehouse-restore-deleted-dw/restoring_deleted_11.png)
+    ![Select Deleted Databases](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-11.png)
 
 5. Specify a new **Database name** and click **OK**
 
-    ![Specify Database Name](./media/sql-data-warehouse-restore-deleted-dw/restoring_deleted_21.png)
+    ![Specify Database Name](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
 ## Next Steps
 - [Restore an existing data warehouse][Restore an existing data warehouse]
@@ -95,7 +95,7 @@ $RestoredDatabase.status
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[support ticket]: https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket
+[support ticket]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket
 [Move]:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal
 [Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
 [Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md

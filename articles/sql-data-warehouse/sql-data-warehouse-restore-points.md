@@ -60,11 +60,11 @@ User-defined restore points can also be created through Azure portal.
 
 3. Select **Overview** from the left pane, select **+ New Restore Point**. If the New Restore Point button isn't enabled, make sure that the data warehouse isn't paused.
 
-    ![New Restore Point](./media/sql-data-warehouse-restore-points/creating_restore_point_01.png)
+    ![New Restore Point](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
 4. Specify a name for your user-defined restore point and click **Apply**. User-defined restore points have a default retention period of seven days.
 
-    ![Name of Restore Point](./media/sql-data-warehouse-restore-points/creating_restore_point_11.png)
+    ![Name of Restore Point](./media/sql-data-warehouse-restore-points/creating-restore-point-11.png)
 
 ## Next steps
 

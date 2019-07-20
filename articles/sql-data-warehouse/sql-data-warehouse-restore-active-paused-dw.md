@@ -87,11 +87,11 @@ $RestoredDatabase.status
 2. Navigate to the SQL data warehouse that you want to restore from.
 3. At the top of the Overview blade, select **Restore**.
 
-    ![ Restore Overview](./media/sql-data-warehouse-restore-active-paused-dw/restoring_01.png)
+    ![ Restore Overview](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
 4. Select either **Automatic Restore Points** or **User-Defined Restore Points**. If the data warehouse doesn't have any automatic restore points, wait a few hours or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one. For **Server**, you can pick a logical server in a different resource group and region or create a new one. After providing all the parameters, click **Review + Restore**.
 
-    ![Automatic Restore Points](./media/sql-data-warehouse-restore-active-paused-dw/restoring_11.png)
+    ![Automatic Restore Points](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## Next Steps
 - [Restore a deleted data warehouse][Restore a deleted data warehouse]

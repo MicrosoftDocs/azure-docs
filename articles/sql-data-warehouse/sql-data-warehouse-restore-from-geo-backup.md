@@ -73,13 +73,13 @@ Follow the steps outlined below to restore an Azure SQL Data Warehouse from a ge
 1. Sign in to your [Azure portal][Azure portal] account.
 1. Click **+ Create a resource** and search for SQL Data Warehouse and click **Create**.
 
-    ![New DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore_new.png)
+    ![New DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 1. Fill out the information requested in the **Basics** tab and click **Next: Additional settings**.
 
-    ![Basics](./media/sql-data-warehouse-restore-from-geo-backup/georestore_dw.png)
+    ![Basics](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw.png)
 1. For **Use existing data** parameter, select **Backup** and select the appropriate backup from the scroll down options. Click **Review + Create**.
  
-   ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore_select.png)
+   ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 2. Once the data warehouse has been restored, check that the **Status** is Online.
 
 ## Next Steps
