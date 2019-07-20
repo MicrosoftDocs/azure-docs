@@ -1,5 +1,5 @@
 ---
-title: Plan a virtual network deployment for Azure HDInsight clusters
+title: Plan a virtual network for Azure HDInsight
 description: Learn how to plan an Azure Virtual Network deployment to connect HDInsight to other cloud resources, or resources in your datacenter.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,7 +8,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/12/2019
 ---
-# Plan a virtual network deployment for Azure HDInsight clusters
+# Plan a virtual network for Azure HDInsight
 
 Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Using an Azure Virtual Network enables the following scenarios:
 
@@ -232,68 +232,7 @@ Forced tunneling is a user-defined routing configuration where all traffic from 
 
 ## <a id="hdinsight-ip"></a> Required IP addresses
 
-> [!IMPORTANT]  
-> The Azure health and management services must be able to communicate with HDInsight. If you use network security groups or user-defined routes, allow traffic from the IP addresses for these services to reach HDInsight.
->
-> If you do not use network security groups or user-defined routes to control traffic, you can ignore this section.
-
-If you use network security groups, you must allow traffic from the Azure health and management services to reach HDInsight clusters on port 443. You must also allow traffic between VMs inside the subnet. Use the following steps to find the IP addresses that must be allowed:
-
-1. You must always allow traffic from the following IP addresses:
-
-    | Source IP address | Destination  | Direction |
-    | ---- | ----- | ----- |
-    | 168.61.49.99 | \*:443 | Inbound |
-    | 23.99.5.239 | \*:443 | Inbound |
-    | 168.61.48.131 | \*:443 | Inbound |
-    | 138.91.141.162 | \*:443 | Inbound |
-
-2. If your HDInsight cluster is in one of the following regions, then you must allow traffic from the IP addresses listed for the region:
-
-    > [!IMPORTANT]  
-    > If the Azure region you are using is not listed, then only use the four IP addresses from step 1.
-
-    | Country | Region | Allowed Source IP addresses | Allowed Destination | Direction |
-    | ---- | ---- | ---- | ---- | ----- |
-    | Asia | East Asia | 23.102.235.122</br>52.175.38.134 | \*:443 | Inbound |
-    | &nbsp; | Southeast Asia | 13.76.245.160</br>13.76.136.249 | \*:443 | Inbound |
-    | Australia | Australia Central | 20.36.36.33</br>20.36.36.196 | \*:443 | Inbound |
-    | &nbsp; | Australia East | 104.210.84.115</br>13.75.152.195 | \*:443 | Inbound |
-    | &nbsp; | Australia Southeast | 13.77.2.56</br>13.77.2.94 | \*:443 | Inbound |
-    | Brazil | Brazil South | 191.235.84.104</br>191.235.87.113 | \*:443 | Inbound |
-    | Canada | Canada East | 52.229.127.96</br>52.229.123.172 | \*:443 | Inbound |
-    | &nbsp; | Canada Central | 52.228.37.66</br>52.228.45.222 |\*: 443 | Inbound |
-    | China | China North | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Inbound |
-    | &nbsp; | China East | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Inbound |
-    | &nbsp; | China North 2 | 40.73.37.141</br>40.73.38.172 | \*:443 | Inbound |
-    | &nbsp; | China East 2 | 139.217.227.106</br>139.217.228.187 | \*:443 | Inbound |
-    | Europe | North Europe | 52.164.210.96</br>13.74.153.132 | \*:443 | Inbound |
-    | &nbsp; | West Europe| 52.166.243.90</br>52.174.36.244 | \*:443 | Inbound |
-    | France | France Central| 20.188.39.64</br>40.89.157.135 | \*:443 | Inbound |
-    | Germany | Germany Central | 51.4.146.68</br>51.4.146.80 | \*:443 | Inbound |
-    | &nbsp; | Germany Northeast | 51.5.150.132</br>51.5.144.101 | \*:443 | Inbound |
-    | India | Central India | 52.172.153.209</br>52.172.152.49 | \*:443 | Inbound |
-    | &nbsp; | South India | 104.211.223.67<br/>104.211.216.210 | \*:443 | Inbound |
-    | Japan | Japan East | 13.78.125.90</br>13.78.89.60 | \*:443 | Inbound |
-    | &nbsp; | Japan West | 40.74.125.69</br>138.91.29.150 | \*:443 | Inbound |
-    | Korea | Korea Central | 52.231.39.142</br>52.231.36.209 | \*:433 | Inbound |
-    | &nbsp; | Korea South | 52.231.203.16</br>52.231.205.214 | \*:443 | Inbound
-    | United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | \*:443 | Inbound |
-    | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | \*:443 | Inbound |
-    | United States | Central US | 13.67.223.215</br>40.86.83.253 | \*:443 | Inbound |
-    | &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | \*:443 | Inbound |
-    | &nbsp; | North Central US | 157.56.8.38</br>157.55.213.99 | \*:443 | Inbound |
-    | &nbsp; | West Central US | 52.161.23.15</br>52.161.10.167 | \*:443 | Inbound |
-    | &nbsp; | West US | 13.64.254.98</br>23.101.196.19 | \*:443 | Inbound |
-    | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Inbound |
-
-    For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
-
-3. You must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
-
-For more information, see the [Controlling network traffic](#networktraffic) section.
-
-If you are using user-defined routes(UDRs), you should specify a route and allow outbound traffic from the VNET to the above IPs with the next hop set to "Internet".
+If you use network security groups or user-defined routes to control traffic, please see [IP addresses to allow inbound traffic from](hdinsight-required-ip-addresses.md).
     
 ## <a id="hdinsight-ports"></a> Required ports
 

@@ -137,7 +137,7 @@ The Bootstrap feature for Linux-based clusters does not provide this functionali
 
 Windows-based HDInsight clusters only work with Classic Virtual Networks, while Linux-based HDInsight clusters require Resource Manager Virtual Networks. If you have resources in a Classic Virtual Network that the Linux-HDInsight cluster must connect to, see [Connecting a Classic Virtual Network to a Resource Manager Virtual Network](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
-For more information on configuration requirements, see the [Extend HDInsight capabilities by using a Virtual Network](hdinsight-extend-hadoop-virtual-network.md) document.
+For more information on configuration requirements, see the [Plan a virtual network for Azure HDInsight](hdinsight-plan-virtual-network-deployment.md) document.
 
 ## Management and monitoring
 
