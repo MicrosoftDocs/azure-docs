@@ -426,7 +426,7 @@
     - name: Create VNETs for HDInsight
       href: ../hdinsight-create-virtual-network.md
     - name: Required IP Addresses for NSGs and UDRs
-      href: ../hdinsight-required-ip-addresses.md
+      href: ../hdinsight-management-ip-addresses.md
     - name: Use firewall to restrict outbound traffic
       href: ../hdinsight-restrict-outbound-traffic.md
     - name: Connect HDInsight with on-premises network

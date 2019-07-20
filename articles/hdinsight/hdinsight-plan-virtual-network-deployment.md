@@ -232,7 +232,7 @@ Forced tunneling is a user-defined routing configuration where all traffic from 
 
 ## <a id="hdinsight-ip"></a> Required IP addresses
 
-If you use network security groups or user-defined routes to control traffic, please see [IP addresses to allow inbound traffic from](hdinsight-required-ip-addresses.md).
+If you use network security groups or user-defined routes to control traffic, please see [IP addresses to allow inbound traffic from](hdinsight-management-ip-addresses.md).
     
 ## <a id="hdinsight-ports"></a> Required ports
 

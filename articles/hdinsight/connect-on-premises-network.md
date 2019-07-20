@@ -271,7 +271,7 @@ You can use network security groups (NSG) or user-defined routes (UDR) to contro
 > [!WARNING]  
 > HDInsight requires inbound access from specific IP addresses in the Azure cloud, and unrestricted outbound access. When using NSGs or UDRs to control traffic, you must perform the following steps:
 
-1. Find the IP addresses for the location that contains your virtual network. For a list of required IPs by location, see [Required IP addresses](./hdinsight-required-ip-addresses.md).
+1. Find the IP addresses for the location that contains your virtual network. For a list of required IPs by location, see [Required IP addresses](./hdinsight-management-ip-addresses.md).
 
 2. For the IP addresses identified in step 1, allow inbound traffic from that IP addresses.
 
