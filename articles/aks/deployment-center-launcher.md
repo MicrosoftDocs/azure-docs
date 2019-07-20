@@ -33,7 +33,7 @@ In this tutorial, you will:
 
 1. Sign in to your [Azure portal](https://portal.azure.com/).
 
-1. Select [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) on the right side of the top menu bar in the Azure portal.
+1. Select the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) option on the right side of the menu bar in the Azure portal.
 
 1. To create the AKS cluster, run the following commands:
 
@@ -84,7 +84,7 @@ In this tutorial, you will:
 
 1. Select the link to see the ongoing pipeline.
 
-1. You'll see the successful logs after the deployment is complete.
+1. You'll see the successful logs after deployment is complete.
 
     ![Logs](media/deployment-center-launcher/logs.png)
 
@@ -96,7 +96,7 @@ Deployment Center automatically configures your Azure DevOps organization's CI/C
 
 1. Select the build number from the list of successful logs to view the build pipeline for your project.
 
-1. Select the ellipsis (...) in the top-right corner. A menu shows several options, such as queuing a new build, retaining a build, and editing the build pipeline. Select **Edit pipeline**. 
+1. Select the ellipsis (...) in the upper-right corner. A menu shows several options, such as queuing a new build, retaining a build, and editing the build pipeline. Select **Edit pipeline**. 
 
 1. You can examine the different tasks for your build pipeline in this pane. The build performs various tasks, such as collecting sources from the Git repository, creating an image, pushing an image to the container registry, and publishing outputs that are used for deployments.
 
@@ -118,9 +118,9 @@ Deployment Center automatically creates and configures the relationship between 
 
 1. To edit the release pipeline, select **Edit**.
 
-1. Select **Drop** from **Artifacts**. In the previous steps, the construction pipeline you examined produces the output used for the artifact. 
+1. Select **Drop** from **Artifacts** list. In the previous steps, the construction pipeline you examined produces the output used for the artifact. 
 
-1. Select the **Continuous deployment** trigger on the right of the **Drop** icon. This release pipeline has an enabled CD trigger that runs a deployment whenever a new build artifact is available. You can also disable the trigger to require manual execution for your deployments.
+1. Select the **Continuous deployment** trigger on the right of the **Drop** option. This release pipeline has an enabled CD trigger that runs a deployment whenever a new build artifact is available. You can also disable the trigger to require manual execution for your deployments.
 
 1. To examine all the tasks for your pipeline, select **Tasks**. The release sets the tiller environment, configures the `imagePullSecrets` parameter, installs Helm tools, and deploys the Helm charts to the K8s cluster.
 
@@ -132,7 +132,7 @@ Deployment Center automatically creates and configures the relationship between 
 
 1. Select **Logs**. The logs contain useful deployment information, which you can view during and after deployments.
 
-## Clean-up resources
+## Cleanup resources
 
 You can delete the related resources that you created when you don't need them anymore. Use the delete functionality on the DevOps Projects dashboard.
 
