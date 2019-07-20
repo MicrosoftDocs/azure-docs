@@ -193,7 +193,7 @@ To control access to the inputs and outputs in your logic app's run history, you
 
 * [Hide inputs and outputs in run history by using obfuscation](#obfuscate).
 
-  This option lets you hide inputs and outputs in run history based on the trigger or action.
+  Some triggers and actions provide options to hide inputs, outputs, or both in run history.
 
 <a name="restrict-ip"></a>
 
@@ -257,6 +257,8 @@ If you automate logic app deployments by using an [Azure Resource Manager templa
 <a name="obfuscate"></a>
 
 ### Hide inputs and outputs in run history by using obfuscation
+
+Some triggers and actions provide options for you to hide inputs, outputs, or both in run history.
 
 1. If your logic app isn't already open in the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
