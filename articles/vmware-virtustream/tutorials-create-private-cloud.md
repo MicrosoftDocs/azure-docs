@@ -29,9 +29,9 @@ The next tutorial provides the instructions for deploying resources to a VNet in
 
 It's recommended you first plan the private network address space for your private cloud. This network address space for the management access and vMotion networks in your private cloud. The private network address space should be unique across the VNets in your Azure subscription and, if you plan to connect from on-premises environments, it's also recommended that it's unique across your on-premises networks.
 
-You also plan for the type and number of hosts that you'll use in your private cloud clusters. Resource and resource group names are also required, and you're required to know or create those in order to complete this tutorial.
+You also plan for the type and number of hosts that you'll use in your private cloud clusters. Resource and resource group names are also required when you create a private cloud.
 
-This tutorial also requires that you have an Azure subscription, access to the Portal, and that the Microsoft.VMwareVirtustream resource provider is registered in your subscription. Following the instructions in [resource provider][Azure resource providers and types] documentation, search for Virtustream. This screenshot shows what will appear if the resource provider is registered in your subscription.
+This tutorial also requires that you have an Azure subscription and access to the Azure portal. You also need to have the Microsoft.VMwareVirtustream resource provider is registered in your subscription. Following the instructions in [resource provider][Azure resource providers and types] documentation, search for Virtustream. This screenshot shows what will appear if the resource provider is registered in your subscription.
 
 ![Image of a registered Virtustream.PrivateCloud resource provider](./media/resource-provider-azure.png)
 
@@ -77,7 +77,7 @@ Once the deployment has succeeded, navigate to the new private cloud in your res
 
 ## Next steps
 
-In the next tutorial you will create a VNet and resources to connect to a private cloud.
+In the next tutorial, you will create a VNet and resources to connect to a private cloud.
 
 <!-- LINKS - external-->
 [resource provider]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services
