@@ -42,8 +42,6 @@ Prerequisites:
 - A /22 network address space
 - The host types to be used in private cloud clusters (see this link for a description)
 - the number of hosts to be used in each cluster
-- an existing VNet with an ExpressRoute gateway in your subscription (see this link for instructions)
-- optionally, and if you intend to enable ExpressRoute Global Reach, an authorization key and resource ID of an ExpressRoute circuit that connects your on-premises environments to an Azure VNet. Use these instructions to [generate auth key][generate an authorization key]. This is work that can be done after creating a private cloud.
 
 ## Create a private Cloud 
 
@@ -71,37 +69,15 @@ If the configuration passes validation, review and then select "Create" in the "
 
 ![Review and create a new private cloud](./media/create-private-cloud/ss6-review-create.png)
 
-Once the deployment has succeeded, navigate to the new private cloud in your resources and review the overview information. Confirm the configuration, and then select "Admin" to retrieve the credentials to access vCenter and NSX-T manager. Establishing that access is covered in another tutorial.
+Once the deployment has succeeded, navigate to the new private cloud in your resources and review the overview information. Confirm the configuration and then select "Admin" to retrieve the credentials to access vCenter and NSX-T manager. Establishing that access is covered in the [next tutorial][tutorials-access-private-cloud].
 
 ![Review overview information of new private cloud](./media/create-private-cloud/ss7-view-overview.png)
 
 ![Get vCenter and NSX-T manager credentials from Admin](./media/create-private-cloud/ss8-get-credentials.png)
 
-## Request an ExpressRoute authorization key and resource ID
-
-Select the ExpressRoute tab and "Request an authorization key". An authorization key and resource ID are provided. You use them to establish private peering from a VNet in your subscription to the ER circuit for this private cloud.
-
-![Request an authorization key for ER private peering](./media/create-private-cloud/ss9-request-auth-key.png)
-
-The procedures for using the authorization key and resource ID to establish peering are provided in the [Create VNet resources Tutorial][tutorial-create-vnet-resources]. Once the VNet resources and the peering have been established, you can connect to the private cloud.
-
-## Establish Global Reach on ExpressRoute Circuit to on-premises environment
-
-If you're connecting from on-premises to the new private cloud with an existing ExpressRoute connection, select "Add global reach key" and provide an authorization key and ID. The key and ID are obtained following the documentation to [enable Global Reach on ExpressRoute circuits in two different subscriptions][enable global reach].
-
-![Provide an authorization key and resource ID for ER Global Reach](./media/create-private-cloud/ss9-request-auth-key.png)
-
-## Enable internet connectivity of a private cloud
-
-Select "Connectivity" for the new private cloud resource. To enable the connection from your private cloud to the internet, select "Internet enabled" > "Save".
-
-![Enable internet connectivity on the new private cloud](./media/create-private-cloud/ss10-enable-internet.png)
-
-By enabling private cloud access to the internet, production workload VMs can access the internet and Azure services. The procedures for creating NSX-T T1 routers and logical switches that enable the access is covered in the [Create an NSX-T T1 router and logical switch Tutorial][tutorials-create-t1-ls].
-
 ## Next steps
 
-<!-- [In your subscription, create a VNet and resources to connect to a private cloud.][tutorials-create-vnet-resources] -->
+In your subscription, [create a VNet and resources to connect to a private cloud.][tutorials-create-vnet-resources].
 
 <!-- LINKS - external-->
 [resource provider]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services
