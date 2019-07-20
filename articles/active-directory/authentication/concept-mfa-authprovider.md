@@ -42,7 +42,7 @@ If your MFA provider is not linked to an Azure AD tenant, or you link the new MF
 
 ### Removing an authentication provider
 
-> [!WARNING]
+> [!CAUTION]
 > There is no confirmation when deleting an authentication provider. Selecting **Delete** is a permanent process.
 
 Authentication providers can be found in the **Azure portal** > **Azure Active Directory** > **MFA** > **Providers**. Click on listed providers to see details and configurations associated with that provider.
@@ -63,10 +63,10 @@ Azure MFA Servers linked to providers will need to be reactivated using credenti
 
 When you have confirmed that all settings have been migrated, you can browse to the **Azure portal** > **Azure Active Directory** > **MFA** > **Providers** and select the ellipses **...** and select **Delete**.
 
-> [!NOTE]
+> [!WARNING]
 > Deleting an authentication provider will delete any reporting information associated with that provider. You may want to save activity reports before deleting your provider.
 
-> [!TIP]
+> [!NOTE]
 > Users with older versions of the Microsoft Authenticator app and Azure MFA Server may need to re-register their app.
 
 ## Next steps
