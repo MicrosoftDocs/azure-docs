@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Dedicated Hosts using the Azure PowerShell | Microsoft Docs
+title: Deploy Azure dedicated hosts using the Azure PowerShell | Microsoft Docs
 description: Deploy VMs to dedicated hosts using Azure PowerShell.
 services: virtual-machines-windows
 author: cynthn
@@ -16,7 +16,7 @@ ms.author: cynthn
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
-# Preview: Deploy VMs to Dedicated Hosts using the Azure PowerShell
+# Preview: Deploy VMs to dedicated hosts using the Azure PowerShell
 
 ## Next steps
 

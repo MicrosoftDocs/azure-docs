@@ -17,7 +17,7 @@ ms.author: cynthn
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
-# Preview: Deploy VMs to Dedicated Hosts using the Azure CLI
+# Preview: Deploy VMs to dedicated hosts using the Azure CLI
 
 
 

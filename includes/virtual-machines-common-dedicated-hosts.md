@@ -37,6 +37,11 @@ The following regions are supported for the public preview:
 
 -
 
+## Limits
+
+- Suscription limits?
+- The numbder of hosts is limited to XX per subscription.
+
 ## Groups, hosts, and VMs  
 
 ![View of the new resources for dedicated hosts.](./media/virtual-machines-common-dedicated-hosts/host-group.png)
