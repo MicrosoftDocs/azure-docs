@@ -4,14 +4,7 @@ description: How to configure your azure cloud service application to allow remo
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
-manager: timlt
-editor: ''
-
-ms.assetid: 73ea1d64-1529-4d72-b58e-f6c10499e6bb
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: memccror
