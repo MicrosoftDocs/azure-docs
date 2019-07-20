@@ -227,13 +227,13 @@ By default, the Speech SDK uses online speech services. To use the container, yo
 
 Change from using this Azure-cloud initialization call:
 
-```C#
+```csharp
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
 to this call using the container endpoint:
 
-```C#
+```csharp
 var config = SpeechConfig.FromEndpoint(
     new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
     "YourSubscriptionKey");
