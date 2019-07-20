@@ -48,7 +48,7 @@ The following table indicates the current level of support for the three hosting
 | | Consumption plan | Premium plan | Dedicated plan |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | preview | GA |
-| Linux | preview | N/A | GA |
+| Linux | GA | N/A | GA |
 
 ## Consumption plan
 

@@ -13,13 +13,13 @@ ms.devlang: javascript
 manager: jeconnoc
 ---
 
-# Create your first function hosted on Linux using Core Tools and the Azure CLI (preview)
+# Create your first function hosted on Linux using Core Tools and the Azure CLI
 
-Azure Functions lets you execute your code in a [serverless](https://azure.com/serverless) Linux environment without having to first create a VM or publish a web application. Linux-hosting requires [the Functions 2.0 runtime](functions-versions.md). Support to run a function app on Linux in the serverless [Consumption plan](functions-scale.md#consumption-plan) is currently in preview. To learn more, see [this preview considerations article](https://aka.ms/funclinux).
+Azure Functions lets you execute your code in a [serverless](https://azure.com/serverless) Linux environment without having to first create a VM or publish a web application. Linux-hosting requires [the Functions 2.x runtime](functions-versions.md). Serverless functions run in the [Consumption plan](functions-scale.md#consumption-plan).
 
 This quickstart article walks you through how to use the Azure CLI to create your first function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
 
-The following steps are supported on a Mac, Windows, or Linux computer. This article shows you how to create functions in either JavaScript or C#. To learn how to create Python functions, see [Create your first Python function using Core Tools and the Azure CLI (preview)](functions-create-first-function-python.md).
+The following steps are supported on a Mac, Windows, or Linux computer. This article shows you how to create functions in either JavaScript or C#. To learn how to create Python functions, see [Create your first Python function using Core Tools and the Azure CLI](functions-create-first-function-python.md).
 
 ## Prerequisites
 
