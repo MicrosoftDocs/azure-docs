@@ -143,7 +143,7 @@ To change the settings in the SPA:
 1. Open the *index.html* file in the project you downloaded or cloned in the previous tutorial ([active-directory-b2c-javascript-msal-singlepageapp][github-js-spa]).
 1. Configure the sample with the URI for the *Hello.Read* scope you created earlier and the URL for the web API.
 
-   In the `appConfig` definition, replace the `b2cScopes` value with the URI for the scope. Next, change the `webApi` value to the `applicationUR`* value from the previous section. For example (replace `<your-tenant-name>` with the name of your B2C tenant):
+   In the `appConfig` definition, replace the `b2cScopes` value with the URI for the scope. Next, change the `webApi` value to the `applicationURL` value from the previous section. For example (replace `<your-tenant-name>` with the name of your B2C tenant):
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -159,11 +159,14 @@ You need to run both the Node.js single-page application and the .NET Core web A
 
 ### Run the ASP.NET Core web API
 
-In Visual Studio, press **F5** to build and debug the **B2C-WebAPI.sln** solution. When the project launches, a web page is displayed in your default browser announcing the web API is available for requests.
+In Visual Studio, press **F5** to build and debug the *B2C-WebAPI.sln* solution. When the project launches, a web page is displayed in your default browser announcing the web API is available for requests.
 
 If you'd like to use the `dotnet` CLI instead:
 
-1. Open a console window and change to the directory containing the *\*.csproj* file, for example `cd active-directory-b2c-dotnetcore-webapi/B2C-WebApi`
+1. Open a console window and change to the directory containing the *\*.csproj* file. For example:
+
+    `cd active-directory-b2c-dotnetcore-webapi/B2C-WebApi`
+
 1. Build and run the web API with `dotnet run`. When the API is up and running, you should see output similar to the following:
 
     ```console
@@ -178,6 +181,7 @@ If you'd like to use the `dotnet` CLI instead:
 
 1. Open a console window and change to the directory containing the Node.js sample. For example `cd active-directory-b2c-javascript-msal-singlepageapp`.
 1. Run the following commands:
+
     ```console
     npm install && npm update
     node server.js
