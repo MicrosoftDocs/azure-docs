@@ -6,7 +6,7 @@ author: mmacy
 manager: celestedg
 
 ms.author: marsma
-ms.date: 07/08/2019
+ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
@@ -37,7 +37,7 @@ You need the following Azure AD B2C resources in place before continuing with th
 Additionally, you need the following in your local development environment:
 
 * Code editor, for example [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-* [.NET Core SDK 2.0.0](https://www.microsoft.com/net/core) or later
+* [.NET Core SDK 2.2](https://dotnet.microsoft.com/download) or later
 * [Node.js](https://nodejs.org/en/download/)
 
 ## Update the application
@@ -129,11 +129,15 @@ You can now use your email address and password to sign in to the application.
 
 After you sign in, the app displays an insufficient permissions error - this is **expected**:
 
-`ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.`
+```Output
+ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
+Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
+Timestamp: 2019-07-20 22:17:27Z
+```
 
-You receive this error because you're attempting to access a resource from the demo directory, but your access token is valid only for your Azure AD directory. The API call is therefore unauthorized.
+You receive this error because the web application is attempting to access a web API protected by the demo directory, *fabrikamb2c*. Because your access token is valid only for your Azure AD directory, the API call is therefore unauthorized.
 
-Continue with the next tutorial in the series (see [Next steps](#next-steps)) to create a protected web API for your directory.
+To fix this error, continue on to the next tutorial in the series (see [Next steps](#next-steps)) to create a protected web API for your directory.
 
 ## Next steps
 
@@ -147,4 +151,4 @@ In this article, you learned how to:
 Now move on to the next tutorial in the series to grant access to a protected web API from the SPA:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Grant access to an ASP.NET Core web API from a single-page app using Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
+> [Tutorial: Grant access to an ASP.NET Core web API from an SPA using Azure AD B2C >](active-directory-b2c-tutorials-spa-webapi.md)
