@@ -190,7 +190,7 @@ The *Token Replay Prevention* feature allows Media Services customers to set a l
 
 ## Using a custom STS
 
-A customer might choose to use a custom STS to provide JWTs. Reasons include:
+A customer might choose to use a custom STS to provide tokens. Reasons include:
 
 * The IDP used by the customer doesn't support STS. In this case, a custom STS might be an option.
 * The customer might need more flexible or tighter control to integrate STS with the customer's subscriber billing system. For example, an MVPD operator might offer multiple OTT subscriber packages, such as premium, basic, and sports. The operator might want to match the claims in a token with a subscriber's package so that only the contents in a specific package are made available. In this case, a custom STS provides the needed flexibility and control.
@@ -199,7 +199,7 @@ A customer might choose to use a custom STS to provide JWTs. Reasons include:
 
 When you use a custom STS, two changes must be made:
 
-* When you configure license delivery service for an asset, you need to specify the security key used for verification by the custom STS instead of the current key from Azure AD. (More details follow.) 
+* When you configure license delivery service for an asset, you need to specify the security key used for verification by the custom STS instead of the current key from Azure AD.
 * When a JTW token is generated, a security key is specified instead of the private key of the current X509 certificate in Azure AD.
 
 There are two types of security keys:
