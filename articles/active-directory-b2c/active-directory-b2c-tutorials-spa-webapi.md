@@ -69,7 +69,7 @@ To call a protected web API from an application, you need to grant your applicat
 1. In the **Select Scopes** dropdown, select the **Hello.Read** and **Hello.Write** scopes that you previously defined.
 1. Click **OK**.
 
-Your **My sample single page app** is registered to call the protected **Hello Core API**. A user authenticates with Azure AD B2C to use the single page application. The single page app obtains an authorization grant from Azure AD B2C to access the protected web API.
+Your single-page web application is registered to call the protected web API. A user authenticates with Azure AD B2C to use the single page application. The single page app obtains an authorization grant from Azure AD B2C to access the protected web API.
 
 ## Configure the sample
 
@@ -99,7 +99,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 To allow your single page application to call the ASP.NET Core web API, you need to enable [CORS](https://docs.microsoft.com/aspnet/core/security/cors).
 
-1. In **Startup.cs**, add CORS to the `ConfigureServices()` method.
+1. In *Startup.cs*, add CORS to the `ConfigureServices()` method.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -124,7 +124,7 @@ To allow your single page application to call the ASP.NET Core web API, you need
             builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
-1. (Visual Studio only) Under **Properties** in the Solution Explorer, open the **launchSettings.json** file, then find the `iisExpress` block.
+1. (Visual Studio only) Under **Properties** in the Solution Explorer, open the *launchSettings.json* file, then find the `iisExpress` block.
 1. (Visual Studio only) Update the `applicationURL` value with the port number your specified when you registered the *webapi1* application in an earlier step. For example:
 
     ```json
@@ -140,10 +140,10 @@ The single-page application (SPA) from the [previous tutorial](active-directory-
 
 To change the settings in the SPA:
 
-1. Open the `index.html` file in the project you downloaded or cloned in the previous tutorial ([active-directory-b2c-javascript-msal-singlepageapp][github-js-spa]).
+1. Open the *index.html* file in the project you downloaded or cloned in the previous tutorial ([active-directory-b2c-javascript-msal-singlepageapp][github-js-spa]).
 1. Configure the sample with the URI for the *Hello.Read* scope you created earlier and the URL for the web API.
 
-   In the `appConfig` definition, replace the `b2cScopes` value with the URI for the scope. Next, change the `webApi` value to the *applicationURL* value from the previous section. For example (replace `<your-tenant-name>` with the name of your B2C tenant):
+   In the `appConfig` definition, replace the `b2cScopes` value with the URI for the scope. Next, change the `webApi` value to the `applicationUR`* value from the previous section. For example (replace `<your-tenant-name>` with the name of your B2C tenant):
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
