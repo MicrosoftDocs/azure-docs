@@ -16,11 +16,11 @@
 
 ## Host group
 
-Create a host group.
+In order to create a host group you need to provide a name, location (region) and , for preview, an availability zone in the region (1,2,or 3). 
 
 ```json
       {
-        "name": "[parameters('dhgName')]",
+        "name": "[parameters('hostGroupName')]",
         "type": "Microsoft.Compute/HostGroups",
         "apiVersion": "2018-10-01",
         "location": "[parameters('location')]",
@@ -30,13 +30,11 @@ Create a host group.
         "tags": {}
       },
 ```
-In order to create a host group you need to provide a name, location (region) and an availability zone in the region (1,2,or 3). 
-Note: at the beginning of the preview, we do require you to provide a zone to the group. The will become optional in the coming updates. 
 
 
 ## Host
 
-To create a host, you need to provide a name, location, and a sku.
+To create a host, you need to provide a name, location, and a SKU.
 
 The format for he host name is `hostGroupName/hostname`. An easy way to build it is to use the host group name as a prefix using the concat function. 
 
@@ -68,12 +66,13 @@ Create a virtual machine on a host.
 The following changes are required from any existing template to enable the VM on a dedicated host:
 1.	Remove availability set dependencies. Dedicated hosts will not support VMs in an availability set. 
 1.	Change the API version of your virtual machine to `2018-10-01`.
-1.	Initially, we require the use Availability Zones. The following resources must have a zone property specified: 
+1.	Initially, we require the use of Availability Zones. The following resources must have a zone property specified: 
 	- Public IP
 	- Virtual Machine 
 1.	Add a reference to your dedicated host.
+1. If you are creating a host and a VM at the same time, the VM portion needs a `dependsOn` that references the host. This way, the VM won't get created before the host is done being deployed.
 
-The following snippets shows the changes to a virtual machine resource type:
+The following example shows the changes to a virtual machine resource type:
 
 ```json
 {

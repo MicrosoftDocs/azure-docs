@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/07/2019
+ ms.date: 07/19/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -23,7 +23,19 @@ Reserving the entire host with Azure Dedicated Hosts provides the following bene
 - No other VMs will be placed in your hosts 
 - You control the platform maintenance at the level of the host (impacting all of the hosted VMs at the same time) 
 
+## Limitations
 
+The following are not supported for dedicated hosts:
+
+- Availability sets
+- Virtual machine scale sets
+- No Premium SSD support
+
+## Regions
+
+The following regions are supported for the public preview:
+
+-
 
 ## Groups, hosts, and VMs  
 
@@ -64,6 +76,15 @@ VMs deployed to hosts with different fault domains, will have their underlying m
 
 You can use both capabilities to achieve even more fault isolation domains. In each availability zone you may use up to 3 FDs bringing it up to 9 fault isolation units within a single region.  
 
+## Pricing
+
+Users are charged per dedicated host, regardless how many VMs are deployed. In your monthly statement you will see a new billable resource type of hosts. Virtual machines hosted within a dedicated hosts will still be shown in your statement, but will carry a price of 0.
+
+The host price is set based on VM family, type (HW size), and region. A host price is relative to the largest VM size supported on the host.
+
+Software licensing, storage and network usage are billed separately from the host and VMs. There is no change to those billable items.
+
+
  
 ## VM families and Hardware generations 
 A dedicated host has a SKU and a type. A host SKU captures the supported VM sizes on that host. The type matches the hardware generation currently available in the region. 
@@ -72,7 +93,7 @@ During the preview, we will support the following host SKUs:
 
  
  
- | Host SKU   | Supported Family | CPU                                                 | Max occupancy    | VM Count |
+| Host SKU   | Supported Family | CPU                                                 | Max occupancy    | VM Count |
 |------------|------------------|-----------------------------------------------------|------------------|----------|
 | DSv3_Type1 | Standard_Ds_v3   | 2 x E5-2673 v4 2.3 GHz (40 cores) – 64 usable vCPUs |                  |          |
 |            |                  |                                                     | Standard_D2s_v3  | 32       |
