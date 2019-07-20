@@ -53,12 +53,9 @@ The repository contains a few folders.
 
 Azure Functions requires Python 3.6.x. We recommend creating a virtual environment to ensure you're using the required Python version.
 
-Change into the *start* folder and identify the Python executable that you'll use to create the virtual environment. Commonly, it's available as `python` or `python3`.
+Identify the path to the Python executable that you'll use to create the virtual environment. Commonly, it's available as `python` or `python3`.
 
-> [!NOTE]
-> If you have the Python Launcher `py` installed on Windows, use `py -3.6` instead of `python` in the following commands.
-
-Once you have located the executable for Python 3.6.x, use it to create a virtual environment in a folder named **.env**.
+Change into the **start** folder and create a virtual environment named **.env**. Replace `python` with the path to Python 3.6.x. If you have the Python Launcher `py` installed on Windows, replace `python` with `py -3.6`.
 
 ```bash
 cd start
