@@ -25,7 +25,7 @@ You can scale the number of clusters in an AVS by Virtustream private cloud, and
 
 You need a private cloud to complete this tutorial. If you haven't yet created a private cloud, you can use the previous tutorial to deploy a private cloud.
 
-## Scale a private cloud 
+## Scale a private cloud
 
 On the overview page of an existing private cloud, select "Scale private cloud".
 
@@ -62,5 +62,3 @@ If you require another AVS by Virtustream private cloud, use the [Create private
 <!-- LINKS - internal -->
 [tutorials-create-private-cloud]: ./tutorials-create-private-cloud.md
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
-
-<!-- [tutorials-create-vnet-resources]: ./tutorials-create-vnet-resources.md -->
