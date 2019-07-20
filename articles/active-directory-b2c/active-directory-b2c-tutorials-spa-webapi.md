@@ -106,7 +106,15 @@ To allow your single page application to call the ASP.NET Core web API, you need
         services.AddCors();
     ```
 
-1. In **Startup.cs**, configure CORS in the `Configure()` method.
+1. Also within the `ConfigureServices()` method, set the `jwtOptions.Authority` value to the following token issuer URI.
+
+    Replace `<your-tenant-name>` with the name of your B2C tenant.
+
+    ```csharp
+    jwtOptions.Authority = $"https://<your-tenant-name>.b2clogin.com/{Configuration["AzureAdB2C:Tenant"]}/{Configuration["AzureAdB2C:Policy"]}/v2.0";
+    ```
+
+1. In the `Configure()` method, configure CORS.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -123,7 +131,7 @@ To allow your single page application to call the ASP.NET Core web API, you need
       "applicationUrl": "http://localhost:5000/",
       "sslPort": 0
     }
-    ````
+    ```
 
 ### Configure the single-page application
 
@@ -132,15 +140,14 @@ The single-page application (SPA) from the [previous tutorial](active-directory-
 To change the settings in the SPA:
 
 1. Open the `index.html` file in the project you downloaded or cloned in the previous tutorial ([active-directory-b2c-javascript-msal-singlepageapp][github-js-spa]).
-1. **TODO: Add instruction on getting FULL SCOPE VALUE from the portal**
-1. Configure the sample with the Azure AD B2C tenant registration information.
+1. Configure the sample with the URI for the *Hello.Read* scope you created earlier and the URL for the web API.
 
-   In the `appConfig` definition, replace the `b2cScopes` value with the URI for the . Next, change the `webApi` value to the *applicationURL* value from the previous section. For example:
+   In the `appConfig` definition, replace the `b2cScopes` value with the URI for the scope. Next, change the `webApi` value to the *applicationURL* value from the previous section. For example (replace `<your-tenant-name>` with the name of your B2C tenant):
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
     var appConfig = {
-      b2cScopes: ["https://marsmatest.onmicrosoft.com/api/Hello.Read"],
+      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/Hello.Read"],
       webApi: "http://localhost:5000/"
     };
     ```
@@ -153,12 +160,11 @@ You need to run both the Node.js single-page application and the .NET Core web A
 
 Press **F5** to debug the **B2C-WebAPI.sln** solution in Visual Studio.
 
-When the project launches, a web page is displayed in your default browser announcing the web api is available for requests.
+When the project launches, a web page is displayed in your default browser announcing the web API is available for requests.
 
 ### Run the single page app
 
-1. Launch a Node.js command prompt.
-1. Change to the directory containing the Node.js sample. For example `cd c:\active-directory-b2c-javascript-msal-singlepageapp`
+1. Open a console window and change to the directory containing the Node.js sample. For example `cd active-directory-b2c-javascript-msal-singlepageapp`.
 1. Run the following commands:
     ```console
     npm install && npm update
@@ -175,7 +181,7 @@ When the project launches, a web page is displayed in your default browser annou
 1. Sign in using the email address and password used in [Authenticate users with Azure Active Directory B2C in a single page application (JavaScript)](active-directory-b2c-tutorials-spa.md).
 1. Click **Call API**.
 
-After you sign up or sign in with a user account, the sample calls the protected web api and returns a result.
+After you sign up or sign in with a user account, the sample calls the protected web API and returns a result.
 
 ## Next steps
 
