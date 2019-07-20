@@ -179,7 +179,10 @@ If you'd like to use the `dotnet` CLI instead:
 
 ### Run the single page app
 
-1. Open a console window and change to the directory containing the Node.js sample. For example `cd active-directory-b2c-javascript-msal-singlepageapp`.
+1. Open a console window and change to the directory containing the Node.js sample. For example:
+
+    `cd active-directory-b2c-javascript-msal-singlepageapp`
+
 1. Run the following commands:
 
     ```console
