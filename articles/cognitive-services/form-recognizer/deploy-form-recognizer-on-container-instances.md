@@ -6,7 +6,7 @@ services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
