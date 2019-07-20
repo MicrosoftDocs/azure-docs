@@ -118,7 +118,7 @@ Deployment Center automatically creates and configures the relationship between 
 
 1. To edit the release pipeline, select **Edit**.
 
-1. Select **Drop** from **Artifacts** list. In the previous steps, the construction pipeline you examined produces the output used for the artifact. 
+1. Select **Drop** from the **Artifacts** list. In the previous steps, the construction pipeline you examined produces the output used for the artifact. 
 
 1. Select the **Continuous deployment** trigger on the right of the **Drop** option. This release pipeline has an enabled CD trigger that runs a deployment whenever a new build artifact is available. You can also disable the trigger to require manual execution for your deployments.
 
@@ -132,7 +132,7 @@ Deployment Center automatically creates and configures the relationship between 
 
 1. Select **Logs**. The logs contain useful deployment information, which you can view during and after deployments.
 
-## Cleanup resources
+## Clean up resources
 
 You can delete the related resources that you created when you don't need them anymore. Use the delete functionality on the DevOps Projects dashboard.
 
