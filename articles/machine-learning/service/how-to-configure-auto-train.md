@@ -493,7 +493,7 @@ You can visualize the feature importance chart in your workspace in the Azure po
 automl_run.get_portal_url()
 ```
 
-The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to the [Sample Azure Machine Learning service notebooks article.](samples-notebooks.md)
+You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails
