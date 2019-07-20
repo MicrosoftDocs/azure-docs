@@ -178,10 +178,15 @@ When the project launches, a web page is displayed in your default browser annou
     ```
 
 1. Use a browser to navigate to the address `http://localhost:6420` to view the application.
-1. Sign in using the email address and password used in [Authenticate users with Azure Active Directory B2C in a single page application (JavaScript)](active-directory-b2c-tutorials-spa.md).
-1. Click **Call API**.
+1. Sign in using the email address and password you used in [Authenticate users with Azure Active Directory B2C in a single page application (JavaScript)](active-directory-b2c-tutorials-spa.md). Upon successful login, you should see the *User 'Your Username' logged-in* message.
+1. Select the **Call API** button.
 
-After you sign up or sign in with a user account, the sample calls the protected web API and returns a result.
+The SPA calls the protected web API and you should see something similar to the following message (shown here truncated):
+
+```
+Web APi returned:
+"<html>\r\n<head>\r\n  <title>Azure AD B2C API Sample</title>\r\n ...
+```
 
 ## Next steps
 
