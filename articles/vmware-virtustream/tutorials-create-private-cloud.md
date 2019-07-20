@@ -69,7 +69,7 @@ If the configuration passes validation, review and then select "Create" in the "
 
 ![Review and create a new private cloud](./media/create-private-cloud/ss6-review-create.png)
 
-Once the deployment has succeeded, navigate to the new private cloud in your resources and review the overview information. Confirm the configuration and then select "Admin" to retrieve the credentials to access vCenter and NSX-T manager. Establishing that access is covered in the [next tutorial][tutorials-access-private-cloud].
+Once the deployment has succeeded, navigate to the new private cloud in your resources and review the overview information. Confirm the configuration and then select "Admin" to retrieve the credentials to access vCenter and NSX-T manager. You will establish the access and connect to private cloud in another tutorial.
 
 ![Review overview information of new private cloud](./media/create-private-cloud/ss7-view-overview.png)
 
@@ -77,13 +77,11 @@ Once the deployment has succeeded, navigate to the new private cloud in your res
 
 ## Next steps
 
-In your subscription, [create a VNet and resources to connect to a private cloud.][tutorials-create-vnet-resources].
+In the next tutorial you will create a VNet and resources to connect to a private cloud.
 
 <!-- LINKS - external-->
 [resource provider]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services
 [enable Global Reach]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-set-global-reach-cli#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions
 
 <!-- LINKS - internal -->
-[tutorials-create-vnet-resources]: ./tutorials-create-vnet-resources.md
-[tutorials-access-private-cloud]: ./tutorials-access-private-cloud.md
 [tutorials-create-t1-ls]: ./tutorials-create-t1-ls.md
