@@ -105,7 +105,7 @@ If you're approaching the limit of storage accounts you can have in a particular
 If your application is approaching the scalability targets for a single storage account, consider adopting one of the following approaches:  
 
 * Reconsider the workload that causes your application to approach or exceed the scalability target. Can you design it differently to use less bandwidth or capacity, or fewer transactions?
-* If an application must exceed one of the scalability targets, you should create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. At time of writing, each Azure subscription can have up to 100 storage accounts.  Storage accounts also have no cost other than your usage in terms of data stored, transactions made, or data transferred.
+* If an application must exceed one of the scalability targets, you should create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. At time of writing, each Azure subscription can have up to 250 storage accounts per region (when deployed with the Azure Resource Manager model).  Storage accounts also have no cost other than your usage in terms of data stored, transactions made, or data transferred.
 * If your application hits the bandwidth targets, consider compressing data in the client to reduce the bandwidth required to send the data to the storage service.  While this may save bandwidth and improve network performance, it can also have some negative impacts.  You should evaluate the performance impact of this due to the additional processing requirements for compressing and decompressing data in the client. In addition, storing compressed data can make it more difficult to troubleshoot issues since it could be more difficult to view stored data using standard tools.
 * If your application hits the scalability targets, then ensure that you are using an exponential backoff for retries (see [Retries](#subheading14)).  It's better to make sure you never approach the scalability targets (by using one of the above methods), but this will ensure your application won't just keep retrying rapidly, making the throttling worse.  
 
@@ -182,7 +182,7 @@ In some cases, you may decide that your application can assume that the blob rem
 
 Configuration, lookup, and other data that are always used by the application are great candidates for caching.  
 
-For an example of how to get a blob's properties to discover the last modified date using .NET, see [Set and Retrieve Properties and Metadata](../blobs/storage-properties-metadata.md). For more information about conditional downloads, see [Conditionally Refresh a Local Copy of a Blob](https://msdn.microsoft.com/library/azure/dd179371.aspx).  
+For more information about conditional downloads, see [Specifying conditional headers for Blob service operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  
 
 #### <a name="subheading8"></a>Uploading data in batches
 
@@ -289,8 +289,6 @@ For large volumes of data (more than 1 TB), the Azure Storage offers the Import/
 ### <a name="subheading20"></a>Use metadata
 
 The Blob service supports head requests, which can include metadata about the blob. For example, if your application needed the EXIF data out of a photo, it could retrieve the photo and extract it. To save bandwidth and improve performance, your application could store the EXIF data in the blob's metadata when the application uploaded the photo: you can then retrieve the EXIF data in metadata using only a HEAD request, saving significant bandwidth, and the processing time needed to extract the EXIF data each time the blob is read. This would be useful in scenarios where you only need the metadata, and not the full content of a blob.  Only 8 KB of metadata can be stored per blob (the service will not accept a request to store more than that), so if the data does not fit in that size, you may not be able to use this approach.  
-
-For an example of how to get a blob's metadata using .NET, see [Set and Retrieve Properties and Metadata](../blobs/storage-properties-metadata.md).  
 
 ### Rapid uploading
 

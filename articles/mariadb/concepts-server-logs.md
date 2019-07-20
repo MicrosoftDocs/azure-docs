@@ -5,15 +5,15 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/12/2019
 ---
-# Server Logs in Azure Database for MariaDB
+# Slow query logs in Azure Database for MariaDB
 In Azure Database for MariaDB, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting.
 
 For more information about the slow query log, see the MariaDB documentation for [slow query log](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-## Access server logs
-You can list and download Azure Database for MariaDB server logs using the Azure portal, and the Azure CLI.
+## Access slow query logs
+You can list and download Azure Database for MariaDB slow query logs using the Azure portal, and the Azure CLI.
 
 In the Azure portal, select your Azure Database for MariaDB server. Under the **Monitoring** heading, select the **Server Logs** page.
 
@@ -24,7 +24,7 @@ Logs are available for up to seven days from their creation. If the total size o
 
 Logs are rotated every 24 hours or 7 GB, whichever comes first.
 
-## Configure logging
+## Configure slow query logging
 By default the slow query log is disabled. To enable it, set slow_query_log to ON.
 
 Other parameters you can adjust include:

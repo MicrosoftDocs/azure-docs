@@ -45,6 +45,9 @@ Gather your AWS access key and secret access key, and then set the these environ
 
 AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, so data is copied directly between AWS S3 and storage servers. These copy operations don't use the network bandwidth of your computer.
 
+> [!IMPORTANT]
+> This feature is currently in preview. If you decide to remove data from your S3 buckets after a copy operation, make sure to verify that the data was properly copied to your storage account before you remove the data.
+
 ### Copy an object
 
 |    |     |

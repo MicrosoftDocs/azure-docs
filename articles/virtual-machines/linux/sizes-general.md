@@ -4,7 +4,7 @@ description: Lists the different general purpose sizes available for Linux virtu
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 

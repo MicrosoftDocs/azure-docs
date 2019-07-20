@@ -3,7 +3,7 @@ title: Configure DNS to access a managed domain using LDAPS over the internet | 
 description: Configure DNS to access an Azure AD Domain Services managed domain using LDAPS over the internet
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: ergreenl
+ms.author: iainfou
 
 ---
 # Configure DNS to access an Azure AD Domain Services managed domain using secure LDAP (LDAPS)

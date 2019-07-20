@@ -331,6 +331,11 @@ For the full reference about each function, see the
 |||
 
 <a name="alphabetical-list"></a>
+
+## All functions - alphabetical list
+
+This section lists all the available functions in alphabetical order.
+
 <a name="action"></a>
 
 ### action
@@ -475,8 +480,6 @@ And returns this result:
   }
 }
 ```
-
-## All functions - alphabaetical list
 
 <a name="actions"></a>
 
@@ -4478,7 +4481,7 @@ character (\\) as an escape character for the double quotation mark (").
 
 * *Expression 2*
 
-  `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
+  `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
 
 Here are the arguments:
 
@@ -4492,9 +4495,9 @@ Here are the arguments:
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
 
-  * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
+  * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
 
-Here is the result node that matches the `<location></location` node:
+Here is the result node that matches the `<location></location>` node:
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>

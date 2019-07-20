@@ -82,6 +82,8 @@ Office 365 Outlook, Outlook.com, or Gmail. For other providers,
 This example uses Office 365 Outlook. If you use a different provider, 
 the overall steps are the same, but your UI might slightly differ.
 
+<a name="create-resource-group-project"></a>
+
 ## Create Azure resource group project
 
 To get started, create an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
@@ -134,6 +136,9 @@ Select **Open With Logic App Designer**. (Keyboard: Ctrl+L)
 
    ![Open logic app .json file with Logic App Designer](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
+
    Visual Studio prompts you for your Azure subscription 
    and an Azure resource group for creating and deploying 
    resources for your logic app and connections.
@@ -179,6 +184,8 @@ looks like this example:
    ![Finished logic app](./media/quickstart-create-logic-apps-with-visual-studio/finished-logic-app.png)
 
 1. Save your Visual Studio solution. (Keyboard: Ctrl + S)
+
+<a name="deploy-to-Azure"></a>
 
 ## Deploy logic app to Azure
 

@@ -4,7 +4,7 @@ description: Azure CLI Script Example - Create and manage a Linux Pool in Batch
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: 
 
 ms.assetid:

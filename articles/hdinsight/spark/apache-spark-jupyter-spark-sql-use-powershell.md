@@ -22,11 +22,11 @@ In this quickstart, you use Azure PowerShell to create an HDInsight Spark cluste
 > [!IMPORTANT]  
 > Billing for HDInsight clusters is prorated per minute, whether you are using them or not. Be sure to delete your cluster after you have finished using it. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+## Prerequisite
 
-* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
+The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
 
 ## Create an HDInsight Spark cluster
 

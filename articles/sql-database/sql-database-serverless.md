@@ -11,29 +11,32 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/05/2019
+ms.date: 07/05/2019
 ---
-# SQL Database serverless (preview)
+# Azure SQL Database serverless (preview)
+
+Azure SQL Database serverless (preview) is a compute tier for single databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
 
 ## Serverless compute tier
 
-SQL Database serverless (preview) is a single database compute tier that autoscales compute and bills for the amount of compute used per second. 
-
-A database in the serverless compute tier is parameterized by the compute range it can use and an autopause delay.
+The serverless compute tier for a single database is parameterized by a compute autoscaling range and an autopause delay.  The configuration of these parameters shape the database performance experience and compute cost.
 
 ![serverless billing](./media/sql-database-serverless/serverless-billing.png)
 
-### Performance
+### Performance configuration
 
-- The number of minimum vCores and maximum vCores are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.  
-- The autopause delay is a configurable parameter that defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login occurs.
+- The **minimum vCores** and **maximum vCores** are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.  
+- The **autopause delay** is a configurable parameter that defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login or other activity occurs.  Alternatively, autopausing can be disabled.
 
-### Pricing
+### Cost
 
-- The total bill for a serverless database is the summation of the compute bill and storage bill.
-Billing for compute is based on the amount of vCores used and memory used per second.
-- The minimum amount of compute billed is based on min vCores and min memory.
-- Only storage is billed while the database is paused.
+- The cost for a serverless database is the summation of the compute cost and storage cost.
+- When compute usage is between the min and max limits configured, the compute cost is based on vCore and memory used.
+- When compute usage is below the min limits configured, the compute cost is based on the min vCores and min memory configured.
+- When the database is paused, the compute cost is zero and only storage costs are incurred.
+- The storage cost is determined in the same way as in the provisioned compute tier.
+
+For more cost details, see [Billing](sql-database-serverless.md#billing).
 
 ## Scenarios
 
@@ -157,16 +160,18 @@ Creating a new database or moving an existing database into a serverless compute
    |Parameter|Value choices|Default value|
    |---|---|---|---|
    |Min vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
-   |Autopause delay|Minimum: 360 minutes (6 hours)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|360 minutes|
+   |Autopause delay|Minimum: 60 minutes (1 hour)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|60 minutes|
 
 > [!NOTE]
 > Using T-SQL to move an existing database into serverless or change its compute size is not currently supported but can be done via the Azure portal or PowerShell.
 
-### Create new database in serverless compute tier using Azure portal
+### Create new database in serverless compute tier 
+
+#### Use Azure portal
 
 See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
 
-### Create new database in serverless compute tier using PowerShell
+#### Use PowerShell
 
 The following example creates a new database in the serverless compute tier.  This example explicitly specifies the min vCores, max vCores, and autopause delay.
 
@@ -184,6 +189,8 @@ New-AzSqlDatabase `
 ```
 
 ### Move database from provisioned compute tier into serverless compute tier
+
+#### Use PowerShell
 
 The following example moves a database from the provisioned compute tier into the serverless compute tier. This example explicitly specifies the min vCores, max vCores, and autopause delay.
 
@@ -208,13 +215,19 @@ A serverless database can be moved into a provisioned compute tier in the same w
 
 ### Maximum vCores
 
+#### Use PowerShell
+
 Modifying the max vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MaxVcore` argument.
 
 ### Minimum vCores
 
+#### Use PowerShell
+
 Modifying the min vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MinVcore` argument.
 
 ### Autopause delay
+
+#### Use PowerShell
 
 Modifying the autopause delay is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `AutoPauseDelayInMinutes` argument.
 
@@ -234,6 +247,8 @@ The user resource pool is the inner most resource management boundary for a data
 
 ### Metrics
 
+Metrics for monitoring the resource usage of the app package and user pool of a serverless database are listed in the following table:
+
 |Entity|Metric|Description|Units|
 |---|---|---|---|
 |App package|app_cpu_percent|Percentage of vCores used by the app relative to max vCores allowed for the app.|Percentage|
@@ -244,10 +259,6 @@ The user resource pool is the inner most resource management boundary for a data
 |User pool|log_IO_percent|Percentage of log MB/s used by user workload relative to max log MB/s allowed for user workload.|Percentage|
 |User pool|workers_percent|Percentage of workers used by user workload relative to max workers allowed for user workload.|Percentage|
 |User pool|sessions_percent|Percentage of sessions used by user workload relative to max sessions allowed for user workload.|Percentage|
-____
-
-> [!NOTE]
-> Metrics in the Azure portal are available in the database pane for a single database under **Monitoring**.
 
 ### Pause and resume status
 
