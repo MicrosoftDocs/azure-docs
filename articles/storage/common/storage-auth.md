@@ -28,11 +28,9 @@ The following table describes the options that Azure Storage offers for authoriz
 
 Each authorization option is briefly described below:
 
-- **Azure Active Directory (Azure AD) integration** for blobs, files, and queues. Azure AD provides role-based access control (RBAC) for fine-grained control over a client's access to resources in a storage account. 
+- **Azure Active Directory (Azure AD) integration** for blobs, and queues. Azure AD provides role-based access control (RBAC) for fine-grained control over a client's access to resources in a storage account. For more information regarding Azure AD integration for blobs and queues, see [Authenticating requests to Azure Storage using Azure Active Directory](storage-auth-aad.md).
 
-    For more information regarding Azure AD integration for blobs and queues, see [Authenticating requests to Azure Storage using Azure Active Directory](storage-auth-aad.md).
-
-    For more information regarding Azure AD integration for files using domain services, see [Overview of Azure Files Azure Active Directory Domain Service (AAD DS) Authentication Support for SMB Access (Preview)](../files/storage-files-active-directory-overview.md).
+- **Azure AD Domain Services (DS) integration (preview)** for files. Azure Files supports identity-based authentication over Server Message Block (SMB) through Azure AD DS. This provides RBAC for fine-grained control over a client's access to resources in a storage account. For more information regarding Azure AD integration for files using domain services, see [Overview of Azure Files Azure Active Directory Domain Service (AAD DS) Authentication Support for SMB Access (preview)](../files/storage-files-active-directory-overview.md).
 
 - **Shared Key authorization** for blobs, files, queues, and tables. A client using Shared Key passes a header with every request that is signed using the storage account access key. For more information, see [Authorize with Shared Key](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/).
 - **Shared access signatures** for blobs, files, queues, and tables. Shared access signatures (SAS) provide limited delegated access to resources in a storage account. Adding constraints on the time interval for which the signature is valid or on permissions it grants provides flexibility in managing access. For more information, see [Using shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
