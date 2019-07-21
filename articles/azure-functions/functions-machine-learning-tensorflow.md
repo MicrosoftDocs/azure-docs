@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/19/2019
+ms.date: 07/21/2019
 ms.author: antchu
 ms.custom: mvc
 ---
@@ -31,11 +31,11 @@ To create Azure Functions in Python, you need to install a few tools.
 - [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 - A code editor
 
-You may use any editor of your choice. [Visual Studio Code](https://code.visualstudio.com/) with the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extensions is recommended.
+You may use any editor of your choice. We recommend [Visual Studio Code](https://code.visualstudio.com/) with the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extensions.
 
 ## Clone the tutorial repository
 
-Open a terminal and clone the repository using Git. If you don't have Git, you can browse to the [GitHub repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial) and download it as a zip file.
+Open a terminal and clone the repository using Git.
 
 ```bash
 git clone https://github.com/Azure-Samples/functions-python-tensorflow-tutorial.git
@@ -53,9 +53,7 @@ The repository contains a few folders.
 
 Azure Functions requires Python 3.6.x. We recommend creating a virtual environment to ensure you're using the required Python version.
 
-Identify the path to the Python executable that you'll use to create the virtual environment. Commonly, it's available as `python` or `python3`.
-
-Change into the **start** folder and create a virtual environment named **.env**. Replace `python` with the path to Python 3.6.x. If you have the Python Launcher `py` installed on Windows, replace `python` with `py -3.6`.
+Change the current working directory to the **start** folder and create a virtual environment named **.env**. Replace `python` with the path to Python 3.6.x on your machine.
 
 ```bash
 cd start
@@ -76,7 +74,7 @@ source .env/bin/activate
 .env\Scripts\activate
 ```
 
-The terminal prompt is now prefixed with `(.env)` that indicates you have properly activated the virtual environment. Confirm that `python` in the virtual environment is indeed Python 3.6.x.
+The terminal prompt is now prefixed with `(.env)` that indicates you have activated the virtual environment. Confirm that `python` in the virtual environment is indeed Python 3.6.x.
 
 ```bash
 python --version
@@ -220,12 +218,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     return func.HttpResponse(json.dumps(results), headers = headers)
 ```
 
-The function receives an image URL in a query string parameter named `img`. The imported `predict_image_from_url` function downloads the image and predicts the result with the TensorFlow model. The function then returns an HTTP response with the results.
+This function receives an image URL in a query string parameter named `img`. It calls `predict_image_from_url` from the helper library that downloads the image and returns a prediction using the TensorFlow model. The function then returns an HTTP response with the results.
 
-Because the HTTP endpoint will be called by a web page hosted on another domain, the HTTP response includes an `Access-Control-Allow-Origin` header to satisfy the browser's Cross-Origin Resource Sharing requirements.
+Because the HTTP endpoint will be called by a web page hosted on another domain, the HTTP response includes an `Access-Control-Allow-Origin` header to satisfy the browser's Cross-Origin Resource Sharing (CORS) requirements.
 
 > [!NOTE]
-> In a production application, consider changing `*` to a specific origin for added security.
+> In a production application, consider changing `*` to the web page's specific origin for added security.
 
 ### Test the function app
 
