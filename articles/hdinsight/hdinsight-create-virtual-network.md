@@ -10,20 +10,23 @@ ms.date: 06/12/2019
 ---
 # Create virtual networks for Azure HDInsight clusters
 
-Learn how to create a virtual network where Azure HDInsight clusters will be deployed.
+This article provides examples and code samples for creating and configuring Azure Virtual Networks for use with Azure HDInsight clusters. Detailed examples of creating network security groups (NSGs) and configuring DNS are presented.
 
 ## Prerequisites for code samples and examples
 
-* An understanding of TCP/IP networking. If you are not familiar with TCP/IP networking, you should partner with someone who is before making modifications to production networks.
-* If using PowerShell, you will need the [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
-* If wanting to use Azure CLI and you have not yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Before executing any of the code samples in this article, ou should have an understanding of TCP/IP networking. If you are not familiar with TCP/IP networking, consult someone who is before making modifications to production networks.
+
+Other prerequisites for the samples in this article include the following:
+
+* If you are using PowerShell, you will need to install the [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
+* If you want to use Azure CLI and have not yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
 > If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premises network](connect-on-premises-network.md) document.
 
 ## <a id="hdinsight-nsg"></a>Example: network security groups with HDInsight
 
-The examples in this section demonstrate how to create network security group rules that allow HDInsight to communicate with the Azure management services. Before using the examples, adjust the IP addresses to match the ones for the Azure region you are using. You can find this information in the [HDInsight with network security groups and user-defined routes](hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) section.
+The examples in this section demonstrate how to create network security group rules that allow HDInsight to communicate with the Azure management services. Before using the examples, adjust the IP addresses to match the ones for the Azure region you are using. You can find this information in [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
 
 ### Azure Resource Management template
 
@@ -36,7 +39,7 @@ The following Resource Management template creates a virtual network that restri
 Use the following PowerShell script to create a virtual network that restricts inbound traffic and allows traffic from the IP addresses for the North Europe region.
 
 > [!IMPORTANT]  
-> Change the IP addresses for `hdirule1` and `hdirule2` in this example to match the Azure region you are using. You can find this information in the [HDInsight with network security groups and user-defined routes](hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) section.
+> Change the IP addresses for `hdirule1` and `hdirule2` in this example to match the Azure region you are using. You can find this information [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
@@ -161,7 +164,7 @@ Use the following steps to create a virtual network that restricts inbound traff
 2. Use the following to add rules to the new network security group that allow inbound communication on port 443 from the Azure HDInsight health and management service. Replace `RESOURCEGROUP` with the name of the resource group that contains the Azure Virtual Network.
 
     > [!IMPORTANT]  
-    > Change the IP addresses for `hdirule1` and `hdirule2` in this example to match the Azure region you are using. You can find this information in the [HDInsight with network security groups and user-defined routes](hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) section.
+    > Change the IP addresses for `hdirule1` and `hdirule2` in this example to match the Azure region you are using. You can find this information in [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
