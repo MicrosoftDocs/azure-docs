@@ -35,7 +35,7 @@ To find it, from the **Experiments page**, select **Add New**, then select the *
 
 ## Create a workspace
 
-If you have an Azure Machine Learning service workspace, skip to the [next section](#open-the-visual-interface-webpage).
+If you have an Azure Machine Learning service workspace, skip to the next section.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
