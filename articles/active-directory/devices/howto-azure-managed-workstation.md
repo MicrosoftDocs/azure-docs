@@ -245,7 +245,7 @@ After the script successfully executes, you can make updates to profiles and pol
 * Here's where you can find the Intune device configuration profiles created by the scripts: **Azure portal** > **Microsoft Intune** > **Device configuration** > **Profiles**.
 * Here's where you can find the Intune device compliance policies created by the scripts: **Azure portal** > **Microsoft Intune** > **Device Compliance** > **Policies**.
 
-To review changes made by the scripts, you can export the profiles. This way you can determine  additional hardening that may be required as outlined in the SECCON documentation.
+To review changes made by the scripts, you can export the profiles. This way you can determine  additional hardening that may be required as outlined in the [SECCON documentation](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
 
 Run the Intune data export script `DeviceConfiguration_Export.ps1` from the [DeviceConfiguration GiuHub repository](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) to export all current Intune profiles.
 
