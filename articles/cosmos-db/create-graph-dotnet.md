@@ -127,7 +127,7 @@ The following snippets are all taken from the Program.cs file.
 * Create a new `GremlinClient` object (Line 56):
 
     ```csharp
-    var gremlinClient = new GremlinClient(gremlinServer);
+    var gremlinClient = new GremlinClient(gremlinServer, new GraphSON2Reader(), new GraphSON2Writer(), GremlinClient.GraphSON2MimeType);
     ```
 
 * Execute each Gremlin query using the `GremlinClient` object with an async task (Line 63). This will read the Gremlin queries from the dictionary defined above (Line 26):
