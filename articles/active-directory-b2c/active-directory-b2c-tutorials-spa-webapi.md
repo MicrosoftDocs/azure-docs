@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Grant access to an ASP.NET Core web API from a single-page application - Azure Active Directory B2C
-description: Learn how to use Active Directory B2C to protect a .NET Core web API and call the API from an single-page application.
+description: Learn how to use Active Directory B2C to protect a .NET Core web API and call the API from a single-page Node.js application.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -132,7 +132,7 @@ To allow your single-page application to call the ASP.NET Core web API, you need
     ```
 
 1. (Visual Studio only) Under **Properties** in the Solution Explorer, open the *launchSettings.json* file, then find the `iisExpress` block.
-1. (Visual Studio only) Update the `applicationURL` value with the port number your specified when you registered the *webapi1* application in an earlier step. For example:
+1. (Visual Studio only) Update the `applicationURL` value with the port number you specified when you registered the *webapi1* application in an earlier step. For example:
 
     ```json
     "iisExpress": {
@@ -151,7 +151,7 @@ To change the settings in the SPA:
 
 1. Open the *index.html* file in the [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] project you downloaded or cloned in the previous tutorial.
 1. Configure the sample with the URI for the *Hello.Read* scope you created earlier and the URL of the web API.
-    1. In the `appConfig` definition, replace the `b2cScopes` value with thefull URI for the scope (the **FULL SCOPE VALUE** you recorded earlier).
+    1. In the `appConfig` definition, replace the `b2cScopes` value with the full URI for the scope (the **FULL SCOPE VALUE** you recorded earlier).
     1. Change the `webApi` value to the `applicationURL` value you specified in the previous section.
 
     The `appConfig` definition should look similar to the following code block (with your tenant name in the place of `<your-tenant-name>`):
@@ -166,7 +166,7 @@ To change the settings in the SPA:
 
 ## Run the SPA and web API
 
-Finally, you run both the ASP.NET Core web API and the Node.js single-page application on your local machine. Then, you log in to the single-page application and press a button to initiate a request to the protected API.
+Finally, you run both the ASP.NET Core web API and the Node.js single-page application on your local machine. Then, you sign in to the single-page application and press a button to initiate a request to the protected API.
 
 Although both applications run locally in this tutorial, they use Azure AD B2C for secure sign-up/sign-in and to grant access to the protected web API.
 

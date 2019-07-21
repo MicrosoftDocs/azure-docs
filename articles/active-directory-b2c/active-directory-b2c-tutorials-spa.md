@@ -54,7 +54,7 @@ In the second tutorial that you completed as part of the prerequisites, you regi
 
 ## Get the sample code
 
-In this tutorial, you configure a code sample that you download from GitHub. The sample demonstrates how a single-page application can use Azure AD B2C for user sign up and sign in, and to call a protected web API.
+In this tutorial, you configure a code sample that you download from GitHub. The sample demonstrates how a single-page application can use Azure AD B2C for user sign-up and sign-in, and to call a protected web API.
 
 [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the sample from GitHub.
 
@@ -111,8 +111,8 @@ The sample supports sign-up, sign-in, profile editing, and password reset. This 
 
 ### Sign up using an email address
 
-1. Click **Login** to sign up as a user of the application. This uses the **B2C_1_signupsignin1** user flow you specified in a previous step.
-1. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't have an account yet, click the **Sign up now** link.
+1. Click **Login** to initiate the *B2C_1_signupsignin1* user flow you specified in an earlier step.
+1. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't yet have an account, click the **Sign up now** link.
 1. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the user flow.
 
     Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes.
