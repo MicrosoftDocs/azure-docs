@@ -386,7 +386,7 @@ You can check the progress of a running job in several ways. This tutorial uses 
 
 ### Jupyter widget
 
-Watch the progress of the run with a Jupyter widget. Like the run submission, the widget is asynchronous and provides live updates every 10 to 15 seconds until the job finishes:
+Watch the progress of the run with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10 to 15 seconds until the job finishes:
 
 ```python
 from azureml.widgets import RunDetails
