@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Grant access to an ASP.NET Core web API from a single-page application using Azure Active Directory B2C
 
-This tutorial shows you how to call an Azure Active Directory (Azure AD) B2C protected ASP.NET Core web API resource from a single-page application.
+This tutorial shows you how to call an Azure Active Directory (Azure AD) B2C-protected ASP.NET Core web API resource from a single-page application.
 
 In this tutorial, you learn how to:
 
@@ -230,8 +230,10 @@ In this tutorial, you learned how to:
 > * Grant permissions to the web API
 > * Configure the sample to use the application
 
+Now that you've seen an SPA request a resource from a protected web API, gain a deeper understanding of how these application types interact with each other and with Azure AD B2C.
+
 > [!div class="nextstepaction"]
-> [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Application types that can be used in Active Directory B2C >](active-directory-b2c-apps.md)
 
 <!-- Links - EXTERNAL -->
 [github-js-spa]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
