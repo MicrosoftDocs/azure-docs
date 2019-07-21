@@ -233,7 +233,11 @@ Ensure the Python virtual environment is still activated. Start the function app
 func start
 ```
 
-In a browser, open this URL: http://localhost:7071/api/classify?img=.... Confirm that a valid prediction result is returned.
+In a browser, open this URL and confirm that a valid prediction result is returned.
+
+```
+http://localhost:7071/api/classify?img=https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/raw/master/resources/assets/samples/image1.jpg
+```
 
 Keep the function app running.
 
