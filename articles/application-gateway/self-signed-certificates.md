@@ -263,5 +263,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
     ![HTTPS probe](media/self-signed-certificates/https-probe.png)
 
+## Next steps
 
+To learn more about SSL\TLS in Application Gateway, see [Overview of SSL termination and end to end SSL with Application Gateway](ssl-overview.md).
 
