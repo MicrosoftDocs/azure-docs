@@ -135,9 +135,15 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 
 #### Step 2: Specify Routes 
 
-1. In the **Specify Routes** tab, set the **ASCForIoTToIoTHub** route to **"FROM /messages/modules/azureiotsecurity/\* INTO $upstream"**, and click **Next**.
-
-   ![Specify routes](media/howto/edge-onboarding-9.png)
+1. In the **Specify Routes** tab, make sure you have a route (explicit or implicit) that will forward messages from the **azureiotsecurity** module to **$upstream**, then click Next.
+    ```c#
+    // Default implicit route
+    "route": "FROM /messages/* INTO $upstream 
+    ```
+    ```c#
+    // Explicit route
+    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream
+    ```
 
 #### Step 3: Review Deployment
 
