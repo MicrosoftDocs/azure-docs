@@ -1,6 +1,6 @@
 ---
-title: Manage directory and file access permissions in Azure Storage by using .NET
-description: Use the Azure Storage Client Library for .NET to manage directory and file access permissions in Azure Blob storage accounts that have a hierarchical namespace.
+title: Manage file and directory level permissions in Azure Storage by using .NET
+description: Use the Azure Storage Client Library for .NET to manage file and directory level permissions in Azure Blob storage accounts that have a hierarchical namespace.
 services: storage
 author: normesta
 ms.service: storage
@@ -10,9 +10,11 @@ ms.topic: article
 ms.component: data-lake-storage-gen2
 ---
 
-# Managed directory and file access permissions in Azure Storage by using .NET
+# Manage file and directory level permissions in Azure Storage by using .NET
 
-This article shows you how to use the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).NET to manage directory and file access permissions in storage accounts that have a hierarchical namespace. 
+This article shows you how to use the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).NET to get and set the access control lists (ACLs) of directories and files in storage accounts that have a hierarchical namespace. 
+
+To learn more about ACLs, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ## Connect to the storage account 
 
@@ -38,15 +40,15 @@ public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageCon
 }
 ```
 
-## Get the access control list (ACL) for a directory
+## Get the ACL of a directory
 
-Get the access permissions of a directory by calling the **cloudBlobDirectory.FetchAccessControlsAsync** method. 
+Get the ACL of a directory by calling the **cloudBlobDirectory.FetchAccessControlsAsync** method. 
 
-This populates the **CloudBlobDirectory.PathProperties** property with the access control list (ACL) of the directory. 
+This populates the **CloudBlobDirectory.PathProperties** property with the ACL of the directory. 
 
-You can use the **CloudBlobDirectory.PathProperties.ACL** property to get the short form of ACL. 
+You can use the **CloudBlobDirectory.PathProperties.ACL** property to get a collection of ACL entries. 
 
-This example gets the ACL of the `my-directory` directory and then prints the short form of ACL to the console.
+This example gets the ACL of a directory named `my-directory`, and then prints the short form of ACL to the console.
 
 ```cs
 public async Task GetDirectoryACLs(CloudBlobClient cloudBlobClient,
@@ -64,14 +66,14 @@ public async Task GetDirectoryACLs(CloudBlobClient cloudBlobClient,
         {
             await cloudBlobDirectory.FetchAccessControlsAsync();
 
-            string ACLs = "";
+            string ACL = "";
 
             foreach (PathAccessControlEntry entry in cloudBlobDirectory.PathProperties.ACL)
             {
-                ACLs = ACLs + entry.ToString() + " ";
+                ACL = ACL + entry.ToString() + " ";
             }
 
-            Console.WriteLine(ACLs);
+            Console.WriteLine(ACL);
         }
     }
 }
@@ -81,9 +83,52 @@ The short form of an ACL might look something like the following:
 
 `user::rwx group::r-x other::--`
 
-This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. 
 
-## Set the ACL for a directory
+## Get the ACL of a file
+
+Get the ACL of a file by calling the **CloudBlockBlob.FetchAccessControlsAsync** method. 
+
+This populates the **CloudBlockBlob.PathProperties** property with the ACL of the file. 
+
+You can use the **CloudBlockBlob.PathProperties.ACL** property to get a list of ACL entries. 
+
+This example gets the ACL of a file and then prints the short form of ACL to the console.
+
+```cs
+public async Task GetFileACL(CloudBlobClient cloudBlobClient,
+    string containerName, string blobName)
+{
+    CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.GetContainerReference(containerName);
+
+    if (cloudBlobContainer != null)
+    {
+        CloudBlobDirectory cloudBlobDirectory =
+            cloudBlobContainer.GetDirectoryReference("my-directory");
+
+        if (cloudBlobDirectory != null)
+        {
+            CloudBlockBlob cloudBlockBlob =
+                cloudBlobDirectory.GetBlockBlobReference(blobName);
+
+            await cloudBlockBlob.FetchAccessControlsAsync();
+
+            string ACL = "";
+
+            foreach (PathAccessControlEntry entry in cloudBlockBlob.PathProperties.ACL)
+            {
+                ACL = ACL + entry.ToString() + " ";
+            }
+
+            Console.WriteLine(ACL);
+        }
+    }
+
+}
+```
+
+## Set the ACL of a directory
 
 Set the **Execute**, **Read**, and **Write** property for the owning user, owning group, or other users. Then, call the **CloudBlobDirectory.SetAcl** method to commit the setting. 
 
@@ -130,57 +175,6 @@ public async Task SetDirectoryACLs(CloudBlobClient cloudBlobClient,
     }
 }
 ```
-For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-
-
-## Get the ACL of a file
-
-Get the access permissions of a file by calling the **CloudBlockBlob.FetchAccessControlsAsync** method. 
-
-This populates the **CloudBlockBlob.PathProperties** property with the access control list (ACL) of the file. 
-
-You can use the **CloudBlockBlob.PathProperties.ACL** property to get the short form of ACL. 
-
-This example gets the ACL of a file and then prints the short form of ACL to the console.
-
-```cs
-public async Task GetFileACL(CloudBlobClient cloudBlobClient,
-    string containerName, string blobName)
-{
-    CloudBlobContainer cloudBlobContainer =
-        cloudBlobClient.GetContainerReference(containerName);
-
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.GetDirectoryReference("my-directory");
-
-        if (cloudBlobDirectory != null)
-        {
-            CloudBlockBlob cloudBlockBlob =
-                cloudBlobDirectory.GetBlockBlobReference(blobName);
-
-            await cloudBlockBlob.FetchAccessControlsAsync();
-
-            string ACLs = "";
-
-            foreach (PathAccessControlEntry entry in cloudBlockBlob.PathProperties.ACL)
-            {
-                ACLs = ACLs + entry.ToString() + " ";
-            }
-
-            Console.WriteLine(ACLs);
-        }
-    }
-
-}
-```
-
-The short form of an ACL might look something like the following:
-
-`user::rwx group::r-x other::--`
-
-This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ## Set the ACL of a file
 

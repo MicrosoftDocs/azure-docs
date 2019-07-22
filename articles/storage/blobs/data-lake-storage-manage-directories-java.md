@@ -16,7 +16,7 @@ This article shows you how to use Java to manage directories in storage accounts
 
 ## Connect to the storage account 
 
-First, parse the connection string by calling the [parse](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account.parse?view=azure-java-legacy) method of a [CloudStorageAccount](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account?view=azure-java-legacy) object. 
+First, parse the connection string by calling the [CloudStorageAccount.parse](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account.parse?view=azure-java-legacy) method. 
 
 Then, create an object that represents Blob storage in your storage account by calling the [createCloudBlobClient](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account.createcloudblobclient?view=azure-java-legacy) method.
 
@@ -35,9 +35,9 @@ Replace the `<connection-string>` placeholder value with the connection string o
 
 Create a directory reference by calling the **getDirectoryReference** method.
 
-Create a directory by using the **create** method of a **CloudBlobDirectory** object. 
+Create a directory by using the **CloudBlobDirectory.create** method.. 
 
-This example adds a directory named `my-directory` to a container and then adds a sub-directory named `my-subdirectory` to the directory named `my-directory`. 
+This example adds a directory named `my-directory` to a container, and then adds a sub-directory named `my-subdirectory` to the directory named `my-directory`. 
 
 ```java
 static void CreateDirectory(CloudBlobClient cloudBlobClient, String containerName)
@@ -119,7 +119,7 @@ throws URISyntaxException, StorageException{
 
 ## Delete a directory
 
-Delete a directory by calling the **delete** method of a **CloudBlobDirectory** object.
+Delete a directory by calling the **CloudBlobDirectory.delete** method.
 
 This example deletes a directory named `my-directory`. 
 
@@ -145,7 +145,7 @@ throws URISyntaxException, StorageException{
 
 ## Upload a file to a directory
 
-First, create a blob reference in the target directory by calling the **getBlockBlobReference** method of a **CloudBlobDirectory** object. This returns a **CloudBlockBlob** object. Upload a file by calling the **uploadFromFile** method of a **CloudBlockBlob** object.
+First, create a blob reference in the target directory by calling the **CloudBlobDirectory.getBlockBlobReference** method. Upload a file by calling the **uploadFromFile** method of a **CloudBlockBlob** object.
 
 This example uploads a file to a directory named `my-directory`
 
@@ -178,7 +178,7 @@ throws URISyntaxException, StorageException, IOException{
 
 ## Download a file from a directory
 
-First, create a blob reference in the source directory by calling the **getBlockBlobReference** method of a **CloudBlobDirectory** object. This returns a **CloudBlockBlob** object. Download that blob by calling the **downloadToFileAsync** method of a **CloudBlockBlob** object.
+First, create a blob reference in the source directory by calling the **CloudBlobDirectory.getBlockBlobReference** method. That method returns a **CloudBlockBlob** object. Download that blob by calling the **downloadToFileAsync** method of a **CloudBlockBlob** object.
 
 ```java
 static void GetFileFromDirectory(CloudBlobClient cloudBlobClient, 
@@ -208,9 +208,9 @@ throws URISyntaxException, StorageException, IOException{
 
 ## List the contents of a directory
 
-To list containers in your storage account, call the **listBlobsSegmented** of a **CloudBlobDirectory** object.
+To list containers in your storage account, call the **CloudBlobDirectory.listBlobsSegmented**.
 
-This example asynchronously lists the contents of a directory by calling the **ListBlobsSegmentedAsync** method of a a **CloudBlobDirectory** object.
+This example asynchronously lists the contents of a directory by calling the **CloudBlobDirectory.ListBlobsSegmented** method.
 
 This example uses the continuation token to get the next segment of result.
 

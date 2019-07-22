@@ -42,9 +42,9 @@ public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageCon
 
 Create a directory reference by calling the **GetDirectoryReference** method.
 
-Create a directory by using the **CreateAsync** method of a **CloudBlobDirectory** object. 
+Create a directory by using the **CloudBlobDirectory.CreateAsync** method. 
 
-This example adds a directory named `my-directory` to a container and then adds a sub-directory named `my-subdirectory` to the directory named `my-directory`. 
+This example adds a directory named `my-directory` to a container, and then adds a sub-directory named `my-subdirectory`. 
 
 ```cs
 public async Task CreateDirectory(CloudBlobClient cloudBlobClient,
@@ -70,9 +70,9 @@ public async Task CreateDirectory(CloudBlobClient cloudBlobClient,
 
 ## Rename a directory
 
-Rename a directory by calling the **MoveAsync** method of a **CloudBlobDirectory** object. Pass the Uri of the desired directory location as a parameter. 
+Rename a directory by calling the **CloudBlobDirectory.MoveAsync** method. Pass the uri of the desired directory location as a parameter. 
 
-This example renames that sub-directory to `my-directory-renamed`.
+This example renames a sub-directory to the name `my-directory-renamed`.
 
 ```cs
 public async Task RenameDirectory(CloudBlobClient cloudBlobClient,
@@ -99,9 +99,9 @@ public async Task RenameDirectory(CloudBlobClient cloudBlobClient,
 
 ## Move a directory
 
-You can also use the **MoveAsync** method of a **CloudBlobDirectory** object to move a directory. Pass the Uri of the desired directory location as a parameter to this method. 
+You can also use the **CloudBlobDirectory.MoveAsync** method to move a directory. Pass the uri of the desired directory location as a parameter to this method. 
 
-This example moves a directory named `my-directory` to a sub-directory of another directory named `my-directory-2`. 
+This example moves a directory named `my-directory` to a sub-directory of a directory named `my-directory-2`. 
 
 ```cs
 public async Task MoveDirectory(CloudBlobClient cloudBlobClient,
@@ -135,9 +135,9 @@ public async Task MoveDirectory(CloudBlobClient cloudBlobClient,
 
 ## Delete a directory
 
-Delete a directory by calling the **Delete** method of a **CloudBlobDirectory** object.
+Delete a directory by calling the **CloudBlobDirectory.Delete** method.
 
-This example deletes a directory named `my-directory` from the `my-directory-2` directory.  
+This example deletes a directory named `my-directory`.  
 
 ```cs
 public void DeleteDirectory(CloudBlobClient cloudBlobClient,
@@ -161,7 +161,7 @@ public void DeleteDirectory(CloudBlobClient cloudBlobClient,
 ```
 ## Upload a file to a directory
 
-First, create a blob reference in the target directory by calling the **GetBlockBlobReference** method of a **CloudBlobDirectory** object. This returns a **CloudBlockBlob** object. Upload a file by calling the **UploadFromFileAsync** method of a **CloudBlockBlob** object.
+First, create a blob reference in the target directory by calling the **CloudBlobDirectory.GetBlockBlobReference** method. That method returns a **CloudBlockBlob** object. Upload a file by calling the **UploadFromFileAsync** method of a **CloudBlockBlob** object.
 
 This example uploads a file to a directory named `my-directory`.    
 
@@ -190,7 +190,7 @@ public async Task UploadFileToDirectory(CloudBlobClient cloudBlobClient,
 
 ## Download a file from a directory
 
-First, create a blob reference in the source directory by calling the **GetBlockBlobReference** method of a **CloudBlobDirectory** object. This returns a **CloudBlockBlob** object. Download that blob by calling the **DownloadToFileAsync** method of a **CloudBlockBlob** object.
+First, create a blob reference in the source directory by calling the **CloudBlobDirectory.GetBlockBlobReference** method. That method returns a **CloudBlockBlob** object. Download that blob by calling the **DownloadToFileAsync** method of a **CloudBlockBlob** object.
 
 This example downloads a file from a directory named `my-directory`.
 
@@ -228,7 +228,7 @@ To list containers in your storage account, call one of the following methods of
 
 The overloads for these methods provide additional options for managing how the contents of a directory are returned by the listing operation. To learn more about these listing options, see [Understand container listing options](storage-blob-containers-list.md#understand-container-listing-options).
 
-This example asynchronously lists the contents of a directory by calling the **ListBlobsSegmentedAsync** method of a a **CloudBlobDirectory** object. This example uses the continuation token to get the next segment of result.
+This example asynchronously lists the contents of a directory by calling the **CloudBlobDirectory.ListBlobsSegmentedAsync** method. This example uses the continuation token to get the next segment of result.
 
 ```cs
 public async Task ListFilesInDirectory(CloudBlobClient cloudBlobClient, string containerName)

@@ -40,7 +40,7 @@ Add a directory by calling the **BlockBlobService.create_directory** method. Pas
 - The name of the container.
 - The path of the new directory.
 
-This example adds a directory named `my-directory` to a container named `my-file-system`. 
+This example adds a directory named `my-directory` to a container. 
 
 ```python
 def create_directory(container_name):

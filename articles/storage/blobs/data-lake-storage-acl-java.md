@@ -1,6 +1,6 @@
 ---
-title: Manage directory and file access permissions in Azure Storage by using Java
-description: Use the Azure Storage libraries for Java to manage directory and file access permissions in Azure Blob storage accounts that have a hierarchical namespace.
+title: Manage file and directory level permissions in Azure Storage by using Java
+description: Use the Azure Storage libraries for Java to manage file and directory level permissions in Azure Blob storage accounts that have a hierarchical namespace.
 services: storage
 author: normesta
 ms.service: storage
@@ -10,13 +10,17 @@ ms.topic: article
 ms.component: data-lake-storage-gen2
 ---
 
-# Managed directory and file access permissions in Azure Storage by using Java
+# Manage file and directory level permissions in Azure Storage by using Java
 
-This article shows you how to use Java to manage directory and file access permissions in storage accounts that have a hierarchical namespace. 
+This article shows you how to use Java to get and set the access control lists (ACLs) of directories and files in storage accounts that have a hierarchical namespace.
+
+To learn more about ACLs, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md). 
 
 ## Connect to the storage account 
 
-Comment here.
+First, parse the connection string by calling the [CloudStorageAccount.parse](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account.parse?view=azure-java-legacy) method. 
+
+Then, create an object that represents Blob storage in your storage account by calling the [createCloudBlobClient](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account.createcloudblobclient?view=azure-java-legacy) method.
 
 ```java
 
@@ -29,13 +33,13 @@ cloudBlobClient = storageAccount.createCloudBlobClient();
 Replace the `<connection-string>` placeholder value with the connection string of your storage account.  
 
 
-## Get the access control list (ACL) for a directory
+## Get the ACL of a directory
 
 Get the access permissions of a directory by calling the **CloudBlobDirectory.downloadSecurityInfo** method.
 
-Call the **CloudBlobDirectory.getAccessControlList** method to return a collection of ACLs.
+Call the **CloudBlobDirectory.getAccessControlList** method to return a collection of ACL entries.
 
-This example gets the ACL of the `my-directory` directory and then prints the short form of ACL to the console.
+This example gets the ACL of a directory named `my-directory` directory, and then prints the short form of the ACL to the console.
 
 ```java
 static void GetDirectoryACL(CloudBlobClient cloudBlobClient, String containerName)
@@ -53,13 +57,13 @@ throws URISyntaxException, StorageException{
 
             if (cloudBlobDirectory != null){
 
-                String ACLs = "";
+                String ACL = "";
 
                 for (PathAccessControlEntry entry :cloudBlobDirectory.getAccessControlList()) {
-                     ACLs = ACLs + entry.toString();
+                     ACL = ACL + entry.toString();
                 }
 
-                 System.out.println(ACLs);
+                 System.out.println(ACL);
             }
     }
 }
@@ -70,9 +74,52 @@ The short form of an ACL might look something like the following:
 
 `user::rwx group::r-x other::--`
 
-This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. 
 
-## Set the ACL for a directory
+## Get the ACL of a file
+
+Get the access permissions of a file by calling the **CloudBlockBlob.downloadSecurityInfo** method.
+
+Call the **CloudBlockBlob.getAccessControlList** method to return a collection of ACL entries.
+
+This example gets the ACL of a file and then prints the short form of the ACL to the console.
+
+```java
+static void GetFileACL(CloudBlobClient cloudBlobClient, String containerName,
+String blobName) throws URISyntaxException, StorageException{
+
+    CloudBlobContainer cloudBlobContainer =
+    cloudBlobClient.getContainerReference(containerName);
+
+    if (cloudBlobContainer != null)
+    {
+        CloudBlobDirectory cloudBlobDirectory =
+            cloudBlobContainer.getDirectoryReference("my-directory");
+
+            if (cloudBlobDirectory != null){
+
+                CloudBlockBlob cloudBlockBlob = 
+                cloudBlobDirectory.getBlockBlobReference(blobName);
+                
+                cloudBlockBlob.downloadSecurityInfo();
+
+                if (cloudBlockBlob != null){
+
+                    String ACL = "";
+
+                    for (PathAccessControlEntry entry :cloudBlockBlob.getAccessControlList()) {
+                        ACL = ACL + entry.toString();
+                     }
+    
+                     System.out.println(ACL);
+                }
+
+            }
+    }
+}
+```
+
+## Set the ACL of a directory
 
 Need to get a working example of this.
 
@@ -103,49 +150,6 @@ throws URISyntaxException, StorageException{
 
     }
 
-}
-```
-
-## Get the ACL of a file
-
-Get the access permissions of a file by calling the **CloudBlockBlob.downloadSecurityInfo** method.
-
-Call the **CloudBlockBlob.getAccessControlList** method to return a collection of ACLs.
-
-This example gets the ACL of a file and then prints the short form of ACL to the console.
-
-```java
-static void GetFileACL(CloudBlobClient cloudBlobClient, String containerName,
-String blobName) throws URISyntaxException, StorageException{
-
-    CloudBlobContainer cloudBlobContainer =
-    cloudBlobClient.getContainerReference(containerName);
-
-    if (cloudBlobContainer != null)
-    {
-        CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.getDirectoryReference("my-directory");
-
-            if (cloudBlobDirectory != null){
-
-                CloudBlockBlob cloudBlockBlob = 
-                cloudBlobDirectory.getBlockBlobReference(blobName);
-                
-                cloudBlockBlob.downloadSecurityInfo();
-
-                if (cloudBlockBlob != null){
-
-                    String ACLs = "";
-
-                    for (PathAccessControlEntry entry :cloudBlockBlob.getAccessControlList()) {
-                        ACLs = ACLs + entry.toString();
-                     }
-    
-                     System.out.println(ACLs);
-                }
-
-            }
-    }
 }
 ```
 
