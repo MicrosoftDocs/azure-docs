@@ -264,7 +264,7 @@ p=b2c_1_sign_in
 
 [Single-page application built on hello.js with Azure AD B2C][github-hello-js-example] (GitHub)
 
-This sample on GitHub is intended to help get you started with Azure AD B2C in a simple web application built on [hello.js][github-hello-js]. It provides the necessary tools to execute Azure AD B2C policies and securely identify users in your application.
+This sample on GitHub is intended to help get you started with Azure AD B2C in a simple web application built on [hello.js][github-hello-js] and using pop-up-style authentication.
 
 <!-- Links - EXTERNAL -->
 [github-hello-js-example]: https://github.com/azure-ad-b2c/apps/tree/master/spa/javascript-hellojs-singlepageapp-popup
