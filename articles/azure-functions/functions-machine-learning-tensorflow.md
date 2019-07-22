@@ -115,12 +115,12 @@ func new --language python --template HttpTrigger --name classify
 
 A new folder named **classify** is created, containing two files.
 
-- **\_\_init\_\_.py** - the main function
-- **function.json** - a file describing the function's trigger and its input and output bindings
+- *\_\_init\_\_.py*: A file for the main function
+- *function.json*:  A file describing the function's trigger and its input and output bindings
 
 ### Change the function authentication level
 
-By default, the function is configured with an authentication level of *function* that requires an authentication code to be included in every HTTP request. To allow anonymous requests, open **function.json** and change the `authLevel` of the HTTP trigger to `anonymous`.
+By default, the function is configured with an authentication level of `function` that requires an authentication code to be included in every HTTP request. To allow anonymous requests, open *function.json* and change the `authLevel` of the HTTP trigger to `anonymous`.
 
 ```json
 {
