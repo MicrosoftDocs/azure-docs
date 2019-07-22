@@ -179,7 +179,8 @@ You will have CloudAdmin group privileges. For more information, see [Access and
 
 You will have full administrator privileges on NSX-T and can manage role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts][concepts-identity].
 
->[!Note] A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
+> [!NOTE]
+> A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
 
 **Is Azure Active Directory (AD) integrated with my private cloud.**
 
