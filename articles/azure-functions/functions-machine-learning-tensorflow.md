@@ -3,7 +3,7 @@ title: Make machine learning predictions with TensorFlow and Azure Functions | M
 description: How to apply TensorFlow machine learning models in Azure Functions
 services: functions
 author: anthonychu
-manager: jeconnoc
+manager: gwallace
 
 ms.service: azure-functions
 ms.devlang: python
