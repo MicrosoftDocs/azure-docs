@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2018
+ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
 
