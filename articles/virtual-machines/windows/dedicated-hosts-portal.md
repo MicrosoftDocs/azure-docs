@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Dedicated Hosts using the Azure portal | Microsoft Docs
+title: Deploy Azure dedicated hosts using the Azure portal | Microsoft Docs
 description: Deploy VMs to dedicated hosts using the Azure portal.
 services: virtual-machines-windows
 author: cynthn
