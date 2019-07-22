@@ -19,7 +19,7 @@ This article describes the main concepts in Azure Event Grid.
 
 An event is the smallest amount of information that fully describes something that happened in the system. Every event has common information like: source of the event, time the event took place, and unique identifier. Every event also has specific information that is only relevant to the specific type of event. The support for an event of size up to 1 MB is currently in preview.
 
-For the properties that are sent in an event, see [Azure Event Grid event schema](event-schema.md).
+For the properties that are sent in an event, see [Azure Event Grid event schema](event-schemas.md).
 
 ## Publishers
 
