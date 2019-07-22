@@ -51,21 +51,27 @@ Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Stora
 
 You can create an external table with json format. For more information see [External table commands](/azure/kusto/management/externaltables)
 
-1. Use the `.create external table` command to create a table named *ExternalBlob_Json*:
+1. Use the `.create external table` command to create a table named *ExternalTableJson*:
 
-    ```Kusto
-    .create external table ExternalBlob_Json (id:int, name: string, gender: string)
+    ```kusto
+    .create external table ExternalTableJson (rownumber:int, rowguid:guid) 
     kind=blob
     dataformat=json
     ( 
-       h@'https://custppecus.blob.core.windows.net/json?st=2019-06-12T09%3A56%3A22Z&se=2020-06-13T09%3A56%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=uJ0BKgGaUdOQVMGLH%2FNUWnmuU5tYGybJLutA7emIlx8%3D'
+       h@'http://storageaccount.blob.core.windows.net/container1;secretKey'
     )
+    with 
+    (
+       docstring = "Docs",
+       folder = "ExternalTables",
+       namePrefix="Prefix"
+    ) 
     ```
  
 1. Use specific json mapping named *mappingName* with `.create external table`:
 
     ```kusto
-    .create external table ExternalBlob_Json json mapping 'mappingName' "[{\"column\": \"id\", \"path\": \"$.id2\"},{\"column\": \"name\", \"path\": \"$.name\"},{\"column\": \"gender\", \"path\": \"$.gender\"}]"
+    .create external table ExternalTableJson json mapping "mappingName" '[{ "column" : "rownumber", "datatype" : "int", "path" : "$.rownumber"},{ "column" : "rowguid", "path" : "$.rowguid" }]' 
     ```
 
 ### External table permissions
@@ -90,7 +96,7 @@ external_table("ArchivedProducts") | take 100
 To query an external table with json format, use the `external_table()` function, and provide both table name and mapping name as the function arguments. In the query below, if *mappingName* is not provided, Kusto will use the default mapping.
 
 ```kusto
-external_table(‘ExternalBlob_Json’, ‘mappingName’)
+external_table(‘ExternalTableJson’, ‘mappingName’)
 ```
 
 ## Query external and ingested data together
