@@ -15,7 +15,7 @@ ms.workload: na
 
 # Link a partner ID to your Azure accounts
 
-As a partner, you can track your impact across your customer engagements. You can link your partner ID to the accounts that are used to manage a customer's resources.
+Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link, partners can associate their partner network ID with the credentials used for service delivery.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -136,11 +136,11 @@ The link is associated at the user account level. Only you can edit or remove th
 
 **Which MPN ID should I use if my company has multiple?**
 
-You can use any valid MPN ID except virtual organization(v-org) MPN ID. Most partners choose to use the MPN ID for the geography where the customer is based or services are being delivered.
+Partner Location Accounts and associated MPN IDs should be used for linking partner ID.  Learn more about [Partner Accounts](https://docs.microsoft.com/partner-center/account-structure)
 
 **Where can I find influenced revenue reporting for linked partner ID?**
 
-You can find influenced revenue reporting at [My Insights dashboard](https://partner.microsoft.com/membership/reports/myinsights). You need to select Partner Admin Link as the partner association type.
+Cloud Product Performance reporting is available to partners in Partner Center at [My Insights dashboard](https://partner.microsoft.com/membership/reports/myinsights). You need to select Partner Admin Link as the partner association type.
 
 **Why can't I see my customer in the reports?**
 

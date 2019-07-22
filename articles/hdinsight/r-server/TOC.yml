@@ -11,8 +11,6 @@
     href: ./machine-learning-services-quickstart-job-rstudio.md
   - name: Sample job - R console
     href: ./machine-learning-services-quickstart-job-rconsole.md
-  - name: Start with ML Services
-    href: r-server-get-started.md
 - name: Tutorials
   items:
     - name: R in Spark compute context in HDInsight

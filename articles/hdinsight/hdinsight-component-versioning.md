@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/07/2019
 ---
 

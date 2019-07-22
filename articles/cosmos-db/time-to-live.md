@@ -45,32 +45,33 @@ Deleting items based on TTL is free. There is no additional cost (that is, no ad
 
 This section shows some examples with different time to live values assigned to container and items:
 
-### Example1
+### Example 1
 
-**TTL on container is set to null (DefaultTimeToLive = null)**
+TTL on container is set to null (DefaultTimeToLive = null)
 
-|TTl on item| Result|
+|TTL on item| Result|
 |---|---|
 |ttl = null|	TTL is disabled. The item will never expire (default).|
 |ttl = -1	|TTL is disabled. The item will never expire.|
 |ttl = 2000	|TTL is disabled. The item will never expire.|
 
 
-### Example2
+### Example 2
 
-**TTL on container is set to -1 (DefaultTimeToLive = -1)**
+TTL on container is set to -1 (DefaultTimeToLive = -1)
 
-|TTl on item| Result|
+|TTL on item| Result|
 |---|---|
 |ttl = null	|TTL is enabled. The item will never expire (default).|
 |ttl = -1	|TTL is enabled. The item will never expire.|
 |ttl = 2000	|TTL is enabled. The item will expire after 2000 seconds.|
 
-### Example3
 
-**TTL on container is set to 1000 (DefaultTimeToLive = 1000)**
+### Example 3
 
-|TTl on item| Result|
+TTL on container is set to 1000 (DefaultTimeToLive = 1000)
+
+|TTL on item| Result|
 |---|---|
 |ttl = null|	TTL is enabled. The item will expire after 1000 seconds (default).|
 |ttl = -1	|TTL is enabled. The item will never expire.|

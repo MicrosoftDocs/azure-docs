@@ -326,7 +326,6 @@ Unless a dataset is being produced by Data Factory, it should be marked as **ext
 You can create datasets by using one of these tools or SDKs:
 
 - Copy Wizard
-- Azure portal
 - Visual Studio
 - PowerShell
 - Azure Resource Manager template

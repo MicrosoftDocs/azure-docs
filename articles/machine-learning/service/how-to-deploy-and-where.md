@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/31/2019
+ms.date: 07/08/2019
 
 ms.custom: seoapril2019
 ---
@@ -111,6 +111,10 @@ The following compute targets, or compute resources, can be used to host your we
 
 To deploy as a web service, you must create an inference configuration (`InferenceConfig`) and a deployment configuration. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data. In the inference config, you specify the scripts and dependencies needed to serve your model. In the deployment config you specify details of how to serve the model on the compute target.
 
+> [!IMPORTANT]
+> The Azure Machine Learning SDK does not provide a way for web service or IoT Edge deployments to access your datastore or data sets. If you need the deployed model to access data stored outside the deployment, such as in an Azure Storage account, you must develop a custom code solution using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
+>
+> Another alternative that may work for your scenario is [batch predictions](how-to-run-batch-predictions.md), which does provide access to datastores when scoring.
 
 ### <a id="script"></a> 1. Define your entry script & dependencies
 
@@ -132,7 +136,7 @@ The below example will return a path to a single file called `sklearn_mnist_mode
 
 ```python
 model_path = Model.get_model_path('sklearn_mnist')
-``` 
+```
 
 #### (Optional) Automatic Swagger schema generation
 
@@ -182,6 +186,7 @@ from azureml.core.model import Model
 from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 
+
 def init():
     global model
     # note here "sklearn_regression_model.pkl" is the name of the model registered under
@@ -190,8 +195,10 @@ def init():
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-input_sample = np.array([[10,9,8,7,6,5,4,3,2,1]])
+
+input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
 output_sample = np.array([3726.995])
+
 
 @input_schema('data', NumpyParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
@@ -222,19 +229,27 @@ from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
 
+
 def init():
     global model
-    model_path = Model.get_model_path('model_name')   # replace model_name with your actual model name, if needed
+    # replace model_name with your actual model name, if needed
+    model_path = Model.get_model_path('model_name')
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-input_sample = pd.DataFrame(data=[{
-              "input_name_1": 5.1,         # This is a decimal type sample. Use the data type that reflects this column in your data
-              "input_name_2": "value2",    # This is a string type sample. Use the data type that reflects this column in your data
-              "input_name_3": 3            # This is a integer type sample. Use the data type that reflects this column in your data
-            }])
 
-output_sample = np.array([0])              # This is a integer type sample. Use the data type that reflects the expected result
+input_sample = pd.DataFrame(data=[{
+    # This is a decimal type sample. Use the data type that reflects this column in your data
+    "input_name_1": 5.1,
+    # This is a string type sample. Use the data type that reflects this column in your data
+    "input_name_2": "value2",
+    # This is a integer type sample. Use the data type that reflects this column in your data
+    "input_name_3": 3
+}])
+
+# This is a integer type sample. Use the data type that reflects the expected result
+output_sample = np.array([0])
+
 
 @input_schema('data', PandasParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
@@ -260,7 +275,7 @@ For more example scripts, see the following examples:
 The inference configuration describes how to configure the model to make predictions. The following example demonstrates how to create an inference configuration. This configuration specifies the runtime, the entry script, and (optionally) the conda environment file:
 
 ```python
-inference_config = InferenceConfig(runtime= "python",
+inference_config = InferenceConfig(runtime="python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
 ```
@@ -271,32 +286,9 @@ For information on using a custom Docker image with inference configuration, see
 
 ### CLI example of InferenceConfig
 
-The following JSON document is an example inference configuration for use with the machine learning CLI:
+[!INCLUDE [inferenceconfig](../../../includes/machine-learning-service-inference-config.md)]
 
-```JSON
-{
-   "entryScript": "x/y/score.py",
-   "runtime": "python",
-   "condaFile": "env/myenv.yml",
-   "sourceDirectory":"C:/abc",
-}
-```
-
-The following entities are valid in this file:
-
-* __entryScript__: Path to local file that contains the code to run for the image.
-* __runtime__: Which runtime to use for the image. Current supported runtimes are 'spark-py' and 'python'.
-* __condaFile__ (optional): Path to local file containing a conda environment definition to use for the image.
-* __extraDockerFileSteps__ (optional): Path to local file containing additional Docker steps to run when setting up image.
-* __sourceDirectory__ (optional): Path to folders that contains all files to create the image.
-* __enableGpu__ (optional): Whether or not to enable GPU support in the image. The GPU image must be used on Microsoft Azure Services such as Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. Defaults to False.
-* __baseImage__ (optional): A custom image to be used as base image. If no base image is given, then the base image will be used based off of given runtime parameter.
-* __baseImageRegistry__ (optional): Image registry that contains the base image.
-* __cudaVersion__ (optional): Version of CUDA to install for images that need GPU support. The GPU image must be used on Microsoft Azure Services such as Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. Supported versions are 9.0, 9.1, and 10.0. If 'enable_gpu' is set, defaults to '9.1'.
-
-These map to the parameters for the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class.
-
-Thee following command demonstrates how to deploy a model using the CLI:
+The following command demonstrates how to deploy a model using the CLI:
 
 ```azurecli-interactive
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
@@ -304,7 +296,6 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 In this example, the configuration contains the following items:
 
-* A directory that contains assets needed to inference
 * That this model requires Python
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
 * The conda file that describes the Python packages needed to inference
@@ -328,16 +319,12 @@ The following table provides an example of creating a deployment configuration f
 The following sections demonstrate how to create the deployment configuration, and then use it to deploy the web service.
 
 ### Optional: Profile your model
-Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements.
 
-You can do profile your model using either the SDK or CLI.
+Prior to deploying your model as a service, you can profile it to determine optimal CPU and memory requirements using either the SDK or CLI.  Model profiling results are emitted as a `Run` object. The full details of [the Model Profile schema can be found in the API documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
 
-For more information, you can check out our SDK documentation here: 
-https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+Learn more on [how to profile your model using the SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-).
 
-Model profiling results are emitted as a Run object.
-Specifics on the Model Profile schema can be found here:
-https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
+To profile your model using the CLI, use [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
 
 ## Deploy to target
 
@@ -356,9 +343,13 @@ To deploy locally, you need to have **Docker installed** on your local machine.
 
 + **Using the CLI**
 
+    To deploy using the CLI, use the following command. Replace `mymodel:1` with the name and version of the registered model:
+
   ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-local-deploy-config.md)]
 
 ### <a id="aci"></a> Azure Container Instances (DEVTEST)
 
@@ -379,10 +370,13 @@ To see quota and region availability for ACI, see the [Quotas and region availab
 
 + **Using the CLI**
 
-  ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
+    To deploy using the CLI, use the following command. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
 
+    ```azurecli-interactive
+    az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
+    ```
+
+    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
 
 + **Using VS Code**
 
@@ -414,9 +408,13 @@ If you already have an AKS cluster attached, you can deploy to it. If you haven'
 
 + **Using the CLI**
 
+    To deploy using the CLI, use the following command. Replace `myaks` with the name of the AKS compute target. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
+
   ```azurecli-interactive
-  az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
 
 + **Using VS Code**
 
@@ -448,12 +446,12 @@ prov_config = AksCompute.provisioning_configuration()
 
 aks_name = 'myaks'
 # Create the cluster
-aks_target = ComputeTarget.create(workspace = ws,
-                                    name = aks_name,
-                                    provisioning_configuration = prov_config)
+aks_target = ComputeTarget.create(workspace=ws,
+                                  name=aks_name,
+                                  provisioning_configuration=prov_config)
 
 # Wait for the create process to complete
-aks_target.wait_for_completion(show_output = True)
+aks_target.wait_for_completion(show_output=True)
 ```
 
 For more information on creating an AKS cluster outside of the Azure Machine Learning SDK, see the following articles:
@@ -491,8 +489,8 @@ cluster_name = 'mycluster'
 # attach_config = AksCompute.attach_configuration(resource_group = resource_group,
 #                                         cluster_name = cluster_name,
 #                                         cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
-attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-                                         cluster_name = cluster_name)
+attach_config = AksCompute.attach_configuration(resource_group=resource_group,
+                                                cluster_name=cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
 
@@ -512,19 +510,20 @@ Here is an example of how to invoke your service in Python:
 import requests
 import json
 
-headers = {'Content-Type':'application/json'}
+headers = {'Content-Type': 'application/json'}
 
 if service.auth_enabled:
     headers['Authorization'] = 'Bearer '+service.get_keys()[0]
 
 print(headers)
-    
+
 test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10], 
-    [10,9,8,7,6,5,4,3,2,1]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ]})
 
-response = requests.post(service.scoring_uri, data=test_sample, headers=headers)
+response = requests.post(
+    service.scoring_uri, data=test_sample, headers=headers)
 print(response.status_code)
 print(response.elapsed)
 print(response.json())
@@ -551,21 +550,49 @@ from azureml.core.webservice import Webservice
 from azureml.core.model import Model
 
 # register new model
-new_model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
-                       model_name = "sklearn_mnist",
-                       tags = {"key": "0.1"},
-                       description = "test",
-                       workspace = ws)
+new_model = Model.register(model_path="outputs/sklearn_mnist_model.pkl",
+                           model_name="sklearn_mnist",
+                           tags={"key": "0.1"},
+                           description="test",
+                           workspace=ws)
 
 service_name = 'myservice'
 # Retrieve existing service
-service = Webservice(name = service_name, workspace = ws)
+service = Webservice(name=service_name, workspace=ws)
 
 # Update to new model(s)
-service.update(models = [new_model])
+service.update(models=[new_model])
 print(service.state)
 print(service.get_logs())
 ```
+
+## Continuous model deployment 
+
+You can continuously deploy models using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). By using the Machine Learning extension for Azure DevOps, you can trigger a deployment pipeline when a new machine learning model is registered in Azure Machine Learning service workspace. 
+
+1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform/any cloud possible. Azure Pipelines [differs from ML pipelines](concept-ml-pipelines.md#compare). 
+
+1. [Create an Azure DevOps project.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+
+1. Install the [Machine Learning extension for Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
+
+1. Use __service Connections__ to set up a service principal connection to your Azure Machine Learning service workspace to access all your artifacts. Go to project settings, click on service connections, and select Azure Resource Manager.
+
+    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+
+1. Define AzureMLWorkspace as the __scope level__ and fill in the subsequent parameters.
+
+    ![view-azure-resource-manager](media/how-to-deploy-and-where/resource-manager-connection.png)
+
+1. Next, to continuously deploy your machine learning model using the Azure Pipelines, under pipelines select __release__. Add a new artifact, select AzureML Model artifact and the service connection that was created in the earlier step. Select the model and version to trigger a deployment. 
+
+    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+
+1. Enable the model trigger on your model artifact. By turning on the trigger, every time the specified version (i.e the newest version) of that model is register in your workspace, an Azure DevOps release pipeline is triggered. 
+
+    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+
+For sample projects and examples, check out [the MLOps repository](https://github.com/Microsoft/MLOps)
 
 ## Clean up resources
 To delete a deployed web service, use `service.delete()`.

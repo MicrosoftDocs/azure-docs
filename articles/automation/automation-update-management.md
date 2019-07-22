@@ -4,8 +4,8 @@ description: This article is intended to help you understand how to use the Azur
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
@@ -276,7 +276,7 @@ The following tables list the update classifications in Update Management, with 
 |Tools     | A utility or feature that helps complete one or more tasks.        |
 |Updates     | An update to an application or file that currently is installed.        |
 
-### Linux
+### <a name="linux-2"></a>Linux
 
 |Classification  |Description  |
 |---------|---------|

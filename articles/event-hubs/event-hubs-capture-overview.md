@@ -24,9 +24,6 @@ Azure Event Hubs enables you to automatically capture the streaming data in Even
 
 Event Hubs Capture enables you to process real-time and batch-based pipelines on the same stream. This means you can build solutions that grow with your needs over time. Whether you're building batch-based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution, Event Hubs Capture makes working with streaming data easier.
 
-> [!NOTE]
-> Currently, the Event Hubs Capture feature supports only Gen 1 of Azure Data Lake Store, not Gen 2. 
-
 ## How Event Hubs Capture works
 
 Event Hubs is a time-retention durable buffer for telemetry ingress, similar to a distributed log. The key to scaling in Event Hubs is the [partitioned consumer model](event-hubs-scalability.md#partitions). Each partition is an independent segment of data and is consumed independently. Over time this data ages off, based on the configurable retention period. As a result, a given event hub never gets "too full."
@@ -48,6 +45,8 @@ Note that the date values are padded with zeroes; an example filename might be:
 ```
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
+
+In the event that your Azure storage blob is temporarily unavailable, Event Hubs Capture will retain your data for the data retention period configured on your event hub and back fill the data once your storage account is available again.
 
 ### Scaling to throughput units
 
@@ -132,6 +131,8 @@ Apache Avro has complete Getting Started guides for [Java][Java] and [Python][Py
 ## How Event Hubs Capture is charged
 
 Event Hubs Capture is metered similarly to throughput units: as an hourly charge. The charge is directly proportional to the number of throughput units purchased for the namespace. As throughput units are increased and decreased, Event Hubs Capture meters increase and decrease to provide matching performance. The meters occur in tandem. For pricing details, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
+
+Note that Capture does not consume egress quota as it is billed separately. 
 
 ## Integration with Event Grid 
 

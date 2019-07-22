@@ -174,7 +174,7 @@ This section explains the different ways you can use script actions when you cre
     | Select a script | To use your own script, select __Custom__. Otherwise, select one of the provided scripts. |
     | Name |Specify a name for the script action. |
     | Bash script URI |Specify the URI of the script. |
-    | Head/Worker/Zookeeper |Specify the nodes on which the script is run: **Head**, **Worker**, or **ZooKeeper**. |
+    | Head/Worker/ZooKeeper |Specify the nodes on which the script is run: **Head**, **Worker**, or **ZooKeeper**. |
     | Parameters |Specify the parameters, if required by the script. |
 
     Use the __Persist this script action__ entry to make sure that the script is applied during scaling operations.

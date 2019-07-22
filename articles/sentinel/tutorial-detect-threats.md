@@ -8,12 +8,13 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: b5fbc5ac-68b2-4024-9c1b-bd3cc41a66d0
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 07/20/2019
 ms.author: rkarlin
 
 ---
@@ -29,7 +30,7 @@ After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel
 This tutorial helps you detect threats with Azure Sentinel.
 > [!div class="checklist"]
 > * Create detection rules
-> * Respond to threats
+> * Automate threat responses
 
 ## Create detection rules
 
@@ -79,14 +80,24 @@ Detection rules are based on the types of threats and anomalies that could be su
 
 
 
-## Respond to threats
+## Automate threat responses
 
-Azure Sentinel gives you two primary options for responding to threats using playbooks. You can set a playbook to run automatically when an alert is triggered, or you can manually run a playbook in response to an alert.
+SIEM/SOC teams can be inundated with security alerts on a regular basis. The volume of alerts generated is so huge, that available security admins are overwhelmed. This results all too often in situations where many alerts can't be investigated, leaving the organization vulnerable to attacks that go unnoticed. 
 
-- Set a playbook to run automatically when an alert is triggered when you configure the playbook. 
+Many, if not most, of these alerts conform to recurring patterns that can be addressed by specific and defined remediation actions. Azure Sentinel already enables you to define your remediation in playbooks. It is also possible to set real-time automation as part of your playbook definition to enable you to fully automate a defined response to particular security alerts. Using real-time automation, response teams can significantly reduce their workload by fully automating the routine responses to recurring types of alerts, allowing you to concentrate more on unique alerts, analyzing patterns, threat hunting, and more.
 
-- Manually run a playbook from inside the alert, by clicking **View playbooks** and then selecting a playbook to run.
+To automate responses:
 
+1. Choose the alert for which you want to automate the response.
+1. From the Azure Sentinel workspace navigation menu, select **Analytics**.
+1. Select the alert you want to automate. 
+1. In the **Edit alert rule** page, under **Real-time automation**, choose the **Triggered playbook** you want to run when this alert rule is matched.
+1. Select **Save**.
+
+   ![real time automation](./media/tutorial-detect-threats/rt-configuration.png)
+
+
+In addition, you can manually remediate an alert by running a playbook from inside the alert, by clicking **View playbooks** and then selecting a playbook to run. To learn how to create a new playbook or edit an existing one, see [Working with playbooks in Azure Sentinel](tutorial-respond-threats-playbook.md).
 
 
 

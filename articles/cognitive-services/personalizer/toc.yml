@@ -68,6 +68,14 @@
         href: https://go.microsoft.com/fwlink/?linkid=2092353
       - name: NuGet package
         href: https://go.microsoft.com/fwlink/?linkid=2092272
+    - name: Go
+      items:
+      - name: SDK 
+        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer
+    - name: Node.js
+      items:
+      - name: NPM 
+        href: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
     - name: Python
       items: 
       - name: Pypi package
