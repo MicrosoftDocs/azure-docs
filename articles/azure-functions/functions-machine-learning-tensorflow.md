@@ -41,7 +41,7 @@ You may use any editor of your choice. We recommend [Visual Studio Code](https:/
 
 ## Clone the tutorial repository
 
-Open a terminal and clone the repository using Git.
+To begin, open a terminal and clone the following repository using Git:
 
 ```bash
 git clone https://github.com/Azure-Samples/functions-python-tensorflow-tutorial.git
@@ -50,10 +50,10 @@ cd functions-python-tensorflow-tutorial
 
 The repository contains a few folders.
 
-- **start** - you'll be creating your function app here
-- **end** - for your reference, the finished function app
-- **resources** - machine learning model and helper libraries
-- **frontend** - a web frontend that calls the function app
+- *start*:  This is your working folder for the tutorial
+- *end*: This is the final result and full implementation for your reference
+- *resources*: Contains the machine learning model and helper libraries
+- *frontend*: A website that calls the function app
 
 ## Create and activate a Python virtual environment
 
