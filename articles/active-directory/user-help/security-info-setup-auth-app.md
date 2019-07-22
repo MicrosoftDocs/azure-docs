@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Set up security info (preview) to use an authenticator app
+
 You can follow these steps to add your two-factor verification and password reset methods. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
 
 If you're prompted to set this up immediately after you sign in to your work or school account, see the detailed steps in the [Set up your security info from the sign-in page prompt](security-info-setup-signin.md) article.
@@ -26,7 +27,8 @@ If you're prompted to set this up immediately after you sign in to your work or 
 >If you don't see an authenticator app option, it's possible that your organization doesn't allow you to use an authentication app for verification. In this case, you'll need to choose another method or contact your administrator for more help.
 
 ## Set up the Microsoft Authenticator app from the Security info page
-Depending on your organization’s settings, you might be able to use an authentication app as one of your security info methods. You aren't required to use the Microsoft Authenticator app, and you can choose a different app during the set up process. However, this article uses the Microsoft Authenticator app. 
+
+Depending on your organization’s settings, you might be able to use an authentication app as one of your security info methods. You aren't required to use the Microsoft Authenticator app, and you can choose a different app during the set up process. However, this article uses the Microsoft Authenticator app.
 
 ### To set up the Microsoft Authenticator app
 
@@ -50,7 +52,7 @@ Depending on your organization’s settings, you might be able to use an authent
 
    > [!Note]
    > If you want to use an authenticator app other than the Microsoft Authenticator app, select the **I want to use a different authenticator app** link.
-   > 
+   >
    > If your organization lets you choose a different method besides the authenticator app, you can select the **I want to set up a different method link**.
 
 5. Remain on the **Set up your account** page while you set up the Microsoft Authenticator app on your mobile device.
@@ -65,23 +67,24 @@ Depending on your organization’s settings, you might be able to use an authent
 
     ![Scan the QR code using the Authenticator app](media/security-info/securityinfo-myprofile-qrcodeauthapp.png)
 
-6. Scan the provided code with the Microsoft Authenticator app QR code reader, which appeared on your mobile device after you created your work or school account in Step 6.
+8. Scan the provided code with the Microsoft Authenticator app QR code reader, which appeared on your mobile device after you created your work or school account in Step 6.
 
     The authenticator app should successfully add your work or school account without requiring any additional information from you. However, if the QR code reader can't read the code, you can select the **Can't scan the QR code link** and manually enter the code and URL into the Microsoft Authenticator app. For more information about manually adding a code, see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
 
-7. Select **Next** on the **Scan the QR code** page on your .
+9. Select **Next** on the **Scan the QR code** page on your .
 
     A notification is sent to the Microsoft Authenticator app on your mobile device, to test your account.
 
     ![Test your account with the authenticator app](media/security-info/securityinfo-myprofile-tryitauthapp.png)
 
-8. Approve the notification in the Microsoft Authenticator app, and then select **Next**.
+10. Approve the notification in the Microsoft Authenticator app, and then select **Next**.
 
      ![Success notification, connecting the app and your account](media/security-info/securityinfo-myprofile-successauthapp.png)
 
      Your security info is updated to use the Microsoft Authenticator app by default to verify your identity when using two-step verification or password reset.
 
 ## Delete your authenticator app from your security info methods
+
 If you no longer want to use your authenticator app as a security info method, you can remove it from the **Security info** page. This works for all authenticator apps, not just the Microsoft Authenticator app. After you delete the app, you'll have to go into the authenticator app on your mobile device and delete the account.
 
 >[!Important]
@@ -100,6 +103,7 @@ If you no longer want to use your authenticator app as a security info method, y
     Your account is completely removed from the authenticator app for two-factor verification and password reset requests.
 
 ## Change your default security info method
+
 If you want the authenticator app to be the default method used when you sign-in to your work or school account using two-factor verification or for password reset requests, you can set it from the Security **info** page.
 
 ### To change your default security info method

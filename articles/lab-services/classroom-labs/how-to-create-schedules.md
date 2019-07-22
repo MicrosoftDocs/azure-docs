@@ -20,7 +20,7 @@ ms.author: spelluru
 Schedules allow you to configure a classroom lab such that VMs in the lab automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule. The following procedures give you steps to create and manage schedules for a classroom lab: 
 
 > [!IMPORTANT]
-> The scheduled running time of VMs does not count against the [quota allotted to a user](how-to-configure-student-usage.md#set-quotas-per-user). The quota is for the time outside of schedule hours that a student spends on VMs. 
+> The scheduled running time of VMs does not count against the [quota allotted to a user](how-to-configure-student-usage.md#set-quotas-for-users). The quota is for the time outside of schedule hours that a student spends on VMs. 
 
 ## Add a schedule (once)
 
