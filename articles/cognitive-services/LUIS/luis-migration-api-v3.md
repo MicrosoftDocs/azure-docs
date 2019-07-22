@@ -146,6 +146,8 @@ The top JSON properties for V3 are:
 }
 ```
 
+The `normalizedQuery` contains spelling corrections. This corresponds to the V2 API property `alteredQuery`.  
+
 The `intents` object is an unordered list. Do not assume the first child in the `intents` corresponds to the `topIntent`. Instead, use the `topIntent` value to find the score:
 
 ```nodejs
