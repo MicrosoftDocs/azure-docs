@@ -68,7 +68,7 @@ The URL Rewrite module of IIS can be used to redirect traffic that comes to the 
 
 ## How can I block/disable incoming traffic to the default URL of my cloud service?
 
-You can prevent incoming traffic to the default URL/name of your cloud service (for example, \*.cloudapp.net). Set the host header to a custom DNS name (for example, www.MyCloudService.com) under site binding configuration in the cloud service definition (*.csdef) file, as indicated:
+You can prevent incoming traffic to the default URL/name of your cloud service (for example, \*.cloudapp.net). Set the host header to a custom DNS name (for example, www\.MyCloudService.com) under site binding configuration in the cloud service definition (*.csdef) file, as indicated:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
