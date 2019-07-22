@@ -46,7 +46,7 @@
   href: code-samples.md
 - name: Concepts
   items:
-  - name: Applications types
+  - name: Application types
     href: active-directory-b2c-apps.md
   - name: Authentication protocols
     href: active-directory-b2c-reference-protocols.md
