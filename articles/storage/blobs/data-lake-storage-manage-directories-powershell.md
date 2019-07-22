@@ -13,10 +13,6 @@ ms.author: normesta
 
 This article shows you how to use PowerShell to manage directories in storage accounts that have a hierarchical namespace.
 
-## First, connect to the storage account
-
-See [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
 ## Rename or move a directory
 
 Rename or move a directory by using the `Move-AzStorageBlobDirectory` cmdlet.
