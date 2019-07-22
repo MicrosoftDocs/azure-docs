@@ -90,12 +90,13 @@ The following table lists all other features and tools that are not yet supporte
 | **AzCopy** | Version-specific support <br><br>Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.|
 | **Azure Blob storage lifecycle management policies** | Supported only if you enroll in the [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview. Cool and archive access tiers are supported only by the preview. The deletion of blob snapshots is not yet supported. |
 | **Azure Content Delivery Network (CDN)** | Not yet supported|
-| **Azure search** |Not yet supported|
+| **Azure search** |Supported only if you enroll in the [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview.|
 | **Azure Storage Explorer** | Version-specific support <br><br>Use only version `1.6.0` or higher. <br>Version `1.6.0` is available as a [free download](https://azure.microsoft.com/features/storage-explorer/).|
 | **Blob container ACLs** |Not yet supported|
 | **Blobfuse** |Not yet supported|
 | **Custom domains** |Not yet supported|
 | **File System Explorer** | Limited support |
+| **Diagnostic logging** |Supported only if you enroll in the [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview.|
 | **Immutable storage** |Not yet supported <br><br>Immutable storage gives the ability to store data in a [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) state.|
 | **Object-level tiers** |Cool and archive tiers are supported only if you enroll in the [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview. <br><br> All other access tiers are not yet supported.|
 | **Powershell and CLI support** | Limited functionality <br><br>Management operations such as creating an account is supported. Data plane operations such as uploading and downloading files is in public preview as part of [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md). Working with directories and setting access control lists (ACLs) is not yet supported. |

@@ -1,5 +1,5 @@
 ---
-title: 'Reporting on Azure Active Directory automatic user account provisioning to SaaS applications | Microsoft Docs'
+title: Report automatic user account provisioning to SaaS applications | Microsoft Docs
 description: 'Learn how to check the status of automatic user account provisioning jobs, and how to troubleshoot the provisioning of individual users.'
 services: active-directory
 documentationcenter: ''
