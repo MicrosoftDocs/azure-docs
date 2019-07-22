@@ -15,7 +15,8 @@ sections:
 - title: Suggested content
   items: 
   - type: paragraph
-    text: For more detailed information about Azure Australia start with the overview - [What is Azure Australia?](australia-overview.md)
+    text: For more detailed information about Azure Australia start with the overview which can be accessed using the link below.
+  - html: <a href="australia-overview.md">What is Azure Australia?</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
