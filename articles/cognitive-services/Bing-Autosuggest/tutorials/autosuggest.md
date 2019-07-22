@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Getting Automatic suggestions Results using Bing Autosuggest API"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Shows how to use Bing Autosuggest.
 services: cognitive-services
 author: v-jaswel

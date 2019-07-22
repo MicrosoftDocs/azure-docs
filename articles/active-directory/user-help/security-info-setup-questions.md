@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Set up security info (preview) to use security questions
+
 You can follow these steps to add your password reset method. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
 
 After you set up your password reset method, you must also set up your two-factor verification method, using an [authenticator app](security-info-setup-auth-app.md), [text messaging](security-info-setup-text-msg.md), or a [phone call](security-info-setup-phone-number.md).
@@ -23,15 +24,16 @@ After you set up your password reset method, you must also set up your two-facto
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## Set up your security questions from the Security info page
+
 Depending on your organization’s settings, you might be able to choose and answer a few security questions as one of your security info methods. Your administrator sets up the number of security questions you're required to choose and answer.
 
 If you use security questions, we recommend using them in conjunction with another method. Security questions can be less secure than other methods because some people might know the answers to your questions.
 
 > [!Note]
 > Security questions are stored privately and securely on a user object in the directory and can only be answered by you during registration. There is no way for your administrator to read or modify your questions or answers.
-> 
+>
 > If you don't see the security questions option, it's possible that your organization doesn't allow you to use security questions for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
-> 
+>
 > Administrator accounts are not allowed to use Security Questions as a password reset method. If you are logged in as an admin level account you will not see these options.
 
 ### To set up your security questions
@@ -55,6 +57,7 @@ If you use security questions, we recommend using them in conjunction with anoth
     Your security info is updated and you can use your security questions to verify your identity when using password reset.
 
 ## Delete security questions from your security info methods
+
 If you no longer want to use your security questions as a security info method, you can remove them from the **Security info** page.
 
 >[!Important]
