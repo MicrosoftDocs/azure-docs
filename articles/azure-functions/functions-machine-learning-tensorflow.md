@@ -25,7 +25,7 @@ By the end of tutorial, you'll be able to:
 > * Build a serverless HTTP API for predicting whether a photo contains a dog or a cat
 > * Consume the API from a web application
 
-![Screenshot of finished project](media/functions-machine-learning-tensorflow/screenshot.png)
+![Screenshot of finished project](media/functions-machine-learning-tensorflow/functions-machine-learning-tensorflow-screenshot.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
