@@ -12,28 +12,30 @@ services: event-grid
 ---
 
 
-# A. Common API Behavior
+# REST API
+This article describes the REST APIs of Azure Event Grid on IoT Edge
 
-## 1. Base URL
+## Common API behavior
+
+### Base URL
 Event Grid on IoT Edge has the following APIs exposed over HTTP (port 5888) and HTTPS (port 4438).
 
-Base URL for HTTP: http://eventgridmodule:5888
+* Base URL for HTTP: http://eventgridmodule:5888
+* Base URL for HTTPS: https://eventgridmodule:4438
 
-Base URL for HTTPS: https://eventgridmodule:4438
-
-## 2. Request Query String
+### Request Query String
 All API requests require the following query string parameter:
 
 ```?api-version=2019-01-01-preview```
 
-## 3. Request Content Type
+### Request Content Type
 All API requests must have a Content-Type header with one of the following values:
 
 ```Content-Type: application/json```
 
 ```Content-Type: application/json; charset=utf-8```
 
-## 4. Error Response
+### Error Response
 All APIs return an error with the following payload:
 
 ```json
@@ -50,26 +52,28 @@ All APIs return an error with the following payload:
 }
 ```
 
-# B. Manage Topics
+## Manage Topics
 
-## 1. Put Topic (Create / Update)
+### Put Topic (Create / Update)
 
-### **Request: ``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Request**: ``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
 
-Payload:
+**Payload**:
+
 ```json
-{
-    "name": "<topic_name>", // optional, inferred from URL. If specified must match URL topic_name
-    "properties":
     {
-        "inputSchema": "EventGridSchema | CustomEventSchema" // optional
+        "name": "<topic_name>", // optional, inferred from URL. If specified must match URL topic_name
+        "properties":
+        {
+            "inputSchema": "EventGridSchema | CustomEventSchema" // optional
+        }
     }
-}
 ```
 
-### **Response: HTTP 200
+**Response**: HTTP 200
 
-Payload:
+**Payload**:
+
 ```json
 {
     "id": "/iotHubs/<iot_hub_name>/devices/<iot_edge_device_id>/modules/<eventgrid_module_name>/topics/<topic_name>",
@@ -83,13 +87,13 @@ Payload:
 }
 ```
 
-## 2. Get Topic
+### Get Topic
 
-### **Request: ``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Request**: ``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
 
-### **Response: HTTP 200
+**Response**: HTTP 200
 
-Payload:
+**Payload**:
 ```json
 {
     "id": "/iotHubs/<iot_hub_name>/devices/<iot_edge_device_id>/modules/<eventgrid_module_name>/topics/<topic_name>",
@@ -103,13 +107,13 @@ Payload:
 }
 ```
 
-## 3. Get All Topics
+### Get All Topics
 
-### **Request: ``` GET /topics?api-version=2019-01-01-preview ```
+**Request**: ``` GET /topics?api-version=2019-01-01-preview ```
 
-### **Response: HTTP 200
+**Response**: HTTP 200
 
-Payload:
+**Payload**:
 ```json
 [
     {
@@ -135,20 +139,20 @@ Payload:
 ]
 ```
 
-## 4. Delete Topic
+### Delete Topic
 
-### **Request: ``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Request**: ``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
 
-### **Response: HTTP 200, empty payload
+**Response**: HTTP 200, empty payload
 
-# C. Manage Event Subscriptions
-Note that all the samples below are using EndpointType=Webhook; json samples for EndpointType=EdgeHub / EndpointType=EventGrid are laid out in the next section. 
+## Manage Event Subscriptions
+All the samples below are using EndpointType=Webhook; json samples for EndpointType=EdgeHub / EndpointType=EventGrid are laid out in the next section. 
 
-## 1. Put Event Subscription (Create / Update)
+### Put Event Subscription (Create / Update)
 
-### **Request: ``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Request**: ``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
-Payload:
+**Payload**:
 ```json
 {
     "name": "<subscription_name>", // optional, inferred from URL. If specified must match URL subscription_name
@@ -243,9 +247,10 @@ Payload:
 }
 ```
 
-### **Response: HTTP 200
+**Response**: HTTP 200
 
-Payload:
+**Payload**:
+
 ```json
 {
     "id": "/iotHubs/<iot_hub_name>/devices/<iot_edge_device_id>/modules/<eventgrid_module_name>/topics/<topic_name>/eventSubscriptions/<subscription_name>",
@@ -343,13 +348,13 @@ Payload:
 ```
 
 
-## 2. Get Event Subscription
+### Get Event Subscription
 
-### **Request: ``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Request**: ``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
-### **Response: HTTP 200
+**Response**: HTTP 200
 
-Payload:
+**Payload**:
 ```json
 {
     "id": "/iotHubs/<iot_hub_name>/devices/<iot_edge_device_id>/modules/<eventgrid_module_name>/topics/<topic_name>/eventSubscriptions/<subscription_name>",
@@ -446,12 +451,12 @@ Payload:
 }
 ```
 
-## 3. Get Event Subscriptions
+### Get Event Subscriptions
 
-### **Request: ``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
+**Request**: ``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
 
-### **Response: HTTP 200
-Payload:
+**Response**: HTTP 200
+**Payload**:
 ```json
 [
     {
@@ -463,18 +468,97 @@ Payload:
 ]
 ```
 
-## 4. Delete Event Subscription
+### Delete Event Subscription
 
-### **Request: ``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Request**: ``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
-### **Response: HTTP 200, no payload
+**Response**: HTTP 200, no payload
 
 
-D. Event Subscription Destinations
+## Publish Events API
 
-This section only shows the "destination" part of the event subscription json, refer to PUT/GET APIs above for the other parts.
+### Send Batch of Events (in Event Grid Schema)
 
-## 1. Web Hook as Destination
+**Request**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+
+```json
+[
+    {
+        "id": "<user-defined-event-id>",
+        "topic": "<topic_name>",
+        "subject": "",
+        "eventType": "",
+        "eventTime": ""
+        "dataVersion": "",
+        "metadataVersion": "1",
+        "data": 
+            ...
+    }
+]
+```
+
+**Response**: HTTP 200, empty payload
+
+
+**Payload Field Descriptions**
+- ```Id``` is mandatory, can be any string value that's populated by the caller, Event Grid does NOT do any duplicate detection or enforce any semantics on this field.
+- ```Topic``` is optional, but if specified must match the topic_name from the request URL
+- ```Subject``` is mandatory, can be any string value
+- ```EventType``` is mandatory, can be any string value
+- ```EventTime``` is mandatory, it's not validated but should be a proper DateTime.
+- ```DataVersion``` is mandatory
+- ```MetadataVersion``` is optional, if specified it MUST be a string with the value ```"1"```
+- ```Data``` is optional, and can be any JSON token (number, string, boolean, array, object)
+
+### Send Batch of Events (in Custom Schema)
+
+**Request**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+
+```json
+[
+    {
+        ...
+    }
+]
+```
+
+**Response**: HTTP 200, empty payload
+
+
+**Payload Restrictions**
+- MUST be an array of events
+- Each array entry MUST be a JSON object
+- No other constraints (other than payload size)
+
+## Examples
+
+### Set up Topic with EventGrid Schema
+Sets up a topic to require events to be published in **eventgridschema**.
+
+```json
+    {
+        "name": "myeventgridtopic",
+        "properties":
+        {
+            "inputSchema": "EventGridSchema"
+        }
+    }
+```
+
+### Set up Topic with Custom Schema
+Sets up a topic to require events to be published in `customschema`.
+
+```json
+    {
+        "name": "mycustomschematopic",
+        "properties":
+        {
+            "inputSchema": "CustomSchema"
+        }
+    }
+```
+
+### Set up WebHook as destination, events to be delivered in eventgridschema
 Use this destination type to send events to any other module (that hosts an HTTP endpoint) or to any HTTP addressable endpoint on the network/internet.
 
 ```json
@@ -486,7 +570,8 @@ Use this destination type to send events to any other module (that hosts an HTTP
             "endpointType": "WebHook",
             "properties":
             {
-                "endpointUrl": "<webhook_url>"
+                "endpointUrl": "<webhook_url>",
+                "eventDeliverySchema": "eventgridschema",
             }
         }
     }
@@ -499,7 +584,11 @@ Constraints on EndpointUrl:
 - if outbound__webhook__httpsOnly is set to true in EventGridModule settings: must be HTTPS only
 - if outbound__webhook__httpsOnly set to false: can be HTTP or HTTPS
 
-## 2. IoT Edge Hub as Destination
+Constraints on EventDeliverySchema:
+- must match subscribing topic's input schema
+- can be null. will default to the topic's input schema
+
+### Set up IoT Edge as destination
 
 Use this destination to send events to IoT Edge Hub and be subjected to edge hub's routing/filtering/forwarding subsystem.
 
@@ -519,7 +608,7 @@ Use this destination to send events to IoT Edge Hub and be subjected to edge hub
 }
 ```
 
-## 3. Event Grid (cloud) as Destination (User Topic)
+### Set up Event Grid Cloud as destination
 
 Use this destination to send events to Event Grid in the cloud.
 You'll need to first set up a user topic in the cloud to which events should be sent to, before creating an event subscription on the edge.
@@ -557,58 +646,3 @@ SasKey:
 TopicName:
 - if the Subscription.EventDeliverySchema is set to EventGridSchema, the value from this field is put into every event's Topic field before being forwarded to Event Grid in the cloud.
 - if the Subscription.EventDeliverySchema is set to CustomEventSchema, this property is ignored and the custom event payload is forwarded exactly as it was received.
-
-# E. Send Events API
-
-## 1. Send Batch of Events (in Event Grid Schema)
-
-### **Request: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
-
-```json
-[
-    {
-        "id": "<user-defined-event-id>",
-        "topic": "<topic_name>",
-        "subject": "",
-        "eventType": "",
-        "eventTime": ""
-        "dataVersion": "",
-        "metadataVersion": "1",
-        "data": 
-            ...
-    }
-]
-```
-
-### **Response: HTTP 200, empty payload
-
-
-### **Payload Field Descriptions**
-- ```Id``` is mandatory, can be any string value that's populated by the caller, Event Grid does NOT do any duplicate detection or enforce any semantics on this field.
-- ```Topic``` is optional, but if specified must match the topic_name from the request URL
-- ```Subject``` is mandatory, can be any string value
-- ```EventType``` is mandatory, can be any string value
-- ```EventTime``` is mandatory, it's not validated but should be a proper DateTime.
-- ```DataVersion``` is mandatory
-- ```MetadataVersion``` is optional, if specified it MUST be a string with the value ```"1"```
-- ```Data``` is optional, and can be any JSON token (number, string, boolean, array, object)
-
-## 2. Send Batch of Events (in Custom Schema)
-
-### **Request: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
-
-```json
-[
-    {
-        ...
-    }
-]
-```
-
-### **Response: HTTP 200, empty payload
-
-
-### **Payload Restrictions**
-- MUST be an array of events
-- Each array entry MUST be a JSON object
-- No other constraints (other than payload size)

@@ -1,6 +1,6 @@
 ---
-title: Security and Authentication - Azure Event Grid IoT Edge | Microsoft Docs 
-description: Security and Authentication in Event Grid on IoT Edge.  
+title: Security and authentication - Azure Event Grid IoT Edge | Microsoft Docs 
+description: Security and authentication in Event Grid on IoT Edge.  
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -11,7 +11,7 @@ ms.service: event-grid
 services: event-grid
 ---
 
-# Security and Authentication
+# Security and authentication
 
 Security and Authentication is an advanced concept and requires familiarity with Event Grid basics first. Start here if new to Event Grid on edge. Event Grid module builds on the existing security infrastructure already available on IoT Edge.
 
@@ -23,10 +23,10 @@ The following sections describe in detail how the following are secured and auth
 * Outbound Client Authentication
 
 >[!IMPORTANT]
-Event Grid module security and authentication leverage's the existing  infrastructure available on IoT Edge. The assumption is that IoT edge sub system is secure.
+>Event Grid module security and authentication leverage's the existing  infrastructure available on IoT Edge. The assumption is that IoT edge sub system is secure.
 
 >[!IMPORTANT]
-Event Grid configuration is **secure by default**. The subsections below explain all the options and possible value(s) that you can use to override aspects of authentication. Please understand the impact before making any changes. For any changes to take effect Event Grid module will need to be redeployed.
+>Event Grid configuration is **secure by default**. The subsections below explain all the options and possible value(s) that you can use to override aspects of authentication. Please understand the impact before making any changes. For any changes to take effect Event Grid module will need to be redeployed.
 
 ## TLS Configuration (a.k.a Server Authentication)
 
@@ -76,7 +76,7 @@ If a client presents a self-signed, then by default Event Grid module will rejec
 | false | Will fail requests if self-signed certificates are presented.
 
 >[!IMPORTANT]
-In production scenarios you will want to set **inbound:clientAuth:clientCert:allowUnknownCA** to **false**.
+>In production scenarios you will want to set **inbound:clientAuth:clientCert:allowUnknownCA** to **false**.
 
 ### SAS key based client Authentication
 
@@ -141,7 +141,7 @@ If subscriber's certificate is self-signed, then by default Event Grid module wi
 | false | Will fail requests if self-signed certificates are presented.
 
 >[!IMPORTANT]
-In production scenarios you will want to set **outbound:webhook:allowUnknownCA** to **false**.
+>In production scenarios you will want to set **outbound:webhook:allowUnknownCA** to **false**.
 
 > [!NOTE]
 >IoT Edge environment generates self-signed certificates. Recommendation is to generate certificates issued by authorized CAs for production workloads and set **allowUnknownCA** property on both inbound and outbound to **false**.
