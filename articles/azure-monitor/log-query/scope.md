@@ -55,7 +55,7 @@ Your query will receive a warning if the scope includes workspaces in 5 or more 
 
 ![Query warning](media/scope/query-warning.png)
 
-Your query will be blocked from running if the scope includes workspaces in 20 or more regions. In this case you will be prompted to reduce the number of workspace regions and attempt to run the query again. The dropdown will display all of the regions in the scope of the query, but you may only select up to 5 before attempting to run the query again.
+Your query will be blocked from running if the scope includes workspaces in 20 or more regions. In this case you will be prompted to reduce the number of workspace regions and attempt to run the query again. The dropdown will display all of the regions in the scope of the query, and you should reduce the number of regions before attempting to run the query again.
 
 ![Query failed](media/scope/query-failed.png)
 
