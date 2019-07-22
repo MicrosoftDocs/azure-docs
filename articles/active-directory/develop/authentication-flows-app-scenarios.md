@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2019
+ms.date: 07/19/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
@@ -77,6 +77,14 @@ The security tokens can be acquired from a number of application types. Applicat
 
 The Microsoft identity platform endpoint supports authentication for a variety of app architectures: single-page apps, web apps, web APIs, mobile and native apps, and daemons and server-side apps.  Applications use the various authentication flows to sign in users and get tokens to call protected APIs.
 
+### Single-page application
+
+Many modern web applications are built as client-side single-page applications written using JavaScript or a SPA framework such as Angular, Vue.js, and React.js. These applications run in a web browser and have different authentication characteristics than traditional server-side web applications. The Microsoft identity platform enables single-page applications to sign in users and get tokens to access backend services or web APIs.
+
+![Single-page application](media/scenarios/spa-app.svg)
+
+For more information, read [Single-page applications](scenario-spa-overview.md).
+
 ### Web Application signing-in a user
 
 ![Web app signs in users](media/scenarios/scenario-webapp-signs-in-users.svg)
@@ -87,51 +95,54 @@ To **protect a Web App** (signing in the user), you'll use:
 
 - If you develop in Node.js, you'll use Passport.js.
 
-See [Web App that signs-in users](scenario-web-app-sign-user-overview.md) for details
+For more information, read [Web App that signs-in users](scenario-web-app-sign-user-overview.md).
 
 ### Web Application signing-in a user and calling a Web API on behalf of the user
 
 ![Web app calls Web APIs](media/scenarios/web-app.svg)
 
-From the Web App, to **call the Web API** on behalf of the user, you'll use MSAL `ConfidentialClientApplication`. You'll use the Authorization code flow, storing the acquired token in the token cache. Then the controller will acquire tokens silently from the cache when needed. MSAL refreshes the token if needed.
+From the Web App, to **call the Web API** on behalf of the user, use MSAL `ConfidentialClientApplication`. You'll use the Authorization code flow, storing the acquired token in the token cache. Then the controller will acquire tokens silently from the cache when needed. MSAL refreshes the token if needed.
 
-For details, see [Web App calls Web APIs](scenario-web-app-call-api-overview.md)
+For more information, read  [Web App calls Web APIs](scenario-web-app-call-api-overview.md).
 
 ### Desktop application calling a Web API on behalf of the signed-in user
 
-To call a Web API from a desktop application that signs-in users, you'll use MSAL's PublicClientApplication's interactive token acquisition methods. These interactive methods enable you to control the sign in UI experience. To enable this interaction, MSAL leverages a web browser
+To call a Web API from a desktop application that signs in users, use MSAL's PublicClientApplication's interactive token acquisition methods. These interactive methods enable you to control the sign in UI experience. To enable this interaction, MSAL leverages a web browser.
 
 ![Desktop](media/scenarios/desktop-app.svg)
 
-For Windows hosted applications running on computers joined to a Windows domain or AAD joined, there's another possibility. They can acquire a token silently by using [Integrated Windows Authentication](https://aka.ms/msal-net-iwa)
+For Windows hosted applications running on computers joined to a Windows domain or AAD joined, there's another possibility. These applications can acquire a token silently by using [Integrated Windows Authentication](https://aka.ms/msal-net-iwa).
 
 Applications running on a device without a browser will still be able to call an API on behalf of a user. To authenticate, the user will have to sign in on another device that has a Web browser. To enable this scenario, you'll need to use the [Device Code flow](https://aka.ms/msal-net-device-code-flow)
 
 ![Device code flow](media/scenarios/device-code-flow-app.svg)
 
-Finally, and although it's not recommended, you can use [Username/Password](https://aka.ms/msal-net-up) in public client applications. This flow is still needed in some scenarios (like DevOps), but beware that using it will impose constraints on your application. For instance, apps using this flow won't be able to sign in user who needs to perform Multi Factor Authentication (conditional access). It won't enable your application to benefit from Single Sign On either. It's also against the principles of modern authentication and is only provided for legacy reasons.
+Finally, though it's not recommended, you can use [Username/Password](https://aka.ms/msal-net-up) in public client applications. This flow is still needed in some scenarios (like DevOps), but beware that using it will impose constraints on your application. For instance, apps using this flow won't be able to sign in a user who needs to perform multi-factor authentication (conditional access). It won't enable your application to benefit from single sign-on either. Authentication with username/password goes against the principles of modern authentication and is only provided for legacy reasons.
 
 In desktop applications, if you want the token cache to be persistent, you should [customize the token cache serialization](https://aka.ms/msal-net-token-cache-serialization). You can even enable backward and forward compatible token caches with previous generations of authentication libraries (ADAL.NET 3.x and 4.x) by implementing [dual token cache serialization](https://aka.ms/msal-net-dual-cache-serialization).
 
-See [Desktop app that calls web APIs](scenario-desktop-overview.md) for details
+For more information, read [Desktop app that calls web APIs](scenario-desktop-overview.md).
 
 ### Mobile application calling a Web API on behalf of the user who's signed-in interactively
 
+Similar to desktop applications, a mobile application will use MSAL's PublicClientApplication's interactive token acquisition methods to acquire a token to call a Web API.
+
 ![Mobile](media/scenarios/mobile-app.svg)
 
-Like for desktop applications, to acquire a token to call a Web API, a mobile application will use MSAL's PublicClientApplication's interactive token acquisition methods. On iOS and Android, MSAL, by default, uses the system web browser. But you can direct it to use the embedded Web View. There are specificities depending on the mobile platform: (UWP, iOS, Android).
+MSAL iOS and MSAL Android, by default, use the system web browser. However, you can also direct it to use the embedded Web View. There are specificities depending on the mobile platform: (UWP, iOS, Android).
+
 Some scenarios, involving conditional access related to the device ID, or a device being enrolled require a [broker](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS) to be installed on a device. Examples of brokers are Microsoft Company portal (on Android), Microsoft Authenticator (Android and iOS). MSAL is now capable of interacting with brokers.
 
 > [!NOTE]
-> Your mobile app (using MSAL.iOS, MSAL.Android, or MSAL.NET/Xamarin) can have app protection policies applied to it (for instance prevent the user to  copy some protected text). This is [managed by Intune](https://docs.microsoft.com/en-gb/intune/app-sdk) and recognized by Intune as a managed app. The [Intune SDK](https://docs.microsoft.com/en-gb/intune/app-sdk-get-started) is separate from MSAL libraries, and it talks to AAD on its own.
+> Your mobile app (using MSAL.iOS, MSAL.Android, or MSAL.NET/Xamarin) can have app protection policies applied to it (for instance prevent the user to  copy some protected text). This is [managed by Intune](https://docs.microsoft.com/intune/app-sdk) and recognized by Intune as a managed app. The [Intune SDK](https://docs.microsoft.com/intune/app-sdk-get-started) is separate from MSAL libraries, and it talks to AAD on its own.
 
-See [Mobile app that calls web APIs](scenario-mobile-overview.md) for details
+For more information, read [Mobile app that calls web APIs](scenario-mobile-overview.md).
 
 ### Protected Web API
 
 You can use the Microsoft identity platform endpoint to secure web services, such as your app's RESTful Web API. A protected Web API is called with an access token to secure its data and to authenticate incoming requests. The caller of a Web API appends an access token in the authorization header of an HTTP request. If you want to protect you ASP.NET or ASP.NET Core Web API, you will need to validate the access token. For this, you'll use the ASP.NET JWT middleware. Under the hood, the validation is done by the [IdentityModel extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) library, not MSAL.NET
 
-See [Protected Web API](scenario-protected-web-api-overview.md) for details
+For more information, read [Protected Web API](scenario-protected-web-api-overview.md).
 
 ### Web API calling another downstream Web API on behalf of the user for whom it was called
 
@@ -140,14 +151,16 @@ The Web APIs calling other web API will also need to provide a custom cache seri
 
   ![Web API](media/scenarios/web-api.svg)
 
-See [Web API that calls web APIs](scenario-web-api-call-api-overview.md) for details
+For more information, read [Web API that calls web APIs](scenario-web-api-call-api-overview.md).
 
 ### Desktop/service or Web daemon application calling Web API without a user (in its own name)
 
-Apps that have long-running processes or that operate without interaction with a user also need a way to access secured Web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity. They prove their identity using a client secret or certificate.
+Apps that have long-running processes or that operate without user interaction also need a way to access secured Web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity. They prove their identity using a client secret or certificate.
 You can write such apps (daemon app) acquiring a token for the app on top using MSAL's ConfidentialClientApplication's [client credentials](https://aka.ms/msal-net-client-credentials) acquisition methods. These suppose that the app has previously registered a secret (application password or certificate or client assertion) with Azure AD, which it then shares with this call.
 
 ![Daemon app](media/scenarios/daemon-app.svg)
+
+For more information, read [Daemon application that calls web APIs](scenario-daemon-overview.md).
 
 ## Scenarios and supported authentication flows
 

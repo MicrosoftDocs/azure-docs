@@ -174,7 +174,7 @@ If you're using a network virtual appliance, add IPv6 routes in the Route Table.
 ```
 
 ## Sample VM template JSON
-To deploy an IPv6 dual stack application in Azure virtual network using Azure Resource Manager template, view sample template [here](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/).
+To deploy an IPv6 dual stack application in Azure virtual network using Azure Resource Manager template, view sample template [here](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-stdlb/).
 
 ## Next steps
 

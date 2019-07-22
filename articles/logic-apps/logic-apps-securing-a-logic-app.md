@@ -191,9 +191,9 @@ To control access to the inputs and outputs in your logic app's run history, you
 
   This option lets you secure access to run history based on the requests from a specific IP address range.
 
-* [Hide inputs and outputs in run history by using obfuscation](#obfuscate).
+* [Hide data from run history by using obfuscation](#obfuscate).
 
-  This option lets you hide inputs and outputs in run history based on the trigger or action.
+  In many triggers and actions, you can hide their inputs, outputs, or both from a logic app's run history.
 
 <a name="restrict-ip"></a>
 
@@ -256,7 +256,11 @@ If you automate logic app deployments by using an [Azure Resource Manager templa
 
 <a name="obfuscate"></a>
 
-### Hide inputs and outputs in run history by using obfuscation
+### Hide data from run history by using obfuscation
+
+Many triggers and actions have settings to hide inputs, outputs, or both from a logic app's run history. Here are some [considerations to review](#obfuscation-considerations) when you use these settings to secure this data.
+
+#### Secure inputs and outputs in the designer
 
 1. If your logic app isn't already open in the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
@@ -288,9 +292,38 @@ If you automate logic app deployments by using an [Azure Resource Manager templa
 
       ![Hidden data in run history](media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
+<a name="secure-data-code-view"></a>
+
+#### Secure inputs and outputs in code view
+
+In the underlying trigger or action definition, add or update the `runtimeConfiguration.secureData.properties` array with either or both of these values:
+
+* `"inputs"`: Secures inputs in run history.
+* `"outputs"`: Secures outputs in run history.
+
+Here are some [considerations to review](#obfuscation-considerations) when you use these settings to secure this data.
+
+```json
+"<trigger-or-action-name>": {
+   "type": "<trigger-or-action-type>",
+   "inputs": {
+      <trigger-or-action-inputs>
+   },
+   "runtimeConfiguration": {
+      "secureData": {
+         "properties": [
+            "inputs",
+            "outputs"
+         ]
+      }
+   },
+   <other-attributes>
+}
+```
+
 <a name="obfuscation-considerations"></a>
 
-#### Considerations when securing inputs and outputs
+#### Considerations when hiding inputs and outputs
 
 * When you secure the inputs or outputs on a trigger or action, Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) to that trigger or action for monitoring.
 
