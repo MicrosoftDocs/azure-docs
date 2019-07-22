@@ -94,7 +94,7 @@ To onboard access reviews, follow these steps.
 
 1. On the page, click the **Onboard now** button.
     
-      ![Access reviews onboard](./media/access-reviews-overview-select-onboard.png)
+      ![Access reviews onboard](./media/access-reviews-overview/access-reviews-overview-select-onboard.png)
 
 
 ## Learn about access reviews
