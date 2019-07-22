@@ -23,6 +23,8 @@ In this tutorial, you'll learn how Azure Functions allows you to import a Tensor
 > * Build an HTTP API for predicting of a photo contains a dog or a cat
 > * Consume the API from a web application
 
+![Screenshot of finished project](media/functions-machine-learning-tensorflow/screenshot.png)
+
 ## Prerequisites 
 
 To create Azure Functions in Python, you need to install a few tools.
