@@ -69,7 +69,7 @@ Now that you've connected a simulated device to your Azure IoT Central applicati
 As an operator, you can learn how to:
 
 > [!div class="nextstepaction"]
-> [Monitor your devices](tutorial-monitor-devices.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Configure rules](tutorial-configure-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 As a device developer, you can learn how to:
 
