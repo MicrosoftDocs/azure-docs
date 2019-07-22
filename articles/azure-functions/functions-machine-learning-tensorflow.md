@@ -17,6 +17,8 @@ ms.custom: mvc
 
 In this tutorial, you'll learn how Azure Functions allows you to import a machine learning model and use it with TensorFlow to make predictions.
 
+By the end of tutorial, you'll be able to: 
+
 > [!div class="checklist"]
 > * Initialize a local environment for developing Azure Functions in Python
 > * Import a custom TensorFlow machine learning model into a function app
