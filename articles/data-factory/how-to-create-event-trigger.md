@@ -32,15 +32,15 @@ This section shows you how to create an event trigger within the Azure Data Fact
 
 1. Go to the **Authoring Canvas**
 
-2. In the bottom left corner, click on the **Triggers** button
+2. In the bottom-left corner, click on the **Triggers** button
 
-3. Click **+ New** which will open up the create trigger sidenav
+3. Click **+ New** which will open up the create trigger side nav
 
 4. Select trigger type **Event**
 
 ![Create new event trigger](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
-5. Select your storage account from the Azure subscription dropdown or manually using its Storage account resource id. Choose which container you wish the events to occur on. Container selection is optional, but be mindful that selecting all containers can lead to a large number of events.
+5. Select your storage account from the Azure subscription dropdown or manually using its Storage account resource ID. Choose which container you wish the events to occur on. Container selection is optional, but be mindful that selecting all containers can lead to a large number of events.
 
 > [!NOTE]
 > The Event Trigger currently supports only version 2 Storage accounts (General purpose).
@@ -50,20 +50,20 @@ This section shows you how to create an event trigger within the Azure Data Fact
 
 6. The **Blob path begins with** and **Blob path ends with** properties allow you to specify the containers, folders, and blob names for which you want to receive events. Your event trigger requires at least one of these properties to be defined. You can use variety of patterns for both **Blob path begins with** and **Blob path ends with** properties, as shown in the examples later in this article.
 
-    * **Blob path begins with:** The blob path must start with a folder path. Valid values include `2018/` and `2018/april/shoes.csv`. This field cannot be selected if a container is not selected.
+    * **Blob path begins with:** The blob path must start with a folder path. Valid values include `2018/` and `2018/april/shoes.csv`. This field can't be selected if a container isn't selected.
     * **Blob path ends with:** The blob path must end with a file name or extension. Valid values include `shoes.csv` and `.csv`. Container and folder name are optional but, when specified, they must be separated by a `/blobs/` segment. For example, a container named 'orders' can have a value of `/orders/blobs/2018/april/shoes.csv`. To specify a folder in any container, omit the leading '/' character. For example, `april/shoes.csv` will trigger an event on any file named `shoes.csv` in folder a called 'april' in any container. 
 
 7. Select whether your trigger will respond to a **Blob created** event, **Blob deleted** event, or both. In your specified storage location, each event will trigger the Data Factory pipelines associated with the trigger.
 
     ![Configure the event trigger](media/how-to-create-event-trigger/event-based-trigger-image2.png)
 
-8. Once you have configured, click on **Next: Data preview**. This screen shows the existing blobs matched by your event trigger configuration. Make sure you have specific filters. Configuring filters that are too broad will match a larger amount of files created/deleted in the container, and this can significantly impact your cost. Once you have verified your filter conditions, click **Save** in the bottom right hand corner.
+8. Once you've configured you trigger, click on **Next: Data preview**. This screen shows the existing blobs matched by your event trigger configuration. Make sure you've specific filters. Configuring filters that are too broad can match a large number of files created/deleted and may significantly impact your cost. Once your filter conditions have been verified, click **Finish**.
 
     ![Event trigger data preview](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
-9. To attach a pipeline to this trigger, go to the pipeline canvas and click **Add trigger** adn select **New/Edit**. When the sidenav appears, click on the **Choose trigger...** dropdown and select the trigger you just created. Click **Next: Data preview** to confirm the configuration is correct and then **Next** to validate the Data preview is correct.
+9. To attach a pipeline to this trigger, go to the pipeline canvas and click **Add trigger** and select **New/Edit**. When the side nav appears, click on the **Choose trigger...** dropdown and select the trigger you created. Click **Next: Data preview** to confirm the configuration is correct and then **Next** to validate the Data preview is correct.
 
-10. If your pipeline has parameters, you can specify them on the trigger runs parameter sidenav. The event trigger captures the folder path and file name of the blob into the properties `@triggerBody().folderPath` and `@triggerBody().fileName`. To use the values of these properties in a pipeline, you must map the properties to pipeline parameters. After mapping the properties to parameters, you can access the values captured by the trigger through the `@pipeline().parameters.parameterName` expression throughout the pipeline. Click **Finish** once you are done.
+10. If your pipeline has parameters, you can specify them on the trigger runs parameter side nav. The event trigger captures the folder path and file name of the blob into the properties `@triggerBody().folderPath` and `@triggerBody().fileName`. To use the values of these properties in a pipeline, you must map the properties to pipeline parameters. After mapping the properties to parameters, you can access the values captured by the trigger through the `@pipeline().parameters.parameterName` expression throughout the pipeline. Click **Finish** once you are done.
 
     ![Mapping properties to pipeline parameters](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
