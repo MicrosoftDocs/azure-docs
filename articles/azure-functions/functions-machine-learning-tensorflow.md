@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Make machine learning predictions with TensorFlow and Azure Functions
 
-In this tutorial, you'll learn how Azure Functions allows you to import a machine learning model and use it with TensorFlow to make predictions.
+In this tutorial, you learned how to build and customize an HTTP API with Azure Functions to make predictions using a TensorFlow model.
 
 By the end of tutorial, you'll be able to: 
 
