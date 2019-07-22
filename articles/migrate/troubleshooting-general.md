@@ -4,8 +4,8 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/19/2019
-ms.author: musa
+ms.date: 07/22/2019
+ms.author: raynew
 ---
 
 # Troubleshoot Azure Migrate
@@ -49,6 +49,10 @@ Follow the below steps to create a new Azure Migrate project.
 
    ![Create a second Azure Migrate project](./media/troubleshooting-general/create-new-project.png)
 
+### Which Azure geographies are supported by Azure Migrate?
+
+You can find the list for [VMware here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and for [Hyper-V here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
+
 ### Deletion of Azure Migrate projects and associated Log Analytics workspace
 
 When you delete an Azure Migrate project, it deletes the migration project along with the metadata about discovered machines. However, if you have attached a Log Analytics workspace to the Server Assessment tool, it does not automatically delete the Log Analytics workspace. This is because the same Log Analytics workspace might be used for multiple use cases. If you would like to delete the Log Analytics workspace as well, you need to do it manually.
@@ -71,7 +75,7 @@ Once the invitation email is received, you need to open the email and click the 
 
 ### Deployment of Azure Migrate appliance for VMware failed with the error: The provided manifest file is invalid: Invalid OVF manifest entry.
 
-1. Verify if Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. Refer to the [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) to verify the hash value. If the hash value is not matching, download the OVA file again and retry the deployment.
+1. Verify if Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. Refer to the [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware) to verify the hash value. If the hash value is not matching, download the OVA file again and retry the deployment.
 2. If it still fails and if you are using VMware vSphere Client to deploy the OVF, try deploying it through vSphere Web Client. If it still fails, try using different web browser.
 3. If you are using vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on ESXi host by following the below steps:
    - Connect to the ESXi host directly (instead of vCenter Server) using the web client (https://<*host IP Address*>/ui).
@@ -163,15 +167,15 @@ It takes up to 30 minutes for the discovery data gathered by the appliance to re
 4. Wait for the refresh operation to complete. You should now see up-to-date information on your VMs.
 
 ### Unable to connect to host(s) or cluster as the server name cannot be resolved. WinRM error code: 0x803381B9 (Error ID: 50004)
-This error occurs if the DNS serving the appliance cannot resolve the cluster or host name you provided. If you see this error on the cluster, try providing the fully qualified domain name of the cluster. 
+This error occurs if the DNS serving the appliance cannot resolve the cluster or host name you provided. If you see this error on the cluster, try providing the fully qualified domain name of the cluster.
 
-You may see this error for hosts in a cluster as well. In this case, the appliance could connect to the cluster. But the cluster has returned the host names that aren't fully qualified domain names. 
+You may see this error for hosts in a cluster as well. In this case, the appliance could connect to the cluster. But the cluster has returned the host names that aren't fully qualified domain names.
 
 To resolve this error, update the hosts file on the appliance adding a mapping of the IP address and host names.
 1. Open Notepad as administrator user. Open the file C:\Windows\System32\Drivers\etc\hosts.
 2. Add the IP address and host name in a row. Repeat for each host or cluster where you see this error.
 3. Save and close hosts file.
-4. You can check if the appliance can connect to the hosts using the appliance management app. After 30 minutes, you should be able to see the latest information on these hosts on the Azure portal. 
+4. You can check if the appliance can connect to the hosts using the appliance management app. After 30 minutes, you should be able to see the latest information on these hosts on the Azure portal.
 
 
 ## Assessment issues
@@ -219,8 +223,11 @@ The disk sizing in Server Assessment depends on two assessment properties - sizi
 
 For example, if you have an on-premises disk with 32-GB memory, but the aggregated read and write IOPS for the disk is 800 IOPS, Server Assessment will recommend a premium disk type (due to the higher IOPS requirements) and then recommend a disk SKU, which can support the required IOPS and size. The nearest match in this example would be P15 (256 GB, 1100 IOPS). So even though the size required by the on-premises disk was 32 GB, Server Assessment recommended a disk with bigger size due to the high IOPS requirement of the on-premises disk.
 
+### Why does my assessment report say 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' for some VMs?
+The above issues are listed when the Azure Migrate appliance cannot collect performance data for the on-premises VMs. This can happen if the VMs are powered off for the duration for which you are creating the assessment (last one day/one week/one month) as the appliance cannot collect performance data for a VM, when it is powered off. If only memory counters are missing and you are trying to assess Hyper-V VMs, check if you have dynamic memory enabled on these VMs. There is a known issue currently due to which Azure Migrate appliance cannot collect memory utilization for VMs which do not have dynamic memory enabled. Note that the issue is only there for Hyper-V VMs and not there for VMware VMs. If any of the performance counters are missing, Azure Migrate: Server Assessment falls back to the allocated cores/memory and recommends a VM size accordingly.
+
 ### Is the OS license cost of the VM included in the Compute cost estimated by Server Assessment?
-Server Assessment currently only considers the OS license cost for Windows machines, OS license cost for Linux machines is not considered currently. 
+Server Assessment currently only considers the OS license cost for Windows machines, OS license cost for Linux machines is not considered currently.
 
 ### What impact does performance history and percentile utilization have on the size recommendations?
 These properties are only applicable for 'Performance-based' sizing. Server Assessment continuously collects performance data of on-premises machines and uses it to recommend the VM SKU and disk SKU in Azure. Below is how performance data is collected by Server Assessment:

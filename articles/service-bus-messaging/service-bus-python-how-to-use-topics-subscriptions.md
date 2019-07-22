@@ -137,7 +137,8 @@ The following example demonstrates how to send five test messages to `mytopic`. 
 
 ```python
 for i in range(5):
-    msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
+    msg = Message('Msg {0}'.format(i).encode('utf-8'),
+                  custom_properties={'messagenumber': i})
     bus_service.send_topic_message('mytopic', msg)
 ```
 
@@ -149,7 +150,8 @@ a maximum size of 64 KB. There is no limit on the number of messages held in a t
 Messages are received from a subscription using the `receive_subscription_message` method on the **ServiceBusService** object:
 
 ```python
-msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
+msg = bus_service.receive_subscription_message(
+    'mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
