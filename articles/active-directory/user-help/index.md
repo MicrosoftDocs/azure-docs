@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # User help for authentication, apps, and device management
 
-We've created this content to help you set up and use security info, such as two-step verification, learn how to reset your own passwords, set up and join your Azure Active Directory devices, and set up and use the Microsoft Authenticator app and the My Apps portal.
+We've created this content to help you set up and use security info and two-step verification, reset your own passwords, set up and join your Azure Active Directory devices, and set up and use the Microsoft Authenticator app and the My Apps portal.
 
 |  |
 |--|
