@@ -34,7 +34,7 @@ The main differences monitoring a Windows Server cluster with Azure Monitor for 
 
 Check out the following video providing an intermediate level deep dive to help you learn about monitoring and logging your AKS cluster with Azure Monitor for containers.
 
-> [!VIDEO https://www.youtube.com/watch?v=RjsNmapggPU&t=995s]
+> [!VIDEO https://www.youtube.com/embed/_RjsNmapggPU&t=995s]
 
 ## Sign in to the Azure portal
 
