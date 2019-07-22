@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/19/2019
+ms.date: 07/22/2019
 ms.author: antchu
 ms.custom: mvc
 ---
 
 # Make machine learning predictions with TensorFlow and Azure Functions
 
-In this tutorial, you'll learn how Azure Functions allows you to import a TensorFlow machine learning model and apply it to make predictions.
+In this tutorial, you'll learn how Azure Functions allows you to import a machine learning model and use it with TensorFlow to make predictions.
 
 > [!div class="checklist"]
 > * Initialize a local environment for developing Azure Functions in Python
@@ -33,11 +33,11 @@ To create Azure Functions in Python, you need to install a few tools.
 - [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 - A code editor
 
-You may use any editor of your choice. [Visual Studio Code](https://code.visualstudio.com/) with the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extensions is recommended.
+You may use any editor of your choice. We recommend [Visual Studio Code](https://code.visualstudio.com/) with the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extensions.
 
 ## Clone the tutorial repository
 
-Open a terminal and clone the repository using Git. If you don't have Git, you can browse to the [GitHub repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial) and download it as a zip file.
+Open a terminal and clone the repository using Git.
 
 ```bash
 git clone https://github.com/Azure-Samples/functions-python-tensorflow-tutorial.git
@@ -48,16 +48,14 @@ The repository contains a few folders.
 
 - **start** - you'll be creating your function app here
 - **end** - for your reference, the finished function app
-- **resources** - TensorFlow model and helper libraries
-- **frontend** - a frontend website that calls the function app
+- **resources** - machine learning model and helper libraries
+- **frontend** - a web frontend that calls the function app
 
 ## Create and activate a Python virtual environment
 
 Azure Functions requires Python 3.6.x. We recommend creating a virtual environment to ensure you're using the required Python version.
 
-Identify the path to the Python executable that you'll use to create the virtual environment. Commonly, it's available as `python` or `python3`.
-
-Change into the **start** folder and create a virtual environment named **.env**. Replace `python` with the path to Python 3.6.x. If you have the Python Launcher `py` installed on Windows, replace `python` with `py -3.6`.
+Change the current working directory to the **start** folder and create a virtual environment named **.env**. Replace `python` with the path to Python 3.6.x on your machine.
 
 ```bash
 cd start
@@ -78,7 +76,7 @@ source .env/bin/activate
 .env\Scripts\activate
 ```
 
-The terminal prompt is now prefixed with `(.env)` that indicates you have properly activated the virtual environment. Confirm that `python` in the virtual environment is indeed Python 3.6.x.
+The terminal prompt is now prefixed with `(.env)` that indicates you have successfully activated the virtual environment. Confirm that `python` in the virtual environment is indeed Python 3.6.x.
 
 ```bash
 python --version
@@ -118,7 +116,7 @@ A new folder named **classify** is created, containing two files.
 
 ### Change the function authentication level
 
-By default, the function is configured with an authentication level of *function* that requires an authentication code to be included in each HTTP request. To allow anonymous requests, open **function.json** and change the `authLevel` to `anonymous`.
+By default, the function is configured with an authentication level of *function* that requires an authentication code to be included in every HTTP request. To allow anonymous requests, open **function.json** and change the `authLevel` of the HTTP trigger to `anonymous`.
 
 ```json
 {
@@ -181,7 +179,7 @@ copy ..\resources\predict.py classify
 
 ### Install dependencies
 
-The helper library has some dependencies that need to be installed. In the terminal with the virtual environment activated, run these commands in the function app root that contains *requirements.txt*.
+The helper library has some dependencies that need to be installed. In the terminal with the virtual environment activated, run the following commands in the function app folder that contains *requirements.txt*.
 
 ```bash
 pip install tensorflow
@@ -197,18 +195,18 @@ pip freeze > requirements.txt
 
 ### Caching the model in global variables
 
-In the editor, open **predict.py** and look at the `_initialize` function near the top of the file. Notice that the TensorFlow model is loaded from disk the first time the function is executed and save to global variables. The loading from disk is skipped in subsequent executions of the `_initialize` function. Caching the model in memory with this technique speeds up later predictions.
+In the editor, open **predict.py** and look at the `_initialize` function near the top of the file. Notice that the TensorFlow model is loaded from disk the first time the function is executed and saved to global variables. The loading from disk is skipped in subsequent executions of the `_initialize` function. Caching the model in memory with this technique speeds up later predictions.
 
 ## Update function to run predictions
 
-Open **classify/\_\_init\_\_.py** in your editor. Import the **predict** library that you added to the same folder earlier. Add the following `import` statements below the other imports in the file.
+Open **classify/\_\_init\_\_.py** in your editor. Import the *predict* library that you added to the same folder earlier. Add the following `import` statements below the other imports already in the file.
 
 ```python
 import json
 from .predict import predict_image_from_url
 ```
 
-Replace the function body to the following.
+Replace the function body with the following.
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -222,12 +220,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     return func.HttpResponse(json.dumps(results), headers = headers)
 ```
 
-The function receives an image URL in a query string parameter named `img`. The imported `predict_image_from_url` function downloads the image and predicts the result with the TensorFlow model. The function then returns an HTTP response with the results.
+This function receives an image URL in a query string parameter named `img`. It calls `predict_image_from_url` from the helper library that downloads the image and returns a prediction using the TensorFlow model. The function then returns an HTTP response with the results.
 
-Because the HTTP endpoint will be called by a web page hosted on another domain, the HTTP response includes an `Access-Control-Allow-Origin` header to satisfy the browser's Cross-Origin Resource Sharing requirements.
+Because the HTTP endpoint will be called by a web page hosted on another domain, the HTTP response includes an `Access-Control-Allow-Origin` header to satisfy the browser's Cross-Origin Resource Sharing (CORS) requirements.
 
 > [!NOTE]
-> In a production application, consider changing `*` to a specific origin for added security.
+> In a production application, consider changing `*` to the web page's specific origin for added security.
 
 ### Test the function app
 
@@ -237,7 +235,11 @@ Ensure the Python virtual environment is still activated. Start the function app
 func start
 ```
 
-In a browser, open this URL: http://localhost:7071/api/classify?img=.... Confirm that a valid prediction result is returned.
+In a browser, open this URL that calls your function with a photo of a cat. Confirm that a valid prediction result is returned.
+
+```
+http://localhost:7071/api/classify?img=https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/raw/master/resources/assets/samples/image1.jpg
+```
 
 Keep the function app running.
 
@@ -256,7 +258,7 @@ In a browser, navigate to the HTTP server's URL. A web app should appear. Find a
 
 ## Next steps
 
-In this tutorial, you learned how to build and customize an HTTP API on Azure Functions to make predictions using TensorFlow. You also learned how to call the API using a web application. You can use these techniques to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
+In this tutorial, you learned how to build and customize an HTTP API with Azure Functions to make predictions using TensorFlow. You also learned how to call the API from a web application. You can use these techniques to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
 
 The following references may be helpful as you develop your application further:
 
