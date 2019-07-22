@@ -69,7 +69,8 @@ After signing up:
 
 * Please refer to this technical blog [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) about the algorithms under the hood.
 * Please refer to this paper [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (accepted by KDD 2019) for the cutting-edge SR-CNN algorithms developed by Microsoft.
-[![Time-Series Anomaly Detection Service at Microsoft](media/srcnn.png)](http://www.youtube.com/watch?v=ERTaAnwCarM "Time-Series Anomaly Detection Service at Microsoft")
+
+> [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 
 ## Next steps
 
