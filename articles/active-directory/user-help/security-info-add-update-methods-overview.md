@@ -1,6 +1,6 @@
 ---
-title: Overview about changing your security info (preview) methods and information - Azure Active Directory | Microsoft Docs
-description: Overview about how to add, update, and delete your security info methods for two-factor verification and self-service passsword reset.
+title: Overview of changing your security info (preview) methods and information - Azure Active Directory | Microsoft Docs
+description: Overview about how to add, update, and delete your security info methods for two-factor verification and self-service password reset.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,7 +15,7 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Overview about changing your security info (preview) methods and information
+# Overview of changing your security info (preview) methods and information
 You can add, edit, delete, and change your default security info method from within the **Security info** pages. For more information about each method and how to change your information, see the associated, method-based article.
 
 ## Two-factor verification versus password reset authentication
