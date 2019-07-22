@@ -78,31 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** initiated mode, perform the following steps:
-
-	a. Click **Upload metadata file**.
-
-    ![Upload metadata file](common/upload-metadata.png)
-
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
-
-	![choose metadata file](common/browse-upload-metadata.png)
-
-	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
-
-	![image](common/idp-intiated.png)
-
-	> [!Note]
-	> You will get the **Service Provider metadata file** whcih is explained later in the tutorial. If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-	![image](common/metadata-upload-additional-signon.png)
-
-	In the **Sign-on URL** text box, type a URL:
-    `https://www.amazon.com/`
-
-1. If you do not have the **Service Provider metadata file**, on the **Basic SAML Configuration** section, if you wish to configure in **IDP** initiated mode, perform the following steps:
+1. On the **Basic SAML Configuration** section, if you wish to configure in **IDP** initiated mode, perform the following steps:
 
 	1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 	
@@ -116,12 +92,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	   | | |
 	   |-|-|
-	   | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid=<UNIQUEID>`|
-	   | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid=<UNIQUEID>`|
-	   | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid=<UNIQUEID>`|
+	   | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid=`<idpid>`|
+	   | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid=`<idpid>`|
+	   | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid=`<idpid>`|
 
 	   > [!NOTE]
-       > The Reply URL value is not real. Update this value with the actual Reply URL. Contact [Amazon Business Client support team](https://www.amazon.com/gp/help/customer/contact-us) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+       > The Reply URL value is not real. Update this value with the actual Reply URL. Contact [Amazon Business Client support team](https://www.amazon.com/gp/help/customer/contact-us) to get this value. You will get the `<idpid>` value from the Amazon configure section, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -144,41 +120,31 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![User Profile](media/amazon-business-tutorial/user-profile.png)
 
-1. Scroll down to **System integrations** and select **Single Sign-On (SSO)**.
+1. On the **System integrations** wizard, select **Single Sign-On (SSO)**.
 
 	![Single Sign-On (SSO)](media/amazon-business-tutorial/sso-settings.png)
 
-1. On the **New user account defaults**, click on the **Edit**.
+1. On the **Set up SSO** wizard, select your provider according your organization requirements and click **Next**.
 
 	![Default group](media/amazon-business-tutorial/default-group1.png)
 
-1. On the **New user account defaults**, perform the following steps:
+1. On the **New user account defaults** wizard, Select **Default Buying Role** according to your organization and click **Next**.
 
 	![Default group](media/amazon-business-tutorial/dafault-group2.png)
 
-	1. Select the group according to your organization.
-
-	1. Select **Requisitioner** for the **Default Group**.
-
-	1. Click **Save**.
-
-1. Scroll down to **Connection data** and click **Edit**.
+1. On the **Upload your metadata file** wizard, click **Browse** to upload the **Metadata XML** file, which you have downloaded from the Azure portal and click **Upload**.
 
 	![Connection Data](media/amazon-business-tutorial/connection-data1.png)
 
-1. On the **Connection data** section, perform the following steps:
+1. After uploading the downloaded metadata file, the fields in the **Connection data** section will populate automatically. and click **Next**.
 
 	![Connection Data](media/amazon-business-tutorial/connection-data2.png)
 
-	1. Click on **upload a new metadata file** and upload the **Metadata XML** file, which you have downloaded from the Azure portal. After uploading the metadata file, the fields in the **Connection data** section will populate automatically.
-
-	1. Click **Save**.
-
-1. Scroll down to **Attribute mapping** section and click **Edit**.
+1. On the **Upload your Attribute statement** wizard, click **Skip**.
 
 	![Attributes](media/amazon-business-tutorial/map-attribute1.png)
 
-1. On the **Attribute mapping** section, add the requirements fields by clicking the **+ Add a field** option and click **Save**.
+1. On the **Attribute mapping** wizard, add the requirements fields by clicking the **+ Add a field** option and click **Next**.
 
 	![Attributes](media/amazon-business-tutorial/map-attribute2.png)
 
@@ -186,9 +152,28 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Attributes](media/amazon-business-tutorial/map-attribute3.png)
 
-1. Scroll down to **Amazon connection data** and click on the **Download** to download the **Metadata XML file**. Use this **Metadata XML file** on the **Basic SAML Configuration** section.
+1. On the **Amazon connection data** wizard, click **Next**.
 
 	![Connection](media/amazon-business-tutorial/amazon-connect.png)
+
+1. Please check the **Status** of the steps upto now we have configured and click **Start testing**.
+
+	![Connection](media/amazon-business-tutorial/sso-connection1.png)
+
+1. On the **Test SSO Connection** wizard, click **Test**.
+
+	![Connection](media/amazon-business-tutorial/sso-connection2.png)
+
+1. On the **IDP initiated URL** wizard, copy the value which is assiged to **idpid** and paste into the **idpid** parameter in the **Reply URL** in the **Basic SAML Configuration** section in the Azure portal and then click **Activate**.
+
+	![Connection](media/amazon-business-tutorial/sso-connection3.png)
+
+1. On the **Are you ready to witch to active  SSO?** wizard, check **I have fully tested SSO and am ready to give** checkbox and click on **Switch to active**.
+
+	![Connection](media/amazon-business-tutorial/sso-connection4.png)
+
+1. Finally it displays the **SSO Connection Details** status as Active.
+	![Connection](media/amazon-business-tutorial/sso-connection5.png)
 
 ### Create an Azure AD test user
 
@@ -222,15 +207,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Amazon Business test user
 
-1. In a different web browser window, sign in to your Amazon Business company site as an administrator.
-
-1. Click on the **Add people**.
-
-	![Copy configuration URLs](media/amazon-business-tutorial/add-user1.png)
-
-1. Enter the email address of the user you want to add like **B.Simon@contoso.com** and assign the roles as per the your organization.
-
-	![Copy configuration URLs](media/amazon-business-tutorial/add-user2.png)
+In this section, a user called Britta Simon is created in Amazon Business. Amazon Business supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Amazon Business, a new one is created after authentication.
 
 ### Test SSO
 
