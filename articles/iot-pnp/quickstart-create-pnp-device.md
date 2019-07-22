@@ -20,7 +20,7 @@ A _device capability model_ (DCM) describes the capabilities of a plug and play 
 
 To complete this quickstart, you need to install the following software on your local machine:
 
-* [Visual Studio](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/).
+* [Visual Studio](https://www.visualstudio.com/vs/) with the [Desktop development with C++](https://visualstudio.microsoft.com/vs/support/hello-world-c-using-visual-studio-2017/).
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 * [Visual Studio Code](https://code.visualstudio.com/).
@@ -30,7 +30,7 @@ To complete this quickstart, you need to install the following software on your 
 Install the Azure IoT Device Workbench extension from a .vsix file. Use the following steps to install the extension in VS Code. The extension can't be installed from Windows Explorer:
 
 1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr). Latest version: `0.10.8`.
-1. In VS Code, select **Extensions ** tab.
+1. In VS Code, select **Extensions** tab.
 1. Select **Install from VSIX**.
     ![Install Azure IoT Device Workbench extension](media/quickstart-create-pnp-device/install-vsix.png)
 1. Select the .vsix file you downloaded.
@@ -94,23 +94,6 @@ In this quickstart, you use an existing sample device capability model and assoc
 
     ![Device capability model](media/quickstart-create-pnp-device/dcm.png)
 
-## Publish device model files to model repository
-
-The device capability model and interface files are required to publish to your organizational model repository to be used for validation with **Azure IoT Explorer**. You can publish the files within VS Code.
-
-1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
-
-1. Select `SampleDevice.capabilitymodel.json` and `EnvironmentalSensor.interface.json` files.
-
-1. Enter your organizational Model Repository connection string, which you can get from [Azure Device Builder](https://aka.ms/adbtest) portal with signed in with a Microsoft work or school account, or your Microsoft Partner ID if you have one.
-
-    > [!NOTE]
-    > The connection string is required for the first time.
-
-1. In VS Code output window and notification, you can check the files have been published successfully.
-
-    > [!NOTE]
-    > If you get errors on publishing the device model files, you can try use command **IoT Plug and Play: Sign out Model Repository** to sign out and go through the steps again.
 
 ## Generate the C code stub
 
@@ -176,7 +159,25 @@ You use the device SDK to build the generated device code stub. The application 
 
 ## Validate the code
 
-Use the Azure IoT explorer to validate the code:
+### Publish device model files to model repository
+
+In order to validation the device code with **Azure IoT Explorer**, You need to publish the files to the model repository.
+
+1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
+
+1. Select `SampleDevice.capabilitymodel.json` and `EnvironmentalSensor.interface.json` files.
+
+1. Enter your organizational Model Repository connection string, which you can get from [Azure Device Builder](https://aka.ms/adbtest) portal with signed in with a Microsoft work or school account, or your Microsoft Partner ID if you have one.
+
+    > [!NOTE]
+    > The connection string is required for the first time.
+
+1. In VS Code output window and notification, you can check the files have been published successfully.
+
+    > [!NOTE]
+    > If you get errors on publishing the device model files, you can try use command **IoT Plug and Play: Sign out Model Repository** to sign out and go through the steps again.
+
+### Use the Azure IoT explorer to validate the code:
 
 1. Open Azure IoT explorer, you see the **App configurations** page.
 1. Enter your IoT Hub connection string and click **Connect**.
