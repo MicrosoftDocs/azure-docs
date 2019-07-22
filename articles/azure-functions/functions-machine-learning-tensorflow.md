@@ -20,7 +20,7 @@ In this tutorial, you'll learn how Azure Functions allows you to import a machin
 > [!div class="checklist"]
 > * Initialize a local environment for developing Azure Functions in Python
 > * Import a custom TensorFlow machine learning model into a function app
-> * Build a serverless HTTP API for predicting of a photo contains a dog or a cat
+> * Build a serverless HTTP API for predicting whether a photo contains a dog or a cat
 > * Consume the API from a web application
 
 ![Screenshot of finished project](media/functions-machine-learning-tensorflow/screenshot.png)
