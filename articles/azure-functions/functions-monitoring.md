@@ -148,9 +148,9 @@ You can use Application Insights without any custom configuration. The default c
 
 The Azure Functions logger includes a *category* for every log. The category indicates which part of the runtime code or your function code wrote the log. 
 
-The Functions runtime creates logs with a category that begin with "Host." The "function started," "function executed," and "function completed" logs have the category "Host.Executor." 
+The Functions runtime creates logs with a category that begin with "Host." In v1, The "function started," "function executed," and "function completed" logs have the category "Host.Executor." Starting in v2, these logs have the category "Function.<Your Function Name>".
 
-If you write logs in your function code, their category is "Function."
+If you write logs in your function code, their category is "Function." in v1. In v2, their category is "Function.<Your Function Name>.User".
 
 ### Log levels
 
