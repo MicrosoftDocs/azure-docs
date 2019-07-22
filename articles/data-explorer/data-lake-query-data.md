@@ -68,7 +68,7 @@ You can create an external table with json format. For more information see [Ext
     ) 
     ```
  
-1. Use specific json mapping named *mappingName* with `.create external table`:
+1. Json format necessitates a second step of mapping to columns as shown below. If mapping name is not specified, a mapping that you previously created will be used. In the following query, use a specific json mapping named *mappingName* with `.create external table`:
 
     ```kusto
     .create external table ExternalTableJson json mapping "mappingName" '[{ "column" : "rownumber", "datatype" : "int", "path" : "$.rownumber"},{ "column" : "rowguid", "path" : "$.rowguid" }]' 
