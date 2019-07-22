@@ -124,7 +124,7 @@ Cognitive Services that provide exported models for other machine learning tools
 
 ## Next steps
 
-* Create your Cognitive Service account in the [Azure portal](cognitive-services-apis-create-account.md) or with [Azure CLI](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account-cli).
+* Create your Cognitive Service account in the [Azure portal](cognitive-services-apis-create-account.md) or with [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
 * Learn how to [authenticate](authentication.md) to an Cognitive Service.
 * Use [diagnostic logging](diagnostic-logging.md) for issue identification and debugging. 
 * Deploy a Cognitive Service in a Docker [container](cognitive-services-container-support.md).
