@@ -155,17 +155,17 @@ You can, but AKS does not recommend this. Upgrades should ideally be performed w
 
 No, please delete/remove any nodes in a failed state or otherwise removed from the cluster prior to upgrading.
 
-## I ran a cluster delete, but got an error `[Errno 11001] getaddrinfo failed'` 
+## I ran a cluster delete, but see the error `[Errno 11001] getaddrinfo failed` 
 
 Most commonly, this is caused by users having one or more Network Security Groups (NSGs) still in use and associated with the cluster.  Please remove them and attempt the delete again.
 
 ## I ran an upgrade, but now my pods are in crash loops, and readiness probes fail?
 
-Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) and [AKS update credentials](https://docs.microsoft.com/en-us/azure/aks/update-credentials)
+Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) and [AKS update credentials](https://docs.microsoft.com/en-us/azure/aks/update-credentials).
 
 ## My cluster was working, but suddenly can not provision LoadBalancers, mount PVCs, etc.? 
 
-Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal)  and [AKS update credentials](https://docs.microsoft.com/en-us/azure/aks/update-credentials)
+Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal)  and [AKS update credentials](https://docs.microsoft.com/en-us/azure/aks/update-credentials).
 
 ## Can I use VMSS APIs to scale manually?
 
