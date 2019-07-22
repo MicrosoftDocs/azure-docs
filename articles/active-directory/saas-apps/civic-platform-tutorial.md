@@ -131,7 +131,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![The Certificate download link](media/civic-platform-tutorial/sso-config.png)
 
-1. Expand ‘SSOCONFIG’ by clicking on red dot.
+1. Expand SSOCONFIG by clicking on red dot.
 
     ![The Certificate download link](media/civic-platform-tutorial/sso-config01.png)
 
