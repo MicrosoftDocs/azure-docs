@@ -42,10 +42,10 @@ You can turn on two-factor verification for many accounts that you use every day
 
 |Article |Description |
 |------|------------|
-|[Add your work or school account](user-help-auth-app-add-work-school-account.md)|Describes how to add your work or school account to the Microsoft Authenticator app for two-factor verification.|
-|[Add your personal Microsoft account](user-help-auth-app-add-personal-ms-account.md)|Describes how to add your Microsoft personal accounts for two-factor verification and phone sign-in (also known as passwordless sign-in).|
-|[Add your non-Microsoft account](user-help-auth-app-add-non-ms-account.md)|Describes how to add your non-Microsoft personal accounts for two-factor verification.|
-|[Manually add your account](user-help-auth-app-add-account-manual.md)|Describes how to manually add your account to the Microsoft Authenticator app if your camera can't capture the QR code.|
+| [Add your work or school account](user-help-auth-app-add-work-school-account.md) ]Describes how to add your work or school account to the Microsoft Authenticator app for two-factor verification.|
+| [Add your personal Microsoft account](user-help-auth-app-add-personal-ms-account.md) ]Describes how to add your Microsoft personal accounts for two-factor verification and phone sign-in (also known as passwordless sign-in).|
+| [Add your non-Microsoft account](user-help-auth-app-add-non-ms-account.md) ]Describes how to add your non-Microsoft personal accounts for two-factor verification.|
+| [Manually add your account](user-help-auth-app-add-account-manual.md) ]Describes how to manually add your account to the Microsoft Authenticator app if your camera can't capture the QR code.|
 
 
 
