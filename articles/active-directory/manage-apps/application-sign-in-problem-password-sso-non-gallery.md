@@ -1,5 +1,5 @@
 ---
-title: Use password-based single sign-on (SSO) in the Access Panel | Microsoft Docs
+title: Password-based single sign-on (SSO) in Access Panel | Microsoft Docs
 description: Discusses problem areas that provide guidance to troubleshoot issues related to signing in to Azure AD Gallery applications configured for password single sign-on.
 services: active-directory
 documentationcenter: ''
