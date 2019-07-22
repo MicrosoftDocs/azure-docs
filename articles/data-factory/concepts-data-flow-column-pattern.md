@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory Mapping Data Flow Column Patterns
-description: Learn how to use Azure Data Factory Column Patterns in Mapping Data Flow to create generalized template patterns for transforming fields in a data flow without regard to the underlying schema metadata
+description: Create generalized data transformation patterns using Azure Data Factory Column Patterns in Mapping Data Flows
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -22,6 +22,16 @@ When adding an expression to a transform that accepts patterns, choose "Add Colu
 
 When building template column patterns, use `$$` in the expression to represent a reference to each matched field from the input data stream.
 
-If you choose to use one of the Expression Builder regex functions, you can then subsequently use $1, $2, $3 ... to reference the sub-patterns matched from your regex expression.
+If you choose to use one of the Expression Builder regex functions, you can then subsequently use $1, $2, $3 ... to reference the subpatterns matched from your regex expression.
 
 An example of Column Pattern scenario is using SUM with a series of incoming fields. The aggregate SUM calculations are in the Aggregate transformation. You can then use SUM on every match of field types that match "integer" and then use $$ to reference each match in your expression.
+
+## Match columns
+![column pattern types](media/data-flow/pattern2.png "Pattern types")
+
+To build patterns based on columns, you can match on column name, type, stream, or position and use any combination of those with expression functions and regular expressions.
+
+![column position](media/data-flow/position.png "Column position")
+
+## Next steps
+Learn more about the ADF Mapping Data Flow [expression language](https://aka.ms/dataflowexpressions) for data transformations

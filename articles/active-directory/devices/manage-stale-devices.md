@@ -145,6 +145,13 @@ The timestamp is updated to support device lifecycle scenarios. This is not an a
 
 When configured, BitLocker keys for Windows 10 devices are stored on the device object in Azure AD. If you delete a stale device, you also delete the BitLocker keys that are stored on the device. You should determine whether your cleanup policy aligns with the actual lifecycle of your device before deleting a stale device. 
 
+### Why should I worry about Windows Autopilot devices?
+
+When a Azure AD device was associated with a Windows Autopilot object the following three scenarios can occur if the device will be re-purposed in future:
+- With Windows Autopilot user-driven deployments without using white glove, a new Azure AD device will be created, but it won’t be tagged with the ZTDID.
+- With Windows Autopilot self-deploying mode deployments, they will fail because an associate Azure AD device cannot be found.  (This is a security mechanism to make sure that no “imposter” devices try to join Azure AD with no credentials.) The failure will indicate a ZTDID mismatch.
+- With Windows Autopilot white glove deployments, they will fail because an associated Azure AD device cannot be found. (Behind the scenes, white glove deployments use the same self-deploying mode process, so they enforce the same security mechanisms.)
+
 ### How do I know all the type of devices joined?
 
 To learn more about the different types, see the [device management overview](overview.md).

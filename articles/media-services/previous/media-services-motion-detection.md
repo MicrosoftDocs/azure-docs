@@ -13,7 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/19/2019
-ms.author: milanga;juliako;
+ms.author: juliako
+ms.reviewer: milanga
 
 ---
 # Detect Motions with Azure Media Analytics
@@ -90,20 +91,20 @@ The following table describes elements of the output JSON file.
 
 | Element | Description |
 | --- | --- |
-| Version |This refers to the version of the Video API. The current version is 2. |
-| Timescale |"Ticks" per second of the video. |
-| Offset |The time offset for timestamps in "ticks." In version 1.0 of Video APIs, this will always be 0. In future scenarios we support, this value may change. |
-| Framerate |Frames per second of the video. |
-| Width, Height |Refers to the width and height of the video in pixels. |
-| Start |The start timestamp in "ticks". |
-| Duration |The length of the event, in "ticks". |
-| Interval |The interval of each entry in the event, in "ticks". |
-| Events |Each event fragment contains the motion detected within that time duration. |
-| Type |In the current version, this is always ‘2’ for generic motion. This label gives Video APIs the flexibility to categorize motion in future versions. |
-| RegionID |As explained above, this will always be 0 in this version. This label gives Video API the flexibility to find motion in various regions in future versions. |
-| Regions |Refers to the area in your video where you care about motion. <br/><br/>-"id" represents the region area – in this version there is only one, ID 0. <br/>-"type" represents the shape of the region you care about for motion. Currently, "rectangle" and "polygon" are supported.<br/> If you specified "rectangle", the region has dimensions in X, Y, Width, and Height. The X and Y coordinates represent the upper left-hand XY coordinates of the region in a normalized scale of 0.0 to 1.0. The width and height represent the size of the region in a normalized scale of 0.0 to 1.0. In the current version, X, Y, Width, and Height are always fixed at 0, 0 and 1, 1. <br/>If you specified "polygon", the region has dimensions in points. <br/> |
-| Fragments |The metadata is chunked up into different segments called fragments. Each fragment contains a start, duration, interval number, and event(s). A fragment with no events means that no motion was detected during that start time and duration. |
-| Brackets [] |Each bracket represents one interval in the event. Empty brackets for that interval means that no motion was detected. |
+| version |This refers to the version of the Video API. The current version is 2. |
+| timescale |"Ticks" per second of the video. |
+| offset |The time offset for timestamps in "ticks." In version 1.0 of Video APIs, this will always be 0. In future scenarios we support, this value may change. |
+| framerate |Frames per second of the video. |
+| width, height |Refers to the width and height of the video in pixels. |
+| start |The start timestamp in "ticks". |
+| duration |The length of the event, in "ticks". |
+| interval |The interval of each entry in the event, in "ticks". |
+| events |Each event fragment contains the motion detected within that time duration. |
+| type |In the current version, this is always ‘2’ for generic motion. This label gives Video APIs the flexibility to categorize motion in future versions. |
+| regionId |As explained above, this will always be 0 in this version. This label gives Video API the flexibility to find motion in various regions in future versions. |
+| regions |Refers to the area in your video where you care about motion. <br/><br/>-"id" represents the region area – in this version there is only one, ID 0. <br/>-"type" represents the shape of the region you care about for motion. Currently, "rectangle" and "polygon" are supported.<br/> If you specified "rectangle", the region has dimensions in X, Y, Width, and Height. The X and Y coordinates represent the upper left-hand XY coordinates of the region in a normalized scale of 0.0 to 1.0. The width and height represent the size of the region in a normalized scale of 0.0 to 1.0. In the current version, X, Y, Width, and Height are always fixed at 0, 0 and 1, 1. <br/>If you specified "polygon", the region has dimensions in points. <br/> |
+| fragments |The metadata is chunked up into different segments called fragments. Each fragment contains a start, duration, interval number, and event(s). A fragment with no events means that no motion was detected during that start time and duration. |
+| brackets [] |Each bracket represents one interval in the event. Empty brackets for that interval means that no motion was detected. |
 | locations |This new entry under events lists the location where the motion occurred. This is more specific than the detection zones. |
 
 The following JSON example shows the output:

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/03/2018
+ms.date: 07/10/2019
 ms.custom: seodec18
 
 
@@ -158,12 +158,14 @@ The web service can accept multiple sets of data in one request. It returns a JS
 
 If your model accepts binary data, such as an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. Here's an example of a `score.py` that accepts binary data:
 
-```python 
-from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+
 
 def init():
     print("This is init()")
+
 
 @rawhttp
 def run(request):
@@ -175,9 +177,9 @@ def run(request):
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
         reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody 
+        # For a real world solution, you would load the data from reqBody
         # and send to the model. Then return the response.
-        
+
         # For demonstration purposes, this example just returns the posted data as the response.
         return AMLResponse(reqBody, 200)
     else:
@@ -468,45 +470,44 @@ scoring_uri = '<your web service URI>'
 key = '<your key>'
 
 # Two sets of data to score, so we get two results back
-data = {"data": 
+data = {"data":
+        [
             [
-                [
-                    0.0199132141783263, 
-                    0.0506801187398187, 
-                    0.104808689473925, 
-                    0.0700725447072635, 
-                    -0.0359677812752396, 
-                    -0.0266789028311707, 
-                    -0.0249926566315915, 
-                    -0.00259226199818282, 
-                    0.00371173823343597, 
-                    0.0403433716478807
-                ],
-                [
-                    -0.0127796318808497, 
-                    -0.044641636506989, 
-                    0.0606183944448076, 
-                    0.0528581912385822, 
-                    0.0479653430750293, 
-                    0.0293746718291555, 
-                    -0.0176293810234174, 
-                    0.0343088588777263, 
-                    0.0702112981933102, 
-                    0.00720651632920303]
-            ]
+                0.0199132141783263,
+                0.0506801187398187,
+                0.104808689473925,
+                0.0700725447072635,
+                -0.0359677812752396,
+                -0.0266789028311707,
+                -0.0249926566315915,
+                -0.00259226199818282,
+                0.00371173823343597,
+                0.0403433716478807
+            ],
+            [
+                -0.0127796318808497,
+                -0.044641636506989,
+                0.0606183944448076,
+                0.0528581912385822,
+                0.0479653430750293,
+                0.0293746718291555,
+                -0.0176293810234174,
+                0.0343088588777263,
+                0.0702112981933102,
+                0.00720651632920303]
+        ]
         }
 # Convert to JSON string
 input_data = json.dumps(data)
 
 # Set the content type
-headers = { 'Content-Type':'application/json' }
+headers = {'Content-Type': 'application/json'}
 # If authentication is enabled, set the authorization header
-headers['Authorization']=f'Bearer {key}'
+headers['Authorization'] = f'Bearer {key}'
 
 # Make the request and display the response
-resp = requests.post(scoring_uri, input_data, headers = headers)
+resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
-
 ```
 
 The results returned are similar to the following JSON document:

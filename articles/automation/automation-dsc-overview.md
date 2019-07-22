@@ -98,8 +98,8 @@ the following port and URLs are required for State Configuration (DSC) to commun
 
 This provides network connectivity for the managed node to communicate with Azure Automation.
 If you are using DSC resources that communicate between nodes,
-such as the [WaitFor* resources](https://docs.microsoft.com/en-us/powershell/dsc/reference/resources/windows/waitForAllResource),
-you will also need to allow traffic beween nodes.
+such as the [WaitFor* resources](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource),
+you will also need to allow traffic between nodes.
 See the documentation for each DSC resource to understand those network requirements.
 
 #### Proxy Support
@@ -124,6 +124,7 @@ If you have an Automation account that's defined for a specific region, you can 
 | --- | --- |
 | West Central US | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | South Central US |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| East US	| eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
 | East US 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | Canada Central |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | West Europe |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |

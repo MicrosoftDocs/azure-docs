@@ -177,8 +177,7 @@ Get-MsolUser -All | Disable-MFA -KeepMethods
 # Enforce MFA for all users
 Get-MsolUser -All | Set-MfaState -State Enforced
 
-# Wrapper to disable MFA with the option to keep the MFA
-# methods (to avoid having to proof-up again later)
+# Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
 function Disable-MFA {
 
     [CmdletBinding()]
@@ -269,7 +268,7 @@ Some legacy and on-premises applications that do not authenticate directly again
 
 * Legacy on-premises applications, which will need to use Application proxy.
 * On-premises RADIUS applications, which will need to use MFA adapter with NPS server.
-* On-premises AD FS applications, which will need to use MFA adapter with AD FS 2016.
+* On-premises AD FS applications, which will need to use MFA adapter with AD FS 2016 or newer.
 
 Applications that authenticate directly with Azure AD and have modern authentication (WS-Fed, SAML, OAuth, OpenID Connect) can make use of Conditional Access policies directly.
 
@@ -288,7 +287,7 @@ The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA cap
 * With the CHAPv2 protocol, only authenticator app push notifications and voice call are supported.
 * Conditional Access policies cannot be applied.
 
-The NPS extension acts as an adapter between RADIUS and cloud-based Azure MFA to provide a second factor of authentication to protect [VPN](howto-mfa-nps-extension-vpn.md), [Remote Desktop Gateway connections](howto-mfa-nps-extension-rdg.md), or other RADIUS capable applications. Users that register for Azure MFA in this environment will be challenged for all authentication attempts, the lack of Conditional Access policies mean MFA is always required.
+The NPS extension acts as an adapter between RADIUS and cloud-based Azure MFA to provide a second factor of authentication to protect [VPN](howto-mfa-nps-extension-vpn.md), [Remote Desktop Gateway connections](howto-mfa-nps-extension-rdg.md), or other RADIUS capable applications. Users that register for Azure MFA in this environment will be challenged for all authentication attempts, the lack of Conditional Access policies means MFA is always required.
 
 #### Implementing your NPS server
 
@@ -319,13 +318,13 @@ Unlike with AD FS in Windows Server 2012 R2, the AD FS 2016 Azure MFA adapter in
 
 When using Azure MFA with AD FS 2016 and the target application is subject to Conditional Access policy, there are additional considerations:
 
-* Conditional Access is available when the application is a relying party to Azure AD, federated with AD FS 2016.
-* Conditional Access is not available when the application is a relying party to AD FS 2016 and is managed or federated with AD FS 2016.
-* Conditional Access is also not available when AD FS 2016 is configured to use Azure MFA as the primary authentication method.
+* Conditional Access is available when the application is a relying party to Azure AD, federated with AD FS 2016 or newer.
+* Conditional Access is not available when the application is a relying party to AD FS 2016 or AD FS 2019 and is managed or federated with AD FS 2016 or AD FS 2019.
+* Conditional Access is also not available when AD FS 2016 or AD FS 2019 is configured to use Azure MFA as the primary authentication method.
 
 #### AD FS logging
 
-Standard AD FS 2016 logging in both the Windows Security Log and the AD FS Admin log, contains information about authentication requests and their success or failure. Event log data within these events will indicate whether Azure MFA was used. For example, an AD FS Auditing Event ID 1200 may contain:
+Standard AD FS 2016 and 2019 logging in both the Windows Security Log and the AD FS Admin log, contains information about authentication requests and their success or failure. Event log data within these events will indicate whether Azure MFA was used. For example, an AD FS Auditing Event ID 1200 may contain:
 
 ```
 <MfaPerformed>true</MfaPerformed>
