@@ -106,7 +106,7 @@ The September Guest OS has released.
 ## Family 5 releases
 **Windows Server 2016**
 
-.NET Framework installed: 3.5, 4.6.2, 4.7.2
+.NET Framework installed: 3.5, 4.6
 
 > [!NOTE]
 > The RDP password for OS family 5 must be a minimum of 10 characters.
