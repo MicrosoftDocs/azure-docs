@@ -11,9 +11,9 @@ ms.author: victorh
 
 # Generate an Azure Application Gateway self-signed certificate with a custom root CA
 
-The Application Gateway V2 SKU introduces the use of Trusted Root Certificates to allow backend servers. This removes authentication certificates that were required in the V1 SKU. The *root certificate* is a Base-64 encoded X.509(.CER) format root certificate from the backend certificate server. It identifies the root certificate authority (CA) that issued the server certificate and the server certificate is then used for the SSL communication.
+The Application Gateway v2 SKU introduces the use of Trusted Root Certificates to allow backend servers. This removes authentication certificates that were required in the v1 SKU. The *root certificate* is a Base-64 encoded X.509(.CER) format root certificate from the backend certificate server. It identifies the root certificate authority (CA) that issued the server certificate and the server certificate is then used for the SSL communication.
 
-Application Gateway trusts your website’s certificate by default if it is signed by a well-known CA (for example, GoDaddy or DigiCert). You don’t need to explicitly upload the root certificate in that case. For more information, see [Overview of SSL termination and end to end SSL with Application Gateway](ssl-overview.md). However, if you have a dev/test environment and don't want to purchase a verified CA signed certificate, you can create your own custom CA and create a self-signed certificate with it. 
+Application Gateway trusts your website’s certificate by default if it's signed by a well-known CA (for example, GoDaddy or DigiCert). You don’t need to explicitly upload the root certificate in that case. For more information, see [Overview of SSL termination and end to end SSL with Application Gateway](ssl-overview.md). However, if you have a dev/test environment and don't want to purchase a verified CA signed certificate, you can create your own custom CA and create a self-signed certificate with it. 
 
 > [!NOTE]
 > Self-signed certificates are not trusted by default and they can be difficult to maintain. Also, they may use outdated hash and cipher suites that may not be strong. For better security, purchase a certificate signed by a well-known certificate authority.
@@ -22,7 +22,7 @@ In this article, you will learn how to:
 
 - Create your own custom Certificate Authority
 - Create a self-signed certificate signed by your custom CA
-- Upload a self-signed root certificate to an Application Gateway to whitelist the backend server
+- Upload a self-signed root certificate to an Application Gateway to authenticate the backend server
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ In this article, you will learn how to:
 
    For example, Apache, IIS, or NGINX to test the certificates.
 
-- **An Application Gateway V2 SKU**
+- **An Application Gateway v2 SKU**
    
   If you don't have an existing application gateway, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md).
 
@@ -156,7 +156,7 @@ The following configuration is an example [NGINX server block](http://nginx.org/
    ![Trusted root certificates](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
-   > It is assumed that DNS has been configured to point the web server name (in this example, www.fabrikam.com) to your web server's IP address. If not, you can edit the [hosts file](https://answers.microsoft.com/windows/forum/windows_10-other_settings-winpc/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) to resolve the name.
+   > It's assumed that DNS has been configured to point the web server name (in this example, www.fabrikam.com) to your web server's IP address. If not, you can edit the [hosts file](https://answers.microsoft.com/windows/forum/windows_10-other_settings-winpc/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) to resolve the name.
 1. Browse to your website, and click the lock icon on your browser's address box to verify the site and certificate information.
 
 ## Verify the configuration with OpenSSL
