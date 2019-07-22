@@ -21,9 +21,9 @@ In this guide, we show you how to use the [Azure CLI](https://docs.microsoft.com
 
 The examples in the guide assume the use of the Bash shell on Ubuntu, but other platforms should perform similarly. 
 
-[!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
-
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
+[!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
 ## Prerequisites
 This guide assumes that you understand the basic concepts of Azure Storage. It also assumes that you're able to satisfy the account creation requirements that are specified below for Azure and the Storage service.
