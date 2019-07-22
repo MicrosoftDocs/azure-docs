@@ -44,3 +44,5 @@ To diagnose issues in your app, it helps to collect data. For information about 
 ## Next steps
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+
+You can also try out the samples that are available from [Samples | Desktop and mobile public client apps](sample-v2-code.md#desktop-and-mobile-public-client-apps)

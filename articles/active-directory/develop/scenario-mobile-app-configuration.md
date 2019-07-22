@@ -61,15 +61,18 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 ### Xamarin or UWP
 
+This paragraph explains how to configure the code of the application for Xamarin.iOS, Xamarin.Android, and UWP apps. The first step is to instantiate the application. An optional step is to configure the broker.
+
 #### Instantiating the application
 
-##### The simple way
-In Xamarin, or UWP, the application is instantiated as follows:
+In Xamarin, or UWP, the simplest way to instantiate the application is as follows, where the ClientId is the Guid of you application as registered.
 
 ```CSharp
 var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
+
+But more parameters are possible. This is the topic of the following paragraphs.
 
 ##### Specifying the parent UI/Window/Activity
 
@@ -101,18 +104,24 @@ var pca = PublicClientApplicationBuilder
 On Xamarin iOS, there are several considerations that you must take into account when using MSAL.NET. Details are provided in [Xamarin iOS considerations](msal-net-xamarin-ios-considerations.md):
 
 1. [Override and implement the `OpenUrl` function in the `AppDelegate`](msal-net-xamarin-ios-considerations.md#implement-openurl)
-1. [Enable Keychain groups](msal-net-xamarin-ios-considerations.md#enable-keychain-groups)
+1. [Enable Keychain groups](msal-net-xamarin-ios-considerations.md#enable-keychain-access)
 1. [Enable token cache sharing](msal-net-xamarin-ios-considerations.md#enable-token-cache-sharing-across-ios-applications)
 1. [Enable Keychain access](msal-net-xamarin-ios-considerations.md#enable-keychain-access)
 
 #### Other Xamarin Android specific considerations
 
-Like for iOS, Xamarin has specifics. Details are provided in [Xamarin Android considerations](#msal-net-xamarin-android-considerations) 
+Like for iOS, Xamarin has specifics. Details are provided in [Xamarin Android considerations](#msal-net-xamarin-android-considerations.md) 
 
 - [Ensuring control goes back to MSAL once the interactive portion of the authentication flow ends](msal-net-xamarin-android-considerations.md#ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends)
 - [Update the Android manifest](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
 - [Use the embedded web view (optional)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
 - [Troubleshooting](msal-net-xamarin-android-considerations.md#troubleshooting)
+
+Finally, there are some specificities to know about the browsers on Android. They are explained in [Xamarin Android-specific considerations with MSAL.NET](msal-net-system-browser-android-considerations.md)
+
+#### UWP specific considerations
+
+See [Universal Windows Platform-specific considerations with MSAL.NET](msal-net-uwp-considerations.md) for information about the UWP specifics.
 
 ## Configuring the application to use the broker
 
@@ -126,13 +135,13 @@ On Android and iOS, brokers enable:
 
 ### Enable the brokers on Xamarin
 
-To enable one of these features, application developers need to use the `WithBroker()` parameter when calling the `PublicClientApplicationBuilder.CreateApplication` method. `.WithBroker()` is set to true by default. Developers will also need to follow the steps below for [iOS](#brokered-authentication-for-ios).
+To enable one of these features, you'll need to use the `WithBroker()` parameter when calling the `PublicClientApplicationBuilder.CreateApplication` method. `.WithBroker()` is set to true by default. You'll also need to follow the steps below for [iOS](#brokered-authentication-for-xamarinios).
 
-#### Brokered Authentication for Xamarin.iOS
+### Brokered Authentication for Xamarin.iOS
 
 Follow the steps below to enable your Xamarin.iOS app to talk with the [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) app.
 
-### Step 1: Enable broker support
+#### Step 1: Enable broker support
 
 Broker support is enabled on a per-PublicClientApplication basis. It's disabled by default. You must use the `WithBroker()` parameter (set to true by default) when creating the PublicClientApplication through the PublicClientApplicationBuilder.
 
@@ -144,7 +153,7 @@ var app = PublicClientApplicationBuilder
                 .Build();
 ```
 
-### Step 2: Update AppDelegate to handle the callback
+#### Step 2: Update AppDelegate to handle the callback
 
 When MSAL.NET calls the broker, the broker will, in turn, call back to your application through the `OpenUrl` method of the `AppDelegate` class. Since MSAL will wait for the response from the broker, your application needs to cooperate to call MSAL.NET back. You do this by updating the `AppDelegate.cs` file to override the below method.
 
@@ -168,7 +177,7 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
 
 This method is invoked every time the application is launched, and is used as an opportunity to process the response from the broker and complete the authentication process initiated by MSAL.NET.
 
-### Step 3: Set a UIViewController()
+#### Step 3: Set a UIViewController()
 
 Still in `AppDelegate.cs`, you'll need to set an object window. Normally, with Xamarin iOS, you don't need to set the object window, but in order to send and receive responses from broker, you'll need an object window.
 
@@ -196,7 +205,7 @@ result = await app.AcquireTokenInteractive(scopes)
              .ExecuteAsync();
 ```
 
-### Step 4: Register a URL Scheme
+#### Step 4: Register a URL Scheme
 
 MSAL.NET uses URLs to invoke the broker and then return the broker response back to your app. To finish the round trip, you need to register a URL scheme for your app in the `Info.plist` file.
 
@@ -209,7 +218,7 @@ The `CFBundleURLSchemes` name must include `msauth.` as a prefix, followed by yo
 
 **Note** This will become part of the RedirectUri used for uniquely identifying your app when receiving the response from the broker.
 
-```CSharp
+```XML
  <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -225,18 +234,22 @@ The `CFBundleURLSchemes` name must include `msauth.` as a prefix, followed by yo
     </array>
 ```
 
-### Step 5: LSApplicationQueriesSchemes
+#### Step 5: LSApplicationQueriesSchemes
 
 MSAL uses `–canOpenURL:` to check if the broker is installed on the device. In iOS 9, Apple locked down what schemes an application can query for.
 
 **Add** **`msauthv2`** to the `LSApplicationQueriesSchemes` section of the `Info.plist` file.
 
-```CSharp 
+```XML 
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>
     </array>
 ```
+
+### Brokered Authentication for Xamarin.Android
+
+MSAL.NET does not yet support brokers for Android.
 
 ## Next steps
 
