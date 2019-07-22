@@ -44,7 +44,7 @@ For more information, see [Install and use the Azure IoT extension for Azure CLI
 
 To open the **Model Repository** view in VS Code.
 
-1. Open VS Code, use **Ctrl+Alt+P**, type and select **IoT Plug and Play: Open Model Repository**.
+1. Open VS Code, use **Ctrl+Shift+P**, type and select **IoT Plug and Play: Open Model Repository**.
 
 1. You can choose to **Open Public Model Repository** or **Open Organizational Model Repository**. For organizational model repository, you need to enter your model repository connection string.
 
@@ -52,7 +52,7 @@ To open the **Model Repository** view in VS Code.
 
     Use this view to add, download, and delete device capability models and interfaces. You can use a filter to find specific items in the list.
 
-1. To switch to another organizational model repository, use **Ctrl+Alt+P**, type and select **IoT Plug and Play: Sign out Model Repository**. Then use open model repository command again.
+1. To switch to another organizational model repository, use **Ctrl+Shift+P**, type and select **IoT Plug and Play: Sign out Model Repository**. Then use open model repository command again.
 
 ## Next steps
 

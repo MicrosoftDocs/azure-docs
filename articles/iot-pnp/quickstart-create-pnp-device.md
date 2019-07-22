@@ -98,7 +98,7 @@ In this quickstart, you use an existing sample device capability model and assoc
 
 The device capability model and interface files are required to publish to your organizational model repository to be used for validation with **Azure IoT Explorer**. You can publish the files within VS Code.
 
-1. With the folder with DCM files open, use **Ctrl+Alt+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
+1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
 
 1. Select `SampleDevice.capabilitymodel.json` and `EnvironmentalSensor.interface.json` files.
 
