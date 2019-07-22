@@ -90,11 +90,11 @@ This article will not cover best practices for securing access to the Azure NetA
 
 11. When the **New capacity pool** blade opens, enter the following values:
 
-  - For **Name**, enter a name for the new capacity pool.
-  - For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
-  - For **Size (TiB)**, enter the capacity pool size that best fits your needs. The minimum size is 4 TiB.
+   - For **Name**, enter a name for the new capacity pool.
+   - For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
+   - For **Size (TiB)**, enter the capacity pool size that best fits your needs. The minimum size is 4 TiB.
 
-![](media/d5bb782f55d1e1b2ab49e22910e19a32.png)
+![A capture of the new capacity pool window that shows each drop-down menu and the OK button.](media/d5bb782f55d1e1b2ab49e22910e19a32.png)
 
 12. When you're finished, select **OK**.
 
@@ -102,7 +102,7 @@ This article will not cover best practices for securing access to the Azure NetA
 
 13. Next, select **Active Directory connections**, then select the **Join** button to open the **Join Active Directory** page.
 
-![](media/03f68f9f13b185c0521d694b1e9e225e.png)
+![A capture of the Join Active Directory connections menu.](media/03f68f9f13b185c0521d694b1e9e225e.png)
 
 14. Enter the following values in the **Join Active Directory** page:
 
@@ -114,40 +114,39 @@ This article will not cover best practices for securing access to the Azure NetA
 
   >[!NOTE]
   >It's best practice to confirm that the computer account specified in **Join Active Directory** configuration wizard has appeared in your domain controller under **Computers.**
+    ![A screenshot of the Active Directory Users and Computers window with a red arrow pointing at an example account that's appeared in the Computers folder after successful configuration.](media/53e367f2c72d5902bbfa82a1a7dd77ea.png)
 
-![](media/53e367f2c72d5902bbfa82a1a7dd77ea.png)
+<!--Break here-->
 
 1.  Next, you'll need to create a new volume. Select **Volumes**, then select **Add volume**.
 
-![](media/39f0c687e1cf89fb2448c0470e745418.png)
+![A capture of the capacity pools menu with a red arrow pointing to Volumes under the storage service tab.](media/39f0c687e1cf89fb2448c0470e745418.png)
 
-![](media/3aa9d3d9cd06f12c925e7d3d3dcd9c34.png)
+![A capture of the volumes menu with a red arrow pointing at the add volume button.](media/3aa9d3d9cd06f12c925e7d3d3dcd9c34.png)
 
 1.  When the **Create a volume** blade opens, enter the following values:
 
-**Volume name** – name for the new volume
+    - For **Volume name**, enter a name for the new volume.
+    - For **Capacity pool**, select the capacity pool you just created from the drop-down menu.
+    - For **Quota (GiB)**, enter the volume size appropriate for your environment.
+    - For **Virtual network**, select an existing virtual network that has connectivity to the domain controller from the drop-down menu.
+    - Under **Subnet**, create a new subnet. Please note that this subnet will be delegated to Azure NetApp Files.
 
-**Capacity pool** – capacity pool under which this volume will be create. Use the one we just created.
-
-**Quota (GiB)** – size of volume applicable for your environment.
-
-**Virtual network** – select an existing virtual network that has connectivity to the domain controller.
-
-**Subnet** – create a new subnet. Please note that this subnet will be delegated to Azure NetApp Files.
+<!--How do you create a new subnet? Enter a name?-->
 
 ![](media/b1235bd64cfa165cabfa37a315fcb810.png)
 
-17. Select **Next: Protocol \>\>** this will open tab for configuring access parameters.
+1.  Select **Next: Protocol \>\>** this will open tab for configuring access parameters.
 
-18. Select **SMB** as Protocol type. Under **Configuration** specify
+2.  Select **SMB** as Protocol type. Under **Configuration** specify
 
-**Active Directory –** same as the one we connect in previous step. Please note there is a limitation of one Active Directory per subscription,
+   - **Active Directory** same as the one we connect in previous step. Please note there is a limitation of one Active Directory per subscription,
 
-**Share name** – name of share that will be used by session host pool and users.
+   - **Share name** – name of share that will be used by session host pool and users.
 
 ![](media/e36a9f45702b4047dbc3f167f7562313.png)
 
-19. Select **Review + create** at the bottom of the page. This will open the validation page. Once validation has passed select **Create.**
+1.  Select **Review + create** at the bottom of the page. This will open the validation page. Once validation has passed select **Create.**
 
 ![](media/32c86e33f19308de496233240fd3c784.png)
 
