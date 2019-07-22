@@ -1,6 +1,6 @@
 ---
 title: What is Bing Autosuggest?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to use the Bing Autosuggest API.
 services: cognitive-services
 author: swhite-msft
