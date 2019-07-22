@@ -57,16 +57,16 @@ The repository contains a few folders.
 
 ## Create and activate a Python virtual environment
 
-Azure Functions requires Python 3.6.x. We recommend creating a virtual environment to ensure you're using the required Python version.
+Azure Functions requires Python 3.6.x. Consider creating a virtual environment to ensure you're using the required Python version.
 
-Change the current working directory to the **start** folder and create a virtual environment named **.env**. Replace `python` with the path to Python 3.6.x on your machine.
+Change the current working directory to the *start* folder and create a virtual environment named *.env*. Replace `<PYTHON_PATH>` with the path to Python 3.6.x on your machine.
 
 ```bash
 cd start
-python -m venv .env
+<PYTHON_PATH> -m venv .env
 ```
 
-Activate the virtual environment.
+Next, activate the virtual environment.
 
 *Linux and macOS*
 
@@ -80,14 +80,14 @@ source .env/bin/activate
 .env\Scripts\activate
 ```
 
-The terminal prompt is now prefixed with `(.env)` that indicates you have successfully activated the virtual environment. Confirm that `python` in the virtual environment is indeed Python 3.6.x.
+The terminal prompt is now prefixed with `(.env)` which indicates you have successfully activated the virtual environment. Confirm that `python` in the virtual environment is indeed Python 3.6.x.
 
 ```bash
 python --version
 ```
 
 > [!NOTE]
-> For the remainder of the tutorial, you'll be running commands in the virtual environment. If you need to reactivate the virtual environment in a terminal, execute the appropriate activate command for your operating system.
+> For the remainder of the tutorial, you run commands in the virtual environment. If you need to reactivate the virtual environment in a terminal, execute the appropriate activate command for your operating system.
 
 ## Create an Azure Functions project
 
