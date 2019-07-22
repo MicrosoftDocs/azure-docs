@@ -21,7 +21,7 @@ Video Indexer supports automatic language identification (LID), which is the pro
 
 When indexing or [re-indexing](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) a video using the API, choose the `auto detect` option in the `sourceLanguage` parameter.
 
-When using portal, go to your **Account videos** on the [Video Indexer](https://www.videoindexer.ai/) home page and hover over the name of the video that you want to re-index. On the right-bottom corner click the re-index button. In the **Re-index video** dialog choose *Auto detect* from the **Video source language** drop-down box.
+When using portal, go to your **Account videos** on the [Video Indexer](https://www.videoindexer.ai/) home page and hover over the name of the video that you want to re-index. On the right-bottom corner click the re-index button. In the **Re-index video** dialog, choose *Auto detect* from the **Video source language** drop-down box.
 
 ![auto detect](./media/language-identification-model/auto-detect.png)
 
@@ -65,7 +65,7 @@ In addition, a verbose response through the [Artifact auxiliary API](https://api
 * If Video Indexer cannot identify the language with a high enough probability (`>0.6`), the fallback language will be English.
 * There is no current support for file with mixed languages audio. If the audio contains mixed languages, the result is unexpected. 
 * Low-quality audio caustic may impact the model results.
-* The model requires at least 1 minutes of speech in the audio.
+* The model requires at least one minute of speech in the audio.
 * The model is designed to recognize a spontaneous conversational speech (not voice commands, singing, etc.).
 
 ## Next steps
