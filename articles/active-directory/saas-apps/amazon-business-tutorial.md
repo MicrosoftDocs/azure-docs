@@ -92,9 +92,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
 	   | | |
 	   |-|-|
-	   | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid= `<idpid>`|
-	   | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid=`<idpid>`|
-	   | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid=`<idpid>`|
+	   | ``https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid=<idpid>`|
+	   | ``https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid=<idpid>`|
+	   | ``https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid=<idpid>`|
 
 	   > [!NOTE]
        > The Reply URL value is not real. Update this value with the actual Reply URL. Contact [Amazon Business Client support team](https://www.amazon.com/gp/help/customer/contact-us) to get this value. You will get the `<idpid>` value from the Amazon configure section, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
