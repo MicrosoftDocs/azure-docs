@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 5/6/2019
+ms.date: 05/06/2019
 ---
 
 # Azure Database for PostgreSQL - Single Server: Use Java to connect and query data
