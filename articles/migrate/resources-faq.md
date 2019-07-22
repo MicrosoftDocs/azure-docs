@@ -46,7 +46,7 @@ For the URLs and ports needed for Azure Migrate to communicate with Azure, revie
 
 ### Can I harden the appliance VM I set up with the template?
 
-Additional components (for example anti-virus) can be added into the template, as long as the communication and firewall rules required for the Azure Migrate appliance re left as is.   
+Additional components (for example anti-virus) can be added into the template, as long as the communication and firewall rules required for the Azure Migrate appliance are left as is.   
 
 ### What data is collected by Azure Migrate appliance?
 
