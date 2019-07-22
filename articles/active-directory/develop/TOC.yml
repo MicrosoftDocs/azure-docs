@@ -193,6 +193,8 @@
           href: scenario-mobile-overview.md
         - name: App registration
           href: scenario-mobile-app-registration.md
+        - name: Code configuration
+          href: scenario-mobile-app-configuration.md
         - name: Acquiring a token for the app
           href: scenario-mobile-acquire-token.md
         - name: Calling a web API

@@ -111,17 +111,7 @@ After you have the access token, it's easy to call a web API. Your app will use 
 
 ### Xamarin
 
-```CSharp
-httpClient = new HttpClient();
-
-// Put access token in HTTP request.
-httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-
-// Call Graph.
-HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
-...
-}
-```
+[!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
 ## Making several API requests
 
@@ -129,6 +119,40 @@ If you need to call the same API several times, or if you need to call multiple 
 
 - **Incremental consent**: Microsoft identity platform allows apps to get user consent as permissions are required, rather than all at the start. Each time your app is ready to call an API, it should request only the scopes it needs to use.
 - **Conditional Access**: In certain scenarios, you might get additional Conditional Access requirements when you make several API requests. This can happen if the first request has no Conditional Access policies applied and your app attempts to silently access a new API that requires Conditional Access. To handle this scenario, be sure to catch errors from silent requests and be prepared to make an interactive request.  To learn more, see [Guidance for Conditional Access](conditional-access-dev-guide.md).
+
+## Calling several APIs in Xamarin or UWP - Incremental consent and Conditional Access
+
+If you need to call several APIs for the same user, once you got a token for the first API, you can just call `AcquireTokenSilent`, and you'll get a token for the other APIs silently most of the time.
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+```
+
+The cases where interaction is required is when:
+
+- The user consented for the first API, but now needs to consent for more scopes (incremental consent)
+- The first API didn't require multiple-factor authentication, but the next one does.
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+try
+{
+ result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+}
+catch(MsalUiRequiredException ex)
+{
+ result = await app.AcquireTokenInteractive("scopeApi2")
+                  .WithClaims(ex.Claims)
+                  .ExecuteAsync();
+}
+```
 
 ## Next steps
 
