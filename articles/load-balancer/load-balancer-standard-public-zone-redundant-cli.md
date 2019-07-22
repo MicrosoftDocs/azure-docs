@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Learn how to create a public Standard Load Balancer with zone redundant frontend using Azure CLI
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.assetid: 
 ms.service: load-balancer
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 #  Load balance VMs across all availability zones using Azure CLI

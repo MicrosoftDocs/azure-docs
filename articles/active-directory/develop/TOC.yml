@@ -81,8 +81,10 @@
     href: sample-v2-code.md
   - name: Concepts
     items:
-    - name: Application types
-      href: v2-app-types.md
+    - name: Authentication basics
+      href: authentication-scenarios.md
+    - name: Authentication flows and app scenarios
+      href: authentication-flows-app-scenarios.md
     - name: Application scenarios
       items:
       - name: Sign-in audience
@@ -227,6 +229,8 @@
             href: msal-client-application-configuration.md
           - name: Initialize applications (.NET)
             href: msal-net-initializing-client-applications.md
+          - name: Client assertions (.NET)
+            href: msal-net-client-assertions.md
           - name: Initialize applications (JS)
             href: msal-js-initializing-client-applications.md
         - name: Handle errors and exceptions
@@ -267,10 +271,10 @@
                 href: msal-js-known-issues-ie-edge-browsers.md
               - name: Known issues- Safari 
                 href: msal-js-known-issues-safari-browser.md
-    - name: Authentication
+    - name: Authentication protocol
       items:
-      - name: Authentication basics
-        href: authentication-scenarios.md
+      - name: Application types and OAuth2.0
+        href: v2-app-types.md      
       - name: OAuth 2.0 and OpenID Connect protocols
         href: active-directory-v2-protocols.md
       - name: OpenID Connect
@@ -404,7 +408,7 @@
     - name: Breaking changes
       href: reference-breaking-changes.md
 - name: v1.0
-  expanded: true
+  expanded: false
   items:
   - name: Overview
     href: v1-overview.md
@@ -457,7 +461,11 @@
       - name: Xamarin
         href: quickstart-v1-xamarin.md
     - name: Service-to-service
-      href: sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity
+      href: quickstart-v1-dotnet.md
+    - name: Daemon apps
+      items:
+      - name: .NET Core console (daemon)
+        href: quickstart-v1-netcore-daemon.md
   - name: Samples
     href: sample-v1-code.md
   - name: Concepts

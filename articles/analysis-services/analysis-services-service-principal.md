@@ -93,7 +93,7 @@ When connecting with client applications and web apps, [AMO and ADOMD client lib
 
 In the following example, `appID` and a `password` are used to perform a model database refresh operation:
 
-```C#
+```csharp
 string appId = "xxx";
 string authKey = "yyy";
 string connString = $"Provider=MSOLAP;Data Source=asazure://westus.asazure.windows.net/<servername>;User ID=app:{appId};Password={authKey};";

@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 07/15/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -74,6 +74,22 @@ Once you have registered your application and granted it permissions to access d
 
 For a list of scenarios for which acquiring tokens is supported, see the [Scenarios](https://aka.ms/msal-net-scenarios) section of the [Microsoft Authentication Library (MSAL) for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub repository.
 
+## Well-known values for authentication with Azure AD
+
+To authenticate a security principal with Azure AD, you need to include some well-known values in your code.
+
+### Azure AD authority
+
+For Microsoft public cloud, the base Azure AD authority is as follows, where *tenant-id* is your Active Directory tenant ID (or directory ID):
+
+`https://login.microsoftonline.com/<tenant-id>/`
+
+The tenant ID identifies the Azure AD tenant to use for authentication. It is also referred to as the directory ID. To retrieve the tenant ID, navigate to the **Overview** page for your app registration in the Azure portal, and copy the value from there.
+
+### Azure Storage resource ID
+
+[!INCLUDE [storage-resource-id-include](../../../includes/storage-resource-id-include.md)]
+
 ## .NET code example: Create a block blob
 
 The code example shows how to get an access token from Azure AD. The access token is used to authenticate the specified user and then authorize a request to create a block blob. To get this sample working, first follow the steps outlined in the preceding sections.
@@ -85,24 +101,6 @@ To request the token, you will need the following values from your app's registr
 - The client (or application) ID. Retrieve this value from the **Overview** page of your app registration.
 - The client redirection URI. Retrieve this value from the **Authentication** settings for your app registration.
 - The value of the client secret. Retrieve this value from the location to which you previously copied it.
-
-### Well-known values for authentication with Azure AD
-
-To authenticate a security principal with Azure AD, you need to include some well-known values in your code.
-
-#### Azure AD authority
-
-For Microsoft public cloud, the base Azure AD authority is as follows, where *tenant-id* is your Active Directory tenant ID (or directory ID):
-
-`https://login.microsoftonline.com/<tenant-id>/`
-
-The tenant ID identifies the Azure AD tenant to use for authentication. It is also referred to as the directory ID. To retrieve the tenant ID, navigate to the **Overview** page for your app registration in the Azure portal, and copy the value from there.
-
-#### Storage resource ID
-
-Use the Azure Storage resource ID to acquire a token for authorizing requests to Azure Storage:
-
-`https://storage.azure.com/`
 
 ### Create a storage account and container
 
@@ -173,9 +171,11 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 #### Get an OAuth token from Azure AD
 
-Next, add a method that requests a token from Azure AD. The token you request will be on behalf of the user, and we will use the GetTokenOnBehalfOfUser method.
+Next, add a method that requests a token from Azure AD on the behalf of the user. This method defines the scope for which permissions are to be granted. For more information about permissions and scopes, see [Permissions and consent in the Microsoft identity platform endpoint](../../active-directory/develop/v2-permissions-and-consent.md).
 
-Remember that if you have recently logged in, and you are requesting a token for the `storage.azure.com` resource, you will need to present the user with a UI where the user can consent to such an action on their behalf. To facilitate that you need to catch the `MsalUiRequiredException` and add the functionality to request user consent, as shown in the following example:
+Use the resource ID to construct the scope for which to acquire the token. The example constructs the scope by using the resource ID together with the built-in `user_impersonation` scope, which indicates that the token is being requested on behalf of the user.
+
+Keep in mind that you may need to present the user with an interface that enables the user to consent to request the token their behalf. When consent is necessary, the example catches the **MsalUiRequiredException** and calls another method to facilitate the request for consent:
 
 ```csharp
 public async Task<IActionResult> Blob()
@@ -190,7 +190,8 @@ public async Task<IActionResult> Blob()
     }
     catch (MsalUiRequiredException ex)
     {
-        AuthenticationProperties properties = BuildAuthenticationPropertiesForIncrementalConsent(scopes, ex);
+        AuthenticationProperties properties =
+            BuildAuthenticationPropertiesForIncrementalConsent(scopes, ex);
         return Challenge(properties);
     }
 }
@@ -201,15 +202,18 @@ Consent is the process of a user granting authorization to an application to acc
 The following method constructs the authentication properties for requesting incremental consent:
 
 ```csharp
-private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalConsent(string[] scopes, MsalUiRequiredException ex)
+private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalConsent(string[] scopes,
+                                                                                    MsalUiRequiredException ex)
 {
     AuthenticationProperties properties = new AuthenticationProperties();
 
-    // Set the scopes, including the scopes that ADAL.NET / MSAL.NET need for the Token cache.
+    // Set the scopes, including the scopes that ADAL.NET or MSAL.NET need for the Token cache.
     string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
-    properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope, scopes.Union(additionalBuildInScopes).ToList());
+    properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope,
+                                                 scopes.Union(additionalBuildInScopes).ToList());
 
-    // Attempt to set the login_hint so that the logged-in user is not presented with an account selection dialog.
+    // Attempt to set the login_hint so that the logged-in user is not presented
+    // with an account selection dialog.
     string loginHint = HttpContext.User.GetLoginHint();
     if (!string.IsNullOrWhiteSpace(loginHint))
     {
@@ -231,7 +235,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 
 ## View and run the completed sample
 
-To run the sample application, first clone or download it from [GitHub](https://aka.ms/aadstorage). Then update the application as described in the following sections.
+To run the sample application, first clone or download it from [GitHub](https://github.com/Azure-Samples/storage-dotnet-azure-ad-msal). Then update the application as described in the following sections.
 
 ### Provide values in the settings file
 

@@ -719,6 +719,12 @@ featureFlags:
                                                 <p>Data Lake Storage Gen1</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/data-share/">
+                                                <img src="media/index/data-share.svg" alt="" />
+                                                <p>Azure Data Share</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Blockchain</h3>
                                     <ul>
@@ -1659,7 +1665,7 @@ featureFlags:
                                                 <p>Azure Dedicated HSM</p>
                                             </a>
                                         </li>
-					                        <a href="/azure/virtual-network/ddos-protection-overview">
+                                            <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos-protection.svg" alt="" />
                                                 <p>Azure DDoS protection</p>
                                             </a>
@@ -2562,6 +2568,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure NetApp Files</h3>
                                                     <p>Enterprise-grade NFS file service powered by NetApp</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-share/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/data-share.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Data Share</h3>
+                                                    <p>A simple and safe service for sharing big data with external organizations</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5851,11 +5876,6 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#media">Media</a>
-                        <ul id="media" class="cardsA">
                             <li>
                                 <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
