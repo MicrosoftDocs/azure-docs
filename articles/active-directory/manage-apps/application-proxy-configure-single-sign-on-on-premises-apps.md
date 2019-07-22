@@ -1,5 +1,5 @@
 ---
-title: SAML single sign-on for on-premises apps with Azure AD App Proxy (Preview) | Microsoft Docs 
+title: SAML single sign-on for on-premises apps with Azure AD App Proxy | Microsoft Docs 
 description: Learn how to provide single sign-on for on-premises applications that are secured with SAML authentication. Provide remote access to on-premises apps with Application Proxy.
 services: active-directory
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# SAML single sign-on for on-premises applications with Application Proxy (Preview)
+# SAML single sign-on for on-premises applications with Application Proxy
 
 You can provide single sign-on (SSO) to on-premises applications that are secured with SAML authentication and provide remote access to these applications through Application Proxy. With SAML single sign-on, Azure Active Directory (Azure AD) authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. You can also map users to specific application roles based on rules you define in your SAML claims. By enabling Application Proxy in addition to SAML SSO, your users will have external access to the application and a seamless SSO experience.
 
