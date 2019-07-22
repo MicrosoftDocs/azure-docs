@@ -67,11 +67,6 @@ When you work with a Virtual WAN partner, the workflow is:
 
 For a list of the available partners and locations, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
 
-### <a name="p2s"></a>Point-to-site VPN connections (Preview)
-
-A point-to-site (P2S) connection lets you create a secure connection to your virtual hub from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect.
-
-To create the connection, see [Create a point-to-site connection using Virtual WAN](virtual-wan-point-to-site-portal.md).
 
 ### <a name="er"></a>ExpressRoute connections (Preview)
 
