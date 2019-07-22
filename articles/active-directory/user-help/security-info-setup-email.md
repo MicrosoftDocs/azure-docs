@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Set up security info (preview) to use your email address
+
 You can follow these steps to add your password reset method. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
 
 After you set up your password reset method, you must also set up your two-factor verification method, using an [authenticator app](security-info-setup-auth-app.md), [text messaging](security-info-setup-text-msg.md), or a [phone call](security-info-setup-phone-number.md).
@@ -23,6 +24,7 @@ After you set up your password reset method, you must also set up your two-facto
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## Set up your email address from the Security info page
+
 Depending on your organization’s settings, you might be able to use your email address as one of your security info methods.
 
 >[!Note]
@@ -56,6 +58,7 @@ Depending on your organization’s settings, you might be able to use your email
     Your security info is updated and you can use your email address to verify your identity when using password reset.
 
 ## Delete your email address from your security info methods
+
 If you no longer want to use your email address as a security info method, you can remove it from the **Security info** page.
 
 >[!Important]
@@ -70,6 +73,7 @@ If you no longer want to use your email address as a security info method, you c
 2. Select **Yes** from the confirmation box to delete the **Email** account. After the email account is deleted, it's removed from your security info and it disappears from the **Security info** page.
 
 ## Additional security info methods
+
 You have additional options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
 
 - **Authenticator app.** Download and use an authenticator app to get either an approval notification or a randomly generated approval code for two-step verification or password reset. For step-by-step instructions about how to set up and use the Microsoft Authenticator app, see [Set up security info to use an authenticator app](security-info-setup-auth-app.md).
@@ -78,8 +82,10 @@ You have additional options for how your organization contacts you to verify you
 
 - **Mobile device or work phone call.** Enter your mobile device number and get a phone call for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a phone number, see [Set up security info to use phone calls](security-info-setup-phone-number.md).
 
+- **Security key.** Register your Microsoft-compatible security key and use it along with a PIN for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a security key, see [Set up security info to use a security key](security-info-setup-security-key.md).
+
 - **Security questions.** Answer some security questions created by your administrator for your organization. This option is only available for password reset and not for two-step verification. For step-by-step instructions about how to set up your security questions, see the [Set up security info to use security questions](security-info-setup-questions.md) article.
-    
+
     >[!Note]
     >If some of these options are missing, it's most likely because your organization doesn't allow those methods. If this is the case, you'll need to choose an available method or contact your administrator for more help.
 
