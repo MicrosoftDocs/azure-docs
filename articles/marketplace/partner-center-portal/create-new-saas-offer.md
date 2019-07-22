@@ -109,10 +109,10 @@ Promote your business with Microsoft by creating a marketplace listing. Selectin
 - **How do you want potential customers to interact with this listing offer?**
 
 ##### Get it now (free)
-List your offer to customers for free by providing a valid URL (beginning with http or https) where they can access your app.  For example: `https://contoso.com/saas-app`
+List your offer to customers for free by providing a valid URL (beginning with *http* or *https*) where they can access your app.  For example: `https://contoso.com/saas-app`
 
 ##### Free trial (listing)
-List your offer to customers with a link to a free trial by providing a valid URL (that starts with *http* or *https*), where they can get a trial through [one-click authentication by using Azure AD](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  For example: `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+List your offer to customers with a link to a free trial by providing a valid URL (beginning with *http* or *https*), where they can get a trial through [one-click authentication by using Azure AD](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  For example: `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 > [!NOTE]
 > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (AAD) to automate account creation in your app. Microsoft Accounts (MSA) are not supported for authentication using this token.
