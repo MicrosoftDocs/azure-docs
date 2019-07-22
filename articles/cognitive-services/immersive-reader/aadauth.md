@@ -71,8 +71,9 @@ Now that you have a custom subdomain associated with your resource, you need to 
    > The Password, also known as the 'client secret', will be used when obtaining authentication tokens.
 
    ```azurecli-interactive
-   $password = <YOUR_PASSWORD>
-   $aadApp = New-AzADApplication -DisplayName ImmersiveReaderAAD -IdentifierUris http://ImmersiveReaderAAD -Password $password
+   $password = "<YOUR_PASSWORD>"
+   $secureStringPassword = ConvertTo-SecureString -String $password -AsPlainText -Force
+   $aadApp = New-AzADApplication -DisplayName ImmersiveReaderAAD -IdentifierUris http://ImmersiveReaderAAD -Password $secureStringPassword
 
    // Display the AAD app info
    $aadApp
@@ -83,7 +84,7 @@ Now that you have a custom subdomain associated with your resource, you need to 
 2. Next, you need to [create a service principal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) for the AAD application.
 
    ```azurecli-interactive
-   $principal = New-AzADServicePrincipal -ApplicationId $aadApp.Id
+   $principal = New-AzADServicePrincipal -ApplicationId $aadApp.ApplicationId
 
    // Display the service principal info
    $principal
