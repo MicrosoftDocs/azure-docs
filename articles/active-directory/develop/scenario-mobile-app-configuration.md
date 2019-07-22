@@ -110,7 +110,7 @@ On Xamarin iOS, there are several considerations that you must take into account
 
 #### Other Xamarin Android specific considerations
 
-Like for iOS, Xamarin has specifics. Details are provided in [Xamarin Android considerations](#msal-net-xamarin-android-considerations.md) 
+Like for iOS, Xamarin has specifics. Details are provided in [Xamarin Android considerations](msal-net-xamarin-android-considerations.md)
 
 - [Ensuring control goes back to MSAL once the interactive portion of the authentication flow ends](msal-net-xamarin-android-considerations.md#ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends)
 - [Update the Android manifest](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
