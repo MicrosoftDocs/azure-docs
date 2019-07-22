@@ -122,7 +122,7 @@
         href: application-gateway-end-to-end-ssl-powershell.md
     - name: Manage certificates
       items:             
-      - name: Create certificates to allow the backend
+      - name: Certificates for the backend
         href: certificates-for-backend-authentication.md
       - name: Renew certificates
         href: renew-certificates.md
