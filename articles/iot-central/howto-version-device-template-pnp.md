@@ -21,7 +21,7 @@ Azure IoT Central allows rapid development of IoT Applications. You can quickly 
 
 ## Add customizations to the device template without versioning
 
-Certain elements of your device capabilities can be edited without needing to version your device template and interfaces. For example, some of these fields include display name, semantic type, minimum value, maximum value, decimal places, color, unit, display unit, comment, and description. To add one of these cusomtizations:
+Certain elements of your device capabilities can be edited without needing to version your device template and interfaces. For example, some of these fields include display name, semantic type, minimum value, maximum value, decimal places, color, unit, display unit, comment, and description. To add one of these customizations:
 
 1. Go to the **Device Templates** page.
 1. Select the device template you wish to customize.
@@ -54,7 +54,7 @@ In order to version an interface:
 1. Select the interface that is in published mode that you wish to version and edit.
 1. Click the **Version** button at the top of the interface page. 
 1. Click **Create**.
-1. Now your interface is in draft mode. You will be able to add or edit capabilities to your itnerface without breaking existing customizations and views. 
+1. Now your interface is in draft mode. You will be able to add or edit capabilities to your interface without breaking existing customizations and views. 
 
 > [!NOTE]
 > Standard interfaces published by Azure IoT can not be versioned or edited. These standard interfaces are used for device certification.
