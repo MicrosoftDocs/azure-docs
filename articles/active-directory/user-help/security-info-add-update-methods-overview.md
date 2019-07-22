@@ -23,8 +23,8 @@ You can add, edit, delete, and change your default security info method from wit
 
 Security info methods are used for both two-factor verification and for password reset. However, not all methods can be used for both.
 
-|Method|Used for|
-|------|--------|
+| Method | Used for |
+| ------ | -------- |
 | Authenticator app | Two-factor verification and password reset authentication. |
 | Text messages | Two-factor verification and password reset authentication. |
 | Phone calls | Two-factor verification and password reset authentication. |
@@ -35,8 +35,8 @@ Security info methods are used for both two-factor verification and for password
 
 This list includes the method-based articles. Each article provides details about how to add, edit, delete, or change your security info based on the specified method.
 
-|Article |Description |
-|------|------------|
+| Article | Description |
+| ------ |------------ |
 | [Set up security info for an authenticator app](security-info-setup-auth-app.md) | Describes how to modify your security info method for the Microsoft Authenticator app. |
 | [Set up security info for text messaging](security-info-setup-text-msg.md) | Describes how to modify your security info method for text messaging. |
 | [Set up security info to use phone calls](security-info-setup-phone-number.md) | Describes how to modify your security info method for phone calls. |
