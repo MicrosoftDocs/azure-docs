@@ -1,0 +1,17 @@
+- name: Event Grid IoT Edge Documentation
+  href: 
+- name: Concepts
+  items:
+  - name: Event Grid concepts
+    href: concepts.md
+  - name: Security and authentication
+    href: security-authentication.md
+  - name: Event schemas
+    href: event-schemas.md
+  - name: Delivery and retry
+    href: delivery-retry.md  
+- name: Reference
+  items:
+  - name: REST API
+    href: api.md
+  
