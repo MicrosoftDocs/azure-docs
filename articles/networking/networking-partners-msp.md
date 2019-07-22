@@ -6,7 +6,7 @@ author: skishen525
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 07/22/2019
 ms.author: sukishen
 ---
 
@@ -34,7 +34,7 @@ Use the links in this section for more information about managed cloud networkin
 
 [InterCloud](https://www.intercloud.com/)
 
-[IIJ](https://www.riverbed.com/go/steelconnect-azurewan.html)
+[IIJ](https://www.iij.ad.jp/en/)
 
 [Megaport](https://www.megaport.com/)
 
