@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Set up security info (preview) to use your email address
+
 You can follow these steps to add your password reset method. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
 
 After you set up your password reset method, you must also set up your two-factor verification method, using an [authenticator app](security-info-setup-auth-app.md), [text messaging](security-info-setup-text-msg.md), or a [phone call](security-info-setup-phone-number.md).
@@ -23,6 +24,7 @@ After you set up your password reset method, you must also set up your two-facto
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## Set up your email address from the Security info page
+
 Depending on your organization’s settings, you might be able to use your email address as one of your security info methods.
 
 >[!Note]
@@ -56,6 +58,7 @@ Depending on your organization’s settings, you might be able to use your email
     Your security info is updated and you can use your email address to verify your identity when using password reset.
 
 ## Delete your email address from your security info methods
+
 If you no longer want to use your email address as a security info method, you can remove it from the **Security info** page.
 
 >[!Important]
