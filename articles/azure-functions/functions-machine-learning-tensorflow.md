@@ -13,7 +13,7 @@ ms.author: antchu
 ms.custom: mvc
 ---
 
-# Make machine learning predictions with TensorFlow and Azure Functions
+# Tutorial: Make machine learning predictions with TensorFlow and Azure Functions
 
 In this tutorial, you'll learn how Azure Functions allows you to import a machine learning model and use it with TensorFlow to make predictions.
 
