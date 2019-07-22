@@ -30,7 +30,7 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | Australia Southeast |Available |Complete |
 | Brazil South |Available |Complete |
 | Canada Central |Available |Complete |
-| Canada East |\* |\* |
+| Canada East |June 1, 2020 |July 1, 2020 |
 | Central US |Available |Complete |
 | China East |\* |\* |
 | China East 2 |Available |Complete |
@@ -41,23 +41,23 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | East US 2 |Available |Complete |
 | France Central |Available |In-progress |
 | Germany Central |\* |\* |
-| Germany West Central |September 1, 2019|January 2, 2020 |
+| Germany West Central |September 1, 2019|October 1, 2019 |
 | India Central |Available |Complete |
 | India South |Available |Complete |
-| India West |\* |September 1, 2019 |
+| India West |July 1, 2019 |In-progress |
 | Japan East |Available |Complete |
 | Japan West |Available |Complete |
 | Korea Central |Available |Complete |
 | Korea South |Available |Complete |
 | North Central US |Available |Complete |
 | North Europe |Available |Complete |
-| South Africa North |July 12, 2019 |Gen2 only |
+| South Africa North |July 12, 2019 |Complete |
 | South Central US |Available |Complete |
 | South East Asia |Available |Complete |
-| UAE North |July 20, 2019 |Gen2 only |
+| UAE North |July 20, 2019 |Complete |
 | UK South |Available |In-progress |
 | UK West |Available |In-progress |
-| West Central US |September 2, 2019 |January 2, 2020|
+| West Central US |September 1, 2019 |October 1, 2019|
 | West Europe |Available |Complete |
 | West US |Available |Complete |
 | West US 2 |Available |Complete |
