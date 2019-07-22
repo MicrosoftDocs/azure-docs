@@ -124,9 +124,9 @@ datadrift_contribution|Feature importance of features contributing to drift.|
 
 There are multiple ways to view drift metrics:
 
-* Use the Jupyter widget.
+* Use the `RunDetails`[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Use the [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) function on any `datadrift` run object.
-* View the metrics in the Azure portal on your model
+* View the metrics in the Azure portal on your model.
 
 The following Python example demonstrates how to plot relevant data drift metrics. You can use the returned metrics to build custom visualizations:
 

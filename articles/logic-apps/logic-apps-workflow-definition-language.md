@@ -47,8 +47,8 @@ Here is the high-level structure for a workflow definition:
 | `$schema` | Only when externally referencing a workflow definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | `actions` | No | The definitions for one or more actions to execute at workflow runtime. For more information, see [Triggers and actions](#triggers-actions). <p><p>Maximum actions: 250 |
 | `contentVersion` | No | The version number for your workflow definition, which is "1.0.0.0" by default. To help identify and confirm the correct definition when deploying a workflow, specify a value to use. |
-| `outputs` | No | The definitions for the outputs that return from a workflow run. For more information, see [Outputs](#outputs). <p><p>Maximum outputs: 10 |
-| `parameters` | No | The definitions for one or more parameters that pass data into your workflow. For more information, see [Parameters](#parameters). <p><p>Maximum parameters: 50 |
+| `outputs` | No | The definitions for the outputs to return from a workflow run. For more information, see [Outputs](#outputs). <p><p>Maximum outputs: 10 |
+| `parameters` | No | The definitions for one or more parameters that pass the values to use at your logic app's runtime. For more information, see [Parameters](#parameters). <p><p>Maximum parameters: 50 |
 | `staticResults` | No | The definitions for one or more static results returned by actions as mock outputs when static results are enabled on those actions. In each action definition, the `runtimeConfiguration.staticResult.name` attribute references the corresponding definition inside `staticResults`. For more information, see [Static results](#static-results). |
 | `triggers` | No | The definitions for one or more triggers that instantiate your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not visually through the Logic Apps Designer. For more information, see [Triggers and actions](#triggers-actions). <p><p>Maximum triggers: 10 |
 ||||
@@ -62,78 +62,37 @@ define the calls that happen during your workflow's execution.
 For syntax and more information about these sections, see 
 [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
-<a name="outputs"></a>
-
-## Outputs
-
-In the `outputs` section, define the data that 
-your workflow can return when finished running. 
-For example, to track a specific status or value from each run, 
-specify that the workflow output returns that data.
-
-> [!NOTE]
-> When responding to incoming requests from a service's REST API, 
-> do not use `outputs`. Instead, use the `Response` action type. 
-> For more information, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
-
-Here is the general structure for an output definition:
-
-```json
-"outputs": {
-  "<key-name>": {
-    "type": "<key-type>",
-    "value": "<key-value>"
-  }
-}
-```
-
-| Attribute | Required | Type | Description |
-|-----------|----------|------|-------------|
-| <*key-name*> | Yes | String | The key name for the output return value |
-| <*key-type*> | Yes | int, float, string, securestring, bool, array, JSON object | The type for the output return value |
-| <*key-value*> | Yes | Same as <*key-type*> | The output return value |
-|||||
-
-To get the output from a workflow run, review your logic 
-app's run history and details in the Azure portal or use the 
-[Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
-You can also pass output to external systems, for example, 
-Power BI so that you can create dashboards.
-
 <a name="parameters"></a>
 
 ## Parameters
 
-In the `parameters` section, define all the workflow parameters 
-that your workflow definition uses at deployment for accepting inputs. 
-Both parameter declarations and parameter values are required at deployment. 
-Before you can use these parameters in other workflow sections, 
-make sure that you declare all the parameters in these sections. 
+The deployment lifecycle usually has different environments for development, test, staging, and production. When deploying logic apps to various environments, you likely want to use different values, such as connection strings, based on your deployment needs. Or, you might have values that you want to reuse throughout your logic app without hardcoding or that change often. In your workflow definition's `parameters` section, you can define or edit parameters for the values that your logic app uses at runtime. You must define these parameters first before you can reference these parameters elsewhere in your workflow definition.
 
 Here is the general structure for a parameter definition:
 
 ```json
 "parameters": {
-  "<parameter-name>": {
-    "type": "<parameter-type>",
-    "defaultValue": "<default-parameter-value>",
-    "allowedValues": [ <array-with-permitted-parameter-values> ],
-    "metadata": {
-      "key": {
-        "name": "<key-value>"
+   "<parameter-name>": {
+      "type": "<parameter-type>",
+      "defaultValue": <default-parameter-value>,
+      "allowedValues": [ <array-with-permitted-parameter-values> ],
+      "metadata": {
+         "description": "<parameter-description>"
       }
-    }
-  }
+   }
 },
 ```
 
 | Attribute | Required | Type | Description |
 |-----------|----------|------|-------------|
-| <*parameter-type*> | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Note**: For all passwords, keys, and secrets, use the `securestring` and `secureobject` types because the `GET` operation doesn't return these types. For more information about securing parameters, see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | The type for the parameter |
-| <*default-parameter-values*> | Yes | Same as `type` | The default parameter value when no value is specified when the workflow instantiates |
+| <*parameter-name*> | Yes | String | The name for the parameter that you want to define |
+| <*parameter-type*> | Yes | int, float, string, bool, array, object, securestring, secureobject <p><p>**Note**: For all passwords, keys, and secrets, use the `securestring` or `secureobject` types because the `GET` operation doesn't return these types. For more information about securing parameters, see [Security recommendations for action and input parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | The type for the parameter |
+| <*default-parameter-value*> | Yes | Same as `type` | The default parameter value to use if no value is specified when the workflow instantiates. The `defaultValue` attribute is required so that the Logic App Designer can correctly show the parameter, but you can specify an empty value. |
 | <*array-with-permitted-parameter-values*> | No | Array | An array with values that the parameter can accept |
-| `metadata` | No | JSON object | Any other parameter details, for example, the name or a readable description for your logic app or flow, or the design-time data used by Visual Studio or other tools |
+| <*parameter-description*> | No | JSON object | Any other parameter details, such as a description for the parameter |
 ||||
+
+Next, create an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md) for your workflow definition, define template parameters that accept the values you want at deployment, replace hardcoded values with references to template or workflow definition parameters as appropriate, and store the values to use at deployment in a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can change those values more easily through the parameter file without having to update and redeploy your logic app. For information that is sensitive or must be secured, such as usernames, passwords, and secrets, you can store those values in Azure Key Vault and have your parameter file retrieve those values from your key vault. For more information and examples about defining parameters at the template and workflow definition levels, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
 <a name="static-results"></a>
 
@@ -336,6 +295,44 @@ for example, the `searchQuery` property here:
   }
 },
 ```
+
+<a name="outputs"></a>
+
+## Outputs
+
+In the `outputs` section, define the data that 
+your workflow can return when finished running. 
+For example, to track a specific status or value from each run, 
+specify that the workflow output returns that data.
+
+> [!NOTE]
+> When responding to incoming requests from a service's REST API, 
+> do not use `outputs`. Instead, use the `Response` action type. 
+> For more information, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
+
+Here is the general structure for an output definition:
+
+```json
+"outputs": {
+  "<key-name>": {
+    "type": "<key-type>",
+    "value": "<key-value>"
+  }
+}
+```
+
+| Attribute | Required | Type | Description |
+|-----------|----------|------|-------------|
+| <*key-name*> | Yes | String | The key name for the output return value |
+| <*key-type*> | Yes | int, float, string, securestring, bool, array, JSON object | The type for the output return value |
+| <*key-value*> | Yes | Same as <*key-type*> | The output return value |
+|||||
+
+To get the output from a workflow run, review your logic 
+app's run history and details in the Azure portal or use the 
+[Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
+You can also pass output to external systems, for example, 
+Power BI so that you can create dashboards.
 
 <a name="operators"></a>
 
