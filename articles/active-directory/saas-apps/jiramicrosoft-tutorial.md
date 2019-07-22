@@ -40,7 +40,7 @@ Use your Microsoft Azure Active Directory account with Atlassian JIRA server to 
 To configure Azure AD integration with JIRA SAML SSO by Microsoft, you need the following items:
 
 - An Azure AD subscription
-- JIRA Core and Software 6.4 to 8.0 or JIRA Service Desk 3.0 to 3.5 should installed and configured on Windows 64-bit version
+- JIRA Core and Software 6.4 to 8.2 or JIRA Service Desk 3.0 to 4.2 should installed and configured on Windows 64-bit version
 - JIRA server is HTTPS enabled
 - Note the supported versions for JIRA Plugin are mentioned in below section.
 - JIRA server is reachable on internet particularly to Azure AD Login page for authentication and should able to receive the token from Azure AD
@@ -58,8 +58,8 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 ## Supported versions of JIRA
 
-* JIRA Core and Software: 6.4 to 8.0
-* JIRA Service Desk 3.0.0 to 3.5.0
+* JIRA Core and Software: 6.4 to 8.2
+* JIRA Service Desk 3.0.0 to 4.2.1
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]
