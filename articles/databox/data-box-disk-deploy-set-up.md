@@ -171,7 +171,7 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
  
 5. Type `y` to continue the install. The packages that the script installs are: 
    - **epel-release** - Repository that contains the following three packages. 
-   - **dislocker and fuse-dislocker** - This utility helps decrypting BitLocker encrypted disks. 
+   - **dislocker and fuse-dislocker** - These utilities helps decrypting BitLocker encrypted disks. 
    - **ntfs-3g** - Package that helps mount NTFS volumes. 
  
      Once the packages are successfully installed, the terminal will display a notification to that effect.     
