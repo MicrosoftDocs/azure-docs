@@ -15,20 +15,8 @@ This article includes frequently asked questions about Azure Migrate. If you hav
 ## General
 
 ### Which Azure geographies are supported by Azure Migrate?
-Azure Migrate currently supports a number of geographies in which an Azure Migrate project can be created. Even though you can only create projects in these geographies, you can still assess or migrate your machines for other target locations. The project geography is only used to store the discovered metadata.
 
-
-**Geography** | **Metadata storage location**
---- | ---
-Azure Government | US Gov Virginia
-Asia | Southeast Asia or East Asia
-Europe | South Europe or West Europe
-United Kingdom | UK South or UK West
-United States | Central US or West US 2
-
-
-> [!NOTE]
-> Support for Azure Government is currently only available for the [older version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
+You can find the list for [VMware here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and for [Hyper-V here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
 ### How is Azure Migrate different from Azure Site Recovery?
 

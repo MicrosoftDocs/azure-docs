@@ -50,20 +50,8 @@ Follow the below steps to create a new Azure Migrate project.
    ![Create a second Azure Migrate project](./media/troubleshooting-general/create-new-project.png)
 
 ### Which Azure geographies are supported by Azure Migrate?
-Azure Migrate currently supports a number of geographies in which an Azure Migrate project can be created. Even though you can only create projects in these geographies, you can still assess or migrate your machines for other target locations. The project geography is only used to store the discovered metadata.
 
-
- **Geography** | **Metadata storage location**
- --- | ---
- Azure Government | US Gov Virginia
- Asia | Southeast Asia or East Asia
- Europe | South Europe or West Europe
- United Kingdom | UK South or UK West
- United States | Central US or West US 2
-
-
- > [!NOTE]
- > Support for Azure Government is currently only available for the [older version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
+You can find the list for [VMware here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and for [Hyper-V here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
 ### Deletion of Azure Migrate projects and associated Log Analytics workspace
 
@@ -236,7 +224,7 @@ The disk sizing in Server Assessment depends on two assessment properties - sizi
 For example, if you have an on-premises disk with 32-GB memory, but the aggregated read and write IOPS for the disk is 800 IOPS, Server Assessment will recommend a premium disk type (due to the higher IOPS requirements) and then recommend a disk SKU, which can support the required IOPS and size. The nearest match in this example would be P15 (256 GB, 1100 IOPS). So even though the size required by the on-premises disk was 32 GB, Server Assessment recommended a disk with bigger size due to the high IOPS requirement of the on-premises disk.
 
 ### Why does my assessment report say 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' for some VMs?
-The above issues are listed when the Azure Migrate appliance cannot collect performance data for the on-premises VMs. This can happen if the VMs are powered off for the duration for which you are creating the assessment (last one day/one week/one month) as the appliance cannot collect performance data for a VM, when it is powered off. If only memory counters are missing and you are trying to assess Hyper-V VMs, check if you have dynamic memory enabled on these VMs. There is a known issue currently due to which Azure Migrate appliance cannot collect memory utilization for VMs which do not have dynamic memory enabled. Note that the issue is only there for Hyper-V VMs and not there for VMware VMs. If any of the performance counters are missing, Azure Migrate: Server Assessment falls back to the allocated cores/memory and recommends a VM size accordingly. 
+The above issues are listed when the Azure Migrate appliance cannot collect performance data for the on-premises VMs. This can happen if the VMs are powered off for the duration for which you are creating the assessment (last one day/one week/one month) as the appliance cannot collect performance data for a VM, when it is powered off. If only memory counters are missing and you are trying to assess Hyper-V VMs, check if you have dynamic memory enabled on these VMs. There is a known issue currently due to which Azure Migrate appliance cannot collect memory utilization for VMs which do not have dynamic memory enabled. Note that the issue is only there for Hyper-V VMs and not there for VMware VMs. If any of the performance counters are missing, Azure Migrate: Server Assessment falls back to the allocated cores/memory and recommends a VM size accordingly.
 
 ### Is the OS license cost of the VM included in the Compute cost estimated by Server Assessment?
 Server Assessment currently only considers the OS license cost for Windows machines, OS license cost for Linux machines is not considered currently.
