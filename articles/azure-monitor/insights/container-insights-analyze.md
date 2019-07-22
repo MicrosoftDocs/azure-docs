@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2019
+ms.date: 07/22/2019
 ms.author: magoedte
 ---
 
@@ -32,10 +32,16 @@ The main differences monitoring a Windows Server cluster with Azure Monitor for 
 - Only pod environments are monitored, not Docker environments.
 - With the preview release, a maximum of 30 Windows Server containers are supported. This limitation does not apply to Linux containers.  
 
+Check out the following video providing an intermediate level deep dive to help you learn about monitoring and logging your AKS cluster with Azure Monitor for containers.
+
+> [!VIDEO https://www.youtube.com/watch?v=RjsNmapggPU&t=995s]
+
 ## Sign in to the Azure portal
+
 Sign in to the [Azure portal](https://portal.azure.com). 
 
-## Multi-cluster view from Azure Monitor 
+## Multi-cluster view from Azure Monitor
+
 To view the health status of all AKS clusters deployed, select **Monitor** from the left-hand pane in the Azure portal.  Under the **Insights** section, select **Containers**.  
 
 ![Azure Monitor multi-cluster dashboard example](./media/container-insights-analyze/azmon-containers-multiview.png)
@@ -84,6 +90,7 @@ The following table provides a breakdown of the calculation controlling the heal
 From the list of clusters, you can drill down to the **Cluster** page by clicking on the name of the cluster, to the **Nodes** performance page by clicking on the rollup of nodes in the **Nodes** column for that specific cluster, or drill down to the **Controllers** performance page by clicking on the rollup of **User pods** or **System pods** column.   ​
 
 ## View performance directly from an AKS cluster
+
 Access to Azure Monitor for containers is available directly from an AKS cluster by selecting **Insights** from the left-hand pane. Viewing information about your AKS cluster is organized into four perspectives:
 
 - Cluster
@@ -107,6 +114,7 @@ You can use the left/right arrow keys to cycle through each data point on the ch
 Azure Monitor for containers also supports Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From metrics explorer, you can also use the criteria you have set to visualize your metrics as the basis of a [metric based alert rule](../platform/alerts-metric.md).  
 
 ## View container metrics in metrics explorer
+
 In metrics explorer, you can view aggregated node and pod utilization metrics from Azure Monitor for containers. The following table summarizes the details to help you understand how to use the metric charts to visualize container metrics.
 
 |Namespace | Metric |
@@ -269,6 +277,7 @@ The icons in the status field indicate the online statuses of pods, as described
 | ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |  
 
 ## Workbooks
+
 Workbooks combine text, [log queries](../log-query/query-language.md), [metrics](../platform/data-platform-metrics.md), and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
 Azure Monitor for containers includes four workbooks to get you started:
