@@ -1,6 +1,6 @@
 ---
-title: Manage directory and file access permissions in Azure Storage by using PowerShell
-description: Use PowerShell cmdlets to manage directory and file access permissions in Azure Blob storage accounts that have a hierarchical namespace.
+title: Manage file and directory level permissions in Azure Storage by using PowerShell
+description: Use PowerShell cmdlets to manage manage file and directory level permissions in Azure Blob storage accounts that have a hierarchical namespace.
 services: storage
 author: normesta
 ms.service: storage
@@ -9,15 +9,15 @@ ms.date: 06/26/2019
 ms.author: normesta
 ---
 
-# Manage directory and file access permissions in Azure Storage by using PowerShell
+# Manage file and directory level permissions in Azure Storage by using PowerShell
 
-This article shows you how to use PowerShell to manage directory and file access permissions in storage accounts that have a hierarchical namespace. 
+This article shows you how to use PowerShell to get and set the access control lists (ACLs) of directories and files in storage accounts that have a hierarchical namespace. 
 
 ## First, connect to the storage account
 
-See [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For guidance, see [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## Get access control lists (ACLs)
+## Get an ACL
 
 You can get the ACL of a directory or a file.
 
@@ -53,17 +53,15 @@ $blob = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -
 $blob
 ```
 
-## Set access control lists (ACLs)
+## Set an ACL
 
 You can set the ACL of a directory or a file.
 
 ### Set the ACL of a directory
 
-Use the `New-AzStorageBlobPathACL` cmdlet to set ACLs for the owning user, owning group, or other users. 
+Use the `New-AzStorageBlobPathACL` cmdlet to set the ACL on a directory for the owning user, owning group, or other users. Then, use the `Set-AzStorageBlobDirectory` cmdlet to commit the ACL.
 
-Use the `Set-AzStorageBlobDirectory` to commit the ACLs.
-
-This example sets ACLs on a file for the owning user, owning group, or other users.
+This example sets the ACL on a directory for the owning user, owning group, or other users.
 
 ```powershell
 $containerName = "mycontainer"
@@ -78,11 +76,9 @@ $blob.ICloudBlob.PathProperties
 
 ### Set the ACL of a file
 
-Use the `New-AzStorageBlobPathACL` cmdlet to set ACLs for the owning user, owning group, or other users. 
+Use the `New-AzStorageBlobPathACL` cmdlet to set ACL on a file for the owning user, owning group, or other users. Then, use the `Set-AzStorageBlob` to commit the ACL.
 
-Use the `Set-AzStorageBlob` to commit the ACLs.
-
-This example sets ACLs on a file for the owning user, owning group, or other users.
+This example sets ACL on a file for the owning user, owning group, or other users.
 
 ```powershell
 $containerName = "mycontainer"
