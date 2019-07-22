@@ -69,6 +69,7 @@ If you no longer want to use your security questions as a security info method, 
 2. Select **Yes** from the confirmation box to delete your **Security questions**. After your security questions are deleted, the method is removed from your security info and it disappears from the **Security info** page.
 
 ## Additional security info methods
+
 You have additional options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
 
 - **Authenticator app.** Download and use an authenticator app to get either an approval notification or a randomly generated approval code for two-step verification or password reset. For step-by-step instructions about how to set up and use the Microsoft Authenticator app, see [Set up security info to use an authenticator app](security-info-setup-auth-app.md).
@@ -77,8 +78,10 @@ You have additional options for how your organization contacts you to verify you
 
 - **Mobile device or work phone call.** Enter your mobile device number and get a phone call for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a phone number, see [Set up security info to use phone calls](security-info-setup-phone-number.md).
 
+- **Security key.** Register your Microsoft-compatible security key and use it along with a PIN for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a security key, see [Set up security info to use a security key](security-info-setup-security-key.md).
+
 - **Email address.** Enter your work or school email address to get an email for password reset. This option isn't available for two-step verification. For step-by-step instructions about how to set up your email, see [Set up security info to use email](security-info-setup-email.md).
-   
+
     >[!Note]
     >If some of these options are missing, it's most likely because your organization doesn't allow those methods. If this is the case, you'll need to choose an available method or contact your administrator for more help.
 
