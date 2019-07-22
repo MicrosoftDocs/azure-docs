@@ -37,6 +37,8 @@ The value can be any of the following examples:
    > [!NOTE]
    > At this time, only $iothubname, $twin.tags, $twin.properties.desired, and $twin.properties.reported are supported variables for message enrichment.
 
+Message Enrichments are added as application properties to messages sent to chosen endpoint(s).  
+
 ## Applying enrichments
 
 The messages can come from any data source supported by [IoT Hub message routing](iot-hub-devguide-messages-d2c.md), including the following examples:
