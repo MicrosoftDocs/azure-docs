@@ -123,7 +123,7 @@
     - name: Manage certificates
       items:             
       - name: Create certificates to allow the backend
-        href: certificates-for-backend-authentication.md        
+        href: certificates-for-backend-authentication.md
       - name: Renew certificates
         href: renew-certificates.md
       - name: Generate self-signed certificates
