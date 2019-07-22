@@ -7,10 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 07/22/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
+
+::: zone target="docs"
+
 # Tutorial: Unpack, connect, and unlock Azure Data Box Disk
 
 This tutorial describes how to unpack, connect, and unlock your Azure Data Box Disk.
@@ -253,6 +256,50 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
 
 
 If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md). 
+
+::: zone-end
+
+::: zone target="chromeless"
+
+1. Unpack disks and use the included cable to connect the disk to the client computer.
+2. Download and extract the Data Box Disk toolset on the same computer that you will use to copy the data.
+
+    > [!div class="nextstepaction"]
+    > [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin)
+
+    or
+    > [!div class="nextstepaction"]
+    > [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux) 
+
+3. To unlock the disks on a Windows client, open a Command Prompt window or run Windows PowerShell as administrator on the same computer:
+
+    - Type the following command in the same folder where Data Box Disk Unlock tool is installed.
+
+        ``` 
+        .\DataBoxDiskUnlock.exe
+        ```
+    -  Supply the passkey you obtained from **General > Device details** in the Azure portal. The drive letter assigned to the disk is displayed. 
+4. To unlock the disks on a Linux client, open a terminal. Go to the folder where you downloaded the software. Type the following commands to change the file permissions so that you can execute these files: 
+
+    ```
+    chmod +x DataBoxDiskUnlock_x86_64
+    chmod +x DataBoxDiskUnlock_Prep.sh
+    ``` 
+    Execute the script to install all the required binaries.
+
+    ```
+    sudo ./DataBoxDiskUnlock_Prep.sh
+    ```
+    Run the Data Box Disk Unlock tool. Supply the passkey from the Azure portal by going to **General > Device details**. Optionally specify a list of BitLocker encrypted volumes within single quotes to unlock.
+
+    ```
+    sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’
+    ```      
+5. Repeat the unlock steps for any future disk reinserts. Use the help command if you need help with the Data Box Disk unlock tool.
+
+After the disk is unlocked, you can view the contents of the disk.
+
+::: zone-end
 
 ## Next steps
 
