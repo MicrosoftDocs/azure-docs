@@ -67,6 +67,7 @@ To run the certification tests, connect your device to the [Azure IoT certificat
 These steps are one time step for running certification tests and it isn't necessary to change your product device code. To start, follow these steps to connect to AICS:
 
 1. Sign in to the portal using your Partner Center account.
+1. Click on **Connect + test** to start certification flow.
 1. Choose the [authentication method](../iot-dps/concepts-security.md#attestation-mechanism) to provision your device to AICS using the [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
    * If you're using an [X.509 certificate](../iot-hub/iot-hub-security-x509-get-started.md#prerequisites), upload your generated X.509 certificate. You may want to review the sample code that shows how to use X.509 certificates: [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/iothub_ll_client_x509_sample/iothub_ll_client_x509_sample.c), [C#](../iot-hub/iot-hub-security-x509-get-started.md).
    * If you're using a [symmetric key](../iot-dps/concepts-symmetric-key-attestation.md), copy and paste the symmetric key into your device code.
