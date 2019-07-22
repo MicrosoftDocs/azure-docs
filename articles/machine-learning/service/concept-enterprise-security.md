@@ -75,7 +75,7 @@ print(token)
 > [!IMPORTANT]
 > You will need to request a new token after the token's `refresh_by` time.
 > [!IMPORTANT]
-> We strongly recommend you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. To authenticate with the token, the web service will make a call to the region in which your Azure Machine Learning workspace is created in. So, the greater the distance between the region of your cluster and the region of your workspace, the longer it will take to authenticate.
+> We strongly recommend you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. To authenticate with token, the web service will make a call to the region in which your Azure Machine Learning workspace is created in. If your workspace's region is unavailable, then you will not be able to fetch token for your webservice even if your cluster is in a different region than your workspace. This effectively results in AAD Auth being unavailable until your workspace's region is available again. In addition, the greater the distance between your cluster's region and your workspace's region, the longer it will take to fetch token.
 
 ## Authorization
 
