@@ -251,9 +251,9 @@ When a timer trigger function is invoked, a timer object is passed into the func
 
 The `IsPastDue` property is `true` when the current function invocation is later than scheduled. For example, a function app restart might cause an invocation to be missed.
 
-## CRON expressions 
+## NCRONTAB expressions 
 
-Azure Functions uses the [NCronTab](https://github.com/atifaziz/NCrontab) library to interpret CRON expressions. A CRON expression includes six fields:
+Azure Functions uses the [NCronTab](https://github.com/atifaziz/NCrontab) library to interpret NCRONTAB expressions. An NCRONTAB exppression is similar to a CRON expression except that it includes an additional sixth field at the beginning to use for time precision in seconds:
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -269,9 +269,9 @@ Each field can have one of the following types of values:
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
-### CRON examples
+### NCRONTAB examples
 
-Here are some examples of CRON expressions you can use for the timer trigger in Azure Functions.
+Here are some examples of NCRONTAB expressions you can use for the timer trigger in Azure Functions.
 
 |Example|When triggered  |
 |---------|---------|
@@ -282,25 +282,24 @@ Here are some examples of CRON expressions you can use for the timer trigger in 
 |`"0 30 9 * * *"`|at 9:30 AM every day|
 |`"0 30 9 * * 1-5"`|at 9:30 AM every weekday|
 |`"0 30 9 * Jan Mon"`|at 9:30 AM every Monday in January|
->[!NOTE]   
->You can find CRON expression examples online, but many of them omit the `{second}` field. If you copy from one of them, add the missing `{second}` field. Usually you'll want a zero in that field, not an asterisk.
 
-### CRON time zones
+
+### NCRONTAB time zones
 
 The numbers in a CRON expression refer to a time and date, not a time span. For example, a 5 in the `hour` field refers to 5:00 AM, not every 5 hours.
 
 The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression based on another time zone, create an app setting for your function app named `WEBSITE_TIME_ZONE`. Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073). 
 
-For example, *Eastern Standard Time* is UTC-05:00. To have your timer trigger fire at 10:00 AM EST every day, use the following CRON expression that accounts for UTC time zone:
+For example, *Eastern Standard Time* is UTC-05:00. To have your timer trigger fire at 10:00 AM EST every day, use the following NCRONTAB expression that accounts for UTC time zone:
 
-```json
-"schedule": "0 0 15 * * *"
+```
+"0 0 15 * * *"
 ```	
 
-Or create an app setting for your function app named `WEBSITE_TIME_ZONE` and set the value to **Eastern Standard Time**.  Then uses the following CRON expression: 
+Or create an app setting for your function app named `WEBSITE_TIME_ZONE` and set the value to **Eastern Standard Time**.  Then uses the following NCRONTAB expression: 
 
-```json
-"schedule": "0 0 10 * * *"
+```
+"0 0 10 * * *"
 ```	
 
 When you use `WEBSITE_TIME_ZONE`, the time is adjusted for time changes in the specific timezone, such as daylight savings time. 
