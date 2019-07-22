@@ -54,9 +54,10 @@ Before we continue, you'll need the following:
 
 The first thing we need to do is set up our project in Visual Studio.
 
-1. Open Visual Studio. Then select **File > New > Project**.
+1. Open Visual Studio. Select **Create a new project**.
 1. In **Create a new project**, locate and select **WPF App (.NET Framework)**. You can select C# from **Language** to narrow the options.
-1. Click **Next**, and then name your project `MSTranslatorTextDemo`, set the framework version to **.NET Framework 4.7.2** or later, and then click **Create**.
+1. Select **Next**, and then name your project `MSTranslatorTextDemo`.
+1. Set the framework version to **.NET Framework 4.7.2** or later, and select **Create**.
    ![Enter the name and framework version in Visual Studio](media/name-wpf-project-visual-studio.png)
 
 Your project has been created. You'll notice that there are two tabs open: `MainWindow.xaml` and `MainWindow.xaml.cs`. Throughout this tutorial, we'll be adding code to these two files. We'll modify `MainWindow.xaml` for the app's user interface. We'll modify `MainWindow.xaml.cs` for our calls to Translator Text and Bing Spell Check.
@@ -72,12 +73,13 @@ Our project requires a handful of .NET Framework assemblies and NewtonSoft.Json,
 
 Let's add assemblies to our project to serialize and deserialize objects, and to manage HTTP requests and responses.
 
-1. Locate your project in Visual Studio's Solution Explorer (right panel). Right click on your project, then select **Add > Reference...**, which opens **Reference Manager**.
-   ![Add assembly references](media/add-assemblies-sample.png)
-1. The assemblies tab lists all .NET Framework assemblies that are available to reference. Use the search bar in the upper right of the screen to search for these references and add them to your project:
+1. Locate your project in Visual Studio's Solution Explorer. Right-click your project, then select **Add > Reference**, which opens **Reference Manager**.
+1. The **Assemblies** tab lists all .NET Framework assemblies that are available to reference. Use the search bar in the upper right to search for references.
+   ![Add assembly references](media/add-assemblies-2019.png)
+1. Select the following references for your project:
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
+   * System.Web.Extensions
    * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
 1. After you've added these references to your project, you can click **OK** to close **Reference Manager**.
 
@@ -88,9 +90,9 @@ Let's add assemblies to our project to serialize and deserialize objects, and to
 
 Our app will use NewtonSoft.Json to deserialize JSON objects. Follow these instructions to install the package.
 
-1. Locate your project in Visual Studio's Solution Explorer and right click on your project. Select **Manage NuGet Packages...**.
+1. Locate your project in Visual Studio's Solution Explorer and right-click on your project. Select **Manage NuGet Packages**.
 1. Locate and select the **Browse** tab.
-1. Type [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) into the search bar.
+1. Enter [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) into the search bar.
 
     ![Locate and install NewtonSoft.Json](media/nuget-package-manager.png)
 
@@ -157,7 +159,7 @@ Let's add the code to our project.
        </Grid>
    </Window>
    ```
-1. You should now see a preview of the app's user interface in Visual Studio. It should look similar to the image above.
+You should now see a preview of the app's user interface in Visual Studio. It should look similar to the image above.
 
 That's it, your form is ready. Now let's write some code to use Text Translation and Bing Spell Check.
 
@@ -245,7 +247,7 @@ In this code block, we've declared two member variables that contain information
 
 | Variable | Type | Description |
 |----------|------|-------------|
-|`languageCodes` | Array of strings |C aches the language codes. The Translator service uses short codes, such as `en` for English, to identify languages. |
+|`languageCodes` | Array of strings |Caches the language codes. The Translator service uses short codes, such as `en` for English, to identify languages. |
 |`languageCodesAndTitles` | Sorted dictionary | Maps the "friendly" names in the user interface back to the short codes used in the API. Kept sorted alphabetically without regard for case. |
 
 Then, within the `MainWindow` constructor, we've added error handling with `HandleExceptions`. This error handling ensures that an alert is provided if an exception isn't handled. Then a check is run to confirm the subscription key provided is 32 characters in length. An error is thrown if the key is less than/greater than 32 characters.
