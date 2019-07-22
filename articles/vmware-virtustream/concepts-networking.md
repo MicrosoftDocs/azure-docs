@@ -14,7 +14,7 @@ ms.custom:
 
 # Azure VMware Solution by Virtustream networking and interconnectivity concepts
 
-Network interconnectivity between your Azure VMware Solution by Virtustream (AVS by Virtustream) private clouds and  on-premises environments or VNets in Azure is key to the use of your private cloud. A few key networking and interconnectivity concepts establish the basis of interconnectivity, and they are described in this article.
+Network interconnectivity between your Azure VMware Solution by Virtustream (AVS by Virtustream) private clouds and  on-premises environments or VNets in Azure is key to the use of your private cloud. A few key networking and interconnectivity concepts establish the basis of interconnectivity, and they're described in this article.
 
 A useful perspective on interconnectivity is to consider the two types of interconnectivity implementations with AVS by Virtustream private clouds: basic Azure-only interconnectivity, or full Azure and on-premises interconnectivity. The  Azure-only connectivity enables a few of the use cases for a private cloud, and full on-premises to private cloud interconnectivity enables all use cases:
 
@@ -24,7 +24,7 @@ A useful perspective on interconnectivity is to consider the two types of interc
 - disaster recovery
 - consumption of Azure services
 
- All use cases for the AVS by Virtustream service are enabled with on-premises to private cloud connectivity. The basic interconnectivity model is best suited for AVS by Virtustream evaluations or implementations that do not require access from on-premises environments.
+ All use cases for the AVS by Virtustream service are enabled with on-premises to private cloud connectivity. The basic interconnectivity model is best suited for AVS by Virtustream evaluations or implementations that don't require access from on-premises environments.
 
 The two types of AVS by Virtustream private cloud interconnectivity are described in the sections below.  The most basic interconnectivity is "Azure VNet connectivity", and it enables you to manage and use your private cloud with only a single VNet in Azure. The interconnectivity described in "On-premises connectivity" extends the VNet connectivity to also include interconnectivity between on-premises environments and AVS by Virtustream private clouds.
 
@@ -33,7 +33,7 @@ In addition to One of the objectives of this article is to provide you with the 
 ## Azure interconnectivity
 
 The basic network interconnectivity that is established at the time of a private cloud deployment is shown in Figure 1. It depicts the logical networking between a VNet in Azure and an AVS by Virtustream private cloud. The connectivity is across the Azure backbone network, uses ExpressRoute, and fulfills three of the primary use cases:
-- Inbound access to management networks where vCenter server and NSX-T manager reside.
+- Inbound access to management networks where vCenter server and NSX-T manager are located.
     - Accessible via VMs within your Azure subscription, not from your on-premises systems.
 - Outbound access to Azure services by production VM workloads.
 - Inbound access and consumption of workloads running in the SDDC.
@@ -42,7 +42,7 @@ The basic network interconnectivity that is established at the time of a private
 
 The ExpressRoute (ER) circuit in this VNet -to- private cloud scenario is established when a private cloud is deployed. You create a private peering of an ExpressRoute gateway to the private cloud ExpressRoute circuit. The peering uses an authorization key and a circuit ID that you request in the Azure portal. The ER connection that is established through the peering is a private, one-to-one connection between your private cloud and a VNet in your subscription. Private cloud management, access to Azure services, and workload consumption can all occur over that connection.
 
-When you deploy an AVS by Virtustream private cloud, a single /22 private network address space is required. This address space should not overlap with address spaces used in other VNets in your subscription. Within this address space, management, provisioning, and vMotion networks are provisioned automatically. The routing is BGP-based and it is automatically provisioned and enabled by default for each private cloud deployment.
+When you deploy an AVS by Virtustream private cloud, a single /22 private network address space is required. This address space shouldn't overlap with address spaces used in other VNets in your subscription. Within this address space, management, provisioning, and vMotion networks are provisioned automatically. The routing is BGP-based and it's automatically provisioned and enabled by default for each private cloud deployment.
 
 When a private cloud is deployed, you are provided with the IP addresses and credentials for vCenter and NSX-T Manager. To access those management interfaces, additional resources need to be deployed in a VNet in your subscription. The procedures for creating those resources and establishing ER private peering are described in [the second][tutorial-create-vnet-resources] and [third tutorials][access-private-cloud].
 
@@ -70,7 +70,7 @@ The routing requirements of the solution require you to plan private cloud netwo
 
 ## Next steps 
 
-The next step is to learn about [private cloud storage concepts](concepts-storage).
+The next step is to learn about [private cloud storage concepts][concepts-storage].
 
 <!-- LINKS - external -->
 [enable Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach

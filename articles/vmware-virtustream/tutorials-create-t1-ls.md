@@ -158,11 +158,12 @@ With DHCP services enabled on the NSX-T logical switch, virtual machines deploye
 
 ## Next steps
 
-The next step is to [deploy a VM][tutorials-deploy-vm].
+The next step is to deploy a VM.
+<!-- [deploy a VM][tutorials-deploy-vm]. -->
 
 <!-- [Deploy a virtual machine on the NSX-T logical switch network.][tutorials-deploy-vm] -->
 
 <!-- LINKS - external-->
 
 <!-- LINKS - internal -->
-[tutorials-deploy-vm]: ./tutorials-deploy-vm.md
+<!-- [tutorials-deploy-vm]: ./tutorials-deploy-vm.md -->

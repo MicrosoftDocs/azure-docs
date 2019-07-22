@@ -18,7 +18,7 @@ AVS by Virtustream private clouds provide native, cluster-wide storage with VMwa
 
 ## vSAN clusters
 
-Local storage in each cluster host is used as part of a vSAN datastore, two diskgroups for High-end (HE) hosts and one diskgroup for General-purpose hosts. All diskgroups use an NVMe cache tier of 1.6 TB with the raw, per host, SSD-based capacity shown in the table below. The size of the raw capacity tier of a cluster is the per host capacity times the number of hosts. For example, a four host cluster of HE hosts will provide 61.6 TB raw capacity in the vSAN capacity tier.
+Local storage in each cluster host is used as part of a vSAN datastore, two diskgroups for High-end (HE) hosts and one diskgroup for General-purpose hosts. All diskgroups use an NVMe cache tier of 1.6 TB with the raw, per host, SSD-based capacity shown in the table below. The size of the raw capacity tier of a cluster is the per host capacity times the number of hosts. For example, a four host cluster of HE hosts will provide 61.6-TB raw capacity in the vSAN capacity tier.
 
 | Host type                   |  Raw SSD capacity |
 | :---                        |       :---:       |
@@ -43,7 +43,7 @@ Native cluster storage capacity is scaled by adding hosts to a cluster. For clus
 
 ## Azure storage integration
 
-You can use Azure storage services on workloads running in your private cloud. The Azure storage services include Storage Accounts, Table Storage, and Blob Storage. The connection of workloads to Azure storage services does not traverse the internet. This connectivity provides additional security and enables you to use SLA-based Azure storage services in your private cloud workloads.
+You can use Azure storage services on workloads running in your private cloud. The Azure storage services include Storage Accounts, Table Storage, and Blob Storage. The connection of workloads to Azure storage services doesn't traverse the internet. This connectivity provides additional security and enables you to use SLA-based Azure storage services in your private cloud workloads.
 
 ## Next steps
 

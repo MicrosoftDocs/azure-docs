@@ -77,7 +77,8 @@ Once the deployment has succeeded, navigate to the new private cloud in your res
 
 ## Next steps
 
-In the next tutorial, you will [create a VNet and resources][tutorials-create-vnet-resources] to connect to a private cloud.
+In the next tutorial, you will create a VNet and resources to connect to a private cloud.
+<!-- [create a VNet and resources][tutorials-create-vnet-resources] -->
 
 <!-- LINKS - external-->
 [resource provider]: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services
@@ -85,4 +86,4 @@ In the next tutorial, you will [create a VNet and resources][tutorials-create-vn
 
 <!-- LINKS - internal -->
 [tutorials-create-t1-ls]: ./tutorials-create-t1-ls.md
-[tutorials-create-vnet-resources]: ./tutorials-create-vnet-resources.md
+<!-- [tutorials-create-vnet-resources]: ./tutorials-create-vnet-resources.md -->
