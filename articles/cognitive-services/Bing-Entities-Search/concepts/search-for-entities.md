@@ -1,6 +1,6 @@
 ---
 title: Search for entities with the Bing Entity Search API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use the Bing Entity Search API to extract and search for entities and places from search queries.
 services: cognitive-services
 author: aahill
