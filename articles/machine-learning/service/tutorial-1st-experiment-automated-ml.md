@@ -57,26 +57,22 @@ In this tutorial, you learn the following tasks:
     Virtual machine size| Select the virtual machine size for your compute. We use **Standard_DS12_V2**.
     Additional settings| *Min node*: 1. To enable data profiling, you must have 1 or more nodes. <br> *Max node*: 6. 
 
-
     To start the creation of your new compute, select **Create**. This can take a few moments. 
-    1. Once creation is complete, select your new compute from the dropdown, then select **Next**.
+
+    Once creation is complete, select your new compute from the dropdown, then select **Next**.
 
 1. For this tutorial, we use the default storage account and container created with your new compute. This automatically populates in the form.
 
-1.  Upload the **bankmarketing_train.csv** file from your local computer to the default container. Public preview only supports local file uploads and Azure Blob Storage accounts. When the upload is complete, select the file from the list. 
+1. Select **Upload** to choose the **bankmarketing_train.csv** file from your local computer and upload it to the default container. Public preview only supports local file uploads and Azure Blob Storage accounts. When the upload is complete, select the file from the list. 
 
     ![Select bankmarketing_train.csv data file for experiment](media/tutorial-1st-experiment-automated-ml/select-data-file.png)
 
-1. Use the preview and profile tabs to further configure your data for this experiment.
+1. The **Preview** tab allows us to further configure our data for this experiment.
+    On the Preview tab, indicate that the data includes headers. The service defaults to including all of the features (columns) for training. For this example, scroll to the right and **Ignore** the **day_of_week** feature.
 
-    1. On the Preview tab, indicate if your data includes headers, and select the features (columns) for training using the **Included** switch buttons in each feature column. 
+    ![Preview tab config](media/tutorial-1st-experiment-automated-ml/preview-tab-config.gif)
 
-        For this example, scroll to the right and **don't include** the **day_of_week** feature.
 
-         ![Ignore feature](media/tutorial-1st-experiment-automated-ml/ignore-feature.png)
-
-     On the Profile tab, you can view the data profile by feature, as well as the distribution, type, and summary statistics (mean, median, max/min, and so on) of each.
-        
     >[!NOTE]
     > Data profiling is not available with computes that have 0 minimum nodes.
 
@@ -97,28 +93,26 @@ In this tutorial, you learn the following tasks:
    >[!NOTE]
    > For this experiment we don't set a metric or max iterations threshold, and don't block algorithms from being tested.
 
-To run the experiment, click **Start**. 
+1. Click **Start** to run the experiment.
 
 ##  View experiment details
 
-The experiment preparing process takes a couple of minutes.
+After starting the experiment, you see a blank **Run Detail** screen with the following status at the top. The experiment preparing process takes a couple of minutes. When the preparation process completes, the status message updates to **Run is Running**.
 
   ![Run preparing](media/tutorial-1st-experiment-automated-ml/run-preparing.png)
 
-Once the experiment preparation phase is done, you'll see the **Run Detail** screen. As the training job tries out different iterations (models), they are added to the iteration list and chart. The iterations list is in order by metric score; by default, the model that scores the highest based on our **AUC_weighted** metric is at the top of the list.
+As the experiment progresses, the **Run Detail** screen updates the iteration chart and list with the different iterations (models) that are run. The iterations list is in order by metric score; by default, the model that scores the highest based on our **AUC_weighted** metric is at the top of the list.
 
 >[!TIP]
 > Training jobs can take several minutes for each pipeline to finish running.
 
-![Run details dashboard](media/tutorial-1st-experiment-automated-ml/run-details.png)
+[![Run details dashboard](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details.png#lightbox)
 
 ## Deploy model
 
-For this experiment the **VotingEnsemble** is considered the best model based on the **AUC_weighted** metric. Now we deploy this model as a web service to predict on new data.
+For this experiment the **VotingEnsemble** is considered the best model based on the **AUC_weighted** metric. Automated machine learning in the Azure portal we can deploy this model as a web service to predict on new data with one click. 
 
-Automated machine learning in the Azure portal makes model deployment possible with one click. 
-
-1. Go back to the **Run Detail** page, select the **Deploy Best Model** button.
+1. On the **Run Detail** page, select the **Deploy Best Model** button.
 
 1. Populate the **Deploy Best Model** pane as follows,
 
@@ -143,14 +137,14 @@ Automated machine learning in the Azure portal makes model deployment possible w
 
 ### Delete deployment instance
 
-To keep the resource group and workspace for other tutorials and exploration, you can delete only the Azure Container Instance deployment from the Azure portal. 
+Deployment If you want to keep the resource group and workspace for other tutorials and exploration, you can delete only the Azure Container Instance deployment from the Azure portal. 
 
 1. Navigate to the **Assets** pane on the left and select **Deployments**. 
 
 1. Select the deployment you want to delete and select **Delete**. 
 
 1. Select **Proceed**.
-
+ 
 ## Next steps
 
 In this automated machine learning tutorial, you used the Azure portal to create and deploy a classification model. See these articles for more information and next steps.
