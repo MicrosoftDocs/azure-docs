@@ -113,7 +113,7 @@ In the terminal, use the Azure Functions Core Tools to scaffold a new HTTP funct
 func new --language python --template HttpTrigger --name classify
 ```
 
-A new folder named **classify** is created, containing two files.
+A new folder named *classify* is created, containing two files.
 
 - *\_\_init\_\_.py*: A file for the main function
 - *function.json*:  A file describing the function's trigger and its input and output bindings
@@ -151,7 +151,7 @@ Use `Ctrl-C` to stop the function app.
 
 You'll use a pre-built TensorFlow model that was trained with and exported from Azure Custom Vision Service. If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
-The model consists of two files in the **<repository-root>/resources/model** folder: *model.db* and *labels.txt*. Copy them into the **classify** function's folder.
+The model consists of two files in the *<REPOSITORY_ROOT>/resources/model* folder: *model.db* and *labels.txt*. Copy them into the *classify* function's folder.
 
 *Linux and macOS*
 
@@ -191,7 +191,7 @@ pip install Pillow
 pip install requests
 ```
 
-Save the dependencies in **requirements.txt**.
+Save the dependencies in *requirements.txt*.
 
 ```bash
 pip freeze > requirements.txt
@@ -199,11 +199,11 @@ pip freeze > requirements.txt
 
 ### Caching the model in global variables
 
-In the editor, open **predict.py** and look at the `_initialize` function near the top of the file. Notice that the TensorFlow model is loaded from disk the first time the function is executed and saved to global variables. The loading from disk is skipped in subsequent executions of the `_initialize` function. Caching the model in memory with this technique speeds up later predictions.
+In the editor, open *predict.py* and look at the `_initialize` function near the top of the file. Notice that the TensorFlow model is loaded from disk the first time the function is executed and saved to global variables. The loading from disk is skipped in subsequent executions of the `_initialize` function. Caching the model in memory with this technique speeds up later predictions.
 
 ## Update function to run predictions
 
-Open **classify/\_\_init\_\_.py** in your editor. Import the *predict* library that you added to the same folder earlier. Add the following `import` statements below the other imports already in the file.
+Open *classify/\_\_init\_\_.py* in your editor. Import the *predict* library that you added to the same folder earlier. Add the following `import` statements below the other imports already in the file.
 
 ```python
 import json
@@ -226,14 +226,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 This function receives an image URL in a query string parameter named `img`. It calls `predict_image_from_url` from the helper library that downloads the image and returns a prediction using the TensorFlow model. The function then returns an HTTP response with the results.
 
-Because the HTTP endpoint will be called by a web page hosted on another domain, the HTTP response includes an `Access-Control-Allow-Origin` header to satisfy the browser's Cross-Origin Resource Sharing (CORS) requirements.
+Since the HTTP endpoint is called by a web page hosted on another domain, the HTTP response includes an `Access-Control-Allow-Origin` header to satisfy the browser's Cross-Origin Resource Sharing (CORS) requirements.
 
 > [!NOTE]
 > In a production application, consider changing `*` to the web page's specific origin for added security.
 
-### Test the function app
+### Run the function app
 
-Ensure the Python virtual environment is still activated. Start the function app.
+Ensure the Python virtual environment is still activated and start the function app using the following command.
 
 ```bash
 func start
@@ -247,24 +247,26 @@ http://localhost:7071/api/classify?img=https://github.com/Azure-Samples/function
 
 Keep the function app running.
 
-### Test the web app
+### Run the web app
 
-There's a simple frontend web app in the *frontend* folder that consumes the HTTP API in the function app.
+There's a simple web app in the *frontend* folder that consumes the HTTP API in the function app.
 
-Open a *separate* terminal and change to the **frontend** folder. Start an HTTP server with your Python 3.6 executable.
+Open a *separate* terminal and change to the *frontend* folder. Start an HTTP server with your Python 3.6 executable.
 
 ```bash
-cd <location of the frontend folder>
-python -m http.server
+cd <FRONT_END_FOLDER>
+<PYTHON_PATH> -m http.server
 ```
 
 In a browser, navigate to the HTTP server's URL. A web app should appear. Find a public URL of a dog or cat photo and enter it into the textbox. When you click submit, the function app is called and a prediction is returned and displayed on the page.
 
 ## Next steps
 
-In this tutorial, you learned how to build and customize an HTTP API with Azure Functions to make predictions using TensorFlow. You also learned how to call the API from a web application. You can use these techniques to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
+In this tutorial, you learned how to build and customize an HTTP API with Azure Functions to make predictions using TensorFlow. You also learned how to call the API from a web application.
 
-The following references may be helpful as you develop your application further:
+You can use the techniques in this tutorial to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
 
-- [Azure Functions Python Developer Guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-python)
-- [Deploy Python to Azure Functions with VS Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions)
+To deploy the function app to Azure, use the [Azure Functions Core Tools](./functions-run-local.md#publish) or [Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions).
+
+> [!div class="nextstepaction"]
+> [Azure Functions Python Developer Guide](./functions-reference-python.md)
