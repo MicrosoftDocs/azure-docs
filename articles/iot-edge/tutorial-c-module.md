@@ -41,9 +41,6 @@ Use the following table to understand your options for developing and deploying 
 | **Linux AMD64** | ![Use VS Code for C modules on Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Use VS for C modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![Use VS Code for C modules on Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Use VS for C modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |
 
->[!NOTE]
->Support for Linux ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information about how to set up your development environment to support ARM64 module, see [blog post]().
-
 ## Prerequisites
 
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place: 
@@ -92,7 +89,7 @@ The environment file stores the credentials for your container registry and shar
 
 ### Select your target architecture
 
-Currently, Visual Studio Code can develop C# modules for Linux AMD64 and Linux ARM32v7 devices. You need to select which architecture you're targeting with each solution, because the container is built and run differently for each architecture type. The default is Linux AMD64. 
+Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux ARM32v7 devices. You need to select which architecture you're targeting with each solution, because the container is built and run differently for each architecture type. The default is Linux AMD64. 
 
 1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window. 
 

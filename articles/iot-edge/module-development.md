@@ -74,7 +74,7 @@ For all languages in the following table, IoT Edge supports development for AMD6
 | Python | Visual Studio Code |
 
 >[!NOTE]
->Develop and debugging support for ARM64 Linux devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information about how to set up your development environment to support ARM64 modules, see [blog post](). 
+>Develop and debugging support for ARM64 Linux devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 ### Windows
 

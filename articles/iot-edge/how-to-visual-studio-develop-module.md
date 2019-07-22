@@ -23,9 +23,6 @@ The Azure IoT Edge Tools for Visual Studio provides the following benefits:
 - Manage Azure IoT Edge devices and modules with UI.
 
 This article shows you how to use the Azure IoT Edge Tools for Visual Studio 2019 to develop your IoT Edge modules. You also learn how to deploy your project to your Azure IoT Edge device. Currently, Visual Studio 2019 provides support for modules written in C and C#. The supported device architectures are Windows X64 and Linux X64 or ARM32. For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
-
->[!NOTE]
->Develop and debugging support for Linux ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information about how to set up your instance of Visual Studio Code to support ARM64 module development, see [blog post]().
   
 ## Prerequisites
 
