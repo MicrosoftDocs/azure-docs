@@ -133,7 +133,7 @@ If some of your domain-joined devices are Windows downlevel devices, you must:
 
 ### Configure the local intranet settings for device registration
 
-o successfully complete hybrid Azure AD join of your Windows downlevel devices and to avoid certificate prompts when devices authenticate to Azure AD, you can push a policy to your domain-joined devices to add the following URLs to the local intranet zone in Internet Explorer:
+To successfully complete hybrid Azure AD join of your Windows downlevel devices and to avoid certificate prompts when devices authenticate to Azure AD, you can push a policy to your domain-joined devices to add the following URLs to the local intranet zone in Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`
@@ -142,7 +142,7 @@ You also must enable **Allow updates to status bar via script** in the user’s 
 
 ### Configure seamless SSO
 
-To successfully complete hybrid Azure AD join of your Windows downlevel devices in a managed domain that uses [PHS]../hybrid/whatis-phs.md) or [PTA](../hybrid/how-to-connect-pta.md) as your Azure AD cloud authentication method, you must also [configure seamless SSO](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
+To successfully complete hybrid Azure AD join of your Windows downlevel devices in a managed domain that uses [PHS](../hybrid/whatis-phs.md) or [PTA](../hybrid/how-to-connect-pta.md) as your Azure AD cloud authentication method, you must also [configure seamless SSO](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
 
 ### Install Microsoft Workplace Join for Windows downlevel computers
 

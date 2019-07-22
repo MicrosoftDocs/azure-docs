@@ -26,7 +26,7 @@ If you have a scenario in which you want to send a notification at some point in
 ## Schedule your notifications
 When sending a notification, simply use the [`ScheduledNotification` class](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) in the Notification Hubs SDK as shown in the following example:
 
-```c#
+```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
 var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
 ```
@@ -34,7 +34,7 @@ var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2
 ## Cancel scheduled notifications
 Also, you can cancel a previously scheduled notification using its notificationId:
 
-```c#
+```csharp
 await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 ```
 
