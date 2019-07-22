@@ -86,7 +86,7 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 | Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor<sup>3</sup> |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 days is the maximum explicit length that can be set for these attributes.
-* <sup>4</sup>It is recommended to set AccessTokenLifetime to greater than 15 minutes for Microsoft Teams Web client.
+* <sup>4</sup>To make the Microsoft Teams Web client works, it is recommended to set AccessTokenLifetime to greater than 15 minutes for the Microsoft Teams.
 
 ### Exceptions
 | Property | Affects | Default |
