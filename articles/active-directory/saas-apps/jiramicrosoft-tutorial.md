@@ -174,11 +174,11 @@ To configure Azure AD single sign-on with JIRA SAML SSO by Microsoft, perform th
 
 5. Once the plugin is installed, it appears in **User Installed** add-ons section of **Manage Add-on** section. Click **Configure** to configure the new plugin.
 
-	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon13.png)
+	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. Perform following steps on configuration page:
 
-	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon53.png)
+	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon54.png)
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
@@ -188,6 +188,8 @@ To configure Azure AD single sign-on with JIRA SAML SSO by Microsoft, perform th
 	1. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **JIRA SAML SSO by Microsoft Domain and URLs** section on Azure portal.
 
 	1. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
+	
+	1. In **Login Button Description** type the description of button your organization wants the users to see on login screen.
 
 	1. In **SAML User ID Locations** select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the JIRA user ID. If the user ID is not matched, then system will not allow users to sign in.
 
@@ -205,7 +207,7 @@ To configure Azure AD single sign-on with JIRA SAML SSO by Microsoft, perform th
 	1. Enable **Force Azure Login** checkbox, if you wish to sign in through Azure AD credentials only.
 	
 	   > [!Note]
-	   > To enable the default login form for admin login on login page when force azure login is enabled, add the query parameter in the browser URL.
+	   >To enable the default login form for admin login on login page when force azure login is enabled, add the query parameter in the browser URL.
 	   > `https://<domain:port>/login.action?force_azure_login=false`
 
 	1. Click **Save** button to save the settings.
