@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
 title: User help for authentication, apps, and device management - Azure Active Directory | Microsoft Docs
-description: User help is for people that need help setting up and using security info, two-step verification, self-service password resets, device management, the Microsoft Authenticator app, and the My Apps portal.  
+description: User help is for people who need help setting up and using security info, two-step verification, self-service password resets, device management, the Microsoft Authenticator app, and the My Apps portal.  
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # User help for authentication, apps, and device management
 
-We've created this content to help you set up and use security info, two-step verification, to learn how to reset your own passwords, to set up and join your Azure Active Directory devices, and to set up and use the Microsoft Authenticator app and the My Apps portal.
+We've created this content to help you set up and use security info, such as two-step verification, learn how to reset your own passwords, set up and join your Azure Active Directory devices, and set up and use the Microsoft Authenticator app and the My Apps portal.
 
 |  |
 |--|
