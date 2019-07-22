@@ -10,7 +10,7 @@ ms.author: absha
 ---
 # Create certificates to allow the backend with Azure Application Gateway
 
-To do end to end SSL, application gateway requires the backend instances to be allowed by uploading authentication/trusted root certificates. For the v1 SKU, authentication certificates are required, but for the v2 SKU trusted root certificates are required to allow the certificates.
+To do end to end SSL, Application Gateway requires the backend instances to be allowed by uploading authentication/trusted root certificates. For the v1 SKU, authentication certificates are required, but for the v2 SKU trusted root certificates are required to allow the certificates.
 
 In this article, you learn how to:
 
