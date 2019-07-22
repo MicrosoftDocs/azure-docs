@@ -3,8 +3,8 @@ title: What are access reviews? - Azure Active Directory | Microsoft Docs
 description: Using Azure Active Directory access reviews, you can control group membership and application access to meet governance, risk management, and compliance initiatives in your organization.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/05/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -77,6 +77,25 @@ Here are some example scenarios to help you determine the number of licenses you
 | An administrator creates an access review of Group A with 5 users and 28 guest users.<br/>Makes it a self-review. | 1 administrator + 5 users as self-reviewers + 1 user to cover guest users in the required 1:5 ratio | 7 |
 
 For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
+
+## Onboard access reviews
+
+To onboard access reviews, follow these steps.
+
+1. As a Global administrator or User administrator, sign in to the [Azure portal](https://portal.azure.com) where you want to use access reviews.
+
+1. In the left navigation, click **Azure Active Directory**.
+
+1. In the left menu, click **Identity Governance**.
+
+1. Click **Access reviews**.
+ 
+    ![Access reviews start page](./media/access-reviews-overview/access-reviews-overview-onboard.png)
+
+1. On the page, click the **Onboard now** button.
+    
+      ![Access reviews onboard](./media/access-reviews-overview-select-onboard.png)
+
 
 ## Learn about access reviews
 
