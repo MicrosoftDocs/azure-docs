@@ -73,7 +73,7 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 1. Click the **+ Action** in the **Action** sections. Here you see the list of available actions.  
 
-    ![Add Action](media/howto-create-tevent-rules-pnp/add-action1.png)
+    ![Add Action](media/howto-create-event-rules-pnp/add-action1.png)
 
 1. Choose the **Email** action, enter a display name for the action, a valid email address in the **To** field, and provide a note to appear in the body of the email when the rule triggers.
 
