@@ -27,7 +27,8 @@ When using portal, go to your **Account videos** on the [Video Indexer](https://
 
 ## Model output
 
-Video Indexer will transcribe the video according to the most likely language only if the confidence for that language is `> 0.6`, otherwise it will fall back to assume the spoken language is English. 
+Video Indexer transcribes the video according to the most likely language if the confidence for that language is `> 0.6`. If the language cannot be identified with confidence, it assumes the spoken language is English. 
+
 Model dominant language is available in the insights JSON as the `sourceLanguage` attribute (under root/videos/insights). A corresponding confidence score is also available under the `sourceLanguageConfidence` attribute.
 
 ```json
