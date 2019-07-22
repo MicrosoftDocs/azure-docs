@@ -299,6 +299,8 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
 
 After the disk is unlocked, you can view the contents of the disk.
 
+For more information on how to set up and unlock the disks, go to [Tutorial: Unpack, connect, and unlock Azure Data Box Disk](data-box-disk-deploy-set-up.md).
+
 ::: zone-end
 
 ## Next steps
