@@ -55,7 +55,7 @@ Depending on your organization’s settings, you might be able to use text messa
 
     The page changes to show your success.
 
-    ![Success notification, connecting the phone number, the choice to receive text messags, and your account](media/security-info/securityinfo-myprofile-phonetext-success.png)
+    ![Success notification, connecting the phone number, the choice to receive text messages, and your account](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
     Your security info is updated and you can use text messaging to verify your identity when using two-step verification or password reset. If you want to make text messaging your default method, see the [Change your default security info method](#change-your-default-security-info-method) section of this article.
 
@@ -74,7 +74,7 @@ If you no longer want to use text messages as a security info method, you can re
 2. Select **Yes** from the confirmation box to delete the **Phone** number. After your phone number is deleted, it's removed from your security info and it disappears from the **Security info** page. If **Phone** is your default method, the default will change to another available method.
 
 ## Change your default security info method
-If you want text messaging to be the default method used when you sign-in to your work or school account using two-factor verification or for password reset requests, you can set it from the **Security info** page.
+If you want text messaging to be the default method used when you sign in to your work or school account using two-factor verification or for password reset requests, you can set it from the **Security info** page.
 
 ### To change your default security info method
 
