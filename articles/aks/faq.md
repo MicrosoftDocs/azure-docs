@@ -161,21 +161,21 @@ Most commonly, this is caused by users having one or more Network Security Group
 
 ## I ran an upgrade, but now my pods are in crash loops, and readiness probes fail?
 
-Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) and [AKS update credentials](https://docs.microsoft.com/en-us/azure/aks/update-credentials).
+Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) and [AKS update credentials](https://docs.microsoft.com/azure/aks/update-credentials).
 
 ## My cluster was working, but suddenly can not provision LoadBalancers, mount PVCs, etc.? 
 
-Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal)  and [AKS update credentials](https://docs.microsoft.com/en-us/azure/aks/update-credentials).
+Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal)  and [AKS update credentials](https://docs.microsoft.com/azure/aks/update-credentials).
 
-## Can I use VMSS APIs to scale manually?
+## Can I use the virtual machine scale set APIs to scale manually?
 
-No, scale operations using VMSS APIs are not supported. Use the AKS APIs, eg. az aks scale
+No, scale operations by using the virtual machine scale set APIs aren't supported. Use the AKS APIs (`az aks scale`).
 
-## Can I use VMSS to manually scale to 0 nodes?
+## Can I use virtual machine scale sets to manually scale to 0 nodes?
 
-No, scale operations using VMSS APIs are not supported.
+No, scale operations by using the virtual machine scale set APIs aren't supported.
 
-## Can I Stop/De-allocate all my VMs?
+## Can I stop or de-allocate all my VMs?
 
 While AKS has resilience mechanisms to withstand such a config and recover from it, this is not a recommended configuration.
 
