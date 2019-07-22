@@ -98,8 +98,6 @@ The [Image Analysis skill](cognitive-search-skill-image-analysis.md) extracts a 
 
 The [OCR skill](cognitive-search-skill-ocr.md) extracts text from image files such as JPGs, PNGs, and bitmaps. It can extract text as well as layout information. The layout  information provides bounding boxes for each of the strings identified.
 
-The OCR skill allows you to select the algorithm to use for detecting text in your images. Currently it supports two algorithms, one for printed text and another for handwritten text.
-
 ## Embedded image scenario
 
 A common scenario involves creating a single string containing all file contents, both text and image-origin text, by performing the following steps:  
