@@ -4,7 +4,7 @@ description: A guide for controlling ingress traffic in Azure to meet Australian
 author: galey801
 ms.service: azure-australia
 ms.topic: conceptual
-ms.date: 04/25/19
+ms.date: 07/22/2019
 ms.author: grgale
 ---
 

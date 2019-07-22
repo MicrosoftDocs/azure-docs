@@ -3,8 +3,8 @@ title: Azure Australia Reference List
 description: Additional documentation, tutorials or references relevant to Australian Government agencies operating securely in Azure.
 author: galey801
 ms.service: azure-australia
-ms.topic: article
-ms.date: 06/11/2019
+ms.topic: conceptual
+ms.date: 07/22/2019
 ms.author: grgale
 ---
 

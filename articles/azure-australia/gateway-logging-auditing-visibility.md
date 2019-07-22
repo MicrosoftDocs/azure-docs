@@ -4,7 +4,7 @@ description: How to configure Logging, Auditing, and Visibility within the Austr
 author: galey801
 ms.service: azure-australia
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 07/22/2019
 ms.author: grgale
 ---
 
@@ -104,7 +104,7 @@ When implementing the components listed in this article, the following general g
 |---|---|
 |Australian Regulatory and Policy Compliance Documents|[https://aka.ms/au-irap](https://aka.ms/au-irap)|
 |Azure products - Australian regions and non-regional|[https://azure.microsoft.com/en-au/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast](https://azure.microsoft.com/en-au/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast)|
-|Microsoft Azure Security and Audit Log Management Whitepaper|[http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf)|
+|Microsoft Azure Security and Audit Log Management Whitepaper|[https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf)|
 |Microsoft Monitoring Agent Configuration|[https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent)|
 |
 

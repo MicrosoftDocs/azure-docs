@@ -3,8 +3,8 @@ title: Azure Key Vault in Azure Australia
 description: Guidance on configuring and using Azure Key Vault for key management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
-ms.topic: article
-ms.date: 06/11/2019
+ms.topic: conceptual
+ms.date: 07/22/2019
 ms.author: grgale
 ---
 

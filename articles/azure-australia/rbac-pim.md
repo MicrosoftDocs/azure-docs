@@ -3,8 +3,8 @@ title: Role Based Access Control and Privileged Identity Management in Azure Aus
 description: Guidance on Implementing Role Based Access Control and Privileged Identity Management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: Galey801
 ms.service: azure-australia
-ms.topic: quickstart
-ms.date: 04/25/2019
+ms.topic: conceptual
+ms.date: 07/22/2019
 ms.author: grgale
 ---
 
@@ -100,11 +100,16 @@ PS C:\> az role definition list
 ...
 ```
 
-It is also possible to create custom Azure Resource Roles as required. These custom roles can be created in the Azure Portal, via PowerShell, or the Azure CLI. When creating custom Roles, it is vital to ensure the purpose of the Role is unique and that its function is not already provided by an existing Azure Resource Role. This reduces ongoing management complexity and reduces the risk of Security Principals receiving unnecessary privileges. An example would be creating a custom Azure Resource Role that sits between the built-in Azure Resource Roles, "Virtual Machine Contributor" and "Virtual Machine Administrator Login". This custom Role could be based on the existing Contributor Role, which grants the following access:
+It is also possible to create custom Azure Resource Roles as required. These custom roles can be created in the Azure Portal, via PowerShell, or the Azure CLI. When creating custom Roles, it is vital to ensure the purpose of the Role is unique and that its function is not already provided by an existing Azure Resource Role. This reduces ongoing management complexity and reduces the risk of Security Principals receiving unnecessary privileges. An example would be creating a custom Azure Resource Role that sits between the built-in Azure Resource Roles, "Virtual Machine Contributor" and "Virtual Machine Administrator Login". 
 
-```
-Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they're connected to
-```
+The custom Role could be based on the existing Contributor Role, which grants the following access:
+
+| Azure Resource | Access Level |
+| --- | --- |
+| Virtual Machines | Can Manage but cannot access |
+| Virtual Network attached to VM | Cannot access |
+| Storage attached to VM | Cannot access |
+|
 
 The custom role could preserve this basic access, but allow the designated users some basic additional privileges to modify the network configuration of the virtual machines.
 

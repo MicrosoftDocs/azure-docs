@@ -4,7 +4,7 @@ description: Guidance on configuring Azure within the Australian regions to meet
 author: Galey801
 ms.service: azure-australia
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 07/22/2019
 ms.author: grgale
 ---
 

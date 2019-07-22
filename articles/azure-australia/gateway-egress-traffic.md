@@ -4,7 +4,7 @@ description: Key elements of controlling egress traffic in Azure to meet Austral
 author: galey801
 ms.service: azure-australia
 ms.topic: conceptual
-ms.date: 07/19/19
+ms.date: 07/22/2019
 ms.author: grgale
 ---
 
@@ -102,11 +102,11 @@ The majority of PaaS resources do not generate egress traffic, but either respon
 
 PaaS resources deployed into a virtual network receive dedicated IP addresses and are subject to any routing controls and NSGs in the same way as other resources in the virtual network. PaaS resources that do not exist within a virtual network will utilise a pool of IP addresses that are shared across all instances of the resource, which are either published through Microsoft documentation or can be determined through Azure Resource Manager.
 
-# General Guidance
+## General Guidance
 
 To design and build secure solutions within Azure, it is critical to understand and control the network traffic so that only identified and authorised communication can occur. The intent of this guidance and the specific component guidance in later sections is to describe the tools and services that can be utilised to apply the principles outlined in the _ACSC Protect: Implementing Network Segmentation and Segregation_ across Azure workloads. This includes detailing how to create a virtual architecture for securing resources when it is not possible to apply the same traditional physical and network controls that are possible in an on-premises environment.
 
-## Guidance
+### Guidance
 
 * Limit the number of egress points for virtual networks
 * Override the system default route for all subnets that do not need direct outbound communication to the Internet
@@ -122,7 +122,7 @@ To design and build secure solutions within Azure, it is critical to understand 
 * Utilise Azure Policy to enforce baseline security configuration for resources
 * Leverage Network Watcher and Azure Monitor for logging, auditing, and visibility of network traffic within Azure
 
-## Resources
+### Resources
 
 Item | Link
 -----------| ---------
@@ -132,11 +132,11 @@ _ACSC Network Segmentation_ | [https://acsc.gov.au/publications/protect/network_
 _ACSC Cloud Security for Tenants_ | [https://acsc.gov.au/publications/protect/cloud-security-tenants.htm](https://acsc.gov.au/publications/protect/cloud-security-tenants.htm)
 _ACSC Information Security Manual_ | [https://acsc.gov.au/infosec/ism/index.htm](https://acsc.gov.au/infosec/ism/index.htm)
 
-# Component Guidance
+## Component Guidance
 
 This section provides further guidance on the individual components that are relevant to egress traffic for systems deployed in Azure. Each section describes the intent of the specific component with links to documentation and configuration guides that can be used to assist with design and build activities.
 
-## Systems security
+### Systems security
 
 All communication to resources within Azure passes through the Microsoft maintained network infrastructure, which provides connectivity and security functionality. A range of protections are automatically put in place by Microsoft to protect the Azure platform and network infrastructure and additional capabilities are available as services within Azure to control network traffic and establish network segmentation and segregation.
 

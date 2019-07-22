@@ -4,7 +4,7 @@ description: Guidance on configuring identity federation within the Australian r
 author: galey801
 ms.service: azure-australia
 ms.topic: quickstart
-ms.date: 05/31/2019
+ms.date: 07/22/2019
 ms.author: grgale
 ---
 

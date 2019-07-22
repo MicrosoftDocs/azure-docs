@@ -3,8 +3,8 @@ title: Azure Australia Security Explained
 description: Security areas most often asked about by Australian Government agencies, and other organisations that have adopted the ISM as their security controls framework, relating to the Australian regions and meeting the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
-ms.topic: article
-ms.date: 06/11/2019
+ms.topic: conceptual
+ms.date: 07/22/2019
 ms.author: grgale
 ---
 

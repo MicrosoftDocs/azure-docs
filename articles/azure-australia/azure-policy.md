@@ -4,7 +4,7 @@ description: Ensuring compliance and enforcing security with Azure Policy and Az
 author: galey801
 ms.service: azure-australia
 ms.topic: conceptual
-ms.date: 07/19/19
+ms.date: 07/22/2019
 ms.author: grgale
 ---
 
@@ -111,7 +111,7 @@ Each of these artifacts can also be configured with parameters. These values are
 
 Microsoft is developing Azure PowerShell and CLI cmdlets to create and manage Azure Blueprints with the intention that a Blueprint could be maintained and deployed by an organisation via a CI/CD pipeline.
 
-### Next steps
+## Next steps
 
 This article explained how governance and security can be enforced with Azure Policy and Azure Blueprints. Now that you've been exposed at a high level, learn how to use each service in more detail:
 

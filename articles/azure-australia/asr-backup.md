@@ -3,8 +3,8 @@ title: Backup and Disaster Recovery in Azure Australia
 description: Backup and Disaster Recovery in Microsoft Azure for Australian Government agencies as it relates to the Essential 8
 author: galey801
 ms.service: azure-australia
-ms.topic: article
-ms.date: 04/25/19
+ms.topic: conceptual
+ms.date: 07/22/2019
 ms.author: grgale
 ---
 

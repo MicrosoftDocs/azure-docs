@@ -4,7 +4,7 @@ description: Implementing VPN Gateway in Azure Australia to be compliant with th
 author: galey801
 ms.service: azure-australia
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 07/22/2019
 ms.author: grgale
 ---
 
