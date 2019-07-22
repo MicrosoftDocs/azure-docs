@@ -83,7 +83,7 @@ While this feature is in preview, the following additional limitations apply:
 
 ## Create an AKS cluster
 
-To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.12.6* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
+To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.12.7* is used which is also the version which will be used for the cluster's control plane. You can specify any [supported Kubernetes version][supported-versions].
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -96,7 +96,7 @@ az aks create \
     --enable-vmss \
     --node-count 1 \
     --generate-ssh-keys \
-    --kubernetes-version 1.12.6
+    --kubernetes-version 1.12.7
 ```
 
 It takes a few minutes to create the cluster.
@@ -109,14 +109,15 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## Add a node pool
 
-The cluster created in the previous step has a single node pool. Let's add a second node pool using the [az aks node pool add][az-aks-nodepool-add] command. The following example creates a node pool named *mynodepool* that runs *3* nodes:
+The cluster created in the previous step has a single node pool. Let's add a second node pool using the [az aks node pool add][az-aks-nodepool-add] command. The Kubernetes version will be set as 1.12.6 to show an upgrade of the node pool in the next step. The following example creates a node pool named *mynodepool* that runs *3* nodes:
 
 ```azurecli-interactive
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --node-count 3
+    --node-count 3 \
+    --kubernetes-version 1.12.6
 ```
 
 To see the status of your node pools, use the [az aks node pool list][az-aks-nodepool-list] command and specify your resource group and cluster name:
@@ -133,15 +134,25 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
 AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup         VmSize
 -----------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  --------------------  ---------------
 VirtualMachineScaleSets  3        110        mynodepool  1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
+VirtualMachineScaleSets  1        110        nodepool1   1.12.7                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
 ```
 
 > [!TIP]
-> If no *OrchestratorVersion* or *VmSize* is specified when you add a node pool, the nodes are created based on the defaults for the AKS cluster. In this example, that was Kubernetes version *1.12.6* and node size of *Standard_DS2_v2*.
+> If no *OrchestratorVersion* or *VmSize* is specified when you add a node pool, the nodes are created based on the defaults used when creating the inital AKS cluster. In this example, that was Kubernetes version *1.12.7* and node size of *Standard_DS2_v2*.
 
 ## Upgrade a node pool
 
-When your AKS cluster was created in the first step, a `--kubernetes-version` of *1.12.6* was specified. Let's upgrade the *mynodepool* to Kubernetes *1.12.7*. Use the [az aks node pool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
+Your AKS cluster may have a control plane Kubernetes version that differs from your cluster's node pool Kubernetes versions. The following rules apply to the differences that can exist between your control plane and node pool versions. 
+
+Kubernetes versions are expressed as x.y.z, where x is the major version, y is the minor version, and z is the patch version, following Semantic Versioning terminology. For more information, see Kubernetes Release Versioning.
+
+For example, in version 1.12.6 - 1 is the major version, 12 is the minor version and 6 is the patch version.
+
+* The node pool version cannot differ in major version from the control plane
+* The node pool version can be one (1) minor version less than the control plane version
+* The node pool version can be any patch version as long as the preceding constraints are followed
+
+When you added an additional node pool in the previous step, a `--kubernetes-version` of *1.12.6* was specified. Let's upgrade the *mynodepool* to Kubernetes *1.12.7*. Use the [az aks node pool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -160,12 +171,12 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
 AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
 -----------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
 VirtualMachineScaleSets  3        110        mynodepool  1.12.7                 100             Linux     Upgrading            myResourceGroup  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
+VirtualMachineScaleSets  1        110        nodepool1   1.12.7                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
 ```
 
 It takes a few minutes to upgrade the nodes to the specified version.
 
-As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The ability to upgrade individual node pools lets you perform a rolling upgrade and schedule pods between node pools to maintain application uptime.
+As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The ability to upgrade individual node pools lets you perform a rolling upgrade and schedule pods between node pools to maintain application uptime within the above constraints mentioned.
 
 ## Scale a node pool
 
@@ -192,7 +203,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster -o ta
 AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup         VmSize
 -----------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  --------------------  ---------------
 VirtualMachineScaleSets  5        110        mynodepool  1.12.7                 100             Linux     Scaling              myResourceGroupPools  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
+VirtualMachineScaleSets  1        110        nodepool1   1.12.7                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
 ```
 
 It takes a few minutes for the scale operation to complete.
@@ -216,7 +227,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
 AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup         VmSize
 -----------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  --------------------  ---------------
 VirtualMachineScaleSets  5        110        mynodepool  1.12.7                 100             Linux     Deleting             myResourceGroupPools  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
+VirtualMachineScaleSets  1        110        nodepool1   1.12.7                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
 ```
 
 It takes a few minutes to delete the nodes and the node pool.
@@ -246,8 +257,8 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
 
 AgentPoolType            Count    MaxPods    Name         OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup         VmSize
 -----------------------  -------  ---------  -----------  ---------------------  --------------  --------  -------------------  --------------------  ---------------
-VirtualMachineScaleSets  1        110        gpunodepool  1.12.6                 100             Linux     Creating             myResourceGroupPools  Standard_NC6
-VirtualMachineScaleSets  1        110        nodepool1    1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
+VirtualMachineScaleSets  1        110        gpunodepool  1.12.7                 100             Linux     Creating             myResourceGroupPools  Standard_NC6
+VirtualMachineScaleSets  1        110        nodepool1    1.12.7                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
 ```
 
 It takes a few minutes for the *gpunodepool* to be successfully created.
@@ -260,8 +271,8 @@ You now have two node pools in your cluster - the default node pool initially cr
 $ kubectl get nodes
 
 NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.12.6
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.12.6
+aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.12.7
+aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.12.7
 ```
 
 The Kubernetes scheduler can use taints and tolerations to restrict what workloads can run on nodes.
