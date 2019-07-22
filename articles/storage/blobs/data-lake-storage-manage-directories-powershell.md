@@ -13,61 +13,15 @@ ms.author: normesta
 
 This article shows you how to use PowerShell to manage directories in storage accounts that have a hierarchical namespace.
 
-## Connect to the storage account
+## First, connect to the storage account
 
-1. Open a Windows PowerShell command window.
-
-2. Verify that you have Azure PowerShell module Az version 0.7 or later.
-
-   ```powershell
-   Get-InstalledModule -Name Az -AllVersions | select Name,Version
-   ```
-
-   If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
-
-3. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-
-4. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
-
-   ```powershell
-   $context = Get-AzSubscription -SubscriptionId <subscription-id>
-   Set-AzContext $context
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-5. Get the storage account context that defines the storage account you want to use.
-
-   ```powershell
-   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-   $ctx = $storageAccount.Context
-   ```
-
-   * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
-
-   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
-
-## Create a directory
-
-Create a directory by using the `New-AzStorageBlobDirectory` cmdlet. 
-
-Pass in the storage account context and the name of the file system (container) that you want to add the directory to.
-
-```powershell
-$containerName = "mycontainer"
-$newDirectory = "my-directory"
-$directory = New-AzStorageBlobDirectory -Context $ctx -Container $containerName -Path $newDirectory
-```
+See [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Rename or move a directory
 
 Rename or move a directory by using the `Move-AzStorageBlobDirectory` cmdlet.
 
-This example renames a directory named `my-directory` to `my-new-directory`.
+This example renames a directory from the name `my-directory` to the name `my-new-directory`.
 
 ```powershell
 $containerName = "mycontainer"
@@ -80,7 +34,7 @@ $dir3 = Move-AzStorageBlobDirectory -Context $ctx -SrcContainer $containerName -
 
 Delete a directory by using the `Remove-AzStorageBlobDirectory` cmdlet.
 
-This example deletes a directory named `my-directory` directory. 
+This example deletes a directory named `my-directory`. 
 
 ```powershell
 $containerName = "mycontainer"
@@ -90,14 +44,14 @@ Remove-AzStorageBlobDirectory -Context $ctx -Container $containerName -Path $dir
 
 ## Upload a file to a directory
 
-Upload a directory by using the `Set-AzStorageBlobContent` cmdlet.
+Upload a file to a directory by using the `Set-AzStorageBlobContent` cmdlet.
 
-This example uploads a file named `text1.txt` to the `my-directory` directory. 
+This example uploads a file named `text1.txt` to a directory named `my-directory`. 
 
 ```powershell
 $containerName = "mycontainer"
 $directory = "my-directory"
-$localSrcFile = "C:\help.txt"
+$localSrcFile = "C:\text1.txt"
 Set-AzStorageBlobContent -Context $ctx -File $localSrcFile -Container $containerName -Blob "$($directory)/text1.txt" -Force 
 ```
 
@@ -105,7 +59,7 @@ Set-AzStorageBlobContent -Context $ctx -File $localSrcFile -Container $container
 
 Download a file from a directory by using the `Get-AzStorageBlobFromDirectory` cmdlet.
 
-This example downloads a file named `text1.txt` from the `my-directory` directory. 
+This example downloads a file named `text1.txt` from a directory named `my-directory`. 
 
 ```powershell
 $containerName = "mycontainer"
@@ -118,7 +72,7 @@ $blob
 
 List the contents of a directory by using the `Get-AzStorageBlobFromDirectory` cmdlet.
 
-This example lists the contents of the `my-directory` directory. 
+This example lists the contents of a directory named `my-directory`. 
 
 ```powershell
 $containerName = "mycontainer"
@@ -128,4 +82,7 @@ Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDire
 
 ## Next steps
 
-Explore more APIs in the [blob package](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob?view=azure-python) section of the [Azure Client SDK for Python](https://docs.microsoft.com/python/api/overview/azure/storage/client?view=azure-python) docs.
+To learn more about working with Blob storage by using PowerShell, see [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+To find a comprehensive list of Microsoft Azure PowerShell Storage cmdlets, see [Storage PowerShell cmdlets](/powershell/module/az.storage).
+
