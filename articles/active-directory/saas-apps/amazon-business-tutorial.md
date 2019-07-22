@@ -89,10 +89,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	   | `https://www.amazon.de`|
 
 	1. In the **Reply URL** text box, type a URL using the following pattern:
-
+	
 	   | | |
 	   |-|-|
-	   | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid=`<idpid>`|
+	   | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid= `<idpid>`|
 	   | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid=`<idpid>`|
 	   | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid=`<idpid>`|
 
@@ -164,7 +164,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Connection](media/amazon-business-tutorial/sso-connection2.png)
 
-1. On the **IDP initiated URL** wizard, copy the value which is assiged to **idpid** and paste into the **idpid** parameter in the **Reply URL** in the **Basic SAML Configuration** section in the Azure portal and then click **Activate**.
+1. On the **IDP initiated URL** wizard, copy the value which is assigned to **idpid** and paste into the **idpid** parameter in the **Reply URL** in the **Basic SAML Configuration** section in the Azure portal and then click **Activate**.
 
 	![Connection](media/amazon-business-tutorial/sso-connection3.png)
 
