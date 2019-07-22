@@ -11,7 +11,7 @@ ms.service: event-grid
 services: event-grid
 ---
 
-# Concepts
+# Event Grid concepts
 
 This article describes the main concepts in Azure Event Grid.
 
