@@ -526,9 +526,9 @@ All the samples below are using EndpointType=Webhook; json samples for EndpointT
 
 
 **Payload Restrictions**
-- MUST be an array of events
-- Each array entry MUST be a JSON object
-- No other constraints (other than payload size)
+- MUST be an array of events.
+- Each array entry MUST be a JSON object.
+- No other constraints (other than payload size).
 
 ## Examples
 
@@ -578,15 +578,15 @@ Use this destination type to send events to any other module (that hosts an HTTP
 }
 ```
 
-Constraints on EndpointUrl:
-- must be non-null
-- must be an absolute URL
-- if outbound__webhook__httpsOnly is set to true in EventGridModule settings: must be HTTPS only
-- if outbound__webhook__httpsOnly set to false: can be HTTP or HTTPS
+Constraints on the `endpointUrl` attribute:
+- It must be non-null.
+- It must be an absolute URL.
+- If outbound__webhook__httpsOnly is set to true in the EventGridModule settings, it must be HTTPS only.
+- If outbound__webhook__httpsOnly set to false, it can be HTTP or HTTPS.
 
-Constraints on EventDeliverySchema:
-- must match subscribing topic's input schema
-- can be null. will default to the topic's input schema
+Constraints on the `eventDeliverySchema` property:
+- It must match the subscribing topic's input schema.
+- It can be null. It defaults to the topic's input schema.
 
 ### Set up IoT Edge as destination
 
@@ -632,17 +632,20 @@ You'll need to first set up a user topic in the cloud to which events should be 
 ```
 
 EndpointUrl:
-- must be non-null
-- must be an absolute URL
-- must have ```/api/events``` in request URL path
-- must have ```api-version=2018-01-01``` in the query string
-- if outbound__eventgrid__httpsOnly is set to true (true default): in EventGridModule settings: must be HTTPS only
-- if outbound__eventgrid__httpsOnly set to false: can be HTTP or HTTPS
-- if outbound__eventgrid__allowInvalidHostnames is set to false (false by default): must target one of: ```eventgrid.azure.net``` or ```eventgrid.azure.us``` or ```eventgrid.azure.cn```
+- It must be non-null.
+- It must be an absolute URL.
+- The path `/api/events` must be defined in the request URL path.
+- It must have `api-version=2018-01-01` in the query string.
+- If outbound__eventgrid__httpsOnly is set to true in the EventGridModule settings (true by default), it must be HTTPS only.
+- If outbound__eventgrid__httpsOnly is set to false, it can be HTTP or HTTPS.
+- If outbound__eventgrid__allowInvalidHostnames is set to false (false by default), it must target one of the following:
+   - `eventgrid.azure.net`
+   - `eventgrid.azure.us`
+   - `eventgrid.azure.cn`
 
 SasKey:
-- must be non-null
+- Must be non-null.
 
 TopicName:
-- if the Subscription.EventDeliverySchema is set to EventGridSchema, the value from this field is put into every event's Topic field before being forwarded to Event Grid in the cloud.
-- if the Subscription.EventDeliverySchema is set to CustomEventSchema, this property is ignored and the custom event payload is forwarded exactly as it was received.
+- If the Subscription.EventDeliverySchema is set to EventGridSchema, the value from this field is put into every event's Topic field before being forwarded to Event Grid in the cloud.
+- If the Subscription.EventDeliverySchema is set to CustomEventSchema, this property is ignored and the custom event payload is forwarded exactly as it was received.
