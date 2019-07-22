@@ -29,14 +29,15 @@ For example, a builder can create a device template for a connected fan that has
 From this device template, an operator can create and connect real fan devices. All these fans have measurements, properties, and commands that operators use to monitor and manage then. Operators use the device dashboards and forms to interact with the fan devices.
 
 > [!NOTE]
-> Only builders and administrators can create, edit, and delete device templates. Any user can create devices on the **Device Explorer** page from existing device templates.
+> Only builders and administrators can create, edit, and delete device templates. Any user can create devices on the **Devices** page from existing device templates.
 
 As a builder, you have several options for creating device templates:
 
 - Design the device template in IoT Central and then implement its device capability model in your device code.
 - Import a device capability model from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat) and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
-- Create a device capability model using Visual Studio code. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device capability model from a repository and creates a simple device template for you.
 - Create a device capability model using Visual Studio code. Implement your device code from the model. Manually import the device capability model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
+- Create a device capability model using Visual Studio code. Implement your device code from the model, and connect your real device to your IoT Central application using a device-first connection. IoT Central finds and imports the device capability model from the global repository for you. You can then add any cloud properties, customizations, and dashboards your IoT Central application needs to the device template.
+
 
 ## Create a device template
 
@@ -49,7 +50,7 @@ A device template contains:
 
 To create a device template in IoT Central:
 
-1. Go to the **Device Definitions** page in your IoT Central application.
+1. Go to the **Device Templates** page in your IoT Central application.
 1. Select **+ New**, then select **Custom**.
 1. Enter a name for your template, such as **Refrigerated Vending Machine**.
 1. Press **Enter**. IoT Central creates an empty device template.
@@ -58,7 +59,7 @@ To create a device template in IoT Central:
 
 You can rename or delete a template from the template's home page.
 
-After you've added a device capability model to your template, you can publish it. You can't connect a device based on this template until you've published it.
+After you've added a device capability model to your template, you can publish it. You can't connect a device based on this template for your operators to see in the **Devices** page until you've published the template.
 
 ## Create a capability model
 
@@ -66,10 +67,9 @@ To create a device capability model, you can:
 
 - Use IoT Central to create a custom model from scratch.
 - Import a model from a JSON file. A device builder may have used Visual Studio Code to author a device capability model for your application.
+- Select one of the devices from the Device Catalog. This will import the device capability model for this device that the manufacturer has published and made available for use. This will come imported in a published mode.
 
-To add a device capability model to your template:
-
-After you create the template, on the **Create a Capability Model** page, choose either **Custom** or **Import Capability Model**.
+We will walk through editing a model in IoT Central using **Custom** or **Import**, these will both start your device capability in a draft mode. After you create the template, on the **Create a Capability Model** page, choose either **Custom** or **Import Capability Model**.
 
 ## Manage a capability model
 
@@ -91,7 +91,7 @@ To create an interface:
 
     - Create a custom interface from scratch.
     - Import an existing interface. A device builder may have used Visual Studio Code to author an interface for your device.
-    - Choose one of the standard interfaces such as the **Device Information** interface. Standard interfaces specify the capabilities common to many devices.
+    - Choose one of the standard interfaces such as the **Device Information** interface. Standard interfaces specify the capabilities common to many devices. These standard interfaces are published by Microsoft Azure IoT and can not be versioned or edited.
 
 1. After you create an interface, choose **Edit Identity** to change the display name of the interface.
 
@@ -157,9 +157,10 @@ The following table shows the configuration settings for a  command capability:
 
 ## Manage an interface
 
-Provided you haven't published the interface, you can edit the capabilities defined by the interface.
+Provided you haven't published the interface, you can edit the capabilities defined by the interface. Once the interface has been published, you will need to create a new version of the device template and version the interface to make any changes. Changes that do not require versioning, such as display names or units, can be made in the **Customize** section.
 
 You can also export the interface as a JSON file if you want to reuse it in another capability model.
+
 
 ## Add cloud properties
 
@@ -182,7 +183,7 @@ Use customizations when you need to modify an imported interface or add IoT Cent
 - Add a default color to use when the value appears on a chart.
 - Specify initial, minimum, and maximum values for a property.
 
-You can't customize the capability name or capability type.
+You can't customize the capability name or capability type. If there are changes you are not able to make in the **Customize** section, you will need to version your device template and interface to modify the capability.
 
 ## Add dashboards
 
@@ -193,11 +194,15 @@ To add a dashboard to a device definition:
 1. Go to your device definition and select **Views**.
 1. Then choose **Visualizing the Device**.
 1. Enter a name for your dashboard in **Dashboard Name**.
-1. Add tiles to your dashboard from the list of static, property, cloud property, telemetry, and command tiles.
+1. Add tiles to your dashboard from the list of static, property, cloud property, telemetry, and command tiles. Drag and drop the tiles you would like to add to your dashboard.
 1. To plot multiple telemetry values on a single chart tile, select the telemetry values and then select **Combine**.
-1. Configure each tile you add to customize how it displays data.
+1. Configure each tile you add to customize how it displays data by selecting the gear icon or by selecting the **Change configuration** button on your chart tile.
 1. Arrange and resize the tiles on your dashboard.
 1. Save the changes.
+
+### Configure preview device to view dashboard
+
+To view and test your dashboard, you can select **Configure preview device** which will allow you to see the dashboard as your operator will once it is published. This allows your to validate your views are showing the correct data. You can choose from no preview device, the real test device you have configured for your device template, or choosing from an existing device in your application by using the Device ID. 
 
 ## Add forms
 
@@ -214,15 +219,15 @@ To add a form to a device definition:
 1. Arrange the properties on your form.
 1. Save the changes.
 
-## Publish a device definition
+## Publish a device template
 
-Before you can connect a device that implements your device capability model, you must publish your device definition.
+Before you can connect a device that implements your device capability model, you must publish your device template.
 
-After you publish a device definition, you can only make limited changes to the device capability model. To modify an interface definition, you need to [create and publish a new version](./howto-version-device-template-pnp.md).
+After you publish a device template, you can only make limited changes to the device capability model. To modify an interface, you need to [create and publish a new version](./howto-version-device-template-pnp.md).
 
-To publish a device definition, go to you your device definition and select **Publish**.
+To publish a device template, go to you your device template and select **Publish**.
 
-After you publish a device definition, an operator can go to the **Device Explorer** page and add either real or simulated devices that use your device definition.
+After you publish a device template, an operator can go to the **Devices** page and add either real or simulated devices that use your device template. You can continue to modify and save your device template as you are making changes, however, when you want to push these changes out to the operator to view under the **Devices** page you must select **Publish** each time.
 
 ## Next steps
 
