@@ -25,6 +25,8 @@ In this tutorial, you'll learn how Azure Functions allows you to import a machin
 
 ![Screenshot of finished project](media/functions-machine-learning-tensorflow/screenshot.png)
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites 
 
 To create Azure Functions in Python, you need to install a few tools.
