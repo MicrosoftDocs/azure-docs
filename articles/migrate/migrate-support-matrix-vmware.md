@@ -40,7 +40,7 @@ A project can include both VMware VMs and Hyper-V VMs, up to the assessment limi
  **Geography** | **Metadata storage location**
  --- | ---
  Azure Government | US Gov Virginia
- Asia | Southeast Asia or East Asia
+ Asia Pacific | Southeast Asia or East Asia
  Europe | South Europe or West Europe
  United Kingdom | UK South or UK West
  United States | Central US or West US 2
