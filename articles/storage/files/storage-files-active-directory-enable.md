@@ -125,7 +125,7 @@ Next, create a new storage account, call [az storage account update](https://doc
 az storage account create -n <storage-account-name> -g <resource-group-name> --file-aad true
 ```
 
-## Assign access permissions to an identity 
+## Assign access permissions to an identity
 
 To access Azure Files resources with Azure AD credentials, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
 
@@ -225,7 +225,7 @@ Use the following command to mount the Azure file share. Remember to replace th
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 ```
 
-You have now successfully enabled Azure AD authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in steps 2 and 3 of the "Prerequisites" section earlier in this article.
+You have now successfully enabled Azure AD authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in the [Assign access permissions to an identity](#assign-access-permissions-to-an-identity) and [Configure NTFS permissions over SMB](#configure-ntfs-permissions-over-smb) sections.
 
 ## Next steps
 
