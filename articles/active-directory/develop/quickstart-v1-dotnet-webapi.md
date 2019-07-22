@@ -1,5 +1,5 @@
 ---
-title: Build a .NET web API that integrates with Azure AD for authentication and authorization | Microsoft Docs
+title: Build a .NET web API with Azure AD for authentication and authorization | Microsoft Docs
 description: How to build a .NET MVC web API that integrates with Azure AD for authentication and authorization.
 services: active-directory
 documentationcenter: .net

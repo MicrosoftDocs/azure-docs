@@ -42,7 +42,7 @@ For detailed information and instructions about what's available from the **My P
 
 |Article |Description |
 |------|------------|
-|[Add your security info](user-help-security-info-overview.md)| Several articles with instructions about how to set up the Microsoft Authenticator app, text messaging, or phone calls as your verification method. Also includes articles about how to add an email address or pre-defined security questions so you can reset your own forgotten password, if necessary.|
-|[View or leave your connected organizations](myprofile-portal-organizations-page.md)| Instructions about how to view and leave organizations connected to your work or school account.|
-|[View or disable your connected devices](myprofile-portal-devices-page.md)| Instructions about how to view or disable any devices you've connected to your work or school account.|
-|[View your privacy-related info](myprofile-portal-privacy-page.md)| Instructions about how to view which online services are connected to your work or school account, along with your organization's terms of use statement.|
+| [Add your security info](user-help-security-info-overview.md) ] Several articles with instructions about how to set up the Microsoft Authenticator app, text messaging, or phone calls as your verification method. Also includes articles about how to add an email address or pre-defined security questions so you can reset your own forgotten password, if necessary.|
+| [View or leave your connected organizations](myprofile-portal-organizations-page.md) ] Instructions about how to view and leave organizations connected to your work or school account.|
+| [View or disable your connected devices](myprofile-portal-devices-page.md) ] Instructions about how to view or disable any devices you've connected to your work or school account.|
+| [View your privacy-related info](myprofile-portal-privacy-page.md) ] Instructions about how to view which online services are connected to your work or school account, along with your organization's terms of use statement.|
