@@ -72,9 +72,12 @@ As of now, following versions of Confluence are supported:
 - Confluence: 6.8.1
 - Confluence: 6.9.0
 - Confluence: 6.10.0
+- Confluence: 6.10.3
 - Confluence: 6.11.0
 - Confluence: 6.12.0
+- Confluence: 6.13.5
 - Confluence: 6.15.3
+- Confluence: 6.15.4
 
 > [!NOTE]
 > Please note that our Confluence Plugin also works on Ubuntu Version 16.04
@@ -173,11 +176,11 @@ To configure Azure AD single sign-on with Confluence SAML SSO by Microsoft, perf
 
 4. Once the plugin is installed, it appears in **User Installed** add-ons section of **Manage Add-on** section. Click **Configure** to configure the new plugin.
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon13.png)
+	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon15.png)
 
 5. Perform following steps on configuration page:
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon53.png)
+	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon54.png)
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, admin gets an error upon resolving the metadata.
@@ -187,6 +190,8 @@ To configure Azure AD single sign-on with Confluence SAML SSO by Microsoft, perf
 	1. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **Basic SAML Configuration** section on Azure portal.
 
 	1. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
+	
+	1. In **Login Button Description** type the description of button your organization wants the users to see on login screen.
 
 	1. In **SAML User ID Locations**, select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the Confluence user ID. If the user ID is not matched, then system will not allow users to sign in. 
 
