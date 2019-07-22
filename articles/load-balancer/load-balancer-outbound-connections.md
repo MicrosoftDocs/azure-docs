@@ -49,7 +49,7 @@ In this scenario, the VM has a Public IP assigned to it. As far as outbound conn
 
 A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.  Port masquerading (PAT) is not used, and the VM has all ephemeral ports available for use.
 
-If your application initiates many outbound flows and you experience SNAT port exhaustion, consider assigning an [ILPIP to mitigate SNAT constraints](#assignilpip). Review [Managing SNAT exhaustion](#snatexhaust) in its entirety.
+If your application initiates many outbound flows and you experience SNAT port exhaustion, consider assigning a [Public IP address to mitigate SNAT constraints](#assignilpip). Review [Managing SNAT exhaustion](#snatexhaust) in its entirety.
 
 ### <a name="lb"></a>Scenario 2: Load-balanced VM without a Public IP address
 
