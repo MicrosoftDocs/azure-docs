@@ -31,11 +31,11 @@ This article will not cover best practices for securing access to the Azure NetA
 
 2. Select the **Azure Cloud Shell** icon to open it.
 
-![](media/42d96dccad38b43b71e915c4300aa8ca.png)
+![A capture of the Microsoft Azure toolbar with a red arrow pointing to the Azure Cloud Shell icon to the right of the search bar.](media/42d96dccad38b43b71e915c4300aa8ca.png)
 
 3. Once Azure Cloud Shell is open, select **PowerShell**.
 
-![](media/b60565d35de4bcee50820769836d1ee8.png)
+![A capture of the Azure Cloud Shell welcome page. A red arrow is pointing to the option for opening Azure Cloud Shell with PowerShell.](media/b60565d35de4bcee50820769836d1ee8.png)
 
 4. If this is your first time using Azure Cloud Shell, create a storage account in the same subscription you keep your Azure NetApp Files and Windows Virtual Desktop.
 
@@ -45,17 +45,17 @@ This article will not cover best practices for securing access to the Azure NetA
 
 5. Once Azure Cloud Shell loads, run the following two commands.
 
-```shell
-az account set --subscription <subscriptionID>
-```
+   ```shell
+   az account set --subscription <subscriptionID>
+   ```
 
-```shell
-az provider register --namespace Microsoft.NetApp --wait
-```
+   ```shell
+   az provider register --namespace Microsoft.NetApp --wait
+   ```
 
-![](media/3be21e3963ae3ebd7ae051b3d9fa727a.png)
+![An image of an Azure Cloud Shell window running hte two cmdlets from step 5.](media/3be21e3963ae3ebd7ae051b3d9fa727a.png)
 
-1. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
+6. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
 
 ![](media/6546f1ab07c5c0ef0e04b68b5f426472.png)
 
@@ -64,27 +64,29 @@ az provider register --namespace Microsoft.NetApp --wait
 8. Select the **Add** button.
 9. When the **New NetApp account** blade opens, enter the following values:
 
-  - For **Name**, enter your NetApp account name.
-  - For **Subscription**, enter the subscription for the storage account you set up in step 4.
-  - For **Resource group**, enter either an existing resource group you want to use or create a new one.
-  - For **Location**, enter the region for your NetApp account. This region must be the same region as your session host VMs.
+    - For **Name**, enter your NetApp account name.
+    - For **Subscription**, select the subscription for the storage account you set up in step 4 from the drop-down menu.
+    - For **Resource group**, either select an existing resource group from the drop-down menu or create a new one by selecting **Create new**.
+    - For **Location**, select the region for your NetApp account from the drop-down menu. This region must be the same region as your session host VMs.
 
    >[!NOTE]
-   >Currently Azure NetApp Files does not support mounting of a volume across regions.
+   >Azure NetApp Files currently doesn't support mounting of a volume across regions.
 
 10. When you're finished, select **Create** to create your NetApp account.
 
-![](media/55dca1c987220ce419042bd1dfb88b56.png)
+![A capture of the New NetApp account menu showing the text boxes, drop-down menus, and Create button.](media/55dca1c987220ce419042bd1dfb88b56.png)
 
-![](media/516368c855c833539e9b0ee2c8868207.png)
+![A capture of the successful deployment screen.](media/516368c855c833539e9b0ee2c8868207.png)
+
+<!--Break here, turn 10 and the first part of 11 into new instructions-->
 
 10. In the **Azure NetApp Files** menu, select your new account to create a capacity pool.
 
-![](media/9d20bba46a64e1c78fda4e25e1ddaa3f.png)
+![A capture of the Azure NetApp Files menu with a red arrow pointing at the NetApp account name.](media/9d20bba46a64e1c78fda4e25e1ddaa3f.png)
 
-![](media/65551cd022276fe801a2bf656e069e4c.png)
+![A capture of the NetApp account menu with a red arrow pointing at the "Capacity pools" button.](media/65551cd022276fe801a2bf656e069e4c.png)
 
-![](media/187f244eed643633e1867c7c2e71c06e.png)
+![A capture of the capacity pools menu with a red arrow pointing at the "Capacity pools" button.](media/187f244eed643633e1867c7c2e71c06e.png)
 
 11. When the **New capacity pool** blade opens, enter the following values:
 
@@ -95,6 +97,8 @@ az provider register --namespace Microsoft.NetApp --wait
 ![](media/d5bb782f55d1e1b2ab49e22910e19a32.png)
 
 12. When you're finished, select **OK**.
+
+<!--Break here-->
 
 13. Next, select **Active Directory connections**, then select the **Join** button to open the **Join Active Directory** page.
 
@@ -163,7 +167,7 @@ This section is based on information provided [here](https://docs.microsoft.com/
 
 2. Unzip the downloaded file.
 
-3.  to **x64\\Releases** and execute **FSLogixAppsSetup.exe.**
+3. In the file, go to **x64** > **Releases** and run **FSLogixAppsSetup.exe.**
 
 ![](media/fdb02247f8a528be7f7d63a550f8a10e.png)
 
@@ -199,70 +203,59 @@ This section is based on information provided [here](https://docs.microsoft.com/
 
 ### Assign users to session host
 
-1. Navigate to PowerShell ISE and login to Windows Virtual Desktop.
+1. Open **PowerShell ISE** and sign in to Windows Virtual Desktop.
 
 ![Machine generated alternative text: All Apps Best match Documents Email Web More -5 Windows P App Apps PowerShell C 0 Run as administrator Open file location Pin to Start Pin to taskbar Windows PowerShell Windows PowerShell (x86) Windows PowerShell ISE (x86) Microsoft Azure Active Directory Module for Windows PowerShell Search the web p powershell - see web results Settings (3) Websites (1) p powershell Feedback Windows PowerShell ISE App Open Run as administrator Open file location Pin to Start Pin to taskbar ](media/d553c0b391cee5a1b99c6a2bd415915e.png)
 
 2. Run the following cmdlets:
 
->   Import-Module Microsoft.RdInfra.RdPowershell
+   ```powershell
+   Import-Module Microsoft.RdInfra.RdPowershell
+   # (Optional) Install-Module Microsoft.RdInfra.RdPowershell
+   $brokerurl = "https://rdbroker.wvd.microsoft.com"
+   Add-RdsAccount -DeploymentUrl $brokerurl
+   ```
 
->   (Optional) Install-Module Microsoft.RdInfra.RdPowershell
+3. When prompted for credentials, enter the credentials for the user with the Tenant Creator or RDS Owner/RDS Contributor roles on the Windows Virtual Desktop tenant.
 
->   \$brokerurl = "https://rdbroker.wvd.microsoft.com"
+4. Run the following cmdlets to assign a user to a Remote Desktop group:
 
->   Add-RdsAccount -DeploymentUrl \$brokerurl
-
-3. When prompted for credentials enter the same user that was granted Tenant Creator role or RDS Owner/RDS Contributor on the Windows Virtual Desktop Tenant.
-
-4. Run the following cmdlets to assign user to remote desktop group
-
->   \$tenant = "\<your-wvd-tenant\>"
-
->   \$pool1 = "\<wvd-pool\>"
-
->   \$appgroup = "Desktop Application Group"
-
->   \$user1 = "\<user-principal\>"
-
->   Add-RdsAppGroupUser \$tenant \$pool1 \$appgroup \$user1
-
->   (Sample: \$pool1 = "airlift2020"
-
->   \$tenant = "airlift2020"
-
->   \$appgroup = "Desktop Application Group"
-
->   \$user1 = "debra.berger\@airlift2020outlook.onmicrosoft.com"
-
->   Add-RdsAppGroupUser \$tenant \$pool1 \$appgroup \$user1)
+   ```powershell
+   $tenant = "<your-wvd-tenant>"
+   $pool1 = "<wvd-pool>"
+   $appgroup = "Desktop Application Group"
+   $user1 = "<user-principal>"
+   Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
+   ```
 
 ### Verify profile user connectivity and access to Azure NetApp File share
 
-1. Open a browser of choice.
+1. Open your internet browser of choice.
 
 2. Navigate to <https://aka.ms/wvdweb>.
 
-3. Sign in with user that has been assigned to the remote desktop group (<debra.berger@airlift2020outlook.onmicrosoft.com>).
+3. Sign in with the credentials of a user assigned to the Remote Desktop group.
 
 ![](media/3bc26bb1d5ec0888ec613afd92eafeb9.png)
 
-4. Once user session has been established navigate back to the Azure portal with an administrative account.
+4. Once you've established the user session, navigate back to the Azure portal with an administrative account.
 
-5. Open **Azure NetApp Files**, select **Azure NetApp Files** account, and the corresponding volume
+5. Open **Azure NetApp Files**, select your **Azure NetApp Files account**, and then select the corresponding volume.
+
+<!--The corresponding volume for your user session?-->
 
 ![](media/225c51fda15dbbd937616e1f1c302b1e.png)
 
 ![](media/85f68f2d847e5238700214d5f33c976a.png)
 
-6. Confirm that space for the FSLogix profile container has been consumed.
+6. Confirm that the FSLogix profile container is taking up space in the chart under Usage.
 
 ![](media/3a10923cb3b8ae93381c88daf1965a0f.png)
 
 7. RDP directly to any VM part of the host pool and open the **File Explorer.** Then navigate to the **Mount path**
 (\\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-VOL).
 
-Inside that path there will be a **Folder** named \<user SID\>-\<username\>.
+Inside that path there will be a **Folder** named `<user SID>-<username>`.
 
 ![](media/9b7470e05e517e9bd60c8d6e4d0b08d0.png)
 
