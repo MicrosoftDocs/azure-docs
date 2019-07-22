@@ -60,7 +60,9 @@ throws URISyntaxException, StorageException{
 
 ## Rename a directory
 
-Need explanation here.
+Rename a directory by calling the **CloudBlobDirectory.move** method. Pass a reference to a new directory as a parameter.
+
+This example changes the name of a directory to the name `my-directory-renamed`.
 
 ```java
 static void RenameDirectory(CloudBlobClient cloudBlobClient, String containerName)
@@ -71,10 +73,17 @@ static void RenameDirectory(CloudBlobClient cloudBlobClient, String containerNam
 
     if (cloudBlobContainer != null){
         CloudBlobDirectory cloudBlobDirectory =
-            cloudBlobContainer.getDirectoryReference("my-directory-2/my-directory");
+            cloudBlobContainer.getDirectoryReference("my-directory");
 
         if (cloudBlobDirectory != null){
-            // Need snippet here. Question pending. 
+            // Get destination directory
+            CloudBlobDirectory cloudBlobDestinationDirectory =
+                cloudBlobContainer.getDirectoryReference("my-directory-renamed");
+
+            if (cloudBlobDestinationDirectory != null){
+
+                cloudBlobDirectory.move(cloudBlobDestinationDirectory);
+            }  
 
         }
     }
@@ -84,7 +93,9 @@ static void RenameDirectory(CloudBlobClient cloudBlobClient, String containerNam
 
 ## Move a directory
 
-Need explanation here.
+You can also use the **CloudBlobDirectory.move** method to move a directory. Pass a reference to a new directory as a parameter.
+
+This example moves a directory named `my-directory` to a sub-directory of a directory named `my-directory-2`.
 
 ```java
 static void MoveDirectory(CloudBlobClient cloudBlobClient, String containerName)
@@ -105,7 +116,14 @@ throws URISyntaxException, StorageException{
 
             if (cloudBlobDestinationDirectory != null){
 
-            // Need snippet here. Question pending.
+                // Get destination directory
+                CloudBlobDirectory cloudBlobDestinationDirectory =
+                    cloudBlobContainer.getDirectoryReference("my-directory-2/my-directory");
+
+                if (cloudBlobDestinationDirectory != null){
+
+                    cloudBlobDirectory.move(cloudBlobDestinationDirectory);
+                }
 
             }
 
