@@ -1,5 +1,5 @@
 ---
-title: Concepts - Upgrades of Azure VMware Solution by Virtustream private clouds
+title: Concepts - upgrades of Azure VMware Solution by Virtustream private clouds
 description: Learn about the key upgrade processes and features in Azure VMware Solution by Virtustream.
 services: 
 author: v-jetome
@@ -12,7 +12,7 @@ ms.custom:
 
 ---
 
-# Azure VMware Solution by Virtustream Upgrade Concepts
+# Azure VMware Solution by Virtustream upgrade concepts
 
 One of the key benefits of Azure VMware Solution (AVS) by Virstustream private clouds is that the platform is maintained for you. Platform maintenance includes automated upgrades to a validated software bundle. The upgrades are performed regularly, ensuring that you always have the latest validated versions of the Azure VMware Solution (AVS) by Virtustream software.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure VMware Solution by Virtustream tutorial - Create an NSX-T network
+title: Azure VMware Solution by Virtustream tutorial - create an NSX-T network
 description: In this Azure VMware Solution by Virtustream (AVS by Virtustream) tutorial, you create an NSX-T T1 router with a logical switch. You then create a DHCP server and associate it with the logical switch.
 services: 
 author: v-jetome
@@ -25,7 +25,7 @@ AVS by Virtustream private clouds provide Azure-based environments to run VMware
 
 ## Prerequisites
 
-In previous tutorials, you created a private cloud in Azure and received the credentials for access vCenter and NSX-T manager. If you haven't created a private cloud and want to follow along step-by-step with this tutorial, start at Tutorial 1 – Create a private cloud<!-- [[tutorials-create-private-cloud] -->.
+In previous tutorials, you created a private cloud in Azure and received the credentials to access vCenter and NSX-T manager. If you haven't created a private cloud and want to follow along step-by-step with this tutorial, start at Tutorial 1 – Create a private cloud<!-- [[tutorials-create-private-cloud] -->.
 
 This tutorial requires that you have access to vCenter and NSX-T Manager in your private cloud. If you need to establish access, see Tutorial 3 - Access private cloud<!-- [][tutorial-access-private-cloud] -->.
 
@@ -158,8 +158,11 @@ With DHCP services enabled on the NSX-T logical switch, virtual machines deploye
 
 ## Next steps
 
+The next step is to [deploy a VM][tutorials-deploy-vm].
+
 <!-- [Deploy a virtual machine on the NSX-T logical switch network.][tutorials-deploy-vm] -->
 
 <!-- LINKS - external-->
 
 <!-- LINKS - internal -->
+[tutorials-deploy-vm]: ./tutorials-deploy-vm.md

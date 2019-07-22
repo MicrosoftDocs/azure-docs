@@ -1,5 +1,5 @@
 ---
-title: Concepts - Identity and access for Azure VMware Solution by Virtustream
+title: Concepts - identity and access for Azure VMware Solution by Virtustream
 description: Learn about the identity and access concepts of Azure VMware Solution by Virtustream. 
 services: 
 author: v-jetome
@@ -12,7 +12,7 @@ ms.custom:
 
 ---
 
-# Azure VMware Solution (AVS) by Virtustream Identity Concepts
+# Azure VMware Solution (AVS) by Virtustream identity concepts
 
 A vCenter server and NSX-T manager are provisioned when a private cloud is deployed. You use vCenter to manage virtual machine workloads and NSX-T manager to extend the private cloud software-defined network.
 

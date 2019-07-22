@@ -1,5 +1,5 @@
 ---
-title: Concepts - Software-defined data center and clusters for Azure VMware Solution by Virtustream (AVS by Virtustream)
+title: Concepts - private clouds and clusters in Azure VMware Solution by Virtustream (AVS) by Virtustream
 description: Learn about the key capabilities of Azure VMware software-defined data centers and vSphere clusters in VMware Solution on Azure by VMware. 
 services: 
 author: v-jetome
@@ -12,7 +12,7 @@ ms.custom:
 
 ---
 
-# VMware Solution on Azure by Virtustream Private Cloud and vSphere Cluster Concepts
+# VMware Solution on Azure by Virtustream private cloud and vSphere cluster concepts
 
 The Azure VMware Solution by Virtustream (AVS by Virtustream) delivers VMware-based private clouds in Azure. The private clouds are built from clusters of dedicated bare-metal hosts and are deployed and managed through the Azure portal. Clusters in private clouds are provisioned with VMware vSphere, vCenter, vSAN, and NSX software. AVS by Virtustream private cloud hardware and software deployments are fully integrated and automated in Azure.
 

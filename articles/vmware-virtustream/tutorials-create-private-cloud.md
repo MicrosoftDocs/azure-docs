@@ -1,5 +1,5 @@
 ---
-title: Azure VMware Solution by Virtustream tutorial - Create a private cloud
+title: Azure VMware Solution by Virtustream tutorial - create a private cloud
 description: In this Azure VMware Solution by Virtustream (AVS by Virtustream) tutorial, you use the Azure portal to create a private cloud.
 services: 
 author: v-jetome
@@ -43,7 +43,7 @@ Prerequisites:
 - The host types to be used in private cloud clusters (see this link for a description)
 - the number of hosts to be used in each cluster
 
-## Create a private Cloud 
+## Create a private cloud 
 
 In the Azure portal, navigate to the "New" resource, select "Compute" and then search the marketplace for "private cloud".
 
@@ -77,11 +77,12 @@ Once the deployment has succeeded, navigate to the new private cloud in your res
 
 ## Next steps
 
-In the next tutorial, you will create a VNet and resources to connect to a private cloud.
+In the next tutorial, you will [create a VNet and resources][tutorials-create-vnet-resources] to connect to a private cloud.
 
 <!-- LINKS - external-->
-[resource provider]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services
-[enable Global Reach]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-set-global-reach-cli#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions
+[resource provider]: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services
+[enable Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach-cli#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions
 
 <!-- LINKS - internal -->
 [tutorials-create-t1-ls]: ./tutorials-create-t1-ls.md
+[tutorials-create-vnet-resources]: ./tutorials-create-vnet-resources.md

@@ -1,6 +1,6 @@
 ---
-title: Concepts - Network connectivity for Azure VMware Solution by Virtustream (AVSV)
-description: Learn about key aspects and use cases of networking and connectivity in Azure VMware Solution by Virtustream.
+title: Concepts - network interconnectivity for Azure VMware Solution by Virtustream
+description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution by Virtustream.
 services:
 author: v-jetome
 
@@ -12,7 +12,7 @@ ms.custom:
 
 ---
 
-# Azure VMware Solution by Virtustream Networking and Interconnectivity Concepts
+# Azure VMware Solution by Virtustream networking and interconnectivity concepts
 
 Network interconnectivity between your Azure VMware Solution by Virtustream (AVS by Virtustream) private clouds and  on-premises environments or VNets in Azure is key to the use of your private cloud. A few key networking and interconnectivity concepts establish the basis of interconnectivity, and they are described in this article.
 
@@ -26,9 +26,9 @@ A useful perspective on interconnectivity is to consider the two types of interc
 
  All use cases for the AVS by Virtustream service are enabled with on-premises to private cloud connectivity. The basic interconnectivity model is best suited for AVS by Virtustream evaluations or implementations that do not require access from on-premises environments.
 
-The two types of AVS by Virtustream private cloud interconnectivity are described in the sections below.  The most basic interconnectivity is "Azure VNet connectivity", and it enables you to manage and use your private cloud with only a single VNet in Azure. The interconnectivity described in "On-premises connectivity" extends the VNet connectivity to also include interconnectivity between on-premises environments and AVS by Virtustream private clouds.> * Request ExpressRoute authorization keys
+The two types of AVS by Virtustream private cloud interconnectivity are described in the sections below.  The most basic interconnectivity is "Azure VNet connectivity", and it enables you to manage and use your private cloud with only a single VNet in Azure. The interconnectivity described in "On-premises connectivity" extends the VNet connectivity to also include interconnectivity between on-premises environments and AVS by Virtustream private clouds.
 
-One of the objectives of this article is to provide you with the background for the actions you take to enable network connectivity. The other objective is to provide you with networking concepts for you to use your private cloud.
+In addition to One of the objectives of this article is to provide you with the background for the actions you take to enable network connectivity. The other objective is to provide you with networking concepts that you can  you to use your private cloud.
 
 ## Azure interconnectivity
 
@@ -38,13 +38,13 @@ The basic network interconnectivity that is established at the time of a private
 - Outbound access to Azure services by production VM workloads.
 - Inbound access and consumption of workloads running in the SDDC.
 
-![Figure 1 -- basic connectivity](./media/concepts/adjacency-overview-drawing-single.png)
+![Basic VNet -to- private cloud connectivity](./media/concepts/adjacency-overview-drawing-single.png)
 
 The ExpressRoute (ER) circuit in this VNet -to- private cloud scenario is established when a private cloud is deployed. You create a private peering of an ExpressRoute gateway to the private cloud ExpressRoute circuit. The peering uses an authorization key and a circuit ID that you request in the Azure portal. The ER connection that is established through the peering is a private, one-to-one connection between your private cloud and a VNet in your subscription. Private cloud management, access to Azure services, and workload consumption can all occur over that connection.
 
 When you deploy an AVS by Virtustream private cloud, a single /22 private network address space is required. This address space should not overlap with address spaces used in other VNets in your subscription. Within this address space, management, provisioning, and vMotion networks are provisioned automatically. The routing is BGP-based and it is automatically provisioned and enabled by default for each private cloud deployment.
 
-When a private cloud is deployed, you are provided with the IP addresses and credentials for vCenter and NSX-T Manager. To access those management interfaces, additional resources need to be deployed in a VNet in your subscription. The procedures for creating those resources and establishing ER private peering are described in [the first two tutorials][tutorial-create-private-cloud].
+When a private cloud is deployed, you are provided with the IP addresses and credentials for vCenter and NSX-T Manager. To access those management interfaces, additional resources need to be deployed in a VNet in your subscription. The procedures for creating those resources and establishing ER private peering are described in [the second][tutorial-create-vnet-resources] and [third tutorials][access-private-cloud].
 
 You design the private cloud logical networking and implement it with NSX-T. You use NSX-T Manager in your private cloud to create NSX-T T1 routers, logical switches, and all software-defined network services.  At least one NSX-T T1 router and a logical switch is required. These logical NSX-T devices provide interconnectivity of VM workloads to VNets in your subscription, the internet, and Azure services.
 
@@ -62,19 +62,19 @@ Once linked with Global Reach, the two ER circuits will route network traffic be
 - Hot/Cold Cross-vCenter vMotion
 - On-Premise to AVS by Virtustream private cloud management access
 
-![Figure 2 -- full connectivity](./media/concepts/adjacency-overview-drawing-double.png)
+![VNet and on-premises full private cloud connectivity](./media/concepts/adjacency-overview-drawing-double.png)
 
-To enable full connectivity, an Authorization Key and peering ID for Global Reach can be provided when a private cloud. You use the key and ID to establish Global Reach between an ER circuit in your subscription and the ER circuit for your new private cloud. The [first tutorial][tutorial-create-private-cloud] provides you with the procedures for requesting and using the key and ID.
+To enable full connectivity, an Authorization Key and private peering ID for Global Reach can be requested in the Azure portal. You use the key and ID to establish Global Reach between an ER circuit in your subscription and the ER circuit for your new private cloud. The [first tutorial][tutorial-create-private-cloud] provides you with the procedures for requesting and using the key and ID.
 
 The routing requirements of the solution require you to plan private cloud network address spaces so that you avoid overlaps with other VNets and on-premises networks. A /22 network block used for each private cloud needs to be unique across your routing domains. This network block includes management and production networks in the private cloud.
 
 ## Next steps 
 
-The next step is to learn about [private cloud storage concepts][concepts-storage].
+The next step is to learn about [private cloud storage concepts](concepts-storage).
 
-<!-- LINKS - external-->
-[enable Global Reach] https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-set-global-reach
+<!-- LINKS - external -->
+[enable Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach
 
 <!-- LINKS - internal -->
 [tutorials-create-private-cloud]: ./tutorials-create-private-cloud.md
-[concepts-identity]: ./concepts-storage.md
+[concepts-storage]: ./concepts-storage.md

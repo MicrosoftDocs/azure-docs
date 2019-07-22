@@ -1,5 +1,5 @@
 ---
-title: Concepts - Storage in Azure VMware Solution by Virtustream (AVSV) Private Clouds
+title: Concepts - storage in Azure VMware Solution by Virtustream private clouds
 description: Learn about the key storage capabilities in Azure VMware Solution by Virtustream private clouds.
 services: 
 author: v-jetome
@@ -12,11 +12,11 @@ ms.custom:
 
 ---
 
-# Azure VMware Solution by Virtustream Storage Concepts
+# Azure VMware Solution by Virtustream storage concepts
 
 AVS by Virtustream private clouds provide native, cluster-wide storage with VMware vSAN. All local storage from each host in a cluster is used in a vSAN datastore, and data-at-rest encryption is available and enabled by default. You can use Azure Storage resources to extend storage capabilities of your private clouds.
 
-## vSAN Clusters
+## vSAN clusters
 
 Local storage in each cluster host is used as part of a vSAN datastore, two diskgroups for High-end (HE) hosts and one diskgroup for General-purpose hosts. All diskgroups use an NVMe cache tier of 1.6 TB with the raw, per host, SSD-based capacity shown in the table below. The size of the raw capacity tier of a cluster is the per host capacity times the number of hosts. For example, a four host cluster of HE hosts will provide 61.6 TB raw capacity in the vSAN capacity tier.
 
@@ -33,7 +33,7 @@ Local storage in cluster hosts is used in cluster-wide vSAN datastore. All datas
 - Datastore.FileManagement
 - Datastore.UpdateVirtualMachineMetadata
 
-## Data-at-Rest Encryption
+## Data-at-rest encryption
 
 vSAN datastores use data-at-rest encryption by default. The encryption solution is KMS-based and supports vCenter operations for key management. Keys are stored encrypted, wrapped by an HSM-based Azure Key Vault master key. When a host is removed from a cluster for any reason, data on SSDs is invalidated immediately.
 
