@@ -116,7 +116,7 @@ No, the Virtual WAN does not require ExpressRoute from each site. It uses standa
 
 ### Is there a network throughput limit when using Azure Virtual WAN?
 
-Number of branches is limited to 1000 connections per hub/region and a total of 2 G in the hub. The exception is West Central US, which has a total of 20 Gbps. We will be rolling 20 Gbps out to other regions in the future.
+Number of branches is limited to 1000 connections per hub/region and a total of 20 G in the hub.
 
 ### How many VPN connections does a Virtual WAN hub support?
 
