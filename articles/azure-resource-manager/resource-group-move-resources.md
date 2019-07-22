@@ -89,7 +89,9 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
-1. Resources and their dependent resources needs to be located within the same resource group. Therefore, identify the dependent resources and check if they could be moved to the new subscription. Also all the resources and their dependent resources needs to be moved to the same target resource group located within the target subscription. Follow the next steps to validate your move.
+  1. **Resources and their dependent resources need to be always located within the same resource group and moved together.** Therefore, identify the dependent resources and check if they could be moved to the new subscription or resource group. Both cross subscription move and cross resource group move requires all resources to be moved to the same target resource group located within the target subscription at the same time. 
+
+
 
 ## Validate move
 
