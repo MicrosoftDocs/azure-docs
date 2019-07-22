@@ -73,7 +73,7 @@ As a device developer, you can submit IoT hardware products for certification. Y
 - Publish to the Certified for IoT device catalog.
 
 ## Regional availability
-During public preview, IoT Hub device streams are available in the North Europe, Central US, and Japan East regions. Please make sure you create your hub in one of these regions.
+During public preview, IoT Plug and Play is available in the North Europe, Central US, and Japan East regions. Please make sure you create your hub in one of these regions.
 
 ## Message quotas in IoT Hub
 During public preview, IoT Plug and Play devices will send separate messages per interface, which may increase the number of messages counted towards your [message quota](../iot-hub/iot-hub-devguide-quotas-throttling.md).
