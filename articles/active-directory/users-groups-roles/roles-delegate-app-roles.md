@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 07/22/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Delegate app registration permissions in Azure Active Directory
 
-Azure Active Directory (Azure AD) allows you to delegate Application creation and management permissions in the following ways:
+This article describes how to use app permissions in custom roles in Azure Active Directory (Azure AD) to address your application management needs. Azure Active Directory (Azure AD) allows you to delegate Application creation and management permissions in the following ways:
 
 - [Restricting who can create applications](#restrict-who-can-create-applications) and manage the applications they create. By default in Azure AD, all users can register application registrations and manage all aspects of applications they create. This can be restricted to only allow selected people that permission.
 - [Assigning one or more owners to an application](#assign-application-owners). This is a simple way to grant someone the ability to manage all aspects of Azure AD configuration for a specific application.

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 07/22/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 ## Available permissions
 
-There are two types of applications, single-tenant and multi-tenant. Single-tenant applications are only available to users in the Azure AD tenant where the application is registered. Multi-tenant applications are supported by all Azure AD tenants. Single-tenant applications are defined as having **Supported account types** set to "Accounts in this organizational directory only". In the Graph API, single-tenant applications have the signInAudience property set to "AzureADMyOrg".
+This article describes the currently available permissions for use in custom role definitions in Azure Active Directory (Azure AD). There are two types of applications, single-tenant and multi-tenant. Single-tenant applications are only available to users in the Azure AD tenant where the application is registered. Multi-tenant applications are supported by all Azure AD tenants. Single-tenant applications are defined as having **Supported account types** set to "Accounts in this organizational directory only". In the Graph API, single-tenant applications have the signInAudience property set to "AzureADMyOrg".
 
 ## Single-tenant application permissions
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 07/22/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Custom administrator roles in Azure Active Directory (preview)
 
-Azure Active Directory (Azure AD) supports provides the ability to assign administrative privileges restricted to a customized Azure AD resource scope. Custom roles such as these are part of a preview release of the Azure AD role-based access control model. [Built-in roles](directory-assign-admin-roles.md) provide an adequate granularity for many situations, but when you want more fine-grained permissions, you can create custom roles to reduce the scope of control for the role to the level of a single Azure AD resource.
+This article describes how to understand the new custom roles in Azure Active Directory (Azure AD). Azure Active Directory (Azure AD) supports provides the ability to assign administrative privileges restricted to a customized Azure AD resource scope. Custom roles such as these are part of a preview release of the Azure AD role-based access control model. [Built-in roles](directory-assign-admin-roles.md) provide an adequate granularity for many situations, but when you want more fine-grained permissions, you can create custom roles to reduce the scope of control for the role to the level of a single Azure AD resource.
 
 The preview release of Azure AD role-based access control exposes two scopes: an organization-wide scope (allowing the permitted actions for all Azure AD objects in the organization) and a custom scope, with permissions restricted to application registrations. In this custom role, you can edit app registration permissions. Over time, additional permissions for directory objects like enterprise applications, users, and devices will be added.
 

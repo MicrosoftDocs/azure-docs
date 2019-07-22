@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 07/22/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Assign custom admin roles using Graph API in Azure Active Directory 
 
-You can automate how you assign roles to user accounts Microsoft Graph API.
+You can automate how you assign roles to user accounts Microsoft Graph API. This article covers POST, GET, and DELETE operations on roleAssignments.
 
 ## Required permissions
 
@@ -26,7 +26,7 @@ Connect to your Azure AD tenant using a Global administrator account or Privileg
 
 ## POST Operations on RoleAssignment
 
-HTTP request to create a role assignment between a user and a role definition
+HTTP request to create a role assignment between a user and a role definition.
 
 POST
 
