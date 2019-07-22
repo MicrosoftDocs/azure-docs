@@ -28,7 +28,7 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ### Audio insights
 
-Use the Video Indexer Language Identification model to automatically identifying the spoken language in a video. For more information, see [Language Identification model](language-identification-model.md)
+Use the Language Identification model to automatically identifying the spoken language in a video. For more information, see [Language Identification model](language-identification-model.md).
 
 ## June 2019
 
