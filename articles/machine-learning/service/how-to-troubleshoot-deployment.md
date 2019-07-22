@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author:  clauren
 ms.reviewer: jmartens
-ms.date: 07/09/2018
+ms.date: 07/09/2019
 ms.custom: seodec18
 ---
 
@@ -96,7 +96,7 @@ print(ws.images['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
 for name, img in ws.images.items():
-    print (img.name, img.version, img.image_build_log_uri)
+    print(img.name, img.version, img.image_build_log_uri)
 ```
 
 The image log uri is a SAS URL pointing to a log file stored in your Azure blob storage. Simply copy and paste the uri into a browser window and you can download and view the log file.
@@ -160,18 +160,19 @@ If you encounter problems deploying a model to ACI or AKS, try deploying it as a
 To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the `model` variable) as a local web service:
 
 ```python
-from azureml.core.model import InferenceConfig,Model
+from azureml.core.model import InferenceConfig, Model
 from azureml.core.webservice import LocalWebservice
 
 # Create inference configuration. This creates a docker image that contains the model.
-inference_config = InferenceConfig(runtime= "python", 
+inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
 
 # Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
-service = Model.deploy(ws, "mymodel", [model], inference_config, deployment_config)
+service = Model.deploy(
+    ws, "mymodel", [model], inference_config, deployment_config)
 # Wait for the deployment to complete
 service.wait_for_deployment(True)
 # Display the port that the web service is available on
@@ -184,11 +185,11 @@ At this point, you can work with the service as normal. For example, the followi
 import json
 
 test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10], 
-    [10,9,8,7,6,5,4,3,2,1]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ]})
 
-test_sample = bytes(test_sample,encoding = 'utf8')
+test_sample = bytes(test_sample, encoding='utf8')
 
 prediction = service.run(input_data=test_sample)
 print(prediction)
@@ -239,9 +240,9 @@ Use the info in the [Inspect the Docker log](#dockerlog) section to check the lo
 Often, in the `init()` function in the scoring script, [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
 
 ```python
+from azureml.core.model import Model
 import logging
 logging.basicConfig(level=logging.DEBUG)
-from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 

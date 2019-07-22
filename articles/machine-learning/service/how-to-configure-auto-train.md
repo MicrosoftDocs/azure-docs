@@ -387,17 +387,21 @@ To get more details, use this helper function shown in [this sample notebook](ht
 
 ```python
 from pprint import pprint
+
+
 def print_model(model, prefix=""):
     for step in model.steps:
         print(prefix + step[0])
         if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
-            pprint({'estimators': list(e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            pprint({'estimators': list(
+                e[0] for e in step[1].estimators), 'weights': step[1].weights})
             print()
             for estimator in step[1].estimators:
-                print_model(estimator[1], estimator[0]+ ' - ')
+                print_model(estimator[1], estimator[0] + ' - ')
         else:
             pprint(step[1].get_params())
             print()
+
 
 print_model(fitted_model)
 ```
@@ -487,12 +491,19 @@ There are two ways to generate feature importance.
     print(per_class_summary)
     ```
 
-You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  Jupyter widget in a notebook. To learn more about the charts refer to the [Sample Azure Machine Learning service notebooks article.](samples-notebooks.md)
+You can visualize the feature importance chart in your workspace in the Azure portal. Display the URL using the run object:
+
+```
+automl_run.get_portal_url()
+```
+
+You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails
-RunDetails(local_run).show()
+RunDetails(automl_run).show()
 ```
+
 ![feature importance graph](./media/how-to-configure-auto-train/feature-importance.png)
 
 For more information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](machine-learning-interpretability-explainability.md) article on interpretability.
