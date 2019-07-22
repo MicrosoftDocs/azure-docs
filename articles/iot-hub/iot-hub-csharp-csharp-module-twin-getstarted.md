@@ -34,14 +34,13 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### Retrieve connection string for IoT hub
+## Get the IoT hub connection string
 
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
 
-You have now created your IoT hub, and you have the host name and IoT Hub connection string that you need to complete the rest of this tutorial.
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 [!INCLUDE [iot-hub-get-started-create-module-identity-csharp](../../includes/iot-hub-get-started-create-module-identity-csharp.md)]
-
 
 ## Update the module twin using .NET device SDK
 
@@ -55,7 +54,7 @@ In this section, you create a .NET console app on your simulated device that upd
 
     ![Install Azure IoT Hub .NET service SDK V1.16.0-preview-005](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
-3. **Get your module connection string** -- now if you login to [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
+3. **Get your module connection string** -- now if you sign in to [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
 
     ![Azure portal module detail](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.png)
 
