@@ -35,7 +35,7 @@ The Azure Marketplace has over 3000 applications with pre-integrated SSO connect
 ## Plan your SSO team
 
 - **Engage the right stakeholders** - When technology projects fail, it's typically due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholders understand their roles.
-- **Plan communications** - Communication is critical to the success of any new service. Proactively communicate to your users abut how their experience will change, when it will change, and how to gain support if they experience issues. Review the options for [how end-users will access their SSO enabled applications](end-user-experiences.md), and craft your communications to match your selection. 
+- **Plan communications** - Communication is critical to the success of any new service. Proactively communicate to your users about how their experience will change, when it will change, and how to gain support if they experience issues. Review the options for [how end-users will access their SSO enabled applications](end-user-experiences.md), and craft your communications to match your selection. 
 
 ## Plan your SSO protocol
 
