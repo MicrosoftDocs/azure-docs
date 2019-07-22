@@ -27,6 +27,8 @@
     items:
     - name: Android
       href: quickstarts/get-started-xamarin-android.md
+    - name: iOS
+      href: quickstarts/get-started-xamarin-ios.md
 - name: Tutorials
   items:
   - name: Sharing in Unity
