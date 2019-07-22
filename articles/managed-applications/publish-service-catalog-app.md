@@ -80,11 +80,11 @@ Save the mainTemplate.json file.
 
 ## Defining your create experience using CreateUiDefinition.json
 
-As a publisher, you define your create experience using the **createUiDefinition.json** file which generates the interface for users creating managed applications. You define how users provide input for each parameter using [control elements] (https://docs.microsoft.com/en-us/azure/managed-applications/create-uidefinition-elements) including drop-downs, text boxes, and password boxes.
+As a publisher, you define your create experience using the **createUiDefinition.json** file which generates the interface for users creating managed applications. You define how users provide input for each parameter using [control elements] (create-uidefinition-elements.md) including drop-downs, text boxes, and password boxes.
 
 Create a file named **createUiDefinition.json** (This name is case-sensitive)
 
-Add the following starter JSON to the file and save it
+Add the following starter JSON to the file and save it.
 
 ```json
 {
@@ -92,11 +92,46 @@ Add the following starter JSON to the file and save it
    "handler": "Microsoft.Azure.CreateUIDef",
    "version": "0.1.2-preview",
    "parameters": {
-      "basics": [ ],
-      "steps": [ ],
-      "outputs": { }
-   }
-}
+        "basics": [
+            {}
+        ],
+        "steps": [
+            {
+                "name": "storageConfig",
+                "label": "Storage settings",
+                "subLabel": {
+                    "preValidation": "Configure the infrastructure settings",
+                    "postValidation": "Done"
+                },
+                "bladeTitle": "Storage settings",
+                "elements": [
+                    {
+                        "name": "storageAccounts",
+                        "type": "Microsoft.Storage.MultiStorageAccountCombo",
+                        "label": {
+                            "prefix": "Storage account name prefix",
+                            "type": "Storage account type"
+                        },
+                        "defaultValue": {
+                            "type": "Standard_LRS"
+                        },
+                        "constraints": {
+                            "allowedTypes": [
+                                "Premium_LRS",
+                                "Standard_LRS",
+                                "Standard_GRS"
+                            ]
+                        }
+                    }
+                ]
+            }
+        ],
+        "outputs": {
+            "storageAccountNamePrefix": "[steps('storageConfig').storageAccounts.prefix]",
+            "storageAccountType": "[steps('storageConfig').storageAccounts.type]",
+            "location": "[location()]"
+        }
+    }
 ```
 
 To learn more, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
