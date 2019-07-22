@@ -85,7 +85,7 @@ The following table provides an overview of the schema elements that are related
 This section provides examples of event-based trigger settings.
 
 > [!IMPORTANT]
-> You have to include the `/blobs/` segment of the path, as shown in the following examples, whenever you specify container and folder, container and file, or container, folder, and file. For **blobPathBeginsWith**, the Data Factory UX will automatically add `/blobs/` between the folder and container name in the trigger JSON.
+> You have to include the `/blobs/` segment of the path, as shown in the following examples, whenever you specify container and folder, container and file, or container, folder, and file. For **blobPathBeginsWith**, the Data Factory UI will automatically add `/blobs/` between the folder and container name in the trigger JSON.
 
 | Property | Example | Description |
 |---|---|---|
