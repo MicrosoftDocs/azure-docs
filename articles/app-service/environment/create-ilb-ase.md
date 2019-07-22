@@ -103,11 +103,11 @@ When you use an External VIP, the DNS is managed by Azure. Any app created in yo
 
 To configure your DNS:
 
-- create a zone for *&lt;ASE name&gt;.appserviceenvironment.net*
-- create an A record in that zone that points * to the ILB IP address 
-- create an empty A record (so that it's created as "same as parent folder") in that zone that points * to the ILB IP address
-- create a zone in *&lt;ASE name&gt;.appserviceenvironment.net* named scm
-- create an A record in the scm zone that points to the ILB IP address
+- Create a zone for *&lt;ASE name&gt;.appserviceenvironment.net*
+- Create an A record in that zone that points * to the ILB IP address 
+- Create an @ A record (so that it's created as "same as parent folder") in the *&lt;ASE name&gt;.appserviceenvironment.net* zone, that points to the ILB IP address
+- Create a zone in *&lt;ASE name&gt;.appserviceenvironment.net* named scm
+- Create an A record in the scm zone that points to the ILB IP address
 
 ## Publish with an ILB ASE
 
