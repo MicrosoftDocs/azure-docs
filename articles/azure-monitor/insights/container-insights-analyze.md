@@ -20,10 +20,6 @@ With Azure Monitor for containers, you can use the performance charts and health
 
 This article will help you understand the experience between the two perspectives, and how it helps you quickly assess, investigate, and resolve issues detected.
 
-Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Azure Monitor for containers.
-
-> [!VIDEO https://www.youtube.com/embed/_RjsNmapggPU&t=995s]
-
 For information about enabling Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
 Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions.  It shows AKS clusters discovered that are not monitored by the solution. Immediately you can understand cluster health, and from here you can drill down to the node and controller performance page, or navigate to see performance charts for the cluster.  For AKS clusters discovered and identified as unmonitored, you can enable monitoring for that cluster at any time.  
