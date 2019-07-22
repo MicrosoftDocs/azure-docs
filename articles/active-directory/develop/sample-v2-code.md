@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform code samples | Microsoft Docs
+title: Code samples for Microsoft identity platform | Microsoft Docs
 description: Provides an index of available Microsoft identity platform (v2.0 endpoint) code samples, organized by scenario.
 services: active-directory
 documentationcenter: dev-center-name
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev

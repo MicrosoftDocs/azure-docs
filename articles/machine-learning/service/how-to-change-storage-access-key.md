@@ -46,12 +46,14 @@ from azureml.core import Workspace, Datastore
 ws = Workspace.from_config()
 
 default_ds = ws.get_default_datastore()
-print("Default datstore: " + default_ds.name + ", storage account name: " + default_ds.account_name + ", container name: " + ds.container_name)
+print("Default datstore: " + default_ds.name + ", storage account name: " +
+      default_ds.account_name + ", container name: " + ds.container_name)
 
 datastores = ws.datastores
 for name, ds in datastores.items():
     if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
-        print("datastore name: " + name + ", storage account name: " + ds.account_name + ", container name: " + ds.container_name)
+        print("datastore name: " + name + ", storage account name: " +
+              ds.account_name + ", container name: " + ds.container_name)
 ```
 
 This code looks for any registered datastores that use Azure Storage and lists the following information:
@@ -69,7 +71,7 @@ To update Azure Machine Learning service to use the new key, use the following s
 > [!IMPORTANT]
 > Perform all steps, updating both the workspace using the CLI, and datastores using Python. Updating only one or the other may cause errors until both are updated.
 
-1. Regenerate the key. For information on regenerating an access key, see the [Manage a storage account](/azure/storage/common/storage-account-manage.md#access-keys) article. Save the new key.
+1. Regenerate the key. For information on regenerating an access key, see the [Manage a storage account](/azure/storage/common/storage-account-manage#access-keys) article. Save the new key.
 
 1. To update the workspace to use the new key, use the following steps:
 

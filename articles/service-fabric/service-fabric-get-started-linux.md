@@ -85,7 +85,6 @@ To install the SDK and associated runtime package via the apt-get command-line t
 
     ```bash
     curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     ```
 
 5. Add the official Docker GPG key to your APT keyring.

@@ -3,6 +3,7 @@ title: Restrict access to an Azure container registry from a virtual network
 description: Allow access to an Azure container registry only from resources in an Azure virtual network or from public IP address ranges.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
@@ -14,7 +15,7 @@ ms.author: danlep
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking for your Azure and on-premises resources. By limiting access to your private Azure container registry from an Azure virtual network, you ensure that only resources in the virtual network access the registry. For cross-premises scenarios, you can also configure firewall rules to allow registry access only from specific IP addresses.
 
-This article shows two scenarios to create network access rules to limit access to an Azure container registry: from a virtual machine deployed in the same network, or from a VM's public IP address.
+This article shows two scenarios to create network access rules to limit access to an Azure container registry: from a virtual machine deployed in a virtual network, or from a VM's public IP address.
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -26,7 +27,7 @@ This article shows two scenarios to create network access rules to limit access 
 
 * Only an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) can be used as a host to access a container registry in a virtual network. *Other Azure services including Azure Container Instances aren't currently supported.*
 
-* [ACR Tasks](container-registry-tasks-overview.md) operations aren't currently supported in a container registry deployed to a virtual network.
+* [ACR Tasks](container-registry-tasks-overview.md) operations aren't currently supported in a container registry accessed in a virtual network.
 
 * Each registry supports a maximum of 100 virtual network rules.
 
@@ -35,6 +36,14 @@ This article shows two scenarios to create network access rules to limit access 
 * To use the Azure CLI steps in this article, Azure CLI version 2.0.58 or later is required. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
 * If you don't already have a container registry, create one (Premium SKU required) and push a sample image such as `hello-world` from Docker Hub. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry. 
+
+* If you want to restrict registry access using a virtual network in a different Azure subscription, you need to register the resource provider for Azure Container Registry in that subscription. For example:
+
+  ```azurecli
+  az account set --subscription <Name or ID of subscription of virtual network>
+
+  az provider register --namespace Microsoft.ContainerRegistry
+  ``` 
 
 ## About network rules for a container registry
 

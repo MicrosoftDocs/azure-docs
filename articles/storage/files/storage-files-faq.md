@@ -351,8 +351,8 @@ This article answers common questions about Azure Files features and functionali
     For information about scalability and performance targets for Azure Files, see [Azure Files scalability and performance targets](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>
-**I need a larger file share than Azure Files currently offers. Can I increase the size of my Azure file share?**  
-    No. The maximum size of an Azure file share is 5 TiB. Currently, this is a hard limit that we cannot adjust. We are working on a solution to increase the share size to 100 TiB, but we don't have timelines to share at this time.
+**What sizes are available for Azure file shares?**  
+    Azure file share sizes (premium and standard) can scale up to 100 TiB. Premium file shares sizes up to 100 TiB are available as a GA offering. Standard file shares sizes up to 5 TiB are available as a GA offering, while sizes up to 100 TiB are in preview. See the [Onboard to larger file shares (standard tier)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide for onboarding instructions to the larger file shares preview for the standard tier.
 
 * <a id="open-handles-quota"></a>
 **How many clients can access the same file simultaneously?**   

@@ -167,6 +167,10 @@ The Alert details page includes the following sections.
 | History | Lists each action taken by the alert and any changes made to the alert. Currently limited to state changes. |
 | Diagnostics | Information about the smart group the alert is included in. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days regardless of the time filter in the alerts list page. Select an alert to view its detail. |
 
+## Role-based access control (RBAC) for your alert instances
+
+The consumption and management of alert instances requires the user to have the built-in RBAC roles of either [monitoring contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) or [monitoring reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). These roles are supported at any Azure Resource Manager scope, from subscription level to granular assignments at a resource level. For example, if a user only has 'monitoring contributor' access for virtual machine 'ContosoVM1', then he can consume and manage only alerts generated on 'ContosoVM1'.
+
 ## Manage your alert instances programmatically
 
 There are many scenarios where you would want to programmatically query for alerts generated against your subscription. This could be to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
