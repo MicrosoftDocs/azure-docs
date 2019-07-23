@@ -25,6 +25,8 @@
         href: abintegro-tutorial.md
       - name: Absorb LMS
         href: absorblms-tutorial.md
+      - name: Abstract
+        href: abstract-tutorial.md
       - name: Acadia
         href: acadia-tutorial.md  
       - name: Accredible
@@ -241,7 +243,7 @@
         href: cimpl-tutorial.md
       - name: Cisco Cloud
         href: ciscocloud-tutorial.md
-      - name: Cisco Cloudlock
+      - name: The Cloud Security Fabric
         href: ciscocloudlock-tutorial.md
       - name: Cisco Webex
         href: cisco-spark-tutorial.md
@@ -549,6 +551,8 @@
         href: shiftplanning-tutorial.md
       - name: Hype
         href: hype-tutorial.md
+      - name: HyperAnna
+        href: hyperanna-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -633,6 +637,8 @@
         href: jamfprosamlconnector-tutorial.md
       - name: JDA Cloud
         href: jdacloud-tutorial.md
+      - name: JFrog Artifactory
+        href: jfrog-artifactory-tutorial.md
       - name: JIRA SAML SSO by Microsoft
         href: jiramicrosoft-tutorial.md
       - name: JIRA SAML SSO by Microsoft (V5.2)
@@ -947,6 +953,8 @@
         href: printix-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
+      - name: productboard
+        href: productboard-tutorial.md
       - name: Projectplace
         href: projectplace-tutorial.md
       - name: Promapp

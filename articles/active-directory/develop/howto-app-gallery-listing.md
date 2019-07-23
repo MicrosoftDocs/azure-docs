@@ -17,7 +17,7 @@ ms.workload: identity
 ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
-ms.custom: "aaddev, seoapril2019"
+ms.custom: aaddev, seoapril2019
 
 ms.collection: M365-identity-device-management
 ---

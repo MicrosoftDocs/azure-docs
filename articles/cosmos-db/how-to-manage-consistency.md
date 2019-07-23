@@ -65,7 +65,7 @@ To view or modify the default consistency level, sign in to the Azure portal. Fi
 Clients can override the default consistency level that is set by the service. 
 Consistency level can be set on a per request, which overrides the default consistency level set at the account level.
 
-### <a id="override-default-consistency-dotnet"></a>.NET SDK
+### <a id="override-default-consistency-dotnet"></a>.NET SDK V2
 
 ```csharp
 // Override consistency at the client level
@@ -75,6 +75,19 @@ documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy
 RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = ConsistencyLevel.Eventual };
 
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
+```
+
+### <a id="override-default-consistency-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+// Override consistency at the request level via request options
+ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = ConsistencyLevel.Strong };
+
+var response = await client.GetContainer(databaseName, containerName)
+    .CreateItemAsync(
+        item, 
+        new PartitionKey(itemPartitionKey), 
+        requestOptions);
 ```
 
 ### <a id="override-default-consistency-java-async"></a>Java Async SDK
@@ -117,7 +130,8 @@ const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual }
 ```python
 # Override consistency at the client level
 connection_policy = documents.ConnectionPolicy()
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Eventual)
+client = cosmos_client.CosmosClient(self.account_endpoint, {
+                                    'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Eventual)
 ```
 
 ## Utilize session tokens
@@ -126,7 +140,7 @@ One of the consistency levels in Azure Cosmos DB is *Session* consistency. This 
 
 To manage session tokens manually, get the session token from the response and set them per request. If you don't need to manage session tokens manually, you don't need to use these samples. The SDK keeps track of session tokens automatically. If you don't set the session token manually, by default, the SDK uses the most recent session token.
 
-### <a id="utilize-session-tokens-dotnet"></a>.NET SDK
+### <a id="utilize-session-tokens-dotnet"></a>.NET SDK V2
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -137,6 +151,18 @@ RequestOptions options = new RequestOptions();
 options.SessionToken = sessionToken;
 var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
+```
+
+### <a id="utilize-session-tokens-dotnet-v3"></a>.NET SDK V3
+
+```csharp
+Container container = client.GetContainer(databaseName, collectionName);
+ItemResponse<SalesOrder> response = await container.CreateItemAsync<SalesOrder>(salesOrder);
+string sessionToken = response.Headers.Session;
+
+ItemRequestOptions options = new ItemRequestOptions();
+options.SessionToken = sessionToken;
+ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(salesOrder.Id, new PartitionKey(salesOrder.PartitionKey), options);
 ```
 
 ### <a id="utilize-session-tokens-java-async"></a>Java Async SDK

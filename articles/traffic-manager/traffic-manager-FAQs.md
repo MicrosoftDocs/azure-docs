@@ -26,7 +26,7 @@ Therefore, Traffic Manager does not provide an endpoint or IP address for client
 ### What types of traffic can be routed using Traffic Manager?
 As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), a Traffic Manager endpoint can be any internet facing service hosted inside or outside of Azure. Hence, Traffic Manager can route traffic that originates from the public internet to a set of endpoints that are also internet facing. If you have endpoints that are inside a private network (for example, an internal version of [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) or have users making DNS requests from such internal networks, then you cannot use Traffic Manager to route this traffic.
 
-### Does Traffic Manager support 'sticky' sessions?
+### Does Traffic Manager support "sticky" sessions?
 
 As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager works at the DNS level. It uses DNS responses to direct clients to the appropriate service endpoint. Clients connect to the service endpoint directly, not through Traffic Manager. Therefore, Traffic Manager does not see the HTTP traffic between the client and the server.
 
@@ -53,7 +53,7 @@ The Performance method routes traffic to the closest available endpoint. The net
 As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager works at the DNS level. Once the DNS lookup is complete, clients connect to the application endpoint directly, not through Traffic Manager. Therefore, the connection can use any application protocol. 
  If you select TCP as the monitoring protocol, Traffic Manager's endpoint health monitoring can be done without using any application protocols. If you choose to have the health verified using an application protocol, the endpoint needs to be able to respond to either HTTP or HTTPS GET requests.
 
-### Can I use Traffic Manager with a 'naked' domain name?
+### Can I use Traffic Manager with a "naked" domain name?
 
 Yes. To learn how to create an alias record for your domain name apex to reference an Azure Traffic Manager profile, see [Configure an alias record to support apex domain names with Traffic Manager](../dns/tutorial-alias-tm.md).
 
@@ -435,7 +435,7 @@ Traffic Manager monitoring settings are at a per profile level. If you need to u
 Traffic Manager allows you to specify custom headers in the HTTP(S) health checks it initiates to your endpoints. If you want to specify a custom header, you can do that at the profile level (applicable to all endpoints) or specify it at the endpoint level. If a header is defined at both levels, then the one specified at the endpoint level will override the profile level one.
 One common use case for this is specifying host headers so that Traffic Manager requests may get routed correctly to an endpoint hosted in a multi-tenant environment. Another use case of this is to identify Traffic Manager requests from an endpoint’s HTTP(S) request logs
 
-## What host header do endpoint health checks use?
+### What host header do endpoint health checks use?
 
 If no custom host header setting is provided, the host header used by Traffic Manager is the DNS name of the endpoint target configured in the profile, if that is available.
 

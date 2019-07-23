@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Using Java to call the Text Analytics API'
+title: 'Quickstart: Use Java to call the Text Analytics REST API'
 titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/22/2019
 ms.author: aahi
 ---
 # Quickstart: Using Java to call the Text Analytics Cognitive Service
