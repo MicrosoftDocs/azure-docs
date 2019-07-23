@@ -15,9 +15,9 @@
   - name: Persist state
     items:
     - name: Linux
-      href: persist-state-on-linux.md  
+      href: persist-state-linux.md  
     - name: Windows
-      href: persist-state-on-windows.md  
+      href: persist-state-windows.md  
 - name: Reference
   items:
   - name: REST API

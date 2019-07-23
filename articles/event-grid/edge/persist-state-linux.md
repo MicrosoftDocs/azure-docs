@@ -1,6 +1,6 @@
 ---
-title: Persist state in Windows - Azure Event Grid IoT Edge | Microsoft Docs 
-description: Persist state in Windows
+title: Persist state in Linux - Azure Event Grid IoT Edge | Microsoft Docs 
+description: Persist metadata in Linux 
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -11,30 +11,51 @@ ms.service: event-grid
 services: event-grid
 ---
 
-# Persist state in Windows
+# Persist state in Linux
 Topics and Subscriptions created in the Event Grid module are by default stored in the container filesystem. Without persistence, if the module were redeployed then all the metadata created would be lost. To preserve the data across deployments, you will need to persist the data outside the container filesystem. To enable persistence across deployments, we make use of [docker volumes](https://docs.docker.com/storage/volumes/). 
 
-The rest of the document details the steps needed to deploy Event Grid module with persistence in Windows deployments.
+The rest of the document details the steps needed to deploy Event Grid module with persistence in Linux deployments.
 
 > [!NOTE]
->Currently only metadata is persisted. Events are stored in-memory. If Event Grid module is redeployed, restarted then any undelivered events will be lost. Persistence of events will be supported in a future release.
+>Currently only metadata is persisted. Events are stored in-memory. If Event Grid module is redeployed, restarted then any undelivered events will be lost.
 
-Unlike Linux deployments, on Windows Event Grid module runs under **ContainerUser**, a low-privileged user already available in Windows. No extra setup is required.
+## Step 1: Create **eventgriduser** on the host machine
 
-We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to enable persistence. Persistence in docker basically involves mounting a host directory onto the container. There are a couple of ways to do this:-
+Event Grid container runs as **eventgriduser**, a low-privileged user.
+To persist data, you will first need to ensure that this user exists on the host machine where the container is running. This step needs to happen only one time on the host machine.
 
-## Option1: Explicitly mount a container host directory
+To create **eventgriduser**, run the following command on the host machine.
 
-1. Create a directory on the host filesystem by running the below command:-
+```sh
+sudo useradd -u 5000 eventgriduser
+```
+
+## Step 2: Mount a host folder onto the Event Grid container
+
+We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to enable persistence. Persistence in docker basically involves mounting a host directory onto the container. There are a couple of ways to mount host directory onto a container.
+
+### Option 1: Explicitly mount a container host directory
+
+1. Create a directory on the host filesystem by running the below command.
 
    ```sh
-   mkdir <your-directory-name-here>
+   md <your-directory-name-here>
    ```
     For example,
 
       ```sh
-      mkdir C:\myhostdir
+      md /myhostdir
       ```
+
+1. Next, make **eventgriduser** owner of this folder by running the below command.
+
+   ```sh
+   sudo chown eventgriduser:eventgriduser -R <your-directory-name-here>
+   ```
+    For example,
+    ```sh
+    sudo chown eventgriduser:eventgriduser -R /myhostdir
+    ```
 
 1. Use **Binds** to mount your directory and redeploy Event Grid module from Azure portal
    
@@ -42,7 +63,7 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
     {
          "HostConfig": {
             "Binds": [
-                "<your-directory-name-here>:C:\\app\\metadataDb"
+                "<your-directory-name-here>:/app/metadataDb"
              ]
          }
     }
@@ -66,7 +87,7 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
          ],         
          "HostConfig": {
             "Binds": [
-                "C:\\myhostdir:C:\\app\\metadataDb"
+                "/myhostdir:/app/metadataDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -80,22 +101,61 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
     ```
 
 >[!IMPORTANT]
->Do not change the second part of the bind value. It points to a specific location in the module. For Event Grid module on Windows it has to be **C:\\app\\metadataDb**.
+>Do not change the second part of the bind value. It points to a specific location in the module. For Event Grid module on linux it has to be **/app/metadata**.
 
-## Option2: Mount host directory via docker volume
+### Option 2: Mount host directory via docker volume
 
-Alternatively you can create a docker volume, map the volume onto the container as follows:-
+Alternatively you can create a docker volume, map the volume onto the container as follows.
 
 1. Create a volume by running the below command
 
     ```sh
-    docker -H npipe:////./pipe/iotedge_moby_engine volume create <your-volume-name-here>
+    sudo docker volume create <your-volume-name-here>
     ```
     For example,
 
    ```sh
-   docker -H npipe:////./pipe/iotedge_moby_engine volume create myeventgridvol
+   sudo docker volume create myeventgridvol
    ```
+
+2. Get the host directory that the volume maps to by running the below command
+
+    ```sh
+    sudo docker volume inspect <your-volume-name-here>
+    ```
+
+    For example,
+    
+    ```sh
+    sudo docker volume inspect myeventgridvol
+    ```
+    Sample output:-
+    
+    ```json
+       [
+             {
+                "CreatedAt": "2019-06-28T00:19:43Z",
+                "Driver": "local",
+                "Labels": {},
+                "Mountpoint": "/var/lib/docker/volumes/myeventgridvol/_data",
+                "Name": "metadataDb",
+                "Options": {},
+                "Scope": "local"
+              }
+       ]
+    ```
+
+1. Make **eventgriduser** owner of the directory pointed by **Mountpoint**.
+   
+    ```sh
+    sudo chown eventgriduser:eventgriduser -R <your-mount-point-value-here>
+    ```
+
+    For example,
+
+    ```sh
+    sudo chown eventgriduser:eventgriduser -R /var/lib/docker/volumes/myeventgridvol/_data
+    ```
 
 1. Use **Binds** to mount this volume and redeploy Event Grid module from Azure portal
     
@@ -118,7 +178,7 @@ Alternatively you can create a docker volume, map the volume onto the container 
          ],
          "HostConfig": {
             "Binds": [
-                "<your-volume-name-here>:C:\\app\\metadataDb"
+                "<your-volume-name-here>:/app/metadataDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -150,7 +210,7 @@ Alternatively you can create a docker volume, map the volume onto the container 
          ],
          "HostConfig": {
             "Binds": [
-                "myeventgridvol:C:\\app\\metadataDb"
+                "myeventgridvol:/app/metadataDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -164,4 +224,4 @@ Alternatively you can create a docker volume, map the volume onto the container 
     ```
 
 >[!IMPORTANT]
->Do not change the second of the bind value. It points to a specific location in the module. For Event Grid module on linux it has to be **C:\\app\\metadataDb**.
+>Do not change the second of the bind value. It points to a specific location in the module. For Event Grid module on linux it has to be **/app/metadata**.
