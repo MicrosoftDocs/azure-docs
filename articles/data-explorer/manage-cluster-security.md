@@ -21,9 +21,9 @@ Enabling [encryption at rest](/azure/security/azure-security-encryption-atrest) 
 
     ![Turn on encryption at rest](media/manage-cluster-security/security-encryption-at-rest.png)
 
-1. In the **Security** window, Select **On** for the **Disk encryption** security setting. 
+1. In the **Security** window, select **On** for the **Disk encryption** security setting. 
 
-1. Select **Save**
+1. Select **Save**.
 
 ## Next steps
 
