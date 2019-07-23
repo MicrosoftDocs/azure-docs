@@ -15,7 +15,7 @@ manager: philmea
 
 # Tutorial: Create and test a device capability model using Visual Studio Code
 
-This tutorial shows you how, as a device developer, to use Visual Studio code to create a _device capability model_. You can use the model to generate code to run on a device that connects to an Azure IoT Hub instance in the cloud.
+This tutorial shows you how, as a device developer, to use Visual Studio Code to create a _device capability model_. You can use the model to generate code to run on a device that connects to an Azure IoT Hub instance in the cloud.
 
 The section in this tutorial that describes how to build the generated code assumes you're using Windows.
 
@@ -55,7 +55,7 @@ To build the generated C code on Windows in this tutorial, you need:
 
 To test your device code in this tutorial, you need:
 
-* The [IoT Plug and Play Device Explorer](https://github.com/Azure/azure-iot-explorer/releases).
+* The [Azure IoT explorer](https://github.com/Azure/azure-iot-explorer/releases).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -70,7 +70,7 @@ To create an interface file that defines the capabilities of your IoT device in 
 
 1. Create a folder called **devicemodel**.
 
-1. Launch Visual Studio code and use **Ctrl+Shift+P** to open the command palette.
+1. Launch VS Code and use **Ctrl+Shift+P** to open the command palette.
 
 1. Enter **Plug and Play** and then select the **IoT Plug & Play: Create Interface** command.
 
@@ -267,7 +267,7 @@ You now have the three files that make up your device capability model:
 
 ## Publish the model
 
-For your IoT hub to read your device capability model, you need to publish it in your organizational repository. To publish from Visual Studio code, you need the connection string for the organizational repository:
+For the Azure IoT explorer tool to read your device capability model, you need to publish it in your organizational repository. To publish from VS Code, you need the connection string for the organizational repository:
 
 1. Navigate to the [Azure Certified for IoT portal](https://aka.ms/ACFI).
 
