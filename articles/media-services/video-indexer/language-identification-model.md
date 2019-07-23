@@ -1,7 +1,7 @@
 ---
-title: Automatically ID the spoken language with Video Indexer - Azure  
+title: Automatically identify the spoken language with Video Indexer - Azure  
 titlesuffix: Azure Media Services
-description: This article describes how the Video Indexer Language Identification model is used to automatically identifying the spoken language in a video.
+description: This article describes how the Video Indexer language identification model is used to automatically identifying the spoken language in a video.
 services: media-services
 author: juliako
 manager: femila
@@ -13,7 +13,7 @@ ms.date: 07/22/2019
 ms.author: ellbe
 ---
 
-# Automatically ID the spoken language with Language Identification model
+# Automatically identify the spoken language with language identification model
 
 Video Indexer supports automatic language identification (LID), which is the process of automatically identifying the spoken language content from audio and sending the media file to be transcribed in the dominant identified language. Currently LID supports English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Portuguese (Brazilian). 
 
@@ -45,7 +45,7 @@ Model dominant language is available in the insights JSON as the `sourceLanguage
  
 In addition, a verbose response through the [Artifact auxiliary API](https://api-portal.videoindexer.ai/docs/services/operations/operations/get-video-artifact-download-url/) is available (set `languageDetection` as the `type` parameter value). The verbose response contains the dominant language and the confidence score of each supported language. The confidence for each segment detected as speech / non-speech and a detailed segmentation of the file to detected language intervals with corresponding confidence of each of the supported languages. 
 
-## Guidelines and limitation
+## Guidelines and limitations
 
 * Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Brazilian Portuguese.
 * If the audio contains languages other than the supported list above, the result is unexpected.
