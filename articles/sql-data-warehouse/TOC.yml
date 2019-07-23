@@ -281,6 +281,16 @@
       href: sql-data-warehouse-manage-monitor.md
     - name: Monitor Gen2 cache
       href: sql-data-warehouse-how-to-monitor-cache.md
+  - name: Backup and restore
+    items:
+    - name: Create restore points
+      href: sql-data-warehouse-restore-points.md
+    - name: Restore an existing data warehouse
+      href: sql-data-warehouse-restore-active-paused-dw.md
+    - name: Restore a deleted data warehouse 
+      href: sql-data-warehouse-restore-deleted-dw.md
+    - name: Restore from a geo-backup 
+      href: sql-data-warehouse-restore-from-geo-backup.md 
   - name: Integrate
     items:
     - name: Use machine learning
