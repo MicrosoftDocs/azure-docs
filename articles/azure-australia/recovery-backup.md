@@ -16,7 +16,7 @@ Microsoft Azure provides two services that enable resilience: Azure Backup and A
 
 This article details the key design elements for implementing Azure Backup and Azure Site Recovery in line with the [Australian Signals Directorate’s (ASD) Information Security Manual (ISM) Controls](https://acsc.gov.au/infosec/ism/index.htm).
 
-### Azure Backup
+## Azure Backup
 
 ![Azure Backup](media/backup_overview.png)
 
@@ -24,8 +24,8 @@ Azure Backup resembles a traditional on-premises backup solution and provides th
 
 * Files and folders
 * Supported Windows and Linux operating systems hosted on:
-    - Hyper-V and VMWare Hypervisors
-    - Physical hardware
+  * Hyper-V and VMWare Hypervisors
+  * Physical hardware
 * Supported Microsoft applications
 
 ### Azure Site Recovery
