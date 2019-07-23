@@ -3,7 +3,7 @@ title: Deliver a proof of concept - Azure DevTest Labs | Microsoft Docs
 description: Learn how to deliver a proof of concept so Azure DevTest Labs can be successfully incorporated into an enterprise environment.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: juliako
+author: tanmayeekamath
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
-ms.author: juliako
+ms.author: tanmayee
 
 ---
 
