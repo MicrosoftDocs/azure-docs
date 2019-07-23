@@ -15,7 +15,7 @@ ms.custom:
 
 # Tutorial: scale an Azure VMware Solution by Virtustream private cloud
 
-You can scale the number of clusters in an AVS by Virtustream private cloud, and you can also scale the number of hosts in a cluster. The cluster and host limits in a private cloud are provided in [the private cloud concept article](concepts-private-clouds-clusters.md).
+You can scale the number of clusters and the number of hosts in a private cloud. The cluster and host limits in a private cloud are provided in [the private cloud concept article](concepts-private-clouds-clusters.md).
 
 In this tutorial, you use the Azure portal to:
 
