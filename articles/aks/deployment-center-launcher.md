@@ -18,9 +18,9 @@ Deployment Center in Azure DevOps simplifies setting up a robust Azure DevOps pi
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Configure an Azure DevOps pipeline to deploy your application updates to the k8s cluster.
-> * Examine the CI pipeline.
-> * Examine the CD pipeline.
+> * Configure an Azure DevOps pipeline to deploy your application updates to the Kubernetes cluster.
+> * Examine the continuous integration (CI) pipeline.
+> * Examine the continuous delivery (CD) pipeline.
 > * Clean up the resources.
 
 ## Prerequisites
@@ -47,7 +47,7 @@ In this tutorial, you will:
     az aks create --resource-group azooaks --name azookubectl --node-count 1 --enable-addons monitoring --generate-ssh-keys
     ```
 
-## Deploy application updates to a K8s cluster
+## Deploy application updates to a Kubernetes cluster
 
 1. Go to the resource group that you created in the previous section.
 
@@ -78,7 +78,7 @@ In this tutorial, you will:
 
 1. Select an existing container registry or create one, and then select **Finish**. The pipeline is created automatically and queues a build in [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops).
 
-    Azure Pipelines is a cloud service that you can use to automatically build and test your code project and make it available to other users. Azure Pipelines combines continuous integration (CI) and continuous delivery (CD) to constantly and consistently test and build your code and ship it to any target.
+    Azure Pipelines is a cloud service that you can use to automatically build and test your code project and make it available to other users. Azure Pipelines combines continuous integration and continuous delivery to constantly and consistently test and build your code and ship it to any target.
 
     ![Container Registry](media/deployment-center-launcher/container-registry.png)
 
@@ -122,7 +122,7 @@ Deployment Center automatically creates and configures the relationship between 
 
 1. Select the **Continuous deployment** trigger on the right of the **Drop** option. This release pipeline has an enabled CD trigger that runs a deployment whenever a new build artifact is available. You can also disable the trigger to require manual execution for your deployments.
 
-1. To examine all the tasks for your pipeline, select **Tasks**. The release sets the tiller environment, configures the `imagePullSecrets` parameter, installs Helm tools, and deploys the Helm charts to the K8s cluster.
+1. To examine all the tasks for your pipeline, select **Tasks**. The release sets the tiller environment, configures the `imagePullSecrets` parameter, installs Helm tools, and deploys the Helm charts to the Kubernetes cluster.
 
 1. To view the release history, select **View releases**.
 
@@ -138,10 +138,4 @@ You can delete the related resources that you created when you don't need them a
 
 ## Next steps
 
-You can also modify these build and release pipelines to meet the needs of your team. Or, you can use this CI/CD model as a template for your other pipelines. In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Configure a DevOps pipeline to deploy your application updates to the k8s cluster.
-> * Examine the CI pipeline.
-> * Examine the CD pipeline.
-> * Clean up the resources.
+You can modify these build and release pipelines to meet the needs of your team. Or, you can use this CI/CD model as a template for your other pipelines.
