@@ -1,8 +1,8 @@
 ---
 title: Configure Spark settings - Azure HDInsight 
 description: How to configure Spark for an Azure HDInsight cluster.
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
