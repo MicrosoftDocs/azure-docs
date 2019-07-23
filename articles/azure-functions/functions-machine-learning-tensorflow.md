@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Make machine learning predictions with TensorFlow and Azure Functions
 
-This article demonstartes how Azure Functions allows you to import a machine learning model and use it with TensorFlow to predict image contents.
+This article demonstrates how Azure Functions allows you to import a machine learning model and use it with TensorFlow to predict image contents.
 
 In this tutorial, you learn to: 
 
@@ -68,16 +68,22 @@ cd start
 
 Next, activate the virtual environment.
 
-*Linux and macOS*
+*Linux, macOS, Windows Subsystem for Linux*
 
 ```bash
 source .venv/bin/activate
 ```
 
-*Windows*
+*Windows Git Bash*
+
+```bash
+source .venv/Scripts/activate
+```
+
+*Windows Command Prompt or PowerShell*
 
 ```powershell
-source .venv/Scripts/activate
+.venv\Scripts\activate
 ```
 
 The terminal prompt is now prefixed with `(.venv)` which indicates you have successfully activated the virtual environment. Confirm that `python` in the virtual environment is indeed Python 3.6.x.
@@ -265,7 +271,7 @@ cd <FRONT_END_FOLDER>
 In a browser, navigate to the HTTP server's URL. A web app should appear. Find a public URL of a dog or cat photo and enter it into the textbox. When you click submit, the function app is called and a prediction is returned and displayed on the page.
 
 ## Clean up resources
-The entierty of this tutorial runs locally on your machine, so there are no Azure resources or servicecs to clean up.
+The entirety of this tutorial runs locally on your machine, so there are no Azure resources or services to clean up.
 
 ## Next steps
 
