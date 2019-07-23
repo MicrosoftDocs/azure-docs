@@ -597,3 +597,4 @@ Here are some ways that you can secure endpoints where your logic app needs acce
 * [Create deployment templates](logic-apps-create-deploy-template.md)  
 * [Monitor your logic apps](logic-apps-monitor-your-logic-apps.md)  
 * [Diagnose logic app failures and issues](logic-apps-diagnosing-failures.md)  
+* [Automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md)

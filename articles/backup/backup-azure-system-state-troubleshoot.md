@@ -7,8 +7,8 @@ manager: sivan
 keywords: how to backup; backup system state
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: srinathv
+ms.date: 07/22/2019
+ms.author: srinathvasireddy
 ---
 
 # Troubleshoot System State Backup

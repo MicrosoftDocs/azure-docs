@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Set up security info (preview) to use phone calls
+
 You can follow these steps to add your two-factor verification and password reset methods. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
 
 If you're prompted to set this up immediately after you sign in to your work or school account, see the detailed steps in the [Set up your security info from the sign-in page prompt](security-info-setup-signin.md) article.
@@ -24,10 +25,11 @@ If you're prompted to set this up immediately after you sign in to your work or 
 
 > [!Note]
 > Security info doesn't support using phone extensions. Even if you add the proper format, +1 4255551234X12345, the extensions are removed before the call is placed.
-> 
+>
 > If you don't see a phone option, it's possible that your organization doesn't allow you to use a phone number for verification. In this case, you'll need to choose another method or contact your administrator for more help.
 
 ## Set up phone calls from the Security info page
+
 Depending on your organization’s settings, you might be able to use phone calls as one of your security info methods.
 
 >[!Note]
@@ -60,6 +62,7 @@ Depending on your organization’s settings, you might be able to use phone call
     Your security info is updated and you can use phone calls to verify your identity when using two-step verification or password reset. If you want to make phone calls your default method, see the [Change your default security info method](#change-your-default-security-info-method) section of this article.
 
 ## Delete phone calls from your security info methods
+
 If you no longer want to use phone calls as a security info method, you can remove it from the **Security info** page.
 
 >[!Important]
@@ -72,8 +75,9 @@ If you no longer want to use phone calls as a security info method, you can remo
     ![Link to delete the phone method from security info](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
 2. Select **Yes** from the confirmation box to delete the **Phone** number. After your phone number is deleted, it's removed from your security info and it disappears from the **Security info** page. If **Phone** is your default method, the default will change to another available method.
-    
+
 ## Change your default security info method
+
 If you want phone calls to be the default method used when you sign-in to your work or school account using two-factor verification or for password reset requests, you can set it from the **Security info** page.
 
 ### To change your default security info method
