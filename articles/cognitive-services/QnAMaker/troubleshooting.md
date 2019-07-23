@@ -108,7 +108,10 @@ The name of the Azure Search resource is the QnA Maker resource name with some r
 
 The disk space for your app service might be full. Steps to fix your disk space:
 
-1. In the [Azure portal](https://portal.azure.com), select your QnA Maker's app service, then stop the service.
+1. In the [Azure portal](https://portal.azure.com), select your QnA Maker's App service, then stop the service.
+1. While still on the App service, select **Development Tools**, then **Advanced Tools**, then **Go**. This opens a new browser window.
+1. Select **Debug console**, then **CMD** to open a command line tool. 
+1. Navigate to the _site/wwwroot/Data/QnAMaker/_ directory.
 1. Remove all the folders whose name begins with `rd`. 
 
     **Do not delete** the following:
@@ -116,7 +119,8 @@ The disk space for your app service might be full. Steps to fix your disk space:
     * KbIdToRankerMappings.txt file
     * EndpointSettings.json file
     * EndpointKeys folder 
-1. Start the app service.
+
+1. Start the App service.
 1. Access your knowledge base to verify it works now. 
 
 
