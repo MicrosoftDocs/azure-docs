@@ -82,8 +82,6 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring telemetry being sent to your application. When the condition specified in the rule is met, the rule triggers the configured email action.
 
-You can add up to five actions per rule.
-
 ## Parameterize the rule
 
 Rules can derive certain vales from **Device Properties** as parameters. Using parameters is helpful in scenarios where telemetry thresholds vary for different devices. While creating the rule, choose a device property that specifies the threshold, such as **Maximum Ideal Threshold**, instead of providing an absolute value, such as 80 degrees. When the rule executes, it matches the device telemetry with the value set in the device property.
@@ -106,7 +104,4 @@ Choose the rule you want to enable or disable. Add a filter in the **Scopes** se
 
 ## Next steps
 
-Now that you've learned how to create rules in your Azure IoT Central application, here are some next steps:
-
-- [Group multiple actions to run from one or more rules](howto-use-action-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- [How to manage your devices](howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+Now that you have learned how to create rules in your Azure IoT Central application, the suggested next step is to learn [How to manage your devices](howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

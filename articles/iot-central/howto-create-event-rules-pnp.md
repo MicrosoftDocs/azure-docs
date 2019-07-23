@@ -84,9 +84,7 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 1. To save the action, choose **Done**.
 
-1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring event being sent to your application. When the condition specified in the rule is met, the rule triggers the configured email action.
-
-You can add up to five actions per rule.
+1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring events being sent to your application. When the condition specified in the rule is met, the rule triggers the configured email action.
 
 ## Parameterize the rule
 
@@ -110,7 +108,4 @@ Choose the rule you want to enable or disable. Add a filter in the **Scopes** se
 
 ## Next steps
 
-Now that you've learned how to create rules in your Azure IoT Central application, here are some next steps:
-
-- [Group multiple actions to run from one or more rules](howto-use-action-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- [How to manage your devices](howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+Now that you have learned how to create rules in your Azure IoT Central application, the suggested next step is to learn [How to manage your devices](howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
