@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Migrate issues | Microsoft Docs
-description: Provides an overview of known issues in the Azure Migrate service, and troubleshooting tips for common errors.
+description: Provides an overview of known issues in the Azure Migrate service. Includes troubleshooting tips for common errors.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
@@ -10,55 +10,55 @@ ms.author: raynew
 
 # Troubleshoot Azure Migrate
 
-[Azure Migrate](migrate-services-overview.md) provides a hub of Microsoft tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. This document provides help on troubleshooting errors with Azure Migrate, Azure Migrate: Server Assessment and Azure Migrate: Server Migration.
+[Microsoft Azure Migrate](migrate-services-overview.md) provides a hub of tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. This article helps you troubleshoot errors with Azure Migrate, Azure Migrate Server Assessment, and Azure Migrate Server Migration.
 
 ## Azure Migrate project issues
 
-### I am unable to find my existing Azure Migrate project.
+### I can't find my existing Azure Migrate project.
 
-There are [two versions](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate. Depending on the version in which you created the project, follow the steps below to find the project:
+There are [two versions](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate. Depending on the version in which you created the project, follow these steps to find the project:
 
-1. If you are looking for a project created with the pervious version (old experience) of Azure Migrate,  follow the below steps to find the project.
+1. If you're looking for a project created with the pervious version (old experience) of Azure Migrate,  follow these steps to find the project:
 
-    1. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**.
-    2. On the Azure Migrate dashboard, you will see a banner that talks about accessing older projects. You will see this banner only if you have created a project with the old experience. Click the banner.
+    1. Go to [Azure portal](https://portal.azure.com), and search for **Azure Migrate**.
+    2. On the Azure Migrate dashboard, you'll see a banner that mentions accessing older projects. You'll see this banner only if you have created a project with the old experience. Click the banner.
 
     ![Access existing projects](./media/troubleshooting-general/access-existing-projects.png)
 
-    3. You will now see the list of existing projects created with the previous version of Azure Migrate.
+    3. You'll now see the list of existing projects created with the previous version of Azure Migrate.
 
-2. If you are looking for a project created with the current version (new experience), follow the below steps to find the project.
+2. If you're looking for a project created with the current version (new experience), follow these steps to find the project:
 
-    1. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**.
-    2. On the Azure Migrate dashboard, go to the **Servers** page on the left pane, and select **change** on the top-right corner:
+    1. Go to [Azure portal](https://portal.azure.com), and search for **Azure Migrate**.
+    2. On the Azure Migrate dashboard, go to the **Servers** page in the left pane, and select **change** in the upper-right corner.
 
     ![Switch to an existing Azure Migrate project](./media/troubleshooting-general/switch-project.png)
 
-    3. Select the appropriate **Subscription** and **Migrate project**.
+    3. Select the appropriate subscription and Azurer Migrate project.
 
-### I am unable to create a second Azure Migrate project.
+### I can't create a second Azure Migrate project.
 
 Follow the below steps to create a new Azure Migrate project.
 
 1. Go to [Azure portal](https://portal.azure.com), search for **Azure Migrate**.
-2. On the Azure Migrate dashboard, go to the **Servers** page on the left pane, and select **change** on the top-right corner:
+2. On the Azure Migrate dashboard, go to the **Servers** page in the left pane, and select **change** in the upper-right corner.
 
    ![Change Azure Migrate project](./media/troubleshooting-general/switch-project.png)
 
-3. To create a new project, select **click here** as shown in the screenshot below:
+3. To create a new project, select **click here** as shown in the following screenshot:
 
    ![Create a second Azure Migrate project](./media/troubleshooting-general/create-new-project.png)
 
 ### Which Azure geographies are supported by Azure Migrate?
 
-You can find the list for [VMware here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and for [Hyper-V here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
+See the lists for [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and for [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
-### Deletion of Azure Migrate projects and associated Log Analytics workspace
+### How to delete Azure Migrate projects and associated Log Analytics workspaces
 
-When you delete an Azure Migrate project, it deletes the migration project along with the metadata about discovered machines. However, if you have attached a Log Analytics workspace to the Server Assessment tool, it does not automatically delete the Log Analytics workspace. This is because the same Log Analytics workspace might be used for multiple use cases. If you would like to delete the Log Analytics workspace as well, you need to do it manually.
+When you delete an Azure Migrate project, the migration project and the metadata about discovered machines are deleted. However, if you have attached a Log Analytics workspace to the Server Assessment tool, the Log Analytics workspace isn't automatically deleted. (The same Log Analytics workspace can be used for multiple use cases.) If you want to delete the Log Analytics workspace as well, you must do it manually.
 
 1. Browse to the Log Analytics workspace attached to the project.
-     1. If you have not deleted the migration project yet, you can find the link to the workspace from the Server Assessment overview page in the Essentials section.
+     1. If you haven't deleted the migration project yet, you can find the link to the workspace from the Server Assessment overview page in the Essentials section.
 
      ![LA Workspace](./media/troubleshooting-general/loganalytics-workspace.png)
 
