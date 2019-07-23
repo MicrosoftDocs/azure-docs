@@ -1326,11 +1326,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/iot-edge/iot-edge-what-is-azure-iot.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-introduction",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/iot-hub/iot-hub-auto-device-config.md",
       "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
       "redirect_document_id": true
@@ -2531,6 +2526,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-edge/iot-edge-what-is-azure-iot.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-edge/sql-storage.md",
       "redirect_url": "/azure/iot-edge/tutorial-store-data-sql-server",
       "redirect_document_id": false
@@ -2653,6 +2653,11 @@
     {
       "source_path": "articles/iot-edge/how-to-install-iot-core.md",
       "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-install-iot-edge-linux-arm.md",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-linux",
       "redirect_document_id": false
     },
     {
@@ -30364,6 +30369,11 @@
       "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/faq.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/troubleshooting",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/cognitive-services/QnAMaker/Guides/active-learning-qnamaker.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
