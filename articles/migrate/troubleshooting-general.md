@@ -96,7 +96,7 @@ Server migration for VMware (agentless) | [Here](https://docs.microsoft.com/azur
 Server migration for VMware (agent-based) | [Here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#replication-appliance-url-access)
 Server migration for Hyper-V | [Here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#migration-hyper-v-host-url-access)
 
-If you're using an intercepting proxy to connect to the internet, you must import the proxy certificate onto the appliance VM. You can import the proxy certificate by following the steps in [Azure Migrate appliancee](https://docs.microsoft.com/azure/migrate/concepts-collector).
+If you're using an intercepting proxy to connect to the internet, you must import the proxy certificate onto the appliance VM. You can import the proxy certificate by following the steps in [Azure Migrate appliance](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 ### Error 802: Date and time synchronization error
 
@@ -135,7 +135,7 @@ Make sure the Azure user account used to register the appliance has at least Con
 
 ### Discovery couldn't be initiated because of an error. The operation failed for the specified list of hosts or clusters (Error ID: 60028).
 
-Discovery couldn't be started on the hosts listed in the error because of a problem in accessing or retrieving VM information. The rest of the hosts you added were successfully added. Re-add the hosts listed in the error by using the **Add host** option. If there's a validation error, review the remediation guidance to fix the errors, and then try the **Save and start discovery** option again.
+Discovery couldn't be started on the hosts listed in the error because of a problem in accessing or retrieving VM information. The rest of the hosts were successfully added. Re-add the hosts listed in the error by using the **Add host** option. If there's a validation error, review the remediation guidance to fix the errors, and then try the **Save and start discovery** option again.
 
 ### An Azure AD operation failed. The error occurred while creating or updating the Azure AD application (Error ID: 60025).
 
@@ -191,7 +191,7 @@ Conditionally endorsed Linux OS | Azure endorses only [selected Linux OS version
 Unendorsed Linux OS | The machine may boot in Azure, but no OS support is provided by Azure. Consider upgrading the OS to an [endorsed Linux version](../virtual-machines/linux/endorsed-distros.md) before you migrate to Azure.
 Unknown operating system | The operating system of the VM was specified as "Other" in vCenter Server. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Make sure the OS of the machine is [supported](https://aka.ms/azureoslist) by Azure before you migrate the machine.
 Unsupported OS bitness | VMs with a 32-bit OS might boot in Azure, but we recommended that you upgrade the OS of the VM to 64-bit before you migrate to Azure.
-Requires a Microsoft Visual Studio subscription | The machine is runnig a Windows client OS, which is supported only through a Visual Studio subscription.
+Requires a Microsoft Visual Studio subscription | The machine is running a Windows client OS, which is supported only through a Visual Studio subscription.
 VM not found for the required storage performance | The storage performance (Input/Output Operations Per Second [IOPS] and throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine before migration.
 VM not found for the required network performance | The network performance (in/out) required for the machine exceeds Azure VM support. Reduce the networking requirements for the machine.
 VM not found in the specified location | Use a different target location before migration.
@@ -218,7 +218,7 @@ The VM SKU recommendation in Server Assessment depends on the assessment propert
 
 For example, let's say there's an on-premises VM with 4 cores and 8 GB of memory with 50% CPU utilization and 50% memory utilization, and a comfort factor of 1.3 is specified in the assessment. If the sizing criteria of the assessment is **As on-premises**, an Azure VM SKU with 4 cores and 8 gigabytes (GB) of memory is recommended. 
 
-However, assume the sizing critera is performance-based. Based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and 8 GB of memory (nearest supported memory size) would be recommended. [Learn more about how Server Assessment performs sizing.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing).
+However, assume the sizing criteria is performance-based. Based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and 8 GB of memory (nearest supported memory size) would be recommended. [Learn more about how Server Assessment performs sizing.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing).
 
 ### Why is the disk SKU recommended by Server Assessment bigger than what's allocated on-premises?
 Disk sizing in Server Assessment depends on two assessment properties: sizing criteria and storage type. If the sizing criteria is **Performance-based** and the storage type is set to **Automatic**, the Input/Output Operations Per Second (IOPS) and throughput values of the disk are considered to identify the target disk type (Standard HDD, Standard SSD, or Premium disks). A disk SKU from the disk type is then recommended, and this recommendation considers the size requirements of the on-premises disk. If the sizing criteria is **Performance-based**, and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, or **Premium**.
@@ -259,12 +259,12 @@ For Linux VM, make sure that the installation commands for MMA and dependency ag
 
 ### What operating systems are supported by MMA?
 
-[Here's](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) a list of Windows operating systems supported by MMA.
-And [here's](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) a list of Linux operating systems supported by MMA.
+Here's a list of [Windows operating systems supported by MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+And here's a list of [Linux operating systems supported by MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
 
 ### What are the operating systems supported by the dependency agent?
 
-[Here's](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems) a list of Windows operating systems supported by the dependency agent. And [here's ](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems) a list of Linux operating systems supported by dependency agent is.
+Here's a list of [Windows operating systems supported by the dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems). And here's a list of [Linux operating systems supported by the dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### I can't visualize dependencies in Azure Migrate for more than a one-hour duration.
 In Azure Migrate, you can visualize dependencies for up to one hour duration. Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for only a one-hour period. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
@@ -287,8 +287,8 @@ You can [visualize dependencies for groups](https://docs.microsoft.com/azure/mig
    - In Microsoft Edge and Internet Explorer, recording should start automatically. If it doesn't, select the green play button.
 4. Try to reproduce the error.
 5. After you've encountered the error while recording, stop recording, and save a copy of the recorded activity:
-   - In Chrome, right-click and select **Save as HAR with content**. This compresses and exports the logs as a .har file.
-   - In Microsoft Edge or Internet Explorer, select the **Export captured traffic** option. This compresses and exports the log.
+   - In Chrome, right-click and select **Save as HAR with content**. This action compresses and exports the logs as a .har file.
+   - In Microsoft Edge or Internet Explorer, select the **Export captured traffic** option. This action compresses and exports the log.
 6. Select the **Console** tab to check for any warnings or errors. To save the console log:
    - In Chrome, right-click anywhere in the console log. Select **Save as**, to export, and zip the log.
    - In Microsoft Edge or Internet Explorer, right-click on the errors and select **Copy all**.
