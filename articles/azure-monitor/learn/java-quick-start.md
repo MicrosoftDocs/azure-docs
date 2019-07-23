@@ -1,5 +1,5 @@
 ---
-title: Quickstart with Azure Application Insights | Microsoft Docs
+title: 'Quickstart: Java web app monitoring'
 description: Provides instructions to quickly set up a Java Web App for monitoring with Application Insights
 services: application-insights
 keywords:
