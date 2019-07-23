@@ -1,5 +1,5 @@
 ---
-title: Set up sign-in with a LinkedIn account using custom policies - Azure Active Directory B2C | Microsoft Docs
+title: Set up sign-in with a LinkedIn account using custom policies - Azure Active Directory B2C
 description: Set up sign-in with a LinkedIn account in Azure Active Directory B2C using custom policies.
 services: active-directory-b2c
 author: mmacy
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -29,24 +29,27 @@ This article shows you how to enable sign-in for users from a LinkedIn account b
 
 To use LinkedIn as an identity provider in Azure AD B2C, you need to create a LinkedIn application.
 
+### Create app
+
 1. Sign in to the [LinkedIn application management](https://www.linkedin.com/secure/developer?newapp=) website with your LinkedIn account credentials.
 1. Select **Create app**.
 1. Enter an **App name**.
 1. Enter a **Company** name corresponding to a LinkedIn page name. Create a LinkedIn Page if you don't already have one.
 1. (Optional) Enter a **Privacy policy URL**. It must be a valid URL, but doesn't need to be a reachable endpoint.
 1. Enter a **Business email**.
-1. Upload an **App logo** image. The logo image must be square and at least 100x100 pixels.
+1. Upload an **App logo** image. The logo image must be square and its dimensions must be at least 100x100 pixels.
 1. Leave the default settings in the **Products** section.
 1. Review the information presented in **Legal terms**. If you agree to the terms, check the box.
 1. Select **Create app**.
+
+### Configure auth
+
 1. Select the **Auth** tab.
 1. Record the **Client ID**.
 1. Reveal and record the **Client Secret**.
 1. Under **OAuth 2.0 settings**, add the following **Redirect URL**. Replace `your-tenant` with the name of your tenant. Use **all lowercase letters** for the tenant name even if it's defined with uppercase letters in Azure AD B2C.
 
     `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`
-
-1. Select **Settings**, change the **Application status** to **Live**, and then select **Update**.
 
 ## Create a policy key
 
@@ -86,6 +89,8 @@ Define a LinkedIn account as a claims provider by adding it to the **ClaimsProvi
             <Item Key="authorization_endpoint">https://www.linkedin.com/oauth/v2/authorization</Item>
             <Item Key="AccessTokenEndpoint">https://www.linkedin.com/oauth/v2/accessToken</Item>
             <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
+            <Item Key="scope">r_emailaddress r_liteprofile</Item>
+            <Item Key="HttpBinding">POST</Item>
             <Item Key="external_user_identity_claim_id">id</Item>
             <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
             <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
@@ -95,12 +100,13 @@ Define a LinkedIn account as a claims provider by adding it to the **ClaimsProvi
           <CryptographicKeys>
             <Key Id="client_secret" StorageReferenceId="B2C_1A_LinkedInSecret" />
           </CryptographicKeys>
+          <InputClaims />
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" AlwaysUseDefaultValue="true" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
@@ -230,7 +236,7 @@ Update the relying party (RP) file that initiates the user journey that you crea
 
 ## Migration from v1.0 to v2.0
 
-LinkedIn recently [updated their API's from v1.0 to v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). To migrate your existing configuration to the new configuration, use the information in the following sections to update the elements in the technical profile.
+LinkedIn recently [updated their APIs from v1.0 to v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). To migrate your existing configuration to the new configuration, use the information in the following sections to update the elements in the technical profile.
 
 ### Replace items in the Metadata
 
