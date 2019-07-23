@@ -9,7 +9,7 @@
   - name: Security in Azure Australia
     items:
       - name: Data Security
-        href: securing-your-data.md
+        href: secure-your-data.md
       - name: Azure VPN Gateway configuration
         href: vpn-gateway.md
       - name: Azure Key Vault 
@@ -17,17 +17,17 @@
       - name: Identity federation
         href: identity-federation.md
       - name: RBAC and PIM
-        href: rbac-pim.md
+        href: role-privileged.md
       - name: Site Recovery and Backup for Essential 8
-        href: asr-backup.md
+        href: recovery-backup.md
       - name: Azure system monitoring
-        href: system-monitoring.md
+        href: system-monitor.md
       - name: Azure Policy and Azure Blueprints
         href: azure-policy.md  
   - name: Gateways in Azure Australia
     items:
       - name: Gateway logging, auditing and visibility
-        href: gateway-logging-auditing-visibility.md
+        href: gateway-log-audit-visibility.md
       - name: Gateway secure remote administration
         href: gateway-secure-remote-administration.md
       - name: Gateway data ingress control

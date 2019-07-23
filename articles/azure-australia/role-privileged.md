@@ -1,5 +1,5 @@
 ---
-title: Role Based Access Control and Privileged Identity Management in Azure Australia
+title: Role-Based Access Control and Privileged Identity Management in Azure Australia
 description: Guidance on Implementing Role Based Access Control and Privileged Identity Management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: Galey801
 ms.service: azure-australia
@@ -8,7 +8,7 @@ ms.date: 07/22/2019
 ms.author: grgale
 ---
 
-# Role Based Access Control (RBAC) and Privileged Identity Management (PIM)
+# Role-Based Access Control (RBAC) and Privileged Identity Management (PIM)
 
 Managing administrative privilege is a critical step in ensuring security within any IT environment. Restricting administrative privilege via the use of Least Privilege Security is a requirement of the [ACSC ISM](https://acsc.gov.au/infosec/ism/index.htm) and forms part of the [ACSC Essential 8](https://www.acsc.gov.au/infosec/mitigationstrategies.htm) list of security recommendations.
 
@@ -16,13 +16,13 @@ Microsoft provides a suite of controls to implement Just-in-Time and Just-Enough
 
 ## Role-Based Access Control (RBAC)
 
-Role-Based Access Control is central to the management of access to all resources within Microsoft Azure and the management of Azure Active Directory (AAD). RBAC can be implemented alongside a number of complementary features available in Azure. This guide will focus on implementing effective RBAC while leveraging Azure Management Groups, Azure Active Directory Groups, and Azure Privileged Identity Management (PIM).
+Role-Based Access Control is central to the management of access to all resources within Microsoft Azure and the management of Azure Active Directory (AAD). RBAC can be implemented alongside a number of complementary features available in Azure. This article focuses on implementing effective RBAC using Azure Management Groups, Azure Active Directory Groups, and Azure Privileged Identity Management (PIM).
 
 At a high level, implementing RBAC requires three components:
 
 ![RBAC-Overview](media/rbac-overview.png)
 
-* **Security Principals**: A security principal can be any one of the following; a user, a group, [Service Principals, or a [Managed Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). Security Principals should be assigned privileges using Azure Active Directory Groups.
+* **Security Principals**: A security principal can be any one of the following; a user, a group, [Service Principals, or a [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Security Principals should be assigned privileges using Azure Active Directory Groups.
 
 * **Role Definitions**: A Role Definition, also referred to as a Role, is a collection of permissions. These permissions define the operations that can be performed by the Security Principals assigned to the Role Definition. This functionality is provided by Azure Resource Roles and Azure Active Directory Administrator Roles. Azure comes with a set of built-in roles (link) which can be augmented with custom roles.
 
@@ -38,7 +38,7 @@ In a hybrid cloud scenario, on-premises Windows Server Active Directory Security
 
 ### Azure resource roles versus Azure Active Directory Administrator roles
 
-Microsoft Azure offers a wide variety of built-in roles for [Azure Resources](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) and [Azure Active Directory Administration](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles). Both types of Role provide specific granular access to either Azure Resources or for Azure AD administrators. It is important to note that Azure Resource roles cannot be used to provide administrative access to Azure AD and Azure AD roles do not provide specific access to Azure resources.
+Microsoft Azure offers a wide variety of built-in roles for [Azure Resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) and [Azure Active Directory Administration](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). Both types of Role provide specific granular access to either Azure Resources or for Azure AD administrators. It is important to note that Azure Resource roles cannot be used to provide administrative access to Azure AD and Azure AD roles do not provide specific access to Azure resources.
 
 Some examples of the types of access that can be assigned to an Azure resource using a built-in role are:
 
@@ -60,7 +60,7 @@ It is important to take the time to understand the full list of allowed actions 
 PS C:\> Get-AzRoleDefinition
 
 Name             : AcrDelete
-Id               : c2f4ef07-c644-48eb-af81-4b1b4947fb11
+Id               : <<RoleID>>
 IsCustom         : False
 Description      : acr delete
 Actions          : {Microsoft.ContainerRegistry/registries/artifacts/delete}
@@ -100,7 +100,7 @@ PS C:\> az role definition list
 ...
 ```
 
-It is also possible to create custom Azure Resource Roles as required. These custom roles can be created in the Azure Portal, via PowerShell, or the Azure CLI. When creating custom Roles, it is vital to ensure the purpose of the Role is unique and that its function is not already provided by an existing Azure Resource Role. This reduces ongoing management complexity and reduces the risk of Security Principals receiving unnecessary privileges. An example would be creating a custom Azure Resource Role that sits between the built-in Azure Resource Roles, "Virtual Machine Contributor" and "Virtual Machine Administrator Login". 
+It is also possible to create custom Azure Resource Roles as required. These custom roles can be created in the Azure portal, via PowerShell, or the Azure CLI. When creating custom Roles, it is vital to ensure the purpose of the Role is unique and that its function is not already provided by an existing Azure Resource Role. This reduces ongoing management complexity and reduces the risk of Security Principals receiving unnecessary privileges. An example would be creating a custom Azure Resource Role that sits between the built-in Azure Resource Roles, "Virtual Machine Contributor" and "Virtual Machine Administrator Login".
 
 The custom Role could be based on the existing Contributor Role, which grants the following access:
 
@@ -162,8 +162,8 @@ It is vital that Security Principals within an environment are routinely audited
 
 * **Require users to provide a reason for access**: Users can be required to enter a reason for maintaining their level of privilege when completing the access review.
 
-The progress of pending Access Reviews can be monitored at any time via a dashboard in the Azure portal. Access to the role being reviewed will remain unchanged until the Access Review has been completed. It is also possible to [audit](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-use-audit-log) all PIM user assignments and activations within a nominated time period.
+The progress of pending Access Reviews can be monitored at any time via a dashboard in the Azure portal. Access to the role being reviewed will remain unchanged until the Access Review has been completed. It is also possible to [audit](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-use-audit-log) all PIM user assignments and activations within a nominated time period.
 
 ## Next steps
 
-Review the article on [System Monitoring in Azure Australia](system-monitoring.md).
+Review the article on [System Monitoring in Azure Australia](system-monitor.md).

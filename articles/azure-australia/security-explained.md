@@ -44,7 +44,7 @@ The Azure **OFFICIAL: Sensitive** and **PROTECTED** certified services are deplo
 
 **Microsoft recommends government data of all sensitivities and classifications is deployed to the Australia Central and Australia Central 2 regions, as they are designed and operated specifically for the needs of government.**
 
-More information on the special nature of the Azure Australian regions is available at [Azure Australia Central Regions](https://azure.microsoft.com/en-us/global-infrastructure/australia/).
+More information on the special nature of the Azure Australian regions is available at [Azure Australia Central Regions](https://azure.microsoft.com/global-infrastructure/australia/).
 
 ## How Microsoft separates **PROTECTED**, **OFFICIAL**, **OFFICIAL: Sensitive** and **Unofficial** data
 

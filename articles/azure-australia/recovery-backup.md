@@ -1,6 +1,6 @@
 ---
-title: Backup and Disaster Recovery in Azure Australia
-description: Backup and Disaster Recovery in Microsoft Azure for Australian Government agencies as it relates to the Essential 8
+title: Backup and disaster recovery in Azure Australia
+description: Backup and disaster recovery in Microsoft Azure for Australian Government agencies as it relates to the ASD Essential 8
 author: galey801
 ms.service: azure-australia
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 07/22/2019
 ms.author: grgale
 ---
 
-# Backup and Disaster Recovery in Azure Australia
+# Backup and disaster recovery in Azure Australia
 
 Having backup and disaster recovery plans with the supporting infrastructure in place is critical for all organisations. The importance of having a backup solution is highlighted by its inclusion in the [Australian Cyber Security Center's Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm).
 
@@ -59,7 +59,7 @@ These policies allow Azure administrators to restrict creation to a list of nomi
 
 ### Redundant and geographically dispersed storage
 
-Data stored in the Azure Recovery Service Vault is always stored on redundant storage. By default the Recovery Service Vault uses Azure Geographically Redundant Storage (GRS). Data stored using GRS is replicated to other Azure datacenters in the Recovery Service Vault's [secondary paired region](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). This replicated data is stored as read-only and is only made writeable if there is an Azure failover event. Within the Azure datacenter, the data is replicated between separate fault domains and upgrade domains to minimise the chance of hardware or maintenance-based outage. GRS provides at least 99.99999999999999% availability annually.
+Data stored in the Azure Recovery Service Vault is always stored on redundant storage. By default the Recovery Service Vault uses Azure Geographically Redundant Storage (GRS). Data stored using GRS is replicated to other Azure datacenters in the Recovery Service Vault's [secondary paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). This replicated data is stored as read-only and is only made writeable if there is an Azure failover event. Within the Azure datacenter, the data is replicated between separate fault domains and upgrade domains to minimise the chance of hardware or maintenance-based outage. GRS provides at least 99.99999999999999% availability annually.
 
 The Azure Recovery Services Vault can be configured to utilise Locally Redundant Storage (LRS). LRS is a lower-cost storage option with the trade-off of reduced availability. This redundancy model utilises the same in-datacenter replication between separate fault domains and upgrade domains but is not replicated between geographic regions. Data located on LRS storage, while not as resilient as GRS, still provides at least 99.999999999% availability annually.
 
