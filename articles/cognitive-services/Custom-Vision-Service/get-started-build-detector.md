@@ -36,7 +36,7 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 
 1. To create your first project, select **New Project**. The **Create new project** dialog box will appear.
 
-    ![The new project dialog box has fields for name, description, and domains.](./media/getting-started-build-a-detector/new-project.png)
+    ![The new project dialog box has fields for name, description, and domains.](./media/get-started-build-detector/new-project.png)
 
 1. Enter a name and a description for the project. Then select a Resource Group. If your signed-in account is associated with an Azure account, the Resource Group dropdown will display all of your Azure Resource Groups that include a Custom Vision Service Resource. 
 
@@ -65,15 +65,15 @@ In this section you will upload and manually tag images to help train the detect
 
 1. To add images, click the __Add images__ button and then select __Browse local files__. Select __Open__ to upload the images.
 
-    ![The add images control is shown in the upper left, and as a button at bottom center.](./media/getting-started-build-a-detector/add-images.png)
+    ![The add images control is shown in the upper left, and as a button at bottom center.](./media/get-started-build-detector/add-images.png)
 
 1. You'll see your uploaded images in the **Untagged** section of the UI. The next step is to manually tag the objects that you want the detector to learn to recognize. Click the first image to open the tagging dialog window. 
 
-    ![Images uploaded, in Untagged section](./media/getting-started-build-a-detector/images-untagged.png)
+    ![Images uploaded, in Untagged section](./media/get-started-build-detector/images-untagged.png)
 
 1. Click and drag a rectangle around the object in your image. Then, enter a new tag name with the **+** button, or select an existing tag from the drop-down list. It's very important to tag every instance of the object(s) you want to detect, because the detector uses the untagged background area as a negative example in training. When you're done tagging, click the arrow on the right to save your tags and move on to the next image.
 
-    ![Tagging an object with a rectangular selection](./media/getting-started-build-a-detector/image-tagging.png)
+    ![Tagging an object with a rectangular selection](./media/get-started-build-detector/image-tagging.png)
 
 To upload another set of images, return to the top of this section and repeat the steps.
 
@@ -85,7 +85,7 @@ To train the detector model, select the **Train** button. The detector uses all 
 
 The training process should only take a few minutes. During this time, information about the training process is displayed in the **Performance** tab.
 
-![The browser window with a training dialog in the main section](./media/getting-started-build-a-detector/training.png)
+![The browser window with a training dialog in the main section](./media/get-started-build-detector/training.png)
 
 ## Evaluate the detector
 
@@ -94,7 +94,7 @@ After training has completed, the model's performance is calculated and displaye
 - **Precision** indicates the fraction of identified classifications that were correct. For example, if the model identified 100 images as dogs, and 99 of them were actually of dogs, then the precision would be 99%.
 - **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were actually 100 images of apples, and the model identified 80 as apples, the recall would be 80%.
 
-![The training results show the overall precision and recall, and mean average precision.](./media/getting-started-build-a-detector/trained-performance.png)
+![The training results show the overall precision and recall, and mean average precision.](./media/get-started-build-detector/trained-performance.png)
 
 ### Probability Threshold
 
