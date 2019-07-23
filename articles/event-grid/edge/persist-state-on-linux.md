@@ -32,7 +32,7 @@ sudo useradd -u 5000 eventgriduser
 
 ## Step2: Mount a host folder onto the Event Grid container
 
-We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to enable persistence. This basically involves mounting a host directory onto the container. There are a couple of ways to achieve this:-
+We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to enable persistence. Persistence in docker basically involves mounting a host directory onto the container. There are a couple of ways to mount host directory onto a container:-
 
 ### Option1: Explicitly mount a container host directory
 

@@ -19,10 +19,9 @@ The rest of the document details the steps needed to deploy Event Grid module wi
 > [!NOTE]
 >Currently only metadata is persisted. Events are stored in-memory. If Event Grid module is redeployed, restarted then any undelivered events will be lost. Persistence of events will be supported in a future release.
 
-Unlike Linux deployments, on Windows Event Grid module runs under **ContainerUser**. This is a low-privileged user already available in Windows. No extra set up is required.
+Unlike Linux deployments, on Windows Event Grid module runs under **ContainerUser**, a low-privileged user already available in Windows. No extra setup is required.
 
-We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to enable persistence. This basically involves mounting a host directory onto the container. 
-There are couple of ways to achieve this:-
+We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to enable persistence. Persistence in docker basically involves mounting a host directory onto the container. There are a couple of ways to do this:-
 
 ## Option1: Explicitly mount a container host directory
 
