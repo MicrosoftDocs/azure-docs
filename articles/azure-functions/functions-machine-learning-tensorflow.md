@@ -15,9 +15,9 @@ ms.custom: mvc
 
 # Tutorial: Make machine learning predictions with TensorFlow and Azure Functions
 
-In this tutorial, you'll learn how Azure Functions allows you to import a machine learning model and use it with TensorFlow to make predictions.
+This article demonstartes how Azure Functions allows you to import a machine learning model and use it with TensorFlow to predict image contents.
 
-By the end of tutorial, you'll be able to: 
+In this tutorial, you learn to: 
 
 > [!div class="checklist"]
 > * Initialize a local environment for developing Azure Functions in Python
@@ -77,7 +77,7 @@ source .venv/bin/activate
 *Windows*
 
 ```powershell
-.venv\Scripts\activate
+source .venv/Scripts/activate
 ```
 
 The terminal prompt is now prefixed with `(.venv)` which indicates you have successfully activated the virtual environment. Confirm that `python` in the virtual environment is indeed Python 3.6.x.
@@ -135,7 +135,7 @@ By default, the function is configured with an authentication level of `function
 }
 ```
 
-### Test the function
+### Run the function
 
 In the terminal with the Python virtual environment activated, start the function app.
 
@@ -165,6 +165,8 @@ cp ../resources/model/* classify
 copy ..\resources\model\* classify
 ```
 
+Be sure to include the \* in the above command.
+
 ## Add the helper functions and dependencies
 
 Some helper functions for preparing the input image and making a prediction using TensorFlow are in a file named *predict.py* in the *resources* folder. Copy this file into the *classify* function's folder.
@@ -183,7 +185,7 @@ copy ..\resources\predict.py classify
 
 ### Install dependencies
 
-The helper library has some dependencies that need to be installed. In the terminal with the virtual environment activated, run the following commands in the function app folder that contains *requirements.txt*.
+The helper library has some dependencies that need to be installed. In the terminal with the virtual environment activated, run the following commands in the function app folder that contains *requirements.txt*. Some installation steps may take a few minutes to complete.
 
 ```bash
 pip install tensorflow
@@ -210,7 +212,7 @@ import json
 from .predict import predict_image_from_url
 ```
 
-Replace the function body with the following.
+Replace the function template code with the following.
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:
@@ -223,6 +225,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     }
     return func.HttpResponse(json.dumps(results), headers = headers)
 ```
+
+Make sure to save your changes.
 
 This function receives an image URL in a query string parameter named `img`. It calls `predict_image_from_url` from the helper library that downloads the image and returns a prediction using the TensorFlow model. The function then returns an HTTP response with the results.
 
@@ -259,6 +263,9 @@ cd <FRONT_END_FOLDER>
 ```
 
 In a browser, navigate to the HTTP server's URL. A web app should appear. Find a public URL of a dog or cat photo and enter it into the textbox. When you click submit, the function app is called and a prediction is returned and displayed on the page.
+
+## Clean up resources
+The entierty of this tutorial runs locally on your machine, so there are no Azure resources or servicecs to clean up.
 
 ## Next steps
 
