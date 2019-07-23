@@ -7,7 +7,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 07/23/2019
 ms.author: diberry
 ---
 # Cognitive Services and machine learning
@@ -110,6 +110,10 @@ The following data categorizes each service by which kind of data it allows or r
 ## Where can you use Cognitive Services?
  
 The services are used in any application that can make REST API(s) or SDK calls. Examples of applications include web sites, bots, virtual or mixed reality, desktop and mobile applications. 
+
+## How is Cognitive Search related to Cognitive Services?
+
+[Cognitive Search](../search/cognitive-search-concept-intro.md) is an AI feature in [Azure Search](../search/search-what-is-azure-search.md), used to extract text from images, blobs, and other unstructured data sources - enriching the content to make it more searchable in an Azure Search index. Cognitive Search uses Cognitive Services to provide this feature. You do not need to create these Cognitive Services, Azure Search creates and manages them for you.
 
 ## How can you use Cognitive Services?
 
