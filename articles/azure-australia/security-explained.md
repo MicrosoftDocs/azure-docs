@@ -1,5 +1,5 @@
 ---
-title: Azure Australia Security Explained
+title: Azure Australia security explained
 description: Security areas most often asked about by Australian Government agencies, and other organisations that have adopted the ISM as their security controls framework, relating to the Australian regions and meeting the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
@@ -10,9 +10,13 @@ ms.author: grgale
 
 # Azure Australia Security Explained
 
-## IRAP assessment and Certified Cloud Services List (CCSL) certification documents
+This article addresses some of the common questions and areas of interest for Australian Government agencies investigating, designing and deploying to Microsoft Azure Australia.
+
+## IRAP and Certified Cloud Services List (CCSL) documents
 
 The Australian Cyber Security Centre (ACSC) provides a Letter of Certification, a Certification Report, and a Consumer Guide for the service when it is added to the CCSL.
+
+Microsoft is currently listed on the CCSL for Azure, Office 365 and Dynamics 365 CRM.
 
 Microsoft makes our audit, assessment, and the ACSC certification-related material available to customers and partners on an Australia-specific page of the [Microsoft Service Trust Portal](https://aka.ms/au-irap).
 
@@ -26,27 +30,28 @@ There are two steps to the approval process:
 
 1. Approval to Operate – The process where a senior officer of a government agency formally recognises and accepts the residual risk of a system to the information it processes, stores, and communicates.  An input to this process is the Security Assessment.
 
-The assessment of Azure services at the PROTECTED level identified that the implementation of the security controls required for the storage and processing of PROTECTED and below data have been assessed and confirmed to be in place and operating effectively.
+The assessment of Azure services at the PROTECTED level identifies that the implementation of the security controls required for the storage and processing of PROTECTED and below data have been confirmed to be in place and are operating effectively.
 
-## On 1 January 2019 PSPF data classification changes came into effect
+## PSPF data classification changes
 
 On October 1, 2018 the Attorney General’s Department publicly announced changes to the Protective Security Policy Framework (PSPF), specifically a new [Sensitive and Classified Information system](https://www.protectivesecurity.gov.au/information/sensitive-classified-information/Pages/default.aspx).
 
-![Revised PSPF Classifications](media/pspf_classifications.jpg)
+![Revised PSPF Classifications](media/pspf-classifications.png)
 
 All Australian agencies and organisations that operate under the PSPF are impacted by these the changes. The primary change that impacts our current IRAP/CCSL certifications is the current Dissemination Limiting Markings (DLM) have been retired. The marking **OFFICIAL: Sensitive** replaces the various DLMs used for the protection of sensitive information. The change also introduced three information management markers that can be applied to all Official information at all levels of sensitivity and classification. The **PROTECTED** classification remains unchanged.
 
 The term Unclassified is removed from the new system and the term Unofficial is applied to non-Government information although it does not require a formal marking.
 
-## Choosing as Azure region for my OFFICIAL: Sensitive and PROTECTED workloads
+## Choosing an Azure region for my OFFICIAL: Sensitive and PROTECTED workloads
 
 The Azure **OFFICIAL: Sensitive** and **PROTECTED** certified services are deployed to all four Australian Data Centre Regions (Australia East, Australia South East, Australia Central, and Australia Central 2); however, the certification report issued by the ACSC recommends that **PROTECTED** data be deployed to the Azure Government regions in Canberra if a service is available there. More detailed information about the **PROTECTED** certified Azure services is available from [Australia page on the STP](https://aka.ms/au-irap).
 
-**Microsoft recommends government data of all sensitivities and classifications is deployed to the Australia Central and Australia Central 2 regions, as they are designed and operated specifically for the needs of government.**
+>[!NOTE]
+>Microsoft recommends government data of all sensitivities and classifications is deployed to the Australia Central and Australia Central 2 regions, as they are designed and operated specifically for the needs of government.
 
 More information on the special nature of the Azure Australian regions is available at [Azure Australia Central Regions](https://azure.microsoft.com/global-infrastructure/australia/).
 
-## How Microsoft separates **PROTECTED**, **OFFICIAL**, **OFFICIAL: Sensitive** and **Unofficial** data
+## How Microsoft separates classified and official data
 
 Microsoft operates Azure and Office 365 in Australia as if all data is sensitive and/or classified, raising our security controls to that high bar.
 
@@ -58,13 +63,13 @@ Beyond the capabilities implemented within the Microsoft Azure platform, additio
 
 The Microsoft Azure **PROTECTED** Certification Report confirms that these controls are effective for the storage and processing of **PROTECTED** classified data and their isolation.
 
-## Relevance of the Azure IRAP/CCSL certifications to State Government and critical infrastructure providers like transport, utilities, and banks
+## Relevance of IRAP/CCSL to State Government and critical infrastructure providers
 
 Many state government and critical infrastructure providers incorporate federal government requirements into their security policy and assurance framework. These organisations also handle **OFFICIAL**, **OFFICIAL: Sensitive** and some amount of **PROTECTED** classified data, either from their interaction with federal government or in their own right.
 
 The Australian Government is increasingly focusing policy and legislation on the protection of non-Government data that fundamentally impact the security and economic prosperity of Australia. As such the Azure Australia regions and the CCSL certification are relevant to all of those industries.
 
-![Critical Infrastructure Sectors](media/nci_sectors.jpg)
+![Critical Infrastructure Sectors](media/nci-sectors.jpg)
 
 The Microsoft certifications demonstrate that Azure services have been subjected to a thorough, rigorous, and formal assessment of the security protections in place and they have been approved for handling such highly sensitive data.
 
@@ -76,7 +81,7 @@ Microsoft’s Azure Government Australia regions (Australia Central and Australi
 
 The management of CDC Datacentres has contractual assurances in place with the Australian government restricting future transfer of ownership and control. This transparency of supply chain and ownership via Microsoft’s partnership with CDC Data Centres, is in line with the principles of the newly published [Whole of Government Hosting Strategy](https://www.dta.gov.au/our-projects/whole-government-hosting-strategy) and the definition of a **Certified Sovereign Datacentre**.
 
-## The Azure services that are included in the CCSL certification
+## The Azure services that are included in the current CCSL certification
 
 In June 2017 the ACSC certified 40 Azure services for the storage and processing of data at the **Unclassified: DLM** level. In April 2018, 24 of those services were certified for **PROTECTED** classified data. Microsoft is the only public hyperscale cloud available in Australia that has achieved this level of certification for inclusion on the Certified Cloud Services List (CCSL) at the **PROTECTED** classification.
 
@@ -87,9 +92,9 @@ The availability of ACSC certified Azure services across our Azure regions in Au
 |API Management, App Gateway, Application Services, **Automation, Azure portal, Backup, Batch, Cloud Services**, Cosmos DB, Event Hubs, **ExpressRoute**, HDInsight, **Key Vault**, Load Balancer, Log Analytics, **Multi-factor Authentication**, Redis Cache,  **Resource Manager, Service Bus, Service Fabric, Site Recovery, SQL Database, Storage**, Traffic Manager, **Virtual Machines, Virtual Network, VPN Gateway**|**Azure Active Directory**, CDN, Data Catalog, **Import Export, Information Protection, IOT Hub**, Machine Learning, Media Services, **Notification Hubs**, Power BI, **Security Centre, Scheduler**, Search, Stream Analytics|
 |
 
-Microsoft publishes [Overview of Microsoft Azure Compliance that lists all in-scope services for all of the Global, Government, Industry, and Regional compliance and assessment processes Azure goes through, including IRAP/CCSL.
+Microsoft publishes [Overview of Microsoft Azure Compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/44/Microsoft%20Azure%20Compliance%20Offerings.pdf) that lists all in-scope services for all of the Global, Government, Industry, and Regional compliance and assessment processes Azure goes through, including IRAP/CCSL.
 
-## Using an Azure service that is not in this list or that is certified at a lower level than I need
+## Azure service not listed or assessed at a lower level than I need
 
 Services that are not certified, or that have been certified at **OFFICIAL: Sensitive** but not **PROTECTED**, can be used alongside or as part of a solution hosting **PROTECTED** data provided the services are either not storing or processing **PROTECTED** data unencrypted or the agency has completed a risk assessment and certified and accredited the service to store **PROTECTED** data themselves.
 
@@ -121,7 +126,7 @@ Microsoft has a zero standing access policy with access granted through a system
 
 The Attorney-General’s Department has confirmed that Microsoft’s personnel security policies and procedures within Azure are consistent with the intent of the PSPF Access to Information provisions in INFOSEC-9.
 
-## Storing International Traffic of Arms Regulations (ITAR) or Export Administration Regulations (EAR) data in Azure in Australia
+## Storing International Traffic of Arms Regulations (ITAR) or Export Administration Regulations (EAR) data
 
 The Azure technical controls that assist customers with meeting their obligations for export-controlled data are the same globally in Azure. Importantly there is no “ticks the ITAR/EAR box” as there is no formal assessment and certification framework for export-controlled data.
 

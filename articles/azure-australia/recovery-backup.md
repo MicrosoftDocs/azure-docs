@@ -30,7 +30,7 @@ Azure Backup resembles a traditional on-premises backup solution and provides th
 
 ### Azure Site Recovery
 
-![Azure Site Recovery](media/ASR_overview.png)
+![Azure Site Recovery](media/asr-overview.png)
 
 Azure Site Recovery replicates workloads consisting of either a single virtual machine or multi-tier applications. Replication is supported from on-premises into Azure, between Azure regions, or between on-premise locations orchestrated by Azure Site Recovery. On-premises virtual machines can be replicated to Azure or to a supported on-premises hypervisor. Once configured, Azure Site Recovery orchestrates replication, fail-over, and fail-back.
 

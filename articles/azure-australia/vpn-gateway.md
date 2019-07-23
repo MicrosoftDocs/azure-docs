@@ -21,6 +21,7 @@ A VPN Gateway is used to send encrypted traffic between a virtual network in Azu
 This article will focus on S2S VPN Gateways. Diagram 1 shows an example Site-to-Site VPN gateway configuration.
 
 ![VPN Gateway with multi-site connections](media/vpngateway-multisite-connection-diagram.png)
+
 *Diagram 1 – Azure Site-to-Site VPN Gateway*
 
 ## Key Design Considerations
@@ -54,6 +55,7 @@ Virtual networks in Azure can have multiple VPN Gateways that can be deployed in
 It is recommended that all VPN Gateways are deployed in a [highly available configuration](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable): for example, two on-premises VPN devices connected to two VPN Gateways in either active-passive or active-active  mode (See Diagram 2).
 
 ![VPN Gateway redundant connections](media/dual-redundancy.png)
+
 *Diagram 2 – Active-active VPN Gateways and two VPN devices*
 
 ### Forced tunneling
@@ -66,17 +68,17 @@ Forced tunneling redirects or "forces" all Internet-bound traffic back to the on
 
 VPN Gateways for S2S connections configured for Australian Government need to have following attributes:
 
-|Attribute | SHOULD | MUST|
-|--- | --- | ---|
-|gatewayType | | “VPN”|
+|Attribute | MUST|
+|--- | --- |
+|gatewayType | “VPN”|
 |
 
 Attribute settings required to comply with the ISM controls for Protected are:
 
-|Attribute | SHOULD | MUST|
-|--- | --- | ---|
-|vpnType | | “RouteBased”|
-|vpnClientConfiguration/vpnClientProtocols | | “IkeV2”|
+|Attribute | MUST|
+|--- |---|
+|vpnType |“RouteBased”|
+|vpnClientConfiguration/vpnClientProtocols | “IkeV2”|
 |
 
 Azure VPN Gateways support a range of cryptographic algorithms from the IPsec and IKE protocol standards.  The default policy sets maximise interoperability with a wide range of third-party VPN devices.  As a result, it is possible that during the IKE handshake a non-compliant configuration is negotiated.  It is, therefore, highly recommended that [custom IPsec/IKE policy](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell) parameters are applied to vpnClientConfiguration in VPN Gateways to ensure the connections meet the ISM controls for on-premise environment connections to Azure.  The key attributes are:
@@ -195,7 +197,7 @@ New-AzVirtualNetworkGatewayConnection `
 
 This article covered the specific configuration of VPN Gateway to meet the requirements specified in the Information Security Manual (ISM) for securing Australian Government PROTECTED data while in transit. For detailed steps to configure your VPN Gateway:
 
-* [Azure Virtual Network Gateway Overview](https://docs.microsoft.com/azure/vpn-gateway/)  
-* [What is VPN Gateway?](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)  
-* [Create a VNet with a Site-to-Site VPN connection using PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)  
-* [Create and manage a VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell)
+- [Azure Virtual Network Gateway Overview](https://docs.microsoft.com/azure/vpn-gateway/)  
+- [What is VPN Gateway?](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)  
+- [Create a VNet with a Site-to-Site VPN connection using PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)  
+- [Create and manage a VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell)

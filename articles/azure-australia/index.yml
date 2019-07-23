@@ -12,7 +12,7 @@ metadata:
 abstract:
   description: 'Microsoft Azure Australia delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Microsoft Azure Australia is certified by the Australian Cyber Security Centre (ACSC) and included on the Certified Cloud Services List (CCSL) at both the PROTECTED and Official: Sensitive (formerly Dissemination Limiting Markings) classifications. Microsoft Azure Australia employs world-class security and compliance services critical to Australian Government and Critical Infrastructure organisations and their suppliers, for all systems and applications built on its architecture.'
 sections:
-- title: Suggested content
+- title: Where do I start?
   items: 
   - type: paragraph
     text: For more detailed information about Azure Australia start with the overview which can be accessed using the link below.

@@ -44,7 +44,7 @@ To appropriately control egress traffic, when you design and implement network s
 
 The architectural diagram shown here depicts the possible paths that network traffic can take when exiting a system that is deployed into a subnet in a virtual network. Traffic in a virtual network is managed and governed at a subnet level, with routing and security rules applying to the resources contained within. The components related to egress traffic are divided into Systems, Effective Routes, Next Hop types, Security Controls, and PaaS egress.
 
-![Architecture](media/EgressTraffic.png)
+![Architecture](media/egress-traffic.png)
 
 ### Systems
 

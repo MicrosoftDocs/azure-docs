@@ -36,7 +36,7 @@ This article provides a reference architecture for how the elements above can be
 
 Providing a secure administration capability requires multiple components that all work together to form a cohesive solution. In the reference architecture provided, the components are mapped to the elements described in [ACSC Protect: Secure Administration](https://www.acsc.gov.au/publications/protect/secure-administration.htm)
 
-![Azure Secure Remote Administration Architecture](media/remoteadmin.png)
+![Azure Secure Remote Administration Architecture](media/remote-admin.png)
 
 ## Components
 
@@ -59,7 +59,8 @@ Administering systems deployed in Azure is divided into two distinct categories,
 
 Gaining access for administration is a multi-step process involving the components listed in the architecture and requires access to the Azure portal and Azure configuration before access can be made to Azure workloads.
 
-**Note:** The steps described here are the general process using the Graphical User Interface (GUI) components of Azure. These steps can also be completed using other interfaces such as PowerShell.
+>[!NOTE]
+> The steps described here are the general process using the Graphical User Interface (GUI) components of Azure. These steps can also be completed using other interfaces such as PowerShell.
 
 ### Azure configuration and Azure portal access
 

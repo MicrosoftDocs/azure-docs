@@ -1,5 +1,5 @@
 ---
-title: Azure Australia Reference List
+title: Azure Australia additional documentation and resources by focus area
 description: Additional documentation, tutorials or references relevant to Australian Government agencies operating securely in Azure.
 author: galey801
 ms.service: azure-australia
@@ -8,7 +8,9 @@ ms.date: 07/22/2019
 ms.author: grgale
 ---
 
-# Additional Documentation and Resources by focus area
+# Additional documentation and resources by focus area
+
+This resource library contains additional links and references that are relevant to the secure implementation of Australian Government workloads in Azure Australia.
 
 ## General references for all security and governance in Azure Australia
 
@@ -21,16 +23,11 @@ ms.author: grgale
 
 ## Azure Key Vault
 
-### Related Documentation
-
 * [Azure Key Vault Overview](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [About keys, secrets, and certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 * [Configure Azure Key Vault firewalls and virtual networks](https://docs.microsoft.com/azure/key-vault/key-vault-network-security)
 * [Secure access to a key vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
 * [Azure Data Encryption-at-Rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
-
-### Tutorials
-
 * [How to use Azure Key Vault with Azure Windows Virtual Machines in .NET](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [Azure Key Vault managed storage account - PowerShell](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [Setup key rotation and auditing](https://docs.microsoft.com/azure/key-vault/key-vault-key-rotation-log-monitoring)
@@ -51,8 +48,6 @@ ms.author: grgale
 
 ## Azure Backup and Azure Site Recovery
 
-### Related Documentation
-
 * [Introduction to Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)
 * [Azure Backup Overview](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)
 * [Azure Site Recovery Overview](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
@@ -60,22 +55,14 @@ ms.author: grgale
 * [Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
 * [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
 * [Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
-
-### Tutorials
-
 * [Azure Backup Tutorials](https://docs.microsoft.com/azure/backup/#step-by-step-tutorials)
 * [Azure Site Recovery Tutorials](https://docs.microsoft.com/azure/site-recovery/#step-by-step-tutorials)
 
 ## Role-based Access Controls and Privileged Identity Management (PIM)
 
-### Azure solutions overview
-
 * [Azure RBAC Overview](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Azure Privileged Identify Management Overview](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)
 * [Azure Management Groups Overview](https://docs.microsoft.com/azure/governance/management-groups/)
-
-### Related documentation
-
 * [Azure Identity and Access Control Best Practices](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
 * [Managing AAD Groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 * [Hybrid Identity](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
@@ -85,8 +72,6 @@ ms.author: grgale
 * [Azure Enterprise Scaffold](https://docs.microsoft.com/azure/architecture/cloud-adoption/appendix/azure-scaffold)
 
 ## System Monitoring for Security
-
-### Related Documentation
 
 * [Azure Governance](https://docs.microsoft.com/azure/governance/)
 * [Azure Security Best Practices](https://docs.microsoft.com/azure/security/security-best-practices-and-patterns)
@@ -101,17 +86,16 @@ ms.author: grgale
 
 ## Azure Policy and Azure Blueprints
 
-### Further Reading
-
 * [Azure Policy Overview](https://docs.microsoft.com/azure/governance/policy/overview)
 * [Azure Blueprints Overview](https://azure.microsoft.com/services/blueprints/)
 * [Azure Policy Samples](https://docs.microsoft.com/azure/governance/policy/samples/index)
 * [Azure Policy Samples Repository](https://github.com/Azure/azure-policy)
 * [Azure Policy Definition Structure](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure)
 * [Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
-
-### Related Documentation
-
 * [Azure Governance](https://docs.microsoft.com/azure/governance/)
 * [Azure Management Groups](https://docs.microsoft.com/azure/governance/management-groups/)
 * [Azure Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview)
+
+## Next steps
+
+Login to the [Azure portal](https://portal.azure.com) and start configuring your resources securely in Azure Australia.

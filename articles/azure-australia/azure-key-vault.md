@@ -54,7 +54,8 @@ As required by the ISM, proper authentication and authorisation are required bef
 
 Azure RBAC has one built-in role for Key Vault, [Key Vault Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor), to control management of the Key Vaults. The creation of custom roles aligned to more granular roles for managing your Key Vaults is recommended.
 
-***_When access to keys is enabled via Key Vault access policy then the user or application has that access to all keys in the key vault (for example, if a user has ‘delete’ access then they can delete all keys).  Therefore, multiple key vaults should be deployed to align with security domains/boundaries._***
+>[!WARNING]
+>When access to keys is enabled via Key Vault access policy then the user or application has that access to all keys in the key vault (for example, if a user has ‘delete’ access then they can delete all keys).  Therefore, multiple key vaults should be deployed to align with security domains/boundaries.
 
 ### Networking
 

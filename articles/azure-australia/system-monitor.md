@@ -1,5 +1,5 @@
 ---
-title: System Monitoring for Security in Azure
+title: System monitoring for security in Azure Australia
 description: Guidance on configuring System Monitoring within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
@@ -8,7 +8,7 @@ ms.date: 07/22/2019
 ms.author: grgale
 ---
 
-# System Monitoring for Security in Azure
+# System monitoring for security in Azure Australia
 
 It is critical that all organisations implement robust security strategies that include real time monitoring and routine security assessments to enhance the day to day operational security of their IT environments. The same security considerations have to be made when moving workloads into a cloud environment. Security within a cloud environment is a joint effort between the customer and the cloud provider. This guide will outline four services which Microsoft Azure provides to facilitate these requirements with consideration to the recommendations contained within the [Australian Cyber Security Centre's (ACSC) Information Security Manual Controls](https://acsc.gov.au/infosec/ism/index.htm) (ISM), specifically, the implementation of centralised event logging, event log auditing, and security vulnerability assessment and management. The Microsoft Azure services are:
 

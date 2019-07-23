@@ -26,7 +26,7 @@ The following key requirements have been identified in the publications from the
 
 |Description|Source|
 |---|---|
-|**Implement Network Segmentation and Segregation, for example, n-tier architecture, using host-based firewalls and CSP’s network access controls to limit inbound and outbound VM network connectivity to only required ports/protocols.| _Cloud Computing for Tenants_|
+|**Implement Network Segmentation and Segregation, for example, n-tier architecture, using host-based firewalls and CSP’s network access controls to limit inbound and outbound VM network connectivity to only required ports/protocols.**| _Cloud Computing for Tenants_|
 |**Implement adequately high bandwidth, low latency, reliable network connectivity** between the tenant (including the tenant’s remote users) and the cloud service to meet the tenant’s availability requirements  | _Cloud Computing for Tenants_|
 |**Apply technologies at more than just the network layer**. Each host and network should be segmented and segregated, where possible, at the lowest level that can be practically managed. In most cases, segmentation and segregation applies from the data link layer up to and including the application layer; however, in sensitive environments, physical isolation may be appropriate. Host-based and network-wide measures should be deployed in a complementary manner and be centrally monitored. Implementing a firewall or security appliance as the only security measure is not sufficient. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
 |**Use the principles of least privilege and need‐to‐know**. If a host, service or network doesn’t need to communicate with another host, service, or network, it should not be allowed to. If a host, service, or network only needs to talk to another host, service, or network on a specific port or protocol, and nothing else, it should be restricted to only those ports or protocols. Adopting these principles across a network will complement the minimisation of user privileges and significantly increase the overall security posture of the environment. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
@@ -45,7 +45,7 @@ To implement the necessary security controls for ingress traffic, individuals in
 
 The architectural diagram shown here depicts the possible paths that network traffic can take to connect into a service hosted in Azure. These components are divided into Azure, IaaS Ingress, PaaS Ingress, and Security Control, depending on the function that they provide for ingress traffic.
 
-![Architecture](media/IngressTraffic.png)
+![Architecture](media/ingress-traffic.png)
 
 ### Azure Components
 
