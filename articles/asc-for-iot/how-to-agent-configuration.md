@@ -47,7 +47,7 @@ If the agent configuration object does not exist in the **azureiotsecurity** mod
 
 ```json
 "desired": {
-  "azureiot*com^securityAgentConfiguration^1*0*0": {
+  "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
   } 
 }
 ```
@@ -62,6 +62,21 @@ Make sure to validate your agent configuration against this [schema](https://aka
  
 If, while the agent is running, the configuration object is changed to a non-valid configuration (the configuration does not match the schema), the agent will ignore the invalid configuration and will continue using the current configuration. 
 
+### Configuration validation
+
+ASC for IoT security agent reports it's current configuration inside the reported properties section of the **azureiotsecurity** module twin identity.
+The agent reports all the available properties, if a property was not set by the user, the agent reports the default configuration.
+
+In order to validate your configuration, compare the values set on the desired section with the values reported in the reported section.
+
+If there is a mismatch between the desired and the reported properties then the agent was not able to parse the configuration.
+
+Validate your desired propertoes against the [schema](https://aka.ms/iot-security-github-module-schema), fix the errors and set your desired properties again!
+
+> [!NOTE]
+> A configuration error alert will be fired from the agent in case that the agent was not able to parse the desired configuration.
+> Compare the reported and desired section to understand if the alert still applies
+
 ## Editing a property 
 
 All custom properties must be set inside the agent configuration object within the **azureiotsecurity** module twin.
@@ -71,24 +86,28 @@ To use a default property value, remove the property from the configuration obje
 
 1. In your IoT Hub, locate and select the device you wish to change.
 
-1. Click on your device, and then on **azureiotsecurity** module.
+2. Click on your device, and then on **azureiotsecurity** module.
 
-1. Click on **Module Identity Twin**.
+3. Click on **Module Identity Twin**.
 
-1. Edit the desired properties of the security module.
+4. Edit the desired properties of the security module.
    
    For example, to configure connection events as high priority and collect high priority events every 7 minutes, use the following configuration.
    
    ```json
     "desired": {
-      "azureiot*com^securityAgentConfiguration^1*0*0": {
-        "highPriorityMessageFrequency": "PT7M",    
-        "eventPriorityConnectionCreate": "High" 
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
+        "highPriorityMessageFrequency": {
+          "value" : "PT7M"
+        },    
+        "eventPriorityConnectionCreate": {
+          "value" : "High" 
+        }
       } 
     }, 
     ```
 
-1. Click **Save**.
+5. Click **Save**.
 
 ### Using a default value
 

@@ -69,11 +69,11 @@ Once set as a security message and sent, this message will be processed by Azure
         "Payload":
             [
                 {
-                    "Executable": "/usr/bin/echo",
+                    "Executable": "/usr/bin/myApp",
                     "ProcessId": 11750,
                     "ParentProcessId": 1593,
-                    "UserName": "nginx",
-                    "CommandLine": "./backup .htaccess"
+                    "UserName": "aUser",
+                    "CommandLine": "myApp -a -b"
                 }
             ]
     }
