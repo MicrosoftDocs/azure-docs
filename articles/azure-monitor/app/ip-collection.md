@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights IP address collection | Microsoft Docs
-description: Understanding how IP addresses are handled with Azure Application Insights
+description: Understanding how IP addresses and geolocation are handled with Azure Application Insights
 services: application-insights
 author: mrbullwinkle
 manager: carmonm
@@ -20,12 +20,12 @@ This article explains how geolocation lookup and IP address handling occur in Ap
 
 By default IP addresses are temporarily collected, but not stored in Application Insights. The basic process is as follows:
 
-IP addresses are sent to Application Insights as part of telemetry data. Upon reaching the ingestion endpoint in Azure, the IP address is used to perform a geolocation lookup using [GeoLite2 from MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). The results of this lookup populate the following fields `client_City`, `client_StateOrProvince`, `client_CountryOrRegion`. At this point, the IP address is discarded and `0.0.0.0` is written to the client_IP field.
+IP addresses are sent to Application Insights as part of telemetry data. Upon reaching the ingestion endpoint in Azure, the IP address is used to perform a geolocation lookup using [GeoLite2 from MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). The results of this lookup are used to populate the following fields `client_City`, `client_StateOrProvince`, `client_CountryOrRegion`. At this point, the IP address is discarded and `0.0.0.0` is written to the `client_IP` field.
 
-* Browser telemetry: We collect the sender's IP address.
-* Server telemetry: The Application Insights module collects the client IP address. It is not collected if `X-Forwarded-For` is set.
+* Browser telemetry: We temporarily collect the sender's IP address.
+* Server telemetry: The Application Insights module temporarily collects the client IP address. It is not collected if `X-Forwarded-For` is set.
 
-This behavior is by design to help avoid unnecessary collection of personal data. Whenever possible, we strongly recommend avoiding the collection of personal data. 
+This behavior is by design to help avoid unnecessary collection of personal data. Whenever possible, we recommend avoiding the collection of personal data. 
 
 ## Overriding default behavior
 
@@ -33,7 +33,7 @@ While the default behavior is to minimize the collection of personal data, we st
 
 ## Storing partial IP address data
 
-In order to enable partial IP collection and storage the  `DisableIpMasking` property of the Application Insights component must be set to `true`. This can be done either through Azure Resource Manager templates or by calling the REST API. IP addresses will be recorded with the last octet zeroed out.
+In order to enable partial IP collection and storage, the  `DisableIpMasking` property of the Application Insights component must be set to `true`. This property can be set either through Azure Resource Manager templates or by calling the REST API. IP addresses will be recorded with the last octet zeroed out.
 
 
 ### Azure Resource Manager Template
@@ -64,32 +64,32 @@ If you only need to modify the behavior for a single Application Insights resour
 
 1. Go your Application Insights resource > **Settings** > **Export Template** 
 
-![Export Template](media/ip-collection/export-template.png)
+    ![Export Template](media/ip-collection/export-template.png)
 
 2. Select **Deploy**
 
-![Deploy button highlighted in red](media/ip-collection/deploy.png)
+    ![Deploy button highlighted in red](media/ip-collection/deploy.png)
 
 3. Select **Edit Template**
 
-![Edit Template](media/ip-collection/edit-template.png)
+    ![Edit Template](media/ip-collection/edit-template.png)
 
 4. Make the following changes to the json for your resource and then click **Save**:
 
-![Screenshot adds a comma after "IbizaAIExtension" and add a new line below with               "DisableIpMasking": true](media/ip-collection/save.png)
+    ![Screenshot adds a comma after "IbizaAIExtension" and add a new line below with               "DisableIpMasking": true](media/ip-collection/save.png)
 
-   > [!NOTE]
-   > If you experience an error that says: _The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group._ Temporarily select a different resource group from the dropdown and then re-select your original resource group to resolve the error.
+    > [!NOTE]
+    > If you experience an error that says: _The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group._ Temporarily select a different resource group from the dropdown and then re-select your original resource group to resolve the error.
 
 5. Select **I agree** > **Purchase**. 
 
-![Edit Template](media/ip-collection/purchase.png)
+    ![Edit Template](media/ip-collection/purchase.png)
 
 In this case nothing new is being purchased, we are just updating the config of the existing Application Insights resource.
 
 6. Once the deployment is complete new telemetry data will recorded with the first three octets populated with the IP and the last octet zeroed out.
 
-If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true`. run the following PowerShell: (Replace `Fabrikam-dev with the appropriate resource and resource group name.)
+If you were to select and edit template again you would only see the default template and would not see your newly added property and its associated value. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set. Run the following PowerShell: (Replace `Fabrikam-dev with the appropriate resource and resource group name.)
 
 ```powershell
 # If you aren't using the cloud shell you will need to connect to your Azure account
@@ -98,9 +98,11 @@ $AppInsights = Get-AzResource -Name Fabrikam-dev -ResourceType microsoft.insight
 $AppInsights.Properties
 ```
 
+A list of properties will be returned as a result. One of the properties should read `DisableIpMasking: true`. If you run the PowerShell prior to deploying the new property with Azure Resource Manager, the property will not exist.
+
 ### Rest API
 
-The Rest API payload to make the same modifications is as follows:
+The [Rest API](https://docs.microsoft.com/rest/api/azure/) payload to make the same modifications is as follows:
 
 ```
 PATCH https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/components/<resource-name>?api-version=2018-05-01-preview HTTP/1.1
@@ -118,7 +120,7 @@ Content-Length: 54
 
 ### Telemetry initializer
 
-If you need to record the entire IP address rather than just the first three octets you can use a telemetry initializer to copy the IP address to a custom field that will not be masked.
+If you need to record the entire IP address rather than just the first three octets, you can use a [telemetry initializer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) to copy the IP address to a custom field that will not be masked.
 
 ### ASP.NET
 
@@ -173,6 +175,20 @@ You can create your telemetry initializer the same way for ASP.NET Core as ASP.N
 }
 ```
 
+### View the results of your telemetry initializer
+
+If you then trigger new traffic against your site and wait approximately 2-5 minutes to insure it had time to be ingested, you can run a Kusto query to see if IP address collection is working:
+
+```kusto
+requests
+| where timestamp > ago(1h) 
+| project appName, operation_Name, url,  resultCode, client_IP, customDimensions.["client-ip"]
+```
+
+Newly collected IP addresses should appear in the `customDimensions_client-ip column`. The default `client-ip` column will still have all 4 octets either zeroed out or only displaying the last three octets depending on how you have configured IP address collection at the component level. If you are testing locally after implementing the telemetry initializer and the value you see for `customDimensions_client-ip` is `::1` this is expected behavior. `::1` represents the loopback address in IPv6. It is equivalent to `127.0.01` in IPv4 and is the result you will see when testing from localhost.
+
 ## Next Step
 
 * Learn more about [personal data collection](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) in Application Insights.
+
+* Learn more about how [IP address collection](apmtips.com/blog/2016/07/05/client-ip-address/) in Application Insights works. (This is an older external blog post written by one of our engineers. It predates the current default behavior where IP address is recorded as `0.0.0.0`, but it goes into greater depth on the mechanics of the built-in `ClientIpHeaderTelemetryInitializer`.)
