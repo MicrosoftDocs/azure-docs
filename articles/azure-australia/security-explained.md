@@ -69,7 +69,7 @@ Many state government and critical infrastructure providers incorporate federal 
 
 The Australian Government is increasingly focusing policy and legislation on the protection of non-Government data that fundamentally impact the security and economic prosperity of Australia. As such the Azure Australia regions and the CCSL certification are relevant to all of those industries.
 
-![Critical Infrastructure Sectors](media/nci-sectors.jpg)
+![Critical Infrastructure Sectors](media/nci-sectors.png)
 
 The Microsoft certifications demonstrate that Azure services have been subjected to a thorough, rigorous, and formal assessment of the security protections in place and they have been approved for handling such highly sensitive data.
 
