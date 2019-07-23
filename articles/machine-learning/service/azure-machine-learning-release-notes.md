@@ -55,7 +55,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Allow y_query to be an object type containing None(s) at the begin (#459519).
     + add expected values to automl output
   + **azureml-contrib-datadrift**
-    +  Move azureml-contrib-opendatasets to azureml-opendatasets. - Allow open dataset classes to be registered to AML workspace and leverage AML Dataset capabilities seamlessly. - Improve NoaaIsdWeather enrich performance in non-SPARK version significantly.
+    +  Improvements to example notebook including switch to azureml-opendatasets instead of azureml-contrib-opendatasets and performance improvements when enriching data
   + **azureml-contrib-explain-model**
     + Fixed transformations argument for LIME explainer for raw feature importance in azureml-contrib-explain-model package
     + added segmentations to image explanations in image explainer for AzureML-contrib-explain-model package
