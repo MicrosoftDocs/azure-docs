@@ -40,7 +40,7 @@ The following versions of the Windows operating system are officially supported 
 
 * Windows Server 2019
 * Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
-* Windows 7 SP1 and later
+* Windows 7 SP1, Windows 8 Enterprise and Pro, and Windows 10 Enterprise and Pro
 
 >[!NOTE]
 >While the Log Analytics agent for Windows was designed to support server monitoring scenarios, we realize you may run Windows client to support workloads configured and optimized for the server operating system. The agent does support Windows client, however our monitoring solutions don't focus on client monitoring scenarios unless explicitly stated.
