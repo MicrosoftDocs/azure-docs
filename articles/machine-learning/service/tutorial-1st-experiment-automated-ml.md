@@ -34,7 +34,6 @@ In this tutorial, you learn the following tasks:
 
 * The **bankmarketing_train.csv** data file. Download it [here](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
-
 ## Create a workspace
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
@@ -65,7 +64,7 @@ In this tutorial, you learn the following tasks:
 
 1. Select **Upload** to choose the **bankmarketing_train.csv** file from your local computer and upload it to the default container. Public preview only supports local file uploads and Azure Blob Storage accounts. When the upload is complete, select the file from the list. 
 
-    ![Select bankmarketing_train.csv data file for experiment](media/tutorial-1st-experiment-automated-ml/select-data-file.png)
+    [![Select data file](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 
 1. The **Preview** tab allows us to further configure our data for this experiment.
 
@@ -96,18 +95,18 @@ In this tutorial, you learn the following tasks:
 
 1. Click **Start** to run the experiment.
 
+   Once the experiment starts, you see a blank **Run Detail** screen with the following status at the top. The experiment preparing process takes a couple of minutes. When the preparation process completes, the status message changes to **Run is Running**.
+
+      ![Run preparing](media/tutorial-1st-experiment-automated-ml/run-preparing.png)
+
 ##  View experiment details
 
-Once the experiment starts, you see a blank **Run Detail** screen with the following status at the top. The experiment preparing process takes a couple of minutes. When the preparation process completes, the status message updates to **Run is Running**.
-
-  ![Run preparing](media/tutorial-1st-experiment-automated-ml/run-preparing.png)
-
-As the experiment progresses, the **Run Detail** screen updates the iteration chart and list with the different iterations (models) that are run. The iterations list is in order by metric score; by default, the model that scores the highest based on our **AUC_weighted** metric is at the top of the list.
+As the experiment progresses, the **Run Detail** screen updates the iteration chart and list with the different iterations (models) that are run. The iterations list is in order by metric score, and by default, the model that scores the highest based on our **AUC_weighted** metric is at the top of the list.
 
 >[!TIP]
 > Training jobs can take several minutes for each pipeline to finish running.
 
-[![Run details dashboard](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details.png#lightbox)
+[![Run details dashboard](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
 
 ## Deploy model
 
@@ -126,7 +125,7 @@ For this experiment the **VotingEnsemble** is considered the best model based on
     
 1. Select **Deploy**. Deployment can take about 20 minutes to complete.
 
-1. The following message appears when deployment successfully completes.
+    The following message appears when deployment successfully completes.
 
     ![Deploy complete](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
     
@@ -155,9 +154,9 @@ Delete just the deployment instance from the Azure portal, if you want to keep t
 In this automated machine learning tutorial, you used the Azure portal to create and deploy a classification model. See these articles for more information and next steps.
 
 + How to [consume a web service](how-to-consume-web-service.md).
-+ Learn more about [preprocessing](how-to-create-portal-experiments.md#preprocess)
-+ Learn more about [data profiling](how-to-create-portal-experiments.md#profile)
-+ Learn more about [automated machine learning](concept-automated-ml.md)
++ Learn more about [preprocessing](how-to-create-portal-experiments.md#preprocess).
++ Learn more about [data profiling](how-to-create-portal-experiments.md#profile).
++ Learn more about [automated machine learning](concept-automated-ml.md).
 
 >[!NOTE]
 > This Bank Marketing dataset is made available under the [Creative Commons (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Any rights in individual contents of the database are licensed under the [Database Contents License](https://creativecommons.org/publicdomain/zero/1.0/) and is available on [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). This data set is originally available within the [UCI Machine Learning Database](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
