@@ -1,5 +1,5 @@
 ---
-title: Assign custom admininstrator roles with reseource scope using Azure PowerShell - Azure Active Directory | Microsoft Docs
+title: Assign custom administrator roles with resource scope using Azure PowerShell - Azure Active Directory | Microsoft Docs
 description: For those who frequently manage role assignments, you can now manage members of an Azure AD administrator role with Azure PowerShell.
 services: active-directory
 author: curtand
@@ -66,9 +66,92 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScopes $resourceScopes -R
 
 To assign the role to a service principal instead of a user, use the [Get-AzureADMSServicePrincipal cmdlet](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
 
-## Delete a role assignment
+## Operations on RoleDefinition
 
-Delete a RoleAssignment object.
+Role definition objects contain the definition of the built-in or custom role, along with the permissions that are granted by that role assignment. This resource displays both custom role definitions and built-in directoryRoles (which are displayed in roleDefinition equivalent form). Today, an Azure AD organization can have a maximum of 30 unique custom RoleDefinitions defined.
+
+### Create Operations on RoleDefinition
+
+``` PowerShell
+# Basic information
+
+$description = "Application Registration Credential Administrator"
+$displayName = "Custom Demo Admin"
+$resourceScopes = @('/')
+$templateId = "355aed8a-864b-4e2b-b225-ea95482e7570"
+
+# Set of actions to grant
+$allowedResourceAction =
+@(
+    "microsoft.directory/applications/default/read",
+    "microsoft.directory/applications/credentials/update"
+)
+$resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
+$rolePermission = @{'resourceActions' = $resourceActions}
+$rolePermissions = $rolePermission
+
+# Create new custom admin role
+$customAdmin = New-AzureADMSRoleDefinitions -RolePermissions $rolePermissions -ResourceScopes $resourceScopes -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+```
+
+### Read Operations on RoleDefinition
+
+``` PowerShell
+# Get all role definitions
+Get-AzureADMSRoleDefinitions
+
+# Get single role definition by objectId
+$customAdmin = Get-AzureADMSRoleDefinitions -ObjectId '86593cfc-114b-4a15-9954-97c3494ef49b'
+
+# Get single role definition by templateId
+$customAdmin = Get-AzureADMSRoleDefinitions -Filter "templateId eq '355aed8a-864b-4e2b-b225-ea95482e757not
+```
+
+### Update Operations on RoleDefinition
+
+``` PowerShell
+# Update role definition
+# This works for any writable property on role definition. You can replace display name with other
+# valid properties.
+Set-AzureADMSRoleDefinitions -ObjectId $customAdmin.ObjectId -DisplayName "Updated DisplayName"
+```
+
+### Delete operations on RoleDefinition
+
+``` PowerShell
+# Delete role definition
+Remove-AzureADMSRoleDefinitions -ObjectId $customAdmin.ObjectId
+```
+
+## Operations on RoleAssignment
+
+Role assignments contain information linking a given security principal (a user or application service principal) to a role definition. If required, you can add a scope of a single Azure AD resource for the assigned permissions.  Restricting the scope of permissions is supported for built-in and custom roles.
+
+### Create Operations on RoleAssignment
+
+``` PowerShell
+# Scopes to scope granted permissions to
+$resourceScopes = @('/')
+
+# IDs of principal and role definition you want to link
+$principalId = "27c8ca78-ab1c-40ae-bd1b-eaeebd6f68ac"
+$roleDefinitionId = $customKeyCredAdmin.ObjectId
+
+# Create a scoped role assignment
+$roleAssignment = New-AzureADMSRoleAssignments -ResourceScopes $resourceScopes -RoleDefinitionId -PrincipalId $principalId
+```
+
+### Read Operations on RoleAssignment
+
+``` PowerShell
+# Get role assignments for a given principal
+Get-AzureADMSRoleAssignments -Filter "principalId eq '27c8ca78-ab1c-40ae-bd1b-eaeebd6f68ac'"
+
+# Get role assignments for a given role definition 
+Get-AzureADMSRoleAssignments -Filter "principalId eq '355aed8a-864b-4e2b-b225-ea95482e7570'"
+```
+
+### Delete Operations on RoleAssignment
 
 ``` PowerShell
 # Delete role assignment
