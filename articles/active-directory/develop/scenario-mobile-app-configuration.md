@@ -1,5 +1,5 @@
 ---
-title: Mobile app that calls web APIs (code configuration) - Microsoft identity platform
+title: Mobile app that calls web APIs (code configuration) - Microsoft identity platform | Azure
 description: Learn how to build a mobile app that calls web APIs (app's code configuration)
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 23/07/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs using the Microsoft identity platform for developers.
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 Once you've created your application, you'll learn how to configure the code from the application's parameters you got at app registration. Mobile applications also have some complex specifics, which have to do with fitting into the framework used to build these apps
 
-## MSAL Libraries supporting mobile apps
+## MSAL libraries supporting mobile apps
 
 The Microsoft libraries supporting mobile apps are:
 
@@ -209,7 +209,7 @@ result = await app.AcquireTokenInteractive(scopes)
              .ExecuteAsync();
 ```
 
-#### Step 4: Register a URL Scheme
+#### Step 4: Register a URL scheme
 
 MSAL.NET uses URLs to invoke the broker and then return the broker response back to your app. To finish the round trip, you need to register a URL scheme for your app in the `Info.plist` file.
 
@@ -220,7 +220,8 @@ Prefix the `CFBundleURLSchemes` with `msauth`. Then add `CFBundleURLName` to the
 **For example:**
 `msauth.com.yourcompany.xforms`
 
-**Note** This will become part of the RedirectUri used for uniquely identifying your app when receiving the response from the broker.
+> [!NOTE]
+> This URL scheme will become part of the RedirectUri used for uniquely identifying your app when receiving the response from the broker.
 
 ```XML
  <key>CFBundleURLTypes</key>
@@ -251,7 +252,7 @@ MSAL uses `–canOpenURL:` to check if the broker is installed on the device. In
     </array>
 ```
 
-### Brokered Authentication for Xamarin.Android
+### Brokered authentication for Xamarin.Android
 
 MSAL.NET does not yet support brokers for Android.
 
