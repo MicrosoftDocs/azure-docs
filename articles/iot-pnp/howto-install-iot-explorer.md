@@ -66,7 +66,7 @@ After the tool connects to your IoT hub, it displays an overview page that lists
 
 - To register a new device with your hub, select **Add**. Enter a device ID. Use the default settings to autogenerate authentication keys and enable the connection to your hub.
 - To delete a device identity, select **Delete**. Review the device details before you complete this action to be sure you're deleting the right device identity.
-- You can use the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) to filter the list of devices from the IoT hub's registry. The tool also supports querying by `capabilityID` and `interfaceID`.
+- The tool supports querying by `capabilityID` and `interfaceID`. Add either your `capabilityID` or `interfaceID` as a parameter to query your devices. 
 
 
 ## Interact with a device
