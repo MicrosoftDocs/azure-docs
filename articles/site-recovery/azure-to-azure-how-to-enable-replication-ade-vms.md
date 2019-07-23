@@ -24,21 +24,17 @@ Site Recovery requires the user to have permissions to create the key vault in t
 To enable replication of Disk Encryption-enabled VMs from the Azure portal, the user needs the following permissions:
 
 - Key vault permissions
-    - List
-    - Create
-    - Get
-
--	Key vault secret permissions
-    - List
-    - Create
-    - Get
-
+    - List, Create and Get
+    
+- Key vault secret permissions
+    - Secret Management Operations
+    	- Get, List and Set
+	
 - Key vault key permissions (required only if the VMs use key encryption key to encrypt disk encryption keys)
-    - List
-    - Get
-    - Create
-    - Encrypt
-    - Decrypt
+    - Key Management Operations
+    	- Get, List and Create
+    - Cryptographic Operations
+    	- Decrypt and Encrypt
 
 To manage permissions, go to the key vault resource in the portal. Add the required permissions for the user. The following example shows how to enable permissions to the key vault *ContosoWeb2Keyvault*, which is in the source region.
 

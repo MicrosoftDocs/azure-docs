@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/02/2019
+ms.date: 07/22/2019
 ms.author: raynew
 ---
 
@@ -19,12 +19,12 @@ You can use the [Azure Migrate service](migrate-overview.md) to assess and migra
 
 The table summarizes supported scenarios for Hyper-V VMs.
 
-**Deployment** | **Details*** 
---- | --- 
+**Deployment** | **Details***
+--- | ---
 **Assess on-premises Hyper-V VMs** | [Set up](tutorial-prepare-hyper-v.md) your first assessment.<br/><br/> [Run](scale-hyper-v-assessment.md) a large-scale assessment.
 **Migrate Hyper-V VMs to Azure** | [Try out](tutorial-migrate-hyper-v.md) migration to Azure.
 
-    
+
 
 ## Azure Migrate projects
 
@@ -34,6 +34,21 @@ Azure permissions | You need Contributor or Owner permissions in the subscriptio
 Hyper-V VMs | Assess up to 10,000 Hyper-V VMs in a single project.
 
 A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
+
+**Geography:** There are a number of geographies in which an Azure Migrate project can be created. Even though you can only create projects in these geographies, you can still assess or migrate your machines for other target locations. The project geography is only used to store the discovered metadata.
+
+
+ **Geography** | **Metadata storage location**
+ --- | ---
+ Azure Government | US Gov Virginia
+ Asia Pacific | Southeast Asia or East Asia
+ Europe | South Europe or West Europe
+ United Kingdom | UK South or UK West
+ United States | Central US or West US 2
+
+
+ > [!NOTE]
+ > Support for Azure Government is currently only available for the [older version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
 
 
 ## Assessment-Hyper-V host requirements
@@ -81,16 +96,16 @@ To assess VMs, the Azure Migrate appliance needs internet connectivity.
 
 - When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
 - If you're using a URL-based firewall.proxy, allow access to the URLs in the table, making sure that the proxy resolves any CNAME records received while looking up the URLs.
-- If you have an intercepting proxy, you might need to import the server certificate from the proxy server to the appliance. 
+- If you have an intercepting proxy, you might need to import the server certificate from the proxy server to the appliance.
 
-    
+
 **URL** | **Details**  
---- | --- 
+--- | ---
 *.portal.azure.com | Navigation to the Azure portal
 *.windows.net | Sign in to your Azure subscription
 *.microsoftonline.com | Creation of Azure Active Directory applications for appliance to service communications.
 management.azure.com | Creation of Azure Active Directory applications for appliance to service communications.
-dc.services.visualstudio.com | Logging and monitoring 
+dc.services.visualstudio.com | Logging and monitoring
 *.vault.azure.net | Manage secrets in Azure Key Vault when communicating between the appliance and service.
 
 
@@ -99,7 +114,7 @@ dc.services.visualstudio.com | Logging and monitoring
 The following table summarizes port requirements for assessment.
 
 **Device** | **Connection**
---- | --- 
+--- | ---
 **Appliance** | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: https://<appliance-ip-or-name>:44368<br/> Outbound connections on port 443 to send discovery and performance metadata to Azure Migrate.
 **Hyper-V host/cluster** | Inbound connections on WinRM ports 5985 (HTTP) and 5986 (HTTPS) to pull configuration and performance metadata of the Hyper-V VMs using a Common Information Model (CIM) session.
 
@@ -147,22 +162,17 @@ time.windows.com | Verifies time synchronization between system and global time.
 The following table summarizes port requirements on Hyper-V hosts and VMs for VM migration.
 
 **Device** | **Connection**
---- | --- 
+--- | ---
 Hyper-V hosts/VMs | Outbound connections on HTTPS port 443 to send VM replication data to Azure Migrate.
 
-  
-## Migration-VM disk support 
+
+## Migration-VM disk support
 
 **Support** | **Details**
 --- | ---
 Migrated disks | VMs can only be migrated to managed disks (standard HHD, premium SSD) in Azure.
-   
+
 
 ## Next steps
 
 [Prepare for Hyper-V VM assessment](tutorial-prepare-hyper-v.md) for migration.
-
-
-
-
- 

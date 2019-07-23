@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Bing Entity Search SDK, Python"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Setup for Bing Entity search SDK console application.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/15/2019
 ms.author: aahi
 ---
 # Quickstart: Bing Entity Search SDK with Python
@@ -22,7 +22,7 @@ Use this quickstart to begin searching for entities with the Bing Entity Search 
 
 * The [Bing Entity Search SDK for Python](https://pypi.org/project/azure-cognitiveservices-search-entitysearch/)
 
-It is recommended that you use a python virtual environment. You can install and initialize a virtual environment with the venv module. You can install virtualenv for Python 2.7 with:
+It is recommended that you use a python virtual environment. You can install and initialize a virtual environment with the venv module. You can install virtualenv with:
 
 ```Console
 python -m venv mytestenv
