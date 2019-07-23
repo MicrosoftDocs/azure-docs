@@ -187,11 +187,11 @@ You can't customize the capability name or capability type. If there are changes
 
 ## Add dashboards
 
-Add dashboards to device definition to enable operators to visualize a device using charts and metrics. You can have multiple dashboards for a device definition.
+Add dashboards to a device template to enable operators to visualize a device using charts and metrics. You can have multiple dashboards for a device template.
 
-To add a dashboard to a device definition:
+To add a dashboard to a device template:
 
-1. Go to your device definition and select **Views**.
+1. Go to your device template and select **Views**.
 1. Then choose **Visualizing the Device**.
 1. Enter a name for your dashboard in **Dashboard Name**.
 1. Add tiles to your dashboard from the list of static, property, cloud property, telemetry, and command tiles. Drag and drop the tiles you would like to add to your dashboard.
@@ -206,11 +206,11 @@ To view and test your dashboard, you can select **Configure preview device** whi
 
 ## Add forms
 
-Add forms to device definition to enable operators to manage a device by viewing and setting properties. Operators can only edit cloud properties and writeable device properties. You can have multiple forms for a device definition.
+Add forms to a device template to enable operators to manage a device by viewing and setting properties. Operators can only edit cloud properties and writeable device properties. You can have multiple forms for a device template.
 
-To add a form to a device definition:
+To add a form to a device template:
 
-1. Go to your device definition and select **Views**.
+1. Go to your device template and select **Views**.
 1. Then choose **Editing Device and Cloud data**.
 1. Enter a name for your form in **Form Name**.
 1. Select the number of columns to use to lay out your form.

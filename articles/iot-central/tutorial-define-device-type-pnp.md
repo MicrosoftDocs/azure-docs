@@ -15,7 +15,7 @@ manager: philmea
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-This tutorial shows you, as a builder, how to use a device definition to define a new type of device in your Microsoft Azure IoT Central application. A device definition defines the capabilities of your device. Capabilities include telemetry the device sends, device properties, and the commands a device responds to.
+This tutorial shows you, as a builder, how to use a device template to define a new type of device in your Microsoft Azure IoT Central application. A device template defines the capabilities of your device. Capabilities include telemetry the device sends, device properties, and the commands a device responds to.
 
 In this tutorial, you create an **Environment Sensor** device template. An environmental sensor device:
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 > * Import a device capability model.
 > * Create cloud properties.
 > * Define a visualization for the device telemetry.
-> * Publish your device definition.
+> * Publish your device template.
 > * Create a simulated device for your device template.
 > * View your simulated device.
 
@@ -70,11 +70,11 @@ You also need a local copy of the **EnvironmentalSensor.json** file that contain
 
 ## Create a template
 
-As a builder, you can create and edit device templates in your application. After you publish a device definition, you can generate a simulated device or connect real devices that implement the device template. Simulated devices let you test the behavior of your application before you connect a real device.
+As a builder, you can create and edit device templates in your application. After you publish a device template, you can generate a simulated device or connect real devices that implement the device template. Simulated devices let you test the behavior of your application before you connect a real device.
 
 To add a new device template to your application, go to the **Device Templates** page. To do so select the **Device Templates** tab on the left navigation menu.
 
-![Device Definitions page](./media/tutorial-define-device-type-pnp/devicedefinitions.png)
+![Device Templates page](./media/tutorial-define-device-type-pnp/devicedefinitions.png)
 
 ### Add a device capability model
 
@@ -98,7 +98,7 @@ The following steps show you how to import the capability model for an **Environ
 
 A device template can include cloud properties. Cloud properties only exist in the IoT Central application and are never sent to, or received from, a device.
 
-1. Select **Cloud Properties** and then **+ Add Cloud Property**. Use the information in the following table to add a cloud property to your device definition.
+1. Select **Cloud Properties** and then **+ Add Cloud Property**. Use the information in the following table to add a cloud property to your device template.
 
     | Display Name      | Semantic Type | Schema |
     | ----------------- | ------------- | ------ |
@@ -178,12 +178,12 @@ Once a device template is published it becomes visible under the **Devices** pag
 
 In this tutorial, you learned how to:
 
-* Create a new device definition
+* Create a new device template
 * Import a device capability model.
 * Create cloud properties.
 * Create customizations.
 * Define a visualization for the device telemetry.
-* Publish your device definition.
+* Publish your device template.
 
 Now that you've created a device template in your Azure IoT Central application, here is the suggested next step:
 
