@@ -1,5 +1,5 @@
 ---
-title: SAML single sign-on for on-premises apps with Azure AD App Proxy (Preview) | Microsoft Docs 
+title: SAML single sign-on for on-premises apps with Azure AD App Proxy | Microsoft Docs 
 description: Learn how to provide single sign-on for on-premises applications that are secured with SAML authentication. Provide remote access to on-premises apps with Application Proxy.
 services: active-directory
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# SAML single sign-on for on-premises applications with Application Proxy (Preview)
+# SAML single sign-on for on-premises applications with Application Proxy
 
 You can provide single sign-on (SSO) to on-premises applications that are secured with SAML authentication and provide remote access to these applications through Application Proxy. With SAML single sign-on, Azure Active Directory (Azure AD) authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. You can also map users to specific application roles based on rules you define in your SAML claims. By enabling Application Proxy in addition to SAML SSO, your users will have external access to the application and a seamless SSO experience.
 
@@ -46,7 +46,7 @@ The protocol diagrams below describe the single sign-on sequence for both a serv
 
 5. Select **SAML** as the single sign-on method.
 
-6. First set up SAML SSO to work while on the corporate network. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). Follow the steps in [Enter basic SAML configuration](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) to configure SAML-based authentication for the application.
+6. First set up SAML SSO to work while on the corporate network. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). Follow the steps in [Enter basic SAML configuration](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) to configure SAML-based authentication for the application.
 
 7. Add at least one user to the application and make sure the test account has access to the application. While connected to the corporate network, use the test account to see if you have single sign-on to the application. 
 
