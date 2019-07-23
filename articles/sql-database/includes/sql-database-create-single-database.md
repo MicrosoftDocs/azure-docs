@@ -17,7 +17,7 @@ In this step, you will create an Azure SQL Database single database.
 # [Azure portal](#tab/azure-portal)
 Create your resource group and single database using the Azure portal. 
 
-1. Select **Azure SQL** in the left-hand menu of the Azure portal. If Azure SQL is not in the list, select **All services**, then type *Azure SQL* in the search box.
+1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box.
 2. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about the different databases by selecting **Show details** on the **Databases** tile.
 3. Select **Create**:
 
