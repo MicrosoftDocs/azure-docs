@@ -65,11 +65,11 @@ An application might require specific user attributes or claims in the SAML toke
 
 1. Verify the **Name Identifier Value**. The default value is *user.principalname*. The user identifier uniquely identifies each user within the application. For example, if the email address is both the username and the unique identifier, set the value to *user.mail*.
 
-1. To modify the **Name Identifier Value**, select the **Edit** icon (a pencil) for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. For details, see [Editing NameId](https://docs.microsoft.com/en-us/azure/active-directory//develop/active-directory-saml-claims-customization#editing-nameid). Save the changes when you're done. 
+1. To modify the **Name Identifier Value**, select the **Edit** icon (a pencil) for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. For details, see [Editing NameId](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#editing-nameid). Save the changes when you're done. 
  
 1. To configure group claims, select the **Edit** icon for the **Groups returned in claim** field. For details, see [Configure group claims](../hybrid/how-to-connect-fed-group-claims.md).
 
-3. To add a claim, select **Add new claim** at the top of the page. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use. For details, see [Adding application-specific claims](https://docs.microsoft.com/en-us/azure/active-directory//develop/active-directory-saml-claims-customization#adding-application-specific-claims). Save the changes when you're done. 
+3. To add a claim, select **Add new claim** at the top of the page. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use. For details, see [Adding application-specific claims](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#adding-application-specific-claims). Save the changes when you're done. 
 
 4. Select **Save**. The new claim appears in the table.
 
@@ -82,7 +82,7 @@ An application might require specific user attributes or claims in the SAML toke
 
 ## Step 3. Manage the SAML signing certificate
 
-Azure AD uses a certificate to sign the SAML tokens it sends to the application. On the **Set up Single Sign-On with SAML** page, you can download the active certificate in Base64, Raw, or XML format, or you can manage the active certificate or create a new certificate.  download the appli. Or, you can download the active certificate by downloading the application metadata XML file or by using the App federation metadata URL. You can also manage the certificate used by Azure AD to sign SAML tokens issued to your app, or you can create a new certificate. For gallery applications, details about the certificate format are available in the application’s SAML documentation (see the [application-specific tutorials](../saas-apps/tutorial-list.md)). 
+Azure AD uses a certificate to sign the SAML tokens it sends to the application. On the **Set up Single Sign-On with SAML** page, you can view or download the active certificate. You can also update, create, or import a certificate. For gallery applications, details about the certificate format are available in the application’s SAML documentation (see the [application-specific tutorials](../saas-apps/tutorial-list.md)). 
 
 1. Go to the **SAML Signing Certificate** section. Depending on the type of application, you'll see options to download the certificate in Base64 format, Raw format, or Federation Metadata XML. Azure AD also provides the **App Federation Metadata Url** where you can access the metadata specific to the application in the format `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
