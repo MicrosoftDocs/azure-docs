@@ -13,11 +13,11 @@ ms.date: 07/22/2019
 ms.author: rwaller
 ---
 
-## Use Azure Active Directory (AAD) authentication with the Immersive Reader service
+# Use Azure Active Directory (AAD) authentication with the Immersive Reader service
 
 In the following sections, you will use either the Azure Cloud Shell environment or the Azure CLI to create a new Immersive Reader resource with a custom subdomain and then configure AAD in your Azure tenant. After completing that initial configuration, you will call AAD to obtain an access token, similar to how it will be done when using the Immersive Reader SDK. If you get stuck, links are provided in each section with all the available options for each of the Azure CLI commands.
 
-### Create an Immersive Reader resource with a custom subdomain
+## Create an Immersive Reader resource with a custom subdomain
 
 1. Start by opening the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview). Then [select a subscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
 
@@ -61,7 +61,7 @@ In the following sections, you will use either the Azure Cloud Shell environment
    $resource
    ```   
 
-### Assign a role to a service principal
+## Assign a role to a service principal
 
 Now that you have a custom subdomain associated with your resource, you need to assign a role to a service principal.
 
@@ -103,7 +103,7 @@ Now that you have a custom subdomain associated with your resource, you need to 
    > This step needs to be performed for each Immersive Reader resource you create. For example, if you create multiple resources for different global regions, then you will need to perform this step for each of those regional resources so that the AAD authentication works for all of them. Or, if you create a new resource at a later point in time, you will need to perform this role assignment step for that new resource as well.
 
 
-### Obtain an AAD token
+## Obtain an AAD token
 
 In this example, your password is used to authenticate the service principal to obtain an AAD token.
 
