@@ -76,7 +76,7 @@ Follow the steps outlined below to restore an Azure SQL Data Warehouse from a ge
     ![New DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 1. Fill out the information requested in the **Basics** tab and click **Next: Additional settings**.
 
-    ![Basics](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw.png)
+    ![Basics](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 1. For **Use existing data** parameter, select **Backup** and select the appropriate backup from the scroll down options. Click **Review + Create**.
  
    ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
