@@ -285,7 +285,7 @@ To learn more about limits on a more granular level, such as document size, quer
 
 [!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-action-groups.md)]
 
-## Log queries and lanaguage
+#### Log queries and lanaguage
 
 [!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-log-queries.md)]
 

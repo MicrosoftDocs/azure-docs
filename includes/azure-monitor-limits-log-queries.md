@@ -10,5 +10,7 @@ ms.author: bwren
 ms.custom: "include file"
 ---
 
-- Azure Monitor uses the same [Kusto query language](/azure/kusto/query/) as Azure Data Explorer. See [Azure Monitor log query language differences](../articles/azure-monitor/log-query/data-explorer-difference.md) for KQL language elements not supported in Azure Monitor.
-- Log queries can experience excessive overhead when data spans multiple Log Analytics workspace. See [Query limits](../articles/azure-monitor/log-query/scope.md#query-limits) for details.
+| Limit | Description |
+|:---|:---|
+| Query language | Azure Monitor uses the same [Kusto query language](/azure/kusto/query/) as Azure Data Explorer. See [Azure Monitor log query language differences](../articles/azure-monitor/log-query/data-explorer-difference.md) for KQL language elements not supported in Azure Monitor. |
+| Azure regions | Log queries can experience excessive overhead when data spans Log Analytics workspaces in multiple Azure regions. See [Query limits](../articles/azure-monitor/log-query/scope.md#query-limits) for details. |
