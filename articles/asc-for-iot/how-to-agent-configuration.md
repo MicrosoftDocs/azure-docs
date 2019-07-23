@@ -39,7 +39,7 @@ Use the Azure Security Center for IoT security agent configuration [schema](http
 
 ## Configuration objects 
 
-Each Azure Security Center for IoT security agent related property is located in the agent configuration object, within the desired properties section, of the **azureiotsecurity** module. 
+Properties related to every Azure Security Center for IoT security agent are located in the agent configuration object, within the desired properties section, of the **azureiotsecurity** module. 
 
 To modify the configuration, create and modify this object inside the **azureiotsecurity** module twin identity. 
 
@@ -64,7 +64,7 @@ If, while the agent is running, the configuration object is changed to a non-val
 
 ### Configuration validation
 
-ASC for IoT security agent reports it's current configuration inside the reported properties section of the **azureiotsecurity** module twin identity.
+Azure Security Center for IoT security agent reports its current configuration inside the reported properties section of the **azureiotsecurity** module twin identity.
 The agent reports all the available properties, if a property was not set by the user, the agent reports the default configuration.
 
 In order to validate your configuration, compare the values set on the desired section with the values reported in the reported section.

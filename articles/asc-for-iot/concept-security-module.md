@@ -36,9 +36,9 @@ Learn more about the concept of [device twins](https://docs.microsoft.com/azure/
 
 Azure Security Center for IoT maintains a security module twin for each device in the service.
 The security module twin holds all the information relevant to device security for each specific device in your solution.
-Device security properties are maintained in a dedicated security module twin for safer communication and for enabling updates and maintenance that require fewer resources.  
+Device security properties are maintained in a dedicated security module twin for safer communication and for enabling updates and maintenance that requires fewer resources.  
 
-See [Create security module twin](quickstart-create-security-twin.md) and [Configure security agents](how-to-agent-configuration.md) to learn how to create, customize and configure the twin. See [Understanding module twins](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) to learn more about the concept of module twins in IoT Hub. 
+See [Create security module twin](quickstart-create-security-twin.md) and [Configure security agents](how-to-agent-configuration.md) to learn how to create, customize, and configure the twin. See [Understanding module twins](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) to learn more about the concept of module twins in IoT Hub. 
  
 
 ## See also
