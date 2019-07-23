@@ -17,14 +17,12 @@
   items:
   - name: 1 - Define a new device type
     href: ../iot-central/tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-  - name: 2 - Customize the operator's view
-    href: ../iot-central/tutorial-customize-operator-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-  - name: 3 - Add a device
+  - name: 2 - Add a device
     href: ../iot-central/tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - name: 3 - Configure rules
+    href: ../iot-central/tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - name: 4 - Monitor your devices
     href: ../iot-central/tutorial-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-  - name: 5 - Configure rules
-    href: ../iot-central/tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Architecture
@@ -73,16 +71,6 @@
         href: ../iot-central/howto-create-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json 
   - name: Actions and extensibility
     items:
-      - name: Group multiple actions on rules
-        href: ../iot-central/howto-use-action-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-      - name: Create webhook actions on rules
-        href: ../iot-central/howto-create-webhooks-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-      - name: Build workflows in Microsoft Flow
-        href: ../iot-central/howto-add-microsoft-flow-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-      - name: Build workflows in Azure Logic Apps
-        href: ../iot-central/howto-build-azure-logic-apps.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-      - name: Trigger Azure Functions
-        href: ../iot-central/howto-trigger-azure-functions-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Export your data
         items:
         - name: Export to Event Hubs and Service Bus
