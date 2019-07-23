@@ -70,9 +70,9 @@ The Apache Spark jobs will have the Azure Cosmos DB benefits such as industry le
 
 The integration of Apache Spark into Azure Cosmos DB bridges the transactional and analytic separation, which has been one of the major customer pain points when building cloud-native applications at global scale. 
 
-## Scenarios for using Azure Cosmos DB Spark support
+## Scenarios for Azure Cosmos DB Spark support
 
-### Retail & Consumer Goods
+### Retail and consumer goods
 
 You can use Spark support in Azure Cosmos DB to deliver real-time recommendations and offers. You can help customers discover the items they will need with real-time personalization and product recommendations.
 
@@ -86,17 +86,16 @@ You can use Spark support in Azure Cosmos DB to deliver real-time recommendation
 
 * You can leverage the inbuilt Spark streaming capability to enrich live data by combining it with static customer data. This way you can deliver more personalized and targeted ads in real time and in context with what customers are doing.
 
-The following image shows how Azure Cosmos DB’s Spark support is used to optimize pricing and promotions:
-
+The following image shows how Azure Cosmos DB Spark support is used to optimize pricing and promotions:
 
 ![Azure Cosmos DB’s Spark support to optimize pricing and promotions](./media/spark-api-introduction/optimize-pricing-and-promotions.png)
 
 
-The following image shows how Azure Cosmos DB’s Spark support is used in real-time recommendation engine:
+The following image shows how Azure Cosmos DB Spark support is used in real-time recommendation engine:
 
-![Azure Cosmos DB’s Spark support in real-time recommendation engine](./media/spark-api-introduction/real-time-recommendation-engine.png)
+![Azure Cosmos DB Spark support in real-time recommendation engine](./media/spark-api-introduction/real-time-recommendation-engine.png)
 
-### Manufacturing & IoT
+### Manufacturing and IoT
 
 Azure Cosmos DB’s in-built analytics platform allows you to enable real-time analysis of IoT data from millions of devices at global scale. You can make modern innovations like predicting weather patterns, predictive analysis, and energy optimizations.
 
@@ -107,7 +106,7 @@ The following image shows how Azure Cosmos DB’s Spark support is used to read 
 ![Azure Cosmos DB’s Spark support to read metrics from IoT devices](./media/spark-api-introduction/read-metrics-from-iot-devices.png)
 
 
-### Predictive Maintenance
+### Predictive maintenance
 
 * Maintaining assets such as compressors that are used in small drilling rigs to deep-water platforms is a complex endeavor. These assets are located across the globe and generate petabytes of data. By using Azure Cosmos DB, you can build an end-to-end predictive data pipeline that uses Spark streaming to process large amounts of sensor telemetry, store asset parts, and sensor mappings data.
 
@@ -142,10 +141,10 @@ Azure Cosmos DB supports built-in Jupyter notebooks for all APIs such as Cassand
 ## Next steps
 
 * To learn about the benefits of Azure Cosmos DB, see the [overview](introduction.md) article.
-* [Get started with Azure Cosmos DB's API for MongoDB](mongodb-introduction.md)
-* [Get started with Azure Cosmos DB Cassandra API](cassandra-introduction.md)
-* [Get started with Azure Cosmos DB Gremlin API](graph-introduction.md)
-* [Get started with Azure Cosmos DB Table API](table-introduction.md)
+* [Get started with the Azure Cosmos DB API for MongoDB](mongodb-introduction.md)
+* [Get started with the Azure Cosmos DB Cassandra API](cassandra-introduction.md)
+* [Get started with the Azure Cosmos DB Gremlin API](graph-introduction.md)
+* [Get started with the Azure Cosmos DB Table API](table-introduction.md)
 
 
 
