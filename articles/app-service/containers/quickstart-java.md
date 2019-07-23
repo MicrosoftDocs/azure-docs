@@ -1,5 +1,6 @@
 ---
-title: Create Java web app on Linux - Azure App Service 
+title: Create a Java web app on Linux
+titleSuffix: Azure App Service
 description: In this quickstart, you deploy your first Java Hello World in Azure App Service on Linux in minutes.
 keywords: azure, app service, web app, linux, java, maven, quickstart
 services: app-service\web
