@@ -163,7 +163,7 @@ The required entries in an NSG, for an ASE to function, are to allow traffic:
 * to all IPs on port 123
 * to all IPs on ports 80, 443
 * to the IP service tag AzureSQL on ports 1433
-* to all IPs on port 12000
+* to all IP service tag AzureMonitor on port 12000 
 * to the ASE subnet on all ports
 
 The DNS port does not need to be added as traffic to DNS is not affected by NSG rules. These ports do not include the ports that your apps require for successful use. The normal app access ports are:
