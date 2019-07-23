@@ -45,7 +45,7 @@ To add a device to your Azure IoT Central application:
 
 1. Click **Create**.
 
-1. This device will now appear in your device list for this template. Select the device to see the device details page which will contain all views for the device.
+1. This device now appears in your device list for this template. Select the device to see the device details page that contains all views for the device.
 
 ## Import devices
 
@@ -67,7 +67,7 @@ To bulk-register devices in your application:
 
 1. Select the CSV file that has the list of Device IDs to be imported.
 
-1. Device import starts once the file has been uploaded. You can track the import status in the Device Operations panel. This panel will automatically appear once the import starts or you can access it through the bell icon in the top right-hand corner.
+1. Device import starts once the file has been uploaded. You can track the import status in the Device Operations panel. This panel appears automatically after the import starts or you can access it through the bell icon in the top right-hand corner.
 
 1. Once the import completes, a success message is shown in the Device Operations panel.
 
@@ -119,7 +119,7 @@ To bulk export devices from your application:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-See [Device connectivity in Azure IoT Central](concepts-connectivity.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json), for more information about connection strings and connecting real devices to your IoT Central application.
+For more information about connection strings and connecting real devices to your IoT Central application, see [Device connectivity in Azure IoT Central](concepts-connectivity.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Delete a device
 
@@ -141,11 +141,11 @@ Cloud properties are the device metadata associated with the device, such as cit
 
 1. Choose the device template of the device whose properties you want to change and select the target device.
 
-1. Choose the view that contains properties for your device, this view will allow you to input values and select **Save** at the top of the page. Here you see the properties your device has and their current values. Cloud properties and writeable properties will have editable fields, while device properties will be read-only. For writeable properties, you can see their sync status at the bottom of the field. 
+1. Choose the view that contains properties for your device, this view enables you to input values and select **Save** at the top of the page. Here you see the properties your device has and their current values. Cloud properties and writeable properties have editable fields, while device properties are read-only. For writeable properties, you can see their sync status at the bottom of the field. 
 
 1. Modify the properties to the values you need. You can modify multiple properties at a time and update them all at the same time.
 
-1. Choose **Save**. If you saved writeable properties, the values are sent to your device. When the device confirms the change for the writeable property, the status will return back to **synced**. If you saved a cloud property, the value will now be updated.
+1. Choose **Save**. If you saved writeable properties, the values are sent to your device. When the device confirms the change for the writeable property, the status returns back to **synced**. If you saved a cloud property, the value is updated.
 
 
 ## Next steps

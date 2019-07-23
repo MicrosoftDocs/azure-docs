@@ -80,9 +80,6 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 You can add other actions to the rule such as Microsoft Flow and webhooks. You can add up to 5 actions per rule.
 
-- [Microsoft Flow action](howto-add-microsoft-flow-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) to kick off a workflow in Microsoft Flow when a rule is triggered 
-- [Webhook action](howto-create-webhooks-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) to notify other services when a rule is triggered
-
 ## Parameterize the rule
 
 Rules can derive certain vales from **Device Properties** as parameters. Using parameters is helpful in scenarios where telemetry thresholds vary for different devices. When you create the rule, choose a device property that specifies the threshold, such as **Maximum Ideal Threshold**, instead of providing an absolute value, such as 80 degrees. When the rule executes, it matches the device telemetry with the value set in the device property.
@@ -105,9 +102,4 @@ Navigate to the device and choose the rule you want to enable or disable. Toggle
 
 ## Next steps
 
-Now that you have learned how to create rules in your Azure IoT Central application, here are some next step:
-
-- [Add Microsoft Flow action in rules](howto-add-microsoft-flow-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- [Add Webhook action in rules](howto-create-webhooks-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- [Group multiple actions to run from one or more rules](howto-use-action-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- [How to manage your devices](howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+Now that you have learned how to create rules in your Azure IoT Central application, the suggested next step is to learn [How to manage your devices](howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
