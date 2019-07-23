@@ -1,6 +1,6 @@
 ---
 title: Security attributes for Azure services
-description: A checklist of common security attributes for evaluating Azure Service Fabric
+description: A checklist of security attributes for evaluating Azure Service Fabric
 services: security
 documentationcenter: ''
 author: msmbaldwin
@@ -13,7 +13,7 @@ ms.author: mbaldwin
 ---
 # Security attributes for Azure services
 
-This article collects the common security attributes for selected Azure services. A security attribute is a quality or feature of an Azure service. It contributes to the service's ability to prevent, detect, and respond to security vulnerabilities.
+This article collects the security attributes for selected Azure services. A security attribute is a quality or feature of an Azure service. It contributes to the service's ability to prevent, detect, and respond to security vulnerabilities.
 
 Security attributes are categorized as:
 * Preventative

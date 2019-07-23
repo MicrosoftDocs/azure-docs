@@ -1,6 +1,6 @@
 ---
 title: Security attributes for Azure API Management
-description: A checklist of common security attributes for evaluating API Management
+description: A checklist of security attributes for evaluating API Management
 services: api-management
 author: msmbaldwin
 manager: barbkess

@@ -1,6 +1,6 @@
 ---
-title: Common security attributes for Azure Service Bus Messaging
-description: A checklist of common security attributes for evaluating Azure Service Bus Messaging
+title: Security attributes for Azure Service Bus Messaging
+description: A checklist of security attributes for evaluating Azure Service Bus Messaging
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''

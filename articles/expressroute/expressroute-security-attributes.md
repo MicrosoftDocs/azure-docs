@@ -1,6 +1,6 @@
 ---
-title: Common security attributes for Azure ExpressRoute
-description: A checklist of common security attributes for evaluating Azure ExpressRoute
+title: Security attributes for Azure ExpressRoute
+description: A checklist of security attributes for evaluating Azure ExpressRoute
 services: expressroute
 ms.service: expressroute
 documentationcenter: ''
@@ -12,9 +12,9 @@ ms.date: 06/05/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for Azure ExpressRoute
+# Security attributes for Azure ExpressRoute
 
-Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into Azure ExpressRoute.
+This article documents the security attributes built into Azure ExpressRoute.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

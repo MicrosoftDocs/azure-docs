@@ -1,6 +1,6 @@
 ﻿---
-title: Common security attributes for Azure Service Fabric
-description: A checklist of common security attributes for evaluating Azure Service Fabric
+title: Security attributes for Azure Service Fabric
+description: A checklist of security attributes for evaluating Azure Service Fabric
 services: service-fabric
 documentationcenter: ''
 author: msmbaldwin

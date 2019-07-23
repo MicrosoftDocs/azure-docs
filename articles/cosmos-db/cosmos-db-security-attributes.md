@@ -14,7 +14,7 @@ ms.author: mbaldwin
 ---
 # Security attributes for Azure Cosmos DB
 
-This article documents the common security attributes built into Azure Cosmos DB.
+This article documents the security attributes built into Azure Cosmos DB.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

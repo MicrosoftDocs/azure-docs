@@ -1,6 +1,6 @@
 ---
-title: Common security attributes for Azure Event Hubs
-description: A checklist of common security attributes for evaluating Azure Event Hubs
+title: Security attributes for Azure Event Hubs
+description: A checklist of security attributes for evaluating Azure Event Hubs
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -12,9 +12,9 @@ ms.date: 05/22/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for Azure Event Hubs
+# Security attributes for Azure Event Hubs
 
-This article documents the common security attributes built into Azure Event Hubs.
+This article documents the security attributes built into Azure Event Hubs.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

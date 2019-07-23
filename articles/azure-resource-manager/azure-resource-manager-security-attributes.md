@@ -1,6 +1,6 @@
 ---
-title: Common security attributes for Azure Resource Manager
-description: A checklist of common security attributes for evaluating Azure Resource Manager
+title: Security attributes for Azure Resource Manager
+description: A checklist of security attributes for evaluating Azure Resource Manager
 services: azure-resource-manager
 author: msmbaldwin
 manager: barbkess

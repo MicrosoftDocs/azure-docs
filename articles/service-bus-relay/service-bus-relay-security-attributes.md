@@ -1,6 +1,6 @@
 ---
-title: Common security attributes for Azure Service Bus Relay
-description: A checklist of common security attributes for evaluating Azure Service Bus Relay
+title: Security attributes for Azure Service Bus Relay
+description: A checklist of security attributes for evaluating Azure Service Bus Relay
 services: service-bus-relay
 ms.service: service-bus-relay
 documentationcenter: ''
