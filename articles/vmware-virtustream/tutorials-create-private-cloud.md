@@ -77,7 +77,7 @@ Once the deployment has succeeded, navigate to the new private cloud in your res
 
 ## Next steps
 
-In the next tutorial, you will [create an NSX-T T1 router and a logical switch](tutorials-create-t1-ls).
+In the next tutorial, you will [create an NSX-T T1 router and a logical switch][tutorials-create-t1-ls].
 
 <!-- [create a VNet and resources][tutorials-create-vnet-resources] -->
 

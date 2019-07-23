@@ -60,7 +60,7 @@ Once linked with Global Reach, the two ER circuits will route network traffic be
 
 ![VNet and on-premises full private cloud connectivity](./media/concepts/adjacency-overview-drawing-double.png)
 
-To enable full connectivity, an Authorization Key and private peering ID for Global Reach can be requested in the Azure portal. You use the key and ID to establish Global Reach between an ER circuit in your subscription and the ER circuit for your new private cloud. The [tutorial for creating a private](tutorial-create-private-cloud.md) provides you with the procedures for requesting and using the key and ID.
+To enable full connectivity, an Authorization Key and private peering ID for Global Reach can be requested in the Azure portal. You use the key and ID to establish Global Reach between an ER circuit in your subscription and the ER circuit for your new private cloud. The [tutorial for creating a private cloud](tutorials-create-private-cloud.md) provides you with the procedures for requesting and using the key and ID.
 
 The routing requirements of the solution require you to plan private cloud network address spaces so that you avoid overlaps with other VNets and on-premises networks. A /22 network block used for each private cloud needs to be unique across your routing domains. This network block includes management and production networks in the private cloud.
 
