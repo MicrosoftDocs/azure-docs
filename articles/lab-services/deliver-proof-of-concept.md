@@ -28,7 +28,7 @@ One of the key scenarios for Azure DevTest Labs is enabling development and test
 
 DevTest Labs also provides the policy guardrails and cost controls to empower the enterprise to provide “self-serve Azure” to developers that adhere to corporate security, regulatory, and compliance policies. 
 
-Every enterprise has different requirements on how Azure DevTest Labs can be successfully incorporated into their environment. This article describes the most common steps enterprises typically need to complete to ensure a successful proof of concept, which is the first step toward a successful end to end deployment. 
+Every enterprise has different requirements for how Azure DevTest Labs can be successfully incorporated into their environment. This article describes the most common steps enterprises typically need to complete to ensure a successful proof of concept, which is the first step toward a successful end to end deployment. 
 
 ## Getting Started 
 
