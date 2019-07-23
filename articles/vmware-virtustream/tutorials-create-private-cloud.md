@@ -40,8 +40,8 @@ If it's not registered, continue with instructions in that documentation.
 Prerequisites:
 
 - A /22 network address space
-- The host types to be used in private cloud clusters (see this link for a description)
-- the number of hosts to be used in each cluster
+- The type of host that you'll use in the private cloud
+- The number of hosts to be used in each cluster
 
 ## Create a private cloud 
 
@@ -49,19 +49,19 @@ In the Azure portal, select **+ Create a resource > Compute** and then search th
 
 ![Search marketplace for "private cloud"](./media/create-private-cloud/ss1-search-private-cloud.png)
 
-In the results, select "VMCP - Private Cloud".
+In the results, select **VMCP - Private Cloud**.
 
 ![Select private cloud software](./media/create-private-cloud/ss2-select-vmcp.png)
 
-Select "Create".
+Select **Create**.
 
 ![Select private cloud Create](./media/create-private-cloud/ss3-select-create-vmcp.png)
 
-In the "Basics" tab, enter the required information and then select **Next**.
+In **Basics**, enter the required information and then select **Next**.
 
 ![Create private cloud "Basics" form](./media/create-private-cloud/ss4-create-basics.png)
 
-In the "Tags" context blade, create or select tags that will be associated with the new private cloud. Once tags are created, * and then select **Next**. In this example, the "environment" tag with value "Production" is used.
+In **Tags**, create or select tags that you'll use to associate with the new private cloud. Once tags are created, select **Next**. In this example, the "environment" tag with value "Production" is used.
 
 ![Add tags for the new private cloud](./media/create-private-cloud/ss5-create-tags.png)
 
@@ -69,7 +69,7 @@ If the configuration passes validation, review and then select **Review + Create
 
 ![Review and create a new private cloud](./media/create-private-cloud/ss6-review-create.png)
 
-Once the deployment has succeeded, navigate to the new private cloud in your resources and review the overview information. Confirm the configuration and then select **Admin** to retrieve the credentials to access vCenter and NSX-T manager. You will establish the access and connect to private cloud in another tutorial.
+Once the deployment has succeeded, navigate to the new private cloud in your resources and review the overview information. Confirm the configuration and then select **Admin** to retrieve the credentials to access vCenter and NSX-T manager. You will use the credentials connect to your private cloud in another tutorial.
 
 ![Review overview information of new private cloud](./media/create-private-cloud/ss7-view-overview.png)
 

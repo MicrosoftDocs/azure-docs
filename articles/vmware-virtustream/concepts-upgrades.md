@@ -14,11 +14,11 @@ ms.custom:
 
 # Azure VMware Solution by Virtustream upgrade concepts
 
-One of the key benefits of Azure VMware Solution (AVS) by Virstustream private clouds is that the platform is maintained for you. Platform maintenance includes automated upgrades to a validated software bundle. The upgrades are performed regularly, ensuring that you always have the latest validated versions of the Azure VMware Solution (AVS) by Virtustream software.
+One of the key benefits of Azure VMware Solution (AVS) by Virstustream private clouds is that the platform is maintained for you. Platform maintenance includes automated upgrades to a VMware validated software bundle. The upgrades are performed regularly, ensuring that you always have the latest validated versions of the software.
 
 ## AVS by Virtustream private cloud software upgrades
 
-The AVS by Virtustream private cloud platform includes VMware vSphere, ESXi, vSAN, and NSX-T software. This bundle includes specific versions of each VMware software component. The bundle is tested and validated for new installations and automated lifecycle management of the platform.
+The AVS by Virtustream private cloud platform includes specific versions of VMware vSphere, ESXi, vSAN, and NSX-T software. The private cloud software bundle is tested and validated for new installations and for automated lifecycle management of the platform.
 
 The lifecycle management upgrade process doesn't require downtime for your private clouds. The upgrade process ensures you're automatically using the latest version of the validated AVS by Virtustream private cloud software. Upgrades are applied on regular cadence so that private clouds are never more than one version behind the latest release of the validated software bundle. You'll be notified of planned upgrades to your private cloud. You can defer the upgrade if your private cloud is within one version of the latest release.
 

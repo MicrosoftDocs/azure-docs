@@ -13,7 +13,7 @@ ms.author: v-jetome
 
 # Frequently asked questions about Azure VMware Solution by Virtustream
 
-This article addresses frequently asked **internal and external** questions about Azure VMware Solution (AVS) by Virturstream.
+Answers for frequently asked questions about Azure VMware Solution (AVS) by Virturstream.
 
 ## General
 

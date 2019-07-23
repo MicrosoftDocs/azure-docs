@@ -15,7 +15,7 @@ ms.custom:
 
 # Tutorial: scale an Azure VMware Solution by Virtustream private cloud
 
-You can scale the number of clusters in an AVS by Virtustream private cloud, and you can also scale the number of hosts in a cluster. The limits on the number of clusters in a private cloud and hosts in a cluster are provided in [the private cloud concept article][concepts-private-clouds-clusters].  In this tutorial, you use the Azure portal to:
+You can scale the number of clusters in an AVS by Virtustream private cloud, and you can also scale the number of hosts in a cluster. The limits on the number of clusters in a private cloud and hosts in a cluster are provided in [the private cloud concept article](concepts-private-clouds-clusters.md).  In this tutorial, you use the Azure portal to:
 
 > [!div class="checklist"]
 > * Add a cluster to an existing private cloud
@@ -23,19 +23,19 @@ You can scale the number of clusters in an AVS by Virtustream private cloud, and
 
 ## Prerequisites
 
-You need a private cloud to complete this tutorial. If you haven't yet created a private cloud, you can use the previous tutorial to deploy a private cloud.
+You need a private cloud to complete this tutorial. If you haven't yet created a private cloud, use the [create a private cloud tutorial](tutorials-create-private-cloud.md) to create a private cloud.
 
 ## Scale a private cloud
 
-On the overview page of an existing private cloud, select "Scale private cloud".
+On the overview page of an existing private cloud, select **Scale private cloud**.
 
 ![Select "Scale private cloud" in Overview](./media/scale-private-cloud/ss1-select-scale-private-cloud.png)
 
-Select "Add a cluster".
+Select **Add a cluster**.
 
 ![Select "Add a cluster"](./media/scale-private-cloud/ss2-select-add-cluster.png)
 
-In the "Add cluster" form, enter a name and use the slider to select the number of hosts. Select "OK".
+In the **Add cluster** form, enter a name and use the slider to select the number of hosts. Select **OK**.
 
 ![Configure a new private cloud cluster](./media/scale-private-cloud/ss3-configure-new-cluster.png)
 
@@ -43,22 +43,20 @@ The deployment of the new cluster will begin.
 
 ## Scale a cluster in a private cloud 
 
-On the overview page of an existing private cloud, select "Scale private cloud".
+On the overview page of an existing private cloud, select **Scale private cloud**.
 
 ![Select "Scale private cloud" in Overview](./media/scale-private-cloud/ss4-select-scale-private-cloud-2.png)
 
-In the "Add cluster" form, enter a name and use the slider to select the number of hosts. Select "OK".
+In the **Add cluster** form, enter a name and use the slider to select the number of hosts. Select **OK**.
 
 ![Configure a new private cloud cluster](./media/scale-private-cloud/ss5-scale-cluster.png)
 
-The deployment of an additional host to the cluster will begin.
+The addition of hosts to the cluster will begin.
 
 ## Next steps
 
-If you require another AVS by Virtustream private cloud, [create another private cloud][tutorials-create-private-cloud].
+If you require another AVS by Virtustream private cloud, [create another private cloud](tutorials-create-private-cloud.md).
 
 <!-- LINKS - external-->
 
 <!-- LINKS - internal -->
-[tutorials-create-private-cloud]: ./tutorials-create-private-cloud.md
-[concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
