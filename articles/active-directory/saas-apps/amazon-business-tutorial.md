@@ -97,12 +97,36 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	   | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
 
 	   > [!NOTE]
-       > The Reply URL value is not real. Update this value with the actual Reply URL. Contact [Amazon Business Client support team](https://www.amazon.com/gp/help/customer/contact-us) to get this value. You will get the `<idpid>` value from the Amazon configure section, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+       > The Reply URL value is not real. Update this value with the actual Reply URL. You will get the `<idpid>` value from the Amazon configure section, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	In the **Sign-on URL** text box, type a URL:
     `https://www.amazon.com/`
+
+1. The following screenshot shows the list of default attributes. Edit the attributes by clicking on the **Edit** icon in the **User Attributes & Claims** section.
+
+	![Attributes](media/amazon-business-tutorial/map-attribute3.png)
+
+1. Edit Atrributes and copy **Namespace** value of these attributes into the Notepad.
+
+	![Attributes](media/amazon-business-tutorial/map-attribute4.png)
+
+1. In addition to above, Amazon Business application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
+
+	a. Click the **pen** next to **Groups returned in claim**.
+
+	![image](./media/amazon-business-tutorial/config04.png)
+
+	![image](./media/amazon-business-tutorial/config05.png)
+
+	b. Select **All Groups** from the radio list.
+
+	c. Select **Group ID** as **Source attribute**.
+
+	d. Check **Customize the name of the group claim** checkbox and enter the group name accroding your organization needs.
+
+	e. Click **Save**.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -128,7 +152,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Default group](media/amazon-business-tutorial/default-group1.png)
 
-1. On the **New user account defaults** wizard, Select **Default Buying Role** according to your organization and click **Next**.
+1. On the **New user account defaults** wizard, select the **Default Group** and then select **Default Buying Role** according to user role in the organization and click **Next**.
 
 	![Default group](media/amazon-business-tutorial/dafault-group2.png)
 
@@ -144,13 +168,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Attributes](media/amazon-business-tutorial/map-attribute1.png)
 
-1. On the **Attribute mapping** wizard, add the requirements fields by clicking the **+ Add a field** option and click **Next**.
+1. On the **Attribute mapping** wizard, add the requirement fields by clicking the **+ Add a field** option. Add the attribute and paste the respective namespace values, which you have copied from the **User Attributes & Claims** section into the  **SAML AttributeName** field, and click **Next**.
 
 	![Attributes](media/amazon-business-tutorial/map-attribute2.png)
-
-1. Your Amazon Business application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Sign in to the [Azure portal](https://portal.azure.com/) and add the attributes in the **User Attributes & Claims** section. The following screenshot shows the list of default attributes.
-
-	![Attributes](media/amazon-business-tutorial/map-attribute3.png)
 
 1. On the **Amazon connection data** wizard, click **Next**.
 
@@ -164,7 +184,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Connection](media/amazon-business-tutorial/sso-connection2.png)
 
-1. On the **IDP initiated URL** wizard, copy the value which is assigned to **idpid** and paste into the **idpid** parameter in the **Reply URL** in the **Basic SAML Configuration** section in the Azure portal and then click **Activate**.
+1. On the **IDP initiated URL** wizard, before you click **Activate**, copy the value which is assigned to **idpid** and paste into the **idpid** parameter in the **Reply URL** in the **Basic SAML Configuration** section in the Azure portal.
 
 	![Connection](media/amazon-business-tutorial/sso-connection3.png)
 
@@ -172,12 +192,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Connection](media/amazon-business-tutorial/sso-connection4.png)
 
-1. Finally it displays the **SSO Connection Details** status as Active.
+1. Finally it displays the **SSO Connection Details** status as **Active**.
+
 	![Connection](media/amazon-business-tutorial/sso-connection5.png)
 
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
+
+> [!NOTE]
+> Adminstrators need to create the test users in their tenant if they needed. Following steps show how to create a test user.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -186,6 +210,20 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
+
+### Create an Azure AD Security Group in the Azure portal
+
+1. Click on **Azure Active Directory > All Groups**.
+
+	![Create an Azure AD Security Group](./media/amazon-business-tutorial/all-groups-tab.png)
+
+1. Click **New group**:
+
+	![Create an Azure AD Security Group](./media/amazon-business-tutorial/new-group-tab.png)
+
+1. Fill in **Group type**, **Group name**, **Group description**, **Membership type**. Click on the arrow to select members, then search for or click on the member you will like to add to the group. Click on **Select** to add the selected members, then click on **Create**.
+
+	![Create an Azure AD Security Group](./media/amazon-business-tutorial/group-information.png)
 
 ### Assign the Azure AD test user
 
@@ -205,9 +243,39 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+	>[!NOTE]
+	> If you do not assign the users in the Azure AD, you get the following error.
+
+	![The Add User link](media/amazon-business-tutorial/assign-user.png)
+
+### Assign the Azure AD Security Group in the Azure portal
+
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Amazon Business**.
+
+	![Enterprise applications blade](common/enterprise-applications.png)
+
+2. In the applications list, type and select **Amazon Business**.
+
+	![The Amazon Business link in the Applications list](common/all-applications.png)
+
+3. In the menu on the left, select **Users and groups**.
+
+    ![The "Users and groups" link](common/users-groups-blade.png)
+
+4. Click the **Add user**.
+
+    ![The Add Assignment pane](common/add-assign-user.png)
+
+5. Search for the Security Group you want to use, then click on the group to add it to the Select members section. Click **Select**, then click **Assign**.
+
+    ![Search Security Group](./media/amazon-business-tutorial/assign-group.png)
+
+	> [!NOTE]
+	> Check the notifications in the menu bar to be notified that the Group was successfully assigned to the Enterprise application in the Azure portal.
+
 ### Create Amazon Business test user
 
-In this section, a user called Britta Simon is created in Amazon Business. Amazon Business supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Amazon Business, a new one is created after authentication.
+In this section, a user called B.Simon is created in Amazon Business. Amazon Business supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Amazon Business, a new one is created after authentication.
 
 ### Test SSO
 
