@@ -48,7 +48,7 @@ You can create an Azure Machine Learning Dataset from the following formats:
 + [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-)
 + [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-)
 + [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-)
-+ [pandas DataFrame](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-pandas-dataframe-dataframe--path-none--in-memory-false-)
++ [pandas DataFrame](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-pandas-dataframe-dataframe--path-none--in-memory-false-)
 + [SQL query](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
 + [binary](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-)
 
@@ -76,7 +76,7 @@ Alternatively, use the file-specific functions to explicitly control the parsing
 
 ### Create from Azure Datastores
 
-To create Datasets from an [Azure datastore](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-access-data):
+To create Datasets from an [Azure datastore](how-to-access-data.md):
 
 * Verify you have `contributor` or `owner` access to the registered Azure datastore.
 
@@ -96,7 +96,7 @@ workspace = Workspace.from_config()
 dstore = Datastore.get(workspace, datastore_name)
 ```
 
-Use the `from_delimited_files()` method to read delimited files from a [DataReference](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py), and create an unregistered Dataset.
+Use the `from_delimited_files()` method to read delimited files from a [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py), and create an unregistered Dataset.
 
 ```Python
 # create an in-memory Dataset on your local machine
