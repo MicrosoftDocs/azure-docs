@@ -48,7 +48,7 @@ A Cognitive Service provides part or all of the components in a machine learning
 
 ## How are Cognitive Services and Azure Machine Learning (AML) similar?
 
-Both have the end-goal of applying artificial intelligence (AI) to enhance business operations, though how provides this in the respective offerings is different. 
+Both have the end-goal of applying artificial intelligence (AI) to enhance business operations, though how each provides this in the respective offerings is different. 
 
 Generally, the audiences are different:
 
@@ -123,7 +123,7 @@ Cognitive Services that provide exported models for other machine learning tools
 
 |Cognitive Service|Model information|
 |--|--|
-|Custom Vision|Export for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
+|Custom Vision|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
 
 
 ## Next steps
