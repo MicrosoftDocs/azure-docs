@@ -185,9 +185,9 @@ requests
 | project appName, operation_Name, url, resultCode, client_IP, customDimensions.["client-ip"]
 ```
 
-Newly collected IP addresses should appear in the `customDimensions_client-ip column`. The default `client-ip` column will still have all 4 octets either zeroed out or only displaying the first three octets depending on how you have configured IP address collection at the component level. If you are testing locally after implementing the telemetry initializer and the value you see for `customDimensions_client-ip` is `::1` this is expected behavior. `::1` represents the loopback address in IPv6. It is equivalent to `127.0.01` in IPv4 and is the result you will see when testing from localhost.
+Newly collected IP addresses should appear in the `customDimensions_client-ip` column. The default `client-ip` column will still have all 4 octets either zeroed out or only displaying the first three octets depending on how you have configured IP address collection at the component level. If you are testing locally after implementing the telemetry initializer and the value you see for `customDimensions_client-ip` is `::1` this is expected behavior. `::1` represents the loopback address in IPv6. It is equivalent to `127.0.01` in IPv4 and is the result you will see when testing from localhost.
 
-## Next Step
+## Next Steps
 
 * Learn more about [personal data collection](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) in Application Insights.
 
