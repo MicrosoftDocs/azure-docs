@@ -17,6 +17,7 @@ ms.date: 11/08/2018
 ms.author: mimart
 
 ms.collection: M365-identity-device-management
+ROBOTS: NOINDEX
 ---
 
 # Choosing the application type when adding an application in Azure Active Directory

@@ -12,6 +12,7 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
+ROBOTS: NOINDEX
 ---
 
 # How to configure SAML-based single sign-on
