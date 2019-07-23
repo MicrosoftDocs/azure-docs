@@ -113,7 +113,7 @@ The services are used in any application that can make REST API(s) or SDK calls.
 
 ## How is Cognitive search related to Cognitive Services?
 
-[Cognitive search](../search/cognitive-search-concept-intro.md) is an AI feature in [Azure Search](../search/search-what-is-azure-search.md), used to extract text from images, blobs, and other unstructured data sources - enriching the content to make it more searchable in an Azure Search index. Cognitive search uses Cognitive Services to provide this feature. You do not need to create these Cognitive Services, Azure Search creates and manages them for you.
+[Azure Search](../search/search-what-is-azure-search.md) uses Cognitive Services to provide this feature. Cognitive Services is exposed in Azure Search through [built-in skills](../search/cognitive-search-predefined-skills.md) that wrap individual APIs. You can use a free resource for walkthroughs, but plan on creating and attaching a [billable resource](../search/cognitive-search-attach-cognitive-services.md) for larger volumes.
 
 ## How can you use Cognitive Services?
 
