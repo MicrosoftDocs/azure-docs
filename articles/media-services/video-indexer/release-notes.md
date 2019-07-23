@@ -24,12 +24,6 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
-## July 2019
-
-### Audio insights
-
-Use the Language Identification model to automatically identifying the spoken language in a video. For more information, see [Language Identification model](language-identification-model.md).
-
 ## June 2019
 
 ### Video Indexer deployed to Japan East
