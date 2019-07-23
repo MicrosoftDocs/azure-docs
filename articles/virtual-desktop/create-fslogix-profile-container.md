@@ -80,7 +80,9 @@ This article will not cover best practices for securing access to the Azure NetA
 
 <!--Break here, turn 10 and the first part of 11 into new instructions-->
 
-10. In the **Azure NetApp Files** menu, select your new account to create a capacity pool.
+### Create a capacity pool
+
+Next, create a new capacity pool by going to the Azure NetApp Files menu and selecting your new account.
 
 ![A capture of the Azure NetApp Files menu with a red arrow pointing at the NetApp account name.](media/9d20bba46a64e1c78fda4e25e1ddaa3f.png)
 
@@ -88,61 +90,67 @@ This article will not cover best practices for securing access to the Azure NetA
 
 ![A capture of the capacity pools menu with a red arrow pointing at the "Capacity pools" button.](media/187f244eed643633e1867c7c2e71c06e.png)
 
-11. When the **New capacity pool** blade opens, enter the following values:
+When the **New capacity pool** blade opens, enter the following values:
 
-   - For **Name**, enter a name for the new capacity pool.
-   - For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
-   - For **Size (TiB)**, enter the capacity pool size that best fits your needs. The minimum size is 4 TiB.
+1. For **Name**, enter a name for the new capacity pool.
+2. For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
+3. For **Size (TiB)**, enter the capacity pool size that best fits your needs. The minimum size is 4 TiB.
 
 ![A capture of the new capacity pool window that shows each drop-down menu and the OK button.](media/d5bb782f55d1e1b2ab49e22910e19a32.png)
 
-12. When you're finished, select **OK**.
+4. When you're finished, select **OK**.
 
 <!--Break here-->
 
-13. Next, select **Active Directory connections**, then select the **Join** button to open the **Join Active Directory** page.
+### Join an Active Directory connection
+
+Next, select **Active Directory connections** in the menu on the left side of the page, then select the **Join** button to open the **Join Active Directory** page.
 
 ![A capture of the Join Active Directory connections menu.](media/03f68f9f13b185c0521d694b1e9e225e.png)
 
-14. Enter the following values in the **Join Active Directory** page:
+Enter the following values in the **Join Active Directory** page to join a connection:
 
-  - For **Primary DNS**, enter the IP address of the DNS server in your environment that can resolve the domain name.
-  - For **Domain**, enter your fully qualified domain name (FQDN).
-  - For **SMB Server (Computer Account) Prefix**, enter the string you want to append to the computer account name.
-  - For **Username**, enter the name of the account with permissions to perform domain join.
-  - For **Password**, enter the account's password.
+1. For **Primary DNS**, enter the IP address of the DNS server in your environment that can resolve the domain name.
+2. For **Domain**, enter your fully qualified domain name (FQDN).
+3. For **SMB Server (Computer Account) Prefix**, enter the string you want to append to the computer account name.
+4. For **Username**, enter the name of the account with permissions to perform domain join.
+5. For **Password**, enter the account's password.
 
   >[!NOTE]
-  >It's best practice to confirm that the computer account specified in **Join Active Directory** configuration wizard has appeared in your domain controller under **Computers.**
+  >It's best practice to confirm that the computer account you created in [Join an Active Directory connection](create-fslogix-profile-container.md#join-an-active-directory-connection) has appeared in your domain controller under **Computers.**
     ![A screenshot of the Active Directory Users and Computers window with a red arrow pointing at an example account that's appeared in the Computers folder after successful configuration.](media/53e367f2c72d5902bbfa82a1a7dd77ea.png)
 
 <!--Break here-->
 
-1.  Next, you'll need to create a new volume. Select **Volumes**, then select **Add volume**.
+### Create a new volume
+
+Next, you'll need to create a new volume. Select **Volumes**, then select **Add volume**.
 
 ![A capture of the capacity pools menu with a red arrow pointing to Volumes under the storage service tab.](media/39f0c687e1cf89fb2448c0470e745418.png)
 
 ![A capture of the volumes menu with a red arrow pointing at the add volume button.](media/3aa9d3d9cd06f12c925e7d3d3dcd9c34.png)
 
-1.  When the **Create a volume** blade opens, enter the following values:
+When the **Create a volume** blade opens, enter the following values:
 
-    - For **Volume name**, enter a name for the new volume.
-    - For **Capacity pool**, select the capacity pool you just created from the drop-down menu.
-    - For **Quota (GiB)**, enter the volume size appropriate for your environment.
-    - For **Virtual network**, select an existing virtual network that has connectivity to the domain controller from the drop-down menu.
-    - Under **Subnet**, create a new subnet. Please note that this subnet will be delegated to Azure NetApp Files.
+1. For **Volume name**, enter a name for the new volume.
+2. For **Capacity pool**, select the capacity pool you just created from the drop-down menu.
+3. For **Quota (GiB)**, enter the volume size appropriate for your environment.
+4. For **Virtual network**, select an existing virtual network that has connectivity to the domain controller from the drop-down menu.
+5. Under **Subnet**, create a new subnet. Keep in mind that this subnet will be delegated to Azure NetApp Files.
 
 <!--How do you create a new subnet? Enter a name?-->
 
 ![A capture of the Azure NetApp files volume creation menu. Each drop-down menu is labeled one through five based on its corresponding step in the previous section.](media/b1235bd64cfa165cabfa37a315fcb810.png)
 
+6.  Select **Next: Protocol \>\>** to open the Protocol tab and configure your volume access parameters.
+
 <!--break here-->
 
-1.  Select **Next: Protocol \>\>** to open the Protocol tab and configure your volume access parameters.
+### Configure volume access parameters
 
-2.  Select **SMB** as the protocol type.
-3.  Under Configuration in the **Active Directory** drop-down menu, select the same directory that you originally connected in the previous instructions. <!--make a link here--> Keep in mind that there's a limit of one Active Directory per subscription.
-4.  In the **Share name** text box, enter the name of the share that will be used by the session host pool and its users.
+7.  Select **SMB** as the protocol type.
+8.  Under Configuration in the **Active Directory** drop-down menu, select the same directory that you originally connected in the previous instructions. <!--make a link here--> Keep in mind that there's a limit of one Active Directory per subscription.
+9.  In the **Share name** text box, enter the name of the share that will be used by the session host pool and its users.
 
 ![A capture of the Protocol tab. The various parameter settings are labeled one through three based on their corresponding steps.](media/e36a9f45702b4047dbc3f167f7562313.png)
 
