@@ -211,7 +211,7 @@ For this article, the application gateway uses a storage account to store data f
 
 1. Select **Create a resource** on the upper left-hand corner of the Azure portal.
 1. Select **Storage**, and then select **Storage account**.
-1. For *Resource group**, select **myResourceGroupAG** for the resource group.
+1. For *Resource group*, select **myResourceGroupAG** for the resource group.
 1. Type *myagstore1* for the name of the storage account.
 1. Accept the default values for the other settings and then select **Review + Create**.
 1. Review the settings, and then select **Create**.
