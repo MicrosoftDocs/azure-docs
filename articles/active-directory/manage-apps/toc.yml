@@ -18,46 +18,62 @@
        items:
        - name: SaaS application tutorials
          href: /azure/active-directory/saas-apps/
-     - name: Concepts
-       items: 
-       - name: Plan a cloud app integration
-         items:
-         - name: What happens when you add an app
-           href: plan-an-application-integration.md
-         - name: Guidance for developers
-           href: developer-guidance-for-integrating-applications.md
-       - name: Single sign-on
-         items:  
-         - name: What is single sign-on
-           href: what-is-single-sign-on.md
-         - name: Enable SSO for your multi-tenant application 
-           href: isv-sso-content.md
-         - name: Create an Azure tenant for multi-tenant application
-           href: isv-tenant-multi-tenant-app.md
-         - name: Choose multi-tenant federation
-           href: isv-choose-multi-tenant-federation.md
-         - name: Create documentation for multi-tenant application
-           href: isv-create-sso-documentation.md
-         - name: Plan a single sign-on deployment
-           href: plan-sso-deployment.md
-       - name: One Click SSO
-         items:
-         - name: What is One Click SSO
-           href: one-click-sso-tutorial.md
-       - name: Application security
-         items:
-         - name: App access options
-           href: what-is-access-management.md
-         - name: Certificate signing options
-           href: certificate-signing-options.md
-         - name: Manage certificates
-           href: manage-certificates-for-federated-single-sign-on.md
-         - name: Tenant restrictions
-           href: tenant-restrictions.md
-         - name: Configure SAML token encryption (Preview)
-           href: howto-saml-token-encryption.md
-       - name: End-user portals
-         href: end-user-experiences.md
+name: Concepts
+    items: 
+    - name: Plan a cloud app integration
+      items:
+      - name: What happens when you add an app
+        href: plan-an-application-integration.md
+      - name: Guidance for developers
+        href: developer-guidance-for-integrating-applications.md
+    - name: Plan an on-premises app integration
+      items:
+      - name: Application Proxy
+        href: application-proxy.md
+      - name: Plan an Application Proxy deployment
+        href: application-proxy-deployment-plan.md
+      - name: Connectors
+        href: application-proxy-connectors.md
+      - name: Connector groups
+        href: application-proxy-connector-groups.md
+      - name: Security
+        href: application-proxy-security.md
+      - name: Network topology
+        href: application-proxy-network-topology.md
+      - name: Comparison of remote access solutions
+        href: application-proxy-migration.md
+    - name: Single sign-on
+      items: 
+      - name: What is single sign-on
+        href: what-is-single-sign-on.md
+      - name: Planning a single sign-on deployment
+        href: plan-sso-deployment.md
+    - name: One Click SSO
+      items:
+      - name: What is One Click SSO
+        href: one-click-sso-tutorial.md
+    - name: Provisioning users and groups
+      items:
+      - name: Automatic user provisioning
+        href: user-provisioning.md
+      - name: Enable automatic provisioning for SaaS apps
+        href: isv-automatic-provisioning-multi-tenant-apps.md
+      - name: Automatic provisioning for SCIM-enabled apps
+        href: use-scim-to-provision-users-and-groups.md
+    - name: Application security
+      items:
+      - name: App access options
+        href: what-is-access-management.md
+      - name: Certificate signing options
+        href: certificate-signing-options.md
+      - name: Manage certificates
+        href: manage-certificates-for-federated-single-sign-on.md
+      - name: Tenant restrictions
+        href: tenant-restrictions.md
+      - name: Configure SAML token encryption (Preview)
+        href: howto-saml-token-encryption.md
+    - name: End-user portals
+      href: end-user-experiences.md
      - name: How-to guides
        items:
        - name: Add a cloud app
