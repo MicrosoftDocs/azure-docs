@@ -32,7 +32,7 @@ Another use case for Azure Data Share is establishing a data consortium. For exa
 
 Azure Data Share uses a snapshot-based sharing approach, where data moves from the data provider's Azure subscription and lands in the data consumer's Azure subscription. As a data provider, you provision a data share and invite recipients to the data share. Data consumers receive an invitation to your data share via e-mail. Once a data consumer accepts the invitation, they can trigger a full snapshot of the data shared you shared them. This data is received into the data consumers storage account. Data consumers can receive regular, incremental updates to the data shared with them so that they always have the latest version of the data. 
 
-Data Providers can offer their data consumers incremental updates to the data shared with them through a snapshot schedule. Snapshot schedules are offered on an hourly or a daily basis. When a data consumer accepts and configures their data share, they can subscribe to a snapshot schedule. This is beneficial in scenarios where the shared data is updated on a regular basis, and the data consumer needs the most up-to-date data. 
+Data providers can offer their data consumers incremental updates to the data shared with them through a snapshot schedule. Snapshot schedules are offered on an hourly or a daily basis. When a data consumer accepts and configures their data share, they can subscribe to a snapshot schedule. This is beneficial in scenarios where the shared data is updated on a regular basis, and the data consumer needs the most up-to-date data. 
 
 ![data share flow](media/data-share-flow.png)
 
@@ -40,7 +40,7 @@ When a data consumer accepts a data share, they are able to receive the data in 
 
 ## Key capabilities
 
-Azure Data Share enables Data Providers to:
+Azure Data Share enables data providers to:
 
 * Share data from Azure Storage and Azure Data Lake Store with customers and partners outside of your organization
 
@@ -50,7 +50,7 @@ Azure Data Share enables Data Providers to:
 
 * Allow your customers to pull the latest version of your data as needed, or allow them to automatically receive incremental changes to your data at an interval defined by you
 
-Azure Data Share enables Data Consumers to: 
+Azure Data Share enables data consumers to: 
 
 * View a description of the type of data being shared
 
