@@ -17,7 +17,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |1.1|Your app or add-in must offer unique value or utility within the app or add-in experience that extends Office or SharePoint functionality for AppSource customers.|
 |1.2|Your app or add-in must work according to your description, and must not be in an unfinished state.|
 |1.3|Your app or add-in's trial functionality must reasonably resemble its paid version.|
-|1.4|Effective July 29th 2019, new paid add-ins accepted for publication to AppSource must be free. Updates to existing paid add-ins will be supported until July 2020. For more information, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md).
+|1.4|Effective July 29th 2019, new add-ins accepted for publication to AppSource must be free. Updates to existing paid add-ins will be supported until July 2020. For more information, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md).
 
 <a name="bk_2"> </a>
 ## 2. Apps or add-ins can display certain ads
