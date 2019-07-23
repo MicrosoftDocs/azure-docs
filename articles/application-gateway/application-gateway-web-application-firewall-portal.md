@@ -84,7 +84,7 @@ Select **Networking** and then select **Application Gateway** in the **Featured*
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you will create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **+Add a backend pool**.
 
@@ -225,7 +225,7 @@ Configure diagnostics to record data into the ApplicationGatewayAccessLog, Appli
 3. select **Add diagnostics setting**.
 4. Enter *myDiagnosticsSettings* as the name for the diagnostics settings.
 5. Select **Archive to a storage account**, and then select **Configure** to select the *myagstore1* storage account that you previously created, and then select **OK**.
-6. Select the application gateway logs to collect and retain.
+6. Select the application gateway logs to collect and keep.
 7. Select **Save**.
 
     ![Configure diagnostics](./media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
@@ -234,9 +234,11 @@ Configure diagnostics to record data into the ApplicationGatewayAccessLog, Appli
 
 Although IIS isn't required to create the application gateway, you installed it to verify whether Azure successfully created the application gateway. Use IIS to test the application gateway:
 
-1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)Alternatively, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
-2. Copy the public IP address, and then paste it into the address bar of your browser.
-3. Check the response. A valid response verifies that the application gateway was successfully created and it can successfully connect with the backend.
+1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) 
+
+   Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
+1. Copy the public IP address, and then paste it into the address bar of your browser.
+1. Check the response. A valid response verifies that the application gateway was successfully created and it can successfully connect with the backend.
 
    ![Test application gateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
@@ -249,7 +251,7 @@ To remove the resource group:
 1. On the left menu of the Azure portal, select **Resource groups**.
 2. On the **Resource groups** page, search for **myResourceGroupAG** in the list, then select it.
 3. On the **Resource group page**, select **Delete resource group**.
-4. Enter *myResourceGroupAG* for **TYPE THE RESOURCE GROUP NAME** and then select **Delete**
+4. Enter *myResourceGroupAG* for **TYPE THE RESOURCE GROUP NAME** and then select **Delete**.
 
 ## Next steps
 
