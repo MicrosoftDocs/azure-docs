@@ -1106,6 +1106,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/identity-protection/howto-improve-detection-accuracy.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-provide-risk-event-feedback",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/authentication/howto-sspr-windows-7-8.md",
       "redirect_url": "/azure/active-directory/authentication/howto-sspr-windows",
       "redirect_document_id": false
@@ -1319,11 +1324,6 @@
       "source_path": "articles/cognitive-services/Bing-Image-Search/tutorial-image-post-source.md",
       "redirect_url": "/azure/cognitive-services/bing-image-search/tutorial-image-post",
       "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/iot-edge/iot-edge-what-is-azure-iot.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-introduction",
-      "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-hub/iot-hub-auto-device-config.md",
@@ -2526,6 +2526,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-edge/iot-edge-what-is-azure-iot.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-edge/sql-storage.md",
       "redirect_url": "/azure/iot-edge/tutorial-store-data-sql-server",
       "redirect_document_id": false
@@ -2648,6 +2653,11 @@
     {
       "source_path": "articles/iot-edge/how-to-install-iot-core.md",
       "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-install-iot-edge-linux-arm.md",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-linux",
       "redirect_document_id": false
     },
     {
@@ -4669,6 +4679,16 @@
       "source_path": "articles/logic-apps/logic-apps-deploy-from-vs.md",
       "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-template",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-create-deploy-template.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/connectors/connectors-overview.md",
@@ -12306,10 +12326,15 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/lab-services/how-to-manage-classroom-labs.md",
-      "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-classroom-labs",
+      "source_path": "articles/lab-services/devtest-lab-get-started-with-lab-policies.md",
+      "redirect_url": "/azure/lab-services/devtest-lab-set-lab-policy",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/lab-services/devtest-lab-import-vm.md",
+      "redirect_url": "/azure/lab-services/import-virtual-machines-from-another-lab",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/lab-services/how-to-manage-lab-accounts.md",
       "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-lab-accounts",
@@ -15231,6 +15256,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-wan/virtual-wan-point-to-site-portal.md",
+      "redirect_url": "/azure/virtual-wan/virtual-wan-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/guidance/guidance-connecting-your-on-premises-network-to-azure.md",
       "redirect_url": "/azure/networking/networking-overview",
       "redirect_document_id": false
@@ -15333,6 +15363,11 @@
     {
       "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
       "redirect_url": "/azure/load-balancer/load-balancer-get-started-internet-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-rp.md",
+      "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider",
       "redirect_document_id": false
     },
     {
@@ -30335,6 +30370,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/faq.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/troubleshooting",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Guides/active-learning-qnamaker.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
       "redirect_document_id": false
@@ -39805,6 +39845,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/hdinsight/hdinsight-extend-hadoop-virtual-network.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-plan-virtual-network-deployment",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-troubleshoot-service-principals.md",
       "redirect_url": "/azure/active-directory-domain-services/alert-service-principal",
       "redirect_document_id": true
@@ -40231,6 +40276,42 @@
     {
       "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi.md",
       "redirect_url": "https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Academic-Knowledge/GraphSearchMethod.md",
+      "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Academic-Knowledge/JSONSearchSyntax.md",
+      "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Academic-Knowledge/LambdaSearchSyntax.md",
+      "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/curl-disk.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
     }
   ]

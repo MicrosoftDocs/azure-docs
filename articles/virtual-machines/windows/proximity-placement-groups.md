@@ -73,10 +73,8 @@ New-AzVm `
 You can see the VM in the placement group using [Get-AzProximityPlacementGroup](/powershell/module/az.compute/get-azproximityplacementgroup).
 
 ```azurepowershell-interactive
-Get-AzProximityPlacementGroup `
-   -ResourceId $ppg.Id | Format-Table `
-   -Wrap `
-   -Property VirtualMachines 
+Get-AzProximityPlacementGroup -ResourceId $ppg.Id |
+    Format-Table -Property VirtualMachines -Wrap
 ```
 
 ## Availability Sets
@@ -84,7 +82,7 @@ You can also create an  availability set in your proximity placement group. Use 
 
 ## Scale sets
 
-You can also create a scale-set in your proximity placement group. Use the same `-ProximityPlacementGroup` parameter with [New-AzVMSS](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) to create a scale set and all of the instances will be created in the same proximity placement group.
+You can also create a scale set in your proximity placement group. Use the same `-ProximityPlacementGroup` parameter with [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) to create a scale set and all of the instances will be created in the same proximity placement group.
 
 ## Next steps
 

@@ -44,10 +44,10 @@ If the [SQL IaaS Extension](virtual-machines-windows-sql-server-agent-extension.
 Register SQL Server VM using PowerShell with the following code snippet:
 
   ```powershell-interactive
-     // Get the existing  Compute VM
+     # Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     // Register with SQL VM resource provider
+     # Register with SQL VM resource provider
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='AHUB'}  
@@ -59,10 +59,10 @@ If the SQL IaaS Extension is not installed on the VM, then you can register with
 Register SQL Server VM in lightweight SQL management mode using PowerShell with the following code snippet:
 
   ```powershell-interactive
-     // Get the existing  Compute VM
+     # Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     // Register SQL VM with 'Lightweight' SQL IaaS agent
+     # Register SQL VM with 'Lightweight' SQL IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  
@@ -87,7 +87,7 @@ The following table details the acceptable values for the parameters provided du
 To register your SQL Server 2008 or 2008 R2 on Windows Server 2008 instance, use the following Powershell code snippet:  
 
   ```powershell-interactive
-     // Get the existing  Compute VM
+     # Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
@@ -190,9 +190,9 @@ The default SQL management mode when registering with SQL VM RP is _Full_. If SQ
 
 There are no prerequisites to registering with the SQL VM resource provider in lightweight mode or no-agent mode. The prerequisites to registering with the SQL VM resource provider in Full mode is having the SQL IaaS Extension installed on the VM.
 
-**Can I register with SQL VM RP if I do not have the SQL IaaS Extension installed on the VM?**
+**Can I register with SQL VM resouce provider if I do not have the SQL IaaS Extension installed on the VM?**
 
-Yes, you can register with SQL VM resource provider in lightweight management mode if you do not have SQL IaaS Extension installed on the VM. In lightweight mode, SQL VM RP will use a console app to query the registry of the VM and verify the version and edition of the SQL instance. The console app will shut itself down after verifying that there is at least one SQL instance running on the VM. Registering with SQL VM resource provider in lightweight mode will not restart SQL Server and will not create an agent on the VM.
+Yes, you can register with SQL VM resource provider in lightweight management mode if you do not have SQL IaaS Extension installed on the VM. In lightweight mode, SQL VM resouce provider will use a console app to verify the version and edition of the SQL instance. The console app will shut itself down after verifying that there is at least one SQL instance running on the VM. Registering with SQL VM resource provider in lightweight mode will not restart SQL Server and will not create an agent on the VM.
 
 **Will registering with SQL VM resource provider install an agent on my VM?**
 
