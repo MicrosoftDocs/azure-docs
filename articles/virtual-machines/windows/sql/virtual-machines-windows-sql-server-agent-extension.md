@@ -105,7 +105,7 @@ To upgrade agent mode to *full*, do the following:
 
 Run the following Az CLI code snippet:
 
-  ```
+  ```azurecli-interactive
   # Update to full mode
 
   az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
@@ -124,7 +124,6 @@ Run the following PowerShell code snippet:
   ```
 
 ---
-
 
 
 ##  Installation

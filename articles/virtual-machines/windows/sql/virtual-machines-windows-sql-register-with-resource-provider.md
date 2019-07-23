@@ -57,11 +57,12 @@ Register SQL Server VM in lightweight SQL management mode with the following cod
         -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  
   
   ```
+
 # [AZ CLI](#tab/bash)
 
 For paid editions (Enterprise or Standard):
 
-  ```
+  ```azurecli-interactive
   # Register Enterprise or Standard self-installed VM in Lightweight mode
 
   az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type AHUB 
@@ -70,7 +71,7 @@ For paid editions (Enterprise or Standard):
 
 For free editions (Developer, Web, or Express):
 
-  ```
+  ```azurecli-interactive
   # Register Developer, Web, or Express self-installed VM in Lightweight mode
 
   az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type PAYG 
