@@ -39,7 +39,7 @@ To add a real device to your application, you use the **Environmental Sensor** d
 
 1. To add a simulated environmental sensor device, select **+ New**. Use the suggested **Device ID** or enter your own lowercase **Device ID**. You can also enter a name for your new device. Switch the **simulated** toggle to **On** and then select **Create**.
 
-1. Now you will be able to interact with the views that were created by the builder for the device template using simulated data.
+1. Now you can interact with the views that were created by the builder for the device template using simulated data.
 
 
 ## Use a simulated device to improve views
