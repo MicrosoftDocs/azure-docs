@@ -103,7 +103,7 @@ Select **ADD**.
 
 ## Add DHCP service to the logical switch
 
-Select **Networking > DHCP > Server Profiles > *+ ADD**.
+Select **Networking > DHCP > Server Profiles > + ADD**.
 
 Enter a **Name** and select the **Edge Cluster** on the form.
 

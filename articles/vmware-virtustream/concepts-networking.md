@@ -16,7 +16,7 @@ ms.custom:
 
 Network interconnectivity between your Azure VMware Solution (AVS) by Virtustream private clouds and on-premises environments or VNets in Azure enable you to access and use your private cloud. A few key networking and interconnectivity concepts that establish the basis of interconnectivity are described in this article.
 
-A useful perspective on interconnectivity is to consider the two types of AVS by Virtustream private clouds implementations: those with basic Azure-only interconnectivity, those with full on-premises to private cloud interconnectivity.
+A useful perspective on interconnectivity is to consider the two types of AVS by Virtustream private cloud implementations: those with basic Azure-only interconnectivity, those with full on-premises to private cloud interconnectivity.
 
 The use cases for AVS by Virtustream private clouds include:
 - new VMware VM workloads in the cloud
@@ -34,8 +34,8 @@ The two types of AVS by Virtustream private cloud interconnectivity are describe
 The basic network interconnectivity that is established at the time of a private cloud deployment is shown in the diagram below. It depicts the logical, ExpressRoute-based networking between a VNet in Azure and a private cloud. The interconnectivity fulfills three of the primary use cases:
 - Inbound access to management networks where vCenter server and NSX-T manager are located.
     - Accessible from VMs within your Azure subscription, not from your on-premises systems.
-- Outbound access to Azure services by production VM workloads.
-- Inbound access and consumption of workloads running in the SDDC.
+- Outbound access from VMs to Azure services.
+- Inbound access and consumption of workloads running a private cloud.
 
 ![Basic VNet -to- private cloud connectivity](./media/concepts/adjacency-overview-drawing-single.png)
 
@@ -49,7 +49,7 @@ You design the private cloud logical networking and implement it with NSX-T. You
 
 ## On-premises interconnectivity
 
-You can also connect on-premises environments to your AVS by Virtustream private clouds. This type of interconnectivity is an extension to the basic interconnectivity described in the previous section. You can see how it is simple extension to basic interconnectivity.
+You can also connect on-premises environments to your AVS by Virtustream private clouds. This type of interconnectivity is an extension to the basic interconnectivity described in the previous section.
 
 ![VNet and on-premises full private cloud connectivity](./media/concepts/adjacency-overview-drawing-double.png)
 
