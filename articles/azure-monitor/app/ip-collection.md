@@ -14,22 +14,22 @@ ms.author: mbullwin
 
 # Geolocation and IP address handling
 
-This article explains how geolocation lookup and IP address handling occurs in Application Insights along with how to modify the default behavior.
+This article explains how geolocation lookup and IP address handling occur in Application Insights along with how to modify the default behavior.
 
 ## Default behavior
 
 By default IP addresses are temporarily collected, but not stored in Application Insights. The basic process is as follows:
 
-IP addresses are sent to Application Insights as part of telemetry data. Upon reaching the ingestion endpoint in Azure the IP address is used to perform a geolocation lookup using [GeoLite2 from MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). The results of this lookup populate the following fields `client_City`, `client_StateOrProvince`, `client_CountryOrRegion`. At this point the IP address is discarded and `0.0.0.0` is written to the client_IP field.
+IP addresses are sent to Application Insights as part of telemetry data. Upon reaching the ingestion endpoint in Azure, the IP address is used to perform a geolocation lookup using [GeoLite2 from MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). The results of this lookup populate the following fields `client_City`, `client_StateOrProvince`, `client_CountryOrRegion`. At this point, the IP address is discarded and `0.0.0.0` is written to the client_IP field.
 
 * Browser telemetry: We collect the sender's IP address.
 * Server telemetry: The Application Insights module collects the client IP address. It is not collected if `X-Forwarded-For` is set.
 
-This behavior is by design to help avoid unecessary collection of personal data. Whenever possible, we strongly recommend avoiding the collection of personal data. 
+This behavior is by design to help avoid unnecessary collection of personal data. Whenever possible, we strongly recommend avoiding the collection of personal data. 
 
 ## Overriding default behavior
 
-While the default behavior is to minimize the collection of personal data, we still offer the flexibility to collect and store IP address data. Before choosing to store any personal data like IP addresses, we strongly recommend verifying that this does not break any compliance requirements or local regulations that you may be subject to. To learn more about personal data handling  in Application Insights consult the [guidance for personal data](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
+While the default behavior is to minimize the collection of personal data, we still offer the flexibility to collect and store IP address data. Before choosing to store any personal data like IP addresses, we strongly recommend verifying that this does not break any compliance requirements or local regulations that you may be subject to. To learn more about personal data handling in Application Insights, consult the [guidance for personal data](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
 
 ## Storing partial IP address data
 
@@ -60,7 +60,7 @@ In order to enable partial IP collection and storage the  `DisableIpMasking` pro
 
 ### Portal 
 
-If you only need to modify the behavior for a single Application Insights resource the easiest way to do this is via the Azure Portal. 
+If you only need to modify the behavior for a single Application Insights resource the easiest way to accomplish this is via the Azure portal. 
 
 1. Go your Application Insights resource > **Settings** > **Export Template** 
 
@@ -76,7 +76,7 @@ If you only need to modify the behavior for a single Application Insights resour
 
 4. Make the following changes to the json for your resource and then click **Save**:
 
-![Screenshot add a comma after "IbizaAIExtension" and add a new line below with               "DisableIpMasking": true](media/ip-collection/save.png)
+![Screenshot adds a comma after "IbizaAIExtension" and add a new line below with               "DisableIpMasking": true](media/ip-collection/save.png)
 
    > [!NOTE]
    > If you experience an error that says: _The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group._ Temporarily select a different resource group from the dropdown and then re-select your original resource group to resolve the error.
@@ -118,7 +118,7 @@ Content-Length: 54
 
 ### Telemetry initializer
 
-If you need to record the entire IP address rather than just the the first 3 octets you can use a telemetry initializer to copy the IP address to a custom field that will not be masked.
+If you need to record the entire IP address rather than just the first three octets you can use a telemetry initializer to copy the IP address to a custom field that will not be masked.
 
 ### ASP.NET
 
@@ -162,7 +162,7 @@ namespace MyWebApp
 
 ### ASP.NET Core
 
-You can create your telemetry initializer the same way for ASP.NET Core as ASP.NET but to enable use the following example for reference:
+You can create your telemetry initializer the same way for ASP.NET Core as ASP.NET but to enable the initializer, use the following example for reference:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
