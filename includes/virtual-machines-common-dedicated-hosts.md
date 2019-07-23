@@ -78,7 +78,7 @@ VMs deployed to hosts with different fault domains, will have their underlying m
 
 You can use both capabilities to achieve even more fault isolation domains. In this case, you will specify the availability zone and fault domain count in for each group, assign a fault domain to each of your hosts in the group, and assign an availability zone to each of your VMs
 
-The Resource Manager template found [here](https://github.com) uses zones and fault domains to spread hosts for maximum resiliency in a region.
+The Resource Manager sample template found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) uses zones and fault domains to spread hosts for maximum resiliency in a region.
 
 ## Maintenance control
 
