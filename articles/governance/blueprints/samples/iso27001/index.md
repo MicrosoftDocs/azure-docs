@@ -12,7 +12,9 @@ manager: carmonm
 
 The ISO 27001 blueprint sample provides governance guard-rails using [Azure Policy](../../../policy/overview.md)
 that help you assess specific ISO 27001 controls. This blueprint helps customers deploy a core set 
-of policies for any Azure-deployed architecure that must implement ISO 27001 controls.
+of policies for any Azure-deployed architecure that must implement ISO 27001 controls. Two 
+additional ISO 27001 blueprint samples are available that can help you deploy a [foundational architecture](../iso27001-shared/index.md)
+and an [ASE/SQL workload](../iso27001-ase-sql-workload/index.md).
 
 ## Control mapping
 
