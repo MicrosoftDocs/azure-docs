@@ -39,11 +39,11 @@ To add an IP filter rule, select **+ Add IP Filter Rule**.
 
 ![Add an IP filter rule to an IoT hub](./media/iot-hub-ip-filtering/ip-filter-add-rule.png)
 
-After selecting **Add IP Filter Rule**, fill in the fields as displayed in this screenshot:
+After selecting **Add IP Filter Rule**, you are prompted to fill in the fields.
 
 ![After selecting Add an IP Filter rule](./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png)
 
-You are prompted for the following values:
+Fill in the fields as described:
 
 * A **name** for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.
 
@@ -57,7 +57,7 @@ After filling in the fields, select **Save** to save the rule. You see an alert 
 
 The **Add** option is disabled when you reach the maximum of 10 IP filter rules.
 
-You can edit an existing rule by selecting the data you want to change, making the change, then selecting **Save** to save your edit.
+To edit an existing rule, select the data you want to change, make the change, then select **Save** to save your edit.
 
 > [!NOTE]
 > Rejecting IP addresses can prevent other Azure Services (such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in the portal) from interacting with the IoT hub.
