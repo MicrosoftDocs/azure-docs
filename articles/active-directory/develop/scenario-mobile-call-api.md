@@ -122,7 +122,7 @@ If you need to call the same API several times, or if you need to call multiple 
 
 ## Calling several APIs in Xamarin or UWP - Incremental consent and Conditional Access
 
-If you need to call several APIs for the same user, once you got a token for the first API, you can just call `AcquireTokenSilent`, and you'll get a token for the other APIs silently most of the time.
+If you need to call several APIs for the same user, once you've acquired a token for a user, you can avoid repeatedly asking the user for credentials by subsequently calling `AcquireTokenSilent` to get a token.
 
 ```CSharp
 var result = await app.AcquireTokenXX("scopeApi1")

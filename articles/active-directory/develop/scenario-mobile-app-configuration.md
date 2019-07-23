@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Mobile app that calls web APIs - code configuration
 
-Now that you've created your application, you'll learn how to configure the code with the application's coordinates. Mobile applications also have some complex specifics, which have to do with fitting into the framework used to build these apps
+Once you've created your application, you'll learn how to configure the code from the application's parameters you got at app registration. Mobile applications also have some complex specifics, which have to do with fitting into the framework used to build these apps
 
 ## MSAL Libraries supporting mobile apps
 
@@ -35,7 +35,7 @@ The Microsoft libraries supporting mobile apps are:
 
 ## Configuring the application
 
-Mobile applications use the MSAL's Public client application class. Here is how to instantiate it:
+Mobile applications use the MSAL's `PublicClientApplication` class. Here is how to instantiate it:
 
 ### Android
 
@@ -61,18 +61,18 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 ### Xamarin or UWP
 
-This paragraph explains how to configure the code of the application for Xamarin.iOS, Xamarin.Android, and UWP apps. The first step is to instantiate the application. An optional step is to configure the broker.
+The following paragraph explains how to configure the code of the application for Xamarin.iOS, Xamarin.Android, and UWP apps. The first step is to instantiate the application. An optional step is to configure the broker.
 
 #### Instantiating the application
 
-In Xamarin, or UWP, the simplest way to instantiate the application is as follows, where the ClientId is the Guid of you application as registered.
+In Xamarin, or UWP, the simplest way to instantiate the application is as follows, where the `ClientId` is the Guid of your application as registered.
 
 ```CSharp
 var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
 
-But more parameters are possible. This is the topic of the following paragraphs.
+There are additional With*parameter* methods which set the UI parent, override the default authority, specify a client name and version (for telemetry), specify a redirect URI, Specify the Http factory to use (for instance to handle proxies, specify telemetry and logging) . This is the topic of the following paragraphs.
 
 ##### Specifying the parent UI/Window/Activity
 
@@ -84,7 +84,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
   .Build();
 ```
 
-On Android, a recommendation is to use the CurrentActivityPlugin [here](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Then your PublicClientApplication builder code would look like this:
+On Android, we recommend you the `CurrentActivityPlugin` [here](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Then your `PublicClientApplication` builder code would look like this:
 
 ```CSharp
 // Requires MSAL.NET 4.2 or above
@@ -94,34 +94,38 @@ var pca = PublicClientApplicationBuilder
   .Build();
 ```
 
-##### More parameters
+##### More app building parameters
 
 - For the list of all modifiers available on `PublicClientApplicationBuilder`, see the reference documentation [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
 - For the description of all the options exposed in `PublicClientApplicationOptions` see [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions), in the reference documentation
 
-#### Other Xamarin iOS specific considerations
+#### Xamarin iOS specific considerations
 
-On Xamarin iOS, there are several considerations that you must take into account when using MSAL.NET. Details are provided in [Xamarin iOS considerations](msal-net-xamarin-ios-considerations.md):
+On Xamarin iOS, there are several considerations that you must take into account when using MSAL.NET:
 
 1. [Override and implement the `OpenUrl` function in the `AppDelegate`](msal-net-xamarin-ios-considerations.md#implement-openurl)
 1. [Enable Keychain groups](msal-net-xamarin-ios-considerations.md#enable-keychain-access)
 1. [Enable token cache sharing](msal-net-xamarin-ios-considerations.md#enable-token-cache-sharing-across-ios-applications)
 1. [Enable Keychain access](msal-net-xamarin-ios-considerations.md#enable-keychain-access)
 
+Details are provided in [Xamarin iOS considerations](msal-net-xamarin-ios-considerations.md)
+
 #### Other Xamarin Android specific considerations
 
-Like for iOS, Xamarin has specifics. Details are provided in [Xamarin Android considerations](msal-net-xamarin-android-considerations.md)
+Here are Xamarin Android specifics:
 
 - [Ensuring control goes back to MSAL once the interactive portion of the authentication flow ends](msal-net-xamarin-android-considerations.md#ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends)
 - [Update the Android manifest](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
 - [Use the embedded web view (optional)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
 - [Troubleshooting](msal-net-xamarin-android-considerations.md#troubleshooting)
 
+Details are provided in [Xamarin Android considerations](msal-net-xamarin-android-considerations.md)
+
 Finally, there are some specificities to know about the browsers on Android. They are explained in [Xamarin Android-specific considerations with MSAL.NET](msal-net-system-browser-android-considerations.md)
 
 #### UWP specific considerations
 
-See [Universal Windows Platform-specific considerations with MSAL.NET](msal-net-uwp-considerations.md) for information about the UWP specifics.
+On UWP, you can use corporate networks. For information about the UWP specifics, see [Universal Windows Platform-specific considerations with MSAL.NET](msal-net-uwp-considerations.md).
 
 ## Configuring the application to use the broker
 
@@ -130,12 +134,12 @@ See [Universal Windows Platform-specific considerations with MSAL.NET](msal-net-
 On Android and iOS, brokers enable:
 
 - Single Sign On (SSO). Your users won't need to sign-in to each application.
-- Device identification. By accessing the device certificate that was created on the device when it was workplace joined.
+- Device identification. Enables Azure AD device related conditional access policies, by accessing the device certificate that was created on the device when it was workplace joined.
 - Application identification verification. When an application calls the broker, it passes its redirect url, and the broker verifies it.
 
 ### Enable the brokers on Xamarin
 
-To enable one of these features, you'll need to use the `WithBroker()` parameter when calling the `PublicClientApplicationBuilder.CreateApplication` method. `.WithBroker()` is set to true by default. You'll also need to follow the steps below for [iOS](#brokered-authentication-for-xamarinios).
+To enable one of these features, use the `WithBroker()` parameter when calling the `PublicClientApplicationBuilder.CreateApplication` method. `.WithBroker()` is set to true by default. Follow the steps below for [iOS](#brokered-authentication-for-xamarinios).
 
 ### Brokered Authentication for Xamarin.iOS
 
@@ -143,7 +147,7 @@ Follow the steps below to enable your Xamarin.iOS app to talk with the [Microsof
 
 #### Step 1: Enable broker support
 
-Broker support is enabled on a per-PublicClientApplication basis. It's disabled by default. You must use the `WithBroker()` parameter (set to true by default) when creating the PublicClientApplication through the PublicClientApplicationBuilder.
+Broker support is enabled on a per-`PublicClientApplication` basis. It's disabled by default. You must use the `WithBroker()` parameter (set to true by default) when creating the `PublicClientApplication` through the `PublicClientApplicationBuilder`.
 
 ```CSharp
 var app = PublicClientApplicationBuilder
@@ -155,7 +159,7 @@ var app = PublicClientApplicationBuilder
 
 #### Step 2: Update AppDelegate to handle the callback
 
-When MSAL.NET calls the broker, the broker will, in turn, call back to your application through the `OpenUrl` method of the `AppDelegate` class. Since MSAL will wait for the response from the broker, your application needs to cooperate to call MSAL.NET back. You do this by updating the `AppDelegate.cs` file to override the below method.
+When MSAL.NET calls the broker, the broker will, in turn, call back to your application through the `AppDelegate.OpenUrl` method. Since MSAL will wait for the response from the broker, your application needs to cooperate to call MSAL.NET back. You do this by updating the `AppDelegate.cs` file to override the below method.
 
 ```CSharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
@@ -179,9 +183,9 @@ This method is invoked every time the application is launched, and is used as an
 
 #### Step 3: Set a UIViewController()
 
-Still in `AppDelegate.cs`, you'll need to set an object window. Normally, with Xamarin iOS, you don't need to set the object window, but in order to send and receive responses from broker, you'll need an object window.
+With Xamarin iOS, you don't normally need to set an object window, but in this case you do to send and receive responses from a broker. Still in `AppDelegate.cs`, set a ViewController.
 
-To do this, you'll need to do two things:
+Do the following to set the object window:
 
 1) In `AppDelegate.cs`, set the `App.RootViewController` to a new `UIViewController()`. This will make sure there's a `UIViewController` with the call to the broker. If it isn't set correctly, you may get this error:
 `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
@@ -209,7 +213,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 MSAL.NET uses URLs to invoke the broker and then return the broker response back to your app. To finish the round trip, you need to register a URL scheme for your app in the `Info.plist` file.
 
-The `CFBundleURLSchemes` name must include `msauth.` as a prefix, followed by your `CFBundleURLName`.
+Prefix the `CFBundleURLSchemes` with `msauth`. Then add `CFBundleURLName` to the end.
 
 `$"msauth.(BundleId)"`
 

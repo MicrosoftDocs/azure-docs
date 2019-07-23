@@ -26,16 +26,16 @@ This article contains the app registration instructions for creating a mobile ap
 
 ## Supported accounts types
 
-The account types supported in mobile applications depend on the experience you want to enable and users your app is targeting, and the flows you want to use.
+The account types supported in mobile applications depend on the experience you want to enable, and the flows you want to use.
 
 ### Audience for interactive token acquisition
 
 Most mobile applications use interactive authentication. If that's your case, you can sign in users from any [account type](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)
 
-### Audience for mobile app silent flows
+### Audience for Integrated authentication, username/password, and B2C
 
 - If you intend to use Integrated Windows authentication (possible in UWP apps) or username/password, your application needs to sign in users in your own tenant (LOB developer), or in Azure Active directory organizations (ISV scenario). These authentication flows aren't supported for Microsoft personal accounts
-- If you sign in users with social identities passing a B2C authority and policy, you can only use the interactive and username-password authentication. Username-password is currently only supported on Xamarin.iOS, Xamarin.Android and UWP.
+- If you sign in users with social identities passing a B2C authority and policy, you can only use interactive and username-password authentication. Username-password is currently only supported on Xamarin.iOS, Xamarin.Android and UWP.
 
 For the big picture, see [Scenarios and supported authentication flows](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) and [Scenarios and supported platforms and languages](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
 
@@ -43,11 +43,11 @@ For the big picture, see [Scenarios and supported authentication flows](authenti
 
 ### Interactive authentication
 
-When building a mobile app using the interactive authentication, the most critical registration step is the redirect URI. This can be set through the [platform configuration in the Authentication blade](https://aka.ms/MobileAppReg).
+When building a mobile app using interactive authentication, the most critical registration step is the redirect URI. This can be set through the [platform configuration in the Authentication blade](https://aka.ms/MobileAppReg).
 
 This experience will enable your app to get single sign-on (SSO) through the Microsoft Authenticator (and Intune Company Portal on Android) as well as support device management policies.
 
-Note that there is a new experience in the app registration portal to help you compute the brokered reply URI for iOS and Android applications:
+Note that there is a preview experience in the app registration portal to help you compute the brokered reply URI for iOS and Android applications:
 
 1. In the app registration choose **Authentication** and selection **Try-out the new experience**
    ![image](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
