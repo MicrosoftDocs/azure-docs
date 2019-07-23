@@ -20,12 +20,8 @@ ms.author: mlottner
 ---
 # Deploy Azure Security Center for IoT C#-based security agent for Linux
 
-> [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This guide explains how to install and deploy the Azure Security Center (ASC) for IoT C#-based security agent on Linux.
+This guide explains how to install and deploy the Azure Security Center for IoT C#-based security agent on Linux.
 
 In this guide, you learn how to: 
 > [!div class="checklist"]
@@ -122,8 +118,8 @@ To uninstall the agent, run the script with the –u parameter: `./InstallSecuri
 
 ## Next steps
 
-- Read the ASC for IoT service [Overview](overview.md)
-- Learn more about ASC for IoT [Architecture](architecture.md)
+- Read the Azure Security Center for IoT service [Overview](overview.md)
+- Learn more about Azure Security Center for IoT [Architecture](architecture.md)
 - Enable the [service](quickstart-onboard-iot-hub.md)
 - Read the [FAQ](resources-frequently-asked-questions.md)
 - Understand [alerts](concept-security-alerts.md)

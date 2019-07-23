@@ -1,5 +1,5 @@
 ---
-title: Accessing data using Azure Security Center for IoT Preview| Microsoft Docs
+title: Accessing data using Azure Security Center for IoT| Microsoft Docs
 description: Learn about how to access your security alert and recommendation data when using Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 07/23/2019
 ms.author: mlottner
 
 ---
 
 # Access your security data 
 
-> [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Security Center (ASC) for IoT stores security alerts, recommendations, and raw security data (if you choose to save it) in your Log Analytics workspace.
+Azure Security Center for IoT stores security alerts, recommendations, and raw security data (if you choose to save it) in your Log Analytics workspace.
 
 ## Log Analytics
 
@@ -38,14 +33,14 @@ To configure which Log Analytics workspace is used:
 
 To access your Log Analytics workspace after configuration:
 
-1. Choose an alert or recommendation in ASC for IoT. 
+1. Choose an alert or recommendation in Azure Security Center for IoT. 
 2. Click **further investigation**, then click **To see which devices have this alert click here and view the DeviceId column**.
 
 For details on querying data from Log Analytics, see [Get started with queries in Log Analytics](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries).
 
 ## Security alerts
 
-Security alerts are stored in _AzureSecurityOfThings.SecurityAlert_ table in the Log Analytics workspace configured for the ASC for IoT solution.
+Security alerts are stored in _AzureSecurityOfThings.SecurityAlert_ table in the Log Analytics workspace configured for the Azure Security Center for IoT solution.
 
 We've provided a number of useful queries to help you get started exploring security alerts.
 
@@ -124,7 +119,7 @@ SecurityAlert
 
 ## Security recommendations
 
-Security recommendations are stored in _AzureSecurityOfThings.SecurityRecommendation_ table in the Log Analytics workspace configured for the ASC for IoT solution.
+Security recommendations are stored in _AzureSecurityOfThings.SecurityRecommendation_ table in the Log Analytics workspace configured for the Azure Security Center for IoT solution.
 
 We've provided a number of useful queries to help you get start exploring security recommendations.
 
@@ -178,7 +173,7 @@ SecurityRecommendation
 
 ## Next steps
 
-- Read the ASC for IoT [Overview](overview.md)
-- Learn about ASC for IoT [Architecture](architecture.md)
-- Understand and explore [ASC for IoT alerts](concept-security-alerts.md)
-- Understand and explore [ASC for IoT recommendation](concept-recommendations.md)
+- Read the Azure Security Center for IoT [Overview](overview.md)
+- Learn about Azure Security Center for IoT [Architecture](architecture.md)
+- Understand and explore [Azure Security Center for IoT alerts](concept-security-alerts.md)
+- Understand and explore [Azure Security Center for IoT recommendation](concept-recommendations.md)

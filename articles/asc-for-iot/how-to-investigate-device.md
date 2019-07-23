@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center for IoT device investigation guide Preview| Microsoft Docs
+title: Azure Security Center for IoT device investigation guide| Microsoft Docs
 description: This how to guide explains how to use Azure Security Center for IoT to investigate a suspicious IoT device using Log Analytics.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 07/23/2019
 ms.author: mlottner
 
 ---
 
 # Investigate a suspicious IoT device
 
-> [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Security Center (ASC) for IoT service alerts and evidence provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised. 
+Azure Security Center for IoT service alerts and evidence provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised. 
 
 In this guide, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.  
 
@@ -37,7 +32,7 @@ In this guide, use the investigation suggestions provided to help determine the 
 
 ## How can I access my data?
 
-By default, ASC for IoT stores your security alerts and recommendations in your Log Analytics workspace. You can also choose to store your raw security data.
+By default, Azure Security Center for IoT stores your security alerts and recommendations in your Log Analytics workspace. You can also choose to store your raw security data.
 
 To locate the your Log Analytics workspace for data storage:
 
@@ -48,7 +43,7 @@ To locate the your Log Analytics workspace for data storage:
 
 Following configuration, do the following to access data stored in your Log Analytics workspace:
 
-1. Select and click on an ASC for IoT alert in your IoT Hub. 
+1. Select and click on an Azure Security Center for IoT alert in your IoT Hub. 
 1. Click **Further investigation**. 
 1. Select **To see which devices have this alert click here and view the DeviceId column**.
 

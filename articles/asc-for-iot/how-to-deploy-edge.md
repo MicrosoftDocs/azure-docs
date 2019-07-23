@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Security Center for IoT Edge module | Microsoft Docs
+title: Deploy Azure Security Center for IoT Edge module Preview| Microsoft Docs
 description: Learn about how to deploy an Azure Security Center for IoT security agent on IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/1/2019
+ms.date: 07/23/2019
 ms.author: mlottner
 
 ---
@@ -22,25 +22,25 @@ ms.author: mlottner
 # Deploy a security module on your IoT Edge device
 
 > [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
+> Azure Security Center for IoT IoT Edge device support is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-**Azure Security Center (ASC) for IoT** module provides a comprehensive security solution for your IoT Edge device.
-Security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
+**Azure Security Center for IoT** module provides a comprehensive security solution for your IoT Edge devices.
+The security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
 To learn more, see [Security module for IoT Edge](security-edge-architecture.md).
 
-In this guide, you learn how to deploy a security module on your IoT Edge device.
+In this article, you'll learn how to deploy a security module on your IoT Edge device.
 
 ## Deploy security module
 
-Use the following steps to deploy an ASC for IoT security module for IoT Edge.
+Use the following steps to deploy an Azure Security Center for IoT security module for IoT Edge.
 
 ### Prerequisites
 
 - In your IoT Hub, make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
 
-- ASC for IoT Edge module requires [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
+- Azure Security Center for IoT Edge module requires [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
 
     - Install the framework by running the following command on your IoT Edge device:
    

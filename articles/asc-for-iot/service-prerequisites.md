@@ -20,12 +20,7 @@ ms.author: mlottner
 ---
 # Azure Security Center for IoT prerequisites
 
-> [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This article provides an explanation of the different building blocks of the Azure Security Center (ASC) for IoT service, what you need to begin and basic concepts to help understand the service. 
+This article provides an explanation of the different building blocks of the Azure Security Center (ASC) for IoT service, what you need to begin, and explains the basic concepts to help understand the service. 
 
 ## Minimum requirements
 
@@ -33,7 +28,7 @@ This article provides an explanation of the different building blocks of the Azu
     - RBAC role **Owner** level privileges 
 - [Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 
 - Azure Security Center (recommended)
-    - While use of Azure Security Center is only a recommendation and not a requirement, without it, you won't be able to view your other Azure resources within IoT Hub. 
+    - Use of Azure Security Center is a recommendation, and not a requirement. Without Azure Security Center, you'll be unable to view your other Azure resources within IoT Hub. 
  
 ## Working with ASC for IoT service
 

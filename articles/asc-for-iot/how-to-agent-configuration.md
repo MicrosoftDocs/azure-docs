@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Security Center for IoT agent Preview| Microsoft Docs
+title: Configure Azure Security Center for IoT agent| Microsoft Docs
 description: Learn how to configure agents for use with Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,18 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/23/2019
 ms.author: mlottner
 
 ---
 # Tutorial: Configure security agents
 
-> [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This article explains Azure Security Center (ASC) for IoT security agent, how to change them configure ASC for IoT security agents.
+This article explains Azure Security Center for IoT security agents, and how to change and configure them. 
 
 > [!div class="checklist"]
 > * Configure security agents
@@ -34,17 +29,17 @@ This article explains Azure Security Center (ASC) for IoT security agent, how to
 
 ## Agents
 
-ASC for IoT security agents collect data from IoT devices and perform security actions to mitigate the detected vulnerabilities. Security agent configuration is controllable using a set of module twin properties you can customize. In general, secondary updates to these properties are infrequent.  
+Azure Security Center for IoT security agents collect data from IoT devices and perform security actions to mitigate the detected vulnerabilities. Security agent configuration is controllable using a set of module twin properties you can customize. In general, secondary updates to these properties are infrequent.  
 
-ASC for IoT’s security agent twin configuration object is a .json format object. The configuration object is a set of controllable properties that you can define to control the behavior of the agent. 
+Azure Security Center for IoT’s security agent twin configuration object is a .json format object. The configuration object is a set of controllable properties that you can define to control the behavior of the agent. 
 
 These configurations help you customize the agent for each scenario required. For example, automatically excluding some events, or keeping power consumption to a minimal level are possible by configuring these properties.  
 
-Use the ASC for IoT security agent configuration [schema](https://aka.ms/iot-security-github-module-schema) to make changes.  
+Use the Azure Security Center for IoT security agent configuration [schema](https://aka.ms/iot-security-github-module-schema) to make changes.  
 
 ## Configuration objects 
 
-Each ASC for IoT security agent related property is located in the agent configuration object, within the desired properties section, of the **azureiotsecurity** module. 
+Each Azure Security Center for IoT security agent related property is located in the agent configuration object, within the desired properties section, of the **azureiotsecurity** module. 
 
 To modify the configuration, create and modify this object inside the **azureiotsecurity** module twin identity. 
 
@@ -101,9 +96,9 @@ To use a default property value, remove the property from the configuration obje
 
 ## Default properties 
 
-The following table contains the controllable properties of ASC for IoT security agents.
+The following table contains the controllable properties of Azure Security Center for IoT security agents.
 
-Default values are available in the proper schema in [Github](https://aka.ms/iot-security-module-default).
+Default values are available in the proper schema in [Github](https\://aka.ms/iot-security-module-default).
 
 | Name| Status | Valid values| Default values| Description |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
@@ -132,10 +127,11 @@ Default values are available in the proper schema in [Github](https://aka.ms/iot
 |Connection create |eventPriorityConnectionCreate|Low|False|Audits TCP connections created to and from the device. |
 |Firewall configuration| eventPriorityFirewallConfiguration|Low|True|Snapshot of device firewall configuration (firewall rules). |
 |OS baseline| eventPriorityOSBaseline| Low|True|Snapshot of device OS baseline check.|
+|
  
 
 ## Next steps
 
-- [Understand ASC for IoT recommendations](concept-recommendations.md)
-- [Explore ASC for IoT alerts](concept-security-alerts.md)
+- [Understand Azure Security Center for IoT recommendations](concept-recommendations.md)
+- [Explore Azure Security Center for IoT alerts](concept-security-alerts.md)
 - [Access raw security data](how-to-security-data-access.md)
