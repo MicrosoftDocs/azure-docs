@@ -1,5 +1,5 @@
 ---
-title: FAQ - QnA Maker
+title: Troubleshooting - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 services: cognitive-services
@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 07/22/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
-# Frequently Asked Questions for QnA Maker
+# Troubleshooting for QnA Maker
 
 The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 
@@ -103,6 +103,26 @@ To use multiple language and multiple knowledge bases, the user has to create an
 ### How can I change the name of the Azure Search resource used by QnA Maker?
 
 The name of the Azure Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate Azure Search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure Search](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service).
+
+### When QnA Maker returns `Runtime core is not initialized,` how do I fix it?
+
+The disk space for your app service might be full. Steps to fix your disk space:
+
+1. In the [Azure portal](https://portal.azure.com), select your QnA Maker's App service, then stop the service.
+1. While still on the App service, select **Development Tools**, then **Advanced Tools**, then **Go**. This opens a new browser window.
+1. Select **Debug console**, then **CMD** to open a command line tool. 
+1. Navigate to the _site/wwwroot/Data/QnAMaker/_ directory.
+1. Remove all the folders whose name begins with `rd`. 
+
+    **Do not delete** the following:
+
+    * KbIdToRankerMappings.txt file
+    * EndpointSettings.json file
+    * EndpointKeys folder 
+
+1. Start the App service.
+1. Access your knowledge base to verify it works now. 
+
 
 ## Integrate with other services including Bots
 
