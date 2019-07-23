@@ -1016,6 +1016,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/bing-entity-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-news-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/governance/management-groups/overview.md",
       "redirect_url": "/azure/governance/management-groups/index",
       "redirect_document_id": true
@@ -1089,6 +1104,11 @@
       "source_path": "articles/active-directory/active-directory-playbook-building-blocks.md",
       "redirect_url": "https://aka.ms/aadpocplaybook",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/howto-improve-detection-accuracy.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-provide-risk-event-feedback",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/authentication/howto-sspr-windows-7-8.md",
@@ -1336,6 +1356,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/create-sql-api-dotnet-preview.md",
+      "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-python-application.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-python",
       "redirect_document_id": false
@@ -1564,6 +1589,26 @@
       "source_path": "articles/cosmos-db/regional-failover.md",
       "redirect_url": "/azure/cosmos-db/high-availability",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-dotnet-application-preview.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-dotnet-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-dotnet-get-started-preview.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-dotnet-core-get-started-preview.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/search/search-fiddler.md",
@@ -4629,6 +4674,16 @@
       "source_path": "articles/logic-apps/logic-apps-deploy-from-vs.md",
       "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-template",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-create-deploy-template.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/connectors/connectors-overview.md",
@@ -12266,10 +12321,15 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/lab-services/how-to-manage-classroom-labs.md",
-      "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-classroom-labs",
+      "source_path": "articles/lab-services/devtest-lab-get-started-with-lab-policies.md",
+      "redirect_url": "/azure/lab-services/devtest-lab-set-lab-policy",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/lab-services/devtest-lab-import-vm.md",
+      "redirect_url": "/azure/lab-services/import-virtual-machines-from-another-lab",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/lab-services/how-to-manage-lab-accounts.md",
       "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-lab-accounts",
@@ -15191,6 +15251,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-wan/virtual-wan-point-to-site-portal.md",
+      "redirect_url": "/azure/virtual-wan/virtual-wan-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/guidance/guidance-connecting-your-on-premises-network-to-azure.md",
       "redirect_url": "/azure/networking/networking-overview",
       "redirect_document_id": false
@@ -15293,6 +15358,11 @@
     {
       "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
       "redirect_url": "/azure/load-balancer/load-balancer-get-started-internet-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-rp.md",
+      "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider",
       "redirect_document_id": false
     },
     {
@@ -16517,6 +16587,11 @@
     {
       "source_path": "articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
       "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/how-to-create-group-dependencies.md",
+      "redirect_url": "how-to-create-a-group#refine-a-group-with-dependency-mapping",
       "redirect_document_id": false
     },
     {
@@ -23937,6 +24012,11 @@
     {
       "source_path": "articles/storage/storage-properties-metadata.md",
       "redirect_url": "/azure/storage/blobs/storage-properties-metadata",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-properties-metadata.md",
+      "redirect_url": "/azure/storage/blobs/storage-blob-container-properties-metadata",
       "redirect_document_id": true
     },
     {
@@ -33075,6 +33155,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/page-contract.md",
+      "redirect_url": "/azure/active-directory-b2c/page-layout",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
       "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
       "redirect_document_id": true
@@ -35190,8 +35275,18 @@
     },
     {
       "source_path": "articles/log-analytics/log-analytics-log-search-takeaction.md",
-      "redirect_url": "/azure/azure-monitor/log-query/take-action",
+      "redirect_url": "/azure/azure-monitor/platform/action-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/take-action.md",
+      "redirect_url": "/azure/azure-monitor/platform/action-groups",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/monitoring-and-diagnostics/monitoring-action-groups.md",
+      "redirect_url": "/azure/azure-monitor/platform/action-groups",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/log-analytics-azure-sql.md",
@@ -35391,11 +35486,6 @@
     {
       "source_path": "articles/monitoring-and-diagnostics/alert-metric-overview.md",
       "redirect_url": "/azure/azure-monitor/platform/alerts-metric-overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/monitoring-and-diagnostics/monitoring-action-groups.md",
-      "redirect_url": "/azure/azure-monitor/platform/action-groups",
       "redirect_document_id": true
     },
     {
@@ -35605,8 +35695,13 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal.md",
-      "redirect_url": "/azure/azure-monitor/platform/quick-alerts-classic-metric-portal",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/platform/alerts-metric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/quick-alerts-classic-metric-portal.md",
+      "redirect_url": "/azure/azure-monitor/platform/alerts-metric",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-roles-permissions-security.md",
@@ -40128,13 +40223,13 @@
 
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
-      "redirect_url": "/azure/articles/data-explorer/manage-cluster-vertical-scaling",
+      "redirect_url": "/azure/data-explorer/manage-cluster-vertical-scaling",
       "redirect_document_id": false
     },
 
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-out.md",
-      "redirect_url": "/azure/articles/data-explorer/manage-cluster-horizontal-scaling",
+      "redirect_url": "/azure/data-explorer/manage-cluster-horizontal-scaling",
       "redirect_document_id": false
     },
     {
@@ -40167,6 +40262,42 @@
       "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi.md",
       "redirect_url": "https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017",
       "redirect_document_id": false
-    }    
+    },
+    {
+      "source_path": "articles/cognitive-services/Academic-Knowledge/GraphSearchMethod.md",
+      "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Academic-Knowledge/JSONSearchSyntax.md",
+      "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Academic-Knowledge/LambdaSearchSyntax.md",
+      "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/curl-disk.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator",
+      "redirect_document_id": false
+    }
   ]
 }

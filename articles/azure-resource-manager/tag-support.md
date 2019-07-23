@@ -885,7 +885,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | trafficmanagerprofiles | Yes | Yes |
 | trafficmanagerprofiles/heatMaps | No |  No |
 | virtualHubs | Yes | Yes |
-| virtualNetworkGateways | Yes | No |
+| virtualNetworkGateways | Yes | Yes |
 | virtualNetworks | Yes | Yes |
 | virtualNetworks/subnets | No |  No |
 | virtualNetworkTaps | Yes | Yes |

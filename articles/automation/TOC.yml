@@ -292,6 +292,8 @@
       displayName: module, import
 - name: Cross-Component Scenarios
   items:
+    - name: Send an email from a Runbook using SendGrid
+      href: automation-send-email.md
     - name: Runbook gallery
       href: automation-runbook-gallery.md
     - name: Monitor runbooks with metric alerts

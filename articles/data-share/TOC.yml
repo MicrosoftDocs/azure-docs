@@ -33,6 +33,12 @@
     href: how-to-delete-invitation.md
   - name: Revoke a share subscription
     href: how-to-revoke-share-subscription.md
+- name: Reference
+  items:
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.datashare
+  - name: REST API
+    href: /rest/api/datashare
 - name: Resources
   items:
   - name: Blog
@@ -42,6 +48,6 @@
   - name: Product feedback
     href: https://feedback.azure.com/forums/922759-azure-data-share-public-preview
   - name: Pricing
-    href: https://azure.microsoft.com/pricing
+    href: https://azure.microsoft.com/pricing/details/data-share/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-share

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a web API that calls web APIs using the Microsoft identity platform for developers.
@@ -91,15 +91,18 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 #endif
 ```
 
+Finally, instead of a client secret or a certificate, confidential client applications can also prove their identity using client assertions.
+This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md)
+
 ### How to call on-behalf-of
 
 The on-behalf-of (OBO) call is done by calling the [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) method on the `IConfidentialClientApplication` interface.
 
-The `ClientAssertion` is built from the bearer token received by the web API from its own clients. There are [two constructors](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), one that takes a JWT bearer token, and one that takes any kind of user assertion (another kind of security token, which type is then specified in an additional parameter named `assertionType`).
+The `UserAssertion` is built from the bearer token received by the web API from its own clients. There are [two constructors](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), one that takes a JWT bearer token, and one that takes any kind of user assertion (another kind of security token, which type is then specified in an additional parameter named `assertionType`).
 
 ![image](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
-In practice, the OBO flow is often used to acquire a token for a downstream API and store it in the MSAL.NET user token cache so that other parts of the web API can later call on the [overrides](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) of ``AcquireTokenOnSilent`` to call the downstream APIs. This has the effect of refreshing the tokens, if needed.
+In practice, the OBO flow is often used to acquire a token for a downstream API and store it in the MSAL.NET user token cache so that other parts of the web API can later call on the [overrides](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) of ``AcquireTokenOnSilent`` to call the downstream APIs. This call has the effect of refreshing the tokens, if needed.
 
 ```CSharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
