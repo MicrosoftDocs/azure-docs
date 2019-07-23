@@ -238,7 +238,7 @@ In the previous section, you created a skeleton Node.js project for an applicati
 
     * Watches for Azure IoT Central sending a desired property.
     * Locates the appropriate function to call to handle the setting change.
-    * Sends an acknowledgement back to your Azure IoT Central application.
+    * Sends an acknowledgment back to your Azure IoT Central application.
 
 1. To respond to a command such as **echo**  from your Azure IoT Central application, add the following definition:
 
