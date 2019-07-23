@@ -14,7 +14,6 @@ Form Recognizer works on input documents that meet these requirements:
 * For images, dimensions must be between 50 x 50 pixels and 4200 x 4200 pixels.
 * If scanned from paper documents, forms should be high-quality scans.
 * Text must use the Latin alphabet (English characters).
-* Data must be printed (not handwritten).
 * Data must contain keys and values.
 * Keys can appear above or to the left of the values, but not below or to the right.
 
