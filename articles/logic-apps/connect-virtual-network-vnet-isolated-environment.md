@@ -219,6 +219,8 @@ To create logic apps that run in your integration service environment (ISE), fol
 
 1. Find and open your ISE, if not already open. From the ISE menu, under **Settings**, select **Logic apps** > **Add**.
 
+   ![Add new logic app to ISE](./media/connect-virtual-network-vnet-isolated-environment/add-logic-app-to-ise.png)
+
    -or-
 
    From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
@@ -227,11 +229,11 @@ To create logic apps that run in your integration service environment (ISE), fol
 
 1. From the **Location** list, under the **Integration service environments** section, select your ISE, for example:
 
-   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
+   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-ise.png)
 
    > [!IMPORTANT]
    > If you want to use your logic apps with an integration account, 
-   > that integration account must use the same ISE as your logic apps.
+   > those logic apps and the integration account must use the same ISE.
 
 1. Continue [creating your logic app in the usual way](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -241,14 +243,14 @@ For differences in how triggers and actions work and how they're labeled when yo
 
 ## Create integration account - ISE
 
-Based on the [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) selected at creation, your ISE includes specific integration account usage at no additional cost. For more information about integration accounts and ISEs, see [Integration accounts with ISE](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment
+Based on the [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) selected at creation, your ISE includes specific integration account usage at no additional cost. Logic apps that exist in an integration service environment (ISE) can reference only integration accounts that exist in the same ISE. So, for an integration account to work with logic apps in an ISE, both the integration account and logic apps must use the *same environment* as their location. For more information about integration accounts and ISEs, see [Integration accounts with ISE](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment
 ).
-
-Logic apps that exist in an integration service environment (ISE) can reference only integration accounts that exist in the same ISE. So, for an integration account to work with logic apps in an ISE, both the integration account and logic apps must use the *same environment* as their location.
 
 To create an integration account that uses an ISE, follow these steps:
 
 1. Find and open your ISE, if not already open. From the ISE menu, under **Settings**, select **Integration accounts** > **Add**.
+
+   ![Add new integration account to ISE](./media/connect-virtual-network-vnet-isolated-environment/add-integration-account-to-ise.png)
 
    -or-
 
