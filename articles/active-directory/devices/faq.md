@@ -11,7 +11,7 @@ ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: jairoc
+ms.reviewer: ravenn
 
 ms.collection: M365-identity-device-management
 ---
@@ -46,23 +46,51 @@ For more information, see [Require managed devices for cloud app access with Con
 
 ---
 
-### Q: I deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered.
+### Q: Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10 devices ?
 
-**A:** This operation is by design. The device doesn't have access to resources in the cloud. 
+**A:** On Windows 10 devices joined or registered with Azure AD, users are issued a [Primary refresh token (PRT)](concept-primary-refresh-token) which enables single sign on. The validity of the PRT is based on the validaity of the device itself. Users see this message if the device is either deleted or disabled in Azure AD without initiating the action from the device itself. A device can be deleted or disabled in Azure AD one of the following scenarios: 
 
-If you want to re-register, you must take a manual action on the device. 
+- User disables the device from the My Apps portal. 
+- An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
+- Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
+- Devices in a dual state i.e. hybrid Azure AD joined and Azure AD registered: An administrator (or user) deletes Azure AD registered device from Azure AD without cleaning it up from the device.
 
-To clear the join state from Windows 10 and Windows Server 2016 that are on-premises Active Directory domain joined, take the following steps:
+See below on how these actions can be rectified.
+
+---
+
+### Q: I disabled or deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered. What should I do?
+
+**A:** This operation is by design. In this case, the device doesn't have access to resources in the cloud. Administrators can perform this action for stale, lost or stolen devices to prevent unintended access. If this action was performed erroneously, you'll need to re-enable or re-register the device as described below
+
+If the device was disabled in Azure AD, an administrator with sufficient privileges can enable it from the Azure AD portal  
+
+If the device is deleted in Azure AD, you need to re-register the device. To re-register, you must take a manual action on the device. 
+
+To re-register hybrid Azure AD joined Windows 10 and Windows Server 2016/2019 devices, take the following steps:
 
 1. Open the command prompt as an administrator.
 1. Enter `dsregcmd.exe /debug /leave`.
 1. Sign out and sign in to trigger the scheduled task that registers the device again with Azure AD. 
 
-For down-level Windows OS versions that are on-premises Active Directory domain joined, take the following steps:
+For down-level Windows OS versions that are hybrid Azure AD joined, take the following steps:
 
 1. Open the command prompt as an administrator.
 1. Enter `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
 1. Enter `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+
+For Azure AD joined devices Windows 10 devices, take the following steps:
+
+1. Open the command prompt as an administrator
+1. Enter `dsregcmd /forcerecovery` (Note: You need to be an administrator to perform this action).
+1. Click "Sign in" in the dialog that opens up and continue with the sign in process.
+1. Sign out and sign in back to the device to complete the recovery.
+
+For Azure AD registered Windows 10 devices, take the following steps:
+
+1. Go to **Settings** > **Accounts** > **Access Work or School**. 
+1. Select the account and select **Disconnect**.
+1. Click on "+ Connect" and register the device again by going through the sign in process.
 
 ---
 
@@ -98,7 +126,7 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 
 **A:** 
 - For hybrid Azure AD joined devices, make sure to turn off automatic registration. Then the scheduled task doesn't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
-- For pure Azure AD joined devices, make sure you have an offline local administrator account or create one. You can't sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to finish the unjoin process.
+- For Azure AD joined devices, make sure you have an offline local administrator account or create one. You can't sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to finish the unjoin process.
 
 ---
 
