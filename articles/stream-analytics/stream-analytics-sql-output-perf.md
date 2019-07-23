@@ -3,7 +3,7 @@ title: Azure Stream Analytics output to Azure SQL Database
 description: Learn about outputting data to SQL Azure from Azure Stream Analytics and achieve higher write throughput rates.
 services: stream-analytics
 author: chetanmsft
-ms.author: chetanmsft
+ms.author: chetang
 manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics

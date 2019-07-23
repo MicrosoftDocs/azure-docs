@@ -122,7 +122,7 @@ A parameter has the following properties that are used in the policy definition:
 
 - **name**: The name of your parameter. Used by the `parameters` deployment function within the
   policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
-- `type`: Determines if the parameter is a **string** or an **array**.
+- `type`: Determines if the parameter is a **string**, **array**, **object**, **boolean**, **integer**, **float**, or **datetime**.
 - `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly
   information:
   - `description`: The explanation of what the parameter is used for. Can be used to provide

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 05/29/2019
-ms.author: jasonfreeberg
+ms.author: jafreebe
 ms.custom: mvc
 #Customer intent: As a Java developer, I want deploy a java app so that it is hosted on Azure App Service.
 ---
@@ -62,7 +62,7 @@ Then add the following plugin definition inside the `<build>` element of the `po
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>

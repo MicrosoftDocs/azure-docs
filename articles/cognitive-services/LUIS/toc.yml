@@ -21,6 +21,8 @@
       displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
   - name: Use .NET SDK
     items: 
+    - name: Create and manage app
+      href: sdk-csharp-quickstart-authoring-app.md
     - name: Query prediction endpoint
       href: sdk-csharp-quickstart-query-prediction-endpoint.md
   - name: Use REST APIs
@@ -266,6 +268,8 @@
       href: luis-container-howto.md
     - name: Configure containers
       href: luis-container-configuration.md
+    - name: Use container instances
+      href: deploy-luis-on-container-instances.md
 - name: Reference
   items:
   - name: User privacy
@@ -302,6 +306,8 @@
       href: luis-reference-prebuilt-number.md
     - name: Ordinal entity
       href: luis-reference-prebuilt-ordinal.md
+    - name: Ordinal V2 entity
+      href: luis-reference-prebuilt-ordinal-v2.md      
     - name: Percentage entity
       href: luis-reference-prebuilt-percentage.md
     - name: PersonName entity

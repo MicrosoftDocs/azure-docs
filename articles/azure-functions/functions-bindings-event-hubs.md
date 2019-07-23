@@ -4,7 +4,7 @@ description: Understand how to use Azure Event Hubs bindings in Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b

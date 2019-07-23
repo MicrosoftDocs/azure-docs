@@ -1,5 +1,5 @@
 ---
-title: Set up sign-in for an Azure Active Directory organization - Azure Active Directory B2C | Microsoft Docs
+title: Set up sign-in for an Azure Active Directory organization - Azure Active Directory B2C
 description: Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -33,7 +33,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 7. For the **Redirect URI**, accept the value of **Web**, and enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
-    https://your--B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
     All URLs should now be using [b2clogin.com](b2clogin.md).
@@ -59,10 +59,10 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
     ```
 
 8. For **Client ID**, enter the application ID that you previously recorded and for **Client secret**, enter the client secret that you previously recorded.
-9. Optionally, enter a value for **Domain_hint**. For example, `ContosoAD`. This is the value to use when referring to this identity provider using *domain_hint* in the request. 
+9. Optionally, enter a value for **Domain_hint**. For example, `ContosoAD`. This is the value to use when referring to this identity provider using *domain_hint* in the request.
 10. Click **OK**.
 11. Select **Map this identity provider's claims** and set the following claims:
-    
+
     - For **User ID**, enter `oid`.
     - For **Display Name**, enter `name`.
     - For **Given name**, enter `given_name`.

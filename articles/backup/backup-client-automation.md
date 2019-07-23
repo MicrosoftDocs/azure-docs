@@ -7,7 +7,7 @@ manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
-ms.author: pvrk
+ms.author: shivamg
 ---
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
 

@@ -4,7 +4,7 @@ description: Use an Azure Resource Manager template to create a new Windows virt
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

@@ -8,7 +8,8 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: 3b33b4aa-7286-4d79-b461-8e1812edc2e1
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

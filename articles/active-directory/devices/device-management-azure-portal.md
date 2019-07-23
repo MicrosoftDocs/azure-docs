@@ -56,15 +56,15 @@ The device settings page enables you to configure:
 
 ![Manage an Intune device](./media/device-management-azure-portal/21.png)
 
-- **Users may join devices to Azure AD** - This setting enables you to select the users who can register their devices as [Azure AD join devices](overview.md#azure-ad-joined-devices). The default is **All**.
+- **Users may join devices to Azure AD** - This setting enables you to select the users who can register their devices as Azure AD joined devices. The default is **All**.
 
 > [!NOTE]
 > **Users may join devices to Azure AD** setting is only applicable to Azure AD join on Windows 10.
 
 - **Additional local administrators on Azure AD joined devices** - You can select the users that are granted local administrator rights on a device. Users added here are added to the *Device Administrators* role in Azure AD. Global administrators in Azure AD and device owners are granted local administrator rights by default. 
 This option is a premium edition capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS).
-- **Users may register their devices with Azure AD** - You need to configure this setting to allow Windows 10 personal, iOS, Android, and macOs devices to be [registered](overview.md#azure-ad-registered-devices) with Azure AD. If you select **None**, devices are not allowed to register with Azure AD. Enrollment with Microsoft Intune or Mobile Device Management (MDM) for Office 365 requires registration. If you have configured either of these services, **ALL** is selected and **NONE** is not available. If you have enabled this setting from Intune then the options here will be greyed out.
-- **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide a second authentication factor to [join](overview.md#azure-ad-joined-devices) their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering a device. Before you enable multi-factor authentication for this service, you must ensure that Azure Multi-Factor Authentication is configured for the users that register their devices. For more information, see the article [Azure Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md). 
+- **Users may register their devices with Azure AD** - You need to configure this setting to allow Windows 10 personal, iOS, Android, and macOs devices to be registered with Azure AD. If you select **None**, devices are not allowed to register with Azure AD. Enrollment with Microsoft Intune or Mobile Device Management (MDM) for Office 365 requires registration. If you have configured either of these services, **ALL** is selected and **NONE** is not available.
+- **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide an additional authentication factor to join their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure multi-factor authentication services, see [getting started with Azure multi-factor authentication](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
 > **Require Multi-Factor Auth to join devices** setting does not apply to hybrid Azure AD joined devices.

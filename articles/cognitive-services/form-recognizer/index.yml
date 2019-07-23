@@ -9,7 +9,7 @@ metadata:
   manager: cgronlun
 
   ms.service: cognitive-services
-  ms.subservice: form-recognizer
+  ms.subservice: forms-recognizer
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -44,6 +44,11 @@ sections:
           image:
             src: ../media/index/i_get-started.svg
           title: Install and run containers
+        - href: /azure/cognitive-services/form-recognizer/build-training-data-set
+          html: <p>Build a data set that's optimized for training a custom model.</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: Build a training data set
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph

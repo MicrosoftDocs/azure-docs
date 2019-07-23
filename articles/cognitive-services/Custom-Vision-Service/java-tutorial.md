@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: areddish
 ---
 
@@ -25,7 +25,7 @@ This article provides information and sample code to help you get started using 
 
 ## Get the Custom Vision SDK and sample code
 
-To write a Java app that uses Custom Vision, you'll need the Custom Vision maven packages. These are included in the sample project you will download, but you can access them individually here.
+To write a Java app that uses Custom Vision, you'll need the Custom Vision maven packages. These packages are included in the sample project you'll download, but you can access them individually here.
 
 You can install the Custom Vision SDK from maven central repository:
 
@@ -47,7 +47,7 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 ## Understand the code
 
-Load the `Vision/CustomVision` project in your Java IDE and open the _CustomVisionSamples.java_ file. Find the **runSample** method and comment out the **ObjectDetection_Sample** method call&mdash;this executes the object detection scenario, which is not covered in this guide. The **ImageClassification_Sample** method implements the primary functionality of this example; navigate to its definition and inspect the code.
+Load the `Vision/CustomVision` project in your Java IDE and open the _CustomVisionSamples.java_ file. Find the **runSample** method and comment out the **ObjectDetection_Sample** method call&mdash;this method executes the object detection scenario, which is not covered in this guide. The **ImageClassification_Sample** method implements the primary functionality of this example; navigate to its definition and inspect the code.
 
 ### Create a Custom Vision Service project
 

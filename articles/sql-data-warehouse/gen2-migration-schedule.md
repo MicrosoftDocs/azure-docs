@@ -3,7 +3,7 @@ title: Migrate your existing Azure SQL Data Warehouse to Gen2 | Microsoft Docs
 description: Instructions for migrating an existing data warehouse to Gen2 and the migration schedule by region.
 services: sql-data-warehouse
 author: mlee3gsd
-ms.author: anumjs
+ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
@@ -33,13 +33,13 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | Canada East |\* |\* |
 | Central US |Available |June 1, 2019 |
 | China East |\* |\* |
-| China East 2 |\* |Gen2 only |
+| China East 2 |Available |Gen2 only |
 | China North |\* |\* |
 | China North 2 |Available |Gen2 only |
 | East Asia |Available |June 1, 2019 |
 | East US |Available |June 1, 2019 |
 | East US 2 |Available |June 1, 2019 |
-| France Central |\* |June 1, 2019 |
+| France Central |Available |June 1, 2019 |
 | Germany Central |\* |\* |
 | Germany West Central |September 1, 2019|January 2, 2020 |
 | India Central |Available |June 1, 2019 |
@@ -50,10 +50,12 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | Korea South |Available |May 1, 2019 |
 | North Central US |Available |May 1, 2019 |
 | North Europe |Available |June 1, 2019 |
+| South Africa North |July 12, 2019 |Gen2 only |
 | South Central US |Available |June 1, 2019 |
 | South East Asia |Available |June 1, 2019 |
-| UK South |Available, 2019 |June 1, 2019 |
-| UK West |\*|\* |
+| UAE North |July 20, 2019 |Gen2 only |
+| UK South |Available |June 1, 2019 |
+| UK West |Available |Gen2 only |
 | West Central US |September 2, 2019 |January 2, 2020|
 | West Europe |Available |June 1, 2019 |
 | West US |Available |June 1, 2019 |

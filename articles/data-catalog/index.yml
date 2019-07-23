@@ -9,7 +9,7 @@ metadata:
   ms.author: jasonh
   ms.service: data-catalog
   ms.topic: landing-page
-  ms.date: 04/05/2019
+  ms.date: 07/01/2019
 abstract:
   description: Learn how to use Data Catalog to help your organization and team discover, understand, and consume your data sources. Tutorials, REST API reference, and other documentation show you how to plan and set up your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
 sections:
@@ -40,5 +40,4 @@ sections:
     items:
     - title: REST
       html: <p><a href="/rest/api/datacatalog/">REST API Reference</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Search syntax reference</a></p>
-    - title: Resource Manager
-      html: <p><a href="/azure/templates/microsoft.datacatalog/catalogs">Resource Manager templates</a></p>
+      

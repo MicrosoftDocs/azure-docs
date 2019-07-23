@@ -4,8 +4,8 @@ description: This article describes how to manage Python 2 packages in Azure Aut
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm

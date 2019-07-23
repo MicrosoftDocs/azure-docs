@@ -1,5 +1,5 @@
 ---
-title: Configure sign-in auto-acceleration for an application using a Home Realm Discovery policy | Microsoft Docs
+title: Configure sign-in auto-acceleration using Home Realm Discovery policy | Microsoft Docs
 description: Learn how to configure Home Realm Discovery policy for Azure Active Directory authentication for federated users, including auto-acceleration and domain hints.
 services: active-directory
 documentationcenter: 

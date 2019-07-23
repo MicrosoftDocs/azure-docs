@@ -24,6 +24,7 @@ The following AI and Cognitive Services are generally available in Azure Governm
 - Computer Vision
 - Face
 - Content Moderator
+- Speech
 - Translator Text
 - Language Understanding
 - Azure Bot Service
@@ -69,6 +70,7 @@ Variations in Azure Government:
 
 - Endpoint:  https://virginia.stt.speech.azure.us
 - Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken 
+- Custom Speech Portal: https://virginia.cris.azure.us/Home/CustomSpeech
 - Available SKUs: S0
 - Supported features:
   - Speech-to-Text 
@@ -80,7 +82,15 @@ Variations in Azure Government:
   - Neural voices for Text-to-speech
 - Supported locales: 
   Locales for the following languages are supported. 
-  - English (United States) - en-us
+  - Arabic (ar-*)
+  - Chinese (zh-*)
+  - English (en-*)
+  - French (fr-*)
+  - German (de-*)
+  - Hindi
+  - Korean
+  - Russian
+  - Spanish (es-*)
 
 See details of supported locales by features in [Language and region support for the Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -19,7 +19,7 @@ Different languages are supported for different Speech Services functions. The f
 
 ## Speech-to-text
 
-The Microsoft speech recognition API supports the following languages. Different levels of customization are available for each language.
+Both the Microsoft speech recognition SDK and the REST API support the following languages (locales). Different levels of customization are available for each language.
 
   Code | Language | [Acoustic adaptation](how-to-customize-acoustic-models.md) | [Language adaptation](how-to-customize-language-model.md) | [Pronunciation adaptation](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------

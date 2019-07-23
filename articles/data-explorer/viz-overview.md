@@ -7,7 +7,7 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/30/2019
 ---
 
 # Data visualization with Azure Data Explorer 
@@ -16,29 +16,43 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 Data visualization and reporting is a critical step in the data analytics process. Azure Data Explorer supports many BI services so you can use the one that best fits your scenario and budget.
 
-* Azure Data Explorer visualizations:
-Using Kusto query language the [`render operator`](/azure/kusto/query/renderoperator) offers various visualization types to depict query results. Query visualizations are helpful in anomaly detection and forecasting, machine learning, and more.
+## Kusto query language visualizations
 
-* [Power BI](https://powerbi.microsoft.com):
-Azure Data Explorer provides the capability to connect to Power BI using various methods: 
+The Kusto query language [`render operator`](/azure/kusto/query/renderoperator) offers various visualizations such as tables, pie charts, and bar charts to depict query results. Query visualizations are helpful in anomaly detection and forecasting, machine learning, and more.
+
+## Power BI
+
+Azure Data Explorer provides the capability to connect to [Power BI](https://powerbi.microsoft.com) using various methods: 
 
   * [Built-in native Power BI connector](/azure/data-explorer/power-bi-connector)
 
   * [Query import from Azure Data Explorer into Power BI](/azure/data-explorer/power-bi-imported-query)
  
-  * [SQL query](/azure/data-explorer/power-bi-sql-query).
+  * [SQL query](/azure/data-explorer/power-bi-sql-query)
 
-* [Microsoft Excel](https://products.office.com/excel):
-Azure Data Explorer provides the capability to connect to Excel using the built-in native Excel connector, or import a query from Azure Data Explorer into Excel.
+## Microsoft Excel
 
-* [Grafana](https://grafana.com):
-Grafana provides an Azure Data Explorer plugin that enables you to visualize data from Azure Data Explorer. You [set up Azure Data Explorer as a data source for Grafana, and then visualize the data](/azure/data-explorer/grafana)
+Azure Data Explorer provides the capability to connect to [Microsoft Excel](https://products.office.com/excel) using the built-in native Excel connector, or import a query from Azure Data Explorer into Excel.
 
-* [Sisense](https://www.sisense.com):
-Azure Data Explorer provides the capability to connect to Sisense using the JDBC connector. You [set up Azure Data Explorer as a data source for Sisense, and then visualize the data](/azure/data-explorer/sisense).
+## Grafana
 
-* [Tableau](https://www.tableau.com):
-Azure Data Explorer provides the capability to connect to Tableau using the [ODBC connector and visualize the data in Tableau](/azure/data-explorer/connect-odbc).
+[Grafana](https://grafana.com) provides an Azure Data Explorer plugin that enables you to visualize data from Azure Data Explorer. You [set up Azure Data Explorer as a data source for Grafana, and then visualize the data](/azure/data-explorer/grafana). 
 
-* [Qlik](https://www.qlik.com):
-Azure Data Explorer provides the capability to connect to Qlik using the [ODBC connector](/azure/data-explorer/connect-odbc).
+## ODBC connector
+
+Azure Data Explorer provides an [Open Database Connectivity (ODBC) connector](connect-odbc.md) so any application that supports ODBC can connect to Azure Data Explorer.
+
+## Tableau
+
+Azure Data Explorer provides the capability to connect to [Tableau](https://www.tableau.com)
+ using the [ODBC connector](/azure/data-explorer/connect-odbc) and then [visualize the data in Tableau](tableau.md).
+
+## Qlik
+
+Azure Data Explorer provides the capability to connect to [Qlik](https://www.qlik.com) using the [ODBC connector](/azure/data-explorer/connect-odbc) and then create Qlik Sense dashboards and visualize the data. Using the following video, you can learn to visualize Azure Data Explorer data with Qlik. 
+
+> [!VIDEO https://www.youtube.com/embed/nhWIiBwxjjU]  
+
+## Sisense
+
+Azure Data Explorer provides the capability to connect to [Sisense](https://www.sisense.com) using the JDBC connector. You [set up Azure Data Explorer as a data source for Sisense, and then visualize the data](/azure/data-explorer/sisense).

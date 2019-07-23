@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and JavaScript
@@ -36,7 +36,7 @@ Create a new HTML file, *detectFaces.html*, and add the following code.
 </html>
 ```
 
-Then add the following code inside the `body` element of the document. This sets up a basic user interface with a URL field, an **Analyze face** button, a response pane, and an image display pane.
+Then add the following code inside the `body` element of the document. This code sets up a basic user interface with a URL field, an **Analyze face** button, a response pane, and an image display pane.
 
 ```html
 <h1>Detect Faces:</h1>
@@ -60,7 +60,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## Write the JavaScript script
 
-Add the following code immediately above the `h1` element in your document. This sets up the JavaScript code that calls the Face API.
+Add the following code immediately above the `h1` element in your document. This code sets up the JavaScript code that calls the Face API.
 
 ```html
 <script type="text/javascript">
@@ -135,7 +135,7 @@ Open *detectFaces.html* in your browser. When you click the **Analyze face** but
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-The following is an example of a successful JSON response.
+The following text is an example of a successful JSON response.
 
 ```json
 [

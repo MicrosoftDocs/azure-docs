@@ -63,6 +63,10 @@
         href: google-federation.md
       - name: One-time passcode authentication
         href: one-time-passcode.md
+      - name: Direct federation
+        href: direct-federation.md
+      - name: Example of direct federation with AD FS
+        href: direct-federation-adfs.md
       - name: Allow or block invitations
         href: allow-deny-list.md
       - name: Add B2B users without an invitation

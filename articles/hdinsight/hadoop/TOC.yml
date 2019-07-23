@@ -14,9 +14,6 @@
     href: apache-hadoop-linux-tutorial-get-started.md      
 - name: Tutorials
   items:
-  - name: Perform ETL operations
-    href: ../hdinsight-analyze-flight-delay-data-linux.md
-    maintainContext: true
   - name: Create on-demand clusters
     href: ../hdinsight-hadoop-create-linux-clusters-adf.md
     maintainContext: true
@@ -141,6 +138,10 @@
       - name: Tools for VSCode
         href: ../hdinsight-for-vscode.md
         maintainContext: true
+      - name: Tools for IntelliJ
+        href: ../spark/apache-spark-intellij-tool-plugin.md
+      - name: Tools for Eclipse
+        href: ../spark/apache-spark-eclipse-tool-plugin.md
       - name: Data Lake Tools with Hortonworks Sandbox
         href: ../hdinsight-hadoop-emulator-visual-studio.md
         maintainContext: true
@@ -420,11 +421,14 @@
     items:
     - name: HDInsight virtual network architecture
       href: ../hdinsight-virtual-network-architecture.md
+    - name: Plan VNETs for HDInsight
+      href: ../hdinsight-plan-virtual-network-deployment.md
+    - name: Create VNETs for HDInsight
+      href: ../hdinsight-create-virtual-network.md
+    - name: Required IP Addresses for NSGs and UDRs
+      href: ../hdinsight-management-ip-addresses.md
     - name: Use firewall to restrict outbound traffic
       href: ../hdinsight-restrict-outbound-traffic.md
-    - name: HDInsight in Azure VNet
-      href: ../hdinsight-extend-hadoop-virtual-network.md
-      maintainContext: true
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
@@ -464,15 +468,11 @@
   - name: Resource Manager template
     displayName: resource manager template, arm template, resource manager group
     href: /azure/templates/microsoft.hdinsight/allversions
-- name: Related
-  items:
-  - name: Windows clusters
-    items:
-    - name: Migrate .NET solutions to Linux clusters
-      href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
-      maintainContext: true
 - name: Resources
   items:
+  - name: Migrate .NET solutions to Linux clusters
+    href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
+    maintainContext: true
   - name: Release notes
     items:
     - name: Current release notes

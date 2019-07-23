@@ -4,7 +4,7 @@ description: Describes the B-series of burstable Azure VM sizes.
 services: virtual-machines-windows
 documentationcenter: ''
 author: ayshakeen
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

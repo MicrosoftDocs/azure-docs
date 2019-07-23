@@ -10,7 +10,8 @@ ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: beverst;cephalin
+ms.author: cephalin
+ms.reviewer: beverst
 ms.custom: mvc
 ms.custom: seodec18
 ---

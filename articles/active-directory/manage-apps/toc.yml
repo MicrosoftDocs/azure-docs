@@ -46,14 +46,22 @@
       - name: Comparison of remote access solutions
         href: application-proxy-migration.md
     - name: Single sign-on
-      items: 
+      items:  
       - name: What is single sign-on
         href: what-is-single-sign-on.md
-      - name: Planning a single sign-on deployment
+      - name: Enable SSO for your multi-tenant application 
+        href: isv-sso-content.md
+      - name: Create an Azure tenant for multi-tenant application
+        href: isv-tenant-multi-tenant-app.md
+      - name: Choose multi-tenant federation
+        href: isv-choose-multi-tenant-federation.md
+      - name: Create documentation for multi-tenant application
+        href: isv-create-sso-documentation.md
+      - name: Plan a single sign-on deployment
         href: plan-sso-deployment.md
-    - name: One Click SSO
+    - name: One-click SSO
       items:
-      - name: What is One Click SSO
+      - name: One-click SSO configuration
         href: one-click-sso-tutorial.md
     - name: Provisioning users and groups
       items:

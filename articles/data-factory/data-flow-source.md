@@ -33,8 +33,12 @@ Data Factory has access to nearly 80 native connectors. To include data from tho
 
 Choose schema and sampling options for your data.
 
-### Allow schema drift
-Select **Allow schema drift** if the source columns will change often. This setting allows all incoming source fields to flow through the transformations to the sink.
+### Schema drift
+[Schema Drift](concepts-data-flow-schema-drift.md) is ADF's ability to natively handle flexible schemas in your data flows without needing to explicitly define column changes.
+
+* Select **Allow schema drift** if the source columns will change often. This setting allows all incoming source fields to flow through the transformations to the sink.
+
+* Choosing **Infer drifted column types** will instruct ADF to define data types for each new column discovered. With this feature turned off, ADF will assume String.
 
 ### Validate schema
 
@@ -77,7 +81,7 @@ Choose settings to manage files in your source.
 
 ![New source settings](media/data-flow/source2.png "New settings")
 
-* **Wildcard path**: From your source folder, choose a series of files that match a pattern. This setting overrides any file in your dataset definition.
+* **Wildcard path**: From your source container, choose a series of files that match a pattern. This setting overrides any file in your dataset definition.
 
 Wildcard examples:
 
@@ -141,6 +145,12 @@ If your text file has no defined schema, select **Detect data type** so that Dat
 You can modify the column data types in a later derived-column transformation. Use a select transformation to modify the column names.
 
 ![Settings for default data formats](media/data-flow/source2.png "Default formats")
+
+### Add dynamic content
+
+When you click inside of fields in the setting panel, you will see a hyperlink for "Add dynamic content". When you click here, you will launch the Expression Builder. This is where you can set values for settings dynamically using expressions, static literal values, or parameters.
+
+![Parameters](media/data-flow/params6.png "Parameters")
 
 ## Next steps
 

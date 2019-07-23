@@ -38,7 +38,7 @@ The guiding premise when normalizing data is to **avoid storing redundant data**
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
     JOIN ContactDetail cd ON cd.PersonId = p.Id
-    JOIN ContactDetailType on cdt ON cdt.Id = cd.TypeId
+    JOIN ContactDetailType cdt ON cdt.Id = cd.TypeId
     JOIN Address a ON a.PersonId = p.Id
 
 Updating a single person with their contact details and addresses requires write operations across many individual tables.

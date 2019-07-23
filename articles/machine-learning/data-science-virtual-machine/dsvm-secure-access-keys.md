@@ -88,15 +88,16 @@ credentials = MSIAuthentication(
 
 # Create a Key Vault client.
 key_vault_client = KeyVaultClient(
-credentials
+    credentials
 )
 
 key_vault_uri = "https://<key Vault Name>.vault.azure.net/"
 
 secret = key_vault_client.get_secret(
-key_vault_uri,  # Your key vault URL.
-"SQLPasswd",       # The name of your secret that already exists in the key vault.
-""              # The version of the secret; empty string for latest.
+    key_vault_uri,  # Your key vault URL.
+    # The name of your secret that already exists in the key vault.
+    "SQLPasswd",
+    ""              # The version of the secret; empty string for latest.
 )
 print("My secret value is {}".format(secret.value))
 ```

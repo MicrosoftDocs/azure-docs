@@ -35,7 +35,7 @@ The first step to perform an access review is to find and open the access review
 
 1. Look for an email from Microsoft that asks you to review access. Here is an example email to review your access to a group.
 
-    ![Review access email](./media/review-your-access/access-review-email.png)
+    ![Example email from Microsoft to review your access to a group](./media/review-your-access/access-review-email.png)
 
 1. Click the **Review access** link to open the access review.
 
@@ -43,7 +43,7 @@ If you don't have the email, you can find your pending access reviews by followi
 
 1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-    ![MyApps portal](./media/review-your-access/myapps-access-panel.png)
+    ![MyApps portal listing apps you have permissions to](./media/review-your-access/myapps-access-panel.png)
 
 1. In the upper-right corner of the page, click the user symbol, which displays your name and default organization. If more than one organization is listed, select the organization that requested an access review.
 
@@ -51,7 +51,7 @@ If you don't have the email, you can find your pending access reviews by followi
 
     If the tile isn't visible, there are no access reviews to perform for that organization and no action is needed at this time.
 
-    ![Access reviews list](./media/review-your-access/access-reviews-list.png)
+    ![Pending access reviews list for your apps and groups](./media/review-your-access/access-reviews-list.png)
 
 1. Click the **Begin review** link for the access review you want to perform.
 
@@ -63,13 +63,13 @@ Once you have opened the access review, you can see your access.
 
     If the request is to review access for others, the page will look different. For more information, see [Review access to groups or applications](perform-access-review.md).
 
-    ![Perform access review](./media/review-your-access/perform-access-review.png)
+    ![Open access review asking whether you still need access to a group](./media/review-your-access/perform-access-review.png)
 
 1. Click **Yes** to keep your access or click **No** to remove your access.
 
 1. If you click **Yes**, you might need to specify a justification in the **Reason** box.
 
-    ![Perform access review](./media/review-your-access/perform-access-review-submit.png)
+    ![Completed access review asking whether you still need access to a group](./media/review-your-access/perform-access-review-submit.png)
 
 1. Click **Submit**.
 
