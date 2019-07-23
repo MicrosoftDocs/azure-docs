@@ -58,7 +58,7 @@ To configure single sign-on for a non-gallery application *without writing code*
 
 ## Step 2. Configure User attributes and claims 
 
-An application might require specific user attributes or claims in the SAML token it receives from Azure AD when a user signs in. For example, specific claim URIs or claim values might be required, or **Name** might need to be something other than the username stored in Microsoft identity platform. Requirements for gallery apps are described in the [application-specific tutorials](../saas-apps/tutorial-list.md), or you can ask the application vendor. The general steps for configuring user attributes and claims are described below.
+An application might require specific user attributes or claims in the SAML token it receives from Azure AD when a user signs in. For example, specific claim URIs or claim values could be required, or **Name** might need to be something other than the username stored in Microsoft identity platform. Requirements for gallery apps are described in the [application-specific tutorials](../saas-apps/tutorial-list.md), or you can ask the application vendor. The general steps for configuring user attributes and claims are described below.
 
 1. In the **User Attributes and Claims** section, select the **Edit** icon (a pencil) in the upper-right corner.
 
@@ -81,7 +81,7 @@ An application might require specific user attributes or claims in the SAML toke
 
 ## Step 3. Manage the SAML signing certificate
 
-Azure AD uses a certificate to sign the SAML tokens it sends to the application. On the the **Set up Single Sign-On with SAML** page, you can download the active certificate in Base64, Raw, or XML format, or you can manage the active certificate or create a new certificate.  download the appli. Or, you can download the active certificate by downloading the application metadata XML file or by using the App federation metadata URL. You can also manage the certificate used by Azure AD to sign SAML tokens issued to your app, or you can create a new certificate. For gallery applications, details about the certificate format are available in the application’s SAML documentation (see the [application-specific tutorials](../saas-apps/tutorial-list.md)). 
+Azure AD uses a certificate to sign the SAML tokens it sends to the application. On the **Set up Single Sign-On with SAML** page, you can download the active certificate in Base64, Raw, or XML format, or you can manage the active certificate or create a new certificate.  download the appli. Or, you can download the active certificate by downloading the application metadata XML file or by using the App federation metadata URL. You can also manage the certificate used by Azure AD to sign SAML tokens issued to your app, or you can create a new certificate. For gallery applications, details about the certificate format are available in the application’s SAML documentation (see the [application-specific tutorials](../saas-apps/tutorial-list.md)). 
 
 1. Go to the **SAML Signing Certificate** section. Depending on the type of application, you'll see options to download the certificate in Base64 format, Raw format, or Federation Metadata XML. Azure AD also provides the **App Federation Metadata Url** where you can access the metadata specific to the application in the format `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
@@ -116,7 +116,7 @@ You're ready to test the settings to see if single sign-on works for you, the ad
 4. Select **Sign in as current user**. 
 
 If sign-on is successful, you're ready to assign users and groups to your SAML application.
-If an error message appears. Complete the following steps:
+If an error message appears, complete the following steps:
 
 1. Copy and paste the specifics into the **What does the error look like?** box.
 
