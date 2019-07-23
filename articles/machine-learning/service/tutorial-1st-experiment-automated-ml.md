@@ -133,7 +133,7 @@ For this experiment the **VotingEnsemble** is considered the best model based on
 
 ## Clean up resources
 
-Experiment and deployment files are saved in your Azure storage container, which incur charges. Deployment files are relatively larger than data and experiment files, thus incurs more cost. If you want to keep your workspace and experiment files, you can delete just the deployment files to minimize costs.  Otherwise, if you don't plan to use any of the files delete the entire resource group so you don't incur any charges.  
+Deployment files are larger than data and experiment files, thus they cost more to store. Delete just the deployment files to minimize costs to your account, and if you want to keep your workspace and experiment files. Otherwise, delete the entire resource group, if you don't plan to use any of the files.  
 
 ### Delete deployment instance
 
