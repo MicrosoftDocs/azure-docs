@@ -4,8 +4,8 @@ description: Describes how to create an assessment using machine dependencies wi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/15/2019
-ms.author: raynew
+ms.date: 07/17/2019
+ms.author: hamusa
 ---
 
 
@@ -25,22 +25,28 @@ Dependency mapping helps you to visualize dependencies across machines you want 
 
 ## Before you start
 
+- Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
+- If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool.
+- Make sure you have discovered your machines in Azure Migrate; you can do this by setting up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. [Learn more](migrate-appliance.md).
+
+
 **Features** | **Note**
 --- | ---
 Availability | Dependency visualization isn't available in Azure Government.
 Service Map | Dependency visualization uses Service Map solution in Azure Monitor logs. [Service Map](../azure-monitor/insights/service-map-configure.md) automatically discovers and shows connections between servers.
 Agents | To use dependency visualization, install a couple of agents on machines you want to map:<br/> - [Azure Log Analytics](../azure-monitor/platform/log-analytics-agent.md) agent (previously referred to as the Microsoft Monitoring Agent (MMA).<br/> - Service Map Dependency agent.<br/><br/> To automate agent installation you can use a deployment tool such as System Center Configuration Manager or a partner tool such as [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), that has an agent deployment solution for Azure Migrate.
-Dependency agent | You don't need to install the Dependency agent if you're monitoring a machine with System Center Operations Manager (2012 R2 or later), because Service Map integrates with Operations Manager. [Learn more](../azure-monitor/insights/service-map-scom.md#prerequisites) about integration.<br/><br/> Review Dependency agent support for [Windows](/azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) and [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).<br/><br/> [Learn more](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) about using scripts to install the Dependency agent.
-Log Analytics agent (MMA) | [Learn more](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) about MMA installation methods.<br/><br/> [Review](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) the Linux operating systems supported by the Log Analytics agent.
+Dependency agent | Review Dependency agent support for [Windows](/azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) and [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).<br/><br/> [Learn more](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) about using scripts to install the Dependency agent.
+Log Analytics agent (MMA) | [Learn more](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) about MMA installation methods.<br/><br/> For machines monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. You can enable the integration using the guidance [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Note, however, that the dependency agent will need to installed on these machines.<br/><br/> [Review](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) the Linux operating systems supported by the Log Analytics agent.
 Assessment groups | Groups for which you want to visualize dependencies shouldn't contain more than 10 machines. If you have more than 10 machines, split them into smaller groups to visualize dependencies.
 
 ## Associate a Log Analytics workspace
 
 To use dependency visualization, you need to associate a [Log Analytics workspace](../azure-monitor/platform/manage-access.md) with an Azure Migrate project.
 
-- You can  or attach a workspace in the Azure Migrate project subscription only.
+- You can attach a workspace in the Azure Migrate project subscription only.
 - You can attach an existing workspace, or create a new one.
 - You attach the workspace the first time that you set up dependency visualization for a machine.
+- You can attach a workspace only after discovering machines in the Azure Migrate project. You can do this by setting up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. [Learn more](migrate-appliance.md).
 
 Attach a workspace as follows:
 
@@ -109,7 +115,7 @@ To install the agent on a Linux machine:
     > [!NOTE]
     > Time range can be up to an hour. If you need a longer range, use Azure Monitor to query dependent data for a longer period.
 
-5. After you've identified dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.
+5. After you've identified the dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.
 6. Specify a group name.
 7. Verify that the dependent machines are discovered by Azure Migrate.
 

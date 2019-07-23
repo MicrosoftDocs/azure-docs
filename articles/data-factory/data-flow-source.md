@@ -33,8 +33,12 @@ Data Factory has access to nearly 80 native connectors. To include data from tho
 
 Choose schema and sampling options for your data.
 
-### Allow schema drift
-Select **Allow schema drift** if the source columns will change often. This setting allows all incoming source fields to flow through the transformations to the sink.
+### Schema drift
+[Schema Drift](concepts-data-flow-schema-drift.md) is ADF's ability to natively handle flexible schemas in your data flows without needing to explicitly define column changes.
+
+* Select **Allow schema drift** if the source columns will change often. This setting allows all incoming source fields to flow through the transformations to the sink.
+
+* Choosing **Infer drifted column types** will instruct ADF to define data types for each new column discovered. With this feature turned off, ADF will assume String.
 
 ### Validate schema
 

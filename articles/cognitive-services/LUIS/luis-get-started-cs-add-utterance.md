@@ -53,7 +53,7 @@ The Visual Studio project needs **JsonFormatterPlus** and **CommandLineParser**.
 ### Write the C# code
 The **Program.cs** file should be:
 
-```C#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
