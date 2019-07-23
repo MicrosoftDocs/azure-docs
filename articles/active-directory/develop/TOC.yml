@@ -167,7 +167,7 @@
           href: scenario-desktop-app-registration.md
         - name: Code configuration
           href: scenario-desktop-app-configuration.md
-        - name: Platform specific code registration
+        - name: Mobile platforms specific code configuration
           items:
           - name: Xamarin Android
             href: msal-net-xamarin-android-considerations.md
