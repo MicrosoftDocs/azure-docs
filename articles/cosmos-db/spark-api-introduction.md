@@ -89,12 +89,12 @@ You can use Spark support in Azure Cosmos DB to deliver real-time recommendation
 The following image shows how Azure Cosmos DB’s Spark support is used to optimize pricing and promotions:
 
 
-![](./media/spark-api-introduction/.png)
+![Azure Cosmos DB’s Spark support to optimize pricing and promotions](./media/spark-api-introduction/optimize-pricing-and-promotions.png)
 
 
 The following image shows how Azure Cosmos DB’s Spark support is used in real-time recommendation engine:
 
-![](./media/spark-api-introduction/.png)
+![Azure Cosmos DB’s Spark support in real-time recommendation engine](./media/spark-api-introduction/real-time-recommendation-engine.png)
 
 ### Manufacturing & IoT
 
@@ -104,7 +104,7 @@ Azure Cosmos DB’s in-built analytics platform allows you to enable real-time a
 
 The following image shows how Azure Cosmos DB’s Spark support is used to read metrics from IoT devices and apply smart grid analytics:
 
-![](./media/spark-api-introduction/.png)
+![Azure Cosmos DB’s Spark support to read metrics from IoT devices](./media/spark-api-introduction/read-metrics-from-iot-devices.png)
 
 
 ### Predictive Maintenance
@@ -115,11 +115,11 @@ The following image shows how Azure Cosmos DB’s Spark support is used to read 
 
 The following image shows how Azure Cosmos DB’s Spark support is used to build a predictive maintenance system:
 
-![](./media/spark-api-introduction/.png)
+![Azure Cosmos DB’s Spark support to build a predictive maintenance system](./media/spark-api-introduction/predictive-maintenance-system.png)
 
 The following image shows how Azure Cosmos DB’s Spark support is used to build a real-time vehicle diagnostic system:
 
-![](./media/spark-api-introduction/.png)
+![Azure Cosmos DB’s Spark support to build a real-time vehicle diagnostic system](./media/spark-api-introduction/real-time-vehicle-diagnostic-system.png)
 
 ### Gaming
 
@@ -131,7 +131,7 @@ The following image shows how Azure Cosmos DB’s Spark support is used to build
 
 The following image shows how Azure Cosmos DB’s Spark support is used in gaming analytics:
 
-![](./media/spark-api-introduction/.png)
+![Azure Cosmos DB’s Spark support in gaming analytics](./media/spark-api-introduction/gaming-analytics.png)
 
 ## Built-in Jupyter notebooks support
 
