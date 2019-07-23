@@ -112,17 +112,20 @@ Content-Type: application/json
 Content-Length: 54
 
 {
+       "location": "<resource location>",
+       "kind": "web",
        "properties": {
+              "Application_Type": "web",
               "DisableIpMasking": true
        }
 }
 ```
 
-### Telemetry initializer
+## Telemetry initializer
 
 If you need to record the entire IP address rather than just the first three octets, you can use a [telemetry initializer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) to copy the IP address to a custom field that will not be masked.
 
-### ASP.NET
+### ASP.NET/ASP.NET Core
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -144,6 +147,8 @@ namespace MyWebApp
 }
 ```
 
+### Enable telemetry initializer .ASP.NET
+
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
 
@@ -162,7 +167,7 @@ namespace MyWebApp
 
 ```
 
-### ASP.NET Core
+### Enable telemetry initializer ASP.NET Core
 
 You can create your telemetry initializer the same way for ASP.NET Core as ASP.NET but to enable the initializer, use the following example for reference:
 
@@ -173,6 +178,20 @@ You can create your telemetry initializer the same way for ASP.NET Core as ASP.N
 {
     services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
 }
+```
+
+### Node.js
+
+```javascript
+appInsights.defaultClient.addTelemetryProcessor((envelope) => {
+    const baseData = envelope.data.baseData;
+    if (appInsights.Contracts.domainSupportsProperties(baseData)) {
+        const ipAddress = envelope.tags[appInsights.defaultClient.context.keys.locationIp];
+        if (ipAddress) {
+            baseData.properties["client-ip"] = ipAddress;
+        }
+    }
+});
 ```
 
 ### View the results of your telemetry initializer
