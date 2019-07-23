@@ -71,7 +71,7 @@ Use the bot builder sample, **NLP with dispatch**, in [C#](https://github.com/mi
 Implement best practices for each service:
 
 * [LUIS](./luis/luis-concept-best-practices.md) best practices
-* [QnA Maker](./qnamaker/concepts/best-practices) best practices
+* [QnA Maker](./qnamaker/concepts/best-practices.md) best practices
 
 ## See also
 
