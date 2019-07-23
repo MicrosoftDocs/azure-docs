@@ -6,7 +6,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
-ms.date: 07/18/2019
+ms.date: 07/22/2019
 #Customer intent: As a user of Azure HDInsight, I want to learn the means that Azure HDInsight offers to ensure security for the enterprise.
 ---
 
@@ -62,7 +62,7 @@ Both data stores for HDInsight clusters, Azure Blob storage and Azure Data Lake 
 
 The following image summarizes the major system security areas and the security solutions that are available to you in each. It also highlights which security areas are your responsibility as a customer and which areas are the responsibility of HDInsight as the service provider.
 
-![HDInsight shared responsibilities diagram](./media/apache-domain-joined-security-overview/apache-domain-joined-shared-responsibility.png)
+![HDInsight shared responsibilities diagram](./media/hdinsight-security-overview/hdinsight-shared-responsibility.png)
 
 The following table provides links to resources for each type of security solution.
 

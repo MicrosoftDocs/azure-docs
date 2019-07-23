@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is enterprise security in HDInsight?
-    href: apache-domain-joined-security-overview.md
+    href: hdinsight-security-overview.md
 - name: Tutorials
   items:
   - name: Apache HBase RBAC with Apache Ranger
