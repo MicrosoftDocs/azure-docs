@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Deploy Node.js apps powered by Azure Cosmos DB with Azure DevOps Projects'
-description: Azure DevOps Projects makes it easy to get started on Azure. With DevOps Projects, you can deploy your Node.js app powered by Azure Cosmos DB to Windows Web App in a few quick steps.
+description: Azure DevOps Projects makes it easy to get started on Azure. With DevOps Projects, you can deploy your Node.js app that's powered by Azure Cosmos DB to Windows Web App in a few quick steps.
 ms.author: mlearned
 ms.manager: douge
 ms.prod: devops
@@ -135,7 +135,7 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 > [!NOTE]
 > The following procedure tests the CI-CD pipeline by making a simple text change.
 
-You're now ready to collaborate with a team on your app by using a CI-CD process that automatically deploys your latest work to your App Service. Each change to the Git repo starts a build in Azure DevOps, and a CD pipeline runs a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repo. For example, you can clone the Git repo in your favorite tool or IDE, and then push changes to this repo.
+You're now ready to collaborate with a team on your app by using a CI-CD process that deploys your latest work to your App Service. Each change to the Git repo starts a build in Azure DevOps, and a CD pipeline runs a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repo. For example, you can clone the Git repo in your favorite tool or IDE, and then push changes to this repo.
 
 1. In the Azure DevOps menu, select **Repos** and then **Files**. Then go to your repo.
 
@@ -143,7 +143,7 @@ You're now ready to collaborate with a team on your app by using a CI-CD process
 
 1. Select **Edit**, and then make a change to **line number 15**. For example, you can change it to "My First deployment to Azure App Service powered by Azure Cosmos DB."
 
-1. In the top right corner, select **Commit**, and then select **Commit** again to push your change.
+1. In the upper-right corner, select **Commit**, and then select **Commit** again to push your change.
 
      After a few seconds, a build starts in Azure DevOps and a release runs to deploy the changes. Monitor the build status on the DevOps Projects dashboard or in the browser with your Azure DevOps organization.
 
