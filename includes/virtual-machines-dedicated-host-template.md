@@ -10,13 +10,13 @@
  ms.custom: include file
 ---
 
-# Deploy a dedicated host using a resource manager template
+# Deploy a dedicated host using an Azure Resource Manager template
 
 
 
 ## Host group
 
-In order to create a host group you need to provide a name, location (region) and , for preview, an availability zone in the region (1,2,or 3). 
+To create a host group you need to provide a name, location (region), and for preview, an availability zone in the region (1,2, or 3). 
 
 ```json
       {
@@ -64,7 +64,7 @@ Create a host in the host group.
 Create a virtual machine on a host. 
 
 The following changes are required from any existing template to enable the VM on a dedicated host:
-1.	Remove availability set dependencies. Dedicated hosts will not support VMs in an availability set. 
+1.	Remove availability set dependencies. Dedicated hosts won't support VMs in an availability set. 
 1.	Change the API version of your virtual machine to `2018-10-01`.
 1.	Initially, we require the use of Availability Zones. The following resources must have a zone property specified: 
 	- Public IP
