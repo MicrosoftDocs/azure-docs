@@ -249,10 +249,10 @@ Ensure the Python virtual environment is still activated and start the function 
 func start
 ```
 
-In a browser, open this URL that calls your function with a photo of a cat. Confirm that a valid prediction result is returned.
+In a browser, open this URL that calls your function with the URL of a cat photo. Confirm that a valid prediction result is returned.
 
 ```
-http://localhost:7071/api/classify?img=https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/raw/master/resources/assets/samples/image1.jpg
+http://localhost:7071/api/classify?img=https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat1.png
 ```
 
 Keep the function app running.
@@ -268,7 +268,14 @@ cd <FRONT_END_FOLDER>
 <PYTHON_PATH> -m http.server
 ```
 
-In a browser, navigate to the HTTP server's URL. A web app should appear. Find a public URL of a dog or cat photo and enter it into the textbox. When you click submit, the function app is called and a prediction is returned and displayed on the page.
+In a browser, navigate to the HTTP server's URL. A web app should appear. Enter one of the following photo URLs into the textbox. You may also use a URL of a publicly accessible cat or dog photo.
+
+- `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat1.png`
+- `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat2.png`
+- `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog1.png`
+- `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog2.png`
+
+When you click submit, the function app is called and a prediction is returned and displayed on the page.
 
 ## Clean up resources
 The entirety of this tutorial runs locally on your machine, so there are no Azure resources or services to clean up.
