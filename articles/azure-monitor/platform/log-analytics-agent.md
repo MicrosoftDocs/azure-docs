@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/23/2019
 ms.author: magoedte
 ---
 
@@ -19,7 +19,7 @@ ms.author: magoedte
 
 The Azure Log Analytics agent, previously referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent, was developed for comprehensive management across on-premises machines, computers monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), and virtual machines in any cloud. The Windows and Linux agents attach to an Azure Monitor and store collected log data from different sources in your Log Analytics workspace, as well as any unique logs or metrics as defined in a monitoring solution. 
 
-This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.   
+This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
 
 ## Overview
 
@@ -42,8 +42,12 @@ The following versions of the Windows operating system are officially supported 
 * Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
 * Windows 7 SP1 and later
 
+>[!NOTE]
+>While the Log Analytics agent for Windows was designed to support server monitoring scenarios, we realize you may run Windows client to support workloads configured and optimized for the server operating system. The agent does support Windows client, however our monitoring solutions don't focus on client monitoring scenarios unless explicitly stated.
+
 ## Supported Linux operating systems
-This section provides details about the supported Linux distributions.    
+
+This section provides details about the supported Linux distributions.
 
 Starting with versions released after August 2018, we are making the following changes to our support model:  
 
@@ -85,9 +89,11 @@ The following table highlights the packages required for supported Linux distros
 >Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
 
 ## TLS 1.2 protocol
+
 To insure the security of data in transit to Azure Monitor logs, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ## Network firewall requirements
+
 The information below list the proxy and firewall configuration information required for the Linux and Windows agent to communicate with Azure Monitor logs.  
 
 |Agent Resource|Ports |Direction |Bypass HTTPS inspection|
@@ -124,7 +130,8 @@ For example:
 > [!NOTE]
 > If you use special characters such as “\@” in your password, you receive a proxy connection error because value is parsed incorrectly.  To work around this issue, encode the password in the URL using a tool such as [URLDecode](https://www.urldecoder.org/).  
 
-## Install and configure agent 
+## Install and configure agent
+
 Connecting machines in your Azure subscription or hybrid environment directly with Azure Monitor logs can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best in your organization.
 
 |Source | Method | Description|
