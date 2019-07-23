@@ -68,6 +68,7 @@ In this tutorial, you learn the following tasks:
     ![Select bankmarketing_train.csv data file for experiment](media/tutorial-1st-experiment-automated-ml/select-data-file.png)
 
 1. The **Preview** tab allows us to further configure our data for this experiment.
+
     On the Preview tab, indicate that the data includes headers. The service defaults to including all of the features (columns) for training. For this example, scroll to the right and **Ignore** the **day_of_week** feature.
 
     ![Preview tab config](media/tutorial-1st-experiment-automated-ml/preview-tab-config.gif)
@@ -97,7 +98,7 @@ In this tutorial, you learn the following tasks:
 
 ##  View experiment details
 
-After starting the experiment, you see a blank **Run Detail** screen with the following status at the top. The experiment preparing process takes a couple of minutes. When the preparation process completes, the status message updates to **Run is Running**.
+Once the experiment starts, you see a blank **Run Detail** screen with the following status at the top. The experiment preparing process takes a couple of minutes. When the preparation process completes, the status message updates to **Run is Running**.
 
   ![Run preparing](media/tutorial-1st-experiment-automated-ml/run-preparing.png)
 
@@ -110,7 +111,7 @@ As the experiment progresses, the **Run Detail** screen updates the iteration ch
 
 ## Deploy model
 
-For this experiment the **VotingEnsemble** is considered the best model based on the **AUC_weighted** metric. Automated machine learning in the Azure portal we can deploy this model as a web service to predict on new data with one click. 
+For this experiment the **VotingEnsemble** is considered the best model based on the **AUC_weighted** metric. With automated machine learning in the Azure portal, we can deploy this model as a web service to predict on new data with one click. 
 
 1. On the **Run Detail** page, select the **Deploy Best Model** button.
 
@@ -133,18 +134,24 @@ For this experiment the **VotingEnsemble** is considered the best model based on
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+Experiment and deployment files are saved in your Azure storage container, which incur charges. Deployment files are relatively larger than data and experiment files, thus incurs more cost. If you want to keep your workspace and experiment files, you can delete just the deployment files to minimize costs.  Otherwise, if you don't plan to use any of the files delete the entire resource group so you don't incur any charges.  
 
 ### Delete deployment instance
 
-Deployment If you want to keep the resource group and workspace for other tutorials and exploration, you can delete only the Azure Container Instance deployment from the Azure portal. 
+[Delete just the deployment instance](#deploy) from the Azure portal, if you want to keep the resource group and workspace for other tutorials and exploration. 
 
 1. Navigate to the **Assets** pane on the left and select **Deployments**. 
 
 1. Select the deployment you want to delete and select **Delete**. 
 
 1. Select **Proceed**.
- 
+
+<a name="delete"></a>
+
+### Delete resource group
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## Next steps
 
 In this automated machine learning tutorial, you used the Azure portal to create and deploy a classification model. See these articles for more information and next steps.
