@@ -72,6 +72,8 @@ sections:
     items:
     - title: APIs
       html: <p><a href="https://aka.ms/form-recognizer/api">Form Recognizer API</a></p>
+    - title: SDKs
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview">.NET</a></p>
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
