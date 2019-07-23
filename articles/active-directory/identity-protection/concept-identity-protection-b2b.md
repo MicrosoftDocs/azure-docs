@@ -5,7 +5,7 @@ description: Using Identity Protection with B2B users how it works and known lim
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/15/2019
 
 ms.author: joflore

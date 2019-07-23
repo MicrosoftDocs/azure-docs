@@ -6,6 +6,8 @@
   items:
   - name: What is Cognitive Services?
     href: Welcome.md
+  - name: Cognitive Services and Machine learning
+    href: cognitive-services-and-machine-learning.md
   - name: Language support
     href: language-support.md
 - name: Container support
@@ -32,9 +34,9 @@
       href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Quickstarts
   items:
-  - name: Create an account using the Azure portal
+  - name: Create a new resource using the Azure portal
     href: cognitive-services-apis-create-account.md
-  - name: Create an account using the Azure CLI
+  - name: Create a new resource using the Azure CLI
     href: cognitive-services-apis-create-account-cli.md
   - name: Authentication
     href: authentication.md
