@@ -96,4 +96,4 @@ Alternatively, the service principal can be authenticated with a certificate. Be
 
 ## See also
 
-* [Custom subdomains](../articles/cognitive-services/speech-service/cognitive-services-custom-subdomains.md)
+* [Custom subdomains](../articles/cognitive-services/cognitive-services-custom-subdomains.md)
