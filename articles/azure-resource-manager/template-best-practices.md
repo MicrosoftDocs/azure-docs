@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager template best practices
@@ -22,7 +22,7 @@ For recommendations about how to build templates that work in all Azure cloud en
 
 ## Template limits
 
-Limit the size of your template to 1 MB, and each parameter file to 64 KB. The 1-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
+Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
 
 You're also limited to:
 

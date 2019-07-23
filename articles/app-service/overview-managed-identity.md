@@ -11,7 +11,8 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
-ms.author: mahender, yevbronsh
+ms.author: mahender
+ms.reviewer: yevbronsh
 
 ---
 

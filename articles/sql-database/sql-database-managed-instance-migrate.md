@@ -18,7 +18,7 @@ ms.date: 11/07/2019
 In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Database managed instance](sql-database-managed-instance.md). For information on migrating to a single database or elastic pool, see [Migrate to a single or pooled database](sql-database-cloud-migrate.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
 
 > [!NOTE]
-> If you want to quickly start and try Managed Instance, you might want to go to [Quick-start guide](/sql-database-managed-instance-quickstart-guide.md) instead of this page. 
+> If you want to quickly start and try Managed Instance, you might want to go to [Quick-start guide](sql-database-managed-instance-quickstart-guide.md) instead of this page. 
 
 At a high level, the database migration process looks like:
 

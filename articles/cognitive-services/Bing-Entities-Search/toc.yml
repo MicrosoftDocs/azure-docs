@@ -45,7 +45,8 @@
 - name: How-to guides
   items:
   - name: Resize and crop thumbnails
-    href: resize-and-crop-thumbnails.md
+    maintainContext: true
+    href: ../bing-web-search/resize-and-crop-thumbnails.md
 - name: Concepts
   items:
     - name: Searching for entities

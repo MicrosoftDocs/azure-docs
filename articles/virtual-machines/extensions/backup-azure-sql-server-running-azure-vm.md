@@ -7,7 +7,7 @@ manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: swatisachdeva
+ms.author: vijayts
 ---
 
 # Azure Backup for SQL Server running in Azure VM
