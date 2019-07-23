@@ -10,6 +10,14 @@
     href: event-schemas.md
   - name: Delivery and retry
     href: delivery-retry.md  
+- name: How-to guides
+  items:
+  - name: Persist state
+    items:
+    - name: Linux
+      href: persist-state-on-linux.md  
+    - name: Windows
+      href: persist-state-on-windows.md  
 - name: Reference
   items:
   - name: REST API
