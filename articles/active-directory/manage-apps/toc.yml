@@ -1,6 +1,7 @@
   - name: Application Management Documentation
     href: index.yml
   - name: Application management and single sign-on
+    expanded: true
     items:
      - name: Overview
        expanded: true
