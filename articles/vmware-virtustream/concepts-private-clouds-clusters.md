@@ -16,19 +16,19 @@ ms.custom:
 
 The Azure VMware Solution (AVS) by Virtustream delivers VMware-based private clouds in Azure. The private clouds are built from clusters of dedicated bare-metal hosts and are deployed and managed through the Azure portal. Clusters in private clouds are provisioned with VMware vSphere, vCenter, vSAN, and NSX software. AVS by Virtustream private cloud hardware and software deployments are fully integrated and automated in Azure.
 
-There is a logical relationship between subscriptions, private clouds, clusters, and hosts. In the diagram, there are two private clouds in a single Azure subscription. The private clouds represent a development and a production environment, each with their own private cloud. In each of those private clouds there are two clusters. To show the lower potential needs of a development environment, smaller clusters with lower capacity hosts are used in that environment. All of these concepts are described in the sections below.
+There's a logical relationship between Azure subscriptions, AVS by Virtustream private clouds, vSAN clusters, and hosts. In the diagram, two private clouds in a single Azure subscription are shown. The private clouds represent a development and a production environment, each with their own private cloud. In each of those private clouds there are two clusters. To show the lower potential needs of a development environment, smaller clusters with lower capacity hosts are used in that environment. All of these concepts are described in the sections below.
 
 ![Image of two private clouds in a customer subscription](./media/hosts-clusters-private-clouds-final.png)
 
 ## Private clouds
 
-AVS by Virtustream private clouds contain vSAN clusters that are built with dedicated, bare-metal Azrure hosts. Each private cloud can have multiple clusters, all managed by the same vCenter server and NSX-T manager. You can deploy and manage private clouds in the portal, from the CLI, or with PowerShell. As with other resources, private clouds are installed and managed from within an Azure subscription.
+Private clouds contain vSAN clusters that are built with dedicated, bare-metal Azrure hosts. Each private cloud can have multiple clusters, all managed by the same vCenter server, and NSX-T manager. You can deploy and manage private clouds in the portal, from the CLI, or with PowerShell. As with other resources, private clouds are installed and managed from within an Azure subscription.
 
-The number of private clouds within a subscription is scalable. For a period of time following the initial availability of AVS by Virtustream, there's a limit of one private cloud per subscription.
+The number of private clouds within a subscription is scalable. Initially, there's a limit of one private cloud per subscription.
 
 ## Clusters
 
-You will create at least one vSAN cluster in each private cloud. When you create a private cloud, there is one cluster by default. You can add additional clusters to a private cloud using the Azure portal or through the API. All clusters except trial clusters can be scaled from 3 to 16 hosts, with a default size of three hosts. The type of hosts used in a cluster must be the same type. The hosts types are described in the next section.
+You'll create at least one vSAN cluster in each private cloud. When you create a private cloud, there's one cluster by default. You can add additional clusters to a private cloud using the Azure portal or through the API. All clusters have a default size of three hosts and can be scaled from 3 to 16 hosts. The type of hosts used in a cluster must be the same type. The hosts types are described in the next section.
 
 Trial clusters are available for evaluation and they're limited to three hosts and a single trial cluster per private cloud. You can scale a trial cluster by a single host during the evaluation period.
 
@@ -68,7 +68,7 @@ Host maintenance and lifecycle management are done without impact on the capacit
 
 ## Backup and restoration
 
-Private cloud vCenter and NSX-T configurations are backed up hourly. Backups are kept for three days. Restoration from a backup is initiated through a Service Request, submitted in the Azure portal.
+Private cloud vCenter and NSX-T configurations are backed up hourly. Backups are kept for three days. Restoration from a backup is requested through a Service Request in the Azure portal.
 
 ## Next steps
 
