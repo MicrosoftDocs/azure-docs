@@ -6,8 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
+ms.author: maxluk
+author: maxluk
+ms.reviewer: sdgilley
 ms.date: 06/15/2019
 ---
 

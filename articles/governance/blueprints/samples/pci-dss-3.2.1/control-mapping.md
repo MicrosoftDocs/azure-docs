@@ -17,7 +17,7 @@ PCI-DSS v3.2.1 controls. For more information about the controls, see [PCI-DSS v
 The following mappings are to the **PCI-DSS v3.2.1:2018** controls. Use the navigation on the right
 to jump directly to a specific control mapping. Many of the mapped controls are implemented with an [Azure Policy](../../../policy/overview.md)
 initiative. To review the complete initiative, open **Policy** in the Azure portal and select the
-**Definitions** page. Then, find and select the **[Preview] Audit PCI v3.2.1:2018 controls and
+**Definitions** page. Then, find and select the **\[Preview\] Audit PCI v3.2.1:2018 controls and
 deploy specific VM Extensions to support audit requirements** built-in policy initiative.
 
 ## 1.3.2 and 1.3.4 Boundary Protection
@@ -141,12 +141,12 @@ strength and other password requirements. Awareness of VMs in violation of the p
 policy helps you take corrective actions to ensure passwords for all VM user accounts are compliant
 with policy.
 
-- [Preview]: Audit Windows VMs that do not have a maximum password age of 70 days
-- [Preview]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
-- [Preview]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Preview]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Preview]: Audit Windows VMs that allow re-use of the previous 24 passwords
-- [Preview]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
 
 ## 10.3 and 10.5.4 Audit Generation
 

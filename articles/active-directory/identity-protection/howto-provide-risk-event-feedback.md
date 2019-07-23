@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/19/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -30,13 +30,13 @@ An Identity Protection detection is an indicator of suspicious activity from an 
 
 There are several reasons why you should give Azure AD risk feedback:
 
-1. **You found Azure AD’s user or sign-in risk assessment incorrect**. For example, a sign-in shown in ‘Risky sign-ins’ report was benign and all the detections on that sign-in were false positives.
-1. **You validated that Azure AD’s user or sign-in risk assessment was correct**. For example, a sign-in shown in ‘Risky sign-ins’ report was indeed malicious and you want Azure AD to know that all the detections on that sign-in were true positives.
-1. **You remediated the risk on that user outside of Azure AD Identity Protection** and you want the user’s risk level to be updated.
+- **You found Azure AD’s user or sign-in risk assessment incorrect**. For example, a sign-in shown in ‘Risky sign-ins’ report was benign and all the detections on that sign-in were false positives.
+- **You validated that Azure AD’s user or sign-in risk assessment was correct**. For example, a sign-in shown in ‘Risky sign-ins’ report was indeed malicious and you want Azure AD to know that all the detections on that sign-in were true positives.
+- **You remediated the risk on that user outside of Azure AD Identity Protection** and you want the user’s risk level to be updated.
 
 ## How does Azure AD use my risk feedback?
 
-Azure AD uses your feedback to update the risk of the underlying user and/or sign-in. This feedback helps secure the end user. For example, once you confirm a sign-in is compromised, Azure AD immediately increases the user’s risk and sign-in’s aggregate risk (not real-time risk) to High. If this user is included in your user risk policy to force High risk users to securely reset their passwords, the user will automatically remediate itself the next time they sign-in.
+Azure AD uses your feedback to update the risk of the underlying user and/or sign-in and the accuracy of these events. This feedback helps secure the end user. For example, once you confirm a sign-in is compromised, Azure AD immediately increases the user’s risk and sign-in’s aggregate risk (not real-time risk) to High. If this user is included in your user risk policy to force High risk users to securely reset their passwords, the user will automatically remediate itself the next time they sign-in.
 
 ## How should I give risk feedback and what happens under the hood?
 

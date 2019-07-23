@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 07/17/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 
@@ -89,6 +89,9 @@ Choose password-based single sign-on when:
 Password-based single sign-on is supported for any cloud-based application that has an HTML-based sign-in page. The user can use any of the following browsers:
 
 - Internet Explorer 11 on Windows 7 or later
+   > [!NOTE]
+   > Internet Explorer is on limited support and no longer receives new software updates. Microsoft Edge is the recommended browser.
+
 - Microsoft Edge on Windows 10 Anniversary Edition or later
 - Chrome on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later

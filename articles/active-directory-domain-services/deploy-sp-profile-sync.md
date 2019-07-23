@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Enable support for SharePoint User Profile service | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Enable SharePoint User Profile service | Microsoft Docs'
 description: Configure Azure Active Directory Domain Services managed domains to support profile synchronization for SharePoint Server
 services: active-directory-ds
 documentationcenter: ''

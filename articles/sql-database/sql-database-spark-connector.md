@@ -196,7 +196,6 @@ val bulkCopyConfig = Config(Map(
   "databaseName"      -> "MyDatabase",
   "user"              -> "username",
   "password"          -> "*********",
-  "databaseName"      -> "zeqisql",
   "dbTable"           -> "dbo.Clients",
   "bulkCopyBatchSize" -> "2500",
   "bulkCopyTableLock" -> "true",

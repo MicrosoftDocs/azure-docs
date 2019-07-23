@@ -114,3 +114,33 @@ We recommend you perform the below validation, before you start troubleshooting 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
 | Setting up email notifications using an Office 365 account |Error ID: 2013| **Cause:**<br> Trying to use Office 365 account <br>**Recommended action:**<ol><li> The first thing to ensure is that “Allow Anonymous Relay on a Receive Connector” for your DPM server is set up on Exchange. For more information about how to configure this, see [Allow Anonymous Relay on a Receive Connector](https://technet.microsoft.com/library/bb232021.aspx) on TechNet.</li> <li> If you can't use an internal SMTP relay and need to set up by using your Office 365 server, you can set up IIS to be a relay. Configure the DPM server to [relay the SMTP to O365 using IIS](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **IMPORTANT:** Be sure to use the user\@domain.com format and *not* domain\user.<br><br><li>Point DPM to use the local server name as SMTP server, port 587. Then point it to the user email that the emails should come from.<li> The username and password on the DPM SMTP setup page should be for a domain account in the domain that DPM is on. </li><br> **NOTE**: When you are changing the SMTP server address, make the change to the new settings, close the settings box, and then reopen it to be sure it reflects the new value.  Simply changing and testing might not always cause the new settings to take effect, so testing it this way is a best practice.<br><br>At any time during this process, you can clear these settings by closing the DPM console and editing the following registry keys: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Delete SMTPPassword and SMTPUserName keys**. You can add them back to the UI when you launch it again.
+
+
+## Common issues
+
+This section covers the common errors that you might encounter while using Azure Backup Server.
+
+
+### CBPSourceSnapshotFailedReplicaMissingOrInvalid
+
+Error message | Recommended action |
+-- | --
+Backup failed because the disk-backup replica is either invalid or missing. | To resolve this issue, verify the below steps and retry the operation: <br/> 1. Create a disk recovery point<br/> 2. Run consistency check on datasource <br/> 3. Stop protection of datasource and then reconfigure protection for this data source
+
+### CBPSourceSnapshotFailedReplicaMetadataInvalid
+
+Error message | Recommended action |
+-- | --
+Source volume snapshot failed because metadata on replica is invalid. | Create a disk recovery point of this datasource and retry online backup again
+
+### CBPSourceSnapshotFailedReplicaInconsistent
+
+Error message | Recommended action |
+-- | --
+Source volume snapshot failed due to inconsistent datasource replica. | Run a consistency check on this datasource and try again
+
+### CBPSourceSnapshotFailedReplicaCloningIssue
+
+Error message | Recommended action |
+-- | --
+Backup failed as the disk-backup replica could not be cloned.| Ensure that all previous disk-backup replica files (.vhdx) are unmounted and no disk to disk backup is in progress during online backups

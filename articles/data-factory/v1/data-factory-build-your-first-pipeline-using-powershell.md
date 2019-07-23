@@ -21,7 +21,6 @@ robots: noindex
 # Tutorial: Build your first Azure data factory using Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-build-your-first-pipeline.md)
-> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)

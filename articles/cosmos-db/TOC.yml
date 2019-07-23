@@ -7,18 +7,21 @@
   - name: Quickstarts
     expanded: true
     items:
-    - name: .NET
-      href: create-sql-api-dotnet.md
-    - name: .NET Preview
-      href: create-sql-api-dotnet-preview.md
-    - name: Java
-      href: create-sql-api-java.md
-    - name: Node.js
-      href: create-sql-api-nodejs.md
-    - name: Python
-      href: create-sql-api-python.md
-    - name: Xamarin
-      href: create-sql-api-xamarin-dotnet.md
+    - name: Create Cosmos DB resources
+      expanded: true
+      items:
+      - name: Azure portal
+        href: create-cosmosdb-resources-portal.md
+      - name: .NET app
+        href: create-sql-api-dotnet.md
+      - name: Java app
+        href: create-sql-api-java.md
+      - name: Node.js app
+        href: create-sql-api-nodejs.md
+      - name: Python app
+        href: create-sql-api-python.md
+      - name: Xamarin app
+        href: create-sql-api-xamarin-dotnet.md
   - name: Tutorials
     items:
     - name: 1 - Create & manage data
@@ -27,12 +30,6 @@
         items:
         - name: .NET
           href: sql-api-get-started.md
-        - name: .NET Preview
-          href: sql-api-dotnet-get-started-preview.md
-        - name: .NET Core
-          href: sql-api-dotnetcore-get-started.md
-        - name: .NET Core Preview
-          href: sql-api-dotnet-core-get-started-preview.md
         - name: Java
           href: sql-api-java-get-started.md
         - name: Async Java
@@ -43,8 +40,6 @@
         items:
         - name: .NET
           href: sql-api-dotnet-application.md
-        - name: .NET preview
-          href: sql-api-dotnet-application-preview.md
         - name: Java
           href: sql-api-java-application.md
         - name: Node.js
@@ -755,6 +750,8 @@
       href: sql-api-sdk-dotnet.md
     - name: .NET Core
       href: sql-api-sdk-dotnet-core.md
+    - name: .NET Standard
+      href: sql-api-sdk-dotnet-standard.md      
     - name: .NET change feed library
       href: sql-api-sdk-dotnet-changefeed.md
     - name: .NET bulk executor library 

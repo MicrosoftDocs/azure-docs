@@ -30,6 +30,8 @@ The above error is a known issue with the service and is currently being address
 
 You'll need to have the [Azure Contributor RBAC role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) to complete these steps. 
 
+If you still are unable to see a data share invitation, contact your data provider and ensure that they have sent the invitation to your Azure login e-mail address and *not* your e-mail alias. 
+
 > [!IMPORTANT]
 > If you have already accepted an Azure Data Share invitation and exited the service prior to configuring storage, follow the instructions detailed in the [configure a dataset mapping](how-to-configure-mapping.md) how-to guide to learn how to finish configuring your received data share and start receiving data. 
 
@@ -43,12 +45,12 @@ You'll need to have the [Azure Contributor RBAC role](https://docs.microsoft.com
 
 ![Privilege error](media/error-write-privilege.png)
 
-If you receive any of the above errors when creating a new data share or receiving a new data share, it is because there are insufficient permissions to the storage account. The action required is *Microsoft.Authorization/role assignments/write*, which exists in the storage owner role or can be assigned to a custom role. Even if you created the Storage account, it does NOT automatically make you the owner of the storage account. Follow these steps to grant yourself owner of the storage account. Alternatively, a custom role can be created with this permission that you can add yourself in to.  
+If you receive any of the above errors when creating a new data share or receiving a new data share, it is because there are insufficient permissions to the storage account. The permission required is *Microsoft.Authorization/role assignments/write*, which exists in the storage owner role or can be assigned to a custom role. Even if you created the Storage account, it does NOT automatically make you the owner of the storage account. Follow these steps to grant yourself owner of the storage account. Alternatively, a custom role can be created with this permission that you can add yourself in to.  
 
 1. Navigate to Storage account in Azure portal
 1. Select **Access control (IAM)**
 1. Click **Add**
-1. Add yourself in as the Storage Blob Data Owner
+1. Add yourself in as owner.
 
 ## Next steps
 

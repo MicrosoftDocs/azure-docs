@@ -1,6 +1,6 @@
 ---
 title: Pass an access token through a user flow to your application - Azure Active Directory B2C | Microsoft Docs
-description: Learn how you can pass through an access token for OAuth2.0 identity providers as a claim in a user flow in Azure Active Directory B2C. 
+description: Learn how you can pass through an access token for OAuth2.0 identity providers as a claim in a user flow in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -50,12 +50,8 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 
     You should see something similar to the following example:
 
-    ![Decoded token](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.png)
+    ![Decoded token in jwt.ms with idp_access_token block highlighted](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.PNG)
 
 ## Next steps
 
 Learn more in the [overview of Azure AD B2C tokens](active-directory-b2c-reference-tokens.md).
-
-
-
-
