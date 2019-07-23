@@ -98,7 +98,6 @@ When you swap two slots (usually from a staging slot into the production slot), 
 At any point of the swap operation, all work of initializing the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared and warmed up, regardless of where the swap succeeds or fails. To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, the swap operation doesn't affect your production app.
 
 ### Which settings are swapped?
-When you clone configuration from another deployment slot, the cloned configuration is editable. Some configuration elements follow the content across a swap (not slot specific), whereas other configuration elements stay in the same slot after a swap (slot specific). The following lists show the settings that change when you swap slots.
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
