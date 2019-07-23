@@ -81,4 +81,4 @@ Mobile applications call APIs on behalf of the signed-in user. Your app needs to
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Acquiring a token](scenario-mobile-app-configuration.md)
+> [Code configuration](scenario-mobile-app-configuration.md)
