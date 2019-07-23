@@ -3,7 +3,7 @@ title: Create and manage event rules in your Azure IoT Central application | Mic
 description: Azure IoT Central event rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 06/09/2019
+ms.date: 07/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -28,7 +28,7 @@ To create an event rule, the device template must have at least one event measur
 
 1. If you haven’t created any rules yet, you see the following screen:
 
-    ![No rules yet](media/howto-create-telemetry-rules-pnp/rules-landing-page1.png)
+    ![No rules yet](media/howto-create-event-rules-pnp/rules-landing-page1.png)
 
 1. Select **+ New Rule** to see the types of rules you can create.
 
@@ -36,14 +36,14 @@ To create an event rule, the device template must have at least one event measur
 
     ![Rule types](media/howto-create-event-rules-pnp/rule-types1.png)
 
-1. Enter a name that helps you to identify the rule and hit Enter.
+1. Enter a name that helps you to identify the rule and press Enter.
 
-1. Select the device definition that you wish to scope this rule to in the Scopes section. This is also where you can filter down the devices the rule applies to by using **+ Filter**.
+1. Select the device definition to scope this rule to in the **Scopes** section. This screen is also where you can filter down the devices the rule applies to by using **+ Filter**.
 
    ![Rule Detail](media/howto-create-event-rules-pnp/rule-detail1.png)
 
     The rule automatically applies to all the devices under the device template.
-    To disable the rule, click the **Disable** button in the header.
+    To disable the rule, select the **Disable** button in the header.
 
 ### Configure the rule conditions
 
@@ -52,7 +52,7 @@ Condition defines the criteria that is monitored by the rule.
 1. Select whether you want to **Set aggregation** as on or off.
 
    - Without aggregation, the rule triggers for each event data point that meets the condition. For example, if you configure the rule's condition to trigger when a **Fan Motor Error** event occurs then the rule triggers almost immediately when the device reports that event.
-   - If Count is used as an aggregate function, then you have to  provide a **Value** and a **Time window** over which the condition needs to be evaluated. In this case, the count of events is aggregated and the rule triggers only if the aggregated event count matches the value.
+   - If **Count** is used as an aggregate function, then you have to  provide a **Value** and a **Time window** over which the condition needs to be evaluated. In this case, the count of events is aggregated and the rule triggers only if the aggregated event count matches the value.
 
 1. Choose the event that you want to monitor from the **Measurement** dropdown. In this example, **Fan Motor Error** event has been selected.
 
@@ -60,7 +60,7 @@ Condition defines the criteria that is monitored by the rule.
 
 1. Optionally, you can also set **Count** as **Aggregation** and provide the value at which the rule will trigger.
 
-     For example, if you want to alert when there are more than three device events within 5 minutes, then select the event and set the aggregate function as "Count",  operator as "greater than", and "Value" as 3. Set "Time window" as "5 minutes". The rule triggers when more than three events are sent by the device within 5 minutes. The rule evaluation frequency is the same as the **Time window**, which means, in this example, the rule is evaluated once every 5 minutes.
+     For example, if you want to alert when there are more than three device events within 5 minutes, then select the event and set the aggregate function as **Count**,  operator as **greater than**, and **Value** as 3. Set **Time window** as **5 minutes**. The rule triggers when more than three events are sent by the device within 5 minutes. The rule evaluation frequency is the same as the **Time window**, which means, in this example, the rule is evaluated once every 5 minutes.
 
      ![Add Event Condition](media/howto-create-event-rules-pnp/aggregate-condition-filled-out1.png)
 
@@ -81,11 +81,12 @@ This section shows you how to set up actions to take when the rule is fired. Act
     > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.
 
    ![Configure Action](media/howto-create-event-rules-pnp/configure-action1.png)
+
 1. To save the action, choose **Done**.
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring event being sent to your application. When the condition specified in the rule is met, the rule triggers the configured email action.
 
-You can add up to 5 actions per rule.
+You can add up to five actions per rule.
 
 ## Parameterize the rule
 
@@ -99,7 +100,7 @@ Actions can also be configured using **Device Property** as a parameter. If an e
 
 If you no longer need a rule, delete it by opening the rule and choosing **Delete**. Deleting the rule removes it from the device template and all the associated devices.
 
-## Enable or disable a rule for a device template
+## Enable or disable a rule
 
 Choose the rule you want to enable or disable. Toggle the **Enable** or **Disable** button in the rule to enable or disable the rule for all devices that are in scope for the rule.
 
@@ -109,7 +110,7 @@ Choose the rule you want to enable or disable. Add a filter in the **Scopes** se
 
 ## Next steps
 
-Now that you have learned how to create rules in your Azure IoT Central application, here are some next step:
+Now that you've learned how to create rules in your Azure IoT Central application, here are some next steps:
 
 - [Group multiple actions to run from one or more rules](howto-use-action-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 - [How to manage your devices](howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
