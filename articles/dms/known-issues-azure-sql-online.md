@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 07/23/2019
 ---
 
 # Known issues/migration limitations with online migrations to Azure SQL DB
@@ -121,3 +121,14 @@ To get to specific failure details, follow the steps below.
      ![migration activity screen](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
 2. Select **See error details** to view specific error messages that help you to troubleshoot migration errors.
+
+### Geography datatype not supported in SQLDB online migration
+
+**Symptom**
+
+Migration fails with an error message containing the following text:
+
+ “** encountered a fatal error”, "errorEvents":<Table>.<Column> is of type 'GEOGRAPHY', which is not supported by 'Full Load' under 'Full LOB' support mode."
+
+**Workaround**
+While Azure Database Migration Service supports the Geography data type for offline migrations to Azure SQL Database, for online migrations, the Geography datatype is not supported. Try alternate methods to change the datatype at the source to a supported type before attempting to use Azure Database Migration Service for an online migration of this database. 

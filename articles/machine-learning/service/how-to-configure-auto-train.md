@@ -491,12 +491,19 @@ There are two ways to generate feature importance.
     print(per_class_summary)
     ```
 
-You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  Jupyter widget in a notebook. To learn more about the charts refer to the [Sample Azure Machine Learning service notebooks article.](samples-notebooks.md)
+You can visualize the feature importance chart in your workspace in the Azure portal. Display the URL using the run object:
+
+```
+automl_run.get_portal_url()
+```
+
+You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails
-RunDetails(local_run).show()
+RunDetails(automl_run).show()
 ```
+
 ![feature importance graph](./media/how-to-configure-auto-train/feature-importance.png)
 
 For more information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](machine-learning-interpretability-explainability.md) article on interpretability.

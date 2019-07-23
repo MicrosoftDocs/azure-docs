@@ -143,7 +143,7 @@ To automatically deploy this extension to Chrome browsers, create the following 
 | Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
 | Type | REG_SZ (String) |
-| Data | ppnbnpeolgkicgegkbkbjmhlideopiji;https://clients2.google.com/service/update2/crx |
+| Data | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
 
 For Chrome support in **Windows 8.1 and 7**, create the following registry key:
 

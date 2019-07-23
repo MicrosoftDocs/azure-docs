@@ -102,5 +102,4 @@ The virtual network hub interconnects and potentially sees all transit traffic. 
 Create a connection using Virtual WAN.
 
 * [Site-to-site connections using Virtual WAN](virtual-wan-site-to-site-portal.md)
-* [Point-to-site connections using Virtual WAN](virtual-wan-point-to-site-portal.md)
 * [ExpressRoute connections using Virtual WAN](virtual-wan-expressroute-portal.md)
