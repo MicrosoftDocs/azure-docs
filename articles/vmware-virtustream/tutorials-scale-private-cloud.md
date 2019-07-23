@@ -1,6 +1,6 @@
 ---
 title: Azure VMware Solution by Virtustream tutorial - scale a private cloud
-description: In this Azure VMware Solution by Virtustream (AVS by Virtustream) tutorial, you use the Azure portal to scale a private cloud.
+description: In this Azure VMware Solution by Virtustream tutorial, you use the Azure portal to scale a private cloud.
 services: 
 author: v-jetome
 
@@ -10,12 +10,14 @@ ms.date: 07/22/2019
 ms.author: v-jetome
 ms.custom: 
 
-#Customer intent: As a VMware administrator, I want to learn how to scale an Azure VMware Solution by Virtustream private cloud in the Azure portal.
+#Customer intent: As a VMware administrator, I want to learn how to scale an Azure VMware Solution (AVS) by Virtustream private cloud in the Azure portal.
 ---
 
 # Tutorial: scale an Azure VMware Solution by Virtustream private cloud
 
-You can scale the number of clusters in an AVS by Virtustream private cloud, and you can also scale the number of hosts in a cluster. The limits on the number of clusters in a private cloud and hosts in a cluster are provided in [the private cloud concept article](concepts-private-clouds-clusters.md).  In this tutorial, you use the Azure portal to:
+You can scale the number of clusters in an AVS by Virtustream private cloud, and you can also scale the number of hosts in a cluster. The cluster and host limits in a private cloud are provided in [the private cloud concept article](concepts-private-clouds-clusters.md).
+
+In this tutorial, you use the Azure portal to:
 
 > [!div class="checklist"]
 > * Add a cluster to an existing private cloud
@@ -35,7 +37,7 @@ Select **Add a cluster**.
 
 ![Select "Add a cluster"](./media/scale-private-cloud/ss2-select-add-cluster.png)
 
-In the **Add cluster** form, enter a name and use the slider to select the number of hosts. Select **OK**.
+In the **Add cluster** form, enter a name, and use the slider to select the number of hosts. Select **OK**.
 
 ![Configure a new private cloud cluster](./media/scale-private-cloud/ss3-configure-new-cluster.png)
 
