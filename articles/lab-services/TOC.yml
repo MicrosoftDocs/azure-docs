@@ -255,6 +255,8 @@
         href: devtest-lab-guidance-prescriptive-adoption.md
       - name: Reference architecture
         href: devtest-lab-reference-architecture.md
+      - name: DevTest Labs in the enterprise
+        href: deliver-proof-of-concept.md
       - name: Scale up your DevTest Labs deployment
         href: devtest-lab-guidance-scale.md
       - name: Orchestrate the implementation of DevTest Labs
