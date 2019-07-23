@@ -41,7 +41,7 @@ Azure Monitor for containers delivers a comprehensive monitoring experience usin
 
 Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Azure Monitor for containers.
 
-> [!VIDEO https://www.youtube.com/embed/v=RjsNmapggPU&t=995s]
+> [!VIDEO https://www.youtube.com/embed/RjsNmapggPU]
 
 ## How do I access this feature?
 
