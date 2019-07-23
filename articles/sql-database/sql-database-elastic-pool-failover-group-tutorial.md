@@ -131,4 +131,4 @@ In this tutorial, you added an Azure SQL Database single database to a failover 
 Advance to the next tutorial on how to migrate using DMS.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add an Azure SQL Database managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
+> [Tutorial: Migrate SQL Server to a pooled database using DMS](../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json)
