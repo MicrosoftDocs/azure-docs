@@ -2,14 +2,14 @@
 title: Set up sign-up and sign-in with OpenID Connect - Azure Active Directory B2C | Microsoft Docs
 description: Set up sign-up and sign-in with OpenID Connect using Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 

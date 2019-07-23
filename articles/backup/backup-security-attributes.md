@@ -2,7 +2,7 @@
 title: Common security attributes for Azure Backup
 description: A checklist of common security attributes for evaluating Azure Backup
 services: backup
-author: msmbaldwin
+author: utraghuv
 manager: barbkess
 ms.service: backup
 

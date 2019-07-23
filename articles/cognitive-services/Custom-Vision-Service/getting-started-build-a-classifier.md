@@ -24,7 +24,7 @@ To use the Custom Vision Service for image classification, you must first build 
 
 
 ## Create Custom Vision resources in the Azure portal
-To use Custom Vision Service, you will need to create Custom Vision Training and Prediction resources in the in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). This will create both a Training and Prediction resource. 
+To use Custom Vision Service, you will need to create Custom Vision Training and Prediction resources in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). This will create both a Training and Prediction resource. 
 
 ## Create a new project
 

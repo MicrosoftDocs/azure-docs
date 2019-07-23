@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 05/07/2019
+ms.date: 06/20/2019
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -92,7 +92,7 @@ The following services and scenarios are currently in general availability for C
 ### Remote desktop access to virtual machines
 
 Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. The following workloads are supported:
-- Platform as a service (PaaS) - version 1
+- Platform as a service (PaaS) - Azure Cloud Services (web role and worker role)
 - Infrastructure as a service (IaaS) - Windows and Linux (Azure Resource Manager only)
 - Virtual machine scale set - Windows and Linux
 

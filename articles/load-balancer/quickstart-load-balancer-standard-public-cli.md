@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: This quickstart shows how to create a public load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: mvc
 ---
 # Quickstart: Create a Standard Load Balancer to load balance VMS using Azure CLI
@@ -62,7 +62,7 @@ Create a public Azure Load Balancer with [az network lb create](https://docs.mic
   az network lb create \
     --resource-group myResourceGroupSLB \
     --name myLoadBalancer \
-    --sku standard
+    --sku standard \
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
@@ -230,9 +230,9 @@ for i in `seq 1 2`; do
     --nics myNic$i \
     --image UbuntuLTS \
     --generate-ssh-keys \
-    --custom-data cloud-init.txt
+    --custom-data cloud-init.txt \
     --no-wait
-    done
+done
 ```
 It may take a few minutes for the VMs to get deployed.
 

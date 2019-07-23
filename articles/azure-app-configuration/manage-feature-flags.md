@@ -1,6 +1,6 @@
 ---
 title: Tutorial for using Azure App Configuration to manage feature flags | Microsoft Docs
-description: In this tutorial, you learn how to manage feature flags separately from your application using Azure App Configuration
+description: In this tutorial, you learn how to manage feature flags separately from your application by using Azure App Configuration.
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -16,11 +16,12 @@ ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
 
-#Customer intent: I want to control feature availability in my app using App Configuration.
+#Customer intent: I want to control feature availability in my app by using App Configuration.
 ---
+
 # Tutorial: Manage feature flags in Azure App Configuration
 
-You can store all feature flags in Azure App Configuration and administer them from a single place. It has a portal UI, called **Feature Manager**, that is designed specifically for feature flags. Furthermore, App Configuration supports .NET Core feature flag data schema natively.
+You can store all feature flags in Azure App Configuration and administer them from a single place. App Configuration has a portal UI named **Feature Manager** that's designed specifically for feature flags. App Configuration also natively supports the .NET Core feature-flag data schema.
 
 In this tutorial, you learn how to:
 
@@ -30,21 +31,23 @@ In this tutorial, you learn how to:
 
 ## Create feature flags
 
-The **Feature Manager** in the Azure portal for App Configuration provides a UI for creating and managing feature flags that you use in your application. Follow the following steps to add a new feature flag.
+The Feature Manager in the Azure portal for App Configuration provides a UI for creating and managing the feature flags that you use in your applications.
 
-1. Select **Feature Manager** > **+ Create** to add a feature flag.
+To add a new feature flag:
+
+1. Select **Feature Manager** > **+Add** to add a feature flag.
 
     ![Feature flag list](./media/azure-app-configuration-feature-flags.png)
 
-2. Enter a unique key name for the feature flag. You need this name to reference the flag in your code.
+1. Enter a unique key name for the feature flag. You need this name to reference the flag in your code.
 
-3. Optionally give the feature flag a more human-friendly description.
+1. If you want, give the feature flag a description.
 
-4. Set the initial state of the feature flag. It is usually just *On* or *Off*.
+1. Set the initial state of the feature flag. This state is usually *Off* or *On*. The *On* state changes to *Conditional* if you add a filter to the feature flag.
 
-    ![Feature flag create](./media/azure-app-configuration-feature-flag-create.png)
+    ![Feature flag creation](./media/azure-app-configuration-feature-flag-create.png)
 
-5. When the state is *On*, optionally specify any additional condition to qualify it with **Add filter**. Enter a built-in or custom filter key and associate parameter(s). Built-in filters include:
+1. When the state is *On*, select **+Add filter** to specify any additional conditions to qualify the state. Enter a built-in or custom filter key, and then select **+Add parameter** to associate one or more parameters with the filter. Built-in filters include:
 
     | Key | JSON parameters |
     |---|---|
@@ -55,20 +58,20 @@ The **Feature Manager** in the Azure portal for App Configuration provides a UI 
 
 ## Update feature flag states
 
-Follow the following steps to change a feature flag's state value.
+To change a feature flag's state value:
 
 1. Select **Feature Manager**.
 
-2. Click on **...** > **Edit** to the right of a feature flag you want to modify.
+1. To the right of a feature flag you want to modify, select the ellipsis (**...**), and then select **Edit**.
 
-3. Set a new state for the feature flag.
+1. Set a new state for the feature flag.
 
 ## Access feature flags
 
-Feature flags created by the **Feature Manager** are stored and retrieved as regular key-values. They are kept under a special namespace prefix *.appconfig.featureflag*. You can view the underlying key-values using the **Configuration Explorer**. Your application can retrieve them using the App Configuration configuration providers, SDKs, command-line extensions, and REST APIs.
+Feature flags created by the Feature Manager are stored and retrieved as regular key values. They're kept under a special namespace prefix `.appconfig.featureflag`. To view the underlying key values, use the Configuration Explorer. Your application can retrieve these values by using the App Configuration configuration providers, SDKs, command-line extensions, and REST APIs.
 
 ## Next steps
 
-In this tutorial, you learned how to manage feature flags and their states using App Configuration. See the following resources for more information on feature management support in App Configuration and ASP.NET Core.
+In this tutorial, you learned how to manage feature flags and their states by using App Configuration. For more information about feature-management support in App Configuration and ASP.NET Core, see the following article:
 
 * [Use feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md)

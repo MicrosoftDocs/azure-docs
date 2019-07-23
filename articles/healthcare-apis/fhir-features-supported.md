@@ -4,6 +4,7 @@ description: This article explains which features of the FHIR specification that
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: mihansen
@@ -15,7 +16,9 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ## FHIR version
 
-Current version: `3.0.1`
+Latest version supported (available on the OSS implementation only): `4.0.0`
+
+Previous versions also currently supported include (available on both PaaS and OSS implementations): `3.0.1`
 
 ## REST API
 

@@ -43,12 +43,12 @@ Guest users sign in to your apps and services with their own work, school, or so
 ![Screenshot showing the Review permissions page](media/what-is-b2b/consentscreen.png)
 
 ## Use policies to securely share your apps and services
-You can use authorization policies protect your corporate content. Conditional access policies, such as multi-factor authentication, can be enforced:
+You can use authorization policies protect your corporate content. Conditional Access policies, such as multi-factor authentication, can be enforced:
 - At the tenant level.
 - At the application level.
 - For specific guest users to protect corporate apps and data.
 
-![Screenshot showing the Conditional access option](media/what-is-b2b/tutorial-mfa-policy-2.png)
+![Screenshot showing the Conditional Access option](media/what-is-b2b/tutorial-mfa-policy-2.png)
 
 
 ## Easily add guest users in the Azure AD portal

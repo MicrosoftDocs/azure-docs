@@ -54,15 +54,17 @@ After the app copy operation succeeds, you can navigate to the new application u
 
 ![Application settings page](media/howto-administer/appcopy3a.png)
 
-> [!Note]
-> Copying an application also copies the definition of rules and actions. But because users who have access to your original app aren't copied to the copied app, you have to manually add users to actions such as email for which users are a prerequisite. In general it is a good idea to check the rules and actions to make sure they are up to date in the new app.
+Copying an application also copies the definition of rules and actions. But because users who have access to your original app aren't copied to the copied app, you have to manually add users to actions such as email for which users are a prerequisite. In general it is a good idea to check the rules and actions to make sure they are up to date in the new app.
+
+> [!WARNING]
+> If a dashboard includes tiles that display information about specific devices, then those tiles show **The requested resource was not found** in the new application. You must reconfigure these tiles to display information about devices in your new application.
 
 ### Delete an application
 
+Use the **Delete** button to permanently delete your IoT Central application. This action permanently deletes all data that's associated with the application.
+
 > [!Note]
 > To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
-
-Use the **Delete** button to permanently delete your IoT Central application. This action permanently deletes all data that's associated with the application.
 
 ## Manage users
 

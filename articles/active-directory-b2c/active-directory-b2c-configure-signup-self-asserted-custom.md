@@ -2,14 +2,14 @@
 title: Add claims and customize user input using custom policies - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to customize user input and add claims to the sign-up or sign-in journey in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 #  Add claims and customize user input using custom policies in Azure Active Directory B2C
@@ -74,7 +74,7 @@ The following elements are used to define the claim:
 
 #### DropdownSingleSelect
 
-![Screenshot of dropdown option](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![Single-select dropdown control showing several options](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -91,7 +91,7 @@ The following elements are used to define the claim:
 
 #### CheckboxMultiSelect
 
-![Screenshot of multiselect option](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![Multi-select checkbox control showing several options](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -230,7 +230,7 @@ The following elements are used to define the claim:
       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
     ```
-   
+
 4. Add the `<OutputClaim ClaimTypeReferenceId="city" />` claim to the SignUporSignIn.xml file so that this claim is sent to the application in the token after a successful user journey.
 
     ```xml

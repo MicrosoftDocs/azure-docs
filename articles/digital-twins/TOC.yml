@@ -66,6 +66,8 @@
       href: how-to-navigate-apis.md
     - name: Common query patterns
       href: how-to-query-common-apis.md
+  - name: Register your app with legacy AAD
+    href: how-to-use-legacy-aad.md
 - name: Reference
   items:
   - name: User-defined functions client library

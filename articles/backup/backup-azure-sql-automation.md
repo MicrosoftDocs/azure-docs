@@ -276,7 +276,7 @@ Use [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/power
 
 ````powershell
 $startDate = (Get-Date).AddDays(-7).ToUniversalTime()
-$endDate = Get-Date.ToUniversalTime()
+$endDate = (Get-Date).ToUniversalTime()
 Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $targetVault.ID -StartDate $startdate -EndDate $endDate
 ````
 

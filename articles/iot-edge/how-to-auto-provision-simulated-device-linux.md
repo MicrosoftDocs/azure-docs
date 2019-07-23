@@ -101,6 +101,8 @@ In the virtual machine, build a C SDK tool that you can use to retrieve the devi
    make
    sudo ./tpm_device_provision
    ```
+   >[!TIP]
+   >If you are testing with TPM simulator, you'll need to put an extra parameter `-Duse_tpm_simulator:BOOL=ON` to enable it. The full command will be `cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..`.
 
 5. Copy the values for **Registration ID** and **Endorsement Key**. You use these values to create an individual enrollment for your device in DPS. 
 
@@ -116,8 +118,7 @@ Retrieve the provisioning information from your virtual machine, and use that to
 
 When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-monitor.md). 
 
-
-1. In the [Azure portal](https://portal.azure.com), and navigate to your instance of IoT Hub Device Provisioning Service. 
+1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service. 
 
 2. Under **Settings**, select **Manage enrollments**. 
 

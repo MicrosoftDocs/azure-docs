@@ -2,12 +2,12 @@
 title: SSH into Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to create an SSH connection with Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: iainfou
+ms.author: mlearned
 
 #Customer intent: As a cluster operator, I want to learn how to use SSH to connect to VMs in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---
@@ -40,7 +40,7 @@ The steps to get the private IP address of the AKS nodes is different based on t
 
 To add your SSH key to a Linux AKS node, complete the following steps:
 
-1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. Provide your own core resource group and AKS cluster name. The cluster name is assigned to the variable named *CLUSTER_RESOURCE_GROUP*:
+1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. The cluster name is assigned to the variable named *CLUSTER_RESOURCE_GROUP*. Replace *myResourceGroup* with the name of your Resource Group where you AKS Cluster is located:
 
     ```azurecli-interactive
     CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
@@ -74,7 +74,7 @@ To add your SSH key to a Linux AKS node, complete the following steps:
 
 To add your SSH key to a Linux AKS node that's part of a virtual machine scale set, complete the following steps:
 
-1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. Provide your own core resource group and AKS cluster name. The cluster name is assigned to the variable named *CLUSTER_RESOURCE_GROUP*:
+1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. The cluster name is assigned to the variable named *CLUSTER_RESOURCE_GROUP*. Replace *myResourceGroup* with the name of your Resource Group where you AKS Cluster is located:
 
     ```azurecli-interactive
     CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)

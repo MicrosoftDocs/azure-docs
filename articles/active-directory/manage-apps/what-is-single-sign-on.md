@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 07/17/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 
@@ -32,7 +32,7 @@ There are several ways to configure an application for single sign-on. Choosing 
 
 This flowchart helps you decide which single sign-on method is best for your situation.
 
-![Choose single sign-on method](./media/what-is-single-sign-on/choose-single-sign-on-method-040419.png)
+![Decision flowchart for single sign-on method](./media/what-is-single-sign-on/choose-single-sign-on-method-040419.png)
 
 The following table summarizes the single sign-on methods, and links to more details.
 
@@ -43,23 +43,24 @@ The following table summarizes the single sign-on methods, and links to more det
 | [Password-based](#password-based-sso) | cloud and on-premises | Choose password-based when the application authenticates with username and password. Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This method uses the existing sign-in process provided by the application, but enables an administrator to manage the passwords. |
 | [Linked](#linked-sign-on) | cloud and on-premises | Choose linked sign-on when the application is configured for single sign-on in another identity provider service. This option doesn't add single sign-on to the application. However, the application might already have single sign-on implemented using another service such as Active Directory Federation Services.|
 | [Disabled](#disabled-sso) | cloud and on-premises | Choose disabled single sign-on when the app isn't ready to be configured for single sign-on. Users need to enter their username and password every time they launch this application.|
-| [Integrated Windows Authentication (IWA)](#integrated-windows-authentication-iwa-sso) | on-premises only | Choose IWA single sign-on for applications that use [Integrated Windows Authentication (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), or claims-aware applications. For IWA, the Application Proxy connectors use Kerberos Constrained Delegation (KCD) to authenticate users to the application. | 
-| [Header-based](#header-based-sso) | on-premises only | Use header-based single sign-on when the application uses headers for authentication. Header-based single sign-on requires PingAccess for Azure AD. Application Proxy uses Azure AD to authenticate the user and then passes traffic through the connector service.  | 
+| [Integrated Windows Authentication (IWA)](#integrated-windows-authentication-iwa-sso) | on-premises only | Choose IWA single sign-on for applications that use [Integrated Windows Authentication (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), or claims-aware applications. For IWA, the Application Proxy connectors use Kerberos Constrained Delegation (KCD) to authenticate users to the application. |
+| [Header-based](#header-based-sso) | on-premises only | Use header-based single sign-on when the application uses headers for authentication. Header-based single sign-on requires PingAccess for Azure AD. Application Proxy uses Azure AD to authenticate the user and then passes traffic through the connector service.  |
 
 ## OpenID Connect and OAuth
-When developing new applications, use modern protocols like OpenID Connect and OAuth to achieve the best single sign-on experience for your app across multiple device platforms. OAuth enables users or admins to [grant consent](configure-user-consent.md) for protected resources like [MS Graph](/graph/overview). We provide easy to adopt [SDKs](../develop/reference-v2-libraries.md) for your app, and additionally, your app will be ready to use [MS Graph](/graph/overview).
+
+When developing new applications, use modern protocols like OpenID Connect and OAuth to achieve the best single sign-on experience for your app across multiple device platforms. OAuth enables users or admins to [grant consent](configure-user-consent.md) for protected resources like [Microsoft Graph](/graph/overview). We provide easy to adopt [SDKs](../develop/reference-v2-libraries.md) for your app, and additionally, your app will be ready to use [Microsoft Graph](/graph/overview).
 
 For more information, see:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
-- [Azure Active Directory developer’s guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+- [Microsoft identity platform developer’s guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 ## SAML SSO
+
 With **SAML single sign-on**, Azure AD authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. With SAML-based single sign-on, you can map users to specific application roles based on rules you define in your SAML claims.
 
 Choose SAML-based single sign-on when the application supports it.
-
 
 SAML-based single sign-on is supported for applications that use any of these protocols:
 
@@ -75,9 +76,10 @@ To configure an on-premises application for SAML-based single sign-on, see [SAML
 For more information about the SAML protocol, see [Single sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md).
 
 ## Password-based SSO
-With password-based sign-on, users sign on to the application with a username and password the first time they access it. After the first sign-on, Azure AD supplies the username and password to the application. 
 
-Password-based single sign-on uses the existing authentication process provided by the application. When you enable password single sign-on for an application, Azure AD collects and securely stores user names and passwords for the application. User credentials are stored in an encrypted state in the directory. 
+With password-based sign-on, users sign on to the application with a username and password the first time they access it. After the first sign-on, Azure AD supplies the username and password to the application.
+
+Password-based single sign-on uses the existing authentication process provided by the application. When you enable password single sign-on for an application, Azure AD collects and securely stores user names and passwords for the application. User credentials are stored in an encrypted state in the directory.
 
 Choose password-based single sign-on when:
 
@@ -87,11 +89,14 @@ Choose password-based single sign-on when:
 Password-based single sign-on is supported for any cloud-based application that has an HTML-based sign-in page. The user can use any of the following browsers:
 
 - Internet Explorer 11 on Windows 7 or later
+   > [!NOTE]
+   > Internet Explorer is on limited support and no longer receives new software updates. Microsoft Edge is the recommended browser.
+
 - Microsoft Edge on Windows 10 Anniversary Edition or later
 - Chrome on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
-To configure a cloud application for password-based single sign-on, see [Configure the application for password single sign-on](application-sign-in-problem-password-sso-gallery.md#configure-the-application-for-password-single-sign-on).
+To configure a cloud application for password-based single sign-on, see [Configure the application for password single sign-on](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
 
 To configure an on-premises application for single sign-on through Application Proxy, see [Password vaulting for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 
@@ -114,12 +119,12 @@ When the Azure AD administrator manages the credentials:
 
 When the end user manages the credentials:
 
-- Users can manage their passwords by updating or deleting them as needed. 
+- Users can manage their passwords by updating or deleting them as needed.
 - Administrators are still able to set new credentials for the application.
 
-
 ## Linked sign-on
-Linked sign-on enables Azure AD to provide single sign-on to an application that is already configured for single sign-on in another service. The linked application can appear to end users in the Office 365 portal or Azure AD MyApps portal. For example, a user can launch an application that is configured for single sign-on in Active Directory Federation Services 2.0 (AD FS) from the Office 365 portal. Additional reporting is also available for linked applications that are launched from the Office 365 portal or the Azure AD MyApps portal. 
+
+Linked sign-on enables Azure AD to provide single sign-on to an application that is already configured for single sign-on in another service. The linked application can appear to end users in the Office 365 portal or Azure AD MyApps portal. For example, a user can launch an application that is configured for single sign-on in Active Directory Federation Services 2.0 (AD FS) from the Office 365 portal. Additional reporting is also available for linked applications that are launched from the Office 365 portal or the Azure AD MyApps portal.
 
 ### Linked sign-on for application migration
 
@@ -129,47 +134,43 @@ Once a user has authenticated with a linked application, an account record needs
 
 ## Disabled SSO
 
-Disabled mode means single sign-on isn't used for the application. When single sign-on is disabled, users might need to authenticate twice. First, users authenticate to Azure AD, and then they sign in to the application. 
+Disabled mode means single sign-on isn't used for the application. When single sign-on is disabled, users might need to authenticate twice. First, users authenticate to Azure AD, and then they sign in to the application.
 
 Use disabled single sign-on mode:
 
 - If you're not ready to integrate this application with Azure AD single sign-on, or
 - If you're testing other aspects of the application, or
-- As a layer of security to an on-premises application that doesn't require users to authenticate. With disabled, the user needs to authenticate. 
+- As a layer of security to an on-premises application that doesn't require users to authenticate. With disabled, the user needs to authenticate.
 
 ## Integrated Windows Authentication (IWA) SSO
 
 [Application Proxy](application-proxy.md) provides single sign-on (SSO) to applications that use [Integrated Windows Authentication (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), or claims-aware applications. If your application uses IWA, Application Proxy authenticates to the application by using Kerberos Constrained Delegation (KCD). For a claims-aware application that trusts Azure Active Directory, single sign-on works because the user was already authenticated by using Azure AD.
 
-Choose Integrated Windows Authentication single sign-on mode:
+Choose Integrated Windows Authentication single sign-on mode to provide single sign-on to an on-premises app that authenticates with IWA.
 
-- To provide single sign-on to an on-premises app that authenticates with IWA. 
-
-To configure an on-premises app for IWA, see [Kerberos Constrained Delegation for single sign-on to your applications with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md). 
+To configure an on-premises app for IWA, see [Kerberos Constrained Delegation for single sign-on to your applications with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
 ### How single sign-on with KCD works
 This diagram explains the flow when a user accesses an on-premises application that uses IWA.
 
-![Microsoft AAD authentication flow diagram](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Microsoft Azure AD authentication flow diagram](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
 1. The user enters the URL to access the on premises application through Application Proxy.
-2. Application Proxy redirects the request to Azure AD authentication services to preauthenticate. At this point, Azure AD applies any applicable authentication and authorization policies, such as multifactor authentication. If the user is validated, Azure AD creates a token and sends it to the user.
-3. The user passes the token to Application Proxy.
-4. Application Proxy validates the token and retrieves the User Principal Name (UPN) from the token. It then sends the request, the UPN, and the Service Principal Name (SPN) to the Connector through a dually authenticated secure channel.
-5. The connector uses Kerberos Constrained Delegation (KCD) negotiation with the on premises AD, impersonating the user to get a Kerberos token to the application.
-6. Active Directory sends the Kerberos token for the application to the connector.
-7. The connector sends the original request to the application server, using the Kerberos token it received from AD.
-8. The application sends the response to the connector, which is then returned to the Application Proxy service and finally to the user.
+1. Application Proxy redirects the request to Azure AD authentication services to preauthenticate. At this point, Azure AD applies any applicable authentication and authorization policies, such as multifactor authentication. If the user is validated, Azure AD creates a token and sends it to the user.
+1. The user passes the token to Application Proxy.
+1. Application Proxy validates the token and retrieves the User Principal Name (UPN) from the token. It then sends the request, the UPN, and the Service Principal Name (SPN) to the Connector through a dually authenticated secure channel.
+1. The connector uses Kerberos Constrained Delegation (KCD) negotiation with the on premises AD, impersonating the user to get a Kerberos token to the application.
+1. Active Directory sends the Kerberos token for the application to the connector.
+1. The connector sends the original request to the application server, using the Kerberos token it received from AD.
+1. The application sends the response to the connector, which is then returned to the Application Proxy service and finally to the user.
 
 ## Header-based SSO
 
-Header-based single sign-on works for applications that use HTTP headers for authentication. This sign-on method uses a third-party authentication service called PingAccess. A user only needs to authenticate to Azure AD. 
+Header-based single sign-on works for applications that use HTTP headers for authentication. This sign-on method uses a third-party authentication service called PingAccess. A user only needs to authenticate to Azure AD.
 
-Choose header-based single sign-on when:
+Choose header-based single sign-on when Application Proxy and PingAccess are configured for the application.
 
-- Application Proxy and PingAccess are configured for the application
-
-To configure header-based authentication, see [Header-based authentication for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md). 
+To configure header-based authentication, see [Header-based authentication for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md).
 
 ### What is PingAccess for Azure AD?
 
@@ -179,15 +180,13 @@ Your users won’t notice anything different when they sign in to use your corpo
 
 ### How do I get a license for PingAccess?
 
-Since this scenario is offered through a partnership between Azure AD and PingAccess, you need licenses for both services. However, Azure AD Premium subscriptions include a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can acquire an additional license from PingAccess. 
+Since this scenario is offered through a partnership between Azure AD and PingAccess, you need licenses for both services. However, Azure AD Premium subscriptions include a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can acquire an additional license from PingAccess.
 
 For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
-
 ## Related articles
-* [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Tutorial for configuring single sign-on](configure-single-sign-on-portal.md)
-* [Introduction to Managing Access to applications](what-is-access-management.md)
-* Download link: [Single sign-on deployment plan](https://aka.ms/SSODeploymentPlan).
 
-
+- [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
+- [Tutorial for configuring single sign-on](configure-single-sign-on-portal.md)
+- [Introduction to Managing Access to applications](what-is-access-management.md)
+- Download link: [Single sign-on deployment plan](https://aka.ms/SSODeploymentPlan)

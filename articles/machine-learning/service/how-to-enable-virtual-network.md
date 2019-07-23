@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 01/08/2019
+ms.date: 07/10/2019
 ---
 
 # Securely run experiments and inference inside an Azure virtual network
@@ -31,9 +31,13 @@ This document assumes that you are familiar with Azure Virtual Networks, and IP 
 ## Storage account for your workspace
 
 > [!IMPORTANT]
-> You can put the storage account that is attached to Azure Machine Learning service workspace behind the virtual network only while doing experimentation. Inference requires unrestricted access to the storage account. If you aren't sure if you've modified these settings or not, see __Change the default network access rule__ in [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security). Use the steps to allow access from all networks during inference, or model scoring.
+> The __default storage account__ for your Azure Machine Learning service can be placed in a virtual network __only while doing experimentation__.
+>
+> For __non-default storage accounts for experimentation__, or if you are using a storage account for __inference__, you must have __unrestricted access to the storage account__.
+> 
+> If you aren't sure if you've modified these settings or not, see __Change the default network access rule__ in [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security). Use the steps to allow access from all networks during inference, or model scoring.
 
-To use Azure Machine Learning experimentation capabilities with Azure Storage behind a virtual network, follow the steps below:
+To use place the default Azure Storage account for the workspace in a virtual network, use the following steps:
 
 1. Create an experimentation compute ex. Machine Learning Compute behind a virtual network or attach an experimentation compute to the workspace ex. HDInsight cluster or virtual machine. For more information, see [Use Machine Learning Compute](#use-machine-learning-compute) and [Use a virtual machine or HDInsight cluster](#use-a-virtual-machine-or-hdinsight-cluster) sections in this document
 2. Go to the storage attached to the workspace. ![Image of the Azure portal showing Azure Storage that is attached to the Azure Machine Learning service workspace](./media/how-to-enable-virtual-network/workspace-storage.png)
@@ -137,7 +141,7 @@ When you add the user-defined routes, define the route for each related Batch IP
 
 ![Example user-defined route for an address prefix](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-For more information, see the [Create an Azure Batch pool in a virtual network](/azure/batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) article.
+For more information, see the [Create an Azure Batch pool in a virtual network](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) article.
 
 ### Create Machine Learning Compute in a virtual network
 
@@ -181,18 +185,18 @@ try:
     print("Found existing cpucluster")
 except ComputeTargetException:
     print("Creating new cpucluster")
-    
+
     # Specify the configuration for the new cluster
     compute_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2_V2",
                                                            min_nodes=0,
                                                            max_nodes=4,
-                                                           vnet_resourcegroup_name = vnet_resourcegroup_name,
-                                                           vnet_name = vnet_name,
-                                                           subnet_name = subnet_name)
+                                                           vnet_resourcegroup_name=vnet_resourcegroup_name,
+                                                           vnet_name=vnet_name,
+                                                           subnet_name=subnet_name)
 
     # Create the cluster with the specified name and configuration
     cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
-    
+
     # Wait for the cluster to complete, show the output log
     cpu_cluster.wait_for_completion(show_output=True)
 ```
@@ -297,9 +301,9 @@ config.dns_service_ip = "10.0.0.10"
 config.docker_bridge_cidr = "172.17.0.1/16"
 
 # Create the compute target
-aks_target = ComputeTarget.create(workspace = ws,
-                                  name = "myaks",
-                                  provisioning_configuration = config)
+aks_target = ComputeTarget.create(workspace=ws,
+                                  name="myaks",
+                                  provisioning_configuration=config)
 ```
 
 When the creation process is completed, you can inference/score on an AKS cluster behind a virtual network. For more information, see [How to deploy to AKS](how-to-deploy-to-aks.md).

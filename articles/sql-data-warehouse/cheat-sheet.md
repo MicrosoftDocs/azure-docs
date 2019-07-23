@@ -2,13 +2,13 @@
 title: Cheat sheet for Azure SQL Data Warehouse | Microsoft Docs
 description: Find links and best practices to quickly build your Azure SQL Data Warehouse solutions.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
 ---
 

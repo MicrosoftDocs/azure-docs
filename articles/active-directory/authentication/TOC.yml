@@ -16,8 +16,6 @@
     href: tutorial-sspr-pilot.md
   - name: Enable SSPR on-premises integration
     href: tutorial-enable-writeback.md
-  - name: Enable Windows 10 password reset
-    href: tutorial-sspr-windows.md
   - name: Integrate Azure Identity Protection
     href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
@@ -25,6 +23,8 @@
   items:
   - name: Authentication methods
     href: concept-authentication-methods.md
+  - name: Passwordless authentication
+    href: concept-authentication-passwordless.md
   - name: Combined registration
     href: concept-registration-mfa-sspr-combined.md
   - name: Password reset
@@ -43,8 +43,6 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
-    - name: What version is right?
-      href: concept-mfa-whichversion.md
     - name: License your users
       href: concept-mfa-licensing.md
     - name: Manage an Auth Provider
@@ -73,8 +71,8 @@
       href: howto-sspr-authenticationdata.md
     - name: Enable password writeback
       href: howto-sspr-writeback.md
-    - name: SSPR for Windows 7, 8, and 8.1
-      href: howto-sspr-windows-7-8.md
+    - name: SSPR for Windows clients
+      href: howto-sspr-windows.md
   - name: Cloud-based MFA
     items:
     - name: Deploy cloud-based MFA
@@ -133,8 +131,12 @@
     href: howto-password-smart-lockout.md
   - name: Windows Hello for Business
     href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
-  - name: Password-less phone sign-in
-    href: howto-authentication-phone-sign-in.md
+  - name: Passwordless
+    items: 
+      - name: Enable passwordless
+        href: howto-authentication-passwordless-enable.md
+      - name: Passwordless phone sign-in
+        href: howto-authentication-phone-sign-in.md
   - name: Certificate-based authentication
     items:
     - name: Get started with certificate auth
@@ -144,12 +146,10 @@
         href: active-directory-certificate-based-authentication-android.md
       - name: CBA on iOS Devices
         href: active-directory-certificate-based-authentication-ios.md
-  - name: Develop
-    items:
-    - name: Build MFA into custom apps
-      href: howto-mfa-sdk.md
   - name: Reporting
     items:
+    - name: Usage and insights
+      href: howto-authentication-methods-usage-insights.md
     - name: SSPR Reports
       href: howto-sspr-reporting.md
     - name: MFA Reports

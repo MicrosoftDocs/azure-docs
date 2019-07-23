@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
-manager: jeconnoc
+manager: gwallace
 ---
 # Preview: Create a Windows VM with Azure Image Builder
 
@@ -135,7 +135,7 @@ Wait until the build is complete. This can take about 15 minutes.
 
 ## Create the VM
 
-Create the VM using the image you built. Replace *<password>* with your own password for the `aibuser` on the VM.
+Create the VM using the image you built. Replace *\<password>* with your own password for the `aibuser` on the VM.
 
 ```azurecli-interactive
 az vm create \

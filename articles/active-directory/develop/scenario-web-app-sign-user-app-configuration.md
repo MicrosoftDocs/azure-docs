@@ -34,6 +34,8 @@ The libraries used to protect a Web App (and a Web API) are:
 
 ## ASP.NET Core configuration
 
+Code snippets in this article and the following are extracted from the [ASP.NET Core Web app incremental tutorial, chapter 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg). You might want to refer to that tutorial for full implementation details.
+
 ### Application configuration files
 
 In ASP.NET Core, a Web application signing-in users with the Microsoft identity platform is configured through the `appsettings.json` file. The settings that you need to fill in are:
@@ -53,7 +55,7 @@ In ASP.NET Core, a Web application signing-in users with the Microsoft identity 
     "Instance": "https://login.microsoftonline.com/",
 
     // Azure AD Audience among:
-    // - the tenant Id as a a GUID obtained from the azure portal to sign-in users in your organization
+    // - the tenant Id as a GUID obtained from the azure portal to sign-in users in your organization
     // - "organizations" to sign-in users in any work or school accounts
     // - "common" to sign-in users with any work and school account or Microsoft personal account
     // - "consumers" to sign-in users with Microsoft personal account only
@@ -107,6 +109,10 @@ In the same way, the sign out URI would be set to `https://localhost:44321/signo
 
 In ASP.NET Core Web Apps (and Web APIs), the code doing the application initialization is located in the `Startup.cs` file, and, to add authentication with the Microsoft Identity platform (formerly Azure AD) v2.0, you'll need to add the following code. The comments in the code should be self-explanatory.
 
+  > [!NOTE]
+  > If you start your project with default ASP.NET core web project within Visual studio or using `dotnet new mvc` the method `AddAzureAD` is available by default because the related packages are automatically loaded. 
+  > However if you build a project from scratch and are trying to use the below code we suggest you to add the NuGet Package **"Microsoft.AspNetCore.Authentication.AzureAD.UI"** to your project to make the `AddAzureAD` method available.
+  
 ```CSharp
  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
          .AddAzureAD(options => configuration.Bind("AzureAd", options));

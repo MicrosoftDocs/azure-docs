@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/26/2019
 ms.author: juliako
 ---
 
@@ -35,6 +35,43 @@ You can also specify the start and end time on your Streaming Locator, which wil
 * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
 * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
 
+## Create Streaming Locators  
+
+### Not encrypted
+
+If you want to stream your file in-the-clear (non-encrypted), set the predefined clear streaming policy: to 'Predefined_ClearStreamingOnly' (in .NET, you can use the PredefinedStreamingPolicy.ClearStreamingOnly enum).
+
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly
+    });
+```
+
+### Encrypted 
+
+If you need to encrypt your content with the CENC encryption, set your policy to 'Predefined_MultiDrmCencStreaming'. The  Widevine encryption will be applied to a DASH stream and PlayReady to Smooth. The key will be delivered to a playback client based on the configured DRM licenses.
+
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = "Predefined_MultiDrmCencStreaming",
+        DefaultContentKeyPolicyName = contentPolicyName
+    });
+```
+
+If you also want to encrypt your HLS stream with CBCS (FairPlay), use 'Predefined_MultiDrmStreaming'.
+
 ## Associate filters with Streaming Locators
 
 See [Filters: associate with Streaming Locators](filters-concept.md#associating-filters-with-streaming-locator).
@@ -42,6 +79,24 @@ See [Filters: associate with Streaming Locators](filters-concept.md#associating-
 ## Filter, order, page Streaming Locator entities
 
 See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
+
+## List Streaming Locators by Asset name
+
+To get Streaming Locators based on the associated Asset name, use the following operations:
+
+|Language|API|
+|---|---|
+|REST|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
+|CLI|[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
+|.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
+|Java|[AssetStreamingLocator](https://docs.microsoft.com/java/api/com.microsoft.azure.management.mediaservices.v2018_07_01.assetstreaminglocator?view=azure-java-stable)|
+|Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/assets?view=azure-node-latest#liststreaminglocators-string--string--string--object-)|
+
+## Also see
+
+* [Assets](assets-concept.md)
+* [Streaming Policies](streaming-policy-concept.md)
+* [Content Key Policies](content-key-policy-concept.md)
 
 ## Next steps
 

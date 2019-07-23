@@ -30,10 +30,10 @@ The following table shows a few sample URLs for blob data that's located in a st
 
 | Resource type | Default URL | Custom domain URL |
 | --- | --- | --- |
-| Storage account | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
-| Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Root container | http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob or http://www.contoso.com/$root/myblob |
-| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/$web or http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/$web or http://www.contoso.com/ or http://www.contoso.com/$web/[indexdoc] or  http://www.contoso.com/[indexdoc] |
+| Storage account | http:\//mystorageaccount.blob.core.windows.net | http:\//www.contoso.com |
+| Blob |http:\//mystorageaccount.blob.core.windows.net/mycontainer/myblob | http:\//www.contoso.com/mycontainer/myblob |
+| Root container | http:\//mystorageaccount.blob.core.windows.net/myblob or http:\//mystorageaccount.blob.core.windows.net/$root/myblob | http:\//www.contoso.com/myblob or http:\//www.contoso.com/$root/myblob |
+| Web |  http:\//mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] or http:\//mystorageaccount.[zone].web.core.windows.net/[indexdoc] or http:\//mystorageaccount.[zone].web.core.windows.net/$web or http:\//mystorageaccount.[zone].web.core.windows.net/ | http:\//www.contoso.com/$web or http:\//www.contoso.com/ or http:\//www.contoso.com/$web/[indexdoc] or  http:\//www.contoso.com/[indexdoc] |
 
 > [!NOTE]  
 > As shown in the following sections, all examples for the blob service endpoint also apply to the web service endpoint.

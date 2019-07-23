@@ -21,7 +21,7 @@ This article shows how to use the [file upload capabilities of IoT Hub](iot-hub-
 
 * Use the Python client to upload a file through your IoT hub.
 
-The [Send telemetry to IoT Hub](quickstart-send-telemetry-python.md) quickstart demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
+The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md) quickstart demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
 
 > [!NOTE]
 > IoT Hub Python SDK currently only supports uploading character-based files such as **.txt** files.

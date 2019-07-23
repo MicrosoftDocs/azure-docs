@@ -20,7 +20,7 @@ ms.custom: include file
 
 1. Set the **Start date**. By default, an access review occurs once, starts the same time it's created, and it ends in one month. You can change the start and end dates to have an access review start in the future and last however many days you want.
 
-    ![Create an access review - Start and end dates](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
+    ![Start date, frequency, duration, end, number of times, and end date](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
 
 1. To make the access review recurring, change the **Frequency** setting from **One time** to **Weekly**, **Monthly**, **Quarterly**, **Annually**, or **Semi-annually**. Use the **Duration** slider or text box to define how many days each review of the recurring series will be open for input from reviewers. For example, the maximum duration that you can set for a monthly review is 27 days, to avoid overlapping reviews.
 
@@ -28,22 +28,22 @@ ms.custom: include file
 
 1. In the **Users** section, select one or more roles that you want to review membership of.
 
-    ![Create an access review - users](./media/active-directory-privileged-identity-management-access-reviews/users.png)
+    ![Users scope to review role membership of](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
     > Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
 
     If you are creating an access review of Azure AD roles, the following shows an example of the Review membership list.
 
-    ![Create an access review - Review role membership](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
+    ![Review membership pane listing Azure AD roles you can select](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
     If you are creating an access review of Azure resource roles, the following shows an example of the Review membership list.
 
-    ![Create an access review - Review role membership](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
+    ![Review membership pane listing Azure resource roles you can select](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 
 1. In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
 
-    ![Create an access review - Reviewers](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
+    ![Reviewers list of selected users or members (self)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
     - **Selected users** - Use this option when you don't know who needs access. With this option, you can assign the review to a resource owner or group manager to complete.
     - **Members (self)** - Use this option to have the users review their own role assignments.
@@ -52,7 +52,7 @@ ms.custom: include file
 
 1. To specify what happens after a review completes, expand the **Upon completion settings** section.
 
-    ![Upon completion settings](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
+    ![Upon completion settings to auto apply and should review not respond](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
 
 1. If you want to automatically remove access for users that were denied, set **Auto apply results to resource** to **Enable**. If you want to manually apply the results when the review completes, set the switch to **Disable**.
 
@@ -67,7 +67,7 @@ ms.custom: include file
 
 1. To specify additional settings, expand the **Advanced settings** section.
 
-    ![Advanced settings](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
+    ![Advanced settings for show recommendations, require reason on approval, mail notifications, and reminders](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
 
 1. Set **Show recommendations** to **Enable** to show the reviewers the system recommendations based the user's access information.
 

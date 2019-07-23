@@ -20,17 +20,12 @@ ms.author: yegu
 ---
 # Quickstart: Create a .NET Core app with App Configuration
 
-Azure App Configuration is a managed configuration service in Azure. You can use it to easily store and manage all your application settings in one place that's separated from your code. This quickstart shows you how to incorporate the service into a .NET Core console app.
-
-You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
-
-![Quickstart app run](./media/quickstarts/dotnet-core-app-run.png)
+In this quickstart, you incorporate Azure App Configuration into a .NET Core console app to centralize storage and management of application settings separate from your code.
 
 ## Prerequisites
 
-To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## Create an app configuration store
 
@@ -50,15 +45,15 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 1. Create a new folder for your project.
 
-2. In the new folder, run the following command to create a new ASP.NET Core MVC web app project:
+2. In the new folder, run the following command to create a new ASP.NET Core console app project:
 
         dotnet new console
 
 ## Connect to an app configuration store
 
-1. Add a reference to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by running the following command:
+1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
 
 2. Run the following command to restore packages for your project:
 

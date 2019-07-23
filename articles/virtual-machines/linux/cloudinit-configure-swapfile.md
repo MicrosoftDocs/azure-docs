@@ -4,7 +4,7 @@ description: How to use cloud-init to configure a swapfile in a Linux VM during 
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

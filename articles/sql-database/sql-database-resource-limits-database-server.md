@@ -39,6 +39,9 @@ This article provides an overview of the SQL Database resource limits for a SQL 
 > - Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
 > - Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 
+### Storage size
+- For single databases rources please refer to either [DTU-based resource limits](sql-database-dtu-resource-limits-single-databases.md) or [vCore-based resource limits](sql-database-vcore-resource-limits-single-databases.md) for the storage size limits per pricing tier.
+
 ## What happens when database resource limits are reached
 
 ### Compute (DTUs and eDTUs / vCores)

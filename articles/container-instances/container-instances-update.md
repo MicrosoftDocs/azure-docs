@@ -3,6 +3,7 @@ title: Update containers in Azure Container Instances
 description: Learn how to update running containers in your Azure Container Instances container groups.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article

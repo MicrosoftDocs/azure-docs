@@ -36,7 +36,7 @@ This tutorial demonstrates how to develop a module in **Python** using **Visual 
 
 Use the following table to understand your options for developing and deploying Python modules to Linux: 
 
-| Python | Visual Studio Code | Visual Studio 2017 | 
+| Python | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Use VS Code for Python modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Use VS Code for Python modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
@@ -65,25 +65,15 @@ The following steps create an IoT Edge Python module by using Visual Studio Code
 
 ### Create a new project
 
-Use the Python package **cookiecutter** to create a Python solution template that you can build on top of. 
+Use the VS Code to create a Python solution template that you can build on top of. 
 
 1. In Visual Studio Code, select **View** > **Terminal** to open the VS Code integrated terminal.
 
-2. In the terminal, enter the following command to install (or update) **cookiecutter**, which you use to create the IoT Edge solution template:
+1. Select **View** > **Command Palette** to open the VS Code command palette. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Ensure the directory where cookiecutter will be installed is in your environment’s PATH in order to make it possible to invoke it from a command prompt. The directory is part of the output of the installation script, for example `C:\Users\{user}\AppData\Roaming\Python\Python{version}\Scripts`.
-   >
-   >Restart Visual Studio Code to pick up the changes to PATH. 
+1. In the command palette, enter and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you're already signed in, you can skip this step.
 
-3. Select **View** > **Command Palette** to open the VS Code command palette. 
-
-4. In the command palette, enter and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you're already signed in, you can skip this step.
-
-5. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. Follow the prompts and provide the following information to create your solution:
+1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. Follow the prompts and provide the following information to create your solution:
 
    | Field | Value |
    | ----- | ----- |

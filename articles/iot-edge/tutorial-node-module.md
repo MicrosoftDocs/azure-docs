@@ -36,7 +36,7 @@ This tutorial demonstrates how to develop a module in **Node.js** using **Visual
 
 Use the following table to understand your options for developing and deploying Node.js modules: 
 
-| Node.js | Visual Studio Code | Visual Studio 2017 | 
+| Node.js | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Use VS Code for Node.js modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Use VS Code for Node.js modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |

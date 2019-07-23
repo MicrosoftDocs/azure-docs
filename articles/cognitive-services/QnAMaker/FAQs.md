@@ -3,13 +3,13 @@ title: FAQ - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/11/2019
-ms.author: tulasim
+ms.date: 06/11/2019
+ms.author: diberry
 ms.custom: seodec18
 ---
 # Frequently Asked Questions for QnA Maker
@@ -108,7 +108,7 @@ The name of the Azure Search resource is the QnA Maker resource name with some r
 
 ### Do I need to use Bot Framework in order to use QnA Maker?
 
-No, you do not need to use the Bot Framework with QnA Maker. However, QnA Maker is offered as one of several templates in Azure Bot Service. Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
+No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
 
 ### How can I create a bot with QnA Maker?
 

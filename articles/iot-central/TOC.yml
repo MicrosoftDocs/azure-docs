@@ -62,7 +62,7 @@
       - name: Use device sets
         href: howto-use-device-sets.md
       - name: Version device template
-        href: howto-version-devicetemplate.md
+        href: howto-version-device-template.md
   - name: Monitoring and analytics
     items:
       - name: Create telemetry rule
@@ -91,6 +91,8 @@
           href: howto-export-data-blob-storage.md
       - name: Create custom rules
         href: howto-create-custom-rules.md
+      - name: Create custom analytics
+        href: howto-create-custom-analytics.md
       - name: Visualize your data in Power BI
         href: howto-connect-powerbi.md
       - name: Connect other IoT clouds
@@ -104,8 +106,12 @@
         href: howto-prepare-images.md
       - name: Configure application dashboard
         href: howto-configure-homepage.md
+      - name: Use dashboard tiles
+        href: howto-use-tiles.md
       - name: Customize application UI
         href: howto-customize-ui.md
+      - name: Use application templates
+        href: howto-use-app-templates.md
       - name: Manage from the Azure portal
         href: howto-manage-iot-central-from-portal.md
       - name: Manage from Azure CLI
@@ -142,9 +148,9 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: IoT Edge
     items:
-    - name: IoT Edge
+    - name: Azure IoT Edge
       href: /azure/iot-edge
     - name: IoT Device SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
