@@ -134,45 +134,48 @@ This article will not cover best practices for securing access to the Azure NetA
 
 <!--How do you create a new subnet? Enter a name?-->
 
-![](media/b1235bd64cfa165cabfa37a315fcb810.png)
+![A capture of the Azure NetApp files volume creation menu. Each drop-down menu is labeled one through five based on its corresponding step in the previous section.](media/b1235bd64cfa165cabfa37a315fcb810.png)
 
-1.  Select **Next: Protocol \>\>** this will open tab for configuring access parameters.
+<!--break here-->
 
-2.  Select **SMB** as Protocol type. Under **Configuration** specify
+1.  Select **Next: Protocol \>\>** to open the Protocol tab and configure your volume access parameters.
 
-   - **Active Directory** same as the one we connect in previous step. Please note there is a limitation of one Active Directory per subscription,
+2.  Select **SMB** as the protocol type.
+3.  Under Configuration in the **Active Directory** drop-down menu, select the same directory that you originally connected in the previous instructions. <!--make a link here--> Keep in mind that there's a limit of one Active Directory per subscription.
+4.  In the **Share name** text box, enter the name of the share that will be used by the session host pool and its users.
 
-   - **Share name** – name of share that will be used by session host pool and users.
+![A capture of the Protocol tab. The various parameter settings are labeled one through three based on their corresponding steps.](media/e36a9f45702b4047dbc3f167f7562313.png)
 
-![](media/e36a9f45702b4047dbc3f167f7562313.png)
+<!--Where should these pictures go to make their relationship with the instructions as clear as possible?-->
 
-1.  Select **Review + create** at the bottom of the page. This will open the validation page. Once validation has passed select **Create.**
+1.  Select **Review + create** at the bottom of the page. This will open the validation page. After your volume is validated successfully, select **Create**.
 
-![](media/32c86e33f19308de496233240fd3c784.png)
+![A capture of the successful validation screen in the Review + create tab. A red arrow points to the Create button at the bottom left of the screen.](media/32c86e33f19308de496233240fd3c784.png)
 
-20. At this point a deployment for the new volume will start. Once deployment has completed the Azure NetApp Files share is ready for use.
+1.  At this point, a the new volume will start to deploy. Once deployment is complete, you can use the Azure NetApp Files share.
 
-![](media/aeeb1c1d87f00537df93756ab74d181f.png)
+![A capture of the deployment complete screen.](media/aeeb1c1d87f00537df93756ab74d181f.png)
 
-21. Select **Go to resource** and the **Mount path** will be visible.
+1.  To see the mount path, select **Go to resource** and look for it in the Overview tab.
 
-![](media/3538527bfdd0d8a76b2ec3ce74f10890.png)
+![A capture of the Overview screen with a red arrow pointing at the mount path.](media/3538527bfdd0d8a76b2ec3ce74f10890.png)
 
 ### Configure FSLogix on session host VMs
 
-This section is based on information provided [here](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-user-profile).
+This section is based on [Set up a user profile share for a host pool](create-host-pools-user-profile.md).
 
 1. While still remoted in session host VM download and install FSLogix agent from this [link](https://go.microsoft.com/fwlink/?linkid=2084562).
 
 2. Unzip the downloaded file.
 
-3. In the file, go to **x64** > **Releases** and run **FSLogixAppsSetup.exe.**
+3. In the file, go to **x64** > **Releases** and run **FSLogixAppsSetup.exe**.
 
-![](media/fdb02247f8a528be7f7d63a550f8a10e.png)
+![A capture of the Releases folder. The FSLogixAppSetup.exe file is highlighted.](media/fdb02247f8a528be7f7d63a550f8a10e.png)
 
-4. Once the installer starts. Select **I agree to the license terms and conditions.** If applicable provide a new key.
+1. When installation starts, if you have a product key, enter it into the Product Key text box. If not, leave the box blank to start a 30 day trial.
+2. Select **I agree to the license terms and conditions**.
 
-5. Select **Install**.
+3. Select **Install**.
 
 ![](media/bc8bad805085ef1875a20b0d845f99a4.png)
 
