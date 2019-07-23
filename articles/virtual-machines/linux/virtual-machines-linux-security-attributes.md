@@ -12,7 +12,7 @@ ms.date: 06/05/2019
 ms.author: mbaldwin
 
 ---
-# Security attributes for Linux  Virtual Machines
+# Security attributes for Linux Virtual Machines
 
 This article documents the security attributes built into Linux Virtual Machines.
 

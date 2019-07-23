@@ -1,6 +1,6 @@
 ---
 title: Security attributes for Azure services
-description: A checklist of security attributes for evaluating Azure Service Fabric
+description: A checklist of security attributes for evaluating Azure services
 services: security
 documentationcenter: ''
 author: msmbaldwin
