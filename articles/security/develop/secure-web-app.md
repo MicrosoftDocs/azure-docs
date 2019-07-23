@@ -14,29 +14,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/17/2019
+ms.date: 07/23/2019
 ms.author: terrylan
 ---
 # Develop a secure web app
 
 This sample is a simple Python app that displays a web page containing links to security resources for developing apps on Azure. The app implements security best practices that can help improve your application and your organization’s security posture when you develop apps on Azure.
 
-You should follow the steps described in this article sequentially to ensure that the application components are configured properly. The components,
- that is, the database, Azure App Service, Azure Key Vault instance, and Azure Application Gateway instance, depend on each other.
+You should follow the steps described in this article sequentially to ensure that the application components are configured properly. The database, Azure App Service, Azure Key Vault instance, and Azure Application Gateway instance, depend on each other.
 
 The deployment scripts set up the infrastructure. After you run the deployment scripts, you'll need to do some manual configuration in the Azure portal to link the components and services together.
 
-The sample app is targeted toward beginners developing applications on Azure who want to implement security in the resources they use on Azure.
+The sample app is targeted toward beginners developing applications on Azure who want to implement security measures in their applications.
 
 In developing and deploying this app, you'll learn how to:
 
-- Create an Azure Key Vault instance, store secrets in it, and retrieve secrets from it.
-- Deploy Azure Database for PostgreSQL, set up secure passwords, and authorize access to it.
+- Create an Azure Key Vault instance, store and retrieve secrets from it.
+- Deploy Azure Database for PostgreSQL, set up secure passwords and authorize access to it.
 - Run an Alpine Linux container on Azure Web Apps for Linux and enable managed identities for Azure resources.
-- Create and configure an Azure Application Gateway instance with a firewall that uses OWASP Top 10 Rulesets.
+- Create and configure an Azure Application Gateway instance with a firewall that uses OWASP Top 10 Ruleset.
 - Enable encryption of data in transit and at rest by using Azure services.
 
-After you develop and deploy this app, you will have set up the following sample web app along with the configuration and security measures that we'll describe.
+After you develop and deploy this app, you will have set up the following sample web app along with the configuration and security measures that are described.
 
 ![Sample web app](./media/secure-web-app/demo-app.png)
 
@@ -47,28 +46,28 @@ The app is a typical n-tier application with three tiers. The front end, back en
 
 The architecture consists of these components:
 
-- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/). Provides the load balancing and firewall for our application architecture.
+- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/). Provides the gateway and firewall for our application architecture.
 - [Azure Web Apps on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro). Provides the container runtime to run the Python app in a Linux environment.
 - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/). Stores and encrypts our app's secrets and manages the creation of access policies around them.
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/). Securely stores our app's data.
-- [Azure Security Center](https://docs.microsoft.com/azure/security-center/) and [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Provide monitoring and alerts on the operation of our app.
+- [Azure Security Center](https://docs.microsoft.com/azure/security-center/) and [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Provides monitoring and alerts on the operation of our app.
 
 ## Threat model
 Threat modeling is the process of identifying potential security threats to your business and application and then ensuring that a proper mitigation plan is in place.
 
-We used the [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) to do threat modeling for the secure sample app. By diagramming our components and the data flows that the app uses, we can identify issues and threats early in the development process. This saves time and money later.
+This sample used the [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) to implement threat modeling for the secure sample app. By diagramming the components and the data flows, you can identify issues and threats early in the development process. This saves time and money later.
 
 This is the threat model for the sample app:
 
 ![Threat model](./media/secure-web-app/threat-model.png)
 
-Some sample threats and potential vulnerabilities that the threat modeling tool generates are shown in the following screenshot. The threat model gives an overview of the attack surface exposed and prompts us to think about how to mitigate the issues.
+Some sample threats and potential vulnerabilities that the threat modeling tool generates are shown in the following screenshot. The threat model gives an overview of the attack surface exposed and prompts the developers to think about how to mitigate the issues.
 
 ![Threat model output](./media/secure-web-app/threat-model-output.png)
 
 For example, SQL injection in the preceding threat model output is mitigated by sanitizing user inputs and by using stored functions in Azure Database for PostgreSQL. This mitigation prevents arbitrary execution of queries during data reads and writes.
 
-We improve the overall security of the system by mitigating each of the threats in the threat model output.
+Developers improve the overall security of the system by mitigating each of the threats in the threat model output.
 
 ## Deployment
 The following options let you run Linux on Azure App Service:
@@ -76,20 +75,21 @@ The following options let you run Linux on Azure App Service:
 - Choose a container from the list of prebuilt Microsoft containers on Azure that have been created with supporting technologies (Python, Ruby, PHP, Java, Node.js, .NET Core).
 - Use a custom-built container. Select your own container registries as the source of the image and build upon the many available technologies that support HTTP.
 
-In this example, we build our container, push it to a container registry, and deploy the app from the registry into the Azure App Service environment. This is described more fully later.
+In this example, you'll run the deployment script that'll deploy the webapp onto App Service and create the resources.
 
-Because we're building a custom container, our app can use the deployment models shown below:
+The app can use the different deployment models shown below:
 
 ![Deployment data flow diagram](./media/secure-web-app/deployment.png)
 
 There are many ways to deploy apps on Azure, including:
 
-- JSON templates
+- ARM templates
 - PowerShell
 - Azure CLI
 - Azure portal
+- Azure DevOps
 
-For our app we used:
+This application used:
 
 - [Docker](https://docs.docker.com/) to create and build the container images.
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for deployment.
@@ -98,24 +98,25 @@ For our app we used:
 ## Security considerations
 
 ### Network
-For the network, the sample app uses end-to-end SSL encryption for in-transit data flowing into and out of the network. The gateway is configured with a self-signed certificate.
+The sample app uses end-to-end SSL encryption for in-transit data flowing into and out of the network. The gateway is configured with a self-signed certificate.
 > [!IMPORTANT]
 > A self-signed certificate is used in this demonstration. In a production environment, you should obtain certificates from a verified Certificate Authority (CA).
 
 The application firewall also inspects incoming traffic and alerts admins when malicious traffic is detected in the network traffic.
-Application Gateway mitigates the possibility for DDoS and SQL injection threats indicated in the threat model.
+Application Gateway mitigates the possibility for DDoS and SQL injection threats discovered in the threat model.
 
 ### Identity
-To sign in to the portal, the sample app uses Multi-Factor Authentication for Active Directory users who are assigned access to the resources. The sample app also uses managed identities for Azure resources to gain permissions to read and retrieve secrets from Azure Key Vault. The app doesn't need to hard code credentials and tokens to read the secrets. Active Directory automatically creates the service principals that the app needs to read and modify the secrets.
+To sign in to the portal, the sample app uses Multi-Factor Authentication for Active Directory administrators who are assigned access to the resources.
+The sample app uses managed identities to gain permissions to read and retrieve secrets from Azure Key Vault, ensuring the app doesn't need to hard code credentials and tokens to read the secrets. Active Directory automatically creates the service principals that the app needs to read and modifies the secrets when managed identities are used.
 
 Managed identities for Azure resources and MFA make it harder for adversaries to gain privilege and escalate their privileges in the system. This threat was pointed out in the threat model.
-To sign in to the web app, the app uses OAuth, which allows users registered in the OAuth application to sign in to the app.
+The app uses OAuth, which allows users registered in the OAuth application to sign in to the app.
 
 ### Storage
 Data in the PostgreSQL database is encrypted at rest automatically by Azure Database for PostgreSQL. The database authorizes the App Service IP addresses so that only the deployed App Service web app can access the database resources with the right authentication credentials.
 
 ### Logging and auditing
-The app implements logging by using Application Insights to track metrics and logs and by tracking exceptions that occur. This logging provides enough app metadata to inform developers and operations team members on the status of the app. It also provides enough data to backtrack in case of security incidents.
+The app implements logging by using Application Insights to track metrics, logs and exceptions that occur. This logging provides enough app metadata to inform developers and operations team members on the status of the app. It also provides enough data to backtrack in case of security incidents.
 
 ## Cost considerations
 If you don't already have an Azure account, you can create a free one. Go to the [free account page](https://azure.microsoft.com/free/) to get started, see what you can do with a free Azure account, and learn which products are free for 12 months.
@@ -126,14 +127,14 @@ To deploy the resources in the sample app with the security features, you need t
 ### Prerequisites
 To get the application up and running, you need to install these tools:
 
-- Install a code editor to modify and view the application code. We used [Visual Studio Code](https://code.visualstudio.com/) for the sample app.
-- Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest,) on your development computer.
-- Install [Git](https://git-scm.com/) on your system. Git is used to clone the source code locally.
-- Install [jq](https://stedolan.github.io/jq/), a UNIX tool for querying JSON in a user-friendly way.
+- A code editor to modify and view the application code.[Visual Studio Code](https://code.visualstudio.com/) is an open source option.
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest,) on your development computer.
+- [Git](https://git-scm.com/) on your system. Git is used to clone the source code locally.
+- [jq](https://stedolan.github.io/jq/), a UNIX tool for querying JSON in a user-friendly way.
 
 You need an Azure subscription to deploy the sample app's resources. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/en-us/free/) to test the sample app.
 
-After installing these tools, you’re ready to move on and deploy the app on Azure.
+After installing these tools, you’re ready to deploy the app on Azure.
 
 ### Environment setup
 Run the deployment scripts to set up the environment and subscription:
@@ -141,23 +142,28 @@ Run the deployment scripts to set up the environment and subscription:
 1. To clone the source code repository, use this Git command:
 
    ``` git
-   git clone https://github.com/isaiah-msft/basic-sample-app
+   git clone https://github.com/Azure-Samples/sample-linux-python-app tutorial-project
    ```
 2. To move into the directory, use this command:
 
    ```
-   cd hello-project/script
+   cd tutorial-project/scripts
    ```
 
-3. There are files in the scripts folder that are specific to the environment in which the resources are deployed. You should have already installed the Azure CLI. Sign in to the Azure account at the command prompt by running this CLI command:
+3. There are files in the scripts folder that are specific to the platform you're using (Windows or Linux). As the Azure CLI has already been installed, sign in to the Azure account at the command prompt by running this CLI command:
 
    ``` azurecli
    az login
    ```
 
-The browser opens. You can sign in with your credentials. After you sign in, you can start to deploy the resources from the command prompt.
+The browser will open, sign in with your credentials. After signing in, you can start to deploy the resources from the command prompt.
 
-The deployment scripts deploy-powershell.ps1 and deploy-bash.sh show the end-to-end experience of deploying the architecture. You can change the variable names of the resources and resource groups to fit your naming conventions.
+The deployment scripts `deploy-powershell.ps1` and `deploy-bash.sh` contain code that deploys the entire application.
+To deploy the solution:
+
+1. If you are on PowerShell run the `deploy-powershell.ps1` file by typing `./deploy-powershell.ps1 REGION RESOURCE_GROUP_NAME` replacing the region and resource group name with suitable Azure regions and a name for the resource group
+2. If you are on Linux run the `deploy-bash.sh` file by typing `/deploy-bash.sh REGION RESOURCE_GROUP_NAME`, you may have to make the file executable by typing `chmod +x deploy-bash.sh`
+3. After the resources have been deployed, read the documentation contained here to configure the resources in order to make the app run. Without the configuration described in the documentation the application will not run. [Documentation](FINAL_DOCUMENTATION_LINK)
 
 The following examples showcase snippets of the key components. You can deploy the examples individually or with the rest of the components by running the deploy files.
 
@@ -173,16 +179,14 @@ The four phases are:
 
 Each phase builds upon the preceding one by using configuration from the previously deployed resources.
 
-To complete the implementation steps, make sure you’ve installed the tools listed in the [prerequisites](#prerequisites) section.
+To complete the implementation steps, make sure you’ve installed the tools listed under [Prerequisites](#prerequisites).
 
 #### Deploy Azure Key Vault
-In this section, you'll create and deploy an Azure Key Vault instance that will be used to store secrets and certificates.
+In this section, you create and deploy an Azure Key Vault instance that is used to store secrets and certificates.
 
-After you complete the deployment, you'll have an Azure Key Vault instance deployed on Azure.
+After you complete the deployment, you have an Azure Key Vault instance deployed on Azure.
 
-![Key Vault instance](./media/secure-web-app/keyvault-result.png)
-
-To deploy Azure Key Vault by using Azure CLI, we’ll take these steps:
+To deploy Azure Key Vault by using Azure CLI:
 
 1. Declare the variables for Azure Key Vault.
 2. Register the Azure Key Vault provider.
@@ -224,22 +228,22 @@ To deploy Azure Key Vault by using Azure CLI, we’ll take these steps:
        --verbose
 
    ```
-It’s a best practice to use managed identities for Azure resources in apps that use Key Vault to access resources. Your security posture increases when access keys to Key Vault aren't stored in code or in configuration.
+It's a best practice to use managed identities for Azure resources in apps that use Key Vault to access resources. Your security posture increases when access keys to Key Vault aren't stored in code or in configuration.
 
 #### Deploy Azure Database for PostgreSQL
-Azure Database for PostgreSQL works in the same way as the default PostgreSQL deployment model. You first create the database server. You then create the database on which to store the schema and data.
+Azure Database for PostgreSQL works in the following way, first create the database server then create the database on which to store the schema and data.
 
-After you complete the deployment, you'll have a PostgreSQL server and database running on Azure.
+After you complete the deployment, you have a PostgreSQL server and database running on Azure.
 
-![PostgreSQL](./media/secure-web-app/postgres-result.png)
-
-To deploy Azure Database for PostgreSQL by using Azure CLI, we’ll take these steps:
+To deploy Azure Database for PostgreSQL by using Azure CLI:
 
 1. Open a terminal with Azure CLI and your Azure subscription setup.
-2. Generate a secure user name and password combination that will be used to access the database. (These should be stored in Azure Key Vault for apps that use them.)
+2. Generate a secure user name and password combination that is used to access the database. (These should be stored in Azure Key Vault for apps that use them.)
 3. Create the PostgreSQL server instance.
 4. Create a database on the server instance that you created in step 3.
 5. Run PostgreSQL scripts on the PostgreSQL instance.
+
+The code below relies on the PGUSERNAME and PGPASSWORD secrets stored in Azure KeyVault from the deploying KeyVault step above.
 
    ``` azurecli
    $pgUsername = $(az keyvault secret show --name PGUSERNAME --vault-name $kvName --query value) -replace '"',''
@@ -282,25 +286,26 @@ To deploy Azure Database for PostgreSQL by using Azure CLI, we’ll take these s
        --verbose
    ```
 
-After you deploy the database, you'll need to store its credentials and connection string in Azure Key Vault.
-In the scripts folder, there's a functions.sql file that contains the PL/pgSQL code that will create stored functions when you run it. Running this file parameterizes the inputs to limit SQL injection.
+After you deploy the database, you need to store its credentials and connection string in Azure Key Vault.
+In the scripts folder, there's a `functions.sql` file that contains the PL/pgSQL code that creates stored functions when you run it. Running this file parameterizes the inputs to limit SQL injection.
 
-PostgreSQL is bundled with a tool called psql that we can use to connect to the database. To run functions.sql, we need to connect to the Azure Database for PostgreSQL instance from the local machine and run it from there. Installation of the psql tool is included in the default installation for PostgreSQL on each operating system.
+PostgreSQL is bundled with a tool called `psql` that is used to connect to the database. To run `functions.sql`, you need to connect to the Azure Database for PostgreSQL instance from your local machine and run it from there. Installation of the psql tool is included in the default installation for PostgreSQL on each operating system.
 For more information, see the [psql Documentation](https://www.postgresql.org/docs/9.3/app-psql.html).
 
-Azure Cloud Shell also includes the psql tool. You can use Cloud Shell directly from the Azure portal by selecting the Cloud Shell Icon.
+Azure Cloud Shell also includes the `psql` tool. You can use Cloud Shell directly from the Azure portal by selecting the Cloud Shell Icon.
 
-To enable remote access to the PostgreSQL instance, we need to authorize the IP address in PostgreSQL.
-We enable this access by going to the **Connection security** tab, selecting **Add client IP**, and saving the new settings.
+To enable remote access to the PostgreSQL instance, you need to authorize the IP address in PostgreSQL.
+You enable this access by going to the **Connection security** tab, selecting **Add client IP**, and saving the new settings.
 
 ![Authorize client IP](./media/secure-web-app/add-client-ip-postgres.png)
 
-If you're using Cloud Shell instead of the local psql tool, select **Allow access to Azure services** and change its value to **ON**.
+If you're using Cloud Shell instead of the local psql tool, select **Allow access to Azure services** and change its value to **ON** to allow your Cloud Shell access.
 
-We connect to the instance by running the following command with connection string parameters from the **Connection strings** tab of the PostgreSQL instance on the Azure portal. Replace the empty braces with these parameters and with parameters from Azure Key Vault.
+Then connect to the instance by running the below psql command with connection string parameters from the **Connection strings** tab of the PostgreSQL instance on the Azure portal.
+Replace the empty braces with parameters from the Connection String blade of the database and the password with the password from Azure Key Vault.
 
 ```sql
-psql "host={} port=5432 dbname={} user={} password={} sslmode=require"
+psql "host={} port=5432 dbname=hellodb user={} password=PGPASSWORD sslmode=require"
 ```
 
 Run the following PL/pgSQL script after you make sure you're connected to the database. The script creates the stored functions used to insert data into the database.
@@ -338,11 +343,10 @@ END;
 $$ LANGUAGE PLPGSQL;
 ```
 
-The preceding connection string includes an SSL certificate that will be used to ensure data in transit from App Service is accepted by the intended Azure Database for PostgreSQL instance. The certificate also helps to protect against man-in-the-middle attacks. Requiring SSL as the minimum level of protection with Azure Database for PostgreSQL is also a best practice in the database.
 
 For more information on how to setup SSL and Certificate Authority (CA) verification for PostgreSQL, see [Configure SSL connectivity in Azure Database for PostgreSQL](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
 
-For the sample application, we'll take these steps:
+A root certificate is included in the container. The steps taken to obtain the certificate are:
 
 1. Download the certificate file from the [Certificate Authority](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
 2. [Download and install OpenSSL on your machine](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security#download-and-install-openssl-on-your-machine).
@@ -352,12 +356,12 @@ For the sample application, we'll take these steps:
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-4. Place the root.crt file in the postgres folder in the hello application folder.
+Read more on how to configure SSL security for PostgreSQL here [Configure SSL Connection Security](https://docs.microsoft.com/en-gb/azure/postgresql/concepts-ssl-connection-security).
 
 #### Deploy Azure Web Apps on Linux
-You can easily build Linux services on top of Azure App Service because Azure provides a set of prebuilt containers and images for widely used languages like Python, Ruby, C#, and Java. Azure also supports custom containers, which can allow virtually all programming languages to run on the Azure App Service platform.
+You can easily build Linux services on top of Azure App Service as Azure provides a set of prebuilt containers and images for widely used languages like Python, Ruby, C#, and Java. Azure also supports custom containers, which can allow virtually all programming languages to run on the Azure App Service platform.
 
-The app we're building is a simple Python app that runs on the latest Ubuntu Linux distribution. It connects to the Azure Key Vault and PostgreSQL instances that we created in the previous sections for credential management and data storage, respectively.
+The app being deployed is a simple Python app that runs on the latest Ubuntu Linux distribution. It connects to the Azure Key Vault and PostgreSQL instances that were created in the previous sections for credential management and data storage, respectively.
 
 The following Docker file is provided in the root folder of the app:
 
@@ -412,33 +416,9 @@ USER appuser
 ENTRYPOINT ["/usr/local/bin/init.sh"]
 ```
 
-This sample uses Docker Hub as shown in the `README.md`.
+The Dockerfile above is used to build the container that is hosted on the Azure Container Registry at `mcr.microsoft.com/samples/basic-linux-app`.
 
-To build and push the Docker image to Docker Hub:
-
-1. Save the preceding file as Dockerfile.
-2. Move into the directory the Dockerfile located in your terminal.
-3. Sign into your container registry. For Docker Hub, use this command:
-
-   ```
-   docker login
-   ```
-    If you don't have a docker hub account create one at [Docker Hub](https://hub.docker.com)
-4. Build the container image locally by running the following command and replacing IMAGE_NAME with the name of the image. For docker the PUBLISHER_NAME should be your docker hub username.
-
-   ```powershell
-   docker build . -t <PUBLISHER_NAME/IMAGE_NAME>
-   ```
-
-5. Push the image to the container registry by running this command:
-
-   ```powershell
-   docker push  <PUBLISHER_NAME/IMAGE_NAME>
-   ```
-
-After the container is on a registry, open the deployment script in use, either `deploy-bash.sh` or `deploy-powershell.ps1`
-set the containerName variable to `<PUBLISHER_NAME/IMAGE_NAME>`.
-
+The code below:
 
 1. Declares the variables and names for the App Service instance.
 2. Creates the resource group for the App Service plan.
@@ -450,7 +430,7 @@ set the containerName variable to `<PUBLISHER_NAME/IMAGE_NAME>`.
    Write-Host "Retrieving the Azure Key Vault URL"
    $kvURI = $(az keyvault show --name $kvName --query properties.vaultUri)
 
-   # Create the App Service plan, using --linux as we're running containers on Web Apps on Linux
+   # Create the App Service plan, using --linux for running containers on Web Apps on Linux
    Write-Host "Creating App Service Plan: $($appName)"
    az appservice plan create --name $appServicePlanName `
        --resource-group $ResourceGroup `
@@ -518,10 +498,11 @@ set the containerName variable to `<PUBLISHER_NAME/IMAGE_NAME>`.
 
    ```
 
-This script also creates an assigned identity for the App Service instance that can be used with MSI to interact with Azure Key Vault without hard coding secrets in code or configuration.
+This script creates an assigned identity for the App Service instance that can be used with MSI to interact with Azure Key Vault without hard coding secrets in code or configuration.
 
 Go to the Azure Key Vault instance in the portal to authorize the assigned identity on the access policy tab.
-Select **Add new access policy**. Under **Select principal**, search for the application name. A service principal attached to the application should be visible. Save it. Also save the access policy on the root access policy page, as shown in the following screenshot.
+Select **Add new access policy**. Under **Select principal**, search for the application name that is similar to the name of the App Service instance created.
+A service principal attached to the application should be visible. Select it and save access policy page, as shown in the following screenshot.
 
 Because the application only needs to retrieve keys, select the **Get** permission in the secrets options, allowing access while reducing the privileges granted.
 
@@ -529,10 +510,11 @@ Because the application only needs to retrieve keys, select the **Get** permissi
 
 *Create a Key Vault access policy*
 
-Save the access policy, and then save the new change on the **Access Policies** tab to update the policies.
+Save the access policy and then save the new change on the **Access Policies** tab to update the policies.
 
 #### Deploy Application Gateway with web application firewall enabled
-In web apps, we don’t recommend that you expose services directly to the outside world on the internet. Load balancing and firewall rules provide more security and control over the incoming traffic and help you manage it.
+In web apps, it is not recommended that you expose services directly to the outside world on the internet.
+Load balancing and firewall rules provide more security and control over the incoming traffic and help you manage it.
 
 To deploy an Application Gateway instance:
 
@@ -676,9 +658,7 @@ az network application-gateway http-settings update --gateway-name $gwName `
     --verbose
 ```
 
-After you complete the deployment, you'll have an application gateway with web application firewall enabled.
-
-![Application gateway](./media/secure-web-app/gateway-result.png)
+After you complete the deployment, you have an application gateway with web application firewall enabled.
 
 The gateway instance exposes port 443 for HTTPS. This configuration ensures that our app is only accessible on port 443 through HTTPS.
 
@@ -703,9 +683,9 @@ app's incoming and outgoing traffic.
 
     *Virtual network configuration for App Service*
 
-Now that we've enabled the virtual network integration, we can add network security groups to our app.
+Now that you've enabled the virtual network integration, you can add network security groups to our app.
 
-1. Use the search box, search for **network security groups**. Select **Network security groups** in the results:
+1. Use the search box, search for **network security groups**. Select **Network security groups** in the results.
 
     ![Search for network security groups](./media/secure-web-app/nsg-search-menu.png)
 
@@ -717,7 +697,7 @@ Now that we've enabled the virtual network integration, we can add network secur
 
     *Create an NSG*
 
-3. After the NSG is created, select it. In its blade, under **Settings**, select **Inbound Security rules**. Configure these settings to allow connections coming into the application gateway over port 443:
+3. After the NSG is created, select it. In its blade, under **Settings**, select **Inbound Security rules**. Configure these settings to allow connections coming into the application gateway over port 443.
 
    ![Configure the NSG](./media/secure-web-app/nsg-gateway-config.png)
 
@@ -729,15 +709,15 @@ Now that we've enabled the virtual network integration, we can add network secur
 
    *Add outbound rules for the NSG*
 
-    Add another outbound rule to allow the gateway to send outbound rules to a virtual network:
+    Add another outbound rule to allow the gateway to send outbound rules to a virtual network.
 
    ![Add another outbound rule](./media/secure-web-app/nsg-outbound-vnet.png)
 
     *Add another outbound rule*
 
-5. On the subnets blade of the NSG, select **Associate**, select the virtual network created in the deployment, and select the gateway subnet named **gw-subnet**. The NSG will be applied to the subnet.
+5. On the subnets blade of the NSG, select **Associate**, select the virtual network created in the deployment, and select the gateway subnet named **gw-subnet**. The NSG is applied to the subnet.
 
-6. Create another NSG as in the earlier step, this time for the App Service instance. Give it a name. Add the inbound rule for port 443 as we did for the application gateway NSG.
+6. Create another NSG as in the earlier step, this time for the App Service instance. Give it a name. Add the inbound rule for port 443 as you did for the application gateway NSG.
 
    If you have an App Service instance deployed on an App Service Environment instance, which is not the case for this app, you can add inbound rules to allow Azure Service Health probes by opening up
    ports 454-455 on the inbound security groups of your App Service NSG. Here's the configuration:
@@ -746,14 +726,14 @@ Now that we've enabled the virtual network integration, we can add network secur
 
     *Add rules for Azure Service Health probes (App Service Environment only)*
 
-7. In the outbound security rules, create a new outbound security rule that will allow the App Service instance to communicate with the PostgreSQL database. Configure it like this:
+7. In the outbound security rules, create a new outbound security rule that allows the App Service instance to communicate with the PostgreSQL database. Configure it like this:
 
    ![Rule to allow outbound PostgreSQL connections](./media/secure-web-app/nsg-outbound-postgresql.png)
 
    *Add a rule to allow outbound PostgreSQL connections*
 
-To limit the attack surface, we'll modify the App Service network settings to allow only the application gateway to access the application.
-We do this by going into the App Service network tab, selecting the **IP Restrictions** tab, and creating an allow rule that allows only the application gateway’s IP to directly access the service.
+To limit the attack surface, modify the App Service network settings to allow only the application gateway to access the application.
+You do this by going into the App Service network tab, selecting the **IP Restrictions** tab, and creating an allow rule that allows only the application gateway’s IP to directly access the service.
 
 You can retrieve the IP address of the gateway from its overview page. On the **IP Address CIDR** tab, enter the IP address in this format: `<GATEWAY_IP_ADDRESS>/32`.
 
@@ -764,11 +744,10 @@ You can retrieve the IP address of the gateway from its overview page. On the **
 
 #### Implement Azure Active Directory OAuth
 
-There are resources in our app that we might need to protect: the Azure documents we're distributing on the sample web app page.
-You can use Azure Active Directory (Azure AD) to implement authentication for web, desktop, and mobile apps by using different authentication flows.
-For our web app, we'll implement a **Login With Microsoft** button that allows the app to read profiles of users who have been added to our single-tenant Active Directory user's list.
+The Azure documents distributed on the sample web app page are resources in our app that might need protection. You can use Azure Active Directory (Azure AD) to implement authentication for web, desktop, and mobile apps by using different authentication flows.
+The app uses **Login With Microsoft**, that allows the app to read profiles of users who have been added to our single-tenant Active Directory user's list.
 
-To configure the app to use the required credentials, we take these steps in the Azure portal:
+In the Azure portal, configure the app to use the required credentials:
 
 1. Select **Azure Active Directory**, or search for it by using the search box.
 
@@ -785,7 +764,7 @@ To configure the app to use the required credentials, we take these steps in the
 
    *Configure Azure AD app registration*
 
-4. You'll be presented with a screen that shows the registered app and its information. You'll need to add this information into the Azure Key Vault instance.
+4. You are presented with a screen that shows the registered app and its information. You need to add this information into the Azure Key Vault instance.
    1. Copy the application (client) ID and save it in Key Vault as `CLIENTID`.
    2. Copy the redirect URI that you entered in the previous step and save it as `REDIRECTURI`.
    3. Copy the Active Directory default directory name, which has the format *name*.microsoftonline.com, and save it in Key Vault as `TENANT`.
@@ -795,7 +774,7 @@ To configure the app to use the required credentials, we take these steps in the
 
       *Azure AD authorization secret*
 
-   5. Generate a secure random secret key by using any command-line/online tool. Save it into Key Vault as `FLASKSECRETKEY`. The application framework will use this key to create sessions.
+   5. Generate a secure random secret key by using any command-line/online tool. Save it into Key Vault as `FLASKSECRETKEY`. The application framework uses this key to create sessions.
         To learn how to generate a secret key, see [Flask Sessions](http://flask.pocoo.org/docs/1.0/quickstart/#sessions).
 
 5. After you configure the sign-in, you need to add users to the Active Directory link to allow them to sign in to the resource. To add them, go to the **Users** tab in Active Directory, select **All users**, and then select **New user** or **New guest user**. For testing, you can add a guest user and invite the user into the directory. Or you can add a new user if the domain the app is running on has been validated. In this example, only users registered in the Active Directory tenant can be registered for access. For information about multitenant sign-in access, see the documentation.
@@ -804,43 +783,45 @@ To configure the app to use the required credentials, we take these steps in the
 
    *Add users to the default Azure Active Directory domain*
 
-After you add the Azure AD configuration and secrets to Key Vault, users can be authenticated into the app by using Azure AD authentication.
+After you add the Azure AD configuration and secrets to Key Vault, users can be authenticated into the app by using Azure OAuth authentication.
 In the app code, this is handled by the Azure Active Directory Authentication Library (ADAL).
 
 After the secrets are in Key Vault and the application has access to the secrets and the database, the application service can be reached through the gateway's
-application URL (*GATEWAY_HASH*.cloudapp.net), which you can get from its blade. Visiting it and adding https to it before doing so.
+application URL (https://GATEWAY_HASH.cloudapp.net), which you can get from its blade.
 
-If, when you sign in to Active Directory, you get an error that says "User is not registered in the directory you're trying to log into," you need to add the user. To add the user, go to the **Users** tab of Azure Active Directory and add the user manually. You can also invite the user as a guest user to Active Directory.
+If, when you sign in to Active Directory, you get an error that says "User is not registered in the directory you're trying to log into," you need to add the user. To add the user, go to the **Users** tab of Azure Active Directory and add the user manually by entering their details or  invite the user by entering their email address as a guest user to Active Directory in the **Invite Guest** blade.
 
 #### Deploy Application Insights
-Now that the app is deployed and working, you need to handle errors that occur within the app. You also need to handle logging and trace data collection. Logging and trace data collection provides a view into audit events that happen in the app.
+Now that the app is deployed and working, you need to handle errors that occur within the app along with logging and trace data collection.
+Logging and trace data collection provides a view into audit events that happen in the app.
 
 Application Insights is a service that collects logs that can be generated by users or by the system.
 
 To create an Application Insights instance:
 
 1. Search for **Application Insights** by using the search box in the Azure portal.
-2. Select **Application Insights**. Provide the details shown here to create an instance:
+2. Select **Application Insights**. Provide the details shown here to create an instance.
 
 ![Create an Application Insights instance](./media/secure-web-app/app-insights-data.png)
 
-After the deployment is complete, you'll have an Application Insights instance.
-
-![Application Insights](./media/secure-web-app/app-result.png)
+After the deployment is complete, you have an Application Insights instance.
 
 After you create the Applications Insights instance, you need to make the app aware of the instrumentation key that allows it to send logs to the cloud. You do this by retrieving the Application Insights key and using it within the application libraries that Azure provides for Application Insights. The best practice is to store keys and secrets in Azure Key Vault to keep them secure.
 
-For the basic sample app, after we create the Applications Insights instance, we need to make the app aware of the instrumentation key that will allow it to send logs to the cloud. In Key Vault, we can set a new `APPINSIGHTSKEY` secret and set its value as the instrumentation key. Doing so will allow us to send logs and metrics to Application Insights.
+For the basic sample app, after you create the Applications Insights instance, you need to make the app aware of the instrumentation key that allows it to send logs to the cloud.
+In Key Vault, set a `APPINSIGHTSKEY` secret and set its value as the instrumentation key. Doing so allows the app to send logs and metrics to Application Insights.
 
 #### Implement Multi-Factor Authentication for Active Directory
 Administrators need to ensure that the subscription accounts in the portal are protected. The subscription is vulnerable to attacks because it manages the resources that you created. To protect the subscription, enable Multi-Factor Authentication on the **Azure Active Directory** tab of the subscription.
 
-Azure AD operates based on policies that are applied to users or groups of users that fit a certain criterion. Azure creates a default policy that specifies that administrators need two-factor authentication to sign in to the portal. After you enable this policy, you might be prompted to sign out and sign back in to the Azure portal.
+Azure AD operates based on policies that are applied to a user or groups of users that fit a certain criteria.
+Azure creates a default policy specifying that administrators need two-factor authentication to sign in to the portal.
+After enabling this policy, you might be prompted to sign out and sign back in to the Azure portal.
 
 To enable MFA for admin sign-ins:
 
-1. Go to the **Azure Active Directory** tab in the Azure portal.
-2. Under the security category, select conditional access. You’ll see this screen:
+1. Go to the **Azure Active Directory** tab in the Azure portal
+2. Under the security category, select conditional access. You see this screen:
 
 ![Conditional Access - Policies](./media/secure-web-app/ad-mfa-conditional-add.png)
 
@@ -856,7 +837,7 @@ Return to the conditional access screen.
 1. Select the new policy tab.
 2. Enter the policy name.
 3. Select the users or groups for which you want to enable MFA.
-4. Under **Access controls**, select the **Grant** tab and then select **Require multi-factor authentication** (and other settings if you want):
+4. Under **Access controls**, select the **Grant** tab and then select **Require multi-factor authentication** (and other settings if you want).
 
 ![Require MFA](./media/secure-web-app/ad-mfa-conditional-add.png)
 
@@ -865,8 +846,8 @@ You can enable the policy by selecting the check box at the top of the screen or
 There's a baseline policy that requires MFA for all Azure administrators. You can enable it immediately in the portal. Enabling this policy might invalidate the current session and force you to sign in again.
 
 If the baseline policy isn't enabled:
-1.	Select **Require MFA for admins** and s
-2.	Select **Use policy immediately**:
+1.	Select **Require MFA for admins**.
+2.	Select **Use policy immediately**.
 
 ![Select Use policy immediately](./media/secure-web-app/ad-mfa-conditional-enable.png)
 
@@ -878,22 +859,22 @@ Azure Sentinel is designed to collect data, detect the types of threats possible
 While it waits for manual intervention, Azure Sentinel can rely on pre-written playbooks to kick off alerts and incident management processes.
 
 The sample app is composed of several resources that Azure Sentinel can monitor.
-To set up Azure Sentinel, we first need to create a Log Analytics workspace that will store all the data collected from the various resources.
+To set up Azure Sentinel, you first need to create a Log Analytics workspace that stores all the data collected from the various resources.
 
 To create this workspace:
 
-1. In the search box in the Azure portal, search for **Log Analytics**. Select **Log Analytics workspaces**:
+1. In the search box in the Azure portal, search for **Log Analytics**. Select **Log Analytics workspaces**.
 
    ![Search for Log Analytics workspaces](./media/secure-web-app/sentinel-log-analytics.png)
 
     *Search for Log Analytics workspaces*
 
-2. On the next page, select **Add** and then provide a name, resource group, and location for the workspace:
+2. On the next page, select **Add** and then provide a name, resource group, and location for the workspace.
    ![Create a Log Analytics workspace](./media/secure-web-app/sentinel-log-analytics-create.png)
 
    *Create a Log Analytics workspace*
 
-3. Use the search box to search for **Azure Sentinel**:
+3. Use the search box to search for **Azure Sentinel**.
 
    ![Search for Azure Sentinel](./media/secure-web-app/sentinel-add.png)
 
@@ -905,8 +886,7 @@ To create this workspace:
 
     *Add a Log Analytics workspace*
 
-5. On the **Azure Sentinel - Data connectors** page, under **Configuration**, select **Data connectors**. You'll see an array of Azure services that you can link to the Log Analytics storage instance for
-   analysis in Azure Sentinel:
+5. On the **Azure Sentinel - Data connectors** page, under **Configuration**, select **Data connectors**. You see an array of Azure services that you can link to the Log Analytics storage instance for analysis in Azure Sentinel.
 
    ![Log Analytics data connectors](./media/secure-web-app/sentinel-connectors.png)
 
@@ -916,7 +896,7 @@ To create this workspace:
 
    1. Open the Azure Application Gateway instance blade.
    2. Under **Monitoring**, select **Diagnostic settings**.
-   3. Select **Add diagnostic setting**:
+   3. Select **Add diagnostic setting**.
 
       ![Add Application Gateway diagnostics](./media/secure-web-app/sentinel-gateway-connector.png)
 
@@ -928,7 +908,7 @@ To create this workspace:
 
         *Azure Sentinel connector settings*
 
-      The metrics from the resource will be in Azure Sentinel, where you can query and investigate them.
+  The metrics from the resource are in Azure Sentinel, where you can query and investigate them.
 
    Add the same metrics in diagnostic settings for Azure Key Vault, the public IP address, Azure Database for PostgreSQL, and any services that support diagnostic logs in your account.
 
@@ -962,14 +942,14 @@ PyLint provided the most value for this project. It performs code-standard check
 
 *Before PyLint*
 
-After you fix some of the code errors found by the linting tools, you'll have more confidence that the code isn't prone to errors. Fixing the errors significantly reduces the security risks that can occur when the code is deployed to production environments.
+After you fix some of the code errors found by the linting tools, you have more confidence that the code isn't prone to errors. Fixing the errors significantly reduces the security risks that can occur when the code is deployed to production environments.
 
 ![After Pylint](./media/secure-web-app/after-pylint.png)
 
 *After PyLint*
 
 ### Vulnerability scanning
-OWASP's ZAP tool is an open-source web application vulnerability scanner that you can use to check the sample app for vulnerabilities. Running the tool on the sample app reveals some possible errors and attack vectors:
+OWASP's ZAP tool is an open-source web application vulnerability scanner that you can use to check the sample app for vulnerabilities. Running the tool on the sample app reveals some possible errors and attack vectors.
 
 ![ZAP tool](./media/secure-web-app/zap-tool.png)
 
