@@ -14,7 +14,7 @@ ms.topic: hub-page
 <div id="main" class="v2">
 <h1>Azure Cognitive Services Documentation</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.</p>
-        <p> Each service has its own <a href="language-support">language support</a> and <a href="/azure/cognitive-services/cognitive-services-and-machine-learning#service-requirements-for-the-data-model">data model requirements</a> ranging from a fully-trained model to a fully-customizable model. 
+        <p> Each service has its own <a href="/azure/cognitive-services/language-support">language support</a> and <a href="/azure/cognitive-services/cognitive-services-and-machine-learning#service-requirements-for-the-data-model">data model requirements</a> ranging from a fully-trained model to a fully-customizable model. 
 
 
 <h2>Cognitive Services APIs</h2>
@@ -25,7 +25,6 @@ ms.topic: hub-page
                 <div class="card">
                     <div class="cardText">
                         <h3>Vision API</h3>
-                        <p>Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.</p>
                         <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
                         <p><a href="/azure/cognitive-services/face/">Face API</a></p>
@@ -43,7 +42,6 @@ ms.topic: hub-page
                 <div class="card">
                     <div class="cardText">
                         <h3>Speech API</h3>
-                        <p>Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.</p>
 						<p><a href="/azure/cognitive-services/speech-service">Speech Services</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>Bing Speech API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
@@ -59,7 +57,6 @@ ms.topic: hub-page
                 <div class="card">
                     <div class="cardText">
                         <h3>Language API</h3>
-                        <p>Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.</p>
                         <p><a href="/azure/cognitive-services/immersive-reader"><span>Immersive Reader&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>                        <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
                         <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">Text Analytics</a></p>
@@ -75,7 +72,6 @@ ms.topic: hub-page
                 <div class="card">
                     <div class="cardText">
                         <h3>Search API</h3>
-                        <p>Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.</p>
                         <p><a href="/azure/cognitive-services/bing-news-search/">Bing News Search</a></p>
                         <p><a href="/azure/cognitive-services/Bing-Video-Search/">Bing Video Search</a></p>
                         <p><a href="/azure/cognitive-services/bing-web-search/">Bing Web Search</a></p>
@@ -97,7 +93,6 @@ ms.topic: hub-page
                 <div class="card">
                     <div class="cardText">
                         <h3>Decision API</h3>
-                        <p>Build apps that surface recommendations for informed and efficient decision-making.</p>
                         <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Anomaly Detector&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
                         <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personalizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
@@ -124,6 +119,25 @@ ms.topic: hub-page
                             <div class="cardText">
                                 <h3>What are Cognitive Services?</h3>
                                 <p>Learn about Azure Cognitive Services and how to use the different APIs to build intelligent apps.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-and-machine-learning/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_get-started.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Cognitive Services and machine learning</h3>
+                                <p>Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning.</p>
                             </div>
                         </div>
                     </div>
