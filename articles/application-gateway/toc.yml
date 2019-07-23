@@ -121,11 +121,13 @@
       - name: End-to-end SSL - PowerShell
         href: application-gateway-end-to-end-ssl-powershell.md
     - name: Manage certificates
-      items:
-      - name: Create certificates for whitelisting backend
+      items:             
+      - name: Certificates for the backend
         href: certificates-for-backend-authentication.md
       - name: Renew certificates
         href: renew-certificates.md
+      - name: Generate self-signed certificates
+        href: self-signed-certificates.md
     - name: SSL policy
       items:
       - name: Configure SSL policy
