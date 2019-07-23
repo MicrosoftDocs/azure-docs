@@ -60,7 +60,7 @@
     items:
     - name: Classification (Bank data)
       displayName: automl, automated, auto ml, portal, ui
-      href: tutorial-1st-experiment-automated-ml.md
+      href: tutorial-first-experiment-automated-ml.md
 - name: Samples
   items:
   - name: Notebooks
