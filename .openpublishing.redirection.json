@@ -13846,6 +13846,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-bus-relay/relay-wcf-dotnet-get-started.md",
+      "redirect_url": "/azure/service-bus-relay/service-bus-relay-tutorial",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/service-bus-relay/service-bus-dotnet-how-to-use-relay.md",
       "redirect_url": "/azure/service-bus-relay/relay-wcf-dotnet-get-started",
       "redirect_document_id": false
