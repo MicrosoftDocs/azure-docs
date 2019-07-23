@@ -38,21 +38,7 @@ Model dominant language is available in the insights JSON as the `sourceLanguage
         "sourceLanguage": "fr-FR",
         "language": "fr-FR",
         "transcript": [...],
-        "ocr": [...],
-        "keywords": [...],
-        "topics": [...],
-        "faces": [...],
-        "labels": [...],
-        "scenes": [...],
-        "shots": [...],
-        "sentiments": [...],
-        "emotions": [...],
-        "visualContentModeration": [...],
-        "blocks": [...],
-        "framePatterns": [...],
-        "speakers": [...],
-        "textualContentModeration": {...},
-        "statistics": {...},
+        . . .
         "sourceLanguageConfidence": 0.8563
       },
 ```
