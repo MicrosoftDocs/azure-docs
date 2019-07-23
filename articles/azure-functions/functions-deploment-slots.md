@@ -15,7 +15,7 @@ ms.author: cshoe
 ---
 # Azure Functions Deployment Slots
 
-Azure Functions deployment slots allow your functions app to run different instances in separate "slots". Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand.
+Azure Functions deployment slots allow your functions app to run different instances called "slots". Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand.
 
 The following reflect how functions are affected by swapping slots:
 
@@ -30,7 +30,7 @@ The following reflect how functions are affected by swapping slots:
 There are a number of advantages to using deployment slots. The following scenarios describe common uses for slots:
 
 - **Different environments for different purposes**: Using different slots gives you the opportunity to differentiate app instances before swapping to production or a staging slot.
-- **Prewarming**: Deploying to a slot instead of directly to production allows the app to warm up before going live to production. Additionally, using slots reduces latency for HTTP-triggered workloads. Instances are warmed up before deployment which reduces the cold start for newly-deployed business logic.
+- **Prewarming**: Deploying to a slot instead of directly to production allows the app to warm up before going live. Additionally, using slots reduces latency for HTTP-triggered workloads. Instances are warmed up before deployment which reduces the cold start for newly-deployed functions.
 - **Easy fallbacks**: After a swap with production, the slot with a previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can immediately reverse the swap to get your "last known good instance" back.
 
 ## Swap operations
@@ -56,11 +56,21 @@ Keep in mind the following points:
 
 - Settings related to event sources and bindings need to be configured as [deployment slot settings](#settings) *before you initiate a swap*. Marking them as "sticky" ahead of time ensures events and outputs are directed to the proper instance.
 
-### Settings
+## Manage settings
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
-You can mark settings as "sticky", meaning they do not swap with the app instance. To create a sticky setting, navigate to the **Configuration** page for that slot, add or edit a setting, then select the **deployment slot setting** box. 
+### Create a deployment setting
+
+You can mark settings as a deployment setting which makes it "sticky". A sticky setting does not swap with the app instance. 
+
+Use the following steps to to create a deployment setting:
+
+- From your app, Navigate to the **Configuration** page for that slot, add or edit a setting, then select the **deployment slot setting** box. 
+
+### Example
+
+**TODO** add example
 
 ## Deployment
 
