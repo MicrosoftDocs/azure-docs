@@ -158,7 +158,7 @@ With DHCP services enabled on the NSX-T logical switch, virtual machines deploye
 
 ## Next steps
 
-The next step is to deploy a VM.
+In the next tutorial, you [scale a private cloud](tutorials-scale-private-cloud).
 <!-- [deploy a VM][tutorials-deploy-vm]. -->
 
 <!-- [Deploy a virtual machine on the NSX-T logical switch network.][tutorials-deploy-vm] -->
@@ -167,3 +167,4 @@ The next step is to deploy a VM.
 
 <!-- LINKS - internal -->
 <!-- [tutorials-deploy-vm]: ./tutorials-deploy-vm.md -->
+[tutorials-scale-private-cloud]: tutorials-scale-private-cloud.md

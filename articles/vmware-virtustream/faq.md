@@ -165,7 +165,7 @@ Yes. You'll need to use NSX-T manager to create a firewall that restricts VM acc
 
 **What accounts and privileges will I get with my new AVS by Virtustream private cloud?**
 
-You are provided credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There is also a CloudAdmin group that can be used to incorporate Azure Active Directory. For more information, see [Access and Identity Concepts][concepts-identity].
+You are provided credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There is also a CloudAdmin group that can be used to incorporate Azure Active Directory. For more information, see [Access and Identity Concepts](concepts-identity.md).
 
 **Can have administrator access to ESXi hosts?**
 
@@ -173,11 +173,11 @@ No, administrator access to ESXi is restricted to meet the security requirements
 
 **What privileges and permissions will I have in vCenter?**
 
-You will have CloudAdmin group privileges. For more information, see [Access and Identity Concepts][concepts-identity].
+You will have CloudAdmin group privileges. For more information, see [Access and Identity Concepts](concepts-identity.md).
 
 **What privileges and permissions will I have on the NSX-T manager?**
 
-You will have full administrator privileges on NSX-T and can manage role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts][concepts-identity].
+You will have full administrator privileges on NSX-T and can manage role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts](concepts-identity.md).
 
 > [!NOTE]
 > A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
@@ -206,8 +206,8 @@ Microsoft provides primary support for the platform, with VMware and Virtustream
 
 You will need an Azure account in an Azure subscription.
 
-<!-- LINKS - internal -->
-[Access and Identity Concepts]: ./concepts-identity.md
-
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952
+
+<!-- LINKS - internal -->
+[Access and Identity Concepts]: concepts-identity.md

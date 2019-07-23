@@ -55,7 +55,7 @@ The deployment of an additional host to the cluster will begin.
 
 ## Next steps
 
-If you require another AVS by Virtustream private cloud, use the [Create private cloud tutorial][tutorials-create-private-cloud].
+If you require another AVS by Virtustream private cloud, [create another private cloud][tutorials-create-private-cloud].
 
 <!-- LINKS - external-->
 

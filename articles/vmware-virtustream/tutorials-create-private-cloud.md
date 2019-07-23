@@ -31,7 +31,7 @@ It's recommended you first plan the private network address space for your priva
 
 You also plan for the type and number of hosts that you'll use in your private cloud clusters. Resource and resource group names are also required when you create a private cloud.
 
-This tutorial also requires that you have an Azure subscription and access to the Azure portal. You also need to have the Microsoft.VMwareVirtustream resource provider is registered in your subscription. Following the instructions in [resource provider][Azure resource providers and types] documentation, search for Virtustream. This screenshot shows what will appear if the resource provider is registered in your subscription.
+This tutorial also requires that you have an Azure subscription and access to the Azure portal. You also need to have the Microsoft.VMwareVirtustream resource provider is registered in your subscription. Following the instructions in [Azure resource providers and types documentation][resource provider], search for "Virtustream". This screenshot shows what will appear if the resource provider is registered in your subscription.
 
 ![Image of a registered Virtustream.PrivateCloud resource provider](./media/resource-provider-azure.png)
 
@@ -45,7 +45,7 @@ Prerequisites:
 
 ## Create a private cloud 
 
-In the Azure portal, navigate to the "New" resource, select "Compute" and then search the marketplace for "private cloud".
+In the Azure portal, select **+ Create a resource > Compute** and then search the marketplace for "private cloud".
 
 ![Search marketplace for "private cloud"](./media/create-private-cloud/ss1-search-private-cloud.png)
 
@@ -57,7 +57,7 @@ Select "Create".
 
 ![Select private cloud Create](./media/create-private-cloud/ss3-select-create-vmcp.png)
 
-In the "Basics" tab, enter the required information and then select "Next".
+In the "Basics" tab, enter the required information and then select **Next**.
 
 ![Create private cloud "Basics" form](./media/create-private-cloud/ss4-create-basics.png)
 
@@ -65,19 +65,20 @@ In the "Tags" context blade, create or select tags that will be associated with 
 
 ![Add tags for the new private cloud](./media/create-private-cloud/ss5-create-tags.png)
 
-If the configuration passes validation, review and then select "Create" in the "Review + create" tab.
+If the configuration passes validation, review and then select **Review + Create > Create**.
 
 ![Review and create a new private cloud](./media/create-private-cloud/ss6-review-create.png)
 
-Once the deployment has succeeded, navigate to the new private cloud in your resources and review the overview information. Confirm the configuration and then select "Admin" to retrieve the credentials to access vCenter and NSX-T manager. You will establish the access and connect to private cloud in another tutorial.
+Once the deployment has succeeded, navigate to the new private cloud in your resources and review the overview information. Confirm the configuration and then select **Admin** to retrieve the credentials to access vCenter and NSX-T manager. You will establish the access and connect to private cloud in another tutorial.
 
 ![Review overview information of new private cloud](./media/create-private-cloud/ss7-view-overview.png)
 
-![Get vCenter and NSX-T manager credentials from Admin](./media/create-private-cloud/ss8-get-credentials.png)
+![Get vCenter and NSX-T manager credentials](./media/create-private-cloud/ss8-get-credentials.png)
 
 ## Next steps
 
-In the next tutorial, you will create a VNet and resources to connect to a private cloud.
+In the next tutorial, you will [create an NSX-T T1 router and a logical switch](tutorials-create-t1-ls).
+
 <!-- [create a VNet and resources][tutorials-create-vnet-resources] -->
 
 <!-- LINKS - external-->
@@ -85,5 +86,5 @@ In the next tutorial, you will create a VNet and resources to connect to a priva
 [enable Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach-cli#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions
 
 <!-- LINKS - internal -->
-[tutorials-create-t1-ls]: ./tutorials-create-t1-ls.md
+[tutorials-create-t1-ls]: tutorials-create-t1-ls.md
 <!-- [tutorials-create-vnet-resources]: ./tutorials-create-vnet-resources.md -->
