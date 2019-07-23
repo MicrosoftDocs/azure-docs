@@ -11,7 +11,7 @@ ms.reviewer: sngun
 
 # Migrate data to Azure Cosmos DB SQL API account using Striim
  
-The Striim platform in Azure offers continuous real-time data movement from data warehouses and databases to Azure. While moving the data, you can perform in-line denormalization and transformation capabilities to reduce end to end latency and enable real-time analytics and reporting workloads. It’s easy to get started with Striim to continuously move enterprise data to Azure Cosmos DB SQL API. Azure provides a marketplace offering that makes it easy to deploy Striim and migrate data. 
+The Striim image in the Azure marketplace offers continuous real-time data movement from data warehouses and databases to Azure. While moving the data, you can perform in-line denormalization and transformation capabilities to reduce end to end latency and enable real-time analytics and reporting workloads. It’s easy to get started with Striim to continuously move enterprise data to Azure Cosmos DB SQL API. Azure provides a marketplace offering that makes it easy to deploy Striim and migrate data. 
 
 This article shows how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB SQL API account.
 
@@ -47,7 +47,7 @@ This article shows how to use Striim to migrate data from an Oracle database to 
 
    ![Striim access settings](./media/cosmosdb-sql-api-migrate-data-using-striim/striim-access-settings.png)
 
-1. Azure will review your deployment and make sure everything looks good; validation takes few minutes to complete. Select **OK** after the validation has completed.
+1. Azure will review your deployment and make sure everything looks good; validation takes few minutes to complete. After the validation is completed, select **OK**.
   
 1. Finally, review the terms of use and select **Create** to create your Striim instance. 
 
@@ -61,7 +61,7 @@ Navigate to Oracle.com and download the [ojdbc8.jar](https://www.oracle.com/tech
 
 1. Create an [Azure Cosmos DB SQL API account](create-cosmosdb-resources-portal.md) using the Azure portal.
 
-1. Navigate to the **Data Explorer** pane in your Azure Cosmos account. Select **New Container** to create a new test container. Assume that you are migrating products and orders data from Oracle database to Azure Cosmos DB. Create a new database named **StriimDemo** with a container named **Orders**. Provision the container with **1000 RUs**, and **/ORDER_ID** as the partition key. These values will differ depending on your source data. 
+1. Navigate to the **Data Explorer** pane in your Azure Cosmos account. Select **New Container** to create a new test container. Assume that you are migrating products and orders data from Oracle database to Azure Cosmos DB. Create a new database named **StriimDemo** with a container named **Orders**. Provision the container with **1000 RUs** (this example uses 1000 RUs, but you should use the throughput estimated for your workload), and **/ORDER_ID** as the partition key. These values will differ depending on your source data. 
 
    ![Create a SQL API account](./media/cosmosdb-sql-api-migrate-data-using-striim/create-sql-api-account.png)
 
@@ -186,6 +186,6 @@ Navigate to Oracle.com and download the [ojdbc8.jar](https://www.oracle.com/tech
 
    ![Validate migrated data in Azure](./media/cosmosdb-sql-api-migrate-data-using-striim/portal-validate-results.png)
 
-By using the Striim solution in Azure, you can continuously migrate data to Azure Cosmos DB, transform a transactional database to a JSON document structure without any coding. 
+By using the Striim solution in Azure, you can continuously migrate data to Azure Cosmos DB, transform a transactional database to a JSON document structure without any coding. For any issues when setting up the migration path with Striim, file a support request in the [Striim website](https://go2.striim.com/request-support-striim).
 
 ## Next steps
