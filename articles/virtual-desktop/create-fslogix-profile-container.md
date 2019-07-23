@@ -173,43 +173,44 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 ![A capture of the Releases folder. The FSLogixAppSetup.exe file is highlighted.](media/fdb02247f8a528be7f7d63a550f8a10e.png)
 
 1. When installation starts, if you have a product key, enter it into the Product Key text box. If not, leave the box blank to start a 30 day trial.
+
 2. Select **I agree to the license terms and conditions**.
 
 3. Select **Install**.
 
-![](media/bc8bad805085ef1875a20b0d845f99a4.png)
+![A capture of the FSLogix Apps installer with the product key text box filled in. The buttons are labeled numerically based on their corresponding steps.](media/bc8bad805085ef1875a20b0d845f99a4.png)
 
 6. Navigate to **C:\\Program Files\\FSLogix\\Apps** to confirm the agent installed.
 
-![](media/32f561f6e923afc899019cc9657732f9.png)
+![A capture of the Apps folder with the installed FSLogix files inside of it.](media/32f561f6e923afc899019cc9657732f9.png)
 
-7. From the start menu, run **RegEdit** as an administrator.
+7. From the Start menu, run **RegEdit** as an administrator.
 
-![](media/d7e6314d663907e4227b1fdc0e62ec0e.png)
+![A capture of the Start menu with the right-click drop-down menu open over the Registry Editor. The Run as administrator option is at the top of the drop-down menu.](media/d7e6314d663907e4227b1fdc0e62ec0e.png)
 
 8. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
 
-![](media/07dcb4497a96f1b8c111a88071ecf34d.png)
+![A capture of the FSLogix folder in the Registry Editor](media/07dcb4497a96f1b8c111a88071ecf34d.png)
 
 9. Create a key named **Profiles**.
 
-![](media/56af5129fe452d55356d6c1817c29f07.png)
+![The user right-clicks the FSLogix folder in the Registry Editor file directory, then selects New in the drop-down menu, and then selects Key.](media/56af5129fe452d55356d6c1817c29f07.png)
 
-10. Create value **Enabled** of type **DWORD** with value of **1.**
+1.  Create a value named **Enabled** with a **REG_DWORD** type set to a data value of **1**.
 
-![](media/bf055352db16c62a97abf335c45861ee.png)
+![A capture of the Profiles folder with the (Default) and Enabled values inside of it. The Enabled value is selected.](media/bf055352db16c62a97abf335c45861ee.png)
 
-11. Create value **VHDLocations** of type **Multi-String** with value of the URI for the Azure Files share (\\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-Vol).
+11. Create a value named **VHDLocations** with a **Multi-String** type and set its data value to the URI for the Azure Files share (\\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-Vol).
 
-![](media/a420934cc18803242679cb8de863d767.png)
+![A capture of the Profiles folder with the VHDLocations value inside of it. The VHDLocations value is selected.](media/a420934cc18803242679cb8de863d767.png)
 
 ### Assign users to session host
 
 1. Open **PowerShell ISE** and sign in to Windows Virtual Desktop.
 
-![Machine generated alternative text: All Apps Best match Documents Email Web More -5 Windows P App Apps PowerShell C 0 Run as administrator Open file location Pin to Start Pin to taskbar Windows PowerShell Windows PowerShell (x86) Windows PowerShell ISE (x86) Microsoft Azure Active Directory Module for Windows PowerShell Search the web p powershell - see web results Settings (3) Websites (1) p powershell Feedback Windows PowerShell ISE App Open Run as administrator Open file location Pin to Start Pin to taskbar ](media/d553c0b391cee5a1b99c6a2bd415915e.png)
+![A capture of the Start menu with the right-click drop-down menu open over the ISE PowerShell app. The user has selected the Run as administrator option at the top of the drop-down menu.](media/d553c0b391cee5a1b99c6a2bd415915e.png)
 
-2. Run the following cmdlets:
+1. Run the following cmdlets:
 
    ```powershell
    Import-Module Microsoft.RdInfra.RdPowershell
@@ -218,9 +219,9 @@ This section is based on [Set up a user profile share for a host pool](create-ho
    Add-RdsAccount -DeploymentUrl $brokerurl
    ```
 
-3. When prompted for credentials, enter the credentials for the user with the Tenant Creator or RDS Owner/RDS Contributor roles on the Windows Virtual Desktop tenant.
+2. When prompted for credentials, enter the credentials for the user with the Tenant Creator or RDS Owner/RDS Contributor roles on the Windows Virtual Desktop tenant.
 
-4. Run the following cmdlets to assign a user to a Remote Desktop group:
+3. Run the following cmdlets to assign a user to a Remote Desktop group:
 
    ```powershell
    $tenant = "<your-wvd-tenant>"
@@ -238,29 +239,29 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 3. Sign in with the credentials of a user assigned to the Remote Desktop group.
 
-![](media/3bc26bb1d5ec0888ec613afd92eafeb9.png)
+![A capture of the Windows Virtual Desktop dashboard displaying the icon for an example Remote Desktop group.](media/3bc26bb1d5ec0888ec613afd92eafeb9.png)
 
-4. Once you've established the user session, navigate back to the Azure portal with an administrative account.
+1. Once you've established the user session, sign in to the Azure portal with an administrative account.
 
-5. Open **Azure NetApp Files**, select your **Azure NetApp Files account**, and then select the corresponding volume.
+2. Open **Azure NetApp Files**, select your **Azure NetApp Files account**, and then select the corresponding volume.
 
 <!--The corresponding volume for your user session?-->
 
-![](media/225c51fda15dbbd937616e1f1c302b1e.png)
+![A capture of the NetApp account you set up earlier in the Azure portal with the Volumes button selected.](media/225c51fda15dbbd937616e1f1c302b1e.png)
 
-![](media/85f68f2d847e5238700214d5f33c976a.png)
+![A capture of the Volumes screen in the Azure portal. A red arrow is pointing to the volume you created.](media/85f68f2d847e5238700214d5f33c976a.png)
 
 6. Confirm that the FSLogix profile container is taking up space in the chart under Usage.
 
-![](media/3a10923cb3b8ae93381c88daf1965a0f.png)
+![A capture of the resource group's overview page. A red arrow is pointing to the current volume logical size indicator under usage, which says that the volume is using 0.3% of 268.79 MIB of space.](media/3a10923cb3b8ae93381c88daf1965a0f.png)
 
-7. RDP directly to any VM part of the host pool and open the **File Explorer.** Then navigate to the **Mount path**
+1. RDP directly to any VM part of the host pool and open the **File Explorer.** Then navigate to the **Mount path**
 (\\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-VOL).
 
 Inside that path there will be a **Folder** named `<user SID>-<username>`.
 
-![](media/9b7470e05e517e9bd60c8d6e4d0b08d0.png)
+![A capture of the folder in the mount path.](media/9b7470e05e517e9bd60c8d6e4d0b08d0.png)
 
 Under the folder there will be a profile vhd.
 
-![](media/a2462ee25312ddfd310b625673360c4e.png)
+![A capture of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/a2462ee25312ddfd310b625673360c4e.png)
