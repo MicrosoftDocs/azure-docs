@@ -155,19 +155,19 @@ To set up protection for live migration:
 
 6. After the settings are configured, when a virtual machine migrates from one cluster to another all backups continue as expected. You can verify live migration is enabled as expected as follows:
 
-    a. Check the DPM-VMM Helper Service is running. If it isn't start it.
+   1. Check the DPM-VMM Helper Service is running. If it isn't, start it.
 
-    b. Open Microsoft SQL Server Management Studio and connect to the instance that hosts the MABS database (DPMDB). On DPMDB run the following query: `SELECT TOP 1000 [PropertyName] ,[PropertyValue] FROM[DPMDB].[dbo].[tbl_DLS_GlobalSetting]`.
+   2. Open Microsoft SQL Server Management Studio and connect to the instance that hosts the MABS database (DPMDB). On DPMDB run the following query: `SELECT TOP 1000 [PropertyName] ,[PropertyValue] FROM[DPMDB].[dbo].[tbl_DLS_GlobalSetting]`.
 
-       This query contains a property, called `KnownVMMServer`. This value should be the same value you provided with the `Set-DPMGlobalProperty` cmdlet.
+      This query contains a property called `KnownVMMServer`. This value should be the same value you provided with the `Set-DPMGlobalProperty` cmdlet.
 
-    c. Run the following query to validate the *VMMIdentifier* parameter in the `PhysicalPathXML` for a particular virtual machine. Replace `VMName` with the name of the virtual machine.
+   3. Run the following query to validate the *VMMIdentifier* parameter in the `PhysicalPathXML` for a particular virtual machine. Replace `VMName` with the name of the virtual machine.
 
-    ```sql
-    select cast(PhysicalPath as XML) from tbl_IM_ProtectedObject where DataSourceId in (select datasourceid from tbl_IM_DataSource where DataSourceName like '%<VMName>%')
-    ```
+      ```sql
+      select cast(PhysicalPath as XML) from tbl_IM_ProtectedObject where DataSourceId in (select datasourceid from tbl_IM_DataSource   where DataSourceName like '%<VMName>%')
+      ```
 
-    d.  Open the .xml file that this query returns and validate that the *VMMIdentifier* field has a value.
+   4. Open the .xml file that this query returns and validate that the *VMMIdentifier* field has a value.
 
 
 ### Run manual migration
