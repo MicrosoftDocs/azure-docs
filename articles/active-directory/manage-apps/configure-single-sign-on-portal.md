@@ -69,7 +69,7 @@ To configure the domain and URLs:
 
 1. To edit the basic SAML configuration options, select the **Edit** icon (a pencil) in the upper-right corner of the **Basic SAML Configuration** section.
 
-     ![Edit basic SAML config options](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
+     ![Edit basic SAML configuration options](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
 
 1. In the appropriate fields on the page, enter the information provided by the application vendor in step 1.
 1. At the top of the page, select **Save**.

@@ -27,10 +27,18 @@ At the end of this tutorial, you have two C apps:
 To complete this tutorial, you need the following:
 
 * An active Azure account. (If you don't have an account, you can create an [Azure free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
-* An IoT Hub.
+
 * The latest [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
-You have now created your IoT hub, and you have the host name and IoT Hub connection string that you need to complete the rest of this tutorial.
+## Create an IoT hub
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## Get the IoT hub connection string
+
+[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## Create a device identity and a module identity in IoT Hub
 

@@ -3,7 +3,7 @@ title: Mobile app that calls web APIs - getting a token for the app | Microsoft 
 description: Learn how to build a mobile app that calls web APIs (getting a token for the app)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory

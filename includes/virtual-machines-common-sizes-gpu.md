@@ -143,7 +143,7 @@ Each GPU in NV instances comes with a GRID license. This license gives you the f
 
 1 GPU = one-half M60 card.
 
-## NVv3-series (Preview) <sup>1</sup>
+## NVv3-series  <sup>1</sup>
 
 Premium Storage:  Supported
 

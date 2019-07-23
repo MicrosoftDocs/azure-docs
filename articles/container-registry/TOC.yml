@@ -41,10 +41,14 @@
   items:
   - name: Container registry SKUs
     href: container-registry-skus.md
+  - name: Registries, repositories, and images
+    href: container-registry-concepts.md
   - name: Image storage
     href: container-registry-storage.md
   - name: Content formats
     href: container-registry-image-formats.md
+  - name: Tag and version images
+    href: container-registry-image-tag-version.md
   - name: Geo-replication
     href: container-registry-geo-replication.md
   - name: Registry best practices

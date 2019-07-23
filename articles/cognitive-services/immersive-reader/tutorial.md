@@ -1,9 +1,10 @@
 ﻿---
-title: "Tutorial: Launch the Immersive Reader (Node.js)"
+title: "Tutorial: Launch the Immersive Reader using Node.js"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll create a Node.js application that launches the Immersive Reader.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader

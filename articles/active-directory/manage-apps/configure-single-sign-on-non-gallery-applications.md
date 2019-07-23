@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
@@ -45,13 +45,14 @@ To register applications using all other types of [supported authentication mech
 To connect an unlisted application using an app integration template, do these steps:
 
 1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) using your Microsoft identity platform administrator account.
-2. Select **Enterprise Applications** > **New application**.
-3. (Optional but recommended) In the **Add from the gallery** search box, enter the display name of the application. If the application appears in the search results, select it and skip the rest of this procedure.
-4. Select **Non-gallery application**. The **Add your own application** page appears.
+1. Select **Enterprise Applications** > **New application**.
+1. (Optional but recommended) In the **Add from the gallery** search box, enter the display name of the application. If the application appears in the search results, select it and skip the rest of this procedure.
+1. Select **Non-gallery application**. The **Add your own application** page appears.
 
-   ![Add application](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. Enter the display name for your new application.
-6. Select **Add**.
+   ![Shows the Add your own application page](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
+
+1. Enter the display name for your new application.
+1. Select **Add**.
 
 By adding an application this way, you provide a similar experience to the one available for pre-integrated applications. First select **Single sign-on** from the application’s sidebar. The next page (**Select a single sign-on method**) presents the options for configuring SSO:
 
@@ -59,7 +60,7 @@ By adding an application this way, you provide a similar experience to the one a
 - **Password-based**
 - **Linked**
 
-![Select a single sign-on method](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
+![Shows the Select a single sign-on method page](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
 
 For more information about these options, see the following sections of this article.
 
@@ -67,7 +68,7 @@ For more information about these options, see the following sections of this art
 
 Select the **SAML** option to configure SAML-based authentication for the application. (This option requires that the application support SAML 2.0.) The **Set up Single Sign-On with SAML** page appears.
 
-![Set up single sign-on with SAML](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
+![Shows the Set up single sign-on with SAML page](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
 
 This page has five different headings:
 
@@ -85,11 +86,11 @@ Now collect information on how to use the SAML capabilities of the application b
 
 To set up Azure AD, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). You can manually enter the values or upload a metadata file to extract the value of the fields.
 
-![Basic SAML configuration](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
+![Shows the Basic SAML configuration page](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
 
 The following two fields are required:
 
-- **Identifier**. This value should uniquely identify the application for which single sign-on is being configured. You can find this value as the **Issuer** element in the **AuthnRequest** (SAML request) sent by the application. This value also appears as the **Entity ID** in any SAML metadata provided by the application. Check the application’s SAML documentation for details on what its **Entity ID** or **Audience** value is.
+- **Identifier (Entity ID)**. This value should uniquely identify the application for which single sign-on is being configured. You can find this value as the **Issuer** element in the **AuthnRequest** (SAML request) sent by the application. This value also appears as the **Entity ID** in any SAML metadata provided by the application. Check the application’s SAML documentation for details on what its **Entity ID** or **Audience** value is.
 
   The following code shows how the **Identifier** or **Issuer** appears in the SAML request that the application sends to Azure AD:
 
@@ -103,20 +104,9 @@ The following two fields are required:
   </samlp:AuthnRequest>
   ```
 
-- **Reply URL**. The reply URL is where the application expects to receive the SAML token. This URL is also referred to as the assertion consumer service (ACS) URL. Check the application’s SAML documentation for details on what its SAML token reply URL or ACS URL is.
-
-  To configure multiple reply URLs, you can use the following PowerShell script.
-
-  ```powershell
-  $sp = Get-AzureADServicePrincipal -SearchString "<Exact app name>"
-  $app = Get-AzureADApplication -SearchString "<Exact app name>"
-  $urllist = New-Object "System.Collections.Generic.List[String]"
-  $urllist.Add("<reply URL 1>")
-  $urllist.Add("<reply URL 2>")
-  $urllist.Add("<reply URL 3>")
-  Set-AzureADApplication -ObjectId $app.ObjectId -ReplyUrls $urllist
-  Set-AzureADServicePrincipal -ObjectId $sp.ObjectId -ReplyUrls $urllist
-  ```
+- **Reply URL**. The reply URL is where the application expects to receive the SAML token. This URL is also referred to as the assertion consumer service (ACS) URL. Check the application’s SAML documentation for details on what its SAML token reply URL or ACS URL is. 
+  
+  To specify multiple reply URLs, use the additional fields in the **Reply URL** section. You might need to add multiple reply URLs if you have multiple subdomains, for example. Or, when testing an app, you can save setup time by specifying all reply URLs (local host and public URLs) at one time.
 
 The following three fields are optional:
 
@@ -136,7 +126,7 @@ To view or edit the claims sent in the SAML token to the application:
 
 - Go to the **User Attributes & Claims** heading and select the **Edit** icon. The **User Attributes & Claims** page appears.
 
-![User attributes and claims](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
+![Shows the User attributes and claims page](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
 
 You might need to edit the claims issued in the SAML token for two reasons:
 
@@ -153,7 +143,7 @@ From Azure AD, you can download the active certificate in Base64 or Raw format d
 
 To view, create, or download your certificates (active or inactive), go to the **SAML Signing Certificate** heading and select the **Edit** icon. The **SAML Signing Certificate** appears.
 
-![SAML signing certificate](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
+![Shows the SAML signing certificate page](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
 
 Verify the certificate has:
 
@@ -177,13 +167,13 @@ Once you've configured your application to use Azure AD as a SAML-based identity
 To assign a new user or group to your application:
 
 1. In the application sidebar, select **Users and groups**. The **\<application name> - Users and groups** page appears, which shows the current list of assigned users and groups.
-2. Select **Add Users**. The **Add Assignments** page appears.
-3. Select **Users and groups (\<Number> Selected)**. The **Users and groups** page appears, showing a list of available users and groups.
-4. Type or scroll to find the user or group you wish to assign from the list.
-5. Select each user or group that you want to add, and then select the **Select** button. The **Users and groups** page disappears.
-6. In the **Add Assignments** page, select **Assign**. The **\<application name> - Users and groups** page appears with the additional users shown in the list.
+1. Select **Add Users**. The **Add Assignments** page appears.
+1. Select **Users and groups (\<Number> Selected)**. The **Users and groups** page appears, showing a list of available users and groups.
+1. Type or scroll to find the user or group you wish to assign from the list.
+1. Select each user or group that you want to add, and then select the **Select** button. The **Users and groups** page disappears.
+1. In the **Add Assignments** page, select **Assign**. The **\<application name> - Users and groups** page appears with the additional users shown in the list.
 
-   ![Application users and groups](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
+   ![Shows the Application users and groups page](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 
 From this list, you can:
 
@@ -208,26 +198,29 @@ Select this option to configure [password-based single sign-on](what-is-single-s
 
 After you select **Password-based**, you're prompted to enter the URL of the application's web-based sign-in page.
 
-![Password-based single sign-on](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+![Shows the Sign-on URL page to enter the sign-on URL](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
 Then do these steps:
 
 1. Enter the URL. This string must be the page that includes the username input field.
-2. Select **Save**. Azure AD tries to parse the sign-in page for a username input and a password input.
-3. If Azure AD's parsing attempt fails, select **Configure \<application name> Password Single Sign-on Settings** to display the **Configure sign-on** page. (If the attempt succeeds, you can disregard the rest of this procedure.)
-4. Select **Manually detect sign-in fields**. Additional instructions describing the manual detection of sign-in fields appear.
+1. Select **Save**. Azure AD tries to parse the sign-in page for a username input and a password input.
+1. If Azure AD's parsing attempt fails, select **Configure \<application name> Password Single Sign-on Settings** to display the **Configure sign-on** page. (If the attempt succeeds, you can disregard the rest of this procedure.)
+1. Select **Manually detect sign-in fields**. Additional instructions describing the manual detection of sign-in fields appear.
 
    ![Manual configuration of password-based single sign-on](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
-5. Select **Capture sign-in fields**. A capture status page opens in a new tab, showing the message **metadata capture is currently in progress**.
-6. If the **Access Panel Extension Required** box appears in a new tab, select **Install Now** to install the **My Apps Secure Sign-in Extension** browser extension. (The browser extension requires Microsoft Edge, Chrome, or Firefox.) Then install, launch, and enable the extension, and refresh the capture status page.
+
+1. Select **Capture sign-in fields**. A capture status page opens in a new tab, showing the message **metadata capture is currently in progress**.
+1. If the **Access Panel Extension Required** box appears in a new tab, select **Install Now** to install the **My Apps Secure Sign-in Extension** browser extension. (The browser extension requires Microsoft Edge, Chrome, or Firefox.) Then install, launch, and enable the extension, and refresh the capture status page.
 
    The browser extension then opens another tab that displays the entered URL.
-7. In the tab with the entered URL, go through the sign-in process. Fill in the username and password fields, and try to sign in. (You don't have to provide the correct password.)
+
+1. In the tab with the entered URL, go through the sign-in process. Fill in the username and password fields, and try to sign in. (You don't have to provide the correct password.)
 
    A prompt asks you to save the captured sign-in fields.
-8. Select **OK**. The tab closes, the browser extension updates the capture status page with the message **Metadata has been updated for the application**, and that browser tab also closes.
-9. In the Azure AD **Configure sign-on** page, select **Ok, I was able to sign-in to the app successfully**.
-10. Select **OK**.
+
+1. Select **OK**. The tab closes, the browser extension updates the capture status page with the message **Metadata has been updated for the application**, and that browser tab also closes.
+1. In the Azure AD **Configure sign-on** page, select **Ok, I was able to sign-in to the app successfully**.
+1. Select **OK**.
 
 After the capture of the sign-in page, you may assign users and groups, and you can set up credential policies just like regular [password SSO applications](what-is-single-sign-on.md).
 

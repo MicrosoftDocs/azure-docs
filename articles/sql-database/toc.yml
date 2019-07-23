@@ -30,6 +30,8 @@
     items:
     - name: Server-level IP firewall rules
       href: sql-database-server-level-firewall-rule.md
+    - name: Configure public endpoint on Managed Instance
+      href: sql-database-managed-instance-public-endpoint-configure.md
     - name: Client VM connection to a managed instance
       href: sql-database-managed-instance-configure-vm.md
     - name: Point-to-site connection to a managed instance
@@ -512,8 +514,6 @@
       href: sql-database-managed-instance-threat-detection.md
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
-    - name: Configure public endpoint
-      href: sql-database-managed-instance-public-endpoint-configure.md
   - name: Load and move data
     items:
     - name: Copy a database within Azure

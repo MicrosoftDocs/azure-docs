@@ -331,6 +331,11 @@ For the full reference about each function, see the
 |||
 
 <a name="alphabetical-list"></a>
+
+## All functions - alphabetical list
+
+This section lists all the available functions in alphabetical order.
+
 <a name="action"></a>
 
 ### action
@@ -475,8 +480,6 @@ And returns this result:
   }
 }
 ```
-
-## All functions - alphabaetical list
 
 <a name="actions"></a>
 

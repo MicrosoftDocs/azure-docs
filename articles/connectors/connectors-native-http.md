@@ -84,6 +84,52 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
 1. When you're finished, remember to save your logic app. On the designer toolbar, select **Save**.
 
+## Content with multipart/form-data type
+
+To handle content that has `multipart/form-data` type in HTTP requests, you can add a JSON object that includes the `$content-type` and `$multipart` attributes to the HTTP request's body by using this format.
+
+```json
+"body": {
+   "$content-type": "multipart/form-data",
+   "$multipart": [
+      {
+         "body": "<output-from-trigger-or-previous-action>",
+         "headers": {
+            "Content-Disposition": "form-data; name=file; filename=<file-name>"
+         }
+      }
+   ]
+}
+```
+
+For example, suppose you have a logic app that sends an HTTP POST request for an Excel file to a website by using that site's API, which supports the `multipart/form-data` type. Here's how this action might look:
+
+![Multipart form data](./media/connectors-native-http/http-action-multipart.png)
+
+Here is the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
+
+```json
+{
+   "HTTP_action": {
+      "body": {
+         "$content-type": "multipart/form-data",
+         "$multipart": [
+            {
+               "body": "@trigger()",
+               "headers": {
+                  "Content-Disposition": "form-data; name=file; filename=myExcelFile.xlsx"
+               }
+            }
+         ]
+      },
+      "method": "POST",
+      "uri": "https://finance.contoso.com"
+   },
+   "runAfter": {},
+   "type": "Http"
+}
+```
+
 ## Connector reference
 
 For more information about trigger and action parameters, see these sections:
