@@ -963,3 +963,10 @@ Safety is a similar application that checks dependencies. You can find it on [Gi
 ![Safety](./media/secure-web-app/pysafety.png)
 
 *Safety*
+
+## Next steps
+In the following articles, we recommend security controls and activities that can help you design, develop, and deploy secure applications.
+
+- [Design](secure-design.md)
+- [Develop](secure-develop.md)
+- [Deploy](secure-deploy.md)
