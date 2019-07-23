@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for images - Bing Image Search REST API and Java"
+title: "Quickstart: Use Java to call the Bing Image Search REST API"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send image search requests to the Bing Image Search REST API using Java, and receive JSON responses.
 services: cognitive-services
