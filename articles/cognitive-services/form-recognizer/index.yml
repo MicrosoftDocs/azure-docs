@@ -68,7 +68,7 @@ sections:
   items:
   - type: list
     style: cards
-    className: cards
+    className: cardsD
     items:
     - title: APIs
       html: <p><a href="https://aka.ms/form-recognizer/api">Form Recognizer API</a></p>
