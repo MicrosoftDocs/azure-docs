@@ -72,7 +72,7 @@ This article provides answers to some of the most common questions about running
 
 1. **How can I install my licensed copy of SQL Server on an Azure VM?**
 
-   There are three ways to do this. You can provision one of the [virtual machine images that supports licenses](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), which is also known as bring-your-own-license (BYOL). If you have software assurance, you can enable the [Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md) on an existing pay-as-you-go (PAYG) image. Or you can copy the SQL Server installation media to a Windows Server VM, and then install SQL Server on the VM. Be sure to register your SQL Server VM with the [resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) for features such as portal management, automated backup and automated Patching. 
+   There are three ways to do this. You can provision one of the [virtual machine images that supports licenses](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), which is also known as bring-your-own-license (BYOL). If you have [software assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), you can enable the [Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md) on an existing pay-as-you-go (PAYG) image. Or you can copy the SQL Server installation media to a Windows Server VM, and then install SQL Server on the VM. Be sure to register your SQL Server VM with the [resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) for features such as portal management, automated backup and automated Patching. 
 
 1. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
 
