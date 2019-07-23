@@ -88,6 +88,8 @@ For SQL Server VMs that have the *NoAgent* or *lightweight* IaaS extension insta
 
 To upgrade agent mode to *full*, do the following: 
 
+
+# [Azure portal](#tab/azure-portal)
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. Navigate to your [SQL virtual machines](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) resource. 
 1. Select your SQL Server virtual machine and select **Overview**. 
@@ -98,6 +100,32 @@ To upgrade agent mode to *full*, do the following:
 1. Agree to **restart the SQL Server service** by selecting the checkbox, and then select **Confirm** to upgrade your IaaS mode to 'full'. 
 
     ![Enable full management for IaaS extension](media/virtual-machines-windows-sql-server-agent-extension/enable-full-mode-iaas.png)
+
+# [AZ CLI](#tab/bash)
+
+Run the following Az CLI code snippet:
+
+  ```
+  # Update to full mode
+
+  az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
+  ```
+
+# [PowerShell](#tab/powershell)
+
+Run the following PowerShell code snippet:
+
+  ```powershell-interactive
+  # Update to full mode
+
+  $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
+  $SqlVm.Properties.sqlManagement="Full"
+  $SqlVm | Set-AzResource -Force
+  ```
+
+---
+
+
 
 ##  Installation
 The SQL IaaS extension is installed when you register your SQL Server VM with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider). However, if necessary, the SQL IaaS agent can also be installed manually using *full* or *lightweight* mode installation. 
@@ -164,6 +192,8 @@ Install SQL IaaS agent with *lightweight* mode using PowerShell:
 | :------------------| :-------------------------------|
 | **sqlServerLicenseType** | `'AHUB'`, or `'PAYG'`     |
 | &nbsp;             | &nbsp;                          |
+
+
 
 
 ## Get Status of SQL IaaS Extension
