@@ -46,7 +46,7 @@ DevOps Projects creates a CI-CD pipeline in Azure Pipelines. You can create a ne
 
 1. In the search box, enter **DevOps Projects**, and then select **Add**.
 
-   ![DevOps Projects screen](_img/azure-devops-project-cosmos-db/devops-project.png)
+   ![DevOps Projects pane](_img/azure-devops-project-cosmos-db/devops-project.png)
 
 1. Select **Node.js** as the runtime, and then select **Next**. Under **Choose an application framework**, select **Express.js**.
 
@@ -56,7 +56,7 @@ DevOps Projects creates a CI-CD pipeline in Azure Pipelines. You can create a ne
 
     Azure Cosmos DB supports various application frameworks, such as **Express.js**, **Sample Node.js app**, and **Sail.js**. In this tutorial, we use **Express.js**.
 
-1. Select an Azure service to deploy the application, and then select **Next**. Your options include Windows Web App, Azure Kubernetes Service, and Azure Web App for Containers. In this tutorial, we use **Windows Web App**. 
+1. Select an Azure service to deploy the application, and then select **Next**. Your options include Windows Web App, Azure Kubernetes Service, and Azure Web App for Containers. In this tutorial, we use **Windows Web App**.
 
 ## Configure Azure DevOps and Azure subscription
 
@@ -82,7 +82,7 @@ DevOps Projects automatically configures Azure Cosmos DB, which you can explore 
 
 1. Go to the DevOps Projects dashboard.
 
-    ![DevOps Projects Dashboard](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
+    ![DevOps Projects dashboard](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
 
 1. At the right, select the Cosmos DB. A pane opens for the Cosmos DB. From this view, you can perform various actions, such as monitoring operations and searching logs.
 
@@ -96,7 +96,7 @@ DevOps Projects automatically configures a CI-CD pipeline in your Azure DevOps o
 
 1. Select the hyperlink under **Build**. A browser tab displays the build pipeline for your new project.
 
-    ![Build](_img/azure-devops-project-cosmos-db/build.png)
+    ![Build pane](_img/azure-devops-project-cosmos-db/build.png)
 
 1. Select **Edit**. In this pane, you can examine the various tasks for your build pipeline. The build performs various tasks, such as fetching source code from the Git repo, building the application, running unit tests, and publishing outputs that are used for deployments.
 
