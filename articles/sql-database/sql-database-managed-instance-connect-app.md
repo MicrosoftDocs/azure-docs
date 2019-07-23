@@ -40,7 +40,7 @@ There are two options for connecting VNets:
 The peering option is the preferable one because peering uses the Microsoft backbone network so, from the connectivity perspective, there is no noticeable difference in latency between virtual machines in peered VNet and in the same VNet. VNet peering is limited to the networks in the same region.  
 
 > [!IMPORTANT]
-> VNet peering scenario for Managed Instance is limited to the networks in the same region due to [constraints of the Global Virtual Network peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+> VNet peering scenario for Managed Instance is limited to the networks in the same region due to [constraints of the Global Virtual Network peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). See also the relevant section of the [Azure Virtual Networks Frequently Asked Questions](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) article for more details. 
 
 ## Connect an on-premises application
 
@@ -51,7 +51,7 @@ There are two options how to connect on-premises to Azure VNet:
 - Site-to-Site VPN connection ([Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [ExpressRoute](../expressroute/expressroute-introduction.md) connection  
 
-If you've established on-premises to Azure connection successfully and you can't establish connection to Managed Instance, check if your firewall has open outbound connection on SQL port 1433 as well as 11000-12000 range of ports for redirection.
+If you've established on-premises to Azure connection successfully and you can't establish connection to Managed Instance, check if your firewall has open outbound connection on SQL port 1433 as well as 11000-11999 range of ports for redirection.
 
 ## Connect an application on the developers box
 
@@ -91,7 +91,7 @@ This scenario is illustrated in the following diagram:
 
 For troubleshooting connectivity issues, review the following:
 
-- If you are unable to connect to Managed Instance from an Azure virtual machine within the same VNet but different subnet, check if you have a Network Security Group set on VM subnet that might be blocking access.Additionally note that you need to open outbound connection on SQL port 1433 as well as ports in range 11000-12000 since those are needed for connecting via redirection inside the Azure boundary.
+- If you are unable to connect to Managed Instance from an Azure virtual machine within the same VNet but different subnet, check if you have a Network Security Group set on VM subnet that might be blocking access.Additionally note that you need to open outbound connection on SQL port 1433 as well as ports in range 11000-11999 since those are needed for connecting via redirection inside the Azure boundary.
 - Ensure that BGP Propagation is set to **Enabled** for the route table associated with the VNet.
 - If using P2S VPN, check the configuration in the Azure portal to see if you see **Ingress/Egress** numbers. Non-zero numbers indicate that Azure is routing traffic to/from on-premises.
 

@@ -9,14 +9,14 @@ editor: TomShinder
 ms.assetid:
 ms.service: security
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: Barclayn
 ms.custom: AzLog
 ---
 # Azure Log Integration tutorial: Process Azure Key Vault events by using Event Hubs
 
 >[!IMPORTANT]
-> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads were disabled on Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> The Azure Log integration feature will be deprecated by 06/15/2019. AzLog downloads were disabled on Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 You can use Azure Log Integration to retrieve logged events and make them available to your security information and event management (SIEM) system. This tutorial shows an example of how Azure Log Integration can be used to process logs that are acquired through Azure Event Hubs.
 

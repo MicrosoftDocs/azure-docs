@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ---

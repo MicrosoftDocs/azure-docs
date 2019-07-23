@@ -151,6 +151,37 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 $reports[0]
 ```
 
+## Removing nodes from service
+
+When you add a node to Azure Automation State Configuration,
+the settings in Local Configuration Manager are set to register with the service
+and pull configurations and required modules to configure the machine.
+If you choose to remove the node from the service,
+you can do so using either the Azure portal
+or the Az cmdlets.
+
+> [!NOTE]
+> Unregistering a node from the service only sets the Local Configuration Manager settings
+> so the node is no longer connecting to the service.
+> This does not effect the configuration that is currently applied to the node.
+> To remove the current configuration, use the
+> [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1)
+> or delete the local configuration file
+> (this is the only option for Linux nodes).
+
+### Azure portal
+
+From Azure Automation, click on **State configuration (DSC)** in the table of contents.
+Next click **Nodes** to view the list of nodes that are registered with the service.
+Click on the name of the node you wish to remove.
+In the Node view that opens, click **Unregister**.
+
+### PowerShell
+
+To unregister a node from Azure Automation State Configuration service using PowerShell,
+follow the documentation for the cmdlet
+[Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
+
 ## Next steps
 
 - To get started, see [Getting started with Azure Automation State Configuration](automation-dsc-getting-started.md)

@@ -186,7 +186,7 @@ You can subscribe to receive email notifications for these critical events:
 
 Subscribe as follows:
 
-In the vault > **Monitoring and Reports** section, click **Site Recovery Events**.
+In the vault > **Monitoring** section, click **Site Recovery Events**.
 1. Click **Email notifications**.
 1. In **Email notification**, turn on notifications and specify who to send to. You can send to all subscription admins be sent notifications, and optionally specific email addresses.
 

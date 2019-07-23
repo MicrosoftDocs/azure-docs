@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
@@ -41,7 +41,7 @@ When the test status is *Succeeded*, click in the test item name to see details 
 
 To help inspect the side-by-side comparison, you can toggle various error types including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column (showing human-labeled transcription and the results of two speech-to-text models), you can decide which model meets your needs and where improvements are needed.
 
-Inspecting quality testing is useful to validate if the quality of a speech recognition endpoint is enough for an application.  For an objective measure of accuracy, requiring transcribed audio, follow the instructions found in Testing: Evaluate Accuracy.
+Inspecting quality testing is useful to validate if the quality of a speech recognition endpoint is enough for an application.  For an objective measure of accuracy, requiring transcribed audio, follow the instructions found in [Evaluate Accuracy](how-to-custom-speech-evaluate-data.md).
 
 ## Next steps
 

@@ -73,15 +73,15 @@ Source regions are listed in the table below. All public regions can be target r
 
 | Source regions |
 |---------------------|-----------------|------------------|-----------------|
-| Australia Central   | Central US EUAP | Korea Central    | UK South 2      |
-| Australia Central 2 | East Asia       | Korea South      | UK West         |
-| Australia East      | East US         | North Central US | West Central US |
-| Australia Southeast | East US 2       | North Europe     | West Europe     |
-| Brazil South        | East US 2 EUAP  | South Central US | West India      |
-| Canada Central      | France Central  | South India      | West US         |
-| Canada East         | France South    | Southeast Asia   | West US         |
-| Central India       | Japan East      | UK North         | West US 2       |
-| Central US          | Japan West      | UK South         |                 |
+| Australia Central   | Central US EUAP | Korea Central    | West Central US |
+| Australia Central 2 | East Asia       | Korea South      | West Europe     |
+| Australia East      | East US         | North Central US | West India      |
+| Australia Southeast | East US 2       | North Europe     | West US         |
+| Brazil South        | East US 2 EUAP  | South Central US | West US 2       |
+| Canada Central      | France Central  | South India      |                 |
+| Canada East         | France South    | Southeast Asia   |                 |
+| Central India       | Japan East      | UK South         |                 |
+| Central US          | Japan West      | UK West          |                 |
 
 
 
@@ -115,7 +115,7 @@ We always recommend you to overprovision the number of replicas due to factors l
 
 [Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) provides resilience against an Availability Zone failure in the region. With the general availability of Shared Image Gallery, you can choose to store your images in ZRS accounts in regions with Availability Zones. 
 
-You can also choose the account type for each of the target regions. The default storage account type is Standard_LRS, but you can choose Standard_ZRS for regions with Availability Zones. Check the regional availability of ZRS [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-zrs).
+You can also choose the account type for each of the target regions. The default storage account type is Standard_LRS, but you can choose Standard_ZRS for regions with Availability Zones. Check the regional availability of ZRS [here](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
 
 ![Graphic showing ZRS](./media/shared-image-galleries/zrs.png)
 

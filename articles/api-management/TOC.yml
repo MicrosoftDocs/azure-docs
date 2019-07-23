@@ -121,6 +121,8 @@
               href: api-management-howto-manage-protocols-ciphers.md
       - name: Customize the developer experience
         items:
+            - name: Access and customize the new developer portal
+              href: api-management-howto-developer-portal.md
             - name: Modify page content and layout
               href: api-management-modify-content-layout.md
             - name: Customize system pages using templates
@@ -243,3 +245,5 @@
         href: https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
       - name: API implementation guidance
         href: https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
+      - name: Troubleshoot failed to update hostnames error
+        href: api-management-troubleshoot-cannot-add-custom-domain.md

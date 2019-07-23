@@ -28,7 +28,7 @@ The following diagram shows the topology for this tutorial:
 
 ![Site-to-Site VPN connection diagram](./media/vpn-gateway-tutorial-vpnconnection-powershell/site-to-site-diagram.png)
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Requirements
 

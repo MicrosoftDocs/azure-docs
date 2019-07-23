@@ -47,15 +47,15 @@ This quickstart shows you how to add and register an application using the **App
        - For web applications, provide the base URL of your app. For example, `http://localhost:31544` might be the URL for a web app running on your local machine. Users would use this URL to sign in to a web client application.
        - For public client applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, such as `myapp://auth`.
 
-     To see specific examples for web applications or native applications, check out our [quickstarts](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).
+     To see specific examples for web applications or native applications, check out our [quickstarts](https://docs.microsoft.com/azure/active-directory/develop).
 
 1. When finished, select **Register**.
 
-    [![Register a new application in the Azure portal](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
+    [![Shows the screen to register a new application in the Azure portal](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
 Azure AD assigns a unique application (client) ID to your app, and you're taken to your application's **Overview** page. To add additional capabilities to your application, you can select other configuration options including branding, certificates and secrets, API permissions, and more.
 
-[![Newly registered app's overview page](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
+[![Example of a newly registered app's overview page](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 
 ## Next steps
 
@@ -64,6 +64,6 @@ Azure AD assigns a unique application (client) ID to your app, and you're taken 
     - [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
     - [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis.md)
     - [Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
-- Choose a [quickstart](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts) to quickly build an app and add functionality like getting tokens, refreshing tokens, signing in a user, displaying some user info, and more.
+- Choose a [quickstart](https://docs.microsoft.com/azure/active-directory/develop) to quickly build an app and add functionality like getting tokens, refreshing tokens, signing in a user, displaying some user info, and more.
 - Learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
 - Learn more about the branding guidelines you should use when developing apps, see [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).

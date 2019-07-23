@@ -111,6 +111,8 @@ This indexer runs every two hours. (The schedule interval is set to "PT2H".) To 
 
 For more information on the Create Indexer API, see [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
+For more information about defining indexer schedules see [How to schedule indexers for Azure Search](search-howto-schedule-indexers.md).
+
 ## Deal with different field names
 Sometimes, the field names in your existing index are different from the property names in your table. You can use field mappings to map the property names from the table to the field names in your search index. To learn more about field mappings, see [Azure Search indexer field mappings bridge the differences between datasources and search indexes](search-indexer-field-mappings.md).
 

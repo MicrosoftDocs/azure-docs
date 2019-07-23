@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
 # Search categories for the Bing Local Business Search API

@@ -3,13 +3,13 @@ title: Data sources supported - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker automatically extracts question-answer pairs from  semi-structured content such as FAQs, product manuals, guidelines, support documents, and policies stored as web pages, PDF files, or MS Word doc files. Content can also be added to the knowledge base from structured QnA content files. 
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/26/2019
-ms.author: tulasim
+ms.author: diberry
 ---
 
 # Data sources for QnA Maker content

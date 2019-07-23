@@ -49,9 +49,9 @@
 - name: Reference
   items:
   - name: Bing Spell Check API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference
+    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference
   - name: Bing Spell Check API v5 (Old version)
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference
+    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference
   - name: SDKs
     items:
     - name: .NET

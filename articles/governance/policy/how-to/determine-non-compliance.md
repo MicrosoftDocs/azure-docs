@@ -106,6 +106,10 @@ The following matrix maps each possible _reason_ to the responsible
 |Current value must contain the target value as a key. |containsKey or **not** notContainsKey |
 |Current value must contain the target value. |contains or **not** notContains |
 |Current value must be equal to the target value. |equals or **not** notEquals |
+|Current value must be less than the target value. |less or **not** greaterOrEquals |
+|Current value must be greater than or equal to the target value. |greaterOrEquals or **not** less |
+|Current value must be greater than the target value. |greater or **not** lessOrEquals |
+|Current value must be less than or equal to the target value. |lessOrEquals or **not** greater |
 |Current value must exist. |exists |
 |Current value must be in the target value. |in or **not** notIn |
 |Current value must be like the target value. |like or **not** notLike |

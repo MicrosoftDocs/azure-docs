@@ -1,4 +1,3 @@
-
 ---
 title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources'
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
@@ -9,10 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-
 ---
+
 # .NET Change Feed Processor SDK: Download and release notes
+
 > [!div class="op_single_selector"]
+>
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
@@ -152,8 +153,8 @@ ms.author: maquaran
 * GA SDK
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.14.1 and below.
 
-
 ## Release & Retirement dates
+
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
@@ -179,10 +180,10 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 | [1.1.0](#1.1.0) |August 13, 2017 |--- |
 | [1.0.0](#1.0.0) |July 07, 2017 |--- |
 
-
 ## FAQ
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page. 
 
+To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

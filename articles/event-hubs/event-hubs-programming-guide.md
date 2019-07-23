@@ -67,6 +67,9 @@ for (var i = 0; i < numMessagesToSend; i++)
 
 ## Partition key
 
+> [!NOTE]
+> If you aren't familiar with partitions, see [this article](event-hubs-features.md#partitions). 
+
 When sending event data, you can specify a value that is hashed to produce a partition assignment. You specify the partition using the [Partition​Sender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) property. However, the decision to use partitions implies a choice between availability and consistency. 
 
 ### Availability considerations

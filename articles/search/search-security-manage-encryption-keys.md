@@ -36,7 +36,7 @@ The following services are used in this example.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
 
-+ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) and [Azure Search SDK](https://aka.ms/search-sdk-preview) can be used to call the preview REST API. There is no portal or .NET SDK support for customer-managed encryption at this time.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) and [Azure Search SDK](https://aka.ms/search-sdk-preview) can be used to call the preview REST API. There is no portal or .NET SDK support for customer-managed encryption at this time.
 
 ## 1 - Enable key recovery
 
@@ -225,7 +225,7 @@ To create an AAD application in the portal:
 
 1. [Create an Azure Active Directory application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
-1. [Get the application ID and authentication key](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) as those will be required for creating an encrypted index. Values you will need to provide include **application ID** and **authentication key**.
+1. [Get the application ID and authentication key](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) as those will be required for creating an encrypted index. Values you will need to provide include **application ID** and **authentication key**.
 
 >[!Important]
 > When deciding to use an AAD application of authentication instead of a managed identity, consider the fact that Azure Search is not authorized to manage your AAD application on your behalf, and it is up to you to manage your AAD application, such as periodic rotation of the application authentication key.

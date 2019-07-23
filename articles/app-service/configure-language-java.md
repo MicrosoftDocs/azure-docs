@@ -11,7 +11,8 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
-ms.author: jafreebe;cephalin
+ms.author: jafreebe
+ms.reviewer: cephalin
 ms.custom: seodec18
 
 ---

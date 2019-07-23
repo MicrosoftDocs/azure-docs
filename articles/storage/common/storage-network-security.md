@@ -351,6 +351,7 @@ If you enable the **Allow trusted Microsoft services...** exception, the followi
 |Azure DevTest Labs|Microsoft.DevTestLab|Custom image creation and artifact installation. [Learn more](/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Enable Blob Storage event publishing and allow Event Grid to publish to storage queues. Learn about [blob storage events](/azure/event-grid/event-sources) and [publishing to queues](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Archive data with Event Hubs Capture. [Learn More](/azure/event-hubs/event-hubs-capture-overview).|
+| Azure File Sync| Microsoft.StorageSync| Enables you to transform your on-prem file server to a cache for Azure File shares. Allowing for multi-site sync, fast disaster-recovery, and cloud-side backup. [Learn more](../files/storage-sync-files-planning.md)|
 |Azure HDInsight|Microsoft.HDInsight|Provision the initial contents of the default file system for a new HDInsight cluster. [Learn more](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
 |Azure Monitor|Microsoft.Insights|Allows writing of monitoring data to a secured storage account [Learn more](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Azure Networking|Microsoft.Network|Store and analyze network traffic logs. [Learn more](/azure/network-watcher/network-watcher-packet-capture-overview).|

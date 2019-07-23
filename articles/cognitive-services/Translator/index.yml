@@ -5,14 +5,14 @@ metadata:
   title: Translator Text Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
   description: Learn how to use Translator Text to translate text in multiple languages.
   services: cognitive-services
-  author: v-pawal
+  author: swmachan
   manager: Chris.Wendt
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/21/2019
-  ms.author: v-jansko
+  ms.date: 06/04/2019
+  ms.author: swmachan
 abstract:
   description: Translator Text is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The API uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of the Translator Text API which allows you to build neural translation systems. The customized translation system can be used to translate text with the Translator Text API or <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/"> Microsoft Speech Services</a>. For the list of supported languages, both for neural and statistical machine translation, see <a href="languages.md">Supported languages</a>.
 

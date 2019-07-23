@@ -152,8 +152,8 @@ compliance in the **Compliance** node. For more information, see [getting compli
 data](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> For each Guest Configuration definition, both the **DeployIfNotExists** and **Audit**
-> policy definitions must exist.
+> The **DeployIfNotExists** policy is required for the **Audit** policy to return results.
+> Without the **DeployIfNotExists**, the **Audit** policy shows "0 of 0" resources as status.
 
 All built-in policies for Guest Configuration are included in an initiative to group the definitions
 for use in assignments. The built-in initiative named *[Preview]: Audit Password security settings
@@ -161,6 +161,11 @@ inside Linux and Windows virtual machines* contains 18 policies. There are six *
 and **Audit** pairs for Windows and three pairs for Linux. In each case, the logic inside the
 definition validates only the target operating system is evaluated based on the [policy rule](definition-structure.md#policy-rule)
 definition.
+
+## Multiple assignments
+
+Guest Configuration policies currently only support assigning the same Guest Assignment once
+per virtual machine, even if the Policy assignment uses different parameters.
 
 ## Client log files
 

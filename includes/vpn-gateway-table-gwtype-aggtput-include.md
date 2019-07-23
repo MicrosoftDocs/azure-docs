@@ -10,12 +10,15 @@
  ms.custom: include file
 ---
 
-|**SKU**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br> SSTP Connections** | **P2S<br> IKEv2/OpenVPN Connections** | **Aggregate<br>Throughput Benchmark** | **BGP** |
-|---       | ---        | ---       | ---            | ---       | --- |
-|**Basic** | Max. 10    | Max. 128  | Not Supported  | 100 Mbps  | Not Supported|
-|**VpnGw1**| Max. 30*   | Max. 128  | Max. 250       | 650 Mbps  | Supported |
-|**VpnGw2**| Max. 30*   | Max. 128  | Max. 500       | 1 Gbps    | Supported |
-|**VpnGw3**| Max. 30*   | Max. 128  | Max. 1000      | 1.25 Gbps | Supported |
+|**SKU**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br> SSTP Connections** | **P2S<br> IKEv2/OpenVPN Connections** | **Aggregate<br>Throughput Benchmark** | **BGP** | **Zone-redundant** |
+|---       | ---        | ---       | ---            | ---       | --- | --- |
+|**Basic** | Max. 10    | Max. 128  | Not Supported  | 100 Mbps  | Not Supported| No |
+|**VpnGw1**| Max. 30*   | Max. 128  | Max. 250       | 650 Mbps  | Supported | No |
+|**VpnGw2**| Max. 30*   | Max. 128  | Max. 500       | 1 Gbps    | Supported | No |
+|**VpnGw3**| Max. 30*   | Max. 128  | Max. 1000      | 1.25 Gbps | Supported | No |
+|**VpnGw1AZ**| Max. 30*   | Max. 128  | Max. 250       | 650 Mbps  | Supported | Yes |
+|**VpnGw2AZ**| Max. 30*   | Max. 128  | Max. 500       | 1 Gbps    | Supported | Yes |
+|**VpnGw3AZ**| Max. 30*   | Max. 128  | Max. 1000      | 1.25 Gbps | Supported | Yes |
 
 
 (*) Use [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md) if you need more than 30 S2S VPN tunnels.

@@ -179,17 +179,18 @@ Yes. All VMs and Cloud Services role instances deployed within a VNet can connec
 ## Azure services that connect to VNets
 
 ### Can I use Azure App Service Web Apps with a VNet?
-Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment). If you have a point-to-site connection configured for your VNet, all Web Apps can securely connect and access resources in the VNet. For more information, see the following articles:
+Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment), connect the backend of your apps to your VNets with VNet Integration, and lock down inbound traffic to your app with service endpoints. For more information, see the following articles:
 
+* [App Service networking features](../app-service/networking-features.md)
 * [Creating Web Apps in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Using VNet Integration and Hybrid Connections with Web Apps](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json#hybrid-connections-and-app-service-environments)
+* [App Service access restrictions](../app-service/app-service-ip-restrictions.md)
 
 ### Can I deploy Cloud Services with web and worker roles (PaaS) in a VNet?
 Yes. You can (optionally) deploy Cloud Services role instances within VNets. To do so, you specify the VNet name and the role/subnet mappings in the network configuration section of your service configuration. You do not need to update any of your binaries.
 
-### Can I connect a Virtual Machine Scale Set (VMSS) to a VNet?
-Yes. You must connect a VMSS to a VNet.
+### Can I connect a virtual machine scale set to a VNet?
+Yes. You must connect a virtual machine scale set to a VNet.
 
 ### Is there a complete list of Azure services that can I deploy resources from into a VNet?
 Yes, For details, see [Virtual network integration for Azure services](virtual-network-for-azure-services.md).
@@ -218,7 +219,7 @@ Yes. For details, see [Azure Network Security Overview](../security/security-net
 ## APIs, schemas, and tools
 
 ### Can I manage VNets from code?
-Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/virtual-network) and [classic (Service Management)](https://go.microsoft.com/fwlink/?LinkId=296833) deployment models.
+Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/virtual-network) and [classic](https://go.microsoft.com/fwlink/?LinkId=296833) deployment models.
 
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
@@ -238,7 +239,7 @@ Yes. Global VNet peering enables you to peer VNets in different regions. Global 
 If the two virtual networks are in different region (Global VNet Peering), you cannot connect to resources that use Basic Load Balancer. You can connect to resources that use Standard Load Balancer.
 The following resources use Basic Load Balancers which means you cannot communicate to them across Global VNet Peering:
 - VMs behind Basic Load Balancers
-- VM Scale Sets with Basic Load Balancers 
+- Virtual machine scale sets with Basic Load Balancers 
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
@@ -246,7 +247,7 @@ The following resources use Basic Load Balancers which means you cannot communic
 - API Management
 - Active Directory Domain Service (ADDS)
 - Logic Apps
-- HD Insight
+- HDInsight
 -	Azure Batch
 - AKS
 - App Service Environment
@@ -284,7 +285,7 @@ No. Transitive peering is not supported. You must peer VNetA and VNetC for this 
 No. VNet peering, whether local or global, does not impose any bandwidth restrictions. Bandwidth is only limited by the VM or the compute resource.
 
 ### How can I troubleshoot VNet Peering issues?
-Here is a [troubleshooter guide] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) you can try.
+Here is a [troubleshooter guide](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) you can try.
 
 ## Virtual network TAP
 
@@ -380,13 +381,17 @@ Service endpoints add a system route which takes precedence over BGP routes and 
 To reach the Azure service, NSGs need to allow outbound connectivity. If your NSGs are opened to all Internet outbound traffic, then the service endpoint traffic should work. You can also limit the outbound traffic to service IPs only using the Service tags.  
  
 ### What permissions do I need to set up service endpoints?
-Service endpoints can be configured on a virtual network independently by a user with write access to the virtual network. To secure Azure service resources to a VNet, the user must have permission to **Microsoft.Network/JoinServicetoaSubnet** for the subnets being added. This permission is included in the built-in service administrator role by default and can be modified by creating custom roles. Learn more about built-in roles and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Service endpoints can be configured on a virtual network independently by a user with write access to the virtual network. To secure Azure service resources to a VNet, the user must have permission **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** for the subnets being added. This permission is included in the built-in service administrator role by default and can be modified by creating custom roles. Learn more about built-in roles and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
 ### Can I filter virtual network traffic to Azure services, allowing only specific azure service resources, over VNet service endpoints? 
 
 Virtual network (VNet) service endpoint policies allow you to filter virtual network traffic to Azure services, allowing only specific Azure service resources over the service endpoints. Endpoint policies provide granular access control from the virtual network traffic to the Azure services. You can learn more about the service endpoint policies [here](virtual-network-service-endpoint-policies-overview.md).
- 
+
+### Does Azure Active Directory (Azure AD) support VNet service endpoints?
+
+Azure Active Directory (Azure AD) doesn't support service endpoints natively. Complete list of Azure Services supporting VNet service endpoints can be seen [here](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Note that "Microsoft.AzureActiveDirectory" tag listed under services supporting service endpoints is used for supporting service endpoints to ADLS Gen 1. For ADLS Gen 1, virtual network integration for Azure Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Azure Active Directory (Azure AD) to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access. Learn more about [Azure Data Lake Store Gen 1 VNet Integration](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+
 ### Are there any limits on how many VNet service endpoints I can set up from my VNet?
 There is no limit on the total number of VNet service endpoints in a virtual network. For an Azure service resource (such as, an Azure Storage account), services may enforce limits on the number of subnets used for securing the resource. The following table shows some example limits: 
 

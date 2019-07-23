@@ -9,8 +9,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
-ms.author: tyao;kumud
-
+ms.author: kumud
+ms.reviewer: tyao
 ---
 
 # Policy settings for web application firewall with Azure Front Door

@@ -3,11 +3,11 @@ title: Localization support in Azure Maps | Microsoft Docs
 description: Learn about supported languages for the services in Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/25/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: 
+manager: philmea
 ---
 
 # Localization support in Azure Maps
@@ -80,9 +80,53 @@ Azure Maps have been localized in a variety of languages across the services. Th
 
 ## Azure Maps supported views
 
-Azure Maps View parameter (also referred to as “user region parameter”) is a 2-letter ISO-3166 Country Code that will show the correct maps for that country/region specifying which set of geopolitically disputed borders and labels are displayed on the map.  By default View parameter is set to **“Unified”**.  Country/Regions that are not on the view list will default to the “Unified” View. It is your responsibility to determine the location of your users, and then set the View parameter correctly for that location. The View parameter in Azure Maps must be used in compliance with applicable laws, including those regarding mapping of the country where maps, images, and other data and third-party content that you are authorized to access via Azure Maps is made available.
+> [!Note]
+> We are releasing Azure Maps in the following countries/regions on August 1, 2019:
+>  * Argentina
+>  * India
+>  * Morocco
+>  * Pakistan
+>
+> After August 1, 2019, **View** parameter setting will define the returned map content for the new regions/countries listed above. We encourage you to ensure that you have set up the View parameter as required for the REST APIs and SDKs that your services are using.
+>  
+>
+>  **Rest APIs:**
+>  
+>  Ensure that you have set up the View parameter as required. View parameter specifies which set of geopolitically disputed content is returned via Azure Maps services. 
+>
+>  Affected Azure Maps REST Services:
+>    
+>    * Get Map Tile
+>    * Get Map Image 
+>    * Get Search Fuzzy
+>    * Get Search POI
+>    * Get Search POI Category
+>    * Get Search Nearby
+>    * Get Search Address
+>    * Get Search Address Structured
+>    * Get Search Address Reverse
+>    * Get Search Address Reverse Cross Street
+>    * Post Search Inside Geometry
+>    * Post Search Address Batch Preview
+>    * Post Search Address Reverse Batch Preview
+>    * Post Search Along Route
+>    * Post Search Fuzzy Batch Preview
+>
+>    
+>  **SDKs:**
+>
+>  Ensure that you have set up the View parameter as required, and you have the latest version of Web SDK and Android SDK. Affected SDKs:
+>
+>    * Azure Maps Web SDK
+>    * Azure Maps Android SDK
 
-The following table provides supported Views.
+
+Azure Maps **View** parameter (also referred to as “user region parameter”) is a two letter ISO-3166 Country Code that will show the correct maps for that country/region specifying which set of geopolitically disputed content is returned via Azure Maps services, including borders and labels displayed on the map. 
+
+By default View parameter is set to **Unified**, even if you haven’t defined it in the request. It is your responsibility to determine the location of your users, and then set the View parameter correctly for that location. Alternatively, you have the option to set ‘View=Auto’, which will return the map data based on the IP address of the request.  The View parameter in Azure Maps must be used in compliance with applicable laws, including those regarding mapping of the country where maps, images, and other data and third-party content that you are authorized to access via Azure Maps is made available.
+
+
+The following table provides supported views.
 
 | View         | Description                            |  Maps | Search | JS Map Control |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
@@ -102,4 +146,5 @@ The following table provides supported Views.
 | SA           | Saudi Arabia (Arabic View)            |   ✓   |        |     ✓          |
 | SY           | Syria (Arabic View)                   |   ✓   |        |     ✓          |
 | YE           | Yemen (Arabic View)                   |   ✓   |        |     ✓          |
+| Auto         | Return the map data based on the IP address of the request.|   ✓   |    ✓   |     ✓          |
 | Unified      | Unified View (Others)                  |   ✓   |   ✓     |     ✓          |
