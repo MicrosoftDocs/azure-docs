@@ -71,9 +71,9 @@ The focus of the pilot should be on picking the absolute minimum necessary workl
 
 The following example demonstrates a well scoped proof of concept. 
 
-## Example proof of concept plan 
+## Example: proof of concept plan 
 
-This section shows a sample to use for scoping a proof of concept or pilot for DevTest Labs. 
+This section shows a sample to use for scoping a proof of concept of the pilot for DevTest Labs. 
 
 > [!TIP]
 > To minimize the possibility of setting up your project for failure, we highly recommand that you do not skip the example described in this section. 
