@@ -50,25 +50,24 @@ The architectural diagram shown here depicts the possible paths that network tra
 
 Systems are the Azure resources and related components that generate outbound traffic within an IP subnet that is part of a virtual network.
 
-Component | Description
--------------------------- | --------------------------------------
-**Virtual Network (VNet)** | A VNet is a foundational resource within Azure that provides a platform and boundary for deploying resources and enabling communication. The VNet exists within an Azure Region and defines the IP Address Space and Routing boundaries for VNet integrated resources such as Virtual Machines.
-**Subnet** | A subnet is an IP address range that is created within a VNet. Multiple subnets can be created within a VNet for network segmentation.
-**Network Interface**| A network interface is a resource that exists in Azure. It is attached to a Virtual Machine and assigned a private, non-Internet routable IP address from the subnet that it is associated with. This IP address is dynamically or statically assigned through Azure Resource Manager.
- **VNet Integrated PaaS**   | Many PaaS capabilities can be deployed into, or integrated with, a virtual network. Some PaaS capabilities can be fully integrated with a VNet and be accessible via only private IP addresses. Others, such as Azure Load Balancer and Azure Application Gateway, can have an external interface with a public IP address and an internal interface with a private IP address inside the virtual network. In this instance, traffic can egress the virtual network via the PaaS capability.
-**Public IPs**| A Public IP is a resource that reserves one of the Microsoft owned Public, Internet-Routable IP Addresses from the specified region for use within the virtual network. It can be associated with a specific Network Interface or PaaS resource, which enables the resource to communicate with the Internet, ExpressRoute and to other PaaS systems.
+| Component | Description |
+| --- | ---|
+|Virtual Network (VNet) | A VNet is a foundational resource within Azure that provides a platform and boundary for deploying resources and enabling communication. The VNet exists within an Azure Region and defines the IP Address Space and Routing boundaries for VNet integrated resources such as Virtual Machines.|
+|Subnet | A subnet is an IP address range that is created within a VNet. Multiple subnets can be created within a VNet for network segmentation.|
+|Network Interface| A network interface is a resource that exists in Azure. It is attached to a Virtual Machine and assigned a private, non-Internet routable IP address from the subnet that it is associated with. This IP address is dynamically or statically assigned through Azure Resource Manager.|
+|Public IPs| A Public IP is a resource that reserves one of the Microsoft owned Public, Internet-Routable IP Addresses from the specified region for use within the virtual network. It can be associated with a specific Network Interface or PaaS resource, which enables the resource to communicate with the Internet, ExpressRoute and to other PaaS systems.|
 |
 
 ### Routes
 
 The path that egress traffic takes is dependent on the effective routes for that resource, which is the resultant set of routes determined by the combination of routes learnt from all possible sources and the application of Azure routing logic.
 
-Component | Description
--------- | ----------
- **System Routes**                 | Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. System routes cannot be created or removed, but some can be overridden with custom routes. Azure creates default system routes for each subnet, and adds additional optional default routes to specific subnets, or every subnet, when specific Azure capabilities are utilised.
-**Service Endpoints**| Service endpoints provide a direct, private egress connection from a subnet to a specific PaaS capability. Service endpoints, which are only available for a subset of PaaS capabilities, provide increased performance and security for resources in a VNet accessing PaaS.
-**Route Tables**| A route table is a resource in Azure that can be created to specify User-Defined Routes (UDRs) that can complement or override systems routes or routes learnt via BGP. Each UDR specifies a network, a network mask, and a next hop. A route table can be associated to a subnet and the same route table can be associated to multiple subnets, but a subnet can only have zero or one route table.
- **Border Gateway Protocol (BGP)** | BGP is an inter-autonomous system routing protocol. An autonomous system is a network or group of networks under a common administration and with common routing policies. BGP is used to exchange routing information between autonomous systems. BGP can be integrated into virtual networks through virtual network gateways.
+| Component | Description |
+|--- | ---|
+|System Routes| Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. System routes cannot be created or removed, but some can be overridden with custom routes. Azure creates default system routes for each subnet, and adds additional optional default routes to specific subnets, or every subnet, when specific Azure capabilities are utilised.|
+|Service Endpoints| Service endpoints provide a direct, private egress connection from a subnet to a specific PaaS capability. Service endpoints, which are only available for a subset of PaaS capabilities, provide increased performance and security for resources in a VNet accessing PaaS.|
+|Route Tables| A route table is a resource in Azure that can be created to specify User-Defined Routes (UDRs) that can complement or override systems routes or routes learnt via BGP. Each UDR specifies a network, a network mask, and a next hop. A route table can be associated to a subnet and the same route table can be associated to multiple subnets, but a subnet can only have zero or one route table.|
+|Border Gateway Protocol (BGP)| BGP is an inter-autonomous system routing protocol. An autonomous system is a network or group of networks under a common administration and with common routing policies. BGP is used to exchange routing information between autonomous systems. BGP can be integrated into virtual networks through virtual network gateways.|
 |
 
 ### Next Hop Types Defined
