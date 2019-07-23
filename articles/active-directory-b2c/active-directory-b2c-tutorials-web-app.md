@@ -63,7 +63,6 @@ You change the sample to use the application that's registered in your tenant, w
 2. In the **TaskWebApp** project, open the **Web.config** file. Replace the value for `ida:Tenant` with the name of the tenant that you created. Replace the value for `ida:ClientId` with the application ID that you recorded. Replace the value of `ida:ClientSecret` with the key that you recorded.
 3. In the **Web.config** file, replace the value for `ida:SignUpSignInPolicyId` with `b2c_1_signupsignin1`. Replace the value for `ida:EditProfilePolicyId` with `b2c_1_profileediting1`. Replace the value for `ida:ResetPasswordPolicyId` with `b2c_1_passwordreset1`.
 
-[!NOTE] Please note that the client secret will need to be XML encoded to properly work in your web.config. 
 
 ## Run the sample
 
