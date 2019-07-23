@@ -85,20 +85,20 @@ If you only need to modify the behavior for a single Application Insights resour
 
     ![Edit Template](media/ip-collection/purchase.png)
 
-In this case nothing new is being purchased, we are just updating the config of the existing Application Insights resource.
+    In this case nothing new is being purchased, we are just updating the config of the existing Application Insights resource.
 
 6. Once the deployment is complete new telemetry data will recorded with the first three octets populated with the IP and the last octet zeroed out.
 
-If you were to select and edit template again you would only see the default template and would not see your newly added property and its associated value. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set. Run the following PowerShell: (Replace `Fabrikam-dev` with the appropriate resource and resource group name.)
-
-```powershell
-# If you aren't using the cloud shell you will need to connect to your Azure account
-# Connect-AzAccount 
-$AppInsights = Get-AzResource -Name 'Fabrikam-dev' -ResourceType 'microsoft.insights/components' -ResourceGroupName 'Fabrikam-dev'
-$AppInsights.Properties
-```
-
-A list of properties will be returned as a result. One of the properties should read `DisableIpMasking: true`. If you run the PowerShell prior to deploying the new property with Azure Resource Manager, the property will not exist.
+    If you were to select and edit template again you would only see the default template and would not see your newly added property and its associated value. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set. Run the following PowerShell: (Replace `Fabrikam-dev` with the appropriate resource and resource group name.)
+    
+    ```powershell
+    # If you aren't using the cloud shell you will need to connect to your Azure account
+    # Connect-AzAccount 
+    $AppInsights = Get-AzResource -Name 'Fabrikam-dev' -ResourceType 'microsoft.insights/components' -ResourceGroupName 'Fabrikam-dev'
+    $AppInsights.Properties
+    ```
+    
+    A list of properties will be returned as a result. One of the properties should read `DisableIpMasking: true`. If you run the PowerShell prior to deploying the new property with Azure Resource Manager, the property will not exist.
 
 ### Rest API
 
