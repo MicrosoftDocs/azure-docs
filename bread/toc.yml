@@ -117,6 +117,9 @@
   - name: Azure Digital Twins
     tocHref: /azure/digital-twins/
     topicHref: /azure/digital-twins/
+  - name: Azure Lighthouse
+    tocHref: /azure/lighthouse/
+    topicHref: /azure/lighthouse/
   - name: Azure Monitor
     tocHref: /azure/azure-monitor/
     topicHref: /azure/azure-monitor/
