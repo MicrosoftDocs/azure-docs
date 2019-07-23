@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/23/2019
-ms.author: jhakulin
+ms.author: lisaweixu
 ms.custom: seodec18
 ---
 

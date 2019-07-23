@@ -18,10 +18,10 @@ ms.custom: seodec18
 ## Speech SDK 1.6.0: 2019-June release
 
 **Samples**
-*	Quick start samples for Text To Speech on UWP and Unity
-*	Quick start sample for Swift on iOS
+*	Quickstart samples for Text To Speech on UWP and Unity
+*	Quickstart sample for Swift on iOS
 *	Unity samples for Speech & Intent Recognition and Translation
-*	Updated quick start samples for DialogServiceConnector
+*	Updated quickstart samples for DialogServiceConnector
 
 **Improvements / Changes**
 * Dialog namespace:
@@ -37,7 +37,7 @@ ms.custom: seodec18
 
 **Bug fixes**
 *	Fix for TTS: where SpeakTextAsync future returned without waiting until audio has completed rendering
-*	Fix for marshalling strings in C# to enable full language support
+*	Fix for marshaling strings in C# to enable full language support
 *	Fix for .NET core app problem to load core library with net461 target framework in samples
 *	Fix for occasional issues to deploy native libraries to the output folder in samples
 *	Fix for web socket closing reliably
