@@ -138,6 +138,14 @@ Azure NetApp Files currently supports one Active Directory connection per subscr
 
 Azure NetApp Files supports Windows Server 2008r2SP1-2016 version of Active Directory Domain Services.
 
+### Does Azure NetApp Files support Azure Active Directory? 
+
+Both [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) and [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files does not support AD join for [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) at this time.
+
+### What versions of Windows Server Active Directory are supported?
+
+Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Directory Domain Services.
+
 ## Capacity management FAQs
 
 ### How do I monitor usage for capacity pool and volume of Azure NetApp Files? 
