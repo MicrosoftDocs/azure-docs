@@ -195,7 +195,7 @@
           href: scenario-mobile-app-registration.md
         - name: Code configuration
           href: scenario-mobile-app-configuration.md
-        - name: Mobile platforms specific configuration
+        - name: Mobile platforms specific config
           items:
           - name: Xamarin Android
             href: msal-net-xamarin-android-considerations.md
