@@ -22,8 +22,8 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  N/A | ExpressRoute does not store customer data. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| No | |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)|  N/A | ExpressRoute does not store customer data. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| No | |
 | Encryption key handling (CMK, BYOK, etc.)| N/A |  |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |
