@@ -18,9 +18,9 @@ ms.author: raynew
 
 There are [two versions](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate. Depending on the version in which you created the project, use one of the following methods:
 
-* If you're looking for a project created with the pervious version (old experience) of Azure Migrate,  follow these steps to find the project:
+* If you're looking for a project created with the previous version (old experience) of Azure Migrate,  follow these steps to find the project:
 
-    1. Go to [Azure portal](https://portal.azure.com), and search for **Azure Migrate**.
+    1. Go to the [Azure portal](https://portal.azure.com), and search for **Azure Migrate**.
     2. On the Azure Migrate dashboard, you'll see a banner that mentions accessing older projects. You'll see this banner only if you have created a project with the old experience. Select the banner.
     
        ![Access existing projects](./media/troubleshooting-general/access-existing-projects.png)
@@ -29,14 +29,14 @@ There are [two versions](https://docs.microsoft.com/azure/migrate/migrate-servic
 
 * If you're looking for a project created with the current version (new experience), follow these steps to find the project:
 
-    1. Go to [Azure portal](https://portal.azure.com), and search for **Azure Migrate**.
+    1. Go to the [Azure portal](https://portal.azure.com), and search for **Azure Migrate**.
     2. On the Azure Migrate dashboard, go to the **Servers** page in the left pane, and select **change** in the upper-right corner.
 
        ![Switch to an existing Azure Migrate project](./media/troubleshooting-general/switch-project.png)
 
     3. Select the appropriate subscription and Azure Migrate project.
 
-### I can't create a second Azure Migrate project.
+### How do I create a second Azure Migrate project?
 
 Follow these steps to create a new Azure Migrate project:
 
@@ -53,9 +53,9 @@ Follow these steps to create a new Azure Migrate project:
 
 See the lists for [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and for [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
-### How to delete Azure Migrate projects and associated Log Analytics workspaces
+### How do I delete Azure Migrate projects and associated Log Analytics workspaces?
 
-When you delete an Azure Migrate project, the migration project and the metadata about discovered machines are deleted. However, if you have attached a Log Analytics workspace to the Server Assessment tool, the Log Analytics workspace isn't automatically deleted. (The same Log Analytics workspace can be used for multiple use cases.) If you want to also delete the Log Analytics workspace, you must do that manually.
+When you delete an Azure Migrate project, the migration project *and* the metadata about discovered machines are deleted. However, if you have attached a Log Analytics workspace to the Server Assessment tool, the Log Analytics workspace isn't automatically deleted. (The same Log Analytics workspace can be used for multiple use cases.) If you want to also delete the Log Analytics workspace, you must do that manually.
 
 1. Browse to the Log Analytics workspace attached to the project.
      * If you haven't deleted the migration project yet, you can find the link to the workspace from the Server Assessment overview page in the Essentials section.
@@ -107,9 +107,9 @@ The server clock might be out-of-synchronization with the current time by more t
 3. To synchronize the time, run **w32tm /resync**.
 
 
-###  UnableToConnectToServer error
+###  Connection failed. Error: UnableToConnectToServer
 
-You might be unable to connect to vCenter Server *Servername*.com:9443. The error details indicate that there's no endpoint listening at https://Servername.com:9443/sdk that could accept the message.
+You might be unable to connect to vCenter Server *Servername*.com:9443. The error details indicate that there's no endpoint listening at https://*servername*.com:9443/sdk that could accept the message.
 
 In this situation, check whether you're running the latest version of the collector appliance. If you're not, upgrade the appliance to the [latest version](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
@@ -221,7 +221,7 @@ For example, let's say there's an on-premises VM with 4 cores and 8 GB of memory
 However, assume the sizing criteria is performance-based. Based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and 8 GB of memory (nearest supported memory size) would be recommended. [Learn more about how Server Assessment performs sizing.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing).
 
 ### Why is the disk SKU recommended by Server Assessment bigger than what's allocated on-premises?
-Disk sizing in Server Assessment depends on two assessment properties: sizing criteria and storage type. If the sizing criteria is **Performance-based** and the storage type is set to **Automatic**, the Input/Output Operations Per Second (IOPS) and throughput values of the disk are considered to identify the target disk type (Standard HDD, Standard SSD, or Premium disks). A disk SKU from the disk type is then recommended, and this recommendation considers the size requirements of the on-premises disk. If the sizing criteria is **Performance-based**, and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, or **Premium**.
+Disk sizing in Server Assessment depends on two assessment properties: sizing criteria and storage type. If the sizing criteria is **Performance-based** and the storage type is set to **Automatic**, the IOPS and throughput values of the disk are considered to identify the target disk type (Standard HDD, Standard SSD, or Premium disks). A disk SKU from the disk type is then recommended, and this recommendation considers the size requirements of the on-premises disk. If the sizing criteria is **Performance-based**, and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, or **Premium**.
 
 For example, if you have an on-premises disk with 32 GB of memory, but the aggregated read and write IOPS for the disk is 800 IOPS, Server Assessment will recommend a premium disk type (because of the higher IOPS requirements) and then recommend a disk SKU that can support the required IOPS and size. The nearest match in this example would be P15 (256 GB, 1100 IOPS). Even though the size required by the on-premises disk was 32 GB, Server Assessment recommends a larger disk because of the high IOPS requirement of the on-premises disk.
 
