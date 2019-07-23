@@ -17,7 +17,7 @@ describes various errors that may occur and how to resolve them.
 
 Most errors are the result an issue while running a query with Azure Resource Graph. When a query
 fails, the SDK provides details about the failed query. This information indicates the issue so that
-it can be fixed and a subsequent query succeeds.
+it can be fixed and a later query succeeds.
 
 ## General errors
 
@@ -37,7 +37,7 @@ the query on.
 #### Resolution
 
 Batch requests for the query with a subset of subscriptions to stay under the 2048 subscription
-limit. This can be done with the **Subscription** parameter in PowerShell.
+limit. The solution is using the **Subscription** parameter in PowerShell.
 
 ```azurepowershell-interactive
 # Replace this query with your own
