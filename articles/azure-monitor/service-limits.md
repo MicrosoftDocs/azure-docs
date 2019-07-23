@@ -26,7 +26,7 @@ This article lists limits in different areas of Azure Monitor.
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
 
-## Log queries and lanaguage
+## Log queries and language
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]
 
