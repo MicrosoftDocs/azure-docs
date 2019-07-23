@@ -1326,11 +1326,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/iot-edge/iot-edge-what-is-azure-iot.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-introduction",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/iot-hub/iot-hub-auto-device-config.md",
       "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
       "redirect_document_id": true
@@ -2531,6 +2526,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-edge/iot-edge-what-is-azure-iot.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-edge/sql-storage.md",
       "redirect_url": "/azure/iot-edge/tutorial-store-data-sql-server",
       "redirect_document_id": false
@@ -2653,6 +2653,11 @@
     {
       "source_path": "articles/iot-edge/how-to-install-iot-core.md",
       "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-install-iot-edge-linux-arm.md",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-linux",
       "redirect_document_id": false
     },
     {
@@ -13840,6 +13845,11 @@
       "redirect_url": "https://aka.ms/data-classification-cloud",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/service-bus-relay/relay-wcf-dotnet-get-started.md",
+      "redirect_url": "/azure/service-bus-relay/service-bus-relay-tutorial",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/service-bus-relay/service-bus-dotnet-how-to-use-relay.md",
       "redirect_url": "/azure/service-bus-relay/relay-wcf-dotnet-get-started",

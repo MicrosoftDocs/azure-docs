@@ -7,7 +7,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 07/23/2019
 ms.author: diberry
 ---
 # Cognitive Services and machine learning
@@ -48,7 +48,7 @@ A Cognitive Service provides part or all of the components in a machine learning
 
 ## How are Cognitive Services and Azure Machine Learning (AML) similar?
 
-Both have the end-goal of applying artificial intelligence (AI) to enhance business operations, though how provides this in the respective offerings is different. 
+Both have the end-goal of applying artificial intelligence (AI) to enhance business operations, though how each provides this in the respective offerings is different. 
 
 Generally, the audiences are different:
 
@@ -111,6 +111,10 @@ The following data categorizes each service by which kind of data it allows or r
  
 The services are used in any application that can make REST API(s) or SDK calls. Examples of applications include web sites, bots, virtual or mixed reality, desktop and mobile applications. 
 
+## How is Cognitive search related to Cognitive Services?
+
+[Azure Search](../search/search-what-is-azure-search.md) uses Cognitive Services to provide this feature. Cognitive Services is exposed in Azure Search through [built-in skills](../search/cognitive-search-predefined-skills.md) that wrap individual APIs. You can use a free resource for walkthroughs, but plan on creating and attaching a [billable resource](../search/cognitive-search-attach-cognitive-services.md) for larger volumes.
+
 ## How can you use Cognitive Services?
 
 Each service provides information about your data. You can combine services together to chain solutions such as converting speech (audio) to text, translating the text into many languages, then using the translated languages to get answers from a knowledge base. While Cognitive Services can be used to create intelligent solutions on their own, they can also be combined with traditional machine learning projects to supplement models or accelerate the development process. 
@@ -119,7 +123,7 @@ Cognitive Services that provide exported models for other machine learning tools
 
 |Cognitive Service|Model information|
 |--|--|
-|Custom Vision|Export for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
+|[Custom Vision](./custom-vision-service/home.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
 
 
 ## Next steps
