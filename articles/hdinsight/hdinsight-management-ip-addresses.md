@@ -18,7 +18,7 @@ The following sections discuss the specific IP addresses that must be allowed.
 
 If you are using the Azure-provided DNS service, allow access from __168.63.129.16__ on port 53. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document. If you are using custom DNS, skip this step.
 
-## Azure HDInsight health and management services for all Azure regions
+## Health and management services: All regions
 
 Allow traffic from the following IP addresses for Azure HDInsight health and management services which apply to all Azure regions:
 
@@ -29,9 +29,9 @@ Allow traffic from the following IP addresses for Azure HDInsight health and man
     | 168.61.48.131 | \*:443 | Inbound |
     | 138.91.141.162 | \*:443 | Inbound |
 
-## Azure HDInsight health and management services for specific Azure regions
+## Health and management services: Specific regions
 
-Allow traffic from the IP addresses listed for the Azure HDInsight health and management services in the specific region where your resources are located:
+Allow traffic from the IP addresses listed for the Azure HDInsight health and management services in the specific Azure region where your resources are located:
 
     > [!IMPORTANT]  
     > If the Azure region you are using is not listed, then only use the four IP addresses from step 1.
