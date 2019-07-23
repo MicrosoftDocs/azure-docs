@@ -16,17 +16,7 @@ The Azure CLI command `az acr pack build` uses the [`pack`](https://github.com/b
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the examples in this article. If you'd like to use it locally, version 2.0.70 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 > [!IMPORTANT]
-> This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
-
-## Preview limitations
-
-
-## Supported builders
-
-The command supports all common buildpacks, including
-
-* CloudFoundry Buildpacks - `cloudfoundry/cnb:bionic` 
-* Heroku Buildpacks - `heroku/buildpacks:18`
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 ## Use the build command
 
@@ -37,33 +27,43 @@ At a minimum, specify the following when you run `az acr pack build`:
 * An Azure container registry where you run the command
 * An image name and tag for the resulting image
 * One of the [supported context locations](container-registry-tasks-overview.md#quick-task) for ACR Tasks, such as a local directory, a GitHub repo, or a remote tarball
-* The name of a container image for a [supported builder](#supported-builders).  
+* The name of a Buildpack builder image, such as `cloudfoundry/cnb:bionic:18`.  
 
 `az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-overview.md#view-task-logs) that are streamed and also saved for later retrieval.
 
-## Example: Build Node.js image with CloudFoundry Buildpacks
+## Example: Build Node.js image with Cloud Foundry builder
 
-The following example builds a container image from the Node.js app in the [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, using the CloudFoundry Buildpacks builder:
+The following example builds a container image from the Node.js app in the [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, using the `cloudfoundry/cnb:bionic` builder:
 
 ```azurecli
 az acr pack build \
     --registry myregistry \
-    --image {{.Run.Registry}}/node-app:{{.Run.Date}} \
-    --pull --builder cloudfoundry/cnb:bionic \
+    --image {{.Run.Registry}}/node-app:1.0 \
+    --builder cloudfoundry/cnb:bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-This example builds the `node-app` image tagged with the run date of the command and pushes it to the *myregistry* container registry. Here, the target registry name is explicitly prepended to the image name. If not specified, the registry URL is automatically prepended to the image name.
-
-The `--pull` parameter specifies that the command pulls the latest builder image, which is recommended.
+This example builds the `node-app` image with the `1.0` tag and pushes it to the *myregistry* container registry. Here, the target registry name is explicitly prepended to the image name. If not specified, the registry URL is automatically prepended to the image name.
 
 Command output shows the progress of building and pushing the image. 
 
+After the image is successfully built, you can run it with Docker, if you have it installed. First sign into your registry:
 
+```azurecli
+az acr login --name myregistry
+```
 
-## Example: Build Java image with Heroku Buildpacks
+Run the image:
 
-The following example builds a container image from the Java app in the [buildpack/sample-java-app](https://github.com/buildpack/sample-java-app) repo, using the Heroku Buildpacks builder:
+```console
+docker run --rm -p 1337:1337 myregistry.azurecr.io/node-app:1.0
+```
+
+Browse to `localhost:1337` in your favorite browser to see the sample web app. Press `[Ctrl]+[C]` to stop the container.
+
+## Example: Build Java image with Heroku builder
+
+The following example builds a container image from the Java app in the [buildpack/sample-java-app](https://github.com/buildpack/sample-java-app) repo, using the `heroku/buildpacks:18` builder:
 
 ```azurecli
 az acr pack build \
@@ -75,12 +75,11 @@ az acr pack build \
 
 This example builds the `java-app` image tagged with the run ID of the command and pushes it to the *myregistry* container registry.
 
-The `--pull` parameter specifies that the command pulls the latest builder image, which is recommended.
-
+The `--pull` parameter specifies that the command pulls the latest builder image, which is necessary because the Heroku builder image isn't cached by ACR Tasks.
 
 Command output shows the progress of building and pushing the image. 
 
-After the image is successfully built, you can run it with Docker. First sign into your registry:
+After the image is successfully built, you can run it with Docker, if you have it installed. First sign into your registry:
 
 ```azurecli
 az acr login --name myregistry
@@ -96,6 +95,8 @@ Browse to `localhost:8080` in your favorite browser to see the sample web app. P
 
 
 ## Next steps
+
+After you build and push a container image with `az acr pack build`, you can deploy it like any image to a target of your choice. Azure deployment options include running it in [App Service](../app-service/containers/tutorial-custom-docker-image.md) or [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), among others.
 
 For more information about ACR Tasks features, see [Automate container image builds and maintenance with ACR Tasks](container-registry-tasks-overview.md).
 
