@@ -1,5 +1,5 @@
 - name: Azure VMware Solution by Virtustream (AVS by Virtustream)
-  href: 
+  href:
 - name: Overview
   items:
   - name: About AVS by Virtustream
@@ -7,16 +7,29 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an AVS by Virtustream private cloud
 - name: Tutorials
   items:
+  - name: 1 - Create an AVS by Virtustream private cloud
+    href: tutorials-create-private-cloud.md
   - name: 4 - Create an NSX-T network
     href: tutorials-create-t1-ls.md
+  - name: 7 - Scale a private cloud
+    href: tutorials-scale-private-cloud.md
 - name: Concepts
   items:
   - name: Private clouds and clusters
     href: concepts-private-clouds-clusters.md
+  - name: Private cloud networking and inter-connectivity
+    href: concepts-networking.md
+  - name: Storage in private clouds
+    href: concepts-storage.md
+  - name: Access and identity for private clouds
+    href: concepts-identity.md
+  - name: Private cloud upgrades
+    href: concepts-upgrades.md
 - name: Reference
   items:
 - name: Resources
-  items:
+  items: 
+    - name: FAQ
+      href: faq.md
