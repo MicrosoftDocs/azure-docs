@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 07/24/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -18,6 +18,10 @@ For scenarios where your logic apps and integration accounts need access to an [
 When you create an ISE, Azure *injects* that ISE into your Azure virtual network, which then deploys the Logic Apps service into your virtual network. When you create a logic app or integration account, select your ISE as their location. Your logic app or integration account can then directly access resources, such as virtual machines (VMs), servers, systems, and services, in your virtual network.
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
+
+> [!IMPORTANT]
+> For logic apps and integration accounts to work together in an ISE, 
+> both must use the *same ISE* as their location.
 
 An ISE has increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md). To learn more about ISEs, see [Access to Azure Virtual Network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
@@ -183,7 +187,7 @@ In the search box, enter "integration service environment" as your filter.
 
    ![After successful validation, choose "Create"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
-   Azure starts deploying your environment, but this process *might* take up to two hours before finishing. To check deployment status, on your Azure toolbar,    choose the notifications icon, which opens the notifications pane.
+   Azure starts deploying your environment, but this process *might* take up to two hours before finishing. To check deployment status, on your Azure toolbar, choose the notifications icon, which opens the notifications pane.
 
    ![Check deployment status](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
@@ -211,9 +215,25 @@ For more information about creating subnets, see [Add a virtual network subnet](
 
 ## Create logic app - ISE
 
-To create logic apps that run in your integration service environment (ISE), [create your logic apps in the usual way](../logic-apps/quickstart-create-first-logic-app-workflow.md) except when you set the **Location** property, select your ISE from the **Integration service environments** section, for example:
+To create logic apps that run in your integration service environment (ISE), follow these steps:
 
-  ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
+1. Find and open your ISE, if not already open. From the ISE menu, under **Settings**, select **Logic apps** > **Add**.
+
+   -or-
+
+   From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
+
+1. Provide the name, Azure subscription, and Azure resource group (new or existing) to use for your logic app.
+
+1. From the **Location** list, under the **Integration service environments** section, select your ISE, for example:
+
+   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
+
+   > [!IMPORTANT]
+   > If you want to use your logic apps with an integration account, 
+   > that integration account must use the same ISE as your logic apps.
+
+1. Continue [creating your logic app in the usual way](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 For differences in how triggers and actions work and how they're labeled when you use an ISE compared to the global Logic Apps service, see [Isolated versus global in the ISE overview](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
@@ -221,11 +241,26 @@ For differences in how triggers and actions work and how they're labeled when yo
 
 ## Create integration account - ISE
 
-If you want to use an integration account with logic apps in an integration service environment (ISE), that integration account must use the *same environment* as the logic apps. Logic apps in an ISE can reference only integration accounts in the same ISE. Based on the [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) selected at creation, your ISE includes specific integration account usage at no additional cost. To learn how pricing and billing work for integration accounts with ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+Based on the [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) selected at creation, your ISE includes specific integration account usage at no additional cost. For more information about integration accounts and ISEs, see [Integration accounts with ISE](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment
+).
 
-To create an integration account that uses an ISE, [create your integration account in the usual way](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) except when you set the **Location** property, select your ISE from the **Integration service environments** section, for example:
+Logic apps that exist in an integration service environment (ISE) can reference only integration accounts that exist in the same ISE. So, for an integration account to work with logic apps in an ISE, both the integration account and logic apps must use the *same environment* as their location.
 
-![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
+To create an integration account that uses an ISE, follow these steps:
+
+1. Find and open your ISE, if not already open. From the ISE menu, under **Settings**, select **Integration accounts** > **Add**.
+
+   -or-
+
+   From the main Azure menu, select **Create a resource** > **Integration** > **Integration Account**.
+
+1. Provide the name, Azure subscription, Azure resource group (new or existing), and pricing tier to use for your integration account.
+
+1. From the **Location** list, under the **Integration service environments** section, select the same ISE that your logic apps use, for example:
+
+   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
+
+1. Continue [creating your integration account in the usual way](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
 <a name="add-capacity"></a>
 
