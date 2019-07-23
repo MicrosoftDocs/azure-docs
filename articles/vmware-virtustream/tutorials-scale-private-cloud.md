@@ -49,7 +49,7 @@ On the overview page of an existing private cloud, select **Scale private cloud*
 
 ![Select "Scale private cloud" in Overview](./media/scale-private-cloud/ss4-select-scale-private-cloud-2.png)
 
-In the **Add cluster** form, enter a name and use the slider to select the number of hosts. Select **OK**.
+In the **Add cluster** form, enter a name, and use the slider to select the number of hosts. Select **OK**.
 
 ![Configure a new private cloud cluster](./media/scale-private-cloud/ss5-scale-cluster.png)
 
