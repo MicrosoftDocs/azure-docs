@@ -10,7 +10,9 @@ ms.date: 06/12/2019
 ---
 # Create virtual networks for Azure HDInsight clusters
 
-This article provides examples and code samples for creating and configuring Azure Virtual Networks for use with Azure HDInsight clusters. Detailed examples of creating network security groups (NSGs) and configuring DNS are presented.
+This article provides examples and code samples for creating and configuring [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) for use with Azure HDInsight clusters. Detailed examples of creating network security groups (NSGs) and configuring DNS are presented. 
+
+For background information on using virtual networks with Azure HDInsight, see [Plan a virtual network for Azure HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## Prerequisites for code samples and examples
 

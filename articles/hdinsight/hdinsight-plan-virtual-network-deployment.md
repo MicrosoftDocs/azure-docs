@@ -10,7 +10,7 @@ ms.date: 06/12/2019
 ---
 # Plan a virtual network for Azure HDInsight
 
-This article discusses design and implementation decisions that must be made before you can implement an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) for your HDInsight cluster. Once the planning phase is finished, you can proceed to [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md).
+This article provides background information on using [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) with Azure HDInsight. It also discusses design and implementation decisions that must be made before you can implement a virtual network for your HDInsight cluster. Once the planning phase is finished, you can proceed to [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md). For more information on HDInsight management IP addresses that are needed to properly configure network security groups and user-defined routes, see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
 
 Using an Azure Virtual Network enables the following scenarios:
 
@@ -232,7 +232,7 @@ Forced tunneling is a user-defined routing configuration where all traffic from 
 
 ## <a id="hdinsight-ip"></a> Required IP addresses
 
-If you use network security groups or user-defined routes to control traffic, please see [IP addresses to allow inbound traffic from](hdinsight-management-ip-addresses.md).
+If you use network security groups or user-defined routes to control traffic, please see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
     
 ## <a id="hdinsight-ports"></a> Required ports
 
