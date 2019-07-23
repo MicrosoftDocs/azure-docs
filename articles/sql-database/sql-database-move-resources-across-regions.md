@@ -83,8 +83,8 @@ Once the move completes, remove the resources in the source region to avoid unne
 
 1. Delete the failover group using [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup). 
 1. Delete each source database using [Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase) for each of the databases on the source server. This will automatically terminate geo-replication links. 
-- Delete the source server using [Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver). 
-- Remove the key vault, audit storage containers, event hub, AAD instance, and other dependent resources to stop being billed for them. 
+1. Delete the source server using [Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver). 
+1. Remove the key vault, audit storage containers, event hub, AAD instance, and other dependent resources to stop being billed for them. 
 
 ## Move elastic pools
 
@@ -99,7 +99,7 @@ Once the move completes, remove the resources in the source region to avoid unne
 1. For server-level audits, ensure that:
     - The storage container, Log Analytics, or event hub with the existing audit logs is moved to the target region.
     - Audit configuration is configured at the target server. For more information, see [SQL database auditing](sql-database-auditing.md).
-- If your instance has a long-term retention policy (LTR), the existing LTR backups will remain associated with the current server. Because the target server is different, you will be able to access the older LTR backups in the source region using the source server, even if the server is deleted. 
+1. If your instance has a long-term retention policy (LTR), the existing LTR backups will remain associated with the current server. Because the target server is different, you will be able to access the older LTR backups in the source region using the source server, even if the server is deleted. 
 
   > [!NOTE]
   > This will be insufficient for moving between the sovereign cloud and a public region. Such a migration will require moving the LTR backups to the target server, which is not currently supported. 
@@ -134,7 +134,7 @@ Once **ReplicationState** is `2`, connect to each database, or subset of databas
 Once the move completes, remove the resources in the source region to avoid unnecessary charges. 
 
 1. Delete the failover group using [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup).
-1.  Delete each source elastic pool on the source server using [Remove-AzSqlElasticPool](/powershell/module/az.sql/remove-azsqlelasticpool). 
+1. Delete each source elastic pool on the source server using [Remove-AzSqlElasticPool](/powershell/module/az.sql/remove-azsqlelasticpool). 
 1. Delete the source server using [Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver). 
 1. Remove the key vault, audit storage containers, event hub, AAD instance, and other dependent resources to stop being billed for them. 
 
@@ -156,7 +156,7 @@ Once the move completes, remove the resources in the source region to avoid unne
 
 ### Prepare resources
 
-1.  Create a failover group between each source instance and the corresponding target instance.
+Create a failover group between each source instance and the corresponding target instance.
     - Replication of all databases on each instance will be initiated automatically. See [Auto-failover groups](sql-database-auto-failover-group.md) for more information.
 
  
