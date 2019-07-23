@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 07/18/2019
 ms.author: mbullwin
 ---
 # IP addresses used by Application Insights and Log Analytics
@@ -46,7 +46,7 @@ Status Monitor Configuration - needed only when making changes.
 | Configuration |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configuration |`auth.gfx.ms` | |`443` |
 | Configuration |`login.live.com` | |`443` |
-| Installation |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (NuGet Downloads) | |`443` |
+| Installation | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
 
 ## Availability tests
 This is the list of addresses from which [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md) are run. If you want to run web tests on your app, but your web server is restricted to serving specific clients, then you will have to permit incoming traffic from our availability test servers.

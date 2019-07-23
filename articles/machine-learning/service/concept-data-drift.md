@@ -38,7 +38,7 @@ Using **Azure Machine Learning service**, data drift is monitored through datase
 
 There are multiple ways to view drift metrics:
 
-* Use the Jupyter widget.
+* Use the `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Use the `get_metrics()` function on any `datadriftRun` object.
 * View the metrics in the Azure portal on your model
 

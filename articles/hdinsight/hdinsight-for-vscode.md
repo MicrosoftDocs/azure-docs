@@ -40,7 +40,7 @@ After you have completed the prerequisites, you can install  Spark & Hive Tools 
 
    ![Spark & Hive for Visual Studio Code Python install](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
-5. Select **Reload** to activate the **Spark & Hive Tools** extension after it installs.
+5. **Reload** when needed.
 
 
 ## Open work folder

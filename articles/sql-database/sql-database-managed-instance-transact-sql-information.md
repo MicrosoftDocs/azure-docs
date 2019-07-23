@@ -550,7 +550,7 @@ A managed instance places verbose information in error logs, and much of it isn'
 
 The `TransactionScope` class in .NET doesn't work if two queries are sent to two databases within the same instance under the same transaction scope:
 
-```C#
+```csharp
 using (var scope = new TransactionScope())
 {
     using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))

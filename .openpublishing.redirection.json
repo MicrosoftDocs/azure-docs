@@ -1106,6 +1106,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/identity-protection/howto-improve-detection-accuracy.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-provide-risk-event-feedback",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/authentication/howto-sspr-windows-7-8.md",
       "redirect_url": "/azure/active-directory/authentication/howto-sspr-windows",
       "redirect_document_id": false
@@ -4669,6 +4674,16 @@
       "source_path": "articles/logic-apps/logic-apps-deploy-from-vs.md",
       "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-template",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-create-deploy-template.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/connectors/connectors-overview.md",
@@ -12306,10 +12321,15 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/lab-services/how-to-manage-classroom-labs.md",
-      "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-classroom-labs",
+      "source_path": "articles/lab-services/devtest-lab-get-started-with-lab-policies.md",
+      "redirect_url": "/azure/lab-services/devtest-lab-set-lab-policy",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/lab-services/devtest-lab-import-vm.md",
+      "redirect_url": "/azure/lab-services/import-virtual-machines-from-another-lab",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/lab-services/how-to-manage-lab-accounts.md",
       "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-lab-accounts",
@@ -15231,6 +15251,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-wan/virtual-wan-point-to-site-portal.md",
+      "redirect_url": "/azure/virtual-wan/virtual-wan-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/guidance/guidance-connecting-your-on-premises-network-to-azure.md",
       "redirect_url": "/azure/networking/networking-overview",
       "redirect_document_id": false
@@ -15333,6 +15358,11 @@
     {
       "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
       "redirect_url": "/azure/load-balancer/load-balancer-get-started-internet-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-rp.md",
+      "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider",
       "redirect_document_id": false
     },
     {
@@ -39802,6 +39832,11 @@
     {
       "source_path": "articles/hdinsight/hdinsight-migrate-from-windows-to-linux.md",
       "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-extend-hadoop-virtual-network.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-plan-virtual-network-deployment",
       "redirect_document_id": true
     },
     {

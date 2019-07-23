@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 07/10/2019
+ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
@@ -48,7 +48,7 @@ If the application hasn't been added to your Azure AD tenant, see [Add a non-gal
     | Basic SAML Configuration setting | SP-Initiated | idP-Initiated | Description |
     |:--|:--|:--|:--|
     | **Identifier (Entity ID)** | Required for some apps | Required for some apps | Uniquely identifies the application. Azure AD sends the identifier to the application as the Audience parameter of the SAML token. The application is expected to validate it. This value also appears as the Entity ID in any SAML metadata provided by the application. *You can find this value as the **Issuer** element in the **AuthnRequest** (SAML request) sent by the application.* |
-    | **Reply URL** | Optional | Required | Specifies where the application expects to receive the SAML token. The reply URL is also referred to as the Assertion Consumer Service (ACS) URL. You can specify multiple Reply URLs. |
+    | **Reply URL** | Optional | Required | Specifies where the application expects to receive the SAML token. The reply URL is also referred to as the Assertion Consumer Service (ACS) URL. You can use the additional reply URL fields to specify multiple reply URLs. For example, you might need additional reply URLs for multiple subdomains. Or, for testing purposes you can specify multiple reply URLs (local host and public URLs) at one time. |
     | **Sign-on URL** | Required | Don't specify | When a user opens this URL, the service provider redirects to Azure AD to authenticate and sign on the user. Azure AD uses the URL to start the application from Office 365 or the Azure AD Access Panel. When blank, Azure AD performs IdP-initiated sign-on when a user launches the application from Office 365, the Azure AD Access Panel, or the Azure AD SSO URL.|
     | **Relay State** | Optional | Optional | Specifies to the application where to redirect the user after authentication is completed. Typically the value is a valid URL for the application. However, some applications use this field differently. For more information, ask the application vendor.
     | **Logout URL** | Optional | Optional | Used to send the SAML Logout responses back to the application.

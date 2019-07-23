@@ -28,7 +28,7 @@ Advisor identifies ExpressRoute circuits that have been in the provider status o
 
 ## Reduce costs by deleting or reconfiguring idle virtual network gateways
 
-Advisor identifies virtual network gates that have been idle for over 90 days. Since these gateways are billed hourly, you should consider reconfiguring or deleting them if you don't intend to use them anymore. 
+Advisor identifies virtual network gateways that have been idle for over 90 days. Since these gateways are billed hourly, you should consider reconfiguring or deleting them if you don't intend to use them anymore. 
 
 ## Buy reserved virtual machine instances to save money over pay-as-you-go costs
 
