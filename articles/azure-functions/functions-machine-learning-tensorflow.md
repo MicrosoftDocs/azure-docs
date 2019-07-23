@@ -33,7 +33,7 @@ By the end of tutorial, you'll be able to:
 
 To create Azure Functions in Python, you need to install a few tools.
 
-- [Python 3.6](https://www.python.org/downloads/)
+- [Python 3.6](https://www.python.org/downloads/release/python-360/)
 - [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 - A code editor
 
