@@ -76,7 +76,7 @@ If you only need to modify the behavior for a single Application Insights resour
 
 4. Make the following changes to the json for your resource and then click **Save**:
 
-    ![Screenshot adds a comma after "IbizaAIExtension" and add a new line below with               "DisableIpMasking": true](media/ip-collection/save.png)
+    ![Screenshot adds a comma after "IbizaAIExtension" and add a new line below with "DisableIpMasking": true](media/ip-collection/save.png)
 
     > [!NOTE]
     > If you experience an error that says: _The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group._ Temporarily select a different resource group from the dropdown and then re-select your original resource group to resolve the error.
@@ -89,12 +89,12 @@ In this case nothing new is being purchased, we are just updating the config of 
 
 6. Once the deployment is complete new telemetry data will recorded with the first three octets populated with the IP and the last octet zeroed out.
 
-If you were to select and edit template again you would only see the default template and would not see your newly added property and its associated value. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set. Run the following PowerShell: (Replace `Fabrikam-dev with the appropriate resource and resource group name.)
+If you were to select and edit template again you would only see the default template and would not see your newly added property and its associated value. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set. Run the following PowerShell: (Replace `Fabrikam-dev` with the appropriate resource and resource group name.)
 
 ```powershell
 # If you aren't using the cloud shell you will need to connect to your Azure account
 # Connect-AzAccount 
-$AppInsights = Get-AzResource -Name Fabrikam-dev -ResourceType microsoft.insights/components -ResourceGroupName Fabrikam-dev
+$AppInsights = Get-AzResource -Name 'Fabrikam-dev' -ResourceType 'microsoft.insights/components' -ResourceGroupName 'Fabrikam-dev'
 $AppInsights.Properties
 ```
 
@@ -177,12 +177,12 @@ You can create your telemetry initializer the same way for ASP.NET Core as ASP.N
 
 ### View the results of your telemetry initializer
 
-If you then trigger new traffic against your site and wait approximately 2-5 minutes to insure it had time to be ingested, you can run a Kusto query to see if IP address collection is working:
+If you then trigger new traffic against your site and wait approximately 2-5 minutes to ensure it had time to be ingested, you can run a Kusto query to see if IP address collection is working:
 
 ```kusto
 requests
 | where timestamp > ago(1h) 
-| project appName, operation_Name, url,  resultCode, client_IP, customDimensions.["client-ip"]
+| project appName, operation_Name, url, resultCode, client_IP, customDimensions.["client-ip"]
 ```
 
 Newly collected IP addresses should appear in the `customDimensions_client-ip column`. The default `client-ip` column will still have all 4 octets either zeroed out or only displaying the last three octets depending on how you have configured IP address collection at the component level. If you are testing locally after implementing the telemetry initializer and the value you see for `customDimensions_client-ip` is `::1` this is expected behavior. `::1` represents the loopback address in IPv6. It is equivalent to `127.0.01` in IPv4 and is the result you will see when testing from localhost.
