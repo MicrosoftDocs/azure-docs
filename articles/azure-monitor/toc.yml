@@ -7,7 +7,6 @@
   - name: Terminology changes
     href: terminology.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Applications
     items:
@@ -96,9 +95,9 @@
       href: platform/personal-data-mgmt.md
     - name: Application data collection, retention, and storage
       href: app/data-retention-privacy.md
-  - name: Respond to incidents
+  - name: Alerts
     items:
-    - name: Alerts 
+    - name: Overview 
       href: platform/alerts-overview.md
     - name: Classic alerts 
       href: platform/alerts-classic.overview.md  
@@ -114,8 +113,6 @@
       href: platform/alerts-action-rules.md
     - name: Smart groups
       href: platform/alerts-smartgroups-overview.md 
-    - name: Autoscale
-      href: platform/autoscale-overview.md
     - name: Change analysis
       href: app/change-analysis.md 
   - name: Visualize data
@@ -957,6 +954,8 @@
     items:
     - name: Autoscale
       items:
+      - name: Overview
+        href: platform/autoscale-overview.md
       - name: Walkthrough
         href: platform/autoscale-get-started.md
       - name: Settings
