@@ -138,15 +138,13 @@ Experiment and deployment files are saved in your Azure storage container, which
 
 ### Delete deployment instance
 
-[Delete just the deployment instance](#deploy) from the Azure portal, if you want to keep the resource group and workspace for other tutorials and exploration. 
+Delete just the deployment instance from the Azure portal, if you want to keep the resource group and workspace for other tutorials and exploration. 
 
 1. Navigate to the **Assets** pane on the left and select **Deployments**. 
 
 1. Select the deployment you want to delete and select **Delete**. 
 
 1. Select **Proceed**.
-
-<a name="delete"></a>
 
 ### Delete resource group
 
