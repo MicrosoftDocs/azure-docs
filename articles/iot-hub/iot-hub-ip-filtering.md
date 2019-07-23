@@ -35,17 +35,23 @@ By default, the **IP Filter** grid in the portal for an IoT hub is empty. This d
 
 ## Add or edit an IP filter rule
 
-When you add an IP filter rule, you are prompted for the following values:
-
-* A **name** for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.
-
-* Select **Allow** or **Block** as the **action** for the IP filter rule.
-
-* Provide a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255.
+To add an IP filter rule, select **+ Add IP Filter Rule**.
 
 ![Add an IP filter rule to an IoT hub](./media/iot-hub-ip-filtering/ip-filter-add-rule.png)
 
-After you save the rule, you see an alert notifying you that the update is in progress.
+After selecting **Add IP Filter Rule**, fill in the fields as displayed in this screenshot:
+
+![After selecting Add an IP Filter rule](./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png)
+
+You are prompted for the following values:
+
+* A **name** for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.
+
+* Provide a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255.
+
+* Select **Allow** or **Block** as the **action** for the IP filter rule.
+
+After filling in the fields, select **Save** to save the rule. You see an alert notifying you that the update is in progress.
 
 ![Notification about saving an IP filter rule](./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png)
 
