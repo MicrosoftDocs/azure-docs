@@ -31,17 +31,15 @@ This article will not cover best practices for securing access to the Azure NetA
 
 2. Select the **Azure Cloud Shell** icon to open it.
 
-![A capture of the Microsoft Azure toolbar with a red arrow pointing to the Azure Cloud Shell icon to the right of the search bar.](media/42d96dccad38b43b71e915c4300aa8ca.png)
+   ![A screenshot of the Microsoft Azure toolbar with a red arrow pointing to the Azure Cloud Shell icon to the right of the search bar.](media/42d96dccad38b43b71e915c4300aa8ca.png)
 
 3. Once Azure Cloud Shell is open, select **PowerShell**.
 
-![A capture of the Azure Cloud Shell welcome page. A red arrow is pointing to the option for opening Azure Cloud Shell with PowerShell.](media/b60565d35de4bcee50820769836d1ee8.png)
+   ![A screenshot of the Azure Cloud Shell welcome page. A red arrow is pointing to the option for opening Azure Cloud Shell with PowerShell.](media/b60565d35de4bcee50820769836d1ee8.png)
 
-4. If this is your first time using Azure Cloud Shell, create a storage account in the same subscription you keep your Azure NetApp Files and Windows Virtual Desktop.
+4. If this is your first time using Azure Cloud Shell, create a storage account in the same subscription you keep your Azure NetApp Files and Windows Virtual Desktop. <!--Ask for clarification for step 4-->
 
-<!--Ask for clarification for step 4-->
-
-![The storage age with a red arrow pointing at the create storage button.](media/0058ca9f19a387c86319f51d5b4b9562.png)
+   ![The storage age with a red arrow pointing at the create storage button.](media/0058ca9f19a387c86319f51d5b4b9562.png)
 
 5. Once Azure Cloud Shell loads, run the following two commands.
 
@@ -53,11 +51,11 @@ This article will not cover best practices for securing access to the Azure NetA
    az provider register --namespace Microsoft.NetApp --wait
    ```
 
-![An image of an Azure Cloud Shell window running hte two cmdlets from step 5.](media/3be21e3963ae3ebd7ae051b3d9fa727a.png)
+   ![An image of an Azure Cloud Shell window running the two cmdlets from step 5.](media/3be21e3963ae3ebd7ae051b3d9fa727a.png)
 
 6. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
 
-![](media/6546f1ab07c5c0ef0e04b68b5f426472.png)
+   ![A screenshot of a user entering "Azure NetApp Files" into the All services search box. The search results show the Azure NetApp Files resource.](media/6546f1ab07c5c0ef0e04b68b5f426472.png)
 
 7. Select **Azure NetApp Files** in the search results, then select **Create**.
 
@@ -74,9 +72,9 @@ This article will not cover best practices for securing access to the Azure NetA
 
 10. When you're finished, select **Create** to create your NetApp account.
 
-![A capture of the New NetApp account menu showing the text boxes, drop-down menus, and Create button.](media/55dca1c987220ce419042bd1dfb88b56.png)
+   ![A screenshot of the New NetApp account menu showing the text boxes, drop-down menus, and Create button.](media/55dca1c987220ce419042bd1dfb88b56.png)
 
-![A capture of the successful deployment screen.](media/516368c855c833539e9b0ee2c8868207.png)
+   ![A screenshot of the successful deployment screen.](media/516368c855c833539e9b0ee2c8868207.png)
 
 <!--Break here, turn 10 and the first part of 11 into new instructions-->
 
@@ -84,11 +82,11 @@ This article will not cover best practices for securing access to the Azure NetA
 
 Next, create a new capacity pool by going to the Azure NetApp Files menu and selecting your new account.
 
-![A capture of the Azure NetApp Files menu with a red arrow pointing at the NetApp account name.](media/9d20bba46a64e1c78fda4e25e1ddaa3f.png)
+![A screenshot of the Azure NetApp Files menu with a red arrow pointing at the NetApp account name.](media/9d20bba46a64e1c78fda4e25e1ddaa3f.png)
 
-![A capture of the NetApp account menu with a red arrow pointing at the "Capacity pools" button.](media/65551cd022276fe801a2bf656e069e4c.png)
+![A screenshot of the NetApp account menu with a red arrow pointing at the "Capacity pools" button.](media/65551cd022276fe801a2bf656e069e4c.png)
 
-![A capture of the capacity pools menu with a red arrow pointing at the "Capacity pools" button.](media/187f244eed643633e1867c7c2e71c06e.png)
+![A screenshot of the capacity pools menu with a red arrow pointing at the "Capacity pools" button.](media/187f244eed643633e1867c7c2e71c06e.png)
 
 When the **New capacity pool** blade opens, enter the following values:
 
@@ -96,7 +94,7 @@ When the **New capacity pool** blade opens, enter the following values:
 2. For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
 3. For **Size (TiB)**, enter the capacity pool size that best fits your needs. The minimum size is 4 TiB.
 
-![A capture of the new capacity pool window that shows each drop-down menu and the OK button.](media/d5bb782f55d1e1b2ab49e22910e19a32.png)
+   ![A screenshot of the new capacity pool window that shows each drop-down menu and the OK button.](media/d5bb782f55d1e1b2ab49e22910e19a32.png)
 
 4. When you're finished, select **OK**.
 
@@ -106,7 +104,7 @@ When the **New capacity pool** blade opens, enter the following values:
 
 Next, select **Active Directory connections** in the menu on the left side of the page, then select the **Join** button to open the **Join Active Directory** page.
 
-![A capture of the Join Active Directory connections menu.](media/03f68f9f13b185c0521d694b1e9e225e.png)
+![A screenshot of the Join Active Directory connections menu.](media/03f68f9f13b185c0521d694b1e9e225e.png)
 
 Enter the following values in the **Join Active Directory** page to join a connection:
 
@@ -126,9 +124,9 @@ Enter the following values in the **Join Active Directory** page to join a conne
 
 Next, you'll need to create a new volume. Select **Volumes**, then select **Add volume**.
 
-![A capture of the capacity pools menu with a red arrow pointing to Volumes under the storage service tab.](media/39f0c687e1cf89fb2448c0470e745418.png)
+   ![A screenshot of the capacity pools menu with a red arrow pointing to Volumes under the storage service tab.](media/39f0c687e1cf89fb2448c0470e745418.png)
 
-![A capture of the volumes menu with a red arrow pointing at the add volume button.](media/3aa9d3d9cd06f12c925e7d3d3dcd9c34.png)
+   ![A screenshot of the volumes menu with a red arrow pointing at the add volume button.](media/3aa9d3d9cd06f12c925e7d3d3dcd9c34.png)
 
 When the **Create a volume** blade opens, enter the following values:
 
@@ -140,7 +138,7 @@ When the **Create a volume** blade opens, enter the following values:
 
 <!--How do you create a new subnet? Enter a name?-->
 
-![A capture of the Azure NetApp files volume creation menu. Each drop-down menu is labeled one through five based on its corresponding step in the previous section.](media/b1235bd64cfa165cabfa37a315fcb810.png)
+   ![A screenshot of the Azure NetApp files volume creation menu. Each drop-down menu is labeled one through five based on its corresponding step in the previous section.](media/b1235bd64cfa165cabfa37a315fcb810.png)
 
 6.  Select **Next: Protocol \>\>** to open the Protocol tab and configure your volume access parameters.
 
@@ -152,21 +150,21 @@ When the **Create a volume** blade opens, enter the following values:
 8.  Under Configuration in the **Active Directory** drop-down menu, select the same directory that you originally connected in the previous instructions. <!--make a link here--> Keep in mind that there's a limit of one Active Directory per subscription.
 9.  In the **Share name** text box, enter the name of the share that will be used by the session host pool and its users.
 
-![A capture of the Protocol tab. The various parameter settings are labeled one through three based on their corresponding steps.](media/e36a9f45702b4047dbc3f167f7562313.png)
+   ![A screenshot of the Protocol tab. The various parameter settings are labeled one through three based on their corresponding steps.](media/e36a9f45702b4047dbc3f167f7562313.png)
 
 <!--Where should these pictures go to make their relationship with the instructions as clear as possible?-->
 
 1.  Select **Review + create** at the bottom of the page. This will open the validation page. After your volume is validated successfully, select **Create**.
 
-![A capture of the successful validation screen in the Review + create tab. A red arrow points to the Create button at the bottom left of the screen.](media/32c86e33f19308de496233240fd3c784.png)
+   ![A screenshot of the successful validation screen in the Review + create tab. A red arrow points to the Create button at the bottom left of the screen.](media/32c86e33f19308de496233240fd3c784.png)
 
 1.  At this point, a the new volume will start to deploy. Once deployment is complete, you can use the Azure NetApp Files share.
 
-![A capture of the deployment complete screen.](media/aeeb1c1d87f00537df93756ab74d181f.png)
+   ![A screenshot of the deployment complete screen.](media/aeeb1c1d87f00537df93756ab74d181f.png)
 
 1.  To see the mount path, select **Go to resource** and look for it in the Overview tab.
 
-![A capture of the Overview screen with a red arrow pointing at the mount path.](media/3538527bfdd0d8a76b2ec3ce74f10890.png)
+   ![A screenshot of the Overview screen with a red arrow pointing at the mount path.](media/3538527bfdd0d8a76b2ec3ce74f10890.png)
 
 ### Configure FSLogix on session host VMs
 
@@ -178,7 +176,7 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 3. In the file, go to **x64** > **Releases** and run **FSLogixAppsSetup.exe**.
 
-![A capture of the Releases folder. The FSLogixAppSetup.exe file is highlighted.](media/fdb02247f8a528be7f7d63a550f8a10e.png)
+   ![A screenshot of the Releases folder. The FSLogixAppSetup.exe file is highlighted.](media/fdb02247f8a528be7f7d63a550f8a10e.png)
 
 1. When installation starts, if you have a product key, enter it into the Product Key text box. If not, leave the box blank to start a 30 day trial.
 
@@ -186,37 +184,37 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 3. Select **Install**.
 
-![A capture of the FSLogix Apps installer with the product key text box filled in. The buttons are labeled numerically based on their corresponding steps.](media/bc8bad805085ef1875a20b0d845f99a4.png)
+   ![A screenshot of the FSLogix Apps installer with the product key text box filled in. The buttons are labeled numerically based on their corresponding steps.](media/bc8bad805085ef1875a20b0d845f99a4.png)
 
 6. Navigate to **C:\\Program Files\\FSLogix\\Apps** to confirm the agent installed.
 
-![A capture of the Apps folder with the installed FSLogix files inside of it.](media/32f561f6e923afc899019cc9657732f9.png)
+   ![A screenshot of the Apps folder with the installed FSLogix files inside of it.](media/32f561f6e923afc899019cc9657732f9.png)
 
 7. From the Start menu, run **RegEdit** as an administrator.
 
-![A capture of the Start menu with the right-click drop-down menu open over the Registry Editor. The Run as administrator option is at the top of the drop-down menu.](media/d7e6314d663907e4227b1fdc0e62ec0e.png)
+   ![A screenshot of the Start menu with the right-click drop-down menu open over the Registry Editor. The Run as administrator option is at the top of the drop-down menu.](media/d7e6314d663907e4227b1fdc0e62ec0e.png)
 
 8. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
 
-![A capture of the FSLogix folder in the Registry Editor](media/07dcb4497a96f1b8c111a88071ecf34d.png)
+   ![A screenshot of the FSLogix folder in the Registry Editor](media/07dcb4497a96f1b8c111a88071ecf34d.png)
 
 9. Create a key named **Profiles**.
 
-![The user right-clicks the FSLogix folder in the Registry Editor file directory, then selects New in the drop-down menu, and then selects Key.](media/56af5129fe452d55356d6c1817c29f07.png)
+   ![The user right-clicks the FSLogix folder in the Registry Editor file directory, then selects New in the drop-down menu, and then selects Key.](media/56af5129fe452d55356d6c1817c29f07.png)
 
-1.  Create a value named **Enabled** with a **REG_DWORD** type set to a data value of **1**.
+10.  Create a value named **Enabled** with a **REG_DWORD** type set to a data value of **1**.
 
-![A capture of the Profiles folder with the (Default) and Enabled values inside of it. The Enabled value is selected.](media/bf055352db16c62a97abf335c45861ee.png)
+![A screenshot of the Profiles folder with the (Default) and Enabled values inside of it. The Enabled value is selected.](media/bf055352db16c62a97abf335c45861ee.png)
 
 11. Create a value named **VHDLocations** with a **Multi-String** type and set its data value to the URI for the Azure Files share (\\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-Vol).
 
-![A capture of the Profiles folder with the VHDLocations value inside of it. The VHDLocations value is selected.](media/a420934cc18803242679cb8de863d767.png)
+   ![A screenshot of the Profiles folder with the VHDLocations value inside of it. The VHDLocations value is selected.](media/a420934cc18803242679cb8de863d767.png)
 
 ### Assign users to session host
 
 1. Open **PowerShell ISE** and sign in to Windows Virtual Desktop.
 
-![A capture of the Start menu with the right-click drop-down menu open over the ISE PowerShell app. The user has selected the Run as administrator option at the top of the drop-down menu.](media/d553c0b391cee5a1b99c6a2bd415915e.png)
+   ![A screenshot of the Start menu with the right-click drop-down menu open over the ISE PowerShell app. The user has selected the Run as administrator option at the top of the drop-down menu.](media/d553c0b391cee5a1b99c6a2bd415915e.png)
 
 1. Run the following cmdlets:
 
@@ -247,7 +245,7 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 3. Sign in with the credentials of a user assigned to the Remote Desktop group.
 
-![A capture of the Windows Virtual Desktop dashboard displaying the icon for an example Remote Desktop group.](media/3bc26bb1d5ec0888ec613afd92eafeb9.png)
+   ![A screenshot of the Windows Virtual Desktop dashboard displaying the icon for an example Remote Desktop group.](media/3bc26bb1d5ec0888ec613afd92eafeb9.png)
 
 1. Once you've established the user session, sign in to the Azure portal with an administrative account.
 
@@ -255,21 +253,21 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 <!--The corresponding volume for your user session?-->
 
-![A capture of the NetApp account you set up earlier in the Azure portal with the Volumes button selected.](media/225c51fda15dbbd937616e1f1c302b1e.png)
+   ![A screenshot of the NetApp account you set up earlier in the Azure portal with the Volumes button selected.](media/225c51fda15dbbd937616e1f1c302b1e.png)
 
-![A capture of the Volumes screen in the Azure portal. A red arrow is pointing to the volume you created.](media/85f68f2d847e5238700214d5f33c976a.png)
+   ![A screenshot of the Volumes screen in the Azure portal. A red arrow is pointing to the volume you created.](media/85f68f2d847e5238700214d5f33c976a.png)
 
 6. Confirm that the FSLogix profile container is taking up space in the chart under Usage.
 
-![A capture of the resource group's overview page. A red arrow is pointing to the current volume logical size indicator under usage, which says that the volume is using 0.3% of 268.79 MIB of space.](media/3a10923cb3b8ae93381c88daf1965a0f.png)
+   ![A screenshot of the resource group's overview page. A red arrow is pointing to the current volume logical size indicator under usage, which says that the volume is using 0.3% of 268.79 MIB of space.](media/3a10923cb3b8ae93381c88daf1965a0f.png)
 
-1. RDP directly to any VM part of the host pool and open the **File Explorer.** Then navigate to the **Mount path**
-(\\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-VOL).
+7. RDP directly to any VM part of the host pool and open the **File Explorer.** Then navigate to the **Mount path**
+(in the following example, the mount path is \\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-VOL).
 
-Inside that path there will be a **Folder** named `<user SID>-<username>`.
+   Inside that path there will be a **Folder** named `<user SID>-<username>`.
 
-![A capture of the folder in the mount path.](media/9b7470e05e517e9bd60c8d6e4d0b08d0.png)
+   ![A screenshot of the folder in the mount path.](media/9b7470e05e517e9bd60c8d6e4d0b08d0.png)
 
-Under the folder there will be a profile vhd.
+   Under the folder there should be a profile VHD like the one in the following example.
 
-![A capture of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/a2462ee25312ddfd310b625673360c4e.png)
+   ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/a2462ee25312ddfd310b625673360c4e.png)
