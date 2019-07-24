@@ -1,7 +1,7 @@
 ---
 title: Back up SQL Server workloads on Azure Stack
 description: Use Azure Backup Server to protect SQL Server workload on Azure Stack.
-services: backup
+
 author: adigan
 manager: shivamg
 ms.service: backup
