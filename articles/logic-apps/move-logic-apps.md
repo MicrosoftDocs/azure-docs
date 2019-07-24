@@ -27,7 +27,7 @@ When you move resources, Azure creates new resource IDs, so make sure that you u
 
 ## Move logic apps between subscriptions
 
-You can move your logic app to a different Azure subscription by using the Azure portal, For general preparation and other steps for moving Azure resources to other subscriptions, see [Move resources to a new resource group or subscription](../azure-resource/manager/resource-group-move-resources.md).
+You can move your logic app to a different Azure subscription by using the Azure portal, For general preparation and other steps for moving Azure resources to other subscriptions, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
 ### Move logic apps between subscriptions by using the Azure portal
 
@@ -47,7 +47,7 @@ You can move your logic app to a different Azure subscription by using the Azure
 
 ## Move logic apps between resource groups
 
-You can test moving your logic apps to another resource group before actually moving those resources. For more information, see [Validate your move](../azure-resource-manager/resource-group-move-resources.md#validate-move). For general preparation and other steps for moving Azure resources to other resource groups, see [Move resources to a new resource group or subscription](../azure-resource/manager/resource-group-move-resources.md).
+You can test moving your logic apps to another resource group before actually moving those resources. For more information, see [Validate your move](../azure-resource-manager/resource-group-move-resources.md#validate-move). For general preparation and other steps for moving Azure resources to other resource groups, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
 ### Move logic apps between resource groups by using the Azure portal
 
@@ -77,7 +77,7 @@ For more information about these tasks, see these topics:
 
 * [Create Azure Resource Manager templates for Azure Logic Apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
 
-* [Deploy Azure Resource Manager templates for Azure Logic Apps](../logic-apps-deploy-azure-resource-manager-templates.md)
+* [Deploy Azure Resource Manager templates for Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 
 ## Next steps
 
