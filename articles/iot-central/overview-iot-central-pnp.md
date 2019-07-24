@@ -42,6 +42,22 @@ This article outlines, for Azure IoT Central:
 - How to connect your devices to your application
 - How to manage your application.
 
+## Known issues
+
+> [!Note]
+> These known issues only apply to the IoT Central Preview application. 
+
+-	Rules will not support all actions (only email).
+-	Rules will not support complex types.
+-	CDE will not support Avro format (incompatibility).
+-	Simulated devices will not support all complex types.
+-	GeoJSON is not currently supported.
+-	Map tile is not currently supported.
+-	Jobs will not support complex types.
+-	Array schema types are not supported.
+-	App template export and App Copy are not supported.
+
+
 ## Personas
 
 The Azure IoT Central documentation refers to four personas who interact with an Azure IoT Central application:
