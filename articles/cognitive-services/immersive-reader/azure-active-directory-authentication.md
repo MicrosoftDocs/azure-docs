@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory (AAD) authentication"
+title: "Azure Active Directory (Azure AD) authentication"
 titleSuffix: Azure Cognitive Services
 description: Reference for the Immersive Reader SDK
 services: cognitive-services
@@ -13,13 +13,13 @@ ms.date: 07/22/2019
 ms.author: rwaller
 ---
 
-# Use Azure Active Directory (AAD) authentication with the Immersive Reader service
+# Use Azure Active Directory (Azure AD) authentication with the Immersive Reader service
 
-In the following sections, you will use either the Azure Cloud Shell environment or the Azure CLI to create a new Immersive Reader resource with a custom subdomain and then configure AAD in your Azure tenant. After completing that initial configuration, you will call AAD to obtain an access token, similar to how it will be done when using the Immersive Reader SDK. If you get stuck, links are provided in each section with all the available options for each of the Azure CLI commands.
+In the following sections, you will use either the Azure Cloud Shell environment or the Azure CLI to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant. After completing that initial configuration, you will call Azure AD to obtain an access token, similar to how it will be done when using the Immersive Reader SDK. If you get stuck, links are provided in each section with all the available options for each of the Azure CLI commands.
 
 ## Create an Immersive Reader resource with a custom subdomain
 
-1. Start by opening the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview). Then [select a subscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
+1. Start by opening the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Then [select a subscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
 
    ```azurecli-interactive
    Select-AzSubscription -SubscriptionName <YOUR_SUBSCRIPTION>
@@ -52,7 +52,7 @@ In the following sections, you will use either the Azure Cloud Shell environment
    >[!NOTE]
    > If you create a resource in the Azure portal, the resource 'Name' is used as the custom subdomain. You can check the subdomain name in the portal by going to the resource Overview page and finding the subdomain in the Endpoint listed there, for example, `https://[SUBDOMAIN].cognitiveservices.azure.com/`. You can also check here later when you need to get the subdomain for integrating with the SDK.
 
-   If the resource was created in the portal, you can also [get an existing resource](https://docs.microsoft.com/en-us/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccount?view=azps-1.8.0) now.
+   If the resource was created in the portal, you can also [get an existing resource](https://docs.microsoft.com/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccount?view=azps-1.8.0) now.
 
    ```azurecli-interactive
    $resource = Get-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <RESOURCE_NAME>
@@ -65,7 +65,7 @@ In the following sections, you will use either the Azure Cloud Shell environment
 
 Now that you have a custom subdomain associated with your resource, you need to assign a role to a service principal.
 
-1. First, let's [create an AAD application](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
+1. First, let's [create an Azure AD application](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
 
    >[!NOTE]
    > The Password, also known as the 'client secret', will be used when obtaining authentication tokens.
@@ -75,13 +75,13 @@ Now that you have a custom subdomain associated with your resource, you need to 
    $secureStringPassword = ConvertTo-SecureString -String $password -AsPlainText -Force
    $aadApp = New-AzADApplication -DisplayName ImmersiveReaderAAD -IdentifierUris http://ImmersiveReaderAAD -Password $secureStringPassword
 
-   // Display the AAD app info
+   // Display the Azure AD app info
    $aadApp
    ```
 
-   Here we are capturing the newly created AAD app object into an **$aadApp** variable for use in the next step.   
+   Here we are capturing the newly created Azure AD app object into an **$aadApp** variable for use in the next step.   
 
-2. Next, you need to [create a service principal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) for the AAD application.
+2. Next, you need to [create a service principal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) for the Azure AD application.
 
    ```azurecli-interactive
    $principal = New-AzADServicePrincipal -ApplicationId $aadApp.ApplicationId
@@ -100,12 +100,12 @@ Now that you have a custom subdomain associated with your resource, you need to 
    ```
 
    >[!NOTE]
-   > This step needs to be performed for each Immersive Reader resource you create. For example, if you create multiple resources for different global regions, then you will need to perform this step for each of those regional resources so that the AAD authentication works for all of them. Or, if you create a new resource at a later point in time, you will need to perform this role assignment step for that new resource as well.
+   > This step needs to be performed for each Immersive Reader resource you create. For example, if you create multiple resources for different global regions, then you will need to perform this step for each of those regional resources so that the Azure AD authentication works for all of them. Or, if you create a new resource at a later point in time, you will need to perform this role assignment step for that new resource as well.
 
 
-## Obtain an AAD token
+## Obtain an Azure AD token
 
-In this example, your password is used to authenticate the service principal to obtain an AAD token.
+In this example, your password is used to authenticate the service principal to obtain an Azure AD token.
 
 1. Get your **TenantId**:
    ```azurecli-interactive
@@ -126,4 +126,9 @@ In this example, your password is used to authenticate the service principal to 
    >[!NOTE]
    > The Immersive Reader SDK uses the AccessToken property of the token, e.g. $token.AccessToken. See the SDK [reference](reference.md) and code [samples](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples) for details.
 
-Alternatively, the service principal can be authenticated with a certificate. Besides service principal, user principal is also supported by having permissions delegated through another AAD application. In this case, instead of passwords or certificates, users would be prompted for two-factor authentication when acquiring token.
+Alternatively, the service principal can be authenticated with a certificate. Besides service principal, user principal is also supported by having permissions delegated through another Azure AD application. In this case, instead of passwords or certificates, users would be prompted for two-factor authentication when acquiring token.
+
+## Next steps
+
+* View the [tutorial](./tutorial.md) to see what else you can do with the Immersive Reader SDK
+* Explore the [Immersive Reader SDK](https://github.com/Microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)

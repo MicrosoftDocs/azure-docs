@@ -15,8 +15,8 @@
     href: tutorial.md
 - name: How-To
   items:
-  - name: Azure Active Directory (AAD) authentication
-    href: aadauth.md
+  - name: Azure Active Directory authentication
+    href: azure-active-directory-authentication.md
 - name: Reference
   items:
   - name: SDK Reference

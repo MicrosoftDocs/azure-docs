@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* An Immersive Reader resource configured for Azure Active Directory (AAD) authentication. Follow [these instructions](./aadauth.md) to get set up. You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Azure Active Directory (Azure AD) authentication. Follow [these instructions](./azure-active-directory-authentication.md) to get set up. You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
 * [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com)
 * An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -52,16 +52,16 @@ yarn add request
 yarn add dotenv
 ```
 
-## Acquire an AAD authentication token
+## Acquire an Azure AD authentication token
 
-Next, write a backend API to retrieve an AAD authentication token.
+Next, write a backend API to retrieve an Azure AD authentication token.
 
-You need some values from the AAD auth configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
+You need some values from the Azure AD auth configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
 
 ````text
 TenantId     => Azure subscription TenantId
-ClientId     => AAD ApplicationId
-ClientSecret => AAD Application Service Principal password
+ClientId     => Azure AD ApplicationId
+ClientSecret => Azure AD Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
@@ -88,7 +88,7 @@ Open the _routes\index.js_ file and the following import at the top of the file:
 var request = require('request');
 ```
 
-Next, add the following code directly below that line. This code creates an API endpoint that acquires an AAD authentication token using your service principal password, and then returns that token. There is also a second endpoint for retrieving the subdomain.
+Next, add the following code directly below that line. This code creates an API endpoint that acquires an Azure AD authentication token using your service principal password, and then returns that token. There is also a second endpoint for retrieving the subdomain.
 
 ```javascript
 router.get('/getimmersivereadertoken', function(req, res) {

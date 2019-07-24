@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads)
-* An Immersive Reader resource configured for Azure Active Directory (AAD) authentication. Follow [these instructions](./aadauth.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Azure Active Directory (Azure AD) authentication. Follow [these instructions](./azure-active-directory-authentication.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
 
 ## Create a web app project
 
@@ -35,14 +35,14 @@ Create a new project in Visual Studio, using the ASP.NET Core Web Application te
 
 ![New ASP.NET Core Web Application](./media/vsmvc.png)
 
-## Acquire an AAD authentication token
+## Acquire an Azure AD authentication token
 
-You need some values from the AAD authentication configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
+You need some values from the Azure AD authentication configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
 
 ````text
 TenantId     => Azure subscription TenantId
-ClientId     => AAD ApplicationId
-ClientSecret => AAD Application Service Principal password
+ClientId     => Azure AD ApplicationId
+ClientSecret => Azure AD Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
@@ -70,8 +70,8 @@ namespace QuickstartSampleWebApp.Controllers
     public class HomeController : Controller
     {
         private readonly string TenantId;     // Azure subscription TenantId
-        private readonly string ClientId;     // AAD ApplicationId
-        private readonly string ClientSecret; // AAD Application Service Principal password
+        private readonly string ClientId;     // Azure AD ApplicationId
+        private readonly string ClientSecret; // Azure AD Application Service Principal password
         private readonly string Subdomain;    // Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 
         public HomeController(Microsoft.Extensions.Configuration.IConfiguration configuration)
@@ -120,7 +120,7 @@ namespace QuickstartSampleWebApp.Controllers
         }
 
         /// <summary>
-        /// Get an AAD authentication token
+        /// Get an Azure AD authentication token
         /// </summary>
         private async Task<string> GetTokenAsync()
         {
