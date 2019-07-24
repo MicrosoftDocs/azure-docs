@@ -65,8 +65,8 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
      For more information, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-<!-- Need to determine where to find this file online -->
-You also need a local copy of the **EnvironmentalSensor.json** file that contains the device capability model. You can download it from here.
+<!-- Replace this before public preview -->
+You also need a local copy of the **EnvironmentalSensor.json** file that contains the device capability model. You can download it from [here](https://raw.githubusercontent.com/Azure/azure-iot-sdk-c-pnp/public-preview-utopia/digitaltwin_client/samples/digitaltwin_sample_environmental_sensor/EnvironmentalSensor.interface.json?token=AALDENAWJOWF3JSZ2HTNLUC5IFF4S).
 
 ## Create a template
 
@@ -78,7 +78,7 @@ To add a new device template to your application, go to the **Device Templates**
 
 ### Add a device capability model
 
-There are several options for authoring a device capability model inside of IoT Central. You can choose to create your model from scratch (custom), import from a file, select from the device catalog, or connect an IoT Plug and Play device through a device-first connection where the device capability model has been published in the global repository. In this tutorial, we will focus on importing a device capability model from a file.
+There are several options for authoring a device capability model in IoT Central. You can choose to create a custom model from scratch, import from a file, select from the device catalog, or connect an IoT Plug and Play device through a device-first connection where the device capability model has been published in the global repository. In this tutorial, you import a device capability model from a file.
 
 The following steps show you how to import the capability model for an **Environmental Sensor** device. These devices send telemetry, such as temperature, to your application:
 
@@ -111,7 +111,7 @@ A device template can include cloud properties. Cloud properties only exist in t
 
 ### Add customizations
 
-Use customizations when you need to modify an interface or add IoT Central-specific features to a capability that do not require you to version your device capability model. You can customize fields when the capability model is in a draft or published state. You can only customize fields that don't break interface compatibility. For example, you can:
+Use customizations when you need to modify an interface or add IoT Central-specific features to a capability that doesn't require you to version your device capability model. You can customize fields when the capability model is in a draft or published state. You can only customize fields that don't break interface compatibility. For example, you can:
 
 - Customize the display name and units of a capability.
 - Add a default color to use when the value appears on a chart.
@@ -131,13 +131,13 @@ As a builder, you can customize the application to display relevant information 
 
 A device dashboard lets an operator visualize a device using charts and metrics. As a builder, you can define what information displays on a device dashboard. You can define multiple dashboards for devices. To create a dashboard to visualize the environmental sensor telemetry, select **Views** and then **Visualizing the Device**:
 
-1. All of the device properties, cloud properties, telemetry, and static options will be listed in the right-hand panel. You can drag and drop any of these items out into the view. Drag out a property to the view. You can configure the tile using the gear icon.
+1. All of the device properties, cloud properties, telemetry, and static options are listed in the right-hand panel. You can drag and drop any of these items out into the view. Drag out a property to the view. You can configure the tile using the gear icon.
 
 1. To add a chart that plots telemetry, select **Humidity** and **Temperature**, and then select **Combine**. To view this chart in any different format, such as a pie chart or bar chart, select the **Change Visualization** button at the top of the tile.
 
 1. Select **Save** to save your view:
 
-You can add more tiles that show other properties or telemetry values. You can also add static text, links, and images. To move or resize a tile on the dashboard, move the mouse pointer over the tile. You can drag the tile to a new location or resize it.
+You can add more tiles that show other properties or telemetry values. You can also add static text, links, and images. To move or resize a tile on the dashboard, move the mouse pointer over the tile and drag the tile to a new location or resize it.
 
 ### Add a device form
 
@@ -172,7 +172,7 @@ To publish a device template:
 
     ![Published model](media/tutorial-define-device-type-pnp/publishedmodel.png)
 
-Once a device template is published it becomes visible under the **Devices** page and to the operator. In a published device template you are not able to edit a device capability model without creating a new version. However, you can continue to make updates to Cloud Properties, Customizations, and Views, to a published device template without versioning. After making any changes, you can click **Publish** again to push those changes out to your operator. 
+After a device template is published, it's visible on the **Devices** page and to the operator. In a published device template, you can't edit a device capability model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template without versioning. After making any changes, select **Publish**  to push those changes out to your operator.
 
 ## Next steps
 
