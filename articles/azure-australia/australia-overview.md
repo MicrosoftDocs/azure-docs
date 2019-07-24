@@ -1,5 +1,5 @@
 ---
-title: What is Azure Australia | Microsoft Docs
+title: What is Azure Australia? | Microsoft Docs
 description: Guidance on configuring Azure within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: Galey801
 ms.service: azure-australia
@@ -10,11 +10,11 @@ ms.author: grgale
 
 # What is Azure Australia?
 
-In 2014, Azure was launched in Australia, with two regions; Australia East (Sydney) and Australia Southeast (Melbourne). In April 2018 we two new Azure Regions located in Canberra – Australia Central and Australia Central 2 launched. The Australia Central and Australia Central 2 regions are purposely designed to meet the needs of government and critical national infrastructure, and offer specialised connectivity and flexibility so you can locate your systems beside the cloud, with levels of security and resilience only expected of Secret-classified networks. Azure Australia is a platform for the digital transformation of government and critical national infrastructure – and the only mission-critical cloud available in Australia designed specifically for those needs.
+In 2014, Azure was launched in Australia, with two regions; Australia East (Sydney) and Australia Southeast (Melbourne). In April 2018, two new Azure Regions located in Canberra – Australia Central and Australia Central 2, were launched. The Australia Central and Australia Central 2 regions are purposely designed to meet the needs of government and critical national infrastructure, and offer specialised connectivity and flexibility so you can locate your systems beside the cloud, with levels of security and resilience only expected of Secret-classified networks. Azure Australia is a platform for the digital transformation of government and critical national infrastructure – and the only mission-critical cloud available in Australia designed specifically for those needs.
 
 There are specific Australian Government requirements for connecting to, consuming, and operating within [Microsoft Azure Australia](https://azure.microsoft.com/global-infrastructure/australia/) for Australian Government data and systems. The resources on this page also provide general guidance applicable to all customers with a specific focus on secure configuration and operation.
 
-Refer to the Australia page of the [Microsoft Service Trust Portal](https://aka.ms/au-irap) for current information on the Azure Australia Information Security Registered Assessor (IRAP) Assessments, certification and inclusion on the Certified Cloud Services List (CCSL). On the Australia page you will also find other Microsoft advice specific to Government and Critical Infrastructure providers.
+Refer to the Australia page of the [Microsoft Service Trust Portal](https://aka.ms/au-irap) for current information on the Azure Australia Information Security Registered Assessor (IRAP) Assessments, certification and inclusion on the Certified Cloud Services List (CCSL). On the Australia page, you will also find other Microsoft advice specific to Government and Critical Infrastructure providers.
 
 ## Principles for securing customer data in Azure Australia
 
@@ -32,17 +32,17 @@ There are two categories of documentation provided for Australian Government age
 
 ## Security in Azure Australia
 
-Identity, role-based access control, data protection through encryption and rights management, and effective monitoring and configuration control are key elements that you need to implement. In this section there are a series of articles explaining the built-in capabilities of Azure and how they relate to the ISM and ASD Essential 8.
+Identity, role-based access control, data protection through encryption and rights management, and effective monitoring and configuration control are key elements that you need to implement. In this section, there are a series of articles explaining the built-in capabilities of Azure and how they relate to the ISM and ASD Essential 8.
 
-These articles can be accessed through the menu under Concepts -> Security in Azure Australia.
+These articles can be accessed through the menu under *Concepts -> Security in Azure Australia*.
 
 ## Gateways in Azure Australia
 
-Another key step for Government agencies is the establishment of perimeter security capabilities. These capabilities are generally called Secure Internet Gateways (SIG) and when using Azure it is your responsibility to ensure these protections are in place. Microsoft does not operate a SIG; however, with the combination of our Edge services that protect all customers, and specific services deployed within your Azure environment you can operate an equivalent capability.
+Another key step for Government agencies is the establishment of perimeter security capabilities. These capabilities are called Secure Internet Gateways (SIG) and when using Azure it is your responsibility to ensure these protections are in place. Microsoft does not operate a SIG; however, by combining our edge networking services that protect all customers, and specific services deployed within your Azure environment you can operate an equivalent capability.
 
-These articles can be accessed through the menu under Concepts -> Gateways in Azure Australia.
+These articles can be accessed through the menu under *Concepts -> Gateways in Azure Australia*.
 
 ## Next Steps
 
 * If your key focus is securing your data in Azure, start with [Data Security](secure-your-data.md)
-* If your key focus is building a Gateway in Azure, start with [Gateway auditing, logging and visibility](gateway-log-audit-visibility.md).
+* If your key focus is building a Gateway in Azure, start with [Gateway auditing, logging, and visibility](gateway-log-audit-visibility.md).

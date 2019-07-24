@@ -1,6 +1,6 @@
 ---
 title: Azure Australia security explained
-description: Security areas most often asked about by Australian Government agencies, and other organisations that have adopted the ISM as their security controls framework, relating to the Australian regions and meeting the specific requirements of Australian Government policy, regulations, and legislation.
+description: Information most asked about the Australian regions and meeting the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
 ms.topic: conceptual
@@ -10,15 +10,15 @@ ms.author: grgale
 
 # Azure Australia Security Explained
 
-This article addresses some of the common questions and areas of interest for Australian Government agencies investigating, designing and deploying to Microsoft Azure Australia.
+This article addresses some of the common questions and areas of interest for Australian Government agencies investigating, designing, and deploying to Microsoft Azure Australia.
 
 ## IRAP and Certified Cloud Services List (CCSL) documents
 
 The Australian Cyber Security Centre (ACSC) provides a Letter of Certification, a Certification Report, and a Consumer Guide for the service when it is added to the CCSL.
 
-Microsoft is currently listed on the CCSL for Azure, Office 365 and Dynamics 365 CRM.
+Microsoft is currently listed on the CCSL for Azure, Office 365, and Dynamics 365 CRM.
 
-Microsoft makes our audit, assessment, and the ACSC certification-related material available to customers and partners on an Australia-specific page of the [Microsoft Service Trust Portal](https://aka.ms/au-irap).
+Microsoft makes our audit, assessment, and ACSC certification documents available to customers and partners on an Australia-specific page of the [Microsoft Service Trust Portal](https://aka.ms/au-irap).
 
 ## Dissemination Limiting Markers (DLM) and PROTECTED certification
 
@@ -32,13 +32,13 @@ There are two steps to the approval process:
 
 The assessment of Azure services at the PROTECTED level identifies that the implementation of the security controls required for the storage and processing of PROTECTED and below data have been confirmed to be in place and are operating effectively.
 
-## PSPF data classification changes
+## Australian data classification changes
 
 On October 1, 2018 the Attorney General’s Department publicly announced changes to the Protective Security Policy Framework (PSPF), specifically a new [Sensitive and Classified Information system](https://www.protectivesecurity.gov.au/information/sensitive-classified-information/Pages/default.aspx).
 
 ![Revised PSPF Classifications](media/pspf-classifications.png)
 
-All Australian agencies and organisations that operate under the PSPF are impacted by these the changes. The primary change that impacts our current IRAP/CCSL certifications is the current Dissemination Limiting Markings (DLM) have been retired. The marking **OFFICIAL: Sensitive** replaces the various DLMs used for the protection of sensitive information. The change also introduced three information management markers that can be applied to all Official information at all levels of sensitivity and classification. The **PROTECTED** classification remains unchanged.
+All Australian agencies and organisations that operate under the PSPF are impacted by these changes. The primary change that impacts our current IRAP/CCSL certifications is the current Dissemination Limiting Markings (DLM) have been retired. The marking **OFFICIAL: Sensitive** replaces the various DLMs used for the protection of sensitive information. The change also introduced three information management markers that can be applied to all Official information at all levels of sensitivity and classification. The **PROTECTED** classification remains unchanged.
 
 The term Unclassified is removed from the new system and the term Unofficial is applied to non-Government information although it does not require a formal marking.
 
@@ -75,15 +75,15 @@ The Microsoft certifications demonstrate that Azure services have been subjected
 
 ## Location and control of Microsoft data centres
 
-It is a mandatory requirement of government and critical infrastructure to explicitly know the data centre location and ownership for cloud services processing their data.  Microsoft is unique as a hyperscale cloud provider in providing extensive transparency into location and ownership.
+It is a mandatory requirement of government and critical infrastructure to explicitly know the data centre location and ownership for cloud services processing their data.  Microsoft is unique as a hyperscale cloud provider in providing extensive information about these locations and ownership.
 
-Microsoft’s Azure Government Australia regions (Australia Central and Australia Central 2) are operated within the facilities of CDC Datacentres.  The ownership of CDC Datacentres is Australian controlled with 48% ownership from the Commonwealth Superannuation Corporation, 48% ownership from Infratil (a NZ based, dual Australian, and New Zealand Stock Exchange listed long-term infrastructure asset fund) and 4% Australian management.  
+Microsoft’s Azure Australia regions (Australia Central and Australia Central 2) are operated within the facilities of CDC Datacentres.  The ownership of CDC Datacentres is Australian controlled with 48% ownership from the Commonwealth Superannuation Corporation, 48% ownership from Infratil (a NZ based, dual Australian, and New Zealand Stock Exchange listed long-term infrastructure asset fund), and 4% Australian management.  
 
-The management of CDC Datacentres has contractual assurances in place with the Australian government restricting future transfer of ownership and control. This transparency of supply chain and ownership via Microsoft’s partnership with CDC Data Centres, is in line with the principles of the newly published [Whole of Government Hosting Strategy](https://www.dta.gov.au/our-projects/whole-government-hosting-strategy) and the definition of a **Certified Sovereign Datacentre**.
+The management of CDC Datacentres has contractual assurances in place with the Australian government restricting future transfer of ownership and control. This transparency of supply chain and ownership via Microsoft’s partnership with CDC Datacentres, is in line with the principles of the [Whole of Government Hosting Strategy](https://www.dta.gov.au/our-projects/whole-government-hosting-strategy) and the definition of a **Certified Sovereign Datacentre**.
 
 ## The Azure services that are included in the current CCSL certification
 
-In June 2017 the ACSC certified 40 Azure services for the storage and processing of data at the **Unclassified: DLM** level. In April 2018, 24 of those services were certified for **PROTECTED** classified data. Microsoft is the only public hyperscale cloud available in Australia that has achieved this level of certification for inclusion on the Certified Cloud Services List (CCSL) at the **PROTECTED** classification.
+In June 2017, the ACSC certified 41 Azure services for the storage and processing of data at the **Unclassified: DLM** level. In April 2018, 24 of those services were certified for **PROTECTED** classified data.
 
 The availability of ACSC certified Azure services across our Azure regions in Australia are as follows (those in bold are certified at **PROTECTED**):
 
@@ -96,19 +96,19 @@ Microsoft publishes [Overview of Microsoft Azure Compliance](https://gallery.tec
 
 ## Azure service not listed or assessed at a lower level than I need
 
-Services that are not certified, or that have been certified at **OFFICIAL: Sensitive** but not **PROTECTED**, can be used alongside or as part of a solution hosting **PROTECTED** data provided the services are either not storing or processing **PROTECTED** data unencrypted or the agency has completed a risk assessment and certified and accredited the service to store **PROTECTED** data themselves.
+Services that are not certified, or that have been certified at **OFFICIAL: Sensitive** but not **PROTECTED**, can be used alongside or as part of a solution hosting **PROTECTED** data provided the services are either:
+1. not storing or processing **PROTECTED** data unencrypted, or
+1. you have completed a risk assessment and approved the service to store **PROTECTED** data yourself.
 
-If a Commonwealth agency wants to use a service that is not included on the CCSL to store and process **OFFICIAL** data, they are able to, but they must notify the ACSC in writing that they are doing so, before entering into or renewing a contract with a cloud service provider.
+If you want to use a service that is not included on the CCSL to store and process **OFFICIAL** data, you can, but the ISM requires you to notify the ACSC in writing that you doing so, before entering into or renewing a contract with a cloud service provider.
 
-Any service being used by an agency for **PROTECTED** workloads still needs to be accredited in line with the certification and accreditation processes outlined in the ISM. In the case of a service that does not appear on the CCSL, the agency consuming the service will need to undertake both the certification and accreditation processes for that service.
-
-Services are being continually assessed by Microsoft to increase their levels of certification, so reach out to Microsoft if you require assistance with a service that is not currently listed under the **PROTECTED** certification.
-
-If a service an agency wants to use has not currently been IRAP assessed or certified by the Australian Cyber Security Centre (ACSC), they can still use it. To do this they go through the Agency-managed IRAP Assessments process defined in the [DTA Secure Cloud Strategy](https://www.dta.gov.au/files/cloud-strategy/secure-cloud-strategy.pdf). Once assessed, the agency certifies the service and after completing their own risk assessment accredits the service for use by that agency. The outcomes of that process can be shared with other agencies to conduct their own risk process.
+Any service being used by an agency for **PROTECTED** workloads still needs to be security assessed and approved in line with the processes outlined in the ISM and the Agency-managed IRAP Assessments process in the [DTA Secure Cloud Strategy](https://www.dta.gov.au/files/cloud-strategy/secure-cloud-strategy.pdf).
 
 ![DTA Secure Cloud Strategy Certification Process](media/certification.png)
 
-Since Microsoft has a range of services certified on the CCSL at both the **OFFICIAL: Sensitive** and **PROTECTED** classifications the ACSC requires that we undertake an annual IRAP assessment and recertification of our services. That annual assessment is also the opportunity to include additional services for certification consideration.
+Microsoft continually assesses our services to ensure the platform is secure and fit-for-purpose for Australian Government use, so reach out to Microsoft if you require assistance with a service that is not currently on the CCSL at **PROTECTED**.
+
+Since Microsoft has a range of services certified on the CCSL at both the **Unclassified DLM** and **PROTECTED** classifications, the ISM requires that we undertake an IRAP assessment of our services at least every two years. Microsoft undertakes an annual assessment, which is also the opportunity to include additional services for consideration.
 
 ## Certified PROTECTED gateway in Azure
 
@@ -122,7 +122,7 @@ Microsoft has produced guidance on implementing Azure-based capabilities that pr
 
 Microsoft operates our services globally with screened and trained security personnel.  Personnel that have unescorted physical access to facilities in Sydney and Melbourne have Australian government Baseline security clearances. Personnel within the Australia Central and Australia Central 2 regions have minimum Negative Vetting 1 (NV1) clearances (as appropriate for **SECRET** data). This provides additional assurance to customers that personnel within data centres operating Azure are highly trustworthy.
 
-Microsoft has a zero standing access policy with access granted through a system of Just-In-Time and Just-Enough-Administration based on Role-Based Access Controls. In the vast majority of cases, our administrators neither access nor require the privileges to access customer data in order to troubleshoot and maintain the service.  High degrees of automation and scripting of tasks for remote execution negate the need for direct access to customer data.
+Microsoft has a zero standing access policy with access granted through a system of Just-In-Time and Just-Enough-Administration based on Role-Based Access Controls. In the vast majority of cases, our administrators don't require access or privileges to customer data in order to troubleshoot and maintain the service.  High degrees of automation and scripting of tasks for remote execution negate the need for direct access to customer data.
 
 The Attorney-General’s Department has confirmed that Microsoft’s personnel security policies and procedures within Azure are consistent with the intent of the PSPF Access to Information provisions in INFOSEC-9.
 
