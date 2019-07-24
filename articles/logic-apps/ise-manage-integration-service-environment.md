@@ -1,6 +1,6 @@
 ---
 title: Manage integration service environments in Azure Logic Apps
-description: Find and manage connections, logic apps, and integration accounts in your integration service environment (ISE) for Azure Logic Apps
+description: Find and manage logic apps, connections, custom connectors, and integration accounts in your integration service environment (ISE) for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -13,7 +13,7 @@ ms.date: 07/24/2019
 
 # Manage your integration service environment (ISE) in Azure Logic Apps
 
-Periodically, you might want to review and manage the connections, logic apps, and integration accounts that exist in your [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). This article shows how you can complete these tasks.
+From time to time, you might want to review and manage the logic apps, connections, integration accounts, and custom connectors that exist in your [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). This article shows how you can complete these tasks.
 
 ## Find your ISE
 
