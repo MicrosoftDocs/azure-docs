@@ -78,8 +78,8 @@ The following table provides links to resources for each type of security soluti
 |  | Use [Azure Monitor logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |
 | Operating system security | Create clusters with most recent secure base image | Customer |
 |  | Ensure [OS Patching](../hdinsight-os-patching.md) on regular intervals | Customer |
-| Network security | Configure a [virtual network](../hdinsight-extend-hadoop-virtual-network.md) |
-|  | Configure [Inbound network security group (NSG) rules](../hdinsight-extend-hadoop-virtual-network.md#networktraffic) | Customer |
+| Network security | Configure a [virtual network](../hdinsight-plan-virtual-network-deployment.md) |
+|  | Configure [Inbound network security group (NSG) rules](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Customer |
 |  | Configure [Outbound traffic restriction](../hdinsight-restrict-outbound-traffic.md) with Firewall (preview) | Customer |
 | Virtualized infrastructure | N/A | HDInsight (Cloud provider) |
 | Physical infrasructure security | N/A | HDInsight (cloud provider) |
