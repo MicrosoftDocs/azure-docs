@@ -178,7 +178,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Build a training data set](../build-training-data-set)
+>[Build a training data set](../build-training-data-set.md)
 
 * [What is Form Recognizer?](../overview.md)
 * The source code for this sample can be found on [GitHub](TBD).
