@@ -143,7 +143,7 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 ## Regions that require endpoint modification
 
-Currently the only region that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
 |Region |  Endpoint Name | Value |
 |-----------------|:------------|:-------------|
