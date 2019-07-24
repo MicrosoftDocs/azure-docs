@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Migrate issues | Microsoft Docs
-description: Provides an overview of known issues in the Azure Migrate service. Includes troubleshooting tips for common errors.
+description: Provides an overview of known issues in the Azure Migrate service, as well as troubleshooting tips for common errors.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.author: raynew
 
 # Troubleshoot Azure Migrate
 
-[Microsoft Azure Migrate](migrate-services-overview.md) provides a hub of tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. This article helps you troubleshoot errors with Azure Migrate, Azure Migrate Server Assessment, and Azure Migrate Server Migration.
+[Azure Migrate](migrate-services-overview.md) provides a hub of tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. This article helps you troubleshoot errors with Azure Migrate, Azure Migrate Server Assessment, and Azure Migrate Server Migration.
 
 ## Azure Migrate project issues
 
@@ -49,7 +49,7 @@ Follow these steps to create a new Azure Migrate project:
 
    ![Create a second Azure Migrate project](./media/troubleshooting-general/create-new-project.png)
 
-### Which Azure geographies are supported by Azure Migrate?
+### Which Azure geographies does Azure Migrate support?
 
 See the lists for [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and for [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
@@ -100,7 +100,7 @@ If you're using an intercepting proxy to connect to the internet, you must impor
 
 ### Error 802: Date and time synchronization error.
 
-The server clock might be out-of-synchronization with the current time by more than five minutes. Change the clock time on the collector VM to match the current time, as follows:
+The server clock might be out of synchronization with the current time by more than five minutes. Change the clock time on the collector VM to match the current time, as follows:
 
 1. Open an admin command prompt on the VM.
 2. To check the time zone, run **w32tm /tz**.
@@ -135,7 +135,7 @@ Make sure the Azure user account used to register the appliance has at least Con
 
 ### Discovery couldn't be initiated because of an error. The operation failed for the specified list of hosts or clusters (Error ID: 60028).
 
-Discovery couldn't be started on the hosts listed in the error because of a problem in accessing or retrieving VM information. The rest of the hosts were successfully added. Re-add the hosts listed in the error by using the **Add host** option. If there's a validation error, review the remediation guidance to fix the errors, and then try the **Save and start discovery** option again.
+Discovery couldn't be started on the hosts listed in the error because of a problem in accessing or retrieving VM information. The rest of the hosts were successfully added. Add the hosts listed in the error again by using the **Add host** option. If there's a validation error, review the remediation guidance to fix the errors, and then try the **Save and start discovery** option again.
 
 ### An Azure AD operation failed. The error occurred while creating or updating the Azure AD application (Error ID: 60025).
 
@@ -172,7 +172,7 @@ This error occurs if the Azure DNS service for the appliance can't resolve the c
 You may also see this error for hosts in a cluster. In this case, the appliance can connect to the cluster, but the cluster returns host names that aren't FQDNs.
 
 To resolve this error, update the hosts file on the appliance by adding a mapping of the IP address and host names:
-1. Open Notepad as administrator, and then open the C:\Windows\System32\Drivers\etc\hosts file.
+1. Open Notepad as administrator. Then, open the C:\Windows\System32\Drivers\etc\hosts file.
 2. Add the IP address and host name in a row. Repeat for each host or cluster where you see this error.
 3. Save and close the hosts file.
 4. You can check whether the appliance can connect to the hosts by using the appliance management app. After 30 minutes, you should be able to see the latest information for these hosts on the Azure portal.
@@ -188,11 +188,11 @@ Unsupported boot type | Azure doesn't support VMs with an EFI boot type. We reco
 Conditionally supported Windows OS | The OS has passed its end-of-support date and needs a Custom Support Agreement (CSA) for [support in Azure](https://aka.ms/WSosstatement). Consider upgrading the OS before you migrate to Azure.
 Unsupported Windows OS | Azure supports only [selected Windows OS versions](https://aka.ms/WSosstatement). Consider upgrading the OS of the machine before you migrate to Azure.
 Conditionally endorsed Linux OS | Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the OS of the machine before you migrate to Azure.
-Unendorsed Linux OS | The machine may boot in Azure, but no OS support is provided by Azure. Consider upgrading the OS to an [endorsed Linux version](../virtual-machines/linux/endorsed-distros.md) before you migrate to Azure.
+Unendorsed Linux OS | The machine might start in Azure, but Azure provides no OS support. Consider upgrading the OS to an [endorsed Linux version](../virtual-machines/linux/endorsed-distros.md) before you migrate to Azure.
 Unknown operating system | The operating system of the VM was specified as "Other" in vCenter Server. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Make sure the OS of the machine is [supported](https://aka.ms/azureoslist) by Azure before you migrate the machine.
 Unsupported OS bitness | VMs with a 32-bit OS might boot in Azure, but we recommended that you upgrade the OS of the VM to 64-bit before you migrate to Azure.
 Requires a Microsoft Visual Studio subscription | The machine is running a Windows client OS, which is supported only through a Visual Studio subscription.
-VM not found for the required storage performance | The storage performance (Input/Output Operations Per Second [IOPS] and throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine before migration.
+VM not found for the required storage performance | The storage performance (input/output operations per second [IOPS] and throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine before migration.
 VM not found for the required network performance | The network performance (in/out) required for the machine exceeds Azure VM support. Reduce the networking requirements for the machine.
 VM not found in the specified location | Use a different target location before migration.
 One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements. For each disk attached to the VM, make sure that the size of the disk is < 4 terabytes (TB), if not, reduce the disk size before you migrate to Azure. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).   
@@ -214,7 +214,7 @@ Azure Migrate Server Assessment doesn't currently support Enterprise Agreement (
 There's a known gap in Server Assessment that prevents it from detecting the minor version of the Linux OS installed on the on-premises VMs (for example, for RHEL 6.10, currently Server Assessment detects only RHEL 6 as the OS version). Because Azure endorses only specific versions of Linux, the Linux VMs are currently marked as conditionally ready in Server Assessment. You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing the [Azure Linux support documentation.](https://aka.ms/migrate/selfhost/azureendorseddistros). After you've verified the endorsed distro, you can ignore this warning.
 
 ### Why does the VM SKU recommended by Server Assessment have more cores and more memory than what's allocated on-premises?
-The VM SKU recommendation in Server Assessment depends on the assessment properties. You can create two kinds of assessments in Server Assessment: *Performance-based* and *As on-premises*. For performance-based assessments, Server Assessment considers the utilization data of the on-premises VMs (CPU, memory, disk, and network utilization) to determine the right target VM SKU for your on-premises VMs. Additionally, for performance-based sizing, the comfort factor is taken into account to determine effective utilization. For on-premises sizing, performance data is not considered, and a target SKU is recommended based on what is allocated on-premises.
+The VM SKU recommendation in Server Assessment depends on the assessment properties. You can create two kinds of assessments in Server Assessment: *Performance-based* and *As on-premises*. For performance-based assessments, Server Assessment considers the utilization data of the on-premises VMs (CPU, memory, disk, and network utilization) to determine the right target VM SKU for your on-premises VMs. Additionally, for performance-based sizing, the comfort factor is considered in determining effective utilization. For on-premises sizing, performance data is not considered, and a target SKU is recommended based on what is allocated on-premises.
 
 For example, let's say there's an on-premises VM with 4 cores and 8 GB of memory with 50% CPU utilization and 50% memory utilization, and a comfort factor of 1.3 is specified in the assessment. If the sizing criteria of the assessment is **As on-premises**, an Azure VM SKU with 4 cores and 8 gigabytes (GB) of memory is recommended. 
 
@@ -253,27 +253,31 @@ For Windows VM:
 2. On the **Azure Log Analytics (OMS)** tab in the **Microsoft Monitoring Agent properties** dialog box, make sure that the **Status** for the workspace is green.
 3. If the status is not green, try removing the workspace and adding it again to MMA.
 
-        ![MMA Status](./media/troubleshooting-general/mma-status.png)
+      ![MMA Properties dialog box](./media/troubleshooting-general/mma-status.png)
 
 For Linux VM, make sure that the installation commands for MMA and dependency agent succeeded.
 
-### What operating systems are supported by MMA?
+### What operating systems does MMA support?
 
-Here's a list of [Windows operating systems supported by MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
-And here's a list of [Linux operating systems supported by MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+ [Here's a list of Windows operating systems supported by MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+And [here's a list of Linux operating systems supported by MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
 
-### What are the operating systems supported by the dependency agent?
+### What operating systems does the dependency agent support?
 
-Here's a list of [Windows operating systems supported by the dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems). And here's a list of [Linux operating systems supported by the dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+[Here's a list of Windows operating systems supported by the dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems). And [here's a list of Linux operating systems supported by the dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### I can't visualize dependencies in Azure Migrate for more than a one-hour duration.
-In Azure Migrate, you can visualize dependencies for up to one hour duration. Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for only a one-hour period. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
+In Azure Migrate, you can visualize dependencies for up to one hour duration. Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. 
+
+For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for only a one-hour period. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
 
 ### I can't visualize dependencies for groups that have more than 10 VMs.
 You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs, if you have a group with more than 10 VMs, we recommend that you split the group into smaller groups and visualize the dependencies.
 
 ### I installed agents and used the dependency visualization to create groups. Now, post-failover, the machines show "Install agent" action instead of "View dependencies."
-* After planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They may acquire a different IP address based on whether or not the user chose to retain an on-premises IP address. If both MAC and IP addresses differ, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data. Instead, it asks the user to install agents instead of viewing dependencies.
+* After planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They may acquire a different IP address based on whether or not the user chose to retain an on-premises IP address. 
+
+  If both MAC and IP addresses differ, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data. Instead, it asks the user to install agents instead of viewing dependencies.
 * Post-test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP addresses. Unless the user blocks outgoing Azure Monitor log traffic from these machines, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data and asks users to install agents instead of viewing dependencies.
 
 ## Collect Azure portal logs
@@ -291,5 +295,5 @@ You can [visualize dependencies for groups](https://docs.microsoft.com/azure/mig
    - In Microsoft Edge or Internet Explorer, select the **Export captured traffic** option. This action compresses and exports the log.
 6. Select the **Console** tab to check for any warnings or errors. To save the console log:
    - In Chrome, right-click anywhere in the console log. Select **Save as**, to export, and zip the log.
-   - In Microsoft Edge or Internet Explorer, right-click on the errors and select **Copy all**.
+   - In Microsoft Edge or Internet Explorer, right-click the errors and select **Copy all**.
 7. Close Developer Tools.
