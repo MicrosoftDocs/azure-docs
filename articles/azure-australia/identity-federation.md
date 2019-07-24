@@ -16,8 +16,8 @@ This article covers the key design points for implementing Azure Active Director
 
 The classification of information stored within Azure Active Directory should inform decisions about how it is designed. The following excerpt is provided from the [ACSC Certification Report – Microsoft Azure](https://aka.ms/au-irap):
 
-    ACSC CERTIFICATION REPORT – Microsoft Azure
-    Azure Active Directory (AAD) must be configured with Active Directory Federation services when Commonwealth entities classify the use and data content of their Active Directory at PROTECTED. While Active Directory data at the UNCLASSIFIED (UDLM) classification does not require federation, Commonwealth entities can still implement federation to mitigate risks associated with the service being provided from outside of Australia.
+ ACSC CERTIFICATION REPORT – Microsoft Azure
+ Azure Active Directory (AAD) must be configured with Active Directory Federation services when Commonwealth entities classify the use and data content of their Active Directory at PROTECTED. While Active Directory data at the UNCLASSIFIED (UDLM) classification does not require federation, Commonwealth entities can still implement federation to mitigate risks associated with the service being provided from outside of Australia.
 
 As such, what information is synchronised, and the mechanism by which users are authenticated, are the two key concerns covered here.
 
