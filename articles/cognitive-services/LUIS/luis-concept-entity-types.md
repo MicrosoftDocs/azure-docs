@@ -129,20 +129,7 @@ If you have a non-machine-learned entity, such as [prebuilt entities](#prebuilt-
 
 ## Composite entity
 
-A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity. 
-
-This entity is a good fit when the data:
-
-* Are related to each other. 
-* Are related to each other in the context of the utterance.
-* Use a variety of entity types.
-* Need to be grouped and processed by the client application as a unit of information.
-* Have a variety of user utterances that require machine-learning.
-
-![composite entity](./media/luis-concept-entities/composite-entity.png)
-
-[Tutorial](luis-tutorial-composite-entity.md)<br>
-[Example JSON response for entity](luis-concept-data-extraction.md#composite-entity-data)<br>
+A [composite entity](reference-entity-composite.md) is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity. 
 
 ## List entity
 
