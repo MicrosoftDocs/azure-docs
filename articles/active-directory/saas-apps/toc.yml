@@ -1015,6 +1015,8 @@
         href: ringcentral-tutorial.md
       - name: Riskware
         href: riskware-tutorial.md
+      - name: Robin
+        href: robin-tutorial.md
       - name: RStudio Connect
         href: rstudio-connect-tutorial.md
       - name: RolePoint
