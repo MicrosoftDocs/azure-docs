@@ -23,11 +23,13 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 ## Download AzCopy
 
-First, download the AzCopy V10 executable file to any directory on your computer. 
+First, download the AzCopy V10 executable file to any directory on your computer.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+
+AzCopy V10 is just an executable file, so there's nothing to install.
 
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
@@ -63,19 +65,21 @@ Use this table as a guide:
 
 By using Azure AD, you can provide credentials once instead of having to append a SAS token to each command.  
 
+> [!NOTE]
+> In the current release, if you plan to copy blobs between storage accounts, you’ll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](storage-use-azcopy-blobs.md).
+
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
-If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your user identity or service principal. 
+If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your user identity, managed identity, or service principal.
 
-> [!NOTE]
-> User identities and service principals are each a type of *security principal*, so we'll use the term *security principal* for the remainder of this article.
+> User identities, managed identities, and service principals are each a type of *security principal*, so we'll use the term *security principal* for the remainder of this article.
 
 If you want to upload files, then verify that one of these roles has been assigned to your security principal:
 
 - [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
-These roles can be assigned to your identity in any of these scopes:
+These roles can be assigned to your security principal in any of these scopes:
 
 - Container (file system)
 - Storage account
@@ -84,7 +88,7 @@ These roles can be assigned to your identity in any of these scopes:
 
 To learn how to verify and assign roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-> [!NOTE] 
+> [!NOTE]
 > Keep in mind that RBAC role assignments may take up to five minutes to propagate.
 
 You don't need to have one of these roles assigned to your security principal if your security principal is added to the access control list (ACL) of the target container or directory. In the ACL, your security principal needs write permission on the target directory, and execute permission on container and each parent directory.
@@ -112,6 +116,48 @@ This command returns an authentication code and the URL of a website. Open the w
 ![Create a container](media/storage-use-azcopy-v10/azcopy-login.png)
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
+
+#### Authenticate a managed identity
+
+This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, and the script runs from an Azure Virtual Machine (VM).
+
+You can sign into your account by using the a system-wide managed identity that you've enabled on your VM, or by using the client ID, Object ID, or Resource ID of a user-assigned managed identity that you've assigned to your VM.
+
+To learn more about how to enable a system-wide managed identity or create a user-assigned managed identity, see [Configure managed identities for Azure resources on a VM using the Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm).
+
+##### Using a system-wide managed identity
+
+First, make sure that you've enabled a system-wide managed identity on your VM. See [System-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
+
+Then, in your command console, type the following command, and then press the ENTER key.
+
+```azcopy
+azcopy login --identity
+```
+
+##### Using a user-assigned managed identity
+
+First, make sure that you've enabled a system-wide managed identity on your VM. See [User-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+
+Then, in your command console, type any of the following commands, and then press the ENTER key.
+
+```azcopy
+azcopy login --identity --identity-client-id "<client-id>"
+```
+
+Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity.
+
+```azcopy
+azcopy login --identity --identity-object-id "<object-id>"
+```
+
+Replace the `<object-id>` placeholder with the object ID of the user-assigned managed identity.
+
+```azcopy
+azcopy login --identity --identity-resource-id "<resource-id>"
+```
+
+Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
 
 <a id="service-principal" />
 
