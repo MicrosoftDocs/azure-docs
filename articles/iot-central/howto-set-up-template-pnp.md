@@ -241,4 +241,4 @@ Now that you've learned how to set up a device template in your Azure IoT Centra
 
 > [!div class="nextstepaction"]
 > [Create a new device template version](howto-version-device-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-> [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

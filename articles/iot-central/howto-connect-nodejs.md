@@ -12,6 +12,8 @@ manager: philmea
 
 # Connect a generic client application to your Azure IoT Central application (Node.js)
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 This article describes how, as a device developer, to connect a generic Node.js application representing a real device to your Microsoft Azure IoT Central application.
 
 ## Before you begin
