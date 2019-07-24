@@ -12,27 +12,31 @@ ms.custom: mvc
 # As a solution developer, I want to connect a Plug and Play device to my solution so I can collect telemetry and control the device.
 ---
 
-# Quickstart: Connect a Plug and Play device to my solution
+# Quickstart: Connect a Plug and Play device to your solution
 
 Plug and Play simplifies IoT by enabling you to interact with device capabilities without knowledge of the underlying device implementation. This quickstart shows you how to connect with a Plug and Play device to your solution.
 
 ## Prerequisites
 
 1. Download Node.js from [nodejs.org](https://nodejs.org).
-2. [Install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+1. [Install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+
 1. Add the Microsoft Azure IoT Extension for Azure CLI.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     ```
-3. Register a device in IoT Hub.
 
-   Run the following command in Azure Cloud Shell to create the device identity. Replace the **YourIoTHubName** and **YourDevice** with your actual names. If you don't have an IoT Hub, follow the instructions [here](https://review.docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-using-cli?branch=pr-en-us-82761) to create one.
+1. Register a device in IoT Hub.
+
+   Run the following command in Azure Cloud Shell to create the device identity. Replace the **YourIoTHubName** and **YourDevice** with your actual names. If you don't have an IoT Hub, follow the instructions [here](../iot-hub/iot-hub-create-using-cli.md) to create one.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
     ```
-4. Get device connection string.
+
+1. Get the device connection string.
 
     Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
@@ -42,62 +46,71 @@ Plug and Play simplifies IoT by enabling you to interact with device capabilitie
 
 ## Connect your device
 
-In this quickstart, you use a sample environmental sensor that's written in Node.js as the Plug and Play device. Please follow the instructions below to install and run the device. 
+In this quickstart, you use a sample environmental sensor that's written in Node.js as the Plug and Play device. The following instructions show you how to install and run the device:
 
-1. Clone the Github repository.
+1. Clone the Github repository:
+
     ```cmd/sh
     git clone http://github.com/Azure/NodeSamplePlaceHolder
-1. In a terminal, go to the root folder of your cloned repository, navigate to the **Device** folder, and install all the dependencies by running the command below.
+    ```
+
+1. In a terminal, go to the root folder of your cloned repository, navigate to the **Device** folder, and install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
     ```
 
-3. Configure the _device connection string_. 
+1. Configure the _device connection string_.
 
     ```cmd/sh
     set DEVICE_CONNECTION_STRING=<your device connection string>
     ```
 
-
-4. Run the sample with the following command:
+1. Run the sample with the following command:
 
     ```cmd/she
     node simple_sample.js
     ```
-5. You should see messages describing that the device has sent telemetry and updated properties. It is now ready to receive commands and property updates. Don’t close this terminal, as you’re going to need it to confirm the service samples also worked later.
 
+1. You see messages saying that the device has sent telemetry and updated its properties. The device is now ready to receive commands and property updates. Don't close this terminal, you need it later to confirm the service samples also worked.
 
 ## Build the solution
 
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device.
 
-1. Open another terminal. Go to the folder of your cloned repository, and navigate to the **Service** folder. Install all the dependencies under this folder by running the command below.
+1. Open another terminal. Go to the folder of your cloned repository, and navigate to the **Service** folder. Install all the dependencies under this folder by running the following command:
 
     ```cmd/sh
     npm install
     ```
-2. Configure the _hub connection string_. 
+
+1. Configure the _hub connection string_:
 
     ```cmd/sh
     set IOTHUB_CONNECTION_STRING=<your device connection string>
     ```
 
-
 ### Update a writable property
-1. Open the file **update_digital_twin_property.js**. 
-1. At the beginning of the file, a set of constants are defined with uppercase placeholders. Replace the _deviceID_ with the ID you created earlier, and replace below values with the examples then save the file.
+
+1. Open the file **update_digital_twin_property.js**.
+
+1. At the beginning of the file there is a set of constants defined with uppercase placeholders. Replace the `deviceID` with the ID you created earlier, update the constants with the following values, and then save the file:
+
+    ```javascript
+    const componentName = 'environmentalSensor';
+    const propertyName = 'brightness';
+    const propertyValue = 60;
     ```
-    const componentName = 'environmentalSensor'; 
-    const propertyName = 'brightness'; 
-    const propertyValue = 60; 
-    ```
-3. Use below command to run the sample.
+
+1. Use the following command to run the sample:
+
     ```cmd/sh
     node update_digital_twin_property.js
     ```
-1. From the service terminal, you will see the digital twin information associated with your device. Find the component _environmentalSensor_, you should see the new brightness value 60.
-    ```
+
+1. In the service terminal, you see the digital twin information associated with your device. Find the component _environmentalSensor_, you see the new brightness value 60.
+
+    ```json
         "environmentalSensor": {
         "name": "environmentalSensor",
         "properties": {
@@ -123,26 +136,33 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
       }
     ```
 
+1. Go to your device terminal, you should see  the device has received the update:
 
-1. Go to your device terminal, you should see that the device has recieved the update.
-    ```
+    ```cmd/sh
     Received an update for brightness: 60
     updated the property
     ```
 
-### Invoke a command 
-1. Open the file **invoke_command.js**. 
-1. At the beginning of the file, replace the _deviceID_ with the ID you created earlier, and replace below values with examples then save the file.
+### Invoke a command
+
+1. Open the file **invoke_command.js**.
+
+1. At the beginning of the file, replace the `deviceID` with the ID you created earlier, update the constants with the following values, and then save the file:
+
+    ```javascript
+    const componentName = 'environmentalSensor'; 
+    const commandName = 'blink';
     ```
-        const componentName = 'environmentalSensor'; 
-        const commandName = 'blink';
-    ```
-1. Go back to your service terminal. Use below command to run the sample.
+
+1. Go back to your service terminal. Use the following command to run the sample.
+
     ```cmd/sh
     node invoke_command.js
     ```
-4. From the service terminal, a success would look like
-    ```
+
+1. In the service terminal, success looks like the following output:
+
+    ```cmd/sh
     invoking command blink on component environmentalSensor for device test...
     {
       "result": "helpful response text",
@@ -151,8 +171,10 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
       "_response": "helpful response text"
     }
     ```
-5. Go to the device terminal, you'll see the command has been acknowledged. 
-    ```
+
+1. Go to the device terminal, you see the command has been acknowledged:
+
+    ```cmd/sh
     received command: blink for component: environmentalSensor
     acknowledgement succeeded.
     ```
