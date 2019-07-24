@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB provides encryption of data at rest and h
 author: monhaber
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/24/2019
 ms.author: rimman
 ms.author: sngun
 ms.author: v-mohabe
@@ -37,7 +37,7 @@ For a full investigation experience of the security alerts, we recommended enabl
 3. In the **Advanced security** configuration blade:
 
     * Click the **Advanced Threat Protection** option to set it to **ON**.
-    * Click **Save** to save the new or updated Advanced Threat Protection policy.  
+    * Click **Save** to save the new or updated Advanced Threat Protection policy.   
 
 ### Set up ATP using REST API
 

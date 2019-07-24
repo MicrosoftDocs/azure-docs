@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 7/24/2019
 ms.author: "v-mohabe"
 ---
 # Threat detection for data services in Azure Security Center
@@ -41,7 +41,7 @@ For more information about SQL threat detection alerts see,[Azure SQL Database t
 ## Azure Storage<a name="azure-storage"></a>
 
 >[!NOTE]
-> Advanced Threat Protection for Azure Storage is currently available for Blob Storage only. 
+> Advanced Threat Protection for Azure Storage is currently available for Blob Storage only.
 
 Advanced Threat Protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without requiring you to be a security expert, and manage security monitoring systems.
 
