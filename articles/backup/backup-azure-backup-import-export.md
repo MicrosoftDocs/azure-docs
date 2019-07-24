@@ -1,7 +1,7 @@
 ---
 title: Azure Backup - Offline backup or initial seeding using the Azure Import/Export service
 description: Learn how Azure Backup enables you to send data off the network using the Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service.
-services: backup
+
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
@@ -70,7 +70,7 @@ This section describes the offline-backup workflow so that your data can be deli
    The description of the inputs is as follows:
 
     * **Staging Location**: The temporary storage location to which the initial backup copy is written. Staging location might be on a network share or a local computer. If the copy computer and source computer are different, we recommended that you specify the full network path of the staging location.
-    * **Azure Resource Manager Storage Account**: The name of the Resource Manager type storage account in any Azure subscription.
+    * **Azure Resource Manager Storage Account**: The name of the Resource Manager type storage account (general purpose v1 or general purpose v2) in any Azure subscription.
     * **Azure Storage Container**: The name of the destination storage blob in the Azure Storage account where the backup data is imported before being copied to the Recovery Services vault.
     * **Azure Subscription ID**: The ID for the Azure subscription where the Azure Storage account is created.
     * **Azure Import Job Name**: The unique name by which Azure Import service and Azure Backup track the transfer of data sent on disks to Azure. 

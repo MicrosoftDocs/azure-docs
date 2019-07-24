@@ -1,21 +1,16 @@
 ---
 title: How to plan hybrid Azure Active Directory join implementation in Azure Active Directory (Azure AD) | Microsoft Docs
 description: Learn how to configure hybrid Azure Active Directory joined devices.
-services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
 
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
+services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
@@ -28,7 +23,7 @@ In a similar way to a user, a device is another core identity you want to protec
 - Hybrid Azure AD join
 - Azure AD registration
 
-By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your cloud and on-premises resources with [conditional access](../active-directory-conditional-access-azure-portal.md).
+By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your cloud and on-premises resources with [Conditional Access](../active-directory-conditional-access-azure-portal.md).
 
 If you have an on-premises Active Directory (AD) environment and you want to join your AD domain-joined computers to Azure AD, you can accomplish this by doing hybrid Azure AD join. This article provides you with the related steps to implement a hybrid Azure AD join in your environment. 
 
@@ -79,7 +74,7 @@ Hybrid Azure AD join is currently not supported if your environment consists of 
 
 Hybrid Azure AD join is currently not supported when using virtual desktop infrastructure (VDI).
 
-Hybrid Azure AD is not supported for FIPS-compliant TPMs. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
+Hybrid Azure AD join is not supported for FIPS-compliant TPMs. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
 
 Hybrid Azure AD join is not supported for Windows Server running the Domain Controller (DC) role.
 
@@ -89,19 +84,17 @@ If you are relying on the System Preparation Tool (Sysprep) and if you are using
 
 If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure that snapshot is not from a VM that is already registered with Azure AD as Hybrid Azure AD join.
 
-If your Windows 10 domain joined devices are already [Azure AD registered](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) to your tenant, we highly recommend removing that state before enabling Hybrid Azure AD join. From Windows 10 1809 release, the following changes have been made to avoid this dual state:
+If your Windows 10 domain joined devices are already [Azure AD registered](https://docs.microsoft.com/azure/active-directory/devices/overview#getting-devices-in-azure-ad) to your tenant, we highly recommend removing that state before enabling Hybrid Azure AD join. From Windows 10 1809 release, the following changes have been made to avoid this dual state:
 
 - Any existing Azure AD registered state would be automatically removed after the device is Hybrid Azure AD joined.
 - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
 - This change is now available for Windows 10 1803 release with KB4489894 applied. However, if you have Windows Hello for Business configured, the user is required to re-setup Windows Hello for Business after the dual state clean up.
-
 
 ## Review controlled validation of hybrid Azure AD join
 
 When all of the pre-requisites are in place, Windows devices will automatically register as devices in your Azure AD tenant. The state of these device identities in Azure AD is referred as hybrid Azure AD join. More information about the concepts covered in this article can be found in the articles [Introduction to device identity management in Azure Active Directory](overview.md) and [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
 
 Organizations may want to do a controlled validation of hybrid Azure AD join before enabling it across their entire organization all at once. Review the article [controlled validation of hybrid Azure AD join](hybrid-azuread-join-control.md) to understand how to accomplish it.
-
 
 ## Select your scenario based on your identity infrastructure
 
@@ -131,8 +124,6 @@ Based on the scenario that matches your identity infrastructure, see:
 
 - [Configure hybrid Azure Active Directory join for federated environment](hybrid-azuread-join-federated-domains.md)
 - [Configure hybrid Azure Active Directory join for managed environment](hybrid-azuread-join-managed-domains.md)
-
-
 
 ## Review on-premises AD UPN support for Hybrid Azure AD join
 

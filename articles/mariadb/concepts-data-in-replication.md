@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 07/11/2019
 ---
 
 # Replicate data into Azure Database for MariaDB
@@ -32,7 +32,6 @@ The [*mysql system database*](https://mariadb.com/kb/en/library/the-mysql-databa
 
 ### Other
 - Data-in replication is only supported in General Purpose and Memory Optimized pricing tiers.
-- Global transaction identifiers (GTID) are not supported.
 
 ## Next steps
 - Learn how to [set up data-in replication](howto-data-in-replication.md).

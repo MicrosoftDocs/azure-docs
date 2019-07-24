@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 07/17/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -23,7 +23,6 @@ ms.collection: M365-identity-device-management
 Using Azure Active Directory (Azure AD), you can designate limited administrators to manage identity tasks in less-privileged roles. Administrators can be assigned for such purposes as adding or changing users, assigning administrative roles, resetting user passwords, managing user licenses, and managing domain names. The default user permissions can be changed only in user settings in Azure AD.
 
 The Global Administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. Only Global Administrators and Privileged Role Administrators can delegate administrator roles. To reduce the risk to your business we recommend that you assign this role to only a few people in your company.
-
 
 ## Assign or remove administrator roles
 
@@ -39,7 +38,7 @@ The following administrator roles are available:
 
 * **[Application Developer](#application-developer)**: Users in this role can create application registrations when the "Users can register applications" setting is set to No. This role also grants permission to consent on one's own behalf when the "Users can consent to apps accessing company data on their behalf" setting is set to No. Users assigned to this role are added as owners when creating new application registrations or enterprise applications.
 
-* **[Authentication Administrator](#authentication-administrator)**: Users with this role can set or reset non-password credentials. Authentication Administrators can require users to re-register against existing non-password credential (for example, MFA or FIDO) and revoke **remember MFA on the device**, which prompts for MFA on the next sign-in of users who are non-administrators or assigned the following roles only:
+* **[Authentication Administrator](#authentication-administrator)**: Users with this role can set or reset non-password credentials and can update passwords for all users. Authentication Administrators can require users to re-register against existing non-password credential (for example, MFA or FIDO) and revoke **remember MFA on the device**, which prompts for MFA on the next sign-in of users who are non-administrators or assigned the following roles only:
   * Authentication Administrator
   * Directory Readers
   * Guest Inviter
@@ -98,9 +97,9 @@ The following administrator roles are available:
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Has read-only permissions and can manage alerts<br>Can create and modify file policies and allow file governance actions<br> Can view all the built-in reports under Data Management
 
-* **[Conditional Access Administrator](#conditional-access-administrator)**: Users with this role have the ability to manage Azure Active Directory conditional access settings.
+* **[Conditional Access Administrator](#conditional-access-administrator)**: Users with this role have the ability to manage Azure Active Directory Conditional Access settings.
   > [!NOTE]
-  > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be a Global Administrator.
+  > To deploy Exchange ActiveSync Conditional Access policy in Azure, the user must also be a Global Administrator.
   
 * **[Customer Lockbox access approver](#customer-lockbox-access-approver)**: Manages [Customer Lockbox requests](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) in your organization. They receive email notifications for Customer Lockbox requests and can approve and deny requests from the Microsoft 365 admin center. They can also turn the Customer Lockbox feature on or off. Only global admins can reset the passwords of people assigned to this role.
   <!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
@@ -181,7 +180,7 @@ Additionally, the user can access reports related to adoption & usage of Kaizala
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Power BI Service Administrator ". It is "Power BI Administrator" in the [Azure portal](https://portal.azure.com).
 
-* **[Privileged Authentication Administrator](#privileged-authentication-administrator)**: Users with this role can set or reset non-password credentials for all users, including global administrators. Privileged Authentication Administrators can force users to re-register against existing non-password credential (e.g. MFA, FIDO) and revoke ‘remember MFA on the device’, prompting for MFA on the next login of all users. Privileged Authentication Administrators can:
+* **[Privileged Authentication Administrator](#privileged-authentication-administrator)**: Users with this role can set or reset non-password credentials for all users, including global administrators, and can update passwords for all users. Privileged Authentication Administrators can force users to re-register against existing non-password credential (e.g. MFA, FIDO) and revoke ‘remember MFA on the device’, prompting for MFA on the next login of all users. Privileged Authentication Administrators can:
   *	Force users to re-register against existing non-password credential (e.g. MFA, FIDO)
   *	Revoke ‘remember MFA on the device’, prompting for MFA on the next login
 
@@ -344,6 +343,7 @@ Allowed to view, set and reset authentication method information for any non-adm
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.aad.directory/users/password/update | Update passwords for all users in the Office 365 organization. See online documentation for more detail. |
 
 ### Azure Information Protection Administrator
 Can manage all aspects of the Azure Information Protection service.
@@ -573,7 +573,7 @@ Creates and manages compliance content.
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Conditional Access Administrator
-Can manage conditional access capabilities.
+Can manage Conditional Access capabilities.
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -851,7 +851,7 @@ Can manage all aspects of the Intune product.
 Can manage settings for Microsoft Kaizala.  
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >  
   
@@ -893,7 +893,7 @@ Can manage all aspects of the Skype for Business product.
 Can read Message Center posts, data privacy messages, groups, domains and subscriptions.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1011,7 +1011,7 @@ Allowed to view, set and reset authentication method information for any user (a
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-
+| microsoft.aad.directory/users/password/update | Update passwords for all users in the Office 365 organization. See online documentation for more detail. |
 ### Privileged Role Administrator
 Can manage role assignments in Azure AD,  and all aspects of Privileged Identity Management.
 
@@ -1042,14 +1042,13 @@ Can read sign-in and audit reports.
 | microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 
 ### Search Administrator
 Can create and manage all aspects of Microsoft Search settings.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1066,7 +1065,7 @@ Can create and manage all aspects of Microsoft Search settings.
 Can create and manage the editorial content such as bookmarks, Q and As, locations, floorplan.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1109,7 +1108,7 @@ Can read security information and reports,  and manage configuration in Azure AD
 Creates and manages security events.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 

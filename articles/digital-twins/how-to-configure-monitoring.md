@@ -63,11 +63,11 @@ Examples of diagnostic logging include:
 To enable diagnostic logs for an instance:
 
 1. Bring up the resource in Azure portal.
-1. Click **Diagnostic settings**:
+1. Select **Diagnostic settings**:
 
     [![Diagnostic settings one](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
-1. Click **Turn on diagnostics** to collect data (if not previously enabled).
+1. Select **Turn on diagnostics** to collect data (if not previously enabled).
 1. Fill in the requested fields and select how and where data will be saved:
 
     [![Diagnostic settings two](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
@@ -96,7 +96,7 @@ Full log querying is provided through [Azure Monitor logs](../azure-monitor/log-
 
     [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
-1. If you don't already have a **Log Analytics workspace** instance, you can create a workspace by clicking the **Add** button:
+1. If you don't already have a **Log Analytics workspace** instance, you can create a workspace by selecting the **Add** button:
 
     [![Create OMS](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
@@ -109,7 +109,7 @@ For more information about powerful query operations, see [getting started with 
 > [!NOTE]
 > You may experience a 5 minute delay when sending events to **Log Analytics workspace** for the first time.
 
-Azure Monitor logs also provide powerful error and alert notification services, which can be viewed by clicking **Diagnose and solve problems**:
+Azure Monitor logs also provide powerful error and alert notification services, which can be viewed by selecting **Diagnose and solve problems**:
 
    [![Alert and error notifications](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 

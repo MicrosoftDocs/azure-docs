@@ -103,7 +103,7 @@ To configure Azure AD single sign-on with Braze, perform the following steps:
     ![Braze Domain and URLs single sign-on information](common/both-replyurl.png)
 
 	In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.braze.com/auth/saml/callback `
+    `https://<SUBDOMAIN>.braze.com/auth/saml/callback`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -230,4 +230,4 @@ When you click the Braze tile in the Access Panel, you should be automatically s
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

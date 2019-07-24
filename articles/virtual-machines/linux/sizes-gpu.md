@@ -4,7 +4,7 @@ description: Lists the different GPU optimized sizes available for Linux virtual
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/14/2019
+ms.date: 06/11/2019
 ms.author: jonbeck
 
 ---
 
-# Accelerated compute virtual machine sizes
+# GPU optimized virtual machine sizes
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 

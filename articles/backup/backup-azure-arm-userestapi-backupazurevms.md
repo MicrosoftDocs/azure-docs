@@ -1,7 +1,7 @@
 ---
 title: 'Azure Backup: Back up Azure VMs using REST API'
 description: Manage backup operations of Azure VM Backup using REST API
-services: backup
+
 author: pvrk
 manager: shivamg
 keywords: REST API; Azure VM backup; Azure VM restore;
@@ -103,13 +103,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 The *GET* URI has all the required parameters. No additional request body is needed.
 
-#### Responses
+##### <a name="responses-1"></a>Responses
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-##### Example responses
+##### <a name="example-responses-1"></a>Example responses
 
 Once the *GET* request is submitted, a 200 (OK) response is returned.
 
@@ -324,7 +324,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |---------|---------|---------|
 |202 Accepted     |         |     Accepted    |
 
-#### Example responses
+##### <a name="example-responses-3"></a>Example responses
 
 Once you submit the *POST* request for an on-demand backup, the initial response is 202 (Accepted) with a location header or Azure-async-header.
 
@@ -434,7 +434,7 @@ The `{containerName}` and `{protectedItemName}` are as constructed [above](#resp
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### Responses
+### <a name="responses-2"></a>Responses
 
 *DELETE* protection is an [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
 

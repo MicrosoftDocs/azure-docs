@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2019
+ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
@@ -47,7 +47,8 @@ The `{action}` portion of an operation string specifies the type of operations y
 | ------------------- | ------------------- |
 | `*` | The wildcard character grants access to all operations that match the string. |
 | `read` | Enables read operations (GET). |
-| `write` | Enables write operations (PUT, POST, and PATCH). |
+| `write` | Enables write operations (PUT or PATCH). |
+| `action` | Enables custom operations like restart virtual machines (POST). |
 | `delete` | Enables delete operations (DELETE). |
 
 Here's the [Contributor](built-in-roles.md#contributor) role definition in JSON format. The wildcard (`*`) operation under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The operations under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also assign access to resources.
@@ -74,7 +75,7 @@ Here's the [Contributor](built-in-roles.md#contributor) role definition in JSON 
 }
 ```
 
-## Management and data operations (Preview)
+## Management and data operations
 
 Role-based access control for management operations is specified in the `Actions` and `NotActions` properties of a role definition. Here are some examples of management operations in Azure:
 
@@ -84,7 +85,7 @@ Role-based access control for management operations is specified in the `Actions
 
 Management access is not inherited to your data. This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
 
-Previously, role-based access control was not used for data operations. Authorization for data operations varied across resource providers. The same role-based access control authorization model used for management operations has been extended to data operations (currently in preview).
+Previously, role-based access control was not used for data operations. Authorization for data operations varied across resource providers. The same role-based access control authorization model used for management operations has been extended to data operations.
 
 To support data operations, new data properties have been added to the role definition structure. Data operations are specified in the `DataActions` and `NotDataActions` properties. By adding these data properties, the separation between management and data is maintained. This prevents current role assignments with wildcards (`*`) from suddenly having accessing to data. Here are some data operations that can be specified in `DataActions` and `NotDataActions`:
 
@@ -164,11 +165,7 @@ To view and work with data operations, you must have the correct versions of the
 
 To view and use the data operations in the REST API, you must set the **api-version** parameter to the following version or later:
 
-- 2018-01-01-preview
-
-The Azure portal also allows users to browse and manage the contents of Queues and Blob containers via the Azure AD preview experience. To see and manage the contents of a Queue or Blob container click the **Explore data using Azure AD preview** on the storage account Overview.
-
-![Explore Queues and Blob containers using Azure AD preview](./media/role-definitions/rbac-dataactions-browsing.png)
+- 2018-07-01
 
 ## Actions
 
@@ -190,7 +187,7 @@ The `NotActions` permission specifies the management operations that are exclude
 > If a user is assigned a role that excludes an operation in `NotActions`, and is assigned a second role that grants access to the same operation, the user is allowed to perform that operation. `NotActions` is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
 >
 
-## DataActions (Preview)
+## DataActions
 
 The `DataActions` permission specifies the data operations that the role allows to be performed to your data within that object. For example, if a user has read blob data access to a storage account, then they can read the blobs within that storage account. Here are some examples of data operations that can be used in `DataActions`.
 
@@ -201,7 +198,7 @@ The `DataActions` permission specifies the data operations that the role allows 
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Returns a message. |
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Returns a message or the result of writing or deleting a message. |
 
-## NotDataActions (Preview)
+## NotDataActions
 
 The `NotDataActions` permission specifies the data operations that are excluded from the allowed `DataActions`. The access granted by a role (effective permissions) is computed by subtracting the `NotDataActions` operations from the `DataActions` operations. Each resource provider provides its respective set of APIs to fulfill data operations.
 

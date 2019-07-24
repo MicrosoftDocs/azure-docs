@@ -6,7 +6,7 @@ author: yijenj
 ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
-ms.author: yijenj
+ms.author: pabutler
 ---
 
 # Azure partner customer usage attribution

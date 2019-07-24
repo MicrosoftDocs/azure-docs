@@ -16,13 +16,8 @@ ms.author: tilee
 # Status Monitor v2: Detailed instructions
 
 This article describes how to onboard to the PowerShell Gallery and download the ApplicationMonitor module.
-It describes the most common parameters that you'll need to get started.
-It also includes manual instructions in case you don't have internet access.
-
-> [!IMPORTANT]
-> Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Included are the most common parameters that you'll need to get started.
+We've also provided manual download instructions in case you don't have internet access.
 
 ## Get an instrumentation key
 
@@ -30,11 +25,10 @@ To get started, you need an instrumentation key. For more information, see [Crea
 
 ## Run PowerShell as Admin with an elevated execution policy
 
-**Run as Admin**
+### Run as Admin
 
 PowerShell needs Administrator-level permissions to make changes to your computer.
-
-**Execution policy**
+### Execution policy
 - Description: By default, running PowerShell scripts is disabled. We recommend allowing RemoteSigned scripts for only the Current scope.
 - Reference: [About Execution Policies](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) and [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
@@ -198,7 +192,7 @@ For more information, see [Installing a PowerShell Module](https://docs.microsof
 
 ### Option 2: Unzip and import nupkg manually
 Install the manually downloaded PowerShell module into a PowerShell directory so it will be discoverable by PowerShell sessions.
-For more information, see [Installing a PowerShell Module](https://docs.mircrosoft.com/powershell/developer/module/installing-a-powershell-module).
+For more information, see [Installing a PowerShell Module](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
 
 If you're installing the module into any other directory, manually import the module by using [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
 

@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
       > If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
 
       In the **Sign-on URL** text box, type a URL using the following pattern:
-      ` https://console.<REGIONNAME>.oraclecloud.com/`
+      `https://console.<REGIONNAME>.oraclecloud.com/`
 
       > [!NOTE]
       > The value is not real. Update the value with the actual Sign-On URL. Contact [Oracle Cloud Infrastructure Console Client support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -215,4 +215,4 @@ When you select the Oracle Cloud Infrastructure Console tile in the Access Panel
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

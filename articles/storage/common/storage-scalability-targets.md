@@ -5,7 +5,7 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 07/18/2019
 ms.author: rogarana
 ms.subservice: common
 ---
@@ -40,6 +40,9 @@ For more information on the scale and performance targets for Azure Files and Az
 
 > [!IMPORTANT]
 > Storage account limits apply to all shares. Scaling up to the max for storage accounts is only achievable if there is only one share per storage account.
+>
+> Standard file shares larger than 5 TiB are in preview and have certain limitations.
+> For a list of limitations and to onboard to the preview of these larger file share sizes, see the [Standard file shares](../files/storage-files-planning.md#standard-file-shares) section of the Azure Files planning guide.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

@@ -36,6 +36,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | [Management over Git](api-management-configuration-repository-git.md)                        | No                            | Yes            | Yes            | Yes            | Yes            |
 | Direct management API                                                                        | No                            | Yes            | Yes            | Yes            | Yes            |
 | Azure Monitor logs and metrics                                                               | No                | Yes            | Yes            | Yes            | Yes            |
+| Static IP                                                               | No                | Yes            | Yes            | Yes            | Yes            |
 
 <sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality e.g. users, groups, issues, applications and email templates and notifications.<br/>

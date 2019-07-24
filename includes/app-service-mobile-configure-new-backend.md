@@ -96,6 +96,4 @@ ms.custom: "include file"
 
         4. Select **App Service** as publish target, then click **Select Existing**, then click the **Publish** button at the bottom of the window.
 
-        5. You will need to log into Visual Studio with your Azure subscription first. Select the `Subscription`, `Resource Group`, and then select the name of your app. When you are ready, click **OK**, this will deploy the .NET server project that you have locally into the App Service backend. When deployment finishes, you will be redirected to `http://{zumoappname}.azurewebsites.net/` in the browser.
-        
-           ![Backend is up](./media/app-service-mobile-configure-new-backend/backend-is-up.png)
+        5. You will need to log into Visual Studio with your Azure subscription first. Select the `Subscription`, `Resource Group`, and then select the name of your app. When you are ready, click **OK**, this will deploy the .NET server project that you have locally into the App Service backend. When deployment finishes, you will be redirected to `http://{zumoappname}.azurewebsites.net/` in the browser.                   

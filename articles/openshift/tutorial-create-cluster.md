@@ -6,7 +6,7 @@ author: jimzim
 ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
-ms.service: openshift
+ms.service: container-service
 ms.date: 05/14/2019
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
@@ -102,6 +102,10 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 ### Optional: Connect the cluster's virtual network to an existing virtual network
 
 If you don't need to connect the virtual network (VNET) of the cluster you create to an existing VNET via peering, skip this step.
+
+If peering to a network outside the default subscription then in that subscription, you will also need to register the provider Microsoft.ContainerService. To do this, run the below command in that subscription. Else, if the VNET you are peering is located in the same subscription, you can skip the registering step. 
+
+`az provider register -n Microsoft.ContainerService --wait`
 
 First, get the identifier of the existing VNET. The identifier will be of the form:
 `/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}`.

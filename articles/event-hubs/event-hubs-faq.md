@@ -80,7 +80,7 @@ To find the right IP addresses to white list for your connections, follow these 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Note down the IP address returned in `Non-authoritative answer`. This IP address is static. The only point in time it would change is if you restore the namespace on to a different cluster.
+2. Note down the IP address returned in `Non-authoritative answer`. The only point in time it would change is if you restore the namespace on to a different cluster.
 
 If you use the zone redundancy for your namespace, you need to do a few additional steps: 
 

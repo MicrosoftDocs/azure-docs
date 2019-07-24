@@ -66,7 +66,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
    | Provide a solution name | Enter a descriptive name for your solution, like **SqlSolution**, or accept the default. |
    | Select module template | Choose **Azure Functions - C#**. |
    | Provide a module name | Name your module **sqlFunction**. |
-   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br>The final string looks like \<registry name\>.azurecr.io/sqlFunction. |
+   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br>The final string looks like \<registry name\>.azurecr.io/sqlfunction. |
 
    The VS Code window loads your IoT Edge solution workspace. 
    

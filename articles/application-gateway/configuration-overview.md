@@ -293,6 +293,7 @@ This setting lets you configure an optional custom forwarding path to use when t
   | /home/secondhome/          | /pathrule*      | /override/            | /override/home/secondhome/   |
   | /pathrule/home/            | /pathrule/home* | /override/            | /override/                   |
   | /pathrule/home/secondhome/ | /pathrule/home* | /override/            | /override/secondhome/        |
+  | /pathrule/                 | /pathrule/      | /override/            | /override/                   |
 
 ### Use for app service
 

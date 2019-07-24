@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/10/2019
+ms.date: 07/12/2019
 ms.author: magoedte
 ---
 
@@ -61,7 +61,7 @@ If you have enabled Kubernetes RBAC authorization, you will need to apply cluste
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. If you are configuring it for the first time, you create the cluster rule binding by running the following command: `kubectl create -f LogReaderRBAC.yaml`. If you previously enabled support for live logs preview before we introduced live event logs, to update your configuration, run the following command: `kubectl apply -f LogReaderRBAC.yml`.
+2. If you are configuring it for the first time, you apply the cluster rule binding by running the following command: `kubectl create -f LogReaderRBAC.yaml`. If you previously enabled support for live logs preview before we introduced live event logs, to update your configuration, run the following command: `kubectl apply -f LogReaderRBAC.yaml`.
 
 ## Configure AKS with Azure Active Directory
 
@@ -72,6 +72,9 @@ AKS can be configured to use Azure Active Directory (AD) for user authentication
 
 >[!NOTE]
 >Configuring authentication with Azure Active Directory for single-sign on can only be accomplished during initial deployment of a new AKS cluster. You cannot configure single-sign on for an AKS cluster already deployed.
+  
+>[!IMPORTANT]
+>If you reconfigured Azure AD for user authentication using the updated URI, clear your browser's cache to ensure the updated authentication token is downloaded and applied.   
 
 ## View live logs and events
 
@@ -99,6 +102,8 @@ In the search bar, you can filter by key word to highlight that text in the log 
 
   ![Live logs pane filter example](./media/container-insights-live-logs/live-logs-pane-filter-example-01.png)
 
+While viewing events, you can additionally limit the results using the **Filter** pill found to the right of the search bar. Depending on what resource you have selected, the pill lists a pod, namespace, or cluster to chose from.  
+
 To suspend autoscroll and control the behavior of the pane and allow you to manually scroll through the new data read, click on the **Scroll** option. To re-enable autoscroll, simply click the **Scroll** option again. You can also pause retrieval of log or event data by clicking on the **Pause** option and when you are ready to resume, simply click **Play**.  
 
 ![Live logs pane pause live view](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
@@ -106,5 +111,7 @@ To suspend autoscroll and control the behavior of the pane and allow you to manu
 You can go to Azure Monitor Logs to see historical container logs by selecting **View container logs** from the drop-down list **View in analytics**.
 
 ## Next steps
+
 - To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.

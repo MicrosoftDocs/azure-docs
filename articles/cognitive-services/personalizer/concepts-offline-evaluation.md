@@ -7,7 +7,7 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
 ---
@@ -43,7 +43,7 @@ The following are important considerations for the representative offline evalua
 
 Personalizer can use the offline evaluation process to discover a more optimal learning policy automatically.
 
-After performing the offline evaluation, you can see the comparative effectiveness of Personalizer with that new policy compared to the current online policy. You can then apply that learning policy to make it effective immediately in Personalizer, or download it for future analysis or use.
+After performing the offline evaluation, you can see the comparative effectiveness of Personalizer with that new policy compared to the current online policy. You can then apply that learning policy to make it effective immediately in Personalizer, by downloading it and uploading it in the Models and Policy panel. You can also download it for future analysis or use.
 
 ## Understanding the relevance of offline evaluation results
 
@@ -94,3 +94,5 @@ We recommend looking at feature evaluations and asking:
 ## Next steps
 
 [Configure Personalizer](how-to-settings.md)
+[Run Offline Evaluations](how-to-offline-evaluation.md)
+Understand [How Personalizer Works](how-personalizer-works.md)

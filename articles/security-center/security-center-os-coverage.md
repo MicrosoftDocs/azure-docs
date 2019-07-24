@@ -6,7 +6,6 @@ documentationcenter: na
 author: monhaber
 manager: barbkess
 editor: ''
-
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
-ms.author: monhaber
-
+ms.author: "v-mohabe"
 ---
 # Platforms and features supported by Azure Security Center
 
@@ -74,7 +72,7 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 > [!div class="mx-tableFixed"]
 > 
 
-|Server|Windows||Linux||||Pricing|
+|Server|Windows|||Linux|||Pricing|
 |----|----|----|----|----|----|----|----|
 |**Environment**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|

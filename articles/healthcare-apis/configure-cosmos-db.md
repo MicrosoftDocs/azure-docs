@@ -3,6 +3,7 @@ title: Configure Cosmos DB settings in Azure API for FHIR
 description: This article describes how to configure Cosmos DB settings in Azure API for FHIR
 author: matjazl
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: reference 
 ms.date: 05/22/2019
 ms.author: matjazl

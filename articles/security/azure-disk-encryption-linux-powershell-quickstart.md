@@ -14,13 +14,11 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## Create a resource group
 
 Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed:
 
-```azurepowershell-interactive
+```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
@@ -28,23 +26,23 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 Create an Azure virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm), passing to it the VM configuration object you created above.
 
-```azurecli-interactive
+```powershell
 $securePassword = ConvertTo-SecureString 'AZUREuserPA$$W0RD' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
-New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:16.04-LTS:latest  -Size Standard_D2S_V3
+New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:16.04-LTS:latest -Size Standard_D2S_V3
 ```
 
 It will take a few minutes for your VM to be deployed. 
 
-## Create a Key Vault
+## Create a Key Vault configured for encryption keys
 
 Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault). To enable the Key Vault to store encryption keys, use the -EnabledForDiskEncryption parameter.
 
 > [!Important]
 > Each Key Vault must have a unique name. The following example creates a Key Vault named *myKV*, but you must name yours something different.
 
-```azurecli-interactive
+```powershell
 New-AzKeyvault -name MyKV -ResourceGroupName myResourceGroup -Location EastUS -EnabledForDiskEncryption
 ```
 
@@ -54,7 +52,7 @@ Encrypt your VM with [Set-AzVmDiskEncryptionExtension](/powershell/module/az.com
 
 Set-AzVmDiskEncryptionExtension requires some values from your Key Vault object. You can obtain these values by passing the unique name of your key vault to [Get-AzKeyvault](/powershell/module/az.keyvault/get-azkeyvault).
 
-```azurecli-interactive
+```powershell
 $KeyVault = Get-AzKeyVault -VaultName MyKV -ResourceGroupName MyResourceGroup
 
 Set-AzVMDiskEncryptionExtension -ResourceGroupName MyResourceGroup -VMName MyVM -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId -SkipVmBackup -VolumeType All
@@ -70,7 +68,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 You can verify the encryption process by running [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/Get-AzVMDiskEncryptionStatus).
 
-```azurecli-interactive
+```powershell
 Get-AzVmDiskEncryptionStatus -VMName MyVM -ResourceGroupName MyResourceGroup
 ```
 
@@ -87,7 +85,7 @@ ProgressMessage            : OS disk encryption started
 
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
 
-```azurepowershell-interactive
+```powershell
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 

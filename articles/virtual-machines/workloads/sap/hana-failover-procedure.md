@@ -4,7 +4,7 @@ description: How to perform failover to a disaster recovery site for SAP HANA on
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor:
 
 ms.service: virtual-machines-linux

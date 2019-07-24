@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/12/2019
 ms.custom: seodec18
 ---
 # Set up compute targets for model training 
@@ -69,7 +69,7 @@ The following code shows an example of configuring training runs for a user-mana
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
-## Set up compute targets with Python
+## Set up in Python
 
 Use the sections below to configure these compute targets:
 
@@ -245,19 +245,23 @@ The following code demonstrates how to attach Azure Batch as a compute target:
 from azureml.core.compute import ComputeTarget, BatchCompute
 from azureml.exceptions import ComputeTargetException
 
-batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+# Name to associate with new compute in workspace
+batch_compute_name = 'mybatchcompute'
 
 # Batch account details needed to attach as compute to workspace
-batch_account_name = "<batch_account_name>" # Name of the Batch account
-batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+batch_account_name = "<batch_account_name>"  # Name of the Batch account
+# Name of the resource group which contains this account
+batch_resource_group = "<batch_resource_group>"
 
 try:
     # check if the compute is already attached
     batch_compute = BatchCompute(ws, batch_compute_name)
 except ComputeTargetException:
     print('Attaching Batch compute...')
-    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
-    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    provisioning_config = BatchCompute.attach_configuration(
+        resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(
+        ws, batch_compute_name, provisioning_config)
     batch_compute.wait_for_completion()
     print("Provisioning state:{}".format(batch_compute.provisioning_state))
     print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
@@ -265,7 +269,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## Set up compute in the Azure portal
+## Set up in Azure portal
 
 You can access the compute targets that are associated with your workspace in the Azure portal.  You can use the portal to:
 
@@ -352,7 +356,7 @@ Follow the steps described earlier to view the list of compute targets. Then use
 1. Select __Attach__. 
 1. View the status of the attach operation by selecting the compute target from the list.
 
-## Set up compute with the CLI
+## Set up with CLI
 
 You can access the compute targets that are associated with your workspace using the [CLI extension](reference-azure-machine-learning-cli.md) for Azure Machine Learning service.  You can use the CLI to:
 
@@ -362,7 +366,7 @@ You can access the compute targets that are associated with your workspace using
 
 For more information, see [Resource management](reference-azure-machine-learning-cli.md#resource-management).
 
-## Set up compute with VS Code
+## Set up with VS Code
 
 You can access, create and manage the compute targets that are associated with your workspace using the [VS Code extension](how-to-vscode-tools.md#create-and-manage-compute-targets) for Azure Machine Learning service.
 
