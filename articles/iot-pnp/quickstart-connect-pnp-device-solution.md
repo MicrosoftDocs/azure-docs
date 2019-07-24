@@ -14,82 +14,148 @@ ms.custom: mvc
 
 # Quickstart: Connect a Plug and Play device to my solution
 
-Plug and Play simplifies IoT by enabling you to interact with device capabilities without knowledge of the underlying device implementation. This quickstart shows you how to connect a Plug and Play device to your solution.
+Plug and Play simplifies IoT by enabling you to interact with device capabilities without knowledge of the underlying device implementation. This quickstart shows you how to connect with a Plug and Play device to your solution.
 
 ## Prerequisites
 
-Install [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload when you install Visual Studio.
+1. Download Node.js from [nodejs.org](https://nodejs.org).
+2. [Install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Add the Microsoft Azure IoT Extension for Azure CLI.
 
-Complete the steps to install the Visual Studio integration and the **azure-iot-sdk-c** package in [Setup C SDK vcpkg for Windows development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/setting_up_vcpkg.md#setup-c-sdk-vcpkg-for-windows-development-environment).
+    ```azurecli-interactive
+    az extension add --name azure-cli-iot-ext
+    ```
+3. Register a device in IoT Hub.
 
-An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+   Run the following command in Azure Cloud Shell to create the device identity. Replace the **YourIoTHubName** and **YourDevice** with your actual names. If you don't have an IoT Hub, follow the instructions [here](https://review.docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-using-cli?branch=pr-en-us-82761) to create one.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+    ```azurecli-interactive
+    az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
+    ```
+4. Get device connection string.
 
-## Prepare your cloud environment
+    Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
-To complete the quickstart, you need an IoT hub to your Azure subscription with a registered device. To create the hub and register the device, complete the following steps using the Azure CLI.
-
-The commands use the values in the following table:
-
-| Name | Value | Notes   |
-| ---- | ----- | ------- |
-| Resource group name | `pnpqsrg` | Use this value or choose your own. |
-| Location | `eastus` | Use this location or chooser one. |
-| Hub name | `myiothub` | Replace this value with a unique name. |
-| SKU | F1 | Create a free IoT hub, you can only have one free hub in a subscription. |
-| Device name | `MyDevice` | Use this value or choose your own. |
-
-Run the following command to add the [IoT extension for Azure CLI](../cli/azure/ext/azure-cli-iot-ext/) to your Cloud Shell instance.
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-Create a resource group for your IoT hub and then create the hub:
-
-```azurecli-interactive
-az group create --name pnpqsrg \
-  --location eastus
-az iot hub create --name myiothub \
-  --resource-group pnpqsrg \
-  --sku F1 \
-  --location eastus
-```
-
-Register a device and retrieve its connection string:
-
-```azurecli-interactive
-az iot hub device-identity create \
-  --hub-name myiothub \
-  --device-id MyDevice
-az iot hub device-identity show-connection-string \
-  --hub-name myiothub \
-  --device-id MyDevice \
-  --output table
-```
-
-Make a note of the device connection string. It looks like `HostName=myiothub.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`. You use this connection string later in the quickstart.
+    ```azurecli-interactive
+    az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
+    ```
 
 ## Connect your device
 
-In this quickstart, you use a simulated environmental sensor that's written in C as the sample Plug and Play device. When you run the device, it connects to the IoT hub you created in the previous section.
+In this quickstart, you use a sample environmental sensor that's written in Node.js as the Plug and Play device. Please follow the instructions below to install and run the device. 
 
-### Configure the simulated device
+1. Clone the Github repository.
+    ```cmd/sh
+    git clone http://github.com/Azure/NodeSamplePlaceHolder
+1. In a terminal, go to the root folder of your cloned repository, navigate to the **Device** folder, and install all the dependencies by running the command below.
 
-### Build and run the device sample
+    ```cmd/sh
+    npm install
+    ```
+
+3. Configure the _device connection string_. 
+
+    ```cmd/sh
+    set DEVICE_CONNECTION_STRING=<your device connection string>
+    ```
+
+
+4. Run the sample with the following command:
+
+    ```cmd/she
+    node simple_sample.js
+    ```
+5. You should see messages describing that the device has sent telemetry and updated properties. It is now ready to receive commands and property updates. Don’t close this terminal, as you’re going to need it to confirm the service samples also worked later.
+
 
 ## Build the solution
 
-This quickstart uses a sample IoT solution to interact with the simulated environmental sensor.
+In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device.
 
-### View the telemetry
+1. Open another terminal. Go to the folder of your cloned repository, and navigate to the **Service** folder. Install all the dependencies under this folder by running the command below.
 
-### View properties
+    ```cmd/sh
+    npm install
+    ```
+2. Configure the _hub connection string_. 
 
-### Set properties
+    ```cmd/sh
+    set IOTHUB_CONNECTION_STRING=<your device connection string>
+    ```
 
-### Call commands
+
+### Update a writable property
+1. Open the file **update_digital_twin_property.js**. 
+1. At the beginning of the file, a set of constants are defined with uppercase placeholders. Replace the _deviceID_ with the ID you created earlier, and replace below values with the examples then save the file.
+    ```
+    const componentName = 'environmentalSensor'; 
+    const propertyName = 'brightness'; 
+    const propertyValue = 60; 
+    ```
+3. Use below command to run the sample.
+    ```cmd/sh
+    node update_digital_twin_property.js
+    ```
+1. From the service terminal, you will see the digital twin information associated with your device. Find the component _environmentalSensor_, you should see the new brightness value 60.
+    ```
+        "environmentalSensor": {
+        "name": "environmentalSensor",
+        "properties": {
+          "brightness": {
+            "reported": {
+              "value": 60,
+              "desiredState": {
+                "code": 200,
+                "version": 14,
+                "description": "helpful descriptive text"
+              }
+            },
+            "desired": {
+              "value": 60
+            }
+          },
+          "state": {
+            "reported": {
+              "value": "online"
+            }
+          }
+        }
+      }
+    ```
+
+
+1. Go to your device terminal, you should see that the device has recieved the update.
+    ```
+    Received an update for brightness: 60
+    updated the property
+    ```
+
+### Invoke a command 
+1. Open the file **invoke_command.js**. 
+1. At the beginning of the file, replace the _deviceID_ with the ID you created earlier, and replace below values with examples then save the file.
+    ```
+        const componentName = 'environmentalSensor'; 
+        const commandName = 'blink';
+    ```
+1. Go back to your service terminal. Use below command to run the sample.
+    ```cmd/sh
+    node invoke_command.js
+    ```
+4. From the service terminal, a success would look like
+    ```
+    invoking command blink on component environmentalSensor for device test...
+    {
+      "result": "helpful response text",
+      "statusCode": 200,
+      "requestId": "33e536d3-14f7-4105-88f3-629b9933851c",
+      "_response": "helpful response text"
+    }
+    ```
+5. Go to the device terminal, you'll see the command has been acknowledged. 
+    ```
+    received command: blink for component: environmentalSensor
+    acknowledgement succeeded.
+    ```
 
 ## Clean up resources
 
@@ -98,7 +164,7 @@ If you plan to continue with later articles, you can keep these resources. Other
 To delete the hub and registered device, complete the following steps using the Azure CLI:
 
 ```azurecli-interactive
-az group delete --name pnpqsrg
+az group delete --name <Your group name>
 ```
 
 ## Next step
