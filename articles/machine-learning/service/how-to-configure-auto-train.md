@@ -92,50 +92,46 @@ Examples:
 
 ## Fetch data for running experiment on remote compute
 
-If you are using a remote compute to run your experiment, the data fetch must be wrapped in a separate python script `get_data()`. This script is run on the remote compute where the automated machine learning experiment is run. `get_data` eliminates the need to fetch the data over the wire for each iteration. Without `get_data`, your experiment will fail when you run on remote compute.
+For remote executions, you need to make the data accessible from the remote compute. This can be done by uploading the data to DataStore.
 
-Here is an example of `get_data`:
-
-```python
-%%writefile $project_folder/get_data.py
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-def get_data(): # Burning man 2016 data
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
-    # get integer labels
-    le = LabelEncoder()
-    le.fit(df["Label"].values)
-    y = le.transform(df["Label"].values)
-    df = df.drop(["Label"], axis=1)
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
-    return { "X" : df, "y" : y }
-```
-
-In your `AutoMLConfig` object, you specify the `data_script` parameter and provide the path to the `get_data` script file similar to below:
+Here is an example of using `datastore`:
 
 ```python
-automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
+    import pandas as pd
+    from sklearn import datasets
+    
+    data_train = datasets.load_digits()
+
+    pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
+    pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
+
+    ds = ws.get_default_datastore()
+    ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 ```
 
-`get_data` script can return:
+### Define deprep references
 
-Key	| Type | Mutually Exclusive with	| Description
----|---|---|---
-X |	Pandas Dataframe or Numpy Array	| data_train, label, columns |	All features to train with
-y |	Pandas Dataframe or Numpy Array |	label	| Label data to train with. For classification, should be an array of integers.
-X_valid	| Pandas Dataframe or Numpy Array	| data_train, label	| _Optional_ Feature data that forms the validation set. If not specified, X is split between train and validate
-y_valid |	Pandas Dataframe or Numpy Array	| data_train, label	| _Optional_ The label data to validate with. If not specified, y is split between train and validate
-sample_weight |	Pandas Dataframe or Numpy Array |	data_train, label, columns|	_Optional_ A weight value for each sample. Use when you would like to assign different weights for your data points
-sample_weight_valid	| Pandas Dataframe or Numpy Array |	data_train, label, columns |	_Optional_ A weight value for each validation sample. If  not specified, sample_weight is split between train and validate
-data_train |	Pandas Dataframe |	X, y, X_valid, y_valid |	All data (features+label) to train with
-label |	string	| X, y, X_valid, y_valid |	Which column in data_train represents the label
-columns	| Array of strings	||	_Optional_ Whitelist of columns to use for features
-cv_splits_indices	| Array of integers	||	_Optional_ List of indexes to split the data for cross validation
+Define X and y as dprep reference, which will be passed to automated machine learning `AutoMLConfig` object similar to below:
+
+```python
+
+    X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
+    y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
+    
+    
+    automl_config = AutoMLConfig(task = 'classification',
+                                 debug_log = 'automl_errors.log',
+                                 path = project_folder,
+                                 run_configuration=conda_run_config,
+                                 X = X,
+                                 y = y,
+                                 **automl_settings
+                                )
+```
 
 ## Train and validation data
 
-You can specify separate train and validation set either through get_data() or directly in the `AutoMLConfig`  method.
+You can specify separate train and validation set either directly in the `AutoMLConfig`  method.
 
 ### K-Folds Cross Validation
 
