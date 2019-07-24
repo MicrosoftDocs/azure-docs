@@ -267,7 +267,7 @@ And [here's a list of Linux operating systems supported by MMA](https://docs.mic
 [Here's a list of Windows operating systems supported by the dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems). And [here's a list of Linux operating systems supported by the dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### I can't visualize dependencies in Azure Migrate for more than a one-hour duration.
-In Azure Migrate, you can visualize dependencies for up to one hour duration. Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. 
+In Azure Migrate, you can visualize dependencies for up to a one-hour duration. Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. 
 
 For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for only a one-hour period. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
 
@@ -275,7 +275,7 @@ For example, you can use the time duration functionality in the dependency map t
 You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs, if you have a group with more than 10 VMs, we recommend that you split the group into smaller groups and visualize the dependencies.
 
 ### I installed agents and used the dependency visualization to create groups. Now, post-failover, the machines show "Install agent" action instead of "View dependencies."
-* After planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They may acquire a different IP address based on whether or not the user chose to retain an on-premises IP address. 
+* After a planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They may acquire a different IP address based on whether or not the user chose to retain an on-premises IP address. 
 
   If both MAC and IP addresses differ, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data. Instead, it asks the user to install agents instead of viewing dependencies.
 * Post-test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP addresses. Unless the user blocks outgoing Azure Monitor log traffic from these machines, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data and asks users to install agents instead of viewing dependencies.
@@ -284,7 +284,7 @@ You can [visualize dependencies for groups](https://docs.microsoft.com/azure/mig
 
 **How do I collect Azure portal network traffic logs?**
 
-1. Open the browser, and navigate [to the portal](https://portal.azure.com), and sign in.
+1. Open the browser, navigate [to the portal](https://portal.azure.com), and sign in.
 2. Press F12 to start Developer Tools. If needed, clear the  **Clear entries on navigation** setting.
 3. Select the **Network** tab, and start capturing network traffic:
    - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being captured. If the red circle doesn't appear, select the black circle to start.
