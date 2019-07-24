@@ -821,7 +821,7 @@ To host the service within Internet Information Services, a developer would buil
    ```
 
 ### Handling endpoint authentication
-Requests from Azure Active Directory include an OAuth 2.0 bearer token.   Any service receiving the request should authenticate the issuer as being Azure Active Directory for the expected Azure Active Directory tenant, for access to the Azure Active Directory Graph web service.  In the token, the issuer is identified by an iss claim, like "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In this example, the base address of the claim value, https://sts.windows.net, identifies Azure Active Directory as the issuer, while the relative address segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is a unique identifier of the Azure Active Directory tenant for which the token was issued. The audience for the token will be the parent application id for the app in the gallery. The parent application id for all custom apps is 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. The parent application id for each app in the gallery varies. Please contact ProvisioningFeedback@microsoft.com for questions on parent app id for a gallery application. Each of the applications that are registered in a single tenant may receive the same `iss` claim with SCIM requests.
+Requests from Azure Active Directory include an OAuth 2.0 bearer token.   Any service receiving the request should authenticate the issuer as being Azure Active Directory for the expected Azure Active Directory tenant, for access to the Azure Active Directory Graph web service.  In the token, the issuer is identified by an iss claim, like "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In this example, the base address of the claim value, https://sts.windows.net, identifies Azure Active Directory as the issuer, while the relative address segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is a unique identifier of the Azure Active Directory tenant for which the token was issued. The audience for the token will be the application template id for the app in the gallery. The application template id for all custom apps is 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. The application template id for each app in the gallery varies. Please contact ProvisioningFeedback@microsoft.com for questions on the application template id for a gallery application. Each of the applications registered in a single tenant may receive the same `iss` claim with SCIM requests.
 
 Developers using the CLI libraries provided by Microsoft for building a SCIM service can authenticate requests from Azure Active Directory using the Microsoft.Owin.Security.ActiveDirectory package by following these steps: 
 
@@ -859,7 +859,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
        SystemIdentityModel.Tokens.TokenValidationParameters tokenValidationParameters =     
          new TokenValidationParameters()
          {
-           ValidAudience = "02050662-6776-fn00-c000-0780093v0n00"
+           ValidAudience = "8adf8e6e-67b2-4cf2-a259-e3dc5476c621"
          };
 
        // WindowsAzureActiveDirectoryBearerAuthenticationOptions is defined in 
