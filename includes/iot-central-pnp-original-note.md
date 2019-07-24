@@ -11,4 +11,4 @@
 ---
 
 > [!NOTE]
-> You're currently viewing the updated Plug and Play IoT Central documentation. To view the original documentation go to [What is Azure IoT Central?](../articles/iot-central/overview-iot-central.md).
+> You're currently viewing the updated *Feature preview* IoT Central documentation. To view the original documentation go to [What is Azure IoT Central?](../articles/iot-central/overview-iot-central.md).

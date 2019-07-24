@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Tutorial: Add a simulated device to your Azure IoT Central application (Plug and Play)
+# Tutorial: Add a simulated device to your Azure IoT Central application (Feature preview)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
@@ -23,13 +23,11 @@ In this tutorial, you learn how to:
 > * Add a new simulated device
 > * Use a simulated device in the building experience
 
-
 ## Prerequisites
 
 Before you begin, the builder should complete the first builder tutorial to create the Azure IoT Central application:
 
 * [Define a new device type](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) (Required)
-
 
 ## Add a simulated device
 
@@ -40,7 +38,6 @@ To add a real device to your application, you use the **Environmental Sensor** d
 1. To add a simulated environmental sensor device, select **+ New**. Use the suggested **Device ID** or enter your own lowercase **Device ID**. You can also enter a name for your new device. Switch the **simulated** toggle to **On** and then select **Create**.
 
 1. Now you can interact with the views that were created by the builder for the device template using simulated data.
-
 
 ## Use a simulated device to improve views
 
@@ -55,7 +52,6 @@ Once you have created a new simulated device, the builder can use this device to
 1. Choose **Select from a running device** and enter in the **Device ID** of the simulated device that you had copied. 
 
 1. Choose **Apply**. Now you are able to see the same simulated device in your device template views building experience. This is particularly useful for charts and other visualizations.
-
 
 ## Next steps
 
@@ -75,6 +71,3 @@ As a device developer, you can learn how to:
 
 > [!div class="nextstepaction"]
 > [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-
-
-

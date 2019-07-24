@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: philmea
 ---
 
-# Tutorial: Use Azure IoT Central to monitor your devices (Plug and Play)
+# Tutorial: Use Azure IoT Central to monitor your devices (Feature preview)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
