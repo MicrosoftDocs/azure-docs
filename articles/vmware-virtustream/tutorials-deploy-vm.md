@@ -2,12 +2,12 @@
 title: Azure VMware Solution by Virtustream tutorial - deploy a VM
 description: In this Azure VMware Solution (AVS) by Virtustream tutorial, you use a basic connection method to the private cloud and use vCenter to create a VM.
 services:
-author: v-konak
+author: v-jetome
 
 ms.service: vmware-virtustream
 ms.topic: tutorial
-ms.date: 7-28-2019
-ms.author: v-konak
+ms.date: 07/29/2019
+ms.author: v-jetome
 ms.custom: 
 
 
@@ -75,7 +75,7 @@ An NSX-T logical switch segment created in a [previous tutorial](tutorials-nsx-t
 
 ## Next steps
 
-The next step is to [create additional NSX-T networks](tutorials-nsx-t1-ls.md).
+The next step is to [create additional NSX-T networks](tutorials-create-t1-ls.md).
 
 <!-- LINKS - external-->
 
