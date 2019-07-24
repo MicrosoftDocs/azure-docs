@@ -83,7 +83,7 @@ The app can use the different deployment models shown below:
 
 There are many ways to deploy apps on Azure, including:
 
-- ARM templates
+- Azure Resource Manager templates
 - PowerShell
 - Azure CLI
 - Azure portal
@@ -801,7 +801,7 @@ To create an Application Insights instance:
 1. Search for **Application Insights** by using the search box in the Azure portal.
 2. Select **Application Insights**. Provide the details shown here to create an instance.
 
-![Create an Application Insights instance](./media/secure-web-app/app-insights-data.png)
+  ![Create an Application Insights instance](./media/secure-web-app/app-insights-data.png)
 
 After the deployment is complete, you have an Application Insights instance.
 
@@ -822,14 +822,14 @@ To enable MFA for admin sign-ins:
 1. Go to the **Azure Active Directory** tab in the Azure portal
 2. Under the security category, select conditional access. You see this screen:
 
-![Conditional Access - Policies](./media/secure-web-app/ad-mfa-conditional-add.png)
+  ![Conditional Access - Policies](./media/secure-web-app/ad-mfa-conditional-add.png)
 
 If you can't create a new policy:
 
 1. Go to the **MFA** tab.
 2. Select the Azure AD Premium **Free trial** link to subscribe to the free trial.
 
-![Azure AD Premium free trial](./media/secure-web-app/ad-trial-premium.png)
+  ![Azure AD Premium free trial](./media/secure-web-app/ad-trial-premium.png)
 
 Return to the conditional access screen.
 
@@ -838,7 +838,7 @@ Return to the conditional access screen.
 3. Select the users or groups for which you want to enable MFA.
 4. Under **Access controls**, select the **Grant** tab and then select **Require multi-factor authentication** (and other settings if you want).
 
-![Require MFA](./media/secure-web-app/ad-mfa-conditional-add.png)
+  ![Require MFA](./media/secure-web-app/ad-mfa-conditional-add.png)
 
 You can enable the policy by selecting the check box at the top of the screen or do so on the **Conditional Access** tab. When the policy is enabled, users need MFA to sign in to the portal.
 
@@ -848,7 +848,7 @@ If the baseline policy isn't enabled:
 1.	Select **Require MFA for admins**.
 2.	Select **Use policy immediately**.
 
-![Select Use policy immediately](./media/secure-web-app/ad-mfa-conditional-enable.png)
+  ![Select Use policy immediately](./media/secure-web-app/ad-mfa-conditional-enable.png)
 
 #### Use Azure Sentinel to monitor apps and resources
 
