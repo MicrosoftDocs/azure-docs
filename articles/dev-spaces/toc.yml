@@ -63,6 +63,8 @@
       href: how-vs-code-works-with-dev-spaces.md
   - name: How to
     items:
+    - name: Install Azure Dev Spaces
+      href: how-to/install-dev-spaces.md
     - name: Create a Kubernetes cluster using Azure Cloud Shell
       href: how-to/create-cluster-cloud-shell.md
     - name: Share Azure Dev Spaces
