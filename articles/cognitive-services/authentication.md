@@ -154,10 +154,10 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-[!INCLUDE [](../../includes/cognitive-services-aad-authentication.md)]
+[!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
 
 ## See also
 
 * [What is Cognitive Services?](welcome.md)
 * [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
-* [Create an account](cognitive-services-apis-create-account.md)
+* [Custom subdomains](../articles/cognitive-services/cognitive-services-custom-subdomains.md)

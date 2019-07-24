@@ -93,7 +93,3 @@ In this sample, a password is used to authenticate the service principal. The to
    ```
 
 Alternatively, the service principal can be authenticated with a certificate. Besides service principal, user principal is also supported by having permissions delegated through another AAD application. In this case, instead of passwords or certificates, users would be prompted for two-factor authentication when acquiring token.
-
-## See also
-
-* [Custom subdomains](../articles/cognitive-services/cognitive-services-custom-subdomains.md)
