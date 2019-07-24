@@ -82,7 +82,7 @@ The following table provides links to resources for each type of security soluti
 |  | Configure [Inbound network security group (NSG) rules](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Customer |
 |  | Configure [Outbound traffic restriction](../hdinsight-restrict-outbound-traffic.md) with Firewall (preview) | Customer |
 | Virtualized infrastructure | N/A | HDInsight (Cloud provider) |
-| Physical infrasructure security | N/A | HDInsight (cloud provider) |
+| Physical infrastructure security | N/A | HDInsight (cloud provider) |
 
 ## Next steps
 
