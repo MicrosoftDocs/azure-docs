@@ -55,7 +55,7 @@ See the lists for [VMware](https://docs.microsoft.com/azure/migrate/migrate-supp
 
 ### How do I delete Azure Migrate projects and associated Log Analytics workspaces?
 
-When you delete an Azure Migrate project, the migration project *and* the metadata about discovered machines are deleted. However, if you have attached a Log Analytics workspace to the Server Assessment tool, the Log Analytics workspace isn't automatically deleted. (The same Log Analytics workspace can be used for multiple use cases.) If you want to also delete the Log Analytics workspace, you must do that manually.
+When you delete an Azure Migrate project, the migration project *and* the metadata about discovered machines are deleted. However, if you have attached a Log Analytics workspace to the Server Assessment tool, the Log Analytics workspace isn't automatically deleted. (The same Log Analytics workspace can be used for multiple use cases.) If you want to also delete the Log Analytics workspace, you must do that manually:
 
 1. Browse to the Log Analytics workspace attached to the project.
      * If you haven't deleted the migration project yet, you can find the link to the workspace from the Server Assessment overview page in the Essentials section.
@@ -83,7 +83,7 @@ After the invitation email is received, you must open the email and select the l
    - Select **File** > **Deploy OVF template**. Browse to the OVA and complete the deployment.
 4. If deployment still fails, contact Azure Migrate support.
 
-### Appliance can't connect to the internet.
+### The appliance can't connect to the internet.
 
 This behavior can occur when the machine you're using is behind a proxy. Make sure you provide the authorization credentials if the proxy needs them.
 If you're using any URL-based firewall proxy to control outbound connectivity, be sure to add these required URLs to an allow list:
