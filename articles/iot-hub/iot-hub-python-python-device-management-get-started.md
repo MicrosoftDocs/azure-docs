@@ -15,6 +15,8 @@ ms.author: kgremban
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
+[!INCLUDE [iot-hub-python-sdk-note](../../includes/iot-hub-python-sdk-note.md)]
+
 This tutorial shows you how to:
 
 * Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
