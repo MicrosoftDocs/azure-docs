@@ -51,7 +51,7 @@ In order to use the Hadoop command, you must first connect to the headnode using
 Once connected, you can use the following syntax to upload a file to storage.
 
 ```bash
-hadoop -copyFromLocal <localFilePath> <storageFilePath>
+hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
 For example, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
