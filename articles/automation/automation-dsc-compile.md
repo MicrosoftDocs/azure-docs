@@ -141,8 +141,8 @@ to learn more about **Composite Resources**.
 > In order for configurations containing **Composite Resources** to compile correctly, you must first ensure that any DSC Resources that the composite relies on are first imported in to Azure Automation.
 
 Adding a DSC **Composite Resource** is no different than adding any PowerShell module to Azure Automation.
-The step by step intructions for this process are
-[documented here](https://docs.microsoft.com/en-us/azure/automation/shared-resources/modules).
+The step by step intructions for this process are documented in the article
+[Manage Modules in Azure Automation](/azure/automation/shared-resources/modules).
 
 ### Managing ConfigurationData when compiling configuration in Azure Automatation
 
@@ -299,8 +299,8 @@ For more information about how to sign node configurations, see [Improvements in
 
 ### Compiling a configuration in Windows PowerShell
 
-The process to compile DSC configurations in Windows PowerShell is included in the PowerShell DSC
-[documentation here](/powershell/dsc/configurations/write-compile-apply-configuration#compile-the-configuration).
+The process to compile DSC configurations in Windows PowerShell is included in the PowerShell DSC documentation
+[Write, Compile, and Apply a Configuration](/powershell/dsc/configurations/write-compile-apply-configuration#compile-the-configuration).
 This can be executed from a developer workstation or within a build service such as
 [Azure DevOps](https://dev.azure.com).
 
