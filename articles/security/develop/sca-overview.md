@@ -1,7 +1,7 @@
 ---
 title: Security Code Analysis Documentation
 description: This article is introduction to Security Code Analysis Documentation
-author: v-havee
+author: vharindra
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/18/2019
@@ -33,7 +33,7 @@ Once you have addressed the issues reported by the tool, you can configure the e
 
 ### Auto-Update
 
-The Azure DevOps build tasks and tools can be set to stay up to date (default setting) or an older version can be selected. If there is an updated version of the tool, there is no need to download and install it; this extension takes care of that for you.
+The Azure DevOps build tasks and tools can be set to stay up-to-date (default setting) or an older version can be selected. If there is an updated version of the tool, there is no need to download and install it; this extension takes care of that for you.
 
 ## Each build task will:
 1. Prompt the user for a minimal list of options related to the source and binaries that are to be scanned. The task will provide defaults where possible.
@@ -41,7 +41,7 @@ The Azure DevOps build tasks and tools can be set to stay up to date (default se
 3. Sanitize and convert user input into (often complex) command-line arguments, and then launch the tool on the build agent.
 4. Save tool output log files locally on the build agent.
 
-You will also want to add up to three helpful post-processing tasks after all other tool tasks complete, to produce a summary report of the issues found by the tools you run and to preserve tool log files to the Azure DevOps Server or to a file share. And perhaps most importantly, understand that when a security tool finds an issue the build does NOT break or fail. Should you wish to inject a build break (a build task failure) based on security findings by one of the tools, you will need ot add the Post-Analysis build task.
+You will also want to add up to three helpful post-processing tasks after all other tool tasks complete, to produce a summary report of the issues found by the tools you run and to preserve tool log files to the Azure DevOps Server or to a file share. And perhaps most importantly, understand that when a security tool finds an issue the build does NOT break or fail. Should you wish to inject a build break (a build task failure) based on security findings by one of the tools, you will need to add the Post-Analysis build task.
 See [Post-Processing build tasks](post-processing.md) for more details on these three tasks.
 
 ## Under the Hood
@@ -61,13 +61,13 @@ Passwords and other secrets stored in source code is currently a big problem. Cr
 
 ## BinSkim
 
-BinSkim is a Portable Executable (PE) light-weight scanner that validates compiler/linker settings and other security-relevant binary characteristics. The build task provides a command line wrapper around the BinSkim.exe application. BinSkim is an open source tool.
+BinSkim is a Portable Executable (PE) light-weight scanner that validates compiler/linker settings and other security-relevant binary characteristics. The build task provides a command line wrapper around the BinSkim.exe application. BinSkim is an open-source tool.
 
 For more information visit [BinSkim on GitHub](https://github.com/Microsoft/binskim)
 
 ## TSLint
 
-TSLint is an extensible static analysis tool that checks TypeScript code for readability, maintainability, and functionality errors. It is widely supported across modern editors and build systems and can be customized with your own lint rules, configurations, and formatters. TSLint is an open source tool.
+TSLint is an extensible static analysis tool that checks TypeScript code for readability, maintainability, and functionality errors. It is widely supported across modern editors and build systems and can be customized with your own lint rules, configurations, and formatters. TSLint is an open-source tool.
 
 For more information visit [TSLint on Github](https://github.com/palantir/tslint)
 
@@ -94,7 +94,7 @@ For more information visit [Defender website](https://aka.ms/defender)
 The Microsoft Security Code Analysis extension has three build tasks to help you process and analyze the results found by the security tools tasks.
  - The Publish Security Analysis Logs build task preserves logs files from the build for investigation and follow-up.
  - The Security Report build task collects all issues reported by all tools and adds them to a single summary report file.
- - The Post-Analysis build task allows customers to inject build breaks and fail the build should an analysis tool report security issues found in the code that was scanned.
+ - The Post-Analysis build task allows customers to inject build breaks and fail the build should an analysis tool report security issues in the code that was scanned.
 
 ## Publish Security Analysis Logs
 The Publish Security Analysis Logs build task preserves the log files of the security tools run during the build.
@@ -107,10 +107,8 @@ The Security Report build task parses the log files created by the security tool
 The task can be configured to report findings for specific tools or for all tools, and you can also choose what level of issues (errors or errors and warnings) should be reported.
 
 ## Post-Analysis (Build Break)
-The Post-analysis build task enables the customer to inject a build break and fail the build in case one ore more analysis tools reports findings or issues in the code.
+The Post-analysis build task enables the customer to inject a build break and fail the build in case one ore more analysis tools report findings or issues in the code.
 
 Individual build tasks will succeed, by design, as long as the tool completes successfully, whether there are findings or not. This is so that the build can run to completion allowing all tools to run.
-
-To fail the build based on security issues found by one of the tools run in the build, then you can add and configure this build task.
 
 The task can be configured to break the build for issues found by specific tools or for all tools, and also based on the severity of issues found (errors or and warnings).
