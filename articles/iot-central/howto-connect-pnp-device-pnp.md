@@ -1,6 +1,6 @@
 ---
 title: Connect a Plug and Play device to IoT Central | Microsoft Docs
-description: As a device developer, learn about how to use VS Code to create and test an IoT Plug and Play device that connects to IoT Central.
+description: As a device developer, learn about how to use Visual Studio Code to create and test an IoT Plug and Play device that connects to IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/10/2019
@@ -10,7 +10,7 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 
-# As, an operator, I want to configure a real device to connect to my IoT Central application. As a device developer, I want to use VS Code to create and test an IoT Plug and Play device that connects to my IoT Central application.
+# As, an operator, I want to configure a real device to connect to my IoT Central application. As a device developer, I want to use Visual Studio Code to create and test an IoT Plug and Play device that connects to my IoT Central application.
 ---
 
 # Use Visual Studio Code to create a Plug and Play device that connects to IoT Central
@@ -32,7 +32,7 @@ In this guide, you learn how to:
 * Import a device capability model into a device template in IoT Central
 * Add a dashboard to the template that displays device telemetry
 * A real device from the template
-* Import a device capability model into VS Code
+* Import a device capability model into Visual Studio Code
 * Generate a C device client application from the model
 * Build the C device client application and connect it to IoT Central
 
@@ -42,10 +42,10 @@ To test your device code in this guide, you need an IoT Central application crea
 
 To work with the device capability model in this guide, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/download): VS Code is available for multiple platforms
-* Azure IoT Device Workbench extension for VS Code:
+* [Visual Studio Code](https://code.visualstudio.com/download): Visual Studio Code is available for multiple platforms
+* Azure IoT Device Workbench extension for Visual Studio Code:
     1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr).
-    1. In VS Code, select **Extensions** tab.
+    1. In Visual Studio Code, select **Extensions** tab.
     1. Select **Install from VSIX**.
     1. Select the .vsix file you downloaded.
     1. Select **Install**.
@@ -278,9 +278,9 @@ You need the connection information to use when you create the client applicatio
 
 ## Generate a device client application
 
-You use VS Code to generate a skeleton device client application from the device capability model:
+You use Visual Studio Code to generate a skeleton device client application from the device capability model:
 
-1. Launch VS Code and open the **pnp_app** folder.
+1. Launch Visual Studio Code and open the **pnp_app** folder.
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
@@ -296,7 +296,7 @@ You use VS Code to generate a skeleton device client application from the device
 
 1. Choose **Via DPS (Device Provisioning Service) symmetric key** as the connection method.
 
-VS Code opens a new window with the generated C code in the **sensor_app** folder.
+Visual Studio Code opens a new window with the generated C code in the **sensor_app** folder.
 
 ## Add connection details to the device client
 
