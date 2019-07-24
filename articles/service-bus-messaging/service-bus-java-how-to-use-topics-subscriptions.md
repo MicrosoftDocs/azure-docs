@@ -1,5 +1,5 @@
 ---
-title: Use Java with Azure Service Bus topics and subscriptions
+title: Use Azure Service Bus topics and subscriptions with Java
 description: Use Service Bus topics and subscriptions in Azure.
 services: service-bus-messaging
 documentationcenter: java
