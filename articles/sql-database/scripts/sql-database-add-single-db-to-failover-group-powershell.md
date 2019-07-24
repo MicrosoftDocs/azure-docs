@@ -1,21 +1,21 @@
 ﻿---
-title: PowerShell example- active geo-replication - Azure SQL Database single database | Microsoft Docs
-description: Azure PowerShell example script to set up active geo-replication for a single database in Azure SQL Database and fail it over.
+title: PowerShell example- Failover group - Azure SQL Database single database | Microsoft Docs
+description: Azure PowerShell example script to create an Azure SQL Database single database, add it to a failover group, and test failover. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: sample
-author: mashamsft
+author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 07/16/2019
 ---
-# Use PowerShell to configure active geo-replication for a single database in Azure SQL Database
+# Use PowerShell to add an Azure SQL Database single database to a failover group 
 
-This PowerShell script example configures an active geo-replication failover group for a single database and fails it over to a secondary replica of the database.
+This PowerShell script example creates a single database, creates a failover group, adds the database to it, and tests failover. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -25,15 +25,14 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Sample scripts
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-database-failover-group.ps1?highlight=18-21 "Set up failover group for single database")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
 
 ## Clean up deployment
 
 Use the following command to remove  the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzResourceGroup -ResourceGroupName $primaryresourcegroupname
-Remove-AzResourceGroup -ResourceGroupName $secondaryresourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
 
 ## Script explanation
@@ -46,12 +45,12 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts single databases and elastic pools. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a logical server. | 
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a new Azure SQL Database single database. | 
-| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)| Gets one or more databases. |
-| [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary)| Creates a secondary database for an existing database and starts data replication. |
-| [Set-AzSqlDatabaseSecondary](/powershell/module/az.sql/set-azsqldatabasesecondary)| Switches a secondary database to be primary to initiate failover.|
-| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) | Gets the geo-replication links between an Azure SQL Database and a resource group or SQL Server. |
-| [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) | Terminates data replication between a SQL Database and the specified secondary database. |
-| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
+| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Creates a new failover group. |
+| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Gets one or more SQL databases. |
+| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Adds one or more Azure SQL Databases to a failover group. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Gets or lists Azure SQL Database failover groups. |
+| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Executes a failover of an Azure SQL Database failover group. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group | 
 
 ## Next steps
 
