@@ -197,9 +197,9 @@ SQL Database supports building applications with Python, Java, Node.js, PHP, Rub
 
 ## Create and manage Azure SQL resources with the Azure portal
 
-[The Azure portal](https://portal.azure.com/) provides a single **Azure SQL** page where you can manage all of your Azure SQL Database resources including your [SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md). 
+[The Azure portal](https://portal.azure.com/) provides a single page where you can manage all of your Azure SQL resources including your [SQL virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md). 
 
-To access the Azure SQL page, select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box.
+To access the **Azure SQL resources** page, select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box.
 
 To manage existing resources, select the desired item in the list. To create new Azure SQL resources, select **+ Add**. 
 
