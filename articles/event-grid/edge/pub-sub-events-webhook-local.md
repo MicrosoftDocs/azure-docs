@@ -48,7 +48,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 ## Create Event Subscription
 
-    Any module interested in receiving events will create an Event grid subscription on a topic of interest.
+   Any module interested in receiving events will create an Event grid subscription on a topic of interest.
 
 1. Create subscription.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
