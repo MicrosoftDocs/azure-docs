@@ -2,7 +2,7 @@
 title: Connect to Azure SQL Data Warehouse | Microsoft Docs
 description: Get connected to Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview 
+author: XiaoyuMSFT 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
