@@ -1,5 +1,5 @@
 ---
-title: Deploy from GitHub to Azure with Jenkins tutorial
+title: 'Tutorial: Deploy from GitHub to Azure with Jenkins'
 description: Set up Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure App Service for Java web apps
 services: jenkins
 ms.service: jenkins
