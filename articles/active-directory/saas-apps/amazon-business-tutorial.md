@@ -35,7 +35,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
-* An Amazon Business single sign-on (SSO) enabled subscription. To create an Amazon Business account go [here](https://www.amazon.com/business/register/org/landing?ref_=ab_reg_mlp)
+* An Amazon Business single sign-on (SSO) enabled subscription. To create an Amazon Business account, go [here](https://www.amazon.com/business/register/org/landing?ref_=ab_reg_mlp)
 
 ## Scenario description
 
@@ -148,7 +148,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Single Sign-On (SSO)](media/amazon-business-tutorial/sso-settings.png)
 
-1. On the **Set up SSO** wizard, select your provider according your organization requirements and click **Next**.
+1. On the **Set up SSO** wizard, select the provider according to your Organizational requirements and click **Next**.
 
 	![Default group](media/amazon-business-tutorial/default-group1.png)
 
@@ -160,7 +160,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Connection Data](media/amazon-business-tutorial/connection-data1.png)
 
-1. After uploading the downloaded metadata file, the fields in the **Connection data** section will populate automatically and click **Next**.
+1. After uploading the downloaded metadata file, the fields in the **Connection data** section will populate automatically. After that click **Next**.
 
 	![Connection Data](media/amazon-business-tutorial/connection-data2.png)
 
@@ -176,7 +176,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Connection](media/amazon-business-tutorial/amazon-connect.png)
 
-1. Please check the **Status** of the steps upto now we have configured and click **Start testing**.
+1. Please check the **Status** of the steps which have been configured and click **Start testing**.
 
 	![Connection](media/amazon-business-tutorial/sso-connection1.png)
 
@@ -188,11 +188,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Connection](media/amazon-business-tutorial/sso-connection3.png)
 
-1. On the **Are you ready to witch to active  SSO?** wizard, check **I have fully tested SSO and am ready to give** checkbox and click on **Switch to active**.
+1. On the **Are you ready to switch to active  SSO?** wizard, check **I have fully tested SSO and am ready to go live** checkbox and click on **Switch to active**.
 
 	![Connection](media/amazon-business-tutorial/sso-connection4.png)
 
-1. Finally it displays the **SSO Connection Details** status as **Active**.
+1. Finally in the **SSO Connection details** section the **Status** is shown as **Active**.
 
 	![Connection](media/amazon-business-tutorial/sso-connection5.png)
 
