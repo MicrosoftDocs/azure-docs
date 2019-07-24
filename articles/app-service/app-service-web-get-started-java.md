@@ -1,5 +1,5 @@
 ---
-title: Create Java web app on Windows - Azure App Service 
+title: Create a Java web app on Windows - Azure App Service
 description: In this quickstart, you deploy your first Java Hello World in Azure App Service on Windows in minutes.
 keywords: azure, app service, web app, windows, java, maven, quickstart
 services: app-service\web
