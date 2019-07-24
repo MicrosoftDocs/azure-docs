@@ -1,6 +1,6 @@
 ---
-title: Security Code Analysis Documentation
-description: This article is introduction to Security Code Analysis Documentation
+title: Microsoft Azure Security Code Analysis Documentation
+description: This article FAQs about the Security Code Analysis Extension
 author: vharindra
 manager: sukhans
 ms.author: terrylan
