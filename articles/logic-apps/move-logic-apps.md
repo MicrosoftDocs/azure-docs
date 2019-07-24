@@ -27,7 +27,7 @@ When you move resources, Azure creates new resource IDs, so make sure that you u
 
 ## Move logic apps between subscriptions
 
-You can move your logic app to a different Azure subscription by using the Azure portal, For general preparation and other steps for moving Azure resources to other subscriptions, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+You can move Azure resources such as your logic app to a different Azure subscription by using the Azure portal, Azure PowerShell, Azure CLI, or REST API. This topic covers the Azure portal, but for other steps and general preparation, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
 ### Move logic apps between subscriptions by using the Azure portal
 
@@ -47,7 +47,9 @@ You can move your logic app to a different Azure subscription by using the Azure
 
 ## Move logic apps between resource groups
 
-You can test moving your logic apps to another resource group before actually moving those resources. For more information, see [Validate your move](../azure-resource-manager/resource-group-move-resources.md#validate-move). For general preparation and other steps for moving Azure resources to other resource groups, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+You can move Azure resources such as your logic app to a different Azure resource group by using the Azure portal, Azure PowerShell, Azure CLI, or REST API. This topic covers the Azure portal, but for other steps and general preparation, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+
+Also, you can test moving your logic apps to another resource group before actually moving those resources. For more information, see [Validate your move](../azure-resource-manager/resource-group-move-resources.md#validate-move).
 
 ### Move logic apps between resource groups by using the Azure portal
 
