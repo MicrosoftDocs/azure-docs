@@ -121,11 +121,11 @@ A sign-in window will appear. In that window, sign into your Azure account by us
 
 #### Authenticate a service principal
 
-This is a great option if you plan to use AzCopy inside of a script that runs without user interaction. 
+This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, particularly when running on-premises. If you plan to run AzCopy on VMs that run in Azure, a managed service identity is easier to administer. To learn more, see the [Authenticate a managed identity](#managed-identity) section of this article.
 
-Before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information.
+Before you run a script, you have to sign-in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information.
 
-You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration. 
+You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration.
 
 To learn more about creating service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -133,7 +133,7 @@ To learn more about service principals in general, see [Application and service 
 
 ##### Using a client secret
 
-Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal's app registration. 
+Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal's app registration.
 
 > [!NOTE]
 > Make sure to set this value from your command prompt, and not in the environment variable settings of your operating system. That way, the value is available only to the current session.
@@ -183,9 +183,11 @@ Replace the `<path-to-certificate-file>` placeholder with the relative or fully-
 > [!NOTE]
 > Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history. 
 
+<a id="managed-identity" />
+
 #### Authenticate a managed identity
 
-This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, and the script runs from an Azure Virtual Machine (VM).
+This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, and the script runs from an Azure Virtual Machine (VM). When using this option, you won't have to store any credentials on the VM.
 
 You can sign into your account by using the a system-wide managed identity that you've enabled on your VM, or by using the client ID, Object ID, or Resource ID of a user-assigned managed identity that you've assigned to your VM.
 
@@ -203,7 +205,7 @@ azcopy login --identity
 
 ##### Using a user-assigned managed identity
 
-First, make sure that you've enabled a system-wide managed identity on your VM. See [User-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
 
 Then, in your command console, type any of the following commands, and then press the ENTER key.
 
