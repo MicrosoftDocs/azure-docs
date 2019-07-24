@@ -57,6 +57,6 @@ sections:
     className: cardsD
     items:
     - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.datashare">.NET</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/datashare">.NET</a></p>
     - title: REST
       html: <p><a href="/rest/api/datashare">REST API</a></p>
