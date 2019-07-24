@@ -5,7 +5,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
@@ -115,9 +115,9 @@ The following classes handle the main functionality of the Form Recognizer SDK.
 These code snippets show you how to do the following tasks with the Form Recognizer client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Train a custom Form Recognizer model](train-a-custom-model)
-* [Analyze forms with a custom model](analyze-forms-with-a-custom-model)
-* [Get a list of custom models](get-a-list-of-custom-models)
+* [Train a custom Form Recognizer model](#train-a-custom-model)
+* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
+* [Get a list of custom models](#get-a-list-of-custom-models)
 
 ### Define variables
 
