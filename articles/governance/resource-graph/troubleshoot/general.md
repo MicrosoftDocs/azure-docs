@@ -35,7 +35,7 @@ API for Azure Resource Graph accepts a maximum number of subscriptions to perfor
 
 #### Resolution
 
-Batch requests for the query with a subset of subscriptions to stay under the 2048 subscription
+Batch requests for the query with a subset of subscriptions to stay under the 1000 subscription
 limit. The solution is using the **Subscription** parameter in PowerShell.
 
 ```azurepowershell-interactive
