@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Make machine learning predictions with TensorFlow and Azure Functions | Microsoft Docs"
+title: "Tutorial: Use Python and TensorFlow in Azure Functions to make machine learning inferences | Microsoft Docs"
 description: This tutorial demonstrates how to apply TensorFlow machine learning models in Azure Functions
 services: functions
 author: anthonychu
@@ -13,9 +13,9 @@ ms.author: antchu
 ms.custom: mvc
 ---
 
-# Tutorial: Make machine learning predictions with TensorFlow and Azure Functions
+# Tutorial: Apply machine learning models in Azure Functions with Python and TensorFlow
 
-This article demonstrates how Azure Functions allows you to import a machine learning model and use it with TensorFlow to predict image contents.
+This article demonstrates how Azure Functions allows you to use Python and TensorFlow with a machine learning model to classify an image based on its contents.
 
 In this tutorial, you learn to: 
 
@@ -43,7 +43,7 @@ You may use any editor of your choice. We recommend [Visual Studio Code](https:/
 
 To begin, open a terminal and clone the following repository using Git:
 
-```bash
+```console
 git clone https://github.com/Azure-Samples/functions-python-tensorflow-tutorial.git
 cd functions-python-tensorflow-tutorial
 ```
@@ -61,7 +61,7 @@ Azure Functions requires Python 3.6.x. Consider creating a virtual environment t
 
 Change the current working directory to the *start* folder and create a virtual environment named *.venv*. Replace `<PYTHON_PATH>` with the path to Python 3.6.x on your machine.
 
-```bash
+```console
 cd start
 <PYTHON_PATH> -m venv .venv
 ```
@@ -70,7 +70,7 @@ Next, activate the virtual environment.
 
 *Linux, macOS, Windows Subsystem for Linux*
 
-```bash
+```console
 source .venv/bin/activate
 ```
 
@@ -88,7 +88,7 @@ source .venv/Scripts/activate
 
 The terminal prompt is now prefixed with `(.venv)` which indicates you have successfully activated the virtual environment. Confirm that `python` in the virtual environment is indeed Python 3.6.x.
 
-```bash
+```console
 python --version
 ```
 
@@ -99,7 +99,7 @@ python --version
 
 Use the Azure Functions Core Tools to initialize a Python function app in the folder.
 
-```bash
+```console
 func init --worker-runtime python
 ```
 
@@ -115,7 +115,7 @@ The application requires a single HTTP API endpoint that takes an image URL as t
 
 In the terminal, use the Azure Functions Core Tools to scaffold a new HTTP function named *classify*.
 
-```bash
+```console
 func new --language python --template HttpTrigger --name classify
 ```
 
@@ -145,7 +145,7 @@ By default, the function is configured with an authentication level of `function
 
 In the terminal with the Python virtual environment activated, start the function app.
 
-```bash
+```console
 func start
 ```
 
@@ -158,13 +158,13 @@ Use `Ctrl-C` to stop the function app.
 You'll use a pre-built TensorFlow model that was trained with and exported from Azure Custom Vision Service.
 
 > [!NOTE]
-> If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
+> If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the sample project repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
 The model consists of two files in the *<REPOSITORY_ROOT>/resources/model* folder: *model.db* and *labels.txt*. Copy them into the *classify* function's folder.
 
 *Linux and macOS*
 
-```bash
+```console
 cp ../resources/model/* classify
 ```
 
@@ -182,7 +182,7 @@ Some helper functions for preparing the input image and making a prediction usin
 
 *Linux and macOS*
 
-```bash
+```console
 cp ../resources/predict.py classify
 ```
 
@@ -196,15 +196,13 @@ copy ..\resources\predict.py classify
 
 The helper library has some dependencies that need to be installed. In the terminal with the virtual environment activated, run the following commands in the function app folder that contains *requirements.txt*. Some installation steps may take a few minutes to complete.
 
-```bash
-pip install tensorflow
-pip install Pillow
-pip install requests
+```console
+pip install tensorflow Pillow requests
 ```
 
 Save the dependencies in *requirements.txt*.
 
-```bash
+```console
 pip freeze > requirements.txt
 ```
 
@@ -242,13 +240,13 @@ This function receives an image URL in a query string parameter named `img`. It 
 Since the HTTP endpoint is called by a web page hosted on another domain, the HTTP response includes an `Access-Control-Allow-Origin` header to satisfy the browser's Cross-Origin Resource Sharing (CORS) requirements.
 
 > [!NOTE]
-> In a production application, consider changing `*` to the web page's specific origin for added security.
+> In a production application, change `*` to the web page's specific origin for added security.
 
 ### Run the function app
 
 Ensure the Python virtual environment is still activated and start the function app using the following command.
 
-```bash
+```console
 func start
 ```
 
@@ -266,7 +264,7 @@ There's a simple web app in the *frontend* folder that consumes the HTTP API in 
 
 Open a *separate* terminal and change to the *frontend* folder. Start an HTTP server with your Python 3.6 executable.
 
-```bash
+```console
 cd <FRONT_END_FOLDER>
 <PYTHON_PATH> -m http.server
 ```
