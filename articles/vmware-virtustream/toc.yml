@@ -11,9 +11,15 @@
   items:
   - name: 1 - Create an AVS by Virtustream private cloud
     href: tutorials-create-private-cloud.md
+  - name: 2 - Create a service VNet and resources
+    href: tutorials-create-vnet-resources.md
+  - name: 3 - Access a private cloud 
+    href: tutorials-access-private-cloud.md   
   - name: 4 - Create an NSX-T network
     href: tutorials-create-t1-ls.md
-  - name: 7 - Scale a private cloud
+  - name: 5 - Deploy a VM
+    href: tutorials-deploy-vm.md
+  - name: 6 - Scale a private cloud
     href: tutorials-scale-private-cloud.md
 - name: Concepts
   items:

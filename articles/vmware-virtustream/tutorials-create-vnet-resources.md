@@ -6,7 +6,7 @@ author: v-jetome
 
 ms.service: vmware-virtustream
 ms.topic: tutorial
-ms.date: 07/22/2019
+ms.date: 07/29/2019
 ms.author: v-jetome
 ms.custom: 
 
@@ -15,7 +15,7 @@ ms.custom:
 
 # Tutorial: Create VNet resources to peer with an AVS by Virtustream private cloud
 
-In this tutorial, you create a VNet and other required resources in your Azure subscription. The resources include a Windows virtual machine, a gateway subnet, and an ExpressRoute gateway. The gateway that is peered with the ExpressRoute circuit of your new private cloud.
+In this tutorial, you create a service VNet and other required resources in your Azure subscription. The resources include a Windows virtual machine, a gateway subnet, and an ExpressRoute gateway. The gateway is peered with the ExpressRoute circuit of your new private cloud.
 
 Using this tutorial, you learn how to:
 
