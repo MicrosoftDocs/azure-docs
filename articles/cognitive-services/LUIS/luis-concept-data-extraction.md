@@ -151,54 +151,7 @@ A [composite entity](reference-entity-composite.md) is made up of other entities
 
 ## List entity data
 
-A [list](luis-concept-entity-types.md) entity isn't machine-learned. It is an exact text match. A list represents items in the list along with synonyms for those items. LUIS marks any match to an item in any list as an entity in the response. A synonym can be in more than one list.
-
-Suppose the app has a list, named `Cities`, allowing for variations of city names including city of airport (Sea-tac), airport code (SEA), postal zip code (98101), and phone area code (206).
-
-|List item|Item synonyms|
-|---|---|
-|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
-|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
-
-`book 2 tickets to paris`
-
-In the previous utterance, the word `paris` is mapped to the paris item as part of the `Cities` list entity. The list entity matches both the item's normalized name as well as the item synonyms.
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 22,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
-
-Another example utterance, using a synonym for Paris:
-
-`book 2 tickets to roissy`
-
-```JSON
-"entities": [
-  {
-    "entity": "roissy",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 23,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
+[List entities](reference-entity-list.md) represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the **Recommend** feature to see suggestions for new words based on the current list. If there is more than one list entity with the same value, each entity is returned in the endpoint query. 
 
 ## Prebuilt entity data
 [Prebuilt](luis-concept-entity-types.md) entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`. The following text is an example utterance with the returned prebuilt entities:
@@ -285,35 +238,8 @@ Another example utterance, using a synonym for Paris:
 ```
 
 ## Regular expression entity data
-[Regular expression](luis-concept-entity-types.md) entities are discovered based on a regular expression match using an expression you provide when you create the entity. When using `kb[0-9]{6}` as the regular expression entity definition, the following JSON response is an example utterance with the returned regular expression entities for the query `When was kb123456 published?`:
 
-```JSON
-{
-  "query": "when was kb123456 published?",
-  "topScoringIntent": {
-    "intent": "FindKBArticle",
-    "score": 0.933641255
-  },
-  "intents": [
-    {
-      "intent": "FindKBArticle",
-      "score": 0.933641255
-    },
-    {
-      "intent": "None",
-      "score": 0.04397359
-    }
-  ],
-  "entities": [
-    {
-      "entity": "kb123456",
-      "type": "KB number",
-      "startIndex": 9,
-      "endIndex": 16
-    }
-  ]
-}
-```
+A [regular expression entity](reference-entity-regular-expression.md) extracts an entity based on a regular expression pattern you provide.
 
 ## Extracting names
 Getting names from an utterance is difficult because a name can be almost any combination of letters and words. Depending on what type of name you're extracting, you have several options. The following suggestions are not rules but more guidelines.
@@ -398,49 +324,8 @@ Roles are contextual differences of entities.
 ```
 
 ## Pattern.any entity data
-Pattern.any entities are variable-length entities used in template utterances of a [pattern](luis-concept-patterns.md).
 
-```JSON
-{
-  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.999999464
-  },
-  "intents": [
-    {
-      "intent": "FindForm",
-      "score": 0.999999464
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 4.883697E-06
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 9.278342E-07
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 9.278342E-07
-    }
-  ],
-  "entities": [
-    {
-      "entity": "understand your responsibilities as a member of the community",
-      "type": "FormName",
-      "startIndex": 18,
-      "endIndex": 78,
-      "role": ""
-    }
-  ]
-}
-```
-
+[Pattern.any](reference-entity-pattern-any.md) is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.  
 
 ## Sentiment analysis
 If Sentiment analysis is configured, the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) documentation.

@@ -133,42 +133,11 @@ A [composite entity](reference-entity-composite.md) is made up of other entities
 
 ## List entity
 
-List entities represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the **Recommend** feature to see suggestions for new words based on the current list. If there is more than one list entity with the same value, each entity is returned in the endpoint query. 
-
-The entity is a good fit when the text data:
-
-* Are a known set.
-* Doesn't change often. If you need to change the list often or want the list to self-expand, a simple entity boosted with a phrase list is a better choice. 
-* The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
-* The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Fuzzy matching, case-insensitivity, stemming, plurals, and other variations are not resolved with a list entity. To manage variations, consider using a [pattern](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
-
-![list entity](./media/luis-concept-entities/list-entity.png)
-
-[Tutorial](luis-quickstart-intent-and-list-entity.md)<br>
-[Example JSON response for entity](luis-concept-data-extraction.md#list-entity-data)
+[List entities](reference-entity-list.md) represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the **Recommend** feature to see suggestions for new words based on the current list. If there is more than one list entity with the same value, each entity is returned in the endpoint query. 
 
 ## Pattern.any entity
 
-Pattern.any is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.  
-
-The entity is a good fit when:
-
-* The ending of the entity can be confused with the remaining text of the utterance. 
-[Tutorial](luis-tutorial-pattern.md)<br>
-[Example JSON response for entity](luis-concept-data-extraction.md#patternany-entity-data)
-
-**Example**  
-Given a client application that searches for books based on title, the pattern.any extracts the complete title. A template utterance using pattern.any for this book search is `Was {BookTitle} written by an American this year[?]`. 
-
-In the following table, each row has two versions of the utterance. The top utterance is how LUIS will initially see the utterance, where it is unclear with the book title begins and ends. The bottom utterance is how LUIS will know the book title when a pattern is in place for extraction. 
-
-|Utterance|
-|--|
-|Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?<br><br>Was **The Man Who Mistook His Wife for a Hat and Other Clinical Tales** written by an American this year?|
-|Was Half Asleep in Frog Pajamas written by an American this year?<br><br>Was **Half Asleep in Frog Pajamas** written by an American this year?|
-|Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?<br><br>Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?|
-|Was There's A Wocket In My Pocket! written by an American this year?<br><br>Was **There's A Wocket In My Pocket!** written by an American this year?|
-||
+[Pattern.any](reference-entity-pattern-any.md) is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.  
 
 ## Prebuilt entity
 
@@ -221,29 +190,7 @@ Your first choice is to remove the example utterance.
 
 ## Regular expression entity 
 
-A regular expression is best for raw utterance text. It ignores case and ignores cultural variant.  Regular expression matching is applied after spell-check alterations at the character level, not the token level. If the regular expression is too complex, such as using many brackets, you're not able to add the expression to the model. Uses part but not all of the [.NET Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) library. 
-
-The entity is a good fit when:
-
-* The data are consistently formatted with any variation that is also consistent.
-* The regular expression does not need more than 2 levels of nesting. 
-
-![Regular expression entity](./media/luis-concept-entities/regex-entity.png)
-
-[Tutorial](luis-quickstart-intents-regex-entity.md)<br>
-[Example JSON response for entity](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
-
-Regular expressions may match more than you expect to match. An example of this is numeric word matching such as `one` and `two`. An example is the following regex, which matches the number `one` along with other numbers:
-
-```javascript
-(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
-``` 
-
-This regex expression also matches any words that end with these numbers, such as `phone`. In order to fix issues like this, make sure the regex matches takes into account word boundaries. The regex to use word boundaries for this example is used in the following regex:
-
-```javascript
-\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
-```
+A [regular expression entity](reference-entity-regular-expression.md) extracts an entity based on a regular expression pattern you provide.
 
 ## Simple entity
 

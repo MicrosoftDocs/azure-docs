@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
 ---
-## Simple entity 
+# Simple entity 
 
 A simple entity is a generic entity that describes a single concept and is learned from the machine-learned context. Because simple entities are generally names such as company names, product names, or other categories of names, add a [phrase list](luis-concept-feature.md) when using a simple entity to boost the signal of the names used. 
 
@@ -21,7 +21,7 @@ The entity is a good fit when:
 
 ![simple entity](./media/luis-concept-entities/simple-entity.png)
 
-### Example
+## Example JSON
 
 `Bob Jones wants 3 meatball pho`
 
@@ -45,5 +45,6 @@ The data returned from the endpoint includes the entity name, the discovered tex
 |--|--|--|
 |Simple Entity|`Customer`|`bob jones`|
 
+## Next steps
+
 [Tutorial](luis-quickstart-primary-and-secondary-data.md)<br/>
-[Example response for entity](luis-concept-data-extraction.md#simple-entity-data)<br/>

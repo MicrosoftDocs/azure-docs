@@ -1,7 +1,7 @@
 ---
-title: Simple entity type 
+title: Pattern.any entity type 
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: A simple entity is a generic entity that describes a single concept and is learned from the machine-learned context. Because simple entities are generally names such as company names, product names, or other categories of names, add a phrase list when using a simple entity to boost the signal of the names used.   
+description:Pattern.any is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,39 +11,75 @@ ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
 ---
-## Simple entity 
+# Pattern.any entity 
 
-A simple entity is a generic entity that describes a single concept and is learned from the machine-learned context. Because simple entities are generally names such as company names, product names, or other categories of names, add a [phrase list](luis-concept-feature.md) when using a simple entity to boost the signal of the names used. 
+Pattern.any is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.  
 
 The entity is a good fit when:
 
-* The data aren't consistently formatted but indicate the same thing. 
+* The ending of the entity can be confused with the remaining text of the utterance. 
+[Tutorial](luis-tutorial-pattern.md)<br>
+[Example JSON response for entity](luis-concept-data-extraction.md#patternany-entity-data)
 
-![simple entity](./media/luis-concept-entities/simple-entity.png)
+Pattern.any entities need to be marked in the [Pattern](luis-how-to-model-intent-pattern.md) template examples, not the intent user examples. 
 
-### Example
+## Usage
 
-`Bob Jones wants 3 meatball pho`
+Given a client application that searches for books based on title, the pattern.any extracts the complete title. A template utterance using pattern.any for this book search is `Was {BookTitle} written by an American this year[?]`. 
 
-In the previous utterance, `Bob Jones` is labeled as a simple `Customer` entity.
+In the following table, each row has two versions of the utterance. The top utterance is how LUIS will initially see the utterance, where it is unclear with the book title begins and ends. The bottom utterance is how LUIS will know the book title when a pattern is in place for extraction. 
 
-The data returned from the endpoint includes the entity name, the discovered text from the utterance, the location of the discovered text, and the score:
+|Utterance|
+|--|
+|Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?<br><br>Was **The Man Who Mistook His Wife for a Hat and Other Clinical Tales** written by an American this year?|
+|Was Half Asleep in Frog Pajamas written by an American this year?<br><br>Was **Half Asleep in Frog Pajamas** written by an American this year?|
+|Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?<br><br>Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?|
+|Was There's A Wocket In My Pocket! written by an American this year?<br><br>Was **There's A Wocket In My Pocket!** written by an American this year?|
+||
+
+## Example JSON
 
 ```JSON
-"entities": [
-  {
-  "entity": "bob jones",
-  "type": "Customer",
-  "startIndex": 0,
-  "endIndex": 8,
-  "score": 0.473899543
-  }
-]
+{
+  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
+  "topScoringIntent": {
+    "intent": "FindForm",
+    "score": 0.999999464
+  },
+  "intents": [
+    {
+      "intent": "FindForm",
+      "score": 0.999999464
+    },
+    {
+      "intent": "GetEmployeeBenefits",
+      "score": 4.883697E-06
+    },
+    {
+      "intent": "None",
+      "score": 1.02040713E-06
+    },
+    {
+      "intent": "GetEmployeeOrgChart",
+      "score": 9.278342E-07
+    },
+    {
+      "intent": "MoveAssetsOrPeople",
+      "score": 9.278342E-07
+    }
+  ],
+  "entities": [
+    {
+      "entity": "understand your responsibilities as a member of the community",
+      "type": "FormName",
+      "startIndex": 18,
+      "endIndex": 78,
+      "role": ""
+    }
+  ]
+}
 ```
 
-|Data object|Entity name|Value|
-|--|--|--|
-|Simple Entity|`Customer`|`bob jones`|
+## Next steps
 
-[Tutorial](luis-quickstart-primary-and-secondary-data.md)<br/>
-[Example response for entity](luis-concept-data-extraction.md#simple-entity-data)<br/>
+[Tutorial](luis-tutorial-pattern-any)

@@ -1,7 +1,7 @@
 ---
-title: Simple entity type 
+title: Regular expression entity type 
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: A simple entity is a generic entity that describes a single concept and is learned from the machine-learned context. Because simple entities are generally names such as company names, product names, or other categories of names, add a phrase list when using a simple entity to boost the signal of the names used.   
+description: A regular expression is best for raw utterance text. It ignores case and ignores cultural variant.  Regular expression matching is applied after spell-check alterations at the character level, not the token level.   
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,39 +11,63 @@ ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
 ---
-## Simple entity 
+# Regular expression entity 
 
-A simple entity is a generic entity that describes a single concept and is learned from the machine-learned context. Because simple entities are generally names such as company names, product names, or other categories of names, add a [phrase list](luis-concept-feature.md) when using a simple entity to boost the signal of the names used. 
+A regular expression entity extracts an entity based on a regular expression pattern you provide.
+
+A regular expression is best for raw utterance text. It ignores case and ignores cultural variant.  Regular expression matching is applied after spell-check alterations at the character level, not the token level. If the regular expression is too complex, such as using many brackets, you're not able to add the expression to the model. Uses part but not all of the [.NET Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) library. 
 
 The entity is a good fit when:
 
-* The data aren't consistently formatted but indicate the same thing. 
+* The data are consistently formatted with any variation that is also consistent.
+* The regular expression does not need more than 2 levels of nesting. 
 
-![simple entity](./media/luis-concept-entities/simple-entity.png)
+![Regular expression entity](./media/luis-concept-entities/regex-entity.png)
 
-### Example
+Regular expressions may match more than you expect to match. An example of this is numeric word matching such as `one` and `two`. An example is the following regex, which matches the number `one` along with other numbers:
 
-`Bob Jones wants 3 meatball pho`
+```javascript
+(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
+``` 
 
-In the previous utterance, `Bob Jones` is labeled as a simple `Customer` entity.
+This regex expression also matches any words that end with these numbers, such as `phone`. In order to fix issues like this, make sure the regex matches takes into account word boundaries. The regex to use word boundaries for this example is used in the following regex:
 
-The data returned from the endpoint includes the entity name, the discovered text from the utterance, the location of the discovered text, and the score:
-
-```JSON
-"entities": [
-  {
-  "entity": "bob jones",
-  "type": "Customer",
-  "startIndex": 0,
-  "endIndex": 8,
-  "score": 0.473899543
-  }
-]
+```javascript
+\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
 ```
 
-|Data object|Entity name|Value|
-|--|--|--|
-|Simple Entity|`Customer`|`bob jones`|
+### Example JSON
 
-[Tutorial](luis-quickstart-primary-and-secondary-data.md)<br/>
-[Example response for entity](luis-concept-data-extraction.md#simple-entity-data)<br/>
+When using `kb[0-9]{6}`, as the regular expression entity definition, the following JSON response is an example utterance with the returned regular expression entities for the query `When was kb123456 published?`:
+
+```JSON
+{
+  "query": "when was kb123456 published?",
+  "topScoringIntent": {
+    "intent": "FindKBArticle",
+    "score": 0.933641255
+  },
+  "intents": [
+    {
+      "intent": "FindKBArticle",
+      "score": 0.933641255
+    },
+    {
+      "intent": "None",
+      "score": 0.04397359
+    }
+  ],
+  "entities": [
+    {
+      "entity": "kb123456",
+      "type": "KB number",
+      "startIndex": 9,
+      "endIndex": 16
+    }
+  ]
+}
+```
+
+## Next steps
+
+[Tutorial](luis-quickstart-intents-regex-entity.md)<br>

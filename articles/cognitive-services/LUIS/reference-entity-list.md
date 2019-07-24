@@ -1,7 +1,7 @@
 ---
-title: Simple entity type 
+title: List entity type 
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: A simple entity is a generic entity that describes a single concept and is learned from the machine-learned context. Because simple entities are generally names such as company names, product names, or other categories of names, add a phrase list when using a simple entity to boost the signal of the names used.   
+description: List entities represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the Recommend feature to see suggestions for new words based on the current list.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,32 +11,66 @@ ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
 ---
-## Simple entity 
+# List entity 
 
-A simple entity is a generic entity that describes a single concept and is learned from the machine-learned context. Because simple entities are generally names such as company names, product names, or other categories of names, add a [phrase list](luis-concept-feature.md) when using a simple entity to boost the signal of the names used. 
+List entities represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the **Recommend** feature to see suggestions for new words based on the current list. If there is more than one list entity with the same value, each entity is returned in the endpoint query. 
 
-The entity is a good fit when:
+A list entity isn't machine-learned. It is an exact text match. LUIS marks any match to an item in any list as an entity in the response. 
 
-* The data aren't consistently formatted but indicate the same thing. 
+The entity is a good fit when the text data:
 
-![simple entity](./media/luis-concept-entities/simple-entity.png)
+* Are a known set.
+* Doesn't change often. If you need to change the list often or want the list to self-expand, a simple entity boosted with a phrase list is a better choice. 
+* The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
+* The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Fuzzy matching, case-insensitivity, stemming, plurals, and other variations are not resolved with a list entity. To manage variations, consider using a [pattern](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
 
-### Example
+![list entity](./media/luis-concept-entities/list-entity.png)
 
-`Bob Jones wants 3 meatball pho`
+## Example JSON
 
-In the previous utterance, `Bob Jones` is labeled as a simple `Customer` entity.
+Suppose the app has a list, named `Cities`, allowing for variations of city names including city of airport (Sea-tac), airport code (SEA), postal zip code (98101), and phone area code (206).
 
-The data returned from the endpoint includes the entity name, the discovered text from the utterance, the location of the discovered text, and the score:
+|List item|Item synonyms|
+|---|---|
+|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
+|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
+
+`book 2 tickets to paris`
+
+In the previous utterance, the word `paris` is mapped to the paris item as part of the `Cities` list entity. The list entity matches both the item's normalized name as well as the item synonyms.
 
 ```JSON
 "entities": [
   {
-  "entity": "bob jones",
-  "type": "Customer",
-  "startIndex": 0,
-  "endIndex": 8,
-  "score": 0.473899543
+    "entity": "paris",
+    "type": "Cities",
+    "startIndex": 18,
+    "endIndex": 22,
+    "resolution": {
+      "values": [
+        "Paris"
+      ]
+    }
+  }
+]
+```
+
+Another example utterance, using a synonym for Paris:
+
+`book 2 tickets to roissy`
+
+```JSON
+"entities": [
+  {
+    "entity": "roissy",
+    "type": "Cities",
+    "startIndex": 18,
+    "endIndex": 23,
+    "resolution": {
+      "values": [
+        "Paris"
+      ]
+    }
   }
 ]
 ```
@@ -45,5 +79,6 @@ The data returned from the endpoint includes the entity name, the discovered tex
 |--|--|--|
 |Simple Entity|`Customer`|`bob jones`|
 
-[Tutorial](luis-quickstart-primary-and-secondary-data.md)<br/>
-[Example response for entity](luis-concept-data-extraction.md#simple-entity-data)<br/>
+## Next steps
+
+[Tutorial](luis-quickstart-intent-and-list-entity.md)<br>

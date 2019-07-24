@@ -321,6 +321,14 @@
     displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
   - name: Custom entity reference
     items: 
+    - name: Composite entity
+      href: reference-entity-composite.md
+    - name: List entity
+      href: reference-entity-list.md
+    - name: Pattern entity
+      href: reference-entity-pattern-any.md
+    - name: Regular expression entity
+      href: reference-entity-regular-expression.md      
     - name: Simple entity
       href: reference-entity-simple.md
   - name: Azure CLI

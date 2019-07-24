@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
 ---
-## Composite entity 
+# Composite entity 
 
 A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity. 
 
@@ -25,7 +25,7 @@ This entity is a good fit when the data:
 
 ![composite entity](./media/luis-concept-entities/composite-entity.png)
 
-### Example
+## Example JSON
 
 Consider a composite entity of prebuilt `number` and `Location::ToLocation` with the following utterance:
 
@@ -87,5 +87,6 @@ Composite entities are returned in a `compositeEntities` array and all entities 
 |Prebuilt Entity - number|"builtin.number"|"2"|
 |Prebuilt Entity - GeographyV2|"Location::ToLocation"|"paris"|
 
+## Next steps
+
 [Tutorial](luis-tutorial-composite-entity.md)<br>
-[Example JSON response for entity](luis-concept-data-extraction.md#composite-entity-data)<br>
