@@ -11,7 +11,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/19/2019
+ms.date: 07/24/2019
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
@@ -39,44 +39,69 @@ A **host group** is a new resource that represents a collection of dedicated hos
 - Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
 - Span across multiple fault domains which are mapped to physical racks. 
  
-In either case, you are required to define the fault domain count in your host group. If you do not want to span fault domains in your group, use a fault domain count of 1. 
+In either case, you are need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1. 
 
 You can also decide to use both availability zones and fault domains. In such a case, you are required to provide both when creating the host group.  
  
-The following will create a host group in availability zone 1 (and no fault domains) 
+The following will create a host group in availability zone 1 (and no fault domains).
 
 ```azurecli-interactive 
-az vm host group create --name myHostGroup -g myDHResourceGroup -z 1 --platform-fault-domain-count 1 
+az vm host group create \
+   --name myAZHostGroup \
+   -g myDHResourceGroup \
+   -z 1 \
+   --platform-fault-domain-count 1 
 ```
  
-The following will create a host group by using fault domains only (to be used in regions where availability zones are not supported) 
+The following will create a host group by using fault domains only (to be used in regions where availability zones are not supported). 
 
 ```azurecli-interactive 
-az vm host group create --name myHostGroup -g myDHResourceGroup --platform-fault-domain-count 2 
+az vm host group create \
+   --name myFDHostGroup \
+   -g myDHResourceGroup \
+   --platform-fault-domain-count 2 
 ```
  
-The following will create a host group by using availability zones and fault domains 
+The following will create a host group by using availability zones and fault domains. 
 
 ```azurecli-interactive 
-az vm host group create --name myHostGroup -g myDHResourceGroup -z 1 
---platform-fault-domain-count 2 
+az vm host group create \
+   --name myHostGroup \
+   -g myDHResourceGroup \
+   -z 1 \
+   --platform-fault-domain-count 2 
 ``` 
  
 ## Create a host 
 
-Now let's create a dedicated host in the host group. Beside a name for the host, you are required to provide the sku for the host. Host sku capture the supported VM series as well as the hardware generation for your dedicated host.  
-Note that in case you have specified the fault domain count for your host group, you will be asked to specify a fault domain for your host.  
+Now let's create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU capture the supported VM series as well as the hardware generation for your dedicated host.  
+
+If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.  
 
 ```azurecli-interactive
-az vm host create --host-group myHostGroup --name myHost --sku DSv3-Type1 --platform-fault-domain 1 -g myDHResourceGroup
+az vm host create \
+   --host-group myHostGroup \
+   --name myHost \
+   --sku DSv3-Type1 \
+   --platform-fault-domain 1 \
+   -g myDHResourceGroup
 ```
  
 ## Create a virtual machine 
-While there are many options to create a virtual machine, in the context of this tutorial, we will focus on creating a virtual machine within a dedicated host. 
+Create a virtual machine within a dedicated host using [az vm create](/cli/azure/vm#az-vm-create). 
 In case you have specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine. There is no such requirement for fault domains  
 
 ```azurecli-interactive 
-az vm create -n myVM --image debian --generate-ssh-keys --host-group myHostGroup --host myHost --generate-ssh-keys --size Standard_D4s_v3 -g myDHResourceGroup –zone 1 
+az vm create \
+   -n myVM \
+   --image debian \
+   --generate-ssh-keys \
+   --host-group myHostGroup \
+   --host myHost \
+   --generate-ssh-keys \
+   --size Standard_D4s_v3 \
+   -g myDHResourceGroup \
+   --zone 1
 ```
  
 In case you are not using availability zones, simply omit the zone parameter from your cli call. 
