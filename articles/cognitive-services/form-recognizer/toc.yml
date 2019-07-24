@@ -22,7 +22,7 @@
       - name: Python
         href: quickstarts/python-receipts.md
   - name: Using the .NET SDK
-    href: quickstarts/dotnet-dsk.md
+    href: quickstarts/dotnet-sdk.md
 - name: How-to guides
   items:
   - name: Build a training data set
