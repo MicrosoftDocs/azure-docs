@@ -318,7 +318,7 @@ in to the Azure State Configuration service.
 1. Enter a name in the **Configuration Name** textbox. This name must match the name of the configuration from which the node configuration was compiled.
 1. Click **OK**.
 
-### Importing a node configuration with Az PowerShell
+### Importing a node configuration with Azure PowerShell
 
 You can use the [Import-AzureRmAutomationDscNodeConfiguration](/powershell/module/azurerm.automation/import-azurermautomationdscnodeconfiguration)
 cmdlet to import a node configuration into your automation account.
