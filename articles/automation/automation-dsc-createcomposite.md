@@ -47,16 +47,16 @@ and publish it to your own
 Once you have create a composite resource module containing your configuration
 (or multiple configurations),
 you can use them in the
-[Composable Authoring Experience](https://docs.microsoft.com/en-us/azure/automation/compose-configurationwithcompositeresources)
+[Composable Authoring Experience](/azure/automation/compose-configurationwithcompositeresources)
 in Azure,
 or add them to 
 [DSC Configuration scripts](configurations.md)
 to generate MOF files
 and
-[upload the MOF files to Azure Automation](https://docs.microsoft.com/en-us/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+[upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Then register your servers from either
-[on-premises](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws)
-or [in Azure](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding#azure-virtual-machines)
+[on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws)
+or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)
 to pull configurations.
 The latest update to the project has also published
 [runbooks](https://www.powershellgallery.com/packages?q=DscGallerySamples)
