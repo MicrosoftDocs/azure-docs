@@ -356,7 +356,7 @@
   - name: Enterprise security
     items:
     - name: Overview
-      href: ../domain-joined/apache-domain-joined-introduction.md
+      href: ../domain-joined/hdinsight-security-overview.md
     - name: Plan for enterprise security
       href: ../domain-joined/apache-domain-joined-architecture.md
     - name: Configure enterprise security in HDInsight

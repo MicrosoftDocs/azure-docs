@@ -3001,6 +3001,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md",
+      "redirect_url": "/azure/sql-database/scripts/sql-database-add-single-db-to-failover-group-powershell",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/sql-database/sql-database-customer-implementations.md",
       "redirect_url": "http://customers.microsoft.com",
       "redirect_document_id": false
@@ -30375,7 +30380,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/QnAMaker/faq.md",
+      "source_path": "articles/cognitive-services/QnAMaker/faqs.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/troubleshooting",
       "redirect_document_id": false
     },    
@@ -40238,6 +40243,12 @@
     {
       "source_path": "articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "azure/hdinsight/domain-joined/apache-domain-joined-introduction.md",
+      "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
       "redirect_document_id": false
     },
 
