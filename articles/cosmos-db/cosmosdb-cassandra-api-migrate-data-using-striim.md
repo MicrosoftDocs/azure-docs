@@ -174,3 +174,7 @@ Navigate to Oracle.com and download the [ojdbc8.jar](https://www.oracle.com/tech
 
 
 ## Next steps
+
+* If you are migrating data to Azure Cosmos DB SQL API, see [how to migrate data to Cassandra API account using Striim](cosmosdb-sql-api-migrate-data-using-striim.md)
+
+* [Monitor and debug your data with Azure Cosmos DB metrics](use-metrics.md)

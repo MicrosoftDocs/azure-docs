@@ -189,3 +189,7 @@ Navigate to Oracle.com and download the [ojdbc8.jar](https://www.oracle.com/tech
 By using the Striim solution in Azure, you can continuously migrate data to Azure Cosmos DB, transform a transactional database to a JSON document structure without any coding. For any issues when setting up the migration path with Striim, file a support request in the [Striim website](https://go2.striim.com/request-support-striim).
 
 ## Next steps
+
+* If you are migrating data to Azure Cosmos DB SQL API, see [how to migrate data to Cassandra API account using Striim](cosmosdb-cassandra-api-migrate-data-using-striim.md)
+
+* [Monitor and debug your data with Azure Cosmos DB metrics](use-metrics.md)
