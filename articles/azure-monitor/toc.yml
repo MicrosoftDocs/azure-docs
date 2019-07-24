@@ -408,9 +408,9 @@
           href: app/telemetry-channels.md
         - name: TelemetryProcessors
           displayname: processors, filtering, telemetry filtering, telemetry processor
+          href: app/api-filtering-sampling.md
         - name: Telemetry correlation
           href: app/correlation.md
-          href: app/api-filtering-sampling.md
         - name: Track custom operations in .NET SDK
           href: app/custom-operations-tracking.md
         - name: Custom email reports
