@@ -41,7 +41,7 @@ Start by selecting one of your existing user flows:
 1. Under **Policies**, select **User flows (policies)**
 1. Select an existing policy, for example *B2C_1_signupsignin1*, then select **Run user flow**
 
-Next, get the issuer URIs from the well-known  for both domains (`b2clogin.com` and `login.microsoft.com`). You update the sample project with these values in the next section.
+Next, get the issuer URIs from the well-known discovery endpoint for both domains (`b2clogin.com` and `login.microsoft.com`). You update the sample project with these values in the next section.
 
 1. Under the **Run user flow** heading near the top of the page, click the hyperlink to navigate to the user flow's well-known URI.
 
