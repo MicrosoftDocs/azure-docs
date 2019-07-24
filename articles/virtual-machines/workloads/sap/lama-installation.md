@@ -266,17 +266,17 @@ Australia East, Central US, East US, East US 2, North Europe, South Central US, 
 ANF requires a delegated subnet which must be part of the same VNET as the SAP servers. Here’s an example for such a configuration.
 This screen shows the creation of the VNET and the first subnet:
 
-![SAP LaMa create virtual network for Azure ANF ](media/lama/sap-lama-createvn.png)
+![SAP LaMa create virtual network for Azure ANF ](media/lama/sap-lama-createvn-50.png)
 
 The next step creates the delegated subnet for Microsoft.NetApp/volumes.
 
-![SAP LaMa add delegated subnet ](media/lama/sap-lama-addsubnet.png)
+![SAP LaMa add delegated subnet ](media/lama/sap-lama-addsubnet-50.png)
 
 ![SAP LaMa list of subnets ](media/lama/sap-lama-subnets.png)
 
 Now a NetApp account needs to be created within the Azure portal:
 
-![SAP LaMa create NetApp account ](media/lama/sap-lama-create-netappaccount.png)
+![SAP LaMa create NetApp account ](media/lama/sap-lama-create-netappaccount-50.png)
 
 ![SAP LaMa NetApp account created ](media/lama/sap-lama-netappaccount.png)
 
