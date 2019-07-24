@@ -33,6 +33,8 @@
   items:
   - name : Connect devices
     items:
+      - name: Connect a Plug and Play device
+        href: ../iot-central/howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Generate a device connection string
         href: ../iot-central/howto-generate-connection-string.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Prepare and connect a Node.js (generic) application 
