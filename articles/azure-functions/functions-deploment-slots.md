@@ -66,11 +66,15 @@ You can mark settings as a deployment setting which makes it "sticky". A sticky 
 
 Use the following steps to to create a deployment setting:
 
-- From your app, Navigate to the **Configuration** page for that slot, add or edit a setting, then select the **deployment slot setting** box.
+- Navigate to *Slots* in the functions app
+- Click on the slot name
+- Under *Platform Features > General Settings*, click on **Configuration**
+- Click on the setting name you want to stick with the current slot
+- Click the **Deployment slot setting** checkbox
+- Click **OK**
+- Once setting blade disappears, click **Save** to keep the changes
 
-### Example
-
-**TODO** add example
+![Deployment Slot Setting](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
 
 ## Deployment
 
@@ -101,7 +105,7 @@ You can swap slots via the [CLI](https://docs.microsoft.com/cli/azure/functionap
 
 1. Navigate to the functions app
 1. Click on the source slot name that you want to swap
-1. Click on the **Swap** button
+1. From the *Overview* tab, click on the **Swap** button
     ![Swap Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
 1. Verify the configuration settings for your swap and click **Swap**
     ![Swap Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
