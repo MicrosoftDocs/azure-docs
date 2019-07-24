@@ -38,7 +38,7 @@ determine when to use which method based on the characteristics of each:
 1. If the configuration has no parameters, you are prompted to confirm whether you want to compile it. If the configuration has parameters, the **Compile Configuration** blade opens so you can provide parameter values. See the following [**Basic Parameters**](#basic-parameters) section for further details on parameters.
 1. The **Compilation Job** page is opened so that you can track the compilation job's status, and the node configurations (MOF configuration documents) it caused to be placed on the Azure Automation State Configuration Pull Server.
 
-### Az PowerShell
+### Azure PowerShell
 
 You can use [`Start-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/start-azurermautomationdsccompilationjob)
 to start compiling with Windows PowerShell. The following sample code starts compilation of a DSC configuration called **SampleConfig**.
@@ -114,7 +114,7 @@ In the portal, you can enter parameter values after clicking **Compile**.
 
 ![Configuration compile parameters](./media/automation-dsc-compile/DSC_compiling_1.png)
 
-#### Az PowerShell
+#### Azure PowerShell
 
 PowerShell requires parameters in a [hashtable](/powershell/module/microsoft.powershell.core/about/about_hash_tables)
 where the key matches the parameter name, and the value equals the parameter value.
