@@ -266,9 +266,9 @@ To create an integration account that uses an ISE, follow these steps:
 
 1. Continue by adding artifacts to your integration account, such as [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) and [agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md).
 
-<a name="custom-connectors"></a>
+<a name="create-custom-connectors-environment"></a>
 
-## Add custom connectors
+## Create custom connectors - ISE
 
 To use custom connectors in your ISE, create those custom connectors from directly inside your ISE.
 

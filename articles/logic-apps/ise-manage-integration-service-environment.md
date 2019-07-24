@@ -27,6 +27,10 @@ Periodically, you might want to review and manage the connections, logic apps, a
 
    ![Select integration service environment](./media/ise-manage-integration-service-environment/select-integration-service-environment.png)
 
+1. Continue to the next sections to find logic apps, connections, connectors, or integration accounts in your ISE.
+
+<a name="find-logic-apps"></a>
+
 ## Find logic apps
 
 1. On your ISE menu, under **Settings**, select **Logic apps**.
@@ -35,19 +39,27 @@ Periodically, you might want to review and manage the connections, logic apps, a
 
 1. To remove logic apps from your ISE when no longer needed, select those logic apps, and then select **Delete**.
 
-## Find connections and connectors
+<a name="find-api-connections"></a>
 
-* To view the API connections that were created by logic apps running in your ISE, on your ISE menu, under **Settings**, select **API connections**.
+## Find API connections
 
-  To remove connections from your ISE when no longer needed, select those connections, and then select **Delete**.
+1. To view the API connections that were created by logic apps running in your ISE, on your ISE menu, under **Settings**, select **API connections**.
 
-  ![Find API connections](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
+   ![Find API connections](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
 
-* To view custom connectors that were created in your ISE, on your ISE menu, under **Settings**, select **Custom connectors**.
+1. To remove connections from your ISE when no longer needed, select those connections, and then select **Delete**.
 
-  To remove custom connectors from your ISE when no longer needed, select those connectors, and then select **Delete**.
+<a name="find-custom-connectors"></a>
 
-  ![Find custom connectors](./media/ise-manage-integration-service-environment/ise-find-custom-connectors.png)
+## Find custom connectors
+
+1. To view custom connectors that were created in your ISE, on your ISE menu, under **Settings**, select **Custom connectors**.
+
+   ![Find custom connectors](./media/ise-manage-integration-service-environment/ise-find-custom-connectors.png)
+
+1. To remove custom connectors from your ISE when no longer needed, select those connectors, and then select **Delete**.
+
+<a name="find-integration-accounts"></a>
 
 ## Find integration accounts
 
