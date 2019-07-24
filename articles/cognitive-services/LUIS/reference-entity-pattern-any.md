@@ -1,7 +1,7 @@
 ---
 title: Pattern.any entity type 
 titleSuffix: Language Understanding - Azure Cognitive Services
-description:Pattern.any is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.
+description: Pattern.any is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -82,4 +82,4 @@ In the following table, each row has two versions of the utterance. The top utte
 
 ## Next steps
 
-[Tutorial](luis-tutorial-pattern-any)
+[Tutorial](luis-tutorial-pattern-any.md)
