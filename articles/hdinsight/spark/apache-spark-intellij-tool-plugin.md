@@ -34,8 +34,6 @@ In this tutorial, you learn how to:
 
 * Azure Toolkit for IntelliJ.  See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 
-* WINUTILS.EXE.  See [Problems running Hadoop on Windows](https://wiki.apache.org/hadoop/WindowsProblems).
-
 ## Install Scala plugin for IntelliJ IDEA
 
 Perform the following steps to install the Scala plugin:

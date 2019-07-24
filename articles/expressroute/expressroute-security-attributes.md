@@ -1,6 +1,6 @@
 ---
-title: Common security attributes for Azure ExpressRoute
-description: A checklist of common security attributes for evaluating Azure ExpressRoute
+title: Security attributes for Azure ExpressRoute
+description: A checklist of security attributes for evaluating Azure ExpressRoute
 services: expressroute
 ms.service: expressroute
 documentationcenter: ''
@@ -12,9 +12,9 @@ ms.date: 06/05/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for Azure ExpressRoute
+# Security attributes for Azure ExpressRoute
 
-Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into Azure ExpressRoute.
+This article documents the security attributes built into Azure ExpressRoute.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -22,8 +22,8 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  N/A | ExpressRoute does not store customer data. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| No | |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)|  N/A | ExpressRoute does not store customer data. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| No | |
 | Encryption key handling (CMK, BYOK, etc.)| N/A |  |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |
@@ -33,7 +33,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| N/A |  |
-| vNET injection support| N/A | |
+| VNet injection support| N/A | |
 | Network isolation and firewalling support| Yes | Each customer is contained in its own routing domain and tunneled to its own VNet |
 | Forced tunneling support| N/A | Via Border Gateway Protocol (BGP). |
 

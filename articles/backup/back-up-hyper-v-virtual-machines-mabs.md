@@ -1,7 +1,7 @@
 ---
 title: Back up Hyper-V virtual machines with Azure Backup Server
 description: This article contains the procedures for backing up and recovery of virtual machines using Microsoft Azure Backup Server.
-services: backup
+
 author: dcurwin
 manager: carmonm
 ms.service: backup
