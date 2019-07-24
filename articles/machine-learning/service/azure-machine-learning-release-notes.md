@@ -45,15 +45,15 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Update NimbusML dependency to 1.2.0 version (current latest).
     + Adding support for Nimbus ML estimators & pipelines to be used within AutoML estimators.
     + Fixing a bug in the Ensemble selection procedure which was unnecessarily growing the resulting ensemble even if the scores remained constant.
-    + Enable re-use of some featurizations across CV Splits for forecasting tasks. This speeds up the run-time of the setup run by roughly a factor of `n_cross_validations` for expensive featurizations like lags and rolling windows.
-    + Addressing an issue if time is out of pandas supported time range. We now raise a `DataException` if time is less than `pd.Timestamp.min` or greater than `pd.Timestamp.max`
-    + Allow different frequencies in train and test sets if they can be aligned. For example year quarter starting at January and at October.
-    + The property "partameters" was added to the TimeSeriesTransformer.
+    + Enable re-use of some featurizations across CV Splits for forecasting tasks. This speeds up the run-time of the setup run by roughly a factor of n_cross_validations for expensive featurizations like lags and rolling windows.
+    + Addressing an issue if time is out of pandas supported time range. We now raise a DataException if time is less than pd.Timestamp.min or greater than pd.Timestamp.max
+    + Forecasting now allows different frequencies in train and test sets if they can be aligned. For example,  “quarterly starting in January” and at “quarterly starting in October” can be aligned.
+    + The property "parameters" was added to the TimeSeriesTransformer.
     + Remove old exception classes.
-    + The target lags parameter is now provided by the integer value or by the list of integers. If the integer was provided, only one lag will be created, if the list will be provided, the unique values of lags will be taken. ```target_lags=[1, 2, 2, 4]``` will create lags of one, 2 and 4 periods.
-    + Fix the bug about loosing columns types after the transformation (bug linked);
-    + Allow y_query to be an object type containing None(s) at the begin (#459519).
-    + add expected values to automl output
+    + In forecasting tasks, the `target_lags` parameter now accepts a single integer value or a list of integers. If the integer was provided, only one lag will be created. If a list is provided, the unique values of lags will be taken. target_lags=[1, 2, 2, 4] will create lags of one, 2 and 4 periods.
+    + Fix the bug about losing columns types after the transformation (bug linked);
+    + In `model.forecast(X, y_query)`, allow y_query to be an object type containing None(s) at the begin (#459519).
+    + Add expected values to automl output
   + **azureml-contrib-datadrift**
     +  Improvements to example notebook including switch to azureml-opendatasets instead of azureml-contrib-opendatasets and performance improvements when enriching data
   + **azureml-contrib-explain-model**
