@@ -34,6 +34,15 @@ I have protected items both on-premises and cloud | Perform the steps in Delete 
 I don't have any protected items on-premises or cloud; however, I am still getting the Vault deletion error | Perform the steps in [Delete the Recovery Services vault using Azure Resource Manager client](#delete-the-recovery-services-vault-using-azure-resource-manager-client)
 I don't have that original on-premises server anymore (lost/decommissioned) and I want to delete the Recovery Services vault | Contact Microsoft support.
 
+To delete Recovery Services vault associated with MAB, DPM and AzureBackupServer, user is displayed Warning message, the below table describes different below scenario:
+
+Scenario | Action Required |
+-- | --
+When the backup data is associated with the backup item | ![Delete Protected item](./media/backup-azure-delete-vault/delete-rs-warning.png)
+When the is backup data associated with the backup item but the server are unavailabile | ![Delete Protected item warning](./media/backup-azure-delete-vault/delete-rs-warning-info.png)
+When there are no backup data associated with the backup item  (both cases either from synced container via bms or non-synced container via protection). Portal won’t show the first sentence of DS count. Portal won’t show link to backup items list. |  ![Delete Protected item warning info](./media/backup-azure-delete-vault/delete-rs-warning-info2.png)
+
+
 ## Delete backup data and backup items
 
 Before you proceed further read **[this](#before-you-start)** section to understand the dependencies and vault deletion process.
@@ -62,6 +71,7 @@ To stop protection and delete the backup data, perform the below:
 6. Click **Refresh** on the **Backup Items** menu, to check if the Backup item is removed.
 
       ![delete backup data](./media/backup-azure-delete-vault/empty-items-list.png)
+
 
 ### For MARS agent
 
