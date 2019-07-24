@@ -35,9 +35,13 @@ Currently, AzCopy doesn't support proxies that require authentication with NTLM 
 
 ## Optimize throughput
 
-You can reduce AzCopy throughput, you can use the `cap-mps` flag to place a ceiling on the throughput data rate. For example, you could use the command `azcopy cap-mps 10` to cap throughput to `10` megabits (MB) per second.
+You can use the `cap-mps` flag to place a ceiling on the throughput data rate. For example, the following command caps throughput to `10` megabits (MB) per second.
 
-If you want more control over increasing or decreasing throughput, you can also set the `AZCOPY_CONCURRENCY_VALUE` environment variable to configure the number of concurrent requests, and to control the throughput performance and resource consumption. If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `300`, but you can manually set this value higher or lower.
+```azcopy
+azcopy cap-mps 10
+```
+
+If you want more control over throughput, you can also set the `AZCOPY_CONCURRENCY_VALUE` environment variable to configure the number of concurrent requests, and to control the throughput performance and resource consumption. If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `300`, but you can manually set this value higher or lower.
 
 | Operating system | Command  |
 |--------|-----------|

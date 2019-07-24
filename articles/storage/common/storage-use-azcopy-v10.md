@@ -117,48 +117,6 @@ This command returns an authentication code and the URL of a website. Open the w
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
 
-#### Authenticate a managed identity
-
-This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, and the script runs from an Azure Virtual Machine (VM).
-
-You can sign into your account by using the a system-wide managed identity that you've enabled on your VM, or by using the client ID, Object ID, or Resource ID of a user-assigned managed identity that you've assigned to your VM.
-
-To learn more about how to enable a system-wide managed identity or create a user-assigned managed identity, see [Configure managed identities for Azure resources on a VM using the Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm).
-
-##### Using a system-wide managed identity
-
-First, make sure that you've enabled a system-wide managed identity on your VM. See [System-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
-
-Then, in your command console, type the following command, and then press the ENTER key.
-
-```azcopy
-azcopy login --identity
-```
-
-##### Using a user-assigned managed identity
-
-First, make sure that you've enabled a system-wide managed identity on your VM. See [User-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
-
-Then, in your command console, type any of the following commands, and then press the ENTER key.
-
-```azcopy
-azcopy login --identity --identity-client-id "<client-id>"
-```
-
-Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity.
-
-```azcopy
-azcopy login --identity --identity-object-id "<object-id>"
-```
-
-Replace the `<object-id>` placeholder with the object ID of the user-assigned managed identity.
-
-```azcopy
-azcopy login --identity --identity-resource-id "<resource-id>"
-```
-
-Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
-
 <a id="service-principal" />
 
 #### Authenticate a service principal
@@ -224,6 +182,48 @@ Replace the `<path-to-certificate-file>` placeholder with the relative or fully-
 
 > [!NOTE]
 > Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history. 
+
+#### Authenticate a managed identity
+
+This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, and the script runs from an Azure Virtual Machine (VM).
+
+You can sign into your account by using the a system-wide managed identity that you've enabled on your VM, or by using the client ID, Object ID, or Resource ID of a user-assigned managed identity that you've assigned to your VM.
+
+To learn more about how to enable a system-wide managed identity or create a user-assigned managed identity, see [Configure managed identities for Azure resources on a VM using the Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm).
+
+##### Using a system-wide managed identity
+
+First, make sure that you've enabled a system-wide managed identity on your VM. See [System-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
+
+Then, in your command console, type the following command, and then press the ENTER key.
+
+```azcopy
+azcopy login --identity
+```
+
+##### Using a user-assigned managed identity
+
+First, make sure that you've enabled a system-wide managed identity on your VM. See [User-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+
+Then, in your command console, type any of the following commands, and then press the ENTER key.
+
+```azcopy
+azcopy login --identity --identity-client-id "<client-id>"
+```
+
+Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity.
+
+```azcopy
+azcopy login --identity --identity-object-id "<object-id>"
+```
+
+Replace the `<object-id>` placeholder with the object ID of the user-assigned managed identity.
+
+```azcopy
+azcopy login --identity --identity-resource-id "<resource-id>"
+```
+
+Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
 
 ### Option 2: Use a SAS token
 
