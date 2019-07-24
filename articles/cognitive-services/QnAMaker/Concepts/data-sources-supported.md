@@ -149,9 +149,9 @@ If you do not have pre-existing content to populate the knowledge base, you can 
 
 ## Formatting considerations
 
-After importing a file or URL, QnA Maker converts and stores your content in the [Markdown format](https://en.wikipedia.org/wiki/Markdown). The conversion process adds new lines in the text, such as `\n\n`. A knowledge of Markdown helps you to understand the converted content format and manage your knowledge base content. 
+After importing a file or URL, QnA Maker converts and stores your content in the [markdown format](https://en.wikipedia.org/wiki/Markdown). The conversion process adds new lines in the text, such as `\n\n`. A knowledge of the markdown format helps you to understand the converted content and manage your knowledge base content. 
 
-If you add or edit your content directly in your knowledge base, you can use Markdown to create rich text content or change the content that is already in the Markdown format. QnA Maker supports much of the Markdown format to bring rich text capabilities to your content. However, the client application, such as a chat bot may not support the same set of Markdown formats. It is important to test the client application's display of answers. 
+If you add or edit your content directly in your knowledge base, use **markdown formatting** to create rich text content or change the markdown format content that is already in the answer. QnA Maker supports much of the markdown format to bring rich text capabilities to your content. However, the client application, such as a chat bot may not support the same set of markdown formats. It is important to test the client application's display of answers. 
 
 Following is the list of markdown formats that you can use in QnA Maker: 
 
