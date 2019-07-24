@@ -402,7 +402,7 @@
         - name: Access control
           href: app/resources-roles-access-control.md
         - name: IP address collection
-          href: ip-collection.md
+          href: app/ip-collection.md
         - name: Sampling
           displayname: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
           href: app/sampling.md
