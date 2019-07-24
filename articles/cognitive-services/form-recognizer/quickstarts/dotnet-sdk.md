@@ -19,8 +19,7 @@ Use the Form Recognizer client library for .NET to:
 
 * Train a custom Form Recognizer model
 * Analyze forms with a custom model
-* Get a list of your custom models
-* Display form analysis results
+* Get a list of custom models
 
 [Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
@@ -42,17 +41,17 @@ Use the Form Recognizer client library for .NET to:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]l
 
-After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `FORM_RECOGNIZER_KEY`. Then create another environment variable for your API endpoint, which should look similar to `https://westus2.api.cognitive.microsoft.com/`. Name it `FORM_RECOGNIZER_ENDPOINT`.
+After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `FORM_RECOGNIZER_KEY`.
 
 ### Create a new C# application
 
-In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `(product-name)-quickstart`. This command creates a simple "Hello World" C# project with a single source file: _Program.cs_. 
+In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `formrecognizer-quickstart`. This command creates a simple "Hello World" C# project with a single source file: _Program.cs_. 
 
 ```console
-dotnet new console -n (product-name)-quickstart
+dotnet new console -n formrecognizer-quickstart
 ```
 
-Change your directory to the newly created app folder. You can build the application with:
+Change your directory to the newly created app folder. Then build the application with:
 
 ```console
 dotnet build
@@ -79,7 +78,7 @@ using System.IO;
 using System.Threading.Tasks;
 ```
 
-Add the following code in the application's **Main** method.
+Add the following code in the application's **Main** method. You will define this asynchronous task later on.
 
 [!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_main)]
 
@@ -113,17 +112,19 @@ The following classes handle the main functionality of the Form Recognizer SDK.
     Include links to the service's reference content when introducing a class for the first time
 -->
 
-These code snippets show you how to do the following with the Form Recognizer client library for .NET:
+These code snippets show you how to do the following tasks with the Form Recognizer client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* Train a custom model
-* Analyze forms with a custom model
-* Get a list of form models
-* Display analysis results
+* [Train a custom Form Recognizer model](train-a-custom-model)
+* [Analyze forms with a custom model](analyze-forms-with-a-custom-model)
+* [Get a list of custom models](get-a-list-of-custom-models)
 
 ### Define variables
 
-Add the following variable definitions to the top of your **Program** class. You'll need to fill in some of the variables yourself. To retrieve the SAS URL for your training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+Before you define any methods, add the following variable definitions to the top of your **Program** class. You'll need to fill in some of the variables yourself. 
+
+* You can find your service's Endpoint value in the **Overview** blade in the Azure portal. 
+* To retrieve the SAS URL for your training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 [!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 
@@ -133,17 +134,35 @@ Under the **Main** method, define the task that is referenced in **Main**. Here,
 
 [!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_mainTask)]
 
-### Example task 1
+### Train a custom model
 
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+The following method uses your Form Recognizer client object to train a new recognition model on the documents stored in your Azure blob container. It uses a helper method to display information about the newly trained model (represented by a [ModelResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelresult?view=azure-dotnet-preview) object), and it returns the model ID.
 
-```csharp
+[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_train)]
 
-```
+The following helper method displays information about a Form Recognizer model.
+
+[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_displaymodel)]
+
+### Analyze forms with a custom model
+
+This method uses the Form Recognizer client and a model ID to analyze a PDF form document and extract key/value data. It uses a helper method to display the results (represented by a [AnalyzeResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.analyzeresult?view=azure-dotnet-preview) object).
+
+[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_analyzepdf)]
+
+The following helper method displays information about an Analyze operation.
+
+[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_displayanalyze)]
+
+### Get a list of custom models
+
+You can return a list of all the trained models that belong to your account, and you can retrieve information about when they were created. The list of models is represented by a [ModelsResult](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelsresult?view=azure-dotnet-preview) object.
+
+[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_getmodellist)]
 
 ## Run the application
 
-Run the application by calling the dotnet `run` command from your application directory.
+Run the application by calling the `dotnet run` command from your application directory.
 
 ```console
 dotnet run
