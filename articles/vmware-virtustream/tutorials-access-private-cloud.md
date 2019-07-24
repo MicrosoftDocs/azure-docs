@@ -74,7 +74,7 @@ In the second tab of the browser, sign in to NSX-T manager.
 
 ## Create Global Reach peering between on-premises and a private cloud ER circuits
 
-You use the procedures in this section to peer an ExpressRoute circuit from on-premises to the ER circuit of the private cloud. See the [networking concepts article](concepts-network.md) for more details on this option.
+You use the procedures in this section to peer an ExpressRoute circuit from on-premises to the ER circuit of the private cloud. See the [networking concepts article](concepts-networking.md) for more details on this option.
 
 To establish ExpressRoute Global Reach, you will use the **Authorization key** and the **Private peering ID**. This information is available from the private cloud **Overview > Connectivity > ExpressRoute > ExpressRoute**.
 
