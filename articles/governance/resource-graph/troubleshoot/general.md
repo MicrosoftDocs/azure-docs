@@ -3,7 +3,7 @@ title: Troubleshoot common errors
 description: Learn how to troubleshoot issues querying Azure resources with Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/23/2019
+ms.date: 07/24/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
@@ -25,14 +25,13 @@ it can be fixed and a later query succeeds.
 
 #### Issue
 
-Customers with access to more than 2048 subscriptions, including cross-tenant subscriptions with [Azure Lighthouse](../../../lighthouse/overview.md),
-get an error when using Azure CLI or PowerShell that the query includes **TooManySubscription**.
+Customers with access to more than 1000 subscriptions, including cross-tenant subscriptions with [Azure Lighthouse](../../../lighthouse/overview.md),
+can't fetch data across all subscriptions in a single call to Azure Resource Graph.
 
 #### Cause
 
-Azure CLI and PowerShell submit all subscriptions a customer has access to when performing a query.
-However, the REST API for Azure Resource Graph accepts a maximum of 2048 subscriptions to perform
-the query on.
+Azure CLI and PowerShell forward only the first 1000 subscriptions to Azure Resource Graph. The REST
+API for Azure Resource Graph accepts a maximum number of subscriptions to perform the query on.
 
 #### Resolution
 
@@ -56,7 +55,7 @@ $response = @()
 $subscriptionsBatch = $subscriptionIds | Group -Property { [math]::Floor($counter.Value++ / $batchSize) }
 
 # Run the query for each batch
-foreach ($batch in $subscriptionsBath){ $response += Search-AzGraph -Query $query -Subscription $batch.Group }
+foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $query -Subscription $batch.Group }
 
 # View the completed results of the query on all subscriptions
 $response
