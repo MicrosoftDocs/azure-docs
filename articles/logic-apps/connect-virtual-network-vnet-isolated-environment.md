@@ -262,7 +262,31 @@ To create an integration account that uses an ISE, follow these steps:
 
    ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
-1. Continue [creating your integration account in the usual way](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+1. [Link your logic app to your integration account in the usual way](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
+
+1. Continue by adding artifacts to your integration account, such as [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) and [agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md).
+
+<a name="custom-connectors"></a>
+
+## Add custom connectors
+
+To use custom connectors in your ISE, create those custom connectors from directly inside your ISE.
+
+1. Find and open your ISE, if not already open. From the ISE menu, under **Settings**, select **Custom connectors** > **Add**.
+
+   ![Create custom connector](./media/connect-virtual-network-vnet-isolated-environment/add-custom-connector-to-ise.png)
+
+1. Provide the name, Azure subscription, and Azure resource group (new or existing) to use for your custom connector.
+
+1. From the **Location** list, under the **Integration service environments** section, select the same ISE that your logic apps use, and select **Create**, for example:
+
+   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-custom-connector-with-integration-service-environment.png)
+
+1. Select your new custom connector, and then select **Edit**, for example:
+
+   ![Select and edit custom connector](./media/connect-virtual-network-vnet-isolated-environment/edit-custom-connectors.png)
+
+1. Continue by creating the connector in the usual way from an [OpenAPI definition](https://docs.microsoft.com/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) or [SOAP](https://docs.microsoft.com/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
 
 <a name="add-capacity"></a>
 
@@ -289,7 +313,6 @@ The Premium ISE base unit has fixed capacity, so if you need more throughput, yo
    * If you choose metric-based, follow these steps:
 
      1. In the **Rules** section, choose **Add a rule**.
-
      1. On the **Scale rule** pane, set up your criteria and action to take when the rule triggers.
 
      1. When you're done, choose **Add**.
@@ -298,5 +321,6 @@ The Premium ISE base unit has fixed capacity, so if you need more throughput, yo
 
 ## Next steps
 
+* [Manage integration service environments](../logic-apps/ise-manage-integration-service-environment.md)
 * Learn more about [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * Learn about [virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
