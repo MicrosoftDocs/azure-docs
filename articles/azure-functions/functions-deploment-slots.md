@@ -140,6 +140,22 @@ Azure Functions deployment slots have the following limitations:
 - Swapping a slot resets keys for apps that have an `AzureWebJobsSecretStorageType` app setting equal to `files`.
 - Slots are not available for the Linux Consumption plan.
 
+## Support levels
+
+There are two levels of support for deployment slots:
+
+- **General availability (GA)**: Fully supported and approved for production use.
+- **Preview**: Not yet supported, but is expected to reach GA status in the future.
+
+| OS/Hosting plan           | Level of support     |
+| ------------------------- | -------------------- |
+| Windows Consumption       | Preview              |
+| Windows Premium (preview) | Preview              |
+| Windows Dedicated         | General availability |
+| Linux Consumption         | Unsupported          |
+| Linux Premium (preview)   | Preview              |
+| Linux Dedicated           | General availability |
+
 ## Next steps
 
 - [Deployment technologies in Azure Functions](./functions-deployment-technologies.md)
