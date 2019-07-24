@@ -19,8 +19,8 @@ Use the Form Recognizer client library for .NET to:
 
 * Train a custom Form Recognizer model
 * Analyze forms with a custom model
-* Get a list of form models
-* Display analysis results
+* Get a list of your custom models
+* Display form analysis results
 
 [Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
