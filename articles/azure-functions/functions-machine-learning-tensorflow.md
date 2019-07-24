@@ -8,7 +8,7 @@ manager: gwallace
 ms.service: azure-functions
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/22/2019
+ms.date: 07/24/2019
 ms.author: antchu
 ms.custom: mvc
 ---
@@ -155,7 +155,10 @@ Use `Ctrl-C` to stop the function app.
 
 ## Import the TensorFlow model
 
-You'll use a pre-built TensorFlow model that was trained with and exported from Azure Custom Vision Service. If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
+You'll use a pre-built TensorFlow model that was trained with and exported from Azure Custom Vision Service.
+
+> [!NOTE]
+> If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
 The model consists of two files in the *<REPOSITORY_ROOT>/resources/model* folder: *model.db* and *labels.txt*. Copy them into the *classify* function's folder.
 
@@ -268,14 +271,14 @@ cd <FRONT_END_FOLDER>
 <PYTHON_PATH> -m http.server
 ```
 
-In a browser, navigate to the HTTP server's URL. A web app should appear. Enter one of the following photo URLs into the textbox. You may also use a URL of a publicly accessible cat or dog photo.
+In a browser, navigate to the HTTP server's URL that is displayed in the terminal. A web app should appear. Enter one of the following photo URLs into the textbox. You may also use a URL of a publicly accessible cat or dog photo.
 
 - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat1.png`
 - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat2.png`
 - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog1.png`
 - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog2.png`
 
-When you click submit, the function app is called and a prediction is returned and displayed on the page.
+When you click submit, the function app is called and a result is displayed on the page.
 
 ## Clean up resources
 The entirety of this tutorial runs locally on your machine, so there are no Azure resources or services to clean up.
