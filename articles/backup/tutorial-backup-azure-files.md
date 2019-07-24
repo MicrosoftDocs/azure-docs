@@ -1,7 +1,7 @@
 ---
 title: Back up Azure Files file shares with the Azure Backup Service
 description: This tutorial explains how to back up Azure file shares.
-services: backup
+
 author: dcurwin
 ms.author: dacurwin
 ms.date: 06/10/2019
