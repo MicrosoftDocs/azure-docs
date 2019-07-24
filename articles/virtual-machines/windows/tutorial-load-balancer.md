@@ -6,6 +6,7 @@ documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
 editor: tysonn
+editor2: udemezue
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -52,7 +53,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroupLoadBalancer* in the *EastUS* location:
 
 ```azurepowershell-interactive
-New-AzResourceGroup `
+New-AzureRMResourceGroup `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Location "EastUS"
 ```
@@ -61,7 +62,7 @@ New-AzResourceGroup `
 To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress). The following example creates a public IP address named *myPublicIP* in the *myResourceGroupLoadBalancer* resource group:
 
 ```azurepowershell-interactive
-$publicIP = New-AzPublicIpAddress `
+$publicIP = New-AzureRMPublicIpAddress `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Location "EastUS" `
   -AllocationMethod "Static" `
@@ -72,7 +73,7 @@ $publicIP = New-AzPublicIpAddress `
 Create a frontend IP pool with [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig). The following example creates a frontend IP pool named *myFrontEndPool* and attaches the *myPublicIP* address: 
 
 ```azurepowershell-interactive
-$frontendIP = New-AzLoadBalancerFrontendIpConfig `
+$frontendIP = New-AzureRMLoadBalancerFrontendIpConfig `
   -Name "myFrontEndPool" `
   -PublicIpAddress $publicIP
 ```
@@ -80,14 +81,14 @@ $frontendIP = New-AzLoadBalancerFrontendIpConfig `
 Create a backend address pool with [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). The VMs attach to this backend pool in the remaining steps. The following example creates a backend address pool named *myBackEndPool*:
 
 ```azurepowershell-interactive
-$backendPool = New-AzLoadBalancerBackendAddressPoolConfig `
+$backendPool = New-AzureRMLoadBalancerBackendAddressPoolConfig `
   -Name "myBackEndPool"
 ```
 
 Now, create the load balancer with [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer). The following example creates a load balancer named *myLoadBalancer* using the frontend and backend IP pools created in the preceding steps:
 
 ```azurepowershell-interactive
-$lb = New-AzLoadBalancer `
+$lb = New-AzureRMLoadBalancer `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Name "myLoadBalancer" `
   -Location "EastUS" `
@@ -103,7 +104,7 @@ The following example creates a TCP probe. You can also create custom HTTP probe
 To create a TCP health probe, you use [Add-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/add-azloadbalancerprobeconfig). The following example creates a health probe named *myHealthProbe* that monitors each VM on *TCP* port *80*:
 
 ```azurepowershell-interactive
-Add-AzLoadBalancerProbeConfig `
+Add-AzureRMLoadBalancerProbeConfig `
   -Name "myHealthProbe" `
   -LoadBalancer $lb `
   -Protocol tcp `
@@ -115,7 +116,7 @@ Add-AzLoadBalancerProbeConfig `
 To apply the health probe, update the load balancer with [Set-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/set-azloadbalancer):
 
 ```azurepowershell-interactive
-Set-AzLoadBalancer -LoadBalancer $lb
+Set-AzureRMLoadBalancer -LoadBalancer $lb
 ```
 
 ### Create a load balancer rule
@@ -124,9 +125,9 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
 Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/add-azloadbalancerruleconfig). The following example creates a load balancer rule named *myLoadBalancerRule* and balances traffic on *TCP* port *80*:
 
 ```azurepowershell-interactive
-$probe = Get-AzLoadBalancerProbeConfig -LoadBalancer $lb -Name "myHealthProbe"
+$probe = Get-AzureRMLoadBalancerProbeConfig -LoadBalancer $lb -Name "myHealthProbe"
 
-Add-AzLoadBalancerRuleConfig `
+Add-AzureRMLoadBalancerRuleConfig `
   -Name "myLoadBalancerRule" `
   -LoadBalancer $lb `
   -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
@@ -140,7 +141,7 @@ Add-AzLoadBalancerRuleConfig `
 Update the load balancer with [Set-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/set-azloadbalancer):
 
 ```azurepowershell-interactive
-Set-AzLoadBalancer -LoadBalancer $lb
+Set-AzureRMLoadBalancer -LoadBalancer $lb
 ```
 
 ## Configure virtual network
@@ -151,12 +152,12 @@ Create a virtual network with [New-AzVirtualNetwork](https://docs.microsoft.com/
 
 ```azurepowershell-interactive
 # Create subnet config
-$subnetConfig = New-AzVirtualNetworkSubnetConfig `
+$subnetConfig = New-AzureRMVirtualNetworkSubnetConfig `
   -Name "mySubnet" `
   -AddressPrefix 192.168.1.0/24
 
 # Create the virtual network
-$vnet = New-AzVirtualNetwork `
+$vnet = New-AzureRMVirtualNetwork `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Location "EastUS" `
   -Name "myVnet" `
@@ -169,7 +170,7 @@ Virtual NICs are created with [New-AzNetworkInterface](https://docs.microsoft.co
 ```azurepowershell-interactive
 for ($i=1; $i -le 3; $i++)
 {
-   New-AzNetworkInterface `
+   New-AzureRMNetworkInterface `
      -ResourceGroupName "myResourceGroupLoadBalancer" `
      -Name myVM$i `
      -Location "EastUS" `
@@ -185,7 +186,7 @@ To improve the high availability of your app, place your VMs in an availability 
 Create an availability set with [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset). The following example creates an availability set named *myAvailabilitySet*:
 
 ```azurepowershell-interactive
-$availabilitySet = New-AzAvailabilitySet `
+$availabilitySet = New-AzureRMAvailabilitySet `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Name "myAvailabilitySet" `
   -Location "EastUS" `
@@ -205,7 +206,7 @@ Now you can create the VMs with [New-AzVM](https://docs.microsoft.com/powershell
 ```azurepowershell-interactive
 for ($i=1; $i -le 3; $i++)
 {
-    New-AzVm `
+    New-AzureRMVm `
         -ResourceGroupName "myResourceGroupLoadBalancer" `
         -Name "myVM$i" `
         -Location "East US" `
@@ -230,7 +231,7 @@ Use [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/
 ```azurepowershell-interactive
 for ($i=1; $i -le 3; $i++)
 {
-   Set-AzVMExtension `
+   Set-AzureRMVMExtension `
      -ResourceGroupName "myResourceGroupLoadBalancer" `
      -ExtensionName "IIS" `
      -VMName myVM$i `
@@ -246,7 +247,7 @@ for ($i=1; $i -le 3; $i++)
 Obtain the public IP address of your load balancer with [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
 
 ```azurepowershell-interactive
-Get-AzPublicIPAddress `
+Get-AzureRMPublicIPAddress `
   -ResourceGroupName "myResourceGroupLoadBalancer" `
   -Name "myPublicIP" | select IpAddress
 ```
@@ -265,7 +266,7 @@ You may need to perform maintenance on the VMs running your app, such as install
 Get the network interface card with [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface), then set the *LoadBalancerBackendAddressPools* property of the virtual NIC to *$null*. Finally, update the virtual NIC.:
 
 ```azurepowershell-interactive
-$nic = Get-AzNetworkInterface `
+$nic = Get-AzureRMNetworkInterface `
     -ResourceGroupName "myResourceGroupLoadBalancer" `
     -Name "myVM2"
 $nic.Ipconfigurations[0].LoadBalancerBackendAddressPools=$null
@@ -280,7 +281,7 @@ After performing VM maintenance, or if you need to expand capacity, set the *Loa
 Get the load balancer:
 
 ```azurepowershell-interactive
-$lb = Get-AzLoadBalancer `
+$lb = Get-AzureRMLoadBalancer `
     -ResourceGroupName myResourceGroupLoadBalancer `
     -Name myLoadBalancer 
 $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$lb.BackendAddressPools[0]
