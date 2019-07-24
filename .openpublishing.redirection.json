@@ -40295,6 +40295,12 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "azure/hdinsight/domain-joined/apache-domain-joined-introduction.md",
+      "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
+      "redirect_document_id": false
+    },
+
+    {
       "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
       "redirect_url": "/azure/data-explorer/manage-cluster-vertical-scaling",
       "redirect_document_id": false

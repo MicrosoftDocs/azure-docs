@@ -1,7 +1,7 @@
 ---
 title: Back up SQL Server databases in Azure VMs | Microsoft Docs
 description: Learn how to back up SQL Server databases in Azure VMs
-services: backup
+
 author: sachdevaswati
 manager: vijayts
 ms.service: backup
