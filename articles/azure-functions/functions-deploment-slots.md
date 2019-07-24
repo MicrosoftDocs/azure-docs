@@ -10,7 +10,7 @@ keywords: azure functions, functions
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 07/15/2019
+ms.date: 07/26/2019
 ms.author: cshoe
 ---
 # Azure Functions Deployment Slots
@@ -37,11 +37,11 @@ There are a number of advantages to using deployment slots. The following scenar
 
 During a swap, one slot is considered the source and the other the target. The source slot has the instance of the application that is applied to the target slot. The following steps ensure the target slot doesn't experience downtime during a swap:
 
-1. **Apply settings:** Settings from the target slot are applied to all instances of the source slot. For example, the production settings are applied to the staging instance. The applied settings include the following categories: 
+1. **Apply settings:** Settings from the target slot are applied to all instances of the source slot. For example, the production settings are applied to the staging instance. The applied settings include the following categories:
     - [Slot-specific](#settings) app settings and connection strings (if applicable)
     - [Continuous deployment](../app-service/deploy-continuous-deployment.md) settings (if enabled)
     - [App Service authentication](../app-service/overview-authentication-authorization.md) settings (if enabled)
-    
+
 1. **Wait for restarts and availability:** The swap waits for every instance in the source slot to complete its restart and to be available for requests. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
 
 1. **Update routing:** If all instances on the source slot are warmed up successfully, the two slots complete the swap by switching routing rules. After this step, the target slot (for example, the production slot) has the app that's previously warmed up in the source slot.
@@ -62,11 +62,11 @@ Keep in mind the following points:
 
 ### Create a deployment setting
 
-You can mark settings as a deployment setting which makes it "sticky". A sticky setting does not swap with the app instance. 
+You can mark settings as a deployment setting which makes it "sticky". A sticky setting does not swap with the app instance.
 
 Use the following steps to to create a deployment setting:
 
-- From your app, Navigate to the **Configuration** page for that slot, add or edit a setting, then select the **deployment slot setting** box. 
+- From your app, Navigate to the **Configuration** page for that slot, add or edit a setting, then select the **deployment slot setting** box.
 
 ### Example
 
@@ -78,7 +78,7 @@ Slots are empty when you create a slot. You can use any of the [supported deploy
 
 ## Scaling
 
-All slots scale to the same number of workers as the production slot. 
+All slots scale to the same number of workers as the production slot.
 
 - For Consumption plans, all slots scale as the function app scales.
 - For App Service plans, the app scales to a fixed number of workers. Slots run on the same number of workers as the app plan.
@@ -88,23 +88,23 @@ All slots scale to the same number of workers as the production slot.
 You can add a slot via the [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) or through the portal. The following steps demonstrate how to create a new slot in the portal:
 
 1. Navigate to your functions app and click on the **plus sign** next to *Slots*.
-	
-	![Add Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
+
+    ![Add Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
 
 1. Enter a name in the textbox, and press the **Create** button.
 
-	![Name Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
+    ![Name Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
 
 ## Swap slots
 
 You can swap slots via the [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) or through the portal. The following steps demonstrate how to swap slots in the portal:
 
-1. Navigate to the functions app 
-2. Click on the source slot name that you want to swap
+1. Navigate to the functions app
+1. Click on the source slot name that you want to swap
 1. Click on the **Swap** button
     ![Swap Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-4. Verify the configuration settings for your swap and click **Swap**
-	![Swap Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. Verify the configuration settings for your swap and click **Swap**
+    ![Swap Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
 The operation may take a moment while the swap operation is executing.
 
@@ -120,8 +120,7 @@ You can remove a slot via the [CLI](https://docs.microsoft.com/cli/azure/functio
 
 1. Click on the **Delete** button
 
-	![Add Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
-
+    ![Add Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
 
 ## Automate slot management
 
