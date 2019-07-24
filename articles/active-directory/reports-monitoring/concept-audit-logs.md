@@ -38,7 +38,7 @@ This article gives you an overview of the audit report.
  
 ## Who can access the data?
 
-* Users in the **Security Admininistrator**, **Security Reader**, **Report Reader** or **Global Administrator** roles
+* Users in the **Security Administrator**, **Security Reader**, **Report Reader** or **Global Administrator** roles
 * In addition, all users (non-administrators) can see their own audit activities
 
 ## Audit logs

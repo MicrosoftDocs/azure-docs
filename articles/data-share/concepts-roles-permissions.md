@@ -17,12 +17,12 @@ This article describes the roles required to share data using Azure Data Share P
 
 To share or receive data using Azure Data Share, the user account that you use to sign in to Azure must be able to grant Data Share permissions to the Storage account that you are sharing data from or receiving data in to. Typically this is a permission that exists in the **owner** role, or a custom role with Microsoft.Authorization/role assignments/write permission assigned. 
 
-To share or receive data from or to an Azure Storage account, you must be an owner of the storage account that you are receiving data into. Even if you have created the Storage account, this does not automatically grant you ownership of the Storage account. To add yourself in to the owner role of your Azure Storage account, follow these steps.
+To share or receive data from or to an Azure Storage account, you must be an owner of the storage account. Even if you have created the Storage account, this does not automatically grant you ownership of the Storage account. To add yourself in to the owner role of your Azure Storage account, follow these steps.
 
 1. Navigate to Storage account in Azure portal
 1. Select **Access control (IAM)**
 1. Click **Add**
-1. Add yourself in as the Storage Blob Data Owner
+1. Add yourself in as owner
 
 To view the permissions that you have in the subscription, in the Azure portal, select your username in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. 
 

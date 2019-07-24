@@ -44,28 +44,6 @@ Windows Hello for Business is ideal for information workers who have their own d
 
 Windows Hello for Business is a distributed system that uses several components to accomplish device registration, provisioning, and authentication. Therefore, deployment requires proper planning across multiple teams within the organization. The Windows Hello for Business [planning guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) can be used to help you make decisions on the type of Windows Hello for Business deployment and the options you'll need to consider.
 
-For either hybrid or on-premises deployments, it is expected that you have:
-
-* A well-connected, working network
-
-* Internet access
-
-* Multi-factor Authentication Server to support MFA during Windows Hello for Business provisioning
-
-* Proper name resolution, both internal and external names
-
-* Active Directory and an adequate number of domain controllers per site to support authentication
-
-* Active Directory Certificate Services 2012 or later
-
-* One or more workstation computers running Windows 10, version 1903
-
-Since all types of Windows Hello for Business deployments use enterprise-issued certificates for domain controllers as a root of trust, you will want to automatically renew expired certificates by [configuring auto-enrollment for server and user certificates](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/configure-server-certificate-autoenrollment). For on-premises deployments, the identity provider is the on-premises server running the Windows Server Active Directory Federation Services (AD FS) role. Federated systems typically require a load-balanced array of servers, known as a farm. This farm is configured in an internal network and perimeter network topology to ensure high availability for authentication requests.
-
-When you set a group policy to require Windows Hello for Business in the workplace, you may want to prepare users in your organization by explaining how to use Windows Hello. For instance, when someone sets up a new device, they are prompted to choose between **This device belongs to my organization** or **This is my own personal device**. For corporate devices, they should select the former. Users will also need to be told which connection option they should select: **Join to Azure AD** or **Set up a local account (domain join later)**.
-
-It's common for users who are accustomed to using a biometric gesture to authenticate day after day to eventually forget their PIN. To avoid calls to the help desk, it is recommended that you provide users with the ability to reset forgotten [passwords](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment) and [PINs](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset).
-
 There are many options from which you can choose when deploying Windows Hello for Business. Providing multiple options ensures nearly every organization can deploy Windows Hello for Business. Consider the following types of deployments that are supported:
 
 * [Hybrid Azure AD Joined Key Trust Deployment](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-key-trust)

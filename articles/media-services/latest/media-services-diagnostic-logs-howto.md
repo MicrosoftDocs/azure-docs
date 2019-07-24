@@ -74,9 +74,9 @@ For example:
 
 ```cli
 az monitor diagnostic-settings create --name amsv3diagnostic \
-    --storage-account storageaccountforamsv3  \
-    --resource "/subscriptions/00000000-0000-0000-0000-0000000000/resourceGroups/amsv3ResourceGroup/providers/Microsoft.Media/mediaservices/amsv3account" \
-    --resource-group "amsv3ResourceGroup" \
+    --storage-account storageaccountforams  \
+    --resource "/subscriptions/00000000-0000-0000-0000-0000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount" \
+    --resource-group "amsResourceGroup" \
     --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
 
@@ -100,7 +100,7 @@ You may need to wait up to five minutes before the event appears in the storage 
 ```json
 {
   "time": "2019-05-21T00:07:33.2820450Z",
-  "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-0000000000000/RESOURCEGROUPS/amsv3ResourceGroup/PROVIDERS/MICROSOFT.MEDIA/MEDIASERVICES/AMSACCOUNT",
+  "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-0000000000000/RESOURCEGROUPS/amsResourceGroup/PROVIDERS/MICROSOFT.MEDIA/MEDIASERVICES/AMSACCOUNT",
   "operationName": "MICROSOFT.MEDIA/MEDIASERVICES/CONTENTKEYS/READ",
   "operationVersion": "1.0",
   "category": "KeyDeliveryRequests",
@@ -138,7 +138,7 @@ You may need to wait up to five minutes before the event appears in the storage 
 ```json
 {
   "time": "2019-05-20T23:15:22.7088747Z",
-  "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-0000000000000/RESOURCEGROUPS/amsv3ResourceGroup/PROVIDERS/MICROSOFT.MEDIA/MEDIASERVICES/AMSACCOUNT",
+  "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-0000000000000/RESOURCEGROUPS/amsResourceGroup/PROVIDERS/MICROSOFT.MEDIA/MEDIASERVICES/AMSACCOUNT",
   "operationName": "MICROSOFT.MEDIA/MEDIASERVICES/CONTENTKEYS/READ",
   "operationVersion": "1.0",
   "category": "KeyDeliveryRequests",

@@ -1,5 +1,5 @@
 ---
-title: Create Java web app on Windows - Azure App Service 
+title: Create a Java web app on Windows - Azure App Service
 description: In this quickstart, you deploy your first Java Hello World in Azure App Service on Windows in minutes.
 keywords: azure, app service, web app, windows, java, maven, quickstart
 services: app-service\web
@@ -62,7 +62,7 @@ Then add the following plugin definition inside the `<build>` element of the `po
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>

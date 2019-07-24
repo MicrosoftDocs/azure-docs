@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Add your personal Microsoft accounts
+
 Add your personal Microsoft accounts, such as for Outlook.com and Xbox LIVE to the Microsoft Authenticator app for both the standard two-factor verification process and the passwordless phone sign-in method.
 
 - **Standard two-factor verification method.** Type your username and password into the device you're logging in to, and then choose whether the Microsoft Authenticator app sends a notification or if you'd prefer to copy the associated verification code from the **Accounts** screen of the Microsoft Authenticator app.
@@ -26,6 +27,7 @@ Add your personal Microsoft accounts, such as for Outlook.com and Xbox LIVE to t
 >Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](user-help-auth-app-download-install.md) article.
 
 ## Add your personal Microsoft account
+
 You can add your personal Microsoft account by first turning on two-factor verification, and then by adding the account to the app.
 
 >[!Note]

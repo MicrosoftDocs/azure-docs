@@ -39,25 +39,25 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 
-    ![Switch to subscription directory](./media/tutorial-create-user-flows/switch-directories.PNG)
+    ![Directory and Subscription filter with B2C tenant selected](./media/tutorial-create-user-flows/switch-directories.PNG)
 
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. In the left menu under **Policies**, select **User flows (policies)**, and then select **New user flow**.
 
-    ![Select new user flow](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
+    ![User flows page in portal with New user flow button highlighted](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
 1. On the **Recommended** tab, select the **Sign up and sign in** user flow.
 
-    ![Select the sign-up and sign-in user flow](./media/tutorial-create-user-flows/signup-signin-type.png)
+    ![Select a user flow page with Sign up and sign in flow highlighted](./media/tutorial-create-user-flows/signup-signin-type.png)
 
 1. Enter a **Name** for the user flow. For example, *signupsignin1*.
 1. For **Identity providers**, select **Email signup**.
 
-    ![Set the flow properties](./media/tutorial-create-user-flows/signup-signin-properties.png)
+    ![Create user flow page in Azure portal with properties highlighted](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
 1. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Click **OK**.
 
-    ![Select attributes and claims](./media/tutorial-create-user-flows/signup-signin-attributes.png)
+    ![Attributes and claims selection page with three claims selected](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
 1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
 
@@ -67,7 +67,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
 1. Click **Run user flow**, and then select **Sign up now**.
 
-    ![Run the user flow](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
+    ![Run user flow page in portal with Run user flow button highlighted](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
 1. Enter a valid email address, click **Send verification code**, enter the verification code that you receive, then select **Verify code**.
 1. Enter a new password and confirm the password.

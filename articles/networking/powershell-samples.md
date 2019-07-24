@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/24/2017
-ms.author: georgewallace
+ms.author: gwallace
 
 ---
 # Azure PowerShell Samples for networking

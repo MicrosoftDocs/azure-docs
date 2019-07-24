@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/07/2019
+ms.date: 07/23/2019
 ms.author: raynew
 
 ---
@@ -180,7 +180,7 @@ Guest/server NFS | No
 Guest/server iSCSI | No
 Guest/server SMB 3.0 | No
 Guest/server RDM | Yes<br/><br/> N/A for physical servers
-Guest/server disk > 1 TB | Yes<br/><br/>Up to 4,095 GB<br/><br/> Disk must be larger than 1024 MB.
+Guest/server disk > 1 TB | Yes, disk must be larger than 1024 MB<br/><br/>Up to 8,192 GB when replicating to managed disks (9.26 version onwards)<br></br> Up to 4,095 GB when replicating to storage accounts
 Guest/server disk with 4K logical and 4k physical sector size | No
 Guest/server disk with 4K logical and 512-bytes physical sector size | No
 Guest/server volume with striped disk >4 TB <br/><br/>Logical volume management (LVM)| Yes
@@ -189,7 +189,7 @@ Guest/server hot add/remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 Guest/server GPT partitions | Five partitions are supported from [Update Rollup 37](https://support.microsoft.com/help/4508614/) (version 9.25 of the Mobility service) onwards. Previously four were supported.
-Guest/server EFI/UEFI boot | - Supported when you're running Mobility service version 9.13 or later.<br/> - Supported when migrating VMware VMs or physical servers running Windows Server 2012 or later to Azure.<br/> - You can only replicate VMs for migration. Failback to on-premises isn't supported.<br/> - Only NTFS is supported & secure UEFI boot type is not supported. <br/> - Disk sector size should be 512 bytes per physical sector.
+Guest/server EFI/UEFI boot | - Supported when you're running Mobility service version 9.13 or later.<br/> - Supported when migrating VMware VMs or physical servers running Windows Server 2012 or later to Azure.<br/> - You can only replicate VMs for migration. Failback to on-premises isn't supported.<br/> - Only NTFS is supported <br/> - Secure UEFI boot type is not supported. <br/> - Disk sector size should be 512 bytes per physical sector.
 
 ## Replication channels
 
@@ -235,7 +235,7 @@ Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
 Operating system disk count | 1 | Check fails if unsupported.
 Data disk count | 64 or less. | Check fails if unsupported.
-Data disk size | Up to 4,095 GB | Check fails if unsupported.
+Data disk size | Up to 8,192 GB when replicating to managed disk (9.26 version onwards)<br></br>Up to 4,095 GB when replicating to storage account| Check fails if unsupported.
 Network adapters | Multiple adapters are supported. |
 Shared VHD | Not supported. | Check fails if unsupported.
 FC disk | Not supported. | Check fails if unsupported.

@@ -216,7 +216,6 @@ subscription in the properties described by the table in this step:
    | **Client Secret** | <*yourSecurePassword*> | The `password` value or "secret" you provided for your Azure service principal | 
    | **Tenant ID** | <*yourAzureActiveDirectoryTenant-ID*> | The `tenant` GUID value for your Azure Active Directory tenant | 
    | **ID** | <*yourAzureServicePrincipalName*> | The `displayName` value for your Azure service principal | 
-   |||| 
 
 1. To confirm that your service principal works, 
 choose **Verify Service Principal**. When you're done, choose **OK**.
