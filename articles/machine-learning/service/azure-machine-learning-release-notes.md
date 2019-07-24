@@ -75,20 +75,12 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Add `get_token()` method to `Webservice` objects.
     + Added CLI support to manage machine learning datasets.
     + `Datastore.register_azure_blob_container` now optionally takes a `blob_cache_timeout` value (in seconds) which configures blobfuse's mount parameters to enable cache expiration for this datastore. The default is no timeout, i.e. when a blob is read, it will stay in the local cache until the job is finished. Most jobs will prefer this setting, but some jobs need to read more data from a large dataset than will fit on their nodes. For these jobs, tuning this parameter will help them succeed. Take care when tuning this parameter: setting the value too low can result in poor performance, as the data used in an epoch may expire before being used again. This means that all reads will be done from blob storage (i.e. the network) rather than the local cache, which negatively impacts training times.
-    + Enable customer to compare two datasets
     + Model description can now properly be updated after registration
     + Model and Image deletion now provides more information about upstream objects that depend on them which causes the delete to fail
     + Improve resource utilization of remote runs using azureml.mlflow.
   + **azureml-dataprep**
-    + Improve error thrown when attempting to read Parquet Dataset from remote source (which is not currently supported).
-    +  Improve handling of pandas DataFrames with non-string Column Indexes
-    + Improved the performance of to_pandas_dataframe in Datasets
     + Dataflow objects can now be iterated over, producing a sequence of records.
-    + Fixed a bug where `Dataflow.read_pandas_dataframe` would fail when the `in_memory` argument is set to True.
-    + Increase robustness of DataPrep SDK
     + Add `_summarize_each` as experimental feature to `azureml.dataprep.Dataflow`.
-    + Add topValues and bottomValues summarize
-    + Expose `set_diagnostics_collection()` to allow for programmatic enabling/disabling of the telemetry collection
   + **azureml-explain-model**
     + Fixed transformations argument for LIME explainer for raw feature importance in azureml-contrib-explain-model package
     + add scipy sparse support for LimeExplainer
