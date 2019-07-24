@@ -1,9 +1,9 @@
 ---
 title: Set up a device template in an Azure IoT Central application | Microsoft Docs
 description: Learn how to set up a device template with measurements, settings, properties, rules, and a dashboard.
-author: viv-liu
-ms.author: viviali
-ms.date: 06/19/2019
+author: sarahhubbard
+ms.author: sahubbar
+ms.date: 07/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -38,8 +38,16 @@ As a builder, you have several options for creating device templates:
 - Create a device capability model using Visual Studio code. Implement your device code from the model. Manually import the device capability model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
 - Create a device capability model using Visual Studio code. Implement your device code from the model, and connect your real device to your IoT Central application using a device-first connection. IoT Central finds and imports the device capability model from the global repository for you. You can then add any cloud properties, customizations, and dashboards your IoT Central application needs to the device template.
 
+## Create a device template from the device catalog
 
-## Create a device template
+As a builder, you can quickly start building out your solution using an IoT Plug and Play certified device listed in the [Azure IoT Device Catalog](https://catalog.azureiotsolutions.com/alldevices). IoT Central integrates with the device catalog to let you import a device capability model from any of these IoT Plug and Play certified devices. To create a device template from one of these devices in IoT Central:
+
+1. Go to the **Device Templates** page in your IoT Central application.
+1. Select **+ New**, then select any of the IoT Plug and Play certified devices from the catalog listed below. IoT Central creates a device template based on this device capability model.
+1. Add any cloud properties, customizations, or views to your device template.
+1. Select **Publish** to publish this device template to make it available for operators to view and connect devices.
+
+## Create a device template from scratch
 
 A device template contains:
 
@@ -52,7 +60,7 @@ To create a device template in IoT Central:
 
 1. Go to the **Device Templates** page in your IoT Central application.
 1. Select **+ New**, then select **Custom**.
-1. Enter a name for your template, such as **Refrigerated Vending Machine**.
+1. Enter a name for your template, such as **Environmental Sensor**.
 1. Press **Enter**. IoT Central creates an empty device template.
 
 ## Manage a device template
@@ -67,9 +75,7 @@ To create a device capability model, you can:
 
 - Use IoT Central to create a custom model from scratch.
 - Import a model from a JSON file. A device builder may have used Visual Studio Code to author a device capability model for your application.
-- Select one of the devices from the Device Catalog. This will import the device capability model for this device that the manufacturer has published and made available for use. This will come imported in a published mode.
-
-We will walk through editing a model in IoT Central using **Custom** or **Import**, these will both start your device capability in a draft mode. After you create the template, on the **Create a Capability Model** page, choose either **Custom** or **Import Capability Model**.
+- Select one of the devices from the Device Catalog. This option imports the device capability model that the manufacturer has published for this device. A device capability model imported like this is automatically published.
 
 ## Manage a capability model
 
@@ -91,7 +97,7 @@ To create an interface:
 
     - Create a custom interface from scratch.
     - Import an existing interface. A device builder may have used Visual Studio Code to author an interface for your device.
-    - Choose one of the standard interfaces such as the **Device Information** interface. Standard interfaces specify the capabilities common to many devices. These standard interfaces are published by Microsoft Azure IoT and can not be versioned or edited.
+    - Choose one of the standard interfaces such as the **Device Information** interface. Standard interfaces specify the capabilities common to many devices. These standard interfaces are published by Microsoft Azure IoT and cannot be versioned or edited.
 
 1. After you create an interface, choose **Edit Identity** to change the display name of the interface.
 
@@ -140,7 +146,7 @@ The following table shows the configuration settings for a  property capability:
 
 ### Commands
 
-You can call device commands from IoT Central. Commands optionally pass parameters to the device and receive a response from the device. For example, you could call a command to reboot a device in ten seconds.
+You can call device commands from IoT Central. Commands optionally pass parameters to the device and receive a response from the device. For example, you could call a command to reboot a device in 10 seconds.
 
 The following table shows the configuration settings for a  command capability:
 
@@ -157,7 +163,7 @@ The following table shows the configuration settings for a  command capability:
 
 ## Manage an interface
 
-Provided you haven't published the interface, you can edit the capabilities defined by the interface. Once the interface has been published, you will need to create a new version of the device template and version the interface to make any changes. Changes that do not require versioning, such as display names or units, can be made in the **Customize** section.
+Provided you haven't published the interface, you can edit the capabilities defined by the interface. Once the interface has been published, you'll need to create a new version of the device template and version the interface to make any changes. Changes that don't require versioning, such as display names or units, can be made in the **Customize** section.
 
 You can also export the interface as a JSON file if you want to reuse it in another capability model.
 
@@ -183,7 +189,7 @@ Use customizations when you need to modify an imported interface or add IoT Cent
 - Add a default color to use when the value appears on a chart.
 - Specify initial, minimum, and maximum values for a property.
 
-You can't customize the capability name or capability type. If there are changes you are not able to make in the **Customize** section, you will need to version your device template and interface to modify the capability.
+You can't customize the capability name or capability type. If there are changes you can't make in the **Customize** section, you'll need to version your device template and interface to modify the capability.
 
 ## Add dashboards
 
@@ -202,7 +208,7 @@ To add a dashboard to a device template:
 
 ### Configure preview device to view dashboard
 
-To view and test your dashboard, you can select **Configure preview device** which will allow you to see the dashboard as your operator will once it is published. This allows your to validate your views are showing the correct data. You can choose from no preview device, the real test device you have configured for your device template, or choosing from an existing device in your application by using the Device ID. 
+To view and test your dashboard, you can select **Configure preview device**,  which lets you see the dashboard as your operator sees after it's published. This option lets you validate that your views show the correct data. You can choose from no preview device, the real test device you've configured for your device template, or an existing device in your application by using the Device ID.
 
 ## Add forms
 

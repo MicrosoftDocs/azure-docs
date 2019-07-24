@@ -37,9 +37,9 @@ Before you begin, you should complete the [Define a new device type in your appl
 
 1. Enter **Environmental temperature** as the rule name.
 
-1. To add a scope for the rule that specifies the devices the rule is triggered by, select **+ Scope**.
+1. In the **Scope** section, select the device type to apply this rule to. You can apply further filters + **Filter**.
 
-1. To add a scope for the rule that specifies the telemetry values that trigger the rule, select **+ Condition**.
+1. In the **Condition** section, specify the telemetry values that trigger the rule. To add more conditions, select + **Condition**.
 
 1. To add an action that runs when the rule is triggered, select **+ Action**.
 
