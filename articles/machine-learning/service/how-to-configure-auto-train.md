@@ -131,7 +131,7 @@ Define X and y as dprep reference, which will be passed to automated machine lea
 
 ## Train and validation data
 
-You can specify separate train and validation set either directly in the `AutoMLConfig`  method.
+You can specify separate train and validation set directly in the `AutoMLConfig`  method.
 
 ### K-Folds Cross Validation
 
