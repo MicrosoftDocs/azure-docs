@@ -1,5 +1,5 @@
 ---
-title: Gateway logging, auditing and visibility in Azure Australia
+title: Gateway logging, auditing, and visibility in Azure Australia
 description: How to configure Logging, Auditing, and Visibility within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
@@ -8,15 +8,15 @@ ms.date: 07/22/2019
 ms.author: grgale
 ---
 
-# Gateway logging, auditing and visibility in Azure Australia
+# Gateway logging, auditing, and visibility in Azure Australia
 
 Detecting and responding to cyber security threats relies on generating, collecting and analysing data related to the operation of a system.
 
-This article assists you to implement tools in Azure for the logging, auditing and visibility required for Commonwealth entities to manage the security of their systems deployed in Azure, and includes a reference architecture that aligns with the ACSC Consumer Guidance and the intent of the ISM.
+Microsoft has built-in tools in Azure to help you implement logging, auditing and visibility to manage the security of your systems deployed in Azure. There is also a reference architecture that aligns with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the Information Security Manual (ISM).
 
 Gateways act as information flow control mechanisms at the network layer and may also control information at the higher layers of the Open System Interconnect (OSI) model. Gateways are necessary to control data flows between security domains and prevent unauthorised access from external networks. Given the criticality of gateways in controlling the flow of information between security domains, any failure, particularly at higher classifications, may have serious consequences. As such, robust mechanisms for alerting personnel to situations that may cause cyber security incidents are especially important for gateways.
 
-Implementing logging and alerting capabilities for gateways can assist in detecting cyber security incidents, attempted intrusions and unusual usage patterns. In addition, storing event logs on a separate secure log server increases the difficulty for an adversary to delete logging information in order to destroy evidence of a targeted cyber intrusion.
+Implementing logging and alerting capabilities for gateways can assist in detecting cyber security incidents, attempted intrusions, and unusual usage patterns. In addition, storing event logs on a separate secure log server increases the difficulty for an adversary to delete logging information in order to destroy evidence of a targeted cyber intrusion.
 
 ## Australian Cyber Security Centre (ACSC) requirements
 
@@ -33,21 +33,21 @@ The overall security requirements for Commonwealth systems are defined in the AC
     * Enable Automatic Provisioning of the Microsoft Monitoring Agent to supported Azure VMs
     * Regularly review, prioritise, and mitigate the security recommendations and alerts on the Security Centre dashboard
 
-4. Government entities must enable log and event forwarding from their Azure subscription to the ACSC to provide the ACSC with visibility of non-compliance with this guidance. Azure Events Hubs provides the capability to perform external log streaming to the ACSC or on-premise systems owned by the Commonwealth entity
+4. Government entities must enable log and event forwarding from their Azure subscription to the ACSC to provide the ACSC with visibility of non-compliance with this guidance. Azure Event Hubs provides the capability to perform external log streaming to the ACSC or on-premise systems owned by the Commonwealth entity
 
 5. Commonwealth entities should align the logging they enable within Azure to the requirements specified in the ISM
 
 6. Microsoft retains logs within Azure for 90 days. Customer entities must implement a log archival regime to ensure logs can be retained for the seven years required under the NAA AFDA
 
-7. Commonwealth entities that have on premise or Azure-based SIEM capabilities can also forward logs to those systems
+7. Commonwealth entities that have on premise or Azure-based Security Information and Event Management (SIEM) capabilities can also forward logs to those systems
 
-8. Commonwealth entities should implement Network Watcher flow logs for NSGs and Virtual Machines. These logs should be stored in a dedicated storage account containing only security logs, and access to the storage account should be secured with Role-Based Access Controls
+8. Commonwealth entities should implement Network Watcher flow logs for Network Security Groups (NSGs) and Virtual Machines. These logs should be stored in a dedicated storage account containing only security logs, and access to the storage account should be secured with Role-Based Access Controls
 
-9. Commonwealth entities must implement ACSC Consumer Guidance to ensure Azure workloads meet the intent of the ISM for logging and monitoring. Commonwealth entities must also opt in to Azure capabilities that assist the ACSC to receive real-time monitoring, alerting, and logs associated with Australian Government usage of the Azure platform
+9. Commonwealth entities must implement ACSC Consumer Guidance to ensure Azure workloads meet the intent of the ISM for logging and monitoring. Commonwealth entities must also opt in to Azure capabilities that assist the ACSC to receive real-time monitoring, alerting, and logs associated with Australian Government usage of Azure
 
 ## Architecture
 
-To be able to confidently understand the network traffic entering and leaving the Azure environment, the necessary logging must be enabled on the right set of components to ensure complete visibility of the environment and provide the necessary data to perform analysis.
+To confidently understand the network traffic entering and leaving your Azure environment, the necessary logging must be enabled on the right set of components. This ensures complete visibility of the environment and provides the necessary data to perform analysis.
 
 ![Azure Monitoring Architecture](media/visibility.png)
 
@@ -57,16 +57,20 @@ The architecture shown above is made up of discrete components that provide the 
 
 |Functions|Components|
 |---|---|
-|Log Sources|<ul><li>Application Gateway</li><li>VPN Gateway</li><li>Azure Firewall</li><li>Network Virtual Appliances</li><li>Azure Load Balancer</li><li>Virtual Machines</li><li>DNS Servers</li><li>Syslog and/or Log Collection Servers</li><li>Network Security Groups (NSGs)</li><li>Azure Activity Log</li><li>Azure Diagnostic Log</li><li>Azure Policy</li></ul>|
+|Log Sources|<ul><li>Application Gateway</li><li>VPN Gateway</li><li>Azure Firewall</li><li>Network Virtual Appliances</li><li>Azure Load Balancer</li><li>Virtual Machines</li><li>Domain Naming System (DNS) Servers</li><li>Syslog and/or Log Collection Servers</li><li>NSGs</li><li>Azure Activity Log</li><li>Azure Diagnostic Log</li><li>Azure Policy</li></ul>|
 |Log Collection|<ul><li>Event Hubs</li><li>Network Watcher</li><li>Log Analytics</li></ul>|
 |Log Retention|<ul><li>Azure Storage</li></ul>|
-|Log Analysis|<ul><li>Azure Security Center (ASC)</li><li>Azure Advisor</li><li>Log Analytics Solutions<ul><li>Traffic Analytics</li><li>DNS Analytics (Preview)</li><li>Activity Log Analytics</li></ul></li><li>Security Information and Event Management (SIEM)</li><li>Australian Cyber Security Center (ACSC)</li></ul>|
+|Log Analysis|<ul><li>Azure Security Center (ASC)</li><li>Azure Advisor</li><li>Log Analytics Solutions<ul><li>Traffic Analytics</li><li>DNS Analytics (Preview)</li><li>Activity Log Analytics</li></ul></li><li>SIEM</li><li>ACSC</li></ul>|
 |Incident Response|<ul><li>Azure Alerts</li><li>Azure Automation</li></ul>|
 |
 
-The architecture works by first generating logs from the necessary sources and then collecting them into centralised repositories. Once all logs have been obtained, they can be utilised by Azure analysis services to get insight, get forwarded to external systems, or get archived to storage for long-term retention.
+The architecture works by first generating logs from the necessary sources and then collecting them into centralised repositories. Once you have collected the logs, they can be:
 
-To respond to key events or incidents identified by analysis tools, alerts can be configured and automation developed to take necessary actions for proactive management and response.
+* used by Azure analysis services to get insight,
+* get forwarded to external systems, or
+* get archived to storage for long-term retention.
+
+To respond to key events or incidents identified by analysis tools, alerts can be configured, and automation developed to take necessary actions for proactive management and response.
 
 ## General Guidance
 
@@ -88,7 +92,7 @@ When implementing the components listed in this article, the following general g
 
 * When centralising log collection across multiple subscriptions, ensure that administrators have the necessary privileges in each subscription
 
-* Ensure network connectivity and any necessary proxy configuration for Virtual Machines, including NVAs, Log Collection Servers and DNS Servers, to connect to necessary Azure services such as the Log Analytics workspaces, Event Hubs, and Storage
+* Ensure network connectivity and any necessary proxy configuration for Virtual Machines, including Network Virtual Appliances (NVAs), Log Collection Servers and DNS Servers, to connect to necessary Azure services such as the Log Analytics workspaces, Event Hubs, and Storage
 
 * Configure the Microsoft Monitoring Agent (MMA) to utilise TLS version 1.2
 
@@ -114,11 +118,18 @@ This section provides information on the purpose of each component and its role 
 
 ## Log Sources
 
-Before any analysis, alerting or reporting can be completed, the necessary logs must be generated. Azure logs are categorized into control/management logs, data plane logs, and processed events. Control/management logs provide information about Azure Resource Manager operations, Data plane logs provide information about events raised as part of Azure resource usage, such as logs in a Virtual Machine and the diagnostics logs available through Azure Monitor and processed events provide information about analysed events/alerts that have been processed by Azure, such as where Azure Security Center has processed and analysed subscriptions to provide security alerts.
+Before any analysis, alerting or reporting can be completed, the necessary logs must be generated. Azure logs are categorized into control/management logs, data plane logs, and processed events.
+
+|Type|Description|
+|---|---|
+|Control/management logs|Provide information about Azure Resource Manager operations|
+|Data plane logs|Provide information about events raised as part of Azure resource usage, such as logs in a Virtual Machine and the diagnostics logs available through Azure Monitor|
+|Processed events|Provide information about analysed events/alerts that have been processed by Azure, such as where Azure Security Center has processed and analysed subscriptions to provide security alerts|
+|
 
 ### Application Gateway
 
-The Application Gateway is one of the possible entry points into an Azure environment and it is necessary to capture information related to incoming connections communicating with web applications. The Application Gateway can provide crucial information relating to web application usage as well as assisting in detecting cyber security incidents. Application Gateway logs to the Activity Log and Diagnostic Logs in Azure Monitor where it can be utilised in Log Analytics or distributed to an Event Hub or Storage Account.
+Azure Application Gateway is one of the possible entry points into an Azure environment so you need to capture information related to incoming connections communicating with web applications. Application Gateway can provide crucial information relating to web application usage as well as assisting in detecting cyber security incidents. Application Gateway sends metadata to the Activity Log and Diagnostic Logs in Azure Monitor where it can be utilised in Log Analytics or distributed to an Event Hub or Storage Account.
 
 |Resources|Link|
 |---|---|
@@ -138,7 +149,7 @@ The VPN Gateway is a potential entry point for a wide range of communications in
 
 ### Azure Firewall
 
-Azure Firewall can provide a controlled exit point from an Azure environment and the logs generated, which include information on attempted and successful outbound connections, is an important element in the logging strategy. These logs can validate that systems are operating as designed as well as assist in detecting malicious code or actors attempting to connect to unauthorised external systems. Azure Firewall writes logs to the Activity Log and Diagnostic Logs in Azure Monitor where it can be utilised in Log Analytics or distributed to an Event Hub or Storage Account.
+Azure Firewall provides a controlled exit point from an Azure environment and the logs generated, which include information on attempted and successful outbound connections, are an important element in your logging strategy. These logs can validate that systems are operating as designed, as well as assist in detecting malicious code or actors attempting to connect to unauthorised external systems. Azure Firewall writes logs to the Activity Log and Diagnostic Logs in Azure Monitor where it can be used in Log Analytics, or distributed to an Event Hub or Storage Account.
 
 |Resources|Link|
 |---|---|
@@ -148,7 +159,7 @@ Azure Firewall can provide a controlled exit point from an Azure environment and
 
 ### Network Virtual Appliances (NVA)
 
-NVAs can be used to complement the security capabilities available natively in Azure. The logs generated on NVAs can be valuable resources in detecting cyber security incidents and are a key part of an overall logging, auditing, and visibility strategy. To capture logs from NVAs, utilise the Microsoft Monitoring Agent (MMA). For NVAs that do not support the installation of the MMA, consider using a syslog or other log collection server to relay logs.
+NVAs can be used to complement the security capabilities available natively in Azure. The logs generated on NVAs can be valuable resources in detecting cyber security incidents and are a key part of an overall logging, auditing, and visibility strategy. To capture logs from NVAs, utilise the Microsoft Monitoring Agent (MMA). For NVAs that do not support the installation of the MMA, consider using a Syslog or other log collection server to relay logs.
 
 |Resources|Link|
 |---|---|
@@ -158,7 +169,7 @@ NVAs can be used to complement the security capabilities available natively in A
 
 ### Azure Load Balancer
 
-Azure Load Balancer logs are used to obtain useful formation about the connections and usage related to systems deployed in Azure. This can be used for health and availability monitoring, but also forms another key component in gaining the necessary insight into communications traffic and detecting malicious or anomalous traffic patterns. Azure Load Balancer logs to the Activity Log and Diagnostic Logs in Azure Monitor where it can be utilised in Log Analytics or distributed to an Event Hub or Storage Account.
+Azure Load Balancer logs are used to obtain useful information about the connections and usage related to systems deployed in Azure. This can be used for health and availability monitoring, but also forms another key component in gaining the necessary insight into communications traffic and detecting malicious or anomalous traffic patterns. Azure Load Balancer logs to the Activity Log and Diagnostic Logs in Azure Monitor where it can be utilised in Log Analytics or distributed to an Event Hub or Storage Account.
 
 |Resources|Link|
 |---|---|
@@ -186,7 +197,7 @@ DNS Server logs provide key information related to the services that systems are
 |Azure Name Resolution for Virtual Networks|[https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)|
 |
 
-### Syslog and/or Log Collection Servers
+### Syslog and Log Collection Servers
 
 To receive logs from Network Virtual Appliances, or custom security logs from other systems for use within a SIEM, dedicated servers can be deployed within Azure VNets. Syslog logs can be collected on a Syslog server and relayed to Log Analytics for analysis. A Log Collection Server is a generic term for any log aggregation and distribution capability used by centralised monitoring systems or SIEMs. These can be used to simplify network architecture and security and to filter and aggregate logs before being distributed to the centralised capability.
 
@@ -229,7 +240,7 @@ Azure Monitor diagnostic logs are logs emitted by an Azure service that provide 
 
 ### Azure Policy
 
-Azure Policy enforces rules on how resources can be deployed, such as the type, location and configuration. Azure Policy can be configured to ensure resources can only be deployed if they are compliant with requirements. Azure Policy is a core component to maintaining the integrity of an Azure environment. Events related to Azure Policy are logged to the Azure Activity Log and are automatically available for use in Log Analytics solutions or can be sent to Event Hubs or Azure Storage for processing or retention.
+Azure Policy enforces rules on how resources can be deployed, such as the type, location, and configuration. Azure Policy can be configured to ensure resources can only be deployed if they are compliant with requirements. Azure Policy is a core component to maintaining the integrity of an Azure environment. Events related to Azure Policy are logged to the Azure Activity Log and are automatically available for use in Log Analytics solutions or can be sent to Event Hubs or Azure Storage for processing or retention.
 
 |Resources|Link|
 |---|---|
@@ -243,7 +254,7 @@ Once generated from the multiple log sources, logs need to be stored in a centra
 
 ### Event Hubs
 
-The purpose of an Event Hub is to aggregate the log data for the various sources for distribution. From the Event Hub the log data can be sent on to a SIEM, to the ACSC for compliance and to Storage for long-term retention.
+The purpose of an Event Hub is to aggregate the log data for the various sources for distribution. From the Event Hub, the log data can be sent on to a SIEM, to the ACSC for compliance and to Storage for long-term retention.
 
 |Resources|Link|
 |---|---|
@@ -273,7 +284,16 @@ The use of Network Watcher is recommended by the ACSC to assist in understanding
 
 ## Log Retention
 
-For Australian Government organisations, the logs captured within Azure must be retained in accordance with the National Archives of Australia [Administrative Functions Disposal Authority (AFDA)](http://www.naa.gov.au/information-management/records-authorities/types-of-records-authorities/AFDA/index.aspx), which specifies retaining logs up to seven years. Logs stored in the Azure Activity Log are retained for up to 90 days, data stored in a Log Analytics workspace can be kept for up to two years, and events captured in an Event Hub cab be kept for up to seven days. The onus is on the customer, in this case Commonwealth entities, to ensure that logs are archived appropriately to adhere to AFDA and other legislative requirements.
+For Australian Government organisations, the logs captured within Azure must be retained in accordance with the National Archives of Australia [Administrative Functions Disposal Authority (AFDA)](http://www.naa.gov.au/information-management/records-authorities/types-of-records-authorities/AFDA/index.aspx), which specifies retaining logs up to seven years.
+
+|Log Location|Retention Period|
+|---|---|
+|Azure Activity Log|Up to 90 days|
+|Log Analytics workspace|Up to two years|
+|Event Hub|Up to seven days|
+|
+
+It is your responsibility to ensure that logs are archived appropriately to adhere to AFDA and other legislative requirements.
 
 ### Azure Storage
 
@@ -290,7 +310,7 @@ Azure Storage is the repository for logs for long-term retention in Azure. Azure
 
 ## Log Analysis
 
-Once generated and stored in a centralised location, the logs must be analysed to assist with detecting attempted or successful security incidents. When security incidents are detected, an agency needs the ability to respond to those incidents and to track, contain and remediate any threats.
+Once generated and stored in a centralised location, the logs must be analysed to assist with detecting attempted or successful security incidents. When security incidents are detected, an agency needs the ability to respond to those incidents and to track, contain, and remediate any threats.
 
 ### Azure Security Center (ASC)
 
@@ -341,7 +361,7 @@ Activity Log Analytics is a Log Analytics Solution that helps analyse and search
 
 ### Security Information and Event Management (SIEM)
 
-A SIEM is a system that provides centralised storage, auditing and analysis of security logs, with defined mechanisms for ingesting a wide range of log data and intelligent tools for analysis, reporting and incident detection and response. Commonwealth entities can leverage SIEM capabilities to include Azure logging information to supplement the security capabilities provided natively in Azure. Commonwealth entities can utilise a SIEM hosted on Virtual Machines in Azure, on-premises or as a Software as a Service (SaaS) capability depending on specific requirements.
+A SIEM is a system that provides centralised storage, auditing and analysis of security logs, with defined mechanisms for ingesting a wide range of log data and intelligent tools for analysis, reporting and incident detection and response. You can use SIEM capabilities that include Azure logging information to supplement the security capabilities provided natively in Azure. Commonwealth entities can utilise a SIEM hosted on Virtual Machines in Azure, on-premises or as a Software as a Service (SaaS) capability depending on specific requirements.
 
 |Resources|Link|
 |---|---|
@@ -352,7 +372,7 @@ A SIEM is a system that provides centralised storage, auditing and analysis of s
 
 ### Australian Cyber Security Centre
 
-The Australian Cyber Security Centre (ACSC) is the Australian Government’s lead on national cyber security. It brings together cyber security capabilities from across the Australian Government to improve the cyber resilience of the Australian community and support the economic and social prosperity of Australia in the digital age. The ACSC recommends that Commonwealth entities forward all mandated telemetry, events, and logs to the ACSC for whole of Australian Government monitoring.
+The Australian Cyber Security Centre (ACSC) is the Australian Government’s lead on national cyber security. It brings together cyber security capabilities from across the Australian Government to improve the cyber resilience of the Australian community and support the economic and social prosperity of Australia in the digital age. The ACSC recommends that Commonwealth entities forward all mandated system-generated log files, events, and logs to the ACSC for whole of Australian Government monitoring.
 
 |Resources|Link|
 |---|---|
@@ -361,7 +381,7 @@ The Australian Cyber Security Centre (ACSC) is the Australian Government’s lea
 
 ## Incident Response
 
-Generating the appropriate logs, collecting them into centralised repositories and performing analysis increases understanding of systems and provides mechanisms to detect cyber security incidents. Once incidents or events have been detected the next step is to react to those events and perform actions to maintain system health and protect services and data from compromise. Azure provides a combination of services to respond effectively to any events that occur.
+Generating the appropriate logs, collecting them into centralised repositories and performing analysis increases understanding of systems and provides mechanisms to detect cyber security incidents. After incidents or events have been detected, the next step is to react to those events and perform actions to maintain system health and protect services and data from compromise. Azure provides a combination of services to respond effectively to any events that occur.
 
 ### Azure Alerts
 
@@ -376,7 +396,7 @@ Azure Alerts can be used to notify support and security personnel in response to
 
 ### Azure Automation
 
-Azure Automation enables Commonwealth entities to trigger actions in response to events. This could be to start a packet capture on Virtual Machines, run a workflow, stop or start Virtual Machines or services, or a range of other tasks. Automation enables rapid response to alerts without manual intervention thus reducing the response time and severity of an incident or event.
+Azure Automation enables Commonwealth entities to trigger actions in response to events. This could be to start a packet capture on Virtual Machines, run a workflow, stop, or start Virtual Machines or services, or a range of other tasks. Automation enables rapid response to alerts without manual intervention thus reducing the response time and severity of an incident or event.
 
 |Resources|Link|
 |---|---|

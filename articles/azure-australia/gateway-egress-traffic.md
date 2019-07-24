@@ -8,7 +8,7 @@ ms.date: 07/22/2019
 ms.author: grgale
 ---
 
-# Controlling egress traffic in Azure
+# Controlling egress traffic in Azure Australia
 
 A fundamental component of securing ICT systems is controlling network traffic. Restricting communication to only the traffic necessary for a system to function reduces the potential for compromise. Visibility and control over the external systems that your applications and services communicate with helps detect compromised systems, and attempted or successful data exfiltration. This article provides information on how outbound (egress) network traffic works within Azure and provides recommendations for implementing network security controls for an internet connected system that aligns with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the ACSC’s Information Security Manual (ISM).
 
