@@ -8,7 +8,7 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 07/24/2019
 ms.author: mbullwin
 ---
 
@@ -22,7 +22,7 @@ By default IP addresses are temporarily collected, but not stored in Application
 
 IP addresses are sent to Application Insights as part of telemetry data. Upon reaching the ingestion endpoint in Azure, the IP address is used to perform a geolocation lookup using [GeoLite2 from MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). The results of this lookup are used to populate the following fields `client_City`, `client_StateOrProvince`, `client_CountryOrRegion`. At this point, the IP address is discarded and `0.0.0.0` is written to the `client_IP` field.
 
-* Browser telemetry: We temporarily collect the sender's IP address.
+* Browser telemetry: We temporarily collect the sender's IP address. IP address is calculated by the ingestion endpoint.
 * Server telemetry: The Application Insights module temporarily collects the client IP address. It is not collected if `X-Forwarded-For` is set.
 
 This behavior is by design to help avoid unnecessary collection of personal data. Whenever possible, we recommend avoiding the collection of personal data. 
@@ -60,7 +60,7 @@ In order to enable partial IP collection and storage, the  `DisableIpMasking` pr
 
 ### Portal 
 
-If you only need to modify the behavior for a single Application Insights resource the easiest way to accomplish this is via the Azure portal. 
+If you only need to modify the behavior for a single Application Insights resource the easiest way to accomplish this is via the Azure portal.  
 
 1. Go your Application Insights resource > **Settings** > **Export Template** 
 
@@ -70,7 +70,7 @@ If you only need to modify the behavior for a single Application Insights resour
 
     ![Deploy button highlighted in red](media/ip-collection/deploy.png)
 
-3. Select **Edit Template**
+3. Select **Edit Template**. (If your template has additional properties or resources that do not appear in this example template, proceed with caution to ensure that all resources will accept the template deployment as an incremental change/update.)
 
     ![Edit Template](media/ip-collection/edit-template.png)
 
@@ -198,7 +198,9 @@ appInsights.defaultClient.addTelemetryProcessor((envelope) => {
 
 Unlike the server-side SDKs, the client-side Javascript SDK does not calculate IP address. By default IP address calculation for client-side telemetry is performed at the ingestion endpoint in Azure upon telemetry arrival. This means that if you were sending client-side data to a proxy and then forwarding to the ingestion endpoint, IP address calculation may show the IP address of the proxy and not the client. If no proxy is used this should not be an issue.
 
-If you wish to calculate IP address directly on the client-side you would need to add your own custom logic to perform this calculation and use the result to set the `ai.location.ip` tag. When `ai.location.ip` is set, IP address calculation is not performed by the ingestion endpoint and the provided IP address is honored and used for performing the geo lookup. In this scenario, IP address will still be zeroed out by default. To retain the entire IP address calculated from your custom logic, you could use a telemetry initializer that would copy the IP address data you provided in `ai.location.ip` to a separate custom field. But again unlike the server-side SDKs, without relying on 3rd party libraries or your own custom client-side IP collection logic the client-side SDK will not calculate the IP for you.    
+If you wish to calculate IP address directly on the client-side you would need to add your own custom logic to perform this calculation and use the result to set the `ai.location.ip` tag. When `ai.location.ip` is set, IP address calculation is not performed by the ingestion endpoint and the provided IP address is honored and used for performing the geo lookup. In this scenario, IP address will still be zeroed out by default. 
+
+To retain the entire IP address calculated from your custom logic, you could use a telemetry initializer that would copy the IP address data you provided in `ai.location.ip` to a separate custom field. But again unlike the server-side SDKs, without relying on 3rd party libraries or your own custom client-side IP collection logic the client-side SDK will not calculate the IP for you.    
 
 
 ```javascript
