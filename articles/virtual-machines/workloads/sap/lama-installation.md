@@ -291,11 +291,11 @@ The NFS volumes can now be defined. Since there will be volumes for multiple sys
 > [!NOTE]
 > During the BETA phase the name of the volumes must be unique within the subscription.
 
-![SAP LaMa create a volume 1 ](media/lama/sap-lama-createvolume.png)
+![SAP LaMa create a volume 1 ](media/lama/sap-lama-createvolume-80.png)
 
-![SAP LaMa create a volume 2 ](media/lama/sap-lama-createvolume2.png)
+![SAP LaMa create a volume 2 ](media/lama/sap-lama-createvolume2-80.png)
 
-![SAP LaMa create a volume 3 ](media/lama/sap-lama-createvolume3.png)
+![SAP LaMa create a volume 3 ](media/lama/sap-lama-createvolume3-80.png)
 
 These steps need to be repeated for the other volumes as well.
 
