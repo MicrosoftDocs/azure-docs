@@ -18,7 +18,7 @@ This article details the key design elements for implementing Azure Backup and A
 
 ## Azure Backup
 
-![Azure Backup](media/backup_overview.png)
+![Azure Backup](media/backup-overview.png)
 
 Azure Backup resembles a traditional on-premises backup solution and provides the ability to backup both on-premises and Azure hosted data. Azure Backup can be used to back up the following data types to Azure:
 
@@ -101,7 +101,7 @@ A minimum backup retention period of three months is recommended, however, longe
 
 The Azure Recovery Services Vault has a number of default backup and retention policies in place.  Administrative staff can also create custom backup and retention policies.
 
-![Azure Backup Policy](media/CreatePolicy.png)
+![Azure Backup Policy](media/create-policy.png)
 
 A balance between backup frequency and long-term retention requirements needs to be found when configuring Azure Backup and retention policies.
 

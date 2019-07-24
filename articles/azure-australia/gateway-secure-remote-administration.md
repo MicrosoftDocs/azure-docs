@@ -136,7 +136,7 @@ A mobile device is at greater risk of accidental loss or theft due to its portab
 
 |Resources|Link|
 |---|---|
-|Azure AD Authentication Methods|[https://docs.microsoft.com/en-gb/azure/active-directory/authentication/concept-authentication-methods](https://docs.microsoft.com/en-gb/azure/active-directory/authentication/concept-authentication-methods)|
+|Azure AD Authentication Methods|[https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)|
 |How to use the Microsoft Authenticator App|[https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app](https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app)|
 |
 
@@ -146,8 +146,8 @@ Intune is the component of Enterprise Mobility + Security that manages mobile de
 
 |Resources|Link|
 |---|---|
-|Microsoft Intune Documentation|[https://docs.microsoft.com/en-gb/intune/](https://docs.microsoft.com/en-gb/intune/)|
-|Get started with Device Compliance in Intune|[https://docs.microsoft.com/en-gb/intune/device-compliance-get-started](https://docs.microsoft.com/en-gb/intune/device-compliance-get-started)|
+|Microsoft Intune Documentation|[https://docs.microsoft.com/intune/](https://docs.microsoft.com/intune/)|
+|Get started with Device Compliance in Intune|[https://docs.microsoft.com/intune/device-compliance-get-started](https://docs.microsoft.com/intune/device-compliance-get-started)|
 |
 
 ### Group Policy

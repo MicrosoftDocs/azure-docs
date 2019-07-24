@@ -1,5 +1,5 @@
 ---
-title: Gateway Logging, Auditing and Visibility in Azure Australia
+title: Gateway logging, auditing and visibility in Azure Australia
 description: How to configure Logging, Auditing, and Visibility within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia

@@ -20,7 +20,7 @@ Azure Key Vault is a cloud service that safeguards encryption keys and secrets. 
 
 This article will focus on management of keys using Key Vault.
 
-![Azure Key Vault](media/azurekeyvault_overview.png)
+![Azure Key Vault](media/azure-key-vault-overview.png)
 
 *Diagram 1 – Azure Key Vault*
 
