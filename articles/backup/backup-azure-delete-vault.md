@@ -39,7 +39,7 @@ To delete Recovery Services vault associated with MAB, DPM and AzureBackupServer
 Scenario | Message displayed |
 -- | --
 When the backup data is associated with the backup item | ![Delete Protected item](./media/backup-azure-delete-vault/delete-rs-warning.png)
-When the is backup data associated with the backup item but the server is not available | ![Delete Protected item warning](./media/backup-azure-delete-vault/delete-rs-warning-info.png)
+When the backup data associated with the backup item but the server is not available | ![Delete Protected item warning](./media/backup-azure-delete-vault/delete-rs-warning-info.png)
 When there are no backup data associated with the backup item. |  ![Delete Protected item warning info](./media/backup-azure-delete-vault/delete-rs-warning-info2.png)
 
 
