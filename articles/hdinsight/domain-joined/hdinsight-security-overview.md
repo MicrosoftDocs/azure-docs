@@ -40,7 +40,7 @@ A best practice that most enterprises follow is making sure that not every emplo
 
 The hadoop admin can configure role-based access control (RBAC) to secure Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) and [Kafka](apache-domain-joined-run-kafka.md) using those plugins in Apache Ranger. Configuring RBAC policies allows you to associate permissions with a role in the organization. This layer of abstraction makes it easier to ensure that people have only the permissions needed to perform their work responsibilities. Ranger also allows you to audit the data access of employees and any changes done to access control policies.
 
-For example, the admin can configure [Apache Ranger](https://ranger.apache.org/) to set access control policies for Hive. This functionality ensures row-level and column-level filtering (aka. data masking) and filter the sensitive data from unauthorized users.
+For example, the admin can configure [Apache Ranger](https://ranger.apache.org/) to set access control policies for Hive. This functionality ensures row-level and column-level filtering (data masking) and filters the sensitive data from unauthorized users.
 
 ### Auditing
 
