@@ -19,7 +19,7 @@ DevOps Projects also:
 
 * Automatically creates Azure resources, such as Azure Cosmos DB, Azure Application Insights, Azure App Service, and App Service plans
 
-* Creates and configures a CI-CD release pipeline in Azure DevOps
+* Creates and configures a CI/CD release pipeline in Azure DevOps
 
 In this tutorial, you will:
 
@@ -38,7 +38,7 @@ You need an Azure subscription, which you can get through [Visual Studio Dev Ess
 
 ## Use DevOps Projects to deploy Node.js app
 
-DevOps Projects creates a CI-CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources, such as Azure Cosmos DB, Application Insights, App Service, and App Service plans, in the Azure subscription of your choice.
+DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources, such as Azure Cosmos DB, Application Insights, App Service, and App Service plans, in the Azure subscription of your choice.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -70,11 +70,11 @@ DevOps Projects creates a CI-CD pipeline in Azure Pipelines. You can create a ne
 
 1. Exit the Azure configuration area, and then select **Done**.
 
-1. The process completes after a few minutes. A sample Node.js app is set up in a Git repo in your Azure DevOps organization. Then, Azure Cosmos DB, App Service, App Service plan, and Application Insights resources are created, as well as a CI-CD pipeline. Your app is then deployed to Azure.
+1. The process finishes after a few minutes. A sample Node.js app is set up in a Git repo in your Azure DevOps organization. Then, Azure Cosmos DB, App Service, App Service plan, and Application Insights resources are created, as well as a CI/CD pipeline. Your app is then deployed to Azure.
 
-   After all these processes complete, the Azure DevOps Project dashboard displays in the Azure portal. You can also go to the DevOps Projects dashboard directly from **All resources** in the Azure portal.
+   After all these processes finish, the Azure DevOps Project dashboard displays in the Azure portal. You can also go to the DevOps Projects dashboard directly from **All resources** in the Azure portal.
 
-   This dashboard provides visibility into your Azure DevOps code repository, your CI-CD pipeline, and your Azure Cosmos DB. You can configure additional CI-CD options in your Azure DevOps pipeline. On the right side of the dashboard, select **Azure Cosmos DB** to view these options.
+   This dashboard provides visibility into your Azure DevOps code repository, your CI/CD pipeline, and your Azure Cosmos DB. You can configure additional CI/CD options in your Azure DevOps pipeline. On the right side of the dashboard, select **Azure Cosmos DB** to view these options.
 
 ## Examine the Azure Cosmos DB
 
@@ -90,7 +90,7 @@ DevOps Projects automatically configures Azure Cosmos DB, which you can explore 
 
 ## Examine the CI pipeline
 
-DevOps Projects automatically configures a CI-CD pipeline in your Azure DevOps organization. You can explore and customize the pipeline. To familiarize yourself with it, do the following:
+DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps organization. You can explore and customize the pipeline. To familiarize yourself with it, do the following:
 
 1. Go to the DevOps Projects dashboard.
 
@@ -130,12 +130,12 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 
 1. Select **View Logs**. The logs contain useful information about the deployment process. You can view them both during and after deployments.
 
-## Commit code changes and run the CI-CD pipeline
+## Commit code changes and run the CI/CD pipeline
 
 > [!NOTE]
-> The following procedure tests the CI-CD pipeline by making a simple text change.
+> The following procedure tests the CI/CD pipeline by making a simple text change.
 
-You're now ready to collaborate with a team on your app by using a CI-CD process that deploys your latest work to your App Service. Each change to the Git repo starts a build in Azure DevOps, and a CD pipeline runs a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repo. For example, you can clone the Git repo in your favorite tool or IDE, and then push changes to this repo.
+You're now ready to collaborate with a team on your app by using a CI/CD process that deploys your latest work to your App Service. Each change to the Git repo starts a build in Azure DevOps, and a CD pipeline runs a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repo. For example, you can clone the Git repo in your favorite tool or IDE, and then push changes to this repo.
 
 1. In the Azure DevOps menu, select **Repos** and then **Files**. Then go to your repo.
 
@@ -153,7 +153,7 @@ Delete the related resources you've created when you don't need them anymore. Us
 
 ## Next steps
 
-You can modify these build and release pipelines to meet the needs of your team. You can also use this CI-CD pattern as a template for your other pipelines. In this tutorial, you learned how to:
+You can modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other pipelines. In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Use DevOps Projects to deploy a Node.js app powered by Azure Cosmos DB
