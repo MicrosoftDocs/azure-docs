@@ -1,26 +1,22 @@
 ---
 title: Azure Active Directory Identity Protection Glossary | Microsoft Docs
 description: Azure Active Directory Identity Protection Glossary
-services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy, glossary
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
 
-ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
+services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 01/15/2018
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection Glossary
+
 ### At risk (User)
 A user with one or more active risk events. 
 
@@ -161,4 +157,3 @@ A configuration or condition in Azure Active Directory, which makes the director
 
 ## See also
 * [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-

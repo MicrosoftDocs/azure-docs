@@ -4,17 +4,21 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to train, score, and deploy a machine learning model using a drag and drop visual interface. This tutorial is part one of a two-part series on predicting automobile prices using linear regression.
 
 author: peterclu
-ms.author: peterclu
+ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/06/2019
+ms.date: 07/21/2019
 ---
 
 # Tutorial: Predict automobile price with the visual interface
 
-In this tutorial, you take an extended look at developing a predictive solution in the Azure Machine Learning service visual interface. By the end of this tutorial, you'll have a solution that can predict the price of any car based on technical specifications you send it.
+In this two-part tutorial, you learn how to use the Azure Machine Learning service visual interface to develop and deploy a predictive analytic solution that predicts the price of any car. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
+
+In part one, you'll set up your environment, drag-and-drop datasets and analysis modules onto an interactive canvas, and connect them together to create an experiment. 
 
 In part one of the tutorial you learn how to:
 
@@ -23,9 +27,7 @@ In part one of the tutorial you learn how to:
 > * Train a machine learning model
 > * Score and evaluate a model
 
-In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as an Azure web service.
-
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
+In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as an Azure web service so you can use it to predict the price of any car based on technical specifications you send it. 
 
 A completed version of this tutorial is available as a sample experiment.
 
@@ -33,11 +35,11 @@ To find it, from the **Experiments page**, select **Add New**, then select the *
 
 ## Create a workspace
 
-If you have an Azure Machine Learning service workspace, skip to the [next section](#open-the-visual-interface-webpage).
+If you have an Azure Machine Learning service workspace, skip to the next section.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## Open the visual interface webpage
+## Create new experiment
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).
 
@@ -45,21 +47,15 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 
     ![Screenshot of the Azure portal showing how to access the Visual interface from a Machine Learning service workspace](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
 
-## Create your first experiment
-
-The visual interface tool provides an interactive, visual place to build predictive analytic models. Drag-and-drop datasets and analysis modules onto an interactive canvas, and connect them together to create an *experiment*.
-
 1. Create a new experiment by selecting **+New** at the bottom of the visual interface window.
-
-    ![Add new experiment](./media/ui-tutorial-automobile-price-train-score/add-new.png)
 
 1. Select **Blank Experiment**.
 
-1. Select the default experiment name **"Experimented Created on ...**" at the top of the canvas and rename it to something meaningful. For example, **Automobile price prediction**. The name doesn't need to be unique.
+1. Select the default experiment name **"Experiment created on ...**" at the top of the canvas and rename it to something meaningful. For example, **"Automobile price prediction"**. The name doesn't need to be unique.
 
-## Add data
+## Specify data
 
-The first thing you need for machine learning is data. There are several sample datasets included in this interface that you can use. You can also import data from existing sources. For this tutorial, use the sample dataset **Automobile price data (Raw)**. 
+Machine learning depends on data. Luckily, there are several sample datasets included in this interface available for you to experiment with. For this tutorial, use the sample dataset **Automobile price data (Raw)**. 
 
 1. To the left of the experiment canvas is a palette of datasets and modules. Select **Saved Datasets** then select **Samples** to view the available sample datasets.
 
@@ -67,22 +63,14 @@ The first thing you need for machine learning is data. There are several sample 
 
    ![Drag data to canvas](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
 
-## Select columns
+1. Select which columns of data to work with. Type **Select** in the Search box at the top of the palette to find the **Select Columns in Dataset** module.
 
-Select which columns of data to work with. To start with, configure the module to show all available columns.
+1. Click and drag the **Select Columns in Dataset** module onto the canvas. Drop the module below the dataset module.
 
-> [!TIP]
-> If you know the name of the data or module you want, use the search bar at the top of the palette to find it quickly. The rest of the tutorial will use this shortcut.
-
-
-1. Type **Select** in the Search box to find the **Select Columns in Dataset** module.
-
-1. Click and drag the **Select Columns in Dataset** onto the canvas. Drop the module below the dataset you added earlier.
-
-1. Connect the dataset to the **Select Columns in Dataset**: click the output port of the dataset, drag to the input port of **Select Columns in Dataset**, then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
+1. Connect the dataset you added earlier to the **Select Columns in Dataset** module by clicking and dragging. Drag from the dataset's output port, which is the small circle at the bottom of the dataset on the canvas, all the way to the input port of **Select Columns in Dataset**, which is the small circle at the top of the module.
 
     > [!TIP]
-    > Datasets and modules have input and output ports represented by small circles - input ports at the top, output ports at the bottom. You create a flow of data through your experiment when you connect the output port of one module to an input port of another.
+    > You create a flow of data through your experiment when you connect the output port of one module to an input port of another.
     >
 
     ![Connect modules](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
@@ -110,9 +98,9 @@ An experiment runs on a compute target, which is a compute resource that is atta
 After the compute target is available, the experiment runs. When the run is complete, a green check mark appears on each module.
 
 
-## Preview the data
+## Visualize the data
 
-Now that you have run your initial experiment, you can visualize the data to understand more about the dataset you have to work with.
+Now that you have run your initial experiment, you can visualize the data to understand more about the dataset you have.
 
 1. Select the output port at the bottom of the **Select Columns in Dataset** then select **Visualize**.
 
@@ -120,15 +108,15 @@ Now that you have run your initial experiment, you can visualize the data to und
 
     In this dataset, each row represents an automobile, and the variables associated with each automobile appear as columns. There are 205 rows and 26 columns in this dataset.
 
-     Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the left. For example, when you click on **num-of-doors** you see it has 2 unique values and 2 missing values. Scroll down to see the values: two and four doors.
+     Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the left. For example, when you click on **num-of-doors** you see it has two unique values and two missing values. Scroll down to see the values: two and four doors.
 
      ![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
 
-1. Click on each column to understand more about your dataset, and think about whether these columns will be useful to predict the price of an automobile.
+1. Click each column to understand more about your dataset, and think about whether these columns will be useful to predict the price of an automobile.
 
 ## Prepare data
 
-A dataset usually requires some preprocessing before it can be analyzed. You might have noticed some missing values when visualizing the dataset. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove any rows that have missing values. Also, the **normalized-losses** column has a large proportion of missing values, so you'll exclude that column from the model altogether.
+Typically, a dataset requires some preprocessing before it can be analyzed. You might have noticed some missing values when visualizing the dataset. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove any rows that have missing values. Also, the **normalized-losses** column has a large proportion of missing values, so you'll exclude that column from the model altogether.
 
 > [!TIP]
 > Cleaning the missing values from input data is a prerequisite for using most of the modules.
@@ -177,8 +165,6 @@ When you train a model, you have to do something about the data that is missing.
 
 1. In the Properties pane, select **Remove entire row** under **Cleaning mode**.
 
-    These options direct **Clean Missing Data** to clean the data by removing rows that have any missing values.
-
 1. Double-click the module and type the comment "Remove missing value rows."
  
     ![Remove rows](./media/ui-tutorial-automobile-price-train-score/remove-rows.png)
@@ -186,30 +172,6 @@ When you train a model, you have to do something about the data that is missing.
     Your experiment should now look something like this:
     
     ![select-column](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
-
-## Visualize the results
-
-Since you made changes to the modules in your experiment, the status has changed to "In draft".  To visualize the new clean data, you first have to run the experiment again.
-
-1. Select **Run** at the bottom to run the experiment.
-
-    This time you can reuse the compute target you created earlier.
-
-1. Select **Run** in the dialog.
-
-   ![Run experiment](./media/ui-tutorial-automobile-price-train-score/select-compute.png)
-
-1. When the run completes, right-click on the **Clean Missing Data** module to visualize the new clean data.
-
-    ![Visualize clean data](./media/ui-tutorial-automobile-price-train-score/visualize-cleaned.png)
-
-1. Click on different columns in the cleaned data window to see how data has changed.
-
-    ![Visualize Clean Data](media/ui-tutorial-automobile-price-train-score/visualize-result.png)
-
-    There are now 193 rows and 25 columns.
-
-    When you click on **num-of-doors** you see it still has 2 unique values but now has 0 missing values. Click through the rest of the columns to see that there are no missing values left in the dataset. 
 
 ## Train the model
 
@@ -219,13 +181,13 @@ Now that the data is ready, you can construct a predictive model. You'll use you
 
 Because you want to predict price, which is a number, you can use a regression algorithm. For this example, you'll use a linear regression model.
 
-Train the model by giving it a set of data that includes the price. The model scans the data and looks for correlations between a car's features and its price. Then test the model by giving it a set of features for automobiles it's familiar with and see how close the model comes to predicting the known price.
+Train the model by giving it a set of data that includes the price. The model scans the data and looks for correlations between a car's features and its price.
 
 Use your data for both training the model and testing it by splitting the data into separate training and testing datasets.
 
 1. Type **split data** in the search box to find the **Split Data** module and connect it to the left port of the **Clean Missing Data** module.
 
-1. Select the **Split Data** module you just connected to select it. In the Properties pane, set the Fraction of rows in the first output dataset to 0.7. This way, we'll use 70 percent of the data to train the model, and hold back 30 percent for testing.
+1. Select the **Split Data** module. In the Properties pane, set the Fraction of rows in the first output dataset to 0.7. This way, we'll use 70 percent of the data to train the model, and hold back 30 percent for testing.
 
     ![Screenshot showing the correct configuration of the properties pane. Values of "Split Data" should be "Split Rows", 0.7, Randomized split, 0, False.](./media/ui-tutorial-automobile-price-train-score/split-data.png)
 
@@ -251,10 +213,6 @@ Use your data for both training the model and testing it by splitting the data i
 
     ![Screenshot showing the correct configuration of the experiment after adding the Train Model module.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
-### Run the training experiment
-
-[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
-
 ## Score and evaluate the model
 
 Now that you've trained the model using 70 percent of your data, you can use it to score the other 30 percent of the data to see how well your model functions.
@@ -265,13 +223,13 @@ Now that you've trained the model using 70 percent of your data, you can use it 
 
     ![Screenshot showing the final correct configuration of the experiment.](./media/ui-tutorial-automobile-price-train-score/final-graph.png)
 
-1. Run the experiment using the same compute target used previously.
+1. Run the experiment using the compute resource you created earlier.
 
 1. View the output from the **Score Model** module by selecting the output port of **Score Model** and select **Visualize**. The output shows the predicted values for price and the known values from the test data.
 
     ![Screenshot of the output visualization highlighting the "Scored Label" column](./media/ui-tutorial-automobile-price-train-score/score-result.png)
 
-1. To view the output from the Evaluate Model module, select the output port, and then select Visualize.
+1. To view the output from the **Evaluate Model** module, select the output port, and then select **Visualize**.
 
     ![Screenshot showing the evaluation results for the final experiment.](./media/ui-tutorial-automobile-price-train-score/evaluate-result.png)
 
@@ -303,7 +261,7 @@ The experiments you create in the visual interface can be managed from the Azure
 
     ![Screenshot detailed run report](./media/ui-tutorial-automobile-price-train-score/run-details.png)
 
-    The run report is updated in real time. If you used an **Execute Python Script** module in your experiment, you can specify script logs to output in the **Logs** tab.
+    The run report is updated in real time. If you used an **Execute Python Script** or **Execute R Script** module in your experiment, you can specify script logs to output in the **Logs** tab.
 
 ## Clean up resources
 

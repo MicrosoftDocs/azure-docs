@@ -97,7 +97,7 @@ Registration features for FIDO2 security keys rely on the combined registration 
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Browse to **Azure Active Directory** > **User Settings**
-   1. Click on **Manage settings for access panel preview features**
+   1. Click on **Manage user feature preview settings**
    1. Under **Users can use preview features for registering and managing security info - enhanced**.
       1. Choose **Selected** and choose a group of users who will participate in the preview.
       1. Or choose **All** to enable for everyone in your directory.

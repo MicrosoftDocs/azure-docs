@@ -17,7 +17,7 @@ This article covers how to identify, diagnose, and troubleshoot Azure Cosmos DB 
 The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/#services) article.
 
 ## Check consistency level
-Consistency level can impact performance and charges. Make sure your consistency level is appropriate for the given scenario. For more details see [Choosing Consistency Level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-choosing).
+[Consistency level](consistency-levels.md) can impact performance and charges. Make sure your consistency level is appropriate for the given scenario. For more details see [Choosing Consistency Level](consistency-levels-choosing.md).
 
 ## Log query metrics
 Use `QueryMetrics` to troubleshoot slow or expensive queries. 
@@ -41,7 +41,7 @@ Use `QueryMetrics` to troubleshoot slow or expensive queries.
       * How individual round-trips fared (see the `Partition Execution Timeline` from the string representation of `QueryMetrics`). 
       * Whether the query consumed high request charge. 
 
-For more details see [How to get SQL query execution metrics](https://docs.microsoft.com/azure/cosmos-db/profile-sql-api-query) article.
+For more details see [How to get SQL query execution metrics](profile-sql-api-query.md) article.
       
 ## Tune Query Feed Options Parameters 
 Query performance can be tuned via the request's [Feed Options](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions?view=azure-dotnet) Parameters. Try setting the below options:
@@ -126,12 +126,16 @@ Here is the list of string functions that can utilize the index:
     ```
 
     The second query will be more performant as it does not require performing transformations on each of the values in order to compare the values to "JOE".
-   
+
+For more system function details see [System Functions](sql-query-system-functions.md) article.
+
 ## Check Indexing policy
-To verify that the current [Indexing Policy]((https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy)) is optimal:
+To verify that the current [Indexing Policy](index-policy.md) is optimal:
 
   * Ensure all JSON paths used in queries are included in the indexing policy for faster reads.
   * Exclude paths not used in queries for more performant writes.
+
+For more details see [How To Manage Indexing Policy](how-to-manage-indexing-policy.md) article.
 
 ## Spatial data: Check ordering of points
 Points within a Polygon must be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
@@ -155,18 +159,11 @@ The time and RUs that are required by a query are not only dependent on the size
 Ensure provisioned throughput can handle workload. Increase RU budget for impacted collections.
 
 ## Try upgrading to the latest SDK version
-To determine the latest SDK see [SDK Download and release notes](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) article.
+To determine the latest SDK see [SDK Download and release notes](sql-api-sdk-dotnet.md) article.
 
-## Recommended documents
+## Next steps
 Refer to documents below on how to measure RUs per query, get execution statistics to tune your queries, and more:
 
-* [Get SQL query execution metrics using .NET SDK](https://docs.microsoft.com/azure/cosmos-db/profile-sql-api-query)
-* [Tuning query performance with Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-metrics)
-* [Feed Options for .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions?view=azure-dotnet)
-* [Indexing Policies](https://docs.microsoft.com/azure/cosmos-db/indexing-policies)
-* [How To Manage Indexing Policy](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy)
-* [Consistency Levels Overview](https://docs.microsoft.com/azure/cosmos-db/consistency-levels)
-* [Choosing Consistency Level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-choosing)
-* [Performance tips for .NET SDK](https://docs.microsoft.com/azure/cosmos-db/performance-tips)
-* [Getting started with SQL queries](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query)
-* [Latest SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet)
+* [Get SQL query execution metrics using .NET SDK](profile-sql-api-query.md)
+* [Tuning query performance with Azure Cosmos DB](sql-api-sql-query-metrics.md)
+* [Performance tips for .NET SDK](performance-tips.md)

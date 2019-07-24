@@ -1,12 +1,12 @@
 ---
-title: Quickstart with Azure Application Insights | Microsoft Docs
+title: 'Quickstart: Java web app monitoring'
 description: Provides instructions to quickly set up a Java Web App for monitoring with Application Insights
 services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
 ms.reviewer: lagayhar
-ms.date: 04/18/2019
+ms.date: 07/15/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -44,8 +44,6 @@ Application Insights can gather telemetry data from any internet-connected appli
 1. Select **Create a resource** > **Developer tools** > **Application Insights**.
 
    ![Adding Application Insights Resource](./media/java-quick-start/1createresourseappinsights.png)
-
-   ![Adding Application Insights Resource](./media/java-quick-start/2createjavaapp.png)
 
    A configuration box appears; use the following table to fill out the input fields.
 
