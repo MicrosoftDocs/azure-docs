@@ -1,6 +1,6 @@
 ---
-title: 'Azure portal: Create a single database - Azure SQL Database | Microsoft Docs'
-description: Create and query a single database in Azure SQL Database using the Azure portal.
+title: 'Create a single database - Azure SQL Database | Microsoft Docs'
+description: Create and query a single database in Azure SQL Database using the Azure portal, PowerShell and Azure CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -13,7 +13,7 @@ ms.reviewer: carlrab, sstein
 manager: craigg
 ms.date: 04/23/2019
 ---
-# Quickstart: Create a single database in Azure SQL Database using the Azure portal
+# Quickstart: Create a single database in Azure SQL Database using the Azure portal, PowerShell, and Azure CLI
 
 Creating a [single database](sql-database-single-database.md) is the quickest and simplest deployment option for creating a database in Azure SQL Database. This quickstart shows you how to create and then query a single database using the Azure portal.
 
