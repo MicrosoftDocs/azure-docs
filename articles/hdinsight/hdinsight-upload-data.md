@@ -56,7 +56,7 @@ hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 
 For example, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
-Because the default file system for HDInsight is in Azure Storage, /example/data.txt is actually in Azure Storage. You can also refer to the file as:
+Because the default file system for HDInsight is in Azure Storage, /example/data/data.txt is actually in Azure Storage. You can also refer to the file as:
 
     wasbs:///example/data/data.txt
 
