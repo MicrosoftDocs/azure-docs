@@ -25,14 +25,14 @@ Pattern.any entities need to be marked in the [Pattern](luis-how-to-model-intent
 
 Given a client application that searches for books based on title, the pattern.any extracts the complete title. A template utterance using pattern.any for this book search is `Was {BookTitle} written by an American this year[?]`. 
 
-In the following table, each row has two versions of the utterance. The top utterance is how LUIS will initially see the utterance, where it is unclear with the book title begins and ends. The bottom utterance is how LUIS will know the book title when a pattern is in place for extraction. 
+In the following table, each row has two versions of the utterance. The top utterance is how LUIS initially sees the utterance. It isn't clear where the book title begins and ends. The bottom utterance uses a Pattern.any entity to mark the beginning and end of the entity. 
 
-|Utterance|
+|Utterance with entity in bold|
 |--|
-|Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?<br><br>Was **The Man Who Mistook His Wife for a Hat and Other Clinical Tales** written by an American this year?|
-|Was Half Asleep in Frog Pajamas written by an American this year?<br><br>Was **Half Asleep in Frog Pajamas** written by an American this year?|
-|Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?<br><br>Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?|
-|Was There's A Wocket In My Pocket! written by an American this year?<br><br>Was **There's A Wocket In My Pocket!** written by an American this year?|
+|`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>Was **The Man Who Mistook His Wife for a Hat and Other Clinical Tales** written by an American this year?|
+|`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>Was **Half Asleep in Frog Pajamas** written by an American this year?|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?|
+|`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>Was **There's A Wocket In My Pocket!** written by an American this year?|
 ||
 
 ## Example JSON
