@@ -59,7 +59,7 @@ configuration TestConfig {
 }
 ```
 
-> !Important
+> [!NOTE]
 > In more advanced scenarios where you require multiple modules to be imported that provide DSC Resources,
 > make sure each module has a unique `Import-DscResource` line in your configuration.
 
