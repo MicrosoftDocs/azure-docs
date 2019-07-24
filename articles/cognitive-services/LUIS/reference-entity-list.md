@@ -81,4 +81,4 @@ Another example utterance, using a synonym for Paris:
 
 ## Next steps
 
-[Tutorial](luis-quickstart-intent-and-list-entity.md)<br>
+In this [tutorial](luis-quickstart-intent-and-list-entity.md), learn how to use a **list entity** to extract exact matches of text from a list of known items. 

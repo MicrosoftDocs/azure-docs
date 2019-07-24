@@ -89,4 +89,4 @@ Composite entities are returned in a `compositeEntities` array and all entities 
 
 ## Next steps
 
-[Tutorial](luis-tutorial-composite-entity.md)<br>
+In this [tutorial](luis-tutorial-composite-entity.md), add a **composite entity** to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.

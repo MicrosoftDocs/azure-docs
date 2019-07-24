@@ -80,4 +80,4 @@ In the following table, each row has two versions of the utterance. The top utte
 
 ## Next steps
 
-[Tutorial](luis-tutorial-pattern-any.md)
+In this [tutorial](luis-tutorial-pattern-any.md), use the **Pattern.any** entity to extract data from utterances where the utterances are well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.

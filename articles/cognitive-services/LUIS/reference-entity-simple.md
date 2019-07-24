@@ -47,4 +47,4 @@ The data returned from the endpoint includes the entity name, the discovered tex
 
 ## Next steps
 
-[Tutorial](luis-quickstart-primary-and-secondary-data.md)<br/>
+In this [tutorial](luis-quickstart-primary-and-secondary-data.md), extract machine-learned data of employment job name from an utterance using the **Simple entity**. To increase the extraction accuracy, add a [phrase list](luis-concept-feature.md) of terms specific to the simple entity.

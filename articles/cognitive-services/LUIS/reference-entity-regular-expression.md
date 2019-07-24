@@ -72,4 +72,4 @@ When using `kb[0-9]{6}`, as the regular expression entity definition, the follow
 
 ## Next steps
 
-[Tutorial](luis-quickstart-intents-regex-entity.md)<br>
+In this [tutorial](luis-quickstart-intents-regex-entity.md), create an app to extract consistently-formatted data from an utterance using the **Regular Expression** entity.
