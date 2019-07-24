@@ -20,11 +20,11 @@ Service Map automatically discovers application components on Windows and Linux 
 
 This article describes the details of onboarding and using Service Map. For information about configuring the prerequisites for this solution, see [Enable the Azure Monitor for VMs overview](vminsights-enable-overview.md#prerequisites). To summarize, you need the following:
 
-1. A Log Analytics workspace to install this solution.
+* A Log Analytics workspace to install this solution.
 
-2. The Log Analytics agent installed on the Windows computer or Linux server.
+* The Log Analytics agent installed on the Windows computer or Linux server.
 
-3. The dependency agent installed on the Windows computer or Linux server.
+* The dependency agent installed on the Windows computer or Linux server.
 
 >[!NOTE]
 >If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../../azure-monitor/insights/vminsights-overview.md). To learn about the differences between the Service Map solution and Azure Monitor for VMs Map feature, see the following [FAQ](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map).
