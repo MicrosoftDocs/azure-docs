@@ -108,7 +108,7 @@ Export-PfxCertificate `
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you will create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **+Add a backend pool**.
 
@@ -244,7 +244,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
     ![Record application gateway public IP address](./media/create-ssl-portal/application-gateway-ag-address.png)
 
-2. In the address bar of your browser, type *https://\<your application gateway ip address\>* .
+2. In the address bar of your browser, type *https://\<your application gateway ip address\>*.
 
    To accept the security warning if you used a self-signed certificate, select **Details** (or **Advanced** on Chrome) and then go on to the webpage:
 
