@@ -147,7 +147,7 @@ namespace MyWebApp
 }
 ```
 
-### Enable telemetry initializer .ASP.NET
+### Enable telemetry initializer for .ASP.NET
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
@@ -167,7 +167,7 @@ namespace MyWebApp
 
 ```
 
-### Enable telemetry initializer ASP.NET Core
+### Enable telemetry initializer for ASP.NET Core
 
 You can create your telemetry initializer the same way for ASP.NET Core as ASP.NET but to enable the initializer, use the following example for reference:
 
@@ -193,6 +193,26 @@ appInsights.defaultClient.addTelemetryProcessor((envelope) => {
     }
 });
 ```
+
+### Client-side JavaScript
+
+Unlike the server-side SDKs, the client-side Javascript SDK does not calculate IP address. By default IP address calculation for client-side telemetry is performed at the ingestion endpoint in Azure upon telemetry arrival. This means that if you were sending client-side data to a proxy and then forwarding to the ingestion endpoint, IP address calculation may show the IP address of the proxy and not the client. If no proxy is used this should not be an issue.
+
+If you wish to calculate IP address directly on the client-side you would need to add your own custom logic to perform this calculation and use the result to set the `ai.location.ip` tag. When `ai.location.ip` is set, IP address calculation is not performed by the ingestion endpoint and the provided IP address is honored and used for performing the geo lookup. In this scenario, IP address will still be zeroed out by default. To retain the entire IP address calculated from your custom logic, you could use a telemetry initializer that would copy the IP address data you provided in `ai.location.ip` to a separate custom field. But again unlike the server-side SDKs, without relying on 3rd party libraries or your own custom client-side IP collection logic the client-side SDK will not calculate the IP for you.    
+
+
+```javascript
+appInsights.addTelemetryInitializer((item) => {
+    const ipAddress = item.tags && item.tags["ai.location.ip"];
+    if (ipAddress) {
+        item.baseData.properties = {
+            ...item.baseData.properties,
+            "client-ip": ipAddress
+        };
+    }
+});
+
+```  
 
 ### View the results of your telemetry initializer
 
