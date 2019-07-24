@@ -20,7 +20,7 @@ The **Microsoft Security Code Analysis** extension empowers teams to integrate t
 
 ## Run security analysis tools in Azure DevOps Pipelines
 
-The [Secure Development Lifecycle (SDL) Guidelines](https://www.microsoft.com/en-us/securityengineering/sdl/practices) recommend that teams perform static analysis during the implementation phase of their development cycle.
+The [Secure Development Lifecycle (SDL) Guidelines](https://www.microsoft.com/securityengineering/sdl/practices) recommend that teams perform static analysis during the implementation phase of their development cycle.
 The Microsoft Security Code Analysis extension enables you to do so by easily integrating the running of static analysis tools in your Azure Pipelines.
 
 ### Simple Configuration and Execution
@@ -35,78 +35,78 @@ Once you've addressed the issues reported by the tool, you can configure the ext
 
 The Azure DevOps build tasks and tools can be set to stay up-to-date (default setting) or an older version can be selected. If there's an updated version of the tool, the extension automatically takes care of the update for you.
 
-## Each build task will:
-1. Prompt the user for a minimal list of options that are related to the source and binaries that will be scanned. The task will provide defaults where possible.
-2. Download the latest (or selected) version of the tool from a restricted nuget feed to the build agent.
-3. Sanitize and convert user input into (often complex) command-line arguments, and then launch the tool on the build agent.
-4. Save tool output log files locally on the build agent.
+### Each build task will:
+ - Prompt the user for a minimal list of options that are related to the source and binaries that will be scanned. The task will provide defaults where possible.
+ - Download the latest (or selected) version of the tool from a restricted nuget feed to the build agent.
+ - Sanitize and convert user input into (often complex) command-line arguments, and then launch the tool on the build agent.
+ - Save tool output log files locally on the build agent.
 
 You'll also want to add up to three helpful post-processing tasks after all other tool tasks complete, to produce a summary report of the issues found by the tools you run and to preserve tool log files to the Azure DevOps Server or to a file share. And most importantly, understand that when a security tool finds an issue the build does NOT break or fail. If you wish to inject a build break (a build task failure) based on security findings by one of the tools, you'll need to add the Post-Analysis build task.
-For more details on this topic, see [Post-Processing build tasks](https://docs.microsoft.com/en-us/azure/security/develop/sca-customize#customizing-the-post-analysis-build-task) 
+For more details on this topic, see [Post-Processing build tasks](https://docs.microsoft.com/azure/security/develop/sca-customize#customizing-the-post-analysis-build-task) 
 
-## Under the Hood
+### Under the Hood
 
 The Microsoft Security Code Analysis Extension build tasks abstract the complexities of:
-   1.  Running security static analysis tools, and 
-   2.  Processing the results from log files to create a summary report or break the build.
+  - Running security static analysis tools, and
+  - Processing the results from log files to create a summary report or break the build.
 
-# Security Static Analysis Tools
+## Security Static Analysis Tools
 
 The Microsoft Security Code Analysis extension makes readily available to you, the latest versions of important static analysis tools. The extension includes both Microsoft Internal and Open Source tools. The tools get automatically downloaded on the cloud-hosted agent once you configure & run the pipeline using the corresponding build task. Below is the list of tools that are available in the extension today. 
 Stay tuned for more and send us your suggestions for tools that could be added.
 
-## Credential Scanner
+### Credential Scanner
 
 Passwords and other secrets stored in source code is currently a significant problem. Credential Scanner is a proprietary static analysis tool that detects credentials, secrets, certificates, and other sensitive content in your source code and your build output.
 
-## BinSkim
+### BinSkim
 
 BinSkim is a Portable Executable (PE) light-weight scanner that validates compiler/linker settings and other security-relevant binary characteristics. The build task provides a command line wrapper around the BinSkim.exe application. BinSkim is an open-source tool.
 
 For more information visit [BinSkim on GitHub](https://github.com/Microsoft/binskim)
 
-## TSLint
+### TSLint
 
 TSLint is an extensible static analysis tool that checks TypeScript code for readability, maintainability, and functionality errors. It's widely supported across modern editors and build systems and can be customized with your own lint rules, configurations, and formatters. TSLint is an open-source tool.
 
 For more information visit [TSLint on GitHub](https://github.com/palantir/tslint)
 
-## Roslyn Analyzers
+### Roslyn Analyzers
 
 Microsoft's compiler-integrated static analysis tool for analyzing managed code (C# and VB).
 
-For more information visit [Roslyn Analyzers on docs.microsoft.com](https://docs.microsoft.com/en-us/dotnet/standard/analyzers/)
+For more information visit [Roslyn Analyzers on docs.microsoft.com](https://docs.microsoft.com/dotnet/standard/analyzers/)
 
-## Microsoft Security Risk Detection
+### Microsoft Security Risk Detection
 
 Security Risk Detection is Microsoft's unique cloud-based fuzz testing service for identifying exploitable security bugs in software.
 
-For more information visit [MSRD on docs.microsoft.com](https://docs.microsoft.com/en-us/security-risk-detection/)
+For more information visit [MSRD on docs.microsoft.com](https://docs.microsoft.com/security-risk-detection/)
 
-## Anti-Malware Scanner
+### Anti-Malware Scanner
 
 The Anti-Malware Scanner build task is now included in the Microsoft Security Code Analysis Extension. It must be run on a build agent that has Windows Defender already installed. 
 
 For more information visit [Defender website](https://aka.ms/defender) 
 
-# Analysis and Post-Processing of Results
+## Analysis and Post-Processing of Results
 
 The Microsoft Security Code Analysis extension has three build tasks to help you process and analyze the results found by the security tools tasks.
  - The Publish Security Analysis Logs build task preserves logs files from the build for investigation and follow-up.
  - The Security Report build task collects all issues reported by all tools and adds them to a single summary report file.
  - The Post-Analysis build task allows customers to inject build breaks and fail the build should an analysis tool report security issues in the code that was scanned.
 
-## Publish Security Analysis Logs
+### Publish Security Analysis Logs
 The Publish Security Analysis Logs build task preserves the log files of the security tools run during the build.
 
 They can be published to the Azure DevOps Server artifacts (as a zip file), or copies to an accessible file share from your private build agent.
 
-## Security Report
+### Security Report
 The Security Report build task parses the log files created by the security tools run during the build and creates a summary report file with all issues found by the analysis tools.
 
 The task can be configured to report findings for specific tools or for all tools, and you can also choose what level of issues (errors or errors and warnings) should be reported.
 
-## Post-Analysis (Build Break)
+### Post-Analysis (Build Break)
 The Post-analysis build task enables the customer to inject a build break and fail the build in case one ore more analysis tools report findings or issues in the code.
 
 Individual build tasks will succeed, by design, as long as the tool completes successfully, whether there are findings or not so that the build can run to completion allowing all tools to run.

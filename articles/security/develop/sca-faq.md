@@ -40,10 +40,10 @@ Yes, you can introduce a build break when any tool reports an issue, a finding, 
 
 For the most part, the Azure DevOps build tasks are direct wrappers around the command line arguments of the security tools. Anything you would normally pass to the tool on the command line from your desktop, you can pass to the Arguments input of the build task.
 Here is a list of noticeable differences:
-1. The tool will be executing from the source folder of the agent $(Build.SourcesDirectory) or %BUILD_SOURCESDIRECTORY%. Example: C:\agent\_work\1\s 
-2. Paths in the Arguments can be relative to the root of the source directory listed above or absolute either by running an on-prem agent with known deployment locations of local resources or using Azure DevOps Build Variables 
-3. Tools will automatically provide an output file path or folder if an output path is provided, it will be removed and replaced with a path to our well-known logs location on the build agent
-4. Some additional command line parameters are sanitized and removed on some tools, such as the addition or removal of options to ensure that no GUI is launched.
+ - The tool will be executing from the source folder of the agent $(Build.SourcesDirectory) or %BUILD_SOURCESDIRECTORY%. Example: C:\agent\_work\1\s 
+ - Paths in the Arguments can be relative to the root of the source directory listed above or absolute either by running an on-prem agent with known deployment locations of local resources or using Azure DevOps Build Variables
+ - Tools will automatically provide an output file path or folder if an output path is provided, it will be removed and replaced with a path to our well-known logs location on the build agent
+ - Some additional command line parameters are sanitized and removed on some tools, such as the addition or removal of options to ensure that no GUI is launched.
 
 ### Can I run a build task (for example, CredScan) across multiple repositories in an Azure DevOps Build? 
 
@@ -72,7 +72,7 @@ However, tasks that publish artifacts are not supported by Azure DevOps to be ru
 This prevents the "Publish Security Analysis Logs" task from running successfully from a release pipeline; it will fail, with a descriptive error message.
 
 ### From where do the build tasks download the tools? 
-The build tasks a) download NuGet packages for the tools from the following Azure DevOps Package Management feed: https://securitytools.pkgs.visualstudio.com/_packaging/SecureDevelopmentTools/nuget/v3/index.json
+The build tasks a) download NuGet packages for the tools from the following [Azure DevOps Package Management feed](https://securitytools.pkgs.visualstudio.com/_packaging/SecureDevelopmentTools/nuget/v3/index.json)
 or using the Node Package Manager, which must be pre-installed on the build agent (example: "npm install tslint").
 
 ### What effect will installing the extension have on my Azure DevOps Organization? 
@@ -83,3 +83,6 @@ Upon installing, the security build tasks provided by the extension will become 
 
 No. Installing the extension will make the security build tasks available to add to your Azure Pipelines. Users are still required to add or update build definitions to integrate the tools into your build process.
 
+## Task specific FAQs
+
+FAQs specific to build tasks will be listed in this section.
