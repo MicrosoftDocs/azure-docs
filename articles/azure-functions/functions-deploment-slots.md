@@ -38,7 +38,7 @@ There are a number of advantages to using deployment slots. The following scenar
 During a swap, one slot is considered the source and the other the target. The source slot has the instance of the application that is applied to the target slot. The following steps ensure the target slot doesn't experience downtime during a swap:
 
 1. **Apply settings:** Settings from the target slot are applied to all instances of the source slot. For example, the production settings are applied to the staging instance. The applied settings include the following categories:
-    - [Slot-specific](#settings) app settings and connection strings (if applicable)
+    - [Slot-specific](#manage-settings) app settings and connection strings (if applicable)
     - [Continuous deployment](../app-service/deploy-continuous-deployment.md) settings (if enabled)
     - [App Service authentication](../app-service/overview-authentication-authorization.md) settings (if enabled)
 
@@ -54,7 +54,7 @@ Keep in mind the following points:
 
 - To swap a staging slot with the production slot, make sure that the production slot is *always* the target slot. This way, the swap operation doesn't affect your production app.
 
-- Settings related to event sources and bindings need to be configured as [deployment slot settings](#settings) *before you initiate a swap*. Marking them as "sticky" ahead of time ensures events and outputs are directed to the proper instance.
+- Settings related to event sources and bindings need to be configured as [deployment slot settings](#manage-settings) *before you initiate a swap*. Marking them as "sticky" ahead of time ensures events and outputs are directed to the proper instance.
 
 ## Manage settings
 
