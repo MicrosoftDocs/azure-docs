@@ -223,7 +223,7 @@ The templates have the following parameters:
 
 In the examples below, we assume that you install SAP HANA with system ID HN1 and the SAP NetWeaver system with system ID AH1. The virtual hostnames are hn1-db for the HANA instance, ah1-db for the HANA tenant used by the SAP NetWeaver system, ah1-ascs for the SAP NetWeaver ASCS and ah1-di-0 for the first SAP NetWeaver application server.
 
-#### Install SAP NetWeaver ASCS for SAP HANA Standard Azure Disks
+#### Install SAP NetWeaver ASCS for SAP HANA using Azure Managed Disks
 
 Before you start the SAP Software Provisioning Manager (SWPM), you need to mount the IP address of virtual hostname of the ASCS. The recommended way is to use sapacext. If you mount the IP address using sapacext, make sure to remount the IP address after a reboot.
 
@@ -252,7 +252,7 @@ acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 #### Install SAP NetWeaver ASCS for SAP HANA on Azure NetAppFiles (ANF) BETA
 
 > [!NOTE]
-This functionality is nor GA yet. For more information refer to SAP Note [2815988] (only visible to preview customers).
+> This functionality is nor GA yet. For more information refer to SAP Note [2815988] (only visible to preview customers).
 Open an SAP incident on component BC-VCM-LVM-HYPERV and request to join the LaMa storage adapter for Azure NetApp Files preview
 
 ANF provides NFS for Azure. In the context of SAP LaMa this simplifies the creation of the ABAP Central Services (ASCS) instances and the subsequent installation of application servers. Previously the ASCS instance had to act as NFS server as well and the parameter acosprep/nfs_paths had to be added to the host_profile of the SAP Hostagent.
