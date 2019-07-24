@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure in **IDP** initiated mode, perform the following steps:
 
-	1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+	1. In the **Identifier (Entity ID)** text box, type a URL using one of the following patterns:
 	
 	   | | |
 	   |-|-|
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	   | `https://www.amazon.co.jp`|
 	   | `https://www.amazon.de`|
 
-	1. In the **Reply URL** text box, type a URL using the following pattern:
+	1. In the **Reply URL** text box, type a URL using one of the following patterns:
 	
 	   | | |
 	   |-|-|
@@ -97,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	   | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
 
 	   > [!NOTE]
-       > The Reply URL value is not real. Update this value with the actual Reply URL. You will get the `<idpid>` value from the Amazon configure section, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+       > The Reply URL value is not real. Update this value with the actual Reply URL. You will get the `<idpid>` value from the Amazon Business SSO configuration section, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -108,11 +108,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Attributes](media/amazon-business-tutorial/map-attribute3.png)
 
-1. Edit Atrributes and copy **Namespace** value of these attributes into the Notepad.
+1. Edit Attributes and copy **Namespace** value of these attributes into the Notepad.
 
 	![Attributes](media/amazon-business-tutorial/map-attribute4.png)
 
-1. In addition to above, Amazon Business application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
+1. In addition to above, Amazon Business application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims** dialog, perform the following steps:
 
 	a. Click the **pen** next to **Groups returned in claim**.
 
@@ -124,7 +124,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. Select **Group ID** as **Source attribute**.
 
-	d. Check **Customize the name of the group claim** checkbox and enter the group name accroding your organization needs.
+	d. Check **Customize the name of the group claim** checkbox and enter the group name according to your Organization requirement.
 
 	e. Click **Save**.
 
@@ -152,7 +152,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Default group](media/amazon-business-tutorial/default-group1.png)
 
-1. On the **New user account defaults** wizard, select the **Default Group** and then select **Default Buying Role** according to user role in the organization and click **Next**.
+1. On the **New user account defaults** wizard, select the **Default Group** and then select **Default Buying Role** according to user role in your Organization and click **Next**.
 
 	![Default group](media/amazon-business-tutorial/dafault-group2.png)
 
@@ -160,7 +160,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Connection Data](media/amazon-business-tutorial/connection-data1.png)
 
-1. After uploading the downloaded metadata file, the fields in the **Connection data** section will populate automatically. and click **Next**.
+1. After uploading the downloaded metadata file, the fields in the **Connection data** section will populate automatically and click **Next**.
 
 	![Connection Data](media/amazon-business-tutorial/connection-data2.png)
 
@@ -168,7 +168,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Attributes](media/amazon-business-tutorial/map-attribute1.png)
 
-1. On the **Attribute mapping** wizard, add the requirement fields by clicking the **+ Add a field** option. Add the attribute and paste the respective namespace values, which you have copied from the **User Attributes & Claims** section into the  **SAML AttributeName** field, and click **Next**.
+1. On the **Attribute mapping** wizard, add the requirement fields by clicking the **+ Add a field** option. Add the attribute values including the namespace, which you have copied from the **User Attributes & Claims** section of Azure portal into the  **SAML AttributeName** field, and click **Next**.
 
 	![Attributes](media/amazon-business-tutorial/map-attribute2.png)
 
@@ -201,7 +201,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 In this section, you'll create a test user in the Azure portal called B.Simon.
 
 > [!NOTE]
-> Adminstrators need to create the test users in their tenant if they needed. Following steps show how to create a test user.
+> Adminstrators need to create the test users in their tenant if needed. Following steps show how to create a test user.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
