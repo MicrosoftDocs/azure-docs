@@ -83,7 +83,7 @@ After the invitation email is received, you must open the email and select the l
    - Select **File** > **Deploy OVF template**. Browse to the OVA and complete the deployment.
 4. If deployment still fails, contact Azure Migrate support.
 
-### Appliance can't connect to the internet
+### Appliance can't connect to the internet.
 
 This behavior can occur when the machine you're using is behind a proxy. Make sure you provide the authorization credentials if the proxy needs them.
 If you're using any URL-based firewall proxy to control outbound connectivity, be sure to add these required URLs to an allow list:
@@ -98,7 +98,7 @@ Server migration for Hyper-V | [Here](https://docs.microsoft.com/azure/migrate/m
 
 If you're using an intercepting proxy to connect to the internet, you must import the proxy certificate onto the appliance VM. You can import the proxy certificate by following the steps in [Azure Migrate appliance](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
-### Error 802: Date and time synchronization error
+### Error 802: Date and time synchronization error.
 
 The server clock might be out-of-synchronization with the current time by more than five minutes. Change the clock time on the collector VM to match the current time, as follows:
 
@@ -107,7 +107,7 @@ The server clock might be out-of-synchronization with the current time by more t
 3. To synchronize the time, run **w32tm /resync**.
 
 
-###  Connection failed. Error: UnableToConnectToServer
+###  Connection failed. Error: UnableToConnectToServer.
 
 You might be unable to connect to vCenter Server *Servername*.com:9443. The error details indicate that there's no endpoint listening at https://*servername*.com:9443/sdk that could accept the message.
 
