@@ -160,4 +160,4 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 * [What is Cognitive Services?](welcome.md)
 * [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
-* [Custom subdomains](../articles/cognitive-services/cognitive-services-custom-subdomains.md)
+* [Custom subdomains](cognitive-services-custom-subdomains.md)
