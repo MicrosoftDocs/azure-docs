@@ -5,7 +5,7 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 07/16/2019
+ms.date: 07/24/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -37,13 +37,21 @@ If you try to install the sync agent on an Active Directory domain controller wh
 
 To resolve, transfer the PDC role to another domain controller running Windows Server 2012 R2 or more recent, then install sync.
 
-<a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
-If a server is not listed under **Registered servers** for a Storage Sync Service:
-1. Sign in to the server that you want to register.
-2. Open File Explorer, and then go to the Storage Sync Agent installation directory (the default location is C:\Program Files\Azure\StorageSyncAgent). 
-3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
+<a id="server-registration-prerequisites"></a>**Server Registration displays the following message: "Pre-requisites are missing"**
 
-<a id="server-already-registered"></a>**Server Registration displays the following message during Azure File Sync agent installation: "This server is already registered"** 
+This message appears if Az or AzureRM PowerShell module is not installed on PowerShell 5.1. 
+
+> [!Note]  
+> ServerRegistration.exe does not support PowerShell 6.x. You can use the Register-AzStorageSyncServer cmdlet on PowerShell 6.x to register the server.
+
+To install the Az or AzureRM module on PowerShell 5.1, perform the following steps:
+
+- Type **powershell** from an elevated command prompt and hit enter.
+- Install the latest Az or AzureRM module by following the documentation:
+	- [Az module (requires .NET 4.7.2)](https://go.microsoft.com/fwlink/?linkid=2062890)
+	- [AzureRM module]( https://go.microsoft.com/fwlink/?linkid=856959)
+
+<a id="server-already-registered"></a>**Server Registration displays the following message: "This server is already registered"** 
 
 ![A screenshot of the Server Registration dialog with the "server is already registered" error message](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
@@ -61,6 +69,12 @@ Reset-StorageSyncServer
 
 <a id="web-site-not-trusted"></a>**When I register a server, I see numerous "web site not trusted" responses. Why?**  
 This issue occurs when the **Enhanced Internet Explorer Security** policy is enabled during server registration. For more information about how to correctly disable the **Enhanced Internet Explorer Security** policy, see [Prepare Windows Server to use with Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
+
+<a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
+If a server is not listed under **Registered servers** for a Storage Sync Service:
+1. Sign in to the server that you want to register.
+2. Open File Explorer, and then go to the Storage Sync Agent installation directory (the default location is C:\Program Files\Azure\StorageSyncAgent). 
+3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
 
 ## Sync group management
 <a id="cloud-endpoint-using-share"></a>**Cloud endpoint creation fails, with this error: "The specified Azure FileShare is already in use by a different CloudEndpoint"**  
