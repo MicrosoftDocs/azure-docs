@@ -5,7 +5,7 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 07/19/2019
 ms.author: banders
 ---
 
@@ -83,7 +83,7 @@ If you notice that the utilization of your resource group scoped reservation is 
 
 If you don't have matching resources in a resource group, then the reservation will be underutilized. The reservation doesn't automatically apply to a different resource group or subscription where there's low utilization.
 
-A reservation scope doesn't automatically update if you move the resource group from one subscription to another. You will have to rescope the reservation. Otherwise, the reservation will be underutilized.
+A reservation scope doesn't automatically update if you move the resource group from one subscription to another. The scope doesn't update if you delete the resource group. You will have to [rescope the reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope). Otherwise, the reservation will be underutilized.
 
 ## Discounted subscription and offer types
 

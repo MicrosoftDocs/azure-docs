@@ -60,7 +60,8 @@ Uninstall from the UI or from a command prompt.
 3. Run the following command:
     ```
     uninstall.sh -Y
-
+   ```
+   
 ## Install Site Recovery VSS provider on source machine
 
 Azure Site Recovery VSS provider is required on the source machine to generate application consistency points. If the installation of the provider didn't succeed through push installation, follow the below given guidelines to install it manually.
