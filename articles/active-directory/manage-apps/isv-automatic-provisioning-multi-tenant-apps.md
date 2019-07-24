@@ -76,11 +76,9 @@ To help determine which integration option to use for your application, refer to
 
 ## Azure AD Provisioning Service
 
-The Azure AD provisioning service uses SCIM, a protocol supported by many identity providers (IdPs). We recommend you use SCIM if you want to support IdPs in addition to Azure AD. Any SCIM-compliant IDP can connect to your SCIM endpoint.
+The Azure AD provisioning services uses SCIM, a protocol supported by many identity providers (IdPs). We recommend you use the Azure AD provisioning service if you want to support IdPs in addition to Azure AD, as any SCIM-compliant IdP can connect to your SCIM endpoint.
 
-The Azure AD provisioning service connects to your SCIM 2.0 endpoint, which any SCIM-compliant identity providers (IdPs) can connect to. The service connects to your SCIM endpoint. Using a SCIM endpoint allows any SCIM-compliant IdP to provision users to your application.
-
-For more information on how the Azure AD Provisioning Service users SCIM, see:
+For more information on how the Azure AD Provisioning Service users SCIM, see: 
 
 * [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
