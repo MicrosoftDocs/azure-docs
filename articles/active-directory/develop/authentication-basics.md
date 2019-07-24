@@ -1,11 +1,14 @@
 # Modern authentication basics
 
+**Authentication** is the process of proving you are who you say you are. Authentication is sometimes shortened to AuthN.
+
+**Authorization** is the act of granting an authenticated party permission to do something. It specifies what data you're allowed to access and what you can do with it. Authorization is sometimes shortened to AuthZ.
+
 In this article, you will learn the basics of modern, OAuth 2 based authentication. You'll discover:
 
 - A [quick history of authentication](#quick-history-of-authentication), and why the industry moved to using protocols adapted to the cloud like OAuth2.0.
 - A number of concepts like [Azure AD tenants](#tenants), [security tokens](#security-tokens), and [applications](#applications).
 - How Web apps delegate sign in to Azure AD (or any OpenID connect provider). 
-- What really happens?
 - How to generalize the way web apps work to all types of apps.
 
 The answers to these questions will present most of the authentication concepts you'll need to understand to be able to create protected web apps, web APIs, or apps calling protected Web APIs.
@@ -72,24 +75,24 @@ Applications might sign in users themselves, delegate sign in to an IDP, call We
 - define scopes, which are units of access to your Web API (in the case where you are exposing a Web API). Typically when an app wants to access your API it will need to request permissions to the scopes you define here.
 - share a secret with Azure AD that will prove the app identity to Azure AD.  This is relevant in the case where the app is a confidential client application (Web App, Web API, or daemon app).
 
-Once registered, the application will be given a **Client ID**, also named **Application ID**, which is a GUID that will be shared by the app with Azure AD for any request for tokens. If the app is a confidential client application, it will also systematically share the secret (or the public key).
+Once registered, the application will be given a **Client ID**, also named **Application ID**, which is a GUID that will be shared by the app with Azure AD for any request for tokens. If the app is a confidential client application, it will also systematically share the secret or the public key, depending on whether certificates or secrets were used.
 
 In the next section, you'll learn how an app delegates signing in users to Azure AD. This will be an  opportunity to learn more about app characteristics. We'll start with Web Apps.
 
 ## Web App delegating user sign in to Azure AD
 
-In this paragraph, you'll discover what seems to happen when a Web App delegates sign-in to Azure AD. Then you'll briefly discover what really happens, and how this can be generalized to other type of apps.
+In this paragraph, you'll discover how a Web App delegates sign-in to Azure AD. Then you'll learn the answers to some common questions on how this works, and how this can be generalized to other type of apps.
 
 ### How delegations seems to happen
 
-The following sequence demonstrates how things seem to happen. This does not express yet how things happen.
+The following sequence demonstrates the flow between the different components required for sign in. This flow actually requires each interaction to be directed through the browser, which will be explained in more detail below, but the browser has been eliminated as the middleman in some steps for simplicity.  
 
 The user opens a browser and enters the URL of a Web app. The browser navigates to the Web App, which realizes that the user is not authenticated. The Web app delegates to Azure AD to sign in the user in a way that is compliant with the policy of the organization, for instance entering their credentials, doing multiple factor authentication, or even not using a password at all (for example using Windows Hello). The user will also be asked to consent to the application (the client app) to access Web APIs on his or her behalf. This is an important security aspect that implies client apps need to be registered in order for Azure AD to deliver tokens for the apps they can access and for which the user consented.
 
 When the user has successfully authenticated, Azure AD:
 
 - sends a token to the Web App
-- drops a cookie containing the identity of the user in the 'cookie jar' for the browser associated with Azure AD's domain. The next time an app uses the browser to navigate to Azure AD (more specifically, the Azure AD Authorization end point), it will present the cookie, which will automatically generate another token and avoid the user having to re-sign-in. This is the way SSO can be achieved. This cookie was produced by Azure AD and can only be understood by Azure AD.
+- drops a cookie associated with Azure AD's domain and containing the identity of the user in the browser's 'cookie jar'. The next time an app uses the browser to navigate to Azure AD (more specifically, the Azure AD Authorization end point), it will present the cookie, which will avoid the user having to re-sign-in. This is the way SSO can be achieved. This cookie was produced by Azure AD and can only be understood by Azure AD.
 
 The Web app then validates the token, and if this validation succeeds, presents the protected page and drops in the browser a session cookie. When the user navigates to another page, the Web app knows that the user is authenticated because of this session cookie.
 
@@ -120,7 +123,6 @@ This asks a number of questions:
 1. How does the developer of the Web App express that it needs authentication? And how does it know that it was not accessed by an authenticated user?
 1. How does the Web App delegate to Azure AD?
 1. How does Azure AD know where to send the token to?
-1. What is the session cookie?
 
 ### How does a Web app know if it was accessed by an authenticated user?
 
@@ -139,7 +141,7 @@ So far you've only learned about Web apps. Here is how things change slightly fo
 
 Desktop and mobile applications can have other ways of authenticating users, some of which are not interactive. Details are provided in [Authentication flows and app scenarios](authentication-flows-app-scenarios.md). But when they involve signing in a user interactively, a Web browser is also necessarily involved. This can be an embedded Web control, or a system browser.  
 
-The following sequence diagram shows how a Desktop or mobile app uses one of the Microsoft authentication libraries, which are used to acquire access tokens to call web APIs, in order to get a token. MSAL uses a browser and, like with web apps, delegate authentication to Azure AD.
+The following sequence diagram shows how a Desktop or mobile app uses one of the Microsoft authentication libraries, which are used to acquire access tokens to call web APIs, in order to get a token. MSAL uses a browser and, like with web apps, delegates authentication to Azure AD.
 
 ```mermaid
 sequenceDiagram
