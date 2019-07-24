@@ -1,25 +1,25 @@
 ---
 title: Custom subdomains
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services use custom subdomain names for each resource created through the Azure portal, Azure Cloud Shell, or Azure CLI. Unlike regional endpoints, which were common for all customers in a specific Azure region, custom subdomain names are unique to the resource. Custom subdomain names are required to enable features like Azure Active Directory (AAD) for authentication.
+description: Azure Cognitive Services use custom subdomain names for each resource created through the Azure portal, Azure Cloud Shell, or Azure CLI. Unlike regional endpoints, which were common for all customers in a specific Azure region, custom subdomain names are unique to the resource. Custom subdomain names are required to enable features like Azure Active Directory (Azure AD) for authentication.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/24/2019
 ms.author: erhopf
 ---
 
 # Custom subdomain names for Cognitive Services
 
-Azure Cognitive Services use custom subdomain names for each resource created through the [Azure portal](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Unlike regional endpoints, which were common for all customers in a specific Azure region, custom subdomain names are unique to the resource. Custom subdomain names are required to enable features like Azure Active Directory (AAD) for authentication.
+Azure Cognitive Services use custom subdomain names for each resource created through the [Azure portal](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Unlike regional endpoints, which were common for all customers in a specific Azure region, custom subdomain names are unique to the resource. Custom subdomain names are required to enable features like Azure Active Directory (Azure AD) for authentication.
 
 ## How does this impact existing resources?
 
 Cognitive Services resources created before July 1, 2019 will use the regional endpoints for the associated service. These endpoints will work with existing and new resources.
 
-If you'd like to migrate an existing resource to leverage custom subdomain names, so that you can enable features like AAD, follow these instructions:
+If you'd like to migrate an existing resource to leverage custom subdomain names, so that you can enable features like Azure AD, follow these instructions:
 
 1. Sign in to the Azure portal and locate the Cognitive Services resource that you'd like to add a custom subdomain name to.
 2. In the **Overview** blade, locate and select **Generate Custom Domain Name**.
@@ -27,7 +27,7 @@ If you'd like to migrate an existing resource to leverage custom subdomain names
    > [!WARNING]
    > After you've created a custom subdomain name it **cannot** be changed.
 
-## Do I need to add custom subdomain names to my existing resources?
+## Do I need to update my existing resources?
 
 No. The regional endpoint will continue to work for new and existing Cognitive Services and the custom subdomain name is optional. Even if a custom subdomain name is added the regional endpoint will continue to work with the resource.
 
@@ -40,7 +40,7 @@ Regional endpoints and custom subdomain names are both supported and can be used
 
 Region information is available in the **Overview** blade for your resource in the [Azure portal](https://portal.azure.com). For the full list of regional endpoints, see [Is there a list of regional endpoints?](#is-there-a-list-of-regional-endpoints)
 
-## Are resources that use custom subdomain names regional?
+## Are custom subdomain names regional?
 
 Yes. Using a custom subdomain name doesn't change any of the regional aspects of your Cognitive Services resource.
 
@@ -94,3 +94,4 @@ Yes. This is a list of regional endpoints that you can use with Azure Cognitive 
 ## See also
 
 * [What are the Cognitive Services?](Welcome.md)
+* [Authentication](authentication.md)
