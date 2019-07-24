@@ -85,7 +85,7 @@ When the new VM is configured to your specifications, select **Review + create**
 The next step is to [access your private cloud](tutorials-access-private-cloud.md) using the Windows VM and ExpressRoute gateway you created in this tutorial.
 
 <!-- LINKS - external-->
-[resource provider]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services
-[enable Global Reach]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-set-global-reach-cli#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions
+[resource provider]: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services
+[enable Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach-cli#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions
 
 <!-- LINKS - internal -->
