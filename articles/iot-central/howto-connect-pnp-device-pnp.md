@@ -347,6 +347,34 @@ To build and run the client, you need to customize the build for the Azure IoT C
 
 After a few minutes, you can see the telemetry from the device on the device dashboard in your IoT Central application.
 
+## Connect device-first
+
+You can connect an IoT Plug and Play device through a device-first connection as mentioned in [Connectivity](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json). The discovery process follows the following order:
+1. Associates with the device template if already published in the IoT Central app.
+1. Fetches from the global epository of published and certified capability models.
+
+>[!NOTE]
+>Bug Bash: The Environmental Sensor device capability model, being used above as a sample, has already been published in the global repository. You can use **urn:bugbash0725:sample_device:1** to access this.
+
+Using Visual Studio Code and the Generate Device Code Stub referenced above, you can follow these steps to connect device-first and automatically bring in your published device capability model from the gloabl repository into IoT Central:
+
+1. Use an existing device capability model that has been published in the global repository. You will need the full device capability model and to note down the URN of this model.
+
+1. Follow the steps above to [Generate a device client application](#generate-a-device-client-application) to use Visual Studio Code and generate the device code.
+
+1. From your IoT Central application, go to the **Administration** tab and select the **Device Connection** section. Copy down the **Scope ID** and **Primary Key** for your application.
+
+1. Use the [DPS keygen](https://www.npmjs.com/package/dps-keygen) tool to generate a device key from the group SAS primary key with the following command:
+
+    ```cmd/sh
+    dps-keygen -mk:<Primary_Key(GroupSAS)> -di:<device_id>
+    ```
+1. Follow the steps above to [Add connection details to the device client](#add-connection-details-to-the-device-client) to add the **Scope ID**, **Primary Key**, **Device ID**, and **URN** for your device capability model located in the global repository. 
+
+1. Follow the steps above to [Build and run the client](#build-and-run-the-client). 
+
+1. Now you will see the device connect to your IoT Central application and automatically bring in the device capability model from the global repository as a device template.
+
 ## Next steps
 
 Now that you've learned how to connect a real device to IoT Central, a suggested next step is to learn more about device templates in [Set up a device template](howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
