@@ -148,7 +148,7 @@ Currently the only region that require endpoint modifications are [Azure Governm
 |Region |  Endpoint Name | Value |
 |-----------------|:------------|:-------------|
 | Azure China | Telemetry Channel | `https://dc.applicationinsights.azure.cn/v2/track` |
-| Azure China | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure China | QuickPulse (Live Metrics) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
 | Azure China | Profile Query |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
 | Azure Government | Telemetry Channel |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
