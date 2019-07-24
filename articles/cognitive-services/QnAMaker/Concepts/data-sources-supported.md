@@ -159,7 +159,7 @@ Following is the list of Markdown formats that you can use in QnA Maker:
 |Format|Purpose|Example markdown|Rendering|
 |--|--|--|--|
 |`\n\n`|A new line between 2 sentences.|`How can I create a bot with \n\n QnA Maker?`|![format new line between two sentences](../media/qnamaker-concepts-datasources/format-newline.png)|
-|`\n*`|Bullet point for an ordered list|`Here is my list: \n\n*Item 1 \n\n*Item2`|![format list of 2 items](../media/qnamaker-concepts-datasources/format-list.png)|
+|`\n\n*`|Bullet point for an ordered list|`Here is my list: \n\n*Item 1 \n\n*Item2`|![format list of 2 items](../media/qnamaker-concepts-datasources/format-list.png)|
 |||||
 
 ## Editing your knowledge base locally
