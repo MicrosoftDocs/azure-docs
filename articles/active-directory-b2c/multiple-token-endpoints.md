@@ -40,15 +40,14 @@ Start by selecting one of your existing user flows:
 1. Navigate to your Azure AD B2C tenant in the [Azure portal](https://portal.azure.com)
 1. Under **Policies**, select **User flows (policies)**
 1. Select an existing policy, for example *B2C_1_signupsignin1*, then select **Run user flow**
-
-Next, get the issuer URIs from the OpenID Connect discovery endpoint for both domains, *b2clogin.com* and *login.microsoft.com*. You update the sample project with these values in the next section.
-
-1. Under the **Run user flow** heading near the top of the page, click the hyperlink to navigate to the user flow's well-known URI.
+1. Under the **Run user flow** heading near the top of the page, select the hyperlink to navigate to the OpenID Connect discovery endpoint for that user flow.
 
     ![Well-known URI hyperlink in the Run now page of the Azure portal](media/multi-domain-jwt-validation/portal-01-policy-link.png)
+
 1. In the page that opens in your browser, record the `issuer` value, for example:
 
     `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
+
 1. Use the **Select domain** drop-down to select the other domain, then perform the previous two steps once again and record its `issuer` value.
 
 You should now have two URIs recorded that are similar to:
@@ -68,13 +67,11 @@ If you have custom policies instead of user flows, you can use a similar process
 1. Use the **Select domain** drop-down to select a domain, for example *yourtenant.b2clogin.com*
 1. Select the hyperlink displayed under **OpenID Connect discovery endpoint**
 1. Record the `issuer` value
-1. Perform the previous three steps for the other domain, for example *login.microsoftonline.com
+1. Perform the steps 4-6 for the other domain, for example *login.microsoftonline.com*
 
 ## Get the sample code
 
-Now that you have both token endpoint URIs, you need to update your code to specify that both endpoints are valid issuers.
-
-To walk through an example, download or clone the [active-directory-b2c-dotnet-webapp-and-webapi][sample-repo] sample application.
+Now that you have both token endpoint URIs, you need to update your code to specify that both endpoints are valid issuers. To walk through an example, download or clone the sample application, then update the sample to support both endpoints as valid issuers.
 
 Direct \*.zip download: [active-directory-b2c-dotnet-webapp-and-webapi-master.zip][sample-archive]
 
@@ -82,16 +79,16 @@ Direct \*.zip download: [active-directory-b2c-dotnet-webapp-and-webapi-master.zi
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-## Update the code sample
+## Update the sample
 
-Now, update the code to specify that both token issuer endpoints are valid.
+In this section you update the code to specify that both token issuer endpoints are valid.
 
 1. Open the **B2C-WebAPI-DotNet.sln** solution in Visual Studio
 1. In the **TaskService** project, open the *TaskService\\App_Start\\**Startup.Auth.cs*** file in your editor
 1. Add the following `using` directive to the top of the file:
 
     `using System.Collections.Generic;`
-1. Add the `ValidIssuers` property to the `TokenValidationParameters` definition and specify both URIs you recorded in the previous section:
+1. Add the [`ValidIssuers`][validissuers] property to the [`TokenValidationParameters`][tokenvalidationparameters] definition and specify both URIs you recorded in the previous section:
 
     ```csharp
     TokenValidationParameters tvps = new TokenValidationParameters
@@ -105,6 +102,18 @@ Now, update the code to specify that both token issuer endpoints are valid.
         }
     };
     ```
+
+`TokenValidationParameters` is provided by MSAL.NET and is consumed by the OWIN middleware in the next section of code. With multiple valid issuers specified, the OWIN application pipeline is made aware that both token endpoints are valid issuers.
+
+```csharp
+app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
+{
+    // This SecurityTokenProvider fetches the Azure AD B2C metadata &  from the OpenIDConnect metadata endpoint
+    AccessTokenFormat = new JwtFormat(tvps, new tCachingSecurityTokenProvider(String.Format(AadInstance, ultPolicy)))
+});
+```
+
+As mentioned previously, other OWIN libraries typically provide a similar facility for supporting multiple issuers. Although providing examples for every library is outside the scope of this article, you can use a similar technique for most libraries.
 
 ## Run the code
 
@@ -125,8 +134,10 @@ Then, test whether a token issued by b2clogin.com is functional. Update **Web.co
 In each case, when you **[PERFORM OPERATION]** you should see **[EXPECTED BEHAVIOR]**.
 
 <!-- LINKS - External -->
-[sample-repo]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi
 [sample-archive]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip
+[sample-repo]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi
 
 <!-- LINKS - Internal -->
 [katana]: https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/
+[validissuers]: https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters.validissuers
+[tokenvalidationparameters]: https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters
