@@ -54,7 +54,7 @@ After the app copy operation succeeds, you can navigate to the new application u
 
 ![Application settings page](media/howto-administer/appcopy3a.png)
 
-Copying an application also copies the definition of rules and email action. Some actions like Flow, Logic Apps etc. are tied to specific rules via the Rule Id. When a rule is copied to a different application, it gets its own Rule Id. In this case users will have to create a new action and then associate the new rule with it. In general it is a good idea to check the rules and actions to make sure they are up to date in the new app.
+Copying an application also copies the definition of rules and email action. Some actions like Flow, Logic Apps etc. are tied to specific rules via the Rule ID. When a rule is copied to a different application, it gets its own Rule ID. In this case, users will have to create a new action and then associate the new rule with it. In general, it is a good idea to check the rules and actions to make sure they are up to date in the new app.
 
 > [!WARNING]
 > If a dashboard includes tiles that display information about specific devices, then those tiles show **The requested resource was not found** in the new application. You must reconfigure these tiles to display information about devices in your new application.
