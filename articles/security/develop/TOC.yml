@@ -14,5 +14,17 @@
       href: secure-develop.md
     - name: Deploy secure apps
       href: secure-deploy.md
-
-
+- name: Solutions
+  expanded: true
+  items:
+  - name: Microsoft Security Code Analysis
+    expanded: true
+    items:
+      - name: Overview
+        href: sca-overview.md
+      - name: Installation
+        href: sca-install.md
+      - name: Configuration
+        href: sca-config.md       
+      - name: FAQs
+        href: sca-faq.md
