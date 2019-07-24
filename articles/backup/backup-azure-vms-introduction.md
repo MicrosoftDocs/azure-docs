@@ -1,7 +1,7 @@
 ---
 title: About Azure VM backup
 description: Learn about Azure VM backup, and note some best practices.
-services: backup
+
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
