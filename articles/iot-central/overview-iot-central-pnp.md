@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: timlt
 ---
 
-# What is Azure IoT Central (Plug and Play)?
+# What is Azure IoT Central (Feature preview)?
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
