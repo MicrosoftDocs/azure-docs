@@ -38,8 +38,16 @@ As a builder, you have several options for creating device templates:
 - Create a device capability model using Visual Studio code. Implement your device code from the model. Manually import the device capability model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
 - Create a device capability model using Visual Studio code. Implement your device code from the model, and connect your real device to your IoT Central application using a device-first connection. IoT Central finds and imports the device capability model from the global repository for you. You can then add any cloud properties, customizations, and dashboards your IoT Central application needs to the device template.
 
+## Create a device template from the device catalog
 
-## Create a device template
+As a builder, you can quickly get started building out your solution with any of the IoT Plug and Play certified devices listed in the [Azure IoT Device Catalog](https://catalog.azureiotsolutions.com/alldevices). IoT Central has integrated with the device catalog to easily pull in the device capability model from these IoT Plug and Play certified devices. To create a device template with one of these device in IoT Central:
+
+1. Go to the **Device Templates** page in your IoT Central application.
+1. Select **+ New**, then select any of the IoT Plug and Play certified devices from the catalog listed below. IoT Central will create a device template based on this device capability model.
+1. Add any cloud properties, customizations, or views to your device template.
+1. Click **Publish** to publish this device template to make it available for operators to view and connect devices.
+
+## Create a device template from scratch
 
 A device template contains:
 
@@ -52,7 +60,7 @@ To create a device template in IoT Central:
 
 1. Go to the **Device Templates** page in your IoT Central application.
 1. Select **+ New**, then select **Custom**.
-1. Enter a name for your template, such as **Refrigerated Vending Machine**.
+1. Enter a name for your template, such as **Environmental Sensor**.
 1. Press **Enter**. IoT Central creates an empty device template.
 
 ## Manage a device template
