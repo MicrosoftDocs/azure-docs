@@ -632,12 +632,23 @@ This error occurs because of an internal problem with the sync database. This er
 | **Error string** | ECS_E_INVALID_AAD_TENANT |
 | **Remediation required** | Yes |
 
-Azure File Sync does not currently support moving the subscription to a different Azure Active Directory tenant.
+This error occurs because Azure File Sync does not currently support moving the subscription to a different Azure Active Directory tenant.
  
 To resolve the issue, perform one of the following options:
 
 - Option 1 (recommended): Move the subscription back to the original Azure Active Directory tenant
-- Option 2: Delete and recreate the current sync group. If cloud tiering was enabled on the server endpoint, delete the sync group and then perform the steps documented in the [Cloud Tiering section]( https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) to remove the orphaned tiered files prior to recreating the sync groups. 
+- Option 2: Delete and recreate the current sync group. If cloud tiering was enabled on the server endpoint, delete the sync group and then perform the steps documented in the [Cloud Tiering section]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) to remove the orphaned tiered files prior to recreating the sync groups. 
+
+<a id="-2134364010"></a>**Sync failed due to firewall and virtual network exception not configured**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83096 |
+| **HRESULT (decimal)** | -2134364010 | 
+| **Error string** | ECS_E_MGMT_STORAGEACLSBYPASSNOTSET |
+| **Remediation required** | Yes |
+
+This error occurs if the firewall and virtual network settings are enabled on the storage account and the “Allow trusted Microsoft services to access this storage account” exception is not checked. To resolve this issue, following the steps documented in the [Configure firewall and virtual network settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) section in the deployment guide.
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
