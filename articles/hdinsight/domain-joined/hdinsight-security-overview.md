@@ -24,7 +24,7 @@ One way of looking at enterprise security divides security solutions into four m
 
 ### Perimeter security
 
-Perimeter security in HDInsight is achieved through [virtual networks](hdinsight-plan-virtual-network-deployment). An enterprise admin can create a cluster inside a virtual network(VNET) and use network security groups(NSG) to restrict access to the virtual network. Only the allowed IP addresses in the inbound NSG rules will be able to communicate with the HDInsight cluster. This configuration provides perimeter security.
+Perimeter security in HDInsight is achieved through [virtual networks](../hdinsight-plan-virtual-network-deployment.md). An enterprise admin can create a cluster inside a virtual network(VNET) and use network security groups(NSG) to restrict access to the virtual network. Only the allowed IP addresses in the inbound NSG rules will be able to communicate with the HDInsight cluster. This configuration provides perimeter security.
 
 All clusters deployed in a VNET will also have a private endpoint that resolves to a private IP inside the VNET for private HTTP access to the cluster gateways.
 
