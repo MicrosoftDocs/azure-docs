@@ -44,18 +44,17 @@ To add a real device to your application, you use the **Environmental Sensor** d
 
 ## Use a simulated device to improve views
 
-Once you have created a new simulated device, the builder can use this device to continue to improve and build upon the views for the device template.
+After you create a new simulated device, the builder can use this device to continue to improve and build upon the views for the device template.
 
-1. While in your devices view, copy the **Device ID** of the simulated device you just created.
+1. While in your device's view, copy the **Device ID** of the simulated device you created.
 
 1. Choose the **Device templates** tab in the left navigation menu and select the **Environmental Sensor** template.
 
 1. Select any of the views you would like to edit, or create a new view. Click **Configure preview device**. Here you can choose between having no preview device, using a real device you can configure for testing, or from an existing device you have added into IoT Central.
 
-1. Choose **Select from a running device** and enter in the **Device ID** of the simulated device that you had copied. 
+1. Choose **Select from a running device** and enter in the **Device ID** of the simulated device that you had copied.
 
-1. Choose **Apply**. Now you are able to see the same simulated device in your device template views building experience. This is particularly useful for charts and other visualizations.
-
+1. Choose **Apply**. Now you can see the same simulated device in your device template views building experience. This view is particularly useful for charts and other visualizations.
 
 ## Next steps
 
