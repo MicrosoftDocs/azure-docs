@@ -10,23 +10,20 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/06/2019
+ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.author: mbullwin
 ---
 
-# Languages - Officially supported by Application Insights team
+# Supported languages
 
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
-* [JavaScript web pages](../../azure-monitor/app/javascript.md)
+* [JavaScript](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
 
-## Community SDKs
+## Supported platforms and frameworks
 
-There are a number of community Azure Application Insights SDKs, many of which were originally authored by Microsoft. Community SDKs aren't officially maintained by Microsoft. We are unable to provide support for any SDK that isn't on the officially supported list. These SDKs are considered experimental and not recommended for production use.
-
-## Platforms and frameworks
 ### Instrumentation for already-deployed applications (codeless, agent-based)
 * [Azure VM and Azure virtual machine scale sets](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
@@ -54,3 +51,7 @@ There are a number of community Azure Application Insights SDKs, many of which w
 ## Export and data analysis
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
+
+## Unsupported community SDKs
+
+There are a number of community Application Insights SDKs. Community SDKs aren't officially supported/maintained by Microsoft. We are unable to provide support for any SDK that isn't on the officially supported list. 
