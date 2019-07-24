@@ -39,13 +39,13 @@ I don't have that original on-premises server anymore (lost/decommissioned) and 
 
 Before you proceed further read **[this](#before-you-start)** section to understand the dependencies and vault deletion process.
 
-To delete Recovery Services vault associated with MAB, DPM and AzureBackupServer, user is displayed Warning message, the below table describes different below scenario:
+Below table describes different scenarios to delete Recovery Services vault associated with MAB, DPM and AzureBackupServer:
 
-Scenario | Message displayed |
--- | --
-When the backup data is associated with the backup item | ![Delete Protected item](./media/backup-azure-delete-vault/delete-rs-warning.jpg)
-When the backup data associated with the backup item but the server is not available | ![Delete Protected item warning](./media/backup-azure-delete-vault/delete-rs-warning-info.jpg)
-When there are no backup data associated with the backup item |  ![Delete Protected item warning info](./media/backup-azure-delete-vault/delete-rs-warning-info2.jpg)
+Scenario    | Message displayed |
+----------  | ------
+When the backup data is associated with the backup item     | ![Delete Protected item](./media/backup-azure-delete-vault/delete-rs-warning.jpg)
+When the backup data associated with the backup item but the server is not available      | ![Delete Protected item warning](./media/backup-azure-delete-vault/delete-rs-warning-info.jpg)
+When there are no backup data associated with the backup item     |  ![Delete Protected item warning info](./media/backup-azure-delete-vault/delete-rs-warning-info2.jpg)
 
 ### For Protected items in Cloud
 
