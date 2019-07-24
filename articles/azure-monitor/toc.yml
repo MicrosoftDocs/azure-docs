@@ -622,6 +622,8 @@
         href: insights/vmware.md
       - name: Wire Data solution
         href: insights/wire-data.md
+      - name: Service Map solution
+        href: insights/service-map.md
       - name: Computer groups
         href: platform/computer-groups.md
       - name: Configuration Manager
