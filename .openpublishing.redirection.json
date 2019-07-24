@@ -30380,7 +30380,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/QnAMaker/faq.md",
+      "source_path": "articles/cognitive-services/QnAMaker/faqs.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/troubleshooting",
       "redirect_document_id": false
     },    
@@ -37942,6 +37942,11 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/quickstart-summary.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/Tutorials/PythonTutorial.md",
+      "redirect_url": "https://github.com/Microsoft/Cognitive-Vision-Python",
       "redirect_document_id": false
     },
     {
