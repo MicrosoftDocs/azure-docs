@@ -32,7 +32,7 @@ In developing and deploying this app, you'll learn how to:
 - Create an Azure Key Vault instance, store and retrieve secrets from it.
 - Deploy Azure Database for PostgreSQL, set up secure passwords and authorize access to it.
 - Run an Alpine Linux container on Azure Web Apps for Linux and enable managed identities for Azure resources.
-- Create and configure an Azure Application Gateway instance with a firewall that uses OWASP Top 10 Ruleset.
+- Create and configure an Azure Application Gateway instance with a firewall that uses [OWASP Top 10 Ruleset](https://coreruleset.org/).
 - Enable encryption of data in transit and at rest by using Azure services.
 
 After you develop and deploy this app, you will have set up the following sample web app along with the configuration and security measures that are described.
@@ -106,8 +106,8 @@ The application firewall also inspects incoming traffic and alerts admins when m
 Application Gateway mitigates the possibility for DDoS and SQL injection threats discovered in the threat model.
 
 ### Identity
-To sign in to the portal, the sample app uses Multi-Factor Authentication for Active Directory administrators who are assigned access to the resources.
-The sample app uses managed identities to gain permissions to read and retrieve secrets from Azure Key Vault, ensuring the app doesn't need to hard code credentials and tokens to read the secrets. Active Directory automatically creates the service principals that the app needs to read and modifies the secrets when managed identities are used.
+To sign in to the portal, the sample app uses Multi-Factor Authentication for Azure Active Directory (Azure AD) administrators who are assigned access to the resources.
+The sample app uses managed identities to gain permissions to read and retrieve secrets from Azure Key Vault, ensuring the app doesn't need to hard code credentials and tokens to read the secrets. Azure AD automatically creates the service principals that the app needs to read and modifies the secrets when managed identities are used.
 
 Managed identities for Azure resources and MFA make it harder for adversaries to gain privilege and escalate their privileges in the system. This threat was pointed out in the threat model.
 The app uses OAuth, which allows users registered in the OAuth application to sign in to the app.
@@ -163,7 +163,6 @@ To deploy the solution:
 
 1. If you are on PowerShell run the `deploy-powershell.ps1` file by typing `./deploy-powershell.ps1 REGION RESOURCE_GROUP_NAME` replacing the region and resource group name with suitable Azure regions and a name for the resource group
 2. If you are on Linux run the `deploy-bash.sh` file by typing `/deploy-bash.sh REGION RESOURCE_GROUP_NAME`, you may have to make the file executable by typing `chmod +x deploy-bash.sh`
-3. After the resources have been deployed, read the documentation contained here to configure the resources in order to make the app run. Without the configuration described in the documentation the application will not run. [Documentation](FINAL_DOCUMENTATION_LINK)
 
 The following examples showcase snippets of the key components. You can deploy the examples individually or with the rest of the components by running the deploy files.
 
@@ -745,7 +744,7 @@ You can retrieve the IP address of the gateway from its overview page. On the **
 #### Implement Azure Active Directory OAuth
 
 The Azure documents distributed on the sample web app page are resources in our app that might need protection. You can use Azure Active Directory (Azure AD) to implement authentication for web, desktop, and mobile apps by using different authentication flows.
-The app uses **Login With Microsoft**, that allows the app to read profiles of users who have been added to our single-tenant Active Directory user's list.
+The app uses **Login With Microsoft**, that allows the app to read profiles of users who have been added to our single-tenant Azure AD user's list.
 
 In the Azure portal, configure the app to use the required credentials:
 
@@ -767,8 +766,8 @@ In the Azure portal, configure the app to use the required credentials:
 4. You are presented with a screen that shows the registered app and its information. You need to add this information into the Azure Key Vault instance.
    1. Copy the application (client) ID and save it in Key Vault as `CLIENTID`.
    2. Copy the redirect URI that you entered in the previous step and save it as `REDIRECTURI`.
-   3. Copy the Active Directory default directory name, which has the format *name*.microsoftonline.com, and save it in Key Vault as `TENANT`.
-   4. Go to the **Certificates & secrets** tab of the Active Directory app that you created previously and select **New client secret**, as shown in the following screenshot. Set an expiration date, and then copy the generated value and save it in Key Vault as `CLIENTSECRET`.
+   3. Copy the Azure AD default directory name, which has the format *name*.microsoftonline.com, and save it in Key Vault as `TENANT`.
+   4. Go to the **Certificates & secrets** tab of the Azure AD app that you created previously and select **New client secret**, as shown in the following screenshot. Set an expiration date, and then copy the generated value and save it in Key Vault as `CLIENTSECRET`.
 
       ![Azure AD authorization secret](./media/secure-web-app/ad-auth-secrets.png)
 
@@ -777,7 +776,7 @@ In the Azure portal, configure the app to use the required credentials:
    5. Generate a secure random secret key by using any command-line/online tool. Save it into Key Vault as `FLASKSECRETKEY`. The application framework uses this key to create sessions.
         To learn how to generate a secret key, see [Flask Sessions](http://flask.pocoo.org/docs/1.0/quickstart/#sessions).
 
-5. After you configure the sign-in, you need to add users to the Active Directory link to allow them to sign in to the resource. To add them, go to the **Users** tab in Active Directory, select **All users**, and then select **New user** or **New guest user**. For testing, you can add a guest user and invite the user into the directory. Or you can add a new user if the domain the app is running on has been validated. In this example, only users registered in the Active Directory tenant can be registered for access. For information about multitenant sign-in access, see the documentation.
+5. After you configure the sign-in, you need to add users to the Azure AD link to allow them to sign in to the resource. To add them, go to the **Users** tab in Azure AD, select **All users**, and then select **New user** or **New guest user**. For testing, you can add a guest user and invite the user into the directory. Or you can add a new user if the domain the app is running on has been validated. In this example, only users registered in the Azure AD tenant can be registered for access. For information about multitenant sign-in access, see the documentation.
 
    ![Add users to default domain](./media/secure-web-app/ad-auth-add-user.png)
 
@@ -789,7 +788,7 @@ In the app code, this is handled by the Azure Active Directory Authentication Li
 After the secrets are in Key Vault and the application has access to the secrets and the database, the application service can be reached through the gateway's
 application URL (https://GATEWAY_HASH.cloudapp.net), which you can get from its blade.
 
-If, when you sign in to Active Directory, you get an error that says "User is not registered in the directory you're trying to log into," you need to add the user. To add the user, go to the **Users** tab of Azure Active Directory and add the user manually by entering their details or  invite the user by entering their email address as a guest user to Active Directory in the **Invite Guest** blade.
+If, when you sign in to Azure AD, you get an error that says "User is not registered in the directory you're trying to log into," you need to add the user. To add the user, go to the **Users** tab of Azure AD and add the user manually by entering their details or invite the user by entering their email address as a guest user to Azure AD in the **Invite Guest** blade.
 
 #### Deploy Application Insights
 Now that the app is deployed and working, you need to handle errors that occur within the app along with logging and trace data collection.
@@ -811,7 +810,7 @@ After you create the Applications Insights instance, you need to make the app aw
 For the basic sample app, after you create the Applications Insights instance, you need to make the app aware of the instrumentation key that allows it to send logs to the cloud.
 In Key Vault, set a `APPINSIGHTSKEY` secret and set its value as the instrumentation key. Doing so allows the app to send logs and metrics to Application Insights.
 
-#### Implement Multi-Factor Authentication for Active Directory
+#### Implement Multi-Factor Authentication for Azure Active Directory
 Administrators need to ensure that the subscription accounts in the portal are protected. The subscription is vulnerable to attacks because it manages the resources that you created. To protect the subscription, enable Multi-Factor Authentication on the **Azure Active Directory** tab of the subscription.
 
 Azure AD operates based on policies that are applied to a user or groups of users that fit a certain criteria.
@@ -949,14 +948,14 @@ After you fix some of the code errors found by the linting tools, you have more 
 *After PyLint*
 
 ### Vulnerability scanning
-OWASP's ZAP tool is an open-source web application vulnerability scanner that you can use to check the sample app for vulnerabilities. Running the tool on the sample app reveals some possible errors and attack vectors.
+[OWASP's ZAP](https://www.zaproxy.org/) tool is an open-source web application vulnerability scanner that you can use to check the sample app for vulnerabilities. Running the tool on the sample app reveals some possible errors and attack vectors.
 
 ![ZAP tool](./media/secure-web-app/zap-tool.png)
 
 *ZAP tool*
 
 ### Find and fix vulnerabilities in app dependencies
-To find and fix application dependencies, you can use OWASP's Dependency Check.
+To find and fix application dependencies, you can use [OWASP's Dependency Check](https://www.owasp.org/index.php/OWASP_Dependency_Check).
 
 Safety is a similar application that checks dependencies. You can find it on [GitHub](https://github.com/pyupio/safety). Safety scans for vulnerabilities found in well-known vulnerability databases.
 
@@ -965,7 +964,7 @@ Safety is a similar application that checks dependencies. You can find it on [Gi
 *Safety*
 
 ## Next steps
-In the following articles, we recommend security controls and activities that can help you design, develop, and deploy secure applications.
+The following articles can help you design, develop, and deploy secure applications.
 
 - [Design](secure-design.md)
 - [Develop](secure-develop.md)
