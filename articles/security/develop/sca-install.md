@@ -39,8 +39,7 @@ The following criteria are required for integration
 6. Choose the Azure DevOps Organization to install the extension on from the dropdown
 7. Click Install. Once it completes, you can Proceed to the account
 
-Once the extension is installed, the secure development build tasks will be visible and available to add to your Azure DevOps pipelines.
-
+Once the extension is installed, the secure development build tasks will be visible and available to add to your Azure Pipelines.
 
 ## Adding specific build tasks to your DevOps pipeline
 

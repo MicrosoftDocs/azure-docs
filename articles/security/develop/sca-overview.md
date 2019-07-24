@@ -18,7 +18,7 @@ ms.workload: na
 
 The **Microsoft Security Code Analysis** extension empowers teams to integrate the running of static analysis tools during their development cycle. Through NuGet based delivery of the tools, teams no longer need to install and update analysis tools on their build agents. Just add the tasks, choose a specific version, or keep it on the Latest and new tools will be discovered and downloaded at build time. With Command Line and Basic build task interfaces, all users from expert tool users to everyday developers, can have as little or as much control over the tools as they want.
 
-## Run security analysis tools in Azure DevOps Pipelines
+## Run security analysis tools in Azure Pipelines
 
 The [Secure Development Lifecycle (SDL) Guidelines](https://www.microsoft.com/securityengineering/sdl/practices) recommend that teams perform static analysis during the implementation phase of their development cycle.
 The Microsoft Security Code Analysis extension enables you to do so by easily integrating the running of static analysis tools in your Azure Pipelines.
@@ -41,7 +41,7 @@ The Azure DevOps build tasks and tools can be set to stay up-to-date (default se
  - Sanitize and convert user input into (often complex) command-line arguments, and then launch the tool on the build agent.
  - Save tool output log files locally on the build agent.
 
-You'll also want to add up to three helpful post-processing tasks after all other tool tasks complete, to produce a summary report of the issues found by the tools you run and to preserve tool log files to the Azure DevOps Server or to a file share. And most importantly, understand that when a security tool finds an issue the build does NOT break or fail. If you wish to inject a build break (a build task failure) based on security findings by one of the tools, you'll need to add the Post-Analysis build task.
+You'll also want to add up to three helpful post-processing tasks after all other tool tasks complete, to produce a summary report of the issues found by the tools you run and to preserve tool log files to the Azure Server or to a file share. And most importantly, understand that when a security tool finds an issue the build does NOT break or fail. If you wish to inject a build break (a build task failure) based on security findings by one of the tools, you'll need to add the Post-Analysis build task.
 For more details on this topic, see [Post-Processing build tasks](https://docs.microsoft.com/azure/security/develop/sca-customize#customizing-the-post-analysis-build-task) 
 
 ### Under the Hood
@@ -99,7 +99,7 @@ The Microsoft Security Code Analysis extension has three build tasks to help you
 ### Publish Security Analysis Logs
 The Publish Security Analysis Logs build task preserves the log files of the security tools run during the build.
 
-They can be published to the Azure DevOps Server artifacts (as a zip file), or copies to an accessible file share from your private build agent.
+They can be published to the Azure Server artifacts (as a zip file), or copies to an accessible file share from your private build agent.
 
 ### Security Report
 The Security Report build task parses the log files created by the security tools run during the build and creates a summary report file with all issues found by the analysis tools.
