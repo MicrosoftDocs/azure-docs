@@ -21,7 +21,7 @@ In order to complete this tutorial, you will need:-
 
 * **Azure Subscription** - Create a [free account](https://azure.microsoft.com/free) if you don't already have one.
 
-* **Azure IoT Hub and IoT Edge Device** - Follow the steps in the quickstart for [Linux](../iot-edge/quickstart-linux.md) or [Windows devices](../iot-edge/quickstart.md) if you don't already have one.
+* **Azure IoT Hub and IoT Edge Device** - Follow the steps in the quickstart for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
 
 >[!IMPORTANT]
 >For the purposes of this tutorial, we will deploy Event grid module without persistence. This means any topics and subscriptions you create in this tutorial will be deleted if you redeploy the module. Documentation on how to setup persistence on [Linux](persist-state-linux.md) or [Windows](persist-state-windows.md) is also available. For production workloads we do recommend you install Event Grid module with persistence.
@@ -97,4 +97,4 @@ It may take a few moments for the module to be started on the device and then re
 
 ## Next steps
 
-Next, deploy a [subscriber module](deploy-azfunc-webhook-module-portal.md) that can receive Event Grid events.
+Next, deploy a [subscriber module](deploy-func-webhook-module-portal.md) that can receive Event Grid events.

@@ -23,7 +23,7 @@ In order to complete this tutorial, you will need:-
 
 * **Azure Event Grid module on IoT Edge Device** - Follow the steps in described [here](deploy-event-grid-portal.md) on how to do that if not already done.
 
-* **Azure Function subscriber module on the same IoT Edge Device** - Follow the steps in described [here](deploy-azfunc-webhook-module-portal.md) on how to do that if not already done.
+* **Azure Function subscriber module on the same IoT Edge Device** - Follow the steps in described [here](deploy-func-webhook-module-portal.md) on how to do that if not already done.
 
 ## Step1: Create Topic
 
