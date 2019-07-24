@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 This article describes a technique for enabling support for multiple token issuers in web apps and APIs that implement the [Open Web Interface for .NET (OWIN)](http://owin.org/). Supporting multiple token endpoints is useful when you're migrating Azure Active Directory (Azure AD) B2C applications from *login.microsoftonline.com* to *b2clogin.com*.
 
-The following sections present an example of how to enable multiple issuers in a web application and corresponding web API that use the [Katana][katana] OWIN middleware components. Although the code examples are specific to the Katana OWIN middleware, the general technique should be applicable to other OWIN libraries.
+The following sections present an example of how to enable multiple issuers in a web application and corresponding web API that use the [Microsoft OWIN][katana] middleware components (Katana). Although the code examples are specific to the Microsoft OWIN middleware, the general technique should be applicable to other OWIN libraries.
 
 ## Prerequisites
 
@@ -73,13 +73,13 @@ If you have custom policies instead of user flows, you can use a similar process
 
 Now that you have both token endpoint URIs, you need to update your code to specify that both endpoints are valid issuers. To walk through an example, download or clone the sample application, then update the sample to support both endpoints as valid issuers.
 
-Direct \*.zip download: [active-directory-b2c-dotnet-webapp-and-webapi-master.zip][sample-archive]
+Download the archive: [active-directory-b2c-dotnet-webapp-and-webapi-master.zip][sample-archive]
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-## Update the sample
+## Update the code
 
 In this section you update the code to specify that both token issuer endpoints are valid.
 
@@ -103,7 +103,7 @@ In this section you update the code to specify that both token issuer endpoints 
     };
     ```
 
-`TokenValidationParameters` is provided by MSAL.NET and is consumed by the OWIN middleware in the next section of code. With multiple valid issuers specified, the OWIN application pipeline is made aware that both token endpoints are valid issuers.
+`TokenValidationParameters` is provided by MSAL.NET and is consumed by the OWIN middleware in the next section of code in *Startup.Auth.cs*. With multiple valid issuers specified, the OWIN application pipeline is made aware that both token endpoints are valid issuers.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -115,23 +115,9 @@ app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
 
 As mentioned previously, other OWIN libraries typically provide a similar facility for supporting multiple issuers. Although providing examples for every library is outside the scope of this article, you can use a similar technique for most libraries.
 
-## Run the code
+## Next steps
 
-With both URIs specified in the web API project, you can test whether the web application can successfully retrieve tokens from both issuers. Build and run the solution using different `ida:AadInstance` values in the `TaskWebApp\`**`Web.config`** file of TaskWebApp to perform the test.
-
-For example, run the application first with the current value found in Web.config:
-
-```xml
-<add key="ida:AadInstance" value="https://login.microsoftonline.com/tfp/{0}/{1}" />
-```
-
-Then, test whether a token issued by b2clogin.com is functional. Update **Web.config** once again, but this time use the b2clogin.com issuer value for `ida:AadInstance`. Modify `<your-tenant-name>` with the name of your B2C tenant before.
-
-```xml
-<add key="ida:AadInstance" value="https://{your-b2c-tenant-name}.b2clogin.com/tfp/{0}/{1}" />
-```
-
-In each case, when you **[PERFORM OPERATION]** you should see **[EXPECTED BEHAVIOR]**.
+This article presented a method of configuring a web API implementing the Microsoft OWIN middleware (Katana) to accept tokens from multiple issuer endpoints. For more information about OWIN and Katana, see the [OWIN and Katana overview][katana].
 
 <!-- LINKS - External -->
 [sample-archive]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip
