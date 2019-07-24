@@ -402,8 +402,9 @@ Parameters of the `Protect-GuestConfigurationPackage` cmdlet:
   for Linux.
 
 GuestConfiguration agent expects the certificate public key to be present in "Trusted Root
-Certificate Authorities" on the target machine. For the node to verify signed content, install the
-Certificate in "Trusted Root Certificate Authorities" before applying the custom policy. This
+Certificate Authorities" on Windows machines and in the path `/usr/local/share/ca-certificates/extra`
+on Linux machines. For the node to verify signed content, install the
+certificate public key on the virtual machine before applying the custom policy. This
 process can be done using any technique inside the VM, or by using Azure Policy. An example template
 is
 [provided here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
@@ -418,6 +419,10 @@ virtual machine.
 $Cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq "CN=mycert3") } | Select-Object -First 1
 $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
+
+A good reference for creating GPG keys to use with Linux virtual machines is provided
+by an article on GitHub,
+[Generating a new GPG key](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
 After your content is published, append a tag with name '' and value `enabled` to all virtual
 machines where code signing should be required. This tag can be delivered at scale using Azure
