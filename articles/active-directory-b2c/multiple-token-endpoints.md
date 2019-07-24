@@ -33,7 +33,7 @@ Additionally, you need the following in your local development environment:
 
 ## Get token issuer endpoints
 
-You first need to get the endpoint URIs for each token issuer you want to support in your application. To get the *b2clogin.com* and *login.microsoftonline.com* endpoints supported by your Azure AD B2C tenant, use the following procedure in the Azure portal.
+You first need to get the token issuer endpoint URIs for each issuer you want to support in your application. To get the *b2clogin.com* and *login.microsoftonline.com* endpoints supported by your Azure AD B2C tenant, use the following procedure in the Azure portal.
 
 Start by selecting one of your existing user flows:
 
@@ -41,7 +41,7 @@ Start by selecting one of your existing user flows:
 1. Under **Policies**, select **User flows (policies)**
 1. Select an existing policy, for example *B2C_1_signupsignin1*, then select **Run user flow**
 
-Next, get the issuer URIs from the well-known discovery endpoint for both domains, *b2clogin.com* and *login.microsoft.com*. You update the sample project with these values in the next section.
+Next, get the issuer URIs from the OpenID Connect discovery endpoint for both domains, *b2clogin.com* and *login.microsoft.com*. You update the sample project with these values in the next section.
 
 1. Under the **Run user flow** heading near the top of the page, click the hyperlink to navigate to the user flow's well-known URI.
 
@@ -58,11 +58,25 @@ https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
 https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
 ```
 
-## Get the code sample
+### Custom policies
 
-Now that you have both token endpoint URIs, download or clone the [active-directory-b2c-dotnet-webapp-and-webapi][sample-repo] sample application.
+If you have custom policies instead of user flows, you can use a similar process to get the issuer URIs.
 
-Direct \*.zip archive download: [active-directory-b2c-dotnet-webapp-and-webapi-master.zip][sample-archive]
+1. Navigate to your Azure AD B2C tenant
+1. Select **Identity Experience Framework**
+1. Select one of your relying party policies, for example, *B2C_1A_signup_signin*
+1. Use the **Select domain** drop-down to select a domain, for example *yourtenant.b2clogin.com*
+1. Select the hyperlink displayed under **OpenID Connect discovery endpoint**
+1. Record the `issuer` value
+1. Perform the previous three steps for the other domain, for example *login.microsoftonline.com
+
+## Get the sample code
+
+Now that you have both token endpoint URIs, you need to update your code to specify that both endpoints are valid issuers.
+
+To walk through an example, download or clone the [active-directory-b2c-dotnet-webapp-and-webapi][sample-repo] sample application.
+
+Direct \*.zip download: [active-directory-b2c-dotnet-webapp-and-webapi-master.zip][sample-archive]
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
@@ -70,10 +84,10 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 ## Update the code sample
 
-In this section, you update the sample code to enable support for both well-known URIs.
+Now, update the code to specify that both token issuer endpoints are valid.
 
 1. Open the **B2C-WebAPI-DotNet.sln** solution in Visual Studio
-1. In the **TaskService** project, open the `TaskService\App_Start\`**`Startup.Auth.cs`** file in your editor
+1. In the **TaskService** project, open the *TaskService\\App_Start\\**Startup.Auth.cs*** file in your editor
 1. Add the following `using` directive to the top of the file:
 
     `using System.Collections.Generic;`
@@ -105,7 +119,7 @@ For example, run the application first with the current value found in Web.confi
 Then, test whether a token issued by b2clogin.com is functional. Update **Web.config** once again, but this time use the b2clogin.com issuer value for `ida:AadInstance`. Modify `<your-tenant-name>` with the name of your B2C tenant before.
 
 ```xml
-<add key="ida:AadInstance" value="https://<your-tenant-name>.b2clogin.com/tfp/<your-tenant-name>.onmicrosoft.com" />
+<add key="ida:AadInstance" value="https://{your-b2c-tenant-name}.b2clogin.com/tfp/{0}/{1}" />
 ```
 
 In each case, when you **[PERFORM OPERATION]** you should see **[EXPECTED BEHAVIOR]**.
