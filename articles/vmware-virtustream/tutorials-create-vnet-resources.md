@@ -28,7 +28,7 @@ The previous tutorial provided the instructions for creating an Azure VMware Sol
 
 ## Prerequisites
 
-It's recommended that you first plan the private network address spaces that you will use for the VNet you create in this tutorial. The network address space of the new VNet must not overlap with the network address space of the private cloud you will peer with. The details of this planning are provided in the [fist tutorial][./media/create-private-cloud](create-private-cloud-tutorial.md).
+It's recommended that you first plan the private network address spaces that you will use for the VNet you create in this tutorial. The network address space of the new VNet must not overlap with the network address space of the private cloud you will peer with. The details of this planning are provided in the [fist tutorial][./media/create-private-cloud](tutorials-create-private-cloud.md).
 
 Prerequisites:
 - Access to the Azure portal
