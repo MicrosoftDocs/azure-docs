@@ -15,7 +15,7 @@ describes various errors that may occur and how to resolve them.
 
 ## Finding error details
 
-Most errors are the result an issue while running a query with Azure Resource Graph. When a query
+Most errors are the result of an issue while running a query with Azure Resource Graph. When a query
 fails, the SDK provides details about the failed query. This information indicates the issue so that
 it can be fixed and a later query succeeds.
 
