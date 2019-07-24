@@ -20,7 +20,7 @@ ms.author: mlottner
 ---
 # Security agent reference architecture
 
-Azure Security Center for IoT provides reference architecture for security agents that log, process, aggregate, and send security data through IoT hub.
+Azure Security Center for IoT provides reference architecture for security agents that log, process, aggregate, and send security data through IoT Hub.
 
 Security agents are designed to work in a constrained IoT environment, and are highly customizable in terms of values they provide when compared to the resources they consume.
 
@@ -28,7 +28,7 @@ Security agents support the following features:
 
 - Collect raw security events from the underlying Operating System (Linux, Windows). To learn more about available security data collectors, see [Azure Security Center for IoT agent configuration](how-to-agent-configuration.md).
 
-- Aggregate raw security events into messages sent through IoT hub.
+- Aggregate raw security events into messages sent through IoT Hub.
 
 - Authenticate with existing device identity, or a dedicated module identity. See [Security agent authentication methods](concept-security-agent-authentication-methods.md) to learn more.
 

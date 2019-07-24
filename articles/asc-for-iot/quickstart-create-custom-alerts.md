@@ -40,9 +40,9 @@ For example:
 
 ```
 {
-  "deviceId": "VM-MyDebian",
+  "deviceId": "VM-Contoso12",
   "etag": "AAAAAAAAAAM=",
-  "deviceEtag": "ODA1MzA4NjM4",
+  "deviceEtag": "ODA1BzA5QjM2",
   "status": "enabled",
   "statusUpdateTime": "0001-01-01T00:00:00",
   "connectionState": "Disconnected",
@@ -76,27 +76,26 @@ Use security groups to group your devices into logical categories. After creatin
 
 The following table provides a summary of alerts available for customization.
 
-| Severity | Name                                                                                                    | Data Source | Description                                                                                                                                     |
-|----------|---------------------------------------------------------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Low      | Custom Alert - number of cloud to device messages in AMQP protocol is not in the allowed range          | IoT Hub     | The amount of cloud to device messages (AMQP protocol) in a time window is not in the configured allowed range                                  |
-| Low      | Custom Alert - number of rejected cloud to device messages in AMQP protocol is not in the allowed range | IoT Hub     | The amount of cloud to device messages (AMQP protocol) that were rejected by the device in a time window is not in the configured allowed range |
-| Low      | Custom Alert - number of device to cloud messages in AMQP protocol is not in the allowed range          | IoT Hub     | The amount of device to cloud messages (AMQP protocol) in a time window is not in the configured allowed range                                  |
-| Low      | Custom Alert - number of direct method invokes is not in the allowed range                              | IoT Hub     | The amount of direct method invokes in a time window is not in the configured allowed range                                                     |
-| Low      | Custom Alert - number of file uploads is not in the allowed range                                       | IoT Hub     | The amount of file uploads in a time window is not in the configured allowed range                                                              |
-| Low      | Custom Alert - number of cloud to device messages in HTTP protocol is not in the allowed range          | IoT Hub     | The amount of cloud to device messages (HTTP protocol) in a time window is not in the configured allowed range                                  |
-| Low      | Custom Alert - number of rejected cloud to device messages in HTTP protocol is not in the allowed range | IoT Hub     | The amount of cloud to device messages (HTTP protocol) that were rejected by the device in a time window is not in the configured allowed range |
-| Low      | Custom Alert - number of device to cloud messages in HTTP protocol is not in the allowed range          | IoT Hub     | The amount of device to cloud messages (HTTP protocol) in a time window is not in the configured allowed range                                  |
-| Low      | Custom Alert - number of cloud to device messages in MQTT protocol is not in the allowed range          | IoT Hub     | The amount of cloud to device messages (MQTT protocol) in a time window is not in the configured allowed range                                  |
-| Low      | Custom Alert - number of rejected cloud to device messages in MQTT protocol is not in the allowed range | IoT Hub     | The amount of cloud to device messages (MQTT protocol) that were rejected by the device in a time window is not in the configured allowed range |
-| Low      | Custom Alert - number of device to cloud messages in MQTT protocol is not in the allowed range          | IoT Hub     | The amount of device to cloud messages (MQTT protocol) in a time window is not in the configured allowed range                                  |
-| Low      | Custom Alert - number of command queue purges is not in the allowed range                               | IoT Hub     | The amount of command queue purges in a time window is not in the configured allowed range                                                      |
-| Low      | Custom Alert - number of twin updates is not in the allowed range                                       | IoT Hub     | The amount of twin updates in a time window is not in the configured allowed range                                                              |
-| Low      | Custom Alert - number of unauthorized operations is not in the allowed range                            | IoT Hub     | The amount of unauthorized operations in a time window is not in the configured allowed range                                                   |
-| Low      | Custom Alert - number of active connections not in allowed range                                        | Agent       | The amount of active connections in a time window is not in the configured allowed range                                                        |
-| Low      | Custom Alert - outbound connection to an ip that isn't allowed was created                              | Agent       | An outbound connection to an ip that isn't allowed was created                                                                                  |
-| Low      | Custom Alert - number of failed local logins is not in the allowed range                                | Agent       | The amount of failed local logins in a time window is not in the configured allowed range                                                       |
-| Low      | Custom Alert - login of a user that is not allowed                                                      | Agent       | A local user that is not allowed logged in to the device                                                                                        |
-| Low      | Custom Alert - execution of a process that is not allowed                                               | Agent       | A process that is not allowed was executed on the device |
+| Severity | Name | Data Source | Description | Suggested remediation|        |---|---|---|---|---|
+| Low      | Custom alert - number of cloud to device messages in AMQP protocol is outside in the allowed range          | IoT Hub     | The amount of cloud to device messages (AMQP protocol) in a time window is not in the configured allowed range                                  |
+| Low      | Custom alert - number of rejected cloud to device messages in AMQP protocol is not in the allowed range | IoT Hub     | The amount of cloud to device messages (AMQP protocol) that were rejected by the device in a time window is not in the configured allowed range |
+| Low      | Custom alert - number of device to cloud messages in AMQP protocol is not in the allowed range          | IoT Hub     | The amount of device to cloud messages (AMQP protocol) in a time window is not in the configured allowed range                                  |
+| Low      | Custom alert - number of direct method invokes is not in the allowed range                              | IoT Hub     | The amount of direct method invokes in a time window is not in the configured allowed range                                                     |
+| Low      | Custom alert - number of file uploads is not in the allowed range                                       | IoT Hub     | The amount of file uploads in a time window is not in the configured allowed range                                                              |
+| Low      | Custom alert - number of cloud to device messages in HTTP protocol is not in the allowed range          | IoT Hub     | The amount of cloud to device messages (HTTP protocol) in a time window is not in the configured allowed range                                  |
+| Low      | Custom alert - number of rejected cloud to device messages in HTTP protocol is not in the allowed range | IoT Hub     | The amount of cloud to device messages (HTTP protocol) that were rejected by the device in a time window is not in the configured allowed range |
+| Low      | Custom alert - number of device to cloud messages in HTTP protocol is not in the allowed range          | IoT Hub     | The amount of device to cloud messages (HTTP protocol) in a time window is not in the configured allowed range                                  |
+| Low      | Custom alert - number of cloud to device messages in MQTT protocol is not in the allowed range          | IoT Hub     | The amount of cloud to device messages (MQTT protocol) in a time window is not in the configured allowed range                                  |
+| Low      | Custom alert - number of rejected cloud to device messages in MQTT protocol is not in the allowed range | IoT Hub     | The amount of cloud to device messages (MQTT protocol) that were rejected by the device in a time window is not in the configured allowed range |
+| Low      | Custom alert - number of device to cloud messages in MQTT protocol is not in the allowed range          | IoT Hub     | The amount of device to cloud messages (MQTT protocol) in a time window is not in the configured allowed range                                  |
+| Low      | Custom alert - number of command queue purges is not in the allowed range                               | IoT Hub     | The amount of command queue purges in a time window is not in the configured allowed range                                                      |
+| Low      | Custom alert - number of twin updates is not in the allowed range                                       | IoT Hub     | The amount of twin updates in a time window is not in the configured allowed range                                                              |
+| Low      | Custom alert - number of unauthorized operations is not in the allowed range                            | IoT Hub     | The amount of unauthorized operations in a time window is not in the configured allowed range                                                   |
+| Low      | Custom alert - number of active connections not in allowed range                                        | Agent       | The amount of active connections in a time window is not in the configured allowed range                                                        |
+| Low      | Custom alert - outbound connection to an ip that isn't allowed was created                              | Agent       | An outbound connection to an ip that isn't allowed was created                                                                                  |
+| Low      | Custom alert - number of failed local logins is not in the allowed range                                | Agent       | The amount of failed local logins in a time window is not in the configured allowed range                                                       |
+| Low      | Custom alert - login of a user that is not allowed                                                      | Agent       | A local user that is not allowed logged in to the device                                                                                        |
+| Low      | Custom alert - execution of a process that is not allowed                                               | Agent       | A process that is not allowed was executed on the device |
 |
 
 
