@@ -282,7 +282,7 @@ Now a NetApp account needs to be created within the Azure portal:
 
 Within the NetApp account the capacity pool specifies the size and type of disks for each pool:
 
-![SAP LaMa create NetApp capacity pool ](media/lama/sap-lama-capacitypool.png)
+![SAP LaMa create NetApp capacity pool ](media/lama/sap-lama-capacitypool-50.png)
 
 ![SAP LaMa NetApp capacity pool created ](media/lama/sap-lama-capacitypool-list.png)
 
