@@ -277,6 +277,8 @@
         href: cloud-service-picco-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
+      - name: Cognidox
+        href: cognidox-tutorial.md
       - name: Collaborative Innovation
         href: collaborativeinnovation-tutorial.md
       - name: Comeet Recruiting Software
@@ -953,6 +955,8 @@
         href: printix-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
+      - name: productboard
+        href: productboard-tutorial.md
       - name: Projectplace
         href: projectplace-tutorial.md
       - name: Promapp

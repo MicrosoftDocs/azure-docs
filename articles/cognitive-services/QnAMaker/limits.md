@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 07/22/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -55,7 +55,8 @@ Overall limits on the content in the knowledge base:
 * Length of file name: 200
 * Supported file formats: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Maximum number of alternate questions: 300
-* Maximum number of question-answer pairs: Depends on the **[Azure Search tier limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** chosen. A question and answer pair is a document on your Azure Search index. 
+* Maximum number of question-answer pairs: Depends on the **[Azure Search tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** chosen. A question and answer pair maps to a document on Azure Search index. 
+* URL/HTML page: 1 million characters
 
 ## Create Knowledge base call limits:
 These represent the limits for each create knowledge base action; that is, clicking *Create KB* or calling the CreateKnowledgeBase API.
