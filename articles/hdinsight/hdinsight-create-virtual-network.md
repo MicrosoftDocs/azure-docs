@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 07/23/2019
 ---
 # Create virtual networks for Azure HDInsight clusters
 

@@ -1,7 +1,7 @@
 ---
 title: Back up Azure File Shares
 description: This article details how to back up and restore your Azure file shares, and explains management tasks.
-services: backup
+
 author: rayne-wiselman
 ms.author: raynew
 ms.date: 01/31/2019
