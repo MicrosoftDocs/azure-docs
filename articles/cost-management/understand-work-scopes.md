@@ -140,12 +140,13 @@ Billing users don't have access to management groups because they don't explicit
 
 ## AWS scopes
 
-Once AWS integration is completed, see the [setup and configure AWS integration](aws-integration-set-up-configure.md), the following scopes are available:
+After AWS integration is complete, see [setup and configure AWS integration](aws-integration-set-up-configure.md). The following scopes are available:
 
-- **External Billing account** - Represents a customer agreement with a 3rd party vendor. This is similar to the EA billing account.
+- **External Billing account** - Represents a customer agreement with a third-party vendor. This is similar to the EA billing account.
 
     Resource type: `Microsoft.CostManagement/externalBillingAccounts`
-- **External subscription** - Represents a customer operational account with a 3rd party vendor. This is similar to an Azure subscription.
+    
+- **External subscription** - Represents a customer operational account with a third-party vendor. This is similar to an Azure subscription.
 
     Resource type: `Microsoft.CostManagement/externalSubscriptions`
 
