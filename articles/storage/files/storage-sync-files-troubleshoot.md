@@ -623,6 +623,22 @@ This error occurs because the Azure File Sync service is unavailable. This error
 
 This error occurs because of an internal problem with the sync database. This error will auto-resolve when the Azure File Sync when sync retries. If this error continues for an extend period of time, create a support request and we will contact you to help you resolve this issue.
 
+<a id="-2134364024"></a>**Sync failed due to change in Azure Active Directory tenant**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83088 |
+| **HRESULT (decimal)** | -2134364024 | 
+| **Error string** | ECS_E_INVALID_AAD_TENANT |
+| **Remediation required** | Yes |
+
+Azure File Sync does not currently support moving the subscription to a different Azure Active Directory tenant.
+ 
+To resolve the issue, perform one of the following options:
+
+- Option 1 (recommended): Move the subscription back to the original Azure Active Directory tenant
+- Option 2: Delete and recreate the current sync group. If cloud tiering was enabled on the server endpoint, delete the sync group and then perform the steps documented in the [Cloud Tiering section]( https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) to remove the orphaned tiered files prior to recreating the sync groups. 
+
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
 # [Portal](#tab/azure-portal)
