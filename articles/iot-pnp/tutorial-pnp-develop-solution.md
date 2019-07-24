@@ -90,7 +90,6 @@ echo $IOTHUB_CONNECTION_STRING
 It should print the entire connection string.
 
 
-
 ## Run the Node device SDK sample as the simulated device
 
 Once you’ve authored the samples and set your connection string in an environment variable, you can run any of the service samples using the following command (just replace <sample_name.js> with the name of the file that corresponds to the feature you want to test):
