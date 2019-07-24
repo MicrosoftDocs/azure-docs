@@ -19,7 +19,7 @@ sections:
 - title: 5-Minute Quickstarts
   items: 
   - type: paragraph
-    text: Learn how to enable your IoT Hub to Azure Security Center for IoT, install Azure Security Center for IoT agents, and get visibility into your data and potential threats.
+    text: Learn how to enable your IoT Hub to Azure Security Center for IoT, install security agents, and get visibility into your potential threats.
   - type: list
     style: icon48
     items: 
@@ -53,7 +53,22 @@ sections:
 
   - type: paragraph
     text: <a href="/learn/browse/?term=security">More interactive learning...</a>
-
+- title: Azure Security Center for IoT Videos 
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Microsoft Azure Security Center for IoT - Overview
+      href: https://youtu.be/pq5uSp9u_x0
+      image: 
+        src: https://docs.microsoft.com/media/common/i_video.svg
+        href: https://youtu.be/pq5uSp9u_x0
+    - title: Understand Azure Security Center for IoT
+      href: https://youtu.be/pq5uSp9u_x0
+      image: 
+        src: https://docs.microsoft.com/media/common/i_video.svg
+        href: https://youtu.be/pq5uSp9u_x0
 - title: Reference
   items:
   - type: list

@@ -9,7 +9,7 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
-ms.subservice: asc-for-iot
+ms.service: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -34,11 +34,11 @@ Azure Security Center for IoT is composed of the following components:
 
 Azure Security Center for IoT works in one of two feature workflows: Built-in and Enhanced  
 
-### Built in
-In **Built in** mode, Azure Security Center for IoT is enabled when you elect to turn on the **Security** option in your IoT Hub. Offering real-time monitoring, recommendations and alerts, Standard mode offers singe-step device visibility and unmatched security. Standard mode does not require agent installation on any devices and uses advanced analytics on logged activities to analyze and protect your device field. 
+### Built-in
+In **Built-in** mode, Azure Security Center for IoT is enabled when you elect to turn on the **Security** option in your IoT Hub. Offering real-time monitoring, recommendations and alerts, Standard mode offers singe-step device visibility and unmatched security. Standard mode does not require agent installation on any devices and uses advanced analytics on logged activities to analyze and protect your device field. 
 
-### Agent 
-In **Agent** mode, after turning on the **Security** option in your IoT Hub and installing Azure Security Center for IoT device agents on your devices, the agents collect, aggregate and analyze raw security events from your devices. Raw security events can include IP connections, process creation, user logins, and other security-relevant information. Azure Security Center for IoT device agents also handle event aggregation to help avoid high network throughput. The agents are highly customizable, allowing you to use them for specific tasks, such as sending only important information at the fastest SLA, or for aggregating extensive security information and context into larger segments, avoiding higher service costs.
+### Enhanced 
+In **Enhanced** mode, after turning on the **Security** option in your IoT Hub and installing Azure Security Center for IoT device agents on your devices, the agents collect, aggregate and analyze raw security events from your devices. Raw security events can include IP connections, process creation, user logins, and other security-relevant information. Azure Security Center for IoT device agents also handle event aggregation to help avoid high network throughput. The agents are highly customizable, allowing you to use them for specific tasks, such as sending only important information at the fastest SLA, or for aggregating extensive security information and context into larger segments, avoiding higher service costs.
  
 Device agents, and other applications use the **Azure send security message SDK** to send security information into Azure IoT Hub. IoT Hub picks up this information and forwards it to the Azure Security Center for IoT service.
 

@@ -9,7 +9,7 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
-ms.subservice: asc-for-iot
+ms.service: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -20,7 +20,7 @@ ms.author: mlottner
 ---
 # Tutorial: Configure security agents
 
-This article explains Azure Security Center for IoT security agents, and how to change and configure them. 
+This article explains Azure Security Center for IoT security agents, and details how to change and configure them. 
 
 > [!div class="checklist"]
 > * Configure security agents
@@ -69,9 +69,9 @@ The agent reports all the available properties, if a property was not set by the
 
 In order to validate your configuration, compare the values set on the desired section with the values reported in the reported section.
 
-If there is a mismatch between the desired and the reported properties then the agent was not able to parse the configuration.
+If there is a mismatch between the desired and the reported properties, then the agent was not able to parse the configuration.
 
-Validate your desired propertoes against the [schema](https://aka.ms/iot-security-github-module-schema), fix the errors and set your desired properties again!
+Validate your desired properties against the [schema](https://aka.ms/iot-security-github-module-schema), fix the errors and set your desired properties again!
 
 > [!NOTE]
 > A configuration error alert will be fired from the agent in case that the agent was not able to parse the desired configuration.
@@ -90,7 +90,7 @@ To use a default property value, remove the property from the configuration obje
 
 3. Click on **Module Identity Twin**.
 
-4. Edit the desired properties of the security module.
+4. Edit the properties you wish to change in the security module.
    
    For example, to configure connection events as high priority and collect high priority events every 7 minutes, use the following configuration.
    
@@ -117,16 +117,16 @@ To use a default property value, remove the property from the configuration obje
 
 The following table contains the controllable properties of Azure Security Center for IoT security agents.
 
-Default values are available in the proper schema in [Github](https\://aka.ms/iot-security-module-default).
+Default values are available in the proper schema in [GitHub](https\://aka.ms/iot-security-module-default).
 
 | Name| Status | Valid values| Default values| Description |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|highPriorityMessageFrequency|Required: false |Valid values: Duration in ISO 8601 Format |Default value: PT7M |Max time before high priority messages are sent.|
-|lowPriorityMessageFrequency |Required: false|Valid values: Duration in ISO 8601 Format |Default value: PT5H |Max time before low priority messages are sent.| 
-|snapshotFrequency |Require: false|Valid values:Duration in ISO 8601 Format |Default value PT13H |Time interval for the creation of device status snapshots.| 
+|highPriorityMessageFrequency|Required: false |Valid values: Duration in ISO 8601 Format |Default value: PT7M |Max time interval before high priority messages are sent.|
+|lowPriorityMessageFrequency |Required: false|Valid values: Duration in ISO 8601 Format |Default value: PT5H |Max time before low-priority messages are sent.| 
+|snapshotFrequency |Require: false|Valid values: Duration in ISO 8601 Format |Default value PT13H |Time interval for the creation of device status snapshots.| 
 |maxLocalCacheSizeInBytes |Required: false |Valid values: |Default value: 2560000, larger than 8192 | Maximum storage (in bytes) allowed for the message cache of an agent. Maximum amount of space allowed to store messages on the device, before messages are sent.| 
 |maxMessageSizeInBytes |Required: false |Valid values: A positive number, larger than 8192, less than 262144 |Default value: 204800 |Maximum allowed size of an agent to cloud message. This setting controls the amount of maximum data sent in each message. |
-|eventPriority${EventName} |Required: false |Valid values: High, Low, Off |Default values: |Priority of every agent generated event | 
+|eventPriority${EventName} |Required: false |Valid values: High, Low, Off |Default values: |Priority of every agent-generated event | 
 
 ### Supported security events
 
