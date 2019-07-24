@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/26/2019
+ms.date: 07/25/2019
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
@@ -266,7 +266,7 @@ Your template has a `resources` object, which is an array that contains definiti
 For general information about template resources and their attributes, see these topics:
 
 * [Resources - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#resources)
-* [Best practices for template resources](../azure-resource-manager/template-best-practices.md#resources).
+* [Best practices for template resources](../azure-resource-manager/template-best-practices.md#resources)
 
 <a name="logic-app-resource-definition"></a>
 
