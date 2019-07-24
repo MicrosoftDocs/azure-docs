@@ -22,11 +22,11 @@ Got questions? Check out below for more information. Still don't see it? No prob
 
 ### Can I install the extension on my TFS (not Azure DevOps) server? 
 
-No, the extension is not available for download and install for TFS.
+No, the extension isn't available for download and install for TFS.
 
 ### Do I have to run Microsoft Security Code Analysis with my build? 
 
-Yes and no. Depending on the type of analysis tool, the source code itself may be the only thing required or the output of the build may be required. For example, since CredScan analyzes files within the code repository folder structure, you could run the CredScan and Publish Security Analysis logs build tasks in a standalone build to retrieve results.
+Yes and no. Depending on the type of analysis tool, the source code itself may be the only thing that's required or the output of the build may be required. For example, since CredScan analyzes files within the folder structure of the code repository, you could run the CredScan and Publish Security Analysis logs build tasks in a standalone build to retrieve results.
 For other tools that analyze post build artifacts, like BinSkim, the build will be required first.
 
 ### Can I use Microsoft Security Code Analysis to analyze the artifacts of a build that were published to Azure DevOps drop? 
@@ -61,13 +61,13 @@ The build tasks automatically add output paths to the following well-known locat
 
 Yes, all tasks and tools in the extension can be executed on a hosted build agent.
 
->[!Note]
+>[!NOTE]
 > The Anti-Malware build task requires a build agent with Windows Defender enabled, which is true on "Hosted VS2017" build agents. (It will not run on the legacy/VS2015 "Hosted" agent.)
 Signatures cannot be updated on these agents, but the signature should always be relatively current, less than 3 hours old.
 >
 
 ### Can I run these build tasks as part of a Release Pipeline (as opposed to a Build pipeline)? 
-In most cases, Yes.
+In most cases, Yes. 
 However, tasks that publish artifacts are not supported by Azure DevOps to be run from within Release Pipelines: "The only category of tasks not expected to work with Release are the ones that publish artifacts. This is because, as of now, we don’t have support for publishing artifacts within Release".
 This prevents the "Publish Security Analysis Logs" task from running successfully from a release pipeline; it will fail, with a descriptive error message.
 

@@ -25,6 +25,6 @@
       - name: Installation
         href: sca-install.md
       - name: Configuration
-        href: sca-config.md       
+        href: sca-customize.md       
       - name: FAQs
         href: sca-faq.md

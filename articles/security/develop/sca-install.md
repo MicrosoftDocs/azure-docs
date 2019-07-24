@@ -1,7 +1,7 @@
 ---
 title: Security Code Analysis Documentation
 description: This article is introduction to Security Code Analysis Documentation
-author: v-havee
+author: vharindra
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/18/2019
