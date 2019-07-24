@@ -53,9 +53,9 @@ Before you start with this tutorial, make sure to meet the following requirement
 
 You can meet these requirements by completing the steps in the article, [Create an Azure Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md).
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure Databricks workspace
 
@@ -102,6 +102,8 @@ In this section, you create an Azure Databricks workspace using the Azure portal
    * Enter a name for the cluster.
    * For this article, create a cluster with **5.2** runtime.
    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+
+   Select cluster worker and driver node size suitable for your technical criteria and [budget](https://azure.microsoft.com/en-us/pricing/details/databricks/).
 
      Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
@@ -421,7 +423,7 @@ In this tutorial, you learned how to:
 > * Send tweets to Event Hubs
 > * Read tweets from Event Hubs
 
-Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md).
+Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Cognitive Services API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
 >[Sentiment analysis on streaming data using Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)
