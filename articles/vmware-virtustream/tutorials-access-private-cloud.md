@@ -1,6 +1,6 @@
 ---
 title: Azure VMware Solution by Virtustream tutorial - access a private cloud
-description: In this Azure VMware Solution by Virtustream (AVS by Virtustream) tutorial, you access vCenter and NSX Manager in a private cloud from a VNet in Azure and from an on-premises environment.
+description: In this tutorial, you learn how to enable and then access vCenter and NSX Manager in a private cloud.
 services: 
 author: v-jetome
 
@@ -15,7 +15,7 @@ ms.custom:
 
 # Tutorial: Access an Azure VMware Solution by Virtustream private cloud
 
-In this tutorial you request and use an authorization key and resource IDs to create ExpressRoute connections and peer circuits with Global Reach. You then use the new connections to access vCenter in a private cloud from a VNet created in the [create VNet resources tutorial](tutorials-create-vnet-resources.md). Using this tutorial, you learn how to:
+In this tutorial, you request and use an authorization key and resource IDs to create ExpressRoute connections and peer circuits with Global Reach. You then use the new connections to access vCenter in a private cloud from a VNet created in the [create VNet resources tutorial](tutorials-create-vnet-resources.md). Using this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Request an ExpressRoute authorization key
@@ -24,7 +24,7 @@ In this tutorial you request and use an authorization key and resource IDs to cr
 
 ## Prerequisites
 
-Prerquisites:
+Prerequisites:
 - A private cloud 
 - A VNet with an ExpressRoute gateway 
 
@@ -38,7 +38,7 @@ Enter a name for the key and select **Create**.
 
 ![Create an authorization key](./media/access-private-cloud/ss2-create-auth-key.png)
 
-You now have an authorization key that you can use with an ExpressRoute ID for connecting a VNet to an ER circuit, or with a private peering ID for enabling Global Reach on two ER circuits.
+You now have an authorization key that you can use with an ExpressRoute ID or a private peering ID. You use the ExpressRoute ID to connect a VNet to an ER circuit, and you use the private peering ID to peer two ExpressRoute circuits with Global Reach.
 
 ## Use the authorization key and resource ID to connect an ExpressRoute gateway
 
@@ -56,7 +56,7 @@ You now have an ExpressRoute connection to the private cloud from an ExpressRout
 
 ## Connect to vCenter from the Windows VM in your VNet
 
-Log in to the Azure portal and follow [these instructions][connect-login-azure-vm] to connect to the Windows VM you created in the [create VNet resources tutorial](tutorials-create-vnet-resources.md).
+Sign in to the Azure portal and follow [these instructions][connect-login-azure-vm] to connect to the Windows VM you created in the [create VNet resources tutorial](tutorials-create-vnet-resources.md).
 
 In the Azure portal, select your private cloud and then in the **Overview** view, select **Identity > Default**. The URLs and login credentials for private cloud vCenter and NSX-T manager are displayed.
 
@@ -64,11 +64,11 @@ In the Azure portal, select your private cloud and then in the **Overview** view
 
 In the Windows VM, open a browser and navigate to the vCenter and NSX-T Manger URLs in two tabs. In the vCenter tab, enter the "cloudadmin@vmcp.local" user credentials from the previous step.
 
-![Log in to private cloud vCenter](./media/access-private-cloud/ss5-vcenter-login.png)
+![Sign in to private cloud vCenter](./media/access-private-cloud/ss5-vcenter-login.png)
 
 ![Private cloud vSphere home](./media/access-private-cloud/ss6-vsphere-client-home.png)
 
-In the second tab of the browser, log in to NSX-T manager.
+In the second tab of the browser, sign in to NSX-T manager.
 
 ![Private cloud NSX Manger home](./media/access-private-cloud/ss10-nsx-manager-home.png)
 
@@ -78,9 +78,9 @@ You use the procedures in this section to peer an ExpressRoute circuit from on-p
 
 To establish ExpressRoute Global Reach, you will use the **Authorization key** and the **Private peering ID**. This information is available from the private cloud **Overview > Connectivity > ExpressRoute > ExpressRoute**.
 
-You'll use the instruction in [configure ExpressRoute Global Reach by using the Azure CLI][enable Global Reach] documentation to enable the peering. In those intructions, you'll work from the perspective of "Circuit 1".
+You'll use the instruction in [configure ExpressRoute Global Reach by using the Azure CLI][enable Global Reach] documentation to enable the peering. In those instructions, you'll work from the perspective of "Circuit 1".
 
-You now have an on-premises to private cloud ExpressRoute Global Reach connection. You can now connect from on-premises to vCenter and NSX Manager in your private cloud over the ExpressRoute Global Reach connection.
+You now have an on-premises to private cloud ExpressRoute Global Reach connection. You can connect from on-premises to vCenter and NSX Manager in your private cloud over the ExpressRoute Global Reach connection.
 
 ## Next steps
 
