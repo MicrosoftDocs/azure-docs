@@ -1,6 +1,6 @@
 ---
-title: Migrate an OWIN web app to b2clogin.com by supporting multiple token issuers - Azure Active Directory B2C
-description: Learn how to enable a .NET web API to validate tokens from multiple issuers.
+title: Support multiple token issuers in an OWIN-based web application - Azure Active Directory B2C
+description: Learn how to enable a .NET web application to support tokens issued by multiple domains.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -8,14 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/14/2019
+ms.date: 07/29/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Migrate an OWIN application to b2clogin.com by supporting multiple token issuer URIs
+# Support multiple token issuers in an OWIN-based web application
 
-When you're migrating your Azure Active Directory (Azure AD) B2c applications from *login.microsoftonline.com* to *b2clogin.com*, you might want to support tokens issued by both endpoints during the migration. This article provides an example of how to enable multiple issuers in an [Open Web Interface for .NET (OWIN)](http://owin.org/) web application.
+This article describes a technique for enabling support for multiple token issuers in web apps and APIs that implement the [Open Web Interface for .NET (OWIN)](http://owin.org/). Supporting multiple token endpoints is useful when you're migrating Azure Active Directory (Azure AD) B2C applications from *login.microsoftonline.com* to *b2clogin.com*.
+
+The following sections present an example of how to enable multiple issuers in a web application and corresponding web API that use the [Katana][katana] OWIN middleware components. Although the code examples are specific to the Katana OWIN middleware, the general technique should be applicable to other OWIN libraries.
 
 ## Prerequisites
 
@@ -29,27 +31,17 @@ Additionally, you need the following in your local development environment:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
-## Get the sample code
+## Get token issuer endpoints
 
-Start by cloning downloading the repository's \*.zip archive and extracting it to a directory on your local machine, or cloning the [active-directory-b2c-dotnet-webapp-and-webapi][sample-repo] GitHub repository.
-
-Direct download:  [active-directory-b2c-dotnet-webapp-and-webapi-master.zip][sample-archive]
-
-```
-git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
-```
-
-## Get issuer URIs
-
-You now need to get both token issuer URIs that you want to support in your application.
+You first need to get the endpoint URIs for each token issuer you want to support in your application. To get the *b2clogin.com* and *login.microsoftonline.com* endpoints supported by your Azure AD B2C tenant, use the following procedure in the Azure portal.
 
 Start by selecting one of your existing user flows:
 
-1. In the Azure portal, navigate to your Azure AD B2C tenant
+1. Navigate to your Azure AD B2C tenant in the [Azure portal](https://portal.azure.com)
 1. Under **Policies**, select **User flows (policies)**
 1. Select an existing policy, for example *B2C_1_signupsignin1*, then select **Run user flow**
 
-Next, complete the following steps to record the issuer URIs for both domains (`b2clogin.com` and `login.microsoft.com`). You update the sample project with these values in the next section.
+Next, get the issuer URIs from the well-known  for both domains (`b2clogin.com` and `login.microsoft.com`). You update the sample project with these values in the next section.
 
 1. Under the **Run user flow** heading near the top of the page, click the hyperlink to navigate to the user flow's well-known URI.
 
@@ -66,7 +58,17 @@ https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
 https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
 ```
 
-## Update the code with issuer URLs
+## Get the code sample
+
+Now that you have both token endpoint URIs, download or clone the [active-directory-b2c-dotnet-webapp-and-webapi][sample-repo] sample application.
+
+Direct \*.zip archive download: [active-directory-b2c-dotnet-webapp-and-webapi-master.zip][sample-archive]
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
+```
+
+## Update the code sample
 
 In this section, you update the sample code to enable support for both well-known URIs.
 
@@ -111,3 +113,6 @@ In each case, when you **[PERFORM OPERATION]** you should see **[EXPECTED BEHAVI
 <!-- LINKS - External -->
 [sample-repo]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi
 [sample-archive]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip
+
+<!-- LINKS - Internal -->
+[katana]: https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/
