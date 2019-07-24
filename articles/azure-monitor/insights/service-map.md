@@ -18,16 +18,16 @@ ms.author: magoedte
 # Using Service Map solution in Azure
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
-The key difference between the Service Map solution and [Azure Monitor for VMs Map](vminsights-maps.md) feature are the following:
+This article describes the details of onboarding and using Service Map. For information about configuring the prerequisites for this solution, see [Enable the Azure Monitor for VMs overview](vminsights-enable-overview.md#prerequisites). To summarize, you need the following:
 
-* Ability to create Machine Groups to select which computers belong together and view as a group on a map.
-* Integration with Service Desk using the IT Service Management Connector, [Change Tracking](../../automation/change-tracking.md), [Azure Security Center](../../security-center/security-center-intro.md), and [Update Management](../../automation/automation-update-management.md). 
+1. A Log Analytics workspace to install this solution.
 
-This article describes the details of onboarding and using Service Map. For information about configuring Service Map and onboarding agents, see [Configuring Service Map solution in Azure]( service-map-configure.md).
+2. The Log Analytics agent installed on the Windows computer or Linux server.
+
+3. The dependency agent installed on the Windows computer or Linux server.
 
 >[!NOTE]
->If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../../azure-monitor/insights/vminsights-overview.md).
-
+>If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../../azure-monitor/insights/vminsights-overview.md). To learn about the differences between the Service Map solution and Azure Monitor for VMs Map feature, see the following [FAQ](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map).
 
 ## Sign in to Azure
 
