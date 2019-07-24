@@ -28,7 +28,7 @@
   - name: Architecture
     href: ../iot-central/concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - name: Connectivity
-    href: ../iot-central/concepts-connectivity.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    href: ../iot-central/concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
 - name: How-to guides
   items:
   - name : Connect devices
@@ -36,17 +36,17 @@
       - name: Generate a device connection string
         href: ../iot-central/howto-generate-connection-string.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Prepare and connect a Node.js (generic) application 
-        href: ../iot-central/howto-connect-nodejs.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-connect-nodejs-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Prepare and connect an MXChip IoT DevKit
-        href: ../iot-central/howto-connect-devkit.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Prepare and connect a Raspberry Pi (Python)
-        href: ../iot-central/howto-connect-raspberry-pi-python.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-connect-raspberry-pi-python-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Prepare and connect a Raspberry Pi (C#)
-        href: ../iot-central/howto-connect-raspberry-pi-csharp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-connect-raspberry-pi-csharp-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Prepare and connect a Windows IoT Core device
-        href: ../iot-central/howto-connect-windowsiotcore.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-connect-windowsiotcore-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Prepare and connect a SensorTile.box device
-        href: ../iot-central/howto-connect-sensortile.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-connect-sensortile-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Monitor device connectivity using command line
         href: ../iot-central/howto-use-iotc-explorer.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - name: Manage devices
@@ -74,22 +74,22 @@
       - name: Export your data
         items:
         - name: Export to Event Hubs and Service Bus
-          href: ../iot-central/howto-export-data-event-hubs-service-bus.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          href: ../iot-central/howto-export-data-event-hubs-service-bus-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: Export to Blob Storage
-          href: ../iot-central/howto-export-data-blob-storage.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          href: ../iot-central/howto-export-data-blob-storage-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Create custom rules
         href: ../iot-central/howto-create-custom-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Create custom analytics
         href: ../iot-central/howto-create-custom-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Visualize your data in Power BI
-        href: ../iot-central/howto-connect-powerbi.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-connect-powerbi-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Connect other IoT clouds
         href: ../iot-central/howto-build-iotc-device-bridge.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
 
   - name : Administration
     items:
       - name: Administer your application
-        href: ../iot-central/howto-administer.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json  
+        href: ../iot-central/howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json  
       - name: Prepare and upload image
         href: ../iot-central/howto-prepare-images.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Configure application dashboard

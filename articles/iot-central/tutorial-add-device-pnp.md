@@ -73,7 +73,7 @@ As an operator, you can learn how to:
 As a device developer, you can learn how to:
 
 > [!div class="nextstepaction"]
-> [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 
 

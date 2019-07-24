@@ -121,7 +121,7 @@ The continuous data export page is where an administrator defines how to stream 
 
 ![Administration page](media/overview-iot-central-tour-pnp/administration.png)
 
-The administration page contains links to the tools an administrator uses such as defining users and roles in the application, and customizing the UI. To learn more, see the [Administer your Azure IoT Central application](howto-administer.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
+The administration page contains links to the tools an administrator uses such as defining users and roles in the application, and customizing the UI. To learn more, see the [Administer your Azure IoT Central application](howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 
 ## Next steps
 
