@@ -16,11 +16,7 @@ that presents the biggest obstacle.
 A community maintained solution named
 [Datum](https://github.com/gaelcolas/Datum)
 has been created to resolve this challenge.
-
-Datum builds on great ideas from
-[Puppet Hiera](https://puppet.com/docs/puppet/5.3/hiera_intro.html),
-[Chef Databags](https://docs.chef.io/policy.html),
-and [Ansible Playbooks](http://docs.ansible.com/ansible/latest/playbooks_intro.html),
+Datum builds on great ideas from other configuration management platforms
 and implements the same type of solution for PowerShell DSC.
 Information is
 [organized in to text files](https://github.com/gaelcolas/Datum#3-intended-usage)
@@ -42,10 +38,10 @@ you can use them with
 [DSC Configuration scripts](configurations.md)
 to generate MOF files
 and
-[upload the MOF files to Azure Automation](https://docs.microsoft.com/en-us/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+[upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Then register your servers from either
-[on-premises](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws)
-or [in Azure](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding#azure-virtual-machines)
+[on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws)
+or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)
 to pull configurations.
 
 To try out Datum, visit the
