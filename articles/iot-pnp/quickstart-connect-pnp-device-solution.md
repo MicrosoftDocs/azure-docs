@@ -1,9 +1,9 @@
 ---
-title: Connect Plug and Play device to solution | Microsoft Docs
-description: Connect a Plu and Play device to my solution
+title: Connect an IoT Plug and Play device to your Azure IoT solution | Microsoft Docs
+description: Connect an IoT Plug and Play device to my Azure IoT solution using Node.js
 author: miagdp
 ms.author: miag
-ms.date: 06/26/2019
+ms.date: 07/24/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -12,15 +12,15 @@ ms.custom: mvc
 # As a solution developer, I want to connect a Plug and Play device to my solution so I can collect telemetry and control the device.
 ---
 
-# Quickstart: Connect a Plug and Play device to your solution
+# Quickstart: Connect an IoT Plug and Play device to your solution
 
-Plug and Play simplifies IoT by enabling you to interact with device capabilities without knowledge of the underlying device implementation. This quickstart shows you how to connect with a Plug and Play device to your solution.
+IoT Plug and Play simplifies IoT by enabling you to interact with device capabilities without knowledge of the underlying device implementation. This quickstart shows you how to connect with an IoT Plug and Play device to your solution.
 
 ## Prerequisites
 
 1. Download Node.js from [nodejs.org](https://nodejs.org).
 
-1. [Install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 1. Add the Microsoft Azure IoT Extension for Azure CLI.
 
@@ -46,9 +46,9 @@ Plug and Play simplifies IoT by enabling you to interact with device capabilitie
 
 ## Connect your device
 
-In this quickstart, you use a sample environmental sensor that's written in Node.js as the Plug and Play device. The following instructions show you how to install and run the device:
+In this quickstart, you use a sample environmental sensor that's written in Node.js as the IoT Plug and Play device. The following instructions show you how to install and run the device:
 
-1. Clone the Github repository:
+1. Clone the GitHub repository:
 
     ```cmd/sh
     git clone http://github.com/Azure/NodeSamplePlaceHolder
@@ -189,9 +189,9 @@ To delete the hub and registered device, complete the following steps using the 
 az group delete --name <Your group name>
 ```
 
-## Next step
+## Next steps
 
-In this quickstart, you've learned how to connect a Plug and Play device to a IoT solution. To learn more about how to find Plug and Play devices to connect to your solution, see:
+In this quickstart, you've learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about how to find IoT Plug and Play devices to connect to your solution, see:
 
 > [!div class="nextstepaction"]
-> How-to: Use the device catalog to find devices
+> [How-to: Use the device catalog to find devices](howto-onboard-portal.md)
