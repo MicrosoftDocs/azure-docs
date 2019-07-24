@@ -27,12 +27,12 @@ You learn how to:
 
 ## Prerequisties
 
-An NSX-T logical switch segment created in a [previous tutorial](tutorials-nsx-t1-ls.md) is required to complete this tutorial.
+An NSX-T logical switch segment created in a [previous tutorial](tutorials-create-t1-ls.md) is required to complete this tutorial.
 
 ## Create Content Library
 
 1. Using the HTML5 interface, sign on to your private cloud vCenter instance. (HTML5 Interface)
-    1. https://<IPAddressofyourVCSA>/ui
+    1. https://IPAddressofyourVCSA/ui
 1. Select **Menu > Content Libraries**
     *  ![Select Menu -> Content Libraries](./media/create-vm/vsphere-menu-content-libraries.png)
 1. Select **+** to create a new content library.
