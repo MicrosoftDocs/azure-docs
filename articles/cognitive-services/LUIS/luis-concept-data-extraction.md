@@ -143,29 +143,7 @@ For example, in German, the word `das Bauernbrot` is tokenized into `das bauern 
 
 ## Simple entity data
 
-A [simple entity](luis-concept-entity-types.md) is a machine-learned value. It can be a word or phrase.
-
-`Bob Jones wants 3 meatball pho`
-
-In the previous utterance, `Bob Jones` is labeled as a simple `Customer` entity.
-
-The data returned from the endpoint includes the entity name, the discovered text from the utterance, the location of the discovered text, and the score:
-
-```JSON
-"entities": [
-  {
-  "entity": "bob jones",
-  "type": "Customer",
-  "startIndex": 0,
-  "endIndex": 8,
-  "score": 0.473899543
-  }
-]
-```
-
-|Data object|Entity name|Value|
-|--|--|--|
-|Simple Entity|`Customer`|`bob jones`|
+A [simple entity](reference-entity-simple.md) is a machine-learned value. It can be a word or phrase.
 
 ## Composite entity data
 [Composite](luis-concept-entity-types.md) entities are machine-learned and can include a word or phrase. For example, consider a composite entity of prebuilt `number` and `Location::ToLocation` with the following utterance:
