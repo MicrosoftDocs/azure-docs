@@ -15,7 +15,7 @@ ms.author: diberry
 
 A simple entity is a generic entity that describes a single concept and is learned from the machine-learned context. Because simple entities are generally names such as company names, product names, or other categories of names, add a [phrase list](luis-concept-feature.md) when using a simple entity to boost the signal of the names used. 
 
-The entity is a good fit when:
+**The entity is a good fit when:**
 
 * The data aren't consistently formatted but indicate the same thing. 
 

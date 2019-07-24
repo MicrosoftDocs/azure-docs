@@ -15,7 +15,7 @@ ms.author: diberry
 
 A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity. 
 
-This entity is a good fit when the data:
+**This entity is a good fit when the data:**
 
 * Are related to each other. 
 * Are related to each other in the context of the utterance.

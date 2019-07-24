@@ -17,7 +17,7 @@ List entities represent a fixed, closed set of related words along with their sy
 
 A list entity isn't machine-learned. It is an exact text match. LUIS marks any match to an item in any list as an entity in the response. 
 
-The entity is a good fit when the text data:
+**The entity is a good fit when the text data:**
 
 * Are a known set.
 * Doesn't change often. If you need to change the list often or want the list to self-expand, a simple entity boosted with a phrase list is a better choice. 

@@ -325,7 +325,7 @@
       href: reference-entity-composite.md
     - name: List entity
       href: reference-entity-list.md
-    - name: Pattern entity
+    - name: Pattern.any entity
       href: reference-entity-pattern-any.md
     - name: Regular expression entity
       href: reference-entity-regular-expression.md      

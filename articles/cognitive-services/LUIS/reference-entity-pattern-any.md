@@ -15,13 +15,11 @@ ms.author: diberry
 
 Pattern.any is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.  
 
-The entity is a good fit when:
+Pattern.any entities need to be marked in the [Pattern](luis-how-to-model-intent-pattern.md) template examples, not the intent user examples.
+
+**The entity is a good fit when:**
 
 * The ending of the entity can be confused with the remaining text of the utterance. 
-[Tutorial](luis-tutorial-pattern.md)<br>
-[Example JSON response for entity](luis-concept-data-extraction.md#patternany-entity-data)
-
-Pattern.any entities need to be marked in the [Pattern](luis-how-to-model-intent-pattern.md) template examples, not the intent user examples. 
 
 ## Usage
 
