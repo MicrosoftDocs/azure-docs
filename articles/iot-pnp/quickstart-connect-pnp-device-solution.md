@@ -30,7 +30,7 @@ IoT Plug and Play simplifies IoT by enabling you to interact with device capabil
 
 1. Register a device in IoT Hub.
 
-   Run the following command in Azure Cloud Shell to create the device identity. Replace the **YourIoTHubName** and **YourDevice** with your actual names. If you don't have an IoT Hub, follow the instructions [here](../iot-hub/iot-hub-create-using-cli.md) to create one.
+   Run the following command to create the device identity. Replace the **YourIoTHubName** and **YourDevice** with your actual names. If you don't have an IoT Hub, follow the instructions [here](../iot-hub/iot-hub-create-using-cli.md) to create one.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
@@ -38,7 +38,7 @@ IoT Plug and Play simplifies IoT by enabling you to interact with device capabil
 
 1. Get the device connection string.
 
-    Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
+    Run the following commands to get the _device connection string_ for the device you just registered:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
@@ -51,10 +51,13 @@ In this quickstart, you use a sample environmental sensor that's written in Node
 1. Clone the GitHub repository:
 
     ```cmd/sh
-    git clone http://github.com/Azure/NodeSamplePlaceHolder
+    git clone https://github.com/azure-samples/azure-iot-samples-node
     ```
 
-1. In a terminal, go to the root folder of your cloned repository, navigate to the **Device** folder, and install all the dependencies by running the following command:
+    > [!NOTE]
+    > For bug bash, we don't have the packages publicly published yet. Please copy everything from _\\\pierreca-dev\pnp-node-sdk-preview-2019-7-17_ folder into a local folder in your computer. In later steps, please replace with _/samples/device directory_ for running the device sample, and replace with _/samples/service directory_ for running the device sample. 
+
+1. In a terminal, go to the root folder of your cloned repository, navigate to the **/azure-iot-samples-node/tree/master/digital-twins/Quickstarts/Device** folder, and then install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
@@ -71,14 +74,13 @@ In this quickstart, you use a sample environmental sensor that's written in Node
     ```cmd/she
     node simple_sample.js
     ```
-
-1. You see messages saying that the device has sent telemetry and updated its properties. The device is now ready to receive commands and property updates. Don't close this terminal, you need it later to confirm the service samples also worked.
+1. You see messages saying that the device has sent telemetry and its properties. The device is now ready to receive commands and property updates. Don't close this terminal, you need it later to confirm the service samples also worked.
 
 ## Build the solution
 
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device.
 
-1. Open another terminal. Go to the folder of your cloned repository, and navigate to the **Service** folder. Install all the dependencies under this folder by running the following command:
+1. Open another terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-node/tree/master/digital-twins/Quickstarts/Service** folder. Install all the dependencies install this folder by running the following command:
 
     ```cmd/sh
     npm install
@@ -87,14 +89,27 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 1. Configure the _hub connection string_:
 
     ```cmd/sh
-    set IOTHUB_CONNECTION_STRING=<your device connection string>
+    set IOTHUB_CONNECTION_STRING=<your hub connection string>
     ```
 
+### Read a property
+1. When you connect the device in the terminal, you  see this message:
+    ```
+    reported state property as online
+    ```
+2. Open the file **get_digital_twin.js**. Replace the `deviceID` with the your device ID and save the file.
+3. Go to the terminal you opened for running service sample, and run following command.
+    ```cmd/sh
+    node get_digital_twin.js
+    ```
+1. In the output, under the _environmentalSensor_ component, you should see the same state has been reported.
+    ```
+    reported state property as online
+    ```
 ### Update a writable property
-
 1. Open the file **update_digital_twin_property.js**.
 
-1. At the beginning of the file there is a set of constants defined with uppercase placeholders. Replace the `deviceID` with the ID you created earlier, update the constants with the following values, and then save the file:
+1. At the beginning of the file there is a set of constants defined with uppercase placeholders. Replace the **deviceID** with your actual device ID, update the constants with the following values and save the file.
 
     ```javascript
     const componentName = 'environmentalSensor';
@@ -102,13 +117,13 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     const propertyValue = 60;
     ```
 
-1. Use the following command to run the sample:
+1. Go to the terminal you opened for running service sample, and use the following command to run the sample:
 
     ```cmd/sh
     node update_digital_twin_property.js
     ```
 
-1. In the service terminal, you see the digital twin information associated with your device. Find the component _environmentalSensor_, you see the new brightness value 60.
+1. In the terminal, you see the digital twin information associated with your device. Find the component _environmentalSensor_, you see the new brightness value 60.
 
     ```json
         "environmentalSensor": {
@@ -136,7 +151,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
       }
     ```
 
-1. Go to your device terminal, you should see  the device has received the update:
+1. Go to your _device_ terminal, you should see  the device has received the update:
 
     ```cmd/sh
     Received an update for brightness: 60
@@ -147,20 +162,20 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 
 1. Open the file **invoke_command.js**.
 
-1. At the beginning of the file, replace the `deviceID` with the ID you created earlier, update the constants with the following values, and then save the file:
+1. At the beginning of the file, replace the `deviceID` with your actual device ID. Update the constants with the following values, and then save the file:
 
     ```javascript
     const componentName = 'environmentalSensor'; 
     const commandName = 'blink';
     ```
 
-1. Go back to your service terminal. Use the following command to run the sample.
+1. Go to the terminal you opened for running service sample. Use the following command to run the sample.
 
     ```cmd/sh
     node invoke_command.js
     ```
 
-1. In the service terminal, success looks like the following output:
+1. In the terminal, success looks like the following output:
 
     ```cmd/sh
     invoking command blink on component environmentalSensor for device test...
@@ -172,7 +187,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     }
     ```
 
-1. Go to the device terminal, you see the command has been acknowledged:
+1. Go to the _device_ terminal, you see the command has been acknowledged:
 
     ```cmd/sh
     received command: blink for component: environmentalSensor
