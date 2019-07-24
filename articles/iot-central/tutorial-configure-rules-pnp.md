@@ -31,52 +31,32 @@ Before you begin, you should complete the [Define a new device type in your appl
 
 ## Create a telemetry-based rule
 
-1. To add a new telemetry-based rule to your application, in the left navigation menu, select **Device Templates**:
+1. To add a new telemetry-based rule to your application, in the left navigation menu, select **Rules**.
+1. To create a new rule, select **+ New**. Then choose **Telemetry**.
+1. Enter **Environmental temperature** as the rule name.
+1. In the Scope section, select the **Environment Sensor** as the device template. Scope is what devices should this rule be applied on. Filter further using **+ Filter**.
+1. In the Condition section, to define what your rule will trigger on, use the information below.
 
-    ![Device Templates page](media/tutorial-configure-rules-pnp/templatespage1.png)
-
-    You see the **Connected Air Conditioner (1.0.0)** device template you created in the previous tutorial.
-
-2. To customize your device template, select the **Connected Air Conditioner** template you created in the previous tutorial.
-
-3. To add a telemetry-based rule in the **Rules** view, select **Rules**, select **+ New Rule**, and then select **Telemetry**:
-
-    ![Rules view](media/tutorial-configure-rules-pnp/newrule.png)
-
-5. To define your rule, use the information in the following table:
-
-    | Setting                                      | Value                             |
+    | Field                                        | Value                             |
     | -------------------------------------------- | ------------------------------    |
-    | Name                                         | Air conditioner temperature alert |
-    | Enable rule for all devices of this template | On                                |
-    | Condition                                    | Temperature is greater than 90    |
-    | Aggregation                                  | None                              |
+    | Measurement                                  | Temperature                       |
+    | Operator                                     | is greater than                   |
+    | Value                                        | 90                                |
 
-    ![Temperature rule condition](media/tutorial-configure-rules-pnp/temperaturerule.png)
+ To add more, select **+ Condition**.
 
-    Then select **Save**.
+1. To add an action that runs when the rule is triggered, select **+ Action**, and choose **Email**.
+1. To define your action use the information in the following table.
 
-## Add an action
-
-When you define a rule, you also define an action to run when the rule conditions are met. In this tutorial, you create a rule with an action that sends an email notification.
-
-1. To add an **Action**, first **Save** the rule and then scroll down on the **Configure Telemetry Rule** panel. Choose the **+** next to **Actions**, and then choose **Email**:
-
-    ![Temperature rule action](media/tutorial-configure-rules-pnp/addaction.png)
-
-2. To define your action, use the information in the following table:
-
-    | Setting   | Value                          |
-    | --------- | ------------------------------ |
-    | To        | Your email address             |
-    | Notes     | Air conditioner temperature exceeded the threshold. |
+    | Setting   | Value                                             |
+    | --------- | ------------------------------------------------- |
+    | To        | Your email address                                |
+    | Notes     | Environmental temperature exceeded the threshold. |
 
     > [!NOTE]
     > To receive an email notification, the email address must be a [user ID in the application](howto-administer.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json), and that user must have signed in to the application at least once.
 
-    ![Temperature action](media/tutorial-configure-rules-pnp/temperatureaction.png)
-
-3. Select **Save**. Your rule is listed on the **Rules** page.
+1. Select **Save**. Your rule is listed on the **Rules** page.
 
 ## Test the rule
 
