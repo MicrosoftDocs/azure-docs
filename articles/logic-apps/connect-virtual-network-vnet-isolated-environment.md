@@ -73,7 +73,7 @@ When you use an integration service environment (ISE) with a virtual network, a 
 
 To control the traffic across the virtual network's subnets where you deploy your ISE, you can optionally set up [network security groups (NSGs)](../virtual-network/security-overview.md) in your virtual network by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you choose this route, make sure that your ISE opens specific ports, as described in the following table, on the virtual network that uses the NSGs. If you have existing NSGs or firewalls in your virtual network, make sure that they open these ports. That way, your ISE stays accessible and can work correctly so that you don't lose access to your ISE. Otherwise, if any required ports are unavailable, your ISE stops working.
 
-These tables describe the ports in your virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
+This table describe the ports in your virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
 
 > [!IMPORTANT]
 > For internal communication inside your subnets, 
@@ -183,6 +183,8 @@ In the search box, enter "integration service environment" as your filter.
       > If the subnets you try to create aren't valid, the Azure portal shows a message, 
       > but doesn't block your progress.
 
+   For more information about creating subnets, see [Add a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
+
 1. After Azure successfully validates your ISE information, choose **Create**, for example:
 
    ![After successful validation, choose "Create"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
@@ -209,7 +211,7 @@ In the search box, enter "integration service environment" as your filter.
 
 1. To view your environment, choose **Go to resource** if Azure doesn't automatically go to your environment after deployment finishes.  
 
-For more information about creating subnets, see [Add a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
+1. To check your ISE's network health, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md).
 
 <a name="create-logic-apps-environment"></a>
 
@@ -237,7 +239,9 @@ To create logic apps that run in your integration service environment (ISE), fol
 
 1. Continue [creating your logic app in the usual way](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-For differences in how triggers and actions work and how they're labeled when you use an ISE compared to the global Logic Apps service, see [Isolated versus global in the ISE overview](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
+   For differences in how triggers and actions work and how they're labeled when you use an ISE compared to the global Logic Apps service, see [Isolated versus global in the ISE overview](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
+
+1. To manage logic apps and API connections in your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md).
 
 <a name="create-integration-account-environment"></a>
 
@@ -266,6 +270,8 @@ To create an integration account that uses an ISE, follow these steps:
 
 1. Continue by adding artifacts to your integration account, such as [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) and [agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md).
 
+1. To manage integration accounts in your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md).
+
 <a name="create-custom-connectors-environment"></a>
 
 ## Create custom connectors - ISE
@@ -287,6 +293,8 @@ To use custom connectors in your ISE, create those custom connectors from direct
    ![Select and edit custom connector](./media/connect-virtual-network-vnet-isolated-environment/edit-custom-connectors.png)
 
 1. Continue by creating the connector in the usual way from an [OpenAPI definition](https://docs.microsoft.com/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) or [SOAP](https://docs.microsoft.com/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
+
+1. To manage custom connectors in your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md).
 
 <a name="add-capacity"></a>
 
