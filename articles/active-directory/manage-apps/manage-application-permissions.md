@@ -26,6 +26,17 @@ Being able to perform the actions below requires you to sign in as global admini
 
 To restrict access to applications, you need to require user assignment and then assign users or groups to the application.  For more information, see [Methods for assigning users and groups](methods-for-assigning-users-and-groups.md).
 
+You can access the Azure AD portal to get contextual PowerShell scripts to perform the actions.
+ 
+1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
+2. Click **All services** at the top of the left-hand navigation menu. The **Azure Active Directory Extension** opens.
+3. In the filter search box, type **"Azure Active Directory"** and select the **Azure Active Directory** item.
+4. From the navigation menu, click **Enterprise applications**.
+5. Select the application you want to restrict access.
+6. Select **Permissions**. In the command bar, select **Review permissions**.
+
+![Review permissions](./media/manage-application-permissions/review-permissions.png)
+
 ## I want to control access to an application
 
 We recommend that you restrict access to this application by turning User assignment settign on.
