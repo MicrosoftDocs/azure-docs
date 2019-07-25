@@ -15,11 +15,13 @@ ms.subservice: disks
 
 A regular snapshot is a full, read-only copy of a virtual hard drive (VHD). You can take a snapshot of an OS or data disk VHD to use as a backup or to troubleshoot virtual machine (VM) issues. An incremental snapshot, is a snapshot which consists only of the changes that occured between the last snapshot. It is billed only for that difference in space, is stored on zone redundant storage (ZRS) standard HDDS where it is supported, and is stored on local redundant storage (LRS) standard HDDs where ZRS is not supported.
 
+Functionally, it is identical to a regular snapshot in all other ways. It can be used to create a full managed disk, it can be used to make a full snapshot in the same or another subscription.
+
 ## ARM template
 
 Create an incremental snapshot for a managed disk by setting the apiVersion as 2019-03-01 and setting the incremental property to true as shown below. 
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -29,7 +31,7 @@ Create an incremental snapshot for a managed disk by setting the apiVersion as 2
       "defaultValue": "contosodisk1"
     },
   "diskResourceId": {
-    "defaultValue": "/subscriptions/204d16fb-6c8c-4f53-9296-e73ead084f96/resourceGroups/contoso/providers/Microsoft.Compute/disks/ contosodisk1",
+    "defaultValue": "<your_managed_disk_resource_ID>",
     "type": "String"
   }
   }, 
@@ -40,7 +42,7 @@ Create an incremental snapshot for a managed disk by setting the apiVersion as 2
     "location": "[resourceGroup().location]",
     "apiVersion": "2019-03-01",
     "sku": {
-      "name": "Standard_LRS"
+      "name": "Standard_ZRS"
     },
     "properties": {
       "creationData": {
