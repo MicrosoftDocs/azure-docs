@@ -191,6 +191,19 @@ Use customizations when you need to modify an imported interface or add IoT Cent
 
 You can't customize the capability name or capability type. If there are changes you can't make in the **Customize** section, you'll need to version your device template and interface to modify the capability.
 
+>[!NOTE]
+>Bug bash: We are currently testing a left-hand panel for adding elements into your view in the Device Template page vs. a right-hand panel for adding elements into your view in the Dashboard page. Please leave us feedback and preferences in the Teams channel.
+
+### Generate default views
+
+Generating default views is a quick way to get started with visualizing your important device information. You will have up to three default views generated for your device template:
+
+1. **Commands** will provide a view with device commands and will allow your operator to dispatch them to your device.
+1. **Overview** will provide a view with device telemetry, displaying charts and metrics.
+1. **About** will provide a view with device information, displaying device properties.
+
+Once you have selected **Generate default views** you will see that they have been automatically added under the **Views** section of your device template.
+
 ## Add dashboards
 
 Add dashboards to a device template to enable operators to visualize a device using charts and metrics. You can have multiple dashboards for a device template.
