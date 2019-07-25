@@ -27,6 +27,12 @@ This article describes how you can add authorization to your web API. This prote
 - Applications on behalf of users who have the right scopes.
 - Daemon apps that have the right application roles.
 
+> [!INFO]
+> The code snippets from this article are extracted from the following samples, which are fully functional
+>
+> - [ASP.NET Core Web API incremental tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs#L37) on GitHub
+> - [ASP.NET Web API sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/dfd0115533d5a230baff6a3259c76cf117568bd9/TodoListService/Controllers/TodoListController.cs#L48)
+
 To protect an ASP.NET/ASP.NET Core web API, you'll need to add the `[Authorize]` attribute on one of these:
 
 - The controller itself, if you want all the actions of the controller to be protected
@@ -104,7 +110,7 @@ The `VerifyUserHasAnyAcceptedScope` method would do something like the following
     }
 ```
 
-This sample code is for ASP.NET Core. For ASP.NET, just replace `HttpContext.User` with `ClaimsPrincipal.Current`, and replace the claim type `"http://schemas.microsoft.com/identity/claims/scope"` with `"scp"`. (See also the code snippet later in this article.)
+This [sample code](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/Microsoft.Identity.Web/Resource/ScopesRequiredByWebAPIExtension.cs#L47) is for ASP.NET Core. For ASP.NET, just replace `HttpContext.User` with `ClaimsPrincipal.Current`, and replace the claim type `"http://schemas.microsoft.com/identity/claims/scope"` with `"scp"`. (See also the code snippet later in this article.)
 
 ## Verifying app roles in APIs called by daemon apps
 
@@ -144,7 +150,7 @@ private void ValidateAppRole(string appRole)
 }
 ```
 
-This sample code is for ASP.NET. For ASP.NET Core, just replace `ClaimsPrincipal.Current` with `HttpContext.User`, and replace the `"roles"` claim name with `"http://schemas.microsoft.com/identity/claims/roles"`. (See also the code snippet earlier in this article.)
+This time, the code snippet is for ASP.NET. For ASP.NET Core, just replace `ClaimsPrincipal.Current` with `HttpContext.User`, and replace the `"roles"` claim name with `"http://schemas.microsoft.com/identity/claims/roles"`. (See also the code snippet earlier in this article.)
 
 ### Accepting app-only tokens if the web API should be called only by daemon apps
 
@@ -153,8 +159,8 @@ The `roles` claim is also used for users in user assignment patterns. (See [How 
 If you want to allow only daemon apps to call your web API, add a condition, when you validate the app role, that the token is an app-only token:
 
 ```CSharp
-string oid = ClaimsPrincipal.Current.FindFirst("oid");
-string sub = ClaimsPrincipal.Current.FindFirst("sub");
+string oid = ClaimsPrincipal.Current.FindFirst("oid")?.Value;
+string sub = ClaimsPrincipal.Current.FindFirst("sub")?.Value;
 bool isAppOnlyToken = oid == sub;
 ```
 
