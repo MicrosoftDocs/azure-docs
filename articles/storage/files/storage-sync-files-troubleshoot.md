@@ -46,10 +46,11 @@ This message appears if Az or AzureRM PowerShell module is not installed on Powe
 
 To install the Az or AzureRM module on PowerShell 5.1, perform the following steps:
 
-- Type **powershell** from an elevated command prompt and hit enter.
-- Install the latest Az or AzureRM module by following the documentation:
+1. Type **powershell** from an elevated command prompt and hit enter.
+2. Install the latest Az or AzureRM module by following the documentation:
 	- [Az module (requires .NET 4.7.2)](https://go.microsoft.com/fwlink/?linkid=2062890)
 	- [AzureRM module]( https://go.microsoft.com/fwlink/?linkid=856959)
+3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
 
 <a id="server-already-registered"></a>**Server Registration displays the following message: "This server is already registered"** 
 
