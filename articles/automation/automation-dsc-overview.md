@@ -78,7 +78,7 @@ Ubuntu	| 18.04
 ### DSC requirements
 
 For all Windows nodes running in Azure,
-[WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure)
+[WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure)
 will be installed during onboarding.  For nodes running Windows Server 2012 and Windows 7,
 [WinRM will be enabled](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
@@ -96,6 +96,26 @@ the following port and URLs are required for State Configuration (DSC) to commun
 * Global URL of US Gov Virginia: *.azure-automation.us
 * Agent service: https://\<workspaceId\>.agentsvc.azure-automation.net
 
+This provides network connectivity for the managed node to communicate with Azure Automation.
+If you are using DSC resources that communicate between nodes,
+such as the [WaitFor* resources](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource),
+you will also need to allow traffic between nodes.
+See the documentation for each DSC resource to understand those network requirements.
+
+#### Proxy Support
+
+Proxy support for the DSC agent is available in Windows version 1809 and later.
+To configure this option,
+set the value for **ProxyURL** and **ProxyCredential** in the
+[metaconfiguration script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations)
+used to register nodes.
+Proxy is not available in DSC for previous versions of Windows.
+
+For Linux nodes,
+the DSC agent supports proxy and will utilize the http_proxy variable to determine the url.
+
+#### Azure State Configuration network ranges and namespace
+
 It's recommended to use the addresses listed when defining exceptions. For IP addresses you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and has the currently deployed ranges and any upcoming changes to the IP ranges.
 
 If you have an Automation account that's defined for a specific region, you can restrict communication to that regional datacenter. The following table provides the DNS record for each region:
@@ -104,6 +124,7 @@ If you have an Automation account that's defined for a specific region, you can 
 | --- | --- |
 | West Central US | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | South Central US |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| East US	| eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
 | East US 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | Canada Central |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | West Europe |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |

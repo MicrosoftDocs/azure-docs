@@ -4,9 +4,9 @@ description: This article describes how to configure security and permissions as
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 This article discusses the two types of Azure Time Series Insights Preview access policies.
 
-## Sign in to TSI
+## Sign in to Time Series Insights
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Locate your Time Series Insights environment. Enter `Time Series` in the **Search** box. Select **Time Series Environment** in the search results.
@@ -31,7 +31,7 @@ Follow these steps to grant data access for a user principal.
 
     [![Data-access-one](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
-1. Choose **Select user**. Search for the user name or email address to locate the user you want to add. Click **Select** to confirm the selection.
+1. Choose **Select user**. Search for the user name or email address to locate the user you want to add. Select **Select** to confirm the selection.
 
     [![Data-access-two](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
@@ -71,7 +71,7 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
     [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
-1. Choose **Select user**. Search for the email address of the guest user you invited to locate the user you want to add. Click **Select** to confirm the selection.
+1. Choose **Select user**. Search for the email address of the guest user you invited to locate the user you want to add. Then, **Select** to confirm the selection.
 
     [![Data-access-nine](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 

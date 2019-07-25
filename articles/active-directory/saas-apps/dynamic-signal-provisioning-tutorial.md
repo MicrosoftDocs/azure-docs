@@ -6,16 +6,15 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd
-
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
-ms.author: zchia
+ms.date: 05/07/2019
+ms.author: "jeedes"
 ---
 
 # Tutorial: Configure Dynamic Signal for automatic user provisioning
@@ -80,7 +79,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Dynamic Signal in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Enterprise Applications**, select **All applications**, then select **Dynamic Signal**.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
@@ -100,11 +99,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 6. In the Dynamic Signal admin console, navigate to **Admin > Advanced > API**.
 
-	![Dynamic Signal Provisioning](./media/dynamicsignal-provisioning-tutorial/secret-token-1.png)
+	![Dynamic Signal Provisioning](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
 
 	Copy the **SCIM API URL** to **Tenant URL**. Click on **Generate New Token** to generate a **Bearer Token** and copy the value to **Secret Token**.
 
-	![Dynamic Signal Provisioning](./media/dynamicsignal-provisioning-tutorial/secret-token-2.png)
+	![Dynamic Signal Provisioning](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Dynamic Signal. If the connection fails, ensure your Dynamic Signal account has Admin permissions and try again.
 
@@ -118,11 +117,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Dynamic Signal**.
 
-	![Dynamic Signal User Mappings](media/dynamicsignal-provisioning-tutorial/user-mappings.png)
+	![Dynamic Signal User Mappings](media/dynamic-signal-provisioning-tutorial/user-mappings.png)
 
 11. Review the user attributes that are synchronized from Azure AD to Dynamic Signal in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Dynamic Signal for update operations. Select the **Save** button to commit any changes.
 
-	![Keeper User Attributes](media/dynamicsignal-provisioning-tutorial/user-mapping-attributes.png)
+	![Dynamic Signal User Attributes](media/dynamic-signal-provisioning-tutorial/user-mapping-attributes.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -156,7 +155,3 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 * [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

@@ -2,8 +2,8 @@
 title: Azure Active Directory for developers (v1.0) overview
 description: This article provides an overview of signing in Microsoft work and school accounts by using the Azure Active Directory v1.0 endpoint and platform.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

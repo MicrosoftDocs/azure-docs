@@ -4,7 +4,7 @@ description: Learn about specific considerations when using Xamarin Android with
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
@@ -62,6 +62,11 @@ Conversation Transcription expects multichannel audio streams and user profiles 
 > For specification and design details, see [Microsoft Speech Device SDK Microphone](https://aka.ms/cts/microphone). To learn more or purchase a development kit, see [Get Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
 
 To learn how to use Conversation Transcription with the Speech Devices SDK, see [How to use conversation transcription](https://aka.ms/cts/howto).
+
+
+## Quick Start with a sample app
+
+Microsoft Speech Device SDK has a quick start sample app for all device related samples. Conversation Transcription is one of them. You can find it in [Speech Device SDK android quickstart](https://aka.ms/sdsdk-quickstart) with sample app and its source code for your reference.
 
 ## Next steps
 

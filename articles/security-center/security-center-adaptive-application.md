@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Adaptive application controls in Azure Security Center

@@ -123,10 +123,10 @@ To configure Azure AD single sign-on with Leapsome, perform the following steps:
 
 	| Name | Source Attribute | Namespace |
 	| ---------------| --------------- | --------- |  
-	| firstname | user.givenname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| lastname | user.surname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| title | user.jobtitle | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| picture | URL to the employee's picture | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| firstname | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| title | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| picture | URL to the employee's picture | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 	| | |
 
 	> [!Note]
@@ -241,7 +241,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Leapsome test user
 
-In this section, you create a user called Britta Simon in Leapsome. Work with [Leapsome Client support team](mailto:support@leapsome.com) to add the users or the domain, which needs to be whitelisted in the Leapsome platform. If the domain is added by the team, users will get automatically provisioned to the Leapsome platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Leapsome. Work with [Leapsome Client support team](mailto:support@leapsome.com) to add the users or the domain that must be added to an allow list for the Leapsome platform. If the domain is added by the team, users will get automatically provisioned to the Leapsome platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
@@ -255,4 +255,4 @@ When you click the Leapsome tile in the Access Panel, you should be automaticall
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

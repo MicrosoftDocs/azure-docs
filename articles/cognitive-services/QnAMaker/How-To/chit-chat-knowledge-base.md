@@ -3,13 +3,13 @@ title: Adding chit-chat to a QnA Maker knowledge base
 titleSuffix: Azure Cognitive Services
 description: Adding personal chit-chat to your bot makes it more conversational and engaging when you create a KB. QnA Maker allows you to easily add a pre-populated set of the top chit-chat, into your KB. 
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/07/2019
-ms.author: tulasim
+ms.date: 05/10/2019
+ms.author: diberry
 ms.custom: seodec18
 ---
 
@@ -19,17 +19,19 @@ Adding chit-chat to your bot makes it more conversational and engaging. The chit
 
 This dataset has about 100 scenarios of chit-chat in the voice of multiple personas, like Professional,Friendly and Witty. Choose the persona that most closely resembles your bot's voice. Given a user query, QnA Maker tries to match it with the closest known chit-chat QnA.  
 
-Some examples of the different personalities are below. You can see all the personality datasets along with details of the personalities [here](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets).
+Some examples of the different personalities are below. You can see all the personality [datasets](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) along with details of the personalities.
+
+For the user query of `When is your birthday?`, each personality has a styled response:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|User query|Professional|Friendly|Witty|
-|--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
-|`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
-
-
+|Personality|Example|
+|--|--|
+|Professional|Age doesn't really apply to me.|
+|Friendly|I don't really have an age.|
+|Witty|I'm age-free.|
+|Caring|I don't have an age.|
+|Enthusiastic|I'm a bot, so I don't have an age.|
+||
 
 > [!NOTE]
 > Chit-chat support is currently available in English only. 

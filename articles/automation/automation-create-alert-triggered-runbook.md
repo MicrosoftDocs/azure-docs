@@ -4,8 +4,8 @@ description: Learn how to trigger a runbook to run when an Azure alert is raised
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
@@ -16,7 +16,7 @@ You can use [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomati
 
 ## Alert types
 
-You can use automation runbooks with four alert types:
+You can use automation runbooks with three alert types:
 
 * Common alerts
 * Activity log alerts

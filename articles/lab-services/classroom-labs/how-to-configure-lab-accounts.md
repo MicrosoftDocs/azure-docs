@@ -60,7 +60,6 @@ Here are some restrictions when specifying the address range that you should kee
 
     ![Configure address range](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)
 
-
 ## Add a user to the Lab Creator role
 To set up a classroom lab in a lab account, the user must be a member of the **Lab Creator** role in the lab account. The account you used to create the lab account is automatically added to this role. If you are planning to use the same user account to create a classroom lab, you can skip this step. To use another user account to create a classroom lab, do the following steps: 
 

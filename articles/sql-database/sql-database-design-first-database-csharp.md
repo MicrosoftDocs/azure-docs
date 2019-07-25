@@ -27,7 +27,7 @@ Azure SQL Database is a relational database-as-a-service (DBaaS) in the Microsof
 
 ## Prerequisites
 
-An installation of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+An installation of [Visual Studio 2019](https://www.visualstudio.com/downloads/) or later.
 
 ## Create a blank single database
 

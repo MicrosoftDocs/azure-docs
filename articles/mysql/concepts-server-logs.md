@@ -1,19 +1,19 @@
 ---
 title: Server logs for Azure Database for MySQL
-description: Describes the logs available in Azure Database for MySQL, and the available parameters for enabling different logging levels.
+description: Describes the slow query logs available in Azure Database for MySQL, and the available parameters for enabling different logging levels.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/29/2019
 ---
-# Server Logs in Azure Database for MySQL
-In Azure Database for MySQL, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting. 
+# Slow query logs in Azure Database for MySQL
+In Azure Database for MySQL, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting.
 
 For more information about the MySQL slow query log, see the MySQL reference manual's [slow query log section](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
 
-## Access server logs
-You can list and download Azure Database for MySQL server logs using the Azure portal, and the Azure CLI.
+## Access slow query logs
+You can list and download Azure Database for MySQL slow query logs using the Azure portal, and the Azure CLI.
 
 In the Azure portal, select your Azure Database for MySQL server. Under the **Monitoring** heading, select the **Server Logs** page.
 
@@ -24,8 +24,7 @@ Logs are available for up to seven days from their creation. If the total size o
 
 Logs are rotated every 24 hours or 7 GB, whichever comes first.
 
-
-## Configure logging 
+## Configure slow query logging 
 By default the slow query log is disabled. To enable it, set slow_query_log to ON.
 
 Other parameters you can adjust include:
@@ -67,10 +66,10 @@ The following table describes what's in each log. Depending on the output method
 | `rows_sent_s` | Number of rows sent |
 | `rows_examined_s` | Number of rows examined |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| `insert_id_s` | Insert id |
+| `insert_id_s` | Insert ID |
 | `sql_text_s` | Full query |
-| `server_id_s` | The server's id |
-| `thread_id_s` | Thread id |
+| `server_id_s` | The server's ID |
+| `thread_id_s` | Thread ID |
 | `\_ResourceId` | Resource URI |
 
 ## Next Steps

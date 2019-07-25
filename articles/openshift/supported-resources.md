@@ -2,12 +2,12 @@
 title: Supported resources for Azure Red Hat OpenShift | Microsoft Docs
 description: Understand which Azure regions and virtual machine sizes are supported by Microsoft Azure Red Hat OpenShift.
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/15/2019
 ---
 
 # Azure Red Hat OpenShift resources
@@ -16,17 +16,7 @@ This topic lists the Azure regions and virtual machine sizes supported by the Mi
 
 ## Azure regions
 
-You can deploy Azure Red Hat OpenShift clusters to the following Azure regions around the globe:
-
-|Region|CLI code|
-|-|-|
-|🇦🇺 Australia East|`australiaeast`|
-|🇨🇦 Canada Central|`canadacentral`|
-|🇨🇦 Canada East|`canadaeast`|
-|🇺🇸 East US|`eastus`|
-|🇺🇸 West US|`westus`|
-|🇪🇺 West Europe|`westeurope`|
-|🇪🇺 North Europe|`northeurope`|
+See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) for a current list of regions where you can deploy Azure Red Hat OpenShift clusters.
 
 ## Virtual machine sizes
 

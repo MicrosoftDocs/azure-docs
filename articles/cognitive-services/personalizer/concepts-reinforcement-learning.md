@@ -7,12 +7,11 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
 ---
 # What is Reinforcement Learning?
-
 
 Reinforcement Learning is an approach to machine learning that learns behaviors by getting feedback from its use.
  
@@ -58,7 +57,7 @@ Personalizer currently uses [Vowpal Wabbit](https://github.com/VowpalWabbit/vowp
 
 * [Making Contextual Decisions with Low Technical Debt](https://arxiv.org/abs/1606.03966)
 * [A Reductions Approach to Fair Classification](https://arxiv.org/abs/1803.02453)
-* [Efficient Contextual Bandits in Non-stationary Worlds](https://arxiv.org/abs/1708.01799ds)
+* [Efficient Contextual Bandits in Non-stationary Worlds](https://arxiv.org/abs/1708.01799)
 * [Residual Loss Prediction: Reinforcement: learning With No Incremental Feedback](https://openreview.net/pdf?id=HJNMYceCW)
 * [Mapping Instructions and Visual Observations to Actions with Reinforcement Learning](https://arxiv.org/abs/1704.08795)
 * [Learning to Search Better Than Your Teacher](https://arxiv.org/abs/1502.02206)

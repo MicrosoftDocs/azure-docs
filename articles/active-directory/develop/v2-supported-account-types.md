@@ -4,7 +4,7 @@ description: Conceptual documentation about audiences and supported account type
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

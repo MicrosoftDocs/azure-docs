@@ -6,16 +6,15 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd
-
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
-ms.author: zchia
+ms.date: 05/07/2019
+ms.author: "jeedes"
 ---
 
 # Tutorial: Configure Comeet Recruiting Software for automatic user provisioning
@@ -80,7 +79,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Comeet Recruiting Software in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Enterprise Applications**, select **All applications**, then select **Comeet Recruiting Software**.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
@@ -100,8 +99,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 6. In the [Comeet Recruiting Software admin console](https://app.comeet.co/), navigate to  **Comeet > Settings > Authentication > Microsoft Azure**, and copy the **Secret Token for your company** value to the **Secret Token** field in Azure AD.
 
-	![Comeet Recruiting Software Provisioning](./media/comeetrecruitingsoftware-provisioning-tutorial/secret-token-1.png)
-	
+	![Comeet Recruiting Software Provisioning](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Comeet Recruiting Software. If the connection fails, ensure your Comeet Recruiting Software account has Admin permissions and try again.
 
@@ -115,11 +113,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Comeet**.
 
-	![Comeet Recruiting Software Provisioning](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mappings.png)
+	![Comeet Recruiting Software User Mappings](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
 
 11. Review the user attributes that are synchronized from Azure AD to Comeet Recruiting Software in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Comeet Recruiting Software for update operations. Select the **Save** button to commit any changes.
 
-	![Comeet Recruiting Software Provisioning](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mapping-attributes.png)
+	![Comeet Recruiting Software Group Attributes](media/comeet-recruiting-software-provisioning-tutorial/user-mapping-attributes.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -152,7 +150,3 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 * [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

@@ -1,4 +1,5 @@
 - name: Durable Functions Documentation
+  href: durable-functions-overview.md
 - name: Overview
   items:
   - name: About Azure Functions

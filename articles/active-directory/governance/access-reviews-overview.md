@@ -3,8 +3,8 @@ title: What are access reviews? - Azure Active Directory | Microsoft Docs
 description: Using Azure Active Directory access reviews, you can control group membership and application access to meet governance, risk management, and compliance initiatives in your organization.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/18/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -41,7 +41,7 @@ Azure AD enables you to collaborate internally within your organization and with
 - **When automation is infeasible:** You can create rules for dynamic membership on security groups or Office 365 groups, but what if the HR data is not in Azure AD or if users still need access after leaving the group to train their replacement? You can then create a review on that group to ensure those who still need access should have continued access.
 - **When a group is used for a new purpose:** If you have a group that is going to be synced to Azure AD, or if you plan to enable the application Salesforce for everyone in the Sales team group, it would be useful to ask the group owner to review the group membership prior to the group being used in a different risk content.
 - **Business critical data access:** for certain resources, it might be required to ask people outside of IT to regularly sign off and give a justification on why they need access for auditing purposes.
-- **To maintain a policy's exception list:** In an ideal world, all users would follow the access polices to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. As the IT admin, you can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly.
+- **To maintain a policy's exception list:** In an ideal world, all users would follow the access policies to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. As the IT admin, you can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly.
 - **Ask group owners to confirm they still need guests in their groups:** Employee access might be automated with some on premises IAM, but not invited guests. If a group gives guests access to business sensitive content, then it's the group owner's responsibility to confirm the guests still have a legitimate business need for access.
 - **Have reviews recur periodically:** You can set up recurring access reviews of users at set frequencies such as weekly, monthly, quarterly or annually, and the reviewers will be notified at the start of each review. Reviewers can approve or deny access with a friendly interface and with the help of smart recommendations.
 
@@ -51,21 +51,53 @@ Depending on what you want to review, you will create your access review in Azur
 
 | Access rights of users | Reviewers can be | Review created in | Reviewer experience |
 | --- | --- | --- | --- |
-| Security group members</br>Office group members | Specified reviewers</br>Group owners</br>Self review | Azure AD access reviews</br>Azure AD groups | Access panel |
-| Assigned to a connected app | Specified reviewers</br>Self review | Azure AD access reviews</br>Azure AD enterprise apps (in preview) | Access panel |
-| Azure AD role | Specified reviewers</br>Self review | Azure AD PIM | Azure portal |
-| Azure resource role | Specified reviewers</br>Self review | Azure AD PIM | Azure portal |
+| Security group members</br>Office group members | Specified reviewers</br>Group owners</br>Self-review | Azure AD access reviews</br>Azure AD groups | Access panel |
+| Assigned to a connected app | Specified reviewers</br>Self-review | Azure AD access reviews</br>Azure AD enterprise apps (in preview) | Access panel |
+| Azure AD role | Specified reviewers</br>Self-review | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
+| Azure resource role | Specified reviewers</br>Self-review | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
 
-## Prerequisites
+## Which users must have licenses?
 
-To use access reviews, you must have one of the following licenses:
+Each user who interacts with access reviews must have a paid Azure AD Premium P2 license. Examples include:
 
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5 license
+- Administrators who create an access review
+- Group owners who perform an access review
+- Users assigned as reviewers
+- Users who perform a self-review
 
-For more information, see [How to: Sign up for Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) or [Enterprise Mobility + Security E5 Trial](https://aka.ms/emse5trial).
+You can also ask guest users to review their own access. For each paid Azure AD Premium P2 license that you assign to one of your own organization's users, you can use Azure AD business-to-business (B2B) to invite up to five guest users under the External User Allowance. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
 
-## Get started with access reviews
+Here are some example scenarios to help you determine the number of licenses you must have.
+
+| Scenario | Calculation | Required number of licenses |
+| --- | --- | --- |
+| An administrator creates an access review of Group A with 500 users.<br/>Assigns 3 group owners as reviewers. | 1 administrator + 3 group owners | 4 |
+| An administrator creates an access review of Group A with 500 users.<br/>Makes it a self-review. | 1 administrator + 500 users as self-reviewers | 501 |
+| An administrator creates an access review of Group A with 5 users and 25 guest users.<br/>Makes it a self-review. | 1 administrator + 5 users as self-reviewers<br/>(guest users are covered in the required 1:5 ratio) | 6 |
+| An administrator creates an access review of Group A with 5 users and 28 guest users.<br/>Makes it a self-review. | 1 administrator + 5 users as self-reviewers + 1 user to cover guest users in the required 1:5 ratio | 7 |
+
+For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
+
+## Onboard access reviews
+
+To onboard access reviews, follow these steps.
+
+1. As a Global administrator or User administrator, sign in to the [Azure portal](https://portal.azure.com) where you want to use access reviews.
+
+1. In the left navigation, click **Azure Active Directory**.
+
+1. In the left menu, click **Identity Governance**.
+
+1. Click **Access reviews**.
+ 
+    ![Access reviews start page](./media/access-reviews-overview/access-reviews-overview-onboard.png)
+
+1. On the page, click the **Onboard now** button.
+    
+      ![Access reviews onboard](./media/access-reviews-overview/access-reviews-overview-select-onboard.png)
+
+
+## Learn about access reviews
 
 To learn more about creating and performing access reviews, watch this short demo:
 
@@ -75,29 +107,9 @@ If you are ready to deploy access reviews in your organization, follow these ste
 
 >[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
-## Enable access reviews
+## License requirements
 
-To enable access reviews, follow these steps.
-
-1. As a Global administrator or User administrator, sign in to the [Azure portal](https://portal.azure.com) where you want to use access reviews.
-
-1. Click **All services** and find the access reviews service.
-
-1. Click **Access reviews**.
-
-    ![All services - Access reviews](./media/access-reviews-overview/all-services-access-reviews.png)
-
-1. In the navigation list, click **Onboard** to open the **Onboard access reviews** page.
-
-    ![Access reviews onboard](./media/access-reviews-overview/onboard-button.png)
-
-1. Click **Create** to enable access reviews in the current directory.
-
-    ![Onboard access reviews](./media/access-reviews-overview/onboard-access-reviews.png)
-
-    The next time you start access reviews, the access review options will be enabled.
-
-    ![Access reviews enabled](./media/access-reviews-overview/access-reviews-enabled.png)
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## Next steps
 

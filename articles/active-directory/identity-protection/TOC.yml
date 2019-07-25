@@ -17,6 +17,8 @@
     href: notifications.md
   - name: What is your sign-in experience?
     href: flows.md
+  - name: Identity Protection and B2B users
+    href: concept-identity-protection-b2b.md
 - name: 'How-to guides'
   expanded: true
   items:
@@ -46,10 +48,10 @@
       href: security-overview.md
     - name: Investigate risky users and sign-ins
       href: howto-investigate-risky-users-signins.md
+    - name: Provide feedback on risk events
+      href: howto-provide-risk-event-feedback.md
     - name: Configure risk policies
       href: howto-configure-risk-policies.md
-    - name: Improve detection accuracy
-      href: howto-improve-detection-accuracy.md
     - name: FAQs and known issues 
       href: known-issues.md
 - name: 'Reference'

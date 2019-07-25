@@ -5,7 +5,8 @@ services: functions
 keywords:
 author: joeyaiello
 manager: jeconnoc
-ms.author: jaiello, glenga
+ms.author: jaiello
+ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
@@ -31,7 +32,7 @@ The following steps are supported on macOS, Windows, and Linux-based operating s
 
 To complete this quickstart:
 
-* Install [PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)
+* Install [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 * Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 
@@ -98,6 +99,10 @@ After you've verified that the function runs correctly on your local computer, i
 
 > [!NOTE]
 > Remember to remove any calls to `Wait-Debugger` before you publish your functions to Azure. 
+
+> [!NOTE]
+> Creating a Function App in Azure will only prompt for Function App name. 
+> Set azureFunctions.advancedCreation to true to be prompted for all other values.
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 

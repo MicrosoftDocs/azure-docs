@@ -9,7 +9,7 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ---
-# Define and Assign an Azure Blueprint with REST API
+# Quickstart: Define and Assign an Azure Blueprint with REST API
 
 Learning how to create and assign blueprints enables the definition of common patterns to develop
 reusable and rapidly deployable configurations based on Resource Manager templates, policy,
@@ -25,7 +25,6 @@ tasks related to creating, publishing, and assigning a blueprint within your org
 > - Remove a blueprint that has been assigned to a subscription
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

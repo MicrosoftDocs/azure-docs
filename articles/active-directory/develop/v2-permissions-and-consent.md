@@ -3,8 +3,8 @@ title: Microsoft identity platform scopes, permissions, and consent | Microsoft 
 description: A description of authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 ms.custom: fasttrack-edit
@@ -50,7 +50,7 @@ The same is true for any third-party resources that have integrated with the Mic
 
 By defining these types of permissions, the resource has fine-grained control over its data and how API functionality is exposed. A third-party app can request these permissions from users and administrators, who must approve the request before the app can access data or act on a user's behalf. By chunking the resource's functionality into smaller permission sets, third-party apps can be built to request only the specific permissions that they need to perform their function. Users and administrators can know exactly what data the app has access to, and they can be more confident that it isn't behaving with malicious intent. Developers should always abide by the concept of least privilege, asking for only the permissions they need for their applications to function.
 
-In OAuth 2.0, these types of permissions are called *scopes*. They also often referred to as *permissions*. A permission is represented in the Microsoft identity platform as a string value. Continuing with the Microsoft Graph example, the string value for each permission is:
+In OAuth 2.0, these types of permissions are called *scopes*. They are also often referred to as *permissions*. A permission is represented in the Microsoft identity platform as a string value. Continuing with the Microsoft Graph example, the string value for each permission is:
 
 * Read a user's calendar by using `Calendars.Read`
 * Write to a user's calendar by using `Calendars.ReadWrite`
@@ -121,7 +121,7 @@ After the user enters their credentials, the Microsoft identity platform endpoin
 > [!NOTE]
 > At this time, the `offline_access` ("Maintain access to data you have given it access to") and `user.read` ("Sign you in and read your profile") permissions are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality - `offline_access` gives the app access to refresh tokens, critical for native and web apps, while `user.read` gives access to the `sub` claim, allowing the client or app to correctly identify the user over time and access rudimentary user information.  
 
-![Work account consent](./media/v2-permissions-and-consent/work_account_consent.png)
+![Example screenshot that shows work account consent](./media/v2-permissions-and-consent/work_account_consent.png)
 
 When the user approves the permission request, consent is recorded and the user doesn't have to consent again on subsequent sign-ins to the application.
 
@@ -164,7 +164,8 @@ The admin consent does not accept a scope parameter, so any permissions being re
 #### To configure the list of statically requested permissions for an application
 
 1. Go to your application in the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience, or [create an app](quickstart-register-app.md) if you haven't already.
-2. Locate the **Microsoft Graph Permissions** section, and then add the permissions that your app requires.
+2. Locate the **API Permissions** section, and within the API permissions click Add a permission.
+3. Select **Microsoft Graph** from the list of available APIs and then add the permissions that your app requires.
 3. **Save** the app registration.
 
 ### Recommended: Sign the user into your app

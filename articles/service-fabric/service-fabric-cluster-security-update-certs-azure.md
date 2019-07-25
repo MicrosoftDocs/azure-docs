@@ -44,7 +44,7 @@ If your intent is to remove the certificate that is marked primary, then you wil
 
 ## Add a secondary certificate using Resource Manager Powershell
 > [!TIP]
-> It is now better and easier way to add a secondary certificate using the [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. You don't need to follow the rest of the steps in this section.  Also, you do not need the template originally used to create and deploy the cluster when using the [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
+> There is now a better and easier way to add a secondary certificate using the [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. You don't need to follow the rest of the steps in this section.  Also, you do not need the template originally used to create and deploy the cluster when using the [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
 
 These steps assume that you are familiar with how Resource Manager works and have deployed at least one Service Fabric cluster using a Resource Manager template, and have the template that you used to set up the cluster handy. It is also assumed that you are comfortable using JSON.
 
@@ -191,7 +191,7 @@ Edit your Resource Manager Template parameter File, add the two new parameters f
 ### Deploy the template to Azure
 
 - You are now ready to deploy your template to Azure. Open an Azure PS version 1+ command prompt.
-- Log in to your Azure Account and select the specific azure subscription. This is an important step for folks who have access to more than one azure subscription.
+- Sign in to your Azure Account and select the specific azure subscription. This is an important step for folks who have access to more than one azure subscription.
 
 ```powershell
 Connect-AzAccount

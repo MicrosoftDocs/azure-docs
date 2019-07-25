@@ -4,7 +4,7 @@ description: Learn how to add app roles in an application registered in Azure Ac
 services: active-directory
 documentationcenter: ''
 author: kkrishna
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -58,7 +58,7 @@ These application roles are defined in the [Azure portal](https://portal.azure.c
 The following example shows the `appRoles` that you can assign to `users`.
 
 > [!NOTE]
->  The `id` must be a unique GUID.
+>The `id` must be a unique GUID.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -77,6 +77,9 @@ The following example shows the `appRoles` that you can assign to `users`.
 "availableToOtherTenants": false,
 ```
 
+> [!NOTE]
+>The `displayName` cannot contain spaces.
+
 You can define app roles to target `users`, `applications`, or both. When available to `applications`, app roles appear as application permissions in the **Required Permissions** blade. The following example shows an app role targeted towards an `Application`.
 
 ```Json
@@ -86,7 +89,7 @@ You can define app roles to target `users`, `applications`, or both. When availa
       "allowedMemberTypes": [
         "Application"
       ],
-      "displayName": "Consumer Apps",
+      "displayName": "ConsumerApps",
       "id": "47fbb575-859a-4941-89c9-0f7a6c30beac",
       "isEnabled": true,
       "description": "Consumer apps have access to the consumer data.",
@@ -95,6 +98,8 @@ You can define app roles to target `users`, `applications`, or both. When availa
   ],
 "availableToOtherTenants": false,
 ```
+
+The number of roles defined affects the limits that the application manifest has. They have been discussed in detail on the [manifest limits](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) page.
 
 ### Assign users and groups to roles
 

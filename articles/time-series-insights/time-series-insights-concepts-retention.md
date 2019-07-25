@@ -4,18 +4,18 @@ description: This article describes two settings that control data retention in 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
 ---
 
-# Understand data retention in Time Series Insights
+# Understand data retention in Azure Time Series Insights
 
-This article describes two settings that impact data retention in your Time Series Insights (TSI) environment.
+This article describes two settings that impact data retention in your Azure Time Series Insights environment.
 
 ## Video
 
@@ -31,7 +31,7 @@ Additionally, your Azure Time Series environment has a **Storage limit exceeded 
 - **Pause ingress**
 
 > [!NOTE]
-> By default, when creating a new environment, the retention is configured to **Purge old data**. This setting can be toggled as needed after creation time using the Azure portal, on the **Configure** page of the TSI environment.
+> By default, when creating a new environment, the retention is configured to **Purge old data**. This setting can be toggled as needed after creation time using the Azure portal, on the **Configure** page of the Time Series Insights environment.
 
 For information on switching retention behaviors, review [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
@@ -39,8 +39,8 @@ Compare the data retention behavior:
 
 ## Purge old data
 
-- This behavior is the default behavior for TSI environments and exhibits the same behavior TSI environments has exhibited since it launched in to public preview.  
-- This behavior is preferred when users want to always see their *most recent data* in their TSI environment. 
+- This behavior is the default behavior for Time Series Insights environments.  
+- This behavior is preferred when users want to always see their *most recent data* in their Time Series Insights environment.
 - This behavior *purges* data once the environment’s limits (retention time, size, or count, whichever comes first) are reached. Retention is set to 30 days by default.
 - The oldest ingested data is purged first (FIFO approach).
 
@@ -70,7 +70,7 @@ Whenever this environment’s daily ingress rate exceeds of 0.166 GB per day, da
 
 ### Example three
 
-Consider an environment with retention behavior configured to **pause ingress**. In this example, the **Data retention period** is configured to 60 days. **Capacity** is set to 3 units of S1. Assume this environment has ingress of 2-GB data each day. In this environment, ingress is paused once the maximum capacity is reached.
+Consider an environment with retention behavior configured to **pause ingress**. In this example, the **Data retention period** is configured to 60 days. **Capacity** is set to three (3) units of S1. Assume this environment has ingress of 2-GB data each day. In this environment, ingress is paused once the maximum capacity is reached.
 
 At that time, the environment shows the same dataset until ingress resumes or until **continue ingress** is enabled (which would purge older data to make room for new data).
 
@@ -86,7 +86,7 @@ In the impacted Event Hubs, consider adjusting the **Message Retention** propert
 
 [![Event hub message retention.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-If no properties are configured on event source (`timeStampPropertyName`), TSI defaults to the timestamp of arrival at event hub as the X-axis. If `timeStampPropertyName` is configured to be something else, the environment looks for the configured `timeStampPropertyName` in the data packet when events are parsed.
+If no properties are configured on event source (`timeStampPropertyName`), Time Series Insights defaults to the timestamp of arrival at event hub as the X-axis. If `timeStampPropertyName` is configured to be something else, the environment looks for the configured `timeStampPropertyName` in the data packet when events are parsed.
 
 If you need to scale your environment up to accommodate additional capacity or to increase the length of retention, see [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md) for more information.  
 

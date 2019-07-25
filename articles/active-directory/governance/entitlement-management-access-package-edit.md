@@ -3,8 +3,8 @@ title: Edit and manage an existing access package in Azure AD entitlement manage
 description: Learn how to edit and manage an existing access package in Azure Active Directory entitlement management (Preview).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/26/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -346,4 +346,5 @@ In entitlement management, Azure AD will process bulk changes for assignment and
 
 ## Next steps
 
+- [Add a catalog owner or an access package manager](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [Request process and email notifications](entitlement-management-process.md)

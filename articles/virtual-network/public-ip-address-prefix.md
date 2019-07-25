@@ -29,7 +29,7 @@ You create a public IP address prefix in an Azure region and subscription by spe
 
 ## Why create a public IP address prefix?
 
-When you create public IP address resources, Azure assign an available public IP address from any of the ranges used in a region. Once Azure assigns the address, you know what the address is, but until Azure assigns the address, you don't know what address might be assigned. This can be problematic when, for example, you, or your business partners, setup firewall rules that allow specific IP addresses. Each time you assign a new public IP address to a resource, the address has to be added to the firewall rule. When you assign addresses to your resources from a public IP address prefix, firewall rules don't need to be updated each time you assign one of the addresses, because the whole range could be added to a rule.
+When you create public IP address resources, Azure assigns an available public IP address from any of the ranges used in the region. Once Azure assigns the address, you know what the address is, but until Azure assigns the address, you don't know what address might be assigned. This can be problematic when, for example, you, or your business partners, setup firewall rules that allow specific IP addresses. Each time you assign a new public IP address to a resource, the address has to be added to the firewall rule. When you assign addresses to your resources from a public IP address prefix, firewall rules don't need to be updated each time you assign one of the addresses, because the whole range could be added to a rule.
 
 ## Benefits
 
@@ -52,7 +52,7 @@ You can associate the following resources to a static public IP address from a p
 ## Constraints
 
 - You can't specify the IP addresses for the prefix. Azure allocates the IP addresses for the prefix, based on the size that you specify.
-- The default size of a prefix is /28 or 16 public IP addresses.
+- You can create a prefix of upto 16 IP addresses or a /28. For more information, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - You can't change the range, once you've created the prefix.
 - The range is for IPv4 addresses only. The range does not contain IPv6 addresses.
 - Only static public IP addresses created with the Standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).

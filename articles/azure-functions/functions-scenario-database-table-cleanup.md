@@ -16,7 +16,7 @@ ms.author: glenga
 
 # Use Azure Functions to connect to an Azure SQL Database
 
-This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database instance. The function code cleans up rows in a table in the database. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2017. To support this scenario, you must also set a database connection string as an app setting in the function app. This scenario uses a bulk operation against the database. 
+This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database instance. The function code cleans up rows in a table in the database. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2019. To support this scenario, you must also set a database connection string as an app setting in the function app. This scenario uses a bulk operation against the database. 
 
 If this is your first experience working with C# Functions, you should read the [Azure Functions C# developer reference](functions-dotnet-class-library.md).
 
@@ -60,7 +60,7 @@ You must have previously published your app to Azure. If you haven't already don
 
 You need to add the NuGet package that contains the SqlClient library. This data access library is needed to connect to a SQL database.
 
-1. Open your local function app project in Visual Studio 2017.
+1. Open your local function app project in Visual Studio 2019.
 
 1. In Solution Explorer, right-click the function app project and choose **Manage NuGet Packages**.
 

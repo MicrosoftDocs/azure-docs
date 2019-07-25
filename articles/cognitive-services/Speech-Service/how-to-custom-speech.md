@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
@@ -24,7 +24,7 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 ![Highlights the different components that make up the Custom Speech portal.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Subscribe and create a project](#set-up-your-azure-account) - Create an Azure account and subscribe the Speech Services. This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the custom speech portal. Then, using your Speech Services subscription, create your first Custom Speech project.
+1. [Subscribe and create a project](#set-up-your-azure-account) - Create an Azure account and subscribe the Speech Services. This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the Custom Speech portal. Then, using your Speech Services subscription, create your first Custom Speech project.
 
 2. [Upload test data](how-to-custom-speech-test-data.md) - Upload test data (audio files) to evaluate Microsoft's speech-to-text offering for your applications, tools, and products.
 
@@ -38,7 +38,7 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 ## Set up your Azure account
 
-A Speech Services subscription is required before you can use the Custom Speech portal to create a custom model. Follow these instructions to create a standard Speech Services subscription: [Create a Speech Subscription](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#new-azure-account).
+A Speech Services subscription is required before you can use the Custom Speech portal to create a custom model. Follow these instructions to create a standard Speech Services subscription: [Create a Speech Subscription](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
 
 > [!NOTE]
 > Please be sure to create standard (S0) subscriptions, free trial (F0) subscriptions are not supported.
@@ -47,7 +47,7 @@ Once you've created an Azure account and a Speech Services subscription, you'll 
 
 1. Get your Speech Services subscription key from the Azure portal.
 2. Sign-in to the [Custom Speech portal](https://aka.ms/custom-speech).
-3. Select the subscription you need to work on and creat a speech project.
+3. Select the subscription you need to work on and create a speech project.
 4. If you'd like to modify your subscription, use the **cog** icon located in the top navigation.
 
 ## How to create a project

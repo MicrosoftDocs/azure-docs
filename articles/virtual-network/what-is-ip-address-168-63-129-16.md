@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: genli
 
 ---
@@ -35,7 +35,7 @@ The public IP address 168.63.129.16 is used in all regions and all national clou
 
 [Azure Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) originates from this IP address. If you block this IP address, your probes will fail.
 
-In a non-virtual network scenario, the health probe is sourced from a private IP and 168.63.129.16 is not used.
+In a non-virtual network scenario (Classic), the health probe is sourced from a private IP and 168.63.129.16 is not used.
 
 ## Next steps
 

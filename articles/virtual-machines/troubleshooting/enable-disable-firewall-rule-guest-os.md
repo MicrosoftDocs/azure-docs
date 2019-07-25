@@ -96,7 +96,7 @@ If the VM is online and can be accessed on another VM on the same virtual networ
 
 1.	On the troubleshooting VM, start Registry Editor (regedit.exe), and then select **File** > **Connect Network Registry**.
 
-2.	Open the *TARGET MACHINE*\SYSTEM branch, and then specify the following values:
+2.	Open the *TARGET MACHINE*\SYSTEM branch, and then specify the following values:
 
     * To enable a rule, open the following registry value:
     
@@ -120,30 +120,30 @@ If the VM is online and can be accessed on another VM on the same virtual networ
 
 If you cannot access the VM by any method, using Custom Script Extension will fail, and you will have to work in OFFLINE mode by working directly through the system disk.
 
-Before you follow these steps, take a snapshot of the system disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
+Before you follow these steps, take a snapshot of the system disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
 1.  [Attach the system disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md).
 
 2.	Start a Remote Desktop connection to the recovery VM.
 
-3.	Make sure that the disk is flagged as **Online** in the Disk Management console. Note that the drive letter that is assigned to the attached system disk.
+3.	Make sure that the disk is flagged as **Online** in the Disk Management console. Note that the drive letter that is assigned to the attached system disk.
 
-4.	Before you make any changes, create a copy of the \windows\system32\config folder in case a rollback of the changes is necessary.
+4.	Before you make any changes, create a copy of the \windows\system32\config folder in case a rollback of the changes is necessary.
 
-5.	On the troubleshooting VM, start Registry Editor (regedit.exe).
+5.	On the troubleshooting VM, start Registry Editor (regedit.exe).
 
-6.	Highlight the **HKEY_LOCAL_MACHINE** key, and then select **File** > **Load Hive** from the menu.
+6.	Highlight the **HKEY_LOCAL_MACHINE** key, and then select **File** > **Load Hive** from the menu.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.	Locate and then open the \windows\system32\config\SYSTEM file. 
 
     > [!Note]
-    > You are prompted for a name. Enter **BROKENSYSTEM**, and then expand **HKEY_LOCAL_MACHINE**. You will now see an additional key that’s named **BROKENSYSTEM**. For this troubleshooting, we are mounting these problem hives as **BROKENSYSTEM**.
+    > You are prompted for a name. Enter **BROKENSYSTEM**, and then expand **HKEY_LOCAL_MACHINE**. You will now see an additional key that’s named **BROKENSYSTEM**. For this troubleshooting, we are mounting these problem hives as **BROKENSYSTEM**.
 
 8.	Make the following changes on the BROKENSYSTEM branch:
 
-    1.	Check which **ControlSet** registry key the VM is starting from. You will see its key number in HKLM\BROKENSYSTEM\Select\Current.
+    1.	Check which **ControlSet** registry key the VM is starting from. You will see its key number in HKLM\BROKENSYSTEM\Select\Current.
 
     2.	To enable a rule, open the following registry value:
     
@@ -161,7 +161,7 @@ Before you follow these steps, take a snapshot of the system disk of the affecte
         
         **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
-9.	Highlight **BROKENSYSTEM**, and then select **File** > **Unload Hive​** from the menu.
+9.	Highlight **BROKENSYSTEM**, and then select **File** > **Unload Hive​** from the menu.
 
 10.	[Detach the system disk and re-create the VM](troubleshoot-recovery-disks-portal-windows.md).
 

@@ -9,7 +9,7 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
-ms.service: ascforiot
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -48,13 +48,12 @@ Use security groups to group your devices into logical categories. After creatin
 ## Customize an alert
 
 1. Open your IoT Hub. 
-2. Select **Security**, then select **Custom alerts**. 
-3. Choose the security groups you wish to apply the customization to. 
-4. Click **Add a custom alert**
-5. Enter an alert name (note that alert names cannot be changed after creation). 
-6. Select a custom alert behavior from the dropdown list. 
-7. Edit the required properties, click **OK**.
-8. Make sure to click **SAVE**. Without saving the new alert, the alert is deleted the next time you close IoT Hub.
+2. Click **Custom alerts** in the **Security** section. 
+3. Choose a security group you wish to apply the customization to. 
+4. Click **Add a custom alert** 
+5. Select a custom alert behavior from the dropdown list. 
+6. Edit the required properties, click **OK**.
+7. Make sure to click **SAVE**. Without saving the new alert, the alert is deleted the next time you close IoT Hub.
 
  
 ## Alerts available for customization

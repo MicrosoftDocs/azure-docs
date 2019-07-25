@@ -24,7 +24,7 @@ The example Jupyter notebooks for Azure Open Datasets show you how to load open 
 ## Join demo data with NOAA ISD data 
 |Notebook        | Description                                    |
 |----------------|------------------------------------------------|
-|[Join demo data with weather data - Pandas ](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Join a 1-month demo dataset of sensor locations with weather readings in a Pandas dataframe.  |
+|[Join demo data with weather data - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Join a 1-month demo dataset of sensor locations with weather readings in a Pandas dataframe.  |
 |[Join demo data with weather data – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Join a demo dataset of sensor locations with weather readings in a Spark dataframe. |
 
 ## Join NYC taxi data with NOAA ISD data 

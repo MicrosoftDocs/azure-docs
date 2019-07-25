@@ -20,7 +20,7 @@ ms.author: yujhong
 
 Visual Studio is used by developers to easily manage their Azure subscriptions while building solutions. Visual Studio does not currently allow you to configure a connection to Azure Government in the user interface. 
 
-The following video demonstrates how to use the VS 2017 extension that enables you to switch between different Azure environments. It walks you through installation and showing how easy it is to connect to Azure Government. The same steps are described in this article. The topic also shows how you can achieve the same configuration manually. 
+The following video demonstrates how to use the Visual Studio 2019 extension that enables you to switch between different Azure environments. It walks you through installation and showing how easy it is to connect to Azure Government. The same steps are described in this article. The topic also shows how you can achieve the same configuration manually. 
 
 > [!VIDEO https://channel9.msdn.com/blogs/Azure-Government/Azure-Environment-Selector-Visual-Studio-Extension/player]
 
@@ -31,7 +31,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 * Review [Guidance for developers](documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
 * Review [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
 
-## Visual Studio 2017
+## Visual Studio 2019
 
 ### Automatically configuring your target using a Visual Studio Extension 
 

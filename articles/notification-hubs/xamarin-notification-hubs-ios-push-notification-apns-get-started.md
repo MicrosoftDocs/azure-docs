@@ -15,7 +15,7 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 05/23/2019
 ms.author: jowargo
 ---
 
@@ -104,6 +104,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
     ```csharp
     using WindowsAzure.Messaging;
+    using UserNotifications
     ```
 
 8. Declare an instance of `SBNotificationHub`:

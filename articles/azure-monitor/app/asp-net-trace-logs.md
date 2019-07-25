@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
 
 ---
@@ -173,8 +173,8 @@ You can, for example:
 Use the [Java log adapters](../../azure-monitor/app/java-trace-logs.md).
 
 ### There's no Application Insights option on the project context menu
-* Make sure that Application Insights Tools is installed on the development machine. At Visual Studio **Tools** > **Extensions and Updates**, look for **Application Insights Tools**. If it isn't on the **Installed** tab, open the **Online** tab and install it.
-* This might be a project type that Application Insights Tools doesn't support. Use [manual installation](#manual-installation).
+* Make sure that Developer Analytics Tools is installed on the development machine. At Visual Studio **Tools** > **Extensions and Updates**, look for **Developer Analytics Tools**. If it isn't on the **Installed** tab, open the **Online** tab and install it.
+* This might be a project type that Devloper Analytics Tools doesn't support. Use [manual installation](#manual-installation).
 
 ### There's no log adapter option in the configuration tool
 * Install the logging framework first.

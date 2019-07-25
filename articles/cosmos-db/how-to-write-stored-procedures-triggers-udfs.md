@@ -4,7 +4,7 @@ description: Learn how to define stored procedures, triggers, and user-defined f
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 12/11/2018
+ms.date: 05/21/2019
 ms.author: mjbrown
 ---
 
