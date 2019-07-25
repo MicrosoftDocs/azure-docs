@@ -34,7 +34,7 @@ To complete this tutorial, you need:
 
 1. Install [Node.js](https://nodejs.org/dist/v10.16.0/node-v10.16.0-x64.msi)
 
-[!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 1. Add the Microsoft Azure IoT Extension for Azure CLI:
 
