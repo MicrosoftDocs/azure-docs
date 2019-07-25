@@ -117,7 +117,7 @@ Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255,
 Crap is the profanity here. Is this information PII? phone 3144444444
 ```
 
-Then, add the following method definition to your Python script:
+Then, add the following function definition to your Python script:
 
 ```python
 TEXT_FOLDER = os.path.join(os.path.dirname(
@@ -153,7 +153,7 @@ To use this sample, you must create a **text_files** folder at the root of your 
 This text contains the terms "term1" and "term2".
 ```
 
-Then, add the following method definition to your Python script:
+Then, add the following function definition to your Python script:
 
 ```python
 TEXT_FOLDER = os.path.join(os.path.dirname(
@@ -386,7 +386,7 @@ IMAGES_TO_MATCH = [
 ]
 ```
 
-Then, add the following method definition to your script.
+Then, add the following function definition to your script.
 
 ```python
 def image_lists(subscription_key):
@@ -567,9 +567,9 @@ def image_lists(subscription_key):
 
 You can use the Content Moderator Python SDK to feed content into the [Review tool](https://contentmoderator.cognitive.microsoft.com) so that human moderators can review it. To learn more about the Review tool, see the [Conceptual guide](./review-tool-user-guide/human-in-the-loop.md).
 
-The following code uses the [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) class to create a review, retrieve its ID, and check its details after receiving human input on the Review tool's web portal.
+The following code uses the [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) class to create a review, retrieve its ID, and check its details after receiving human input through the Review tool's web portal.
 
-You must sign in to the Review tool and retrieve your team name. Optionally, you can specify a callback endpoint to receive updates on the activity of the review.
+You must first sign in to the Review tool, retrieve your team name, and save it to a variable. Optionally, you can set up a callback endpoint to receive updates on the activity of the review.
 
 ```python
 def image_review(subscription_key):
@@ -588,7 +588,13 @@ def image_review(subscription_key):
 
     # Where you want to receive the approval/refuse event. This is the only way to get this information.
     call_back_endpoint = "https://requestb.in/qmsakwqm"
+```
 
+Add the following function definition to your script.
+
+```python
+    
+    # Create review
     print("Create review for {}.\n".format(image_url))
     review_item = {
         "type": "Image",             # Possible values include: 'Image', 'Text'
@@ -606,6 +612,8 @@ def image_review(subscription_key):
         team_name=team_name,
         create_review_body=[review_item]  # As many review item as you need
     )
+
+    # Get review ID
     review_id = reviews[0]  # Ordered list of string of review ID
 
     print("\nGet review details")
@@ -613,15 +621,19 @@ def image_review(subscription_key):
         team_name=team_name, review_id=review_id)
     pprint(review_details.as_dict())
 
+    # wait for user input through the Review tool web portal
     input("\nPerform manual reviews on the Content Moderator Review Site, and hit enter here.")
 
+    # Check the results of the human review
     print("\nGet review details")
     review_details = client.reviews.get_review(
         team_name=team_name, review_id=review_id)
     pprint(review_details.as_dict())
 
 ```
-Your call back endpoint should have received an event like this:
+If you used a callback endpoint in this scenario, it should receive an event in this format:
+
+```console
 {'callback_endpoint': 'https://requestb.in/qmsakwqm',
  'content': '',
  'content_id': '3ebe16cb-31ed-4292-8b71-1dfe9b0e821f',
@@ -633,6 +645,7 @@ Your call back endpoint should have received an event like this:
  'status': 'Complete',
  'sub_team': 'public',
  'type': 'Image'}
+```
 
 ## Run the application
 
