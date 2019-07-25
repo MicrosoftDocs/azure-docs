@@ -79,7 +79,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you will create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **+Add a backend pool**.
 
@@ -137,7 +137,7 @@ Wait until the deployment finishes successfully before moving on to the next sec
 
 In this example, you'll use virtual machines as the target backend. You can either use existing virtual machines or create new ones. You'll create two virtual machines that Azure uses as backend servers for the application gateway.
 
-To do this, you'll:
+To add backend targets, you'll:
 
 1. Create two new VMs, *contosoVM* and *fabrikamVM*, to be used as backend servers.
 2. Install IIS on the virtual machines to verify that the application gateway was created successfully.
