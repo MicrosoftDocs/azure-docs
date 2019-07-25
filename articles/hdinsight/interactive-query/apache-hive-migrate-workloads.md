@@ -94,7 +94,7 @@ In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari 
 
 Launch a script action against your cluster, with "Head nodes" as the node type for execution. Paste the following URI into the textbox marked "Bash Script URI": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
 
-Data Analytics Studio can be launched with URL : https://<clustername>.azurehdinsight.net/das/
+Data Analytics Studio can be launched with URL : https://\<clustername>.azurehdinsight.net/das/
 
 
 

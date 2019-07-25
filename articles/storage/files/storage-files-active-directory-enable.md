@@ -103,8 +103,8 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 To enable this feature on existing storage accounts, use the following command:
 
 ```powershell
-# Get a storage account
-Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
+# Update a storage account
+Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Name "<storage-account-name>" `
     -EnableAzureActiveDirectoryDomainServicesForFile $true
 ```

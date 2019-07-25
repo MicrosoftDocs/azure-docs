@@ -84,6 +84,7 @@ The following are the property descriptions:
 | commonNames | string[] | --- | Common Names of installed cluster certificates |
 | x509StoreName | string | --- | Name of Store where installed cluster certificate is located |
 | typeHandlerVersion | 1.1 | --- | Version of Extension. 1.0 classic version of extension are recommended to upgrade to 1.1 |
+| dataPath | string | --- | Path to the drive used to save state for Service Fabric system services and application data. 
 
 ## Next steps
 * See the [overview of the "Deploy anywhere" feature and a comparison with Azure-managed clusters](service-fabric-deploy-anywhere.md).

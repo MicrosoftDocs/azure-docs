@@ -45,7 +45,7 @@ The use of the SQL VM resource provider requires the SQL IaaS extension. As such
 - A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) installed. 
 
 
-## Change license for VMs already registered with resource provider
+## Change license for VMs already registered with resource provider 
 
 # [Azure portal](#tab/azure-portal)
 

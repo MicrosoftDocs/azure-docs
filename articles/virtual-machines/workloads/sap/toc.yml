@@ -128,6 +128,8 @@
       href: dbms_guide_ibm.md
     - name: High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server
       href: dbms-guide-ha-ibm.md
+    - name: High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server
+      href: high-availability-guide-rhel-ibm-db2-luw.md
     - name: SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
       href: dbms_guide_sapase.md
     - name: SAP MaxDB, liveCache and Content Server deployment on Azure
@@ -206,6 +208,8 @@
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
   - name: Azure Site Recovery for SAP Disaster Recovery
     href: ../../../site-recovery/site-recovery-workload.md#protect-sap
+  - name: Azure Proximity Placement Groups for optimal network latency with SAP applications
+    href: sap-proximity-placement-scenarios.md
 - name: AAD SAP Identity Integration and Single-Sign-On
   items:
   - name: Integration with SAP Cloud

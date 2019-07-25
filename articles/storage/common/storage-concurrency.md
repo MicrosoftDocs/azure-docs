@@ -7,7 +7,7 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: jasontang501
+ms.author: tamram
 ms.subservice: common
 ---
 # Managing Concurrency in Microsoft Azure Storage

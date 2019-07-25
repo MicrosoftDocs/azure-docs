@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dkshir
+ms.custom: security-recommendations
 ---
 
 # Security recommendations for Azure Internet of Things (IoT) deployment

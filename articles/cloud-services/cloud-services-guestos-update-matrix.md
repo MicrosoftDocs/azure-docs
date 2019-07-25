@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/8/2019
+ms.date: 7/18/2019
 ms.author: raiye
 
 ---
@@ -106,7 +106,7 @@ The September Guest OS has released.
 ## Family 5 releases
 **Windows Server 2016**
 
-.NET Framework installed: 3.5, 4.6.2
+.NET Framework installed: 3.5, 4.6
 
 > [!NOTE]
 > The RDP password for OS family 5 must be a minimum of 10 characters.
@@ -129,7 +129,7 @@ The September Guest OS has released.
 ## Family 4 releases
 **Windows Server 2012 R2**
 
-.NET Framework installed: 3.5, 4.5.1
+.NET Framework installed: 3.5, 4.5.1, 4.5.2
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
@@ -165,7 +165,7 @@ The September Guest OS has released.
 ## Family 2 releases
 **Windows Server 2008 R2 SP1**
 
-.NET Framework installed: 3.5 (includes 2.0 and 3.0)
+.NET Framework installed: 3.5 (includes 2.0 and 3.0), 4.5
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
