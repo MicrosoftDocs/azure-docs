@@ -123,7 +123,7 @@ After the service is created, locate it within the Azure portal, open it, and th
      https://blobnameurl/container?SASKEY
      ```
 
-     This blob container SAS connection string can be found in Azure Storage explorer. Create the SAS for the container only will provide you the URL.
+     This blob container SAS connection string can be found in Azure Storage explorer. Creating the SAS for the concerned container will provide you the URL in above requested format.
      
      Also, based on the type dump information in Azure storage, keep the following detail in mind.
 
