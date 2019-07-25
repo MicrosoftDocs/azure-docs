@@ -50,6 +50,8 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup 15Five for provisioning
 
+Before configuring 15Five for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on 15Five.
+
 1. Sign in to your [15Five Admin Console](https://my.15five.com/). Navigate > Features> Click on **Integrations**.
 
 	![15Five Admin Console](media/15five-provisioning-tutorial/integration.png)
@@ -68,7 +70,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Add 15Five from the gallery
 
-Before configuring 15Five for automatic user provisioning with Azure AD, you need to add 15Five from the Azure AD application gallery to your list of managed SaaS applications.
+To configure 15Five for automatic user provisioning with Azure AD, you need to add 15Five from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add 15Five from the Azure AD application gallery, perform the following steps:**
 
