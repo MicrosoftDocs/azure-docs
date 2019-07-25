@@ -84,7 +84,7 @@ The data also includes the results of any [availability web tests](../../azure-m
 >
 
 ## <a name="get"></a> Inspect the data
-You can inspect the storage directly in the portal. Click home in the leftmost menu, at the top where it says "Azure services" select **Storage accounts**, select the storage account name, on the overview page select **Blobs** under services and finally select the container name.
+You can inspect the storage directly in the portal. Click home in the leftmost menu, at the top where it says "Azure services" select **Storage accounts**, select the storage account name, on the overview page select **Blobs** under services, and finally select the container name.
 
 To inspect Azure storage in Visual Studio, open **View**, **Cloud Explorer**. (If you don't have that menu command, you need to install the Azure SDK: Open the **New Project** dialog, expand Visual C#/Cloud and choose **Get Microsoft Azure SDK for .NET**.)
 
