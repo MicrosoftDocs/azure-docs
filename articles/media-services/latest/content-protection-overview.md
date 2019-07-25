@@ -155,7 +155,7 @@ Common browsers support the following DRM clients:
 |Browser|Encryption|
 |---|---|
 |Chrome|Widevine|
-|Edge, Internet Explorer 11|PlayReady|
+|Microsoft Edge, Internet Explorer 11|PlayReady|
 |Firefox|Widevine|
 |Opera|Widevine|
 |Safari|FairPlay|
