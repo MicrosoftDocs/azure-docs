@@ -11,15 +11,15 @@ ms.reviewer: sngun
 
 # Migrate data to Azure Cosmos DB SQL API account using Striim
  
-The Striim image in the Azure marketplace offers continuous real-time data movement from data warehouses and databases to Azure. While moving the data, you can perform in-line denormalization and transformation capabilities to reduce end to end latency and enable real-time analytics and reporting workloads. It’s easy to get started with Striim to continuously move enterprise data to Azure Cosmos DB SQL API. Azure provides a marketplace offering that makes it easy to deploy Striim and migrate data. 
+The Striim image in the Azure marketplace offers continuous real-time data movement from data warehouses and databases to Azure. While moving the data, you can perform in-line denormalization, data transformation, enable real-time analytics, and data reporting scenarios. It’s easy to get started with Striim to continuously move enterprise data to Azure Cosmos DB SQL API. Azure provides a marketplace offering that makes it easy to deploy Striim and migrate data to Azure Cosmos DB. 
 
-This article shows how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB SQL API account.
+This article shows how to use Striim to migrate data from an **Oracle database**se to an **Azure Cosmos DB SQL API account**.
 
 ## Prerequisites
 
 * If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-* Make sure you have an Oracle database running on-premise with some sample data in it.
+* An Oracle database running on-premise with some data in it.
 
 ## Deploy the Striim marketplace solution
 
@@ -29,7 +29,7 @@ This article shows how to use Striim to migrate data from an Oracle database to 
 
    ![Find Striim marketplace item](./media/cosmosdb-sql-api-migrate-data-using-striim/striim-azure-marketplace.png)
 
-1. Next, enter the configuration properties of the Striim instance. Striim environment is deployed in a virtual machine, so in the Basics pane, enter the **VM user name**, **VM password** (this password is used to SSH into the VM). Select your **Subscription**, **Resource Group**, and **Location details** where you’d like to deploy Striim. Once complete, select **OK**
+1. Next, enter the configuration properties of the Striim instance. The Striim environment is deployed in a virtual machine. From the **Basics** pane, enter the **VM user name**, **VM password** (this password is used to SSH into the VM). Select your **Subscription**, **Resource Group**, and **Location details** where you’d like to deploy Striim. Once complete, select **OK**.
 
    ![Configure basic settings for Striim](./media/cosmosdb-sql-api-migrate-data-using-striim/striim-configure-basic-settings.png)
 
@@ -37,31 +37,33 @@ This article shows how to use Striim to migrate data from an Oracle database to 
 
    |Setting	| Value | Description |
    | ---| ---| ---|
-   |Striim deployment type |Standalone | Striim can run in a **Standalone** or **Cluster** deployment types. Standalone mode will deploy the Striim server on a single virtual machine. Select the size of the VMs depending on your data volume by default, “Standard_F4s” size is selected. Cluster mode will deploy the Striim server on two or more VMs with the selected size. Cluster environments with more than 2 nodes offer automatic high availability and failover. In this tutorial, you can select Standalone option. | 
+   |Striim deployment type |Standalone | Striim can run in a **Standalone** or **Cluster** deployment types. Standalone mode will deploy the Striim server on a single virtual machine and you can select the size of the VMs depending on your data volume. Cluster mode will deploy the Striim server on two or more VMs with the selected size. Cluster environments with more than 2 nodes offer automatic high availability and failover.</br></br> In this tutorial, you can select Standalone option. Use the default “Standard_F4s” size VM.  | 
    | Name of the Striim cluster|	<Striim_cluster_Name>|	Name of the Striim cluster.|
    | Striim cluster password|	<Striim_cluster_password>|	Password for the cluster.|
 
    After you fill the form, select **OK** to continue.
 
-1. In the **Striim access settings** pane, configure the **Public IP address** (choose the default values), **Domain name for Striim**, **Admin password** that you’d like to use to login to the Striim UI, and configure a VNET and Subnet, you can choose the default values. After filling in the details, select **OK** to continue.
+1. In the **Striim access settings** pane, configure the **Public IP address** (choose the default values), **Domain name for Striim**, **Admin password** that you’d like to use to login to the Striim UI. Configure a VNET and Subnet (choose the default values). After filling in the details, select **OK** to continue.
 
    ![Striim access settings](./media/cosmosdb-sql-api-migrate-data-using-striim/striim-access-settings.png)
 
-1. Azure will review your deployment and make sure everything looks good; validation takes few minutes to complete. After the validation is completed, select **OK**.
+1. Azure will validate the deployment and make sure everything looks good; validation takes few minutes to complete. After the validation is completed, select **OK**.
   
 1. Finally, review the terms of use and select **Create** to create your Striim instance. 
 
-## Configure the source database
+## Configure the source database 
 
-In this section, you configure Oracle database as the source.  You’ll need the Oracle JDBC driver to connect to Oracle. To read changes from your source Oracle database, you can use either the LogMiner or XStream APIs. To use OracleReader with LogMiner, to write to Oracle using DatabaseWriter, or to persist a WActionStore to Oracle, the Oracle JDBC driver must be present in Striim's Java classpath.
+In this section, you configure the Oracle database as the source for data movement.  You’ll need the [Oracle JDBC driver](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html) to connect to Oracle. To read changes from your source Oracle database, you can either use the [LogMiner](https://www.oracle.com/technetwork/database/features/availability/logmineroverview-088844.html) or the [XStream APIs](https://docs.oracle.com/cd/E11882_01/server.112/e16545/xstrm_intro.htm#XSTRM72647). The Oracle JDBC driver must be present in Striim's Java classpath to read, write, or persist data from Oracle database.
 
-Navigate to Oracle.com and download the [ojdbc8.jar](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html) driver to your local machine. You will install it in the Striim cluster later.
+Download the [ojdbc8.jar](https://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html) driver onto your local machine. You will install it in the Striim cluster later.
 
-## Configure target Cosmos DB SQL API instance
+## Configure the target database
+
+In this section, you will configure the Azure Cosmos DB SQL API account as the target for data movement.
 
 1. Create an [Azure Cosmos DB SQL API account](create-cosmosdb-resources-portal.md) using the Azure portal.
 
-1. Navigate to the **Data Explorer** pane in your Azure Cosmos account. Select **New Container** to create a new test container. Assume that you are migrating products and orders data from Oracle database to Azure Cosmos DB. Create a new database named **StriimDemo** with a container named **Orders**. Provision the container with **1000 RUs** (this example uses 1000 RUs, but you should use the throughput estimated for your workload), and **/ORDER_ID** as the partition key. These values will differ depending on your source data. 
+1. Navigate to the **Data Explorer** pane in your Azure Cosmos account. Select **New Container** to create a new container. Assume that you are migrating *products* and *orders* data from Oracle database to Azure Cosmos DB. Create a new database named **StriimDemo** with a container named **Orders**. Provision the container with **1000 RUs** (this example uses 1000 RUs, but you should use the throughput estimated for your workload), and **/ORDER_ID** as the partition key. These values will differ depending on your source data. 
 
    ![Create a SQL API account](./media/cosmosdb-sql-api-migrate-data-using-striim/create-sql-api-account.png)
 
@@ -73,11 +75,11 @@ Navigate to Oracle.com and download the [ojdbc8.jar](https://www.oracle.com/tech
 
    ![Get the SSH URL](./media/cosmosdb-sql-api-migrate-data-using-striim/get-ssh-url.png)
 
-1. Open a new terminal window and run the SSH command you copied from the Azure portal. This article uses terminal in a Mac OS, you can follow the similar instructions using PuTTY or a different SSH client on a Windows machine. When prompted, type **yes** to continue and enter the **password** you have set for the virtual machine in the previous step.
+1. Open a new terminal window and run the SSH command you copied from the Azure portal. This article uses terminal in a MacOS, you can follow the similar instructions using PuTTY or a different SSH client on a Windows machine. When prompted, type **yes** to continue and enter the **password** you have set for the virtual machine in the previous step.
 
    ![Connect to Striim VM](./media/cosmosdb-sql-api-migrate-data-using-striim/striim-vm-connect.png)
 
-1. Now, open a new terminal tab to copy the ojdbc8.jar file you downloaded previously. Use the following SCP command to copy the jar file from your local machine to the tmp folder of the Striim instance running in Azure:
+1. Now, open a new terminal tab to copy the **ojdbc8.jar** file you downloaded previously. Use the following SCP command to copy the jar file from your local machine to the tmp folder of the Striim instance running in Azure:
 
    ```bash
    cd <Directory_path_where_the_Jar_file_exists> 
@@ -86,7 +88,7 @@ Navigate to Oracle.com and download the [ojdbc8.jar](https://www.oracle.com/tech
 
    ![Copy the Jar file from location machine to Striim](./media/cosmosdb-sql-api-migrate-data-using-striim/copy-jar-file.png)
 
-1. Next, navigate back to the window where you did SSH to the Striim instance and Login as sudo. Move the ojdbc8.jar file from the **/tmp** directory into the **lib** directory of your Striim instance with the following commands:
+1. Next, navigate back to the window where you did SSH to the Striim instance and Login as sudo. Move the **ojdbc8.jar** file from the **/tmp** directory into the **lib** directory of your Striim instance with the following commands:
 
    ```bash
    sudo su
@@ -127,7 +129,7 @@ Navigate to Oracle.com and download the [ojdbc8.jar](https://www.oracle.com/tech
 
    ![Add the Striim app](./media/cosmosdb-sql-api-migrate-data-using-striim/add-striim-app.png)
 
-1. There are a few different ways to create Striim applications. In this demo you will use an existing template, select **Start with Template**.
+1. There are a few different ways to create Striim applications. Select **Start with Template** to start with an existing template.
 
    ![Start the app with the template](./media/cosmosdb-sql-api-migrate-data-using-striim/start-with-template.png)
 
@@ -137,7 +139,7 @@ Navigate to Oracle.com and download the [ojdbc8.jar](https://www.oracle.com/tech
 
 1. In the next page, name your application. You can provide a name such as **oraToCosmosDB** and then select **Save**.
 
-1. Next enter the source configuration of your source Oracle instance. Enter a value for the **Source Name**, it is just a naming convention for the Striim application, you can use something like “src_onPremOracle”. Enter values for rest of the source parameters **URL**, **Username**, **Password**, choose **LogMiner** as the reader to read data from Oracle. Select **Next** to continue.
+1. Next, enter the source configuration of your source Oracle instance. Enter a value for the **Source Name**. The source name is just a naming convention for the Striim application, you can use something like **src_onPremOracle**. Enter values for rest of the source parameters **URL**, **Username**, **Password**, choose **LogMiner** as the reader to read data from Oracle. Select **Next** to continue.
 
    ![Configure source parameters](./media/cosmosdb-sql-api-migrate-data-using-striim/configure-source-parameters.png)
 
@@ -149,13 +151,13 @@ Navigate to Oracle.com and download the [ojdbc8.jar](https://www.oracle.com/tech
 
    ![Select source tables](./media/cosmosdb-sql-api-migrate-data-using-striim/select-source-tables.png)
 
-1. After selecting the source table, you can do more complicated operations such as mapping and Filtering. For this demo, you will just create a replica of your source table in Azure Cosmos DB. So, select **Next** to configure the target
+1. After selecting the source table, you can do more complicated operations such as mapping and filtering. In this case, you will just create a replica of your source table in Azure Cosmos DB. So, select **Next** to configure the target
 
 1. Now, let’s configure the target:
 
    * **Target Name** - Provide a friendly name for the target. 
-   * **Input From** - From the dropdown, select the input stream from the one you created in the source Oracle configuration. 
-   * **Collections**- Enter the target Azure Cosmos DB configuration properties. The collections syntax is **SourceSchema.SourceTable, TargetDatabase.TargetContainer**, in this example, the value would be “SYSTEM.ORDERS, StriimDemo.Orders”. 
+   * **Input From** - From the dropdown list, select the input stream from the one you created in the source Oracle configuration. 
+   * **Collections**- Enter the target Azure Cosmos DB configuration properties. The collections syntax is **SourceSchema.SourceTable, TargetDatabase.TargetContainer**. In this example, the value would be “SYSTEM.ORDERS, StriimDemo.Orders”. 
    * **AccessKey** - The PrimaryKey of your Azure Cosmos account.
    * **ServiceEndpoint** – The URI of your Azure Cosmos account, they can be found under the **Keys** section of the Azure portal. 
 
@@ -164,7 +166,7 @@ Navigate to Oracle.com and download the [ojdbc8.jar](https://www.oracle.com/tech
    ![Configure target parameters](./media/cosmosdb-sql-api-migrate-data-using-striim/configure-target-parameters.png)
 
 
-1. Next you’ll arrive at the flow designer where you can drag and drop out of the box connectors to create your streaming applications. You will not make any modifications to the flow at this point so go ahead and deploy the application by selecting the **Deploy App** button.
+1. Next, you’ll arrive at the flow designer, where you can drag and drop out of the box connectors to create your streaming applications. You will not make any modifications to the flow at this point. so go ahead and deploy the application by selecting the **Deploy App** button.
  
    ![Deploy the app](./media/cosmosdb-sql-api-migrate-data-using-striim/deploy-app.png)
 
@@ -176,17 +178,17 @@ Navigate to Oracle.com and download the [ojdbc8.jar](https://www.oracle.com/tech
 
    ![Start the app](./media/cosmosdb-sql-api-migrate-data-using-striim/start-app.png)
 
-1. By using a CDC(Change Data Capture) reader, Striim will pick up only new changes on the database. If you have data flowing through your source tables, you’ll see it. However, since this is a demo table, the source that isn’t connected to any application. If you use a sample data generator and insert a chain of events into your Oracle database.
+1. By using a **CDC(Change Data Capture)** reader, Striim will pick up only new changes on the database. If you have data flowing through your source tables, you’ll see it. However, since this is a demo table, the source isn’t connected to any application. If you use a sample data generator, you can insert a chain of events into your Oracle database.
 
-1. You’ll see data flowing through the Striim platform. Striim picks up all the metadata associated with your table as well, which is helpful to monitor the data make sure the data lands on the target.
+1. You’ll see data flowing through the Striim platform. Striim picks up all the metadata associated with your table as well, which is helpful to monitor the data and make sure that the data lands on the right target.
 
    ![Configure CDC pipeline](./media/cosmosdb-sql-api-migrate-data-using-striim/configure-cdc-pipeline.png)
 
-1. Finally, let’s sign into Azure and navigate to your Azure Cosmos DB account. Refresh the Data Explorer and you can see that data has arrived.  
+1. Finally, let’s sign into Azure and navigate to your Azure Cosmos account. Refresh the Data Explorer, and you can see that data has arrived.  
 
    ![Validate migrated data in Azure](./media/cosmosdb-sql-api-migrate-data-using-striim/portal-validate-results.png)
 
-By using the Striim solution in Azure, you can continuously migrate data to Azure Cosmos DB, transform a transactional database to a JSON document structure without any coding. For any issues when setting up the migration path with Striim, file a support request in the [Striim website](https://go2.striim.com/request-support-striim).
+By using the Striim solution in Azure, you can continuously migrate data to Azure Cosmos DB from various sources such as Oracle, Cassandra, MongoDB and various others to Azure Cosmos DB. For any issues when setting up the migration path with Striim, file a support request in the [Striim website](https://go2.striim.com/request-support-striim).
 
 ## Next steps
 
