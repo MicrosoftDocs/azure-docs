@@ -82,6 +82,8 @@ This feature is in preview but, it is supported for Windows app production workl
 
 One address is used for each App Service plan instance. If you scaled your app to 5 instances, that is 5 addresses used. Since subnet size cannot be changed after assignment, you must use a subnet that is large enough to accommodate whatever scale your app may reach. A /27 with 32 addresses is the recommended size as that would accommodate a Premium App Service plan that is scaled to 20 instances.
 
+If you want your apps in another App Service plan to reach a VNet that is connected to already by apps in another App Service plan, you need to select a different subnet than the one being used by the pre-existing VNet Integration.  
+
 The feature is in preview also for Linux. To use the VNet Integration feature with a Resource Manager VNet in the same region:
 
 1. Go to the Networking UI in the portal. If your app is able to use the new feature, then you will see an option to Add VNet (preview).  
