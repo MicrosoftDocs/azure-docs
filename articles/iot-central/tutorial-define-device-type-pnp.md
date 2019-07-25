@@ -127,6 +127,19 @@ As a builder, you can customize the application to display relevant information 
 * Forms to view and edit device and cloud properties.
 * Dashboards to visualize devices.
 
+>[!NOTE]
+>Bug bash: We are currently testing a left-hand panel for adding elements into your view in the Device Template page vs. a right-hand panel for adding elements into your view in the Dashboard page. Please leave us feedback and preferences in the Teams channel.
+
+### Generate default views
+
+Generating default views is a quick way to get started with visualizing your important device information. You will have up to three default views generated for your device template:
+
+1. **Commands** will provide a view with device commands and will allow your operator to dispatch them to your device.
+1. **Overview** will provide a view with device telemetry, displaying charts and metrics.
+1. **About** will provide a view with device information, displaying device properties.
+
+Once you have selected **Generate default views** you will see that they have been automatically added under the **Views** section of your device template.
+
 ### Configure a view to visualize devices
 
 A device dashboard lets an operator visualize a device using charts and metrics. As a builder, you can define what information displays on a device dashboard. You can define multiple dashboards for devices. To create a dashboard to visualize the environmental sensor telemetry, select **Views** and then **Visualizing the Device**:
