@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 07/26/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -82,8 +82,8 @@ This table describe the ports in your virtual network that your ISE uses and whe
 | Azure Active Directory | Outbound | 80 & 443 | VirtualNetwork | AzureActiveDirectory | |
 | Azure Storage dependency | Outbound | 80 & 443 | VirtualNetwork | Storage | |
 | Intersubnet communication | Inbound & Outbound | 80 & 443 | VirtualNetwork | VirtualNetwork | For communication between subnets |
-| Communication to Azure Logic Apps | Inbound | 443 | Internet | VirtualNetwork | The IP address for the computer or service that calls any request trigger or webhook that exists in your logic app. Closing or blocking this port prevents HTTP calls to logic apps with request triggers.  |
-| Logic app run history | Inbound | 443 | Internet | VirtualNetwork | The IP address for the computer from which you view the logic app's run history. Although closing or blocking this port doesn't prevent you from viewing the run history, you can't view the inputs and outputs for each step in that run history. |
+| Communication to Azure Logic Apps | Inbound | 443 | Internal access endpoints: <br>VirtualNetwork <p><p>External access endpoints: <br>Internet <p><p>**Note**: These endpoints refer to the endpoint setting that was [selected at ISE creation](#create-environment). For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | The IP address for the computer or service that calls any request trigger or webhook that exists in your logic app. Closing or blocking this port prevents HTTP calls to logic apps with request triggers. |
+| Logic app run history | Inbound | 443 | Internal access endpoints: <br>VirtualNetwork <p><p>External access endpoints: <br>Internet <p><p>**Note**: These endpoints refer to the endpoint setting that was [selected at ISE creation](#create-environment). For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | The IP address for the computer from which you view the logic app's run history. Although closing or blocking this port doesn't prevent you from viewing the run history, you can't view the inputs and outputs for each step in that run history. |
 | Connection management | Outbound | 443 | VirtualNetwork  | Internet | |
 | Publish Diagnostic Logs & Metrics | Outbound | 443 | VirtualNetwork  | AzureMonitor | |
 | Communication from Azure Traffic Manager | Inbound | 443 | AzureTrafficManager | VirtualNetwork | |
@@ -91,7 +91,7 @@ This table describe the ports in your virtual network that your ISE uses and whe
 | App Service Management dependency | Inbound | 454 & 455 | AppServiceManagement | VirtualNetwork | |
 | Connector deployment | Inbound | 454 & 3443 | Internet  | VirtualNetwork | Necessary for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
 | Azure SQL dependency | Outbound | 1433 | VirtualNetwork | SQL |
-| Azure Resource Health | Outbound | 1886 | VirtualNetwork | Internet | For publishing health status to Resource Health |
+| Azure Resource Health | Outbound | 1886 | VirtualNetwork | AzureMonitor | For publishing health status to Resource Health |
 | API Management - management endpoint | Inbound | 3443 | APIManagement  | VirtualNetwork | |
 | Dependency from Log to Event Hub policy and monitoring agent | Outbound | 5672 | VirtualNetwork  | EventHub | |
 | Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | 6379-6383 | VirtualNetwork  | VirtualNetwork | Also, for ISE to work with Azure Cache for Redis, you must open these [outbound and inbound ports described in the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
@@ -123,8 +123,9 @@ In the search box, enter "integration service environment" as your filter.
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you want to create your environment |
    | **Integration Service Environment Name** | Yes | <*environment-name*> | The name to give your environment |
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment |
-   | **SKU** | Yes | **Premium** or **Developer (No SLA)** | The ISE SKU to create and use. For differences between these SKUs, see [ISE SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). |
+   | **SKU** | Yes | **Premium** or **Developer (No SLA)** | The ISE SKU to create and use. For differences between these SKUs, see [ISE SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Important**: This option is available only at ISE creation and can't be changed later. |
    | **Additional capacity** | Premium: <br>Yes <p><p>Developer: <br>Not applicable | Premium: <br>0 to 10 <p><p>Developer: <br>Not applicable | The number of additional processing units to use for this ISE resource. To add capacity after creation, see [Add ISE capacity](#add-capacity). |
+   | **Access endpoint** | Yes | **Internal** or **External** | The type of access endpoints to use for your ISE, which determine whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network. The endpoint type also affects access to inputs and outputs in your logic app runs history. For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Important**: This option is available only at ISE creation and can't be changed later. |
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, [create an Azure virtual network first](../virtual-network/quick-create-portal.md). <p>**Important**: You can *only* perform this injection when you create your ISE. |
    | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating and deploying resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet).  |
    |||||

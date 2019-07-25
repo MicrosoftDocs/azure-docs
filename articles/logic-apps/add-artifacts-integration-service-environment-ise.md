@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 07/26/2019
 ---
 
 # Add artifacts to your integration service environment (ISE) in Azure Logic Apps
