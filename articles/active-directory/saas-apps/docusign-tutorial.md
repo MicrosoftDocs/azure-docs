@@ -43,7 +43,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * DocuSign supports **SP** initiated SSO
 
-* DocuSign supports **Just In Time** user provisioning
+* DocuSign supports [automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial)
 
 ## Adding DocuSign from the gallery
 
