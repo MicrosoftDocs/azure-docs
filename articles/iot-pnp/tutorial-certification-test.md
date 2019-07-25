@@ -88,7 +88,8 @@ On the review page, you can review the discovered IoT Plug and Play interfaces. 
 1. To run the tests for the implemented IoT Plug and Play interfaces, select **Run tests**.
 1. All the tests run automatically. If any test fails, select **View logs** to view the error messages from AICS and the raw telemetry sent to Azure IoT Hub.
 1. To complete the certification tests, select **Finish**.
-1. Last step is to publish the certified IoT Plug and Play device to the catalog. To add the certified device to the catalog, select **Add to Catalog** on the toolbar.
+1. Publish the certified IoT Plug and Play device to the catalog. To add the certified device to the catalog, select **Add to Catalog** on the toolbar.
+1. Click on "CERTIFIED AND IN THE CATALOG" link to view your published device on device catalog
 
 ## Next steps
 
