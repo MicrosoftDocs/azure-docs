@@ -52,7 +52,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring 15Five for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on 15Five.
 
-1. Sign in to your [15Five Admin Console](https://my.15five.com/). Navigate > Features> Click on **Integrations**.
+1. Sign in to your [15Five Admin Console](https://my.15five.com/). Navigate to **Features > Integrations**.
 
 	![15Five Admin Console](media/15five-provisioning-tutorial/integration.png)
 
@@ -161,6 +161,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 	
 ## Connector limitations
 
+* 15Five does not support hard deletes for users.
 
 ## Additional resources
 
