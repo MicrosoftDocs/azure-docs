@@ -116,6 +116,7 @@ The simulated device application connects to a device-specific endpoint on your 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
     ![Run the simulated device](media/quickstart-send-telemetry-dotnet/SimulatedDevice.png)
+**Message Encoding**
 
 ## Read the telemetry from your hub
 
