@@ -392,6 +392,8 @@ await pool.CommitAsync();
 >
 >
 
+#### Automatic scaling interval
+
 By default, the Batch service adjusts a pool's size according to its autoscale formula every 15 minutes. This interval is configurable by using the following pool properties:
 
 * [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
