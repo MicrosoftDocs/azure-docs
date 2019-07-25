@@ -162,28 +162,30 @@
   items:
   - name: Solutions
     items:
-    - name: IoT solution accelerators
-      href: /azure/iot-suite
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Platform services
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
+  - name: Platform Services
     items:
     - name: IoT Hub
       href: /azure/iot-hub
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
     - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
+    - name: IoT Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Maps
       href: /azure/azure-maps
-    - name: Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: IoT Edge
     items:
-    - name: IoT Edge
+    - name: Azure IoT Edge
       href: /azure/iot-edge
     - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks    
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks   
 - name: Resources
   items:
   - name: Azure IoT Samples for C# (.NET)
