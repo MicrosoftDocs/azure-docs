@@ -131,6 +131,8 @@
   items:
   - name: Manage Azure Monitor
     items:
+    - name: Design a workspace deployment
+      href: platform/design-logs-deployment.md
     - name: Roles permissions and security
       href: platform/roles-permissions-security.md
     - name: IP addresses
