@@ -99,7 +99,7 @@ With both options, you can get to a view that:
 
 >[!TIP]
 >
->* If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the REGISTERED column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Additional FAQ is available [here](*https://docs.microsoft.com/azure/active-directory/devices/faq).
+>* If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the REGISTERED column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Additional information can be found here [Devices frequently asked questions](https://docs.microsoft.com/azure/active-directory/devices/faq).
 >
 >   ![Pending devices](./media/device-management-azure-portal/75.png)
 >
