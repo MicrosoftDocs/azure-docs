@@ -202,7 +202,7 @@ The script queries the smart contract by calling the getMessage function. The cu
 
 ![Script output](./media/send-transaction/execute-get.png)
 
-Notice the value is not **Hello, blockchain!**. Instead, the returned value is a placeholder. When you change and deploy the contract, the contract gets a new contract address and the state variables are assigned values in the smart contract constructor. The **HelloBlockchain**  smart contract default constructor doesn't initialize the **RequestMessage** state variable. The **RequestMessage** state variable contains a placeholder value and that's what is returned.
+Notice the value is not **Hello, blockchain!**. Instead, the returned value is a placeholder. When you change and deploy the contract, the contract gets a new contract address and the state variables are assigned values in the smart contract constructor. The Truffle sample **2_deploy_contracts.js** migration script deploys the smart contract and passes a placeholder value as an argument. The constructor sets the **RequestMessage** state variable to the placeholder value and that's what is returned.
 
 1. To set the **RequestMessage** state variable and query the value, run the **sendrequest.js** and **getmessage.js** scripts again.
 
