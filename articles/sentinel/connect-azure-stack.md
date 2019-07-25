@@ -6,9 +6,9 @@ documentationcenter: na
 author: rkarlin
 
 ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
