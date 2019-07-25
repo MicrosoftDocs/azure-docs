@@ -537,7 +537,7 @@ The last thing that we need to do is create a method that is invoked when the **
        {
            request.Method = HttpMethod.Post;
            request.RequestUri = new Uri(uri);
-           request.Content = new StringContent(requestBody, Encoding.UTF8, "app/json");
+           request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
            request.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
            request.Headers.Add("Ocp-Apim-Subscription-Region", "westus");
            request.Headers.Add("X-ClientTraceId", Guid.NewGuid().ToString());
