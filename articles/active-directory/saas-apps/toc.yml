@@ -71,6 +71,8 @@
         href: allbound-sso-tutorial.md  
       - name: Allocadia
         href: allocadia-tutorial.md
+      - name: Amazon Business
+        href: amazon-business-tutorial.md
       - name: Amazon Web Services (AWS)
         href: amazon-web-service-tutorial.md
       - name: Amazon Web Services (AWS) to connect multiple accounts
@@ -255,6 +257,8 @@
         href: citrix-netscaler-tutorial.md
       - name: Citrix ShareFile
         href: sharefile-tutorial.md
+      - name: Civic Platform
+        href: civic-platform-tutorial.md
       - name: Clarizen
         href: clarizen-tutorial.md
       - name: Clear Review
