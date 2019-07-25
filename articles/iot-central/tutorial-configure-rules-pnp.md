@@ -37,13 +37,31 @@ Before you begin, you should complete the [Define a new device type in your appl
 
 1. Enter **Environmental temperature** as the rule name.
 
-1. In the **Scope** section, select the device type to apply this rule to. You can apply further filters + **Filter**.
+1. In the **Scope** section, select the **Environment Sensor** as the device template. The scope which devices this rule applies to. You can add more filter criteria using **+ Filter**.
 
-1. In the **Condition** section, specify the telemetry values that trigger the rule. To add more conditions, select + **Condition**.
+1. In the **Condition** section, you define what triggers your rule. Use the following information to define a condition based on temperature telemetry:
 
-1. To add an action that runs when the rule is triggered, select **+ Action**.
+    | Field                                        | Value                             |
+    | -------------------------------------------- | ------------------------------    |
+    | Measurement                                  | Temperature                       |
+    | Operator                                     | is greater than                   |
+    | Value                                        | 90                                |
 
-1. Select **Save** to save your rule definition.
+ To add more conditions, select **+ Condition**.
+
+1. To add an action to run when the rule triggers, select **+ Action**, and choose **Email**.
+
+1. USe the information in the following table to define your action:
+
+    | Setting   | Value                                             |
+    | --------- | ------------------------------------------------- |
+    | To        | Your email address                                |
+    | Notes     | Environmental temperature exceeded the threshold. |
+
+    > [!NOTE]
+    > To receive an email notification, the email address must be a [user ID in the application](howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json), and that user must have signed in to the application at least once.
+
+1. Select **Save**. Your rule is listed on the **Rules** page.
 
 ## Test the rule
 
