@@ -74,6 +74,9 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 Depending on the size of your directory (number of users, groups etc.), synchronization of credential hashes to Azure AD takes time. The passwords will be usable on the Azure AD Domain Services managed domain shortly after the credential hashes have synchronized to Azure AD.
 
+> [!NOTE]
+> **Password hash sync** is a different process from user/object sync. You need to disable/enable password hash sync to get full password sync, then you will see the batch password hash updates in the application event log.
+
 ## Related Content
 * [Enable password synchronization to AAD Domain Services for a cloud-only Azure AD directory](active-directory-ds-getting-started-password-sync.md)
 * [Manage an Azure AD Domain Services domain](manage-domain.md)
