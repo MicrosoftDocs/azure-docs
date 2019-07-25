@@ -135,7 +135,7 @@ The following steps describe this process in more detail. The steps differ sligh
 
 1. Then turn on the device for it to connect to your IoT Central application. When you switch on a device, it first connects to DPS to retrieve its IoT Central registration information.
 
-1. The connected device initially shows up as an **Unassociated** on the **Devices** page. The device provisioning status is **Registered**. **Migrate** the device to the appropriate device template and approve the device to connect to your IoT Central application. The device can then retrieve a connection string from IoT Hub and start sending data. Device provisioning is now complete and the provisioning status is now **Provisioned**.
+1. The connected device initially shows up as **Unassociated** on the **Devices** page. The device provisioning status is **Registered**. **Migrate** the device to the appropriate device template and approve the device to connect to your IoT Central application. The device can then retrieve a connection string from IoT Hub and start sending data. Device provisioning is now complete and the provisioning status is now **Provisioned**.
 
 ## Connect devices with IoT Plug and Play
 
