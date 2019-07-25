@@ -4,7 +4,7 @@ description: Key analytics scenarios and components for Windows and Linux Data S
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: vijetajtk
+author: vijetajo
 manager: cgronlun
 
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
-ms.author: gokuma
+ms.author: vijetajtk
 
 ---
 
