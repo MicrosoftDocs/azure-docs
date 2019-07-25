@@ -22,7 +22,7 @@ Azure Virtual Network (VNet) is the fundamental building block for your private 
 ## VNet concepts
 
 - **Address space:** When creating a VNet, you must specify a custom private IP address space using public and private (RFC 1918) addresses. Azure assigns resources in a virtual network a private IP address from the address space that you assign. For example, if you deploy a VM in a VNet with address space, 10.0.0.0/16, the VM will be assigned a private IP like 10.0.0.4.
-- **Subnets:** Subnets enable you to segment the virtual network into one or more sub-networks and allocate a portion of the virtual network's address space to each subnet. You can then deploy Azure resources in a specific subnet. Just like in a traditional network, subnets allow you to segment your VNet address space into segments that are appropriate for the organization's internal network. This also improves address allocation efficiency. You can secure resources within subnets using Network Security Groups. For more information, see [Security groups](/security-overview.md).
+- **Subnets:** Subnets enable you to segment the virtual network into one or more sub-networks and allocate a portion of the virtual network's address space to each subnet. You can then deploy Azure resources in a specific subnet. Just like in a traditional network, subnets allow you to segment your VNet address space into segments that are appropriate for the organization's internal network. This also improves address allocation efficiency. You can secure resources within subnets using Network Security Groups. For more information, see [Security groups](security-overview.md).
 - **Regions**: VNet is scoped to a single region/location; however, multiple virtual networks from different regions can be connected together using Virtual Network Peering.
 - **Subscription:** VNet is scoped to a subscription. You can implement multiple virtual networks within each Azure [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) and Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region).
 
@@ -74,7 +74,7 @@ Azure routes traffic between subnets, connected virtual networks, on-premises ne
 
 ## Azure VNet limits
 
-There are certain limits around the number of Azure resources you can deploy. Most Azure networking limits are at the maximum values. However, you can increase certain limits as specified on the [VNet limits page](../azure-subscription-service-limits.md#networking-limits).
+There are certain limits around the number of Azure resources you can deploy. Most Azure networking limits are at the maximum values. However, you can [increase certain networking limits](../azure-supportability/networking-quota-requests.md) as specified on the [VNet limits page](../azure-subscription-service-limits.md#networking-limits). 
 
 ## Pricing
 

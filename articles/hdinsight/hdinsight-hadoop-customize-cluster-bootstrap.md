@@ -145,9 +145,6 @@ You can use bootstrap in Resource Manager template:
 
 This PowerShell script creates an HDInsight cluster and customizes a Hive setting. Be sure to enter values for `$nameToken`, `$httpPassword`, and `$sshPassword`.
 
-> [!IMPORTANT]  
-> The values for `DefaultStorageAccount`, and `DefaultStorageContainer` are not returned from [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) when [secure transfer](../storage/common/storage-require-secure-transfer.md) is enabled on the storage account.
-
 > [!WARNING]  
 > Storage account kind `BlobStorage` cannot be used for HDInsight clusters.
 

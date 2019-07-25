@@ -4,7 +4,7 @@ description: Understand how to use HTTP triggers and bindings in Azure Functions
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, HTTP, API, REST
 
 ms.service: azure-functions
@@ -303,6 +303,7 @@ Here's the Python code:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')

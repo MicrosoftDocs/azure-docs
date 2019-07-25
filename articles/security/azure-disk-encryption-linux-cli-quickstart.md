@@ -35,7 +35,7 @@ az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image Canonical:UbuntuServer:16.04-LTS:latest \
-    --size Standard_D2S_V3 \
+    --size Standard_D2S_V3
 ```
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.

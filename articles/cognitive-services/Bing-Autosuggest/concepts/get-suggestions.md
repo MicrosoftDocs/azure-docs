@@ -1,6 +1,6 @@
 ---
 title: Suggesting search terms with the Bing Autosuggest API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to use the Bing Autosuggest API.
 services: cognitive-services
 author: aahill

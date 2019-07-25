@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: areddish
 ---
 
@@ -42,7 +42,7 @@ Create a new file called *sample.py* in your preferred project directory.
 
 ### Create the Custom Vision service project
 
-Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Note that the difference between creating an object detection and image classification project is the domain specified in the **create_project** call.
+Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. The difference between creating an object detection and image classification project is the domain specified in the **create_project** call.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -81,7 +81,7 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates.
 
-To add the images, tags, and regions to the project, insert the following code after the tag creation. Note that for this tutorial the regions are hardcoded inline with the code. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height.
+To add the images, tags, and regions to the project, insert the following code after the tag creation. For this tutorial, the regions are hardcoded inline with the code. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height.
 
 ```Python
 fork_image_regions = {

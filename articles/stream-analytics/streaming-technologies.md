@@ -39,7 +39,7 @@ Azure Stream Analytics has a rich out-of-the-box experience. You can immediately
 
 ### You need to input from or output to Kafka
 
-Azure Stream Analytics doesn't have an Apache Kafka input or output adapter. If you have events landing in or need to send to Kafka and you don't have a requirement to run your own Kafka cluster, you can continue to use Stream Analytics by sending events to Event Hubs using the Event Hubs Kafka API without changing the event sender. If you do need to run your own Kafka cluster, you can use Spark Structured Streaming, which is fully supported on [Azure Databricks](../azure-databricks/index.yml), or Storm on [Azure HDInsight](../hdinsight/storm/apache-storm-tutorial-get-started-linux.md).
+Azure Stream Analytics doesn't have an Apache Kafka input or output adapter. If you have events landing in or need to send to Kafka and you don't have a requirement to run your own Kafka cluster, you can continue to use Stream Analytics by sending events to Event Hubs using the Event Hubs Kafka API without changing the event sender. If you do need to run your own Kafka cluster, you can use Spark Structured Streaming, which is fully supported on [Azure Databricks](../azure-databricks/index.yml), or Storm on [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
 
 ### You want to write UDFs, UDAs, and custom deserializers in a language other than JavaScript or C#
 

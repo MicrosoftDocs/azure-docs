@@ -5,13 +5,11 @@ description: Make a production-quality custom voice by preparing a robust script
 services: cognitive-services
 author: erhopf
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
 ---
 
 # Record voice samples to create a custom voice

@@ -11,7 +11,8 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
-ms.author: jafreebe;cephalin
+ms.author: jafreebe
+ms.reviewer: cephalin
 ms.custom: seodec18
 
 ---
@@ -30,7 +31,7 @@ This guide provides key concepts and instructions for Java developers using in A
 To edit Tomcat's `server.xml` or other configuration files, first take a note of your Tomcat major version in the portal.
 
 1. Find the Tomcat home directory for your version by running the `env` command. Search for the environment variable that begins with `AZURE_TOMCAT`and matches your major version. For example, `AZURE_TOMCAT85_HOME` points to the Tomcat directory for Tomcat 8.5.
-1. Once you have identified the Tomcat home directory for your version, copy the configuration directory to `D:\home`. For example, if `AZURE_TOMCAT85_HOME` had a value of `D:\Program Files (x86)\apache-tomcat-8.5.37`, the full path of the copied configuration directory would be `D:\home\tomcat\conf`.
+1. Once you have identified the Tomcat home directory for your version, copy the configuration directory to `D:\home`. For example, if `AZURE_TOMCAT85_HOME` had a value of `D:\Program Files (x86)\apache-tomcat-8.5.37`, the new path of the copied directory would be `D:\home\apache-tomcat-8.5.37`.
 
 Finally, restart your App Service. Your deployments should go to `D:\home\site\wwwroot\webapps` just as before.
 

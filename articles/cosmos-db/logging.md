@@ -246,7 +246,7 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 ```
 
 ### <a id="access"></a>Access your logs
-Azure Cosmos DB logs for the **DataPlaneRequests** category are stored in the **insights-logs-data-plane-requests** container in the storage account that you provided. 
+Azure Cosmos DB logs for the **DataPlaneRequests** category are stored in the **insights-logs-dataplanerequests** container in the storage account that you provided. 
 
 First, create a variable for the container name. The variable is used throughout the walk-through.
 

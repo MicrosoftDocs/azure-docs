@@ -7,7 +7,7 @@ author: jimzim
 ms.author: jzim
 ms.date: 05/10/2019
 ms.topic: conceptual
-ms.service: openshift
+ms.service: container-service
 manager: jeconnoc
 #Customer intent: As a developer, I need to understand the prerequisites for working with Azure Red Hat OpenShift
 ---

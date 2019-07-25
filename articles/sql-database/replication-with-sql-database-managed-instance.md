@@ -168,7 +168,7 @@ EXEC sp_adddistpublisher
   @login = N'$(username)',
   @password = N'$(password)',
   @working_directory = N'$(file_storage)',
-  @storage_connection_string = N'$(file_storage_key)';
+  @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
 
 This script configures a local publisher on the managed instance, adds a linked server, and creates a set of jobs for the SQL Server Agent. 

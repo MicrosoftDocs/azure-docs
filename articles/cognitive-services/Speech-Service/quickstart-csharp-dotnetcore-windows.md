@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 07/05/2019
 ms.author: wolfma
 ---
 
 # Quickstart: Recognize speech with the Speech SDK for .NET Core
 
-Quickstarts are also available for [speech-translation](quickstart-translate-speech-dotnetcore-windows.md).
+Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-dotnetcore.md) and [speech-translation](quickstart-translate-speech-dotnetcore-windows.md).
 
 If desired, choose a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]

@@ -32,7 +32,7 @@ The Microsoft identity platform endpoint for identity-as-a-service with industry
 
 In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involved in the exchange:
 
-![OAuth 2.0 Roles](./media/active-directory-v2-flows/protocols-roles.svg)
+![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * The **Authorization Server** is the Microsoft identity platform endpoint and responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens. The authorization server also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in a flow.
 * The **Resource Owner** is typically the end user. It's the party that owns the data and has the power to allow third parties to access that data or resource.

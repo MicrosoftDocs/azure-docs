@@ -4,6 +4,8 @@ description: Describes what happens to your WebAPI project when you connect to A
 services: active-directory
 author: ghogen
 manager: douge
+ms.service: active-directory
+ms.subservice: develop
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure

@@ -1,28 +1,23 @@
 ---
 title: Azure Active Directory Identity Protection | Microsoft Docs
 description: Learn how Azure AD Identity Protection enables you to limit the ability of an attacker to exploit a compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised.
-services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
 
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
+services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 01/29/2019
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
 # What is Azure Active Directory Identity Protection?
 
-Azure Active Directory Identity Protection enables organizations to configure automated responses to detected suspicious actions related to user identities.
+Azure Active Directory [Identity](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection enables organizations to configure automated responses to detected suspicious actions related to user identities.
 
 ## Get started
 
@@ -33,7 +28,6 @@ The vast majority of security breaches take place when attackers gain access to 
 As a consequence of this, you need to:
 
 - Protect all identities regardless of their privilege level
-
 - Proactively prevent compromised identities from being abused
 
 Discovering compromised identities is no easy task. Azure Active Directory uses adaptive machine learning algorithms and heuristics to detect anomalies and suspicious incidents that indicate potentially compromised identities. Using this data, Identity Protection generates reports and alerts that enable you to evaluate the detected issues and take appropriate mitigation or remediation actions.

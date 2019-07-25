@@ -4,7 +4,7 @@ description: Learn about supported configurations and limitations of Oracle virt
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 tags: azure-resource-management
 
 ms.assetid: 

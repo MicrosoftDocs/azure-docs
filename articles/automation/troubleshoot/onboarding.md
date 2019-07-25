@@ -2,8 +2,8 @@
 title: Troubleshoot errors onboarding Update Management, Change Tracking, and Inventory
 description: Learn how to troubleshoot onboarding errors with the Update Management, Change Tracking, and Inventory solutions
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
@@ -49,7 +49,7 @@ Failed to configure automation account for diagnostic logging
 
 #### Cause
 
-This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](http://aka.ms/PricingTierWarning).
+This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](https://aka.ms/PricingTierWarning).
 
 #### Resolution
 

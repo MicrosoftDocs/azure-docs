@@ -117,6 +117,9 @@
   - name: Azure Digital Twins
     tocHref: /azure/digital-twins/
     topicHref: /azure/digital-twins/
+  - name: Azure Lighthouse
+    tocHref: /azure/lighthouse/
+    topicHref: /azure/lighthouse/
   - name: Azure Monitor
     tocHref: /azure/azure-monitor/
     topicHref: /azure/azure-monitor/
@@ -509,6 +512,9 @@
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
+  - name: Azure Kinect DK
+    tocHref: /azure/kinect-dk/
+    topicHref: /azure/kinect-dk/
   - name: Lab Services
     tocHref: /azure/lab-services/
     topicHref: /azure/lab-services/    
