@@ -50,6 +50,10 @@
     href: ../hdinsight-version-release.md
   - name: Monitor cluster availability with Ambari and Azure Monitor logs
     href: ../hdinsight-cluster-availability.md 
+  - name: Troubleshooting
+    items:
+    - name: OutOfMemoryError exception
+      href: ./apache-spark-ts-outofmemory.md
 - name: How to
   items:
   - name: Use cluster storage
