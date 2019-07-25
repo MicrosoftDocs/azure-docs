@@ -30,19 +30,17 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need:
-
-1. Install [Node.js](https://nodejs.org/dist/v10.16.0/node-v10.16.0-x64.msi)
+To complete this tutorial, you need to install [Node.js](https://nodejs.org/dist/v10.16.0/node-v10.16.0-x64.msi).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## Prepare an IoT hub
 
 1. Add the Microsoft Azure IoT Extension for Azure CLI:
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     ```
-
-## Prepare an IoT hub
 
 1. Register a device in IoT Hub:
 
