@@ -9,12 +9,12 @@ manager: beatrizd
 
 ms.assetid: d737aa16-8ab4-4c0c-a68b-2911623b41eb
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07-19-2019
+ms.date: 07/26/2019
 ms.author: zhchia
 ---
 
@@ -50,9 +50,11 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup Rollbar for provisioning
 
+Before configuring Rollbar for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Rollbar.
+
 1. First thing to take into account is that this is an enterprise feature, so the account should be in an enterprise plan or have had requested access to the feature through sales@rollbar.com and get enabled as a feature for the account.
 
-2. Once the account has enabled the SCIM integration as a feature, these would be the steps to get an SCIM token
+2. Once the account has enabled the SCIM integration as a feature, these would be the steps to get an SCIM token.
 
 3. Sign in to your [Rollbar Admin Console](https://rollbar.com/login/). Click on **Account Settings**.
 
@@ -72,7 +74,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Add Rollbar from the gallery
 
-Before configuring Rollbar for automatic user provisioning with Azure AD, you need to add Rollbar from the Azure AD application gallery to your list of managed SaaS applications.
+To configure Rollbar for automatic user provisioning with Azure AD, you need to add Rollbar the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add Rollbar from the Azure AD application gallery, perform the following steps:**
 
