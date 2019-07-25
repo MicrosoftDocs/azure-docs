@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vijetajtk
+ms.author: vijetaj
 
 ---
 # Provision a Deep Learning Virtual Machine on Azure 

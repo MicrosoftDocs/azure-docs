@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: vijetajtk
+ms.author: vijetaj
 
 ---
 # Data science with a Linux Data Science Virtual Machine on Azure

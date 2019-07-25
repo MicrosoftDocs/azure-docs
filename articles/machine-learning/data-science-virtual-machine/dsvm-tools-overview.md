@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2019
-ms.author: vijetajtk
+ms.author: vijetaj
 
 ---
 # Get to know your Data Science Virtual Machine

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vijetajtk
+ms.author: vijetaj
 
 ---
 # Provision a Linux CentOS Data Science Virtual Machine on Azure

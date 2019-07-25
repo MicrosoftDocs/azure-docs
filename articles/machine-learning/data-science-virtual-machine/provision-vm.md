@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
-ms.author: vijetajtk
+ms.author: vijetaj
 
 ---
 

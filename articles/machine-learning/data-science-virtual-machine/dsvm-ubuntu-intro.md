@@ -5,7 +5,7 @@ description: Configure and create a Data Science Virtual Machine For Linux (Ubun
 services: machine-learning
 documentationcenter: ''
 author: vijetajo
-ms.author: vijetajtk
+ms.author: vijetaj
 manager: cgronlun
 ms.custom: seodec18
 
