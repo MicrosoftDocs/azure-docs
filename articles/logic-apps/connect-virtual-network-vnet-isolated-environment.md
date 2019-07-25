@@ -27,18 +27,18 @@ An ISE has increased limits on run duration, storage retention, throughput, HTTP
 
 This article shows how to complete these tasks:
 
-* Make sure any necessary ports on a virtual network are open so that traffic can travel through your integration service environment (ISE) across the subnets in that virtual network.
+* Make sure any necessary ports on your virtual network are open so that traffic can travel through your ISE across the subnets in that virtual network.
 
-* Create your integration service environment (ISE).
+* Create your ISE.
 
-* Create a logic app that can run in your ISE.
-
-* Create an integration account for your logic apps in your ISE.
+* Add extra capacity to your ISE.
 
 > [!IMPORTANT]
 > Logic apps, built-in triggers, built-in actions, and connectors that run in 
 > your ISE use a pricing plan different from the consumption-based pricing plan. 
-> To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
+> To learn how pricing and billing work for ISEs, see the 
+> [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
+> For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
 ## Prerequisites
 
@@ -61,8 +61,6 @@ This article shows how to complete these tasks:
   * Make sure that your virtual network [makes these ports available](#ports) so your ISE works correctly and stays accessible.
 
 * If you want to use custom DNS servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. Otherwise, each time you change your DNS server, you also have to restart your ISE, which is a capability that's available with ISE public preview.
-
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="ports"></a>
 
@@ -248,6 +246,5 @@ The Premium ISE base unit has fixed capacity, so if you need more throughput, yo
 ## Next steps
 
 * [Add artifacts to integration service environments](../logic-apps/add-artifacts-integration-service-environment-ise.md)
-* [Manage integration service environments](../logic-apps/ise-manage-integration-service-environment.md)
 * Learn more about [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * Learn about [virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
