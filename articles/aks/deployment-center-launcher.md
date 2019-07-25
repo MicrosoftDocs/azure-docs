@@ -1,5 +1,5 @@
 ---
-title: Deployment Center in Azure DevOps
+title: Deployment Center for Azure Kubernetes
 description: Deployment Center in Azure DevOps simplifies setting up a robust Azure DevOps pipeline for your application
 ms.author: puagarw
 ms.manager: douge
@@ -11,7 +11,7 @@ author: pulkitaggarwl
 monikerRange: 'vsts'
 ---
 
-# Deployment Center in Azure DevOps
+# Deployment Center for Azure Kubernetes
 
 Deployment Center in Azure DevOps simplifies setting up a robust Azure DevOps pipeline for your application. By default, Deployment Center configures an Azure DevOps pipeline to deploy your application updates to the Kubernetes cluster. You can extend the default configured Azure DevOps pipeline and also add richer capabilities: the ability to gain approval before deploying, provision additional Azure resources, run scripts, upgrade your application, and even run more validation tests.
 
