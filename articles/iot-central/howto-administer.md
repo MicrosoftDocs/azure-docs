@@ -12,6 +12,8 @@ manager: peterpr
 
 # Administer your IoT Central application
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 After you create an IoT Central application, you can go to the **Administration** section to:
 
 - Manage application settings

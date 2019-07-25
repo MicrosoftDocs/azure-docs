@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpfr
 ---
 
-# Use device sets in your Azure IoT Central application (Plug and Play)
+# Use device sets in your Azure IoT Central application (Feature preview)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 

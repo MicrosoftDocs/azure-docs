@@ -45,4 +45,10 @@
   - name: 5 - Deploy to Azure Service Fabric
     href: azure-devops-project-service-fabric.md
     maintainContext: true
+  - name: 6- Deploy to Azure Cosmos DB
+    href: azure-devops-project-cosmos-db.md
+    maintainContext: true
+  - name: 7- Deploy to Azure Functions
+    href: azure-devops-project-functions.md
+    maintainContext: true  
     

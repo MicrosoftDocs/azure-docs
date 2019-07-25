@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: timlt
 ---
 
-# What is Azure IoT Central (Plug and Play)?
+# What is Azure IoT Central (Feature preview)?
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
@@ -42,6 +42,22 @@ This article outlines, for Azure IoT Central:
 - How to connect your devices to your application
 - How to manage your application.
 
+## Known issues
+
+> [!Note]
+> These known issues only apply to the IoT Central Preview application. 
+
+-	Rules will not support all actions (only email).
+-	Rules will not support complex types.
+-	CDE will not support Avro format (incompatibility).
+-	Simulated devices will not support all complex types.
+-	GeoJSON is not currently supported.
+-	Map tile is not currently supported.
+-	Jobs will not support complex types.
+-	Array schema types are not supported.
+-	App template export and App Copy are not supported.
+
+
 ## Personas
 
 The Azure IoT Central documentation refers to four personas who interact with an Azure IoT Central application:
@@ -63,10 +79,24 @@ You can quickly deploy a new Azure IoT Central application and then customize it
 - Telemetry it sends.
 - Business properties that an operator can modify.
 - Device properties that are set by a device and are read-only in the application.
-- Thresholds the application responds to.
-- Settings that determine the behavior of the device.
+- Properties set by an operator that determine the behavior of the device.
 
-You can immediately test your device templates and application with simulated data that Azure IoT Central generates for you.
+This device template includes:
+
+- A _device capability model_ that describes the capabilities a device should implement such as the telemetry it sends and the properties it reports.
+- Cloud properties that are not stored on the device.
+- Customizations, dashboards, and forms that are part of your IoT Central application.
+
+### Create device templates
+
+As a builder, you have several options for creating device templates:
+
+- Design the device template in IoT Central and then implement its device capability model in your device code.
+- Import a device capability model from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat) and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
+- Create a device capability model using Visual Studio code. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device capability model from a repository and creates a simple device template for you.
+- Create a device capability model using Visual Studio code. Implement your device code from the model. Manually import the device capability model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
+
+### Customize the UI
 
 As a builder, you can also customize the Azure IoT Central application UI for the operators who are responsible for the day-to-day use of the application. Customizations that a builder can make include:
 
@@ -97,7 +127,7 @@ As an operator, you use the Azure IoT Central application to manage the devices 
 
 As a builder, you can define custom rules and actions that operate over data streaming from connected devices. An operator can enable or disable these rules at the device level to control and automate tasks within the application.
 
-Administrators manage access to your application with [user roles and permissions](howto-administer.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Administrators manage access to your application with [user roles and permissions](howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Next steps
 
@@ -109,7 +139,5 @@ Now that you have an overview of Azure IoT Central, here are suggested next step
 - Follow a sequence of tutorials that show you how to:
   - [As a builder, to create a device template](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
   - [As a builder, add rules to automate your solution](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-  - [As a builder, customize the application for your operators](tutorial-customize-operator-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
   - [As an operator, monitor your devices](tutorial-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-  - [As an operator, add a real device to your solution](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-  - [As a device developer, create code for your devices](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json#prepare-the-client-code)
+  - [As an operator, add a device to your solution](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

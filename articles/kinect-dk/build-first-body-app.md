@@ -2,7 +2,8 @@
 title: Quickstart - Build your first Azure Kinect body tracking application 
 description: Step by step instructions to build your first Azure Kinect body tracking application 
 author: qm13
-ms.author: yijwan, quentinm
+ms.author: quentinm
+ms.reviewer: yijwan
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: quickstart
@@ -71,7 +72,7 @@ The first step in getting body tracking results is to create a body tracker. It 
 
 ```C
 k4a_calibration_t sensor_calibration;
-k4a_device_get_calibration(device, device_config.depth_mode, K4A_COLOR_RESOLUTION_OFF, &sensor_calibration);
+k4a_device_get_calibration(device, deviceConfig.depth_mode, K4A_COLOR_RESOLUTION_OFF, &sensor_calibration);
 
 k4abt_tracker_t tracker = NULL;
 k4abt_tracker_create(&sensor_calibration, &tracker);
@@ -152,15 +153,15 @@ k4a_device_close(device);
 
 int main()
 {
-    k4a_device_configuration_t device_config = K4A_DEVICE_CONFIG_INIT_DISABLE_ALL;
-    device_config.depth_mode = K4A_DEPTH_MODE_NFOV_UNBINNED;
+    k4a_device_configuration_t deviceConfig = K4A_DEVICE_CONFIG_INIT_DISABLE_ALL;
+    deviceConfig.depth_mode = K4A_DEPTH_MODE_NFOV_UNBINNED;
 
     k4a_device_t device;
     VERIFY(k4a_device_open(0, &device), "Open K4A Device failed!");
-    VERIFY(k4a_device_start_cameras(device, &device_config), "Start K4A cameras failed!");
+    VERIFY(k4a_device_start_cameras(device, &deviceConfig), "Start K4A cameras failed!");
 
     k4a_calibration_t sensor_calibration;
-    VERIFY(k4a_device_get_calibration(device, device_config.depth_mode, device_config.color_resolution, &sensor_calibration),
+    VERIFY(k4a_device_get_calibration(device, deviceConfig.depth_mode, deviceConfig.color_resolution, &sensor_calibration),
         "Get depth camera calibration failed!");
 
     k4abt_tracker_t tracker = NULL;

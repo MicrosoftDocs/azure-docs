@@ -1,5 +1,5 @@
 ---
-title: Create Java web app on Linux - Azure App Service 
+title: Create a Java web app on Linux - Azure App Service
 description: In this quickstart, you deploy your first Java Hello World in Azure App Service on Linux in minutes.
 keywords: azure, app service, web app, linux, java, maven, quickstart
 services: app-service\web
@@ -79,7 +79,7 @@ Then you can configure the deployment, run the maven command `mvn azure-webapp:c
 [INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
 [INFO] --------------------------------[ war ]---------------------------------
 [INFO]
-[INFO] --- azure-webapp-maven-plugin:1.6.0:config (default-cli) @ helloworld ---
+[INFO] --- azure-webapp-maven-plugin:1.7.0:config (default-cli) @ helloworld ---
 [WARNING] The plugin may not work if you change the os of an existing webapp.
 Define value for OS(Default: Linux):
 1. linux [*]

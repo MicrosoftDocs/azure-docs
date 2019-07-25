@@ -66,7 +66,7 @@ Now let's switch to working with code. Let's clone a Cassandra app from GitHub, 
 
 ## Review the code
 
-This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). These snippets are all taken from the `src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java` file.  
+This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). These snippets are all taken from the *src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java* file.  
 
 * The Cassandra host, port, user name, password, and SSL options are set. The connection string information comes from the connection string page in the Azure portal.
 
@@ -80,7 +80,7 @@ This step is optional. If you're interested to learn how the code creates the da
     return cluster.connect();
     ```
 
-The following snippets are from the `src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java` file.
+The following snippets are from the *src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java* file.
 
 * Create a new keyspace.
 
