@@ -15,7 +15,7 @@
         href: quickstarts/curl-train-extract.md
       - name: Python
         href: quickstarts/python-train-extract.md
-    - name: Use prebuilt receipts model
+    - name: Use prebuilt receipt model
       items:
       - name: cURL
         href: quickstarts/curl-receipts.md
