@@ -607,8 +607,7 @@ While developing an application, it is often useful to see logging information i
 
 This is equivalent to the output seen when you debug your functions during [local development](functions-develop-local.md). For more information, see [How to stream logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
-> [!NOTE]
-> Streaming logs support only a single instance of the Functions host. When your function is scaled to multiple instances, data from other instances are not shown in the log stream. The [Live Metrics Stream](../azure-monitor/app/live-stream.md) in Application Insights does supported multiple instances. While also in near real time, streaming analytics are also based on [sampled data](#configure-sampling).
+[!INCLUDE [functions-streaming-logs-note](../../includes/functions-streaming-logs-note.md)]
 
 ### Portal
 
@@ -623,6 +622,10 @@ This connects your app to the log streaming service and application logs are dis
 ### Visual Studio Code
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
+
+### Core Tools
+
+[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
 ### Azure CLI
 
