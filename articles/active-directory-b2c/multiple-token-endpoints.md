@@ -73,9 +73,9 @@ Download the archive: [active-directory-b2c-dotnet-webapp-and-webapi-master.zip]
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-## Update the code
+## Enable multiple issuers in web API
 
-In this section you update the code to specify that both token issuer endpoints are valid.
+In this section, you update the code to specify that both token issuer endpoints are valid.
 
 1. Open the **B2C-WebAPI-DotNet.sln** solution in Visual Studio
 1. In the **TaskService** project, open the *TaskService\\App_Start\\**Startup.Auth.cs*** file in your editor
@@ -109,9 +109,33 @@ app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
 
 As mentioned previously, other OWIN libraries typically provide a similar facility for supporting multiple issuers. Although providing examples for every library is outside the scope of this article, you can use a similar technique for most libraries.
 
+## Switch endpoints in web app
+
+With both URIs now supported by your web API, you now need update your web application so that it retrieves tokens from the b2clogin.com endpoint.
+
+For example, you can configure the sample web application to use the new endpoint by modifying the `ida:AadInstance` value in the *TaskWebApp\\**Web.config*** file of the **TaskWebApp** project.
+
+Change the `ida:AadInstance` value in the *Web.config* of TaskWebApp so that it references `{your-b2c-tenant-name}.b2clogin.com` instead of `login.microsoftonline.com`.
+
+Before:
+
+```xml
+<!-- Old value -->
+<add key="ida:AadInstance" value="https://login.microsoftonline.com/tfp/{0}/{1}" />
+```
+
+After (replace `{your-tenant-name}` with the name of your B2C tenant):
+
+```xml
+<!-- New value -->
+<add key="ida:AadInstance" value="https://{your-b2c-tenant-name}.b2clogin.com/tfp/{0}/{1}" />
+```
+
+When the endpoint strings are constructed during execution of the web app, the b2clogin.com-based endpoints are used when it requests tokens.
+
 ## Next steps
 
-This article presented a method of configuring a web API implementing the Microsoft OWIN middleware (Katana) to accept tokens from multiple issuer endpoints.
+This article presented a method of configuring a web API implementing the Microsoft OWIN middleware (Katana) to accept tokens from multiple issuer endpoints. As you might notice, there are several other strings in the *Web.Config* files of both the TaskService and TaskWebApp projects that would need to be changed if you want to build and run these projects against your own tenant. You're welcome to modify the projects appropriately if you want to see them in action, however, a full walk-through of doing so is outside the scope of this article.
 
 For more information about the different types of security tokens emitted by Azure AD B2C, see [Overview of tokens in Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
 
