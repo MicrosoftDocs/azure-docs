@@ -19,8 +19,8 @@ Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-cs
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Use this guide to create a speech-to-text application using [Unity](https://unity3d.com/) and the Speech SDK for Unity (Beta).
-When finished, you can use your computer's microphone to transcribe speech to text in real time.
-If you aren't familiar with Unity, we suggest you study the [Unity User Manual](https://docs.unity3d.com/Manual/UnityManual.html) before starting your application development.
+When finished, you can talk into your device to transcribe speech to text in real time.
+If you're new to Unity, we suggest you study the [Unity User Manual](https://docs.unity3d.com/Manual/UnityManual.html) before developing your application.
 
 > [!NOTE]
 > The Speech SDK for Unity is currently in beta.
@@ -38,7 +38,7 @@ To complete this project, you'll need:
 
 ## Create a Unity project
 
-1. Open Unity. If this is your first time using Unity, the **Unity Hub** *<version number>* window appears. (You can also open Unity Hub directly to get to this window.)
+1. Open Unity. If you're using Unity for the first time, the **Unity Hub** *<version number>* window appears. (You can also open Unity Hub directly to get to this window.)
 
    [![Unity Hub window](media/sdk/qs-csharp-unity-hub.png)](media/sdk/qs-csharp-unity-hub.png#lightbox)
 1. Select **New**. The **Create a new project with Unity** *<version number>* window appears.
@@ -90,7 +90,7 @@ When you're done, the **Scene** view should look similar to this screenshot:
 
 To add the sample script code for the Unity project, follow these steps:
 
-1. In the [Project window](https://docs.unity3d.com/Manual/ProjectView.html), select the **Create** > **C# script** to create add a new C# script.
+1. In the [Project window](https://docs.unity3d.com/Manual/ProjectView.html), select the **Create** > **C# script** to add a new C# script.
 
    [![Project window in the Unity Editor](media/sdk/qs-csharp-unity-project-window.png)](media/sdk/qs-csharp-unity-project-window.png#lightbox)
 1. Name the script `HelloWorld`.
@@ -120,9 +120,9 @@ Now return to the Unity Editor and add the script as a component to one of your 
 
 1. In the drop-down list, search for the `HelloWorld` script we created above and add it. A **Hello World (Script)** section appears in the **Inspector** window, listing two uninitialized properties, **Output Text** and **Start Reco Button**. These Unity component properties match public properties of the `HelloWorld` class.
 
-1. In the **Start Reco Button** property, select its object picker (the small circle icon to the right of the property), and choose the **Button** object you created earlier.
+1. Select the **Start Reco Button** property's object picker (the small circle icon to the right of the property), and choose the **Button** object you created earlier.
 
-1. In the **Output Text** property, select its object picker, and choose the **Text** object you created earlier.
+1. Select the **Output Text** property's object picker, and choose the **Text** object you created earlier.
 
    > [!NOTE]
    > The button also has a nested text object. Make sure you do not accidentally pick it for text output
@@ -134,17 +134,17 @@ Now you're ready to run the application within the Unity Editor.
 
 1. In the Unity Editor toolbar (below the menu bar), select the **Play** button (a right-pointing triangle).
 
-1. After the app launches, select the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the window.
+1. After the application launches, select the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the window.
 
   [![Screenshot of the running quickstart in the Unity Game Window](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
 
 1. Check the [**Console** window](https://docs.unity3d.com/Manual/Console.html) for debug messages. If the **Console** window isn't showing, go to the menu bar and select **Window** > **General** > **Console** to display it.
 
-1. When you're done recognizing speech, select the **Play** button in the Unity Editor toolbar to stop the app.
+1. When you're done recognizing speech, select the **Play** button in the Unity Editor toolbar to stop the application.
 
 ## Additional options to run this application
 
-This application can also be deployed to Android, as a Windows stand-alone app, or UWP application.
+This application can also be deployed to as an Android app, a Windows stand-alone app, or a UWP application.
 For more information, see our [sample repository](https://aka.ms/csspeech/samples). The `quickstart/csharp-unity` folder describes the configuration for these additional targets.
 
 ## Next steps
