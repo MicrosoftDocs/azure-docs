@@ -7,7 +7,6 @@
   - name: Terminology changes
     href: terminology.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Applications
     items:
@@ -96,9 +95,9 @@
       href: platform/personal-data-mgmt.md
     - name: Application data collection, retention, and storage
       href: app/data-retention-privacy.md
-  - name: Respond to incidents
+  - name: Alerts
     items:
-    - name: Alerts 
+    - name: Overview 
       href: platform/alerts-overview.md
     - name: Classic alerts 
       href: platform/alerts-classic.overview.md  
@@ -114,8 +113,6 @@
       href: platform/alerts-action-rules.md
     - name: Smart groups
       href: platform/alerts-smartgroups-overview.md 
-    - name: Autoscale
-      href: platform/autoscale-overview.md
     - name: Change analysis
       href: app/change-analysis.md 
   - name: Visualize data
@@ -401,6 +398,8 @@
         items:
         - name: Access control
           href: app/resources-roles-access-control.md
+        - name: IP address collection
+          href: app/ip-collection.md
         - name: Sampling
           displayname: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
           href: app/sampling.md
@@ -409,9 +408,9 @@
           href: app/telemetry-channels.md
         - name: TelemetryProcessors
           displayname: processors, filtering, telemetry filtering, telemetry processor
+          href: app/api-filtering-sampling.md
         - name: Telemetry correlation
           href: app/correlation.md
-          href: app/api-filtering-sampling.md
         - name: Track custom operations in .NET SDK
           href: app/custom-operations-tracking.md
         - name: Custom email reports
@@ -605,6 +604,8 @@
             href: insights/vminsights-enable-at-scale-powershell.md
           - name: Enable for Hybrid environment
             href: insights/vminsights-enable-hybrid-cloud.md
+          - name: Integration with Operations Manager
+            href: insights/service-map-scom.md
         - name: Monitor health
           href: insights/vminsights-health.md
         - name: Map dependencies
@@ -623,14 +624,8 @@
         href: insights/vmware.md
       - name: Wire Data solution
         href: insights/wire-data.md
-      - name: Service Map
-        items:
-        - name: Use
-          href: insights/service-map.md
-        - name: Configure
-          href: insights/service-map-configure.md
-        - name: Integration with Operations Manager
-          href: insights/service-map-scom.md
+      - name: Service Map solution
+        href: insights/service-map.md
       - name: Computer groups
         href: platform/computer-groups.md
       - name: Configuration Manager
@@ -957,6 +952,8 @@
     items:
     - name: Autoscale
       items:
+      - name: Overview
+        href: platform/autoscale-overview.md
       - name: Walkthrough
         href: platform/autoscale-get-started.md
       - name: Settings
