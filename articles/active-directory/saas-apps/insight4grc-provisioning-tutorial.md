@@ -39,7 +39,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Insight4GRC . Once decided, you can assign these users and/or groups to Insight4GRC  by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Insight4GRC. Once decided, you can assign these users and/or groups to Insight4GRC  by following the instructions here:
 
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
@@ -131,7 +131,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for Insight4GRC , change the **Provisioning Status** to **On** in the **Settings** section.
+11. To enable the Azure AD provisioning service for Insight4GRC, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
