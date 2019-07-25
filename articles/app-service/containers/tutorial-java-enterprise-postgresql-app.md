@@ -190,7 +190,7 @@ In a terminal window, rebuild and redeploy your application.
 mvn clean install -DskipTests azure-webapp:deploy
 ```
 
-Congratulations! Your application is now using a Postgres database and any records created in the application will be stored in Postgres, rather than the previous H3 in-memory database. To confirm this, you can make a record and restart your App Service. The records will still be there when your application restarts.
+Congratulations! Your application is now using a Postgres database and any records created in the application will be stored in Postgres, rather than the previous H2 in-memory database. To confirm this, you can make a record and restart your App Service. The records will still be there when your application restarts.
 
 ## Clean up
 
