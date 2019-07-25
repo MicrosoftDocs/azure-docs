@@ -97,13 +97,13 @@ With both options, you can get to a view that:
 
 ![All devices](./media/device-management-azure-portal/51.png)
 
-**Remarks:**
-
-* If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the REGISTERED column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Additional FAQ is available [here](*https://docs.microsoft.com/azure/active-directory/devices/faq).
-
-    ![Pending devices](./media/device-management-azure-portal/75.png)
-
-* For some iOS devices, the device names containing apostrophes can potentially use different characters that look like apostrophes. So searching for such devices is a little tricky - if you are not seeing search results correctly, ensure that the search string contains matching apostrophe character.
+>[!TIP]
+>
+>* If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the REGISTERED column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Additional FAQ is available [here](*https://docs.microsoft.com/azure/active-directory/devices/faq).
+>
+>   ![Pending devices](./media/device-management-azure-portal/75.png)
+>
+>* For some iOS devices, the device names containing apostrophes can potentially use different characters that look like apostrophes. So searching for such devices is a little tricky - if you are not seeing search results correctly, ensure that the search string contains matching apostrophe character.
 
 ## Device identity management tasks
 
