@@ -45,27 +45,42 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 ```console
 mkdir myapp && cd myapp
 ```
-Run `gradle init`. This command will create essential build files for Gradle, most importantly, the `build.gradle.kts`, which is used at runtime to create and configure your application. Run this command from your working directory:
+Run `gradle init`. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application. Run this command from your working directory:
 
 ```console
 gradle init --type basic
 ```
 
-When prompted to choose a **DSL**, select **Kotlin**.
+When prompted to choose a build script DSL, select **Kotlin**.
 
-Locate `build.gradle.kts` and open it with your preferred IDE or text editor. Then copy in this build configuration:
+Locate `build.gradle.kts` and open it with your preferred IDE or text editor. Then copy in the following build configuration. This defines the project as a Java application whose entry point is the class **ContentModeratorQuickstart**. It imports the Content Moderator SDK as well as the Gson sdk for JSON serialization.
 
 ```kotlin
-// https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator
-compile group: 'com.microsoft.azure.cognitiveservices', name: 'azure-cognitiveservices-contentmoderator', version: '1.0.2-beta'
-```
-From your working directory, run the following command to create a project folder. 
+plugins {
+    java
+    application
+}
+
+application{ 
+    mainClassName = "ContentModeratorQuickstart"
+}
+
+repositories{
+    mavenCentral()
+}
+
+dependencies{
+	compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-contentmoderator", version = "1.0.2-beta")
+	compile(group = "com.google.code.gson", name = "gson", version = "2.8.5")
+}
+
+From your working directory, run the following command to create a project source folder.
 
 ```console
 mkdir -p src/main/java
 ```
 
-Then create a file named *ContentModeratorQuickstart.java* in the new directory. Open the file in your preferred editor or IDE and import the following libraries at the top:
+Then create a file named *ContentModeratorQuickstart.java* in the new folder. Open the file in your preferred editor or IDE and import the following libraries at the top:
 
 ```java
 import com.google.gson.*;
@@ -79,6 +94,8 @@ import java.util.*;
 ```
 
 ## Object model
+
+The following classes handle some of the major features of the Content Moderator Java SDK.
 
 |Name|Description|
 |---|---|
@@ -95,25 +112,20 @@ These code snippets show you how to do the following with the Content Moderator 
 * [Authenticate the client](#authenticate-the-client)
 * [Moderate images](#moderate-images)
 
-<!--
-    change the environment key variable to something descriptive for your service.
-    For example: TEXT_ANALYTICS_KEY
--->
-
 ### Authenticate the client
 
 > [!NOTE]
 > This step assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Content Moderator key, named `AZURE_CONTENTMODERATOR_KEY`.
 
 
-In the application's `main()` method, create variables for your resource's Azure location, and your key as an environment variable. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable.
+In the application's `main()` method, create a [ContentModeratorClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable) object using your subscription endpoint value and subscription key environment variable. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
 ```java
 /**
  * Authenticate
  */
 // Create a variable called AZURE_CONTENTMODERATOR_KEY in your environment settings, with your key as its value.
-// Replace the region (westus) with your own, if needed.
+// Replace the first part ("westus") with your own, if needed.
 ContentModeratorClient client = ContentModeratorManager
     .authenticate(new AzureRegionBaseUrl()
     .fromString("https://westus.api.cognitive.microsoft.com"), System.getenv("AZURE_CONTENTMODERATOR_KEY"));
@@ -121,9 +133,14 @@ ContentModeratorClient client = ContentModeratorManager
 
 ### Moderate images
 
-In the **src/main/** folder of your project, create a **resources** folder. In that folder, create a new text file, *ImageFiles.txt*. In this file, you add the URLs of images to analyze&mdash;one URL on each line.
+In the **src/main/** folder of your project, create a **resources** folder. In that folder, create a new text file, *ImageFiles.txt*. In this file, you add the URLs of images to analyze&mdash;one URL on each line. You can use the following sample contents:
 
-Then, in your *ContentModeratorQuickstart.java* file, add the following inner class, which is used later in the image moderation process.
+```
+https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
+https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
+```
+
+Then, in your *ContentModeratorQuickstart.java* file, add the following class definition inside the **ContentModeratorQuickstart** class. This inner class will be used later in the image moderation process.
 
 ```Java    
 // Contains the image moderation results for an image, including text and face detection.
@@ -184,6 +201,7 @@ try (BufferedReader inputStream = new BufferedReader(new FileReader(new File("sr
     Gson gson = new GsonBuilder().setPrettyPrinting().create();            
     System.out.println("adding imageData to file: " + gson.toJson(evaluationData).toString());
     writer.write(gson.toJson(evaluationData).toString());
+    writer.close();
 
 }   catch (Exception e) {
     System.out.println(e.getMessage());
@@ -205,7 +223,7 @@ Run the application with the `gradle run` command:
 gradle run
 ```
 
-Navigate to the *src/main/resources/ModerationOutput.json* file and view the results of your content moderation.
+Then navigate to the *src/main/resources/ModerationOutput.json* file and view the results of your content moderation.
 
 ## Clean up resources
 
