@@ -9,12 +9,12 @@ manager: beatrizd
 
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 07/26/2019
 ms.author: zhchia
 ---
 
@@ -50,7 +50,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup Oracle Fusion ERP  for provisioning
 
-Before configuring Oracle Fusion ERP  for automatic user provisioning with Azure AD, you will need to retrieve some provisioning information from Oracle Fusion ERP.
+Before configuring Oracle Fusion ERP  for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Oracle Fusion ERP.
 
 1. Sign in to your [Oracle Fusion ERP Admin Console](https://ejlv.fa.em2.oraclecloud.com)
 
@@ -66,7 +66,7 @@ Before configuring Oracle Fusion ERP  for automatic user provisioning with Azure
 
 ## Add Oracle Fusion ERP from the gallery
 
-To configure Oracle Fusion ERP for automatic user provisioning with Azure AD, you need to add Oracle Fusion ERP  from the Azure AD application gallery to your list of managed SaaS applications.
+To configure Oracle Fusion ERP for automatic user provisioning with Azure AD, you need to add Oracle Fusion ERP from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add Oracle Fusion ERP  from the Azure AD application gallery, perform the following steps:**
 
