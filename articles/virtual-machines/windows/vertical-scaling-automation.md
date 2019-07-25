@@ -4,7 +4,7 @@ description: Vertically scale a Windows Virtual Machine in response to monitorin
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

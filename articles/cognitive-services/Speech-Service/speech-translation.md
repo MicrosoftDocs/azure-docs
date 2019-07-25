@@ -50,10 +50,7 @@ Sample code for the Speech SDK is available on GitHub. These samples cover commo
 
 ## Migration guides
 
-> [!WARNING]
-> Translator Speech will be decommissioned on October 15, 2019.
-
-If your applications, tools, or products are using Translator Speech, we've created guides to help you migrate to the Speech Services.
+If your applications, tools, or products are using the [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), we've created guides to help you migrate to the Speech Services.
 
 * [Migrate from the Translator Speech API to the Speech Services](how-to-migrate-from-translator-speech-api.md)
 

@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: aahi

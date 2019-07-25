@@ -25,6 +25,8 @@
         href: abintegro-tutorial.md
       - name: Absorb LMS
         href: absorblms-tutorial.md
+      - name: Abstract
+        href: abstract-tutorial.md
       - name: Acadia
         href: acadia-tutorial.md  
       - name: Accredible
@@ -117,6 +119,8 @@
         href: asana-tutorial.md
       - name: ASC Contracts
         href: asccontracts-tutorial.md
+      - name: Ascentis
+        href: ascentis-tutorial.md
       - name: Asset Bank
         href: assetbank-tutorial.md
       - name: Atlassian Cloud
@@ -239,7 +243,7 @@
         href: cimpl-tutorial.md
       - name: Cisco Cloud
         href: ciscocloud-tutorial.md
-      - name: Cisco Cloudlock
+      - name: The Cloud Security Fabric
         href: ciscocloudlock-tutorial.md
       - name: Cisco Webex
         href: cisco-spark-tutorial.md
@@ -273,6 +277,8 @@
         href: cloud-service-picco-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
+      - name: Cognidox
+        href: cognidox-tutorial.md
       - name: Collaborative Innovation
         href: collaborativeinnovation-tutorial.md
       - name: Comeet Recruiting Software
@@ -545,6 +551,10 @@
         href: huddle-tutorial.md
       - name: Humanity
         href: shiftplanning-tutorial.md
+      - name: Hype
+        href: hype-tutorial.md
+      - name: HyperAnna
+        href: hyperanna-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -629,6 +639,8 @@
         href: jamfprosamlconnector-tutorial.md
       - name: JDA Cloud
         href: jdacloud-tutorial.md
+      - name: JFrog Artifactory
+        href: jfrog-artifactory-tutorial.md
       - name: JIRA SAML SSO by Microsoft
         href: jiramicrosoft-tutorial.md
       - name: JIRA SAML SSO by Microsoft (V5.2)
@@ -649,6 +661,8 @@
         href: joinme-tutorial.md
       - name: Jostle
         href: jostle-tutorial.md
+      - name: Kallidus
+        href: kallidus-tutorial.md
       - name: Kanbanize
         href: kanbanize-tutorial.md
       - name: Kantega SSO for Bamboo
@@ -941,12 +955,16 @@
         href: printix-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
+      - name: productboard
+        href: productboard-tutorial.md
       - name: Projectplace
         href: projectplace-tutorial.md
       - name: Promapp
         href: promapp-tutorial.md
       - name: ProMaster (by Inlogik)
         href: promaster-tutorial.md
+      - name: ProNovos Ops Manager
+        href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
       - name: Proxyclick
@@ -1037,7 +1055,7 @@
         href: sansan-tutorial.md
       - name: SAP Business ByDesign
         href: sapbusinessbydesign-tutorial.md
-      - name: SAP Business Object Cloud
+      - name: SAP Analytics Cloud
         href: sapboc-tutorial.md
       - name: SAP Cloud for Customer
         href: sap-customer-cloud-tutorial.md
@@ -1281,6 +1299,8 @@
         href: veritas-tutorial.md
       - name: Versal
         href: versal-tutorial.md
+      - name: Viareport's Inativ Portal (Europe)
+        href: viareports-inativ-portal-europe-tutorial.md
       - name: Vibe HCM
         href: vibehcm-tutorial.md
       - name: Vidyard
@@ -1297,6 +1317,8 @@
         href: vxmaintain-tutorial.md
     - name: W - Z
       items:
+      - name: Wandera
+        href: wandera-tutorial.md
       - name: Way We Do
         href: waywedo-tutorial.md
       - name: Wdesk
@@ -1410,8 +1432,6 @@
         href: box-userprovisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
-      - name: Cisco Spark
-        href: cisco-spark-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
       - name: Comeet Recruiting Software
@@ -1428,6 +1448,12 @@
         href: dynamic-signal-provisioning-tutorial.md
       - name: Dialpad
         href: dialpad-provisioning-tutorial.md
+      - name: Envoy
+        href: envoy-provisioning-tutorial.md
+      - name: Figma
+        href: figma-provisioning-tutorial.md
+      - name: Federated Directory
+        href: federated-directory-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
@@ -1454,6 +1480,10 @@
         href: netsuite-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
+      - name: Proxyclick
+        href: Proxyclick-provisioning-tutorial.md
+      - name: Peakon
+        href: peakon-provisioning-tutorial.md
       - name: Salesforce
         href: salesforce-provisioning-tutorial.md
       - name: Salesforce Sandbox
@@ -1488,3 +1518,5 @@
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
+      - name: Zoom
+        href: zoom-provisioning-tutorial.md

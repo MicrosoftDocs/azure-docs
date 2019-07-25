@@ -35,10 +35,16 @@
     - name: Configure containers
       href: form-recognizer-container-configuration.md    
       displayName: docker, container, run, billing, apikey, logging
+    - name: Use container instances
+      href: deploy-form-recognizer-on-container-instances.md
 - name: Reference
   items:
   - name: Form Recognizer API
     href: https://aka.ms/form-recognizer/api
+  - name: SDKs
+    items:
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
 - name: Resources
   items: 
   - name: Pricing and limits

@@ -8,7 +8,7 @@ ms.subservice: studio
 ms.topic: conceptual
 
 author: sdgilley
-ms.author: sgilleye
+ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ---

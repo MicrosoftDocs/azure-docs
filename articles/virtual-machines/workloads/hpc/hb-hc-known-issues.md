@@ -4,7 +4,7 @@ description: Learn about known issues with HB-series VM sizes in Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

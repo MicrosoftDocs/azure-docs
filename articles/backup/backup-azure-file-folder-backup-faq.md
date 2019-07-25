@@ -5,7 +5,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/09/2019
 ms.author: dacurwin
 ---
 
@@ -83,9 +83,19 @@ This warning can appear even though you've configured a backup policy, when the 
 The size of the cache folder determines the amount of data that you are backing up.
 - The cache folder volumes should have free space that equals at least 5-10% of the total size of backup data.
 - If the volume has less than 5% free space, either increase the volume size, or move the cache folder to a volume with enough space.
-- If you backup Windows System State, you would need an additional 30-35 GB of free space in the volume containing the cache folder
-### How do I change the cache location for the MARS agent?
+- If you backup Windows System State, you would need an additional 30-35 GB of free space in the volume containing the cache folder.
 
+### How to check if scratch folder is valid and accessible?
+
+1. By default scratch folder is located at `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+2. Make sure the path of your scratch folder location matches with the values of the registry key entries shown below:
+
+  | Registry path | Registry Key | Value |
+  | --- | --- | --- |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*New cache folder location* |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*New cache folder location* |
+
+### How do I change the cache location for the MARS agent?
 
 1. Run this command in an elevated command prompt to stop the Backup engine:
 

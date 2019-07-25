@@ -4,7 +4,7 @@ description: Capture an image of an Azure VM to use for mass deployments by usin
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

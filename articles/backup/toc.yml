@@ -64,6 +64,8 @@
       href: faq-backup-sql-server.md
     - name: FAQ-Azure Backup Server and DPM
       href: backup-azure-dpm-azure-server-faq.md
+    - name: FAQ-Azure Backup monitor alert
+      href: backup-azure-monitor-alert-faq.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Role-Based Access Control
@@ -98,6 +100,8 @@
         href: backup-mabs-unattended-install.md
     - name: Protect workloads
       items:
+      - name: Back up Hyper-V virtual machines
+        href: back-up-hyper-v-virtual-machines-mabs.md
       - name: VMware server
         href: backup-azure-backup-server-vmware.md
       - name: Exchange

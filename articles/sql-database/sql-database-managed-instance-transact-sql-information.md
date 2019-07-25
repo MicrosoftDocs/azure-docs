@@ -288,13 +288,13 @@ For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
   - SQL Server Analysis Services aren't supported.
 - Notifications are partially supported.
 - Email notification is supported, although it requires that you configure a Database Mail profile. SQL Server Agent can use only one Database Mail profile, and it must be called `AzureManagedInstance_dbmail_profile`. 
-  - Pager isn't supported. 
+  - Pager isn't supported.
   - NetSend isn't supported.
   - Alerts aren't yet supported.
-  - Proxies aren't supported. 
+  - Proxies aren't supported.
 - EventLog isn't supported.
 
-The following features currently aren't supported but will be enabled in the future:
+The following SQL Agent features currently aren't supported:
 
 - Proxies
 - Scheduling jobs on an idle CPU
@@ -393,7 +393,13 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 
 ### Replication
 
-Replication is available for public preview for Managed Instance. For information about replication, see [SQL Server replication](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+[Transactional Replication](sql-database-managed-instance-transactional-replication.md) is available for public preview on Managed Instance with some constraints:
+- Al types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on Managed Instance, but Publisher and Distributor cannot be placed on different instances.
+- Transactional, Snapshot, and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication and updateable subscriptions are not supported.
+- Managed Instance can communicate with the recent versions of SQL Server. See the supported versions [here](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+- Transactional Replication has some [additional networking requirements](sql-database-managed-instance-transactional-replication.md#requirements).
+
+For information about configuring replication, see [replication tutorial](replication-with-sql-database-managed-instance.md).
 
 ### RESTORE statement 
 
@@ -464,6 +470,7 @@ Cross-instance service broker isn't supported:
 
 ### VNET
 - VNet can be deployed using Resource Model - Classic Model for VNet is not supported.
+- After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
 - Some services such as App Service Environments, Logic apps, and Managed Instances (used for Geo-replication, Transactional replication, or via linked servers) cannot access Managed Instances in different regions if their VNets are connected using [global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resource via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
 ## <a name="Changes"></a> Behavior changes
@@ -482,7 +489,7 @@ The following variables, functions, and views return different results:
 
 ### TEMPDB size
 
-The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited with the instance storage size. The `tempdb` database is always split into 12 data files. This maximum size per file can't be changed, and new files cannot be added to `tempdb`. Some queries might return an error if they need more than 24 GB per core in `tempdb`. `tempdb` is always re-created as an empty database when the instance start or fail-over and any change made in `tempdb` will not be preserved. 
+The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited with the instance storage size. `tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. The `tempdb` database is always split into 12 data files. This maximum size per file can't be changed, and new files cannot be added to `tempdb`. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120GB of log. `tempdb` is always re-created as an empty database when the instance starts or fail-over and any change made in `tempdb` will not be preserved. 
 
 ### Can't restore contained database
 
@@ -543,7 +550,7 @@ A managed instance places verbose information in error logs, and much of it isn'
 
 The `TransactionScope` class in .NET doesn't work if two queries are sent to two databases within the same instance under the same transaction scope:
 
-```C#
+```csharp
 using (var scope = new TransactionScope())
 {
     using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
@@ -585,6 +592,7 @@ You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that's encr
 ### Point-in-time restore follows time by the time zone set on the source instance
 
 Point-in-time restore currently interprets time to restore to by following time zone of the source instance instead by following UTC.
+Check [Managed Instance time zone known issues](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) for more details.
 
 ## Next steps
 

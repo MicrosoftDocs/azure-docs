@@ -130,13 +130,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 2. Select **Settings** and under the **Authentication** section, click **Modify**.
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_cisco_spark_10.png)
+    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 3. Select **Integrate a 3rd-party identity provider. (Advanced)** and go to the next screen.
 
 4. On the **Import Idp Metadata** page, either drag and drop the Azure AD metadata file onto the page or use the file browser option to locate and upload the Azure AD metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and click **Next**.
 
-	![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_cisco_spark_11.png)
+	![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 5. Select **Test SSO Connection**, and when a new browser tab opens, authenticate with Azure AD by signing in.
 
@@ -179,13 +179,13 @@ In this section, you create a user called Britta Simon in Cisco Webex. In this s
 
 2. Click **Users** and then **Manage Users**.
    
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_cisco_spark_12.png) 
+    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. In the **Manage User** window, select **Manually add or modify users** and click **Next**.
 
 4. Select **Names and Email address**. Then, fill out the textbox as follows:
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
+    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
 	a. In the **First Name** textbox, type first name of user like **B**.
 

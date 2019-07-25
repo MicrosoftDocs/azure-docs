@@ -42,13 +42,13 @@ Language support is initially rolled out in preview, graduating to generally ava
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Arabic      | `ar`          |           |             | ✔ \*                     | |
 | Czech       | `cs`          |           |             | ✔ \*                     | |
-| Chinese-Simplified | `zh-CN`|           |             | ✔ \*        |    |
+| Chinese-Simplified | `zh-CN`|           |             | ✔         |    |
 | Danish      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | Dutch       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
 | English     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
 | Finnish     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| French      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
-| German      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
+| French      | `fr`          | ✔        | ✔           |  ✔            |     |
+| German      | `de`          | ✔ \*     | ✔           |  ✔           |     |
 | Greek       | `el`          | ✔ \*     |             |            |     |
 | Hungarian   | `hu`          |           |             |  ✔ \*          |     | 
 | Italian     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |

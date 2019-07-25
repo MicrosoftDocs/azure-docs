@@ -1,7 +1,7 @@
 ---
 title: Azure Quickstart - Back up a VM with Resource Manager template
 description: Learn how to back up your virtual machines with Azure Resource Manager template
-services: backup
+
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup

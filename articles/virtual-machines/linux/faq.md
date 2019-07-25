@@ -4,7 +4,7 @@ description: Provides answers to some of the common questions about Linux virtua
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-management
 
