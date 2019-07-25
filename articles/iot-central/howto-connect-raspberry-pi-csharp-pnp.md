@@ -1,8 +1,8 @@
 ---
 title: Connect a Raspberry Pi to your Azure IoT Central application (C#) | Microsoft Docs
 description: As a device developer, how to connect a Raspberry Pi to your Azure IoT Central application using C#.
-author: viv-liu
-ms.author: viviali
+author: sarahhubbard
+ms.author: sahubbar
 ms.date: 04/15/2019
 ms.topic: conceptual
 ms.service: iot-central
@@ -22,30 +22,56 @@ This article describes how, as a device developer, to connect a Raspberry Pi to 
 
 To complete the steps in this article, you need the following components:
 
-* An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+* An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 * A Raspberry Pi device running the Raspbian operating system. The Raspberry Pi must be able to connect to the internet. For more information, see [Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
-## **Sample Devkits** application
+> [!NOTE]
+> This is a device sample for a device that is not IoT Plug and Play compliant. You will need to model the device template in IoT Central as outlined below. 
 
-An application created from the **Sample Devkits** application template includes a **Raspberry Pi** device template with the following characteristics:
+## Raspberry Pi Device template details
 
-- Telemetry, which includes the following measurements the device will collect:
-  - Humidity
-  - Temperature
-  - Pressure
-  - Magnetometer (X, Y, Z)
-  - Accelerometer (X, Y, Z)
-  - Gyroscope (X, Y, Z)
-- Settings
-  - Voltage
-  - Current
-  - Fan Speed
-  - IR toggle.
-- Properties
-  - Die number device property
-  - Location cloud property
+Begin by using a custom device template and modeling the device capability model to reflect the below:
 
-For the full details of the configuration of the device template, see the [Raspberry Pi Device template details](#raspberry-pi-device-template-details).
+### Telemetry measurements
+
+| Field name     | Units  | Minimum | Maximum | Decimal places |
+| -------------- | ------ | ------- | ------- | -------------- |
+| humidity       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pressure       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+### Writeable Properties
+
+Numeric settings
+
+| Display name | Field name | Units | Decimal places | Minimum | Maximum | Initial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Voltage      | setVoltage | Volts | 0              | 0       | 240     | 0       |
+| Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
+| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+Toggle settings
+
+| Display name | Field name | On text | Off text | Initial |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | ON      | OFF      | Off     |
+
+### Properties
+
+| Type            | Display name | Field name | Data type |
+| --------------- | ------------ | ---------- | --------- |
+| Device property | Die number   | dieNumber  | number    |
+| Text            | Location     | location   | N/A       |
+
 
 ## Add a real device
 
@@ -302,59 +328,12 @@ Add your device-specific connection string to the code for the device to authent
 
     ![Program begins](./media/howto-connect-raspberry-pi-csharp-pnp/device_begin.png)
 
-1. In your Azure IoT Central application, you can see how the code running on the Raspberry Pi interacts with the application:
-
-   * On the **Measurements** page for your real device, you can see the telemetry.
-   * On the **Properties** page, you can see the value of the reported **Die Number** property.
-   * On the **Settings** page, you can change various settings on the Raspberry Pi such as voltage and fan speed.
+1. In your Azure IoT Central application, you can see how the code running on the Raspberry Pi interacts with the application with data flowing through to your views.
 
      The following screenshot shows the Raspberry Pi receiving the setting change:
 
      ![Raspberry Pi receives setting change](./media/howto-connect-raspberry-pi-csharp-pnp/device_switch.png)
 
-## Raspberry Pi Device template details
-
-An application created from the **Sample Devkits** application template includes a **Raspberry Pi** device template with the following characteristics:
-
-### Telemetry measurements
-
-| Field name     | Units  | Minimum | Maximum | Decimal places |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humidity       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
-
-### Settings
-
-Numeric settings
-
-| Display name | Field name | Units | Decimal places | Minimum | Maximum | Initial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Voltage      | setVoltage | Volts | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
-| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
-
-Toggle settings
-
-| Display name | Field name | On text | Off text | Initial |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ON      | OFF      | Off     |
-
-### Properties
-
-| Type            | Display name | Field name | Data type |
-| --------------- | ------------ | ---------- | --------- |
-| Device property | Die number   | dieNumber  | number    |
-| Text            | Location     | location   | N/A       |
 
 ## Next steps
 
