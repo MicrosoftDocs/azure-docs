@@ -90,8 +90,8 @@ In this tutorial, you use a sample environmental sensor that's written in Node.j
 
 1. Run the sample with the following command:
 
-    ```cmd/she
-    node simple_sample.js
+    ```cmd/sh
+    node sample_device.js
     ```
 
 1. You see messages saying that the device has sent telemetry and updated its properties. The device is now ready to receive commands and property updates. Don't close this terminal, you need it later to confirm the service samples worked.
