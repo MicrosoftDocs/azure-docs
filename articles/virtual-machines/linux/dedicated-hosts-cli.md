@@ -34,14 +34,14 @@ az group create --name myDHResourceGroup --location eastus2
  
 ## Create a host group 
 
-
 A **host group** is a new resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following with your dedicated hosts: 
 - Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
 - Span across multiple fault domains which are mapped to physical racks. 
  
 In either case, you are need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1. 
 
-You can also decide to use both availability zones and fault domains. In such a case, you are required to provide both when creating the host group.  
+You can also decide to use both availability zones and fault domains. 
+
  
 The following will create a host group in availability zone 1 (and no fault domains).
 
