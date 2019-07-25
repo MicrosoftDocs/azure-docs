@@ -18,7 +18,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## Sentiment Analysis v3 public preview
 
-The next version of Sentiment Analysis] is now available for public preview, and provides significant improvements in the accuracy and detail of the API's text categorization and scoring. It additionally provides:
+The next version of Sentiment Analysis is now available for public preview, and provides significant improvements in the accuracy and detail of the API's text categorization and scoring. It additionally provides:
 
 * Automatic labeling for different sentiments in text.
 * Sentiment analysis and output on a document and sentence level. 
