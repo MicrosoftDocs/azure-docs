@@ -53,9 +53,9 @@ DefaultWorkspace38917: True
 DefaultWorkspace21532: False
 ```
 
-A value of `False` means the workspace is configured with the access mode *Require workspace permissions*.  A value of `True` means the workspace is configured with the access mode *Use resource or workspace permissions*.  If a workspace is returned with a blank or null value, it means?  
+A value of `False` means the workspace is configured with the workspace-context access mode.  A value of `True` means the workspace is configured with the resource-context access mode. If a workspace is returned with a blank or null value, it means?  
 
-Use the following script to set the access control mode for a specific workspace:
+Use the following script to set the access control mode for a specific workspace to the resource-context permission:
 
 ```powershell
 $WSName = "my-workspace"
@@ -67,7 +67,7 @@ else
 Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properties -Force
 ```
 
-Use the following script to set the access control mode for all workspaces in the subscription:
+Use the following script to set the access control mode for all workspaces in the subscription to the resource-context permission:
 
 ```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
@@ -82,8 +82,8 @@ Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 
 To configure the access mode in an Azure Resource Manager template, set the **enableLogAccessUsingOnlyResourcePermissions** feature flag on the workspace to one of the following values.
 
-* **false**: Set the workspace to workspace-centric permissions. This is the default setting if the flag isn't set.
-* **true**: Set the workspace to resource-centric permissions.
+* **false**: Set the workspace to workspace-context permissions. This is the default setting if the flag isn't set.
+* **true**: Set the workspace to resource-context permissions.
 
 ## Manage accounts and users
 
