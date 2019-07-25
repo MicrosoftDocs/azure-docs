@@ -8,6 +8,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
+ms.custom: seo-java-july2019
 
 ---
 # Quickstart: Create a graph database in Azure Cosmos DB using the Java SDK 
