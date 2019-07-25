@@ -209,7 +209,7 @@ In the search box, enter "integration service environment" as your filter.
 
 1. To view your environment, choose **Go to resource** if Azure doesn't automatically go to your environment after deployment finishes.
 
-1. To check your ISE's network health, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md).
+1. To check the network health for your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md#check-network-health).
 
 1. To start creating logic apps and other artifacts in your ISE, see [Add artifacts to integration service environments](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
@@ -247,5 +247,6 @@ The Premium ISE base unit has fixed capacity, so if you need more throughput, yo
 ## Next steps
 
 * [Add artifacts to integration service environments](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Check network health for integration service environments](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)
 * Learn more about [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * Learn about [virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
