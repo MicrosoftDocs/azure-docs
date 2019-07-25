@@ -3231,19 +3231,6 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Resync keys of storage account configured for a Machine Learning Workspace |
 > | Action | Microsoft.MachineLearning/Workspaces/write | Create or Update any Machine Learning Workspace |
 
-## Microsoft.MachineLearningCompute
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Action Type | Operation | Description |
-> | --- | --- | --- |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/checkUpdate/action | Check if updates are available for system services for the operationalization cluster |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/delete | Delete any hosting account |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/listKeys/action | List the keys associated with operationalization cluster |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/read | Read any hosting account |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/updateSystem/action | Update the system services in an operationalization cluster |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/write | Create or update any hosting account |
-> | Action | Microsoft.MachineLearningCompute/register/action | Registers subscription ID to the resource provider and enables the creation of a machine learning compute resources |
-
 ## Microsoft.MachineLearningServices
 
 > [!div class="mx-tdCol2BreakAll"]
