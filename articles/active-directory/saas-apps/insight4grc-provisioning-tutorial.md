@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Insight4GRC  for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Insight4GRC .
+description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Insight4GRC.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -20,7 +20,7 @@ ms.author: zhchia
 
 # Tutorial: Configure Insight4GRC  for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Insight4GRC  and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Insight4GRC .
+The objective of this tutorial is to demonstrate the steps to be performed in Insight4GRC  and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Insight4GRC.
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
@@ -47,7 +47,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * It is recommended that a single Azure AD user is assigned to Insight4GRC  to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
-* When assigning a user to Insight4GRC , you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When assigning a user to Insight4GRC, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## Setup Insight4GRC for provisioning
 
