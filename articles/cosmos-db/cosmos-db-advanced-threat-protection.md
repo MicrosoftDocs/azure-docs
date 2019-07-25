@@ -43,8 +43,8 @@ For a full investigation experience of the security alerts, we recommended enabl
 
 Use Rest API commands to create, update, or get the Advanced Threat Protection setting for a specific Azure Cosmos DB account.
 
-* Advanced Threat Protection - Create
-* Advanced Threat Protection - Get
+* [Advanced Threat Protection - Create](https://go.microsoft.com/fwlink/?linkid=2099745)
+* -[Advanced Threat Protection - Get](https://go.microsoft.com/fwlink/?linkid=2099643)
 
 ### Set up ATP using Azure PowerShell
 
@@ -53,8 +53,6 @@ Use the following PowerShell cmdlets:
 * [Enable Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099607&clcid=0x409)
 * [Get Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
 * [Disable Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
-
-**Enable-AzSecurityAdvancedThreatProtection (Az.Security)**: The Enable-AzSecurityAdvancedThreatProtection cmdlet enables the threat protection policy for a storage account. To use this cmdlet, specify the ResourceId parameter: **go.microsoft.com**
 
 ## Manage ATP security alerts
 
