@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 07/28/2019
+ms.date: 07/25/2019
 ms.custom: seodec18
 ---
 
@@ -18,7 +18,7 @@ In this article, learn about the Azure Machine Learning service releases.  For t
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
-## 2019-07-15
+## 2019-07-23
 
 ### Azure Machine Learning SDK for Python v1.0.53
 
