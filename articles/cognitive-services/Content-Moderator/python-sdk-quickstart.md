@@ -17,12 +17,11 @@ Get started with the Content Moderator client library for Python. Follow these s
 
 Use the Content Moderator client library for Python to:
 
-* Apply moderation tags to images
-* Moderate text
-* Use custom terms list
-* Moderate images
-* Use custom image list
-* Create a review
+* [Moderate text](#moderate-text)
+* [Use a custom terms list](#use-a-custom-terms-list)
+* [Moderate images](#moderate-images)
+* [Use a custom image list](#use-a-custom-image-list)
+* [Create a review](#create-a-review)
 
 [Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
@@ -76,6 +75,8 @@ pip install --upgrade azure-cognitiveservices-vision-contentmoderator
 
 ## Object model
 
+The following classes handle some of the major features of the Content Moderator Python SDK.
+
 |Name|Description|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)|This class is needed for all Content Moderator functionality. You instantiate it with your subscription information, and you use it to produce instances of other classes.|
@@ -85,7 +86,7 @@ pip install --upgrade azure-cognitiveservices-vision-contentmoderator
 
 ## Code examples
 
-These code snippets show you how to do the following with the Computer Vision client library for Python:
+These code snippets show you how to do the following tasks with the Content Moderator client library for Python:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Moderate text](#moderate-text)
@@ -99,11 +100,11 @@ These code snippets show you how to do the following with the Computer Vision cl
 > [!NOTE]
 > This quickstart assumes you've [created an environment variable](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your Content Moderator key, named `CONTENTMODERATOR_SUBSCRIPTION_KEY`.
 
-Instantiate a client with your endpoint and key. Create a [CognitiveServicesCredentials](tbd) object with your key, and use it with your endpoint to create an [ContentModeratorClient](tbd) object.
+Instantiate a client with your endpoint and key. Create a [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) object with your key, and use it with your endpoint to create an [ContentModeratorClient](tbd) object.
 
 ```python
 client = ContentModeratorClient(
-    endpoint=subscription_endpoint,
+    endpoint=CONTENTMODERATOR_ENDPOINT,
     credentials=CognitiveServicesCredentials(subscription_key)
 )
 ```
@@ -123,7 +124,7 @@ Then, add the following function definition to your Python script:
 TEXT_FOLDER = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), "text_files")
 
-def text_moderation(subscription_key):
+def text_moderation():
     """TextModeration.
     This will moderate a given long text.
     """
@@ -159,7 +160,7 @@ Then, add the following function definition to your Python script:
 TEXT_FOLDER = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), "text_files")
 
-def terms_lists(subscription_key):
+def terms_lists():
     """TermsList.
     This will screen text using a term list.
     """
@@ -314,7 +315,7 @@ IMAGE_LIST = [
     "https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png"
 ]
 
-def image_moderation(subscription_key):
+def image_moderation():
     """ImageModeration.
     This will review an image using workflow and job.
     """
@@ -389,7 +390,7 @@ IMAGES_TO_MATCH = [
 Then, add the following function definition to your script.
 
 ```python
-def image_lists(subscription_key):
+def image_lists():
     """ImageList.
     This will review an image using workflow and job.
     """
@@ -572,7 +573,7 @@ The following code uses the [ReviewsOperations](https://docs.microsoft.com/pytho
 You must first sign in to the Review tool, retrieve your team name, and save it to a variable. Optionally, you can set up a callback endpoint to receive updates on the activity of the review.
 
 ```python
-def image_review(subscription_key):
+def image_review():
     """ImageReview.
     This will create a review for images.
     """
