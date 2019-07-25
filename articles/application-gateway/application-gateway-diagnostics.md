@@ -203,7 +203,6 @@ For Application Gateway and WAF v2, the logs show a little more information:
 |clientPort     | Originating port for the request.       |
 |httpMethod     | HTTP method used by the request.       |
 |requestUri     | URI of the received request.        |
-|RequestQuery     | **Server-Routed**: Back-end pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
 |UserAgent     | User agent from the HTTP request header.        |
 |httpStatus     | HTTP status code returned to the client from Application Gateway.       |
 |httpVersion     | HTTP version of the request.        |
