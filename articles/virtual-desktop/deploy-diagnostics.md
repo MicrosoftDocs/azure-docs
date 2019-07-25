@@ -10,9 +10,9 @@ ms.date: 03/21/2019
 ms.author: helohr
 ---
 
-# Deploy diagnostics for Windows Virtual Desktop
+# Deploy the diagnostics tool
 
-Here's what the Diagnostics-UX tool for Windows Virtual Desktop can do for you:
+Here's what the diagnostics tool for Windows Virtual Desktop can do for you:
 
 - Look up diagnostic activities (management, connection, or feed) for a single user over a period of one week.
 - Gather session host information for connection activities from your Log Analytics workspace.
@@ -46,29 +46,27 @@ This section will show you how to use PowerShell to create the Azure Active Dire
 >[!NOTE]
 >The API permissions are Windows Virtual Desktop, Log Analytics and Microsoft Graph API permissions are added to the Azure Active Directory Application.
 
-1. Open PowerShell as an Administrator:
+1. Open PowerShell as an Administrator.
 2. Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) and run the **Create AD App Registration for Diagnostics.ps1** script in PowerShell.
 3.  When the script asks you to name your app, enter a unique app name.
 4.  The script will then ask you to sign in with an administrative account. Enter the credentials of a user with [delegated admin access](delegated-access-virtual-desktop.md). The admin should have either RDS Owner or Contributor rights.
 
-After the script successfully runs, you should see the following things:
+After the script successfully runs, it should show the following things in its output:
 
 -  A message that confirms your app now has a service principal role assignment.
--  Your Print Client ID and Client Secret Key that you'll need to enter when you deploy diagnostics UX.
+-  Your Print Client ID and Client Secret Key that you'll need for when you deploy the diagnostics tool.
 
 Now that you've registered your app, it's time to configure your Log Analytics workspace.
 
 ## Configure your Log Analytics workspace
 
-For the best possible experience, we recommend you configure your Log Analytics workspace with the following performance counters that allow you to derive statements of the user experience in a remote session. Here is the list of counters with default threshold values the user interface will highlight the session host as unhealthy. 
-
-<!--This paragraph makes no sense, and I think there's a link missing-->
-
-If you don’t have a Log Analytics workspace today use the PowerShell script and instructions we have prepared for you in the next chapter. (What next chapter?) Otherwise go and configure the counters following the instructions here. (LINK?)
+For the best possible experience, we recommend you configure your Log Analytics workspace with the following performance counters that allow you to derive statements of the user experience in a remote session. For a list of recommended counters with suggested thresholds, see [Windows performance counter thresholds](deploy-diagnostics.md#windows-performance-counter-thresholds).
 
 ### Create an Azure Log Analytics workspace using PowerShell
 
-In this section you will execute a PowerShell script which creates a Log Analytics Workspace and configures recommended Windows Performance Counters for deriving statements on user experience and app performance:
+You can run a PowerShell script to create a Log Analytics workspace and configure the recommended Windows performance counters to monitor user experience and app performance.
+
+To run the PowerShell script:
 
 1.  Open PowerShell as an admin
 2.  Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) and run the **Create LogAnalyticsWorkspace for Diagnostics.ps1** script in PowerShell.
@@ -145,9 +143,9 @@ In order to be able to view the health of VMs you will need to enable the Log An
 4. Select the name of the VM you want to connect to.
 5. Select **Connect**.
 
-## Deploy the diagnostics UX
+## Deploy the diagnostics tool
 
-To deploy the Azure Resource Management template:
+To deploy the Azure Resource Management template for the diagnostics tool:
 
 1.  Go to the GitHub Azure RDS-Templates page.
 2.  Deploy the template to Azure and follow the instructions in the template. Make sure you have the following information available:
@@ -160,32 +158,32 @@ To deploy the Azure Resource Management template:
 
 The deployment will take 2–3 minutes. After successful deployment, go to the resource group and make sure the web app and app service plan resources are there.
 
-Finally, you need to set the Redirect URI.
+After that, you need to set the Redirect URI.
 
 ### Set the Redirect URI
 
-<!--Is this supposed to be capitalized? Also, I'm seeing to much all-caps in the UI. It doesn't look like anyone's reviewed this UI yet.-->
+<!--Is this supposed to be capitalized? Also, I'm seeing too much all-caps in the UI. It doesn't look like anyone's reviewed this UI yet.-->
 
 To set the redirect URI:
 
 1.  In the [Azure Portal](https://portal.azure.com/), go to **App Services** and locate the application you just created.
 2.  Go to the overview page and copy the URL you find there.
 3.  Navigate to **app registrations** and select the app you want to deploy.
-4.  In the left panel, under manage section, select **Authentication**.
+4.  In the left panel, under Manage section, select **Authentication**.
 5.  Enter the desired redirect URI, then select **Save**.
 <!--Can I get a better idea of what the UI for step 5 looks like?-->
-6. Select **Public client (mobile & desktop)** in the dropdown under Type.
+6. Select **Public client (mobile & desktop)** in the drop-down menu under Type.
 7. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    ![The redirect URI page](media/8fc125e527af5dbfac48b9f026d18b10.png)
 
-8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, contosoapp45) and navigate to the URL associated with it; for example, <https://contosoapp45.azurewebsites.net>.
+8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was "contosoapp45," then your associated URL is <https://contosoapp45.azurewebsites.net>).
 9. Sign in using the appropriate Azure Active Directory user account.
 10.   Select **Accept** to provide consent and use the Diagnostics-UX application.
 
-## Distribute the diagnostics UX
+## Distribute the diagnostics tool
 
-Before you make the UX available to your users, make sure they have the following permissions:
+Before you make the diagnostics tool available to your users, make sure they have the following permissions:
 
 - Users need read access for log analytics. For more details, see [Get started with roles, permissions, and security with Azure Monitor](..\azure-monitor\platform\roles-permissions-security.md).
 -  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop Preview](delegated-access-virtual-desktop.md).
@@ -195,7 +193,7 @@ You also need to give your users the following information:
 - The app's URL
 - The names of the tenant group individual tenant they can access.
 
-## Use the diagnostics UX
+## Use the diagnostics tool
 
 After you've signed in to your account using the information you've received from your organization, have the UPN ready for the user you want to query activities for. A search will give you all activities under the specified activity type from now until one week in the past.
 
@@ -221,7 +219,7 @@ You can also interact with users on the session host:
 - You can either sign out or send a message to signed in users.
 - The user from the search result is selected by default, but you can also select additional users to send messages or sign out multiple users at once.
 
-### Windows Performance counter thresholds
+### Windows performance counter thresholds
 
 - LogicalDisk(\*)\|%Free Space:
 
@@ -240,8 +238,8 @@ You can also interact with users on the session host:
 
 - Processor Information(\*)\\Processor Time:
 
-    - Threshold: Higher than 80% is unhealthy.
+    - Threshold: Higher than 80% is marked as unhealthy.
 
 - [User Input Delay per Session(\*)\\Max Input Delay](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
-    - Higher than 2000 ms is unhealthy.
+    - Threshold: Higher than 2000 ms is marked as unhealthy.
