@@ -92,7 +92,7 @@ After creating your SQL Server VM, connect to it from applications or tools, suc
 ### Migrate your data
 If you have an existing database, you'll want to move that to the newly provisioned SQL VM. For a list of migration options and guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md).
 
-[!INCLUDE [sql-database-create-manage-portal](includes/sql-database-create-manage-portal.md)]
+[!INCLUDE [sql-database-create-manage-portal](../../sql-database/includes/sql-database-create-manage-portal.md)]
 
 ## <a id="lifecycle"></a> SQL VM image refresh policy
 Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](virtual-machines-windows-sql-server-iaas-faq.md#images).

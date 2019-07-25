@@ -15,15 +15,15 @@ To access the **Azure SQL resources** page, select **Azure SQL** in the left-han
 
 To manage existing resources, select the desired item in the list. To create new Azure SQL resources, select **+ Add**. 
 
-![Azure SQL portal page](./media/sql-database-technical-overview/azure-sql.png)
+![Azure SQL portal page](../media/sql-database-technical-overview/azure-sql.png)
 
 After selecting **+ Add**, you can view additional information about the different options by selecting **Show details** on any tile.
 
-![databases tile details](./media/sql-database-technical-overview/create-single-database.png)
+![databases tile details](../media/sql-database-technical-overview/create-single-database.png)
 
 For details, see:
 
-- [Create a single database](sql-database-single-database-get-started.md)
-- [Create an elastic pool](sql-database-elastic-pool.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
-- [Create a managed instance](sql-database-managed-instance-get-started.md)
-- [Create a Virtual Machine running SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md)
+- [Create a single database](../sql-database-single-database-get-started.md)
+- [Create an elastic pool](../sql-database-elastic-pool.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
+- [Create a managed instance](../sql-database-managed-instance-get-started.md)
+- [Create a Virtual Machine running SQL Server](../../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md)
