@@ -4,7 +4,7 @@ description: Learn how to set up MPI for HPC on Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -122,7 +122,7 @@ Process pinning works correctly for 15, 30 and 60 PPN by default.
 
 ## OSU MPI Benchmarks
 
-[Download OSU MPI Benchmarks][http://mvapich.cse.ohio-state.edu/benchmarks/](http://mvapich.cse.ohio-state.edu/benchmarks/) and untar.
+[Download OSU MPI Benchmarks](http://mvapich.cse.ohio-state.edu/benchmarks/) and untar.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -142,7 +142,7 @@ MPI Benchmarks are under `mpi/` folder.
 
 ## Discover partition keys
 
-Discover partition keys (p-keys) for communicating with other VMs.
+Discover partition keys (p-keys) for communicating with other VMs within the same tenant (Availability Set or VM Scale Set).
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -160,13 +160,15 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 
 Use the partition other than default (0x7fff) partition key. UCX requires the MSB of p-key to be cleared. For example, set UCX_IB_PKEY as 0x000b for 0x800b.
 
+Also note that as long as the tenant (AVSet or VMSS) exists, the PKEYs remain the same. This is true even when nodes are added/deleted. New tenants get different PKEYs.
+
 
 ## Set up user limits for MPI
 
 Set up user limits for MPI.
 
 ```bash
-cat << EOF >> /etc/security/limits.conf
+cat << EOF | sudo tee -a /etc/security/limits.conf
 *               hard    memlock         unlimited
 *               soft    memlock         unlimited
 *               hard    nofile          65535

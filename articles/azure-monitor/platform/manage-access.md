@@ -107,7 +107,6 @@ The following activities also require Azure permissions:
 | Access a specific log table | `Microsoft.OperationalInsights/workspaces/query/<table_name>/read` ||
 | Read the workspace keys to allow sending logs to this workspace | `Microsoft.OperationalInsights/workspaces/sharedKeys/action` ||
 
-
 ## Manage access to Log Analytics Workspace using Azure permissions
 
 To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).

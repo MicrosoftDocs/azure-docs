@@ -3,7 +3,7 @@ title: FAQs - Azure Active Directory Domain Services | Microsoft Docs
 description: Frequently asked questions about Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Azure Active Directory Domain Services: Frequently Asked Questions (FAQs)

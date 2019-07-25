@@ -3,7 +3,7 @@ title: Optimize performance on Azure Lsv2-series virtual machines - Storage | Mi
 description: Learn how to optimize performance for your solution on the Lsv2-series virtual machines.
 services: virtual-machines-linux
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.service: virtual-machines-linux
 ms.devlang: na

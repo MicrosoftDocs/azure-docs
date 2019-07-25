@@ -4,8 +4,8 @@ description: Credential assets in Azure Automation contain security credentials 
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/12/2019
 ms.topic: conceptual
 manager: carmonm

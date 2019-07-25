@@ -29,7 +29,7 @@ Application Insights SDKs for .NET and .NET Core ships with `DependencyTrackingT
 |---------------|-------|
 |Http/Https | Local or Remote http/https calls |
 |WCF calls| Only tracked automatically if Http-based bindings are used.|
-|SQL | Calls made with `SqlClient`. See [this](##advanced-sql-tracking-to-get-full-sql-query) for capturing SQL query.  |
+|SQL | Calls made with `SqlClient`. See [this](#advanced-sql-tracking-to-get-full-sql-query) for capturing SQL query.  |
 |[Azure storage (Blob, Table, Queue )](https://www.nuget.org/packages/WindowsAzure.Storage/) | Calls made with Azure Storage Client. |
 |[EventHub Client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Version 1.1.0 and above. |
 |[ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and above. |
@@ -99,8 +99,8 @@ For ASP.NET applications, full SQL query is collected with the help of byte code
 | Platform | Step(s) Needed to get full SQL Query |
 | --- | --- |
 | Azure Web App |In your web app control panel, [open the Application Insights blade](../../azure-monitor/app/azure-web-apps.md) and enable SQL Commands under .NET |
-| IIS Server (Azure VM, on-prem, and so on.) | [Install Status Monitor on your server where application is running](../../azure-monitor/app/monitor-performance-live-website-now.md) and restart IIS.
-| Azure Cloud Service |[Use startup task](../../cloud-services/cloud-services-startup-tasks.md) to [Install Status Monitor](monitor-performance-live-website-now.md#download) |
+| IIS Server (Azure VM, on-prem, and so on.) | Use the Status Monitor PowerShell Module to [install the Instrumentation Engine](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md) and restart IIS. |
+| Azure Cloud Service | Add [startup task to install StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Your app should be onboarded to ApplicationInsights SDK at build time by installing NuGet packages for [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) or [ASP.NET Core applications](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | Not supported
 
 In the above cases, the correct way of validating that instrumentation engine is correctly installed is by validating that the SDK version of collected `DependencyTelemetry` is 'rddp'. 'rdddsd' or 'rddf' indicates dependencies are collected via DiagnosticSource or EventSource callbacks, and hence full SQL query won't be captured.

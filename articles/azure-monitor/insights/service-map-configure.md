@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 06/28/2019
 ms.author: magoedte
 ---
 # Configure Service Map in Azure
@@ -94,18 +94,14 @@ The following section list the supported operating systems for the Dependency ag
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-### SUSE Linux 11 Enterprise Server
+#### SUSE Linux 12 Enterprise Server
 
 | OS version | Kernel version
 |:--|:--|
-| 11 SP4 | 3.0.* |
-
-### SUSE Linux 12 Enterprise Server
-
-| OS version | Kernel version
-|:--|:--|
-| 12 SP2 | 4.4.* |
-| 12 SP3 | 4.4.* |
+|12 SP2 | 4.4.* |
+|12 SP3 | 4.4.* |
+|12 SP4 | 4.4.* |
+|12 SP4 | Azure-Tuned Kernel |
 
 ## Dependency agent downloads
 

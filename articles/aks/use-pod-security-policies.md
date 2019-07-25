@@ -2,12 +2,12 @@
 title: Use pod security policies in Azure Kubernetes Service (AKS)
 description: Learn how to control pod admissions by using PodSecurityPolicy in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Preview - Secure your cluster using pod security policies in Azure Kubernetes Service (AKS)

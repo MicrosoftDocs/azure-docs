@@ -28,9 +28,9 @@ To address those challenges, Azure AD now includes group-based licensing. You ca
 ## Licensing requirements
 You must have one of the following licenses to use group-based licensing:
 
-- Paid or trial subscription for Azure AD Basic
+- Paid or trial subscription for Azure AD Basic and above
 
-- Paid or trial edition of Office 365 Enterprise E3 or Office 365 A3 and above
+- Paid or trial edition of Office 365 Enterprise E3 or Office 365 A3 or Office 365 GCC G3 and above
 
 ### Required number of licenses
 For any groups assigned a license, you must also have a license for each unique member. While you don't have to assign each member of the group a license, you must have at least enough licenses to include all of the members. For example, if you have 1,000 unique members who are part of licensed groups in your tenant, you must have at least 1,000 licenses to meet the licensing agreement.

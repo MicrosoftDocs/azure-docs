@@ -8,13 +8,14 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: a3b63cfa-b5fe-4aff-b105-b22b424c418a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/04/2019
 ms.author: rkarlin
 
 ---
@@ -29,7 +30,18 @@ ms.author: rkarlin
 
 To on-board Azure Sentinel, you first need to connect to your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft Threat Protection solutions, and Microsoft 365 sources, including Office 365, Azure AD, Azure ATP, and Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog or REST-API to connect your data sources with Azure Sentinel as well.  
 
-![Data collectors](./media/collect-data/collect-data-page.png)
+1. On the menu, select **Data connectors**. This page lets you see the full list of connectors that Azure Sentinel provides and their status. Select the connector you want to connect and select **Open connector page**. 
+
+   ![Data collectors](./media/collect-data/collect-data-page.png)
+
+1. On the specific connector page, make sure you have fulfilled all the prerequisites and follow the instructions to connect the data to Azure Sentinel. It may take some time for the logs to start syncing with Azure Sentinel. After you connect, you see a summary of the data in the **Data received** graph, and connectivity status of the data types.
+
+   ![Connect collectors](./media/collect-data/opened-connector-page.png)
+  
+1. Click the **Next steps** tab to get a list of out-of-the-box content Azure Sentinel provides for the specific data type.
+
+   ![Data collectors](./media/collect-data/data-insights.png)
+ 
 
 ## Data connection methods
 

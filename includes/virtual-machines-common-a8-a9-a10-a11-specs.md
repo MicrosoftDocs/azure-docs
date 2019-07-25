@@ -29,6 +29,6 @@ A subset of the compute-intensive instances (A8, A9, H16r, H16mr, HB and HC) fea
 This interface allows the RDMA-capable instances to communicate over an InfiniBand (IB) network, operating at EDR rates for HB, HC, FDR rates for H16r, H16mr, and RDMA-capable N-series virtual machines, and QDR rates for A8 and A9 virtual machines. These RDMA capabilities can boost the scalability and performance of certain Message Passing Interface (MPI) applications. For more information on speed, see the details in the tables on this page.
 
 > [!NOTE]
-> In Azure, IP over IB is only supported on the SR-IOV enabled VMs (currently HB and HC). RDMA over IB is supported for all RDMA-capable instances.
+> In Azure, IP over IB is only supported on the SR-IOV enabled VMs (SR-IOV for InfiniBand, currently HB and HC). RDMA over IB is supported for all RDMA-capable instances.
 >
 

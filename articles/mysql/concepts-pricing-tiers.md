@@ -5,7 +5,7 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 06/27/2019
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -57,7 +57,7 @@ We are increasing the storage limits in our General Purpose and Memory Optimized
 |              | **General Purpose** | **Memory Optimized** |
 |:-------------|:--------------------|:---------------------|
 | Storage type | Azure Premium Storage | Azure Premium Storage |
-| Storage size | 32 GB to 16 TB| 32 to 16 TB |
+| Storage size | 32 GB to 16 TB| 32 GB to 16 TB |
 | Storage increment size | 1 GB | 1 GB |
 | IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
 

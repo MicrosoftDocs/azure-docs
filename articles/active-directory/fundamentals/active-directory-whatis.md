@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # What is Azure Active Directory?
 
-Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service, which helps your employees' sign in and access resources in:
+Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service, which helps your employee's sign in and access resources in:
 
 - External resources, such as Microsoft Office 365, the Azure portal, and thousands of other SaaS applications.
 

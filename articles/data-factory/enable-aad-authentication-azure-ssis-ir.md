@@ -141,17 +141,7 @@ Azure SQL Database Managed Instance supports creating a database with the manage
 
 ### Configure Azure AD authentication for Azure SQL Database Managed Instance
 
-1.   In Azure portal, select **All services** -> **SQL servers** from the left-hand navigation.
-
-2.   Select your Managed Instance to be configured with Azure AD authentication.
-
-3.   In the **Settings** section of the blade, select **Active Directory admin**.
-
-4.   In the command bar, select **Set admin**.
-
-5.   Select an Azure AD user account to be made administrator of the server, and then select **Select**.
-
-6.   In the command bar, select **Save**.
+Follow the steps in [Provision an Azure Active Directory administrator for your Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
 ### Add the managed identity for your ADF as a user in Azure SQL Database Managed Instance
 
@@ -159,7 +149,7 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 
 1.	Start SSMS.
 
-2.	Connect to your Managed Instance using your SQL/Active Directory admin account.
+2.	Connect to your Managed Instance using a SQL Server account that is a **sysadmin**. This is a temporary limitation that will be removed once Azure AD server principals (logins) for Azure SQL Database Managed Instance becomes GA. You will see the following error if you try to use an Azure AD admin account to create the login: Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.
 
 3.	In the **Object Explorer**, expand the **Databases** -> **System Databases** folder.
 

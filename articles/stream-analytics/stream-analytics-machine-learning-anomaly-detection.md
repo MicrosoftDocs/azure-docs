@@ -119,7 +119,7 @@ When partitioning the function by deviceId, add “PARTITION BY deviceId” to t
 ### Observations
 The following table includes the throughput observations for a single node (6 SU) for the non-partitioned case:
 
-| History Size (events)	| Window Duration (ms) | Total Input Events Per Sec |
+| History size (events)	| Window duration (ms) | Total input events per sec |
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2,200 |
 | 600 | 728 | 1,650 |
@@ -127,7 +127,7 @@ The following table includes the throughput observations for a single node (6 SU
 
 The following table includes the throughput observations for a single node (6 SU) for the partitioned case:
 
-| History Size (events) | Window Duration (ms) | Total Input Events Per Sec | Device Count |
+| History size (events) | Window duration (ms) | Total input events per sec | Device count |
 | --------------------- | -------------------- | -------------------------- | ------------ |
 | 60 | 1,091 | 1,100 | 10 |
 | 600 | 10,910 | 1,100 | 10 |
@@ -155,6 +155,6 @@ The following video demonstrates how to detect an anomaly in real time using mac
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.ASpx)
+* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
