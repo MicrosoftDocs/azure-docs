@@ -260,7 +260,7 @@ node model_repo.js
 
 This sample downloads the ModelDiscovery interface and will print this model in the terminal.
 
-### Run queries in IoT Hub based on capabality models and interfaces
+### Run queries in IoT Hub based on capability models and interfaces
 
 We support HAS_INTERFACE and HAS_CAPABILITYMODEL.
 
