@@ -27,7 +27,7 @@ You need to create an Azure Active Directory App Registration and a Log Analytic
 
 - Owner of the Azure subscription
 - Permission to create resources in your Azure subscription
-- Permission to create an Azure AD application
+- Permission to create an Azure AD app
 - RDS Owner or Contributor rights
 
 You also need to install these two PowerShell modules before you get started:
@@ -41,7 +41,7 @@ After you have everything in order, you can create the Azure AD app registration
 
 ## Create an Azure Active Directory app registration
 
-This section will show you how to use PowerShell to create the Azure Active Directory Application with a service principal and add API permissions to it.
+This section will show you how to use PowerShell to create the Azure Active Directory app with a service principal and get API permissions for it.
 
 >[!NOTE]
 >The API permissions are Windows Virtual Desktop, Log Analytics and Microsoft Graph API permissions are added to the Azure Active Directory Application.
@@ -66,9 +66,12 @@ For the best possible experience, we recommend you configure your Log Analytics 
 
 You can run a PowerShell script to create a Log Analytics workspace and configure the recommended Windows performance counters to monitor user experience and app performance.
 
+>[!NOTE]
+>If you already have an existing Log Analytics workspace that you made without the PowerShell script that you want to use, skip ahead to [Validate the script results in the Azure Portal](#validate-the-script-results-in-the-azure-portal).
+
 To run the PowerShell script:
 
-1.  Open PowerShell as an admin
+1.  Open PowerShell as an admin.
 2.  Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) and run the **Create LogAnalyticsWorkspace for Diagnostics.ps1** script in PowerShell.
 3. Enter the following values for the parameters:
 
@@ -78,16 +81,15 @@ To run the PowerShell script:
     - Enter the **Azure Subscription ID**, which you can find in the Azure Portal under **Subscriptions**.
 
 4. Enter the credentials of a user with delegated admin access.
-5. Sign in to Azure with the same user's credentials.
-<!--Is this the Azure portal or desktop client?-->
+5. Sign in to the Azure portal with the same user's credentials.
 6. Write down or memorize the LogAnalyticsWorkspace ID for later.
-7. After that, continue to [Validate the script results in the Azure Portal](#validate-the-script-results-in-the-azure-portal) for instructions about how to connect your VMs to the log analytics workspace.
+7. If you set up the Log Analytics workspace with the PowerShell script, then your performance counters should already be configured and you can skip ahead to [Validate the script results in the Azure Portal](#validate-the-script-results-in-the-azure-portal). Otherwise, proceed to the next section.
 
-### Configure Windows Performance counters in your existing Log Analytics workspace
+### Configure Windows performance counters in your existing Log Analytics workspace
 
-<!--Is this the same section as the one at the last H2? What will make people skip this section and go to Validate the script results in the Azure Portal?-->
+This section is for users who want to use an existing Azure Log Analytics workspace created without the PowerShell script in the previous section. If you haven't used the script, then you must configure the recommended Windows performance counters manually.
 
-Here's how to set up the recommended performance counters in your existing Log Analytics workspace:
+Here's how to manually configure the recommended performance counters:
 
 1. Open your internet browser and sign in to the [Azure Portal](https://portal.azure.com/) with your administrative account.
 2. Next, go to **Log Analytics workspaces** to review the configured Windows Performance Counters.
@@ -162,24 +164,21 @@ After that, you need to set the Redirect URI.
 
 ### Set the Redirect URI
 
-<!--Is this supposed to be capitalized? Also, I'm seeing too much all-caps in the UI. It doesn't look like anyone's reviewed this UI yet.-->
-
-To set the redirect URI:
+To set the Redirect URI:
 
 1.  In the [Azure Portal](https://portal.azure.com/), go to **App Services** and locate the application you just created.
 2.  Go to the overview page and copy the URL you find there.
 3.  Navigate to **app registrations** and select the app you want to deploy.
 4.  In the left panel, under Manage section, select **Authentication**.
-5.  Enter the desired redirect URI, then select **Save**.
-<!--Can I get a better idea of what the UI for step 5 looks like?-->
-6. Select **Public client (mobile & desktop)** in the drop-down menu under Type.
+5.  Enter the desired Redirect URI into the **Redirect URI** text box, then select **Save** in the top left corner of the menu.
+6. Select **Web** in the drop-down menu under Type.
 7. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    ![The redirect URI page](media/8fc125e527af5dbfac48b9f026d18b10.png)
 
 8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was "contosoapp45," then your associated URL is <https://contosoapp45.azurewebsites.net>).
 9. Sign in using the appropriate Azure Active Directory user account.
-10.   Select **Accept** to provide consent and use the Diagnostics-UX application.
+10.   Select **Accept**.
 
 ## Distribute the diagnostics tool
 
@@ -195,15 +194,16 @@ You also need to give your users the following information:
 
 ## Use the diagnostics tool
 
-After you've signed in to your account using the information you've received from your organization, have the UPN ready for the user you want to query activities for. A search will give you all activities under the specified activity type from now until one week in the past.
+After you've signed in to your account using the information you've received from your organization, have the UPN ready for the user you want to query activities for. A search will give you all activities under the specified activity type that happened within the last week.
 
 ### How to read activity search results
 
 Activities are sorted by timestamp, with the latest activity first. If the results return an error, first check to see if it's a service error. For service errors, create a support ticket with the activity information to help us debug the issue. All other error types can usually be solved by the user or administrator. For a list of the most common error scenarios and how to solve them, see [Identify issues with the diagnostics feature](diagnostics-role-service.md#common-error-scenarios).
 
-Connection activities might have more than one error. You can expand the activity type to see any other errors the user has encountered. Select the line to open up a dialog to see the friendly message.
+>[!NOTE]
+>Service errors are called "external errors" in the linked documentation. This will be changed when we update the PowerShell reference.
 
-<!--Which line? UI?-->
+Connection activities might have more than one error. You can expand the activity type to see any other errors the user has encountered. Select the name of the error code to open up a dialog to see more information about it.
 
 ### Investigate the session host 
 
