@@ -60,7 +60,7 @@ Start by using a custom device template and modeling the device capability model
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Button B Pressed  | 
 
-### Writebale properties
+### Writeable properties
 
 Numeric writeable properties
 
