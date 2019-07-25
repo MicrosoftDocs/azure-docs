@@ -42,8 +42,6 @@ Model dominant language is available in the insights JSON as the `sourceLanguage
         "sourceLanguageConfidence": 0.8563
       },
 ```
- 
-In addition, a verbose response through the [Artifact auxiliary API](https://api-portal.videoindexer.ai/docs/services/operations/operations/get-video-artifact-download-url/) is available (set `languageDetection` as the `type` parameter value). The verbose response contains the dominant language and the confidence score of each supported language. The confidence for each segment detected as speech / non-speech and a detailed segmentation of the file to detected language intervals with corresponding confidence of each of the supported languages. 
 
 ## Guidelines and limitations
 
