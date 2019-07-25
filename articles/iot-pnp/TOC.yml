@@ -12,6 +12,8 @@
   items:
   - name: Create a device using VS Code
     href: tutorial-pnp-visual-studio-code.md
+  - name: Connect to and interact with a device
+    href: tutorial-pnp-develop-solution.md
   - name: Build a device ready for certification
     href: tutorial-build-device-certification.md
   - name: Certify your device
