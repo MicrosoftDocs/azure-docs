@@ -56,7 +56,7 @@ The provisioning logs provide answers to the following questions:
 
 You can access the provisioning logs by selecting **Provisioning Logs** in the **Activity** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Note that it may take up to two hours for some provisioning records to show up in the portal.
 
-![Sign-in activity](./media/concept-sign-ins/61.png "Sign-in activity")
+![Sign-in activity](./media/concept-provisioning-logs/61.png "Sign-in activity")
 
 > [!IMPORTANT]
 Lore Ipsum
@@ -71,19 +71,19 @@ A provisioning log has a default list view that shows:
 - The status of the risk detection
 - The status of the multi-factor authentication (MFA) requirement
 
-![Sign-in activity](./media/concept-sign-ins/01.png "Sign-in activity")
+![Sign-in activity](./media/concept-provisioning-logs/01.png "Sign-in activity")
 
 You can customize the list view by clicking **Columns** in the toolbar.
 
-![Sign-in activity](./media/concept-sign-ins/19.png "Sign-in activity")
+![Sign-in activity](./media/concept-provisioning-logs/19.png "Sign-in activity")
 
 This enables you to display additional fields or remove fields that are already displayed.
 
-![Sign-in activity](./media/concept-sign-ins/02.png "Sign-in activity")
+![Sign-in activity](./media/concept-provisioning-logs/02.png "Sign-in activity")
 
 Select an item in the list view to get more detailed information.
 
-![Sign-in activity](./media/concept-sign-ins/03.png "Sign-in activity")
+![Sign-in activity](./media/concept-provisioning-logs/03.png "Sign-in activity")
 
 
 ## Filter provisioning activities
@@ -98,7 +98,7 @@ To narrow down the reported data to a level that works for you, you can filter t
 - Status
 - Date
 
-![Sign-in activity](./media/concept-sign-ins/04.png "Sign-in activity")
+![Sign-in activity](./media/concept-provisioning-logs/04.png "Sign-in activity")
 
 The **Identity** filter enables you to specify the name or the identity that you care about. This identity could be a user, group, role, or other object. You can search by the name or id of the object. The id varies by scenario. For example, when provisioning an object from Azure AD to SalesForce, the Source ID is the object ID of the user in Azure AD while the TargetID is the ID of the user in Salesforce. When provisioning from Workday to Active Directory, the Source ID is the Workday worker employee ID. Note that the Name of the user may not always be present in the Identity column. There will always be one ID. 
 
