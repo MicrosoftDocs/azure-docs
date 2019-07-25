@@ -14,7 +14,7 @@ ms.author: aahi
 
 # What's new in the Text Analytics API?
 
-Use this article 
+The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
 ## Sentiment Analysis v3 public preview
 
@@ -36,5 +36,8 @@ You can find an example C# application that calls this version of Sentiment Anal
 ## Next Steps
 
 * [What is the Text Analytics API?](../overview.md)  
-* [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)
-* [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712) 
+* [Example user scenarios](text-analytics-user-scenarios.md)
+* [Sentiment analysis](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Language detection](how-tos/text-analytics-how-to-language-detection.md)
+* [Entity linking](how-tos/text-analytics-how-to-entity-linking.md)
+* [Key phrase extraction](how-tos/text-analytics-how-to-keyword-extraction.md)
