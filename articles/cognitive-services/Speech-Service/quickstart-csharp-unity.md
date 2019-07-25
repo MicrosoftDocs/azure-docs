@@ -62,7 +62,7 @@ To install the Speech SDK for Unity, follow these steps:
    [![Import Unity Package dialog box in the Unity Editor](media/sdk/qs-csharp-unity-01-import.png)](media/sdk/qs-csharp-unity-01-import.png#lightbox)
 1. Ensure that all files are selected, and select **Import**. After a few moments, the Unity asset package is imported into your project.
 
-For more information about the importing asset packages into Unity, see the [Unity documentation](https://docs.unity3d.com/Manual/AssetPackages.html).
+For more information about importing asset packages into Unity, see the [Unity documentation](https://docs.unity3d.com/Manual/AssetPackages.html).
 
 ## Add UI
 
@@ -78,7 +78,7 @@ Now let's add a minimal UI to our scene. This UI consists of a button to trigger
 
 1. In the [**Inspector** window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right), set the **Pos X** and **Pos Y** properties to **0**, so the button is centered in the middle of the canvas.
 
-1. In the **Hierarchy** window, select the **Create** > **UI** > **Text** to create a **Text** object.
+1. In the **Hierarchy** window, select **Create** > **UI** > **Text** to create a **Text** object.
 
 1. In the **Inspector** window, set the **Pos X** and **Pos Y** properties to **0** and **120**, and set the **Width** and **Height** properties to **240** and **120**. These values ensure that the text field and the button don't overlap.
 
@@ -90,7 +90,7 @@ When you're done, the **Scene** view should look similar to this screenshot:
 
 To add the sample script code for the Unity project, follow these steps:
 
-1. In the [Project window](https://docs.unity3d.com/Manual/ProjectView.html), select the **Create** > **C# script** to add a new C# script.
+1. In the [Project window](https://docs.unity3d.com/Manual/ProjectView.html), select **Create** > **C# script** to add a new C# script.
 
    [![Project window in the Unity Editor](media/sdk/qs-csharp-unity-project-window.png)](media/sdk/qs-csharp-unity-project-window.png#lightbox)
 1. Name the script `HelloWorld`.
