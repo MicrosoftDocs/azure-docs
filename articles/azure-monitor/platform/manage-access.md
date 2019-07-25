@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/12/2019
+ms.date: 07/25/2019
 ms.author: magoedte
 ---
 
@@ -34,7 +34,7 @@ You can view the current workspace access control mode on the **Overview** page 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the Azure portal, select Log Analytics workspaces > your workspace.  
 
-You can change this setting on the **Properties** page for the workspace. Changing the setting will be disabled if you don't have permissions to configure the workspace.
+You can change this setting from the **Properties** page of the workspace. Changing the setting will be disabled if you don't have permissions to configure the workspace.
 
 ![Change workspace access mode](media/manage-access/change-access-control-mode.png)
 
@@ -45,6 +45,15 @@ Use the following command to examine the access control mode for all workspaces 
 ```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
 ```
+
+The output should resemble the following:
+
+```
+DefaultWorkspace38917: True
+DefaultWorkspace21532: False
+```
+
+A value of `False` means the workspace is configured with the access mode *Require workspace permissions*.  A value of `True` means the workspace is configured with the access mode *Use resource or workspace permissions*.  If a workspace is returned with a blank or null value, it means?  
 
 Use the following script to set the access control mode for a specific workspace:
 
@@ -78,7 +87,7 @@ To configure the access mode in an Azure Resource Manager template, set the **en
 
 ## Manage accounts and users
 
-The permissions applied to the workspace for a particular user are defined by their access mode and the [access control mode](design-logs-deployment.md#access-control-mode) of the workspace. **Workspace permissions** are applied when a user accesses any workspace using **workspace-context** in [workspace-context mode](design-logs-deployment.md#access-mode). **Resource permissions** are applied when a user accesses a workspace with **Use resource or workspace permissions** [access control mode](design-logs-deployment.md#access-control-mode) using [resource-context mode](design-logs-deployment.md#access-mode).
+The permissions applied to the workspace for a particular user are defined by their [access mode](design-logs-deployment.md#access-mode) and the [access control mode](design-logs-deployment.md#access-control-mode) of the workspace. With **Workspace-context**, you can view all logs in the workspace that you have permission to. Queries in this mode are scoped to all data in all tables in the workspace. With **Resource-context**, you view logs data in the workspace for a particular resource, resource group, or subscription when performing a search directly from the resource in the Azure portal that you have access to. Queries in this mode are scoped to only data associated with that resource.
 
 ### Workspace permissions
 
