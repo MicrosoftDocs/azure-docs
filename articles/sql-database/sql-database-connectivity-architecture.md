@@ -66,12 +66,12 @@ Going forward, we'll add more Gateways in each region and retire the Gateways in
 | Canada Central       | 40.85.224.249      |                 | |
 | Canada East          | 40.86.226.166      |                 | |
 | Central US           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | No connections after September 1, 2019 |
-| China East 1         | 139.219.130.35     |                 | |
+| China East           | 139.219.130.35     |                 | |
 | China East 2         | 40.73.82.1         |                 | |
-| China North 1        | 139.219.15.17      |                 | |
+| China North          | 139.219.15.17      |                 | |
 | China North 2        | 40.73.50.0         |                 | |
 | East Asia            | 191.234.2.139, 52.175.33.150 |       | |
-| East US 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | No connections after September 1, 2019 |
+| East US              | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | No connections after September 1, 2019 |
 | East US 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | No connections after September 1, 2019 |
 | France Central       | 40.79.137.0, 40.79.129.1 |           | |
 | Germany Central      | 51.4.144.100       |                 | |
@@ -95,7 +95,7 @@ Going forward, we'll add more Gateways in each region and retire the Gateways in
 | UK West              | 51.141.8.11        |                 | |
 | West Central US      | 13.78.145.25       |                 | |
 | West Europe          | 40.68.37.158       | 191.237.232.75  | No connections after September 1, 2019 |
-| West US 1            | 104.42.238.205     | 23.99.34.75     | No connections after September 1, 2019 |
+| West US              | 104.42.238.205     | 23.99.34.75     | No connections after September 1, 2019 |
 | West US 2            | 13.66.226.202      |                 | |
 |                      |                    |                 | |
 
