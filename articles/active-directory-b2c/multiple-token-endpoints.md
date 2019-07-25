@@ -20,7 +20,7 @@ This article describes a technique for enabling support for multiple token issue
 The following sections present an example of how to enable multiple issuers in a web application and corresponding web API that use the [Microsoft OWIN][katana] middleware components (Katana). Although the code examples are specific to the Microsoft OWIN middleware, the general technique should be applicable to other OWIN libraries.
 
 > [!NOTE]
-> This article is intended for Azure AD B2C customers with currently deployed applications that reference `login.microsoftonline.com` and want to migrate to the recommended `b2clogin.com` endpoint. If you're setting up a new application, use [b2clogin.com](b2clogin.md) as directed elsewhere in the documentation.
+> This article is intended for Azure AD B2C customers with currently deployed applications that reference `login.microsoftonline.com` and who want to migrate to the recommended `b2clogin.com` endpoint. If you're setting up a new application, use [b2clogin.com](b2clogin.md) as directed elsewhere in the documentation.
 
 ## Prerequisites
 
