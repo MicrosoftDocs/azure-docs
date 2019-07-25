@@ -1,5 +1,15 @@
 - name: Event Grid IoT Edge Documentation
   href: 
+- name: Tutorials
+  items:
+  - name: Publish and Subscribe to events locally
+    items:
+    - name: Deploy Event Grid IoT Module
+      href: deploy-event-grid-portal.md
+    - name: Deploy Azure Function IoT Module
+      href: deploy-func-webhook-module-portal.md
+    - name: Publish and Subscribe events
+      href: pub-sub-events-webhook-local.md
 - name: Concepts
   items:
   - name: Event Grid concepts
@@ -22,4 +32,3 @@
   items:
   - name: REST API
     href: api.md
-  
