@@ -38,13 +38,13 @@
       displayName: RL, contextual bandits, Vowpal Wabbit
     - name: Exploration
       href: concepts-exploration.md
-    - name: Feature evaluation
-      href: concept-feature-evaluation.md
   - name: Analysis
     items: 
     - name: Offline evaluation
       href: concepts-offline-evaluation.md
       displayName: learning policy, Counterfactual, features
+    - name: Feature evaluation
+      href: concept-feature-evaluation.md
   - name: Scalability and performance
     href: concepts-scalability-performance.md 
 - name: How-to guides
