@@ -29,7 +29,7 @@ To build logic apps that run in your integration service environment (ISE), foll
 
 1. Find and open your ISE, if not already open. From the ISE menu, under **Settings**, select **Logic apps** > **Add**.
 
-   ![Add new logic app to ISE](./media/connect-virtual-network-vnet-isolated-environment/add-logic-app-to-ise.png)
+   ![Add new logic app to ISE](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 
    -or-
 
@@ -39,7 +39,7 @@ To build logic apps that run in your integration service environment (ISE), foll
 
 1. From the **Location** list, under the **Integration service environments** section, select your ISE, for example:
 
-   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-ise.png)
+   ![Select integration service environment](./media/add-artifacts-integration-service-environment-ise/create-logic-app-with-integration-service-environment.png)
 
    > [!IMPORTANT]
    > If you want to use your logic apps with an integration account, 
@@ -47,7 +47,7 @@ To build logic apps that run in your integration service environment (ISE), foll
 
 1. Continue [creating your logic app in the usual way](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-   For differences in how triggers and actions work and how they're labeled when you use an ISE compared to the global Logic Apps service, see [Isolated versus global in the ISE overview](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
+   For differences in how triggers and actions work and how they're labeled when you use an ISE compared to the global Logic Apps service, see [Isolated versus global in the ISE overview](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 1. To manage logic apps and API connections in your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md).
 
@@ -62,7 +62,7 @@ To create an integration account that uses an ISE, follow these steps:
 
 1. Find and open your ISE, if not already open. From the ISE menu, under **Settings**, select **Integration accounts** > **Add**.
 
-   ![Add new integration account to ISE](./media/connect-virtual-network-vnet-isolated-environment/add-integration-account-to-ise.png)
+   ![Add new integration account to ISE](./media/add-artifacts-integration-service-environment-ise/add-integration-account-to-ise.png)
 
    -or-
 
@@ -72,7 +72,7 @@ To create an integration account that uses an ISE, follow these steps:
 
 1. From the **Location** list, under the **Integration service environments** section, select the same ISE that your logic apps use, for example:
 
-   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
+   ![Select integration service environment](./media/add-artifacts-integration-service-environment-ise/create-integration-account-with-integration-service-environment.png)
 
 1. [Link your logic app to your integration account in the usual way](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
@@ -88,17 +88,17 @@ To use custom connectors in your ISE, create those custom connectors from direct
 
 1. Find and open your ISE, if not already open. From the ISE menu, under **Settings**, select **Custom connectors** > **Add**.
 
-   ![Create custom connector](./media/connect-virtual-network-vnet-isolated-environment/add-custom-connector-to-ise.png)
+   ![Create custom connector](./media/add-artifacts-integration-service-environment-ise/add-custom-connector-to-ise.png)
 
 1. Provide the name, Azure subscription, and Azure resource group (new or existing) to use for your custom connector.
 
 1. From the **Location** list, under the **Integration service environments** section, select the same ISE that your logic apps use, and select **Create**, for example:
 
-   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-custom-connector-with-integration-service-environment.png)
+   ![Select integration service environment](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-with-integration-service-environment.png)
 
 1. Select your new custom connector, and then select **Edit**, for example:
 
-   ![Select and edit custom connector](./media/connect-virtual-network-vnet-isolated-environment/edit-custom-connectors.png)
+   ![Select and edit custom connector](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 
 1. Continue by creating the connector in the usual way from an [OpenAPI definition](https://docs.microsoft.com/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) or [SOAP](https://docs.microsoft.com/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
 
