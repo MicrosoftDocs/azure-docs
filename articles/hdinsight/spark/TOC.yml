@@ -52,8 +52,6 @@
     href: ../hdinsight-cluster-availability.md 
   - name: Troubleshooting
     items:
-    - name: OutOfMemoryError exception
-      href: ./apache-spark-ts-outofmemory.md
     - name: IllegalArgumentException exception
       href: ./apache-spark-ts-illegalargumentexception.md
 - name: How to
