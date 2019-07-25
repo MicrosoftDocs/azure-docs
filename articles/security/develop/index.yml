@@ -36,6 +36,13 @@ sections:
           src: /media/common/i_learn-about.svg
         title: Build your skills with Microsoft Learn
 
+- title: Secure sample apps
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/security/develop/secure-web-app">Web app in a Linux container</a>
 
 - title: Concepts
   items:
