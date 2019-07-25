@@ -9,15 +9,16 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
-ms.service: asc-for-iot
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 07/25/2019
 ms.author: mlottner
 
 ---
+
 # Tutorial: Configure security agents
 
 This article explains Azure Security Center for IoT security agents, and details how to change and configure them. 
@@ -31,7 +32,7 @@ This article explains Azure Security Center for IoT security agents, and details
 
 Azure Security Center for IoT security agents collect data from IoT devices and perform security actions to mitigate the detected vulnerabilities. Security agent configuration is controllable using a set of module twin properties you can customize. In general, secondary updates to these properties are infrequent.  
 
-Azure Security Center for IoT’s security agent twin configuration object is a .json format object. The configuration object is a set of controllable properties that you can define to control the behavior of the agent. 
+Azure Security Center for IoT’s security agent twin configuration object is a JSON format object. The configuration object is a set of controllable properties that you can define to control the behavior of the agent. 
 
 These configurations help you customize the agent for each scenario required. For example, automatically excluding some events, or keeping power consumption to a minimal level are possible by configuring these properties.  
 
@@ -51,9 +52,6 @@ If the agent configuration object does not exist in the **azureiotsecurity** mod
   } 
 }
 ```
-
-Make sure to validate your agent configuration changes against this [schema](https://aka.ms/iot-security-github-module-schema).
-The agent will not launch if the configuration object does not match the schema.
 
 ## Configuration schema and validation 
 

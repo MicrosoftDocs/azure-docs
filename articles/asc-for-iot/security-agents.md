@@ -9,7 +9,7 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: 55c8d3b6-3126-4246-8d07-ef88fe5ea84f
-ms.service: asc-for-iot
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -25,7 +25,7 @@ Azure Security Center for IoT  security agents offer enhanced security capabilit
 
 Reference architecture for Linux and Windows security agents, both in C# and C are provided.
 
-The Azure Security Center for IoT security agents handle raw event collection from the device operating system, event aggregation to reduce cost, and configuration through a device  module twin. Security messages are sent through your IoT Hub, into Azure Security Center for IoT analytics services.
+The Azure Security Center for IoT security agents handle raw event collection from the device operating system, event aggregation to reduce cost, and configuration through a device module twin. Security messages are sent through your IoT Hub, into Azure Security Center for IoT analytics services.
 
 Use the following workflow to deploy and test your Azure Security Center for IoT security agents: 
 

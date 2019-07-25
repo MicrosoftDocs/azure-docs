@@ -55,7 +55,7 @@ Check your IoT Hub location to verify service availability before you begin.
 ASC for IoT agents supports a growing list of devices and platforms. See the [supported platform list](how-to-deploy-agent.md) to check your existing or planned device library.  
 
 ## Next steps
-- [Overview](overview.md)
-- [Enable the service](quickstart-onboard-iot-hub.md)
-- [ASC for IoT FAQ](resources-frequently-asked-questions.md)
-- [Understanding ASC for IoT alerts](concept-security-alerts.md)
+- Read the Azure IoT Security [Overview](overview.md)
+- Learn how to [Enable the service](quickstart-onboard-iot-hub.md)
+- Read the [Azure Security Center for IoT FAQ](resources-frequently-asked-questions.md)
+- Explore how to [Understand Azure Security Center for IoT alerts](concept-security-alerts.md)

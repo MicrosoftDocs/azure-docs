@@ -20,7 +20,7 @@ ms.author: mlottner
 ---
 # Quickstart: Create an azureiotsecurity module twin
 
-This quickstart explanations of how to create individual _azureiotsecurity_ module twins for new devices, or batch create module twins for all devices in an IoT Hub.  
+This quickstart explains how to create individual _azureiotsecurity_ module twins for new devices, or batch create module twins for all devices in an IoT Hub.  
 
 ## Understanding azureiotsecurity module twins 
 
@@ -32,6 +32,7 @@ Azure Security Center for IoT integration is achieved by making use of the IoT H
 See [IoT Hub module twins](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) to learn more about the general concept of module twins in Azure IoT Hub. 
  
 Azure Security Center for IoT makes use of the module twin mechanism and maintains a security module twin named _azureiotsecurity_ for each of your devices.
+
 The security module twin holds all the information relevant to device security for each of your devices. 
  
 To make full use of Azure Security Center for IoT features, you'll need to create, configure and use these security module twins for every device in the service.  
