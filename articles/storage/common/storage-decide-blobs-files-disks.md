@@ -38,10 +38,12 @@ The following table compares Azure Files with Azure Blobs.
 |Endpoints|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Directories|Flat namespace|True directory objects|  
 |Case sensitivity of names|Case sensitive|Case insensitive, but case preserving|  
-|Capacity|Up to 2 PiB Account Limit |5 TiB file shares|  
-|Throughput|Up to 60 MiB/s per block blob|Up to 60 MiB/s per share|  
+|Capacity|Up to 2 PiB Account Limit | 5 TiB (GA)/ 100 TiB (preview) standard file shares, 100 TiB premium file shares|  
+|Throughput|Up to 60 MiB/s per block blob|Up to 60 MiB/s per standard share, for premium file shares see ingress/egress|
+|Ingress| See throughput| See standard file share target throughput, up to 4,136 MiB/s for premium file shares|
+|Egress| See throughput| See standard file share target throughput, up to 6,204 MiB/s for premium file shares|
 |Object Size|Up to about 4.75 TiB per block blob|Up to 1 TiB per file|  
-|Billed capacity|Based on bytes written|Based on file size|  
+|Billed capacity|Based on bytes written|Based on file size for standard file shares, premium file shares use a model which is based on the provisioned size|  
 |Client libraries|Multiple languages|Multiple languages|  
   
 ## Comparison: Files and Disks
@@ -58,9 +60,11 @@ The following table compares Azure Files with Azure Disks.
 |Configuration|Connected at startup of the virtual machine|Connected after the virtual machine has started|  
 |Authentication|Built-in|Set up with net use|  
 |Access using REST|Files within the VHD cannot be accessed|Files stored in a share can be accessed|  
-|Max Size|32 TiB disk|5 TiB File Share and 1 TiB file within share|  
-|Max IOps|20,000 IOps|1000 IOps|  
-|Throughput|Up to 900 MiB/s per Disk|Target is 60 MiB/s per File Share (can get higher for higher IO sizes)|  
+|Max Size|32 TiB disk|5 TiB (GA), 100 TiB (preview) for standard file shares, 100 TiB for premium file shares, and 1 TiB file within share|  
+|Max IOps|20,000 IOps|1000 (GA), 10,000 (preview) IOps for standard file shares, 100,000 IOPs for premium file shares|  
+|Throughput|Up to 900 MiB/s per Disk|Target is 60 MiB/s (GA), 300 MiB/s (preview) per standard file share (can get higher for higher IO sizes), for premium file shares see ingress/egress|
+|Ingress|See throughput| See standard file share target throughput, up to 4,136 MiB/s for premium file shares|
+|Egress|See throughput| See standard file share target throughput, up to 6,204 MiB/s for premium file shares|
 
 ## Next steps
 
