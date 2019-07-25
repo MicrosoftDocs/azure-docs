@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/31/2019
+  ms.date: 07/25/2019
   ms.author: aahi
 abstract:
   description: The Bing Video Search API enables you to integrate Bing's video search capabilities in your applications. By sending search queries to the API, you can get and display relevant and high-quality videos similar to bing.com/videos.  

@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 1/16/2019
+  ms.date: 7/25/2019
   ms.author: nitinme
 abstract:
   description: The Bing Image Search API enables you to integrate Bing's image search capabilities in your applications. By sending user search queries with the API, you can get and display relevant and high-quality images similar to bing.com/images.  

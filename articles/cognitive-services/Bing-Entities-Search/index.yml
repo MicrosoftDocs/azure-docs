@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/01/2019
+  ms.date: 07/25/2019
   ms.author: aahi
 abstract:
   description: The Bing Entity Search API enables your applications to get information about detected entities in search queries. Entities can be people, places, media titles, and more.
