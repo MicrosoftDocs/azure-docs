@@ -65,7 +65,7 @@ Reserved VM Instances are available for most VM sizes with some exceptions. Rese
 
 - **VM series** - A-series, Av2-series, or G-series.
 
-- **VMs in preview** - Any VM-series or size that is in preview.
+- **Preview or Promo VMs** - Any VM-series or size that is in preview or uses promotional meter.
 
 - **Clouds** - Reservations aren't available for purchase in Germany or China regions.
 
