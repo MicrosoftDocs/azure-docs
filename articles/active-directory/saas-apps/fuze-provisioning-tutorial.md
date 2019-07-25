@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Fu
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A Fuze tenant](https://www.fuze.com/trust#fuze-status-check).
+* [A Fuze tenant](https://www.fuze.com/).
 * A user account in Fuze with Admin permissions.
 
 ## Assigning users to Fuze
@@ -51,19 +51,17 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup Fuze for provisioning
 
-To enable provisioning through Azure AD, you’ll need to start by contacting your Fuze representative with the following required information:
+Before configuring Fuze for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Fuze. 
 
-* List of Fuze Product SKUs currently in use at your company.
+1. Start by contacting your Fuze representative for the following required information:
 
-* List of location codes for your company’s locations.
+	* List of Fuze Product SKUs currently in use at your company.
+	* List of location codes for your company’s locations.
+	* List of department codes for your company.
 
-* List of department codes for your company.
+2. You can find these SKUs and codes in your Fuze contract and configuration documents, or by contacting your Fuze representative.
 
-You can find these SKUs and codes in your Fuze contract and configuration documents, or by
-contacting your Fuze representative.
-
-Once the requirements are received, your Fuze representative will provide you with the Fuze
-authentication token that is required to enable the integration.
+3. Once the requirements are received, your Fuze representative will provide you with the Fuze authentication token that is required to enable the integration. This value will be entered in the Secret Token field in the Provisioning tab of your Fuze application in the Azure portal.
 
 ## Add Fuze from the gallery
 
@@ -112,8 +110,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://api.fuze.com/scim/v2` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier from Fuze representative
- in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Fuze. If the connection fails, ensure your Fuze account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://api.fuze.com/scim/v2` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier from the Fuze representative in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Fuze. If the connection fails, ensure your Fuze account has Admin permissions and try again.
 
 	![Tenant URL Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -150,6 +147,8 @@ This operation starts the initial synchronization of all users and/or groups def
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 ## Connector limitations
+
+* Fuze supports custom SCIM attributes called **Entitlements**. These attributes are only able to be created and not updated. 
 
 ## Additional resources
 
