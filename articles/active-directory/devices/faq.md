@@ -37,6 +37,11 @@ Only the following devices are listed under **USER devices**:
 - For Windows 10 and Windows Server 2016 or later devices, run `dsregcmd.exe /status`.
 - For down-level OS versions, run `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`.
 
+**A:** For troubleshooting information, see these articles:
+- [Troubleshooting devices using dsregcmd command](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md)
+- [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
+
 ---
 
 ### Q: I see the device record under the USER info in the Azure portal. And I see the state as registered on the device. Am I set up correctly to use Conditional Access?
@@ -85,20 +90,29 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 
 **Q: Why can a user still access resources from a device I disabled in the Azure portal?**
 
-**A:** It takes up to an hour for a revoke to be applied.
+**A:** It takes up to an hour for a revoke to be applied from the time the Azure AD device is marked as disabled.
 
 >[!NOTE] 
 >For enrolled devices, we recommend that you wipe the device to make sure users can't access the resources. For more information, see [What is device enrollment?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 ---
 
+### Q: Why are there devices marked as "Pending" under the REGISTERED column in the Azure portal?
+
+**A**:  Pending indicates the device is not registered. This state indicates that a device has been synchronized using Azure AD connect from on-premises AD and is ready for device registration. These device have the JOIN TYPE set to "Hybrid Azure AD joined". Learn more on [how to plan your hybrid Azure Active Directory join implementation](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan).
+
+>[!NOTE]
+A device can also change from having a registered state to "Pending"
+>* If a device is deleted and from Azure AD first and re-synchronized from on-premises AD.
+>* If a device is removed from a sync scope on Azure AD Connect and added back.
+>
+>In both cases, you must re-register the device manually on each of these devices. To review whether the device was previously registered, you can [troubleshoot devices using the dsregcmd command](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd).
+
 ## Azure AD join FAQ
 
 ### Q: How do I unjoin an Azure AD joined device locally on the device?
 
-**A:** 
-- For hybrid Azure AD joined devices, make sure to turn off automatic registration. Then the scheduled task doesn't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
-- For pure Azure AD joined devices, make sure you have an offline local administrator account or create one. You can't sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to finish the unjoin process.
+**A:** For pure Azure AD joined devices, make sure you have an offline local administrator account or create one. You can't sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to finish the unjoin process.
 
 ---
 
@@ -196,6 +210,10 @@ Create a different local account before you use Azure Active Directory join to f
 
 ## Hybrid Azure AD join FAQ
 
+### Q: How do I unjoin a Hybrid Azure AD joined device locally on the device?
+
+**A:** For hybrid Azure AD joined devices, make sure to turn off automatic registration. Then the scheduled task doesn't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
+
 ### Q: Where can I find troubleshooting information to diagnose hybrid Azure AD join failures?
 
 **A:** For troubleshooting information, see these articles:
@@ -232,10 +250,19 @@ If a password is changed outside the corporate network (for example, by using Az
 
 ## Azure AD register FAQ
 
+### Q: How do I remove an Azure AD registered device locally on the device?
+
+**A:** 
+- For Windows 10 Azure AD registered devices, Go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Device registration is per user profile on Windows 10.
+- For iOS and Android, you can use the Microsoft Authenticator application **Settings** > **Device Registration** and select **Unregister device**.
+- For macOS, you can use the Microsoft Intune Company Portal application to un-enroll the device from management and remove any registration. 
+
+---
 ### Q: Can I register Android or iOS BYOD devices?
 
 **A:** Yes, but only with the Azure device registration service and for hybrid customers. It's not supported with the on-premises device registration service in Active Directory Federation Services (AD FS).
 
+---
 ### Q: How can I register a macOS device?
 
 **A:** Take the following steps:
@@ -248,6 +275,7 @@ If a password is changed outside the corporate network (for example, by using Az
 - The users included in your Conditional Access policy need a [supported version of Office for macOS](../conditional-access/technical-reference.md#client-apps-condition) to access resources. 
 - During the first access try, your users are prompted to enroll the device by using the company portal.
 
+---
 ## Next steps
 
 - Learn more about [Azure AD registered devices](concept-azure-ad-register.md)
