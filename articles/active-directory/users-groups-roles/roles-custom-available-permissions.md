@@ -38,7 +38,6 @@ There are applications.myOrganization versions of all read and update permission
 
    ![Declare a single-tenant application or multi-tenant application](./media/roles-custom-available-permissions/supported-account-types.png)
 
-
 Details for the following permissions are listed in [Available custom role permissions in Azure Active Directory](roles-custom-available-permissions.md).
 
 ### Create and delete
