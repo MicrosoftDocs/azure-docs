@@ -156,6 +156,8 @@ For **SQL Server running on Azure VMs**, Microsoft provides an availability SLA 
 
 **SQL Server running on Azure VMs** is perfect if your existing or new applications require large databases or access to all features in SQL Server or Windows/Linux, and you want to avoid the time and expense of acquiring new on-premises hardware. It is also a good fit when you want to migrate existing on-premises applications and databases to Azure as-is - in cases where Azure SQL Database managed instance is not a good fit. Since you do not need to change the presentation, application, and data layers, you save time and budget on re-architecting your existing solution. Instead, you can focus on migrating all your solutions to Azure and in doing some performance optimizations that may be required by the Azure platform. For more information, see [Performance Best Practices for SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
 
+[!INCLUDE [sql-database-create-manage-portal](includes/sql-database-create-manage-portal.md)]
+
 ## Next steps
 
 - See [Your first Azure SQL Database](sql-database-single-database-get-started.md) to get started with SQL Database.
