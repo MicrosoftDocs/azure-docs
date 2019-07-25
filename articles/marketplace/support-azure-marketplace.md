@@ -2,12 +2,12 @@
 title: Support for Azure Marketplace and AppSource | Azure
 description: Support information and links for Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
-manager: nunoc
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: nunoc
+ms.date: 7/25/2019
+ms.author: v-qiwe
 
 ---
 
@@ -20,11 +20,11 @@ Additionally, you can get many of your questions answered in the [Marketplace ch
 
 Open a ticket with Microsoft [marketplace publisher support](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) for issues with onboarding and getting started, or with Microsoft [partner support](https://partner.microsoft.com/support) if you have questions on Microsoft Partner Network.
 
-## Cloud Partner Portal  
+## Partner Center or Cloud Partner Portal  
 
 | Support channel | Description | Availability |  
 |:--- |:--- |:--- |  
-| For assistance, visit the Create an incident page located at [Marketplace Support](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Support for Cloud Partner Portal. | Support is provided between 6am - 6pm PST. |  
+| For assistance, visit the Create an incident page located at [Marketplace Support](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Support for Partner Center or Cloud Partner Portal. | Support is provided between 6am - 6pm PST. |  
 
 ## Technical  
 
