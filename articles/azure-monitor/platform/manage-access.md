@@ -87,7 +87,7 @@ To configure the access mode in an Azure Resource Manager template, set the **en
 
 ## Manage accounts and users
 
-The permissions applied to the workspace for a particular user are defined by their [access mode](design-logs-deployment.md#access-mode) and the [access control mode](design-logs-deployment.md#access-control-mode) of the workspace. With **Workspace-context**, you can view all logs in the workspace that you have permission to. Queries in this mode are scoped to all data in all tables in the workspace. With **Resource-context**, you view logs data in the workspace for a particular resource, resource group, or subscription when performing a search directly from the resource in the Azure portal that you have access to. Queries in this mode are scoped to only data associated with that resource.
+The permissions applied to the workspace for a particular user are defined by their [access mode](design-logs-deployment.md#access-mode) and the [access control mode](design-logs-deployment.md#access-control-mode) of the workspace. With **Workspace-context**, you can view all logs in the workspace that you have permission to, as queries in this mode are scoped to all data in all tables in the workspace. With **Resource-context**, you view logs data in the workspace for a particular resource, resource group, or subscription when performing a search directly from the resource in the Azure portal that you have access to. Queries in this mode are scoped to only data associated with that resource.
 
 ### Workspace permissions
 
