@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/24/2019
+ms.date: 07/25/2019
 ms.author: diberry
 ---
 
@@ -158,7 +158,6 @@ Following is the list of markdown formats that you can use in QnA Maker:
 |Purpose|Format|Example markdown|Rendering<br>as displayed in Chat bot|
 |--|--|--|--|
 A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![format new line between two sentences](../media/qnamaker-concepts-datasources/format-newline.png)|
-|Bullet point for an ordered list|`\n\n*`|`Here is my list: \n\n*Item 1 \n\n*Item2`|![format list of 2 items](../media/qnamaker-concepts-datasources/format-list.png)|
 |Headers from h1 to h6, the number of `#` denotes which header. 1 `#` is the h1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![format with markdown headers](../media/qnamaker-concepts-datasources/format-headers.png)<br>![format with markdown headers H1 to H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
 |Italics |`*text*`|`How do I create a bot with *QnA Maker*?`|![format with italics](../media/qnamaker-concepts-datasources/format-italics.png)|
 |String (bold)|`**text**`|`How do I create a bot with **QnA Maker**?`|![format with strong marking for bold](../media/qnamaker-concepts-datasources/format-strong.png)|
