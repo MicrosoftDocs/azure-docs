@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07-12-2019
+ms.date: 07-26-2019
 ms.author: zhchia
 ---
 
@@ -50,16 +50,18 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup myPolicies for provisioning
 
+Before configuring myPolicies for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on myPolicies.
+
  Inorder to get SCIM token for their instance. We need to reach out to myPolicies representative.
-* In the case of  client they would have a sales representative or could use support@mypolicies.com. There is no other way to get a SCIM token except through a myPolicies representative.
+1. In the case of  client they would have a sales representative or could use support@mypolicies.com. There is no other way to get a SCIM token except through a myPolicies representative.
 
-* If you need a new SCIM token for your test instance, reach out to Jamie Lediet <jlediet@infotech.com> or Tayler Phillips <tphillips@infotech.com>.
+2. If you need a new SCIM token for your test instance, reach out to Jamie Lediet <jlediet@infotech.com> or Tayler Phillips <tphillips@infotech.com>.
 
-* Save the token value provided by the myPolicies members. This value will be entered in the Secret Token field in the Provisioning tab of your myPolicies application in the Azure portal.
+3.  Save the token value provided by the myPolicies members. This value will be entered in the Secret Token field in the Provisioning tab of your myPolicies application in the Azure portal.
 
 ## Add myPolicies from the gallery
 
-Before configuring myPolicies for automatic user provisioning with Azure AD, you need to add myPolicies from the Azure AD application gallery to your list of managed SaaS applications.
+To configure myPolicies for automatic user provisioning with Azure AD, you need to add myPolicies from the Azure AD application gallery to your list of managed SaaS applications..
 
 **To add myPolicies from the Azure AD application gallery, perform the following steps:**
 
