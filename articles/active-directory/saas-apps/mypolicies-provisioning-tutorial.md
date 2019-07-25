@@ -61,7 +61,7 @@ Before configuring myPolicies for automatic user provisioning with Azure AD, you
 
 ## Add myPolicies from the gallery
 
-To configure myPolicies for automatic user provisioning with Azure AD, you need to add myPolicies from the Azure AD application gallery to your list of managed SaaS applications..
+To configure myPolicies for automatic user provisioning with Azure AD, you need to add myPolicies from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add myPolicies from the Azure AD application gallery, perform the following steps:**
 
