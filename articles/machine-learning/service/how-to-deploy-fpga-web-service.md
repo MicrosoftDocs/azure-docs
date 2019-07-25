@@ -41,7 +41,7 @@ FPGAs are available in these Azure regions:
 - FPGA quota. Use the Azure CLI to check whether you have quota:
 
     ```shell
-    az vm list-usage --location "eastus" -o table --query [?localName=='Standard PBS Family vCPUs']
+    az vm list-usage --location "eastus" -o table --query "[?localName=='Standard PBS Family vCPUs']"
     ```
 
     > [!TIP]
