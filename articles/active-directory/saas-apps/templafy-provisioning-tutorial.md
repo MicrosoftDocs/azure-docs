@@ -9,7 +9,7 @@ manager: beatrizd
 
 ms.assetid: 230877d5-e466-4449-82c8-88cfa42f6501
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
