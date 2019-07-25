@@ -119,7 +119,7 @@ router.get('/subdomain', function (req, res) {
 });
 ```
 
-Th **getimmersivereadertoken** API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)) to prevent unauthorized users from obtaining tokens to use against your Immersive Reader service and billing; that work is beyond the scope of this tutorial.
+The **getimmersivereadertoken** API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)) to prevent unauthorized users from obtaining tokens to use against your Immersive Reader service and billing; that work is beyond the scope of this tutorial.
 
 ## Launch the Immersive Reader with sample content
 
