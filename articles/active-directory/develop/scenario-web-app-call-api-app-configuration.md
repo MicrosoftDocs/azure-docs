@@ -96,7 +96,12 @@ The comments in the code below will help you understand some tricky aspects of w
    };
 ```
 
-In ASP.NET Core, building the confidential client application uses information that is in the HttpContext. This `HttpContext` knows about the URL for the Web App, and the signed-in user (in a  `ClaimsPrincipal`). It also uses the ASP.NET Core configuration, which has an "AzureAD" section, and which is bound to the `_applicationOptions` data structure of type [AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs). This type is defined in ASP.NET Core `Authentication.AzureAD.UI`. Finally the application needs to maintain token caches.
+In ASP.NET Core, building the confidential client application uses information that is in the HttpContext. This `HttpContext` knows about the URL for the Web App, and the signed-in user (in a  `ClaimsPrincipal`). 
+
+It also uses the ASP.NET Core configuration, which has an "AzureAD" section, and which is bound both to:
+
+- the `_applicationOptions` data structure of type [ConfidentialClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet)
+- the `azureAdOptions` instance of type [AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs) defined in ASP.NET Core `Authentication.AzureAD.UI`. Finally the application needs to maintain token caches.
 
 ```CSharp
 /// <summary>
@@ -113,7 +118,7 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
  string currentUri = UriHelper.BuildAbsolute(request.Scheme, request.Host, request.PathBase, _applicationOptions.CallbackPath ?? string.Empty);
 
  // Updates the authority from the instance (including national clouds) and the tenant
- string authority = $"{_applicationOptions.Instance}{_applicationOptions.TenantId}/";
+ string authority = $"{azureAdOptions.Instance}{azureAdOptions.TenantId}/";
 
  // Instantiates the application based on the application options (including the client secret)
  var app = ConfidentialClientApplicationBuilder.CreateWithApplicationOptions(_applicationOptions)
