@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Active Directory Domain Services | Microsoft Docs
-description: In this overview, learn what Azure Active Directory Domain Services provides and how to use it in your organization tp provide identity services to applications and services in the cloud.
+description: In this overview, learn what Azure Active Directory Domain Services provides and how to use it in your organization to provide identity services to applications and services in the cloud.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -22,6 +22,8 @@ Azure Active Directory Domain Services (Azure AD DS) provides managed domain ser
 Azure AD DS works with Azure AD tenants that are cloud-only or synchronized with an on-premises Active Directory Domain Services (AD DS) environment. You can use the centralized identity services of Azure AD DS even without a traditional on-premises AD DS environment.
 
 The following video provides an overview of how Azure AD DS integrates with your applications and workloads to provide identity services in the cloud:
+
+<br />
 
 >[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]
 
@@ -119,7 +121,8 @@ To learn more about Azure AD DS compares with other identity solutions and how s
 To get started, [create an Azure AD DS managed domain using the Azure portal][tutorial-create]
 
 <!-- INTERNAL LINKS -->
-[compare]: comparison.md
+[compare]: compare-identity-solutions.md
 [synchronization]: synchronization.md
 [tutorial-create]: tutorial-create-instance.md
 [azure-ad-connect]: ../active-directory/hybrid/whatis-hybrid-identity.md
+[password-hash-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md

@@ -54,7 +54,7 @@ sections:
   - type: list
     style: unordered
     items: 
-    - html: <a href="comparison.md">Decide if the service is right for you?</a>
+    - html: <a href="compare-identity-solutions.md">Decide if the service is right for you?</a>
     - html: <a href="active-directory-ds-features.md">Features of Azure AD Domain Services</a>
     - html: <a href="scenarios.md">How can you use the service?</a>
     - html: <a href="synchronization.md">Understand how synchronization works in Azure AD Domain Services</a>

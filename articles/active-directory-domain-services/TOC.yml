@@ -4,10 +4,8 @@
   items: 
     - name: What is Azure AD Domain Services?
       href: overview.md
-    - name: Compare with Windows Server AD
-      href: comparison.md
-    - name: Compare with Azure AD join
-      href: active-directory-ds-compare-with-azure-ad-join.md
+    - name: Compare identity services
+      href: compare-identity-solutions.md
 - name: Tutorials
   expanded: true
   items:
