@@ -27,7 +27,7 @@ This article describes how you can add authorization to your web API. This prote
 - Applications on behalf of users who have the right scopes.
 - Daemon apps that have the right application roles.
 
-> [!INFO]
+> [!NOTE]
 > The code snippets from this article are extracted from the following samples, which are fully functional
 >
 > - [ASP.NET Core Web API incremental tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs#L37) on GitHub
