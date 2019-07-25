@@ -38,12 +38,16 @@ To complete this project, you'll need:
 
 ## Create a Unity project
 
-1. Open Unity.
-1. In the **Projects** tab, select **New**.
-1. In **Project name**, enter **csharp-unity**.
-1. In **Template**, select **3D**.
+1. Open Unity. If this is your first time using Unity, the **Unity Hub** *<version number>* window appears. (You can also open Unity Hub directly to get to this window.)
+
+   [![Unity Hub window](media/sdk/qs-csharp-unity-hub.png)](media/sdk/qs-csharp-unity-hub.png#lightbox)
+1. Select **New**. The **Create a new project with Unity** *<version number>* window appears.
+
+   [![Create a new project in Unity Hub](media/sdk/qs-csharp-unity-create-a-new-project.png)](media/sdk/qs-csharp-unity-create-a-new-project.png#lightbox)
+1. In **Project Name**, enter **csharp-unity**.
+1. In **Templates**, if **3D** isn't already selected, select it.
 1. In **Location**, select or create a folder to save the project in.
-1. Select **Create project**.
+1. Select **Create**.
 
 After a bit of time, the Unity Editor window appears.
 
@@ -53,7 +57,7 @@ To install the Speech SDK for Unity, follow these steps:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-1. Download the [Speech SDK for Unity (Beta)](https://aka.ms/csspeech/unitypackage), which is packaged as a Unity asset package (.unitypackage). The **Import Unity Package** dialog box appears.
+1. Download and open the [Speech SDK for Unity (Beta)](https://aka.ms/csspeech/unitypackage), which is packaged as a Unity asset package (.unitypackage). When the asset package is opened, the **Import Unity Package** dialog box appears.
 
    ![Unity Editor - importing the Speech SDK Unity asset package](media/sdk/qs-csharp-unity-01-import.png)
 1. Ensure that all files are selected, and select **Import**. After a few moments, the Unity asset package is imported into your project.
@@ -68,27 +72,28 @@ Now let's add a minimal UI to our scene. This UI consists of a button to trigger
 
    This action creates three game objects that you can see in the **Hierarchy** window: a **Button** object, a **Canvas** object containing the button, and an **EventSystem** object.
 
+   [![Unity Editor environment](media/sdk/qs-csharp-unity-editor-window.png)](media/sdk/qs-csharp-unity-editor-window.png#lightbox)
+
 1. [Navigate the **Scene** view](https://docs.unity3d.com/Manual/SceneViewNavigation.html) so you have a good view of the canvas and the button in the [**Scene** view](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 
-1. In the **Hierarchy** window, select the **Button** object to display its settings in the [**Inspector** window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
-
-1. In the **Inspector** window, set the **Pos X** and **Pos Y** properties to **0**, so the button is centered in the middle of the canvas.
+1. In the [**Inspector** window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right), set the **Pos X** and **Pos Y** properties to **0**, so the button is centered in the middle of the canvas.
 
 1. In the **Hierarchy** window, select the **Create** > **UI** > **Text** to create a **Text** object.
 
-1. In the **Hierarchy** window, select the new **Text** object.
-
 1. In the **Inspector** window, set the **Pos X** and **Pos Y** properties to **0** and **120**, and set the **Width** and **Height** properties to **240** and **120**. These values ensure that the text field and the button don't overlap.
 
-When you're done, the UI should look similar to this screenshot:
+When you're done, the **Scene** view should look similar to this screenshot:
 
-[![Screenshot of the quickstart user interface in the Unity Editor](media/sdk/qs-csharp-unity-02-ui-inline.png)](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
+[![Scene view in the Unity Editor](media/sdk/qs-csharp-unity-02-ui-inline.png)](media/sdk/qs-csharp-unity-02-ui-inline.png#lightbox)
 
 ## Add the sample code
 
 To add the sample script code for the Unity project, follow these steps:
 
-1. In the [Project Window](https://docs.unity3d.com/Manual/ProjectView.html) (by default on the left bottom), select the **Create** button and then select **C# script**. Name the script `HelloWorld`.
+1. In the [Project window](https://docs.unity3d.com/Manual/ProjectView.html), select the **Create** > **C# script** to create add a new C# script.
+
+   [![Project window in the Unity Editor](media/sdk/qs-csharp-unity-project-window.png)](media/sdk/qs-csharp-unity-project-window.png#lightbox)
+1. Name the script `HelloWorld`.
 
 1. Double-click `HelloWorld` to edit the newly created script.
 
@@ -99,17 +104,19 @@ To add the sample script code for the Unity project, follow these steps:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Locate and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
+1. Find and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
-1. Locate and replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
+1. Find and replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
 
 1. Save the changes to the script.
 
-Now return to the Unity Editor and add the script as a component to one of your game objects.
+Now return to the Unity Editor and add the script as a component to one of your game objects:
 
 1. In the **Hierarchy** window, select the **Canvas** object.
 
 1. In the **Inspector** window, select the **Add Component** button.
+
+   [![Inspector window in the Unity Editor](media/sdk/qs-csharp-unity-inspector-window.png)](media/sdk/qs-csharp-unity-inspector-window.png#lightbox)
 
 1. In the drop-down list, search for the `HelloWorld` script we created above and add it. A **Hello World (Script)** section appears in the **Inspector** window, listing two uninitialized properties, **Output Text** and **Start Reco Button**. These Unity component properties match public properties of the `HelloWorld` class.
 
@@ -119,21 +126,21 @@ Now return to the Unity Editor and add the script as a component to one of your 
 
    > [!NOTE]
    > The button also has a nested text object. Make sure you do not accidentally pick it for text output
-   > (or rename one of the text objects using the Name field in the **Inspector** window to avoid confusion).
+   > (or rename one of the text objects using the **Name** field in the **Inspector** window to avoid confusion).
 
 ## Run the application in the Unity Editor
 
 Now you're ready to run the application within the Unity Editor.
 
-1. In the Unity Editor toolbar (below the menu bar), select the **Play** button.
+1. In the Unity Editor toolbar (below the menu bar), select the **Play** button (a right-pointing triangle).
 
 1. After the app launches, select the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the window.
 
-  [![Screenshot of the running quickstart in the Unity Game Window](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
+  [![Screenshot of the running quickstart in the Unity Game Window](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
 
 1. Check the [**Console** window](https://docs.unity3d.com/Manual/Console.html) for debug messages. If the **Console** window isn't showing, go to the menu bar and select **Window** > **General** > **Console** to display it.
 
-1. When you're done recognizing speech, click the **Play** button in the Unity Editor toolbar to stop the app.
+1. When you're done recognizing speech, select the **Play** button in the Unity Editor toolbar to stop the app.
 
 ## Additional options to run this application
 
