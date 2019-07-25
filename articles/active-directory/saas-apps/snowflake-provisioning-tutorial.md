@@ -9,12 +9,12 @@ manager: beatrizd
 
 ms.assetid: f9ce85f4-0992-4bc6-8276-4b2efbce8dcb
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 07/26/2019
 ms.author: zhchia
 ---
 
@@ -50,6 +50,8 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup snowflake for provisioning
 
+Before configuring snowflake for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on snowflake.
+
 1. Sign in to your [snowflake Admin Console](https://azure_trial.east-us-2.azure.snowflakecomputing.com/console/login#/). Enter the Query in the workarea and click **Run**.
 
 	![snowflake Admin Console](media/snowflake-provisioning-tutorial/image00.png)
@@ -64,7 +66,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Add snowflake from the gallery
 
-Before configuring snowflake for automatic user provisioning with Azure AD, you need to add snowflake from the Azure AD application gallery to your list of managed SaaS applications.
+To configure snowflake for automatic user provisioning with Azure AD, you need to addsnowflake from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add snowflake from the Azure AD application gallery, perform the following steps:**
 
