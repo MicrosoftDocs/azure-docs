@@ -1,6 +1,6 @@
 ---
-title: Create a Node.js web app using Visual Studio Code
-description: Node.js deployment to Azure App Services with Visual Studio Code
+title: Create a Node.js web app
+description: Node.js deployment to Azure App Services
 author: KarlErickson
 ms.author: karler
 ms.date: 07/18/2019
@@ -9,9 +9,9 @@ ms.service: app-service
 ms.devlang: javascript
 ---
 
-# Create a Node.js app in Azure using Visual Studio Code
+# Create a Node.js app in Azure
 
-Azure App Service provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a Node.js app to Azure App Service using the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). You can deploy to Azure on Linux in a matter of minutes from Visual Studio Code.
+Azure App Service provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a Node.js app to Azure App Service.
 
 ## Prerequisites
 
