@@ -87,7 +87,7 @@
         href: billing-reservation-discount-app-service-isolated-stamp.md
       - name: Azure software plans
         href: billing-understand-suse-reservation-charges.md
-    - name: Software costs not included
+    - name: Windows and SQL costs not included
       href: billing-reserved-instance-windows-software-costs.md
     - name: Usage data for individual subscriptions
       href: billing-understand-reserved-instance-usage.md
