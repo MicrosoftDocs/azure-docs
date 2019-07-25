@@ -363,7 +363,7 @@ To renew the certificate, do the following:
 
 1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
-## <a name="auto-cert-renewal"></a>Set up automatic certificate renewal using automation runbook
+## <a name="auto-cert-renewal"></a>Set up automatic certificate renewal with an automation runbook
 
 To renew certificates automatically, you can use an automation runbook. The following script on [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) enables this functionality in your
 automation account.
