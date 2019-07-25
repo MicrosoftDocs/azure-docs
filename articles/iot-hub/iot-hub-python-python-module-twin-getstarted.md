@@ -32,7 +32,7 @@ To complete this tutorial, you need the following:
 
 * Install the latest [Python SDK](https://github.com/Azure/azure-iot-sdk-python).
 
-    [!INCLUDE [iot-hub-python-sdk-note](../../includes/iot-hub-python-sdk-note.md)]
+[!INCLUDE [iot-hub-python-sdk-note](../../includes/iot-hub-python-sdk-note.md)]
 
 ## Create an IoT hub
 

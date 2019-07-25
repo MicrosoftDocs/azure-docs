@@ -190,7 +190,7 @@ client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
 client.loop_forever()
 ```
 
-    [!INCLUDE [iot-hub-python-sdk-note](../../includes/iot-hub-python-sdk-note.md)]
+[!INCLUDE [iot-hub-python-sdk-note](../../includes/iot-hub-python-sdk-note.md)]
 
 ## Sending device-to-cloud messages
 

@@ -35,7 +35,7 @@ To complete this tutorial you need the following:
 > The *pip* packages for `azure-iothub-service-client` and `azure-iothub-device-client` are currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
 >
 
-    [!INCLUDE [iot-hub-python-sdk-note](../../includes/iot-hub-python-sdk-note.md)]
+[!INCLUDE [iot-hub-python-sdk-note](../../includes/iot-hub-python-sdk-note.md)]
 
 ## Create an IoT hub
 

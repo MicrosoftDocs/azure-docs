@@ -54,7 +54,7 @@ Run Azure CLI and the IoT extension for Azure CLI with various management option
 
 * [Python 2.7x or Python 3.x](https://www.python.org/downloads/)
 
-    [!INCLUDE [iot-hub-python-sdk-note](../../includes/iot-hub-python-sdk-note.md)]
+[!INCLUDE [iot-hub-python-sdk-note](../../includes/iot-hub-python-sdk-note.md)]
 
 * The Azure CLI. If you need to install it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az –version` to validate. 
 
