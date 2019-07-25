@@ -4,7 +4,7 @@ description: This article describes how to
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 07/15/2019
+ms.date: 07/26/2019
 ms.topic: conceptual
 ms.custom: mvc
 ---
@@ -20,7 +20,7 @@ You might not be able to use [parallelization](stream-analytics-parallelization.
 
 ## How to repartition
 
-Repartitioning, or reshuffling, is required when you process data on a stream that's not sharded according to the natural input scheme. For example, Event Hubs uses **PartitionId**. When you repartition, each shard can be processed independently, which allows you to linearly scale out your streaming pipeline.
+Repartitioning, or reshuffling, is required when you process data on a stream that's not sharded according to a natural input scheme, such as **PartitionId** for Event Hubs. When you repartition, each shard can be processed independently, which allows you to linearly scale out your streaming pipeline.
 
 To repartition, use the keyword **INTO** after a **PARTITION BY** statement in your query. The following example partitions the data by **DeviceID** into a partition count of 10. Hashing of **DeviceID** is used to determine which partition shall accept which substream. The data is flushed independently for each partitioned stream, assuming the output supports partitioned writes, and has 10 partitions.
 
@@ -41,11 +41,11 @@ step2 AS (SELECT * FROM input2 PARTITION BY DeviceID INTO 10)
 SELECT * INTO output FROM step1 PARTITION BY DeviceID UNION step2 PARTITION BY DeviceID
 ```
 
-When you use repartitioning, the output scheme should match the stream scheme key and count so that each substream can be flushed independently. The stream could also be merged and repartitioned again by a different scheme before flushing, but that method should be avoided, as it adds to the general latency of the processing and increases resource utilization.
+The output scheme should match the stream scheme key and count so that each substream can be flushed independently. The stream could also be merged and repartitioned again by a different scheme before flushing, but you should avoid that method because it adds to the general latency of the processing and increases resource utilization.
 
 ## Streaming Units for repartitions
 
-Experiment and observe the resource usage of your job to determine the exact number of partitions needed. The number of [streaming units (SU)](stream-analytics-streaming-unit-consumption.md) must be adjusted according to the physical resources needed for each partition. In general, six SUs are needed for each partition. If there are insufficient resources assigned to the job, the system will only apply the repartition if it benefits the job.
+Experiment and observe the resource usage of your job to determine the exact number of partitions you need. The number of [streaming units (SU)](stream-analytics-streaming-unit-consumption.md) must be adjusted according to the physical resources needed for each partition. In general, six SUs are needed for each partition. If there are insufficient resources assigned to the job, the system will only apply the repartition if it benefits the job.
 
 ## Repartitions for SQL output
 
