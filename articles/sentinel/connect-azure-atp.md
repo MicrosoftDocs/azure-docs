@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/25/2019
 ms.author: rkarlin
 
 ---
@@ -39,6 +39,7 @@ Make sure the Azure ATP private preview version is [enabled on your network](htt
 If Azure ATP is deployed and ingesting your data, the suspicious alerts can easily be streamed into Azure Sentinel. It may take up to 24 hours for the alerts to start streaming into Azure Sentinel.
 
 
+1. To connect Azure ATP to Azure Sentinel you must first enable integration between Azure ATP and Microsoft Cloud App Security. For information on how to do this, see [Azure Advanced Threat Protection integration](https://docs.microsoft.com/cloud-app-security/aatp-integration).
 
 1. In Azure Sentinel, select **Data connectors** and then click the **Azure ATP** tile.
 
