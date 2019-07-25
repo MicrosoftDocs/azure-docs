@@ -23,8 +23,6 @@
     href: quickstart-python.md
   - name: Create Ruby app
     href: quickstart-ruby.md
-  - name: Deploy using Docker
-    href: javascript-vscode-docker-quickstart.md
   - name: Run custom container
     href: quickstart-docker-go.md
   - name: Create multi-container app
