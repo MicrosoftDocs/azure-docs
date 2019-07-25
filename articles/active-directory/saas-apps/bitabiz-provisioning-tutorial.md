@@ -50,6 +50,8 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup BitaBIZ for provisioning
 
+Before configuring BitaBIZ for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on BitaBIZ.
+
 1. Sign in to your [BitaBIZ Admin Console](https://www.bitabiz.com/login?lang=en). Click on **SETUP ADMIN**.
 
 	![BitaBIZ Admin Console](media/bitabiz-provisioning-tutorial/setup-admin.png)
@@ -65,7 +67,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Add BitaBIZ from the gallery
 
-Before configuring BitaBIZ for automatic user provisioning with Azure AD, you need to add BitaBIZ from the Azure AD application gallery to your list of managed SaaS applications.
+To configure BitaBIZ for automatic user provisioning with Azure AD, you need to add BitaBIZ from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add BitaBIZ from the Azure AD application gallery, perform the following steps:**
 
