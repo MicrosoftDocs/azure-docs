@@ -100,11 +100,11 @@ To narrow down the reported data to a level that works for you, you can filter t
 
 ![Sign-in activity](./media/concept-sign-ins/04.png "Sign-in activity")
 
-The **Identity** filter enables you to specify the name or the identity that you care about. This identity could be a user, group, role, or other object. You can search by the name or id of the object. The id varies by scenario. For example, when provisioning a user from Azure AD to SalesForce, the Source ID is the object ID of the user in Azure AD while the TargetID is the ID of the user in Salesforce. When provisioning from Workday to Active Directory, the Source ID is the Workday worker employee ID. Note that the Name of the user may not always be present in the Identity column. There will always be one ID. 
+The **Identity** filter enables you to specify the name or the identity that you care about. This identity could be a user, group, role, or other object. You can search by the name or id of the object. The id varies by scenario. For example, when provisioning an object from Azure AD to SalesForce, the Source ID is the object ID of the user in Azure AD while the TargetID is the ID of the user in Salesforce. When provisioning from Workday to Active Directory, the Source ID is the Workday worker employee ID. Note that the Name of the user may not always be present in the Identity column. There will always be one ID. 
 
-The **Source System** filter enables you to specify where the identity is getting provisioned from. For example, when provisioning a user from Azure AD to ServiceNow, the Source system is Azure AD. 
+The **Source System** filter enables you to specify where the identity is getting provisioned from. For example, when provisioning an object from Azure AD to ServiceNow, the Source system is Azure AD. 
 
-The **Target System** filter enables you to specify where the identity is getting provisioned to. For example, when provisioning a user from Azure AD to ServiceNow, the Target System is ServiceNow. 
+The **Target System** filter enables you to specify where the identity is getting provisioned to. For example, when provisioning an object from Azure AD to ServiceNow, the Target System is ServiceNow. 
 
 The **Status** filter enables you to select:
 
@@ -133,7 +133,7 @@ When you select a custom timeframe, you can configure a start time and an
 
 ## Drawer tabs (needs work)
 
-The **Steps** tab outlines the steps taken to provision a user. Provisioning a user can consist of four steps: 
+The **Steps** tab outlines the steps taken to provision an object. Provisioning an object can consist of four steps: 
 
 - Import user
 - Determine if user is in scope
