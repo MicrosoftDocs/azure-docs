@@ -143,8 +143,8 @@ A content searcher is defined as follows:
 
 ## Customizing the Roslyn Analyzers Build Task
 >[!NOTE] As a prerequisite to run the Roslyn Analyzer task, your build should meet the following conditions.
->    - Your build definition includes the built-in MSBuild or VSBuild build task to compile C# (or VB) code. This task relies on the input and output of that specific build task to rerun the MSBuild compilation with Roslyn analyzers enabled.
->    - The build agent running this build task has Visual Studio 2017 v15.5 or later installed (compiler version 2.6.x).
+>  - Your build definition includes the built-in MSBuild or VSBuild build task to compile C# (or VB) code. This task relies on the input and output of that specific build task to rerun the MSBuild compilation with Roslyn analyzers enabled.
+>  - The build agent running this build task has Visual Studio 2017 v15.5 or later installed (compiler version 2.6.x).
 >
 1. Click the task **Run Roslyn Analyzers** to see the different options available. 
 ![Customizing the Roslyn Analyzers Build Task](./media/security-tools/roslyn-task-details.png)
@@ -175,7 +175,8 @@ A content searcher is defined as follows:
 |MSBuild/VSBuild Logs Not Found | Because of how the task works, this task needs to query Azure DevOps for the MSBuild log from the MSBuild build task. If this task runs immediately after the MSBuild build task, the log will not yet be available; Place other build tasks, including SecDevTools build tasks, like Binskim, Antimalware Scan, and others), between the MSBuild build task and the Roslyn Analyzers build task.|
 
 ## Customizing the Risk Detection Build Task
->[!NOTE] You have to create and configure an account with the Risk Detection service as a prerequisite to be able to use this task. This service requires a separate onboarding process; it is not 'plug-and-play' as most of the other tasks in this extension. Please refer to [Microsoft Security Risk Detection](https://aka.ms/msrddocs) and [Microsoft Security Risk Detection: How To](https://docs.microsoft.com/security-risk-detection/how-to/) for instructions.
+>[!NOTE] 
+> You have to create and configure an account with the Risk Detection service as a prerequisite to be able to use this task. This service requires a separate onboarding process; it is not 'plug-and-play' as most of the other tasks in this extension. Please refer to [Microsoft Security Risk Detection](https://aka.ms/msrddocs) and [Microsoft Security Risk Detection: How To](https://docs.microsoft.com/security-risk-detection/how-to/) for instructions.
 >
 1. Click the newly added task to see the different options available. 
 ![Customizing the Risk Detection Build Task](./media/security-tools/8-msrd-task-details.png)
@@ -202,7 +203,8 @@ A content searcher is defined as follows:
 
 ## Customizing the Anti-Malware Scanner Build Task
 
->[!NOTE]The Anti-Malware build task requires a build agent with Windows Defender enabled, which is true on "Hosted VS2017" build agents. (It will not run on the legacy/VS2015 "Hosted" agent.)
+>[!NOTE]
+> The Anti-Malware build task requires a build agent with Windows Defender enabled, which is true on "Hosted VS2017" build agents. (It will not run on the legacy/VS2015 "Hosted" agent.)
 Signatures cannot be updated on these agents, but the signature should always be relatively current, less than 3 hours old.
 >
 
@@ -264,5 +266,9 @@ You can customize the base logs folder where logs are to be found, but this is n
 2. **Tools** - Select the tools in your build definition for which you would like to inject a build break based on its findings. For each tool selected, there may be an option to select whether you would like to break on Errors only or both Errors and Warnings. 
 3. **Report** - You can optionally write the results that are found and causing the build break to the Azure DevOps console window and log file. 
 4. **Advanced Options** - You can choose to log a warning or an error (and fail the task) in case there are no logs for one of the tools selected.
+
+### Next steps
+
+If you have further questions about the extension and the tools offered, [check our FAQs page](sca-faq.md)
 
 

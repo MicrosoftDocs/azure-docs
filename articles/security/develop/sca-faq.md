@@ -86,3 +86,9 @@ No. Installing the extension will make the security build tasks available to add
 ## Task specific FAQs
 
 FAQs specific to build tasks will be listed in this section.
+
+## Contact us
+
+If you need additional assistance, Microsoft Security Code Analysis Support is available Monday through Friday from 9:00 AM - 5:00 PM Pacific Standard Time
+Onboarding - Email our team at [Microsoft Security Code Analysis Onboarding](mailto:sdt-vsts@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Onboarding)
+Support - Email our team at [Microsoft Security Code Analysis Support](mailto:sdt-vsts@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)

@@ -63,4 +63,10 @@ Once the extension is installed, the secure development build tasks will be visi
 >  - Some Azure DevOps build tasks are NOT supported when run via a “Release” Pipeline. This is a limitation of Azure DevOps. They do not support tasks that publish artifacts from within a Release pipeline.
 >  - For a list of predefined variables in Azure DevOps Team Build, that you can specify as parameters, see [Azure DevOps Build Variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts)
 
+### Next steps
+
+For further information about configuring the build tasks, refer to our [Configuration guide](sca-config.md)
+
+If you have further questions about the extension and the tools offered, [check our FAQs page.](sca-faq.md)
+
 

@@ -112,3 +112,11 @@ The Post-analysis build task enables the customer to inject a build break and fa
 Individual build tasks will succeed, by design, as long as the tool completes successfully, whether there are findings or not so that the build can run to completion allowing all tools to run.
 
 The task can be configured to break the build for issues found by specific tools or for all tools, and also based on the severity of issues found (errors or and warnings).
+
+### Next steps
+
+For instructions on onboarding and installing the Security code analysis, refer to our [Installation guide](sca-install.md)
+
+For further information about configuring the build tasks, refer to our [Configuration guide](sca-config.md)
+
+If you have further questions about the extension and the tools offered, [check our FAQs page.](sca-faq.md)
