@@ -5,7 +5,7 @@ description: Learn how to configure the Azure AD Identity Protection multi-facto
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2019
 
 author: MicrosoftGuyJFlo

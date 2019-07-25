@@ -34,4 +34,4 @@ To build patterns based on columns, you can match on column name, type, stream, 
 ![column position](media/data-flow/position.png "Column position")
 
 ## Next steps
-Learn more about the ADF Mapping Data Flow [expression language](http://aka.ms/dataflowexpressions) for data transformations
+Learn more about the ADF Mapping Data Flow [expression language](https://aka.ms/dataflowexpressions) for data transformations

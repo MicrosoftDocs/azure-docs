@@ -15,8 +15,6 @@ ms.author: pafarley
 # As a Python developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
-[!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
-
 # Quickstart: Analyze text content for objectionable material in Python
 
 This article provides information and code samples to help you get started using the Content Moderator SDK for Python. You will learn how to execute term-based filtering and classification of text content with the aim of moderating potentially objectionable material.
@@ -45,7 +43,7 @@ Create a new Python script named _ContentModeratorQS.py_ and add the following c
 
 ## Initialize variables
 
-Next, add variables for your Content Moderator subscription key and endpoint URL. You will need to add the name `CONTENT_MODERATOR_SUBSCRIPTION_KEY` to your environment variables and add your subscription key as its value. For your base endpoint URL, add `CONTENT_MODERATOR_ENDPOINT` to your environment variables with your region-specific URL as its value, for example `https://westus.api.cognitive.microsoft.com`. Free trial subscription keys are generated in the **westus** region.
+Next, add variables for your Content Moderator subscription key and endpoint URL. Add the name `CONTENT_MODERATOR_SUBSCRIPTION_KEY` to your environment variables with your subscription key as its value. For your base endpoint URL, add `CONTENT_MODERATOR_ENDPOINT` to your environment variables with your region-specific URL as its value, for example `https://westus.api.cognitive.microsoft.com`. Free trial subscription keys are generated in the **westus** region.
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=authentication)]
 
@@ -65,9 +63,8 @@ Then, use your client with its member **TextModerationOperations** instance to c
 
 ## Check the printed response
 
-Run the sample and confirm the response. It should've completed successfully and returned a **Screen** instance. A successful result is printed below:
-
-The sample text used in this quickstart results in the following output:
+Run the sample and confirm the response. Upon successful completion is returns a **Screen** instance. 
+A successful result is shown below:
 
 ```console
 {'auto_corrected_text': '" Is this a garbage email abide@ abed. com, phone: '
