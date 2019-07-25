@@ -52,12 +52,9 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring myPolicies for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on myPolicies.
 
- Inorder to get SCIM token for their instance. We need to reach out to myPolicies representative.
-1. In the case of  client they would have a sales representative or could use support@mypolicies.com. There is no other way to get a SCIM token except through a myPolicies representative.
+1. Reach out to your myPolicies representative at **support@mypolicies.com** to obtain the secret token needed to configure SCIM provisioning.
 
-2. If you need a new SCIM token for your test instance, reach out to Jamie Lediet <jlediet@infotech.com> or Tayler Phillips <tphillips@infotech.com>.
-
-3.  Save the token value provided by the myPolicies members. This value will be entered in the Secret Token field in the Provisioning tab of your myPolicies application in the Azure portal.
+2.  Save the token value provided by the myPolicies representative. This value will be entered in the **Secret Token** field in the Provisioning tab of your myPolicies application in the Azure portal.
 
 ## Add myPolicies from the gallery
 
@@ -106,35 +103,37 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://<myPoliciesCustomDomain>.mypolicies.com/scim` in **Tenant URL** where **myPoliciesCustomDomain** is your myPolicies custom domain. In **Secret Token** textbox, enter the **SCIM Authentication Token** value which was given by myPolicies member. Click **Test Connection** to ensure Azure AD can connect to myPolicies. If the connection fails, ensure your myPolicies account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://<myPoliciesCustomDomain>.mypolicies.com/scim` in **Tenant URL** where `<myPoliciesCustomDomain>` is your myPolicies custom domain. To retrieve your myPolicies customer domain, 
+
+6. In **Secret Token**, enter the token value which was retrieved earlier. Click **Test Connection** to ensure Azure AD can connect to myPolicies. If the connection fails, ensure your myPolicies account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
+7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
-7. Click **Save**.
+8. Click **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to myPolicies**.
+9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to myPolicies**.
 
 	![myPolicies User Mappings](media/mypolicies-provisioning-tutorial/usermapping.png)
 
-9. Review the user attributes that are synchronized from Azure AD to myPolicies in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in myPolicies for update operations. Select the **Save** button to commit any changes.
+10. Review the user attributes that are synchronized from Azure AD to myPolicies in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in myPolicies for update operations. Select the **Save** button to commit any changes.
 
 	![myPolicies User Mappings](media/mypolicies-provisioning-tutorial/userattribute.png)
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for myPolicies, change the **Provisioning Status** to **On** in the **Settings** section.
+12. To enable the Azure AD provisioning service for myPolicies, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Define the users and/or groups that you would like to provision to myPolicies by choosing the desired values in **Scope** in the **Settings** section.
+13. Define the users and/or groups that you would like to provision to myPolicies by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-13. When you are ready to provision, click **Save**.
+14. When you are ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
@@ -143,6 +142,9 @@ This operation starts the initial synchronization of all users and/or groups def
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 ## Connector limitations
+
+* myPolicies always requires **userName**, **email** and **externalId**.
+* myPolicies does not support hard deletes for user attrbutes.
 
 ## Additional resources
 
