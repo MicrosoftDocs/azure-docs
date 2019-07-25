@@ -334,7 +334,7 @@
       "path_to_root": "VideoReviewConsoleApp",
       "url": "https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp",
       "branch": "master"
-    }
+    },
     {
       "path_to_root": "cognitive-services-samples-pr",
       "url": "https://github.com/Azure-Samples/cognitive-services-samples-pr",
