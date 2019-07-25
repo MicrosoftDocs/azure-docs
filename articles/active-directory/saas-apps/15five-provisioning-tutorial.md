@@ -9,12 +9,12 @@ manager: beatrizd
 
 ms.assetid: a276c004-9f71-4efc-8cca-1f615760249f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07-19-2019
+ms.date: 07/26/2019
 ms.author: zhchia
 ---
 
