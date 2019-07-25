@@ -15,7 +15,10 @@ ms.subservice: B2C
 
 # Azure Active Directory B2C error codes
 
-The following errors can be returned by the Azure Active Directory B2C service. Errors with hyperlinked error codes have additional information available.
+The following errors can be returned by the Azure Active Directory B2C service.
+
+Errors with hyperlinked error codes have additional information available.
+
 ___
 
 | Code | Message |
