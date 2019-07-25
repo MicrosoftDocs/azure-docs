@@ -32,7 +32,7 @@ See the [custom roles overview](roles-custom-overview.md) for an explanation of 
 
 There is just one app registration subtype - applications.myOrganization. For example, microsoft.directory/applications.myOrganization/basic/update. This subtype is set on the **Authentication** page for a specific app registration, and corresponds to setting the signInAudience property to "AzureADMyOrg" using Graph API or PowerShell. The subtype restricts the permission to app registrations that are marked as accessible only by accounts in your organization (single-tenant applications).
 
-You can use the restricted permission to grant read or manage permissions to internal applications without granting read or manage permissions to applications accessible by accounts in other organizations.
+You can use the restricted permission to grant read or manage permissions to internal applications only without granting read or manage permissions to applications accessible by accounts in other organizations.
 
 There are applications.myOrganization versions of all read and update permissions as well as the delete permission. There is no applications.myOrganization version of create at this time. Standard permissions (for example, microsoft.directory/applications/basic/update) grant read or management permissions for all app registration types.
 
@@ -50,6 +50,8 @@ There are two permissions available for granting the ability to create app regis
 If both permissions are assigned, the create permission will take precedence. Though the createAsOwner permission does not automatically add the creator as the first owner, owners can be specified during the creation of the app registration when using Graph APIs or PowerShell cmdlets.
 
 Create permissions grant access to the **New registration** command.
+
+   ![These permissions grant access to the New Registration portal command](./media/roles-custom-available-permissions/grant-new-registration.png)
 
 There are two permissions available for granting the ability to delete app registrations:
 
