@@ -117,6 +117,6 @@ The task can be configured to break the build for issues found by specific tools
 
 For instructions on onboarding and installing the Security code analysis, refer to our [Installation guide](sca-install.md)
 
-For further information about configuring the build tasks, refer to our [Configuration guide](sca-config.md)
+For further information about configuring the build tasks, refer to our [Configuration guide](sca-customize.md)
 
 If you have further questions about the extension and the tools offered, [check our FAQs page.](sca-faq.md)

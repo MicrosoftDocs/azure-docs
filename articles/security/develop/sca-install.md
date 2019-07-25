@@ -65,7 +65,7 @@ Once the extension is installed, the secure development build tasks will be visi
 
 ### Next steps
 
-For further information about configuring the build tasks, refer to our [Configuration guide](sca-config.md)
+For further information about configuring the build tasks, refer to our [Configuration guide](sca-customize.md)
 
 If you have further questions about the extension and the tools offered, [check our FAQs page.](sca-faq.md)
 
