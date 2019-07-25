@@ -6,7 +6,7 @@ author: v-jetome
 
 ms.service: vmware-virtustream
 ms.topic: conceptual
-ms.date: 7/22/2019
+ms.date: 7/29/2019
 ms.author: v-jetome 
 ms.custom: 
 
