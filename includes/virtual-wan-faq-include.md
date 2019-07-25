@@ -5,14 +5,14 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 06/07/2019
+ ms.date: 07/22/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
 
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN vpngateway?
 
-Virtual WAN provides large-scale site-to-site connectivity and is built for throughput, scalability, and ease of use. ExpressRoute and point-to-site connectivity functionality is currently under Preview. CPE branch devices autoprovision and connect into Azure Virtual WAN. These devices are available from a growing ecosystem of SD-WAN and VPN partners. See the [Preferred Partner List](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+Virtual WAN provides large-scale site-to-site connectivity and is built for throughput, scalability, and ease of use. ExpressRoute  for Virtual WAN connectivity is currently under Preview. CPE branch devices autoprovision and connect into Azure Virtual WAN. These devices are available from a growing ecosystem of SD-WAN and VPN partners. See the [Preferred Partner List](https://go.microsoft.com/fwlink/p/?linkid=2019615).
 
 ### What is a branch connection to Azure Virtual WAN?
 
@@ -96,7 +96,7 @@ A simple configuration of one Virtual WAN with one hub and one vpnsite can be cr
 
 ### Is branch-to-branch connectivity allowed in Virtual WAN?
 
-Yes, branch-to-branch connectivity is available in Virtual WAN for VPN and VPN to ExpressRoute. While VPN site-to-site is GA, ExpressRoute and point-to-site are currently in Preview.
+Yes, branch-to-branch connectivity is available in Virtual WAN for VPN and VPN to ExpressRoute. While VPN site-to-site is GA, ExpressRoute is currently in Preview.
 
 ### Does Branch to Branch traffic traverse through the Azure Virtual WAN?
 
@@ -116,7 +116,7 @@ No, the Virtual WAN does not require ExpressRoute from each site. It uses standa
 
 ### Is there a network throughput limit when using Azure Virtual WAN?
 
-Number of branches is limited to 1000 connections per hub/region and a total of 2 G in the hub. The exception is West Central US, which has a total of 20 Gbps. We will be rolling 20 Gbps out to other regions in the future.
+Number of branches is limited to 1000 connections per hub/region and a total of 20 Gbps in the hub.
 
 ### How many VPN connections does a Virtual WAN hub support?
 

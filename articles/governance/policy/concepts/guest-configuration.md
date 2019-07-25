@@ -162,6 +162,11 @@ and **Audit** pairs for Windows and three pairs for Linux. In each case, the log
 definition validates only the target operating system is evaluated based on the [policy rule](definition-structure.md#policy-rule)
 definition.
 
+## Multiple assignments
+
+Guest Configuration policies currently only support assigning the same Guest Assignment once
+per virtual machine, even if the Policy assignment uses different parameters.
+
 ## Client log files
 
 The Guest Configuration extension writes log files to the following locations:

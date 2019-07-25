@@ -81,6 +81,8 @@
     href: sample-v2-code.md
   - name: Concepts
     items:
+    - name: Authentication basics
+      href: authentication-scenarios.md
     - name: Authentication flows and app scenarios
       href: authentication-flows-app-scenarios.md
     - name: Application scenarios
@@ -191,6 +193,18 @@
           href: scenario-mobile-overview.md
         - name: App registration
           href: scenario-mobile-app-registration.md
+        - name: Code configuration
+          href: scenario-mobile-app-configuration.md
+        - name: Mobile platforms specific config
+          items:
+          - name: Xamarin Android
+            href: msal-net-xamarin-android-considerations.md
+          - name: System browser on Android
+            href: msal-net-system-browser-android-considerations.md
+          - name: Xamarin iOS
+            href: msal-net-xamarin-ios-considerations.md
+          - name: Universal Windows Platform
+            href: msal-net-uwp-considerations.md
         - name: Acquiring a token for the app
           href: scenario-mobile-acquire-token.md
         - name: Calling a web API
@@ -252,15 +266,7 @@
             - name: MSAL.NET
               items:
               - name: Web browsers
-                href: msal-net-web-browsers.md
-              - name: Xamarin Android
-                href: msal-net-xamarin-android-considerations.md
-              - name: System browser on Android
-                href: msal-net-system-browser-android-considerations.md
-              - name: Xamarin iOS
-                href: msal-net-xamarin-ios-considerations.md
-              - name: Universal Windows Platform
-                href: msal-net-uwp-considerations.md              
+                href: msal-net-web-browsers.md              
             - name: MSAL.js
               items:
               - name: Considerations using IE
@@ -271,8 +277,6 @@
                 href: msal-js-known-issues-safari-browser.md
     - name: Authentication protocol
       items:
-      - name: Authentication basics
-        href: authentication-scenarios.md
       - name: Application types and OAuth2.0
         href: v2-app-types.md      
       - name: OAuth 2.0 and OpenID Connect protocols
@@ -408,7 +412,7 @@
     - name: Breaking changes
       href: reference-breaking-changes.md
 - name: v1.0
-  expanded: true
+  expanded: false
   items:
   - name: Overview
     href: v1-overview.md

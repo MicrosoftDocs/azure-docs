@@ -277,6 +277,8 @@
         href: cloud-service-picco-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
+      - name: Cognidox
+        href: cognidox-tutorial.md
       - name: Collaborative Innovation
         href: collaborativeinnovation-tutorial.md
       - name: Comeet Recruiting Software
@@ -953,6 +955,8 @@
         href: printix-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
+      - name: productboard
+        href: productboard-tutorial.md
       - name: Projectplace
         href: projectplace-tutorial.md
       - name: Promapp
@@ -1049,7 +1053,7 @@
         href: sansan-tutorial.md
       - name: SAP Business ByDesign
         href: sapbusinessbydesign-tutorial.md
-      - name: SAP Business Object Cloud
+      - name: SAP Analytics Cloud
         href: sapboc-tutorial.md
       - name: SAP Cloud for Customer
         href: sap-customer-cloud-tutorial.md
@@ -1293,6 +1297,8 @@
         href: veritas-tutorial.md
       - name: Versal
         href: versal-tutorial.md
+      - name: Viareport's Inativ Portal (Europe)
+        href: viareports-inativ-portal-europe-tutorial.md
       - name: Vibe HCM
         href: vibehcm-tutorial.md
       - name: Vidyard
