@@ -963,6 +963,8 @@
         href: promapp-tutorial.md
       - name: ProMaster (by Inlogik)
         href: promaster-tutorial.md
+      - name: ProNovos Ops Manager
+        href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
       - name: Proxyclick
