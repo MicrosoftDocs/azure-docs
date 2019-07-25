@@ -59,7 +59,7 @@ To install the Speech SDK for Unity, follow these steps:
 
 1. Download and open the [Speech SDK for Unity (Beta)](https://aka.ms/csspeech/unitypackage), which is packaged as a Unity asset package (.unitypackage). When the asset package is opened, the **Import Unity Package** dialog box appears.
 
-   [![Unity Editor - importing the Speech SDK Unity asset package](media/sdk/qs-csharp-unity-01-import.png)](media/sdk/qs-csharp-unity-01-import.png#lightbox)
+   [![Import Unity Package dialog box in the Unity Editor](media/sdk/qs-csharp-unity-01-import.png)](media/sdk/qs-csharp-unity-01-import.png#lightbox)
 1. Ensure that all files are selected, and select **Import**. After a few moments, the Unity asset package is imported into your project.
 
 For more information about the importing asset packages into Unity, see the [Unity documentation](https://docs.unity3d.com/Manual/AssetPackages.html).
@@ -134,9 +134,11 @@ Now you're ready to run the application within the Unity Editor.
 
 1. In the Unity Editor toolbar (below the menu bar), select the **Play** button (a right-pointing triangle).
 
-1. After the application launches, select the button in [**Game** view](https://docs.unity3d.com/Manual/GameView.html) and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the window.
+1. Go to [**Game** view](https://docs.unity3d.com/Manual/GameView.html), and wait for the **Text** object to display **Click button to recognize speech**. (It displays **New Text** when the application hasn't started or isn't ready to respond.)
 
-   [![Screenshot of the running quickstart in the Unity Game Window](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
+1. Select the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the **Game** view.
+
+   [![Game view in the Unity Editor](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
 
 1. Check the [**Console** window](https://docs.unity3d.com/Manual/Console.html) for debug messages. If the **Console** window isn't showing, go to the menu bar and select **Window** > **General** > **Console** to display it.
 
