@@ -5,6 +5,7 @@
   - name: About Spatial Anchors
     href: overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create Unity app
     href: unity-overview.yml
@@ -55,6 +56,8 @@
     href: https://github.com/Azure/azure-spatial-anchors-samples
 - name: Concepts
   items:
+  - name: Authentication
+    href: concepts/authentication.md
   - name: Anchor relationships
     href: concepts/anchor-relationships-way-finding.md
   - name: Experience guidelines
@@ -83,4 +86,3 @@
     href: https://stackoverflow.com/questions/tagged/azure-spatial-anchors
   - name: Support
     href: spatial-anchor-support.md
-  

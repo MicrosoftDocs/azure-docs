@@ -25,7 +25,7 @@ This article covers image processing in more detail and provides guidance for wo
 
 As part of document cracking, there are a new set of indexer configuration parameters for handling image files or images embedded in files. These parameters are used to normalize images for further downstream processing. Normalizing images makes them more uniform. Large images are resized to a maximum height and width to make them consumable. For images providing metadata on orientation, image rotation is adjusted for vertical loading. Metadata adjustments are captured in a complex type created for each image. 
 
-You cannot turn off image normalization. Skills that iterate over images expect normalized images.
+You cannot turn off image normalization. Skills that iterate over images expect normalized images. Enabling image normalization on an indexer requires that a skillset be attached to that indexer.
 
 | Configuration Parameter | Description |
 |--------------------|-------------|
@@ -97,8 +97,6 @@ The [Image Analysis skill](cognitive-search-skill-image-analysis.md) extracts a 
 ### OCR skill
 
 The [OCR skill](cognitive-search-skill-ocr.md) extracts text from image files such as JPGs, PNGs, and bitmaps. It can extract text as well as layout information. The layout  information provides bounding boxes for each of the strings identified.
-
-The OCR skill allows you to select the algorithm to use for detecting text in your images. Currently it supports two algorithms, one for printed text and another for handwritten text.
 
 ## Embedded image scenario
 

@@ -1,6 +1,6 @@
 ---
-title: Continuously deliver function code updates using Azure DevOps
-description: Learn how to set up an Azure DevOps pipeline targeting Azure Functions.
+title: Continuously deliver function code updates by using Azure DevOps - Azure Functions
+description: Learn how to set up an Azure DevOps pipeline that targets Azure Functions.
 author: ahmedelnably
 manager: jeconnoc
 
@@ -8,33 +8,31 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
-ms.custom: 
 ---
 
-# Continuous delivery using Azure DevOps
+# Continuous delivery by using Azure DevOps
 
-You can automatically deploy your function to an Azure Function app using [Azure Pipelines](/azure/devops/pipelines/).
-To define your pipeline, you can use:
+You can automatically deploy your function to an Azure Functions app by using [Azure Pipelines](/azure/devops/pipelines/).
 
-- YAML File: This file describes the pipeline, it may have a build steps section, and a release section. The YAML file should be in the same repo as the app.
+You have two options for defining your pipeline:
 
-- Templates: Templates are ready made tasks that build or deploy your app.
+- **YAML file**: A YAML file describes the pipeline. The file might have a build steps section and a release section. The YAML file must be in the same repo as the app.
+- **Template**: Templates are ready-made tasks that build or deploy your app.
 
 ## YAML-based pipeline
 
+To create a YAML-based pipeline, first build your app, and then deploy the app.
+
 ### Build your app
 
-Building your app in Azure Pipelines depends on the programming language of your app.
-Each language has specific build steps to create a deployment artifact, which can be used to deploy your function app in Azure.
+How you build your app in Azure Pipelines depends on your app's programming language. Each language has specific build steps that create a deployment artifact. A deployment artifact is used to deploy your function app in Azure.
 
 #### .NET
 
-You can use the following sample to create your YAML file to build your .NET app.
+You can use the following sample to create a YAML file to build a .NET app:
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: 'VS2017-Win2016'
 steps:
 - script: |
@@ -62,12 +60,10 @@ steps:
 
 #### JavaScript
 
-You can use the following sample to create your YAML file to build your JavaScript app:
+You can use the following sample to create a YAML file to build a JavaScript app:
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04 # Use 'VS2017-Win2016' if you have Windows native +Node modules
 steps:
 - bash: |
@@ -92,12 +88,10 @@ steps:
 
 #### Python
 
-You can use the following sample to create your YAML file to build your Python app, Python is only supported for Linux Azure Functions:
+You can use the following sample to create a YAML file to build a Python app. Python is supported only for Linux Azure Functions.
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04
 steps:
 - task: UsePythonVersion@0
@@ -125,14 +119,33 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     name: 'drop'
 ```
+#### PowerShell
+
+You can use the following sample to create a YAML file to package a PowerShell app. PowerShell is supported only for Windows Azure Functions.
+
+```yaml
+pool:
+      vmImage: 'VS2017-Win2016'
+steps:
+- task: ArchiveFiles@2
+  displayName: "Archive files"
+  inputs:
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+    includeRootFolder: false
+    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+    name: 'drop'
+```
 
 ### Deploy your app
 
-Depending on the hosting OS, you need to include the following YAML sample in your YAML file.
+You must include one of the following YAML samples in your YAML file, depending on the hosting OS.
 
-#### Windows function App
+#### Windows function app
 
-The following snippet can be used to deploy to a Windows function app
+You can use the following snippet to deploy a Windows function app:
 
 ```yaml
 steps:
@@ -141,11 +154,15 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionApp
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
-#### Linux function App
+#### Linux function app
 
-The following snippet can be used to deploy to a Linux function app
+You can use the following snippet to deploy a Linux function app:
 
 ```yaml
 steps:
@@ -154,63 +171,68 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionAppLinux
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #Note that deployment slots is not supported for Linux Dynamic SKU
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 ## Template-based pipeline
 
-Templates in Azure DevOps, are predefined group of tasks that build or deploy an app.
+Templates in Azure DevOps are predefined groups of tasks that build or deploy an app.
 
 ### Build your app
 
-Building your app in Azure Pipelines depends on the programming language of your app. Each language has specific build steps to create a deployment artifact, that can be used to update your function app in Azure.
-To use the built-in build templates, when creating a new build pipeline, choose **Use the classic editor** to create a pipeline using the designer templates
+How you build your app in Azure Pipelines depends on your app's programming language. Each language has specific build steps that create a deployment artifact. A deployment artifact is used to update your function app in Azure.
 
-![Azure Pipelines classic editor](media/functions-how-to-azure-devops/classic-editor.png)
+To use built-in build templates, when you create a new build pipeline, select **Use the classic editor** to create a pipeline by using designer templates.
 
-After configuring the source of your code, search for Azure Functions build templates, and choose the template that matches your app language.
+![Select the Azure Pipelines classic editor](media/functions-how-to-azure-devops/classic-editor.png)
 
-![Azure Functions build templates](media/functions-how-to-azure-devops/build-templates.png)
+After you configure the source of your code, search for Azure Functions build templates. Select the template that matches your app language.
+
+![Select an Azure Functions build template](media/functions-how-to-azure-devops/build-templates.png)
+
+In some cases, build artifacts have a specific folder structure. You might need to select the **Prepend root folder name to archive paths** check box.
+
+![The option to prepend the root folder name](media/functions-how-to-azure-devops/prepend-root-folder.png)
 
 #### JavaScript apps
 
-If your JavaScript app have a dependency on Windows native modules, you will need to update:
+If your JavaScript app has a dependency on Windows native modules, you must update the agent pool version to **Hosted VS2017**.
 
-- The Agent Pool version to **Hosted VS2017**
-
-  ![Change Build Agent OS](media/functions-how-to-azure-devops/change-agent.png)
-
-- The script in the **Build extensions** step in the template to `IF EXIST *.csproj dotnet build extensions.csproj --output ./bin`
-
-  ![Change Script](media/functions-how-to-azure-devops/change-script.png)
+![Update the agent pool version](media/functions-how-to-azure-devops/change-agent.png)
 
 ### Deploy your app
 
-When creating a new release pipeline, search for Azure Functions release template.
+When you create a new release pipeline, search for the Azure Functions release template.
 
-![](media/functions-how-to-azure-devops/release-template.png)
+![Search for the Azure Functions release template](media/functions-how-to-azure-devops/release-template.png)
 
-## Creating an Azure Pipeline using the Azure CLI
+Deploying to a deployment slot is not supported in the release template.
 
-Using the `az functionapp devops-pipeline create` [command](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create), an Azure pipeline will get created to build and release any code changes in your repo. The command will generate a new YAML file that defines the build and release pipeline and commit it to your repo.
-The pre-requisites for this command depend on the location of your code:
+## Create a build pipeline by using the Azure CLI
+
+To create a build pipeline in Azure, use the `az functionapp devops-pipeline create` [command](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). The build pipeline is created to build and release any code changes that are made in your repo. The command generates a new YAML file that defines the build and release pipeline and then commits it to your repo. The prerequisites for this command depend on the location of your code.
 
 - If your code is in GitHub:
 
-    - You need to have **write** permission to your subscription.
+    - You must have **write** permissions for your subscription.
 
-    - You are the project administrator in Azure DevOps.
+    - You must be the project administrator in Azure DevOps.
 
-    - You have permission to create a GitHub Personal Access Token with sufficient permissions. [GitHub PAT Permission Requirements.](https://aka.ms/azure-devops-source-repos)
+    - You must have permissions to create a GitHub personal access token (PAT) that has sufficient permissions. For more information, see [GitHub PAT permission requirements.](https://aka.ms/azure-devops-source-repos)
 
-    - You have permission to commit to the master branch in your GitHub repository to commit the auto-generated YAML file.
+    - You must have permissions to commit to the master branch in your GitHub repository so you can commit the autogenerated YAML file.
 
 - If your code is in Azure Repos:
 
-    - You need to have **write** permission to your subscription.
+    - You must have **write** permissions for your subscription.
 
-    - You are the project administrator in Azure DevOps.
+    - You must be the project administrator in Azure DevOps.
 
 ## Next steps
 
-+ [Azure Functions Overview](functions-overview.md)
-+ [Azure DevOps Overview](/azure/devops/pipelines/)
+- Review the [Azure Functions overview](functions-overview.md).
+- Review the [Azure DevOps overview](/azure/devops/pipelines/).

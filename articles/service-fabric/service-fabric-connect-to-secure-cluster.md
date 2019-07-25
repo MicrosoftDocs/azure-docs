@@ -358,7 +358,7 @@ To connect to a cluster that is secured with AAD, point your browser to:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-You are automatically be prompted to log in with AAD.
+You are automatically be prompted to sign in with AAD.
 
 ### Connect to a secure cluster using a client certificate
 

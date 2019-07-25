@@ -4,7 +4,7 @@ description: Encrypt virtual disks on a Windows VM for enhanced security by usin
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -86,7 +86,7 @@ You can store cryptographic keys by using either software or Hardware Security M
 For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create a cryptographic key in your Key Vault with [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey). The following example creates a key named *myKey*:
 
 ```azurepowershell-interactive
-Add-AzureKeyVaultKey -VaultName $keyVaultName `
+Add-AzKeyVaultKey -VaultName $keyVaultName `
     -Name "myKey" `
     -Destination "Software"
 ```

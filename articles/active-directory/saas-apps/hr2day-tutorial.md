@@ -110,7 +110,7 @@ To configure Azure AD single sign-on with HR2day by Merces, perform the followin
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [HR2day by Merces Client support team](mailto:servicedesk@merces.nl) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Your HR2day by Merces application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+5. Your HR2day by Merces application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
@@ -216,7 +216,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create HR2day by Merces test user
 
-In this section, you create a user called Britta Simon in HR2day by Merces. Work with [HR2day by Merces support team](mailto:servicedesk@merces.nl) to add the users in the HR2day by Merces platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in HR2day by Merces. Work with [HR2day by Merces support team](mailto:servicedesk@merces.nl) to add the users in the HR2day by Merces platform. Users must be created and activated before you use single sign-on.
 
 > [!NOTE]
 > If you need to create a user manually, contact the [HR2day by Merces client support team](mailto:servicedesk@merces.nl).
@@ -233,4 +233,4 @@ When you click the HR2day by Merces tile in the Access Panel, you should be auto
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

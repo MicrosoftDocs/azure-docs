@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
 ---
@@ -29,7 +29,7 @@ Every outgoing operation, such as an HTTP call to another component, is represen
 
 You can build a view of the distributed logical operation by using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. These fields also define the causality order of telemetry calls.
 
-In a microservices environment, traces from components can go to different storage items. Every component can have its own instrumentation key in Application Insights. To get telemetry for the logical operation, you must query data from every storage item. When the number of storage items is huge, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request, and the second identifies which component returned the response of the dependency call.
+In a microservices environment, traces from components can go to different storage items. Every component can have its own instrumentation key in Application Insights. To get telemetry for the logical operation, the Application Insights UX queries data from every storage item. When the number of storage items is huge, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request, and the second identifies which component returned the response of the dependency call.
 
 ## Example
 

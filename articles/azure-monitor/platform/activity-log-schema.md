@@ -10,7 +10,7 @@ ms.author: dukek
 ms.subservice: logs
 ---
 # Azure Activity Log event schema
-The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data. The schema of the data differs depending on if you are reading the data in the portal, PowerShell, CLI, or directly via the REST API versus [streaming the data to storage or Event Hubs using a Log Profile](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). The examples below show the schema as made available via the portal, PowerShell, CLI, and REST API. A mapping of those properties to the [Azure diagnostic logs schema](./diagnostic-logs-schema.md) is provided at the end of the article.
+The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data. The schema of the data differs depending on if you are reading the data in the portal, PowerShell, CLI, or directly via the REST API versus [streaming the data to storage or Event Hubs using a Log Profile](activity-log-export.md). The examples below show the schema as made available via the portal, PowerShell, CLI, and REST API. A mapping of those properties to the [Azure diagnostic logs schema](diagnostic-logs-schema.md) is provided at the end of the article.
 
 ## Administrative
 This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
@@ -210,7 +210,7 @@ This category contains the record of any resource health events that have occurr
         "localizedValue": "Resource Health"
     },
     "eventTimestamp": "2018-09-04T15:33:43.65Z",
-    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "id": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
     "level": "Critical",
     "operationId": "",
     "operationName": {
@@ -226,7 +226,7 @@ This category contains the record of any resource health events that have occurr
         "value": "Microsoft.Compute/virtualMachines",
         "localizedValue": "Microsoft.Compute/virtualMachines"
     },
-    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "resourceId": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -236,7 +236,7 @@ This category contains the record of any resource health events that have occurr
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
-    "subscriptionId": "<subscription Id>",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "stage": "Active",
         "title": "Virtual Machine health status changed to unavailable",
@@ -269,7 +269,7 @@ This category contains the record of any resource health events that have occurr
 | status |String describing the status of the health event. Values can be: Active, Resolved, InProgress, Updated. |
 | subStatus | Usually null for alerts. |
 | submissionTimestamp |Timestamp when the event became available for querying. |
-| subscriptionId |Azure Subscription Id. |
+| subscriptionId |Azure Subscription ID. |
 | properties |Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the event.|
 | properties.title | A user-friendly string that describes the health status of the resource. |
 | properties.details | A user-friendly string that describes further details about the event. |
@@ -795,6 +795,6 @@ When streaming the Azure Activity Log to a storage account or Event Hubs namespa
 
 
 ## Next steps
-* [Learn more about the Activity Log (formerly Audit Logs)](../../azure-monitor/platform/activity-logs-overview.md)
-* [Stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [Learn more about the Activity Log](activity-logs-overview.md)
+* [Export the Activity Log to Azure Storage or Event Hubs](activity-log-export.md)
 

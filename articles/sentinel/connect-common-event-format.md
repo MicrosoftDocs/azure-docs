@@ -8,7 +8,8 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: cbf5003b-76cf-446f-adb6-6d816beca70f
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -41,6 +42,8 @@ The connection between Azure Sentinel and your CEF appliance takes place in thre
 2. The Syslog agent collects the data and sends it securely to Log Analytics, where it is parsed and enriched.
 3. The agent stores the data in a Log Analytics workspace so it can be queried as needed, using analytics, correlation rules, and dashboards.
 
+> [!NOTE]
+> The agent can collect logs from multiple sources, but must be installed on dedicated proxy machine.
 
 ## Step 1: Connect to your CEF appliance via dedicated Azure VM
 
@@ -58,7 +61,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 1. In the Azure Sentinel portal, click **Data connectors** and select your appliance type. 
 
 1. Under **Linux Syslog agent configuration**:
-   - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated Linux VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vCPUs, 8 GB memory)** and has a public IP address.
+   - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated Linux VM that is automatically connected to your workspace. The VM is a **standard D2s v3 (2 vCPUs, 8 GB memory)** and has a public IP address.
       1. In the **Custom deployment** page, provide your details and choose a username and a password and if you agree to the terms and conditions, purchase the VM.
       1. Configure your appliance to send logs using the settings listed in the connection page. For the Generic Common Event Format connector, use these settings:
          - Protocol = UDP
@@ -116,17 +119,24 @@ If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a 
   
  To use the relevant schema in Log Analytics for the CEF events, search for `CommonSecurityLog`.
 
+## Step 2: Forward Common Event Format (CEF) logs to Syslog agent
+
+Set your security solution to send Syslog messages in CEF format to your Syslog agent.​ Make sure you use the same parameters that appear in your agent configuration.​ These are usually:​
+
+- Port 514
+- Facility local4
+
 ## Step 3: Validate connectivity
 
 It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
 
 1. Make sure you use the right facility. The facility must be the same in your appliance and in Azure Sentinel. You can check which facility file you're using in Azure Sentinel and modify it in the file `security-config-omsagent.conf`. 
 
-2. Make sure that your logs are getting to the right port in the Syslog agent. Run this command on the Syslog agent machine: `tcpdump -A -ni any  port 514 -vv` This command shows you the logs that streams from the device to the Syslog machine.Make sure that logs are being received from the source appliance on the right port and right facility.
+2. Make sure that your logs are getting to the right port in the Syslog agent. Run this command on the Syslog agent machine: `tcpdump -A -ni any  port 514 -vv` This command shows you the logs that streams from the device to the Syslog machine. Make sure that logs are being received from the source appliance on the right port and right facility.
 
 3. Make sure that the logs you send comply with [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. On the computer running the Syslog agent, make sure these ports 514, 25226 are open and listening, using the command `netstat -a -n:`. For more information about using this command see [netstat(8) - Linux man page](https://linux.die.netman/8/netstat). If it’s listening properly, you’ll see this:
+4. On the computer running the Syslog agent, make sure these ports 514, 25226 are open and listening, using the command `netstat -a -n:`. For more information about using this command see [netstat(8) - Linux man page](https://linux.die.net/man/8/netstat). If it’s listening properly, you’ll see this:
 
    ![Azure Sentinel ports](./media/connect-cef/ports.png) 
 

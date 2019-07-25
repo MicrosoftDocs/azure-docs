@@ -12,7 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
-ms.author: kumud;tyao
+ms.author: kumud
+ms.reviewer: tyao
 
 ---
 # How to set up a geo-filtering WAF policy for your Front Door
@@ -106,6 +107,5 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 > You only need to set WebApplicationFirewallPolicyLink property once to link a WAF policy to a Front Door frontend host. Subsequent policy updates are automatically applied to the frontend host.
 
 ## Next steps
-
-- Learn about [application layer security with Front Door](front-door-application-security.md).
+- Learn about [Azure web application firewall](waf-overview.md).
 - Learn how to [create a Front Door](quickstart-create-front-door.md).

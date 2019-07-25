@@ -6,7 +6,7 @@ ms.date: 2/20/2019
 ms.author: erhopf
 ---
 
-1. Start Visual Studio 2017.
+1. Start Visual Studio 2019.
 
 1. Make sure the **Desktop development with C++** workload is available. Choose **Tools** > **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, skip to the next step.
 

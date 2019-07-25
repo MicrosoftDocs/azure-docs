@@ -4,7 +4,7 @@ description: Learn how to define unique keys for an Azure Cosmos container
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 5/3/2019
+ms.date: 05/23/2019
 ms.author: thweiss
 ---
 
@@ -106,8 +106,8 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
     'id': 'container',
     'uniqueKeyPolicy': {
         'uniqueKeys': [
-            { 'paths': ['/firstName', '/lastName', '/emailAddress'] },
-            { 'paths': ['/address/zipCode'] }
+            {'paths': ['/firstName', '/lastName', '/emailAddress']},
+            {'paths': ['/address/zipCode']}
         ]
     }
 })

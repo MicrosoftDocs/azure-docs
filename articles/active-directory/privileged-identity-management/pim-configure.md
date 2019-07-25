@@ -36,15 +36,6 @@ PIM essentially helps you manage the who, what, when, where, and why for resourc
 - Conduct **access reviews** to ensure users still need roles
 - Download **audit history** for internal or external audit
 
-## Prerequisites
-
-To use PIM, you must have one of the following paid or trial licenses. For more information, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
-
-For information about licenses for users, see [License requirements to use PIM](subscription-requirements.md).
-
 ## Terminology
 
 To better understand PIM and its documentation, you should review the following terms.
@@ -98,6 +89,12 @@ PIM supports the following scenarios:
 - Request activation of a role that requires approval
 - View the status of your request to activate
 - Complete your task in Azure AD if activation was approved
+
+## License requirements
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+For information about licenses for users, see [License requirements to use PIM](subscription-requirements.md).
 
 ## Next steps
 

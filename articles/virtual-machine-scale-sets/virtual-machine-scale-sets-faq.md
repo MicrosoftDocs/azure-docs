@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
 
@@ -618,11 +618,11 @@ You have some flexibility in how you handle alerts for specified thresholds. For
 
 ## Patching and operations
 
-### How do I create a scale set in an existing resource group?
+### Can I create a scale set in an existing resource group?
 
-Creating scale sets in an existing resource group is not yet possible from the Azure portal, but you can specify an existing resource group when deploying a scale set from an Azure Resource Manager template. You can also specify an existing resource group when creating a scale set using Azure PowerShell or CLI.
+Yes, you can create a scale set in an existing resource group.
 
-### Can we move a scale set to another resource group?
+### Can I move a scale set to another resource group?
 
 Yes, you can move scale set resources to a new subscription or resource group.
 

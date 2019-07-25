@@ -3,6 +3,7 @@ title: Authenticate with Azure Container Registry from Azure Kubernetes Service
 description: Learn how to provide access to images in your private container registry from Azure Kubernetes Service by using an Azure Active Directory service principal.
 services: container-service
 author: dlepow
+manager: gwallace
 
 ms.service: container-service
 ms.topic: article
@@ -14,7 +15,9 @@ ms.author: danlep
 
 When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), an authentication mechanism needs to be established. This article details the recommended configurations for authentication between these two Azure services.
 
-This article assumes that you've already created an AKS cluster and you are able to access the cluster with the `kubectl` command-line client. 
+You only need to configure one of these authentication methods. The most common approach is to [grant access using the AKS service principal](#grant-aks-access-to-acr). If you have specific needs, you can optionally [grant access using Kubernetes secrets](#access-with-kubernetes-secret).
+
+This article assumes that you've already created an AKS cluster and you are able to access the cluster with the `kubectl` command-line client.
 
 ## Grant AKS access to ACR
 

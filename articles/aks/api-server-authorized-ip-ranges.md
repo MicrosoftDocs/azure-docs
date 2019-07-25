@@ -1,13 +1,13 @@
 ---
 title: API server authorized IP ranges in Azure Kubernetes Service (AKS)
-description: Learn how to secure your cluster using an IP address ranges for access to the API server in Azure Kubernetes Service (AKS)
+description: Learn how to secure your cluster using an IP address range for access to the API server in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
+ms.author: mlearned
 
 #Customer intent: As a cluster operator, I want to increase the security of my cluster by limiting access to the API server to only the IP addresses that I specify.
 ---
@@ -19,9 +19,10 @@ In Kubernetes, the API server receives requests to perform actions in the cluste
 This article shows you how to use API server authorized IP address ranges to limit requests to control plane. This feature is currently in preview.
 
 > [!IMPORTANT]
-> AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
+> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
 >
-> If you encounter issues with preview features, [open an issue on the AKS GitHub repo][aks-github] with the name of the preview feature in the bug title.
+> * [AKS Support Policies][aks-support-policies]
+> * [Azure Support FAQ][aks-faq]
 
 ## Before you begin
 
@@ -31,18 +32,22 @@ You need the Azure CLI version 2.0.61 or later installed and configured. Run `a
 
 ### Install aks-preview CLI extension
 
-The CLI commands to configure API server authorized IP ranges are available in the *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, as shown in the following example:
+To configure API server authorized IP ranges, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> If you've previously installed the *aks-preview* extension, install any available updates using the `az extension update --name aks-preview` command.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### Register feature flag for your subscription
 
 To use API server authorized IP ranges, first enable a feature flag on your subscription. To register the *APIServerSecurityPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
+
+> [!CAUTION]
+> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
 ```azurecli-interactive
 az feature register --name APIServerSecurityPreview --namespace Microsoft.ContainerService
@@ -71,8 +76,6 @@ The following limitations apply when you configure API server authorized IP rang
 The Kubernetes API server is how the underlying Kubernetes APIs are exposed. This component provides the interaction for management tools, such as `kubectl` or the Kubernetes dashboard. AKS provides a single-tenant cluster master, with a dedicated API server. By default, the API server is assigned a public IP address, and you should control access using role-based access controls (RBAC).
 
 To secure access to the otherwise publicly accessible AKS control plane / API server, you can enable and use authorized IP ranges. These authorized IP ranges only allow defined IP address ranges to communicate with the API server. A request made to the API server from an IP address that is not part of these authorized IP ranges is blocked. You should continue to use RBAC to then authorize users and the actions they request.
-
-To use the authorized IP range functionality, a public IP address is exposed on the node pool by deploying a basic NGINX service. The API server communicates with the node pool through this authorized public IP address. You then define additional IP address ranges that can access the API server.
 
 For more information about the API server and other cluster components, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
@@ -240,7 +243,6 @@ In this article, you enabled API server authorized IP ranges. This approach is o
 For more information, see [Security concepts for applications and clusters in AKS][concepts-security] and [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
 
 <!-- LINKS - internal -->
@@ -263,3 +265,7 @@ For more information, see [Security concepts for applications and clusters in AK
 [az-network-firewall-ip-config-create]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-create
 [az-network-firewall-network-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

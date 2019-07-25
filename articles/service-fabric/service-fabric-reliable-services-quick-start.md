@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 07/10/2019
 ms.author: vturecek
 
 ---
@@ -37,7 +37,7 @@ To get started with Reliable Services, you only need to understand a few basic c
 ## Create a stateless service
 A stateless service is a type of service that is currently the norm in cloud applications. It is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available. If an instance of a stateless service shuts down, all of its internal state is lost. In this type of service, state must be persisted to an external store, such as Azure Tables or a SQL database, for it to be made highly available and reliable.
 
-Launch Visual Studio 2015 or Visual Studio 2017 as an administrator, and create a new Service Fabric application project named *HelloWorld*:
+Launch Visual Studio 2017 or Visual Studio 2019 as an administrator, and create a new Service Fabric application project named *HelloWorld*:
 
 ![Use the New Project dialog box to create a new Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 

@@ -27,9 +27,9 @@ Two-step verification is more secure than just a password because it relies on t
 
 |Article |Description |
 |------|------------|
-|[Setup Experience](multi-factor-authentication-end-user-first-time.md) |Describes how to set up two-step verification for the first time.|
-|[Get started with two-step verification](multi-factor-authentication-end-user.md)|Describes what two-step verification means to you.| 
-|[How to sign in](user-help-sign-in.md)|Describes how to sign in using your specified verification method.|
-|[Changing your settings](multi-factor-authentication-end-user-manage-settings.md) |Describes how to change your settings such as phone number or preferred enrollment method.|
-|[Help with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) |Describes how to troubleshoot common problems with two-step verification.|
-|[Manage app passwords](multi-factor-authentication-end-user-app-passwords.md) |Describes how to create and use app passwords.|
+| [Setup Experience](multi-factor-authentication-end-user-first-time.md) |Describes how to set up two-step verification for the first time.|
+| [Get started with two-step verification](multi-factor-authentication-end-user.md) ]Describes what two-step verification means to you.| 
+| [How to sign in](user-help-sign-in.md) ]Describes how to sign in using your specified verification method.|
+| [Changing your settings](multi-factor-authentication-end-user-manage-settings.md) |Describes how to change your settings such as phone number or preferred enrollment method.|
+| [Help with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) |Describes how to troubleshoot common problems with two-step verification.|
+| [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md) |Describes how to create and use app passwords.|

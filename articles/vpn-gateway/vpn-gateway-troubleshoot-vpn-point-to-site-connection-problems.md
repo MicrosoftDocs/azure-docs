@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2018
+ms.date: 05/31/2019
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -57,7 +57,7 @@ For more information about how to install the client certificate, see [Generate 
 
 ### Symptom
 
-When you try and connect to an Azure virtual network gteway using IKEv2 on Windows, you get the following error message:
+When you try and connect to an Azure virtual network gateway using IKEv2 on Windows, you get the following error message:
 
 **The network connection between your computer and the VPN server could not be established because the remote server is not responding**
 

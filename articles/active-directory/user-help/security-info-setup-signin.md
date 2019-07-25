@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Set up your security info (preview) from the sign-in page prompt
+
 You can follow these steps if you're prompted to set up your security info immediately after you sign-in to your work or school account.
 
 You'll only see this prompt if you haven’t set up the security info required by your organization. If you've previously set up your security info, but you want to make changes, you can follow the steps in the various method-based how-to articles. For more information, see [Add or update your security info overview](security-info-add-update-methods-overview.md).
@@ -23,11 +24,13 @@ You'll only see this prompt if you haven’t set up the security info required b
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## Sign in to your work or school account
+
 After you sign in to your work or school account, you'll see a prompt that asks you to provide more information before it lets you access your account.
 
 ![Prompt asking for more info](media/security-info/securityinfo-prompt.png)
 
 ## Set up your security info using the wizard
+
 Follow these steps to set up your security info for your work or school account from the prompt.
 
 >[!Important]
@@ -37,7 +40,7 @@ Follow these steps to set up your security info for your work or school account 
 
    > [!Note]
    > If you want to use an authenticator app other than the Microsoft Authenticator app, select the **I want to use a different authenticator app** link.
-   > 
+   >
    > If your organization lets you choose a different method besides the authenticator app, you can select the **I want to set up a different method link**.
 
     ![Keep your account secure wizard, showing the auth app download page](media/security-info/securityinfo-prompt-get-auth-app.png)

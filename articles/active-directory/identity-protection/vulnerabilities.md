@@ -5,7 +5,7 @@ description: Overview of the vulnerabilities detected by Azure Active Directory 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2019
 
 ms.author: joflore
@@ -27,8 +27,6 @@ The following sections provide you with an overview of the vulnerabilities repor
 
 This vulnerability helps assess the deployment of Azure Multi-Factor Authentication in your organization.
 
-To view the count for users that are not registered for MFA, click on the vulnerability and you are redirected to statistics within Identity Secure Score.
-
 Azure Multi-Factor Authentication provides a second layer of security to user authentication. It helps safeguard access to data and applications while meeting user demand for a simple sign-in process. Azure Multi-Factor Authentication provides easy to use verification options like:
 
 * Phone call
@@ -36,7 +34,7 @@ Azure Multi-Factor Authentication provides a second layer of security to user au
 * Mobile app notification
 * OTP Verification code
 
-We recommend that you require Azure Multi-Factor Authentication for user sign-ins. Multi-factor authentication plays a key role in risk-based conditional access policies available through Identity Protection.
+We recommend that you require Azure Multi-Factor Authentication for user sign-ins. Multi-factor authentication plays a key role in risk-based Conditional Access policies available through Identity Protection.
 
 For more information, see [What is Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
 

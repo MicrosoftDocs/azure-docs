@@ -5,7 +5,7 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 07/24/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -37,13 +37,22 @@ If you try to install the sync agent on an Active Directory domain controller wh
 
 To resolve, transfer the PDC role to another domain controller running Windows Server 2012 R2 or more recent, then install sync.
 
-<a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
-If a server is not listed under **Registered servers** for a Storage Sync Service:
-1. Sign in to the server that you want to register.
-2. Open File Explorer, and then go to the Storage Sync Agent installation directory (the default location is C:\Program Files\Azure\StorageSyncAgent). 
+<a id="server-registration-prerequisites"></a>**Server Registration displays the following message: "Pre-requisites are missing"**
+
+This message appears if Az or AzureRM PowerShell module is not installed on PowerShell 5.1. 
+
+> [!Note]  
+> ServerRegistration.exe does not support PowerShell 6.x. You can use the Register-AzStorageSyncServer cmdlet on PowerShell 6.x to register the server.
+
+To install the Az or AzureRM module on PowerShell 5.1, perform the following steps:
+
+1. Type **powershell** from an elevated command prompt and hit enter.
+2. Install the latest Az or AzureRM module by following the documentation:
+	- [Az module (requires .NET 4.7.2)](https://go.microsoft.com/fwlink/?linkid=2062890)
+	- [AzureRM module]( https://go.microsoft.com/fwlink/?linkid=856959)
 3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
 
-<a id="server-already-registered"></a>**Server Registration displays the following message during Azure File Sync agent installation: "This server is already registered"** 
+<a id="server-already-registered"></a>**Server Registration displays the following message: "This server is already registered"** 
 
 ![A screenshot of the Server Registration dialog with the "server is already registered" error message](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
@@ -61,6 +70,12 @@ Reset-StorageSyncServer
 
 <a id="web-site-not-trusted"></a>**When I register a server, I see numerous "web site not trusted" responses. Why?**  
 This issue occurs when the **Enhanced Internet Explorer Security** policy is enabled during server registration. For more information about how to correctly disable the **Enhanced Internet Explorer Security** policy, see [Prepare Windows Server to use with Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
+
+<a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
+If a server is not listed under **Registered servers** for a Storage Sync Service:
+1. Sign in to the server that you want to register.
+2. Open File Explorer, and then go to the Storage Sync Agent installation directory (the default location is C:\Program Files\Azure\StorageSyncAgent). 
+3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
 
 ## Sync group management
 <a id="cloud-endpoint-using-share"></a>**Cloud endpoint creation fails, with this error: "The specified Azure FileShare is already in use by a different CloudEndpoint"**  
@@ -239,18 +254,21 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 
 | HRESULT | HRESULT (decimal) | Error string | Issue | Remediation |
 |---------|-------------------|--------------|-------|-------------|
+| 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | The tiered file on the server is not accessible. This issue occurs if the tiered file was not recalled prior to deleting a server endpoint. | To resolve this issue, see [Tiered files are not accessible on the server after deleting a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | A file or directory change can't be synced yet because a dependent folder is not yet synced. This item will sync after the dependent changes are synced. | No action required. |
-| 0x7b | 123 | ERROR_INVALID_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
+| 0x8007007b | -2147024773 | ERROR_INVALID_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | A file has changed, but the change has not yet been detected by sync. Sync will recover after this change is detected. | No action required. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | The file cannot be synced because the Azure file share limit is reached. | To resolve this issue, see [You reached the Azure file share storage limit](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) section in the troubleshooting guide. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | This error can occur for the following reasons: file is encrypted by an unsupported solution (like NTFS EFS), file has a delete pending state or file is located on a DFS-R read-only replication folder | If the file is encrypted by an unsupported solution, decrypt the file and use a supported encryption solution. For a list of support solutions, see [Encryption solutions](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) section in the planning guide. If the file is in a delete pending state, the file will be deleted once all open file handles are closed. If the file is located on a DFS-R read-only replication folder, Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) for more information.
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
+| 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | File is encrypted by an unsupported solution (like NTFS EFS). | Decrypt the file and use a supported encryption solution. For a list of support solutions, see [Encryption solutions](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) section in the planning guide. |
+| 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | File is located on a DFS-R read-only replication folder. | File is located on a DFS-R read-only replication folder. Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) for more information. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | File has a delete pending state | File will be deleted once all open file handles are closed. |
+| 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | A file was changed during sync, so it needs to be synced again. | No action required. |
 
+
 #### Handling unsupported characters
-If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error codes 0x7b and 0x8007007b), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-tool) can be used to identify characters that are not supported.
+If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error code 0x8007007b), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-cmdlet) can be used to identify characters that are not supported.
 
 The table below contains all of the unicode characters Azure File Sync does not yet support.
 
@@ -319,7 +337,7 @@ No action is required. When a file or file share (cloud endpoint) is restored us
 This error occurs because the Azure File Sync agent cannot access the Azure file share, which may be because the Azure file share or the storage account hosting it no longer exists. You can troubleshoot this error by working through the following steps:
 
 1. [Verify the storage account exists.](#troubleshoot-storage-account)
-2. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
+2. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 3. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
 4. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
 
@@ -338,7 +356,7 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
 2. [Verify the storage account exists.](#troubleshoot-storage-account)
-3. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
+3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
 <a id="-1906441138"></a>**Sync failed due to a problem with the sync database.**  
 
@@ -424,12 +442,7 @@ This error occurs when the Azure subscription is suspended. Sync will be reenabl
 | **Error string** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
 | **Remediation required** | Yes |
 
-This error occurs when the Azure file share is inaccessible because of a storage account firewall or because the storage account belongs to a virtual network. Azure File Sync does not yet have support for this feature. To troubleshoot:
-
-1. [Verify the storage account exists.](#troubleshoot-storage-account)
-2. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
-
-Remove these rules to fix this issue. 
+This error occurs when the Azure file share is inaccessible because of a storage account firewall or because the storage account belongs to a virtual network. Verify the firewall and virtual network settings on the storage account are configured properly. For more information, see [Configure firewall and virtual network settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings). 
 
 <a id="-2134375911"></a>**Sync failed due to a problem with the sync database.**  
 
@@ -607,6 +620,33 @@ This error occurs because the Azure File Sync service is unavailable. This error
 
 This error occurs because of an internal problem with the sync database. This error will auto-resolve when the Azure File Sync when sync retries. If this error continues for an extend period of time, create a support request and we will contact you to help you resolve this issue.
 
+<a id="-2134364024"></a>**Sync failed due to change in Azure Active Directory tenant**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83088 |
+| **HRESULT (decimal)** | -2134364024 | 
+| **Error string** | ECS_E_INVALID_AAD_TENANT |
+| **Remediation required** | Yes |
+
+This error occurs because Azure File Sync does not currently support moving the subscription to a different Azure Active Directory tenant.
+ 
+To resolve the issue, perform one of the following options:
+
+- Option 1 (recommended): Move the subscription back to the original Azure Active Directory tenant
+- Option 2: Delete and recreate the current sync group. If cloud tiering was enabled on the server endpoint, delete the sync group and then perform the steps documented in the [Cloud Tiering section]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) to remove the orphaned tiered files prior to recreating the sync groups. 
+
+<a id="-2134364010"></a>**Sync failed due to firewall and virtual network exception not configured**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83096 |
+| **HRESULT (decimal)** | -2134364010 | 
+| **Error string** | ECS_E_MGMT_STORAGEACLSBYPASSNOTSET |
+| **Remediation required** | Yes |
+
+This error occurs if the firewall and virtual network settings are enabled on the storage account and the “Allow trusted Microsoft services to access this storage account” exception is not checked. To resolve this issue, follow the steps documented in the [Configure firewall and virtual network settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) section in the deployment guide.
+
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
 # [Portal](#tab/azure-portal)
@@ -687,22 +727,6 @@ $storageAccount = Get-AzStorageAccount | Where-Object {
 
 if ($storageAccount -eq $null) {
     throw [System.Exception]::new("The storage account referenced in the cloud endpoint does not exist.")
-}
-```
----
-
-<a id="troubleshoot-network-rules"></a>**Check to make sure the storage account does not contain any network rules.**  
-# [Portal](#tab/azure-portal)
-1. Once in the storage account, select **Firewalls and virtual networks** on the left-hand side of the storage account.
-2. Inside the storage account, the **Allow access from all networks** radio button should be selected.
-    ![A screenshot showing the storage account firewall and network rules disabled.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
-
-# [PowerShell](#tab/azure-powershell)
-```powershell
-if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
-    [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
-    throw [System.Exception]::new("The storage account referenced contains network " + `
-        "rules which are not currently supported by Azure File Sync.")
 }
 ```
 ---
@@ -793,14 +817,14 @@ There are two main classes of failures that can happen via either failure path:
 
 The following sections indicate how to troubleshoot cloud tiering issues and determine if an issue is a cloud storage issue or a server issue.
 
-<a id="monitor-tiering-activity"></a>**How to monitor tiering activity on a server**  
+### How to monitor tiering activity on a server  
 To monitor tiering activity on a server, use Event ID 9003, 9016 and 9029 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - Event ID 9003 provides error distribution for a server endpoint. For example, Total Error Count, ErrorCode, etc. Note, one event is logged per error code.
 - Event ID 9016 provides ghosting results for a volume. For example, Free space percent is, Number of files ghosted in session, Number of files failed to ghost, etc.
 - Event ID 9029 provides ghosting session information for a server endpoint. For example, Number of files attempted in the session, Number of files tiered in the session, Number of files already tiered, etc.
 
-<a id="monitor-recall-activity"></a>**How to monitor recall activity on a server**  
+### How to monitor recall activity on a server
 To monitor recall activity on a server, use Event ID 9005, 9006, 9009 and 9059 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - Event ID 9005 provides recall reliability for a server endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
@@ -808,7 +832,7 @@ To monitor recall activity on a server, use Event ID 9005, 9006, 9009 and 9059 i
 - Event ID 9009 provides recall session information for a server endpoint. For example, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, etc.
 - Event ID 9059 provides application recall distribution for a server endpoint. For example, ShareId, Application Name, and TotalEgressNetworkBytes.
 
-<a id="files-fail-tiering"></a>**Troubleshoot files that fail to tier**  
+### How to troubleshoot files that fail to tier
 If files fail to tier to Azure Files:
 
 1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent. 
@@ -824,7 +848,7 @@ If files fail to tier to Azure Files:
 > [!NOTE]
 > An Event ID 9003 is logged once an hour in the Telemetry event log if a file fails to tier (one event is logged per error code). The Operational and Diagnostic event logs should be used if additional information is needed to diagnose an issue.
 
-<a id="files-fail-recall"></a>**Troubleshoot files that fail to be recalled**  
+### How to troubleshoot files that fail to be recalled  
 If files fail to be recalled:
 1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent.
     1. Verify the files exist in the Azure file share.
@@ -836,7 +860,88 @@ If files fail to be recalled:
 > [!NOTE]
 > An Event ID 9006 is logged once per hour in the Telemetry event log if a file fails to recall (one event is logged per error code). The Operational and Diagnostic event logs should be used if additional information is needed to diagnose an issue.
 
-<a id="files-unexpectedly-recalled"></a>**Troubleshoot files unexpectedly recalled on a server**  
+### Tiered files are not accessible on the server after deleting a server endpoint
+Tiered files on a server will become inaccessible if the files are not recalled prior to deleting a server endpoint.
+
+Errors logged if tiered files are not accessible
+- When syncing a file, error code -2147942467 (0x80070043 - ERROR_BAD_NET_NAME) is logged in the ItemResults event log
+- When recalling a file, error code -2134376393 (0x80c80037 - ECS_E_SYNC_SHARE_NOT_FOUND) is logged in the RecallResults event log
+
+Restoring access to your tiered files is possible if the following conditions are met:
+- Server endpoint was deleted within past 30 days
+- Cloud endpoint was not deleted 
+- File share was not deleted
+- Sync group was not deleted
+
+If the above conditions are met, you can restore access to the files on the server by recreating the server endpoint at the same path on the server within the same sync group within 30 days. 
+
+If the above conditions are not met, restoring access is not possible as these tiered files on the server are now orphaned. Please follow the instructions below to remove the orphaned tiered files.
+
+**Notes**
+- When tiered files are not accessible on the server, the full file should still be accessible if you access the Azure file share directly.
+- To prevent orphaned tiered files in the future, follow the steps documented in [Remove a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint) when deleting a server endpoint.
+
+<a id="get-orphaned"></a>**How to get the list of orphaned tiered files** 
+
+1. Verify Azure File Sync agent version v5.1 or later is installed.
+2. Run the following PowerShell commands to list orphaned tiered files:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+3. Save the OrphanTieredFiles.txt output file in case files need to be restored from backup after they are deleted.
+
+<a id="remove-orphaned"></a>**How to remove orphaned tiered files** 
+
+*Option 1: Delete the orphaned tiered files*
+
+This option deletes the orphaned tiered files on the Windows Server but requires removing the server endpoint if it exists due to recreation after 30 days or is connected to a different sync group. File conflicts will occur if files are updated on the Windows Server or Azure file share before the server endpoint is recreated.
+
+1. Verify Azure File Sync agent version v5.1 or later is installed.
+2. Backup the Azure file share and server endpoint location.
+3. Remove the server endpoint in the sync group (if exists) by following the steps documented in [Remove a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint).
+
+> [!Warning]  
+> If the server endpoint is not removed prior to using the Remove-StorageSyncOrphanedTieredFiles cmdlet, deleting the orphaned tiered file on the server will delete the full file in the Azure file share. 
+
+4. Run the following PowerShell commands to list orphaned tiered files:
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+5. Save the OrphanTieredFiles.txt output file in case files need to be restored from backup after they are deleted.
+6. Run the following PowerShell commands to delete orphaned tiered files:
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFilesRemoved = Remove-StorageSyncOrphanedTieredFiles -Path <folder path containing orphaned tiered files> -Verbose
+$orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
+```
+**Notes** 
+- Tiered files modified on the server that are not synced to the Azure file share will be deleted.
+- Tiered files which are accessible (not orphan) will not be deleted.
+- Non-tiered files will remain on the server.
+
+7. Optional: Recreate the server endpoint if deleted in step 3.
+
+*Option 2: Mount the Azure file share and copy the files locally that are orphaned on the server*
+
+This option doesn’t require removing the server endpoint but requires sufficient disk space to copy the full files locally.
+
+1. [Mount](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) the Azure file share on the Windows Server that has orphaned tiered files.
+2. Run the following PowerShell commands to list orphaned tiered files:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+3. Use the OrphanTieredFiles.txt output file to identify orphaned tiered files on the server.
+4. Overwrite the orphaned tiered files by copying the full file from the Azure file share to the Windows Server.
+
+### How to troubleshoot files unexpectedly recalled on a server  
 Antivirus, backup, and other applications that read large numbers of files cause unintended recalls unless they respect the skip offline attribute and skip reading the content of those files. Skipping offline files for products that support this option helps avoid unintended recalls during operations like antivirus scans or backup jobs.
 
 Consult with your software vendor to learn how to configure their solution to skip reading offline files.
@@ -858,6 +963,8 @@ If you encounter issues with Azure File Sync on a server, start by completing th
 
 If the issue is not resolved, run the AFSDiag tool:
 1. Create a directory where the AFSDiag output will be saved (for example, C:\Output).
+	> [!NOTE]
+	>AFSDiag will delete all content in the output directory prior to collecting logs. Specify an output location which does not contain data.
 2. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
 
     ```powershell

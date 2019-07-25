@@ -80,12 +80,18 @@ First, open the *azuredeploy.parameters.json* file in a text editor and add the 
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
 },
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+},
 ```
 
 Next, set the *certificateCommonName*, *sourceVaultValue*, and *certificateUrlValue* parameter values to those returned by the preceding script:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
+},
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 },
 "sourceVaultValue": {
   "value": "/subscriptions/<subscription>/resourceGroups/testvaultgroup/providers/Microsoft.KeyVault/vaults/testvault"
@@ -104,6 +110,12 @@ Next, open the *azuredeploy.json* file in a text editor and make three updates t
       "type": "string",
       "metadata": {
         "description": "Certificate Commonname"
+      }
+    },
+    "certificateIssuerThumbprint": {
+      "type": "string",
+      "metadata": {
+        "description": "Certificate Authority Issuer Thumpbrint for Commonname cert"
       }
     },
     ```
@@ -211,8 +223,5 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFi
 * Learn how to [rollover a cluster certificate](service-fabric-cluster-rollover-cert-cn.md)
 * [Update and Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
 * Simplify Certificate Management by [Changing cluster from certificate thumbprint to common name](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
-
-[image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
-ic-cluster-change-cert-thumbprint-to-cn.md)
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

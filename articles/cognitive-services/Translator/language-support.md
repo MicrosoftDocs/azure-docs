@@ -3,13 +3,13 @@ title: Language support - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: A list of natural languages supported by the Translator Text API.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/21/2019
-ms.author: v-jansko
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 # Language and region support for the Translator Text API
 
@@ -30,7 +30,7 @@ The Translator Text API supports the following languages for text to text transl
 * Neural only: Only neural translation is available.
 
 **V3 Translator API**
-The V3 Translator API is neural by default and statistical systems are only available when no neural system exists. 
+The V3 Translator API is neural by default and statistical systems are only available when no neural system exists.
 
 > [!NOTE]
 > Currently, a subset of the neural languages are available in Custom Translator and we are gradually adding additional ones. [View languages currently available in Custom Translator](#customization).
@@ -208,6 +208,7 @@ The following languages are available for customization to or from English using
 | Bosnian (Latin)      | `bs`          |
 | Bulgarian      | `bg`          |
 | Chinese Simplified      | `zh-Hans`          |
+|Chinese Traditional|	`zh-Hant`	|
 | Croatian      | `hr`          |
 | Czech      | `cs`          |
 | Danish      | `da`          |
