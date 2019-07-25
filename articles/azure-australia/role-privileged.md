@@ -16,7 +16,7 @@ Microsoft provides a suite of controls to implement Just-in-Time and Just-Enough
 
 ## Role-Based Access Control (RBAC)
 
-Role-Based Access Control is central to the management of access to all resources within Microsoft Azure and the management of Azure Active Directory (AAD). RBAC can be implemented alongside a number of complementary features available in Azure. This article focuses on implementing effective RBAC using Azure Management Groups, Azure Active Directory Groups, and Azure Privileged Identity Management (PIM).
+Role-Based Access Control is central to the management of access to all resources within Microsoft Azure and the management of Azure Active Directory (Azure AD). RBAC can be implemented alongside a number of complementary features available in Azure. This article focuses on implementing effective RBAC using Azure Management Groups, Azure Active Directory Groups, and Azure Privileged Identity Management (PIM).
 
 At a high level, implementing RBAC requires three components:
 

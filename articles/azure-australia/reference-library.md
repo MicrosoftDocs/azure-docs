@@ -32,7 +32,7 @@ This resource library contains additional links and references that are relevant
 * [Azure Key Vault managed storage account - PowerShell](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [Setup key rotation and auditing](https://docs.microsoft.com/azure/key-vault/key-vault-key-rotation-log-monitoring)
 
-## Identity Federation
+## Identity federation
 
 * [Azure AD Connect - Installation Guide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-roadmap)
 * [Password Write-Back](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback)
@@ -64,14 +64,14 @@ This resource library contains additional links and references that are relevant
 * [Azure Privileged Identify Management Overview](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)
 * [Azure Management Groups Overview](https://docs.microsoft.com/azure/governance/management-groups/)
 * [Azure Identity and Access Control Best Practices](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
-* [Managing AAD Groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
+* [Managing Azure AD Groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 * [Hybrid Identity](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
 * [RBAC Custom Roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 * [Built in Roles for Azure Resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 * [Securing Privileged Access in Hybrid Cloud Environments](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
 * [Azure Enterprise Scaffold](https://docs.microsoft.com/azure/architecture/cloud-adoption/appendix/azure-scaffold)
 
-## System Monitoring for Security
+## System monitoring for security
 
 * [Azure Governance](https://docs.microsoft.com/azure/governance/)
 * [Azure Security Best Practices](https://docs.microsoft.com/azure/security/security-best-practices-and-patterns)

@@ -43,13 +43,13 @@ This article provides information and recommendations on how these requirements 
 
 If you are involved in the design or implementation of network security and ingress traffic controls, you must first understand how ingress network traffic works within Azure across both IaaS and PaaS. This section provides an overview of the possible entry points where network traffic could reach a resource hosted in Azure, and the security controls available to restrict and control that traffic. Each of these components is discussed in detail in the remaining sections of this guide.
 
-### Architecture Components
+### Architecture components
 
 The architectural diagram shown here depicts the possible paths that network traffic can take to connect into a service hosted in Azure. These components are divided into Azure, IaaS Ingress, PaaS Ingress, and Security Control, depending on the function that they provide for ingress traffic.
 
 ![Architecture](media/ingress-traffic.png)
 
-### Azure Components
+### Azure components
 
 |Component | Description|
 |---|---|
@@ -60,7 +60,7 @@ The architectural diagram shown here depicts the possible paths that network tra
 | **ExpressRoute Microsoft Peering** | ExpressRoute Microsoft Peering is a connection between the on-premises environment and Microsoft and Azure public services. This includes connectivity to Office 365, Dynamics 365, and Azure PaaS services. Peering is established over public IP addresses that are owned by the organisation or connectivity provider. No services are accessible via ExpressRoute Microsoft Peering by default and an organisation must opt in to the services that are required. This process then provides connectivity to the same endpoints that are available on the Internet.|
 |
 
-### IaaS Ingress Components
+### IaaS ingress components
 
 |Component | Description|
 |---|---|
@@ -74,7 +74,7 @@ The architectural diagram shown here depicts the possible paths that network tra
 | **PaaS VNet Integration** | Many PaaS capabilities can be deployed into, or integrated with, a Virtual Network. Some PaaS capabilities can be fully integrated with a VNet and be accessible via only private IP addresses. Others, such as Azure Load Balancer and Azure Application Gateway, can have an external interface with a public IP address and an internal interface with a private IP address inside the virtual network. In this instance, traffic can ingress into the Virtual Network via the PaaS capability.|
 |
 
-### PaaS Ingress Components
+### PaaS ingress components
 
 |Component | Description|
 |---|---|
@@ -83,7 +83,7 @@ The architectural diagram shown here depicts the possible paths that network tra
 |**Service endpoints** | Service endpoints provide a direct, private connection from a Virtual Network to a specific PaaS capability. Service endpoints, which are only available for a subset of PaaS capabilities, provide increased performance and security for resources in a VNet accessing PaaS.|
 |
 
-### Security Controls
+### Security controls
 
 |Component | Description|
 |---|---|
@@ -93,7 +93,7 @@ The architectural diagram shown here depicts the possible paths that network tra
 |**Azure Policy** | Azure Policy is a service in Azure for creating, assigning, and managing policies. These policies use rules to control the types of resources that can be deployed and the configuration of those resources. Policies can be used to enforce compliance by preventing resources from being deployed if they do not meet requirements or can be used for monitoring to report on compliance status.|
 |
 
-## General Guidance
+## General guidance
 
 To design and build secure solutions within Azure, it is critical to understand and control the network traffic so that only identified and authorised communication can occur. The intent of this guidance, and the specific component guidance in later sections, is to describe the tools and services that can be utilised to apply the principles outlined in the _ACSC Protect: Implementing Network Segmentation and Segregation_ across Azure workloads. This includes detailing how to create a virtual architecture for securing resources when it is not possible to apply the same traditional physical and network controls that are possible in an on-premises environment.
 
@@ -112,7 +112,7 @@ To design and build secure solutions within Azure, it is critical to understand 
 * Utilise Azure Policy to restrict the regions and resources to only those that are necessary for system functionality
 * Utilise Azure Policy to enforce baseline security configuration for internet-accessible resources
 
-### Additional Resources
+### Additional resources
 
 |Resource | Link|
 |---|---|
@@ -122,7 +122,7 @@ To design and build secure solutions within Azure, it is critical to understand 
 |ACSC Cloud Security for Tenants| [https://acsc.gov.au/publications/protect/cloud-security-tenants.htm](https://acsc.gov.au/publications/protect/cloud-security-tenants.htm)|
 |ACSC Information Security Manual|[https://acsc.gov.au/infosec/ism/index.htm](https://acsc.gov.au/infosec/ism/index.htm)|
 
-## Component Guidance
+## Component guidance
 
 This section provides further guidance on the individual components that are relevant to ingress traffic to systems deployed in Azure. Each section describes the intent of the specific component with links to documentation and configuration guides that can be used to assist with design and build activities.
 
@@ -189,11 +189,11 @@ As an alternative, commonwealth entities can use ExpressRoute Microsoft peering 
 |ExpressRoute Microsoft Peering How-to Guide | [https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager#msft](https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager#msft)|
 |
 
-## IaaS Ingress
+## IaaS ingress
 
 This section provides the component guidance for controlling Ingress traffic to IaaS components. IaaS includes Virtual Machines and other compute resources that can be deployed and managed within a Virtual Network in Azure. For traffic to arrive at systems deployed using IaaS it must have an entry point to the Virtual Network, which can be established through a Public IP address, Virtual Network Gateway or Virtual Network peering relationship.
 
-### Network Interface
+### Network interface
 
 Network interfaces are the ingress points for all traffic to a Virtual Machine. Network Interfaces enable the configuration of IP Addressing, and can be used to apply NSGs or for routing traffic through a Network Virtual Appliance. The Network Interfaces for Virtual Machines should be planned and configured appropriately to align with overall network segmentation and segregation objectives.
 
@@ -264,7 +264,7 @@ Azure VPN Gateway provides an ingress network point from an external network for
 |VPN Gateway configuration for Australian Government agencies|[IPSEC configuration required for Australian Government agencies](vpn-gateway.md)|
 |
 
-### PaaS VNet Integration
+### PaaS VNet integration
 
 Leveraging PaaS can provide enhanced functionality and availability and reduce management overhead but must be secured appropriately. To increase control, enforce network segmentation, or to provide a secure ingress entry point for applications and services, many PaaS capabilities can be integrated with a Virtual Network.
 
@@ -278,7 +278,7 @@ To use PaaS as an integrated part of system or application architecture, Microso
 |Integrate your app with an Azure Virtual Network How-to guide | [https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)|
 |
 
-## PaaS Ingress
+## PaaS ingress
 
 PaaS capabilities provide opportunities for increased capability and simplified management, but introduce complexities in addressing requirements for network segmentation and segregation. PaaS capabilities are typically configured with Public IP addresses and are accessible from the Internet.  When building systems using PaaS capabilities, care should be taken to identify all the necessary communication flows between components within the system and network security rules created to allow only this communication. As part of a defence-in-depth approach to security, PaaS capabilities should be configured with encryption, authentication, and appropriate access controls and permissions.  
 
@@ -302,7 +302,7 @@ Public IP addresses for PaaS capabilities are allocated based on the region wher
 |Azure Services per region | [https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast&products=all](https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast&products=all)|
 |
 
-### Service Endpoints
+### Service endpoints
 
 Virtual Network Service endpoints provide a high-speed, private ingress network connection for subnets within a Virtual Network to consume specific PaaS capabilities. For complete network segmentation and segregation of the PaaS capability, the PaaS capability must be configured to accept connections only from the necessary virtual networks. Not all PaaS Capabilities support a combination of Firewall rules that includes service endpoints and traditional IP address-based rules, so care should be taken to understand the flow of communications required for application functionality and administration so that the implementation of these security controls does not impact service availability.
 
@@ -334,9 +334,9 @@ NSGs are used to specify the inbound and outbound traffic permitted for a subnet
 |Create, change, or delete a network security group | [https://docs.microsoft.com/azure/virtual-network/manage-network-security-group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)|
 |
 
-## PaaS Firewall
+## PaaS firewall
 
-A PaaS Firewall is a network access control capability that can be applied to certain PaaS services. It allows IP address filtering or filtering from specific virtual networks to be configured to restrict ingress traffic to the specific PaaS instance. For PaaS capabilities that include a Firewall, network access control policies should be configured to permit only the necessary ingress traffic based on application requirements.  
+A PaaS firewall is a network access control capability that can be applied to certain PaaS services. It allows IP address filtering or filtering from specific virtual networks to be configured to restrict ingress traffic to the specific PaaS instance. For PaaS capabilities that include a Firewall, network access control policies should be configured to permit only the necessary ingress traffic based on application requirements.  
 
 |Resource | Link|
 |---|---|
@@ -344,7 +344,7 @@ A PaaS Firewall is a network access control capability that can be applied to ce
 |Storage Network Security | [https://docs.microsoft.com/azure/storage/common/storage-network-security](https://docs.microsoft.com/azure/storage/common/storage-network-security)|
 |
 
-## PaaS Authentication and Access Control
+## PaaS authentication and access control
 
 Depending on the PaaS capability and its purpose, using network controls to restrict access may not be possible or practical. As part of the layered security model for PaaS, Azure provides a variety of authentication and access control mechanisms to restrict access to a service, even if network traffic is allowed. Typical authentication mechanisms for PaaS capabilities include Azure Active Directory, Application level authentication, and Shared Keys or access signatures. Once a user is securely identified, roles can be utilised to control the actions that the user can perform. These tools can be utilised as an alternative or as a complimentary measure to restrict access into services.
 
