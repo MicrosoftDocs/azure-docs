@@ -7,7 +7,7 @@ metadata:
   description: Learn how to use the Bing Spell Check API to obtain suggested corrections for text documents. Tutorials show you how to build apps that use the API.
   services: cognitive-services
   author: aahill
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-spell-check
   ms.tgt_pltfrm: na
