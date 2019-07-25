@@ -36,8 +36,8 @@ Usually, you associate your content key policy with your [Streaming Locator](str
 * You should design a limited set of policies for your Media Service account and re-use them for your streaming locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
 * We recommend that you do not create a new Content Key Policy per Asset. 
 
-   Consider this common pitfall: creating a separate policy for just a few assets in order to reduce the risk of impacting a high number of assets in case a mistake was made in setting up the policy. <br/>
-   In such a set up (where a policy is created for one or a few published assets) could go unnoticed for a long time. Having an issue with the policy associated with many assets has a higher chance of being noticed right away and corrected quickly. 
+   Consider this common pitfall: creating a separate policy for just a few assets to reduce the risk of impacting a high number of assets (in th event a mistake was made in setting up the policy). <br/>
+   However, if a separate policy is created for just one (or a few) published assets, it could go unnoticed for a long time. Having an issue with the policy associated with many assets has a higher chance of being noticed right away and corrected quickly. 
 * If you do need to create a new policy, you have to create a new Streaming Locator for the asset.
 * Content Key Policies are updatable. It can take up to 15 minutes for the key delivery caches to update and pick up the updated policy. 
 
