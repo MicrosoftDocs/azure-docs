@@ -141,6 +141,31 @@ For example, if there is only one custom message, with a language of German:
 1. Select an .mp3 or .wav sound file to upload.
 1. Select **Add**.
 
+### Custom voice message defaults
+
+Sample scripts for creating custom messages.
+
+| Message name | Script |
+| --- | --- |
+| Authentication successful | Your sign in was successfully verified. Goodbye. |
+| Extension prompt | Thank you for using Microsoft's sign-in verification system. Please press pound key to continue. |
+| Fraud Confirmation | A fraud alert has been submitted. To unblock your account, please contact your company's IT help desk. |
+| Fraud greeting (Standard) | Thank you for using Microsoft's sign-in verification system. Please press the pound key to finish your verification. If you did not initiate this verification, someone may be trying to access your account. Please press zero pound to submit a fraud alert. This will notify your company's IT team and block further verification attempts. |
+| Fraud reported	A fraud alert has been submitted. | To unblock your account, please contact your company's IT help desk. |
+| Activation | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Authentication denied retry | Verification denied. |
+| Retry (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Greeting (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Greeting (PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Fraud greeting (PIN) | Thank you for using Microsoft's sign-in verification system.  Please enter your PIN followed by the pound key to finish your verification. If you did not initiate this verification, someone may be trying to access your account. Please press zero pound to submit a fraud alert. This will notify your company's IT team and block further verification attempts. |
+| Retry(PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Extension prompt after digits | If already at this extension, press the pound key to continue. |
+| Authentication denied | I'm sorry, we cannot sign you in at this time. Please try again later. |
+| Activation greeting (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Activation retry (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Activation greeting (PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Extension prompt before digits | Thank you for using Microsoft's sign-in verification system. Please transfer this call to extension … |
+
 ## One-time bypass
 
 The _one-time bypass_ feature allows a user to authenticate a single time without performing two-step verification. The bypass is temporary and expires after a specified number of seconds. In situations where the mobile app or phone is not receiving a notification or phone call, you can allow a one-time bypass so the user can access the desired resource.
