@@ -218,6 +218,92 @@ Up to 3,000 characters of text can be entered in this field. For additional tips
 - **Search keywords**: Enter up to three search keywords that customers can use to find your offer in the marketplace(s).
 - **Getting started instructions** (required): Explain how to configure and start using your app for potential customers.  This quickstart can contain links to more detailed online documentation. Up to 3,000 characters of text can be entered in this field. 
 
+#### **Description**
+
+This is a required field. Items to include in the description: 
+
+* Clearly describe your offer's value proposition in the first few sentences of your description.  
+* Keep in mind that the first few sentences might be displayed in search engine results.  
+* Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
+* Use industry-specific vocabulary or benefit-based wording as much as possible. 
+
+Core components of your value proposition should include the following information: 
+
+* Description of the product. 
+* Type of user that benefits from the product. 
+* Customer needs or pain that the product addresses. 
+
+To make your offer description more engaging you can use HTML tags to format the description. 
+
+1. If you want to create paragraphs, add `<p>` at the begging of the text and add `</p>` at the end.
+
+    **Example**: 
+
+    `<p>` This is my first paragraph. `</p>` <br>
+    `<p>` This is my second paragraph. `</p>` <br>
+
+    The above would look like this:
+
+    <p> This is my first paragraph. </p>
+    <p> This is my second paragraph. </p>
+
+1. If you want to add a **bulleted list of items**, place your text within the `<li>` tags below. You can copy and paste more bulleted items (items between the `<li>` and `</li>` tags) within the `<ul>` and `</ul>` tags. Make sure you add the `<ul></ul>`. 
+
+    **Example**:
+
+    ```
+    <ul> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
+    </ul> 
+    ```
+
+    The above would look like this:
+    <ul> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
+    </ul> 
+
+1. To **bold** content, add `<b>` at the beginning of the text you want to bold and add `</b>` at the end of the text you want to bold. 
+
+    **Example**: `<b>` FREE TRIAL `</b>`
+    
+    The above would cause the words FREE TRIAL to be bolded in the description of the offer in the storefront. 
+
+    **FREE TRIAL**
+
+1. To add **line breaks** between your content, add `<br>` before the content that you want to start on a new line. If you want to leave a space and make sure content starts on a new line, add `<br><br>` before the content. 
+
+    **Example**:
+
+    This is a text line. `<br>` This is a text line that will start in a new line. `<br><br>` This is a line that will start two lines below. 
+
+    The above would look like this:
+
+    This is a text line. <br> This is a text line that will start in a new line. <br><br> This is a line that will start two lines below. 
+
+1. If you want to **increase the size of the text**, first choose how big you want the text to be. Use the below examples. After you have selected the size of the text, add the corresponding `<H*></H*>` tags to the beginning and ending of the text. 
+
+    **Example**:
+
+    `<h1>`This is heading 1`</h1>` <br>
+    `<h2>`This is heading 2`</h2>` <br>
+    `<h3>`This is heading 3`</h3>` <br>
+    `<h4>`This is heading 4`</h4>` <br>
+    `<h5>`This is heading 5`</h5>` <br>
+    `<h6>`This is heading 6`</h6>` 
+
+    The above would look like this:
+
+    <h1>This is heading 1</h1> 
+    <h2>This is heading 2</h2> 
+    <h3>This is heading 3</h3> 
+    <h4>This is heading 4</h4> 
+    <h5>This is heading 5</h5> 
+    <h6>This is heading 6</h6> 
+
 #### Links
 
 - **Privacy Policy** (required): Link to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy
