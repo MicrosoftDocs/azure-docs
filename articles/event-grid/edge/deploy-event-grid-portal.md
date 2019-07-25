@@ -27,7 +27,7 @@ In order to complete this tutorial, you will need:-
 >For the purposes of this tutorial, we will deploy Event Grid module without persistence. This means any topics and subscriptions you create in this tutorial will be deleted if you redeploy the module. Documentation on how to setup persistence on [Linux](persist-state-linux.md) or [Windows](persist-state-windows.md) is also available. For production workloads we do recommend you install Event Grid module with persistence.
 
 >[!IMPORTANT]
->For the purposes of this tutorial, we will deploy Event Grid module with client authentication disabled and allow HTTP subscribers. For production workloads we recommend enabling client authentication and allowing only HTTPs subscribers. Refer to [Security and authentication] documentation on how to configure Event Grid module securely.
+>For the purposes of this tutorial, we will deploy Event Grid module with client authentication disabled and allow HTTP subscribers. For production workloads we recommend enabling client authentication and allowing only HTTPs subscribers. Refer to [Security and authentication](security-authentication.md) documentation on how to configure Event Grid module securely.
 
 ## Select your IoT Edge device
 

@@ -13,7 +13,7 @@ services: event-grid
 
 # Tutorial: Deploy Azure Function IoT Edge module
 
-This article walks through the steps to deploy Azure Functions IoT Module capable of receiving Event Grid events.
+This article walks through the steps to deploy Azure Functions IoT module, basically an Event Grid subscriber to which events can be delivered.
 
 ## Prerequisites
 
@@ -84,4 +84,4 @@ It may take a few moments for the module to be started on the device and then re
 
 ## Next steps
 
-Follow this [tutorial](pub-sub-events-webhook-local.md) on how-to publish and subscribe to events locally using Event Grid on IoT Edge.
+Next, you can [publish and subscribe](pub-sub-events-webhook-local.md) to events locally using Event Grid on IoT Edge.

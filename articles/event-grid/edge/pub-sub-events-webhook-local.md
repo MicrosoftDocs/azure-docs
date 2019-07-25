@@ -27,7 +27,7 @@ In order to complete this tutorial, you will need:-
 
 ## Step1: Create topic
 
-As a publisher of an event, you need to create an event grid topic. Topic refers to an "endpoint" where publishers can then send events to. Subscribers will have to subscribe to a topic to receive events of interest.
+As a publisher of an event, you need to create an event grid topic. Topic refers to an "endpoint" where publishers can then send events to. 
 
 1. Create topic.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
@@ -48,7 +48,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 ## Create event subscription
 
-   Any module interested in receiving events will create an Event grid subscription on a topic of interest.
+   Subscribers can register for events published to a topic. In order to receive any event, they will need to create an Event grid subscription on a topic of interest.
 
 1. Create subscription.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
@@ -95,32 +95,32 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 ## Verify event delivery
 
-    1. SSH or RDP into your IoT Edge VM.
-    1. Run the following command to check the logs on the subscriber to confirm delivery.
-    
+1. SSH or RDP into your IoT Edge VM
+1. Check the subscriber logs
+
     On Windows,
-    
+
     ```sh
-    docker -H npipe:////./pipe/iotedge_moby_engine container logs subscriber
+    docker -H npipe:////./pipe/notedly_moby_engine container logs subscriber    
     ```
     
-    On Linux,
-    
+   On Linux,
+
     ```sh
     sudo docker logs subscriber
     ```
-    
+
     Sample Output: -
-    
+
     ```json
-     Received event data [
-            {
-              "data": {
+    Received event data [
+        {
+            "data": {
                 "make": "Ducati",
                 "model": "Monster"
-              }
             }
-          ]
+        }
+    ]
     ```
 
 ## Next steps
