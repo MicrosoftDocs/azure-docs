@@ -113,10 +113,12 @@ A content searcher is defined as follows:
 ![CredScan Setup](./media/security-tools/6-credscan-customsearchers.png)
 
 ## Customizing the BinSkim Build Task
+
 > [!NOTE]
 > As a prerequisite to run the BinSkim task, your build should meet one of the below conditions.
->    - Your build produces binary artifacts from managed code
+>    - Your build produces binary artifacts from managed code>   
 >    - You have binary artifacts committed you would like to analyze with BinSkim.
+>
 
 1. Click the **BinSkim** task to see the different options available within. 
 ![BinSkim Setup](./media/security-tools/7-binskim-task-details.png)  
@@ -146,6 +148,7 @@ A content searcher is defined as follows:
 > As a prerequisite to run the Roslyn Analyzer task, your build should meet the following conditions.
 >  - Your build definition includes the built-in MSBuild or VSBuild build task to compile C# (or VB) code. This task relies on the input and output of that specific build task to rerun the MSBuild compilation with Roslyn analyzers enabled.
 >  - The build agent running this build task has Visual Studio 2017 v15.5 or later installed (compiler version 2.6.x).
+>
 
 1. Click the task **Run Roslyn Analyzers** to see the different options available. 
 ![Customizing the Roslyn Analyzers Build Task](./media/security-tools/roslyn-task-details.png)
@@ -157,7 +160,8 @@ A content searcher is defined as follows:
 
 > [!NOTE]
 > - Roslyn analyzers are compiler-integrated and can only be run as part of CSC.exe compilation. Hence, this task requires replaying/rerunning the compiler command that ran earlier in the build. This is done by querying VSTS for the MSBuild build task logs (there is no other way for the task to reliably get the MSBuild compilation command line from the build definition; we did consider adding a freeform textbox to allow users to enter their command lines, but it would be hard to keep these up-to-date and in sync with the main build). Custom builds require replaying the entire set of commands, not just compiler commands, and it is not trivial/reliable to enable Roslyn analyzers in these cases. 
-> - Roslyn analyzers are integrated with the compiler and requires the compilation to be invoked. This build task is implemented by recompiling C# projects that were already built using only the MSBuild/VSBuild build task, in the same build / build definition, but in this case, with the Analyzers enabled. If this build task runs on the same agent as the original build task, the output of the original MSBuild/VSBuild build task will be overwritten in the 's' sources folder, by the output of this build task. The build output will be the same, but it is advised that you run MSBuild, copy output to the the artifacts staging directory, and then run Roslyn. 
+> - Roslyn analyzers are integrated with the compiler and requires the compilation to be invoked. This build task is implemented by recompiling C# projects that were already built using only the MSBuild/VSBuild build task, in the same build / build definition, but in this case, with the Analyzers enabled. If this build task runs on the same agent as the original build task, the output of the original MSBuild/VSBuild build task will be overwritten in the 's' sources folder, by the output of this build task. The build output will be the same, but it is advised that you run MSBuild, copy output to the the artifacts staging directory, and then run Roslyn.
+>
 
 ### Additional Resources for Roslyn Analyzers Task
 
@@ -204,8 +208,7 @@ A content searcher is defined as follows:
 ## Customizing the Anti-Malware Scanner Build Task
 
 > [!NOTE]
-> The Anti-Malware build task requires a build agent with Windows Defender enabled, which is true on "Hosted VS2017" build agents. (It will not run on the legacy/VS2015 "Hosted" agent.)
-Signatures cannot be updated on these agents, but the signature should always be relatively current, less than 3 hours old.
+> The Anti-Malware build task requires a build agent with Windows Defender enabled, which is true on "Hosted VS2017" build agents. (It will not run on the legacy/VS2015 "Hosted" agent.)Signatures cannot be updated on these agents, but the signature should always be relatively current, less than 3 hours old.
 
 1. Click the newly added task to see the different options available. 
 2. Settings for Type = **Basic**:
