@@ -23,13 +23,16 @@ To complete the steps in this article, you need the following:
 1. An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 1. A development machine with [Node.js](https://nodejs.org/) version 4.0.0 or later installed. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
 
+> [!NOTE]
+> This is a device sample for a device that is not IoT Plug and Play compliant. You will need to model the device template in IoT Central as outlined below. 
+
 ## Create a Device Template
 
 In your Azure IoT Central application, you need a device template with the following measurements, device properties, settings, and commands:
 
-### Telemetry measurements
+### Telemetry
 
-Add the following telemetry on the **Measurements** page:
+Add the following telemetry:
 
 | Display Name | Field Name  | Units | Min | Max | Decimal Places |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
@@ -42,9 +45,9 @@ Add the following telemetry on the **Measurements** page:
 
 Enter field names exactly as shown in the table into the device template. If the field names don't match the property names in the corresponding device code, the telemetry can't be displayed in the application.
 
-### State measurements
+### State
 
-Add the following state on the **Measurements** page:
+Add the following telemetry with the semantic type of State:
 
 | Display Name | Field Name  | Value 1 | Display Name | Value 2 | Display Name |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
@@ -55,9 +58,9 @@ Add the following state on the **Measurements** page:
 
 Enter field names exactly as shown in the table into the device template. If the field names don't match the property names in the corresponding device code, the state can't be displayed in the application.
 
-### Event measurements
+### Event
 
-Add the following event on the **Measurements** page:
+Add the following telemetry with the semantic type of Event:
 
 | Display Name | Field Name  | Severity |
 | ------------ | ----------- | -------- |
@@ -66,9 +69,9 @@ Add the following event on the **Measurements** page:
 > [!NOTE]
 > The data type of the Event measurement is string.
 
-### Location measurements
+### Location 
 
-Add the following location measurement on the **Measurements** page:
+Add the following location with the semantic type of Location:
 
 | Display Name | Field Name  |
 | ------------ | ----------- |
@@ -78,9 +81,9 @@ The location measurement data type is made up of two floating point numbers for 
 
 Enter field names exactly as shown in the table into the device template. If the field names don't match the property names in the corresponding device code, the location can't be displayed in the application.
 
-### Device properties
+### Properties
 
-Add the following device properties on the **Properties** page:
+Add the following device properties with capability type of Property:
 
 | Display Name        | Field Name        | Data type |
 | ------------------- | ----------------- | --------- |
@@ -89,9 +92,7 @@ Add the following device properties on the **Properties** page:
 
 Enter the field names exactly as shown in the table into the device template. If the field names don't match the property names in the corresponding device code, the properties can't be displayed in the application.
 
-### Settings
-
-Add the following **number** settings on the **Settings** page:
+Add the following writeable properties with capability type of Property and the writeable toggle set to **On**:
 
 | Display Name    | Field Name     | Units | Decimals | Min | Max  | Initial |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
@@ -102,7 +103,7 @@ Enter field name exactly as shown in the table into the device template. If the 
 
 ### Commands
 
-Add the following command on the **Commands** page:
+Add the following commands with capability type of Command:
 
 | Display Name    | Field Name     | Default Timeout | Data Type |
 | --------------- | -------------- | --------------- | --------- |
@@ -198,7 +199,7 @@ The following steps show how to create a client application that implements the 
     }
     ```
 
-1. To define the settings your device responds to, add the following definition:
+1. To define the writeable properties your device responds to, add the following definition:
 
     ```javascript
     // Add any settings your device supports,
@@ -224,7 +225,7 @@ The following steps show how to create a client application that implements the 
     };
     ```
 
-1. To handle updated settings from your Azure IoT Central application, add the following to the file:
+1. To handle updated writeable properties from your Azure IoT Central application, add the following to the file:
 
     ```javascript
     // Handle settings changes that come from Azure IoT Central via the device twin.
