@@ -136,7 +136,7 @@ The included reports are listed in the following table:
 
 The data in these reports can be useful to your applications, such as Security Information and Event Management (SIEM) systems, audit, and business intelligence tools. The Azure AD reporting APIs provide programmatic access to the data through a set of REST-based APIs. You can call these [APIs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started) from various programming languages and tools.
 
-Events in the Azure AD audit report are retained for 180 days.
+The event retention in the Azure AD Audit report varies between 7-90 days depending on the type of license associated with the tenant. 
 
 > [!Note]
 > For more information about report retention, see [Azure AD report retention policies](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-retention).

@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 4/03/2019
+ms.date: 7/01/2019
 ms.author: aahi
 ---
 
 # Sending search queries to the Bing Visual Search API
 
-This article describes the parameters and attributes of requests sent to the Bing Visual Search API, as well as the response object.
+This article describes the parameters and attributes of requests sent to the Bing Visual Search API, as well as the response object. 
 
 You can get insights about an image in three ways:
 
@@ -188,6 +188,9 @@ Content-Disposition: form-data; name="knowledgeRequest"
 ```
 
 ## Bing Visual Search responses
+
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 If there are insights available for the image, the response contains one or more `tags` that contain the insights. The `image` field contains the insights token for the input image:
 

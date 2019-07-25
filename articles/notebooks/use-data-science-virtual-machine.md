@@ -48,7 +48,7 @@ You obtain these values from the DSVM page in the Azure portal.
 
 ## Accessing Azure Notebooks files from the DSVM
 
-File system access is supported for DSVM versions 19.06.15 or later. To check the version, first connect to your DSVM via SSH (the IP address is available in the Azure portal). Then run the following command using your `<ip_address>`: `curl -H Metadata:true "http://<ip_address>/metadata/instance?api-version=2018-10-01"`. The version number is shown in the output for "version".
+File system access is supported for DSVM versions 19.06.15 or later. To check the version, first connect to your DSVM via SSH, then run the following command: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` (you must use the exact IP address shown here). The version number is shown in the output for "version".
 
 To preserve parity of file paths with the **Free Compute** tier, you are able to only open one project at a time on a DSVM. To open a new project, you must shut down the open project first.
 

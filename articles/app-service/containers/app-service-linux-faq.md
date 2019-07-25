@@ -4,7 +4,7 @@ description: Azure App Service on Linux FAQ.
 keywords: azure app service, web app, faq, linux, oss, web app for containers, multi-container, multicontainer
 services: app-service
 documentationCenter: ''
-author: yili
+author: msangapu-msft
 manager: stefsch
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: yili
+ms.author: msangapu
 ms.custom: seodec18
 ---
 # Azure App Service on Linux FAQ
@@ -114,10 +114,7 @@ Yes, during a Git deployment, Kudu should detect that you're deploying a PHP app
 
 **I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.**
 
-You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to *true*. Keep in mind that this will cause container restarts when the platform storage goes through a change.
-
->[!NOTE]
->If the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is unspecified or set to *false*, the `/home/` directory will not be shared across scale instances, and files that are written there will not be persisted across restarts.
+If `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is **unspecified** or set to *true*, the `/home/` directory **will be shared** across scale instances, and files written **will persist** across restarts. Explicitly setting `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to *false* will disable the mount.
 
 **My custom container takes a long time to start, and the platform restarts the container before it finishes starting up.**
 

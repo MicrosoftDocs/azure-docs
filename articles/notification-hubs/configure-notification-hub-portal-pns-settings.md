@@ -15,7 +15,7 @@ ms.author: jowargo
 
 # Set up push notifications in a notification hub in the Azure portal
 
-Azure Notification Hubs provides a push engine that's easy to use and that scales out. Use Notification Hubs to send notifications to any platform (iOS, Android, Windows, Kindle, Baidu) and from any back end (cloud or on-premises). For more information, see [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
+Azure Notification Hubs provides a push engine that's easy to use and that scales out. Use Notification Hubs to send notifications to any platform (iOS, Android, Windows, Baidu) and from any back end (cloud or on-premises). For more information, see [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
 In this quickstart, you'll use the platform notification system (PNS) settings in Notification Hubs to set up push notifications on multiple platforms. The quickstart shows you the steps to take in the Azure portal.
 
@@ -91,17 +91,6 @@ To set up Microsoft Push Notification Service (MPNS) for Windows Phone:
 
 For more information, see [Push notifications to Windows Phone apps by using Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md).
       
-## Amazon Device Messaging
-
-To set up push notifications for Amazon Device Messaging (ADM):
-
-1. In the Azure portal, on the **Notification Hub** page, select **Amazon (ADM)** from the left menu.
-2. Enter values for **Client ID** and **Client Secret**.
-3. Select **Save**.
-    
-   ![Screenshot of ADM settings in the Azure portal](./media/notification-hubs-kindle-get-started/notification-hub-adm-settings.png)
-
-For more information, see [Get started with Notification Hubs for Kindle apps](notification-hubs-kindle-amazon-adm-push-notification.md).
 
 ## Baidu (Android China)
 
@@ -127,5 +116,4 @@ To learn more about how to push notifications to various platforms, see these tu
 - [Push notifications to Android devices by using Notification Hubs and Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)
 - [Push notifications to a UWP app running on a Windows device](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
 - [Push notifications to a Windows Phone 8 app by using MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
-- [Push notifications to a Kindle application](notification-hubs-kindle-amazon-adm-push-notification.md)
 - [Push notifications by using Notification Hubs and Baidu cloud push](notification-hubs-baidu-china-android-notifications-get-started.md)

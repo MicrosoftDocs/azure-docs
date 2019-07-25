@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
 
 ---
@@ -83,7 +83,8 @@ The minimal DIUs to empower a copy activity run is two. If not specified, the fo
 | Copy scenario | Default DIUs determined by service |
 |:--- |:--- |
 | Copy data between file-based stores | Between 4 and 32 depending on the number and size of the files |
-| All other copy scenarios | 4 |
+| Copy data to Azure SQL Database or Azure Cosmos DB |Between 4 and 16 depending on the sink Azure SQL Database's or Cosmos DB's tier (number of DTUs/RUs) |
+| All the other copy scenarios | 4 |
 
 To override this default, specify a value for the **dataIntegrationUnits** property as follows. The *allowed values* for the **dataIntegrationUnits** property is up to 256. The *actual number of DIUs* that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
 
@@ -128,11 +129,11 @@ For each copy activity run, Azure Data Factory determines the number of parallel
 | Copy scenario | Default parallel copy count determined by service |
 | --- | --- |
 | Copy data between file-based stores |Depends on the size of the files and the number of DIUs used to copy data between two cloud data stores, or the physical configuration of the self-hosted integration runtime machine. |
-| Copy data from any source data store to Azure Table storage |4 |
+| Copy data from any source store to Azure Table storage |4 |
 | All other copy scenarios |1 |
 
 > [!TIP]
-> When you copy data between file-based stores, the default behavior usually gives you the best throughput. The default behavior is auto-determined.
+> When you copy data between file-based stores, the default behavior usually gives you the best throughput. The default behavior is auto-determined based on your source file pattern.
 
 To control the load on machines that host your data stores, or to tune copy performance, you can override the default value and specify a value for the **parallelCopies** property. The value must be an integer greater than or equal to 1. At run time, for the best performance, the copy activity uses a value that is less than or equal to the value that you set.
 
@@ -159,9 +160,9 @@ To control the load on machines that host your data stores, or to tune copy perf
 **Points to note:**
 
 * When you copy data between file-based stores, **parallelCopies** determines the parallelism at the file level. The chunking within a single file happens underneath automatically and transparently. It's designed to use the best suitable chunk size for a given source data store type to load data in parallel and orthogonal to **parallelCopies**. The actual number of parallel copies the data movement service uses for the copy operation at run time is no more than the number of files you have. If the copy behavior is **mergeFile**, the copy activity can't take advantage of file-level parallelism.
-* When you specify a value for the **parallelCopies** property, consider the load increase on your source and sink data stores. Also consider the load increase to the self-hosted integration runtime if the copy activity is empowered by it, for example, for hybrid copy. This load increase happens especially when you have multiple activities or concurrent runs of the same activities that run against the same data store. If you notice that either the data store or the self-hosted integration runtime is overwhelmed with the load, decrease the **parallelCopies** value to relieve the load.
-* When you copy data from stores that aren't file-based to stores that are file-based, the data movement service ignores the **parallelCopies** property. Even if parallelism is specified, it's not applied in this case.
+* When you copy data from stores that aren't file-based (except Oracle database as source with data partitioning enabled) to stores that are file-based, the data movement service ignores the **parallelCopies** property. Even if parallelism is specified, it's not applied in this case.
 * The **parallelCopies** property is orthogonal to **dataIntegrationUnits**. The former is counted across all the Data Integration Units.
+* When you specify a value for the **parallelCopies** property, consider the load increase on your source and sink data stores. Also consider the load increase to the self-hosted integration runtime if the copy activity is empowered by it, for example, for hybrid copy. This load increase happens especially when you have multiple activities or concurrent runs of the same activities that run against the same data store. If you notice that either the data store or the self-hosted integration runtime is overwhelmed with the load, decrease the **parallelCopies** value to relieve the load.
 
 ## Staged copy
 

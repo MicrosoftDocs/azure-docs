@@ -8,9 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
 ---
 
 # Speech Synthesis Markup Language (SSML)
@@ -160,7 +159,7 @@ This SSML snippet illustrates how the `<mstts:express-as>` element is used to ch
 Use the `break` element to insert pauses (or breaks) between words, or prevent pauses automatically added by the text-to-speech service.
 
 > [!NOTE]
-> Use this element to override the default behavior of text-to-speech (TTS) for a word or phrase if the synthesized speech for that word or phrase sounds unnatural. Set `strength` to `none` to prevent a prosodic break, which is automatically inserted by the tex-to-speech service.
+> Use this element to override the default behavior of text-to-speech (TTS) for a word or phrase if the synthesized speech for that word or phrase sounds unnatural. Set `strength` to `none` to prevent a prosodic break, which is automatically inserted by the text-to-speech service.
 
 **Syntax**
 

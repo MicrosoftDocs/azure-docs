@@ -47,7 +47,7 @@ The following diagram shows the Microsoft identity experience at a high level, i
 
 ### App registration experience
 
-The Azure portal **[App registrations](https://go.microsoft.com/fwlink/?linkid=2083908)** experience is the one portal experience for managing all applications you’ve integrated with Microsoft identity platform. If you have been using the Application Registration Portal, starting using the Azure portal app registration experience instead.
+The Azure portal **[App registrations](https://go.microsoft.com/fwlink/?linkid=2083908)** experience is the one portal experience for managing all applications you’ve integrated with Microsoft identity platform. If you have been using the Application Registration Portal, start using the Azure portal app registration experience instead.
 
 For integration with Azure AD B2C (when authenticating social or local identities), you’ll need to register your application in a B2C tenant. This experience is also part of the Azure portal.
 

@@ -56,16 +56,21 @@ Use this table as a guide:
 | Storage type | Currently supported method of authorization |
 |--|--|
 |**Blob storage** | Azure AD & SAS |
-|**Blob storage (hierarchial namespace)** | Azure AD only |
+|**Blob storage (hierarchial namespace)** | Azure AD & SAS |
 |**File storage** | SAS only |
 
 ### Option 1: Use Azure AD
 
+By using Azure AD, you can provide credentials once instead of having to append a SAS token to each command.  
+
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
-If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your identity.
+If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your user identity or service principal. 
 
-If you want to upload files, then verify that one of these roles has been assigned to your identity:
+> [!NOTE]
+> User identities and service principals are each a type of *security principal*, so we'll use the term *security principal* for the remainder of this article.
+
+If you want to upload files, then verify that one of these roles has been assigned to your security principal:
 
 - [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -79,13 +84,16 @@ These roles can be assigned to your identity in any of these scopes:
 
 To learn how to verify and assign roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or directory. In the ACL, your identity needs write permission on the target directory, and execute permission on container and each parent directory.
+> [!NOTE] 
+> Keep in mind that RBAC role assignments may take up to five minutes to propagate.
+
+You don't need to have one of these roles assigned to your security principal if your security principal is added to the access control list (ACL) of the target container or directory. In the ACL, your security principal needs write permission on the target directory, and execute permission on container and each parent directory.
 
 To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-#### Authenticate your identity
+#### Authenticate a user identity
 
-After you've verified that your identity has been given the necessary authorization level, open a command prompt, type the following command, and then press the ENTER key.
+After you've verified that your user identity has been given the necessary authorization level, open a command prompt, type the following command, and then press the ENTER key.
 
 ```azcopy
 azcopy login
@@ -104,6 +112,72 @@ This command returns an authentication code and the URL of a website. Open the w
 ![Create a container](media/storage-use-azcopy-v10/azcopy-login.png)
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
+
+<a id="service-principal" />
+
+#### Authenticate a service principal
+
+This is a great option if you plan to use AzCopy inside of a script that runs without user interaction. 
+
+Before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information.
+
+You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration. 
+
+To learn more about creating service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+To learn more about service principals in general, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+
+##### Using a client secret
+
+Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal's app registration. 
+
+> [!NOTE]
+> Make sure to set this value from your command prompt, and not in the environment variable settings of your operating system. That way, the value is available only to the current session.
+
+This example shows how you could do this in PowerShell.
+
+```azcopy
+$env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
+```
+
+> [!NOTE]
+> Consider using a prompt as shown in this example. That way, the client secret won't appear in your console's command history. 
+
+Next, type the following command, and then press the ENTER key.
+
+```azcopy
+azcopy login --service-principal --application-id <application-id>
+```
+
+Replace the `<application-id>` placeholder with the application ID of your service principal's app registration.
+
+##### Using a certificate
+
+If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration, and then use that certificate to login.
+
+In addition to uploading your certificate to your app registration, you'll also need to have a copy of the certificate saved to the machine or VM where AzCopy will be running. This copy of the certificate should be in .PFX or .PEM format, and must include the private key. The private key should be password-protected. If you're using Windows, and your certificate exists only in a certificate store, make sure to export that certificate to a PFX file (including the private key). For guidance, see [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
+
+Next, set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the certificate password.
+
+> [!NOTE]
+> Make sure to set this value from your command prompt, and not in the environment variable settings of your operating system. That way, the value is available only to the current session.
+
+This example shows how you could do this in PowerShell.
+
+```azcopy
+$env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
+```
+
+Next, type the following command, and then press the ENTER key.
+
+```azcopy
+azcopy login --service-principal --certificate-path <path-to-certificate-file>
+```
+
+Replace the `<path-to-certificate-file>` placeholder with the relative or fully-qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place.
+
+> [!NOTE]
+> Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history. 
 
 ### Option 2: Use a SAS token
 
@@ -129,7 +203,11 @@ To find example commands, see any of these articles.
 
 - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
 
+- [Transfer data with AzCopy and Azure Stack storage](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
+
 ## Use AzCopy in a script
+
+Before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information. For examples, see the [Authenticate your service principal](#service-principal) section of this article.
 
 Over time, the AzCopy [download link](#download-and-install-azcopy) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon. 
 

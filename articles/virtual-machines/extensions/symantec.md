@@ -4,7 +4,7 @@ description: Learn how to install and configure the Symantec Endpoint Protection
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management
 

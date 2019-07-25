@@ -4,8 +4,8 @@ description: This article is intended to help you understand how to use the Azur
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
@@ -48,7 +48,7 @@ The solution reports how up-to-date the computer is based on what source you're 
 
 You can deploy and install software updates on computers that require the updates by creating a scheduled deployment. Updates classified as *Optional* aren't included in the deployment scope for Windows computers. Only required updates are included in the deployment scope.
 
-The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or by selecting a [computer group](../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of computers, or an [Azure query](#azure-machines) that dynamically selects Azure VMs based on specified criteria. These groups are different from [Scope Configuration](../azure-monitor/insights/solution-targeting.md), which is only used to determine what machines get the management packs that enable the solution. 
+The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or by selecting a [computer group](../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of computers, or an [Azure query](#azure-machines) that dynamically selects Azure VMs based on specified criteria. These groups are different from [Scope Configuration](../azure-monitor/insights/solution-targeting.md), which is only used to determine what machines get the management packs that enable the solution.
 
 You also specify a schedule to approve and set a period of time during which updates can be installed. This period of time is called the maintenance window. Ten minutes of the maintenance window is reserved for reboots if a reboot is needed and you selected the appropriate reboot option. If patching takes longer than expected and there is less than ten minutes in the maintenance window, a reboot will not occur.
 
@@ -72,6 +72,9 @@ The following table shows a list of supported operating systems:
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)      |Linux agents must have access to an update repository.         |
+
+> [!NOTE]
+> Azure virtual machine scale sets can be managed with Update Management. Update Management works on the instances themselves and not the base image. You'll need to schedule the updates in an incremental way, as to not update all VM instances at once.
 
 ### Unsupported client types
 
@@ -134,7 +137,7 @@ To begin patching systems, you need to enable the Update Management solution. Th
 * [From browsing multiple machines](automation-onboard-solutions-from-browse.md)
 * [From your Automation account](automation-onboard-solutions-from-automation-account.md)
 * [With an Azure Automation runbook](automation-onboard-solutions.md)
-  
+
 ### Confirm that non-Azure machines are onboarded
 
 To confirm that directly connected machines are communicating with Azure Monitor logs, after a few minutes, you can run one the following log searches.
@@ -276,7 +279,7 @@ The following tables list the update classifications in Update Management, with 
 |Tools     | A utility or feature that helps complete one or more tasks.        |
 |Updates     | An update to an application or file that currently is installed.        |
 
-### Linux
+### <a name="linux-2"></a>Linux
 
 |Classification  |Description  |
 |---------|---------|

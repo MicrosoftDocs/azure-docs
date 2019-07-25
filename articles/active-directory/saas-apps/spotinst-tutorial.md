@@ -111,7 +111,7 @@ To configure Azure AD single sign-on with Spotinst, perform the following steps:
     ![Spotinst Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type the URL:
-    `https://console.spotinst.com`
+    `https://console.spotinst.com/auth/saml`
 
 	> [!NOTE]
 	> The Relay State value is not real. You will update the Relay State value with the actual Relay State value, which is explained later in the tutorial.

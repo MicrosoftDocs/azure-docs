@@ -4,7 +4,7 @@ description: Understand how to use HTTP triggers and bindings in Azure Functions
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, HTTP, API, REST
 
 ms.service: azure-functions

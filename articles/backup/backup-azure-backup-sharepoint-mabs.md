@@ -1,7 +1,7 @@
 ---
 title: Use Azure Backup server to back up a SharePoint farm to Azure
 description: Use Azure Backup Server to back up and restore your SharePoint data. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
-services: backup
+
 author: kasinh
 manager: vvithal
 ms.service: backup
@@ -218,13 +218,6 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. At this point, follow the recovery steps earlier in this article to recover a SharePoint content database from disk.
-
-## FAQs
-Q: Can I recover a SharePoint item to the original location if SharePoint is configured by using SQL AlwaysOn (with protection on disk)?<br>
-A: Yes, the item can be recovered to the original SharePoint site.
-
-Q: Can I recover a SharePoint database to the original location if SharePoint is configured by using SQL AlwaysOn?<br>
-A: Because SharePoint databases are configured in SQL AlwaysOn, they cannot be modified unless the availability group is removed. As a result, MABS cannot restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
 
 ## Next Steps
 

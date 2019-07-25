@@ -45,12 +45,16 @@
       href: functions-add-output-binding-storage-queue-python.md
     - name: Storage - portal
       href: functions-integrate-storage-queue-output-binding.md
+    - name: Storage - Visual Studio Code
+      href: functions-add-output-binding-storage-queue-vs-code.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
     href: functions-twitter-email.md
   - name: Create a serverless API
     href: functions-create-serverless-api.md
+  - name: Develop Python functions with VS Code
+    href: tutorial-vs-code-serverless-python.md
   - name: Create an OpenAPI definition
     href: functions-openapi-definition.md
   - name: Connect to a Virtual Network
@@ -136,6 +140,8 @@
       href: functions-test-a-function.md
     - name: Develop and debug locally
       href: functions-develop-local.md
+    - name: Visual Studio Code development
+      href: functions-develop-vs-code.md
     - name: Visual Studio development
       href: functions-develop-vs.md
     - name: Core Tools development

@@ -4,7 +4,7 @@ description: Learn how to install and configure Remote Desktop (xrdp) to connect
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 

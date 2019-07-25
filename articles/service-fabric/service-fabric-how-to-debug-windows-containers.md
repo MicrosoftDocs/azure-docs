@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: aljo, mikhegn
+ms.author: mikhegn
 ---
 # How to: Debug Windows containers in Azure Service Fabric using Visual Studio 2019
 

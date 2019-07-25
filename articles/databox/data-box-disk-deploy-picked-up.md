@@ -7,10 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
+::: zone target="docs"
 
 # Tutorial: Return Azure Data Box Disk and verify data upload to Azure
 
@@ -24,6 +25,7 @@ This is the last tutorial of the series: Deploy Azure Data Box Disk. In this tut
 ## Prerequisites
 
 Before you begin, make sure that you have completed the [Tutorial: Copy data to Azure Data Box Disk and verify](data-box-disk-deploy-copy-data.md).
+
 
 ## Ship Data Box Disk back
 
@@ -84,7 +86,7 @@ Take the following steps if returning the device in Europe.
 
 ### Pick up in Asia-Pacific region
 
-This region includes instructions for pickup in Japan, Korea, and Australia.
+This region includes instructions for pickup in Japan, Korea, Australia, and Singapore.
 
 #### Pick up in Australia
 
@@ -99,43 +101,64 @@ Azure datacenters in Australia have an additional security notification. All the
 
 #### Pick up in Japan
 
-1. Make sure to include the return connote of Japan Post Chakubarai.
-2. Write your company name and address information on the connote as your sender information.
-3. Call Japan Post pickup request number 0800-0800-111 (free dial). Dial the 7-digit postal code for pickup address and then forward to your nearest post office.
-    - Available times for pickup request depend on the respective post offices.
-    - Inform that the shipment is for Japan Post Chakubarai Yu-Pack.
-    - Use the Chakubarai connote which was included.
-4. If Japan Post Chakubarai connote was not included, email *Quantium Solutions* at `Customerservice.JP@quantiumsolutions.com`. *Quantium Solutions* will request Japan Post to pick up and ask them to bring the connote upon pickup.
-    - Indicate the reference number on the Chakubarai connote remark column that Japan Post will bring.
-    - Enter the delivery address as shown below:   
-        ```
-        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
-        Microsoft Service Center c/o Quantium Solutions Japan
-        TEL: 03-5755-0150
-        ```
+1. Write your company name and address information on the consignment note as your sender information.
+2. Email Quantium solution using the following email template.
 
-If the Chakubarai connote is missing, you can request the pickup via email. Use the following email template to request pickup.
+    - If Japan Post Chakubarai consignment note wasn't included or is missing, note that in this email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
+    - If you have multiple orders, email to ensure individual pickup.
 
-```
-To: Customerservice.JP@quantiumsolutions.com
-Subject: Pickup request for Azure Data Box Disk｜Job Name： 
-Body: 
-- Azure Data Box Disk job name：
-- Reference number:  
-- Requested pickup date：mmdd (Select a requested time slot from below).
-    a. 08：00-13：00 
-    b. 13：00-15：00 
-    c. 15：00-17：00 
-    d. 17：00-19：00 
-```
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+        a. 08：00-13：00 
+        b. 13：00-15：00 
+        c. 15：00-17：00 
+        d. 17：00-19：00 
+    ```
+
+3. Receive an email confirmation from Quantium solutions after you've booked a pickup. The email confirmation also includes information on the Chakubarai consignment note.
+
+If needed, you can contact Quantium Solution Support (Japanese language) at the following information: 
+
+- Email：Customerservice.JP@quantiumsolutions.com 
+- Telephone：03-5755-0150 
 
 #### Pick up in Korea
 
-1. Make sure to include the return connote.
-2. To request pickup:
-    1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft pickup* and the connote number to arrange for a collection.  
-    2. If the hotline is busy, email `microsoft@rocketparcel.com`, with the email subject *Microsoft Pickup* and the connote number as reference.
+1. Make sure to include the return consignment note.
+2. To request pickup when consignment note is present:
+    1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft Azure pickup* and the service request number to arrange for a collection.  
+    2. If the hotline is busy, email `microsoft@rocketparcel.com`, with the email subject *Microsoft Azure Pickup* and the service request number as reference.
     3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
+    4. You receive an email confirmation for the pickup schedule.
+3. Do this step only if the consignment note is not present. To request pickup:
+    1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft Azure pickup* and the service request number to arrange for a collection. Specify that you need a new consignment note to arrange for a collection. Provide sender (customer), receiver information (Azure datacenter), and reference number (service request number). 
+    2. If the hotline is busy, email `microsoft@rocketparcel.com`, with the email subject *Microsoft Azure Pickup* and the service request number as reference.
+    3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
+    4. You receive a verbal confirmation if the request is made via telephone.
+
+### Pick up in Singapore
+
+1. Print the shipping label and attach onto the box. If the label is damaged or lost:
+    - Go to **Overview > Download shipping label**.
+
+        ![Download shipping label](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        This action downloads a return shipping label as shown below.
+
+        ![Example shipping label](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Affix the label on the device. Make sure that the label is visible.
+
+2. To request pickup:
+    - Call **SingPost** hotline at **6845 6485** during office hours (9am to 5pm, Monday to Friday).  
+    - Quote *Microsoft Azure pickup* and the service request number (tracking number on the return shipping label) to arrange for a collection. 
+    - You will get a verbal confirmation for the pickup schedule. 
+    - If the courier does not arrive for collection, call **SingPost** at **6845 6485** for alternate arrangements. 
+3. Hand over to the courier. 
+
 
 ## Verify data upload to Azure
 
@@ -204,5 +227,41 @@ Advance to the next how-to to learn how to manage Data Box Disk via the Azure po
 
 > [!div class="nextstepaction"]
 > [Use Azure portal to administer Azure Data Box Disk](./data-box-portal-ui-admin.md)
+
+::: zone-end
+
+
+::: zone target="chromeless"
+
+# Return the disk and verify upload to Azure
+
+## Ship to Azure
+
+1. After the data validation is complete, unplug the disks. Remove the connecting cables.
+2. Wrap all the disks and the connecting cables with a bubble wrap and place those into the shipping box. Charges may apply if the accessories are missing.
+    - Reuse the packaging from the initial shipment.  
+    - We recommend that you pack disks using a well-secured bubbled wrap.
+    - Make sure the fit is snug to reduce any movements within the box.
+3. The next steps are determined by where you are returning the device.
+    - [Schedule a pickup with UPS if returning the device in US and Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
+    - [Schedule a pickup with DHL for Europe](data-box-disk-deploy-picked-up.md#pick-up-in-europe) by visiting their website and specifying the airway bill number.
+    - [Schedule a pickup for countries in Australia-Pacific region](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific-region) such as Australia, Japan, Korea, and Singapore.
+4. Once the disks are picked up by your carrier, the order status in the portal updates and a tracking ID is displayed.
+
+## Verify upload to Azure
+
+After the data is uploaded to Azure, verify that your data is in the storage account(s) before you delete it from the source. Your data can be in:
+
+- Your Azure Storage account(s). When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
+
+    - **For block blobs and page blobs**: https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt
+
+    - **For Azure Files**: https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt
+
+    Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
+
+- Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation.
+
+::: zone-end
 
 

@@ -8,7 +8,7 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app so that they are kept secure.

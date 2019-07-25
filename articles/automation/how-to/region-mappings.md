@@ -4,11 +4,11 @@ description: This article describes the mappings allowed between an Automation A
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/20/2019
 ms.topic: conceptual
-manager: carmonm 
+manager: carmonm
 ---
 # Workspace mappings
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/26/2019
 ms.author: dapine
 ---
 
@@ -76,7 +76,7 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
     Save the results to get the **loginServer** property. This will be part of the hosted container's address, used later in the `language.yml` file.
 
     ```console
-    >az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    > az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
     {
         "adminUserEnabled": false,
         "creationDate": "2019-01-02T23:49:53.783549+00:00",
@@ -402,8 +402,8 @@ az group delete --name cogserv-container-rg
 
 ## Next steps
 
-* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
-* Use the Text Analytics Connected Service](../vs-text-connected-service.md)
+> [!div class="nextstepaction"]
+> [Cognitive Services Containers](../cognitive-services-container-support.md)
 
 <!--
 kubectl get secrets

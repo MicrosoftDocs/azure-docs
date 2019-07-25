@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
-ms.author: aljo, anmola
+ms.author: anmola
 ---
 # Containerize your Service Fabric Reliable Services and Reliable Actors on Windows
 

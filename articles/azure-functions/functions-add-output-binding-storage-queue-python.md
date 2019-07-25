@@ -13,7 +13,7 @@ ms.devlang: python
 manager: jeconnoc
 ---
 
-# Add an Azure Storage queue binding to your function
+# Add an Azure Storage queue binding to your Python function
 
 Azure Functions lets you connect Azure services and other resources to functions without having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A trigger is a special type of input binding. While a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
@@ -27,7 +27,7 @@ Before you start this article, complete the steps in [part 1 of the Python quick
 
 ## Download the function app settings
 
-In the previous quickstart article, you created a function app in Azure along with a Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the local.settings.json file. Run the following the Azure Functions Core Tools command to download settings to local.settings.json, replacing `<APP_NAME>` with the name of your function app from the previous article:
+In the previous quickstart article, you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the local.settings.json file. Run the following the Azure Functions Core Tools command to download settings to local.settings.json, replacing `<APP_NAME>` with the name of your function app from the previous article:
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
@@ -39,6 +39,12 @@ You may be required to sign in to your Azure account.
 > Because it contains secrets, the local.settings.json file never gets published, and it should be excluded from source control.
 
 You need the value `AzureWebJobsStorage`, which is the Storage account connection string. You use this connection to verify that the output binding works as expected.
+
+## Enable extension bundles
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+Now, you can add a the Storage output binding to your project.
 
 ## Add an output binding
 
@@ -128,7 +134,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Because the previous article had you enable extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x) was downloaded and installed for you during startup.
+> Because the previous article had you enable extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
 
 Copy the URL of your `HttpTrigger` function from the runtime output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. You should see the same response in the browser as you did in the previous article.
 
