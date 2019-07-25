@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 07/26/2019
 ms.author: zhchia
 ---
 
@@ -50,6 +50,8 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup Templafy for provisioning
 
+Before configuring Templafy for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Templafy.
+
 1. Sign in to your [Templafy Admin Console](https://azureadapp.templafy.com/). Click on **Administration**.
 
 	![Templafy Admin Console](media/templafy-provisioning-tutorial/image00.png)
@@ -64,7 +66,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Add Templafy from the gallery
 
-Before configuring Templafy for automatic user provisioning with Azure AD, you need to add Templafy from the Azure AD application gallery to your list of managed SaaS applications.
+To configure Templafy for automatic user provisioning with Azure AD, you need to add Templafy from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add Templafy from the Azure AD application gallery, perform the following steps:**
 
