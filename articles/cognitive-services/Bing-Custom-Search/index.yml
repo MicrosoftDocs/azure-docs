@@ -6,13 +6,13 @@ metadata:
   description: Learn how to use the Bing Custom Search portal and API to create a custom search experience
   services: cognitive-services
   author: v-deken
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/16/2019
+  ms.date: 07/25/2019
   ms.author: v-deken
 abstract:
   description: Use the Bing Custom Search API to create a search instance for topics that you care about. Specify the domains and webpages to be searched and adjust search rankings to fully customize your search experience.

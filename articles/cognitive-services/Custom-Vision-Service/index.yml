@@ -6,7 +6,7 @@ metadata:
   description: Learn how to use Custom Vision to build, deploy, and improve custom image classifications. Tutorials show you how to build apps that use the API.
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
 
   ms.service: cognitive-services
   ms.subservice: custom-vision
