@@ -3,7 +3,7 @@ title: Create tumbling window trigger dependencies in Azure Data Factory | Micro
 description: Learn how to create dependency on a tumbling window trigger in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
+author: daperlov
 manager: craigg
 editor:
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: douglasl
+ms.author: daperlov
 ---
 # Create a tumbling window trigger dependency
 
@@ -73,9 +73,11 @@ The following table provides the list of attributes needed to define a Tumbling 
 | **Property Name** | **Description**  | **Type** | **Required** |
 |---|---|---|---|
 | Trigger  | All the existing tumbling window triggers are displayed in this drop down. Choose the trigger to take dependency on.  | TumblingWindowTrigger | Yes |
-| Offset | Offset of the dependency trigger. Provide a value in the time span format and both negative and positive offsets are allowed. This parameter is mandatory if the trigger is depending on itself and in all other cases it is optional. Note that self-dependency should always be a negative offset. | Timespan | Self-Dependency: Yes Other: No |
-| Window Size | Size of the dependency tumbling window. Provide a value in the time span format. This parameter is optional. | Timespan | No  |
-|||||
+| Offset | Offset of the dependency trigger. Provide a value in time span format and both negative and positive offsets are allowed. This parameter is mandatory if the trigger is depending on itself and in all other cases it is optional. Note that self-dependency should always be a negative offset. | Timespan<br/>(hh:mm:ss) | Self-Dependency: Yes<br/>Other: No |
+| Window Size | Size of the dependency tumbling window. Provide a value in time span format. This parameter is optional. | Timespan<br/>(hh:mm:ss) | No  |
+
+> [!NOTE]
+> A tumbling window trigger can depend on a maximum of two other triggers.
 
 ## Tumbling window self-dependency properties
 
@@ -144,7 +146,7 @@ A daily job with no gaps in the output streams of the job:
 
 ## Monitor dependencies
 
-You can monitor dependency chain and the corresponding windows from the trigger run monitoring page. Navigate to  **Monitoring > Trigger Runs**.
+You can monitor the dependency chain and the corresponding windows from the trigger run monitoring page. Navigate to  **Monitoring > Trigger Runs**.
 
 ![](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png)
 

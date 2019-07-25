@@ -46,7 +46,23 @@ A tumbling window has the following trigger type properties:
             "retryPolicy": {
                 "count": <<int - optional, default: 0>>,
                 “intervalInSeconds”: <<int>>,
-            }
+            },
+			"dependsOn": [
+				{
+					"type": "TumblingWindowTriggerDependencyReference",
+					"size": "<<timespan – optional>>",
+					"offset": "<<timespan – optional>>",
+					"referenceTrigger": {
+						"referenceName": "MyTumblingWindowDependency1",
+						"type": "TriggerReference"
+					}
+				},
+				{
+					"type": "SelfDependencyTumblingWindowTriggerReference",
+					"size": "<<timespan – optional>>",
+					"offset": "<<timespan>>"
+				}
+			]
         },
         "pipeline": {
             "pipelineReference": {
@@ -83,6 +99,9 @@ The following table provides a high-level overview of the major JSON elements th
 | **maxConcurrency** | The number of simultaneous trigger runs that are fired for windows that are ready. For example, to back fill hourly runs for yesterday results in 24 windows. If **maxConcurrency** = 10, trigger events are fired only for the first 10 windows (00:00-01:00 - 09:00-10:00). After the first 10 triggered pipeline runs are complete, trigger runs are fired for the next 10 windows (10:00-11:00 - 19:00-20:00). Continuing with this example of **maxConcurrency** = 10, if there are 10 windows ready, there are 10 total pipeline runs. If there's only 1 window ready, there's only 1 pipeline run. | Integer | An integer between 1 and 50. | Yes |
 | **retryPolicy: Count** | The number of retries before the pipeline run is marked as "Failed."  | Integer | An integer, where the default is 0 (no retries). | No |
 | **retryPolicy: intervalInSeconds** | The delay between retry attempts specified in seconds. | Integer | The number of seconds, where the default is 30. | No |
+| **dependsOn: type** | The type of TumblingWindowTriggerReference. Required if a dependency is set. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | No |
+| **dependsOn: size** | The Size of the dependency tumbling window. Provide a value in time span format. | Timespan<br/>(hh:mm:ss)  | A timespan value where the default is the window size of the child trigger  | No |
+| **dependsOn: offset** | The offset of the dependency trigger. | Timespan<br/>(hh:mm:ss) |  A timespan value that must be negative in a self-dependency | Self-Dependency: Yes<br/>Other: No  |
 
 ### WindowStart and WindowEnd system variables
 
@@ -200,4 +219,6 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
 To monitor trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## Next steps
-For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers).
+
+* For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers).
+* [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md)
