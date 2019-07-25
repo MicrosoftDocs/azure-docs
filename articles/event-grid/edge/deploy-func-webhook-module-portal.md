@@ -34,43 +34,40 @@ In order to complete this tutorial, you will need:-
 
 ## Configure a deployment manifest
 
-A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest, instead of building the JSON document manually
+A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest, instead of building the JSON document manually.  It has three steps: **Add modules**, **Specify routes**, and **Review deployment**.
+
+### Add modules
 
 1. In the **Deployment Modules** section, select **Add**
 1. From the types of modules in the drop-down list, select **IoT Edge Module**
-1. Provide the name, image of the container:
+1. Provide the name, image, and container create options of the container:
 
    * **Name**: subscriber
    * **Image URI**: msint.azurecr.io/azure-event-grid/iotedge-samplesubscriber-azfunc:latest
+   * **Container Create Options**:
 
-1. Use the JSON provided below for **Container  Create Options**.  The configuration:
-
-    * Exposes subscriber module on port 8080 on the host machine
-
-* **Container Create Options**: 
-
-   ```json
-    {
-     "HostConfig": {
-        "PortBindings": {
-           "80/tcp": [
-             {  
-               "HostPort": "8080"
-             }
-           ]
+       ```json
+        {
+         "HostConfig": {
+            "PortBindings": {
+               "80/tcp": [
+                 {  
+                   "HostPort": "8080"
+                 }
+               ]
+            }
+         }
         }
-     }
-    }
-    ```
+        ```
 
  1. Click **Save**
  1. Click **Next** to continue to the routes section
 
- ## Setup routes
+ ### Setup routes
 
  Keep the default routes, and select **Next** to continue to the review section
 
-## Review deployment
+### Review deployment
 
 The review section shows you the JSON deployment manifest that was created based on your selections in the previous section. There are three modules declared that you didn't add: **$edgeAgent**, **$edgeHub** and **eventgridmodule** that were deployed previously.
 

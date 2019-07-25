@@ -13,7 +13,7 @@ services: event-grid
 
 # Tutorial: Deploy Event Grid IoT Edge module
 
-There are several ways to deploy modules to an IoT Edge device and all of them work for Azure Event Grid on IoT Edge. This article describes the steps to deploy Event Grid on IoT Edge from Azure portal. 
+There are several ways to deploy modules to an IoT Edge device and all of them work for Azure Event Grid on IoT Edge. This article describes the steps to deploy Event Grid on IoT Edge from Azure portal.
 
 ## Prerequisites
 
@@ -23,8 +23,11 @@ In order to complete this tutorial, you will need:-
 
 * **Azure IoT Hub and IoT Edge Device** - Follow the steps in the quickstart for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
 
+>[!NOTE]
+>For the purposes of this tutorial, we will deploy Event Grid module without persistence. This means any topics and subscriptions you create in this tutorial will be deleted if you redeploy the module. Documentation on how to setup persistence on [Linux](persist-state-linux.md) or [Windows](persist-state-windows.md) is also available. For production workloads we do recommend you install Event Grid module with persistence.
+
 >[!IMPORTANT]
->For the purposes of this tutorial, we will deploy Event grid module without persistence. This means any topics and subscriptions you create in this tutorial will be deleted if you redeploy the module. Documentation on how to setup persistence on [Linux](persist-state-linux.md) or [Windows](persist-state-windows.md) is also available. For production workloads we do recommend you install Event Grid module with persistence.
+>For the purposes of this tutorial, we will deploy Event Grid module with client authentication disabled and allow HTTP subscribers. For production workloads we recommend enabling client authentication and allowing only HTTPs subscribers. Refer to [Security and authentication] documentation on how to configure Event Grid module securely.
 
 ## Select your IoT Edge device
 
@@ -42,41 +45,34 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 1. In the **Deployment Modules** section, select **Add**
 1. From the types of modules in the drop-down list, select **IoT Edge Module**
-1. Provide the name, image of the container:
+1. Provide the name, image, container create options of the container:
 
    * **Name**: eventgridmodule
    * **Image URI**: msint.azurecr.io/azure-event-grid/iotedge:latest
+   * **Container Create Options**:
 
-1. Use the JSON provided below for **Container  Create Options**.  For the purposes of the quickstart, the configuration is simplified as follows:
-
-    * Exposes Event Grid module's HTTPs' port onto the host machine - Needed so that we can create topics/subscriptions from outside the container network.
-    * Turns off client authentication - To simplify the tutorial.
-    * Allows HTTP subscribers - - Needed so that we can register an Azure Function IoT module as an HTTP Listener. Default is to only allow HTTPs.
-
-* **Container Create Options**: 
-
-   ```json
-   {
-     "Env": [
-       "inbound:clientAuth:clientCert:enabled=false",
-       "outbound:webhook:httpsOnly=false"
-      ],
-      "HostConfig": {
-         "PortBindings": {
-           "4438/tcp": [
-            {
-              "HostPort": "4438"
-            }
-           ]
-         }
-      }
-   }
-   ```
+        ```json
+        {
+             "Env": [
+               "inbound:clientAuth:clientCert:enabled=false",
+               "outbound:webhook:httpsOnly=false"
+              ],
+              "HostConfig": {
+                 "PortBindings": {
+                   "4438/tcp": [
+                    {
+                      "HostPort": "4438"
+                    }
+                   ]
+                 }
+              }
+        }
+        ```
 
  1. Click **Save**
  1. Click **Next** to continue to the routes section
 
- ### Setup routes
+### Setup routes
 
  Keep the default routes, and select **Next** to continue to the review section
 

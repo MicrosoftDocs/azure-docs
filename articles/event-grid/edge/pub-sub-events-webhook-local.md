@@ -25,7 +25,7 @@ In order to complete this tutorial, you will need:-
 
 * **Azure Function subscriber module on the same IoT Edge Device** - Follow the steps in described [here](deploy-func-webhook-module-portal.md) on how to do that if not already done.
 
-## Step1: Create Topic
+## Step1: Create topic
 
 As a publisher of an event, you need to create an event grid topic. Topic refers to an "endpoint" where publishers can then send events to. Subscribers will have to subscribe to a topic to receive events of interest.
 
@@ -46,7 +46,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01
     ```
 
-## Create Event Subscription
+## Create event subscription
 
    Any module interested in receiving events will create an Event grid subscription on a topic of interest.
 
@@ -74,7 +74,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01
     ```
 
-## Publish Event
+## Publish event
 
 1. Create event.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
@@ -93,35 +93,35 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
     curl -k -H "Content-Type: application/json" -X POST -g -d @event.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/events?api-version=2019-01-01
     ```
 
-## Verify Event Delivery
+## Verify event delivery
 
-1. SSH or RDP into your IoT Edge VM.
-1. Run the following command to check the logs on the subscriber to confirm delivery.
-
-On Windows,
-
-```sh
-docker -H npipe:////./pipe/iotedge_moby_engine container logs subscriber
-```
-
-On Linux,
-
-```sh
-sudo docker logs subscriber
-```
-
-Sample Output: -
-
-```json
- Received event data [
-        {
-          "data": {
-            "make": "Ducati",
-            "model": "Monster"
-          }
-        }
-      ]
-```
+    1. SSH or RDP into your IoT Edge VM.
+    1. Run the following command to check the logs on the subscriber to confirm delivery.
+    
+    On Windows,
+    
+    ```sh
+    docker -H npipe:////./pipe/iotedge_moby_engine container logs subscriber
+    ```
+    
+    On Linux,
+    
+    ```sh
+    sudo docker logs subscriber
+    ```
+    
+    Sample Output: -
+    
+    ```json
+     Received event data [
+            {
+              "data": {
+                "make": "Ducati",
+                "model": "Monster"
+              }
+            }
+          ]
+    ```
 
 ## Next steps
 
