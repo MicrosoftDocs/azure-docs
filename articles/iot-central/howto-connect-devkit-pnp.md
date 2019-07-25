@@ -20,22 +20,77 @@ This article describes how, as a device developer, to connect a MXChip IoT DevKi
 
 To complete the steps in this article, you need the following resources:
 
-1. An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+1. An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 1. A DevKit device. To purchase a DevKit device, visit [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
 
-## Sample Devkits application
+> [!NOTE]
+> This is a device sample for a device that is not IoT Plug and Play compliant. You will need to model the device template in IoT Central as outlined below. 
 
-An application created from the **Sample Devkits** application template includes a **MXChip** device template that defines the following device characteristics:
 
-- Telemetry measurements for **Humidity**, **Temperature**, **Pressure**, **Magnetometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis), and **Gyroscope** (measured along X, Y, Z axis).
-- State measurement for **Device State**.
-- Event measurement for **Button B Pressed**.
-- Settings for **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
-- Device properties **die number** and **Device Location**, which is a location property.
-- Cloud property **Manufactured In**.
-- Commands **Echo** and **Countdown**. When a real device receives an **Echo** command, it shows the sent value on the device's display. When a real device receives a **Countdown** command, the LED cycles through a pattern, and the device sends countdown values back to IoT Central.
+## MXChip Device template details
 
-For full details about the configuration, see [MXChip Device template details](#mxchip-device-template-details)
+Start by using a custom device template and modeling the device capability model to reflect the below template details. Be sure to publish your device template in order to begin connecting real devices.
+
+### Measurements
+
+#### Telemetry
+
+| Field name     | Units  | Minimum | Maximum | Decimal places |
+| -------------- | ------ | ------- | ------- | -------------- |
+| humidity       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pressure       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+#### Telemetry with State semantic type 
+| Name          | Display name   | NORMAL | CAUTION | DANGER | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | Device State   | Green  | Orange  | Red    | 
+
+#### Telemetry with Event semantic type
+| Name             | Display name      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Button B Pressed  | 
+
+### Writeable properties
+
+Numeric writeable properties
+
+| Display name | Field name | Units | Decimal places | Minimum | Maximum | Initial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Voltage      | setVoltage | Volts | 0              | 0       | 240     | 0       |
+| Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
+| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+Toggle writeable properties
+
+| Display name | Field name | On text | Off text | Initial |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | ON      | OFF      | Off     |
+
+### Properties
+
+| Type            | Display name | Field name | Data type |
+| --------------- | ------------ | ---------- | --------- |
+| Device property | Die number   | dieNumber  | number    |
+| Device property | Device Location   | location  | location    |
+| Text            | Manufactured In     | manufacturedIn   | N/A       |
+
+### Commands
+
+| Display name | Field name | Return type | Input field display name | Input field name | Input field type |
+| ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
+| Echo         | echo       | text        | value to display         | displayedValue   | text             |
+| Countdown    | countdown  | number      | Count from               | countFrom        | number           |
+
 
 ## Add a real device
 
@@ -43,12 +98,7 @@ For full details about the configuration, see [MXChip Device template details](#
 
 In your Azure IoT Central application, add a real device from the **MXChip** device template and make a note of the device connection details: **Scope ID, Device ID, and Primary key**:
 
-1. Add a **real device** from Device Explorer, select **+New > Real** to add a real device.
-
-    * Enter a lowercase **Device ID**, or use the suggested **Device ID**.
-    * Enter a **Device Name**, or use the suggested name
-
-    ![Add Device](media/howto-connect-devkit-pnp/add-device.png)
+1. Add a **real device** from the **Devices** page, select **+New** and **Create** to add a real device.
 
 1. To get the device connection details, **Scope ID**, **Device ID**, and **Primary key**, select **Connect** on the device page.
 
@@ -112,31 +162,7 @@ When the DevKit device restarts, the screen on the device shows:
 
 Shake the device to send a reported property. The device sends a random number as the **Die number** device property.
 
-You can view the telemetry measurements and reported property values, and configure settings in Azure IoT Central:
-
-1. Use **Device Explorer** to navigate to the **Measurements** page for the real MXChip device you added:
-
-    ![Navigate to real device](media/howto-connect-devkit-pnp/realdevicenew.png)
-
-1. On the **Measurements** page, you can see the telemetry coming from the MXChip device:
-
-    ![View telemetry from real device](media/howto-connect-devkit-pnp/devicetelemetrynew.png)
-
-1. On the **Properties** page, you can view the last die number and the device location reported by the device:
-
-    ![View device properties](media/howto-connect-devkit-pnp/devicepropertynew.png)
-
-1. On the **Settings** page, you can update the settings on the MXChip device:
-
-    ![View device settings](media/howto-connect-devkit-pnp/devicesettingsnew.png)
-
-1. On the **Commands** page, you can call the **Echo** and **Countdown** commands:
-
-    ![Call commands](media/howto-connect-devkit-pnp/devicecommands.png)
-
-1. On the **Dashboard** page, you can see the location map
-
-    ![View device dashboard](media/howto-connect-devkit-pnp/devicedashboardnew.png)
+You can view the telemetry measurements and reported property values, and configure writeable properties in Azure IoT Central through the views that have been configured for your device template.
 
 ## Download the source code
 
@@ -180,70 +206,6 @@ To see how the device responds to commands called from the IoT Central applicati
 The code in the **AzureIOTClient.cpp** source file uses functions from the [Microsoft Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c) to interact with IoT Hub.
 
 For information about how to modify, build, and upload the sample code to your device, see the **readme.md** file in the `MXCHIP/mxchip_advanced` folder.
-
-## MXChip Device template details
-
-An application created from the Sample Devkits application template includes a MXChip device template with the following characteristics:
-
-### Measurements
-
-#### Telemetry
-
-| Field name     | Units  | Minimum | Maximum | Decimal places |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humidity       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
-
-#### States 
-| Name          | Display name   | NORMAL | CAUTION | DANGER | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Device State   | Green  | Orange  | Red    | 
-
-#### Events 
-| Name             | Display name      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Button B Pressed  | 
-
-### Settings
-
-Numeric settings
-
-| Display name | Field name | Units | Decimal places | Minimum | Maximum | Initial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Voltage      | setVoltage | Volts | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
-| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
-
-Toggle settings
-
-| Display name | Field name | On text | Off text | Initial |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ON      | OFF      | Off     |
-
-### Properties
-
-| Type            | Display name | Field name | Data type |
-| --------------- | ------------ | ---------- | --------- |
-| Device property | Die number   | dieNumber  | number    |
-| Device property | Device Location   | location  | location    |
-| Text            | Manufactured In     | manufacturedIn   | N/A       |
-
-### Commands
-
-| Display name | Field name | Return type | Input field display name | Input field name | Input field type |
-| ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
-| Echo         | echo       | text        | value to display         | displayedValue   | text             |
-| Countdown    | countdown  | number      | Count from               | countFrom        | number           |
 
 ## Next steps
 
