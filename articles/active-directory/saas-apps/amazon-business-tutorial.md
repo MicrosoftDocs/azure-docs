@@ -35,7 +35,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
-* An Amazon Business single sign-on (SSO) enabled subscription.  Please click [here](https://www.amazon.com/business/register/org/landing?ref_=ab_reg_mlp) to create an Amazon Business account.
+* An Amazon Business single sign-on (SSO) enabled subscription. Go to the [Amazon Business](https://www.amazon.com/business/register/org/landing?ref_=ab_reg_mlp) page to create an Amazon Business account.
 
 ## Scenario description
 
