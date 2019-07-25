@@ -75,11 +75,18 @@ You can use the Azure Dev Spaces client-side tooling to interact with dev spaces
 * In Visual Studio 2017, install the Web Development workload and [Visual Studio Tools for Kubernetes][visual-studio-k8s-tools].
 * Download and install the [Windows][cli-win], [Mac][cli-mac], or [Linux][cli-linux] CLI.
 
+## Next steps
+
+Learn how Azure Dev Spaces helps you develop more complex applications across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces.
+
+> [!div class="nextstepaction"]
+> [Team development in Azure Dev Spaces][team-development-qs]
 
 [create-aks-cli]: ../../aks/kubernetes-walkthrough.md#create-a-resource-group
 [create-aks-portal]: ../../aks/kubernetes-walkthrough-portal.md#create-an-aks-cluster
 [install-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [supported-regions]: ../about.md#supported-regions-and-configurations
+[team-development-qs]: ../quickstart-team-development.md
 
 [az-portal]: https://portal.azure.com
 [az-portal-create-account]: https://azure.microsoft.com/free
