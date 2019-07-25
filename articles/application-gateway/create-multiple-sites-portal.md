@@ -49,7 +49,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
-    Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
+    Under **Configure virtual network**, select **Create new** to create a new virtual network . In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
 
     - **Name**: Enter *myVNet* for the name of the virtual network.
 
@@ -182,7 +182,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
       -Location EastUS
     ```
 
-3. Create a second virtual machine and install IIS by using the steps that you previously completed. Use *fabrikamVM* for the virtual machine name and for the **VMName** setting of the **Set-AzVMExtension** cmdlet.
+3. Create a second virtual machine and install IIS using the steps that you previously completed. Use *fabrikamVM* for the virtual machine name and for the **VMName** setting of the **Set-AzVMExtension** cmdlet.
 
 ### Add backend servers to backend pools
 
@@ -225,7 +225,7 @@ After the application gateway is created with its public IP address, you can get
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the application gateway, remove the resource group. By removing the resource group, you also remove the application gateway and all its related resources.
+When you no longer need the resources that you created with the application gateway, remove the resource group. When you remove the resource group, you also remove the application gateway and all its related resources.
 
 To remove the resource group:
 
