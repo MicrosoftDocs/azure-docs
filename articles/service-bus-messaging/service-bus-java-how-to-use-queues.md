@@ -15,6 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
+ms.custom: seo-java-july2019
 
 ---
 # How to use Service Bus queues with Java
