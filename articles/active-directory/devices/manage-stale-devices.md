@@ -69,7 +69,7 @@ To efficiently clean up stale devices in your environment, you should define a r
 To update a device in Azure AD, you need an account that has one of the following roles assigned:
 
 - Global Administrator
-- Cloud Device Administrator (New role available now!)
+- Cloud Device Administrator
 - Intune Service Administrator
 
 In your cleanup policy, select accounts that have the required roles assigned. 
