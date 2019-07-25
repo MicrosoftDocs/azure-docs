@@ -8,7 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.custom: seodec2018
+ms.custom: seodec2018, seo-java-july2019
 ---
 # Quickstart: Create an Azure Search index in Java
 > [!div class="op_single_selector"]
