@@ -27,6 +27,10 @@ To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-
 
 Solutions built on IoT Hub or IoT Central can benefit from IoT Plug and Play.
 
+The following video presents an introduction to IoT Plug and Play:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player]
+
 This article outlines:
 
 - The typical roles associated with a project that uses IoT Plug and Play.
