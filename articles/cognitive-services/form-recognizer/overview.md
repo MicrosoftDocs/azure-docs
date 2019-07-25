@@ -44,7 +44,7 @@ The input requirements for the receipt model are slightly different.
 * File size must be less than 20 MB.
 * Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels. 
 * PDF dimensions must be at most 17 x 17 inches, corresponding to Legal or A3 paper sizes and smaller.
-* For PDF and TIFF, only the first 200 pages are processed (Free tier only the first 2 pages are processed)
+* For PDF and TIFF, only the first 200 pages are processed (with a free tier subscription, only the first two pages are processed).
 
 ## Request access
 
