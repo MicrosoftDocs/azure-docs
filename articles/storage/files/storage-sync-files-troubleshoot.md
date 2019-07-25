@@ -335,7 +335,7 @@ No action is required. When a file or file share (cloud endpoint) is restored us
 This error occurs because the Azure File Sync agent cannot access the Azure file share, which may be because the Azure file share or the storage account hosting it no longer exists. You can troubleshoot this error by working through the following steps:
 
 1. [Verify the storage account exists.](#troubleshoot-storage-account)
-2. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
+2. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal)
 3. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
 4. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
 
@@ -354,7 +354,7 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
 2. [Verify the storage account exists.](#troubleshoot-storage-account)
-3. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
+3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal)
 
 <a id="-1906441138"></a>**Sync failed due to a problem with the sync database.**  
 
@@ -440,12 +440,7 @@ This error occurs when the Azure subscription is suspended. Sync will be reenabl
 | **Error string** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
 | **Remediation required** | Yes |
 
-This error occurs when the Azure file share is inaccessible because of a storage account firewall or because the storage account belongs to a virtual network. Azure File Sync does not yet have support for this feature. To troubleshoot:
-
-1. [Verify the storage account exists.](#troubleshoot-storage-account)
-2. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
-
-Remove these rules to fix this issue. 
+This error occurs when the Azure file share is inaccessible because of a storage account firewall or because the storage account belongs to a virtual network. Verify the firewall and virtual network settings on the storage account are configured properly. For more information, see [Configure firewall and virtual network settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal). 
 
 <a id="-2134375911"></a>**Sync failed due to a problem with the sync database.**  
 
@@ -730,22 +725,6 @@ $storageAccount = Get-AzStorageAccount | Where-Object {
 
 if ($storageAccount -eq $null) {
     throw [System.Exception]::new("The storage account referenced in the cloud endpoint does not exist.")
-}
-```
----
-
-<a id="troubleshoot-network-rules"></a>**Check to make sure the storage account does not contain any network rules.**  
-# [Portal](#tab/azure-portal)
-1. Once in the storage account, select **Firewalls and virtual networks** on the left-hand side of the storage account.
-2. Inside the storage account, the **Allow access from all networks** radio button should be selected.
-    ![A screenshot showing the storage account firewall and network rules disabled.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
-
-# [PowerShell](#tab/azure-powershell)
-```powershell
-if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
-    [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
-    throw [System.Exception]::new("The storage account referenced contains network " + `
-        "rules which are not currently supported by Azure File Sync.")
 }
 ```
 ---
