@@ -1,4 +1,4 @@
-- name: Azure Australia Documentation
+cd ~- name: Azure Australia documentation
   href: index.yml
 - name: Overview
   items:

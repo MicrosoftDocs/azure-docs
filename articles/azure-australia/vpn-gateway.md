@@ -24,7 +24,7 @@ This article will focus on S2S VPN Gateways. Diagram 1 shows an example Site-to-
 
 *Diagram 1 – Azure Site-to-Site VPN Gateway*
 
-## Key Design Considerations
+## Key design considerations
 
 There are three networking options to connect Azure to Australian Government customers:
 
@@ -62,7 +62,7 @@ It is recommended that all VPN Gateways are deployed in a [highly available conf
 
 Forced tunneling redirects or "forces" all Internet-bound traffic back to the on-premises environment via the VPN Gateway for inspection and auditing. Without forced tunneling, Internet-bound traffic from VMs in Azure traverses the Azure network infrastructure directly out to the public internet, without the option to inspect or audit the traffic.  This is critical when organization is required to use a Secure Internet Gateway (SIG) for an environment.
 
-## Detailed Configuration
+## Detailed configuration
 
 ### Service attributes
 
@@ -108,7 +108,7 @@ When designing and configuring an Azure VPN Gateway there are a number of relate
 |Subnet | A subnet of the virtual network needs to be created for the VPN Gateway.|
 |
 
-## Implementation Steps using PowerShell
+## Implementation steps using PowerShell
 
 ### Role-Based Access Control (RBAC)
 

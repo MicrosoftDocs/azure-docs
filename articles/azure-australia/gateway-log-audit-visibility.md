@@ -72,7 +72,7 @@ The architecture works by first generating logs from the necessary sources and t
 
 To respond to key events or incidents identified by analysis tools, alerts can be configured, and automation developed to take necessary actions for proactive management and response.
 
-## General Guidance
+## General guidance
 
 When implementing the components listed in this article, the following general guidance applies:
 
@@ -112,11 +112,11 @@ When implementing the components listed in this article, the following general g
 |Microsoft Monitoring Agent Configuration|[https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)|
 |
 
-## Component Guidance
+## Component guidance
 
 This section provides information on the purpose of each component and its role in the overall logging, auditing, and visibility architecture. Additional links are provided to access useful resources such as reference documentation, guides, and tutorials.
 
-## Log Sources
+## Log sources
 
 Before any analysis, alerting or reporting can be completed, the necessary logs must be generated. Azure logs are categorized into control/management logs, data plane logs, and processed events.
 
@@ -188,7 +188,7 @@ Virtual Machines are end points that send and receive network communications, pr
 |Stream Virtual Machine Logs to Event Hubs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs)|
 |
 
-### Domain Name Services (DNS) Servers
+### Domain Name Services (DNS) servers
 
 DNS Server logs provide key information related to the services that systems are trying to access, either internally or externally. Capturing DNS logs can help identify a cyber security incident and provide insight into the type of incident, and the systems that may be affected. The Microsoft Management Agent (MMA) can be used on DNS Servers to forward the logs through to Log Analytics for use in DNS Analytics (Preview).
 
@@ -197,7 +197,7 @@ DNS Server logs provide key information related to the services that systems are
 |Azure Name Resolution for Virtual Networks|[https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)|
 |
 
-### Syslog and Log Collection Servers
+### Syslog and log collection servers
 
 To receive logs from Network Virtual Appliances, or custom security logs from other systems for use within a SIEM, dedicated servers can be deployed within Azure VNets. Syslog logs can be collected on a Syslog server and relayed to Log Analytics for analysis. A Log Collection Server is a generic term for any log aggregation and distribution capability used by centralised monitoring systems or SIEMs. These can be used to simplify network architecture and security and to filter and aggregate logs before being distributed to the centralised capability.
 
@@ -248,7 +248,7 @@ Azure Policy enforces rules on how resources can be deployed, such as the type, 
 |Leveraging Azure Policy and Resource Manager templates using Azure Blueprints|[https://docs.microsoft.com/azure/governance/blueprints/overview](https://docs.microsoft.com/azure/governance/blueprints/overview)|
 |
 
-## Log Collection
+## Log collection
 
 Once generated from the multiple log sources, logs need to be stored in a centralised location for ongoing access and analysis. Azure provides multiple methods and options for Log Collection that can be utilised depending on the log type and requirements.
 
@@ -282,7 +282,7 @@ The use of Network Watcher is recommended by the ACSC to assist in understanding
 |Packet Capture Overview|[https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)|
 |
 
-## Log Retention
+## Log retention
 
 For Australian Government organisations, the logs captured within Azure must be retained in accordance with the National Archives of Australia [Administrative Functions Disposal Authority (AFDA)](http://www.naa.gov.au/information-management/records-authorities/types-of-records-authorities/AFDA/index.aspx), which specifies retaining logs up to seven years.
 
@@ -308,7 +308,7 @@ Azure Storage is the repository for logs for long-term retention in Azure. Azure
 |Creating a Snapshot of a Blob|[https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)|
 |
 
-## Log Analysis
+## Log analysis
 
 Once generated and stored in a centralised location, the logs must be analysed to assist with detecting attempted or successful security incidents. When security incidents are detected, an agency needs the ability to respond to those incidents and to track, contain, and remediate any threats.
 
@@ -379,7 +379,7 @@ The Australian Cyber Security Centre (ACSC) is the Australian Government’s lea
 |Australian Cyber Security Centre website|[https://www.acsc.gov.au](https://www.acsc.gov.au)|
 |
 
-## Incident Response
+## Incident response
 
 Generating the appropriate logs, collecting them into centralised repositories and performing analysis increases understanding of systems and provides mechanisms to detect cyber security incidents. After incidents or events have been detected, the next step is to react to those events and perform actions to maintain system health and protect services and data from compromise. Azure provides a combination of services to respond effectively to any events that occur.
 

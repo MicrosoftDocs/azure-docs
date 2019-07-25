@@ -42,7 +42,7 @@ Another key step for Government agencies is the establishment of perimeter secur
 
 These articles can be accessed through the menu under *Concepts -> Gateways in Azure Australia*.
 
-## Next Steps
+## Next steps
 
 * If your key focus is securing your data in Azure, start with [Data Security](secure-your-data.md)
 * If your key focus is building a Gateway in Azure, start with [Gateway auditing, logging, and visibility](gateway-log-audit-visibility.md).

@@ -8,7 +8,7 @@ ms.date: 07/22/2019
 ms.author: grgale
 ---
 
-# Azure Australia Security Explained
+# Azure Australia security explained
 
 This article addresses some of the common questions and areas of interest for Australian Government agencies investigating, designing, and deploying to Microsoft Azure Australia.
 

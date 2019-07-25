@@ -46,7 +46,7 @@ The architecture is designed to ensure that a privileged account is granted only
 |---|---|---|
 |Secure Devices |<ul><li>Privileged Workstation</li><li>Mobile Device</li><li>Microsoft Intune</li><li>Group Policy</li><li>Jump Server / Bastion Host</li><li>Just in Time (JIT) Administration</li></ul> |<ul><li>Privileged workstations</li><li>Jump boxes</li></ul>|
 |Secure Communication |<ul><li>Azure portal</li><li>Azure VPN Gateway</li><li>Remote Desktop (RD) Gateway</li><li>Network Security Groups (NSGs)</li></ul> |<ul><li>Network segmentation and segregation</li></ul>|
-|Strong Authentication |<ul><li>Domain Controller (DC)</li><li>Azure Active Directory (AAD)</li><li>Network Policy Server (NPS)</li><li>Azure MFA</li></ul> |<ul><li>Multi-factor authentication</li></ul> |
+|Strong Authentication |<ul><li>Domain Controller (DC)</li><li>Azure Active Directory (Azure AD)</li><li>Network Policy Server (NPS)</li><li>Azure MFA</li></ul> |<ul><li>Multi-factor authentication</li></ul> |
 |Strong Authorisation |<ul><li>Identity and Access Management (IAM)</li><li>Privileged Identity Management (PIM)</li><li>Conditional Access</li></ul>|<ul><li>Privileged access control</li></ul>|
 |||
 
@@ -110,7 +110,7 @@ When implementing the components listed in this article, the following general g
 |Azure products - Australian regions and non-regional|[Azure products - Australian regions and non-regional](https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast)|
 |Strategies to Mitigate Cyber Security Incidents|[Strategies to Mitigate Cyber Security Incidents](https://acsc.gov.au/infosec/mitigationstrategies.htm)|
 |ACSC Protect: Secure Administration|[ACSC Protect: Secure Administration](https://acsc.gov.au/publications/protect/secure-administration.htm)|
-|How To: Integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Azure AD|[Integrate RD Gateway with NPS and  AAD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-rdg)|
+|How To: Integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Azure AD|[Integrate RD Gateway with NPS and  Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-rdg)|
 
 ## Component guidance
 
@@ -168,7 +168,7 @@ The Jump Server / Bastion Host is a centralised point for administration. It has
 |Implementing Secure Administrative Hosts|[https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts)|
 |
 
-### Just in Time (JIT) Access
+### Just in Time (JIT) access
 
 JIT is an Azure Security Center capability that utilises Network Security Groups (NSGs) to block access to administrative protocols such as RDP and SSH on Virtual Machines. Applications hosted on Virtual Machines continue to function as normal, but for administrative access to be obtained it must be requested can only be granted for a set period of time. All requests are logged for auditing purposes.
 
@@ -234,11 +234,11 @@ At a high level, a DC hosts a copy of the Active Directory Database, which conta
 |Active Directory Domain Services Overview|[https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)|
 |
 
-### Azure Active Directory (AAD)
+### Azure Active Directory (Azure AD)
 
-AAD is the authentication service for Azure. It contains the cloud
+Azure AD is the authentication service for Azure. It contains the cloud
 
-identities and provides authentication and authorisation for an Azure environment. AAD can be synchronised with Active Directory through AAD Connect and can provide federated authentication through Active Directory Federation Services (AD FS) and AAD Connect. AAD is a core component of secure administration.
+identities and provides authentication and authorisation for an Azure environment. Azure AD can be synchronised with Active Directory through Azure AD Connect and can provide federated authentication through Active Directory Federation Services (AD FS) and Azure AD Connect. Azure AD is a core component of secure administration.
 
 |Resources |Link |
 |---|---|

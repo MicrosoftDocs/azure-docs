@@ -69,7 +69,7 @@ The information gathered by Azure Advisor provides administrators with:
 
 Whether the specific policy is being enforced or the effect of the policy is being audited, policy compliance is continually monitored, and overall and resource-specific compliance information is provided to administrators. Azure Policy compliance data is provided to Azure Security Center and forms part of the Secure Score.
 
-## Key Design Considerations
+## Key design considerations
 
 When implementing an event log strategy, the ACSC ISM highlights the following considerations:
 
@@ -81,7 +81,7 @@ When implementing an event log strategy, the ACSC ISM highlights the following c
 
 In additional to collecting and managing logs, the ISM also recommends routine vulnerability assessment of an organisation's IT environment.
 
-### Centralised Logging
+### Centralised logging
 
 Any logging solution should, wherever possible, consolidate captured logs into a single data repository. This not only reduces operational complexity and prevents the creation of multiple data silos, it enables data collected from multiple sources to be analysed together allowing any correlating events to be identified. This is critical for detecting and managing the scope of any cyber security incidents.
 
@@ -89,7 +89,7 @@ This requirement is met for all Azure customers with Azure Monitor. This offerin
 
 Microsoft also offers its own Azure native SIEM solution, Azure Sentinel. Azure Sentinel supports a wide variety of data connectors and can be used to monitor security events across an entire enterprise. By combining the data from supported [data connectors](https://docs.microsoft.com/azure/sentinel/connect-data-sources), Azure Sentinel's built-in machine learning, and the Kusto query language, security administrators are provided with a single solution for alert detection, threat visibility, proactive hunting, and threat response. Sentinel also provides a hunting and notebook feature that allows security administrators to record all the steps undertaken as part of a security investigation in a reuseable playbook that can be shared within an organisation. Security Administrators can even use the built-in [User Analytics](https://docs.microsoft.com/azure/sentinel/user-analytics) to investigate the actions of a single nominated user.
 
-### Logged Events and Log Detail
+### Logged events and log detail
 
 The ISM provides a detailed list of event log types that should be included in any logging strategy. Any captured logs must contain sufficient detail to be of any practical use in conducting analysis and investigations.
 
@@ -105,7 +105,7 @@ Azure virtual machine monitoring is enhanced by the deployment of the virtual ma
 
 Microsoft provides detailed information about Azure resource-specific logs and their [schemas](https://docs.microsoft.com/azure/security/azure-log-audit).
 
-### Log Retention and Protection
+### Log retention and protection
 
  Event logs must be stored securely for the required retention period. The ISM advises that logs are retained for a minimum of seven years. Azure provides a number of means to ensure the long life of your collected logs. By default, the Azure Log events are stored for 90 days. Log data captured by Azure Monitor can be moved and stored on an Azure Storage account as required for long-term retention. Activity logs stored on an Azure Storage Account can be retained for a set number of days, or indefinitely if necessary.
 
@@ -113,7 +113,7 @@ Azure Storage Accounts used to store Azure Log events can be made geo-redundant 
 
 Role-Based Access Control should be used to control access to resources used for Azure logging. Azure Monitor, Azure Storage accounts, and Azure Backups should be configured with role-based access controls to ensure the security of the data contained within the logs.
 
-### Log Auditing
+### Log auditing
 
 The true value of logs is realised once they are analysed. Using both automated and manual analysis, and being familiar with the available tools, will assist you to detect and manage breaches of organisational security policy, and cyber security incidents. Azure Monitor provides a rich set of tools to analyse collected logs. The result of this analysis can then be shared between systems, visualised, or disseminated in multiple formats.
 
@@ -123,7 +123,7 @@ Log data stored in Azure Monitor is kept in a Log Analytics Workspace. All analy
 
 Auditing of logs can be enhanced through the use of Monitoring Solutions. These are pre-packaged solutions that contain collection logic, queries, and data visualisation views. Microsoft [provide](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-inventory) a number of Monitoring Solutions and additional solutions from product vendors can be found in the Azure Marketplace.
 
-### Vulnerability Assessment and Management
+### Vulnerability assessment and management
 
 The ISM notes that routine vulnerability assessment and management are essential. Your IT environment is constantly evolving, and the external security threat is endlessly changing. With Azure Security Center you can do automated vulnerability assessments and get guidance on how to plan and perform remediation activities.
 
@@ -144,6 +144,6 @@ To start with Azure Security Center and make full use of Azure Monitor, Advisor 
 * Enable Automatic Provisioning of the Microsoft Monitoring Agent to supported Azure Virtual Machines
 * Review, prioritise, and mitigate the security recommendations and alerts on the Security Centre dashboard
 
-## Next Steps
+## Next steps
 
 Read [Azure Policy and Azure Blueprints](azure-policy.md) for details on implementing governance and control over your Azure Australia resources to ensure policy and regulatory compliance.
