@@ -10,7 +10,7 @@ keywords: azure functions, functions
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 07/26/2019
+ms.date: 09/05/2019
 ms.author: cshoe
 ---
 # Azure Functions Deployment Slots
@@ -63,6 +63,8 @@ Keep in mind the following points:
 ### Create a deployment setting
 
 You can mark settings as a deployment setting which makes it "sticky". A sticky setting does not swap with the app instance.
+
+If you create a deployment setting in one slot, make sure to create the same setting with a unique value in any other slot involved in a swap. This way, while a setting's value doesn't change, the setting names remain consistent among slots. This name consistency ensures your code doesn't try to access a setting that is defined in one slot but not another.
 
 Use the following steps to to create a deployment setting:
 
@@ -135,6 +137,30 @@ Using the [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deploymen
 - [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
 - [swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
 - [auto-swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
+
+## Change app service plan
+
+With a functions app that is running under an App Service plan, you have the option to change the underlying app service plan for a slot.
+
+> [!NOTE]
+> You can't change a slot's App Service plan under the Consumption plan.
+
+Use the following steps to change a slot's app service plan:
+
+1. Navigate to a slot
+
+1. Under *Platform Features*, click **All Settings**
+
+    ![Change app service plan](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png)
+
+1. Click on **App Service plan**
+
+1. Select a new App Service plan, or create a new plan
+
+1. Click **OK**
+
+    ![Change app service plan](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
+
 
 ## Limitations
 
