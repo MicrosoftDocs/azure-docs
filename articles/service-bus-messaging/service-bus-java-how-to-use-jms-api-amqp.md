@@ -15,6 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
+ms.custom: seo-java-july2019
 
 ---
 # How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0
