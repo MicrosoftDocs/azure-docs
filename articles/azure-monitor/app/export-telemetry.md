@@ -45,10 +45,10 @@ Continuous Export **does not support** the following Azure storage features/conf
 
 3. Create or select an [Azure storage account](../../storage/common/storage-introduction.md) where you want to store the data. For more information on storage pricing options, visit the [official pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
+     Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store.
+
     > [!Warning]
     > By default, the storage location will be set to the same geographical region as your Application Insights resource. If you store in a different region, you may incur transfer charges.
-
-    Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store.
 
 4. Create or select a container in the storage.
 
