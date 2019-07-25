@@ -20,12 +20,22 @@ There are three tools you can use to manage the repository:
 - The Azure CLI
 - Visual Studio Code
 
+## Model repositories
+
+There are two types of model repository for storing device capability models and interfaces:
+
+- There is a single _Public repository_ that stores the device capability models and interfaces for devices in the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). This repository also stores [common interfaces](./concepts-common-interfaces.md). To learn how to certify a device and add its device capability model to the public repository, see the tutorial [Certify your IoT Plug and Play device](./tutorial-certification-test.md).
+- There are multiple _Company repositories_. A company repository is automatically created for your organization when you [onboard to the Azure Certified for IoT portal](./howto-onboard-portal.md). You can use your company repository to store your device capability models and interfaces during development and test.
+
 ## Azure Certified for IoT portal
 
-In the Azure Certified for IoT portal, you can complete the following tasks:
+In the [Azure Certified for IoT portal](https://aka.ms/ACFI), you can complete the following tasks:
 
 - Complete the certification process for your IoT device.
 - Find IoT Plug and Play device capability models. You can use these models to quickly build IoT ready devices and integrate them with solutions.
+
+> [!NOTE]
+> The public model repository is read only.
 
 ## Azure CLI
 
@@ -38,21 +48,27 @@ The Azure CLI provides commands for managing interfaces in the Plug and Play mod
 - Publish an interface
 - Delete an interface
 
+> [!NOTE]
+> The public model repository is read only.
+
 For more information, see [Install and use the Azure IoT extension for Azure CLI](./howto-install-pnp-cli.md).
 
 ## Visual Studio Code
 
-To open the **Model Repository** view in VS Code.
+To open the **Model Repository** view in Visual Studio Code.
 
-1. Open VS Code, use **Ctrl+Shift+P**, type and select **IoT Plug and Play: Open Model Repository**.
+1. Open Visual Studio Code, use **Ctrl+Shift+P**, type and select **IoT Plug and Play: Open Model Repository**.
 
-1. You can choose to **Open Public Model Repository** or **Open Organizational Model Repository**. For organizational model repository, you need to enter your model repository connection string.
+1. You can choose to **Open Public Model Repository** or **Open Organizational Model Repository**. For organizational model repository, you need to enter your model repository connection string. You can find this connection string in the [Azure Certified for IoT portal](https://aka.ms/ACFI) on the **Connection strings** tab for your **Company repository**.
 
-1. A new tab opens the Model Repository view.
+1. A new tab opens the **Model Repository** view.
 
     Use this view to add, download, and delete device capability models and interfaces. You can use a filter to find specific items in the list.
 
 1. To switch to another organizational model repository, use **Ctrl+Shift+P**, type and select **IoT Plug and Play: Sign out Model Repository**. Then use open model repository command again.
+
+> [!NOTE]
+> The public model repository is read only.
 
 ## Next steps
 

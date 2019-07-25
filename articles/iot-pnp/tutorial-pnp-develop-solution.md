@@ -90,7 +90,7 @@ In this tutorial, you use a sample environmental sensor that's written in Node.j
 
 1. Run the sample with the following command:
 
-    ```cmd/she
+    ```cmd/sh
     node sample_device.js
     ```
 
