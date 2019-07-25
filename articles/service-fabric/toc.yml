@@ -350,6 +350,8 @@
       href: service-fabric-diagnostics-partners.md
   - name: Integration with API Management
     href: service-fabric-api-management-overview.md
+  - name: Managed Identity 
+    href: service-fabric-concepts-mits.md
 - name: How-to guides
   items:
   - name: Set up your development environment
@@ -741,6 +743,12 @@
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
+  - name: Use Managed Identity Token Service
+    items:
+    - name: Application setup
+      href: service-fabric-how-to-setup-cluster-mits.md
+    - name: Use MITS with Service Fabric application code
+      href: service-fabric-how-to-use-mits-app-code.md
 
 - name: Reference
   items:
