@@ -114,7 +114,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pools you 
 
    Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
-   ![Create new application gateway: listener](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
+   ![Create new application gateway: listener](./media/create-multiple-sites-portal/routing-rule.png)
 
 4. On the **Backend targets** tab, select **contosoPool** for the **Backend target**.
 
