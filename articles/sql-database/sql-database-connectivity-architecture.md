@@ -94,8 +94,8 @@ Going forward, we'll add more Gateways in each region and retire the Gateways in
 | UK South             | 51.140.184.11      |                 | |
 | UK West              | 51.141.8.11        |                 | |
 | West Central US      | 13.78.145.25       |                 | |
-| West Europe          | 191.237.232.75, 40.68.37.158 |       | |
-| West US 1            | 23.99.34.75, 104.42.238.205 |        | |
+| West Europe          | 40.68.37.158       | 191.237.232.75  | No connections after September 1, 2019 |
+| West US 1            | 104.42.238.205     | 23.99.34.75     | No connections after September 1, 2019 |
 | West US 2            | 13.66.226.202      |                 | |
 |                      |                    |                 | |
 
