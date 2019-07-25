@@ -91,8 +91,8 @@ The Service Map folder has four nodes:
 
 * **Active Alerts**: Lists all the active alerts about the communication between Operations Manager and Azure Monitor.  
 
->[!NOTE]
->These alerts are not Log Analytics alerts synced with Operations Manager, they are generated in the management group based on workflows defined in the Service Map management pack.
+  >[!NOTE]
+  >These alerts are not Log Analytics alerts synced with Operations Manager, they are generated in the management group based on workflows defined in the Service Map management pack.
 
 * **Servers**: Lists the monitored servers that are configured to sync from Azure Monitor for VMs Map feature.
 
