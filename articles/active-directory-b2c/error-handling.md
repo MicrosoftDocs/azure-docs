@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 07/20/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -119,7 +119,7 @@ Ensure the response_type is one of the supported types:
 
 ### Related documentation
 
-[Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
+[Tutorial: Register an application in Azure Active Directory B2C](tutorial-register-applications.md)
 
 ## AADB2C90046
 
