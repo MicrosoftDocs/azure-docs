@@ -74,7 +74,13 @@ az vm host group create \
  
 ## Create a host 
 
-Now let's create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU capture the supported VM series as well as the hardware generation for your dedicated host.  
+Now let's create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU capture the supported VM series as well as the hardware generation for your dedicated host.  During the preview, we will support the following host SKU values:
+
+- DSv3_Type1
+- ESv3_Type1
+- FSv2_Type2
+
+For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 
 If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.  
 
@@ -86,6 +92,8 @@ az vm host create \
    --platform-fault-domain 1 \
    -g myDHResourceGroup
 ```
+
+
  
 ## Create a virtual machine 
 Create a virtual machine within a dedicated host using [az vm create](/cli/azure/vm#az-vm-create). 

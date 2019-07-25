@@ -116,39 +116,12 @@ Different types supporting the same VM series (family) will be different by thei
 
 Refer to the hosts [pricing page] (https://aka.ms/ADHPricing) to learn about supported size series and their price.
 
+During the preview, we will support the following host SKU types:
 
-## SKUs
-
-
-During the preview, we will support the following host SKUs:
-
+- DSv3_Type1
+- ESv3_Type1
+- FSv2_Type2
  
- 
-| Host SKU   | Supported Family | CPU                                                 | Max occupancy    | VM Count |
-|------------|------------------|-----------------------------------------------------|------------------|----------|
-| DSv3_Type1 | Standard_Ds_v3   | 2 x E5-2673 v4 2.3 GHz (40 cores) – 64 usable vCPUs |                  |          |
-|            |                  |                                                     | Standard_D2s_v3  | 32       |
-|            |                  |                                                     | Standard_D4s_v3  | 16       |
-|            |                  |                                                     | Standard_D8s_v3  | 8        |
-|            |                  |                                                     | Standard_D16s_v3 | 4        |
-|            |                  |                                                     | Standard_D32s_v3 | 2        |
-|            |                  |                                                     | Standard_D64s_v3 | 1        |
-| ESv3_Type1 | Standard_Es_v3   | 2 x E5-2673 v4 2.3 GHz (40 cores) – 64 usable vCPUs |                  |          |
-|            |                  |                                                     | Standard_E2s_v3  | 28       |
-|            |                  |                                                     | Standard_E4s_v3  | 14       |
-|            |                  |                                                     | Standard_E8s_v3  | 7        |
-|            |                  |                                                     | Standard_E16s_v3 | 3        |
-|            |                  |                                                     | Standard_E32s_v3 | 1        |
-|            |                  |                                                     | Standard_E64s_v3 | 1        |
-| FSv2_Type2 | Standard_Fs_v2   | 2 x 2.7Ghz Skylake (48 core) – 72 usable vCPUs      |                  |          |
-|            |                  |                                                     | Standard_F2s_v2  | 32       |
-|            |                  |                                                     | Standard_F4s_v2  | 18       |
-|            |                  |                                                     | Standard_F8s_v2  | 9        |
-|            |                  |                                                     | Standard_F16s_v2 | 4        |
-|            |                  |                                                     | Standard_F32s_v2 | 2        |
-|            |                  |                                                     | Standard_F64s_v2 | 1        |
-|            |                  |                                                     | Standard_F72s_v2 | 1        |
-
 ## Host life cycle
 
 

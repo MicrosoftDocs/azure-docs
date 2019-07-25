@@ -136,6 +136,14 @@
   items:
   - name: Create VMs
     items:
+    - name: Deploy dedicated hosts
+      items:
+      - name: Overview of Dedicated Hosts
+        href: dedicated-hosts.md
+      - name: Deploy using PowerShell
+        href: dedicated-hosts-powershell.md
+      - name: Deploy using portal
+        href: dedicated-hosts-portal.md
     - name: Use C#
       href: csharp.md
     - name: Use specialized disk
