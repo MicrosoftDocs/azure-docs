@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07-19-2019
+ms.date: 07-26-2019
 ms.author: zhchia
 ---
 
@@ -50,6 +50,8 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup Druva for provisioning
 
+Before configuring Druva for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Druva.
+
 1. Sign in to your [Druva Admin Console](https://console.druva.com). Click **Druva Icon**. Navigate > Click on **inSync**.
 
 	![Druva Admin Console](media/druva-provisioning-tutorial/menubar.png)
@@ -68,7 +70,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Add Druva from the gallery
 
-Before configuring Druva for automatic user provisioning with Azure AD, you need to add Druva from the Azure AD application gallery to your list of managed SaaS applications.
+To configure Druva for automatic user provisioning with Azure AD, you need to add Druva from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add Druva from the Azure AD application gallery, perform the following steps:**
 
