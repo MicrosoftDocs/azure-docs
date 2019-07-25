@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 07/25/2019
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
@@ -153,6 +153,8 @@ you can select your ISE as the location for your integration account. To learn h
 
 ## Next steps
 
-* Learn how to [connect to Azure virtual networks from isolated logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Connect to Azure virtual networks from isolated logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Add artifacts to integration service environments](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Manage integration service environments](../logic-apps/ise-manage-integration-service-environment.md)
 * Learn more about [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * Learn about [virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)

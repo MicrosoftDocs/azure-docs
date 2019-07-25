@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/25/2019
 ---
 
 # Manage your integration service environment (ISE) in Azure Logic Apps
 
 To check the network health for your [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) and manage the logic apps, connections, integration accounts, and custom connectors that exist in your ISE, follow the steps in this topic.
 
-## Find your ISE
+## View your ISE
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -39,7 +39,7 @@ On your ISE menu, under **Settings**, select **Network health**. This pane shows
 
 <a name="find-logic-apps"></a>
 
-## Find logic apps
+## Manage your logic apps
 
 1. On your ISE menu, under **Settings**, select **Logic apps**.
 
@@ -49,7 +49,7 @@ On your ISE menu, under **Settings**, select **Network health**. This pane shows
 
 <a name="find-api-connections"></a>
 
-## Find API connections
+## Manage API connections
 
 1. To view the API connections that were created by logic apps running in your ISE, on your ISE menu, under **Settings**, select **API connections**.
 
@@ -59,7 +59,7 @@ On your ISE menu, under **Settings**, select **Network health**. This pane shows
 
 <a name="find-custom-connectors"></a>
 
-## Find custom connectors
+## Manage custom connectors
 
 1. To view custom connectors that were created in your ISE, on your ISE menu, under **Settings**, select **Custom connectors**.
 
@@ -69,7 +69,7 @@ On your ISE menu, under **Settings**, select **Network health**. This pane shows
 
 <a name="find-integration-accounts"></a>
 
-## Find integration accounts
+## Manage integration accounts
 
 1. On your ISE menu, under **Settings**, select **Integration accounts**.
 
