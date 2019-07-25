@@ -16,7 +16,7 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 #Customer intent: As a Java developer, I want deploy a java app so that it is hosted on Azure App Service.
 ---
 # Quickstart: Create a Java app in App Service on Linux
