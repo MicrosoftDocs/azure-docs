@@ -174,7 +174,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
     Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
-      -VMName myVM `
+      -VMName contosoVM `
       -Publisher Microsoft.Compute `
       -ExtensionType CustomScriptExtension `
       -TypeHandlerVersion 1.4 `
