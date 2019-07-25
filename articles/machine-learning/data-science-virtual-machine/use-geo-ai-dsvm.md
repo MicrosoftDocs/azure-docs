@@ -4,7 +4,7 @@ description: Learn how to use the Geo AI Data Science Virtual Machine to analyze
 keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajtk
 manager: cgronlun
 ms.custom: seodec18
 
@@ -45,7 +45,7 @@ In addition to the ML and deep learning framework-based samples from the base Da
 
 2. [Getting stated with Geospatial analytics with R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): An introductory sample that shows how to work with Geospatial data using the R interface to ArcGIS provided by the [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) library. 
 
-3. [Pixel-level land use classification](https://github.com/Azure/pixel_level_land_classification): A tutorial that illustrates how to create a deep neural network model that accepts an aerial image as input and returns a land-cover label. Examples of land-cover labels are "forested" or "water." The model returns such a label for every pixel in the image. The model is built using Microsoft's open-source [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) deep learning framework. 
+3. [Pixel-level land use classification](https://github.com/Azure/pixel_level_land_classification): A tutorial that illustrates how to create a deep neural network model that accepts an aerial image as input and returns a land-cover label. Examples of land-cover labels are "forested" or "water." The model returns such a label for every pixel in the image. The model is built using Microsoft's open-source [Cognitive Toolkit (CNTK)](https://www.microsoft.com/cognitive-toolkit/) deep learning framework. 
 
 
 ## Next steps

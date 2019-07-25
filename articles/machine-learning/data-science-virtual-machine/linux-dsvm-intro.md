@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Configure and create a Linux Data Science Virtual Machine on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajtk
 manager: cgronlun
 ms.custom: seodec18
 

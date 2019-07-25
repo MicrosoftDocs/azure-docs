@@ -4,7 +4,7 @@ description: Learn about the deep learning frameworks and tools supported on the
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajtk
 manager: cgronlun
 ms.custom: seodec18
 

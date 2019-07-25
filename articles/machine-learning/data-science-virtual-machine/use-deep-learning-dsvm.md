@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: How to perform several common data science tasks with the Deep Learning  Data Science VM.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajtk
 manager: cgronlun
 ms.custom: seodec18
 

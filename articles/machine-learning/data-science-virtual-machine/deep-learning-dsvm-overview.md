@@ -4,7 +4,7 @@ description: Key analytics scenarios and components for Deep Learning  Virtual M
 keywords: deep learning, AI, data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajtk
 manager: cgronlun
 
 

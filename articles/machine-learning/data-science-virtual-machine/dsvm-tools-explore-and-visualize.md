@@ -4,7 +4,7 @@ description: Data exploration and visualization tools for the Data Science Virtu
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajtk
 manager: cgronlun
 
 

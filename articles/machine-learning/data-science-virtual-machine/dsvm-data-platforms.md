@@ -4,7 +4,7 @@ description: Learn about the data platforms and tools supported on the Data Scie
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajtk
 manager: cgronlun
 ms.custom: seodec18
 

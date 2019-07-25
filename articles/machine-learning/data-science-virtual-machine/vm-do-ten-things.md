@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Perform various data exploration and modeling task on the Data science Virtual Machine.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajtk
 manager: cgronlun
 editor: cgronlun
 ms.custom: seodec18

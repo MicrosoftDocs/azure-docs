@@ -5,7 +5,7 @@ description: The Geo Artificial Intelligence Data Science Virtual Machine provid
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajtk
 manager: cgronlun
 ms.custom: seodec18
 
