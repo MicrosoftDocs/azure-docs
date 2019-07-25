@@ -23,13 +23,7 @@ The following sections present an example of how to enable multiple issuers in a
 
 You need the following Azure AD B2C resources in place before continuing with the steps in this article:
 
-* [Azure AD B2C tenant](tutorial-create-tenant.md)
-* [Application registered](tutorial-register-applications.md) in your tenant
-* [User flows created](tutorial-create-user-flows.md) in your tenant
-
-Additionally, you need the following in your local development environment:
-
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+* [User flows](tutorial-create-user-flows.md) or [custom policies](active-directory-b2c-get-started-custom.md) created in your tenant
 
 ## Get token issuer endpoints
 
@@ -117,7 +111,9 @@ As mentioned previously, other OWIN libraries typically provide a similar facili
 
 ## Next steps
 
-This article presented a method of configuring a web API implementing the Microsoft OWIN middleware (Katana) to accept tokens from multiple issuer endpoints. For more information about OWIN and Katana, see the [OWIN and Katana overview][katana].
+This article presented a method of configuring a web API implementing the Microsoft OWIN middleware (Katana) to accept tokens from multiple issuer endpoints.
+
+For more information about the different types of security tokens emitted by Azure AD B2C, see [Overview of tokens in Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
 
 <!-- LINKS - External -->
 [sample-archive]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip
