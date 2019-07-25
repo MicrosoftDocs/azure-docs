@@ -27,12 +27,13 @@ Using DPS enables:
 - You to use your own device IDs to register devices in IoT Central. Using your own device IDs simplifies integration with existing back-office systems.
 - A single, consistent way to connect devices to IoT Central.
 
-This article describes the following four use cases:
+This article describes the following use cases:
 
 1. [Quickly connect a single device using SAS](#connect-a-single-device)
 1. [Connect devices at scale using SAS](#connect-devices-at-scale-using-sas)
 1. [Connect devices at scale using X.509 certificates](#connect-devices-using-x509-certificates) this is the recommended approach for production environments.
 1. [Connect without first registering devices](#connect-without-registering-devices)
+1. [Connect devices using Azure IoT Plug and Play features](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 ## Connect a single device
 
@@ -134,20 +135,47 @@ The following steps describe this process in more detail. The steps differ sligh
 
 1. Then turn on the device for it to connect to your IoT Central application. When you switch on a device, it first connects to DPS to retrieve its IoT Central registration information.
 
-1. The connected device initially shows up as an **Unassociated device** on the **Device Explorer** page. The device provisioning status is **Registered**. **Associate** the device to the appropriate device template and approve the device to connect to your IoT Central application. The device can then retrieve a connection string from IoT Hub and start sending data. Device provisioning is now complete and the provisioning status is now **Provisioned**.
+1. The connected device initially shows up as **Unassociated** on the **Devices** page. The device provisioning status is **Registered**. **Migrate** the device to the appropriate device template and approve the device to connect to your IoT Central application. The device can then retrieve a connection string from IoT Hub and start sending data. Device provisioning is now complete and the provisioning status is now **Provisioned**.
 
-## Provisioning status
+## Connect devices with IoT Plug and Play
 
-When a real device connects to your IoT Central application, its provisioning status changes as follows:
+One of the key features of IoT Plug and Play with IoT Central is the ability to associate device templates automatically on device connection. Along with device credentials, devices can now send the **CapabilityModelId** as part of the device registration call and IoT Central will discover and associate the device template. The discovery process follows the following order:
+1. Associates with the Device Template if already published in the IoT Central app.
+1. Fetches from the Global Repository of Published and Certified capability models.
 
-1. The device provisioning status is first **Registered**. This status means the device is created in IoT Central, and has a device ID. A device is registered when:
-    - A new real device is added on the **Device Explorer** page.
-    - A set of devices is added using **Import** on the **Device Explorer** page.
-    - A device wasn't registered manually on the **Device Explorer** page, but connected with valid credentials and is visible as an **Unassociated** device on the **Device Explorer** page.
+Below is the format of the additional payload the device would send during the DPS registration call
 
-1. The device provisioning status changes to **Provisioned** when the device that connected to your IoT Central application with valid credentials completes the provisioning step. In this step, the device retrieves a connection string from IoT Hub. The device can now connect to IoT Hub and start sending data.
+	```javascript
+	'__iot:interfaces': {
+                CapabilityModelId: <this is the URN for the capability model>
+            }
+	```
 
-1. An operator can block a device. When a device is blocked, it can't send data to your IoT Central application. Blocked devices have a provisioning status of **Blocked**. An operator must reset the device before it can resume sending data. When an operator unblocks a device the provisioning status returns to its previous value, **Registered** or **Provisioned**.
+To learn more about connecting an IoT Plug and Play device, see how to [Connect a Plug and Play device](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+
+> [!NOTE]
+> Note that the Auto-Approve option should be enabled for devices to automatically connect, discover the model and start sending data.
+
+
+## Device status
+
+When a real device connects to your IoT Central application, its device status changes as follows:
+
+1. The device status is first **Registered**. This status means the device is created in IoT Central, and has a device ID. A device is registered when:
+    - A new real device is added on the **Devices** page.
+    - A set of devices is added using **Import** on the **Devices** page.
+
+1. The device status changes to **Provisioned** when the device that connected to your IoT Central application with valid credentials completes the provisioning step. In this step, the device retrieves a connection string from IoT Hub. The device can now connect to IoT Hub and start sending data.
+
+1. An operator can block a device. When a device is blocked, it can't send data to your IoT Central application. Blocked devices have a status of **Blocked**. An operator must reset the device before it can resume sending data. When an operator unblocks a device the status returns to its previous value, **Registered** or **Provisioned**.
+
+1. The device status is **Waiting for Approval**  which means the **Auto Approve** option is disabled and requires all the devices connecting to IoT Central be explicitly approved by an operator. Devices not registered manually on the **Devices** page, but connected with valid credentials will have the device status **Waiting for Approval**. Operators can approve these devices from the **Devices** page using the **Approve** button.
+
+1. The device status is **Unassociated** which means that the devices connecting to IoT Central do not have a Device Template associated to them. This typically happens in the following scenarios:
+    - A set of devices is added using **Import** on the **Devices** page without specifying the Device Template
+    - Devices not registered manually on the **Devices** page connected with valid credentials but without specifying the Template ID during registration.  
+The Operator can associate a device to a Template from the **Devices** page using the **Migrate** button.
+
 
 ## SDK support
 
@@ -202,6 +230,7 @@ All data exchanged between devices and your Azure IoT Central is encrypted. IoT 
 
 Now that you've learned about device connectivity in Azure IoT Central, here are the suggested next steps:
 
+- [Connect a Plug and Play device](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 - [Prepare and connect a DevKit device](howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 - [Prepare and connect a Raspberry Pi](howto-connect-raspberry-pi-python-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 - [Connect a generic Node.js client to your Azure IoT Central application](howto-connect-nodejs-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
