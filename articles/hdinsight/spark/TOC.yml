@@ -49,7 +49,11 @@
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
   - name: Monitor cluster availability with Ambari and Azure Monitor logs
-    href: ../hdinsight-cluster-availability.md 
+    href: ../hdinsight-cluster-availability.md
+  - name: Troubleshoot
+    items:
+    - name: Kyro serialization failed
+      href: ./apache-spark-ts-sparkexception-kryo-serialization-failed.md
 - name: How to
   items:
   - name: Use cluster storage
