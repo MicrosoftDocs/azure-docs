@@ -45,13 +45,13 @@ For more information on features provided by Azure App Service, see the [App Ser
 
     ![Screenshot of deploying from ACR to a web app](media/how-to-deploy-app-service/deploy-to-web-app.png)
 
-3. To create the Web App, provide a site name, resource group, and select the App service plan/location. Finally, select __Create__.
+3. To create the Web App, provide a site name, subscription, resource group, and select the App service plan/location. Finally, select __Create__.
 
     ![Screenshot of the new web app dialog](media/how-to-deploy-app-service/web-app-for-containers.png)
 
 ## Use the Web App
 
-From the [Azure portal](https://portal.azure.com), select the Web App created in the previous steps. From the __Overview__ section, copy the __URL__. This value is the __base URL__ of the service.
+From the [Azure portal](https://portal.azure.com), select the Web App created in the previous step. From the __Overview__ section, copy the __URL__. This value is the __base URL__ of the service.
 
 ![Screenshot of the overview for the web app](media/how-to-deploy-app-service/web-app-overview.png)
 
@@ -83,4 +83,5 @@ print(response.json())
 
 ## Next steps
 
-* For more information on configuring your Web App, see the [App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/) documentation.
+* For more information on configuring your Web App, see the [App Service on Linux](/azure/app-service/containers/) documentation.
+* For more information on autoscaling, see [Understand Autoscale settings](/azure/azure-monitor/platform/autoscale-understanding-settings).
