@@ -37,9 +37,7 @@ Usually, you associate your content key policy with your [Streaming Locator](str
 * Content Key Policies are updatable. It can take up to 15 minutes for the key delivery caches to update and pick up the updated policy. 
 
    By updating the policy, you are overwriting your existing CDN cache which could cause playback issue for customers that are using cached content.  
-* We recommend that you do not create a new content key policy for each asset. 
-
-   The main benefits of sharing the same content key policy between assets that need the same policy options are:
+* We recommend that you do not create a new content key policy for each asset. The main benefits of sharing the same content key policy between assets that need the same policy options are:
    
    * It is easier to manage a small number of policies.
    * If you need to make updates to the content key policy, the changes go into effect on all new license requests almost right away.
