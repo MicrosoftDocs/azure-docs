@@ -133,3 +133,4 @@ In this tutorial, you created an event grid topic, subscription, and published e
 * Try creating/updating subscription with retry policy
 * Try out client authentication from custom IoT modules
 * Validate event grid module's server certificate, identity certificate from custom IoT modules
+* Register any webhook in the cloud such as Azure Function in cloud to receive edge events

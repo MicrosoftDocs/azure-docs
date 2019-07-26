@@ -117,6 +117,7 @@ The configuration that controls the source for the certificate is
 | IoT Edge | Default. Uses the module's identity certificate configured by IoT Edge security daemon.
 
 ### Outbound Server Authentication
+
 One of the destination types for an Event Grid subscriber is "Webhook". By default only HTTPS endpoints are accepted for such subscribers.
 
 The configuration to control webhook destination policy **outbound:webhook:httpsOnly**.
