@@ -1,5 +1,5 @@
 ---
-title: Speech Synthesis Markup Language (SSML) - Speech Services
+title: Speech Synthesis Markup Language (SSML) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services

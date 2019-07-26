@@ -4,7 +4,7 @@ description: Learn about the tools and utilities that are pre-installed on the D
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2019
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 # Get to know your Data Science Virtual Machine
