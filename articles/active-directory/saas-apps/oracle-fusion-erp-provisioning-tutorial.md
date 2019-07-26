@@ -52,17 +52,17 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Oracle Fusion ERP  for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Oracle Fusion ERP.
 
-1. Sign in to your [Oracle Fusion ERP Admin Console](https://ejlv.fa.em2.oraclecloud.com)
+1. Sign in to your [Oracle Fusion ERP Admin Console](https://cloud.oracle.com/sign-in)
 
 2. Click the Navigator on the top-left top corner. Under **Tools**, select **Security Console**.
 
 	![Oracle Fusion ERP  Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/login.png)
 
-3. Navigate > Click on **Users** to see the information.
+3. Navigate to **Users**.
 	
 	![Oracle Fusion ERP  Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/user.png)
 
-4.	Save the username and password, which you used to login into the Oracle Fusion ERP. These values need to be entered in the Admin Username and Password textboxes in the Provisioning tab of your Oracle Fusion ERP application in the Azure portal.
+4. Save the username and password for the admin user account which you will use to log into the Oracle Fusion ERP admin console. These values need to be entered in the **Admin Username** and **Password** fields in the Provisioning tab of your Oracle Fusion ERP application in the Azure portal.
 
 ## Add Oracle Fusion ERP from the gallery
 
@@ -111,7 +111,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` in **Tenant URL**. Enter Admin Username and Password. Click on **Test connection** between Azure AD and Oracle Fusion ERP. 
+5. Under the **Admin Credentials** section, input `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` in **Tenant URL**. Enter the admin user name and password retrieved earlier into the **Admin Username** and **Password** fields. Click on **Test connection** between Azure AD and Oracle Fusion ERP. 
 
 	![Oracle Fusion ERP  Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/admin.png)
 
@@ -149,8 +149,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 	This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Oracle Fusion ERP.
 
 	For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md)
-
-## 	Connector limitations
 
 ## Additional resources
 
