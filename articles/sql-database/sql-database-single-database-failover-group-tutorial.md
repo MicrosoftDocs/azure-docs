@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
-manager: jroth
 ms.date: 06/19/2019
 ---
 # Tutorial: Add an Azure SQL Database single database to a failover group
