@@ -28,7 +28,7 @@ The Internet of Things is quickly transforming our world. With the ability to un
 
 Azure Security Center for IoT simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads running on edge, on-premises, in Azure, and in other clouds. 
 
-![Azure Security Center for IoT architecture](./media/architecture/asc-for-iot-architecture.png)
+![Azure Security Center for IoT architecture](./media/architecture/azure-iot-security-architecture.png)
 
 ### Unified visibility and control
 
