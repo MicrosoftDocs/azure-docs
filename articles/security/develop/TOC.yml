@@ -21,10 +21,10 @@
     expanded: true
     items:
       - name: Overview
-        href: sca-overview.md
+        href: security-code-analysis-overview.md
       - name: Installation
-        href: sca-install.md
+        href: security-code-analysis-install.md
       - name: Configuration
-        href: sca-customize.md       
+        href: security-code-analysis-customize.md       
       - name: FAQs
-        href: sca-faq.md
+        href: security-code-analysis-faq.md
