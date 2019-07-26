@@ -21,6 +21,9 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 > [!TIP]
 > Although the code snippets in this article usee a TensorFlow model, you can apply the information to any machine learning framework that supports GPUs.
 
+> [!NOTE]
+> The information in this article builds on the information in the [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) article. Where that article generally covers deployment to AKS, this article covers GPU specific deployment.
+
 ## Prerequisites
 
 * An Azure Machine Learning service workspace. For more information, see [Create an Azure Machine Learning service workspace](setup-create-workspace.md).
@@ -82,7 +85,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure will bill you as long as the AKS cluster exists. Make sure to delete your AKS cluster when you're done with it.
 
-For more information on using Azure Kubernetes Service with Azure Machine Learning service, see [How to deploy and where](how-to-deploy-and-where.md#deploy-aks).
+For more information on using AKS with Azure Machine Learning service, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## Write the entry script
 
