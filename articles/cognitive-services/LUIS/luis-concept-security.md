@@ -1,6 +1,6 @@
 ---
-title: Security when collaborating
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Security when collaborating - LUIS
+titleSuffix: Azure Cognitive Services
 description: Authoring access is available for owners and collaborators. For a private app, endpoint access is available for owners and collaborators. 
 services: cognitive-services
 author: diberry
