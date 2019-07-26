@@ -149,7 +149,7 @@ If SSIS IR provisioning fails, all the resources that were created are deleted. 
 
 ### VNetResourceGroupLockedDuringStop
 
-When you stop SSIS IR, all the resources related to Virtual Network are deleted. But deletion can fail if there's a resource delete lock at the subscription or resource group level. Here, too, the customer controls and sets the delete lock. Therefoe, they must remove the delete lock and then stop SSIS IR again.
+When you stop SSIS IR, all the resources related to Virtual Network are deleted. But deletion can fail if there's a resource delete lock at the subscription or resource group level. Here, too, the customer controls and sets the delete lock. Therefore, they must remove the delete lock and then stop SSIS IR again.
 
 ### NodeUnavailable
 
