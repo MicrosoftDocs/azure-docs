@@ -26,7 +26,7 @@ The FHIR API and compliant data store enable you to securely connect and interac
 
 The following video presents an overview of Azure API for FHIR:
 
->[!VIDEO https://www.youtube.com/watch?v=5vS7Iq9vpXE&feature=youtu.be]
+>[!VIDEO https://www.youtube.com/embed/5vS7Iq9vpXE]
 
 ## **Leveraging the power of your data with FHIR**
 The healthcare industry is rapidly transforming health data to the emerging standard of [FHIR&reg;](https://hl7.org/fhir) (Fast Healthcare Interoperability Resources). FHIR enables a robust, extensible data model with standardized semantics and data exchange that enables all systems using FHIR to work together.  Transforming your data to FHIR allows you to quickly connect existing data sources such as the electronic health record systems or research databases. FHIR also enables the rapid exchange of data in modern implementations of mobile and web development. Most importantly, FHIR can simplify data ingestion and accelerate development with analytics and machine learning tools.  
