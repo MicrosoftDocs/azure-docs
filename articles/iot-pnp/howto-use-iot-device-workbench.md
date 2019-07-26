@@ -1,6 +1,6 @@
 ---
 title: Use the Azure IoT Device Workbench in Visual Studio Code to build IoT Plug and Play devices | Microsoft Docs
-description: Use Azure IoT Device Workbench in Visual Studio Code to accelerate authoring device model, publishing to model repository and implementing the device code.
+description: Use Azure IoT Device Workbench in Visual Studio Code to accelerate authoring device model and implementing the device code.
 author: Liya Du
 ms.author: liydu
 ms.date: 07/25/2019
@@ -15,8 +15,8 @@ ms.custom: mvc
 This article shows you how to:
 
 - Use Intellisense and auto-complete when authoring device capability model and interface.
-- Generate ANSI C scaffolding code and project.
-- Use the generated code in your own device project.
+- Generate device code and project.
+- Use the generated code in your device project.
 - Iterate by re-generating the scaffolding code.
 
 ## Prerequisites
@@ -30,7 +30,7 @@ Use the following steps to install the extension in VS Code.
 
 ## Use Intellisense and auto-complete when authoring device capability model and interface
 
-## Generate ANSI C scaffolding code and project
+## Generate device code and project
 
 In VS Code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub** to configure the scaffold code and project type. Here are detailed explanation of each step:
 
@@ -68,25 +68,79 @@ After generation finishes, it opens a new VS Code window with the code. If you o
 
 1. Save the file.
 
-## Use the generated code in your own device project
+## Use the generated code in your device project
 
-Here are some examples about how to use the generated code in your own device project.
+Here are instructions of how to use the generated code in your own device project on different platforms.
 
-### Linux using CMake
+### Linux
 
-*[TBD Cmake with device SDK]*
+Follow these steps to build the device code together with the device C SDK on Linux (e.g. Ubuntu, Debian) using CMake.
 
-### Windows using MSBuild
+1. Open terminal application.
 
-*[TBD .vcxproj]*
+1. Install **GCC**, **Git**, **CMake** and all dependencies via apt-get:
 
-### mbedOS using XXX
+    ```sh
+    sudo apt-get update
+    sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
+    ```
 
-*[TBD]*
+    Verify that version of **CMake** is above **2.8.12** and **GCC** is above **4.4.7**.
 
-### Arduino
+    ```sh
+    cmake --version
+    gcc --version
+    ```
 
-*[TBD]*
+1. Clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c-pnp) repository:
+
+    ```sh
+    git clone https://github.com/Azure/azure-iot-sdk-c-pnp --recursive -b public-preview
+    ```
+
+    You should expect this operation to take several minutes to complete.
+
+1. Copy the folder that contains the generated code into the device SDK root folder.
+
+1. In VS Code, open `CMakeLists.txt` in the device SDK root folder.
+
+1. Add the following line at the end of the `CMakeLists.txt` file to include the device code stub folder when you compile the SDK:
+
+    ```
+    add_subdirectory({generated_code_folder_name})
+    ```
+
+1. Create a `cmake` subdirectory in the device SDK root folder, and navigate to that folder.
+
+    ```sh
+    mkdir cmake
+    cd cmake
+    ```
+
+1. Run the following commands to use CMake build the device SDK and the generated code stub:
+
+    ```cmd\sh
+    cmake ..
+    cmake --build .
+
+1. After the build success, run it by specifying the IoT Hub device connection string as parameter.
+
+    ```cmd\sh
+    cd azure-iot-sdk-c-pnp/cmake/{generated_code_folder_name}/
+    ./testing_device "[IoT Hub device connection string]"
+    ```
+
+### Windows
+
+You can either use CMake and Visual Studio C/C++ compilers to build the device code together with the device C SDK on Windows by following [IoT Plug and Play quickstart](./quickstart-create-pnp-device.md), or follow these steps to include the `.vcxproj` in your Visual Studio solution.
+
+1. Open your VS solution.
+
+1. In the **Solution Explorer** panel, select the top solution node, from context menu, select **Add > Existing Project**.
+
+1. Select the `vcxproj` file in the generated code folder to include it as part of the solution.
+
+1. From there, you can continue implement your device code and build the solution in VS.
 
 ## Iterate by re-generating the scaffolding code
 
@@ -100,3 +154,6 @@ The code generator supports re-generation of the code if you update your DCM or 
 
 1. It will use the previous setting you configured and re-generate the code. But it will not overwrite the files involved with user code such as `main.c` and `{project_name}_impl.c`.
 
+## Next steps
+
+In this how-to article, you have learned how to use Azure IoT Device Workbench to author device capability model and interface and generate C scaffolding code to implement the device application. To learn about IoT Plug and Play, continue to the next article.
