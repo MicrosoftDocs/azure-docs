@@ -6,8 +6,9 @@ author: mhopkins-msft
 
 ms.service: storage
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 07/27/2019
 ms.author: mhopkins
+ms.subservice: blobs
 ---
 
 # Manage blob properties and metadata with .NET
@@ -20,7 +21,7 @@ Blobs support system properties and user-defined metadata, in addition to the da
 
 - **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and do not affect how the resource behaves.
 
-Retrieving property and metadata values for a Blob storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the **FetchAttributes** or **FetchAttributesAsync** method. The exception to this rule is that the **Exists** and **ExistsAsync** methods call the appropriate **FetchAttributes** method under the covers. When you call one of these methods, you do not need to also call **FetchAttributes**.
+Retrieving metadata values for a Blob storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the **FetchAttributes** or **FetchAttributesAsync** method. The exception to this rule is that the **Exists** and **ExistsAsync** methods call the appropriate **FetchAttributes** method under the covers. When you call one of these methods, you do not need to also call **FetchAttributes**.
 
 > [!IMPORTANT]
 > If you find that property or metadata values for a storage resource have not been populated, then check that your code calls the **FetchAttributes** or **FetchAttributesAsync** method.
@@ -36,9 +37,14 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
 {
     try
     {
-        // Set property values on the blob.
-        blob.Properties.ContentType = "text";
-        blob.Properties.ContentLanguage = "English";
+        Console.WriteLine("Setting blob properties.");
+
+        // Set property values for the blob.
+
+        // You must explicitly set the MIME ContentType every time
+        // the properties are updated or the field will be cleared.
+        blob.Properties.ContentType = "text/plain";
+        blob.Properties.ContentLanguage = "en-us";
 
         // Set the blob's properties.
         await blob.SetPropertiesAsync();
