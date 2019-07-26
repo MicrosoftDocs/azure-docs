@@ -9,12 +9,12 @@ manager: beatrizd
 
 ms.assetid: 34718201-4f0e-4260-9af0-b3b70a1e8265
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07-19-2019
+ms.date: 07/19/2019
 ms.author: zhchia
 ---
 
@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Fu
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A Fuze tenant](https://www.fuze.com/trust#fuze-status-check).
+* [A Fuze tenant](https://www.fuze.com/).
 * A user account in Fuze with Admin permissions.
 
 ## Assigning users to Fuze
@@ -51,13 +51,15 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup Fuze for provisioning
 
+Before configuring Fuze for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Fuze.
+
 To enable provisioning through Azure AD, you’ll need to start by contacting your Fuze representative with the following required information:
 
-* List of Fuze Product SKUs currently in use at your company.
+1. 	List of Fuze Product SKUs currently in use at your company.
 
-* List of location codes for your company’s locations.
+2. 	List of location codes for your company’s locations.
 
-* List of department codes for your company.
+3.	List of department codes for your company.
 
 You can find these SKUs and codes in your Fuze contract and configuration documents, or by
 contacting your Fuze representative.
