@@ -25,8 +25,8 @@ The next version of Sentiment Analysis is now available for public preview, and 
 
 It supports English and is available in three regions: Central Canada, East Asia, and Central US. Additional languages and regions will be added in subsequent releases.
 
-    > [!div class="nextstepaction"]
-    > [Learn more about Sentiment Analysis v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)
+> [!div class="nextstepaction"]
+> [Learn more about Sentiment Analysis v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)
 
 
 ## Next Steps
