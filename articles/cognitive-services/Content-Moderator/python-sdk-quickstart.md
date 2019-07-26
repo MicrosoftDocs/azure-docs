@@ -36,8 +36,8 @@ Use the Content Moderator client library for Python to:
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Content Moderator using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
 
-* Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for 7 days for free. After you sign up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* View your resource on the [Azure Portal](https://portal.azure.com/)
+* Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for seven days for free. After you sign up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* View your resource on the [Azure portal](https://portal.azure.com/)
 
 After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `CONTENTMODERATOR_SUBSCRIPTION_KEY`.
  
@@ -58,7 +58,10 @@ import azure.cognitiveservices.vision.contentmoderator.models import *
 from msrest.authentication import CognitiveServicesCredentials
 ```
 
-Create variables for your resource's Azure location and your key as an environment variable. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable.
+Create variables for your resource's Azure location and your key as an environment variable. 
+
+> [!NOTE]
+> If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
 ```python
 CONTENTMODERATOR_ENDPOINT = "https://westus.api.cognitive.microsoft.com"
@@ -111,7 +114,7 @@ client = ContentModeratorClient(
 
 ### Moderate text
 
-The following code uses a Content Moderator client to analyze a body of text and print the results to the console. You must create a **text_files** folder at the root of your project and add a *content_moderator_text_moderation.txt* file. Add your own text to this file, or use the following sample text:
+The following code uses a Content Moderator client to analyze a body of text and print the results to the console. First, create a **text_files** folder at the root of your project and add a *content_moderator_text_moderation.txt* file. Add your own text to this file, or use the following sample text:
 
 ```
 Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -146,9 +149,9 @@ def text_moderation():
 
 ### Use a custom terms list
 
-The following code shows how to manage a list of custom terms for text moderation. You can use the [ListManagementTermListsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementtermlistsoperations?view=azure-python) class to create a terms list, add, retrieve, and remove terms from a list, screen text against your list of terms, and delete the terms list.
+The following code shows how to manage a list of custom terms for text moderation. You can use the [ListManagementTermListsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementtermlistsoperations?view=azure-python) class to create a terms list, manage the individual terms, and screen other bodies of text against it.
 
-To use this sample, you must create a **text_files** folder at the root of your project and add a *content_moderator_term_list.txt* file. This should contain organic text that will be checked against the list of terms. You can use the following sample text:
+To use this sample, you must create a **text_files** folder at the root of your project and add a *content_moderator_term_list.txt* file. This file should contain organic text that will be checked against the list of terms. You can use the following sample text:
 
 ```
 This text contains the terms "term1" and "term2".
@@ -357,7 +360,7 @@ def image_moderation():
 
 ### Use a custom image list
 
-The following code shows how to manage a custom list of images for image moderation. This is useful if your platform frequently receives instances of the same set of images that you want to screen out. By maintaining a list of these specific images, you can improve performance. The [ListManagementImageListsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementimagelistsoperations?view=azure-python) class allows you to create an image list, add, retrieve, and remove images from a list, compare new images against your list, and delete the image list.
+The following code shows how to manage a custom list of images for image moderation. This feature is useful if your platform frequently receives instances of the same set of images that you want to screen out. By maintaining a list of these specific images, you can improve performance. The [ListManagementImageListsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementimagelistsoperations?view=azure-python) class allows you to create an image list, manage the individual images on the list, and compare other images against it.
 
 Create the following text variables to store the image URLs that you'll use in this scenario.
 
@@ -570,7 +573,7 @@ You can use the Content Moderator Python SDK to feed content into the [Review to
 
 The following code uses the [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) class to create a review, retrieve its ID, and check its details after receiving human input through the Review tool's web portal.
 
-You must first sign in to the Review tool, retrieve your team name, and save it to a variable. Optionally, you can set up a callback endpoint to receive updates on the activity of the review.
+First, sign in to the Review tool and retrieve your team name. Then assign it to the appropriate variable in the code. Optionally, you can set up a callback endpoint to receive updates on the activity of the review.
 
 ```python
 def image_review():
@@ -665,7 +668,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart, you learned how to use the Content Moderator Python library to perform moderation tasks. Next, learn more about the moderation of images or other media by reading a conceptual guide.
+In this quickstart, you learned how to use the Content Moderator Python library to do moderation tasks. Next, learn more about the moderation of images or other media by reading a conceptual guide.
 
 > [!div class="nextstepaction"]
 >[Image moderation concepts](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
