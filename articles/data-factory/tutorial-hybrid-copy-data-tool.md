@@ -75,7 +75,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure user name and password. 
 
-1. In the left pane, select **More services**. Filter by using the **Storage** keyword, and then select **Storage accounts**.
+1. In the left pane, select **All services**. Filter by using the **Storage** keyword, and then select **Storage accounts**.
 
     ![Storage account search](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
 
@@ -94,31 +94,27 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
     ![Select Blobs option](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-1. In the **Blob service** window, select **Container**. 
+1. In the **Blobs** window, select **+ Container**. 
 
-    ![Container button](media/tutorial-hybrid-copy-powershell/add-container-button.png)
-
-1. In the **New container** window, in the **Name** box, enter **adftutorial**, and then select **OK**. 
+1. In the **New container** window, under **Name**, enter **adftutorial**, and then select **OK**. 
 
     ![New container](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
 1. In the list of containers, select **adftutorial**.
 
-    ![Container selection](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
-1. Keep the **Container** window for **adftutorial** open. You use it verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
+1. Keep the **Container** window for **adftutorial** open. You use it to verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
 
     ![Container window](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 
 ## Create a data factory
 
-1. On the menu on the left, select **New** > **Data + Analytics** > **Data Factory**. 
+1. On the menu on the left, select **+ Create a resource** > **Analytics** > **Data Factory**. 
   
    ![New data factory creation](./media/tutorial-hybrid-copy-data-tool/new-azure-data-factory-menu.png)
+
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
-   
-     ![New data factory](./media/tutorial-hybrid-copy-data-tool/new-azure-data-factory.png)
 
    The name of the data factory must be *globally unique*. If you see the following error message for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
@@ -131,13 +127,10 @@ In this section, you create a blob container named **adftutorial** in your Blob 
    - Select **Create new**, and enter the name of a resource group. 
         
      To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
-1. Under **Version**, select **V2 **.
+1. Under **Version**, select **V2**.
 1. Under **Location**, select the location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by Data Factory can be in other locations/regions.
-1. Select **Pin to dashboard**. 
 1. Select **Create**.
-1. On the dashboard, you see the following tile with the status **Deploying Data Factory**:
 
-	![Deploying data factory tile](media/tutorial-hybrid-copy-data-tool/deploying-data-factory.png)
 1. After the creation is finished, you see the **Data Factory** page as shown in the image.
   
      ![Data factory home page](./media/tutorial-hybrid-copy-data-tool/data-factory-home-page.png)
@@ -157,23 +150,23 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
    ![Create new linked service](./media/tutorial-hybrid-copy-data-tool/create-new-source-data-store.png)
 
-1. Under **New Linked Service**, search for **SQL Server**, and then select **Next**. 
+1. Under **New Linked Service**, search for **SQL Server**, and then select **Continue**. 
 
    ![SQL Server selection](./media/tutorial-hybrid-copy-data-tool/select-source-data-store.png)
 
-1. Under New Linked Service (SQL Server) **Name**, enter **SqlServerLinkedService**. Select **+New** under **Connect via integration runtime**. You must create a self-hosted integration runtime, download it to your machine, and register it with Data Factory. The self-hosted integration runtime copies data between your on-premises environment and the cloud.
+1. In the **New Linked Service (SQL Server)** dialog box, under **Name**, enter **SqlServerLinkedService**. Select **+New** under **Connect via integration runtime**. You must create a self-hosted integration runtime, download it to your machine, and register it with Data Factory. The self-hosted integration runtime copies data between your on-premises environment and the cloud.
 
    ![Create self-hosted integration runtime](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
 
-1. In the **Integration Runtime Setup** dialog box, Select **Private Network**. Then select **Next**. 
+1. In the **Integration Runtime Setup** dialog box, Select **Self-Hosted**. Then select **Next**. 
 
    ![](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
 
-1. In the **Integration Runtime Setup** dialog box under **Name**, enter **TutorialIntegrationRuntime**. Then select **Next**. 
+1. In the **Integration Runtime Setup** dialog box, under **Name**, enter **TutorialIntegrationRuntime**. Then select **Next**. 
 
    ![Integration runtime name](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog.png)
 
-1. Select **Click here to launch the express setup for this computer**. This action installs the integration runtime on your machine and registers it with Data Factory. Alternatively, you can use the manual setup option to download the installation file, run it, and use the key to register the integration runtime. 
+1. In the **Integration Runtime Setup** dialog box, select **Click here to launch the express setup for this computer**. This action installs the integration runtime on your machine and registers it with Data Factory. Alternatively, you can use the manual setup option to download the installation file, run it, and use the key to register the integration runtime. 
 
     ![lLaunch express setup on this computer link](./media/tutorial-hybrid-copy-data-tool/launch-express-setup-link.png)
 
@@ -181,11 +174,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
     ![Express setup status](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
 
-1. Confirm that **TutorialIntegrationRuntime** is selected for the **Integration Runtime** field.
-
-      ![Integration runtime selected](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
-
-1. In **Specify the on-premises SQL Server database**, take the following steps: 
+1. In the **New Linked Service (SQL Server)** dialog box, confirm that **TutorialIntegrationRuntime** is selected for the Integration Runtime field. Then, take the following steps:
 
     a. Under **Name**, enter **SqlServerLinkedService**.
 
@@ -197,7 +186,11 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
     e. Under **User name**, enter the name of user with access to on-premises SQL Server.
 
-    f. Enter the **password** for the user. Select **Finish**. 
+    f. Enter the **password** for the user. 
+
+    g. Test connection and select **Finish**.
+
+      ![Integration runtime selected](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
 
 1. Select **Next**.
 
@@ -217,21 +210,19 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 1. On the **New Linked Service (Azure Blob Storage)** dialog, take the following steps: 
 
-       a. Under **Name****, enter **AzureStorageLinkedService**.
+   a. Under **Name**, enter **AzureStorageLinkedService**.
 
-       b. Under **Connect via integration runtime**, select **TutorialIntegrationRuntime**
+   b. Under **Connect via integration runtime**, select **TutorialIntegrationRuntime**
 
-       c. Under **Storage account name**, select your storage account from the drop-down list. 
+   c. Under **Storage account name**, select your storage account from the drop-down list. 
 
-       d. Select **Next**.
-
-   ![Specify the storage account](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
+   d. Select **Next**.
 
 1. In **Destination data store** dialog, select **Next**. In **Connection properties**, select **Azure storage service** as **Azure Blob Storage**. Select **Next**. 
 
    ![connection properties](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
 
-1. In the **Choose the output file or folder** dialog, under **Folder path**, enter **adftutorial/fromonprem**. You created the **adftutorial** container as part of the prerequisites. If the output folder doesn't exist (in this case **fromonprem**), Data Factory automatically creates it. You also can use the **Browse** button to browse the blob storage and its containers/folders. If you do not specify any value under **File name**, by default the name from the source would be used (in this case **dbo.emp**).
+1. In the **Choose the output file or folder** dialog, under **Folder path**, enter **adftutorial/fromonprem**. You created the **adftutorial** container as part of the prerequisites. If the output folder doesn't exist (in this case **fromonprem**), Data Factory automatically creates it. You can also use the **Browse** button to browse the blob storage and its containers/folders. If you do not specify any value under **File name**, by default the name from the source would be used (in this case **dbo.emp**).
            
    ![Choose the output file or folder](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
 
