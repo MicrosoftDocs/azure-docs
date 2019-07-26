@@ -16,7 +16,7 @@ ms.author: aahi
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
-## Sentiment Analysis v3 public preview
+## Sentiment Analysis v3 public preview - July 2019
 
 The next version of Sentiment Analysis is now available for public preview, and provides significant improvements in the accuracy and detail of the API's text categorization and scoring. It additionally provides:
 
@@ -25,8 +25,8 @@ The next version of Sentiment Analysis is now available for public preview, and 
 
 It supports English and is available in three regions: Central Canada, East Asia, and Central US. Additional languages and regions will be added in subsequent releases.
 
-> [!div class="nextstepaction"]
-> [Learn more](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)
+    > [!div class="nextstepaction"]
+    > [Learn more about Sentiment Analysis v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)
 
 
 ## Next Steps
