@@ -27,10 +27,6 @@ To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-
 
 Solutions built on IoT Hub or IoT Central can benefit from IoT Plug and Play.
 
-The following video presents an introduction to IoT Plug and Play:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player]
-
 This article outlines:
 
 - The typical roles associated with a project that uses IoT Plug and Play.
@@ -40,7 +36,7 @@ This article outlines:
 
 ## User roles
 
-IoT Plug and Play will be useful for two types of developers:
+IoT Plug and Play is useful for two types of developers:
 
 - A _solution developer_ is responsible for developing an IoT solution using Azure IoT and other Azure resources and for identifying IoT devices to integrate.
 - A _device developer_ creates the code that runs on a device connected to your solution.
@@ -80,7 +76,7 @@ As a device developer, you can submit IoT hardware products for certification. Y
 During public preview, IoT Plug and Play is available in the North Europe, Central US, and Japan East regions. Please make sure you create your hub in one of these regions.
 
 ## Message quotas in IoT Hub
-During public preview, IoT Plug and Play devices will send separate messages per interface, which may increase the number of messages counted towards your [message quota](../iot-hub/iot-hub-devguide-quotas-throttling.md).
+During public preview, IoT Plug and Play devices send separate messages per interface, which may increase the number of messages counted towards your [message quota](../iot-hub/iot-hub-devguide-quotas-throttling.md).
 
 ## Next steps
 
