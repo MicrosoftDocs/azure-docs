@@ -9,7 +9,7 @@ ms.assetid: 5365B568-EA55-4D97-8FBE-0AF60158D4D5
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 07/26/2019
 ms.author: scottwhi
 ---
 
