@@ -58,7 +58,7 @@ Before configuring Rollbar for automatic user provisioning with Azure AD, you wi
 
 	![Rollbar Admin Console](media/rollbar-provisioning-tutorial/image00.png)
 
-3.	Under **AZURE-SCIM-PROVISIONING**, Click on **Account Access Token**.
+3.	Under **AZURE-SCIM-PROVISIONING**, Click on **Account Access Tokens**.
 
 	![Rollbar Admin Console](media/rollbar-provisioning-tutorial/account.png)
 
