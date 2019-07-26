@@ -10,7 +10,7 @@ keywords: azure functions, functions
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/05/2019
+ms.date: 08/12/2019
 ms.author: cshoe
 ---
 # Azure Functions Deployment Slots
@@ -179,7 +179,7 @@ There are two levels of support for deployment slots:
 
 | OS/Hosting plan           | Level of support     |
 | ------------------------- | -------------------- |
-| Windows Consumption       | Preview              |
+| Windows Consumption       | General availability |
 | Windows Premium (preview) | Preview              |
 | Windows Dedicated         | General availability |
 | Linux Consumption         | Unsupported          |
