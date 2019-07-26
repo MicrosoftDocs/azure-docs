@@ -288,7 +288,8 @@ Now that you have approved the access request, in this step, you confirm that th
 
 > [!TIP]
 > You can also search by resource name in My Access. Update the search filter then select **search by resource** prior to your search.
-> ![Search by resource](./media/entitlement-management-access-package-first/elm-myaccess-resource-search.png)
+
+![Search by resource](./media/entitlement-management-access-package-first/elm-myaccess-resource-search.png)
 
 ## Step 7: Clean up resources
 
