@@ -2,20 +2,26 @@
   href: 
 - name: Tutorials
   items:
-  - name: Publish and Subscribe to events locally
+  - name: Publish and subscribe to events locally
     items:
-    - name: Deploy Event Grid IoT Module
+    - name: Deploy Event Grid IoT module
       href: deploy-event-grid-portal.md
-    - name: Deploy Azure Function IoT Module
+    - name: Deploy Azure Function IoT module
       href: deploy-func-webhook-module-portal.md
-    - name: Publish and Subscribe events
+    - name: Publish and subscribe to events
       href: pub-sub-events-webhook-local.md
   - name: Forward Event Grid events to IoTHub
     items:
-    - name: Deploy Event Grid IoT Module
+    - name: Deploy Event Grid IoT module
       href: deploy-event-grid-portal.md
     - name: Forward events to IoTHub
       href: forward-events-iothub.md
+  - name: Forward Event Grid edge events to Event Grid in cloud
+    items:
+    - name: Deploy Event Grid IoT module
+      href: deploy-event-grid-portal.md
+    - name: Forward events to IoTHub
+      href: forward-events-event-grid-cloud.md
 - name: Concepts
   items:
   - name: Event Grid concepts
