@@ -748,7 +748,7 @@
     - name: Application setup
       href: how-to-setup-cluster-managed-identity-token-service.md
     - name: Use MITS with Service Fabric application code
-      href: how-to-managed-token-identity-service-app-code.md
+      href: how-to-managed-identity-token-service-app-code.md
 
 - name: Reference
   items:
