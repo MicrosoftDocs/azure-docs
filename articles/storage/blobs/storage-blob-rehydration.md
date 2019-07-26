@@ -31,7 +31,7 @@ If you don't want to rehydrate a blob, you can choose a [Copy Blob](https://docs
 
 Archive blobs can only be copied to online destination tiers. Copying an archive blob to another archive blob isn't supported.
 
-Copying a blob from Archive takes time. Behind the scenes, the `Copy Blob` operation temporarily rehydrates your archive source blob to create a new online blob in the destination tier of your choice. This new blob will not be available until the temporary rehydration from archive is complete and the data is written to the new blob.
+Copying a blob from Archive takes time. Behind the scenes, the **Copy Blob** operation temporarily rehydrates your archive source blob to create a new online blob in the destination tier. This new blob is not available until the temporary rehydration from archive is complete and the data is written to the new blob.
 
 ## Pricing and billing
 
