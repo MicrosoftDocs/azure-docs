@@ -60,7 +60,7 @@ Before configuring 15Five for automatic user provisioning with Azure AD, you wil
 
 	![15Five Admin Console](media/15five-provisioning-tutorial/image00.png)
 
-3.	Under **SCIM integration** > Generate **OAuth token**.
+3.	Navigate to **SCIM integration > Generate OAuth token**.
 
 	![15Five Add SCIM](media/15five-provisioning-tutorial/image02.png)
 
