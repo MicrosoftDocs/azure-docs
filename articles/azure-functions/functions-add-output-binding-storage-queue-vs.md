@@ -3,11 +3,11 @@ title: Connect functions to Azure Storage using Visual Studio
 description: Learn how to add an output binding to connect your C# class library functions to an Azure Storage queue using Visual Studio.
 author: ggailey777
 ms.author: glenga
-ms.date: 06/25/2019
+ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
-manager: jeconnoc
+manager: gwallace
 #Customer intent: As an Azure Functions developer, I want to connect my C# class library function to Azure Storage so that I can easily write data to a storage queue.
 ---
 
@@ -21,13 +21,15 @@ Most bindings require a stored connection string that Functions uses to access t
 
 ## Prerequisites
 
-Before you start this article, you must complete the steps in [part 1 of the Visual Studio quickstart][previous quickstart article]. 
+Before you start this article, you must: 
 
-This article assumes that you are already signed in to your Azure subscription from Visual Studio. 
+ - Complete [part 1 of the Visual Studio quickstart][./functions-create-first-function-vs-code.md]. 
+
+- Sign in to your Azure subscription from Visual Studio
 
 ## Download the function app settings
 
-In the [previous quickstart article](functions-create-first-function-vs-code.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the local.settings.json file. 
+In the [previous quickstart article](functions-create-first-function-vs-code.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the *local.settings.json* file. 
 
 1. In **Solution Explorer**, right-click the project and select **Publish**. 
 
@@ -73,7 +75,7 @@ A new queue named `outqueue` is created in your storage account by the Functions
 
 1. In Visual Studio from the **View** menu, select **Cloud Explorer**.
 
-1. In **Cloud Explorer**, expand your Azure subscription and **Storage Accounts**, then expand the storage account used by your function. If you can't remember the storage account name, check the `AzureWebJobsStorage` connection string setting in the local.settings.json file.  
+1. In **Cloud Explorer**, expand your Azure subscription and **Storage Accounts**, then expand the storage account used by your function. If you can't remember the storage account name, check the `AzureWebJobsStorage` connection string setting in the *local.settings.json* file.  
 
 1. Expand the **Queues** node, and then double-click the queue named **outqueue** to view the contents of the queue in Visual Studio. 
 
