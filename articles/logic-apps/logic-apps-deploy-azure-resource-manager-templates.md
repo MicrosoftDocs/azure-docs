@@ -54,7 +54,7 @@ To deploy a logic app template from an Azure Resource Group project that you cre
 
 ## Deploy with Azure PowerShell
 
-To deploy to a specific *Azure resource group*, the following command can be used:
+To deploy to a specific *Azure resource group*, use the following command:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
@@ -69,7 +69,7 @@ For more information, see these topics:
 
 ## Deploy with Azure CLI
 
-To deploy to a specific *Azure resource group*, the following command can be used:
+To deploy to a specific *Azure resource group*, use the following command:
 
 ```azurecli
 az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
