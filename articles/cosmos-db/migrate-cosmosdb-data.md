@@ -1,6 +1,6 @@
 ---
 title: Migrate hundreds of terabytes of data into Azure Cosmos DB 
-description: This doc describes how you can migrate 100's of terabytes of data into Cosmos DB
+description: This doc describes how you can migrate 100s of terabytes of data into Cosmos DB
 author: bharathsreenivas
 ms.service: cosmos-db
 ms.subservice: cosmosdb-migration
@@ -19,7 +19,7 @@ Before you migrate the entire workload to Azure Cosmos DB, you can migrate a sub
 
 ## Tools for data migration 
 
-Azure Cosmos DB migration strategies currently differ based on the API choice and the size of the data. To migrate smaller datasets – for validating data modelling, query performance, partition key choice etc. – you can choose the [Data Migration Tool](https://docs.microsoft.com/en-us/azure/cosmos-db/import-data) or [Azure Data Factory’s Azure Cosmos DB connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-cosmos-db).  
+Azure Cosmos DB migration strategies currently differ based on the API choice and the size of the data. To migrate smaller datasets – for validating data modelling, query performance, partition key choice etc. – you can choose the [Data Migration Tool](import-data.md) or [Azure Data Factory’s Azure Cosmos DB connector](../data-factory/connector-azure-cosmos-db.md). If you are familiar with Spark, you can also choose to use the [Azure Cosmos DB Spark connector](spark-connector.md) to migrate data.
 
  
 
@@ -32,13 +32,13 @@ The existing tools for migrating data to Azure Cosmos DB have some limitations t
 
 * **Lack of progress tracking and check-pointing**: It is important to track the migration progress and have check-pointing while migrating large data sets. Otherwise, any error that occurs during the migration will stop the migration, and you have to start the process from scratch. It would be not productive to restart the whole migration process when 99% of it has already completed.  
 
-* **Lack of dead letter queue**: Within large data sets, in some cases there could be issues with parts of the source data. Additionally, there might be transient issues with the client or the network. Either of these should not cause the entire migration to fail. Even though most migration tools have robust retry capabilities that guard against intermittent issues, it is not always enough. For example, if less than 0.01% of the source data documents are greater than 2 MB in size, it will cause the document write to fail in Azure Cosmos DB. Ideally, it is useful for the migration tool to persist these ‘failed’ documents to another dead letter queue, which can be processed post migration. 
+* **Lack of dead letter queue**: Within large data sets, in some cases there could be issues with parts of the source data. Additionally, there might be transient issues with the client or the network. Either of these cases should not cause the entire migration to fail. Even though most migration tools have robust retry capabilities that guard against intermittent issues, it is not always enough. For example, if less than 0.01% of the source data documents are greater than 2 MB in size, it will cause the document write to fail in Azure Cosmos DB. Ideally, it is useful for the migration tool to persist these ‘failed’ documents to another dead letter queue, which can be processed post migration. 
 
 Many of these limitations are being fixed for tools like Azure Data factory, Azure Data Migration services. 
 
 ## Custom tool with Bulk executor library 
 
-The challenges described in the above section, can be solved by using a custom tool that can be easily scaled out across multiple instances and it is resilient to transient failures. Additionally, the custom tool can pause and resume migration at various checkpoints. Azure Cosmos DB already provides the [bulk executor library] (https://docs.microsoft.com/en-us/azure/cosmos-db/bulk-executor-overview) that incorporates some of these features. For example, the bulk executor library already has the functionality to handle transient errors and can scale out threads in a single node to consume about 500 K RUs per node. The bulk executor library also partitions the source dataset into micro-batches that are operated independently as a form of checkpointing.  
+The challenges described in the above section, can be solved by using a custom tool that can be easily scaled out across multiple instances and it is resilient to transient failures. Additionally, the custom tool can pause and resume migration at various checkpoints. Azure Cosmos DB already provides the [bulk executor library](https://docs.microsoft.com/en-us/azure/cosmos-db/bulk-executor-overview) that incorporates some of these features. For example, the bulk executor library already has the functionality to handle transient errors and can scale out threads in a single node to consume about 500 K RUs per node. The bulk executor library also partitions the source dataset into micro-batches that are operated independently as a form of checkpointing.  
 
 The custom tool uses the bulk executor library and supports scaling out across multiple clients and to track errors during the ingestion process. To use this tool, the source data should be partitioned into distinct files in Azure Data Lake Storage (ADLS) so that different migration workers can pick up each file and ingest them into Azure Cosmos DB. The custom tool makes use of a separate collection, which stores metadata about the migration progress for each individual source file in ADLS and tracks any errors associated with them.  
 
@@ -52,7 +52,7 @@ The following image describes the migration process using this custom tool. The 
 
 The tracking collection contains documents  as shown in the following example. You will see such documents one for each partition in the source data.  Each document contains the metadata for the source data partition such as its location, migration status, and errors (if any):  
 
-```
+```json
 { 
   "owner": "25812@bulkimporttest07", 
   "jsonStoreEntityImportResponse": { 
@@ -141,3 +141,8 @@ After the prerequisites are completed, you can migrate data with the following s
 6. Some of these errors could be due to incorrect documents in the source data. These should be identified and fixed. Next, you should rerun the import step on the failed partitions to re-ingest them. 
 
 Once the migration is completed, you can validate that the document count in Azure Cosmos DB is same as the document count in the source database. In this example, the total size in Azure Cosmos DB turned out to 65 terabytes. Post migration, indexing can be selectively turned on and the RUs can be lowered to the level required by the workload’s operations.   
+
+## Next Steps
+* Learn more by trying out the sample applications consuming the Bulk Executor library in [.NET](bulk-executor-dot-net.md) and [Java](bulk-executor-java.md). 
+* The Bulk Executor library is integrated into the Cosmos DB Spark connector, to learn more, see [Azure Cosmos DB Spark connector](spark-connector.md) article.  
+
