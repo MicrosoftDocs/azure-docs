@@ -4,7 +4,7 @@ description: In this quickstart, you create a container in object (Azure Blob) s
 services: storage
 author: mhopkins-msft
 
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018

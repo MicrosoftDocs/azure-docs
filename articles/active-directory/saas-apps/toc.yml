@@ -71,6 +71,8 @@
         href: allbound-sso-tutorial.md  
       - name: Allocadia
         href: allocadia-tutorial.md
+      - name: Amazon Business
+        href: amazon-business-tutorial.md
       - name: Amazon Web Services (AWS)
         href: amazon-web-service-tutorial.md
       - name: Amazon Web Services (AWS) to connect multiple accounts
@@ -255,6 +257,8 @@
         href: citrix-netscaler-tutorial.md
       - name: Citrix ShareFile
         href: sharefile-tutorial.md
+      - name: Civic Platform
+        href: civic-platform-tutorial.md
       - name: Clarizen
         href: clarizen-tutorial.md
       - name: Clear Review
@@ -963,6 +967,8 @@
         href: promapp-tutorial.md
       - name: ProMaster (by Inlogik)
         href: promaster-tutorial.md
+      - name: ProNovos Ops Manager
+        href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
       - name: Proxyclick
@@ -1017,6 +1023,8 @@
         href: ringcentral-tutorial.md
       - name: Riskware
         href: riskware-tutorial.md
+      - name: Robin
+        href: robin-tutorial.md
       - name: RStudio Connect
         href: rstudio-connect-tutorial.md
       - name: RolePoint

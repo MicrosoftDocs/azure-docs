@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 ## Requirements
 
 * Azure Multi-Factor Authentication
-* Combined registration preview
+* Combined registration preview with users enabled for SSPR
 * FIDO2 security key preview requires compatible FIDO2 security keys
 * WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher
 * FIDO2 based Windows sign in requires Azure AD joined Windows 10 version 1809 or higher

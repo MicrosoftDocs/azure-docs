@@ -40300,9 +40300,9 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "azure/hdinsight/domain-joined/apache-domain-joined-introduction.md",
+      "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-introduction.md",
       "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
 
     {
