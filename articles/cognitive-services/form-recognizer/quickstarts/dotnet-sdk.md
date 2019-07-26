@@ -150,7 +150,7 @@ The following helper method displays information about an Analyze operation.
 
 ### Get a list of custom models
 
-You can return a list of all the trained models that belong to your account, and you can retrieve information about when they were created. The list of models is represented by a [ModelsResult](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelsresult?view=azure-dotnet-preview) object.
+You can return a list of all the trained models that belong to your account, and you can retrieve information about when they were created. The list of models is represented by a [ModelsResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelsresult?view=azure-dotnet-preview) object.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_getmodellist)]
 
