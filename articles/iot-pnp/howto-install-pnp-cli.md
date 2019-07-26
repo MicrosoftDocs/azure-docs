@@ -129,64 +129,84 @@ az iot dt monitor-events --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
 List interfaces in an IoT Plug and Play model repository:
 
 ```cmd/sh
-az iot pnp interface list --login {ModelRepoConnectionString}
+az iot pnp interface list --login {CompanyModelRepoConnectionString}
 ```
+
+Without the `--login` parameter, this command lists the interfaces in the public model repository.
 
 Show an interface in the IoT Plug and Play model repository:
 
 ```cmd/sh
-az iot pnp interface show --interface {YourInterfaceID} --login {ModelRepoConnectionString}
+az iot pnp interface show --interface {YourInterfaceID} --login {CompanyModelRepoConnectionString}
 ```
 
-Create an interface in the IoT Plug and Play model repository:
+Without the `--login` parameter, this command shows the interface in the public model repository.
+
+Create an interface in the IoT Plug and Play company model repository:
 
 ```cmd/sh
-az iot pnp interface create --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --login {ModelRepoConnectionString}
+az iot pnp interface create --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --login {CompanyModelRepoConnectionString}
 ```
 
-Update an interface in the IoT Plug and Play model repository:
+You can't directly create an interface in the public model repository.
+
+Update an interface in the IoT Plug and Play company model repository:
 
 ```cmd/sh
-az iot pnp interface update --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --login {ModelRepoConnectionString}
+az iot pnp interface update --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --login {CompanyModelRepoConnectionString}
 ```
 
-Publish an interface on the IoT Plug and Play model repository. This operation makes the interface immutable:
+You can't directly update an interface in the public model repository.
+
+Publish an interface on the IoT Plug and Play company model repository. This operation makes the interface immutable:
 
 ```cmd/sh
-az iot pnp interface publish --interface {YourInterfaceID} --login {ModelRepoConnectionString}
+az iot pnp interface publish --interface {YourInterfaceID} --login {CompanyModelRepoConnectionString}
 ```
+
+You can't directly publish an interface in the public model repository.
 
 ### Manage device capability models in a model repository
 
 List device capability models in an IoT Plug and Play model repository:
 
 ```cmd/sh
-az iot pnp model list --login {ModelRepoConnectionString}
+az iot pnp model list --login {CompanyModelRepoConnectionString}
 ```
+
+Without the `--login` parameter, this command lists the models in the public model repository.
 
 Show a device capability model in an IoT Plug and Play model repository:
 
 ```cmd/sh
-az iot pnp model show --interface {YourInterfaceID} --login {ModelRepoConnectionString}
+az iot pnp model show --interface {YourInterfaceID} --login {CompanyModelRepoConnectionString}
 ```
 
-Create a device capability model in an IoT Plug and Play model repository:
+Without the `--login` parameter, this command shows an interface in the public model repository.
+
+Create a device capability model in an IoT Plug and Play company model repository:
 
 ```cmd/sh
-az iot pnp model create --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --login {ModelRepoConnectionString}
+az iot pnp model create --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --login {CompanyModelRepoConnectionString}
 ```
 
-Update a device capability model in the IoT Plug and Play model repository:
+You can't directly create a model in the public model repository.
+
+Update a device capability model in the IoT Plug and Play company model repository:
 
 ```cmd/sh
-az iot pnp model update --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --login {ModelRepoConnectionString}
+az iot pnp model update --definition {PathToUpdatedPnPInterfaceDefinitionOrInlineJSONLD} --login {CompanyModelRepoConnectionString}
 ```
 
-Publish a device capability model in the IoT Plug and Play model repository. This operation makes the interface immutable:
+You can't directly update a model in the public model repository.
+
+Publish a device capability model in the IoT Plug and Play company model repository. This operation makes the interface immutable:
 
 ```cmd/sh
-az iot pnp model publish --interface {YourInterfaceID} --login {ModelRepoConnectionString}
+az iot pnp model publish --interface {YourInterfaceID} --login {CompanyModelRepoConnectionString}
 ```
+
+You can't directly publish an model in the public model repository.
 
 ## Next steps
 
