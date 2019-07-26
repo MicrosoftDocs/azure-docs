@@ -69,7 +69,7 @@ Register the SQL Server VM in lightweight SQL Server management mode by using th
   
   ```
 
-Registering with the SQL VM resource provider in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#install-in-lightweight-mode) will assure compliance and enable flexible licensing as well as in-place SQL Server edition updates. Failover cluster instances and multiple-instance deployments can be registered with the SQL VM resource provider only in lightweight mode. At any time, you can follow the directions found on the Azure portal to upgrade to [full mode](virtual-machines-windows-sql-server-agent-extension.md#installation-in-full-mode) and enable a comprehensive manageability feature set with a SQL Server restart. 
+Registering with the SQL VM resource provider in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#install-in-lightweight-mode) will assure compliance and enable flexible licensing as well as in-place SQL Server edition updates. Failover cluster instances and multiple-instance deployments can be registered with the SQL VM resource provider only in lightweight mode. At any time, you can follow the directions found on the Azure portal to upgrade to [full mode](virtual-machines-windows-sql-server-agent-extension.md#install-in-full-mode) and enable a comprehensive manageability feature set with a SQL Server restart. 
 
 ## Register SQL Server 2008 or 2008 R2 on Windows Server 2008 VMs
 
