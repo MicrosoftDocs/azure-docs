@@ -116,7 +116,7 @@ When there's a Virtual Network-related issue, you'll see one of the following er
 
 ### InvalidVnetConfiguration
 
-This error can occur for a variety of reasons. To troubleshoot it, see the [Forbidden](#Forbidden), [InvalidPropertyValue](#InvalidPropertyValue), and [MisconfiguredDnsServerOrNsgSettings](#MisconfiguredDnsServerOrNsgSettings) sections.
+This error can occur for a variety of reasons. To troubleshoot it, see the [Forbidden](#forbidden), [InvalidPropertyValue](#invalidpropertyvalue), and [MisconfiguredDnsServerOrNsgSettings](#misconfigureddnsserverornsgsettings) sections.
 
 ### Forbidden
 
