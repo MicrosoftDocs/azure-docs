@@ -134,15 +134,11 @@ The next stage of the deployment is to create the VM to use as the golden image 
       
    1. Under **Template Parameters**, enter the parameters for the variables you defined earlier:
       
-      ```
-      -newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)
-      ```
+      `-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`
    
    1. Under **Output Variables** > **Lab VM ID**, enter a variable to capture the created lab VM ID. If you use the default of *labVMId*, you can refer to the variable in subsequent tasks as $(labVMId). You can use a name other than the default, but remember to use the correct name in subsequent tasks. You write the Lab VM ID in the following form:
       
-      ```
-      /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{vmName}
-      ```
+      `/subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{vmName}`
 
 ## Run the script to collect the details of the DevTest Lab VM
 
@@ -161,14 +157,14 @@ Execute the script you created earlier to collect the details of the DevTest Lab
    1. For **Script Type**, select **Script File Path**.
    
    1. For **Script Path**, enter the full path and name of the script that you saved to your source code repository. You can use the built-in properties of Release Management to simplify the path, for example:
-      ```
-      $(System.DefaultWorkingDirectory/Contoso/Scripts/GetLabVMParams.ps1
-      ```
+      
+      `$(System.DefaultWorkingDirectory/Contoso/Scripts/GetLabVMParams.ps1`
+      
    1. For **Script Arguments**, enter the name of the labVmId variable that was populated by the previous task, for example: 
-      ```
-      -labVmId '$(labVMId)'
-      ```
-The script collects the required values and stores them in environment variables within the release pipeline so that you can easily refer to them in subsequent steps.
+      
+      `-labVmId '$(labVMId)'`
+      
+The script collects the required values and stores them in environment variables within the release pipeline, so that you can easily refer to them in subsequent steps.
 
 ### Deploy your app to the new DevTest Labs VM (optional)
 
