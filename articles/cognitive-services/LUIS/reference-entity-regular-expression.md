@@ -1,6 +1,6 @@
 ---
-title: Regular expression entity type 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Regular expression entity type - LUIS
+titleSuffix: Azure Cognitive Services
 description: A regular expression is best for raw utterance text. It ignores case and ignores cultural variant.  Regular expression matching is applied after spell-check alterations at the character level, not the token level.   
 services: cognitive-services
 author: diberry
