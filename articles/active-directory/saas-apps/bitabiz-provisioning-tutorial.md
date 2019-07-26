@@ -60,7 +60,7 @@ Before configuring BitaBIZ for automatic user provisioning with Azure AD, you wi
 
 	![BitaBIZ Admin Console](media/bitabiz-provisioning-tutorial/integration.png)
 
-2.	Navigate to **Microsoft Azure AD Provisioning**. > Select **Enabled** in Automatic user provisioning. Copy the values for **SCIM provisioning endpoint URL and  Bearer Token**. These values will be entered in the Tenant URL and Secret Token fields in the Provisioning tab of your BitaBIZ application in the Azure portal.
+2.	Navigate to **Microsoft Azure AD Provisioning**.  Select **Enabled** in Automatic user provisioning. Copy the values for **SCIM provisioning endpoint URL and  Bearer Token**. These values will be entered in the Tenant URL and Secret Token fields in the Provisioning tab of your BitaBIZ application in the Azure portal.
 
 	![BitaBIZ Add SCIM](media/bitabiz-provisioning-tutorial/authentication.png)
 
