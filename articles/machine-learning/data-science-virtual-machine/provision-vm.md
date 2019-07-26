@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Configure and create a Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 
@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 

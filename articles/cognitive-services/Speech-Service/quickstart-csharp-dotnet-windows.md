@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, .NET Framework (Windows) - Speech Services'
+title: 'Quickstart: Recognize speech, .NET Framework (Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Use this guide to create a speech-to-text console application using the .NET framework for Windows and the Speech SDK. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services
