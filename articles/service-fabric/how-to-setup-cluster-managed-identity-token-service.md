@@ -14,14 +14,6 @@ ms.author: atsenthi
 
 Introductory paragraph.
 
-## Application template
-
-Insert link to samples.
-
-## Application package
-
-Link to sample.
-
-Managed Identity doc references.
-
 ## Next steps
+
+Link to how to setup application with managed identity.
