@@ -19,7 +19,7 @@ ms.author: vijetaj
 
 ---
 
-# Introduction to Azure Data Science Virtual Machine for Linux and Windows
+# What is Azure Data Science Virtual Machine for Linux and Windows?
 
 The Data Science Virtual Machine (DSVM) is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics. It is available on Windows Server and Linux. We offer Windows edition of DSVM on Server 2016 and Server 2012. We offer Linux editions of the DSVM on Ubuntu 16.04 LTS and CentOS 7.4.
 
@@ -45,7 +45,7 @@ Data science hackathons/competitions or large-scale data modeling and exploratio
 
 ### Custom compute power for Azure Notebooks
 
-[Azure Notebooks](/azure/notebooks/azure-notebooks-overview) is a free hosted service to develop, run, and share Jupyter notebooks in the cloud with no installation. The free service  tier, however,  is limited to 4GB of memory and 1GB of data. To release all limits, you can then attach a Notebooks project to a Data Science VM or any other VM running Jupyter server. If you sign into Azure Notebooks with an account using Azure Active Directory (such as a corporate account), Notebooks automatically shows Data Science VMs in any subscriptions associated with that account. For more information, see [Manage and configure projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+[Azure Notebooks](../../notebooks/azure-notebooks-overview.md) is a free hosted service to develop, run, and share Jupyter notebooks in the cloud with no installation. The free service  tier, however,  is limited to 4GB of memory and 1GB of data. To release all limits, you can then attach a Notebooks project to a Data Science VM or any other VM running Jupyter server. If you sign into Azure Notebooks with an account using Azure Active Directory (such as a corporate account), Notebooks automatically shows Data Science VMs in any subscriptions associated with that account. For more information, see [Manage and configure projects - Compute tier](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### Short-term experimentation and evaluation
 The Data Science VM can be used to evaluate or learn tools such as Microsoft ML Server, SQL Server, Visual Studio tools, Jupyter, deep learning / ML toolkits, and new tools popular in the community with minimal setup effort. Since the Data Science VM can be set up quickly, it can be applied in other short-term usage scenarios. These scenarios include replicating published experiments, executing demos, following walkthroughs in online sessions and conference tutorials.
