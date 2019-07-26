@@ -18,17 +18,17 @@ This article walks through all the steps needed to forward edge events to Event 
 * React to edge events in the cloud
 * Forward events to Event Grid in Cloud and use Event Hubs, Storage Queues to buffer events before processing them in the cloud
 
-To complete this tutorial an understanding of Event Grid concepts on [edge](concepts.md)  and in [cloud](https://docs.microsoft.com/en-us/azure/event-grid/concepts) will be required.
+To complete this tutorial an understanding of Event Grid concepts on [edge](concepts.md)  and in [cloud]() will be required.
 
 ## Prerequisites
 
-In order to complete this tutorial, you will need:-
+In order to complete this tutorial, you will need:
 
-* **Azure Event Grid module on IoT Edge Device** - Follow the steps in described [here](deploy-event-grid-portal.md) on how to do that if not already done.
+**Azure Event Grid module on IoT Edge Device** - Follow the steps in described [here](deploy-event-grid-portal.md) on how to do that if not already done.
 
 ## Step 1: Create event grid topic and subscription in cloud
 
-Create an event grid topic and subscription in the cloud by following the [tutorial](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-portal). You will need *topicURL*, *sasKey*, and *topicName* of the newly created topic for use later in the tutorial.
+Create an event grid topic and subscription in the cloud by following the [tutorial](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal). You will need *topicURL*, *sasKey*, and *topicName* of the newly created topic for use later in the tutorial.
 
 For example, if we created a topic **testegcloudtopic** in west US the values would look something like:
 
@@ -57,7 +57,7 @@ Create an event grid topic in the edge,
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3?api-version=2019-01-01-preview
     ```
 
-## Step 4: Create Event Grid subscription in edge
+## Step 3: Create Event Grid subscription in edge
 
 Create an event grid subscription in the edge,
 
@@ -96,7 +96,7 @@ Create an event grid subscription in the edge,
     ```
 
    >[!NOTE]
-   > The **endpointUrl** specifies that the Event Grid topic URL in the cloud. The **sasKey** refers to Event Grid cloud topic's key. The value in **topicName** will used to stamp all outgoing events to Event Grid. This can be useful when posting to an Event Grid Domain Topic. For more information about Event Grid Domain Topic, see the [documentation](https://docs.microsoft.com/en-us/azure/event-grid/event-domains)
+   > The **endpointUrl** specifies that the Event Grid topic URL in the cloud. The **sasKey** refers to Event Grid cloud topic's key. The value in **topicName** will used to stamp all outgoing events to Event Grid. This can be useful when posting to an Event Grid Domain Topic. For more information about Event Grid Domain Topic, see the [documentation](https://docs.microsoft.com/azure/event-grid/event-domains)
 
 2. Run the following command to create the subscription. HTTP Status Code of 200 OK should be returned.
 
@@ -104,7 +104,7 @@ Create an event grid subscription in the edge,
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/eventSubscriptions/sampleSubscription3?api-version=2019-01-01-preview
     ```
 
-## Step 5: Publish event in edge
+## Step 4: Publish event in edge
 
 To publish an event in edge,
 
@@ -130,9 +130,9 @@ To publish an event in edge,
     curl -k -H "Content-Type: application/json" -X POST -g -d @event3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/events?api-version=2019-01-01-preview
     ```
 
-## Step 6: Verify edge event in cloud
+## Step 5: Verify edge event in cloud
 
-For information on viewing events delivered by the cloud topic, see the [tutorial](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-portal).
+For information on viewing events delivered by the cloud topic, see the [tutorial](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal).
 
 ## Next steps
 
