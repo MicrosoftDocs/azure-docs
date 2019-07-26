@@ -269,7 +269,7 @@ MAM does not apply to Azure AD join.
 
 ## Configure enterprise state roaming
 
-If you want to enable state roaming to Azure AD so that users can sync their settings across devices, see [Enable Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.m). 
+If you want to enable state roaming to Azure AD so that users can sync their settings across devices, see [Enable Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.md). 
 
 **Recommendation**: Enable this setting even for hybrid Azure AD joined devices.
 

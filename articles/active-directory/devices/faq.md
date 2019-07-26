@@ -255,7 +255,7 @@ Create a different local account before you use Azure Active Directory join to f
 
 **A:** When your users add their accounts to apps on a domain-joined device, they might be prompted with **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
 
-Hybrid Azure AD join takes precedence over the Azure AD registered state. So your device is considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. You can safely delete the Azure AD registered device record from the Azure AD portal. Learn to [avoid or clean up this dual state on the Windows 10 machine](hybrid-azuread-join-plan#review-things-you-should-know.md). 
+Hybrid Azure AD join takes precedence over the Azure AD registered state. So your device is considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. You can safely delete the Azure AD registered device record from the Azure AD portal. Learn to [avoid or clean up this dual state on the Windows 10 machine](hybrid-azuread-join-plan.md#review-things-you-should-know). 
 
 ---
 
