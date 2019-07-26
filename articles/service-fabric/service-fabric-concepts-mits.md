@@ -1,16 +1,21 @@
 ---
-title: Service Fabric Concepts MITS Overview | Microsoft Docs
-description: This article is an overview of MITS
+title: Service Fabric concepts - MITS overview | Microsoft Docs
+description: This article is an overview of MITS.
 services: service-fabric
 author: Nickomang 
 
 ms.service: service-fabric
 ms.topic: conceptual 
-ms.date: 7/25/2019
+ms.date: 07/25/2019
 ms.author: atsenthi 
 ---
-Intro paragraph.
 
-# MITS Overview
+# What is MITS?
+
+Introductory paragraph.
+
+## \<details about MITS\>
 
 Information about MITS.
+
+## Next steps
