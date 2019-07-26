@@ -80,7 +80,7 @@ using System.Threading.Tasks;
 
 Add the following code in the application's **Main** method. You will define this asynchronous task later on.
 
-[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_main)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_main)]
 
 ### Install the client library
 
@@ -126,39 +126,39 @@ Before you define any methods, add the following variable definitions to the top
 * You can find your service's Endpoint value in the **Overview** blade in the Azure portal. 
 * To retrieve the SAS URL for your training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
-[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 
 ### Authenticate the client
 
 Under the **Main** method, define the task that is referenced in **Main**. Here, you'll authenticate the client object using the subscription variables you defined above. You'll define the other methods later on.
 
-[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_mainTask)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_mainTask)]
 
 ### Train a custom model
 
 The following method uses your Form Recognizer client object to train a new recognition model on the documents stored in your Azure blob container. It uses a helper method to display information about the newly trained model (represented by a [ModelResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelresult?view=azure-dotnet-preview) object), and it returns the model ID.
 
-[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_train)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_train)]
 
 The following helper method displays information about a Form Recognizer model.
 
-[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_displaymodel)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_displaymodel)]
 
 ### Analyze forms with a custom model
 
 This method uses the Form Recognizer client and a model ID to analyze a PDF form document and extract key/value data. It uses a helper method to display the results (represented by a [AnalyzeResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.analyzeresult?view=azure-dotnet-preview) object).
 
-[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_analyzepdf)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_analyzepdf)]
 
 The following helper method displays information about an Analyze operation.
 
-[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_displayanalyze)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_displayanalyze)]
 
 ### Get a list of custom models
 
 You can return a list of all the trained models that belong to your account, and you can retrieve information about when they were created. The list of models is represented by a [ModelsResult](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelsresult?view=azure-dotnet-preview) object.
 
-[!code-csharp[](~/cognitive-services-samples-pr/dotnet/FormRecognizer/Program.cs?name=snippet_getmodellist)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_getmodellist)]
 
 ## Run the application
 

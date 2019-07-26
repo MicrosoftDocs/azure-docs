@@ -336,8 +336,8 @@
       "branch": "master"
     },
     {
-      "path_to_root": "cognitive-services-samples-pr",
-      "url": "https://github.com/Azure-Samples/cognitive-services-samples-pr",
+      "path_to_root": "cognitive-services-quickstart-code",
+      "url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code",
       "branch": "master"
     }
   ],
