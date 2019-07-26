@@ -14,8 +14,6 @@ ms.author: robinsh
 Azure IoT Hub supports [OASIS Advanced Message Queuing Protocol
 (AMQP) version 1.0](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf) to deliver a variety of functionalities through device-facing and service-facing endpoints. This document describes the use of AMQP clients to connect to an IoT hub to use IoT Hub functionality.
 
-[!INCLUDE [iot-hub-python-sdk-note](../../includes/iot-hub-python-sdk-note.md)]
-
 ## Service client
 
 ### Connect and authenticate to an IoT hub (service client)
