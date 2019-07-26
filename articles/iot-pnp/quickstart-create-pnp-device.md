@@ -20,7 +20,7 @@ A _device capability model_ (DCM) describes the capabilities of a plug and play 
 
 To complete this quickstart, you need to install the following software on your local machine:
 
-* [Visual Studio](https://www.visualstudio.com/vs/) with the [Desktop development with C++](https://visualstudio.microsoft.com/vs/support/hello-world-c-using-visual-studio-2017/).
+* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload when you install Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 * [Visual Studio Code](https://code.visualstudio.com/).
