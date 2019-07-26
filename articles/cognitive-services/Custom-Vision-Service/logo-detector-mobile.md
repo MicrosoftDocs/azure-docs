@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: In this tutorial, you will step through a sample app that uses Azure Custom Vision as part of a logo detection scenario. Learn how Custom Vision is used with other components to deliver an end-to-end application.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
