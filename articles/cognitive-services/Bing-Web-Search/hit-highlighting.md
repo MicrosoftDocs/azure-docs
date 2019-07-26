@@ -15,9 +15,7 @@ ms.author: scottwhi
 
 # Using decoration markers to highlight text
 
-The Bing [Web](overview.md), [News](../bing-news-search/search-the-web.md), and [Custom](../bing-custom-search/overview.md) search APIs support hit highlighting, which are optional decoration markers that can be added to search terms and other text features that appear in search results. These markers are inserted into the answers returned by the API and can be used to highlight terms, phone numbers, addresses, and more. 
-
-By default, Bing doesn't include highlighting markers in display strings. To enable the markers, include the `textDecorations` query parameter in your request and set it to `true`. 
+Bing supports hit highlighting, which marks query terms (or other terms that Bing finds relevant) in the display strings of some answers. By default, Bing doesn't include highlighting markers in display strings. To enable the markers, include the `textDecorations` query parameter in your request and set it to `true`. 
 
 ## Hit highlighting on query terms 
 
