@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: mlottner
 
 ---
@@ -43,10 +43,10 @@ Azure Security Center for IoT Security agents are developed as open-source proje
 
 Azure Security Center for IoT offers different installer agents for 32bit and 64bit Windows, and the same for 32bit and 64bit Linux. Make sure you have the correct agent installer for each of your devices according to the following table:
 
-| 32 or 64bit | Linux | Windows |    Details|
+| Architecture | Linux | Windows |    Details|
 |----------|----------------------------------------------|-------------|-------------------------------------------|
 | 32bit  | C  | C#  ||
-| 64bit  | C# or C           | C#      | Use the C agent for devices with minimal resources|
+| 64bit  | C# or C           | C#      | We recommend using the C agent for devices with more restricted or minimal device resources.|
 
 ## Next steps
 
