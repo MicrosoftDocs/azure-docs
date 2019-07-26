@@ -16,7 +16,7 @@ This article shows you how to:
 
 - Use Intellisense and auto-complete when authoring device capability model and interface.
 - Generate ANSI C scaffolding code and project.
-- Integrate the generated code in your own device project.
+- Use the generated code in your own device project.
 - Iterate by re-generating the scaffolding code.
 
 ## Prerequisites
@@ -51,6 +51,8 @@ In VS Code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug a
     - **Via IoT Hub device connection string**: you need to specify the device connection string for the device application to connect to IoT Hub directly.
     - **Via DPS symmetric key**: you need to specify **Scope ID**, **Registration ID** and **SaS Key** for the device application that are required to connect to IoT Hub or IoT Central via DPS.
 
+The code generator respects the DCM and interface files located in the folder. And it pulls the IoT plug and Play standard interfaces from Public Repository if it cannot find the local copies.
+
 After generation finishes, it opens a new VS Code window with the code. If you open file such as `main.c`, you can find the intellisense reports cannot open source file of device C SDK. To include the device C SDK folder to enable the correct intellisense and code navigation:
 
 1. In VS Code, use **Ctrl+Shift+P** to open the command palette, type and select **C/C++: Edit Configurations (JSON)** to open the `c_cpp_properties.json` file.
@@ -66,9 +68,25 @@ After generation finishes, it opens a new VS Code window with the code. If you o
 
 1. Save the file.
 
-## Integrate the generated code in your own device project
+## Use the generated code in your own device project
 
+Here are some examples about how to use the generated code in your own device project.
 
+### Linux using CMake
+
+*[TBD Cmake with device SDK]*
+
+### Windows using MSBuild
+
+*[TBD .vcxproj]*
+
+### mbedOS using XXX
+
+*[TBD]*
+
+### Arduino
+
+*[TBD]*
 
 ## Iterate by re-generating the scaffolding code
 
