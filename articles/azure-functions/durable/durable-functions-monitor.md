@@ -63,7 +63,7 @@ The **E3_Monitor** function uses the standard *function.json* for orchestrator f
 
 Here is the code that implements the function:
 
-### C#
+### C# Script
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
@@ -99,7 +99,7 @@ As with other samples, the helper activity functions are regular functions that 
 
 And here is the implementation. Like the POCOs used for data transfer, logic to handle the API call and parse the response JSON is abstracted into a shared class in C#. You can find it as part of the [Visual Studio sample code](#run-the-sample).
 
-### C#
+### C# Script
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
@@ -113,7 +113,7 @@ The **E3_SendGoodWeatherAlert** function uses the Twilio binding to send an SMS 
 
 And here is the code that sends the SMS message:
 
-### C#
+### C# Script
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
