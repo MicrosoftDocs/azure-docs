@@ -15,7 +15,7 @@ ms.author: cshoe
 ---
 # Azure Functions Deployment Slots
 
-Azure Functions deployment slots allow your functions app to run different instances called "slots". Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand. Function apps running under the Apps Service plan may have multiple slots, while under Consumption only one slot is allowed.
+Azure Functions deployment slots allow your function app to run different instances called "slots". Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand. Function apps running under the Apps Service plan may have multiple slots, while under Consumption only one slot is allowed.
 
 The following reflect how functions are affected by swapping slots:
 
@@ -68,7 +68,7 @@ If you create a deployment setting in one slot, make sure to create the same set
 
 Use the following steps to to create a deployment setting:
 
-- Navigate to *Slots* in the functions app
+- Navigate to *Slots* in the function app
 - Click on the slot name
 - Under *Platform Features > General Settings*, click on **Configuration**
 - Click on the setting name you want to stick with the current slot
@@ -93,7 +93,7 @@ All slots scale to the same number of workers as the production slot.
 
 You can add a slot via the [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) or through the portal. The following steps demonstrate how to create a new slot in the portal:
 
-1. Navigate to your functions app and click on the **plus sign** next to *Slots*.
+1. Navigate to your function app and click on the **plus sign** next to *Slots*.
 
     ![Add Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
 
@@ -105,7 +105,7 @@ You can add a slot via the [CLI](https://docs.microsoft.com/cli/azure/functionap
 
 You can swap slots via the [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) or through the portal. The following steps demonstrate how to swap slots in the portal:
 
-1. Navigate to the functions app
+1. Navigate to the function app
 1. Click on the source slot name that you want to swap
 1. From the *Overview* tab, click on the **Swap** button
     ![Swap Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
@@ -122,7 +122,7 @@ If a swap results in an error or you simply want to "undo" a swap, you can roll 
 
 You can remove a slot via the [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) or through the portal. The following steps demonstrate how to remove a slot in the portal:
 
-1. Navigate to the functions app Overview
+1. Navigate to the function app Overview
 
 1. Click on the **Delete** button
 
@@ -140,7 +140,7 @@ Using the [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deploymen
 
 ## Change app service plan
 
-With a functions app that is running under an App Service plan, you have the option to change the underlying app service plan for a slot.
+With a function app that is running under an App Service plan, you have the option to change the underlying app service plan for a slot.
 
 > [!NOTE]
 > You can't change a slot's App Service plan under the Consumption plan.
