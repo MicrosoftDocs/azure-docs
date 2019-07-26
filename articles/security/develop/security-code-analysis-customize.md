@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Security Code Analysis Documentation
+title: Microsoft Azure security code analysis task customization guide.
 description: This article is about customizing the tasks in Security Code Analysis Extension
 author: vharindra
 manager: sukhans
@@ -155,10 +155,10 @@ A content searcher is defined as follows:
 1. Click the task **Run Roslyn Analyzers** to see the different options available. 
 ![Customizing the Roslyn Analyzers Build Task](./media/security-tools/roslyn-task-details.png)
 2. Available options include 
-  - **Ruleset** - SDL Required, SDL Recommended, or you can use a custom ruleset of your own.
-  - **Analyzers Version** (Recommended: Latest)
-  - **Compiler Warnings Suppressions File** - A text file with a list of warnings IDs that should be suppressed. 
-  - **Run this task** (under **Control Options**) - Specifies when the task should run. Choose "**Custom conditions**" to specify more complex conditions. 
+- **Ruleset** - SDL Required, SDL Recommended, or you can use a custom ruleset of your own.
+- **Analyzers Version** (Recommended: Latest)
+- **Compiler Warnings Suppressions File** - A text file with a list of warnings IDs that should be suppressed. 
+- **Run this task** (under **Control Options**) - Specifies when the task should run. Choose "**Custom conditions**" to specify more complex conditions. 
 
 > [!NOTE]
 > - Roslyn analyzers are compiler-integrated and can only be run as part of CSC.exe compilation. Hence, this task requires replaying/rerunning the compiler command that ran earlier in the build. This is done by querying VSTS for the MSBuild build task logs (there is no other way for the task to reliably get the MSBuild compilation command line from the build definition; we did consider adding a freeform textbox to allow users to enter their command lines, but it would be hard to keep these up-to-date and in sync with the main build). Custom builds require replaying the entire set of commands, not just compiler commands, and it is not trivial/reliable to enable Roslyn analyzers in these cases. 
@@ -271,8 +271,8 @@ You can customize the base logs folder where logs are to be found, but this is n
 3. **Report** - You can optionally write the results that are found and causing the build break to the Azure DevOps console window and log file. 
 4. **Advanced Options** - You can choose to log a warning or an error (and fail the task) in case there are no logs for one of the tools selected.
 
-### Next steps
+## Next steps
 
-If you have further questions about the extension and the tools offered, [check our FAQs page](sca-faq.md)
+If you have further questions about the extension and the tools offered, [check our FAQs page](security-code-analysis-faq.md)
 
 

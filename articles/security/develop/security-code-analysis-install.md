@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Security Code Analysis Documentation
+title: Microsoft Azure security code analysis installation guide.
 description: This article is about installing Security Code Analysis Extension
 author: vharindra
 manager: sukhans
@@ -52,21 +52,21 @@ Once the extension is installed, the secure development build tasks will be visi
 5. Find the build task you want to add either from the list or using the search box and then click **Add**. 
 6. Use the 'Basic' input type to have the command line generated for you. Accept the defaults or modify them (some tools require input that does not have a default). Or,
 6. Use the 'Command-Line' input type, and specify exact command-line arguments, if you are familiar with the tool and its command-line parameters
-  >[!NOTE]
-  > File or directory paths are relative to the root of your source repository and parameters specifying the output folder/files will be replaced with the common location that we have defined on the build agent.
-  >
+>[!NOTE]
+> File or directory paths are relative to the root of your source repository and parameters specifying the output folder/files will be replaced with the common location that we have defined on the build agent.
+>
 8. Queue a new build.
 > [!TIP]
 >  - To run analysis after your build, place the Microsoft Security Code Analysis build tasks after the Publish Build Artifacts step of your build. That way, your build can finish and post results before running static analysis tools.
->  - Always check the 'Continue on Error' option of secure development build tasks. Even if one of tool fails, the others can run. There are no interdependencies.
+>  - Always check the **'Continue on Error'** option of secure development build tasks. Even if one of tool fails, the others can run. There are no interdependencies.
 >  - Microsoft Security Code Analysis build tasks will fail ONLY if the tool fails to run successfully, but they will NOT fail if and when the tool identifies issues in the code. You can configure your build to break when a tool identifies issues in the code, using the **Post-Analysis** build task.
 >  - Some Azure DevOps build tasks are NOT supported when run via a “Release” Pipeline. This is a limitation of Azure DevOps. They do not support tasks that publish artifacts from within a Release pipeline.
 >  - For a list of predefined variables in Azure DevOps Team Build, that you can specify as parameters, see [Azure DevOps Build Variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts)
 
-### Next steps
+## Next steps
 
-For further information about configuring the build tasks, refer to our [Configuration guide](sca-customize.md)
+For further information about configuring the build tasks, refer to our [Configuration guide](security-code-analysis-customize.md)
 
-If you have further questions about the extension and the tools offered, [check our FAQs page.](sca-faq.md)
+If you have further questions about the extension and the tools offered, [check our FAQs page.](security-code-analysis-faq.md)
 
 

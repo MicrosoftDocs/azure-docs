@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Security Code Analysis Documentation
+title: Microsoft azure security code analysis documentation FAQs.
 description: This article FAQs about the Security Code Analysis Extension
 author: vharindra
 manager: sukhans
@@ -16,7 +16,7 @@ ms.workload: na
 ---
 
 # FAQs
-Got questions? Check out below for more information. Still don't see it? No problem, just ask us at Microsoft Security Code Analysis Support
+Got questions? Check out the FAQs below for more information.
 
 ## General FAQs
 
@@ -28,10 +28,6 @@ No, the extension isn't available for download and install for TFS.
 
 Yes and no. Depending on the type of analysis tool, the source code itself may be the only thing that's required or the output of the build may be required. For example, since CredScan analyzes files within the folder structure of the code repository, you could run the CredScan and Publish Security Analysis logs build tasks in a standalone build to retrieve results.
 For other tools that analyze post build artifacts, like BinSkim, the build will be required first.
-
-### Can I use Microsoft Security Code Analysis to analyze the artifacts of a build that were published to Azure DevOps drop? 
-
-No. At this time, we only support scanning files from within an Azure DevOps build.
 
 ### Can I break my build when results are found? 
 Yes, you can introduce a build break when any tool reports an issue, a finding, in its log file. Just add the Post-Analysis build task and check the checkbox for any tool for which you would like to break the build. You can choose to break the build when any tool reports errors, or warnings and errors, in the UI of the Post-Analysis task.
@@ -87,8 +83,10 @@ No. Installing the extension will make the security build tasks available to add
 
 FAQs specific to build tasks will be listed in this section.
 
-## Contact us
+## Next steps
 
 If you need additional assistance, Microsoft Security Code Analysis Support is available Monday through Friday from 9:00 AM - 5:00 PM Pacific Standard Time
+
   - Onboarding - Email our team at [Microsoft Security Code Analysis Onboarding](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Onboarding)
+
   - Support - Email our team at [Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)

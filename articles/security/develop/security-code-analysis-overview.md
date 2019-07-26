@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Security Code Analysis Documentation
+title: Microsoft azure security code analysis documentation overview.
 description: This article is an overview of Security Code Analysis Extension
 author: vharindra
 manager: sukhans
@@ -35,7 +35,8 @@ Once you've addressed the issues reported by the tool, you can configure the ext
 
 The Azure DevOps build tasks and tools can be set to stay up-to-date (default setting) or an older version can be selected. If there's an updated version of the tool, the extension automatically takes care of the update for you.
 
-### Each build task will:
+Each build task will:
+
  - Prompt the user for a minimal list of options that are related to the source and binaries that will be scanned. The task will provide defaults where possible.
  - Download the latest (or selected) version of the tool from a restricted nuget feed to the build agent.
  - Sanitize and convert user input into (often complex) command-line arguments, and then launch the tool on the build agent.
@@ -44,11 +45,13 @@ The Azure DevOps build tasks and tools can be set to stay up-to-date (default se
 You'll also want to add up to three helpful post-processing tasks after all other tool tasks complete, to produce a summary report of the issues found by the tools you run and to preserve tool log files to the Azure Server or to a file share. And most importantly, understand that when a security tool finds an issue the build does NOT break or fail. If you wish to inject a build break (a build task failure) based on security findings by one of the tools, you'll need to add the Post-Analysis build task.
 For more details on this topic, see [Post-Processing build tasks](https://docs.microsoft.com/azure/security/develop/sca-customize#customizing-the-post-analysis-build-task) 
 
+>>>
 ### Under the Hood
 
 The Microsoft Security Code Analysis Extension build tasks abstract the complexities of:
   - Running security static analysis tools, and
   - Processing the results from log files to create a summary report or break the build.
+>>>
 
 ## Security Static Analysis Tools
 
@@ -113,10 +116,10 @@ Individual build tasks will succeed, by design, as long as the tool completes su
 
 The task can be configured to break the build for issues found by specific tools or for all tools, and also based on the severity of issues found (errors or and warnings).
 
-### Next steps
+## Next steps
 
-For instructions on onboarding and installing the Security code analysis, refer to our [Installation guide](sca-install.md)
+For instructions on onboarding and installing the Security code analysis, refer to our [Installation guide](security-code-analysis-install.md)
 
-For further information about configuring the build tasks, refer to our [Configuration guide](sca-customize.md)
+For further information about configuring the build tasks, refer to our [Configuration guide](security-code-analysis-customize.md)
 
-If you have further questions about the extension and the tools offered, [check our FAQs page.](sca-faq.md)
+If you have further questions about the extension and the tools offered, [check our FAQs page.](security-code-analysis-faq.md)
