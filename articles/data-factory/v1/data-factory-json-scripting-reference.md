@@ -5696,5 +5696,5 @@ For detailed information, see [Use custom activities in Data Factory](data-facto
 ## Next Steps
 See the following tutorials:
 
-- [Tutorial: create a pipeline with a copy activity](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Tutorial: create a pipeline with a hive activity](data-factory-build-your-first-pipeline-using-editor.md)
+- [Tutorial: create a pipeline with a copy activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Tutorial: create a pipeline with a hive activity](data-factory-build-your-first-pipeline.md)

@@ -1,6 +1,6 @@
 ---
-title: Change, train app, C#
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Change, train app, C# - LUIS
+titleSuffix: Azure Cognitive Services
 description: In this C# quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 07/16/2019
 ms.author: diberry 
 #Customer intent: As an API or REST developer new to the LUIS service, I want to programmatically add an example utterance to an intent and train the model using C#. 
 ---
@@ -53,7 +53,7 @@ The Visual Studio project needs **JsonFormatterPlus** and **CommandLineParser**.
 ### Write the C# code
 The **Program.cs** file should be:
 
-```C#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
-ms.custom: H1Hack27Feb2017
 
 ms.collection: M365-identity-device-management
 ---

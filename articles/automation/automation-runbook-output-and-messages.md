@@ -178,23 +178,23 @@ In Windows PowerShell, you can retrieve output and messages from a runbook using
 The following example starts a sample runbook and then waits for it to complete. Once completed, its output stream is collected from the job.
 
 ```powershell
-$job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+$job = Start-AzAutomationRunbook -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
 $doLoop = $true
 While ($doLoop) {
-  $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
+  $job = Get-AzAutomationJob -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
   $status = $job.Status
   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
 }
 
-Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
 
-# For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
-Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+# For more detailed job output, pipe the output of Get-AzAutomationJobOutput to Get-AzAutomationJobOutputRecord
+Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzAutomationJobOutputRecord
 ``` 
 
 ### Graphical Authoring
