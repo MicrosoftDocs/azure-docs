@@ -22,7 +22,7 @@ ms.author: cynthn
 
 This article guides you through how to create an Azure dedicated host to host your virtual machines (VMs). 
 
-Make sure that you have installed the latest Azure CLI and logged to an Azure account in with `az login`. 
+Make sure that you have installed the latest Azure CLI and signed in to an Azure account using `az login`. 
 
 > [!IMPORTANT]
 > Azure Dedicated Hosts is currently in public preview.
@@ -43,7 +43,7 @@ az group create --name myDHResourceGroup --location eastus2
  
 ## Create a host group 
 
-A **host group** is a new resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following with your dedicated hosts: 
+A **host group** is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following with your dedicated hosts: 
 - Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
 - Span across multiple fault domains which are mapped to physical racks. 
  

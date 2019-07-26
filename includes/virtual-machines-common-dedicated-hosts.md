@@ -5,12 +5,12 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/25/2019
+ ms.date: 07/26/2019
  ms.author: cynthn
  ms.custom: include file
 ---
 
-Azure Dedicated Host is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts. in whatever configuration best meets your needs.
+Azure Dedicated Host is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
 
 > [!IMPORTANT]
 > Azure Dedicated Hosts is currently in public preview.
@@ -21,39 +21,39 @@ Azure Dedicated Host is a service that provides physical servers - able to host 
 > - Virtual machine scale sets are not currently supported on dedicated hosts.
 > - The preview initial release supports the following VM series: DSv3, ESv3, FSv2. 
 > - During the preview, you won't be able to resize a virtual machine deployed to a dedicated host.
-> - Control over maintenance capabilities are still in a limited preview. Start by taking this [nomination survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u) to try them out.  
+> - Control over maintenance capabilities is in a limited preview. Start by taking this [nomination survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u) to try them out.  
 
 
 ## Benefits 
 
 Reserving the entire host provides the following benefits:
 
--   Hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated virtual machines.
--   Control over maintenance events initiated by the Azure platform. While the majority of maintenance events have little to no impact on your virtual machines, there are sensitive workloads where each second of pause can have an impact. With dedicated hosts you can opt-in to a maintenance window to reduce the impact to your service.
+-   Hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts.
+-   Control over maintenance events initiated by the Azure platform. While the majority of maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts you can opt-in to a maintenance window to reduce the impact to your service.
 -   With the Azure hybrid benefit, you can bring your own licenses for Windows and SQL to Azure. Using the hybrid benefits provides you with additional benefits. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 
 
 ## Groups, hosts, and VMs  
 
-![View of the new resources for dedicated hosts.](./media/virtual-machines-common-dedicated-hosts/dedicated-hosts.png)
+![View of the new resources for dedicated hosts.](./media/virtual-machines-common-dedicated-hosts/dedicated-hosts2.png)
 
 A **host group** is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it.
 
-A **host** is a resource, mapped to a physical server in an Azure data center. The physical server is allocated when the host is created. A host is created within a host group. A host has a SKU describing which VMs sizes can be created. Each host can host multiple VMs, from different sizes, as long as they are from the same size series.
+A **host** is a resource, mapped to a physical server in an Azure data center. The physical server is allocated when the host is created. A host is created within a host group. A host has a SKU describing which VM sizes can be created. Each host can host multiple VMs, of different sizes, as long as they are from the same size series.
 
 When creating a VM in Azure, you can select which dedicated host to use for your VM. You have full control as to which VMs are placed on your hosts.
 
 
 ## High Availability considerations 
 
-For high availability, you should deploy multiple VMs, spread across multiple hosts (minimum of 2). Unlike virtual machines, you should create your hosts in a way which will provide high availability to your service. With Azure Dedicated Hosts, you have several options to provision your infrastructure which will shape your fault isolation boundaries.
+For high availability, you should deploy multiple VMs, spread across multiple hosts (minimum of 2). With Azure Dedicated Hosts, you have several options to provision your infrastructure to shape your fault isolation boundaries.
 
 ### Use Availability Zones for fault isolation
 
-Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. A Host group may be created in a single availability zone. Once created, all hosts will be placed within that zone. To achieve high availability across zones, you need to create multiple host groups (one per zone) and spread your hosts accordingly.
+Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. A host group is created in a single availability zone. Once created, all hosts will be placed within that zone. To achieve high availability across zones, you need to create multiple host groups (one per zone) and spread your hosts accordingly.
 
-If you assign a host group to an availability zone, all VMs created on that host must be in the same zone.
+If you assign a host group to an availability zone, all VMs created on that host must be created in the same zone.
 
 ### Use Fault Domains for fault isolation
 
@@ -63,22 +63,22 @@ Fault domains are not the same as collocation. Having the same fault domain for 
 
 Fault domains are scoped to the host group. You should not make any assumption on anti-affinity between two host groups (unless they are in different availability zones).
 
-VMs deployed to hosts with different fault domains, will have their underlying managed disks services on multiple storage stamps to increase the fault isolation protection.
+VMs deployed to hosts with different fault domains, will have their underlying managed disks services on multiple storage stamps, to increase the fault isolation protection.
 
 ### Using Availability Zones and Fault Domains
 
-You can use both capabilities to achieve even more fault isolation. In this case, you will specify the availability zone and fault domain count in for each group, assign a fault domain to each of your hosts in the group, and assign an availability zone to each of your VMs
+You can use both capabilities together to achieve even more fault isolation. In this case, you will specify the availability zone and fault domain count in for each host group, assign a fault domain to each of your hosts in the group, and assign an availability zone to each of your VMs
 
 The Resource Manager sample template found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) uses zones and fault domains to spread hosts for maximum resiliency in a region.
 
 ## Maintenance control
 
-The infrastructure required to support your virtual machines may sometimes be updated to improve reliability, performance, security, and to launch new features. The Azure platform tries to minimize the impact of platform maintenance whenever possible, but customers with *maintenance sensitive* workloads can't tolerate even few seconds that the VM needs to be frozen or disconnected for maintenance.
+The infrastructure supporting your virtual machines may occasionally be updated to improve reliability, performance, security, and to launch new features. The Azure platform tries to minimize the impact of platform maintenance whenever possible, but customers with *maintenance sensitive* workloads can't tolerate even few seconds that the VM needs to be frozen or disconnected for maintenance.
 
 **Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window.
 
 > [!NOTE]
->  Maintenance control is currently in a limited preview stage and requires onboarding process. 
+>  Maintenance control is currently in a limited preview stage and requires an onboarding process. 
 > Apply for this preview by submitting a [nomination survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
 
 ## Capacity considerations and reservations
@@ -96,16 +96,15 @@ The host price is set based on VM family, type (hardware size), and region. A ho
 
 Software licensing, storage and network usage are billed separately from the host and VMs. There is no change to those billable items.
 
-
 For more information, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
  
 ## VM families and Hardware generations
 
-A SKU is defined for a host that represents the VM size series and type. You can mix multiple VMs of different sizes within a single host as long as they are of the same series. The type is the hardware generation currently available in the region.
+A SKU is defined for a host and it represents the VM size series and type. You can mix multiple VMs of different sizes within a single host as long as they are of the same size series. The type is the hardware generation currently available in the region.
 
 Different `types` for the same VM series will be from different CPU vendors and have different CPU generations and number of cores.
 
-Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn about more.
+Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
 During the preview, we will support the following host SKU\types:
 
@@ -122,6 +121,6 @@ Azure monitors and manages the health status of your hosts. The following states
 |----------|----------------|
 | Host Available     | There are no known issues with your host.   |
 | Host Under Investigation  | We’re having some issues with the host which we’re looking into. This is a transitional state required for Azure to try and identify the scope and root cause for the issue identified. Virtual machines running on the host may be impacted. |
-| Host Pending Deallocate   | Azure can’t restore the host back to a healthy state and ask you to redeploy your virtual machines out of this host. If `autoHealingOnFailure` is enabled, your virtual machines are *service healed* to a healthy hardware. Otherwise, your virtual machine may be running on a host which is about to fail.|
+| Host Pending Deallocate   | Azure can’t restore the host back to a healthy state and ask you to redeploy your virtual machines out of this host. If `autoHealingOnFailure` is enabled, your virtual machines are *service healed* to healthy hardware. Otherwise, your virtual machine may be running on a host that is about to fail.|
 | Host deallocated  | All virtual machines have been removed from the host. You are no longer being charged for this host since the hardware was taken out of rotation.   |
 

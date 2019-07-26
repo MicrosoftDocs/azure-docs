@@ -49,7 +49,7 @@ $rgName = "myPSDHRG"
 $location = "East US"
 
 New-AzResourceGroup -Location $location -Name $rgName
-$hostGroup = New-AzDedicatedHostGroup `
+$hostGroup = New-AzHostGroup `
    -Location $location `
    -Name myHostGroup `
    -PlatformFaultDomain 2 `
@@ -71,7 +71,7 @@ If you set a fault domain count for your host group, you will be asked to specif
 
 
 ```powershell
-$dHost = New-AzDedicatedHost `
+$dHost = New-AzHost `
    -HostGroupName $hostGroup.Name `
    -Location $location -Name myHost `
    -ResourceGroupName $rgName `
@@ -107,7 +107,7 @@ $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $rgName -Location $
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 # Create a virtual machine configuration using $imageVersion.Id to specify the shared image
-$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D4s_v3 -DedicatedHostId $dHost.Id -Zone 1  | `
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D4s_v3 -HostId $dHost.Id -Zone 1  | `
 Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
 Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzVMNetworkInterface -Id $nic.Id
