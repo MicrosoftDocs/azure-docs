@@ -1,16 +1,5 @@
----
-title: Solutions and Training for Azure Active Directory B2C | Microsoft Docs
-description: This article gives you links to solution and training information that can help you understand and use Azure Active Directory B2C for end-to-end-business solutions.
-services: active-directory-b2c
-author: mmacy
-manager: celestedg
+Test Pull Request - Please Disregard
 
-ms.author: marsma
-ms.date: 11/05/2018
-ms.topic: conceptual
-ms.service: active-directory
-ms.subservice: B2C
----
 
 # Solutions and Training for Azure Active Directory B2C
 
