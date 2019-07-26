@@ -52,25 +52,20 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Rollbar for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Rollbar.
 
-1. First thing to take into account is that this is an enterprise feature, so the account should be in an enterprise plan or have had requested access to the feature through sales@rollbar.com and get enabled as a feature for the account.
+ 1. First thing to take into account is that this is an enterprise feature, so the account should be in an enterprise plan or have had requested access to the feature through     	sales@rollbar.com and get enabled as a feature for the account.
 
-2. Once the account has enabled the SCIM integration as a feature, these would be the steps to get an SCIM token.
 
-3. Sign in to your [Rollbar Admin Console](https://rollbar.com/login/). Click on **Account Settings**.
+2. Sign in to your [Rollbar Admin Console](https://rollbar.com/login/). Click on **Account Settings**.
 
 	![Rollbar Admin Console](media/rollbar-provisioning-tutorial/image00.png)
 
-4.	Navigate to **Security > Identity provider option**.
+3.	Under **AZURE-SCIM-PROVISIONING**, Click on **Account Access Token**.
 
-	![Rollbar Add SCIM](media/rollbar-provisioning-tutorial/image01.png)
+	![Rollbar Admin Console](media/rollbar-provisioning-tutorial/account.png)
 
-5. Add a SAML identity provider by filling the metadata field and **Save**.
+4. Copy the value of **SCIM**and this value will be entered in the Secret Token field in the Provisioning tab of your Rollbar application in the Azure portal.
 
-	![Rollbar Add SCIM](media/rollbar-provisioning-tutorial/image03.png)
-
-6. The page at the bottom the SCIM form will be display with the SCIM token info.Check the option for enabling the SCIM integration and **Save**.Copy the **Access Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Rollbar application in the Azure portal
-
-	![Rollbar Add SCIM](media/rollbar-provisioning-tutorial/image04.png)
+	![Rollbar Admin Console](media/rollbar-provisioning-tutorial/scim.png)
 
 ## Add Rollbar from the gallery
 
@@ -119,9 +114,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://www.leapsome.com/api/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Rollbar. If the connection fails, ensure your Rollbar account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, Input the **Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Rollbar. If the connection fails, ensure your Rollbar account has Admin permissions and try again.
 
-	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
+	![Rollbar Admin Console](media/rollbar-provisioning-tutorial/admin.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
