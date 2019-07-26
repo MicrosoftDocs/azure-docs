@@ -39,7 +39,7 @@
   - name: Manage models
     href: howto-manage-models.md
   - name: Connect to and interact with a device
-    href: how-to-develop-solution.md
+    href: howto-develop-solution.md
 - name: Related
   items:
   - name: Solutions
