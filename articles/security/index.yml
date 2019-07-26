@@ -1,7 +1,7 @@
 ### YamlMime:Hub 
 
 title: Azure Security Documentation 
-summary: Learn about Azure security. 
+summary: Learn about Azure security 
 brand: azure
 
 metadata: 
@@ -59,10 +59,10 @@ conceptualContent:
 
     - title: Developers
       links: 
-        - url: secure-dev-overview.md
+        - url: https://docs.microsoft.com/azure/security/develop/secure-dev-overview
           itemType: concept
           text: Secure development best practices
-        - url: secure-web-app.md
+        - url: https://docs.microsoft.com/azure/security/develop/secure-web-app
           itemType: how-to-guide
           text: Secure sample apps
         - url: azure-security-threat-modeling-tool.md
