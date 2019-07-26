@@ -191,9 +191,10 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     return 'SharedAccessSignature ' + urlencode(rawtoken)
 ```
 
-The following are the installation instructions for the prerequisites. 
+The following are the installation instructions for the prerequisites.
 
-[!INCLUDE [Iot-hub-include-python-installation-notes.md](../../includes/iot-hub-python-installation-notes.md)]
+[!INCLUDE [Iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+
 
 The functionality in C# to generate a security token is:
 
