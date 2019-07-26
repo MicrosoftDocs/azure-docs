@@ -26,7 +26,7 @@ The SQL Server IaaS Agent Extension (SqlIaasExtension) runs on Azure virtual mac
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-To view the classic version of this article, see [SQL Server Agent Extension for SQL Server VMs Classic](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
+To view the classic version of this article, see [SQL Server IaaS Agent Extension for SQL Server VMs (classic)](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 There are three manageability modes for the SQL Server IaaS extension: 
 

@@ -57,7 +57,7 @@ To upgrade SQL Server, obtain the SQL Server setup media for the desired edition
 
 1. Select **Next** until you reach the **Ready to upgrade edition** page, and then select **Upgrade**. The setup window might stop responding for a few minutes while the change is taking effect. A **Complete** page will confirm that your edition upgrade is finished. 
 
-After the SQL Server edition is upgraded, you should modify the edition property of the SQL Server virtual machine in the Azure portal as shown earlier. This will update the metadata and billing associated with this VM.
+After the SQL Server edition is upgraded, modify the edition property of the SQL Server virtual machine in the Azure portal as shown earlier. This will update the metadata and billing associated with this VM.
 
 ## Downgrade an edition
 
@@ -76,7 +76,7 @@ You can downgrade the edition of SQL Server by following these steps:
 1. Install the latest service packs and cumulative updates.  
 1. Replace the new system databases that were created during installation with the system databases that you previously moved to a different location. 
 
-After the SQL Server edition is downgraded, you should modify the edition property of the SQL Server virtual machine in the Azure portal as shown earlier. This will update the metadata and billing associated with this VM.
+After the SQL Server edition is downgraded, modify the edition property of the SQL Server virtual machine in the Azure portal as shown earlier. This will update the metadata and billing associated with this VM.
 
 ## Remarks
 

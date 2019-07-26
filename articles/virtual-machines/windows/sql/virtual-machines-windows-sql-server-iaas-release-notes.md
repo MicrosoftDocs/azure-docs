@@ -103,12 +103,12 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 **Windows VMs**:
 
-* [Overview of SQL Server on a Windows VM](virtual-machines-windows-sql-server-iaas-overview.md).
+* [Overview of SQL Server on a Windows VM](virtual-machines-windows-sql-server-iaas-overview.md)
 * [Provision a SQL Server Windows VM](virtual-machines-windows-portal-sql-server-provision.md)
 * [Migrating a database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
-* [High availability and disaster recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
-* [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md)
-* [Application patterns and development strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+* [High availability and disaster recovery for SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
+* [Performance best practices for SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-performance.md)
+* [Application patterns and development strategies for SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 **Linux VMs**:
 

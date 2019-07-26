@@ -44,10 +44,10 @@ Use the following code snippet to register with the SQL VM resource provider if 
 Register the SQL Server VM by using the following PowerShell code snippet:
 
   ```powershell-interactive
-     # Get the existing  Compute VM
+     # Get the existing compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     # Register with SQL VM resource provider
+     # Register with the SQL VM resource provider
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='AHUB'}  
@@ -59,10 +59,10 @@ If the SQL Server IaaS extension is not installed on the VM, you can register wi
 Register the SQL Server VM in lightweight SQL Server management mode by using the following PowerShell code snippet:
 
   ```powershell-interactive
-     # Get the existing  Compute VM
+     # Get the existing compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     # Register SQL VM with 'Lightweight' SQL IaaS agent
+     # Register the SQL VM with the lightweight SQL IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  
@@ -73,7 +73,7 @@ Registering with the SQL VM resource provider in [lightweight mode](virtual-mach
 
 ## Register SQL Server 2008 or 2008 R2 on Windows Server 2008 VMs
 
-SQL Server 2008 and 2008 R2 installed on Windows Server 2008 can be registered with the SQL VM resource provider in the [NoAgent](virtual-machines-windows-sql-server-agent-extension.md) mode. This option assures compliance and allows the SQL Server VM to be monitored in the Azure portal with limited functionality.
+SQL Server 2008 and 2008 R2 installed on Windows Server 2008 can be registered with the SQL VM resource provider in the no-agent ([NoAgent](virtual-machines-windows-sql-server-agent-extension.md)) mode. This option assures compliance and allows the SQL Server VM to be monitored in the Azure portal with limited functionality.
 
 The following table details the acceptable values for the parameters provided during registration:
 
@@ -87,7 +87,7 @@ The following table details the acceptable values for the parameters provided du
 To register your SQL Server 2008 or 2008 R2 instance on Windows Server 2008, use the following PowerShell code snippet:  
 
   ```powershell-interactive
-     # Get the existing  Compute VM
+     # Get the existing compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
@@ -101,7 +101,7 @@ You can verify if your SQL Server VM has already been registered with the SQL VM
 
 ### Azure portal 
 
-1. Sign into the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Go to your [SQL Server virtual machines](virtual-machines-windows-sql-manage-portal.md).
 1. Select your SQL Server VM from the list. If your SQL Server VM is not listed here, it likely hasn't been registered with the SQL VM resource provider. 
 1. View the value under **Status**. If **Status** is **Succeeded**, then the SQL Server VM has been registered with the SQL VM resource provider successfully. 
@@ -133,7 +133,7 @@ To register your SQL Server VM with the SQL VM resource provider, you must regis
 1. Open the Azure portal and go to **All Services**. 
 1. Go to **Subscriptions** and select the subscription of interest.  
 1. On the **Subscriptions** page, go to **Resource providers**. 
-1. Type **sql** in the filter to bring up the SQL-related resource providers. 
+1. Enter **sql** in the filter to bring up the SQL-related resource providers. 
 1. Select **Register**, **Re-register**, or **Unregister** for the  **Microsoft.SqlVirtualMachine** provider, depending on your desired action. 
 
 ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)

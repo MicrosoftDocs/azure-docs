@@ -18,7 +18,7 @@ ms.reviewer: jroth
 
 ---
 # Use Azure quickstart templates to configure an Always On availability group for SQL Server on an Azure VM
-This article describes how to use the Azure quickstart templates to partially automate the deployment of an Always On availability group (AG) configuration for SQL Server virtual machines in Azure. Two Azure quickstart templates are used in this process. 
+This article describes how to use the Azure quickstart templates to partially automate the deployment of an Always On availability group (AG) configuration for SQL Server virtual machines in Azure. Two Azure quickstart templates are used in this process: 
 
    | Template | Description |
    | --- | --- |
@@ -39,7 +39,7 @@ To automate the setup of an Always On availability group by using quickstart tem
 ## Permissions
 The following permissions are necessary to configure the Always On availability group by using Azure quickstart templates: 
 
-- An existing domain user account that has Create Computer Object permission in the domain.  For example, a domain admin account typically has sufficient permission (for example: *account@domain.com*). _This account should also be part of the local administrator group on each VM to create the cluster._
+- An existing domain user account that has Create Computer Object permission in the domain.  For example, a domain admin account typically has sufficient permission (for example: _account@domain.com_). _This account should also be part of the local administrator group on each VM to create the cluster._
 - The domain user account that controls the SQL Server service. 
 
 
@@ -61,13 +61,13 @@ Adding SQL Server VMs to the *SqlVirtualMachineGroups* resource group bootstraps
    | **Existing Vm List** | The SQL Server VMs that you want to participate in the availability group and be part of this new cluster. Separate these values with a comma and a space (for example: *SQLVM1, SQLVM2*). |
    | **SQL Server Version** | The SQL Server version of your SQL Server VMs. Select it from the drop-down list. Currently, only SQL Server 2016 and SQL Server 2017 images are supported. |
    | **Existing Fully Qualified Domain Name** | The existing FQDN for the domain in which your SQL Server VMs reside. |
-   | **Existing Domain Account** | An existing domain user account that has Create Computer Object permission in the domain as the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) is created during template deployment. For example, a domain admin account typically has sufficient permission (for example: *account@domain.com*). *This account should also be part of the local administrator group on each VM to create the cluster.*| 
+   | **Existing Domain Account** | An existing domain user account that has Create Computer Object permission in the domain as the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) is created during template deployment. For example, a domain admin account typically has sufficient permission (for example: _account@domain.com_). *This account should also be part of the local administrator group on each VM to create the cluster.*| 
    | **Domain Account Password** | The password for the previously mentioned domain user account. | 
-   | **Existing Sql Service Account** | The domain user account that controls the [SQL Server service](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) during availability group deployment (for example: *account@domain.com*). |
+   | **Existing Sql Service Account** | The domain user account that controls the [SQL Server service](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) during availability group deployment (for example: _account@domain.com_). |
    | **Sql Service Password** | The password used by the domain user account that controls the SQL Server service. |
    | **Cloud Witness Name** | A new Azure storage account that will be created and used for the cloud witness. You can modify this name. |
    | **\_artifacts Location** | This field is set by default and should not be modified. |
-   | **\_artifacts Location Sas Token** | This field is left intentionally blank. |
+   | **\_artifacts Location Sas Token** | This field is intentionally left blank. |
    | &nbsp; | &nbsp; |
 
 1. If you agree to the terms and conditions, select the **I Agree to the terms and conditions stated above** check box. Then select **Purchase** to finish deployment of the quickstart template. 
@@ -130,7 +130,7 @@ Create the availability group listener and configure the internal load balancer 
    
    
 To configure the ILB and create the AG listener, do the following:
-1. Go to the [**101-sql-vm-aglistener-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) quickstart template and select **Deploy to Azure** to start the quickstart template in the Azure portal.
+1. Go to the [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) quickstart template and select **Deploy to Azure** to start the quickstart template in the Azure portal.
 1. Fill out the required fields to configure the ILB instance, and create the availability group listener. You can leave the optional fields blank. 
 
    The following table shows the necessary values for the template: 
@@ -145,7 +145,7 @@ To configure the ILB and create the AG listener, do the following:
    | **Listener Port** | The port that you want the listener to  use. Typically, this port should be the default of 1433. This is the port number that the template specifies. But if your default port has been changed, the listener port should use that value instead. | 
    | **Listener IP** | The IP address that you want the listener to use. This address will be created during template deployment, so provide one that isn't already in use.  |
    | **Existing Subnet** | The name of the internal subnet of your SQL Server VMs (for example: *default*). You can determine this value by going to **Resource Group**, selecting your virtual network, selecting **Subnets** in the **Settings** pane, and copying the value under **Name**. |
-   | **Existing Internal Load Balancer** | The name of the ILB instance that you created in Step 3. |
+   | **Existing Internal Load Balancer** | The name of the ILB instance that you created in step 3. |
    | **Probe Port** | The probe port that you want the ILB instance to use. The template uses 59999 by default, but you can change this value. |
    | &nbsp; | &nbsp; |
 
@@ -175,7 +175,7 @@ The selected availability group used in the Azure quickstart template for the AG
 ### Connection only works from primary replica
 This behavior is likely from a failed **101-sql-vm-aglistener-setup** template deployment that has left the ILB configuration in an inconsistent state. Verify that the backend pool lists the availability set, and that rules exist for the health probe and for the load-balancing rules. If anything is missing, the ILB configuration is an inconsistent state. 
 
-To resolve this behavior, remove the listener by using [PowerShell](#remove-the-availability-group-listener), delete the internal load balancer via the Azure portal, and start again at Step 3. 
+To resolve this behavior, remove the listener by using [PowerShell](#remove-the-availability-group-listener), delete the internal load balancer via the Azure portal, and start again at step 3. 
 
 ### BadRequest - Only SQL virtual machine list can be updated
 This error might occur when you're deploying the **101-sql-vm-aglistener-setup** template if the listener was deleted via SQL Server Management Studio (SSMS), but was not deleted from the SQL VM resource provider. Deleting the listener via SSMS does not remove the metadata of the listener from the SQL VM resource provider. The listener must be deleted from the resource provider through [PowerShell](#remove-the-availability-group-listener). 

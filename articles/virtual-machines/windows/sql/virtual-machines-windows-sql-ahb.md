@@ -31,9 +31,9 @@ According to the Microsoft Product Terms: "Customers must indicate that they are
 
 To indicate the use of Azure Hybrid Benefit for SQL Server on an Azure VM and be compliant, you have three options:
 
-1. Provision a virtual machine by using a bring-your-own-license (BYOL) SQL Server image from the Azure Marketplace. This option is available only for customers who have an Enterprise Agreement.
-1. Provision a virtual machine by using a PAYG SQL Server image from the Azure Marketplace and activate AHB.
-1. Self-install SQL Server on an Azure VM, manually [register the SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md), and activate AHB.
+- Provision a virtual machine by using a bring-your-own-license (BYOL) SQL Server image from the Azure Marketplace. This option is available only for customers who have an Enterprise Agreement.
+- Provision a virtual machine by using a PAYG SQL Server image from the Azure Marketplace and activate AHB.
+- Self-install SQL Server on an Azure VM, manually [register the SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md), and activate AHB.
 
 The license type of SQL Server is set when the VM is provisioned. You can change it anytime afterward. Switching between license models incurs no downtime, does not restart the VM, adds no additional cost, and is effective immediately. In fact, activating AHB *reduces* cost.
 
@@ -51,7 +51,7 @@ The use of the SQL VM resource provider requires the SQL Server IaaS extension. 
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-You can modify the license model directly from the portal. 
+You can modify the license model directly from the portal: 
 
 1. Open the [Azure portal](https://portal.azure.com) and open the [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) for your SQL Server VM. 
 1. Select **Configure** under **Settings**. 

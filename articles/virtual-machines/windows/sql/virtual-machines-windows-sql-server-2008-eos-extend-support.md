@@ -65,7 +65,7 @@ Disaster recovery solutions for EOS SQL Server on an Azure VM are as follows:
 ## Security patching
 Extended security updates for SQL Server VMs are delivered through the Microsoft Update channels after the SQL Server VM has been registered with the SQL VM [resource provider](virtual-machines-windows-sql-register-with-resource-provider.md). Patches can be downloaded manually or automatically.
 
-*Automated patching* is enabled by default. Automated patching allows Azure to automatically patch SQL Server and the operating system. You can specify a day of the week, time, and duration for a maintenance window if the SQL Server IaaS extension is installed. Azure performs patching in this maintenance window. The maintenance window schedule uses the VM locale for time.  For more information, see [Automated patching for SQL Server in Azure virtual machines](virtual-machines-windows-sql-automated-patching.md).
+*Automated patching* is enabled by default. Automated patching allows Azure to automatically patch SQL Server and the operating system. You can specify a day of the week, time, and duration for a maintenance window if the SQL Server IaaS extension is installed. Azure performs patching in this maintenance window. The maintenance window schedule uses the VM locale for time.  For more information, see [Automated patching for SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md).
 
 
 ## Next steps
