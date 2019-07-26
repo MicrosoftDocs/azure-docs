@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # Using decoration markers to highlight text
 
-The Bing [Web Search](overview.md), [News Search](../bing-news-search/search-the-web.md), and [Custom Search](../bing-custom-search/overview.md) APIs support hit highlighting, which are optional decoration markers that label search terms and other text features that appear in search results. These markers are inserted into the answers returned by the API, and can be used to highlight terms, phone numbers, addresses, and more. 
+The Bing [Web](overview.md), [News](../bing-news-search/search-the-web.md), and [Custom](../bing-custom-search/overview.md) search APIs support hit highlighting, which are optional decoration markers that can be added to search terms and other text features that appear in search results. These markers are inserted into the answers returned by the API and can be used to highlight terms, phone numbers, addresses, and more. 
 
 By default, Bing doesn't include highlighting markers in display strings. To enable the markers, include the `textDecorations` query parameter in your request and set it to `true`. 
 
@@ -23,7 +23,7 @@ By default, Bing doesn't include highlighting markers in display strings. To ena
 
 Bing supports hit highlighting, which marks query terms (or other terms that Bing finds relevant) in the display strings of some answers. For example, a webpage result's `name`, `displayUrl`, and `snippet` fields might contain marked query terms.
 
-The search query `Sailing Dinghy` was used in the example below. Bing inserted the `E000` and `E001` Unicode characters to mark the beginning and end of the query term. Because relevant terms exist in the result's fields, they're enclosed in hit highlighting characters:
+The following example shows a web result for `Sailing Dinghy`. Bing marked the beginning and end of the query term using the E000 and E001 Unicode characters
   
 ![Hit Highlighting](./media/cognitive-services-bing-web-api/bing-hit-highlighting.png) 
 
