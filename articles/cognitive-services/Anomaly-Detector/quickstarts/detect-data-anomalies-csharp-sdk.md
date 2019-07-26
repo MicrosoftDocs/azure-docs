@@ -34,7 +34,7 @@ Use the Anomaly Detector client library for .NET to:
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-After you get a key from your trial subscription or resource, [create an environment variable](../../cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `ANOMALY_DETECTOR_KEY`.
+After you get a key from your trial subscription or resource, [create an environment variable](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for the key, named `ANOMALY_DETECTOR_KEY`.
 
 ### Create a new C# application
 
