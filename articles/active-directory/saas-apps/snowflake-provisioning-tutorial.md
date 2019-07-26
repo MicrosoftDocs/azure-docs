@@ -113,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input `https://<account>.<region>.<cloud>.Snowflakecomputing.com/scim/v2` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Snowflake. If the connection fails, ensure your Snowflake account has Admin permissions and try again.
 
-	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)\
+	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
 6.  Example for Snowflake Account URL:
 
