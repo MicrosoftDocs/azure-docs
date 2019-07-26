@@ -93,7 +93,7 @@ In the **Guest VM health** section, the table shows the health rollup of perform
 
 ![Azure Monitor for VMs component health status of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health-02.png)
 
-Selecting the state next to the component will open the Health Diagnostics experience in the context of the selected component. It shows the composition of the state of that component, describing what health criteria are used to compute its health. For more information, see [Health Diagnostics and working with health criteria](h#health-diagnostics). For more information about alerts, see [Alerts](#alerts).
+Selecting the state next to the component will open the Health Diagnostics experience in the context of the selected component. It shows the composition of the state of that component, describing what health criteria are used to compute its health. For more information, see [Health Diagnostics and working with health criteria](#health-diagnostics). For more information about alerts, see [Alerts](#alerts).
 
 The health states defined for a VM are described in the following table:
 
