@@ -33,7 +33,7 @@ ms.author: cynthn
 1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** from the drop-down.
 	![Open ports for RDP and HTTP](./media/quick-create-portal/inbound-port-rules.png)
 1. At the top of the page, select the **Advanced** tab and in the **Host** section, select *myHostGroup* for **Host group** and *myHost* for the **Host**. 
-	![Select host group and host](./media/virtual-machines-common-dedicated-hosts-portal/advanced.png)
+	![Select host group and host](./media/dedicated-hosts-portal/advanced.png)
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 
 	
