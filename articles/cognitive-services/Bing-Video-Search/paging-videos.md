@@ -1,6 +1,6 @@
 ---
 title: How to page through the available videos - Bing Video Search
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to page through all of the videos returned by the Bing Video Search API.
 services: cognitive-services
 author: swhite-msft
