@@ -27,7 +27,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | --- | --- |
 | **New SQL IaaS installation modes** | It's now possible to install the SQL Server IaaS extension in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md) to avoid restarting the SQL Server service.  |
 | **SQL Server edition modification** | You can now change the [edition property](virtual-machines-windows-sql-change-edition.md) for your SQL Server VM. |
-| **Changes to SQL VM resource provider** | You can [register your SQL Server VM with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) by using the new SQL IaaS modes. This capability includes [Windows 2008 images](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008r2-on-windows-server-2008-vms).|
+| **Changes to SQL VM resource provider** | You can [register your SQL Server VM with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-the-sql-vm-resource-provider) by using the new SQL IaaS modes. This capability includes [Windows 2008 images](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms).|
 | **BYOL images using Azure Hybrid Benefit** | Bring-your-own-license images deployed from the Azure Marketplace can now switch their [license type to pay-as-you-go](virtual-machines-windows-sql-ahb.md#remarks).| 
 | &nbsp; | &nbsp; |
 
@@ -75,7 +75,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 | Service improvements | Details |
 | --- | --- |
-| **Portal improvement** | It's now possible to change the licensing model for a SQL Server VM from pay-as-you-go to bring-your-own-license by using the [Azure portal](virtual-machines-windows-sql-ahb.md#change-license-for-vms-already-registered-with-resource-provider).|
+| **Portal improvement** | It's now possible to change the licensing model for a SQL Server VM from pay-as-you-go to bring-your-own-license by using the [Azure portal](virtual-machines-windows-sql-ahb.md#change-a-license-for-vms-already-registered-with-the-resource-provider).|
 |**AG deployment simplification with Azure SQL Server VM CLI** | It's now easier than ever to deploy an availability group to a SQL Server VM in Azure. You can use the [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) to create the Windows failover cluster, internal load balancer (ILB), and availability group (AG) listeners all from the command line. For more information, see [Use the Azure SQL Server VM CLI to configure an Always On availability group for SQL Server on an Azure VM](virtual-machines-windows-sql-availability-group-cli.md). | 
 | &nbsp; | &nbsp; |
 

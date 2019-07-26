@@ -25,7 +25,7 @@ In the [Azure portal](https://portal.azure.com), the **SQL virtual machines** re
 
 ## Remarks
 
-- We recommend that you use the **SQL virtual machines** resource to view and manage your SQL Server VMs in Azure. But currently, the **SQL virtual machines** resource does not support the management of [end of support (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server VMs. To manage settings for your EOS SQL Server VMs, use the deprecated [SQL Server configuration tab](#access-sql-server-configuration-tab) instead. 
+- We recommend that you use the **SQL virtual machines** resource to view and manage your SQL Server VMs in Azure. But currently, the **SQL virtual machines** resource does not support the management of [end of support (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server VMs. To manage settings for your EOS SQL Server VMs, use the deprecated [SQL Server configuration tab](#access-the-sql-server-configuration-tab) instead. 
 - The **SQL virtual machines** resource is available only to SQL Server VMs that have [registered with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
