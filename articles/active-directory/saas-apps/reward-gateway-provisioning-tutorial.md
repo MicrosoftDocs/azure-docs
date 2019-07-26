@@ -52,7 +52,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 ## Setup Reward Gateway  for provisioning
 Before configuring Reward Gateway for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Reward Gateway.
 
-1. Sign in to your [Reward Gateway Admin Console](https://manage.rewardgateway.com/). Click **Integrations**.
+1. Sign in to your [Reward Gateway Admin Console](https://rewardgateway.photoshelter.com/login/). Click **Integrations**.
 
 	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/image00.png)
 
@@ -60,7 +60,7 @@ Before configuring Reward Gateway for automatic user provisioning with Azure AD,
 
 	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/image001.png)
 
-3.	Copy the values for **SCIM URL (v2) and OAuth Bearer Token**. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your reward gateway application in the Azure portal.
+3.	Copy the values of **SCIM URL (v2) and OAuth Bearer Token**. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your Reward Gateway application in the Azure portal.
 
 	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/image03.png)
 
@@ -91,7 +91,7 @@ To configure Reward Gateway for automatic user provisioning with Azure AD, you n
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Reward Gateway  based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Reward Gateway  , following the instructions provided in the [Reward Gateway  Single sign-on tutorial](reward-gateway-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for Reward Gateway, following the instructions provided in the [Reward Gateway  Single sign-on tutorial](reward-gateway-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for Reward Gateway  in Azure AD:
 
