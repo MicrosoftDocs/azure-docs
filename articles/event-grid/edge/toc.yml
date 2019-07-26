@@ -20,7 +20,7 @@
     items:
     - name: Deploy Event Grid IoT module
       href: deploy-event-grid-portal.md
-    - name: Forward events to IoTHub
+    - name: Forward events to Event Grid cloud
       href: forward-events-event-grid-cloud.md
 - name: Concepts
   items:
@@ -40,6 +40,14 @@
       href: persist-state-linux.md  
     - name: Windows
       href: persist-state-windows.md  
+  - name: Configure API protocols
+    href: configure-api-protocol.md  
+  - name: Configure client authentication
+    href: configure-client-auth.md  
+  - name: Configure webhook subscriber authentication
+    href: configure-webhook-subscriber-auth.md  
+  - name: Configure identity authentication
+    href: configure-identity-auth.md
 - name: Reference
   items:
   - name: REST API
