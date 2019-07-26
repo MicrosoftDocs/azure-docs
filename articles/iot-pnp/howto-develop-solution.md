@@ -77,16 +77,6 @@ select * from devices where HAS_CAPABILITYMODEL('id without version', version)
 > [!NOTE]
 > To get the new IoT Plug and Play interface data format, use `INTERFACES` instead of `*`.
 
-## Clean up resources
-
-If you plan to continue with later articles, you can keep these resources. Otherwise you can delete the resources you've created for this tutorial to avoid additional charges.
-
-To delete the resource group that contains the hub and registered device, complete the following steps using the Azure CLI:
-
-```azurecli-interactive
-az group delete --name <Your group name>
-```
-
 ## Next steps
 
 Now that you've learned about service solutions that interact with your IoT Plug and Play devices, a suggested next step is to learn about [Model discovery](concepts-model-discovery.md).
