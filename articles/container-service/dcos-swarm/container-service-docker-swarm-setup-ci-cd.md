@@ -222,4 +222,4 @@ Now that you are done with the configuration, it's time to test this new CI/CD p
 
 ## Next Steps
 
-* For more information about CI/CD with Azure DevOps Services, see the [Azure DevOps Services Build overview](https://www.visualstudio.com/docs/build/overview).
+* For more information about CI/CD with Azure DevOps Services, see the [Azure Pipelines Documentation](/azure/devops/pipelines/?view=azure-devops) article.
