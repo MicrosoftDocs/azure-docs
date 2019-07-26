@@ -349,16 +349,18 @@ After a few minutes, you can see the telemetry from the device on the device das
 
 ## Connect device-first
 
-You can connect an IoT Plug and Play device through a device-first connection as mentioned in [Connectivity](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json). The discovery process follows the following order:
+You can connect an IoT Plug and Play device through a device-first connection as mentioned in [Connectivity](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json). The discovery process follows this order:
+
 1. Associates with the device template if already published in the IoT Central app.
-1. Fetches from the global epository of published and certified capability models.
+
+1. Fetches from the global repository of published and certified capability models.
 
 >[!NOTE]
 >Bug Bash: The Environmental Sensor device capability model, being used above as a sample, has already been published in the global repository. You can use **urn:bugbash0725:sample_device:1** to access this.
 
-Using Visual Studio Code and the Generate Device Code Stub referenced above, you can follow these steps to connect device-first and automatically bring in your published device capability model from the gloabl repository into IoT Central:
+Using Visual Studio Code and the **Generate Device Code Stub** command referenced above, you can follow these steps to connect device-first and automatically bring in your published device capability model from the global repository into IoT Central:
 
-1. Use an existing device capability model that has been published in the global repository. You will need the full device capability model and to note down the URN of this model.
+1. Use an existing device capability model that has been published in the global repository. You need the full device capability model and to note down the URN of this model.
 
 1. Follow the steps above to [Generate a device client application](#generate-a-device-client-application) to use Visual Studio Code and generate the device code.
 
@@ -369,11 +371,12 @@ Using Visual Studio Code and the Generate Device Code Stub referenced above, you
     ```cmd/sh
     dps-keygen -mk:<Primary_Key(GroupSAS)> -di:<device_id>
     ```
-1. Follow the steps above to [Add connection details to the device client](#add-connection-details-to-the-device-client) to add the **Scope ID**, **Primary Key**, **Device ID**, and **URN** for your device capability model located in the global repository. 
 
-1. Follow the steps above to [Build and run the client](#build-and-run-the-client). 
+1. Follow the steps above to [Add connection details to the device client](#add-connection-details-to-the-device-client) to add the **Scope ID**, **Primary Key**, **Device ID**, and **URN** for your device capability model located in the global repository.
 
-1. Now you will see the device connect to your IoT Central application and automatically bring in the device capability model from the global repository as a device template.
+1. Follow the steps above to [Build and run the client](#build-and-run-the-client).
+
+1. Now you see the device connect to your IoT Central application and automatically bring in the device capability model from the global repository as a device template.
 
 ## Next steps
 

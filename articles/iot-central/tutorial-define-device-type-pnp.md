@@ -132,13 +132,13 @@ As a builder, you can customize the application to display relevant information 
 
 ### Generate default views
 
-Generating default views is a quick way to get started with visualizing your important device information. You will have up to three default views generated for your device template:
+Generating default views is a quick way to get started with visualizing your important device information. You can have up to three default views generated for your device template:
 
-1. **Commands** will provide a view with device commands and will allow your operator to dispatch them to your device.
-1. **Overview** will provide a view with device telemetry, displaying charts and metrics.
-1. **About** will provide a view with device information, displaying device properties.
+1. The **Commands** view lets your operator dispatch commands to your device.
+1. The **Overview** view uses charts and metrics to display device telemetry.
+1. The **About** view displays device properties.
 
-Once you have selected **Generate default views** you will see that they have been automatically added under the **Views** section of your device template.
+After you select **Generate default views**, they're automatically added under the **Views** section of your device template.
 
 ### Configure a view to visualize devices
 
