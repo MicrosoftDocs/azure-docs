@@ -118,7 +118,7 @@ To learn more about Azure AD DS compares with other identity solutions and how s
 * [Compare Azure AD DS with Azure AD, Active Directory Domain Services on Azure VMs, and Active Directory Domain Services on-premises][compare]
 * [Learn how Azure AD Domain Services synchronizes with your Azure AD directory][synchronization]
 
-To get started, [create an Azure AD DS managed domain using the Azure portal][tutorial-create]
+To get started, [create an Azure AD DS managed domain using the Azure portal][tutorial-create].
 
 <!-- INTERNAL LINKS -->
 [compare]: compare-identity-solutions.md
