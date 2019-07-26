@@ -23,7 +23,7 @@ ms.author: iainfou
 A synced Azure AD tenant is set to synchronize with your organization's on-premises directory using Azure AD Connect. By default, Azure AD Connect does not synchronize NTLM and Kerberos credential hashes to Azure AD. To use Azure AD Domain Services, you need to configure Azure AD Connect to synchronize credential hashes required for NTLM and Kerberos authentication. The following steps enable synchronization of the required credential hashes from your on-premises directory to your Azure AD tenant.
 
 > [!NOTE]
-> **If your organization has user accounts that are synchronized from your on-premises directory, you must enable synchronization of NTLM and Kerberos hashes in order to use the managed domain.** A synced user account is an account that was created in your on-premises directory and is synchronized to your Azure AD tenant using Azure AD Connect.
+> **If your organization has user accounts that are synchronized from your on-premises directory, you must enable synchronization of NTLM and Kerberos hashes in order to use the managed domain.** A synced user account is an account that was created in your on-premises directory and is synchronized to your Azure AD tenant using Azure AD Connect. The password hash sync is a different process from user/object sync. You need to disable/enable password hash sync to get full password sync, then you will see the batch password hash updates in the application event log.
 
 In this article, you enable synchronization of credential hashes required for NT LAN Manager (NTLM) and Kerberos authentication to Azure AD Domain Services. After you've set up credential synchronization, users can sign in to the managed domain with their corporate credentials.
 
@@ -73,7 +73,11 @@ Depending on the size of your directory (number of users, groups etc.), synchron
 
 ## Next steps
 
+> [!NOTE]
+> **Password hash sync** is a different process from user/object sync. You need to disable/enable password hash sync to get full password sync, then you will see the batch password hash updates in the application event log.
+
 * [Enable password synchronization to AAD Domain Services for a cloud-only Azure AD directory](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)
+* [Enable password synchronization to AAD Domain Services for a cloud-only Azure AD directory](active-directory-ds-getting-started-password-sync.md)
 * [Manage an Azure AD Domain Services domain](manage-domain.md)
 * [Join a Windows virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

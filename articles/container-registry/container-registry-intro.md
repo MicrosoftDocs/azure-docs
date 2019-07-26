@@ -3,6 +3,7 @@ title: Private Docker container registries in Azure - overview
 description: Introduction to the Azure Container Registry service, providing cloud-based, managed, private Docker registries.
 services: container-registry
 author: stevelas
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: overview

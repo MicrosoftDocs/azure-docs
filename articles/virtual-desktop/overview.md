@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 05/31/2019
+ms.date: 07/17/2019
 ms.author: helohr
 ---
 # What is Windows Virtual Desktop Preview? 
@@ -100,10 +100,6 @@ Windows Virtual Desktop supports the following OS images:
 
 * Windows 10 Enterprise multi-session
 * Windows Server 2016
-
-## Provide feedback
-
-Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members. We currently aren't taking support cases while Windows Virtual Desktop is in preview.
 
 ## Next steps
 

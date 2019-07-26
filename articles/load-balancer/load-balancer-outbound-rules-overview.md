@@ -11,7 +11,7 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
+ms.date: 7/17/2019
 ms.author: allensu
 ---
 
@@ -203,7 +203,7 @@ When using an internal Standard Load Balancer, outbound NAT is not available unt
 - The range of the configurable outbound idle timeout is 4 to 120 minutes (240 to 7200 seconds).
 - Load Balancer does not support ICMP for outbound NAT.
 - Portal cannot be used to configure or view outbound rules.  Use templates, REST API, Az CLI 2.0, or PowerShell instead.
-- Outbound rules can only be applied to primary IP configuration of a NIC only.  Multiple NICs are supported.
+- Outbound rules can only be applied to primary IP configuration of a NIC.  Multiple NICs are supported.
 
 ## Next steps
 

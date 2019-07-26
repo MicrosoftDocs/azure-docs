@@ -4,7 +4,7 @@ description: This article describes how to create and use databases, containers,
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
 
