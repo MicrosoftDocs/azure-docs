@@ -31,6 +31,22 @@ Renaming registered nodes does not update the node name in Azure Automation.
 Unregister the node from Azure Automation State Configuration and then register it again.  Reports published to the 
 service before that time will no longer be available.
 
+
+### <a name="resigning-cert"></a>Scenario: Re-signing certificates via https proxy is not supported
+
+#### Issue
+
+Customers have reported that when connecting through a proxy solution that terminates https traffic and then
+re-encrypts traffic using a new certificate, the service does not allow the connection.
+
+#### Cause
+
+Azure Automation does not support re-signing certificates used to encrypt traffic.
+
+#### Resolution
+
+There is no workaround for this issue.
+
 ## General errors
 
 ### <a name="missing-write-permissions"></a>Scenario: Onboarding fails with the message - The solution cannot be enabled
