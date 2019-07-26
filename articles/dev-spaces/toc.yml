@@ -83,5 +83,7 @@
       href: ../jenkins/tutorial-jenkins-dev-spaces.md
     - name: Business continuity and disaster recovery for Azure Dev Spaces
       href: how-to/dev-spaces-business-continuity.md
+    - name: Interact with Windows containers
+      href: how-to/run-dev-spaces-windows-containers.md
   - name: Troubleshooting
     href: troubleshooting.md
