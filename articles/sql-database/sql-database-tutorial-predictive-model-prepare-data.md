@@ -32,7 +32,7 @@ In this article, you'll learn how to:
 
 In [part two](sql-database-tutorial-predictive-model-build-compare.md), you'll learn how to create and train multiple machine learning models in R, and then choose the most accurate one.
 
-In [part three](sql-database-tutorial-predictive-model-deploy.md), you'll learn how to store the model in a database, and then create stored procedures from the R scripts you developed. The stored procedures will run in a SQL database to make predictions based on new data.
+In [part three](sql-database-tutorial-predictive-model-deploy.md), you'll learn how to store the model in a database, and then create stored procedures from the R scripts you developed in parts one and two. The stored procedures will run in a SQL database to make predictions based on new data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 

@@ -28,7 +28,7 @@ In this article, you'll learn how to:
 
 In [part one](sql-database-tutorial-predictive-model-prepare-data.md), you learned how to import a sample database and then prepare the data to be used for training a predictive model in R.
 
-In [part three](sql-database-tutorial-predictive-model-deploy.md), you'll learn how to store the model in a database, and then create stored procedures from the R scripts you developed. The stored procedures will run in a SQL database to make predictions based on new data.
+In [part three](sql-database-tutorial-predictive-model-deploy.md), you'll learn how to store the model in a database, and then create stored procedures from the R scripts you developed in parts one and two. The stored procedures will run in a SQL database to make predictions based on new data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 

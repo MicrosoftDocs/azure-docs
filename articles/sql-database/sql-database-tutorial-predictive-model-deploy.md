@@ -21,7 +21,7 @@ In part three of this three-part tutorial, you'll deploy a predictive model, dev
 
 You'll create a stored procedure with an embedded R script that makes predictions using the model. Because your model executes in the Azure SQL database, it can easily be trained against data stored in the database.
 
-In this article, you'll learn how to:
+In this article, using the R scripts you developed in parts one and two, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create a stored procedure that generates the machine learning model
