@@ -33,8 +33,8 @@ Use the Content Moderator client library for Java to:
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Content Moderator using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
 
-* Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for 7 days for free. After signing up it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* View your resource on the [Azure Portal](https://portal.azure.com/).
+* Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for seven days for free. After you sign up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* View your resource on the [Azure portal](https://portal.azure.com/).
 
 After getting a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `AZURE_CONTENTMODERATOR_KEY`.
 
@@ -53,7 +53,7 @@ gradle init --type basic
 
 When prompted to choose a build script DSL, select **Kotlin**.
 
-Locate `build.gradle.kts` and open it with your preferred IDE or text editor. Then copy in the following build configuration. This defines the project as a Java application whose entry point is the class **ContentModeratorQuickstart**. It imports the Content Moderator SDK as well as the Gson sdk for JSON serialization.
+Find *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **ContentModeratorQuickstart**. It imports the Content Moderator SDK as well as the Gson sdk for JSON serialization.
 
 ```kotlin
 plugins {
@@ -107,7 +107,7 @@ The following classes handle some of the major features of the Content Moderator
 
 ## Code examples
 
-These code snippets show you how to do the following with the Content Moderator client library for Java:
+These code snippets show you how to do the following tasks with the Content Moderator client library for Java:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Moderate images](#moderate-images)
@@ -118,7 +118,10 @@ These code snippets show you how to do the following with the Content Moderator 
 > This step assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Content Moderator key, named `AZURE_CONTENTMODERATOR_KEY`.
 
 
-In the application's `main()` method, create a [ContentModeratorClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable) object using your subscription endpoint value and subscription key environment variable. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
+In the application's `main` method, create a [ContentModeratorClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable) object using your subscription endpoint value and subscription key environment variable. 
+
+> [!NOTE]
+> If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
 ```java
 /**
@@ -133,7 +136,7 @@ ContentModeratorClient client = ContentModeratorManager
 
 ### Moderate images
 
-In the **src/main/** folder of your project, create a **resources** folder. In that folder, create a new text file, *ImageFiles.txt*. In this file, you add the URLs of images to analyze&mdash;one URL on each line. You can use the following sample contents:
+In the **src/main/** folder of your project, create a **resources** folder and navigate to it. Then create a new text file, *ImageFiles.txt*. In this file, you add the URLs of images to analyze&mdash;one URL on each line. You can use the following sample contents:
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
@@ -156,7 +159,7 @@ public static class EvaluationData {
 }
 ```
 
-Next, add the following code to the bottom of the **main** method. Or, you can add it to a separate method that's called from **main**. This code uses the Content Moderator client object to analyse the images at the given URLs for adult/racy content, image text, and human faces. It stores the returned information in `EvaluationData` objects and then prints the results to an output file, *src/main/resources/ModerationOutput.json*.
+Next, add the following code to the bottom of the **main** method. Or, you can add it to a separate method that's called from **main**. This code uses the Content Moderator client object to analyze the images at the given URLs for adult/racy content, image text, and human faces. It stores the returned information in `EvaluationData` objects and then prints the results to an output file, *src/main/resources/ModerationOutput.json*.
 
 ```java
 // Create an object in which to store the image moderation results.
