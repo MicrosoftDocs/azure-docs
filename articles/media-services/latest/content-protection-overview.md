@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 07/25/2019
 ms.author: juliako
 ms.custom: seodec18
 #Customer intent: As a developer who works on subsystems of online streaming/multiscreen solutions that need to deliver protected content, I want to make sure that delivered content is protected with DRM or AES-128.
@@ -166,7 +166,7 @@ You can control who has access to your content by configuring the content key po
 
 An open-restricted content key policy may be used when you want to issue license to anyone without authorization. For example, if your revenue is ad-based and not subscription-based.  
 
-With a token-restricted content key policy, the content key is sent only to a client that presents a valid JWT token or a simple web token in the license/key request. This token must be issued by an STS. 
+With a token-restricted content key policy, the content key is sent only to a client that presents a valid JWT token or a simple web token (SWT) in the license/key request. This token must be issued by an STS. 
 
 You can use Azure AD as an STS or deploy a custom STS. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services license/key delivery service returns the requested license or key to the client if both of these conditions exist:
 
@@ -192,8 +192,10 @@ The *Token Replay Prevention* feature allows Media Services customers to set a l
 
 A customer might choose to use a custom STS to provide tokens. Reasons include:
 
-* The IDP used by the customer doesn't support STS. In this case, a custom STS might be an option.
-* The customer might need more flexible or tighter control to integrate STS with the customer's subscriber billing system. For example, an MVPD operator might offer multiple OTT subscriber packages, such as premium, basic, and sports. The operator might want to match the claims in a token with a subscriber's package so that only the contents in a specific package are made available. In this case, a custom STS provides the needed flexibility and control.
+* The identity provider (IDP) used by the customer doesn't support STS. In this case, a custom STS might be an option.
+* The customer might need more flexible or tighter control to integrate STS with the customer's subscriber billing system. 
+
+   For example, an [OTT](https://en.wikipedia.org/wiki/Over-the-top_media_services) operator might offer multiple subscriber packages, such as premium, basic, and sports. The operator might want to match the claims in a token with a subscriber's package so that only the contents in a specific package are made available. In this case, a custom STS provides the needed flexibility and control.
 * To include custom claims in the token to select between different ContentKeyPolicyOptions with different DRM license parameters (a subscription license versus a rental license).
 * To include a claim representing the content key identifier of the key that the token grants access to.
 

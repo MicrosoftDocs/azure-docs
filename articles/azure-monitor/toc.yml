@@ -269,7 +269,7 @@
             href: app/status-monitor-v2-api-get-status.md
           - name: API Set-ApplicationInsightsMonitoringConfig
             href: app/status-monitor-v2-api-set-config.md
-          - name: API Start-ApplicationInsightsMonitoringConfig
+          - name: API Start-ApplicationInsightsMonitoringTrace
             href: app/status-monitor-v2-api-start-trace.md
       - name: Create a resource
         href: app/create-new-resource.md 
