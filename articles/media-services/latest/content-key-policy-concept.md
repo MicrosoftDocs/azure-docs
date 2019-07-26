@@ -44,7 +44,7 @@ Usually, you associate your content key policy with your [Streaming Locator](str
 * If you do need to create a new policy, you have to create a new streaming locator for the asset.
 * It is recommended to let Media Services autogenerate the content key. 
 
-   Typically, you would use a long-lived key and check for the policies existence with [Get](https://docs.microsoft.com/rest/api/media/contentkeypolicies/get). To get the key, you need to call a separate action method to get secrets or credentials, see the example that follows.
+   Typically, you would use a long-lived key and check for the existence of the content key policy with [Get](https://docs.microsoft.com/rest/api/media/contentkeypolicies/get). To get the key, you need to call a separate action method to get secrets or credentials, see the example that follows.
 
 ## Example
 
