@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech, C# (UWP) - Speech Services'
+title: 'Quickstart: Translate speech, C# (UWP) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll create a simple Universal Windows Platform (UWP) application to capture user speech, translate it to another language, and output the text to the command line. This guide is designed for Windows users.
 services: cognitive-services

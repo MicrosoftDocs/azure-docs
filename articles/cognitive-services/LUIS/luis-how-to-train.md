@@ -1,6 +1,6 @@
 ---
-title: Train app 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Train app - LUIS
+titleSuffix: Azure Cognitive Services
 description: Training is the process of teaching your Language Understanding (LUIS) app version to improve its natural language understanding. Train your LUIS app after updates to the model such as adding, editing, labeling, or deleting entities, intents, or utterances.
 services: cognitive-services
 author: diberry
