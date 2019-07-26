@@ -350,8 +350,11 @@
       href: service-fabric-diagnostics-partners.md
   - name: Integration with API Management
     href: service-fabric-api-management-overview.md
+  - name: App Resource model
+    href: concepts-app-resource-model.md
   - name: Managed Identity 
     href: concepts-managed-identity-token-service.md
+  
 - name: How-to guides
   items:
   - name: Set up your development environment
