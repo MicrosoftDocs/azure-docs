@@ -308,7 +308,7 @@
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-lab-services
     - name: Frequently asked questions
-      href: classroom-labs-faq.md
+      href: classroom-labs/classroom-labs-faq.md
   - name: DevTest Labs
     items:
     - name: Azure updates
