@@ -58,15 +58,15 @@ import azure.cognitiveservices.vision.contentmoderator.models import *
 from msrest.authentication import CognitiveServicesCredentials
 ```
 
-Create variables for your resource's Azure location and your key as an environment variable. 
-
-> [!NOTE]
-> If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
+Next, create variables for your resource's Azure location and your key as an environment variable. 
 
 ```python
 CONTENTMODERATOR_ENDPOINT = "https://westus.api.cognitive.microsoft.com"
 subscription_key = os.environ.get("CONTENTMODERATOR_SUBSCRIPTION_KEY")
 ```
+
+> [!NOTE]
+> If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
 ### Install the client library
 
@@ -114,7 +114,7 @@ client = ContentModeratorClient(
 
 ### Moderate text
 
-The following code uses a Content Moderator client to analyze a body of text and print the results to the console. First, create a **text_files** folder at the root of your project and add a *content_moderator_text_moderation.txt* file. Add your own text to this file, or use the following sample text:
+The following code uses a Content Moderator client to analyze a body of text and print the results to the console. First, create a **text_files/** folder at the root of your project and add a *content_moderator_text_moderation.txt* file. Add your own text to this file, or use the following sample text:
 
 ```
 Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -151,13 +151,13 @@ def text_moderation():
 
 The following code shows how to manage a list of custom terms for text moderation. You can use the [ListManagementTermListsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementtermlistsoperations?view=azure-python) class to create a terms list, manage the individual terms, and screen other bodies of text against it.
 
-To use this sample, you must create a **text_files** folder at the root of your project and add a *content_moderator_term_list.txt* file. This file should contain organic text that will be checked against the list of terms. You can use the following sample text:
+To use this sample, you must create a **text_files/** folder at the root of your project and add a *content_moderator_term_list.txt* file. This file should contain organic text that will be checked against the list of terms. You can use the following sample text:
 
 ```
 This text contains the terms "term1" and "term2".
 ```
 
-Then, add the following function definition to your Python script:
+Then, add the following function definition to your Python script. Each section of the function does a different task with the custom terms list.
 
 ```python
 TEXT_FOLDER = os.path.join(os.path.dirname(
@@ -171,7 +171,6 @@ def terms_lists():
     #
     # Create list
     #
-
     print("\nCreating list")
     custom_list = client.list_management_term_lists.create(
         content_type="application/json",
@@ -310,7 +309,7 @@ def terms_lists():
 
 ### Moderate images
 
-The following code uses a Content Moderator client, along with an **ImageModerationOperations** object, to analyze images for adult and racy content.
+The following code uses a Content Moderator client, along with an [ImageModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python) object, to analyze images for adult and racy content.
 
 ```python
 IMAGE_LIST = [
@@ -364,9 +363,6 @@ The following code shows how to manage a custom list of images for image moderat
 
 Create the following text variables to store the image URLs that you'll use in this scenario.
 
-> [!NOTE]
-> This is not the proper list itself, but an informal list of images that will be added in the `add images` section of the code.
-
 ```python
 IMAGE_LIST = {
     "Sports": [
@@ -389,6 +385,9 @@ IMAGES_TO_MATCH = [
     "https://moderatorsampleimages.blob.core.windows.net/samples/sample16.png"
 ]
 ```
+
+> [!NOTE]
+> This is not the proper list itself, but an informal list of images that will be added in the `add images` section of the code.
 
 Then, add the following function definition to your script.
 
@@ -421,7 +420,6 @@ def image_lists():
     #
     # Add images
     #
-
     def add_images(list_id, image_url, label):
         """Generic add_images from url and label."""
         print("\nAdding image {} to list {} with label {}.".format(
@@ -585,7 +583,7 @@ def image_review():
     # This must be the team name you used to create your Content Moderator account. You can
     # retrieve your team name from the Review tool web site. Your team name is the Id
     # associated with your subscription.
-    team_name = "insert your team name here"
+    team_name = "<insert your team name here>"
 
     # An image to review
     image_url = "https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png"
@@ -594,7 +592,7 @@ def image_review():
     call_back_endpoint = "https://requestb.in/qmsakwqm"
 ```
 
-Add the following function definition to your script.
+Then, add the rest of the function code. This code posts the content to the Review tool. Then, it prompts you to go to the review tool yourself and interact with the content. When you're done, you can resume the script, and it will retrieve the results of the review process.
 
 ```python
     
