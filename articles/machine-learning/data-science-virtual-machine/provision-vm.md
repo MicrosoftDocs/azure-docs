@@ -37,7 +37,7 @@ The following tools are included in a DSVM:
 * A standalone Apache Spark instance for local development and testing
 * [JuliaPro](https://juliacomputing.com/products/juliapro.html)
 * Machine learning and data analytics tools:
-  * Deep learning frameworks - a rich set of AI frameworks are included on the VM: [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, and Keras
+  * Deep learning frameworks - a rich set of AI frameworks are included on the VM: [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, and Keras
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) - a fast machine learning system that supports techniques like online hashing, allreduce, reductions, learning2search, and active and interactive learning
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/) - a tool that provides fast and accurate boosted tree implementation
   * [Rattle](https://togaware.com/rattle/) - the R analytical tool that gets you started with data analytics and machine learning in R. It includes GUI-based data exploration and modeling with automatic R code generation.
