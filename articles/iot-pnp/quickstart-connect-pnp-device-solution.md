@@ -228,7 +228,7 @@ az iot hub device-identity delete --hub-name [YourIoTHubName] --device-id [YourD
 
 ## Next steps
 
-In this quickstart, you've learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about how to find IoT Plug and Play devices to connect to your solution, see:
+In this quickstart, you've learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
 
 > [!div class="nextstepaction"]
-> [How-to: Use the device catalog to find devices](howto-onboard-portal.md)
+> [How-to: Connect to and interact with a device](howto-develop-solution.md)

@@ -14,8 +14,6 @@
   items:
   - name: Create a device using VS Code
     href: tutorial-pnp-visual-studio-code.md
-  - name: Connect to and interact with a device
-    href: tutorial-pnp-develop-solution.md
   - name: Build a device ready for certification
     href: tutorial-build-device-certification.md
   - name: Certify your device
@@ -40,6 +38,8 @@
     href: howto-onboard-portal.md
   - name: Manage models
     href: howto-manage-models.md
+  - name: Connect to and interact with a device
+    href: howto-develop-solution.md
 - name: Related
   items:
   - name: Solutions

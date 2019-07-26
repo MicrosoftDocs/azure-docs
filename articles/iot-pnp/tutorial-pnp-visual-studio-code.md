@@ -4,7 +4,7 @@ description: As a device developer, learn about how to use VS Code to create and
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/10/2019
-ms.topic: Tutorial
+ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp

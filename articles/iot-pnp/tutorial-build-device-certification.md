@@ -4,7 +4,7 @@ description: As a device developer, learn about how you can build a Plug and Pla
 author: tbhagwat3
 ms.author: tanmayb
 ms.date: 06/28/2019
-ms.topic: Tutorial
+ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
