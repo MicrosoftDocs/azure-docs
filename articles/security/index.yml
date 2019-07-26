@@ -2,14 +2,14 @@
 
 title: Azure Security Documentation 
 summary: Learn about Azure security. 
-brand: azure ## Used for color theming of icons and hero area 
+brand: azure
 
 metadata: 
   title: Azure Security Documentation
   description: Azure security helps protect your applications and data, support your compliance efforts, and provide cost-effective security for organizations of all sizes.
   services: security
   ms.service: security
-  ms.subservice:na
+  ms.subservice: na
   ms.topic: hub-page
   ms.collection: na
   author: TerryLanfear
@@ -68,12 +68,6 @@ summary: Security content
         - url: azure-security-threat-modeling-tool.md
           itemType: how-to-guide
           text: Secure development resources 
-      footerLink: 
-        url: https://docs.microsoft.com/azure/security/develop/
-        text: See More
-
-    - title: Security benchmarks
-      links: 
       footerLink: 
         url: https://docs.microsoft.com/azure/security/develop/
         text: See More
