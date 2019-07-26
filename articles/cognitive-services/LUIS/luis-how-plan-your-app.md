@@ -1,6 +1,6 @@
 ---
-title: Plan your app
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Plan your app - LUIS
+titleSuffix: Azure Cognitive Services
 description: Outline relevant app intents and entities, and then create your application plans in Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
