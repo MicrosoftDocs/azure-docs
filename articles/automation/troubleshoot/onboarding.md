@@ -13,7 +13,25 @@ manager: carmonm
 
 You may encounter errors when onboarding solutions like Update Management or Change Tracking and Inventory. This article describes the various errors that may occur and how to resolve them.
 
-## General Errors
+## Known issues
+
+### <a name="node-rename"></a>Scenario: Renaming a registered node requires unregister / register again
+
+#### Issue
+
+A node is registered to Azure Automation and then the operating system computername is changed.  Reports from the node
+continue to appear with the original name.
+
+#### Cause
+
+Renaming registered nodes does not update the node name in Azure Automation.
+
+#### Resolution
+
+Unregister the node from Azure Automation State Configuration and then register it again.  Reports published to the 
+service before that time will no longer be available.
+
+## General errors
 
 ### <a name="missing-write-permissions"></a>Scenario: Onboarding fails with the message - The solution cannot be enabled
 
