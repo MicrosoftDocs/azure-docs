@@ -20,7 +20,7 @@ ms.author: cynthn
 
 This article guides you through how to create an Azure dedicated host to host your virtual machines (VMs). 
 
-Make sure that you have installed the latest Azure PowerShell module and logged to an Azure account in with `Connect-AzAccount`. 
+Make sure that you have installed the latest Azure PowerShell module installed and you are signed in to an Azure account in with `Connect-AzAccount`. 
 
 > [!IMPORTANT]
 > Azure Dedicated Hosts is currently in public preview.
@@ -80,9 +80,10 @@ $dHost = New-AzDedicatedHost `
    -PlatformFaultDomain 1
 ```
 
-## Create a VMs
+## Create a VM
 
 Create a virtual machine on the dedicated host. 
+
 If you specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine. There is no such requirement for fault domains. For this example, because our host group is in zone 1, we need to create the VM in zone 1, and make sure the `-Sku` for the public IP address is `Standard`.  
 
 ```powershell
