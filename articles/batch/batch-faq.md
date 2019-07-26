@@ -13,19 +13,15 @@ ms.topic: article
 Get the answers to common frequently asked questions and best practices for Azure Batch.
 
 ## Frequently asked questions
-- [Azure Batch FAQ](#azure-batch-faq)
-  - [Frequently asked questions](#frequently-asked-questions)
-    - [How can I ask the Microsoft Azure Batch team a question?](#how-can-i-ask-the-microsoft-azure-batch-team-a-question)
-    - [How can I increase core quota for batch?](#how-can-i-increase-core-quota-for-batch)
-    - [How do I stay informed about product updates?](#how-do-i-stay-informed-about-product-updates)
-    - [How do I know batch service quotas and limits?](#how-do-i-know-batch-service-quotas-and-limits)
-    - [Can we remove Public IP assigned to the Pool-Node?](#can-we-remove-public-ip-assigned-to-the-pool-node)
-    - [Can we make Batch VM as part of our Windows AD domain and use Domain account to perform Batch server management?](#can-we-make-batch-vm-as-part-of-our-windows-ad-domain-and-use-domain-account-to-perform-batch-server-management)
-    - [Can we perform Azure Disk Encryption of Batch VM?](#can-we-perform-azure-disk-encryption-of-batch-vm)
-    - [How to check self-help for batch pool and node errors to detect and avoid failures?](#how-to-check-self-help-for-batch-pool-and-node-errors-to-detect-and-avoid-failures)
-  - [Contact us](#contact-us)
-
-
+  * [How can I ask the Microsoft Azure Batch team a question?](#how-can-i-ask-the-microsoft-azure-batch-team-a-question)
+  * [How can I increase core quota for batch?](#how-can-i-increase-core-quota-for-batch)
+  * [How do I stay informed about product updates?](#how-do-i-stay-informed-about-product-updates)
+  * [How do I know batch service quotas and limits?](#how-do-i-know-batch-service-quotas-and-limits)
+  * [Can we remove Public IP assigned to the Pool-Node?](#can-we-remove-public-ip-assigned-to-the-pool-node)
+  * [Can we make Batch VM as part of our Windows AD domain and use Domain account to perform Batch server management?](#can-we-make-batch-vm-as-part-of-our-windows-ad-domain-and-use-domain-account-to-perform-batch-server-management)
+  * [Can we perform Azure Disk Encryption of Batch VM?](#can-we-perform-azure-disk-encryption-of-batch-vm)
+  * [How to check self-help for batch pool and node errors to detect and avoid failures?](#how-to-check-self-help-for-batch-pool-and-node-errors-to-detect-and-avoid-failures)
+  * [Contact us](#contact-us)
 
 ### How can I ask the Microsoft Azure Batch team a question?
 You can contact us by using one of these options:
