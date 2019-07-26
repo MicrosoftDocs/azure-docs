@@ -165,20 +165,22 @@ Wait until the deployment finishes successfully before moving on to the next sec
 
 In this example, you create three virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify the application gateway was successfully created.
 
-1. Select **New**.
-2. Select **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
-3. Enter these values for the virtual machine:
+1. On the Azure portal, select **Create a resource**. The **New** window appears.
+2. Select **Compute** and then select **Windows Server 2016 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.<br>Application Gateway can route traffic to any type of virtual machine used in its backend pool. In this example, you use a Windows Server 2016 Datacenter.
+3. Enter these values in the **Basics** tab for the following virtual machine settings:
 
-    - *myVM1* - for the name of the virtual machine.
-    - *azureuser* - for the administrator user name.
-    - *Azure123456!* for the password.
-    - Select **Use existing**, and then select *myResourceGroupAG*.
+    - **Resource group**: Select **myResourceGroupAG** for the resource group name.
+    - **Virtual machine name**: Enter *myVM1* for the name of the virtual machine.
+    - **Username**: Enter *azureuser* for the administrator user name.
+    - **Password**: Enter *Azure123456!* for the administrator password.
+4. Accept the other defaults and then select **Next: Disks**.  
+5. Accept the **Disks** tab defaults and then select **Next: Networking**.
+6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.
 
-4. Select **OK**.
-5. Select **DS1_V2** for the size of the virtual machine, and select **Select**.
-6. Make sure that **myVNet** is selected for the virtual network and the subnet is **myBackendSubnet**. 
-7. Select **Disabled** to disable boot diagnostics.
-8. Select **OK**, review the settings on the summary page, and then select **Create**.
+   Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
+1. On the **Management** tab, set **Boot diagnostics** to **Off**. Accept the other defaults and then select **Review + create**.
+2. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
+3. Wait for the virtual machine creation to complete before continuing.
 
 ### Install IIS
 
@@ -203,7 +205,7 @@ In this example, you create three virtual machines to be used as backend servers
       -Settings $publicSettings
     ```
 
-3. Create two more virtual machines and install IIS using the steps that you just finished. Enter the names of *myVM2* and *myVM3* for the names and for the values of VMName in Set-AzVMExtension.
+3. Create two more virtual machines and install IIS using the steps you just completed. Use *myVM2* and *myVM3* for the virtual machine names and for the **VMName** values in Set-AzVMExtension.
 
 ## Add backend servers to backend pools
 
