@@ -12,7 +12,7 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
+ms.date: 07/26/2019
 ---
 
 # Tutorial: Prepare data to train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
