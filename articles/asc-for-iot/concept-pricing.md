@@ -1,7 +1,7 @@
 ---
 
 title: Understand Azure Security Center for IoT costs| Microsoft Docs
-description: Learn about the costs associated with Azure Security Center for IoT, and how you can control them. 
+description: Learn about the costs associated with Azure Security Center for IoT, and how to  control them. 
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: mlottner
 
 ---

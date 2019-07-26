@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure Security Center for IoT solution architecture Preview| Microsoft Docs
+title: Understanding Azure Security Center for IoT solution architecture| Microsoft Docs
 description: Learn about the flow of information in the Azure Security Center for IoT service.
 services: asc-for-iot
 ms.service: asc-for-iot
