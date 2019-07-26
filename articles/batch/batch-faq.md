@@ -45,7 +45,7 @@ No, the user cannot remove the public IP. This is required by Batch.
 No. But user can use AD auth for performing Batch Api operations. you won't be able to RDP into the machine using the AD Auth.
 
 ### Can we perform Azure Disk Encryption of Batch VM?
-No as of now. But Batch is looking into adding Az Disk encryption support.
+No as of now. But Batch is looking into adding Az Disk encryption support in future.
 
 ### How to check self-help for batch pool and node errors to detect and avoid failures?
 You can check common error causes by following below:
