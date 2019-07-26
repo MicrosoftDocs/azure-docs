@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Detect data anomalies using the Anomaly Detector library and Python"
+title: "Quickstart: Detect data anomalies using the Anomaly Detector client library for Python"
 titleSuffix: Azure Cognitive Services
 description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
@@ -15,8 +15,6 @@ ms.author: aahi
 # Quickstart: Anomaly Detector client library for Python
 
 Get started with the Anomaly Detector client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
-
-## Key concepts
 
 Use the Anomaly Detector client library for Python to:
 
