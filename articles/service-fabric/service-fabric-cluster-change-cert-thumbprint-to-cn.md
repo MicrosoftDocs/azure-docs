@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: athinanthny
 manager: chackdan
-editor: aljo
+
 
 ms.assetid: 
 ms.service: service-fabric
