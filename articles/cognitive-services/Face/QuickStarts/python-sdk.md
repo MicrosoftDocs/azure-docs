@@ -73,7 +73,6 @@ The following classes and interfaces handle some of the major features of the Fa
 |[PersonGroupOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongroupoperations?view=azure-python)| This class manages the cloud-stored **PersonGroup** constructs, which store a set of assorted **Person** objects. |
 |[ShapshotOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.snapshotoperations?view=azure-python)|This class manages the Snapshot functionality; you can use it to temporarily save all of your cloud-based face data and migrate that data to a new Azure subscription. |
 
-
 ## Code examples
 
 These code snippets show you how to do the following tasks with the Face client library for Python:
@@ -96,7 +95,7 @@ Instantiate a client with your endpoint and key. Create a [CognitiveServicesCred
 
 ### Detect faces in an image
 
-The following code detects a face in a remote image. It prints the detected face's ID to the console and also stores it in program memory. Then, it detects faces in an image with multiple people. It prints their IDs to the console. By changing the parameters in the [detect_with_url](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python#detect-with-url-url--return-face-id-true--return-face-landmarks-false--return-face-attributes-none--recognition-model--recognition-01---return-recognition-model-false--detection-model--detection-01---custom-headers-none--raw-false----operation-config-) method, you can return different information with each [DetectedFace](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.models.detectedface?view=azure-python) object.
+The following code detects a face in a remote image. It prints the detected face's ID to the console and also stores it in program memory. Then, it detects faces in an image with multiple people. It prints their IDs to the console. By changing the parameters in the [detect_with_url](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python#detect-with-url-url--return-face-id-true--return-face-landmarks-false--return-face-attributes-none--recognition-model--recognition-01---return-recognition-model-false--detection-model--detection-01---custom-headers-none--raw-false----operation-config-) method, you can return different information with each [DetectedFace](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.models.detectedface?view=azure-python) object.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detect)]
 
@@ -111,21 +110,36 @@ The following code takes a single detected face and searches a set of other face
 
 ### Create and train a person group
 
-The following code
+The following code creates a 
 
 You first need to 
+
+variables:
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroupvars)]
+
+Then code:
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup)]
 
 ### Identify a face
 
-The following
+The following code takes an image with multiple faces and tries to find the identify of each person in the image. It does this by comparing each detected face to a **PersonGroup**, a database of different **Person** objects that each have several faces associated with them. If a detected face matches the faces of a known **Person**, the code prints the match to the console.
+
+> [!IMPORTANT]
+> In order to run this example, you must first run the code in [Create and train a person group](#create-and-train-a-person-group).
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
 
 ### Take a snapshot for data migration
 
 See the [Migrate your face data](../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of this feature.
+
+Variables:
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
+
+Then code:
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot)]
 
@@ -144,7 +158,17 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
 * [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
+If you created a **PersonGroup** in this quickstart and you want to delete it, run the following code in your script:
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletegroup)]
+
+If you migrated data using the Snapshot feature in this quickstart, you will also need to delete the **PersonGroup** saved to the target subscription.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletetargetgroup)]
+
 ## Next steps
+
+In this quickstart, you learned how to use the Face library for Python to do a number of tasks like detect faces, 
 
 > [!div class="nextstepaction"]
 >[Next article]()
@@ -152,4 +176,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [What is the Face API?](../overview.md)
 * [Article2](../overview.md)
 * [Article3](../overview.md)
-* The source code for this sample can be found on [GitHub]().
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).
