@@ -34,10 +34,10 @@ To gracefully delete the vault, choose the scenario that matches your setup and 
 
 Scenario | Steps to remove dependencies to delete vault |
 -- | --
-I have on-premises Files and Folders protected using Azure Backup Agent (MARS) backing up to Azure | Perform the steps in Delete backup data and backup items - [For MARS agent](#for-mars-agent)
-I have on-premises machines protected using MABS (Microsoft Azure Backup Server) or DPM to Azure (System Center Data Protection Manager) | Perform the steps in Delete backup data and backup items - [For MABS agent](#for-mabs-agent)
-I have protected items in cloud (ex. laaS VM, Azure File Share etc.)  | Perform the steps in Delete backup data and backup items - [For Protected items in Cloud](#for-protected-items-in-cloud)
-I have protected items both on-premises and cloud | Perform the steps in Delete backup data and backup items in the below sequence: <br> - [For Protected items in Cloud](#for-protected-items-in-cloud)<br> - [For MABS agent](#for-mars-agent) <br> - [For MABS agent](#for-mabs-agent)
+I have on-premises Files and Folders protected using Azure Backup Agent (MARS) backing up to Azure | Perform the steps in Delete backup data and backup items - [For MARS agent](#delete-backup-items-from-mars-management-console)
+I have on-premises machines protected using MABS (Microsoft Azure Backup Server) or DPM to Azure (System Center Data Protection Manager) | Perform the steps in Delete backup data and backup items - [For MABS agent](#delete-backup-items-from-mabs-management-console)
+I have protected items in cloud (ex. laaS VM, Azure File Share etc.)  | Perform the steps in Delete backup data and backup items - [For Protected items in Cloud](#delete-protected-items-on-premises)
+I have protected items both on-premises and cloud | Perform the steps in Delete backup data and backup items in the below sequence: <br> - [For Protected items in Cloud](#for-protected-items-in-cloud)<br> - [For MABS agent](#delete-backup-items-from-mars-management-console) <br> - [For MABS agent](#delete-backup-items-from-mars-management-console)
 I don't have any protected items on-premises or cloud; however, I am still getting the Vault deletion error | Perform the steps in [Delete the Recovery Services vault using Azure Resource Manager client](#delete-the-recovery-services-vault-using-azure-resource-manager-client)
 
 
@@ -174,7 +174,7 @@ Now that you have deleted the backup items from on-premises, complete the next s
 ## Delete the Recovery Services vault
 
 1. When all dependencies have been removed, scroll to the **Essentials** pane in the vault menu.
-2. Verify that there aren't any **Backup items**, **Backup management servers**, or **Replicated items** listed. If items still appear in the vault, [remove them](#delete-backup-data-and-backup-items).
+2. Verify that there aren't any **Backup items**, **Backup management servers**, or **Replicated items** listed. If items still appear in the vault, [remove them](#delete-protected-items-on-premises).
 
 3. When there are no more items in the vault, on the vault dashboard click **Delete**.
 
@@ -186,7 +186,7 @@ Now that you have deleted the backup items from on-premises, complete the next s
 
 This option to delete the Recovery Services vault is only recommended when all the dependencies are removed and you are still getting the *Vault deletion error*.
 
-- From the **Essentials** pane in the vault menu, verify that there aren't any **Backup items**, **Backup management servers**, or **Replicated items** listed. If there are backup items, then perform the steps in [delete backup data and backup items](#delete-backup-data-and-backup-items).
+- From the **Essentials** pane in the vault menu, verify that there aren't any **Backup items**, **Backup management servers**, or **Replicated items** listed. If there are backup items, then perform the steps in [delete protected items](#delete-protected-items-on-premises).
 - Retry [deleting the vault from portal](#delete-the-recovery-services-vault).
 - If all the dependencies are removed and you are still getting the *Vault deletion error* then use ARMClient tool to perform the steps given below;
 
