@@ -33,7 +33,7 @@ An Azure SQL Database server or managed instance is required if you're provision
 
 ### AzureSqlConnectionFailure
 
-You might see this issue when you're provisioning a new SSIS IR or while IR is running. If you experience this error during IR provisioning, and if you get a detailed SqlException message in the error message, it might indicate one of the following problems:
+You might see this issue when you're provisioning a new SSIS IR or while IR is running. If you experience this error during IR provisioning, you might get a detailed SqlException message in the error message that indicates one of the following problems:
 
 * A network connection issue. Check whether the SQL Server or managed instance host name is accessible. Also verify that no firewall or network security group (NSG) is blocking SSIS IR access to the server.
 * Login failed during SQL authentication. The account provided can't sign in to the SQL Server database. Make sure you provide the correct user account.
@@ -84,7 +84,7 @@ Make sure your container contains only the necessary custom setup files; all the
 
 The custom setup script container will be checked while IR is running, because SSIS IR is regularly updated. This updating requires access to the container to download the custom setup script and install it again. The process also checks whether the container is accessible and whether the main.cmd file exists.
 
-For any error that involves custom setup, you'll see a CustomSetupScriptFailure code. In this case, check whether the error message has a "sub" error code. If it does, see the "Forbidden" and "InvalidPropertyValue" sections later in this article to troubleshoot "sub" error codes.  
+For any error that involves custom setup, you'll see a CustomSetupScriptFailure error code with sub code like CustomSetupScriptBlobContainerInaccessible or CustomSetupScriptNotFound.
 
 ### CustomSetupScriptBlobContainerInaccessible
 
@@ -116,7 +116,7 @@ When there's a Virtual Network-related issue, you'll see one of the following er
 
 ### InvalidVnetConfiguration
 
-This error can occur for a variety of reasons. To troubleshoot it, see the "Forbidden" and "InvalidPropertyValue" sections.
+This error can occur for a variety of reasons. To troubleshoot it, see the [Forbidden](#Forbidden), [InvalidPropertyValue](#InvalidPropertyValue), and [MisconfiguredDnsServerOrNsgSettings](#MisconfiguredDnsServerOrNsgSettings) sections.
 
 ### Forbidden
 
@@ -141,7 +141,7 @@ In this situation, you probably have a customized configuration of DNS server or
 
 ### VNetResourceGroupLockedDuringUpgrade
 
-SSIS IR will be automatically updated on a regular basis. A new Azure Batch pool is created during upgrade and the old Azure Batch pool is deleted. Also, Virtual Network-related resources for the old pool are deleted, and the new Virtual Network-related resources are created under your subscription. This error means that deleting Virtual Network-related resources for the old pool failed because of a delete lock at the subscription or resource group level. Contact Help to remove the delete lock.
+SSIS IR will be automatically updated on a regular basis. A new Azure Batch pool is created during upgrade and the old Azure Batch pool is deleted. Also, Virtual Network-related resources for the old pool are deleted, and the new Virtual Network-related resources are created under your subscription. This error means that deleting Virtual Network-related resources for the old pool failed because of a delete lock at the subscription or resource group level. Because the customer controls and sets the delete lock, they must remove the delete lock in this situation.
 
 ### VNetResourceGroupLockedDuringStart
 
@@ -149,8 +149,8 @@ If SSIS IR provisioning fails, all the resources that were created are deleted. 
 
 ### VNetResourceGroupLockedDuringStop
 
-When you stop SSIS IR, all the resources related to Virtual Network are deleted. But deletion can fail if there's a resource delete lock at the subscription or resource group level. Contact Help to remove the delete lock, and then stop SSIS IR again.
+When you stop SSIS IR, all the resources related to Virtual Network are deleted. But deletion can fail if there's a resource delete lock at the subscription or resource group level. Here, too, the customer controls and sets the delete lock. Therefoe, they must remove the delete lock and then stop SSIS IR again.
 
 ### NodeUnavailable
 
-This error occurs when IR is running, and it means that IR has become unhealthy. This error is always caused by a change in the DNS server or NSG configuration that blocks SSIS IR from connecting to a necessary service. Contact Help to fix the DNS server or NSG configuration issues. For more information, see [SSIS IR Virtual Network configuration](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). If you’re still having problems, contact the Azure Data Factory support team.
+This error occurs when IR is running, and it means that IR has become unhealthy. This error is always caused by a change in the DNS server or NSG configuration that blocks SSIS IR from connecting to a necessary service. Because DNS server and NSG configuration is controlled by the customer, they must fix the blocking issues on their end. For more information, see [SSIS IR Virtual Network configuration](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network. If you’re still having problems, contact the Azure Data Factory support team.
