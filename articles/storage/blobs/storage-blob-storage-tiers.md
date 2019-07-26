@@ -119,14 +119,14 @@ You may calculate the early deletion by using the blob property, **Last-Modified
 
 The following table shows a comparison of premium performance block blob storage, and the hot, cool, and archive access tiers.
 
-|                                           | **Premium performance** | **Hot tier** | **Cool tier** | **Archive tier**
-| ----------------------------------------- | ---------------- | ------------ | ----- | ----- |
-| **Availability**                          | 99.9%            | 99.9%        | 99% | N/A |
-| **Availability** <br> **(RA-GRS reads)**  | N/A              | 99.99%       | 99.9% | N/A |
+|                                           | **Premium performance**   | **Hot tier** | **Cool tier**       | **Archive tier**  |
+| ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
+| **Availability**                          | 99.9%                     | 99.9%        | 99%                 | Offline           |
+| **Availability** <br> **(RA-GRS reads)**  | N/A                       | 99.99%       | 99.9%               | Offline           |
 | **Usage charges**                         | Higher storage costs, lower access and transaction cost | Higher storage costs, lower access, and transaction costs | Lower storage costs, higher access, and transaction costs | Lowest storage costs, highest access, and transaction costs |
-| **Minimum object size**                   | N/A | N/A | N/A | N/A |
-| **Minimum storage duration**              | N/A | N/A | 30 days<sup>1</sup> | 180 days
-| **Latency** <br> **(Time to first byte)** | Single-digit milliseconds | milliseconds | milliseconds | hours<sup>2</sup>
+| **Minimum object size**                   | N/A                       | N/A          | N/A                 | N/A               |
+| **Minimum storage duration**              | N/A                       | N/A          | 30 days<sup>1</sup> | 180 days
+| **Latency** <br> **(Time to first byte)** | Single-digit milliseconds | milliseconds | milliseconds        | hours<sup>2</sup> |
 
 <sup>1</sup> Objects in the cool tier on GPv2 accounts have a minimum retention duration of 30 days. Blob storage accounts do not have an minimum retention duration for the cool tier.
 

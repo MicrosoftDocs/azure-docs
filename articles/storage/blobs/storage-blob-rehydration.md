@@ -9,7 +9,7 @@ ms.topic: article
 ms.date: 06/20/2019
 ms.author: mhopkins
 ms.reviewer: hux
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Rehydrate blob data from the archive tier
@@ -30,6 +30,8 @@ While a blob is in the archive access tier, it's considered offline and can't be
 If you don't want to rehydrate a blob, you can choose a [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob) operation. Your original blob will remain unmodified in archive while you work on the new blob in the hot or cool tier. You can set the *rehydrate-priority* property to Standard or High when using the copy process.
 
 Archive blobs can only be copied to online destination tiers. Copying an archive blob to another archive blob isn't supported.
+
+Copying a blob from Archive takes time. Behind the scenes, the `Copy Blob` operation temporarily rehydrates your archive source blob to create a new online blob in the destination tier of your choice. This new blob will not be available until the temporary rehydration from archive is complete and the data is written to the new blob.
 
 ## Pricing and billing
 
