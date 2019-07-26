@@ -165,7 +165,7 @@ From the **VM list** view, select the name of a VM to open the **Health** page f
 
 ![VM insights of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-The **Virtuah Machines (preview) in Azure Monitor** page shows a rollup health status for the VM and alerts. This health status is categorized by severity, which represents VM health alerts raised when the health state changed from healthy to unhealthy, based on criteria. Selecting **VMs in critical condition** opens a page with a list of one or more VMs in a critical health state.
+The **Virtual Machines (preview) in Azure Monitor** page shows a rollup health status for the VM and alerts. This health status is categorized by severity, which represents VM health alerts raised when the health state changed from healthy to unhealthy, based on criteria. Selecting **VMs in critical condition** opens a page with a list of one or more VMs in a critical health state.
 
 Selecting the health status for one of the VMs shows the **Health Diagnostics** view of the VM. In this view, you can determine which health criteria is reflecting a health-state issue. When the **Health Diagnostics** page opens, it shows all the VM components and their associated health criteria with the current health state.
 
