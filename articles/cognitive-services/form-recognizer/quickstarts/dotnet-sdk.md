@@ -72,7 +72,7 @@ using System.IO;
 using System.Threading.Tasks;
 ```
 
-Then add the following code in the application's **Main** method. You will define this asynchronous task later on.
+Then add the following code in the application's **Main** method. You'll define this asynchronous task later on.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_main)]
 
@@ -94,7 +94,7 @@ The following classes handle the main functionality of the Form Recognizer SDK.
 |---|---|
 |[FormRecognizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.formrecognizerclient?view=azure-dotnet-preview)|This class is needed for all Form Recognizer functionality. You instantiate it with your subscription information, and you use it to produce instances of other classes.|
 |[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| You use this class to train a custom Form Recognizer model using your own training input data. |
-|[TrainResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainresult?view=azure-dotnet-preview)| This class delivers the results of a custom model Train operation, including the model ID which you can then use to analyze forms. |
+|[TrainResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainresult?view=azure-dotnet-preview)| This class delivers the results of a custom model Train operation, including the model ID, which you can then use to analyze forms. |
 |[AnalyzeResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.analyzeresult?view=azure-dotnet-preview)| This class delivers the results of a custom model Analyze operation. It includes a list of **ExtractedPage** instances. |
 |[ExtractedPage](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.extractedpage?view=azure-dotnet-preview)| This class represents all of the data extracted from a single form document.|
 
@@ -117,7 +117,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 
 Before you define any methods, add the following variable definitions to the top of your **Program** class. You'll need to fill in some of the variables yourself. 
 
-* You can find your service's Endpoint value in the **Overview** blade in the Azure portal. 
+* You can find your service's Endpoint value in the **Overview** section in the Azure portal. 
 * To retrieve the SAS URL for your training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
@@ -126,7 +126,7 @@ Before you define any methods, add the following variable definitions to the top
 
 Below the `Main` method, define the task that is referenced in `Main`. Here, you'll authenticate the client object using the subscription variables you defined above. You'll define the other methods later on.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_mainTask)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_maintask)]
 
 ### Train a custom model
 
