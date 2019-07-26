@@ -40359,7 +40359,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/comparison",
+      "source_path": "articles/active-directory-domain-services/comparison.md",
       "redirect_url": "/azure/active-directory-domain-services/compare-identity-solutions",
       "redirect_document_id": false
     },
