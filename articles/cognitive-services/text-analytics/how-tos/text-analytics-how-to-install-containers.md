@@ -1,6 +1,6 @@
 ---
-title: Install and run containers
-titleSuffix: Text Analytics -  Azure Cognitive Services
+title: Install and run containers - Text Analytics
+titleSuffix: Azure Cognitive Services
 description: How to download, install, and run containers for Text Analytics in this walkthrough tutorial.
 services: cognitive-services
 author: IEvangelist
