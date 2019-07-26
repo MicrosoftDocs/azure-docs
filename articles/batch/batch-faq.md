@@ -12,6 +12,7 @@ ms.topic: article
 # Azure Batch FAQ
 Get the answers to common frequently asked questions and best practices for Azure Batch.
 
+## Frequently asked questions
 - [Azure Batch FAQ](#azure-batch-faq)
   - [Frequently asked questions](#frequently-asked-questions)
     - [How can I ask the Microsoft Azure Batch team a question?](#how-can-i-ask-the-microsoft-azure-batch-team-a-question)
@@ -24,7 +25,7 @@ Get the answers to common frequently asked questions and best practices for Azur
     - [How to check self-help for batch pool and node errors to detect and avoid failures?](#how-to-check-self-help-for-batch-pool-and-node-errors-to-detect-and-avoid-failures)
   - [Contact us](#contact-us)
 
-## Frequently asked questions
+
 
 ### How can I ask the Microsoft Azure Batch team a question?
 You can contact us by using one of these options:
