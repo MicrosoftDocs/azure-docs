@@ -47,7 +47,7 @@ Connectors establish their connections based on principles for high availability
 7. The response is then passed back to the client from the service instance.
 8. Subsequent requests from the same connection repeat the steps above until this connection is broken or is idle for 10 minutes.
 
-An application often has many resources and will open multiple connections when it's loaded. Each connection goes through the steps above to become allocated to a service instance, select a new available connector if the connection has not yet previously paired with a connector.
+An application often has many resources and opens multiple connections when it's loaded. Each connection goes through the steps above to become allocated to a service instance, select a new available connector if the connection has not yet previously paired with a connector.
 
 
 ## Best practices for high availability of connectors
@@ -66,9 +66,9 @@ An application often has many resources and will open multiple connections when 
 
 Another key area where high availability is a factor is the connection between connectors and the back-end servers. When an application is published through Azure AD Application Proxy, traffic from the users to the applications flows through three hops:
 
-1.	The user connects to the Azure AD Application Proxy service public endpoint on Azure. The connection will be established between the originating client IP address (public) of the client and the IP address of the Application Proxy endpoint. 
-2.	The Application Proxy connector pulls the HTTP request from the client.
-3.	The Application Proxy connector connects to the target application. The connector uses its own IP address for establishing the connection.
+1. The user connects to the Azure AD Application Proxy service public endpoint on Azure. The connection is established between the originating client IP address (public) of the client and the IP address of the Application Proxy endpoint.
+2. The Application Proxy connector pulls the HTTP request of the client from the Application Proxy Service.
+3. The Application Proxy connector connects to the target application. The connector uses its own IP address for establishing the connection.
 
 ![Diagram of user connecting to an application via Application Proxy](media/application-proxy-high-availability-load-balancing/application-proxy-three-hops.png)
 
@@ -85,7 +85,7 @@ In this scenario, the back-end web application requires session stickiness (sess
 This scenario can be more complicated because the client usually establishes multiple connections to the Application Proxy service. Requests over different connections might arrive at different connectors and servers in the farm. Because each connector uses its own IP address for this communication, the load balancer can't ensure session stickiness based on the IP address of the connectors. Source IP Affinity can't be used either.
 Here are some options for scenario 2:
 
-- Option 1: Base the session persistence on a session cookie set by the load balancer. This option is recommended because it allows the load to be spread more evenly among the back-end servers. It requires a layer 7 load balancer with this capability and that can handle the HTTP traffic and terminate the SSL connection. You can use Azure Application Gateway (Session Affinity) or a load balancer from another vendor. 
+- Option 1: Base the session persistence on a session cookie set by the load balancer. This option is recommended because it allows the load to be spread more evenly among the back-end servers. It requires a layer 7 load balancer with this capability and that can handle the HTTP traffic and terminate the SSL connection. You can use Azure Application Gateway (Session Affinity) or a load balancer from another vendor.
 
 - Option 2: Base the session persistence on the X-Forwarded-For header field. This option requires a layer 7 load balancer with this capability and that can handle the HTTP traffic and terminate the SSL connection.  
 
