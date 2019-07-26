@@ -28,7 +28,7 @@ At the end of this tutorial, you have two Python apps:
 
 The following are the installation instructions for the prerequisites. 
 
-[! [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## Create an IoT hub
 

@@ -36,7 +36,7 @@ At the end of this tutorial you run the Python console app:
 
 The following are the installation instructions for the prerequisites.
 
-[! [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
