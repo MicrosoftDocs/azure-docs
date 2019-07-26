@@ -146,6 +146,12 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 After you complete these tasks, go to the Jupyter Notebook webpage. In the **Quickstart** folder, open and run the **02.deploy-web-service.ipynb** notebook to learn how to deploy a web service.
 
+When you want to install other Python packages into your Jupyter environment, use this code inside a notebook:
+
+```
+!source activate py36 && pip install <packagename>
+```
+
 Also on the Jupyter Notebook webpage, browse through other notebooks in the samples folder to learn more about the Azure Machine Learning service.
 
 For an in-depth workflow experience, follow Machine Learning tutorials to train and deploy a model:  

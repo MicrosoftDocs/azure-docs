@@ -1,7 +1,7 @@
 ---
 title: 'Azure Backup: Monitor Azure Backup protected workloads'
 description: Monitor Azure Backup workloads using Azure portal
-services: backup
+
 author: pvrk
 manager: shivamg
 keywords: Azure Backup; Alerts;

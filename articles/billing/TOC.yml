@@ -87,11 +87,11 @@
         href: billing-reservation-discount-app-service-isolated-stamp.md
       - name: Azure software plans
         href: billing-understand-suse-reservation-charges.md
-    - name: Software costs not included
+    - name: Windows and SQL costs not included
       href: billing-reserved-instance-windows-software-costs.md
-    - name: Usage for individual subscriptions
+    - name: Usage data for individual subscriptions
       href: billing-understand-reserved-instance-usage.md
-    - name: Usage for Enterprise
+    - name: Usage data for Enterprise customers
       href: billing-understand-reserved-instance-usage-ea.md
     - name: Reservation exchanges and refunds
       href: billing-azure-reservations-self-service-exchange-and-refund.md
