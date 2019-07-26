@@ -1,5 +1,5 @@
 ---
-title: Microsoft azure security code analysis documentation FAQs.
+title: Microsoft Azure Security Code Analysis documentation FAQs
 description: This article FAQs about the Security Code Analysis Extension
 author: vharindra
 manager: sukhans

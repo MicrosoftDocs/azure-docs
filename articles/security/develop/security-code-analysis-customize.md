@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure security code analysis task customization guide.
+title: Microsoft Azure Security Code Analysis task customization guide
 description: This article is about customizing the tasks in Security Code Analysis Extension
 author: vharindra
 manager: sukhans
@@ -60,7 +60,9 @@ The hash key of the secret from the CredScan output file is required as shown in
 The file expression could be a file name or any postfix portion of the full file path/name. Wildcards are not supported. 
 
 **Example** 
+
 File to be suppressed: [InputPath]\src\JS\lib\angular.js 
+
 Valid Suppression Rules: 
 - [InputPath]\src\JS\lib\angular.js -- suppress the file in the specified path
 - \src\JS\lib\angular.js

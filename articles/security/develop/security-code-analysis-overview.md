@@ -1,5 +1,5 @@
 ---
-title: Microsoft azure security code analysis documentation overview.
+title: Microsoft Azure Security Code Analysis documentation overview
 description: This article is an overview of Security Code Analysis Extension
 author: vharindra
 manager: sukhans

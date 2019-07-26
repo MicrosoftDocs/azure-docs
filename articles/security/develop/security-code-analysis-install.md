@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure security code analysis installation guide.
+title: Microsoft Azure Security Code Analysis installation guide
 description: This article is about installing Security Code Analysis Extension
 author: vharindra
 manager: sukhans
