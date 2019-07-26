@@ -1,18 +1,20 @@
 ---
 title: OutOfMemoryError exception for Apache Spark in Azure HDInsight
-description: OutOfMemoryError exception
+description: OutOfMemoryError exception for Apache Spark in Azure HDInsight
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/25/2019
+ms.date: 07/26/2019
 ---
 
 # Scenario: OutOfMemoryError exception for Apache Spark in Azure HDInsight
 
+This article describes troubleshooting steps and possible resolutions for issues when using Apache Spark components in Azure HDInsight clusters.
+
 ## Issue
 
-You Spark application failed with an OutOfMemoryError unhandled exception. You may receive an error message similar to:
+Your Apache Spark application failed with an OutOfMemoryError unhandled exception. You may receive an error message similar to:
 
 ```error
 ERROR Executor: Exception in task 7.0 in stage 6.0 (TID 439)
@@ -82,7 +84,7 @@ The most likely cause of this exception is not enough heap memory. Your Spark ap
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
-* [Spark memory management overview](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
+* [Spark memory management overview](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
 * [Debugging Spark application on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
 
