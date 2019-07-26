@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/21/2019
+ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
 
@@ -42,7 +42,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
+* [Install Visual Studio 2019](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 ## Download the Voting sample application
@@ -70,7 +70,7 @@ Once you've filled out the required information, click **Create** to provision t
 
 ## Add Application Insights to the application's services
 
-Launch Visual Studio 2017 with elevated privileges by right-clicking the Visual Studio icon in the Start Menu and choosing **Run as administrator**. Click **File** > **Open** > **Project/Solution** and navigate to the Voting application (either created in part one of the tutorial or git cloned). Open *Voting.sln*. If prompted to restore the application's NuGet packages, click **Yes**.
+Launch Visual Studio 2019 with elevated privileges by right-clicking the Visual Studio icon in the Start Menu and choosing **Run as administrator**. Click **File** > **Open** > **Project/Solution** and navigate to the Voting application (either created in part one of the tutorial or git cloned). Open *Voting.sln*. If prompted to restore the application's NuGet packages, click **Yes**.
 
 Follow these steps to configure Application Insights for both the VotingWeb and VotingData services:
 

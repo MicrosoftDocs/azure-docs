@@ -1,6 +1,6 @@
 ---
 title: Test your LUIS app
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Testing is the process of providing sample utterances to LUIS and getting a response of LUIS-recognized intents and entities.
 author: diberry
 manager: nitinme

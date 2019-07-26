@@ -1,6 +1,6 @@
 ---
-title: Patterns help prediction
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Patterns help prediction - LUIS
+titleSuffix: Azure Cognitive Services
 description: A pattern allows you to gain more accuracy for an intent without providing many more utterances.
 services: cognitive-services
 author: diberry

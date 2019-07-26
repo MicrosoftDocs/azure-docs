@@ -1,6 +1,6 @@
 ---
-title: Phrase lists
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Phrase lists - LUIS
+titleSuffix: Azure Cognitive Services
 description: Use Language Understanding (LUIS) to add app features that can improve the detection or prediction of intents and entities that categories and patterns
 services: cognitive-services
 author: diberry

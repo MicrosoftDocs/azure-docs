@@ -192,8 +192,10 @@ This section only applies to the standard file shares. All premium file shares a
 
 ### Restrictions
 
+- Azure preview [terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) apply to large file shares while in preview including when used with Azure File Sync deployments.
 - Requires you to create a new general purpose storage account (cannot expand existing storage accounts).
 - LRS/ZRS to GRS account conversion will not be possible on any new storage account created after the subscription is accepted to the larger file shares preview.
+
 
 ### Regional availability
 
@@ -202,7 +204,7 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 |Region  |Supported redundancy  |Supports existing storage accounts  |
 |---------|---------|---------|
 |SouthEast Asia     |LRS|No         |
-|West Europe     |LRS|No         |
+|West Europe     |LRS, ZRS|No         |
 |West US 2     |LRS, ZRS|No         |
 
 To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
