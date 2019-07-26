@@ -50,6 +50,10 @@
     href: ../hdinsight-version-release.md
   - name: Monitor cluster availability with Ambari and Azure Monitor logs
     href: ../hdinsight-cluster-availability.md 
+  - name: Troubleshoot
+    items:
+    - name: Slow Apache Spark jobs - storage container
+      href: ./apache-spark-ts-job-slowness-container.md
 - name: How to
   items:
   - name: Use cluster storage
