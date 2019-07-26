@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Load data from CSV into Azure SQL Database (flat files)
