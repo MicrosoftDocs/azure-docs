@@ -39,7 +39,7 @@ To automate the setup of an Always On availability group by using quickstart tem
 ## Permissions
 The following permissions are necessary to configure the Always On availability group by using Azure quickstart templates: 
 
-- An existing domain user account that has Create Computer Object permission in the domain.  For example, a domain admin account typically has sufficient permission (for example: _account@domain.com_). _This account should also be part of the local administrator group on each VM to create the cluster._
+- An existing domain user account that has Create Computer Object permission in the domain.  For example, a domain admin account typically has sufficient permission (for example: account@domain.com). _This account should also be part of the local administrator group on each VM to create the cluster._
 - The domain user account that controls the SQL Server service. 
 
 
@@ -61,9 +61,9 @@ Adding SQL Server VMs to the *SqlVirtualMachineGroups* resource group bootstraps
    | **Existing Vm List** | The SQL Server VMs that you want to participate in the availability group and be part of this new cluster. Separate these values with a comma and a space (for example: *SQLVM1, SQLVM2*). |
    | **SQL Server Version** | The SQL Server version of your SQL Server VMs. Select it from the drop-down list. Currently, only SQL Server 2016 and SQL Server 2017 images are supported. |
    | **Existing Fully Qualified Domain Name** | The existing FQDN for the domain in which your SQL Server VMs reside. |
-   | **Existing Domain Account** | An existing domain user account that has Create Computer Object permission in the domain as the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) is created during template deployment. For example, a domain admin account typically has sufficient permission (for example: _account@domain.com_). *This account should also be part of the local administrator group on each VM to create the cluster.*| 
+   | **Existing Domain Account** | An existing domain user account that has Create Computer Object permission in the domain as the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) is created during template deployment. For example, a domain admin account typically has sufficient permission (for example: account@domain.com). *This account should also be part of the local administrator group on each VM to create the cluster.*| 
    | **Domain Account Password** | The password for the previously mentioned domain user account. | 
-   | **Existing Sql Service Account** | The domain user account that controls the [SQL Server service](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) during availability group deployment (for example: _account@domain.com_). |
+   | **Existing Sql Service Account** | The domain user account that controls the [SQL Server service](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) during availability group deployment (for example: account@domain.com). |
    | **Sql Service Password** | The password used by the domain user account that controls the SQL Server service. |
    | **Cloud Witness Name** | A new Azure storage account that will be created and used for the cloud witness. You can modify this name. |
    | **\_artifacts Location** | This field is set by default and should not be modified. |

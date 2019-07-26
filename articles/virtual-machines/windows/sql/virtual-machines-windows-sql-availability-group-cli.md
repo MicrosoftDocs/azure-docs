@@ -30,7 +30,7 @@ To automate the setup of an Always On availability group by using the Azure CLI,
 ## Permissions
 You need the following account permissions to configure the Always On availability group by using the Azure CLI: 
 
-- An existing domain user account that has Create Computer Object permission in the domain. For example, a domain admin account typically has sufficient permission (for example: _account@domain.com_). _This account should also be part of the local administrator group on each VM to create the cluster._
+- An existing domain user account that has Create Computer Object permission in the domain. For example, a domain admin account typically has sufficient permission (for example: account@domain.com). _This account should also be part of the local administrator group on each VM to create the cluster._
 - The domain user account that controls the SQL Server service. 
  
 ## Step 1: Create a storage account as a cloud witness
