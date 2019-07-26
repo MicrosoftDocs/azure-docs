@@ -1,14 +1,14 @@
 ---
-title: What are the Azure Speech Services?
+title: What is the Speech Service?
 titleSuffix: Azure Cognitive Services
-description: The Azure Speech Services are the unification of speech-to-text, text-to-speech, and speech translation into a single Azure subscription. It's easy to add speech your applications, tools, and devices with the Speech SDK, Speech Devices SDK, or REST APIs. Add speech functionality to an existing chat bot, convert text-to-speech in a translation application, or transcribe large volumes of call center data.
+description: The Speech Service is the unification of speech-to-text, text-to-speech, and speech translation into a single Azure subscription. It's easy to add speech your applications, tools, and devices with the Speech SDK, Speech Devices SDK, or REST APIs. Add speech functionality to an existing chat bot, convert text-to-speech in a translation application, or transcribe large volumes of call center data.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 

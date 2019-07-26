@@ -48,7 +48,7 @@ If you use the `azure hdinsight job` commands to submit jobs to your HDInsight c
 
 * [Run MapReduce jobs with Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
 * [Run Apache Hive queries with Apache Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-hive-curl.md)
-* [Run Apache Pig jobs with Apache Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-pig-curl.md)
+
 
 For information on other ways to run Apache Hadoop MapReduce, Apache Hive, and Apache Pig interactively, see [Use MapReduce with Hadoop on HDInsight](hadoop/hdinsight-use-mapreduce.md), [Use Apache Hive with Apache Hadoop on HDInsight](hadoop/hdinsight-use-hive.md), and [Use Apache Pig with Apache Hadoop on HDInsight](hadoop/hdinsight-use-pig.md).
 
@@ -209,7 +209,6 @@ New command:
 #### Other samples
 * [Create HDInsight clusters](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 * [Submit Apache Hive jobs](hadoop/apache-hadoop-use-hive-powershell.md)
-* [Submit Apache Pig jobs](hadoop/apache-hadoop-use-pig-powershell.md)
 * [Submit Apache Sqoop jobs](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## Migrating to the new HDInsight .NET SDK
@@ -227,7 +226,6 @@ This section provides pointers to more information on how to perform certain tas
 | Authenticate applications interactively using Azure Active Directory with .NET SDK |See [Run Apache Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). The code snippet in this article uses the interactive authentication approach. |
 | Authenticate applications non-interactively using Azure Active Directory with .NET SDK |See [Create non-interactive applications for HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | Submit an Apache Hive job using .NET SDK |See [Submit Apache Hive jobs](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
-| Submit an Apache Pig job using .NET SDK |See [Submit Apache Pig jobs](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
 | Submit an Apache Sqoop job using .NET SDK |See [Submit Apache Sqoop jobs](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
 | List HDInsight clusters using .NET SDK |See [List HDInsight clusters](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
 | Scale HDInsight clusters using .NET SDK |See [Scale HDInsight clusters](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |

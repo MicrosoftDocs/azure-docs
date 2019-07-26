@@ -1,5 +1,5 @@
 ---
-title: Call Center Transcription - Speech Services
+title: Call Center Transcription - Speech Service
 titleSuffix: Azure Cognitive Services
 description: A common scenario for speech-to-text is transcribing large volumes of telephony data that may come from various systems, such as Interactive Voice Response (IVR). The audio can be stereo or mono, and raw with little-to-no post processing performed on the signal. Using Speech Services and the Unified speech model, a business can get high-quality transcriptions, with many audio capture systems.
 services: cognitive-services
@@ -7,8 +7,8 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 05/02/2019
+ms.topic: conceptual
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
@@ -31,7 +31,7 @@ Let's review some of the technology and related features Azure Speech Services o
 
 Beyond the functional aspect of the Speech Services their primary purpose – when applied to the call center – is to improve the customer experience. Three clear domains exist in this regard:
 
-* Post-call analytics that is, batch processing of call recordings 
+* Post-call analytics that is, batch processing of call recordings
 * Real-time analytics processing of the audio signal to extract various insights as the call is taking place (with sentiment being a prominent use case) and
 * Virtual Assistants (Bots), either driving the dialogue between the customer and the bot in an attempt to solve the customer's issue with no agent participation, or being the application of AI protocols to assist the agent.
 
@@ -40,9 +40,9 @@ A typical architecture diagram of the implementation of a batch scenario is depi
 
 ## Speech Analytics Technology Components
 
-Whether the domain is post-call or real-time, Azure offers a set of mature and emerging set of technologies to improve the customer experience. 
+Whether the domain is post-call or real-time, Azure offers a set of mature and emerging set of technologies to improve the customer experience.
 
-### Speech to text (STT) 
+### Speech to text (STT)
 
 [Speech-to-text](speech-to-text.md) is the most sought after feature in any call center solution. Since many of the downstream analytics processes rely on transcribed text, the word error rate (WER) is of utmost importance. One of the key challenges in call center transcription is the noise that’s prevalent in the call center (for example other agents speaking in the background), the rich variety of language locales and dialects as well as the low quality of the actual telephone signal. WER is highly correlated with how well the acoustic and language models are trained for a given locale, thus being able to customize the model to your locale is important. Our latest Unified version 4.x models are the solution to both transcription accuracy and latency. Trained with tens of thousands of hours of acoustic data and billions of lexical information Unified models are the most accurate models in the market to transcribe call center data.
 
@@ -56,9 +56,9 @@ It is not uncommon for 35 percent of a support call to be what we call non-talk 
 Some companies are experimenting with providing translated transcripts from foreign languages support calls so that delivery managers can understand the world-wide experience of their customers. Our [translation](translation.md) capabilities are unsurpassed. We can translate audio to audio or audio to text from a large number of locales.
 
 ### Text to Speech
-[Text-to-speech](text-to-speech.md) is another important area in implementing bots that interact with the customers. The typical pathway is that the customer speaks, their voice is transcribed to text, the text is analyzed for intents, a response is synthesized based on the recognized intent, and then an asset is either surfaced to the customer or a synthesized voice response is generated. Of course all of this has to occur quickly – thus latency is an important component in the success of these systems. 
+[Text-to-speech](text-to-speech.md) is another important area in implementing bots that interact with the customers. The typical pathway is that the customer speaks, their voice is transcribed to text, the text is analyzed for intents, a response is synthesized based on the recognized intent, and then an asset is either surfaced to the customer or a synthesized voice response is generated. Of course all of this has to occur quickly – thus latency is an important component in the success of these systems.
 
-Our end-to-end latency is pretty low considering the various technologies involved such as [Speech-to-text](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [Text-to-Speech](text-to-speech.md). 
+Our end-to-end latency is pretty low considering the various technologies involved such as [Speech-to-text](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [Text-to-Speech](text-to-speech.md).
 
 Our new voices are also indistinguishable from human voices. You can use out voices to give your bot its unique personality.
 

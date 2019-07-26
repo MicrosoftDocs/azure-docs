@@ -74,7 +74,7 @@ Hybrid Azure AD join is currently not supported if your environment consists of 
 
 Hybrid Azure AD join is currently not supported when using virtual desktop infrastructure (VDI).
 
-Hybrid Azure AD is not supported for FIPS-compliant TPMs. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
+Hybrid Azure AD join is not supported for FIPS-compliant TPMs. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
 
 Hybrid Azure AD join is not supported for Windows Server running the Domain Controller (DC) role.
 
@@ -84,7 +84,7 @@ If you are relying on the System Preparation Tool (Sysprep) and if you are using
 
 If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure that snapshot is not from a VM that is already registered with Azure AD as Hybrid Azure AD join.
 
-If your Windows 10 domain joined devices are already [Azure AD registered](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) to your tenant, we highly recommend removing that state before enabling Hybrid Azure AD join. From Windows 10 1809 release, the following changes have been made to avoid this dual state:
+If your Windows 10 domain joined devices are already [Azure AD registered](https://docs.microsoft.com/azure/active-directory/devices/overview#getting-devices-in-azure-ad) to your tenant, we highly recommend removing that state before enabling Hybrid Azure AD join. From Windows 10 1809 release, the following changes have been made to avoid this dual state:
 
 - Any existing Azure AD registered state would be automatically removed after the device is Hybrid Azure AD joined.
 - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.

@@ -56,7 +56,7 @@ sections:
     - image: 
         src: media/index/ml-server_r.svg
       text: ML Services
-      href: /azure/hdinsight/r-server/ml-services-quickstart-job-rstudio      
+      href: /azure/hdinsight/r-server/machine-learning-services-quickstart-job-rstudio     
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

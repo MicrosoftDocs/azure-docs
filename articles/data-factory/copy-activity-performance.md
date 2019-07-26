@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
 
 ---
@@ -83,7 +83,8 @@ The minimal DIUs to empower a copy activity run is two. If not specified, the fo
 | Copy scenario | Default DIUs determined by service |
 |:--- |:--- |
 | Copy data between file-based stores | Between 4 and 32 depending on the number and size of the files |
-| All other copy scenarios | 4 |
+| Copy data to Azure SQL Database or Azure Cosmos DB |Between 4 and 16 depending on the sink Azure SQL Database's or Cosmos DB's tier (number of DTUs/RUs) |
+| All the other copy scenarios | 4 |
 
 To override this default, specify a value for the **dataIntegrationUnits** property as follows. The *allowed values* for the **dataIntegrationUnits** property is up to 256. The *actual number of DIUs* that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
 
@@ -128,7 +129,7 @@ For each copy activity run, Azure Data Factory determines the number of parallel
 | Copy scenario | Default parallel copy count determined by service |
 | --- | --- |
 | Copy data between file-based stores |Depends on the size of the files and the number of DIUs used to copy data between two cloud data stores, or the physical configuration of the self-hosted integration runtime machine. |
-| Copy data from any source data store to Azure Table storage |4 |
+| Copy data from any source store to Azure Table storage |4 |
 | All other copy scenarios |1 |
 
 > [!TIP]

@@ -32,8 +32,6 @@ Users with access to privileged accounts have unrestricted access to your enviro
 
 Upon enabling the Require MFA for admins policy, the above nine administrator roles will be required to register for MFA using the Authenticator App. Once MFA registration is complete, administrators will need to perform MFA every single time they sign-in.
 
-![Require MFA for admins baseline policy](./media/howto-baseline-protect-administrators/baseline-policy-require-mfa-for-admins.png)
-
 ## Deployment considerations
 
 Because the **Require MFA for admins (preview)** policy applies to all critical administrators, several considerations need to be made to ensure a smooth deployment. These considerations include identifying users and service principles in Azure AD that cannot or should not perform MFA, as well as applications and clients used by your organization that do not support modern authentication.

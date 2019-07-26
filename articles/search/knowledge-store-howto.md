@@ -283,7 +283,7 @@ The third request uses the [Create Skillset API](https://docs.microsoft.com/rest
 
    For `cognitiveServices`, provision a resource at the S0 tier, located in the same region as Azure Search. You can get the cognitiveServices name and key from the same page in the Azure portal. 
    
-   For` knowledgeStore`, you can use the same connection string used for the caselaw Blob container.
+   For `knowledgeStore`, you can use the same connection string used for the caselaw Blob container.
 
     ```json
     "cognitiveServices": {

@@ -3,7 +3,7 @@ title: Connect Azure ExpressRoute with Oracle Cloud Infrastructure | Microsoft D
 description: Connect Azure ExpressRoute with Oracle Cloud Infrastructure (OCI) FastConnect to enable cross-cloud Oracle application solutions
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: 
 tags: azure-resource-manager
 

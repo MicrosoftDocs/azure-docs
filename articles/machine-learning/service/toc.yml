@@ -56,6 +56,11 @@
     - name: Deploy regression model
       displayName: experiment drag-and-drop visual interface Tutorial 2
       href: ui-tutorial-automobile-price-deploy.md
+  - name: Automated machine learning
+    items:
+    - name: Classification (Bank data)
+      displayName: automl, automated, auto ml, portal, ui
+      href: tutorial-first-experiment-automated-ml.md
 - name: Samples
   items:
   - name: Notebooks
@@ -78,6 +83,9 @@
     - name: "Predict churn"
       displayName: Basic Sample, training, classification, sample 5
       href:  ui-sample-classification-predict-churn.md
+    - name: "Predict flight delays"
+      displayName: Basic Sample, training, classification, sample 6
+      href:  ui-sample-classification-predict-flight-delay.md
   - name: Azure Open Datasets
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
@@ -197,6 +205,9 @@
     - name: Track experiments with MLflow
       displayName: log, monitor, metrics
       href: how-to-use-mlflow.md
+    - name: Visualize runs with TensorBoard
+      displayName: log, monitor, metrics
+      href: how-to-monitor-tensorboard.md      
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
@@ -211,16 +222,20 @@
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
-    - name: View accuracy metrics
-      href: how-to-understand-accuracy-metrics.md  
+    - name: Understand charts and metrics
+      href: how-to-understand-automated-ml.md  
   - name: Deploy & serve models
     items:
     - name: Where and how to deploy
-      displayName: publish azure kubernetes azure container instances
+      displayName: publish web service
       href: how-to-deploy-and-where.md
-    - name: GPUs
+    - name: Azure Container Instances
+      href: how-to-deploy-azure-container-instance.md
+    - name: Azure Kubernetes Service
+      href: how-to-deploy-azure-kubernetes-service.md
+    - name: GPU inference
       href: how-to-deploy-inferencing-gpus.md
-    - name: FPGAs
+    - name: FPGAs inference
       href: how-to-deploy-fpga-web-service.md
     - name: IoT Edge
       href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
@@ -229,7 +244,7 @@
     - name: Deploy existing models
       displayName: publish existing model
       href: how-to-deploy-existing-model.md
-    - name: Troubleshoot
+    - name: Troubleshoot & Debug
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
     items:
@@ -239,7 +254,7 @@
     - name: Run batch predictions
       displayName: score scoring asynchronous consume pipeline
       href: how-to-run-batch-predictions.md
-  - name: Monitor web services
+  - name: Monitor models
     items:
     - name: Collect & evaluate model data
       displayName: track production
@@ -267,9 +282,6 @@
   - name: Machine learning SDK
     displayName: api core package python data prep
     href: https://aka.ms/aml-sdk
-  - name: Monitoring SDK
-    displayName: api package python monitor
-    href: https://aka.ms/aml-monitoring-sdk
   - name: Machine Learning CLI
     displayName: cli, extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
@@ -304,6 +316,8 @@
         href: ../algorithm-module-reference/add-rows.md
       - name: Remove Duplicate Rows
         href: ../algorithm-module-reference/remove-duplicate-rows.md
+      - name: Join Data
+        href: ../algorithm-module-reference/join-data.md
       - name: Split Data
         href: ../algorithm-module-reference/split-data.md
       - name: Normalize Data
@@ -352,12 +366,14 @@
         href: ../algorithm-module-reference/two-class-support-vector-machine.md
       - name: K-Means Clustering
         href: ../algorithm-module-reference/k-means-clustering.md
-    - name: Python language modules
+    - name: Python and R language modules
       items:  
       - name: Execute Python Script
         href: ../algorithm-module-reference/execute-python-script.md
       - name: Create Python Model
         href: ../algorithm-module-reference/create-python-model.md
+      - name: Execute R Script
+        href: ../algorithm-module-reference/execute-r-script.md
     - name: Error messages & codes
       href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources

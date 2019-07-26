@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create an image classification project with the Custom Vision SDK for Python"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and make a prediction using the Python SDK.
 services: cognitive-services
 author: areddish
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: areddish
 ---
 

@@ -1,13 +1,12 @@
 ---
 title: Azure Stream Analytics on IoT Edge
 description: Create edge jobs in Azure Stream Analytics and deploy them to devices running Azure IoT Edge.
-services: stream-analytics
+ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/2/2019
+ms.date: 07/01/2019
 ms.custom: seodec18
 ---
 
@@ -77,7 +76,7 @@ A storage container is required in order to export the ASA compiled query and th
 4. Set the storage container information in the **IoT Edge settings** menu.
 
 5. Set optional settings
-    1. **Event ordering**. You can configure out-of-order policy in the portal. Documentation is available [here](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
+    1. **Event ordering**. You can configure out-of-order policy in the portal. Documentation is available [here](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
     2. **Locale**. Set the internalization format.
 
 
@@ -200,9 +199,31 @@ There are two ways to update the reference data:
 * [Azure Stream Analytics on IoT Edge license](https://go.microsoft.com/fwlink/?linkid=862827). 
 * [Third-party notice for Azure Stream Analytics on IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
+## Azure Stream Analytics module image information 
+
+This version information was last updated on 2019-06-27:
+
+- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+   - base image: microsoft/dotnet:2.1.6-runtime-alpine3.7
+   - platform:
+      - architecture: amd64
+      - os: linux
+  
+- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+   - base image: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+   - platform:
+      - architecture: arm
+      - os: linux
+  
+- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+   - base image: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+   - platform:
+      - architecture: amd64
+      - os: windows
+      
+      
 ## Get help
 For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 
 ## Next steps
 

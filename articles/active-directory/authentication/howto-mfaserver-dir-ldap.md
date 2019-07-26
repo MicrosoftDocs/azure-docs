@@ -46,6 +46,9 @@ Repeat these steps to add additional LDAP clients.
 
 When the Azure Multi-Factor Authentication is configured to receive LDAP authentications, it must proxy those authentications to the LDAP directory. Therefore, the Target tab only displays a single, grayed out option to use an LDAP target.
 
+> [!NOTE]
+> Directory integration is not guaranteed to work with directories other than Active Directory Domain Services.
+
 1. To configure the LDAP directory connection, click the **Directory Integration** icon.
 2. On the Settings tab, select the **Use specific LDAP configuration** radio button.
 3. Select **Edit…**

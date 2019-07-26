@@ -126,6 +126,8 @@
   items:
   - name: Author templates
     href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Providers
+    href: networking-partners-msp.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Community templates

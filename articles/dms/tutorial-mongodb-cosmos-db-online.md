@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/04/2019
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB online using DMS
@@ -145,7 +145,14 @@ After the service is created, locate it within the Azure portal, open it, and th
 
      * For JSON dumps, the files in the blob container must be placed into folders named after the containing databases. Within each database folder, data files must be placed in a subfolder called "data" and named using the format *collection*.json. Metadata files (if any) must be placed in a subfolder called "metadata" and named using the same format, *collection*.json. The metadata files must be in the same format as produced by the MongoDB bsondump tool.
 
-   You can use the IP Address for situations in which DNS name resolution isn't possible.
+    > [!IMPORTANT]
+    > It is discouraged to use a self-signed certificate on the mongo server. However, if one is used, please connect to the server using **connection string mode** and ensure that your connection string has “”
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
+
+    You can use the IP Address for situations in which DNS name resolution isn't possible.
 
    ![Specify source details](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 

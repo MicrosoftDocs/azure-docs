@@ -2,12 +2,12 @@
 title: Configure Azure CNI networking in Azure Kubernetes Service (AKS)
 description: Learn how to configure Azure CNI (advanced) networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Configure Azure CNI networking in Azure Kubernetes Service (AKS)
@@ -51,7 +51,7 @@ The IP address plan for an AKS cluster consists of a virtual network, at least o
 | Subnet | Must be large enough to accommodate the nodes, pods, and all Kubernetes and Azure resources that might be provisioned in your cluster. For example, if you deploy an internal Azure Load Balancer, its front-end IPs are allocated from the cluster subnet, not public IPs. The subnet size should also take into account upgrade operations or future scaling needs.<p />To calculate the *minimum* subnet size including an additional node for upgrade operations: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Example for a 50 node cluster: `(51) + (51  * 30 (default)) = 1,581` (/21 or larger)<p/>Example for a 50 node cluster that also includes provision to scale up an additional 10 nodes: `(61) + (61 * 30 (default)) = 1,891` (/21 or larger)<p>If you don't specify a maximum number of pods per node when you create your cluster, the maximum number of pods per node is set to *30*. The minimum number of IP addresses required is based on that value. If you calculate your minimum IP address requirements on a different maximum value, see [how to configure the maximum number of pods per node](#configure-maximum---new-clusters) to set this value when you deploy your cluster. |
 | Kubernetes service address range | This range should not be used by any network element on or connected to this virtual network. Service address CIDR must be smaller than /12. |
 | Kubernetes DNS service IP address | IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Don't use the first IP address in your address range, such as .1. The first address in your subnet range is used for the *kubernetes.default.svc.cluster.local* address. |
-| Docker bridge address | IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Default of 172.17.0.1/16. |
+| Docker bridge address | IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This CIDR is tied to the number of containers on the node. Default of 172.17.0.1/16. |
 
 ## Maximum pods per node
 
@@ -102,7 +102,7 @@ Although it's technically possible to specify a service address range within the
 
 **Kubernetes DNS service IP address**:  The IP address for the cluster's DNS service. This address must be within the *Kubernetes service address range*. Don't use the first IP address in your address range, such as .1. The first address in your subnet range is used for the *kubernetes.default.svc.cluster.local* address.
 
-**Docker Bridge address**: The IP address and netmask to assign to the Docker bridge. The Docker Bridge lets AKS nodes communicate with the underlying management platform. This IP address must not be within the virtual network IP address range of your cluster, and shouldn't overlap with other address ranges in use on your network.
+**Docker Bridge address**: The Docker bridge network address represents the default *docker0* bridge network address present in all Docker installations. While *docker0* bridge is not used by AKS clusters or the pods themselves, you must set this address to continue to support scenarios such as *docker build* within the AKS cluster. It is required to select a CIDR for the Docker bridge network address because otherwise Docker will pick a subnet automatically which could conflict with other CIDRs. You must pick an address space that does not collide with the rest of the CIDRs on your networks, including the cluster's service CIDR and pod CIDR.
 
 ## Configure networking - CLI
 

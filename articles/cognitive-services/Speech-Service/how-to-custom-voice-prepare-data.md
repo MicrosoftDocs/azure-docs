@@ -1,14 +1,14 @@
 ---
-title: "How to prepare data for Custom Voice - Speech Services"
-titlesuffix: Azure Cognitive Services
-description: "Create a custom voice for your brand with Azure Speech Services. You provide studio recordings and the associated scripts, the service generates a unique voice model tuned to the recorded voice. Use this voice to synthesize speech in your products, tools, and applications."
+title: "How to prepare data for Custom Voice - Speech Service"
+titleSuffix: Azure Cognitive Services
+description: "Create a custom voice for your brand with Speech Service. You provide studio recordings and the associated scripts, the service generates a unique voice model tuned to the recorded voice. Use this voice to synthesize speech in your products, tools, and applications."
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 

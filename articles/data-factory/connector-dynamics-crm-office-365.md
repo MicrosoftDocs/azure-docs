@@ -47,7 +47,7 @@ For Dynamics 365 specifically, the following application types are supported:
 
 Other application types e.g. Finance and Operations, Talent, etc. are not supported by this connector.
 
-This Dynamics connector is built on top of [Dynamics XRM tooling](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
+This Dynamics connector is built on top of [Dynamics XRM tooling](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
 >To copy data from **Dynamics 365 Finance and Operations**, you can use the [Dynamics AX connector](connector-dynamics-ax.md).

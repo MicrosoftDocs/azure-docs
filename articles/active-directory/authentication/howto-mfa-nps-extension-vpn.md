@@ -301,7 +301,7 @@ To troubleshoot these issues, an ideal place to start is to examine the Security
 
 ## Configure Multi-Factor Authentication
 
-For assistance configuring users for Multi-Factor Authentication see the articles [How to require two-step verification for a user or group](howto-mfa-userstates.md) and [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md)
+For assistance configuring users for Multi-Factor Authentication see the articles [Planning a cloud-based Azure Multi-Factor Authentication deployment](howto-mfa-getstarted.md#create-conditional-access-policy) and [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## Install and configure the NPS extension
 

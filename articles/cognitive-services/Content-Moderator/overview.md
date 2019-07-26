@@ -1,6 +1,6 @@
 ---
 title: What is Azure Content Moderator?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to use Content Moderator to track, flag, assess, and filter inappropriate material in user-generated content.
 services: cognitive-services
 author: PatrickFarley
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 
 #Customer intent: As a developer of content management software, I want to find out whether Azure Content Moderator is the right solution for my moderation needs.
@@ -63,7 +63,7 @@ The Review APIs let you integrate your moderation pipeline with human reviewers.
 
 ## The Review tool
 
-The Content Moderator service also includes the web-based [Review tool](Review-Tool-User-Guide/human-in-the-loop.md), which hosts the content reviews for human moderators to process. The human input does not train the service, but the combined work of the service and human review teams allows developers to strike the right balance between efficiency and accuracy. The Review tool also provides a user-friendly front-end for a variety of Content Moderator resources.
+The Content Moderator service also includes the web-based [Review tool](Review-Tool-User-Guide/human-in-the-loop.md), which hosts the content reviews for human moderators to process. The human input does not train the service, but the combined work of the service and human review teams allows developers to strike the right balance between efficiency and accuracy. The Review tool also provides a user-friendly front end for a variety of Content Moderator resources.
 
 ![Content Moderator human review tool homepage](images/homepage.PNG)
 
