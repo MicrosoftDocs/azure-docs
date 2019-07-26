@@ -9,7 +9,7 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 
-# As a solution developer, I want to connect a Plug and Play device to my solution so I can collect telemetry and control the device.
+# As a solution developer, I want to connect an IoT Plug and Play device to my solution so I can collect telemetry and control the device.
 ---
 
 # Quickstart: Connect an IoT Plug and Play device to your solution
@@ -18,31 +18,37 @@ IoT Plug and Play simplifies IoT by enabling you to interact with device capabil
 
 ## Prerequisites
 
-1. Download Node.js from [nodejs.org](https://nodejs.org).
+Download and install Node.js from [nodejs.org](https://nodejs.org).
 
-1. [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-1. Add the Microsoft Azure IoT Extension for Azure CLI:
+## Prepare an IoT hub
 
-    ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
-    ```
+You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-1. Register a device in IoT Hub:
+Add the Microsoft Azure IoT Extension for Azure CLI:
 
-   Run the following command to create the device identity. Replace the **YourIoTHubName** and **YourDevice** with your actual names. If you don't have an IoT Hub, follow the instructions [here](../iot-hub/iot-hub-create-using-cli.md) to create one.
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
 
-    ```azurecli-interactive
-    az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
-    ```
+Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDevice** with your actual names. If you don't have an IoT Hub, follow [these instructions](../iot-hub/iot-hub-create-using-cli.md) to create one:
 
-1. Get the device connection string:
+```azurecli-interactive
+az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
+```
 
-    Run the following commands to get the _device connection string_ for the device you just registered:
+Run the following commands to get the _device connection string_ for the device you just registered:
 
-    ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
-    ```
+```azurecli-interactive
+az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
+```
+
+Run the following commands to get the _IoT hub connection string_ for your hub:
+
+```azurecli-interactive
+az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
+```
 
 ## Connect your device
 
@@ -206,12 +212,18 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 
 ## Clean up resources
 
-If you plan to continue with later articles, you can keep these resources. Otherwise you can delete the resource you've created for this quickstart to avoid additional charges.
+If you plan to continue with later articles, you can keep the resources you used in this quickstart. Otherwise you can delete the resources you've created for this quickstart to avoid additional charges.
 
 To delete the hub and registered device, complete the following steps using the Azure CLI:
 
 ```azurecli-interactive
 az group delete --name <Your group name>
+```
+
+To delete just the device you registered with your IoT Hub, complete the following steps using the Azure CLI:
+
+```azurecli-interactive
+az iot hub device-identity delete --hub-name [YourIoTHubName] --device-id [YourDevice]
 ```
 
 ## Next steps
