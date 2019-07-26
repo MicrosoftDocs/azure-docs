@@ -10,7 +10,7 @@ ms.date: 07/25/2019
 ms.author: atsenthi
 ---
 
-# Set up A Service Fabric cluster With MITS
+# Set up a Service Fabric cluster with MITS
 
 Introductory paragraph.
 
