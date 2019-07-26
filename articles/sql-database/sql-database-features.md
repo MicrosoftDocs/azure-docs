@@ -164,7 +164,7 @@ Azure platform provides a number of PaaS capabilities that are added as an addit
 | [VNet](../virtual-network/virtual-networks-overview.md) | Partial, it enables restricted access using [VNet Endpoints](sql-database-vnet-service-endpoint-rule-overview.md) | Yes, Managed Instance is injected in customer's VNet. See [subnet](sql-database-managed-instance-transact-sql-information.md#subnet) and [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |
 
 ## Tools
-Azure SQL database supports various data tools that cna help uou to manage your data.
+Azure SQL database supports various data tools that can help you to manage your data.
 
 | **SQL Tool** | **Single databases and elastic pools** | **Managed instances** |
 | --- | --- | --- |
