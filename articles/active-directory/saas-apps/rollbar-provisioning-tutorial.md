@@ -52,8 +52,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Rollbar for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Rollbar.
 
- 1. First thing to take into account is that this is an enterprise feature, so the account should be in an enterprise plan or have had requested access to the feature through     	sales@rollbar.com and get enabled as a feature for the account.
-
+ 1. First thing to take into account is that this is an enterprise feature, so the account should be in an enterprise plan. You can request the access to the feature through sales@rollbar.com and get enabled as a feature for the account.
 
 2. Sign in to your [Rollbar Admin Console](https://rollbar.com/login/). Click on **Account Settings**.
 
@@ -63,7 +62,7 @@ Before configuring Rollbar for automatic user provisioning with Azure AD, you wi
 
 	![Rollbar Admin Console](media/rollbar-provisioning-tutorial/account.png)
 
-4. Copy the value of **SCIM**and this value will be entered in the Secret Token field in the Provisioning tab of your Rollbar application in the Azure portal.
+4. Copy the value of **SCIM** and this value will be entered in the Secret Token field in the Provisioning tab of your Rollbar application in the Azure portal.
 
 	![Rollbar Admin Console](media/rollbar-provisioning-tutorial/scim.png)
 
