@@ -181,4 +181,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 >[Build a training data set](../build-training-data-set.md)
 
 * [What is Form Recognizer?](../overview.md)
-* The source code for this sample can be found on [GitHub](TBD).
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer).
