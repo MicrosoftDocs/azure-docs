@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: atsenthi, subramar
+ms.author: athinanthny
 ---
 
 # Service Fabric Azure Files Volume Driver (Preview)
