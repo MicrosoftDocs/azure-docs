@@ -65,8 +65,8 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
      For more information, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-<!-- Replace this before public preview -->
-You also need a local copy of the **EnvironmentalSensor.json** file that contains the device capability model. You can download it from [here](https://raw.githubusercontent.com/Azure/azure-iot-sdk-c-pnp/public-preview-utopia/digitaltwin_client/samples/digitaltwin_sample_environmental_sensor/EnvironmentalSensor.interface.json?token=AALDENAWJOWF3JSZ2HTNLUC5IFF4S).
+<!-- TODO Replace this before public preview -->
+You also need a local copy of the **EnvironmentalSensor.json** file that contains the device capability model. You can download it from [here](https://raw.githubusercontent.com/dominicbetts/IoTPlugandPlay/add-inline-model/samples/EnvironmentalSensorInline.capabilitymodel.json).
 
 ## Create a template
 
@@ -132,13 +132,13 @@ As a builder, you can customize the application to display relevant information 
 
 ### Generate default views
 
-Generating default views is a quick way to get started with visualizing your important device information. You will have up to three default views generated for your device template:
+Generating default views is a quick way to get started with visualizing your important device information. You can have up to three default views generated for your device template:
 
-1. **Commands** will provide a view with device commands and will allow your operator to dispatch them to your device.
-1. **Overview** will provide a view with device telemetry, displaying charts and metrics.
-1. **About** will provide a view with device information, displaying device properties.
+1. The **Commands** view lets your operator dispatch commands to your device.
+1. The **Overview** view uses charts and metrics to display device telemetry.
+1. The **About** view displays device properties.
 
-Once you have selected **Generate default views** you will see that they have been automatically added under the **Views** section of your device template.
+After you select **Generate default views**, they're automatically added under the **Views** section of your device template.
 
 ### Configure a view to visualize devices
 
