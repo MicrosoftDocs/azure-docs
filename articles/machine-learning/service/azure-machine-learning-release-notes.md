@@ -18,17 +18,6 @@ In this article, learn about the Azure Machine Learning service releases.  For t
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
-## 2019-07-25
-
-### Azure Machine Learning Data Prep SDK v1.1.9
-
-+ **New features**
-  + Added support for reading a file directly from a http or https url.
-
-+ **Bug fixes and improvements**
-  + Improved error message when attempting to read a Parquet Dataset from a remote source (which is not currently supported).
-  + Fixed a bug when writing to Parquet file format in ADLS Gen 2, and updating the ADLS Gen 2 container name in the path.
-
 ## 2019-07-23
 
 ### Azure Machine Learning SDK for Python v1.0.53
@@ -118,6 +107,15 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-core**
     + Strings are now accepted as compute target for Automated Hyperparameter Tuning
     + The unused RunConfiguration setting auto_prepare_environment has been marked as deprecated.
+
+### Azure Machine Learning Data Prep SDK v1.1.9
+
++ **New features**
+  + Added support for reading a file directly from a http or https url.
+
++ **Bug fixes and improvements**
+  + Improved error message when attempting to read a Parquet Dataset from a remote source (which is not currently supported).
+  + Fixed a bug when writing to Parquet file format in ADLS Gen 2, and updating the ADLS Gen 2 container name in the path.
 
 ## 2019-07-09
 
