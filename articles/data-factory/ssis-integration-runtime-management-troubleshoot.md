@@ -21,7 +21,7 @@ This article provides troubleshooting guidance for management issues in Azure-SQ
 
 ## Overview
 
-If you run into any issue while provisioning or deprovisioning SSIS IR, you'll see an error message in the Microsoft Azure Data Factory portal or returned from a PowerShell cmdlet. The error always appears in the format of an error code with a detailed error message.
+If you run into any issue while provisioning or deprovisioning SSIS IR, you'll see an error message in the Microsoft Azure Data Factory portal or an error returned from a PowerShell cmdlet. The error always appears in the format of an error code with a detailed error message.
 
 If the error code is InternalServerError, the service has transient issues, and you should retry the operation later. If a retry doesn’t help, contact the Azure Data Factory support team.
 
@@ -39,8 +39,8 @@ You might see this issue when you're provisioning a new SSIS IR or while IR is r
 * Login failed during SQL authentication. The account provided can't sign in to the SQL Server database. Make sure you provide the correct user account.
 * Login failed during Microsoft Azure Active Directory (Azure AD)
  authentication (managed identity). Add the managed identity of your factory to an AAD group, and make sure the managed identity has access permissions to your catalog database server.
-* Connection timeout. This is always caused by a security-related configuration. We recommend that you:
-  1. Create a new VM. 
+* Connection timeout. This error is always caused by a security-related configuration. We recommend that you:
+  1. Create a new VM.
   1. Join the VM to the same Microsoft Azure Virtual Network of IR if IR is in a virtual network.
   1. Install SSMS and check the Azure SQL Database server or managed instance status.
 
@@ -153,4 +153,4 @@ When you stop SSIS IR, all the resources related to Virtual Network are deleted.
 
 ### NodeUnavailable
 
-This error occurs when IR is running, and it means that IR has become unhealthy. This error is always caused by a change in the DNS server or NSG configuration that blocks SSIS IR from connecting to a necessary service. Because DNS server and NSG configuration is controlled by the customer, they must fix the blocking issues on their end. For more information, see [SSIS IR Virtual Network configuration](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network. If you’re still having problems, contact the Azure Data Factory support team.
+This error occurs when IR is running, and it means that IR has become unhealthy. This error is always caused by a change in the DNS server or NSG configuration that blocks SSIS IR from connecting to a necessary service. Because configuration of DNS server and NSG is controlled by the customer, the customer must fix the blocking issues on their end. For more information, see [SSIS IR Virtual Network configuration](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). If you’re still having problems, contact the Azure Data Factory support team.
