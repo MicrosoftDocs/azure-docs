@@ -145,7 +145,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Connector limitations
 
 * myPolicies always requires **userName**, **email** and **externalId**.
-* myPolicies does not support hard deletes for user attrbutes.
+* myPolicies does not support hard deletes for user attributes.
 
 ## Additional resources
 
