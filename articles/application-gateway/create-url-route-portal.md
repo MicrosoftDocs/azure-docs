@@ -148,7 +148,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pools you 
 10. Add another path rule named *Video*, with a */video/\** path, and *videoBackendPool*.
 11. Select **Save changes and go back to routing rules**.
 
-![Add a routing rule](media/create-url-route-portal/add-routing-rule.png)
+    ![Add a routing rule](media/create-url-route-portal/add-routing-rule.png)
 
 12. Select **Add**.
 
@@ -166,8 +166,10 @@ Wait until the deployment finishes successfully before moving on to the next sec
 In this example, you create three virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify the application gateway was successfully created.
 
 1. On the Azure portal, select **Create a resource**. The **New** window appears.
-2. Select **Compute** and then select **Windows Server 2016 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.<br>Application Gateway can route traffic to any type of virtual machine used in its backend pool. In this example, you use a Windows Server 2016 Datacenter.
-3. Enter these values in the **Basics** tab for the following virtual machine settings:
+2. Select **Compute** and then select **Windows Server 2016 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.
+
+   Application Gateway can route traffic to any type of virtual machine used in its backend pool. In this example, you use a Windows Server 2016 Datacenter.
+1. Enter these values in the **Basics** tab for the following virtual machine settings:
 
     - **Resource group**: Select **myResourceGroupAG** for the resource group name.
     - **Virtual machine name**: Enter *myVM1* for the name of the virtual machine.
