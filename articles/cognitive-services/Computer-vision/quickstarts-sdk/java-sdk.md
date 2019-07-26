@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Quickstart: Computer Vision client library for Java
 
-Get started with the Computer Vision client library for Java. Follow these steps to install the package and try out the example code for basic tasks. Computer Vision provides developers with access to advanced algorithms for processing images and returning information.
+Get started with the Computer Vision client library for Java. Follow these steps to install the package and try out the example code for basic tasks. Computer Vision provides you with access to advanced algorithms for processing images and returning information.
 
 Use the Computer Vision client library for Java to:
 
@@ -33,8 +33,8 @@ Use the Computer Vision client library for Java to:
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Computer Vision using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
 
-* Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for 7 days for free. After signing up it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* View your resource on the [Azure Portal](https://portal.azure.com/).
+* Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for seven days for free. After you sign up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* View your resource on the [Azure portal](https://portal.azure.com/).
 
 After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `AZURE_COMPUTERVISION_API_KEY`.
 
@@ -46,7 +46,7 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 mkdir myapp && cd myapp
 ```
 
-Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts* which is used at runtime to create and configure your application.
+Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
 
 ```console
 gradle init --type basic
@@ -54,7 +54,7 @@ gradle init --type basic
 
 When prompted to choose a **DSL**, select **Kotlin**.
 
-Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This defines the project as a Java application whose entry point is the class **ComputerVisionQuickstarts**. It imports the Computer Vision library.
+Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **ComputerVisionQuickstarts**. It imports the Computer Vision library.
 
 ```kotlin
 plugins {
@@ -105,7 +105,7 @@ The following classes and interfaces handle some of the major features of the Co
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | This class is needed for all Computer Vision functionality. You instantiate it with your subscription information, and you use it to produce instances of other classes.|
 |[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| This class comes from the client object and directly handles all of the image operations, such as image analysis, text detection, and thumbnail generation.
-|[VisualFeatureTypes](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)| This enum defines the different types of image analysis that can be done in a standard Analyze operation. You specify a set of these depending on your needs. |
+|[VisualFeatureTypes](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)| This enum defines the different types of image analysis that can be done in a standard Analyze operation. You specify a set of VisualFeatureTypes values depending on your needs. |
 
 
 ## Code examples
@@ -120,7 +120,7 @@ These code snippets show you how to do the following tasks with the Computer Vis
 > [!NOTE]
 > This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Computer Vision key, named `AZURE_COMPUTERVISION_API_KEY`.
 
-The following code adds a `main` method to your class and creates variables for your resource's Azure endpoint and key. You'll need to enter your own endpoint string, which you can find by checking the **Overview** blade of the Azure portal. The code uses these values to create a [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) object and passes it into other method(s) which you'll define later.
+The following code adds a `main` method to your class and creates variables for your resource's Azure endpoint and key. You'll need to enter your own endpoint string, which you can find by checking the **Overview** section of the Azure portal. The code uses these values to create a [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) object and passes it into other method(s), which you'll define later.
 
 > [!NOTE]
 > If you created the environment variable after you launched the application, you'll need to close and reopen the editor, IDE, or shell running it to access the variable.
@@ -129,7 +129,7 @@ The following code adds a `main` method to your class and creates variables for 
 
 ### Analyze an image
 
-The following code defines a method, `AnalyzeLocalImage`, which uses the client object to analyze a local image and print the results. This method is configured to return a text description, categorization, list of tags, detected faces, adult content flags, main colors, and image type.
+The following code defines a method, `AnalyzeLocalImage`, which uses the client object to analyze a local image and print the results. The method returns a text description, categorization, list of tags, detected faces, adult content flags, main colors, and image type.
 
 First, create a **resources** folder in the **src/main/** folder of your project, and add an image you'd like to analyze. Then add the following code to your **ComputerVisionQuickstarts** class. If necessary, change the value of the `pathToLocalImage` to match your image file. This method prints detailed results to the console for each scope of image analysis.
 
@@ -158,7 +158,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart you learned how to use the Computer Vision Java library to do basis tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the Computer Vision Java library to do basis tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
 >[Computer Vision reference (Java)](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
