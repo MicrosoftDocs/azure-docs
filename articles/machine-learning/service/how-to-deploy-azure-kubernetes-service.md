@@ -211,6 +211,10 @@ For information on using VS Code, see [deploy to AKS via the VS Code extension](
 > [!IMPORTANT] 
 > Deploying through VS Code requires the AKS cluster to be created or attached to your workspace in advance.
 
+## Update the web service
+
+[!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
+
 ## Next steps
 
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)

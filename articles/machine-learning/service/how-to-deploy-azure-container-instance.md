@@ -77,6 +77,10 @@ See [deploy your models with VS Code](how-to-vscode-tools.md#deploy-and-manage-m
 > [!IMPORTANT]
 > You don't need to create an ACI container to test in advance. ACI containers are created as needed.
 
+## Update the web service
+
+[!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
+
 ## Next steps
 
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
