@@ -1,5 +1,5 @@
 ---
-title: What's New - Language Understanding
+title: What's New - Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
 description: This article contains news about Language Understanding.
 author: diberry

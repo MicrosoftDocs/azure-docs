@@ -55,7 +55,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + add scipy sparse support for LimeExplainer
     + add batch_size to mimic explainer when include_local=False for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel
   + **azureml-contrib-featureengineering**
-    + Use one or two sentences - Use past tense - End with period Example: -Fixed the issue in useful_util, this time it actually works.
     + Fix for calling set_featurizer_timeseries_params(): dict value type change and null check - Add notebook for timeseries featurizer
     + Update NimbusML dependency to 1.2.0 version (current latest).
   + **azureml-core**
@@ -92,9 +91,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-mlflow**
     + Improve performance of mlflow.set_experiment(experiment_name)
     + Fix bug in use of InteractiveLoginAuthentication for mlflow tracking_uri
-    + Improve the documentation of the azureml-mlflow package
-    + Patch bug where mlflow.log_artifacts("my_dir") would save artifacts under "my_dir/<artifact-paths>" instead of "<artifact-paths>" - [x] I investigated optional gates failures and do not introduce any new failures - [] I am too lazy even to read this section
     + Improve resource utilization of remote runs using azureml.mlflow.
+    + Improve the documentation of the azureml-mlflow package
+    + Patch bug where mlflow.log_artifacts("my_dir") would save artifacts under "my_dir/<artifact-paths>" instead of "<artifact-paths>"
   + **azureml-opendatasets**
     + Pin pyarrow of opendatasets to old versions (<0.14.0) because of memory issue newly introduced there.
     +  Move azureml-contrib-opendatasets to azureml-opendatasets. - Allow open dataset classes to be registered to AML workspace and leverage AML Dataset capabilities seamlessly. - Improve NoaaIsdWeather enrich performance in non-SPARK version significantly.
