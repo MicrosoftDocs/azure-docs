@@ -133,8 +133,6 @@ On the **Configuration** tab, you'll connect the frontend and backend pools you 
 
    Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
-   ![Create new application gateway: listener](./media/create-multiple-sites-portal/routing-rule.png)
-
 4. On the **Backend targets** tab, select **appGatewayBackendPool** for the **Backend target**.
 
 5. For the **HTTP setting**, select *myHTTPSetting*. Accept the default values for the other settings in the **Add an HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
