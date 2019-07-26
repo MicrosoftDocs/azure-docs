@@ -74,10 +74,10 @@ Migrate your SQL Server VM to Azure:
 
 * [Migrate a SQL Server database to SQL Server in an Azure VM](virtual-machines-windows-migrate-sql.md)
 
-Get started with SQL Server on Azure virtual machines:
+Get started with SQL Server on Azure Virtual Machines:
 
 * [Create a SQL Server VM in the Azure portal](quickstart-sql-vm-create-portal.md)
 
 Get answers to commonly asked questions about SQL Server VMs:
 
-* [FAQ for SQL Server on Azure virtual machines](virtual-machines-windows-sql-server-iaas-faq.md)
+* [FAQ for SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-faq.md)

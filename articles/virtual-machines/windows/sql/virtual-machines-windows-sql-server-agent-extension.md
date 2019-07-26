@@ -43,7 +43,7 @@ The SQL Server IaaS Agent Extension supports the following administration tasks:
 | --- | --- |
 | **SQL Server automated backup** |Automates the scheduling of backups for all databases for either the default instance or a [properly installed](virtual-machines-windows-sql-server-iaas-faq.md#administration) named instance of SQL Server on the VM. For more information, see [Automated backup for SQL Server in Azure virtual machines (Resource Manager)](virtual-machines-windows-sql-automated-backup.md). |
 | **SQL Server automated patching** |Configures a maintenance window during which important Windows updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure virtual machines (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
-| **Azure Key Vault integration** |Enables you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault integration for SQL Server on Azure VMs (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md). |
+| **Azure Key Vault integration** |Enables you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault integration for SQL Server on Azure Virtual Machines (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md). |
 
 After the SQL Server Iaas Agent Extension is installed and running, it makes the administration features available:
 
@@ -201,5 +201,5 @@ You can also use the **Remove-AzVMSqlServerExtension** PowerShell cmdlet:
 ## Next steps
 Begin using one of the services that the extension supports. For more information, see the articles referenced in the [Supported services](#supported-services) section of this article.
 
-For more information about running SQL Server on Azure virtual machines, see the [overview of SQL Server on Azure virtual machines](virtual-machines-windows-sql-server-iaas-overview.md).
+For more information about running SQL Server on Azure Virtual Machines, see the [What is SQL Server on Azure Virtual Machines?](virtual-machines-windows-sql-server-iaas-overview.md).
 
