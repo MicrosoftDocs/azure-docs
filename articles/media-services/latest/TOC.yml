@@ -93,12 +93,13 @@
       href: streaming-policy-concept.md  
     - name: Streaming Endpoint error codes  
       href: streaming-endpoint-error-codes.md    
-  - name: Dynamic encryption and key delivery
+  - name: Content protection
     items:
-    - name: Streaming protocols and encryption types
-      displayName: dynamic, encryption, content protection, PlayReady, Widevine, FairPlay     
+    - name: Dynamic encryption and key delivery
+      displayName: content protection, streaming protocols, encryption types, content protection, PlayReady, Widevine, FairPlay     
       href: content-protection-overview.md  
-    - name: Multi-DRM system with access control
+    - name: Design of multi-DRM system 
+      displayName: drm, access control
       href: design-multi-drm-system-with-access-control.md  
     - name: DRM licenses
       items:

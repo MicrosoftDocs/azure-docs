@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: TomShinder
+ms.author: tomsh
 
 ---
 # Best practices for securing PaaS web and mobile applications using Azure Storage

@@ -345,6 +345,7 @@ X509_PRIVATEKEY = (
     "-----END RSA PRIVATE KEY-----"
 )
 
+
 def iothub_client_init():
     # prepare iothub client
     client = IoTHubClient(CONNECTION_STRING, PROTOCOL)

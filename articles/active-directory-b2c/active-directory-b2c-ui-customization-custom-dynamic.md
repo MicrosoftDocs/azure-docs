@@ -119,7 +119,7 @@ Your custom HTML5 template is based on the Azure AD B2C built-in HTML5 template.
 
 Locate the `<img>` element that contains the `ID` value *background_background_image*, and then replace the `src` value with **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** or any other background image you want to use.
 
-![Change the page background](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
+![img element with custom background_background_image src value](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
 ### Step 2.4: Add your view to the MVC controller
 
