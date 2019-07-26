@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 07/22/2019
 ms.author: magoedte
 ---
 
@@ -39,12 +39,18 @@ Azure Monitor for containers delivers a comprehensive monitoring experience usin
 >Support for Prometheus is a feature in public preview at this time.
 >
 
+Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Azure Monitor for containers.
+
+> [!VIDEO https://www.youtube.com/embed/RjsNmapggPU]
+
 ## How do I access this feature?
+
 You can access Azure Monitor for containers two ways, from Azure Monitor or directly from the selected AKS cluster. From Azure Monitor, you have a global perspective of all the containers deployed, which are monitored and which are not, allowing you to search and filter across your subscriptions and resource groups, and then drill into Azure Monitor for containers from the selected container.  Otherwise, you can access the feature directly from a selected AKS container from the AKS page.  
 
 ![Overview of methods to access Azure Monitor for containers](./media/container-insights-overview/azmon-containers-experience.png)
 
-If you are interested in monitoring and managing your Docker and Windows container hosts to view configuration, audit, and resource utilization, see the [Container Monitoring solution](../../azure-monitor/insights/containers.md).
+If you are interested in monitoring and managing your Docker and Windows container hosts running outside of AKS to view configuration, audit, and resource utilization, see the [Container Monitoring solution](../../azure-monitor/insights/containers.md).
 
 ## Next steps
+
 To begin monitoring your AKS cluster, review [How to enable the Azure Monitor for containers](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring.  

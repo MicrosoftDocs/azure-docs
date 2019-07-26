@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/8/2019
+ms.date: 7/18/2019
 ms.author: raiye
 
 ---
@@ -77,7 +77,7 @@ The September Guest OS has released.
 ## Family 6 releases
 **Windows Server 2019**
 
-.NET Framework installed: 3.5, 4.7.2, 4.8
+.NET Framework installed: 3.5, 4.7.2
 
 > [!NOTE]
 > The Windows Azure SDK for .NET - 3.0 can be downloaded [here][Windows Azure SDK].
@@ -106,7 +106,7 @@ The September Guest OS has released.
 ## Family 5 releases
 **Windows Server 2016**
 
-.NET Framework installed: 3.5, 4.6.2, 4.7.2, 4.8
+.NET Framework installed: 3.5, 4.6
 
 > [!NOTE]
 > The RDP password for OS family 5 must be a minimum of 10 characters.

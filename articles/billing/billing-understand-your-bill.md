@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 07/22/2019
 ms.author: banders
 ---
 
@@ -110,9 +110,9 @@ When the VM is created, each meter begins emitting usage records. This usage and
 
 ## <a name="payment"></a>Pay your bill
 
-If you set up a credit card or a debit card as your payment method, the payment is charged automatically within 10 days after the billing period ends. On your credit card statement, the line item would say **MSFT Azure**.
+If you set up a credit card card as your payment method, the payment is charged automatically within 10 days after the billing period ends. On your credit card statement, the line item would say **MSFT Azure**.
 
-To change the credit or debit card that's charged, see [Add, update, or remove a credit or debit card for Azure](billing-how-to-change-credit-card.md).
+To change the credit card that's charged, see [Add, update, or remove a credit card for Azure](billing-how-to-change-credit-card.md).
 
 If you [pay by invoice](billing-how-to-pay-by-invoice.md), send your payment to the location listed at the bottom of your invoice.
 

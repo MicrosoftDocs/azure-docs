@@ -61,6 +61,8 @@
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET
       href: batch-management-dotnet.md
+    - name: Cost analysis and budgets
+      href: budget.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
