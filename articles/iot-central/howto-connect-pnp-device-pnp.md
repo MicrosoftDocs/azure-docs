@@ -337,7 +337,7 @@ To build and run the client, you need to customize the build for the Azure IoT C
     cmake --build . -- /m /p:Configuration=Release
     ```
 
-1. To run the application, run the following command form the same command prompt:
+1. To run the application, run the following command from the same command prompt:
 
     ```cmd
     pnp_app\sensor_app\Release\sensor_app.exe
