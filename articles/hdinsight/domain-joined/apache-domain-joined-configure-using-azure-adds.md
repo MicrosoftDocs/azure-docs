@@ -76,7 +76,7 @@ Change the configuration of the DNS servers in the Azure AD-DS VNET to use these
 
 It's easier to place both the Azure AD-DS instance and the HDInsight cluster in the same Azure virtual network. If you plan to use different VNETs, you must peer those virtual networks so that the domain controller is visible to HDI VMs. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md). 
 
-After the VNETs are peered, configure the HDInsight VNET to use a custom DNS server and input the Azure AD-DS private IPs as the DNS server addresses. When both VNETs use the same DNS servers, your custom domain name will resolve to the right IP and will be reachable from HDInsight. For example if your domain name is “contoso.com” then after this step, pinging “contoso.com” should resolve to the right Azure AD-DS IP. 
+After the VNETs are peered, configure the HDInsight VNET to use a custom DNS server and input the Azure AD-DS private IPs as the DNS server addresses. When both VNETs use the same DNS servers, your custom domain name will resolve to the right IP and will be reachable from HDInsight. For example if your domain name is `contoso.com` then after this step, `ping contoso.com` should resolve to the right Azure AD-DS IP.
 
 ![Configuring Custom DNS Servers for Peered VNET](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
@@ -104,7 +104,7 @@ When you create a HDInsight cluster with ESP, you must supply the following para
 
 - **Cluster access groups**: The security groups whose users you want to sync and have access to the cluster should be available in Azure AD-DS. For example, HiveUsers group. For more information, see [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-- **LDAPS URL**: An example is ldaps://contoso.com:636.
+- **LDAPS URL**: An example is `ldaps://contoso.com:636`.
 
 The following screenshot shows a successful configuration in the Azure portal:
 

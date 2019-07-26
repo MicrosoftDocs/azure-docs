@@ -11,6 +11,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: aahi
+ms.custom: seo-java-july2019
 ---
 # Quickstart: Using Java to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
