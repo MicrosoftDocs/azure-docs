@@ -1,6 +1,6 @@
 ---
-title: Good example utterances 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Good example utterances - LUIS
+titleSuffix: Azure Cognitive Services
 description: Utterances are input from the user that your app needs to interpret. Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement.
 services: cognitive-services
 author: diberry
