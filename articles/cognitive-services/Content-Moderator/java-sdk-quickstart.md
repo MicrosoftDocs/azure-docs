@@ -11,7 +11,7 @@ ms.date: 07/16/2019
 ms.author: pafarley
 ---
 
-# Quickstart: Content Moderator client library for .NET
+# Quickstart: Content Moderator client library for Java
 
 Get started with the Content Moderator client library for Java. Follow these steps to install the package and try out the example code for basic tasks. Content Moderator is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users.
 
@@ -73,6 +73,7 @@ dependencies{
 	compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-contentmoderator", version = "1.0.2-beta")
 	compile(group = "com.google.code.gson", name = "gson", version = "2.8.5")
 }
+```
 
 From your working directory, run the following command to create a project source folder.
 
@@ -159,7 +160,7 @@ public static class EvaluationData {
 }
 ```
 
-Next, add the following code to the bottom of the **main** method. Or, you can add it to a separate method that's called from **main**. This code uses the Content Moderator client object to analyze the images at the given URLs for adult/racy content, image text, and human faces. It stores the returned information in `EvaluationData` objects and then prints the results to an output file, *src/main/resources/ModerationOutput.json*.
+Next, add the following code to the bottom of the `main` method. Or, you can add it to a separate method that's called from `main`. This code uses the Content Moderator client object to analyze the images at the given URLs for adult/racy content, image text, and human faces. It stores the returned information in `EvaluationData` objects and then prints the results to an output file, *src/main/resources/ModerationOutput.json*.
 
 ```java
 // Create an object in which to store the image moderation results.
