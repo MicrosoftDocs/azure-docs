@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Configure and create a Deep Learning Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 
@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 # Provision a Deep Learning Virtual Machine on Azure 
