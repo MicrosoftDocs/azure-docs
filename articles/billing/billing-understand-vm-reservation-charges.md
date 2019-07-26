@@ -1,16 +1,14 @@
 ---
 title: Understand Azure Reserved VM Instances discount | Microsoft Docs
 description: Learn how Azure Reserved VM Instance discount is applied to running virtual machines.
-documentationcenter: ''
 author: yashesvi
 manager: yashar
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/11/2019
 ms.author: banders
 ---
 # How the Azure reservation discount is applied to virtual machines
@@ -62,9 +60,35 @@ When you buy a Reserved VM Instance, if you select **Optimized for**: **instance
 
 A reservation discount applies only to the VM usage where the `ServiceType` value in `AdditionalInfo` matches the reservation that's purchased. Reservation discount application ignores the meter used for VMs and only evaluates `ServiceType`. Know which service type that you purchased the VM for. You can exchange a non-premium storage VM reservation for a premium storage reservation, or in the opposite manner.
 
-## Classic VMs and cloud services
+## Services that get VM reservation discounts
 
-VM reserved instances automatically apply to both classic VMs and cloud services when instance size flexibility is enabled. For cloud services, the reservation discount applies only to the compute cost. When the reservation discount is applied to cloud services, the usage charges are split into compute charges (Linux meter) and cloud services charges (cloud services management meter). For more information, see [how the reservation discount applies to Cloud Services](billing-reserved-instance-windows-software-costs.md#cloud-services-software-meters-not-included-in-reservation-cost).
+Your VM reservations can apply to VM usage emitted from multiple services - not just for your VM deployments. Resources that get reservation discounts change depending on the instance size flexibility setting.
+
+### Instance size flexibility setting
+
+The instance size flexibility setting determines which services get the reserved instance discounts.
+
+Whether the setting is on or off, reservation discounts automatically apply to any matching VM usage when the *ConsumedService* is `Microsoft.Compute`. So, check your usage data for the *ConsumedService* value. Some examples include:
+
+- Virtual machines
+- Virtual machine scale sets
+- Container service
+- Azure Batch deployments (in user subscriptions mode)
+- Azure Kubernetes Service (AKS)
+- Service Fabric
+
+When the setting is on, reservation discounts automatically apply to matching VM usage when the *ConsumedService* is any of the following items:
+
+- Microsoft.Compute
+- Microsoft.ClassicCompute
+- Microsoft.Batch
+- Microsoft.MachineLearningServices
+- Microsoft.Kusto
+
+Check the *ConsumedService* value in your usage data to determine if the usage is eligible for reservation discounts.
+
+For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+
 
 ## Need help? Contact us
 

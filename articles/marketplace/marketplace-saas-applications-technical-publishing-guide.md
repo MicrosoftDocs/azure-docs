@@ -6,7 +6,7 @@ author: keithcharlie
 ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: keithcharlie
+ms.author: kevidal
 ---
 
 # SaaS applications Offer Publishing Guide

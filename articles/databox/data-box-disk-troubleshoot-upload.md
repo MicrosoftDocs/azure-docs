@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 06/17/2019
 ms.author: alkohli
 ---
 
@@ -15,9 +15,103 @@ ms.author: alkohli
 
 This article applies to Microsoft Azure Data Box Disk and describes the issues you see when you upload data to Azure.
 
-## Data upload logs
+## About upload logs
 
-When the data is uploaded to Azure at the datacenter, `_error.xml` and `_verbose.xml` files are generated. These logs are uploaded to the same storage account that was used to upload data. A sample of the `_error.xml` is shown below.
+When the data is uploaded to Azure at the datacenter, `_error.xml` and `_verbose.xml` files are generated for each storage account. These logs are uploaded to the same storage account that was used to upload data. 
+
+Both the logs are in the same format and contain XML descriptions of the events that occurred while copying the data from the disk to the Azure Storage account.
+
+The verbose log contains complete information about the status of the copy operation for every blob or file, whereas the error log contains only the information for blobs or files that encountered errors during the upload.
+
+The error log has the same structure as the verbose log, but filters out successful operations.
+
+## Download logs
+
+Take the following steps to locate the upload logs.
+
+1. If there are any errors when uploading the data to Azure, the portal displays a path to the folder where the diagnostics logs are located.
+
+    ![Link to logs in the portal](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
+
+2. Go to **waies**.
+
+    ![error and verbose logs](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
+
+In each case, you see the error logs and the verbose logs. Select each log and download a local copy.
+
+## Sample upload logs
+
+A sample of the `_verbose.xml` is shown below. In this case, the order has completed successfully with no errors.
+
+```xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<DriveLog Version="2018-10-01">
+  <DriveId>184020D95632</DriveId>
+  <Blob Status="Completed">
+    <BlobPath>$root/botetapageblob.vhd</BlobPath>
+    <FilePath>\PageBlob\botetapageblob.vhd</FilePath>
+    <Length>1073742336</Length>
+    <ImportDisposition Status="Created">rename</ImportDisposition>
+    <PageRangeList>
+      <PageRange Offset="0" Length="4194304" Status="Completed" />
+      <PageRange Offset="4194304" Length="4194304" Status="Completed" />
+      <PageRange Offset="8388608" Length="4194304" Status="Completed" />
+      --------CUT-------------------------------------------------------
+      <PageRange Offset="1061158912" Length="4194304" Status="Completed" />
+      <PageRange Offset="1065353216" Length="4194304" Status="Completed" />
+      <PageRange Offset="1069547520" Length="4194304" Status="Completed" />
+      <PageRange Offset="1073741824" Length="512" Status="Completed" />
+    </PageRangeList>
+  </Blob>
+  <Blob Status="Completed">
+    <BlobPath>$root/botetablockblob.txt</BlobPath>
+    <FilePath>\BlockBlob\botetablockblob.txt</FilePath>
+    <Length>19</Length>
+    <ImportDisposition Status="Created">rename</ImportDisposition>
+    <BlockList>
+      <Block Offset="0" Length="19" Status="Completed" />
+    </BlockList>
+  </Blob>
+  <File Status="Completed">
+    <FileStoragePath>botetaazurefilesfolder/botetaazurefiles.txt</FileStoragePath>
+    <FilePath>\AzureFile\botetaazurefilesfolder\botetaazurefiles.txt</FilePath>
+    <Length>20</Length>
+    <ImportDisposition Status="Created">rename</ImportDisposition>
+    <FileRangeList>
+      <FileRange Offset="0" Length="20" Status="Completed" />
+    </FileRangeList>
+  </File>
+  <Status>Completed</Status>
+</DriveLog>
+```
+
+For the same order, a sample of the `_error.xml` is shown below.
+
+```xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<DriveLog Version="2018-10-01">
+  <DriveId>184020D95632</DriveId>
+  <Summary>
+    <ValidationErrors>
+      <None Count="3" />
+    </ValidationErrors>
+    <CopyErrors>
+      <None Count="3" Description="No errors encountered" />
+    </CopyErrors>
+  </Summary>
+  <Status>Completed</Status>
+</DriveLog>
+```
+
+A sample of the `_error.xml` is shown below where the order completed with errors. 
+
+The error file in this case has a `Summary` section and another section that contains all the file level errors. 
+
+The `Summary` contains the `ValidationErrors` and the `CopyErrors`. In this case, 8 files or folders were uploaded to Azure and there were no validation errors. When the data was copied to Azure Storage account, 5 files or folders uploaded successfully. The remaining 3 files or folders were renamed as per the Azure container naming conventions and then uploaded successfully to Azure.
+
+The file level status are in `BlobStatus` that describes any actions taken to upload the blobs. In this case, three containers are renamed because the folders to which the data was copied did not conform with the Azure naming conventions for containers. For the blobs uploaded in those containers, the new container name, path of the blob in Azure, original invalid file path, and the blob size are included.
 	
 ```xml
  <?xml version="1.0" encoding="utf-8"?>
@@ -53,32 +147,17 @@ When the data is uploaded to Azure at the datacenter, `_error.xml` and `_verbose
 	</DriveLog>
 ```
 
-## Download logs
-
-There are two ways to locate and download the diagnostics logs.
-
-- If there are any errors when uploading the data to Azure, the portal displays a path to the folder where the diagnostics logs are located.
-
-    ![Link to logs in the portal](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
-
-- Go to the storage account associated with your Data Box order. Go to **Blob service > Browse blobs** and look for the blob corresponding to the storage account. Go to **waies**.
-
-    ![Copy logs 2](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
-
-In each case, you see the error logs and the verbose logs. Select each log and download a local copy.
-
-
 ## Data upload errors
 
 The errors generated when uploading the data to Azure are summarized in the following table.
 
-| Error code | Description                        |
+| Error code | Description                   |
 |-------------|------------------------------|
 |`None` |  Completed successfully.           |
-|`Renamed` | Successfully renamed the blob.  |                                                            |
+|`Renamed` | Successfully renamed the blob.   |
 |`CompletedWithErrors` | Upload completed with errors. The details of the files in error are included in the log file.  |
 |`Corrupted`|CRC computed during data ingestion doesn’t match the CRC computed during upload.  |  
-|`StorageRequestFailed` | Azure storage request failed.   |     |
+|`StorageRequestFailed` | Azure storage request failed.   |     
 |`LeasePresent` | This item is leased and is being used by another user. |
 |`StorageRequestForbidden` |Could not upload due to authentication issues. |
 |`ManagedDiskCreationTerminalFailure` | Could not upload as managed disks. The files are available in the staging storage account as page blobs. You can manually convert page blobs to managed disks.  |

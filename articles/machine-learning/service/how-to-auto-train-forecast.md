@@ -169,7 +169,8 @@ You can also use the `forecast_destination` parameter in the `forecast()` functi
 ```python
 y_query = y_test.copy().astype(np.float)
 y_query.fill(np.nan)
-y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
+y_fcst, X_trans = fitted_pipeline.forecast(
+    X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
 Calculate RMSE (root mean squared error) between the `y_test` actual values, and the forecasted values in `y_pred`.

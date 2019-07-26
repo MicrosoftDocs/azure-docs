@@ -12,6 +12,7 @@ ms.author: victorh
 | Public DNS Zones per subscription |250 <sup>1</sup> |
 | Record sets per public DNS zone |10,000 <sup>1</sup> |
 | Records per record set in public DNS zone |20 |
+| Number of Alias records for a single Azure resource |20|
 | Private DNS zones per subscription |1000|
 | Record sets per private DNS zone |25000|
 | Records per record set for private DNS zones |20|
