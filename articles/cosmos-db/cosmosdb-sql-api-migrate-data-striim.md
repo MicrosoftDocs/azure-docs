@@ -161,7 +161,7 @@ In this section, you will configure the Azure Cosmos DB SQL API account as the t
    * **AccessKey** - The PrimaryKey of your Azure Cosmos account.
    * **ServiceEndpoint** – The URI of your Azure Cosmos account, they can be found under the **Keys** section of the Azure portal. 
 
-   Click **Save** and **Next.
+   Select **Save** and **Next**.
 
    ![Configure target parameters](./media/cosmosdb-sql-api-migrate-data-striim/configure-target-parameters.png)
 
@@ -188,7 +188,7 @@ In this section, you will configure the Azure Cosmos DB SQL API account as the t
 
    ![Validate migrated data in Azure](./media/cosmosdb-sql-api-migrate-data-striim/portal-validate-results.png)
 
-By using the Striim solution in Azure, you can continuously migrate data to Azure Cosmos DB from various sources such as Oracle, Cassandra, MongoDB and various others to Azure Cosmos DB. For any issues when setting up the migration path with Striim, file a support request in the [Striim website](https://go2.striim.com/request-support-striim).
+By using the Striim solution in Azure, you can continuously migrate data to Azure Cosmos DB from various sources such as Oracle, Cassandra, MongoDB, and various others to Azure Cosmos DB. For any issues when setting up the migration path with Striim, file a support request in the [Striim website](https://go2.striim.com/request-support-striim).
 
 ## Next steps
 
