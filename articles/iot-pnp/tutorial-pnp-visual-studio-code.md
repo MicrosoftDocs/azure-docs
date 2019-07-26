@@ -267,7 +267,7 @@ You now have the three files that make up your device capability model:
 
 ## Publish the model
 
-For the Azure IoT explorer tool to read your device capability model, you need to publish it in your organizational repository. To publish from VS Code, you need the connection string for the organizational repository:
+For the Azure IoT explorer tool to read your device capability model, you need to publish it in your company repository. To publish from VS Code, you need the connection string for the company repository:
 
 1. Navigate to the [Azure Certified for IoT portal](https://aka.ms/ACFI).
 
@@ -277,7 +277,7 @@ For the Azure IoT explorer tool to read your device capability model, you need t
 
 1. Copy the connection string.
 
-To open your organizational repository in VS Code:
+To open your company repository in VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
@@ -285,9 +285,9 @@ To open your organizational repository in VS Code:
 
 1. Select **Open Organizational Model Repository** and paste in your connection string.
 
-1. Press **Enter** to open your organizational repository.
+1. Press **Enter** to open your company repository.
 
-To publish your device capability model and interfaces to your organizational repository:
+To publish your device capability model and interfaces to your company repository:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
@@ -295,7 +295,7 @@ To publish your device capability model and interfaces to your organizational re
 
 1. Select the **EnvironmentalSensor.interface.json** and **SensorboxModel.capabilitymodel.json** files and select **OK**.
 
-Your files are now stored in your organizational repository.
+Your files are now stored in your company repository.
 
 ## Generate code
 
