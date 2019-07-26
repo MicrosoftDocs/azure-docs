@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 title: Service Fabric concepts - app resource model overview | Microsoft Docs
 description: This article is an overview of the app resource model.
@@ -20,5 +19,3 @@ Introductory paragraph.
 Information about App Resource Model.
 
 ## Next steps
-=======
->>>>>>> parent of e5f65ad2dd9... added work from #83472
