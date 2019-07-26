@@ -29,8 +29,6 @@ These tasks make it easy to, for example, quickly deploy a *golden image* VM for
 
 This article shows how to use Azure DevTest Labs Tasks to create and deploy a VM, create a custom image, and then delete the VM, all in one release pipeline. You would ordinarily perform the tasks individually in your own custom build, test, and deploy pipelines.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Prerequisites
@@ -43,11 +41,12 @@ This article shows how to use Azure DevTest Labs Tasks to create and deploy a VM
   1. Select **Get it free**.
   1. Select your Azure DevOps organization from the dropdown, and select **Install**. 
   
-## Create a Resource Manager template
+## Create the template to build an Azure VM 
 
 This section describes how to create the Azure Resource Manager template that you use to create an Azure VM on demand.
 
 1. To create a Resource Manager template in your subscription, complete the procedure in [Use a Resource Manager template](devtest-lab-use-resource-manager-template.md).
+   
 1. Before you generate the Resource Manager template, add the [WinRM artifact](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-winrm) as part of creating the VM. Deployment tasks like *Azure File Copy* and *PowerShell on Target Machines* need WinRM access.
    
    > [!NOTE]
@@ -55,8 +54,18 @@ This section describes how to create the Azure Resource Manager template that yo
    >
    
 1. Save the template to your computer as a file named *CreateVMTemplate.json*.
+   
 1. Check in the template to your source control system.
-1. Open a new blank text editor, and paste the following script into it.
+
+## Create a script to get VM properties
+
+When you run task steps like *Azure File Copy* or *PowerShell on Target Machines* in the release pipeline, the following script collects the values that you need to deploy an app to a VM. You would ordinarily use these tasks to deploy your app to an Azure VM. The tasks require values such as the VM resource group name, IP address, and fully qualified domain name (FQDN).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+To create the script file:
+
+1. Open a text editor, and paste the following script into it.
    
    ```powershell
    Param( [string] $labVmId)
@@ -89,8 +98,6 @@ This section describes how to create the Azure Resource Manager template that yo
 
 1. Save the file with a name like *GetLabVMParams.ps1*, and check it in to your source control system. 
 
-   When you run this script on the agent as part of the release pipeline, and use task steps such as *Azure File Copy* or *PowerShell on Target Machines*, the script collects the values that you need to deploy your app to the VM. You would ordinarily use these tasks to deploy apps to an Azure VM. The tasks require values such as the VM resource group name, IP address, and fully qualified domain name (FQDN).
-
 ## Create a release pipeline in Azure Pipelines
 
 To create the release pipeline:
@@ -107,9 +114,9 @@ To create the release pipeline:
    - Add *userName*, and enter the username that you assigned to the VM when you created the Resource Manager template in the Azure portal.
    - Add *password*, and enter the password that you assigned to the VM when you created the Resource Manager template in the Azure portal. Select the lock icon to hide and secure the password.
 
-### Create a VM
+### Create a DevTest Labs VM
 
-The next step of the deployment is to create the VM to use as the golden image for future deployments. You create the VM within your Azure DevTest Labs instance by using the task that's specially developed for this purpose.
+The next step of the deployment is to create the VM to use for the golden image VM for future deployments. You create the VM within your Azure DevTest Labs instance by using the *Azure DevTest Labs Create VM* task.
 
 1. On the release pipeline **Pipeline** tab, select the hyperlinked text in **Stage 1** to **View stage tasks**, and then select the **+** next to **Agent job**. 
    
@@ -117,7 +124,7 @@ The next step of the deployment is to create the VM to use as the golden image f
    
 1. Select **Create Azure DevTest Labs VM** in the left pane. 
 
-1. Fill out the form as follows:
+1. In the right pane, fill out the form as follows:
    
    |Field|Value|
    |---|---|
@@ -125,9 +132,9 @@ The next step of the deployment is to create the VM to use as the golden image f
    |**Lab Name**|Select the name of an existing lab in which the lab VM will be created.|
    |**Template Name**|Enter the full path and name of the template file you saved to your source code repository. You can use built-in properties to simplify the path, for example:<br /><br />`$(System.DefaultWorkingDirectory)/Contoso/Templates/CreateVMTemplate.json`|
    |**Template Parameters**|Enter the parameters for the variables you defined earlier:<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|
-   |**Output Variables** > **Lab VM ID**|Enter the variable for the created lab VM ID. If you use the default **labVMId**, you can refer to the variable in subsequent tasks as $(labVMId).<br /><br />You can create a name other than the default, but remember to use the correct name in subsequent tasks. You can write the Lab VM ID in the following form:<br /><br />`/subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{vmName}`|
+   |**Output Variables** > **Lab VM ID**|Enter the variable for the created lab VM ID. If you use the default **labVMId**, you can refer to the variable in subsequent tasks as *$(labVMId)*.<br /><br />You can create a name other than the default, but remember to use the correct name in subsequent tasks. You can write the Lab VM ID in the following form:<br /><br />`/subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{lab}/virtualMachines/{vm}`|
 
-### Run the script to collect the details of the DevTest Labs VM
+### Collect the details of the DevTest Labs VM
 
 Execute the script you created earlier to collect the details of the DevTest Labs VM. 
 
@@ -137,31 +144,19 @@ Execute the script you created earlier to collect the details of the DevTest Lab
    
 1. Select **Azure PowerShell script: FilePath** in the left pane. 
    
-1. In the right pane:
+1. In the right pane, fill out the form as follows:
    
-   1. For **Azure Connection Type**, select **Azure Resource Manager**.
-   
-   1. Under **Azure Subscription**, select your service connection or subscription. 
-   
-   1. For **Script Type**, select **Script File Path**.
-   
-   1. For **Script Path**, enter the full path and name of the script that you saved to your source code repository. You can use built-in properties to simplify the path, for example:
-      
-      `$(System.DefaultWorkingDirectory/Contoso/Scripts/GetLabVMParams.ps1`
-      
-   1. For **Script Arguments**, enter the name of the labVmId variable that was populated by the previous task, for example: 
-      
-      `-labVmId '$(labVMId)'`
-      
+   |Field|Value|
+   |---|---|
+   |**Azure Connection Type**|Select **Azure Resource Manager**.|
+   |**Azure Subscription**|Select your service connection or subscription.| 
+   |**Script Type**|Select **Script File Path**.|
+   |**Script Path**|Enter the full path and name of the PowerShell script that you saved to your source code repository. You can use built-in properties to simplify the path, for example:<br /><br />`$(System.DefaultWorkingDirectory/Contoso/Scripts/GetLabVMParams.ps1`|
+   |**Script Arguments**|Enter the name of the *labVmId* variable that was populated by the previous task, for example:<br /><br />`-labVmId '$(labVMId)'`|
+
 The script collects the required values and stores them in environment variables within the release pipeline, so that you can easily refer to them in subsequent steps.
 
-### Deploy your app to the new DevTest Labs VM (optional)
-
-Add tasks to deploy your app to the new DevTest Labs VM. The tasks you ordinarily use to deploy the app are **Azure File Copy** and **PowerShell on Target Machines**.
-
-The VM information you need for the parameters of these tasks is stored in three configuration variables named **labVmRgName**, **labVMIpAddress**, and **labVMFqdn** within the release pipeline. If you only want to experiment with creating a DevTest Labs VM and a custom image, without deploying an app to it, you can skip this step.
-
-### Create an image
+### Create a VM image from the DevTest Labs VM
 
 The next task is to create an image of the newly deployed VM in your Azure DevTest Labs instance. You can then use the image to create copies of the VM on demand whenever you want to execute a dev task or run some tests. 
 
@@ -171,18 +166,21 @@ The next task is to create an image of the newly deployed VM in your Azure DevTe
    
 1. Configure the task as follows:
    
-   1. Under **Azure RM Subscription**, select your service connection or subscription. 
+   |Field|Value|
+   |---|---|
+   |**Azure RM Subscription**|Select your service connection or subscription.|
+   |**Lab Name**|Select the name of an existing lab in which the image will be created.|
+   |**Custom Image Name**|Enter a name for the custom image.|
+   |**Description** (optional)|Enter a description to make it easy to select the correct image later.|
+   |**Source Lab VM** > **Source Lab VM ID**|If you changed the default name of the LabVMId variable, enter it here. The default value is **$(labVMId)**.|
+   |**Output Variables** > **Custom Image ID**|Change the default name of the variable if necessary.|
    
-   1. Under **Lab Name**, select the name of an existing lab in which the image will be created.
-   
-   1. For **Custom Image Name**, enter a name for the custom image.
-   
-   1. (Optional) For **Description**, enter a description to make it easy to select the correct image later.
-   
-   1. For **Source Lab VM** > **Source Lab VM ID**, if you changed the default name of the LabVMId variable, enter it here. The default value is **$(labVMId)**.
-   
-   1. Under **Output Variables** > **Custom Image ID**, change the default name of the variable if necessary.
-   
+### Deploy your app to the DevTest Labs VM (optional)
+
+You can add tasks to deploy your app to the new DevTest Labs VM. The tasks you usually use to deploy the app are *Azure File Copy* and *PowerShell on Target Machines*.
+
+The VM information you need for the parameters of these tasks is stored in three configuration variables named **labVmRgName**, **labVMIpAddress**, and **labVMFqdn** within the release pipeline. If you only want to experiment with creating a DevTest Labs VM and a custom image, without deploying an app to it, you can skip this step.
+
 ### Delete the VM
 
 The final task is to delete the VM that you deployed in your Azure DevTest Labs instance. You would ordinarily delete the VM after you execute the dev tasks or run the tests that you need on the deployed VM. 
@@ -193,15 +191,14 @@ The final task is to delete the VM that you deployed in your Azure DevTest Labs 
    
 1. Configure the task as follows:
    
-   1. Under **Azure RM Subscription**, select your service connection or subscription. 
-   
-   1. For **Lab VM ID**, if you changed the default name of the LabVMId variable, enter it here. The default value is **$(labVMId)**.
+   - Under **Azure RM Subscription**, select your service connection or subscription. 
+   - For **Lab VM ID**, if you changed the default name of the LabVMId variable, enter it here. The default value is **$(labVMId)**.
    
 1. Select the name **New release pipeline** on the pipeline page, and enter a name for the release pipeline. 
    
 1. Select the **Save** icon at upper right to save the release pipeline. 
 
-## Create and run the release
+## Create and run a release
 
 1. Select **Create release** at upper right on your pipeline page to create a new release. 
    
@@ -209,7 +206,7 @@ The final task is to delete the VM that you deployed in your Azure DevTest Labs 
 
 At each release stage, refresh the view of your DevTest Labs instance in the Azure portal to view the VM creation, image creation, and VM deletion.
 
-You can use the custom image to create VMs whenever you needs them.
+You can use the custom image to create VMs whenever you need them.
 
 ## Next steps
 - Learn how to [Create multi-VM environments with Resource Manager templates](devtest-lab-create-environment-from-arm.md).
