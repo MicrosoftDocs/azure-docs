@@ -58,9 +58,9 @@ To enable a report server to use Kerberos authentication, configure the Authenti
 
 For more information, see [Modify a Reporting Services Configuration File](https://msdn.microsoft.com/library/bb630448.aspx) and [Configure Windows Authentication on a Report Server](https://msdn.microsoft.com/library/cc281253.aspx).
 
-## Ensure that the Connector is trusted for delegation to the SPN added to the SharePoint application pool account
+## Ensure the Connector is trusted for delegation to the SPN added to the Reporting Services application pool account
 
-Configure KCD so that the Azure AD Application Proxy service can delegate user identities to the SharePoint application pool account. Configure KCD by enabling the Application Proxy connector to retrieve Kerberos tickets for your users who have been authenticated in Azure AD. Then that server passes the context to the target application, or SharePoint in this case.
+Configure KCD so that the Azure AD Application Proxy service can delegate user identities to the Reporting Services application pool account. Configure KCD by enabling the Application Proxy connector to retrieve Kerberos tickets for your users who have been authenticated in Azure AD. Then that server passes the context to the target application, or Reporting Services in this case.
 
 To configure KCD, repeat the following steps for each connector machine:
 
