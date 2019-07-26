@@ -10,11 +10,6 @@
  ms.custom: include file
 ---
 
-> [!NOTE]
-> The current version of the Azure IoT SDK for Python is a wrapper over our C SDK. It is generated using the Boost library. Because of that, it comes with several significant limitations.
->
-> There have been several reports of errors when importing iothub_client in a sample. For more information on dealing with ImportError issues, please see [Dealing with ImportError issues](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
-
 To complete this tutorial, you need the following:
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
