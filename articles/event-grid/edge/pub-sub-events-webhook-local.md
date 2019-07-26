@@ -25,9 +25,9 @@ In order to complete this tutorial, you will need:-
 
 * **Azure Function subscriber module on the same IoT Edge Device** - Follow the steps in described [here](deploy-func-webhook-module-portal.md) on how to do that if not already done.
 
-## Step1: Create topic
+## Step 1: Create topic
 
-As a publisher of an event, you need to create an event grid topic. Topic refers to an "endpoint" where publishers can then send events to. 
+As a publisher of an event, you need to create an event grid topic. Topic refers to an "endpoint" where publishers can then send events to.
 
 1. Create topic.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
@@ -43,10 +43,10 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 1. Run the following command to create the topic. HTTP Status Code of 200 OK should be returned.
 
     ```sh
-    curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01
+    curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
     ```
 
-## Create event subscription
+## Step 2: Create event subscription
 
    Subscribers can register for events published to a topic. In order to receive any event, they will need to create an Event grid subscription on a topic of interest.
 
@@ -71,10 +71,10 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 2. Run the following command to create the subscription. HTTP Status Code of 200 OK should be returned.
 
     ```sh
-    curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01
+    curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
     ```
 
-## Publish event
+## Step 3: Publish event
 
 1. Create event.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
@@ -90,10 +90,10 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 1. Run the following command to publish event
 
     ```sh
-    curl -k -H "Content-Type: application/json" -X POST -g -d @event.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/events?api-version=2019-01-01
+    curl -k -H "Content-Type: application/json" -X POST -g -d @event.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/events?api-version=2019-01-01-preview
     ```
 
-## Verify event delivery
+## Step 4: Verify event delivery
 
 1. SSH or RDP into your IoT Edge VM
 1. Check the subscriber logs
@@ -101,7 +101,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
     On Windows,
 
     ```sh
-    docker -H npipe:////./pipe/notedly_moby_engine container logs subscriber    
+    docker -H npipe:////./pipe/notedly_moby_engine container logs subscriber
     ```
     
    On Linux,

@@ -10,6 +10,12 @@
       href: deploy-func-webhook-module-portal.md
     - name: Publish and Subscribe events
       href: pub-sub-events-webhook-local.md
+  - name: Forward Event Grid events to IoTHub
+    items:
+    - name: Deploy Event Grid IoT Module
+      href: deploy-event-grid-portal.md
+    - name: Forward events to IoTHub
+      href: forward-events-iothub.md
 - name: Concepts
   items:
   - name: Event Grid concepts
