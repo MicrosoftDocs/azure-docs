@@ -18,7 +18,7 @@ This article walks through all the steps needed to forward edge events to Event 
 * React to edge events in the cloud
 * Forward events to Event Grid in Cloud and use Event Hubs, Storage Queues to buffer events before processing them in the cloud
 
-To complete this tutorial an understanding of Event Grid concepts on [edge](concepts.md)  and in [cloud]() will be required.
+To complete this tutorial an understanding of Event Grid concepts on [edge](concepts.md)  and in [cloud](https://docs.microsoft.com/azure/event-grid/concepts) will be required.
 
 ## Prerequisites
 
