@@ -120,7 +120,10 @@ These code snippets show you how to do the following tasks with the Computer Vis
 > [!NOTE]
 > This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Computer Vision key, named `AZURE_COMPUTERVISION_API_KEY`.
 
-The following code adds a `main` method to your class and creates variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. It uses these values to create a [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) object and passes it into other method(s) which you'll define later.
+The following code adds a `main` method to your class and creates variables for your resource's Azure endpoint and key. You'll need to enter your own endpoint string, which you can find by checking the **Overview** blade of the Azure portal. The code uses these values to create a [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) object and passes it into other method(s) which you'll define later.
+
+> [!NOTE]
+> If you created the environment variable after you launched the application, you'll need to close and reopen the editor, IDE, or shell running it to access the variable.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_main)]
 
