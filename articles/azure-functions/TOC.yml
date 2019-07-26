@@ -119,7 +119,7 @@
     - name: Python
       href: functions-reference-python.md
   - name: Diagnostics
-    href: ../app-service/overview-diagnostics.md
+    href: ../app-service/overview-diagnostics.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Performance considerations
     href: functions-best-practices.md 
   - name: Functions Proxies

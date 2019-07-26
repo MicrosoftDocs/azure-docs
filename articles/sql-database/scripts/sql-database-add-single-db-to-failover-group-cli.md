@@ -10,7 +10,6 @@ ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: jroth
 ms.date: 07/16/2019
 ---
 # Use CLI to move an Azure SQL database in a SQL elastic pool
