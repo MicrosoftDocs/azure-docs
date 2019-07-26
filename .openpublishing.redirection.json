@@ -35110,8 +35110,8 @@
     },
     {
       "source_path": "articles/log-analytics/log-analytics-azure-storage.md",
-      "redirect_url": "/azure/azure-monitor/platform/collect-azure-metrics-logs",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/log-analytics-azure-storage-iis-table.md",
@@ -36646,6 +36646,11 @@
     {
       "source_path": "articles/azure-monitor/learn/tutorial-viewdata.md",
       "redirect_url": "/azure/azure-monitor/log-query/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/collect-azure-metrics-logs.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
       "redirect_document_id": false
     },
     {
@@ -40252,9 +40257,9 @@
     },
 
     {
-      "source_path": "azure/hdinsight/domain-joined/apache-domain-joined-introduction.md",
+      "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-introduction.md",
       "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
 
     {
