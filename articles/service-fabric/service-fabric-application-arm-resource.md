@@ -3,7 +3,7 @@ title: Deploy and upgrade applications and services with Azure Resource Manager 
 description: Learn how to deploy applications and services to a Service Fabric cluster using an Azure Resource Manager template.
 services: service-fabric
 documentationcenter: .net
-author: atsenthi
+author: Nickomang
 manager: chackdan
 editor: ''
 
