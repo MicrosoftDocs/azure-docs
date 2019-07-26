@@ -10,7 +10,6 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-manager: craigg
 ms.date: 04/23/2019
 ---
 # Quickstart: Create a single database in Azure SQL Database using the Azure portal, PowerShell, and Azure CLI

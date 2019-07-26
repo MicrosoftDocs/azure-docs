@@ -1,6 +1,6 @@
 ---
-title: Batch testing
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Batch testing - LUIS
+titleSuffix: Azure Cognitive Services
 description: Use batch testing to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
 author: diberry

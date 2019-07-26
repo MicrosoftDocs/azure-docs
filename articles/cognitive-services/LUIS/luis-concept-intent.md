@@ -1,6 +1,6 @@
 ---
-title: Intents 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Intents - LUIS
+titleSuffix: Azure Cognitive Services
 description: An single intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's utterance. Define a set of intents that corresponds to actions users want to take in your application.
 services: cognitive-services
 author: diberry
