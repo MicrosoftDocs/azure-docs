@@ -35111,7 +35111,7 @@
     {
       "source_path": "articles/log-analytics/log-analytics-azure-storage.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/log-analytics-azure-storage-iis-table.md",
