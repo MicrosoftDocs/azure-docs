@@ -1,6 +1,6 @@
 ---
-title: Service Fabric concepts - ARM overview | Microsoft Docs
-description: This article is an overview of ARM.
+title: Service Fabric concepts - app resource model overview | Microsoft Docs
+description: This article is an overview of the app resource model.
 services: service-fabric
 author: Nickomang 
 
@@ -10,12 +10,12 @@ ms.date: 07/25/2019
 ms.author: atsenthi 
 ---
 
-# What is ARM?
+# What is App Resource Model?
 
 Introductory paragraph.
 
-## \<details about ARM\>
+## \<details about App Resource Model\>
 
-Information about ARM.
+Information about App Resource Model.
 
 ## Next steps
