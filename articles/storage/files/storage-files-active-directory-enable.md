@@ -13,7 +13,7 @@ ms.author: rogarana
 # Enable Azure Active Directory Domain Services authentication over SMB for Azure Files (preview)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-For an overview of Azure Active Directory (Azure AD) authentication over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files (preview)](storage-files-active-directory-overview.md).
+For an overview of Azure AD authentication over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files (preview)](storage-files-active-directory-overview.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
