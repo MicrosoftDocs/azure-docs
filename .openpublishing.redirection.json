@@ -35110,8 +35110,8 @@
     },
     {
       "source_path": "articles/log-analytics/log-analytics-azure-storage.md",
-      "redirect_url": "/azure/azure-monitor/platform/collect-azure-metrics-logs",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/log-analytics-azure-storage-iis-table.md",
@@ -36649,6 +36649,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/collect-azure-metrics-logs.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -37942,6 +37947,11 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/quickstart-summary.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/home",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/Tutorials/PythonTutorial.md",
+      "redirect_url": "https://github.com/Microsoft/Cognitive-Vision-Python",
       "redirect_document_id": false
     },
     {
@@ -40247,9 +40257,9 @@
     },
 
     {
-      "source_path": "azure/hdinsight/domain-joined/apache-domain-joined-introduction.md",
+      "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-introduction.md",
       "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
 
     {
