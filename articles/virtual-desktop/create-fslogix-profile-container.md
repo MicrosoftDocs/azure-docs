@@ -92,6 +92,8 @@ When the **New capacity pool** blade opens, enter the following values:
 
 1. For **Name**, enter a name for the new capacity pool.
 2. For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
+     >[!NOTE]
+     >The Premium setting provides minimum throughput vailable for a Premium Service level, which is 256 MBps. You may need to adjust this throughput for a production environment. Final throughput is based on the relationship described in [Throughput limits](..\azure-netapp-files\azure-netapp-files-service-levels.md).
 3. For **Size (TiB)**, enter the capacity pool size that best fits your needs. The minimum size is 4 TiB.
 
    ![A screenshot of the new capacity pool window that shows each drop-down menu and the OK button.](media/d5bb782f55d1e1b2ab49e22910e19a32.png)
