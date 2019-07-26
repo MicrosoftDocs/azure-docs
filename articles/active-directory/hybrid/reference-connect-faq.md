@@ -147,6 +147,15 @@ No. Changing the server name renders the sync engine unable to connect to the SQ
 **Q: Are Next Generation Cryptographic (NGC) sync rules supported on a FIPS-enabled machine?**  
 No.  They are not supported.
 
+**Q. If I disable the synced Device (ie. HAADJ) at Azure portal , why it is enabled back?
+ 
+For Synced devices, Devices are authored/mastered from on-prem. hence if the device is enabled at on-prem it will enable the device at AAD portal which was previously disabled by admin.
+To disable synced device, Please use on-prem AD side to disable the computer account.
+
+**Q. If I block user sign-in at O365/AAD Portal for synced users, why it is unblock the sign-in back?.
+ 
+For synced users, the users are authored/mastered from on-prem. hence if the account is enabled at on-prem it will unblock the sign-in block placed by admin
+
 ## Identity data
 **Q: Why doesn't the userPrincipalName (UPN) attribute in Azure AD match the on-premises UPN?**  
 For information, see these articles:
