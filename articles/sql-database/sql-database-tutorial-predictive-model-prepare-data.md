@@ -21,7 +21,7 @@ In part one of this three-part tutorial series, you'll import and prepare data f
 
 For this tutorial series, imagine you own a ski rental business and you want to predict the number of rentals that you'll have on a future date. This information will help you get your stock, staff, and facilities ready.
 
-In parts one and two of this series, you'll develop some R scripts in RStudio to prepare your data and train a machine learning model. Then, in part three, you'll run those R scripts inside a SQL database by using stored procedures.
+In parts one and two of this series, you'll develop some R scripts in RStudio to prepare your data and train a machine learning model. Then, in part three, you'll run those R scripts inside a SQL database using stored procedures.
 
 In this article, you'll learn how to:
 
