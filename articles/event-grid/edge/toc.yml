@@ -16,6 +16,12 @@
       href: deploy-event-grid-portal.md
     - name: Forward events to IoTHub
       href: forward-events-iothub.md
+  - name: Forward Event Grid edge events to Event Grid in cloud
+    items:
+    - name: Deploy Event Grid IoT Module
+      href: deploy-event-grid-portal.md
+    - name: Forward events to IoTHub
+      href: forward-events-event-grid-cloud.md
 - name: Concepts
   items:
   - name: Event Grid concepts
