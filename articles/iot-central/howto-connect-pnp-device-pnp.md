@@ -31,7 +31,7 @@ In this guide, you learn how to:
 
 * Import a device capability model into a device template in IoT Central
 * Add a dashboard to the template that displays device telemetry
-* A real device from the template
+* Add a real device from the template
 * Import a device capability model into Visual Studio Code
 * Generate a C device client application from the model
 * Build the C device client application and connect it to IoT Central

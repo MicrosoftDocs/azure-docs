@@ -65,8 +65,8 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
      For more information, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-<!-- Replace this before public preview -->
-You also need a local copy of the **EnvironmentalSensor.json** file that contains the device capability model. You can download it from [here](https://raw.githubusercontent.com/Azure/azure-iot-sdk-c-pnp/public-preview-utopia/digitaltwin_client/samples/digitaltwin_sample_environmental_sensor/EnvironmentalSensor.interface.json?token=AALDENAWJOWF3JSZ2HTNLUC5IFF4S).
+<!-- TODO Replace this before public preview -->
+You also need a local copy of the **EnvironmentalSensor.json** file that contains the device capability model. You can download it from [here](https://raw.githubusercontent.com/dominicbetts/IoTPlugandPlay/add-inline-model/samples/EnvironmentalSensorInline.capabilitymodel.json).
 
 ## Create a template
 
