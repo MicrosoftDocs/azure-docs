@@ -3,7 +3,7 @@ title: Azure Service Fabric cluster scaling | Microsoft Docs
 description: Learn about scaling Azure Service Fabric clusters in or out and up or down.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: aljo
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Scaling Azure Service Fabric clusters
