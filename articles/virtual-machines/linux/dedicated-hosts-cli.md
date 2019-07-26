@@ -19,11 +19,20 @@ ms.author: cynthn
 
 # Preview: Deploy VMs to dedicated hosts using the Azure CLI
  
-Create a dedicated host with the Azure CLI 
+
+This article guides you through how to create an Azure dedicated host to host your virtual machines (VMs). 
+
+Make sure that you have installed the latest Azure CLI and logged to an Azure account in with `az login`. 
+
+> [!IMPORTANT]
+> Azure Dedicated Hosts is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> **Known preview limitations**
+> - Virtual machine scale sets are not currently supported on dedicated hosts.
+> - The preview initial release supports the following VM series: DSv3, ESv3, FSv2. 
  
-This article guides you through how to create an infrastructure using Azure dedicated hosts to be later used for virtual machines  
-Make sure that you have installed the latest Azure CLI and logged to an Azure account in with az login. 
-In the following examples, replace example parameter names with your own values. Example parameter names include myHostGroup, myHost, and myVM. 
 
 ## Create resource group 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. Create the resource group with az group create. The following example creates a resource group named *myDHResourceGroup* in the *eastus2* location: 

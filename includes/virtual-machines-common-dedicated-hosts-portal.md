@@ -10,6 +10,16 @@
  ms.custom: include file
 ---
 
+> [!IMPORTANT]
+> Azure Dedicated Hosts is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> **Known preview limitations**
+> - Virtual machine scale sets are not currently supported on dedicated hosts.
+> - The preview initial release supports the following VM series: DSv3, ESv3, FSv2. 
+
+
 ## Create a host group
 
 A **host group** is a new resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following with your dedicated hosts: 

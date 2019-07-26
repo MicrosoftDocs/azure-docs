@@ -17,7 +17,7 @@ Azure Dedicated Host is a service that provides physical servers - able to host 
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Known Preview limitation
+> **Known preview limitations**
 > - Virtual machine scale sets are not currently supported on dedicated hosts.
 > - The preview initial release supports the following VM series: DSv3, ESv3, FSv2. 
 > - During the preview, you won't be able to resize a virtual machine deployed to a dedicated host.
