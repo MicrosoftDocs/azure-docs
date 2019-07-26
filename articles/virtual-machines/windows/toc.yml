@@ -138,7 +138,7 @@
     items:
     - name: Deploy dedicated hosts
       items:
-      - name: Overview of Dedicated Hosts
+      - name: Overview
         href: dedicated-hosts.md
       - name: Deploy using PowerShell
         href: dedicated-hosts-powershell.md

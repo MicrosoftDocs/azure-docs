@@ -40,7 +40,7 @@ The following regions are supported for the public preview:
 
 ## Limits
 
-- Suscription limits?
+- Subcription limits?
 - The number of hosts is limited to XX per subscription.
 
 ## Groups, hosts, and VMs  

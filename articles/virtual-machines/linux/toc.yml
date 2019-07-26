@@ -152,7 +152,7 @@
       href: copy-vm.md
     - name: Deploy dedicated hosts
       items:
-      - name: Overview of Dedicated Hosts
+      - name: Overview
         href: dedicated-hosts.md
       - name: Deploy using CLI
         href: dedicated-hosts-cli.md
