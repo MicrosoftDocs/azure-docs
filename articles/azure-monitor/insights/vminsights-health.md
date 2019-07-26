@@ -155,7 +155,7 @@ For example, to review all VMs that run Red Hat Enterprise Linux release 7.5, se
 
 You click **Show Health** check box and the health state is returned for the filtered results in the table.  
 
-![Example health state of Red Hat Linux VMs](.media/vminsights-health/vminsights-health-rollup-rehl.png)
+![Example health state of Red Hat Linux VMs](.media/vminsights-health/vminsights-health-rollup-rehl-01.png)
 
 For any one of the items in the list, you can click the corresponding health state to launch Health Diagnostics, which shows how health is evaluated for the selected VM. 
 
