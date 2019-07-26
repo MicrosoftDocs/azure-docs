@@ -1,5 +1,5 @@
 - name: Azure Security Documentation
-  href: index.md
+  href: index.yml
 - name: Architecture and design
   href: azure-security.md
   expanded: false

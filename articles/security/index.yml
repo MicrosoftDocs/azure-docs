@@ -168,7 +168,7 @@ conceptualContent:
           itemType: overview
           text:  Security overview
         - url: /azure/security/azure-security-iaas
-          itemType: concepts
+          itemType: concept
           text:  Best practices
         - url: /azure/security/security-recommendations-azure-marketplace-images
           itemType: how-to-guide
@@ -180,7 +180,7 @@ conceptualContent:
     - title: Threat detection and protection
       links: 
         - url: /azure/security/azure-security-antimalware
-          itemType: concepts
+          itemType: concept
           text:  Microsoft Antimalware
         - url: https://docs.microsoft.com/azure/security-center/
           itemType: overview
@@ -198,10 +198,10 @@ conceptualContent:
           itemType: overview
           text:  Security overview
         - url: /azure/security/azure-database-security-best-practices
-          itemType: concepts
+          itemType: concept
           text:  Best practices
         - url: /azure/security/azure-database-security-checklist
-          itemType: concepts
+          itemType: concept
           text:  Security checklist
       footerLink: 
         url: /azure/security/fundamentals/index
