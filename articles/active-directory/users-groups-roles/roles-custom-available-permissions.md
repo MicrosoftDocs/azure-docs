@@ -55,8 +55,10 @@ Create permissions grant access to the **New registration** command.
 
 There are two permissions available for granting the ability to delete app registrations:
 
-- microsoft.directory/applications/delete: Grants the ability to delete app registrations regardless of subtype.
-- microsoft.directory/applications.myOrganization/delete: Grants the ability to delete only app registrations that are only accessible by accounts in your organization (myOrganization app registrations).
+- microsoft.directory/applications/delete: Grants the ability to delete app registrations regardless of subtype; that is, both single-tenant and multi-tenant applications.
+- microsoft.directory/applications.myOrganization/delete: Grants the ability to delete only app registrations that are only accessible by accounts in your organization (myOrganization subtype).
+
+   ![These permissions grant access to the Delete app registration command](./media/roles-custom-available-permissions/delete-app-registration.png)
 
 > [!NOTE]
 > When assigning a role that contains create permissions, the role assignment must be made at the directory scope. A create permission assigned at a resource scope does not grant the ability to create app registrations.
@@ -67,9 +69,16 @@ All member users in the organization can read app registration information by de
 
 - microsoft.directory/applications/allProperties/read: Ability to read all properties of single-tenant and multi-tenant applications outside of sensitive properties like credentials.
 - microsoft.directory/applications.myOrganization/allProperties/read: Grants the same permissions as microsoft.directory/applications/allProperties/read, but only for single-tenant applications.
-- microsoft.directory/applications/standard/read: Grants access to all fields on the application registration branding page.
-- microsoft.directory/applications.myOrganization/standard/read: Grants the same permissions as microsoft.directory/applications/standard/read, but only for single-tenant applications.
-- microsoft.directory/applications/owners/read: Grants the ability to read owners property on single-tenant and multi-tenant applications. Grants access to all fields on the application registration owners page. Grants access to the following properties on the application entity:
+- microsoft.directory/applications/standard/read: Grants access to all fields on the application registration branding page:
+
+    ![This permission grants access to the app registration branding page](./media/roles-custom-available-permissions/app-registration-branding.png)
+
+- microsoft.directory/applications.myOrganization/standard/read: Grants the same permissions as microsoft.directory/applications/standard/read, but for only single-tenant applications.
+- microsoft.directory/applications/owners/read: Grants the ability to read owners property on single-tenant and multi-tenant applications. Grants access to all fields on the application registration owners page:
+
+    ![This permissions grants access to the app registration owners page](./media/roles-custom-available-permissions/app-registration-owners.png)
+
+  Grants access to the following properties on the application entity:
   - AllowActAsForAllClients
   - AllowPassthroughUsers
   - AppAddress
@@ -108,12 +117,20 @@ All member users in the organization can read app registration information by de
 ### Update
 
 - microsoft.directory/applications/allProperties/update
-- microsoft.directory/applications.myOrganization/allProperties/update: Grants the same permissions as microsoft.directory/applications/allProperties/update, but only for single-tenant applications. 
-- microsoft.directory/applications/audience/update: Grants access to all fields on the application registration authentication page. Grants access to the following properties on the application entity:
+- microsoft.directory/applications.myOrganization/allProperties/update: Grants the same permissions as microsoft.directory/applications/allProperties/update, but only for single-tenant applications.
+- microsoft.directory/applications/audience/update: Grants access to all fields on the application registration authentication page:
+
+    ![This permission grants access to app registration authentication page](./media/roles-custom-available-permissions/supported-account-types.png)
+
+  Grants access to the following properties on the application entity:
   - AvailableToOtherTenants
   - SignInAudience
 - microsoft.directory/applications.myOrganization/audience/update: Grants the same permissions as microsoft.directory/applications/audience/update, but only for single-tenant applications.
-- microsoft.directory/applications/authentication/update: Ability to update the reply URL, logout URL, implicit flow, and publisher domain properties on single-tenant and multi-tenant applications. Grants access to all fields on the application registration authentication page except supported account types. Grants access to the following properties on the application entity:
+- microsoft.directory/applications/authentication/update: Ability to update the reply URL, logout URL, implicit flow, and publisher domain properties on single-tenant and multi-tenant applications. Grants access to all fields on the application registration authentication page except supported account types:
+
+    ![Grants access to app registration authentication but not supported account types](./media/roles-custom-available-permissions/supported-account-types.png)
+
+  Grants access to the following properties on the application entity:
   - AcceptMappedClaims
   - AccessTokenAcceptedVersion
   - AddIns
@@ -126,7 +143,11 @@ All member users in the organization can read app registration information by de
   - PublicClient
   - UseCustomTokenSigningKey
 - microsoft.directory/applications.myOrganization/authentication/update: Grants the same permissions as microsoft.directory/applications/authentication/update, but only for single-tenant applications.
-- microsoft.directory/applications/basic/update: Ability to update the name, logo, homepage URL, terms of service URL, and privacy statement URL properties on single-tenant and multi-tenant applications. Grants access to all fields on the application registration branding page. Grants access to the following properties on the application entity:
+- microsoft.directory/applications/basic/update: Ability to update the name, logo, homepage URL, terms of service URL, and privacy statement URL properties on single-tenant and multi-tenant applications. Grants access to all fields on the application registration branding page:
+
+    ![This permission grants access to the app registration branding page](./media/roles-custom-available-permissions/app-registration-branding.png)
+
+  Grants access to the following properties on the application entity:
   - AllowActAsForAllClients
   - AllowPassthroughUsers
   - AppAddress
@@ -161,8 +182,12 @@ All member users in the organization can read app registration information by de
   - WebApp
   - WwwHomepage
 - microsoft.directory/applications.myOrganization/basic/update: Grants the same permissions as microsoft.directory/applications/basic/update, but only for single-tenant applications.
-- microsoft.directory/applications/credentials/update: 
-Ability to update the certificates and client secrets properties on single-tenant and multi-tenant applications. Grants access to all fields on the application registration certificates & secrets pageGrants access to the following properties on the application entity:
+- microsoft.directory/applications/credentials/update: \
+Ability to update the certificates and client secrets properties on single-tenant and multi-tenant applications. Grants access to all fields on the application registration certificates & secrets page:
+
+   ![This permission grants access to the app registration certificates & secrets page](./media/roles-custom-available-permissions/app-registration-secrets.png)
+
+  Grants access to the following properties on the application entity:
   - AsymmetricKey
   - EncryptedSecretKey
   - KeyDescription
@@ -170,10 +195,20 @@ Ability to update the certificates and client secrets properties on single-tenan
   - TokenEncryptionKeyId
 - microsoft.directory/applications.myOrganization/credentials/update: Grants the same permissions as microsoft.directory/applications/credentials/update, but only for single-directory applications.
 - microsoft.directory/applications/owners/update
-Ability to update the owner property on single-tenant and multi-directory tenant. Grants access to all fields on the application registration owners page Grants access to the following properties on the application entity:
+Ability to update the owner property on single-tenant and multi-directory tenant. Grants access to all fields on the application registration owners page:
+
+   ![This permissions grants access to the app registration owners page](./media/roles-custom-available-permissions/app-registration-owners.png)
+
+  Grants access to the following properties on the application entity:
   - Owners
 - microsoft.directory/applications.myOrganization/owners/update: Grants the same permissions as microsoft.directory/applications/owners/update, but only for single-tenant applications.
-- microsoft.directory/applications/permissions/update: Ability to update the delegated permissions, application permissions, authorized client applications, required permissions, and grant consent properties on single-tenant and multi-tenant applications. Does not grant the ability to perform consent. Grants access to all fields on the application registration API permissions and Expose an API pages.Grants access to the following properties on the application entity:
+- microsoft.directory/applications/permissions/update: Ability to update the delegated permissions, application permissions, authorized client applications, required permissions, and grant consent properties on single-tenant and multi-tenant applications. Does not grant the ability to perform consent. Grants access to all fields on the application registration API permissions and Expose an API pages:
+
+    ![This permissions grants access to the app registration API permissions page](./media/roles-custom-available-permissions/app-registration-api-permissions.png)
+
+    ![This permissions grants access to the app registration Expose an API page](./media/roles-custom-available-permissions/app-registration-expose-api.png)
+
+  Grants access to the following properties on the application entity:
   - AppIdentifierUri
   - Entitlement
   - PreAuthorizedApplications
