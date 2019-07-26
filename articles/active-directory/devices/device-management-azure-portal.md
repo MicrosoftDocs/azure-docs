@@ -99,7 +99,7 @@ With both options, you can get to a view that:
 
 >[!TIP]
 >
->* If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the REGISTERED column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Additional information can be found here [Devices frequently asked questions](https://docs.microsoft.com/azure/active-directory/devices/faq).
+>* If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the REGISTERED column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](hybrid-azuread-join-plan.md). Additional information can be found in the article, [Devices frequently asked questions](faq.md).
 >
 >   ![Pending devices](./media/device-management-azure-portal/75.png)
 >
@@ -157,7 +157,7 @@ To delete a device, you have two options:
    - Removes all details that are attached to the device, for example, BitLocker keys for Windows devices.  
    - Represents a non-recoverable activity and is not recommended unless it is required.
 
-If a device is managed by another management authority (for example, Microsoft Intune), make sure that the device has been wiped / retired before deleting the device in Azure AD. Review how to [manage stale devices](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal) before deleting any devices.
+If a device is managed by another management authority (for example, Microsoft Intune), make sure that the device has been wiped / retired before deleting the device in Azure AD. Review how to [manage stale devices](device-management-azure-portal.md) before deleting any devices.
 
 ### View or copy device ID
 

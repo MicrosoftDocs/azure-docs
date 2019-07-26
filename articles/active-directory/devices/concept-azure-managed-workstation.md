@@ -25,7 +25,7 @@ Secured, isolated workstations are critically important for the security of sens
 This document explains what you need for building a secure workstation, often known as a privileged access workstation (PAW). The article also contains detailed instructions to set up initial security controls. This guidance describes how cloud-based technology can manage the service. It relies on security capabilities that were introduced in Windows 10RS5, Microsoft Defender Advanced Threat Protection (ATP), Azure Active Directory, and Intune.
 
 > [!NOTE]
-> This article explains the concept of a secure workstation and its importance. If you are already familiar with the concept and would like to skip to deployment, visit [Deploy a Secure Workstation](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
+> This article explains the concept of a secure workstation and its importance. If you are already familiar with the concept and would like to skip to deployment, visit [Deploy a Secure Workstation](howto-azure-managed-workstation.md).
 
 ## Why secure workstation access is important
 
