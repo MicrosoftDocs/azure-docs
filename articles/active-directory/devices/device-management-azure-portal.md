@@ -91,13 +91,19 @@ You have two options to locate registered and joined devices:
 
 With both options, you can get to a view that:
 
-- Enables you to search for devices using the display name as filter.
+- Enables you to search for devices using the display name or device ID as filter.
 - Provides you with detailed overview of registered and joined devices
 - Enables you to perform common device management tasks
 
 ![All devices](./media/device-management-azure-portal/51.png)
 
-For some iOS devices, the device names containing apostrophes can potentially use different characters that look like apostrophes. So searching for such devices is a little tricky - if you are not seeing search results correctly, ensure that the search string contains matching apostrophe character.
+>[!TIP]
+>
+>* If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the REGISTERED column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Additional information can be found here [Devices frequently asked questions](https://docs.microsoft.com/azure/active-directory/devices/faq).
+>
+>   ![Pending devices](./media/device-management-azure-portal/75.png)
+>
+>* For some iOS devices, the device names containing apostrophes can potentially use different characters that look like apostrophes. So searching for such devices is a little tricky - if you are not seeing search results correctly, ensure that the search string contains matching apostrophe character.
 
 ## Device identity management tasks
 
@@ -151,7 +157,7 @@ To delete a device, you have two options:
    - Removes all details that are attached to the device, for example, BitLocker keys for Windows devices.  
    - Represents a non-recoverable activity and is not recommended unless it is required.
 
-If a device is managed by another management authority (for example, Microsoft Intune), make sure that the device has been wiped / retired before deleting the device in Azure AD.
+If a device is managed by another management authority (for example, Microsoft Intune), make sure that the device has been wiped / retired before deleting the device in Azure AD. Review how to [manage stale devices](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal) before deleting any devices.
 
 ### View or copy device ID
 
@@ -167,11 +173,12 @@ You can view and copy the BitLocker keys to help users to recover their encrypte
 
 To view or copy the BitLocker keys, you need to be either the owner of the device, or a user that has at least one of the following roles assigned:
 
+- Cloud Device Administrator
 - Global Administrator
 - Helpdesk Administrator
+- Intune Service Administrator
 - Security Administrator
 - Security Reader
-- Intune Service Administrator
 
 > [!NOTE]
 > Hybrid Azure AD Joined Windows 10 devices do not have an owner. So, if you are looking for a device by owner and didn't find it, search by the device ID.
