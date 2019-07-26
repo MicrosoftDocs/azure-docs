@@ -39,8 +39,8 @@ highlightedContent:
       url: azure-security-disk-encryption-overview.md
 
 conceptualContent: 
-title: Security content
-summary: Security content
+  title: Security content
+  summary: Security content
   items: 
     - title: Security fundamentals
       links: 
