@@ -35,7 +35,7 @@ The lifecycle management feature is free of charge. Customers are charged the re
 
 ## Regional availability
 
-The lifecycle management feature is available in all global Azure and Azure Government regions.
+The lifecycle management feature is available in all Azure regions.
 
 ## Add or remove a policy
 
