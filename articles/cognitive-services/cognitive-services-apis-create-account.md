@@ -62,19 +62,6 @@ After creating your resource, you can access it from the Azure dashboard if you 
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
-
-## Change your resource pricing tier
-
-Standard billing for Cognitive Services is offered at different tiers to fit your production needs. You can switch tiers and still keep the same endpoint and access keys.
-
-1. Sign in to [Azure portal](https://portal.azure.com) and [find your service](text-analytics-how-to-access-key.md).
-
-2. Click **Price tier**.
-
-   ![Price tier command in left navigation menu](../media/portal-pricing-tier.png)
-
-3. Choose a tier and click **Select**.  The new limits take effect as soon as the selection is processed. 
-
 ## Pricing tiers and billing
 
 Pricing tiers (and the amount you get billed) is based on the number of transactions you send using your authentication information. Each pricing tier specifies the:

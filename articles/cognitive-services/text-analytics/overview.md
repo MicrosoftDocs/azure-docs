@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 07/26/2019
 ms.author: aahi
 ---
 
@@ -43,7 +43,7 @@ You can [detect which language the input text is written in](how-tos/text-analyt
 
 The workflow is simple: you submit data for analysis and handle outputs in your code. Analyzers are consumed as-is, with no additional configuration or customization.
 
-1. [Sign up](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for an [access key](how-tos/text-analytics-how-to-access-key.md). The key must be passed on each request.
+1. [Create an Azure resource](../cognitive-services-apis-create-account.md) for Text Analytics. Afterwards, [get the key](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) generated for you to authenticate your requests.
 
 2. [Formulate a request](how-tos/text-analytics-how-to-call-api.md#json-schema) containing your data as raw unstructured text, in JSON.
 
@@ -104,9 +104,7 @@ The Text Analytics API uses Unicode encoding for text representation and charact
 
 ## Next steps
 
-+ [Sign up](how-tos/text-analytics-how-to-signup.md) for an access key and review the steps for [calling the API](how-tos/text-analytics-how-to-call-api.md).
-
-+ [Quickstart](quickstarts/csharp.md) is a walkthrough of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code. If you prefer, you can start with the [Python quickstart](quickstarts/python.md) instead.
++ Try a [quickstart](quickstarts/csharp.md) to begin sending calls to the API. Learn how to submit text, choose an analysis, and view results with minimal code.
 
 + Dig in a little deeper with this [sentiment analysis tutorial](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) using Azure Databricks.
 
