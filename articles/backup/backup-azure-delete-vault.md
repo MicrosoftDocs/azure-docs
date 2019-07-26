@@ -110,7 +110,7 @@ Before you proceed further read **[this](#before-you-start)** section to underst
 
 Now you can proceed to delete the backup items from management console:
     
-    - [For MARS](#delete-backup-items-from-mars-management-console)
+   - [For MARS](#delete-backup-items-from-mars-management-console)
     - [For MABS ](#delete-backup-items-from-mabs-management-console)
 
 
