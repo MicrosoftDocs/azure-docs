@@ -746,12 +746,16 @@
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
-  - name: Use Managed Identity Token Service
+  - name: Use Managed Identity for Service Fabric apps
     items:
-    - name: Application setup
+    - name: Cluster setup
       href: how-to-setup-cluster-managed-identity-token-service.md
+    - name: Application setup
+      href: how-to-setup-application-managed-identity-token-service.md
     - name: Use MITS with Service Fabric application code
       href: how-to-managed-identity-token-service-app-code.md
+    - name: Grant access to other Azure resources
+      href: how-to-grant-access-other-resources.md
 
 - name: Reference
   items:
