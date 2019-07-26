@@ -228,7 +228,7 @@ When you [create a WebJob from the Azure portal](webjobs-create.md), the setting
 
 ### CRON expressions
 
-WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#cron-expressions).
+WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
 
 ### setting.job reference
 
