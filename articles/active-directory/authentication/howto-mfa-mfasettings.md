@@ -32,7 +32,7 @@ Some of these settings apply to MFA Server, Azure MFA, or both.
 | Account lockout | Temporarily lock accounts in the multi-factor authentication service if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
 | [Block/unblock users](#block-and-unblock-users) | Used to block specific users from being able to receive Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. |
 | [Fraud alert](#fraud-alert) | Configure settings related to users ability to report fraudulent verification requests |
-| Notifications | Enable notifications of events from MFA Server. |
+| [Notifications](#notifications) | Enable notifications of events from MFA Server. |
 | [OATH tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
 | Providers | This will show any existing authentication providers that you may have associated with your account. New authentication providers may not be created as of September 1, 2018 |
@@ -96,6 +96,12 @@ Configure the _fraud alert_ feature so that your users can report fraudulent att
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory** > **Sign-ins**. The fraud report is now part of the standard Azure AD Sign-ins report.
+
+## Notifications
+
+Configure email addresses here for users who will receive fraud alert emails.
+
+![Notification fraud alert email sample](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
 ## Phone call settings
 

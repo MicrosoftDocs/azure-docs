@@ -1,6 +1,6 @@
 ---
-title: Data conversion 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Data conversion - LUIS
+titleSuffix: Azure Cognitive Services
 description: Learn how utterances can be changed before predictions in Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
