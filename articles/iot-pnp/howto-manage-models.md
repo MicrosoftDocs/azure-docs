@@ -39,19 +39,7 @@ In the [Azure Certified for IoT portal](https://aka.ms/ACFI), you can complete t
 
 ## Azure CLI
 
-The Azure CLI provides commands for managing interfaces in the Plug and Play model repository. You can use the CLI commands to:
-
-- Show information about an interface
-- List interfaces in the repository
-- Create an interface
-- Update an interface
-- Publish an interface
-- Delete an interface
-
-> [!NOTE]
-> The public model repository is read only.
-
-For more information, see [Install and use the Azure IoT extension for Azure CLI](./howto-install-pnp-cli.md).
+The Azure CLI provides commands for managing device capability models and interfaces in the Plug and Play public and company model repositories. For more information, see the [Install and use the Azure IoT extension for Azure CLI](./howto-install-pnp-cli.md) how-to guide.
 
 ## Visual Studio Code
 
