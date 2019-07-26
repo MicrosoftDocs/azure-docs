@@ -53,7 +53,9 @@
   - name: Troubleshoot
     items:
     - name: OutOfMemoryError exception
-      href: ./apache-spark-ts-outofmemory.md
+      items:
+      - name: Insufficient heap memory
+        href: ./apache-spark-ts-outofmemory-heap.md
 - name: How to
   items:
   - name: Use cluster storage
