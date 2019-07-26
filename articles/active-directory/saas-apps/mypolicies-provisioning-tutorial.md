@@ -103,7 +103,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://<myPoliciesCustomDomain>.mypolicies.com/scim` in **Tenant URL** where `<myPoliciesCustomDomain>` is your myPolicies custom domain. To retrieve your myPolicies customer domain, 
+5. Under the **Admin Credentials** section, input `https://<myPoliciesCustomDomain>.mypolicies.com/scim` in **Tenant URL** where `<myPoliciesCustomDomain>` is your myPolicies custom domain. You can retrieve your myPolicies customer domain, from your URL.
+Example: <test2-qa>.mypolicies.com.
 
 6. In **Secret Token**, enter the token value which was retrieved earlier. Click **Test Connection** to ensure Azure AD can connect to myPolicies. If the connection fails, ensure your myPolicies account has Admin permissions and try again.
 
