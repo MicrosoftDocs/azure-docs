@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Quickstart: Form Recognizer client library for .NET
 
-Get started with the Form Recognizer client library for .NET. Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Follow these steps to install the SDK package and try out the example code for basic tasks.
+Get started with the Form Recognizer client library for .NET. Form Recognizer is a Cognitive Service that uses machine learning technology to identify and extract key/value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Follow these steps to install the SDK package and try out the example code for basic tasks.
 
 Use the Form Recognizer client library for .NET to:
 
@@ -27,25 +27,19 @@ Use the Form Recognizer client library for .NET to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* An Azure Storage blob with a set of training data. See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data. 
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data. 
 
 ## Setting up
 
-<!--
-    Walk the reader through preparing their environment for working with the client library. Include instructions for creating the Azure resources required to make calls to the service, obtaining credentials, and setting up their local development environment.
-
-    See the "setting up" section for more details: 
-    https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-library-quickstart-v2?branch=pr-en-us-2187#setting-up -->
-
 ### Create a Form Recognizer Azure resource
 
-[!INCLUDE [create resource](../includes/create-resource.md)]l
+[!INCLUDE [create resource](../includes/create-resource.md)]
 
 After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `FORM_RECOGNIZER_KEY`.
 
 ### Create a new C# application
 
-In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `formrecognizer-quickstart`. This command creates a simple "Hello World" C# project with a single source file: _Program.cs_. 
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `formrecognizer-quickstart`. This command creates a simple "Hello World" C# project with a single source file: _Program.cs_. 
 
 ```console
 dotnet new console -n formrecognizer-quickstart
@@ -67,7 +61,7 @@ Build succeeded.
 ...
 ```
 
-From the project directory, open the _Program.cs_ file in your preferred editor or IDE. Add the following `using` directives:
+From the project directory, open the _Program.cs_ file in your preferred editor or IDE. Add the following `using` statements:
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.FormRecognizer;
@@ -78,7 +72,7 @@ using System.IO;
 using System.Threading.Tasks;
 ```
 
-Add the following code in the application's **Main** method. You will define this asynchronous task later on.
+Then add the following code in the application's **Main** method. You will define this asynchronous task later on.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_main)]
 
@@ -130,7 +124,7 @@ Before you define any methods, add the following variable definitions to the top
 
 ### Authenticate the client
 
-Under the **Main** method, define the task that is referenced in **Main**. Here, you'll authenticate the client object using the subscription variables you defined above. You'll define the other methods later on.
+Below the `Main` method, define the task that is referenced in `Main`. Here, you'll authenticate the client object using the subscription variables you defined above. You'll define the other methods later on.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_mainTask)]
 
@@ -176,6 +170,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
+
+In this quickstart, you used the Form Recognizer .NET client library to train a custom model and analyze forms. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
 >[Build a training data set](../build-training-data-set.md)
