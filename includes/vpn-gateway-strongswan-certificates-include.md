@@ -14,7 +14,7 @@ The following computer configuration was used for the steps below:
 
   | | |
   |---|---|
-  |Computer| Ubuntu Server 16.04<br>ID_LIKE=debian<br>PRETTY_NAME="Ubuntu 16.04.4 LTS"<br>VERSION_ID="16.04" |
+  |Computer| Ubuntu Server 18.04<br>ID_LIKE=debian<br>PRETTY_NAME="Ubuntu 18.04.2 LTS"<br>VERSION_ID="18.04" |
   |Dependencies| strongSwan |
 
 #### 1. Install strongSwan
@@ -22,15 +22,11 @@ The following computer configuration was used for the steps below:
 Use the following commands to install the required strongSwan configuration:
 
 ```
-apt-get install strongswan-ikev2 strongswan-plugin-eap-tls
+sudo apt install strongswan
 ```
 
 ```
-apt-get install libstrongswan-standard-plugins
-```
-
-```
-apt-get install strongswan-pki
+sudo apt install strongswan-pki
 ```
 
 #### 2. Generate keys and certificate
