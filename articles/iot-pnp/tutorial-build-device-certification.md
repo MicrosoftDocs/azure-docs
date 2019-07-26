@@ -39,10 +39,10 @@ For IoT Plug and Play devices, you must author a capability model and interfaces
 You can store these JSON files in three different locations:
 
 - The public model repository.
-- Your organizational model repository.
+- Your company model repository.
 - On your device.
 
-Currently, to certify your device, the files must be stored either in your organizational model repository, or in the public model repository.
+Currently, to certify your device, the files must be stored either in your company model repository, or in the public model repository.
 
 ## Include the required interfaces
 

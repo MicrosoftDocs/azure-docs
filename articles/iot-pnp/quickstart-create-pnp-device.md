@@ -182,8 +182,8 @@ In order to validation the device code with **Azure IoT Explorer**, You need to 
 1. Open Azure IoT explorer, you see the **App configurations** page.
 1. Enter your IoT Hub connection string and click **Connect**.
 1. After you connect, you see the device overview page.
-1. To add your organizational repository, select **Settings**, then **+ New**, and then **Organization repository**.
-1. Add the connection string for your organizational repository. You can find this on the connection strings page for your company repository in the [Azure Certified for IoT](https://aka.ms/adbtest) portal. Select **Connect**.
+1. To add your company repository, select **Settings**, then **+ New**, and then **Organization repository**.
+1. Add the connection string for your company repository. You can find this on the connection strings page for your company repository in the [Azure Certified for IoT](https://aka.ms/adbtest) portal. Select **Connect**.
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the plug and play primitives - properties, commands and telemetry.
 1. Select the **Telemetry** page to view the telemetry data the device is sending.

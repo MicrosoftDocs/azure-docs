@@ -31,8 +31,8 @@ There are two types of model repository for storing device capability models and
 
 In the [Azure Certified for IoT portal](https://aka.ms/ACFI), you can complete the following tasks:
 
-- Complete the certification process for your IoT device.
-- Find IoT Plug and Play device capability models. You can use these models to quickly build IoT ready devices and integrate them with solutions.
+- [Complete the certification process for your IoT device](./tutorial-certification-test.md).
+- Find IoT Plug and Play device capability models. You can use these models to [quickly build IoT ready devices and integrate them with solutions](./quickstart-connect-pnp-device-solution.md).
 
 > [!NOTE]
 > The public model repository is read only.
@@ -59,13 +59,13 @@ To open the **Model Repository** view in Visual Studio Code.
 
 1. Open Visual Studio Code, use **Ctrl+Shift+P**, type and select **IoT Plug and Play: Open Model Repository**.
 
-1. You can choose to **Open Public Model Repository** or **Open Organizational Model Repository**. For organizational model repository, you need to enter your model repository connection string. You can find this connection string in the [Azure Certified for IoT portal](https://aka.ms/ACFI) on the **Connection strings** tab for your **Company repository**.
+1. You can choose to **Open Public Model Repository** or **Open Organizational Model Repository**. For company model repository, you need to enter your model repository connection string. You can find this connection string in the [Azure Certified for IoT portal](https://aka.ms/ACFI) on the **Connection strings** tab for your **Company repository**.
 
 1. A new tab opens the **Model Repository** view.
 
     Use this view to add, download, and delete device capability models and interfaces. You can use a filter to find specific items in the list.
 
-1. To switch to another organizational model repository, use **Ctrl+Shift+P**, type and select **IoT Plug and Play: Sign out Model Repository**. Then use open model repository command again.
+1. To switch between your company model repository and the public model repository, use **Ctrl+Shift+P**, type and select **IoT Plug and Play: Sign out Model Repository**. Then use the **IoT Plug and Play: Open Model Repository** command again.
 
 > [!NOTE]
 > The public model repository is read only.

@@ -47,7 +47,7 @@ In this article, you use Azure IoT explorer to interact with a simulated device.
 
 The first time you run Azure IoT explorer, you're prompted for your IoT hub's connection string. After you add the connection string, select **Connect**. You can use the tool's settings to switch to another IoT hub by updating the connection string.
 
-The model definition for a Plug and Play device is stored in either the public repository, an organizational repository, or on the physical device. By default, the tool looks for your model definition in the public model repository. To use a model definition from another location, add it as a definition source in the tool settings:
+The model definition for a Plug and Play device is stored in either the public repository, an company repository, or on the physical device. By default, the tool looks for your model definition in the public model repository. To use a model definition from another location, add it as a definition source in the tool settings:
 
 1. Go to **Settings**.
 1. Select **New** and choose the source to add.
