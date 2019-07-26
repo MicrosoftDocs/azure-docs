@@ -245,5 +245,8 @@ Edit **Container Create Options** (in the Azure portal) or the **createOptions**
 When you connect to additional blob storage modules, change the endpoint to point to the updated host port.
 
 ## Next steps
+Learn more about [Azure Blob Storage on IoT Edge](how-to-store-data-blob.md)
+
+Stay up-to-date with recent updates and announcement in the [Azure Blob Storage on IoT Edge blog](https://aka.ms/abs-iot-blogpost)
 
 For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
