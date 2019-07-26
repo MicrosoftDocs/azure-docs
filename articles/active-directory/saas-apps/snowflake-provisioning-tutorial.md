@@ -52,15 +52,15 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring snowflake for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on snowflake.
 
-1. Sign in to your [snowflake Admin Console](https://azure_trial.east-us-2.azure.snowflakecomputing.com/console/login#/). Enter the Query in the workarea and click **Run**.
+1. Sign in to your Snowflake Admin Console. Enter the query shown below in the workspace highlighted and click **Run**.
 
 	![snowflake Admin Console](media/snowflake-provisioning-tutorial/image00.png)
 
-2. Click on the below generated link.
+2. A SCIM Access Token will be generated for your Snowflake tenant. To retrieve it, click on the link highlighted below.
 
 	![snowflake Add SCIM](media/snowflake-provisioning-tutorial/image01.png)
 
-3. Copy the generated value from the text field and click **Done**. This value will be entered in the **Secret Token** field in the Provisioning tab of your snowflake application in the Azure portal.
+3. Copy the generated token value and click **Done**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Snowflake application in the Azure portal.
 
 	![snowflake Add SCIM](media/snowflake-provisioning-tutorial/image02.png)
 
@@ -111,7 +111,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://<account>.<region>.<cloud>.snowflakecomputing.com/scim/v2` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to snowflake. If the connection fails, ensure your snowflake account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://<account>.<region>.<cloud>.snowflakecomputing.com/scim/v2` in **Tenant URL**. Input the generated token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Snowflake. If the connection fails, ensure your Snowflake account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -157,6 +157,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ## Connector limitations
 
+* Snowflake generated SCIM tokens expire in 6 months.
 
 ## Additional resources
 
