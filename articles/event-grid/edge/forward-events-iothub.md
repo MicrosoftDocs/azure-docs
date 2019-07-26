@@ -18,7 +18,7 @@ This article walks through all the steps needed to forward Event Grid events to 
 * Continue to use any existing investments already in place with edgeHub's routing
 * Prefer to route all events from a device only via IoTHub
 
-To complete this tutorial an understanding of [Event Grid Concepts](concepts.md), [edgeHub](https://docs.microsoft.com/en-us/azure/iot-edge/module-composition) and [IoTHub](https://docs.microsoft.com/en-us/azure/iot-edge/module-composition) routing will be required.
+To complete this tutorial an understanding of [Event Grid Concepts](concepts.md), [edgeHub](https://docs.microsoft.com/azure/iot-edge/module-composition) and [IoTHub](https://docs.microsoft.com/azure/iot-edge/module-composition) routing will be required.
 
 ## Prerequisites
 
@@ -104,11 +104,11 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
       ```
 
    >[!NOTE]
-   > The above route will forward any events that match the subscription to be forwarded from Event Grid module to IoTHub. You can use edgeHub [routing](https://docs.microsoft.com/en-us/azure/iot-edge/module-composition) featuers to further filter, route the Event Grid events to other IoT Edge modules.
+   > The above route will forward any events that match the subscription to be forwarded from Event Grid module to IoTHub. You can use edgeHub [routing](https://docs.microsoft.com/azure/iot-edge/module-composition) featuers to further filter, route the Event Grid events to other IoT Edge modules.
 
 ## Step 4: Setup IoTHub route
 
-  Refer to IoT Hub [routing tutorial](https://docs.microsoft.com/en-us/azure/iot-hub/tutorial-routing) to set up a route from IoTHub, so that you can view the events forwarded from Event Grid module.
+  Refer to IoT Hub [routing tutorial](https://docs.microsoft.com/azure/iot-hub/tutorial-routing) to set up a route from IoTHub, so that you can view the events forwarded from Event Grid module.
 
 ## Step 5: Publish event
 
@@ -131,7 +131,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 ## Step 6: Verify event delivery
 
-Refer to IoT Hub [routing tutorial](https://docs.microsoft.com/en-us/azure/iot-hub/tutorial-routing) to view the events.
+Refer to IoT Hub [routing tutorial](https://docs.microsoft.com/azure/iot-hub/tutorial-routing) to view the events.
 
 ## Next steps
 
