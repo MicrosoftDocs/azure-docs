@@ -1,7 +1,7 @@
 ---
-title: Speech translation with Azure Speech Services
-titlesuffix: Azure Cognitive Services
-description: The Speech Services let you add end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation.
+title: Speech translation with Speech Service
+titleSuffix: Azure Cognitive Services
+description: Speech Service lets you add end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation.
 services: cognitive-services
 author: erhopf
 manager: nitinme
