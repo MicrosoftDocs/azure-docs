@@ -67,7 +67,7 @@ conceptualContent:
           itemType: concept
           text: Azure AD password protection 
       footerLink: 
-        url: ./authentication/
+        url: ./authentication/index.yml
         text: See more
 
     - title: Business-to-Business (B2B) 
@@ -82,7 +82,7 @@ conceptualContent:
           itemType: concept
           text: B2B and Office 365 sharing
       footerLink: 
-        url: ./b2b/index
+        url: ./b2b/index.yml
         text: See more
 
     - title: Business-to-Customer (B2C)
@@ -97,7 +97,7 @@ conceptualContent:
           itemType: how-to-guide
           text:  Custom policies in Azure AD B2C
       footerLink: 
-        url: ../active-directory-b2c/index
+        url: ../active-directory-b2c/index.yml
         text: See more
 
     - title: Conditional Access 
@@ -112,7 +112,7 @@ conceptualContent:
           itemType: concept
           text:  Conditions based on location
       footerLink: 
-        url: ./conditional-access/index
+        url: ./conditional-access/index.yml
         text: See more
 
     - title: Developers 
@@ -127,7 +127,7 @@ conceptualContent:
           itemType: quickstart
           text:  Register an app with the Microsoft identity platform
       footerLink: 
-        url: ./develop/index
+        url: ./develop/index.yml
         text: See more
 
     - title: Device management 
@@ -142,7 +142,7 @@ conceptualContent:
           itemType: how-to-guide
           text:  Plan an Azure AD join
       footerLink: 
-        url: ./devices/index
+        url: ./devices/index.yml
         text: See more
 
     - title: Domain services 
@@ -157,7 +157,7 @@ conceptualContent:
           itemType: how-to-guide
           text:  Administer group policy
       footerLink: 
-        url: ../active-directory-domain-services/index
+        url: ../active-directory-domain-services/index.yml
         text: See more
 
     - title: Enterprise users 
@@ -172,7 +172,7 @@ conceptualContent:
           itemType: reference
           text:  Azure AD service limits and restrictions
       footerLink: 
-        url: ./users-groups-roles/index
+        url: ./users-groups-roles/index.yml
         text: See more
 
     - title: Hybrid identity
@@ -187,7 +187,7 @@ conceptualContent:
           itemType: how-to-guide
           text:  Azure AD Connect custom install
       footerLink: 
-        url: ./hybrid/index
+        url: ./hybrid/index.yml
         text: See more
 
     - title: Identity governance 
@@ -202,7 +202,7 @@ conceptualContent:
           itemType: how-to-guide
           text:  Require terms of use
       footerLink: 
-        url: ./governance/index
+        url: ./governance/index.yml
         text: See more
 
     - title: Identity protection
@@ -217,7 +217,7 @@ conceptualContent:
           itemType: how-to-guide
           text:  How to unblock users
       footerLink: 
-        url: ./identity-protection/index
+        url: ./identity-protection/index.yml
         text: See more
 
     - title: Managed identities for Azure resources 
@@ -232,7 +232,7 @@ conceptualContent:
           itemType: concept
           text:  Services that support managed identity
       footerLink: 
-        url: ./managed-identities-azure-resources/index
+        url: ./managed-identities-azure-resources/index.yml
         text: See more
 
     - title: Privileged identity management (PIM) 
@@ -247,7 +247,7 @@ conceptualContent:
           itemType: how-to-guide
           text:  Assign directory roles
       footerLink: 
-        url: ./privileged-identity-management/index
+        url: ./privileged-identity-management/index.yml
         text: See more
 
     - title: Reports and monitoring
@@ -262,7 +262,7 @@ conceptualContent:
           itemType: reference
           text:  Sign-in error codes reference
       footerLink: 
-        url: ./reports-monitoring/index
+        url: ./reports-monitoring/index.yml
         text: See more
 
 additionalContent:
