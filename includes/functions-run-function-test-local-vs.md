@@ -6,7 +6,7 @@ ms.date: 07/05/2019
 ms.author: glenga
 ---
 
-1. To run your function, press F5. You may need to enable a firewall exception so that the tools can handle HTTP requests. Authorization levels are never enforced when running locally.
+1. To run your function, press **F5**. You may need to enable a firewall exception so that the tools can handle HTTP requests. Authorization levels are never enforced when running locally.
 
 2. Copy the URL of your function from the Azure Functions runtime output.
 

@@ -12,18 +12,20 @@ ms.custom: include file
 
 1. In **Solution Explorer**, right-click the project and select **Publish**.
 
-2. Select **Azure Function App**, choose **Create New**, and then select **Publish**.
+2. In the **Pick a publish target** dialog, use the publish options as specified in the table below the image: 
 
-    ![Pick a publish target](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png) 
+    ![Pick a publish target](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
-    When you click **Run from a package file (recommended)**, your function app will be deployed using [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) mode enabled. This is the recommended way of running your functions, and will result in better performance.
+    | Option      | Description                                |
+    | ------------ |  -------------------------------------------------- |
+    | **Azure Functions Consumption plan** |   When you publish your project to a function app that runs in a [Consumption plan](functions-scale.md#consumption-plan), you only pay for executions of your functions app. Other hosting plans incur higher costs. To learn more, see [Azure Functions scale and hosting](../articles/azure-functions/functions-scale.md). | 
+    | **Create new** | A new function app, with related resources, is created in Azure. When you choose **Select Existing**, all files in the existing function app in Azure are overwritten by files from the local project. Only use this option when republishing updates to an existing function app. |
+    | **Run from a package file** | Your function app is deployed using [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) mode enabled. This is the recommended way of running your functions, which results in better performance. |
 
-    >[!CAUTION]
-    >When you choose **Select Existing**, all files in the existing function app in Azure are overwritten by files from the local project. Only use this option when republishing updates to an existing function app.
 
-3. If you haven't already connected Visual Studio to your Azure account, select **Add an account...**.
+3. Select **Publish**. If you haven't already signed-in to your Azure account from Visual Studio, select **Sign-in**. You can also create a free Azure account.
 
-4. In the **Create App Service** dialog, use the **Hosting** settings as specified in the table below the image:
+4. In the **App Service: Create new** dialog, use the **Hosting** settings as specified in the table below the image:
 
     ![Create App Service dialog](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
