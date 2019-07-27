@@ -3,7 +3,7 @@ title: Add a heat map layer to Azure Maps | Microsoft Docs
 description: How to add a heat map layer to the Javascript map
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/2/2018
+ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
