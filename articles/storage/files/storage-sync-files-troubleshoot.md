@@ -637,8 +637,8 @@ This error occurs because Azure File Sync does not currently support moving the 
  
 To resolve the issue, perform one of the following options:
 
-- Option 1 (recommended): Move the subscription back to the original Azure Active Directory tenant
-- Option 2: Delete and recreate the current sync group. If cloud tiering was enabled on the server endpoint, delete the sync group and then perform the steps documented in the [Cloud Tiering section]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) to remove the orphaned tiered files prior to recreating the sync groups. 
+- **Option 1 (recommended)**: Move the subscription back to the original Azure Active Directory tenant
+- **Option 2**: Delete and recreate the current sync group. If cloud tiering was enabled on the server endpoint, delete the sync group and then perform the steps documented in the [Cloud Tiering section]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) to remove the orphaned tiered files prior to recreating the sync groups. 
 
 <a id="-2134364010"></a>**Sync failed due to firewall and virtual network exception not configured**  
 
