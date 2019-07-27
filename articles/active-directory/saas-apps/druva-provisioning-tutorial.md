@@ -52,19 +52,19 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Druva for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Druva.
 
-1. Sign in to your [Druva Admin Console](https://console.druva.com). Click **Druva Icon**. Navigate > Click on **inSync**.
+1. Sign in to your [Druva Admin Console](https://console.druva.com). Navigate to **Druva > inSync**.
 
 	![Druva Admin Console](media/druva-provisioning-tutorial/menubar.png)
 
-2. On the inSync Management Console menu bar, click **Manage** > **Deployments** > **Users**.
+2. Navigate to **Manage** > **Deployments** > **Users**.
 
 	![Druva Add SCIM](media/druva-provisioning-tutorial/manage.png)
 
-3.	Navigate > **Settings** > **Click on Generate Token**.
+3.	Navigate to **Settings**. Click **Generate Token**.
 
 	![Druva Add SCIM](media/druva-provisioning-tutorial/settings.png)
 
-4.	Copy the **Auth Token** value. This value will be entered in the **Secret Token** field in 		the Provisioning tab of your Druva application in the Azure portal.
+4.	Copy the **Auth token** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Druva application in the Azure portal.
 	
 	![Druva Add SCIM](media/druva-provisioning-tutorial/auth.png)
 
@@ -115,7 +115,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5.	Under the Admin Credentials section, input `https://apis.druva.com/insync/scim` in **Tenant 	URL**. Input the **Auth Token** value in **Secret Token**. Click **Test Connection** to 		ensure 	Azure AD can connect to Druva. If the connection fails, ensure your Druva account has 	Admin permissions and try again.
+5.	Under the Admin Credentials section, input `https://apis.druva.com/insync/scim` in **Tenant 	URL**. Input the **Auth token** value in **Secret Token**. Click **Test Connection** to 		ensure 	Azure AD can connect to Druva. If the connection fails, ensure your Druva account has 	Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -154,6 +154,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 	
 ## Connector limitations
 
+* Druva requires **email** as a mandatory attribute. 
 
 ## Additional resources
 
