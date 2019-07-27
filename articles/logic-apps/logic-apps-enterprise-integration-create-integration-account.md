@@ -20,10 +20,12 @@ Before you can build [enterprise integration and B2B solutions](../logic-apps/lo
 > [!TIP]
 > To create an integration account inside an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment.md#create-integration-account-environment).
 
-This article shows you how to perform these tasks:
+This topic shows you how to perform these tasks:
 
 * Create your integration account.
 * Link your integration account to a logic app.
+* Change the pricing tier for your integration account.
+* Unlink your integration account from a logic app.
 * Move your integration account to another Azure resource group or subscription.
 * Delete your integration account.
 
@@ -124,7 +126,7 @@ To make this change, you can use either the Azure portal by finding your integra
 
 1. If you haven't done so already, [install the Azure CLI prerequisites](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
-1. In the Azure portal, open the Azure **Cloud Shell** environment.
+1. In the Azure portal, open the Azure [**Cloud Shell**](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) environment.
 
    ![Open Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
@@ -146,7 +148,7 @@ To make this change, use the [Azure CLI](https://docs.microsoft.com/cli/azure/ge
 
 1. If you haven't done so already, [install the Azure CLI prerequisites](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
-1. In the Azure portal, open the Azure **Cloud Shell** environment.
+1. In the Azure portal, open the Azure [**Cloud Shell**](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) environment.
 
    ![Open Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
