@@ -1,8 +1,8 @@
 ---
-title: Service Fabric - Set up an application with MITS | Microsoft Docs
+title: Service Fabric - Set up an application with Managed Identity | Microsoft Docs
 description: This article shows you how to set up a Service Fabric application with Managed Identity
 services: service-fabric
-author: Nickomang
+author: atsenthi
 
 ms.service: service-fabric
 ms.topic: article
@@ -10,7 +10,7 @@ ms.date: 07/25/2019
 ms.author: atsenthi
 ---
 
-# Set up a Service Fabric application with MITS
+# Set up a Service Fabric application with Managed Identity
 
 Introductory paragraph.
 
@@ -26,4 +26,4 @@ Managed Identity doc references.
 
 ## Next steps
 
-Link to how to use MITS with application code.
+Link to how to use Managed with application code.
