@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/03/2019
+ms.date: 07/26/2019
 ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
@@ -23,7 +23,7 @@ Microsoft Azure Media Services can be used to deliver many media source file for
 
 In Media Services, a [Streaming Endpoint](streaming-endpoint-concept.md) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application, using one of the common streaming media protocols (HLS or DASH). Dynamic packaging is a feature that comes standard on all **Streaming Endpoints** (Standard or Premium). 
 
-To take advantage of dynamic packaging, you need to have an **Asset** with a set of adaptive bitrate MP4 files and streaming configuration files needed by Media Services dynamic packaging. One way to get the files is to encode your mezzanine (source) file with Media Services. To make videos in the encoded Asset available to clients for playback, you have to create a **Streaming Locator** and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, DASH, or Smooth), you receive the stream in the protocol you have chosen.
+To take advantage of dynamic packaging, you need to have an [Asset](assets-concept.md) with a set of adaptive bitrate MP4 files and streaming configuration files (.ism, .ismc, .mpi, etc.). One way to get the files is to encode your mezzanine (source) file with Media Services. To make videos in the encoded asset available to clients for playback, you have to create a [Streaming Locator](streaming-locators-concept.md) and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, DASH, or Smooth), you receive the stream in the protocol you have chosen.
 
 As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. 
 
@@ -38,7 +38,7 @@ Here's a common workflow for Media Services on-demand streaming with dynamic pac
 
 1. Upload an input or source file (called a *mezzanine* file). Examples include an MP4, MOV, or MXF file. 
 1. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets. 
-1. Publish the asset that contains the adaptive bitrate MP4 set. You publish by creating a streaming locator.
+1. Publish the output asset that contains the adaptive bitrate MP4 set. You publish by creating a streaming locator.
 1. Build URLs that target different formats (HLS, MPEG-DASH, and Smooth Streaming). The streaming endpoint takes care of serving the correct manifest and requests for the different formats.
 
 This diagram shows the workflow for on-demand streaming with dynamic packaging:
@@ -123,10 +123,6 @@ Dynamic packaging supports MP4 files, which contain audio that's encoded with th
 ### Multiple audio tracks
 
 Dynamic packaging supports multi audio tracks for HLS output (version 4 or later) for streaming assets that have multiple audio tracks with multiple codecs and languages.
-
-## Dynamic encryption
-
-You can use *dynamic encryption* to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM licenses to authorized clients. For more information, see [dynamic encryption](content-protection-overview.md).
 
 ## Manifest examples 
  
@@ -221,6 +217,10 @@ Here's an example of a Smooth Streaming manifest file:
 ## Dynamic manifest
 
 To control the number of tracks, formats, bitrates, and presentation time windows that are sent to players, you can use dynamic filtering with the Media Services dynamic packager. For more information, see [Pre-filtering manifests with the dynamic packager](filters-dynamic-manifest-overview.md).
+
+## Dynamic encryption
+
+You can use *dynamic encryption* to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM licenses to authorized clients. For more information, see [dynamic encryption](content-protection-overview.md).
 
 ## More information
 
