@@ -103,7 +103,7 @@ Use two-factor authentication. Two-factor authentication is the current standard
 Use standard authentication protocols, such as OAuth2 and Kerberos. These protocols have been extensively peer reviewed and are likely implemented as part of your platform libraries for authentication and authorization.
 
 ## Use threat modeling during application design
-The Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl) specifies that teams should engage in a process called threat modeling during the design phase. To help facilitate this process, Microsoft has created the [SDL Threat Modeling Tool](../security/azure-security-threat-modeling-tool.md). Modeling the application design and enumerating [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) threats across all trust boundaries can catch design errors early on.
+The Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl) specifies that teams should engage in a process called threat modeling during the design phase. To help facilitate this process, Microsoft has created the [SDL Threat Modeling Tool](/azure/security/azure-security-threat-modeling-tool). Modeling the application design and enumerating [STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) threats across all trust boundaries can catch design errors early on.
 
 The following table lists the STRIDE threats and gives some example mitigations that use Azure features. These mitigations won’t work in every situation.
 
