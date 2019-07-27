@@ -22,7 +22,7 @@ ms.author: cynthn
 
 This article guides you through how to create an Azure dedicated host to host your virtual machines (VMs). 
 
-Make sure that you have installed the latest Azure CLI and signed in to an Azure account using `az login`. 
+Make sure that you have installed Azure CLI version 2.0.70 or later, and signed in to an Azure account using `az login`. 
 
 > [!IMPORTANT]
 > Azure Dedicated Hosts is currently in public preview.
@@ -31,7 +31,7 @@ Make sure that you have installed the latest Azure CLI and signed in to an Azure
 >
 > **Known preview limitations**
 > - Virtual machine scale sets are not currently supported on dedicated hosts.
-> - The preview initial release supports the following VM series: DSv3, ESv3, FSv2. 
+> - The preview initial release supports the following VM series: DSv3 and ESv3. 
  
 
 ## Create resource group 
@@ -87,7 +87,7 @@ Now let's create a dedicated host in the host group. In addition to a name for t
 
 - DSv3_Type1
 - ESv3_Type1
-- FSv2_Type2
+
 
 For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 

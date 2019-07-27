@@ -19,7 +19,7 @@ Azure Dedicated Host is a service that provides physical servers - able to host 
 >
 > **Known preview limitations**
 > - Virtual machine scale sets are not currently supported on dedicated hosts.
-> - The preview initial release supports the following VM series: DSv3, ESv3, FSv2. 
+> - The preview initial release supports the following VM series: DSv3 and ESv3. 
 > - During the preview, you won't be able to resize a virtual machine deployed to a dedicated host.
 > - Control over maintenance capabilities is in a limited preview. Start by taking this [nomination survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u) to try them out.  
 
@@ -110,7 +110,7 @@ During the preview, we will support the following host SKU\types:
 
 - DSv3_Type1
 - ESv3_Type1
-- FSv2_Type2
+
  
 ## Host life cycle
 

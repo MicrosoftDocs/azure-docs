@@ -29,7 +29,7 @@ Make sure that you have installed the latest Azure PowerShell module installed a
 >
 > **Known preview limitations**
 > - Virtual machine scale sets are not currently supported on dedicated hosts.
-> - The preview initial release supports the following VM series: DSv3, ESv3, FSv2. 
+> - The preview initial release supports the following VM series: DSv3 and ESv3. 
 
 
 
@@ -63,7 +63,7 @@ Now let's create a dedicated host in the host group. In addition to a name for t
 
 - DSv3_Type1
 - ESv3_Type1
-- FSv2_Type2
+
 
 For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 
@@ -85,6 +85,26 @@ $dHost = New-AzHost `
 Create a virtual machine on the dedicated host. 
 
 If you specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine. There is no such requirement for fault domains. For this example, because our host group is in zone 1, we need to create the VM in zone 1, and make sure the `-Sku` for the public IP address is `Standard`.  
+
+
+```powershell
+$cred = Get-Credential
+New-AzVM `
+   -Credential $cred `
+   -ResourceGroupName $rgName
+   -Name myVM `
+   -HostId $dhost.Id `
+   -image Win2016Datacenter `
+   -Zone 1 `
+   -Location $location `
+   -Size Standard_D4s_v3
+```
+
+
+OLD REMOVE ME!!!!
+
+
+
 
 ```powershell
 $vmName = "myVMonmyHost"
