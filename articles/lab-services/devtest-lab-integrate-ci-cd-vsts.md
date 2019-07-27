@@ -45,13 +45,15 @@ This article shows how to use Azure DevTest Labs Tasks to create and deploy a VM
 
 This section describes how to create the Azure Resource Manager template that you use to create an Azure VM on demand.
 
-1. To create a Resource Manager template in your subscription, complete the procedure in [Use a Resource Manager template](devtest-lab-use-resource-manager-template.md).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. To create a Resource Manager template in your subscription, follow the procedure in [Use a Resource Manager template](devtest-lab-use-resource-manager-template.md).
    
 1. Before you generate the Resource Manager template, add the [WinRM artifact](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-winrm) as part of creating the VM. Deployment tasks like *Azure File Copy* and *PowerShell on Target Machines* need WinRM access.
    
    > [!NOTE]
    > When you use WinRM with a shared IP address, you must add a NAT rule to map an external port to the WinRM port. You don't need the NAT rule if you create the VM with a public IP address.
-   >
+   
    
 1. Save the template to your computer as a file named *CreateVMTemplate.json*.
    
@@ -60,8 +62,6 @@ This section describes how to create the Azure Resource Manager template that yo
 ## Create a script to get VM properties
 
 When you run task steps like *Azure File Copy* or *PowerShell on Target Machines* in the release pipeline, the following script collects the values that you need to deploy an app to a VM. You would ordinarily use these tasks to deploy your app to an Azure VM. The tasks require values such as the VM resource group name, IP address, and fully qualified domain name (FQDN).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 To create the script file:
 
@@ -116,9 +116,9 @@ To create the release pipeline:
 
 ### Create a DevTest Labs VM
 
-The next step of the deployment is to create the golden image VM to use for future deployments. You create the VM within your Azure DevTest Labs instance by using the *Azure DevTest Labs Create VM* task.
+The next step is to create the golden image VM to use for future deployments. You create the VM within your Azure DevTest Labs instance by using the *Azure DevTest Labs Create VM* task.
 
-1. On the release pipeline **Pipeline** tab, select the hyperlinked text in **Stage 1** to **View stage tasks**, and then select the **+** next to **Agent job**. 
+1. On the release pipeline **Pipeline** tab, select the hyperlinked text in **Stage 1** to **View stage tasks**, and then select the plus sign **+** next to **Agent job**. 
    
 1. Under **Add tasks**, select **Azure DevTest Labs Create VM**, and select **Add**. 
    
@@ -173,7 +173,7 @@ The next task is to create an image of the newly deployed VM in your Azure DevTe
    |**Custom Image Name**|Enter a name for the custom image.|
    |**Description** (optional)|Enter a description to make it easy to select the correct image later.|
    |**Source Lab VM** > **Source Lab VM ID**|If you changed the default name of the LabVMId variable, enter it here. The default value is **$(labVMId)**.|
-   |**Output Variables** > **Custom Image ID**|Change the default name of the variable if necessary.|
+   |**Output Variables** > **Custom Image ID**|You can edit the default name of the variable if necessary.|
    
 ### Deploy your app to the DevTest Labs VM (optional)
 
@@ -194,13 +194,15 @@ The final task is to delete the VM that you deployed in your Azure DevTest Labs 
    - Under **Azure RM Subscription**, select your service connection or subscription. 
    - For **Lab VM ID**, if you changed the default name of the LabVMId variable, enter it here. The default value is **$(labVMId)**.
    
-1. Select the name **New release pipeline** on the pipeline page, and enter a name for the release pipeline. 
+### Save the release pipeline
+
+1. Select the name **New release pipeline** on the release pipeline page, and enter a new name for the pipeline. 
    
-1. Select the **Save** icon at upper right to save the release pipeline. 
+1. Select the **Save** icon at upper right. 
 
 ## Create and run a release
 
-1. Select **Create release** at upper right on your pipeline page to create a new release. 
+1. Select **Create release** at upper right on the release pipeline page. 
    
 1. Under **Artifacts**, select the latest build, and then select **Create**.
 
