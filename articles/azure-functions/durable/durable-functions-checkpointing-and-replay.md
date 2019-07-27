@@ -124,25 +124,9 @@ The replay behavior creates constraints on the type of code that can be written 
 
   If orchestrator code needs to get the current date/time, it should use the [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (.NET) or `currentUtcDateTime` (JavaScript) API, which is safe for replay.
 
-  If orchestrator code needs to generate a random GUID, it should use the [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.NET) API, which is safe for replay, or delegate GUID generation to an activity function, as in these examples:
+  If orchestrator code needs to generate a random GUID, it should use the [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.NET) or `newGuid` (JavaScript) API, which is safe for replay.
 
-  ### C#
-  
-  ```csharp
-  public static Guid GenGuid([ActivityTrigger] DurableActivityContext context) => Guid.NewGuid();
-  ```
-
-  ### Javascript
-  
-  ```javascript
-  const uuid = require("uuid/v1");
-
-  module.exports = async function(context) {
-    return uuid();
-  }
-  ```
-
-  Non-deterministic operations must be done in activity functions. This includes any interaction with other input or output bindings. This ensures that any non-deterministic values will be generated once on the first execution and saved into the execution history. Subsequent executions will then use the saved value automatically.
+  Other than these special cases, non-deterministic operations must be done in Activity functions. This includes any interaction with other input or output bindings. This ensures that any non-deterministic values will be generated once on the first execution and saved into the execution history. Subsequent executions will then use the saved value automatically.
 
 * Orchestrator code should be **non-blocking**. For example, that means no I/O and no calls to `Thread.Sleep` (.NET) or equivalent APIs.
 

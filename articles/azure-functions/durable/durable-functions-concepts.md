@@ -37,7 +37,7 @@ You can use Durable Functions to implement the function chaining pattern concise
 #### Precompiled C#
 
 ```csharp
-public static async Task<object> Run([OrchestrationTrigger]DurableOrchestrationContext context)
+public static async Task<object> Run([OrchestrationTrigger] DurableOrchestrationContext context)
 {
     try
     {
@@ -73,7 +73,7 @@ public static async Task<object> Run(DurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> There are subtle differences between writing a precompiled durable function in C# and writing a precompiled durable function in the C# script that's shown in the example. In a C# precompiled function, durable parameters must be decorated with respective attributes. An example is the `[OrchestrationTrigger]` attribute for the `DurableOrchestrationContext` parameter. In a C# precompiled durable function, if the parameters aren't properly decorated, the runtime can't inject the variables into the function, and an error occurs. For more examples, see the [azure-functions-durable-extension samples on GitHub](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
+> There are subtle differences between writing a precompiled durable function in C# and writing a precompiled durable function in C# script. In a C# precompiled function, durable parameters must be decorated with respective attributes. An example is the `[OrchestrationTrigger]` attribute for the `DurableOrchestrationContext` parameter. In a C# precompiled durable function, if the parameters aren't properly decorated, the runtime can't inject the variables into the function, and an error occurs. For more examples, see the [azure-functions-durable-extension samples on GitHub](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
 
 #### JavaScript (Functions 2.x only)
 
@@ -108,7 +108,7 @@ The Durable Functions extension handles this pattern with relatively simple code
 #### Precompiled C#
 
 ```csharp
-public static async Task Run([OrchestrationTrigger]DurableOrchestrationContext context)
+public static async Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
 {
     var parallelTasks = new List<Task<int>>();
 
@@ -221,8 +221,8 @@ Here are some examples of how to use the HTTP API pattern:
 ```csharp
 // An HTTP-triggered function starts a new orchestrator function instance.
 public static async Task<HttpResponseMessage> Run(
-    [HttpTrigger]HttpRequestMessage req,
-    [OrchestrationClient]DurableOrchestrationClient starter,
+    [HttpTrigger] HttpRequestMessage req,
+    [OrchestrationClient] DurableOrchestrationClient starter,
     string functionName,
     ILogger log)
 {
@@ -471,7 +471,9 @@ An external client can deliver the event notification to a waiting orchestrator 
 #### Precompiled C#
 
 ```csharp
-public static async Task Run([HttpTrigger]string instanceId, [OrchestrationClient]DurableOrchestrationClient client)
+public static async Task Run(
+  [HttpTrigger] string instanceId,
+  [OrchestrationClient] DurableOrchestrationClient client)
 {
     bool isApproved = true;
     await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
