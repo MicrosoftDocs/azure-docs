@@ -189,5 +189,5 @@ You can move your integration account to another Azure resource group or Azure s
 
 ## Next steps
 
-* [Create trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md)
-* [Create agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md)
+* [Create trading partners in your integration account](../logic-apps/logic-apps-enterprise-integration-partners.md)
+* [Create agreements between partners in your integration account](../logic-apps/logic-apps-enterprise-integration-agreements.md)
