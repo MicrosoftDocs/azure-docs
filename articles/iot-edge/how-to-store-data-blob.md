@@ -98,7 +98,18 @@ The name of this setting is `deviceAutoDeleteProperties`
 | retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading to cloud storage if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires. Note: For this property to work uploadOn should be set to true| `deviceAutoDeleteProperties__retainWhileUploading={false,true}` |
 
 ## Using SMB share as your local storage
+You can provide SMB share as your local storage path, when you deploy windows container of this module on Windows host.
+You can use `New-SmbGlobalMapping` PowerShell command to map the SMB share locally on a Windows container host.
+Below are the configuration steps:
+```PowerShell
+$creds = Get-Credential
+New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
+```
+Example: <br>
+`$creds = Get-Credentials` <br>
+`New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: `
 
+This command will use the credentials to authenticate with the remote SMB server. Then, map the remote share path to G: drive letter (can be any other available drive letter). Containers created on this container host can now have their data volumes mapped to a path on the G: drive. 
 
 ## Configure log files
 
