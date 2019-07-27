@@ -53,7 +53,7 @@ The three server-side encryption models offer different key management character
 
 ### Azure disk encryption
 
-You can protect Windows and Linux virtual machines by using [Azure disk encryption](azure-security-disk-encryption.md), which uses [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) technology and Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) to protect both operating system disks and data disks with full volume encryption.
+You can protect Windows and Linux virtual machines by using [Azure disk encryption](/azure/security/azure-security-disk-encryption), which uses [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) technology and Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) to protect both operating system disks and data disks with full volume encryption.
 
 Encryption keys and secrets are safeguarded in your [Azure Key Vault subscription](../../key-vault/key-vault-whatis.md). By using the Azure Backup service, you can back up and restore encrypted virtual machines (VMs) that use Key Encryption Key (KEK) configuration.
 
@@ -93,7 +93,7 @@ With the [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/
 
 #### Cell-level or column-level encryption
 
-With Azure SQL Database, you can apply symmetric encryption to a column of data by using Transact-SQL. This approach is called [cell-level encryption or column-level encryption (CLE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/encrypt-a-column-of-data), because you can use it to encrypt specific columns or even specific cells of data with different encryption keys. Doing so gives you more granular encryption capability than TDE, which encrypts data in pages.
+With Azure SQL Database, you can apply symmetric encryption to a column of data by using Transact-SQL. This approach is called [cell-level encryption or column-level encryption (CLE)](/sql/relational-databases/security/encryption/encrypt-a-column-of-data), because you can use it to encrypt specific columns or even specific cells of data with different encryption keys. Doing so gives you more granular encryption capability than TDE, which encrypts data in pages.
 
 CLE has built-in functions that you can use to encrypt data by using either symmetric or asymmetric keys, the public key of a certificate, or a passphrase using 3DES.
 

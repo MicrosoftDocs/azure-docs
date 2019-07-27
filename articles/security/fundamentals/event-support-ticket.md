@@ -22,7 +22,7 @@ ms.author: barclayn
 1. Navigate to [Publisher Support](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) and sign in with your Microsoft credentials.
 2. Select "Security Event" as the Problem Type and choose between the "Security Incident" and "Vulnerability" categories.
 
-    ![Event type and Definition][1]
+    ![Event type and Definition](./media/event-support-ticket/chart.png)
 
 3. After you select the Problem Type and Category, click the '**Start request**' button. Provide the following information to help us better understand the issue.
 
@@ -44,5 +44,3 @@ ms.author: barclayn
     - We will communicate the outcome of our assessment to you. Depending on the outcome, we may remove or request that you modify your offering. In this event, we will work with you to ensure that disruption to impacted customers is minimized.
     - We will work with you to help mitigate the impact of the incident/vulnerability for our mutual customers.
 
-
-[1]: ./media/azure-security-event-support-ticket/chart.png
