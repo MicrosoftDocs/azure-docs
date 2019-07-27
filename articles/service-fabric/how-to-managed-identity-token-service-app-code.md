@@ -1,6 +1,6 @@
 ---
-title: Service Fabric - Use Managed Identiy with Service Fabric application | Microsoft Docs
-description: How to USe Managed Identity in your Service Fabric application's code
+title: Service Fabric - Use Managed Identity with Service Fabric Application | Microsoft Docs
+description: How to Use Managed Identity in your Service Fabric application code
 services: service-fabric
 author: atsenthi
 
@@ -11,9 +11,11 @@ ms.date: 7/25/2019
 ms.author: atsenthi 
 ---
 
-# REST protocol
 
 Introductory paragraph.
+
+# REST protocol
+
 
 ## Code sample
 
