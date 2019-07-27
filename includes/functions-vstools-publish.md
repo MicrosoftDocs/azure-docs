@@ -18,7 +18,7 @@ ms.custom: include file
 
     | Option      | Description                                |
     | ------------ |  -------------------------------------------------- |
-    | **Azure Functions Consumption plan** |   When you publish your project to a function app that runs in a [Consumption plan](functions-scale.md#consumption-plan), you only pay for executions of your functions app. Other hosting plans incur higher costs. To learn more, see [Azure Functions scale and hosting](../articles/azure-functions/functions-scale.md). | 
+    | **Azure Functions Consumption plan** |   When you publish your project to a function app that runs in a [Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan), you only pay for executions of your functions app. Other hosting plans incur higher costs. To learn more, see [Azure Functions scale and hosting](../articles/azure-functions/functions-scale.md). | 
     | **Create new** | A new function app, with related resources, is created in Azure. When you choose **Select Existing**, all files in the existing function app in Azure are overwritten by files from the local project. Only use this option when republishing updates to an existing function app. |
     | **Run from a package file** | Your function app is deployed using [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) mode enabled. This is the recommended way of running your functions, which results in better performance. |
 

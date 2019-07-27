@@ -11,7 +11,7 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 07/19/2019
-ms.author: azfuncdf, glenga
+ms.author: azfuncdf
 
 ---
 # Create your first durable function in C\#
