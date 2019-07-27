@@ -115,9 +115,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Oracle Fusion ERP  Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/admin.png)
 
-	> [!NOTE]
-	> This Admin Username and Admin Password are the same which were used earlier in logging into the Oracle Fusion ERP application.
-	
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
 	![Notification Email](common/provisioning-notification-email.png)
