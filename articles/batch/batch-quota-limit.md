@@ -4,7 +4,7 @@ description: Learn about default Azure Batch quotas, limits, and constraints, an
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb

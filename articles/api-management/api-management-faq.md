@@ -82,7 +82,7 @@ Here's how you can add a user to the Administrators group:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Go to the resource group that has the API Management instance you want to update.
-3. In API Management, assign the **Api Management Contributor** role to the user.
+3. In API Management, assign the **Api Management Service Contributor** role to the user.
 
 Now the newly added contributor can use Azure PowerShell [cmdlets](https://docs.microsoft.com/powershell/azure/overview). Here's how to sign in as an administrator:
 

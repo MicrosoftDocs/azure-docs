@@ -21,16 +21,17 @@ ms.author: rkarlin
 This document helps you to create custom alert rules in Azure Security Center.
 
 > [!NOTE]
-> Custom alerts will be retired on June 30, 2019.
+> Custom alerts has been retired from Security Center. 
 
 ## Retirement of Custom Alert rules in Azure Security Center
 
-The custom alerts experience will be retired June 30th, 2019, due to retirement of the underlying infrastructure it is based on. In the timeframe until deprecation, users will be able to edit existing custom alert rules but will not be able to add new ones. Following deprecation, any custom alerts defined will not take effect and security alerts based on those custom alerts rules will not be generated.
+The custom alerts experience has been retired on June 30th, 2019, due to retirement of the underlying infrastructure it relied on. any custom alerts defined prior to retriement are not taking effect and security alerts based on those custom alerts rules are not being generated. You can still view your custom alert rules' queries in Security Center in order to re-create them in the alternatives mentioned below:
+
 Users are advised to either:
 - Enable [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) and use its built-in [analytics](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) functionality to re-create their alert rules
 - Re-create their alerts with Azure Monitor log alerts
                                      
-To keep your existing alerts and migrate them to Azure Sentinel, please [launch Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). As first step, select the workspace where your custom alerts are stored, and then select the ‘Analytics’ menu item to set up your custom alerts rules. Please visit the [documentation](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) for additional information.
+To keep your existing alerts and re-create them in Azure Sentinel, please [launch Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). As first step, select the workspace where your custom alerts are stored, and then select the ‘Analytics’ menu item to set up your custom alerts rules. Please visit the [documentation](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) for additional information.
 
 > [!NOTE]
 > Custom alerts using [Search](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) or [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) statements queries are not supported in Azure Sentinel. Please edit these alerts before performing the migration.

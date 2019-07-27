@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: jeconnoc
+manager: gwallace
 ---
 # Preview: Create an Azure Image Builder template 
 
@@ -329,6 +329,8 @@ This is supported by Windows directories and Linux paths, but there are some dif
  
 If there is an error trying to download the file, or put it in a specified directory, the customize step will fail, and this will be in the customization.log.
 
+>> Note! The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads use a script or inline command, the use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
+
 Files in the File customizer can be downloaded from Azure Storage using [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
 ### Generalize 
@@ -397,7 +399,7 @@ The image output will be a managed image resource.
  
 Distribute properties:
 - **type** – managedImage 
-- **imageId** – Resource ID of the destination image, expected format: /subscriptions/<subscriptionId>/resourceGroups/<destinationResourceGroupName>/providers/Microsoft.Compute/images/<imageName>
+- **imageId** – Resource ID of the destination image, expected format: /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
 - **location** - location of the managed image.  
 - **runOutputName** – unique name for identifying the distribution.  
 - **artifactTags** - Optional user specified key value pair tags.
@@ -436,7 +438,7 @@ Before you can distribute to the Image Gallery, you must create a gallery and an
 Distribute properties for shared image galleries:
 
 - **type** - sharedImage  
-- **galleryImageId** – ID of the shared image gallery. The format is: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>.
+- **galleryImageId** – ID of the shared image gallery. The format is: /subscriptions/\<subscriptionId>/resourceGroups/\<resourceGroupName>/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName>/images/\<imageGalleryName>.
 - **runOutputName** – unique name for identifying the distribution.  
 - **artifactTags** - Optional user specified key value pair tags.
 - **replicationRegions** - Array of regions for replication. One of the regions must be the region where the Gallery is deployed.

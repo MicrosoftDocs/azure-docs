@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 04/15/2019
+ms.date: 07/12/2019
 ms.custom: seoapril2019
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning service works.
 ms.custom: seodec18
@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 Learn about the architecture, concepts, and workflow for Azure Machine Learning service. The major components of the service and the general workflow for using the service are shown in the following diagram:
 
-[![Azure Machine Learning service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+![Azure Machine Learning service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## Workflow
 

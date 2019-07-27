@@ -38,7 +38,7 @@ In the more typical *three-legged OAuth*, a client application is granted permis
 
 The entire client credentials flow looks similar to the following diagram. We describe each of the steps later in this article.
 
-![Client credentials flow](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
+![Diagram showing the client credentials flow](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
 
 ## Get direct authorization
 
@@ -89,7 +89,7 @@ When you're ready to request permissions from the organization's admin, you can 
 
 > [!TIP]
 > Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.)
-> [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -152,7 +152,7 @@ After you've acquired the necessary authorization for your application, proceed 
 
 > [!TIP]
 > Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.)
-> [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### First case: Access token request with a shared secret
 

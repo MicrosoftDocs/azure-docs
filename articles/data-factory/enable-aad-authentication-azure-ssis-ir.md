@@ -141,17 +141,7 @@ Azure SQL Database Managed Instance supports creating a database with the manage
 
 ### Configure Azure AD authentication for Azure SQL Database Managed Instance
 
-1.   In Azure portal, select **All services** -> **SQL servers** from the left-hand navigation.
-
-2.   Select your Managed Instance to be configured with Azure AD authentication.
-
-3.   In the **Settings** section of the blade, select **Active Directory admin**.
-
-4.   In the command bar, select **Set admin**.
-
-5.   Select an Azure AD user account to be made administrator of the server, and then select **Select**.
-
-6.   In the command bar, select **Save**.
+Follow the steps in [Provision an Azure Active Directory administrator for your Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
 ### Add the managed identity for your ADF as a user in Azure SQL Database Managed Instance
 
@@ -159,40 +149,29 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 
 1.	Start SSMS.
 
-2.	Connect to your Managed Instance using your SQL/Active Directory admin account.
+2.	Connect to your Managed Instance using a SQL Server account that is a **sysadmin**. This is a temporary limitation that will be removed once Azure AD server principals (logins) for Azure SQL Database Managed Instance becomes GA. You will see the following error if you try to use an Azure AD admin account to create the login: Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.
 
 3.	In the **Object Explorer**, expand the **Databases** -> **System Databases** folder.
 
 4.	Right-click on **master** database and select **New query**.
 
-5.	Get the managed identity for your ADF. You can follow the article [Managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) to get the principal Managed Identity Application ID (but do not use Managed Identity Object ID for this purpose).
-
-6.	In the query window, execute the following T-SQL script to convert the managed identity for your ADF to binary type:
+5.	In the query window, execute the following T-SQL script to add the managed identity for your ADF as a user
 
     ```sql
-    DECLARE @applicationId uniqueidentifier = '{your Managed Identity Application ID}'
-    select CAST(@applicationId AS varbinary)
-    ```
-    
-    The command should complete successfully, displaying the managed identity for your ADF as binary.
-
-7.	Clear the query window and execute the following T-SQL script to add the managed identity for your ADF as a user
-
-    ```sql
-    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your Managed Identity Application ID as binary}, TYPE = E
-    ALTER SERVER ROLE [dbcreator] ADD MEMBER [{the managed identity name}]
-    ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
+    CREATE LOGIN [{your ADF name}] FROM EXTERNAL PROVIDER
+    ALTER SERVER ROLE [dbcreator] ADD MEMBER [{your ADF name}]
+    ALTER SERVER ROLE [securityadmin] ADD MEMBER [{your ADF name}]
     ```
     
     The command should complete successfully, granting the managed identity for your ADF the ability to create a database (SSISDB).
 
-8.  If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
+6.  If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
 
-9.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+7.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
 
     ```sql
-    CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo
-    ALTER ROLE db_owner ADD MEMBER [{the managed identity name}]
+    CREATE USER [{your ADF name}] FOR LOGIN [{your ADF name}] WITH DEFAULT_SCHEMA = dbo
+    ALTER ROLE db_owner ADD MEMBER [{your ADF name}]
     ```
 
     The command should complete successfully, granting the managed identity for your ADF the ability to access SSISDB.

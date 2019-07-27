@@ -566,7 +566,7 @@ Don't set `telemetryClient.Context.Operation.Id`. This global setting causes inc
 
 ## Log custom telemetry in JavaScript functions
 
-The [Application Insights Node.js SDK](https://www.npmjs.com/package/applicationinsights) is currently in beta. Here's some sample code that sends custom telemetry to Application Insights:
+Here is a sample code snippet that sends custom telemetry with the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js):
 
 ```javascript
 const appInsights = require("applicationinsights");

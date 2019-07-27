@@ -87,7 +87,7 @@ config.color_format     = K4A_IMAGE_FORMAT_COLOR_BGRA32;
 config.color_resolution = K4A_COLOR_RESOLUTION_3072P;
 
 // Start the camera with the given configuration
-k4a_device_start_cameras(device, &config)
+k4a_device_start_cameras(device, &config);
 
 // ...Camera capture and application specific code would go here...
 
@@ -174,6 +174,6 @@ int main()
 
 ## Next steps
 
-You may also review the following articles:
+Learn how to find and open a Azure Kinect DK device using Sensor SDK
 > [!div class="nextstepaction"]
->[Using Azure Kinect Sensor SDK](about-sensor-sdk.md)
+>[Find and open a device](find-then-open-device.md)

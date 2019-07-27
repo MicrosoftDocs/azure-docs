@@ -61,7 +61,7 @@ You can use the Azure AD Graph Explorer for the Azure AD Graph API to query the 
 
 The following screenshot is the output you would see if you were to navigate to the Azure AD Graph Explorer, sign in, and enter `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` to display all the users in the signed-in user's directory:
 
-![Azure AD graph api explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+![Example output in Azure AD Graph API Explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Load the Azure AD Graph Explorer**: To load the tool, navigate to [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Click **Login** and sign-in with your Azure AD account credentials to run the Azure AD Graph Explorer against your tenant. If you run Azure AD Graph Explorer against your own tenant, either you or your administrator needs to consent during sign-in. If you have an Office 365 subscription, you automatically have an Azure AD tenant. The credentials you use to sign in to Office 365 are, in fact, Azure AD accounts, and you can use these credentials with Azure AD Graph Explorer.
 

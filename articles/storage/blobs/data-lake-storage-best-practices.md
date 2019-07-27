@@ -38,7 +38,7 @@ Azure Active Directory service principals are typically used by services like Az
 
 Data Lake Storage Gen2 supports the option of turning on a firewall and limiting access only to Azure services, which is recommended to limit the vector of external attacks. Firewall can be enabled on a storage account in the Azure portal via the **Firewall** > **Enable Firewall (ON)** > **Allow access to Azure services** options.
 
-Adding Azure Databricks clusters to a virtual network that may be allowed to access via the Storage Firewall requires the use of a preview feature of Databricks. To enable this feature, please place a support request.
+To access your storage account from Azure Databricks, deploy Azure Databricks to your virtual network, and then add that virtual network to your firewall. See [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ## Resiliency considerations
 

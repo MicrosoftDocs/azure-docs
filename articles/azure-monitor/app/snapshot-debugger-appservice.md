@@ -11,7 +11,7 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
-ms.author: brahmnes
+ms.author: bfung
 ---
 # Enable Snapshot Debugger for .NET apps in Azure App Service
 

@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Perform various data exploration and modeling task on the Data science Virtual Machine.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 editor: cgronlun
 ms.custom: seodec18
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 
@@ -103,7 +103,7 @@ When you operationalize your model in Azure Machine Learning, a web service is e
 Here is a snippet of code developed in a Python Jupyter Notebook that builds a simple model using the SciKit-learn library.
 
 ```python
-#IRIS classification
+# IRIS classification
 from sklearn import datasets
 from sklearn import svm
 clf = svm.SVC()
@@ -117,10 +117,12 @@ The method used to deploy your python models to Azure Machine Learning wraps the
 ```python
 from azureml import services
 @services.publish(workspaceid, auth_token)
-@services.types(sep_l = float, sep_w = float, pet_l=float, pet_w=float)
-@services.returns(int) #0, or 1, or 2
+@services.types(sep_l=float, sep_w=float, pet_l=float, pet_w=float)
+@services.returns(int)  # 0, or 1, or 2
 def predictIris(sep_l, sep_w, pet_l, pet_w):
     inputArray = [sep_l, sep_w, pet_l, pet_w]
+
+
 return clf.predict(inputArray)
 ```
 
@@ -494,7 +496,7 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 * Upload data using IPython Notebook. First import required packages, plug in credentials, create a db in your storage account, then load data to HDI clusters.
 
 ```python
-#Import required Packages
+# Import required Packages
 import pyodbc
 import time as time
 import json
@@ -509,12 +511,12 @@ from azure.storage.blob import BlobService
 warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
 
 
-#Create the connection to Hive using ODBC
-SERVER_NAME='xxx.azurehdinsight.net'
-DATABASE_NAME='nyctaxidb'
-USERID='xxx'
-PASSWORD='xxxx'
-DB_DRIVER='Microsoft Hive ODBC Driver'
+# Create the connection to Hive using ODBC
+SERVER_NAME = 'xxx.azurehdinsight.net'
+DATABASE_NAME = 'nyctaxidb'
+USERID = 'xxx'
+PASSWORD = 'xxxx'
+DB_DRIVER = 'Microsoft Hive ODBC Driver'
 driver = 'DRIVER={' + DB_DRIVER + '}'
 server = 'Host=' + SERVER_NAME + ';Port=443'
 database = 'Schema=' + DATABASE_NAME
@@ -522,12 +524,13 @@ hiveserv = 'HiveServerType=2'
 auth = 'AuthMech=6'
 uid = 'UID=' + USERID
 pwd = 'PWD=' + PASSWORD
-CONNECTION_STRING = ';'.join([driver,server,database,hiveserv,auth,uid,pwd])
+CONNECTION_STRING = ';'.join(
+    [driver, server, database, hiveserv, auth, uid, pwd])
 connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
-cursor=connection.cursor()
+cursor = connection.cursor()
 
 
-#Create Hive database and tables
+# Create Hive database and tables
 queryString = "create database if not exists nyctaxidb;"
 cursor.execute(queryString)
 
@@ -575,11 +578,13 @@ queryString = """
 cursor.execute(queryString)
 
 
-#Upload data from blob storage to HDI cluster
-for i in range(1,13):
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);"%(i,i)
+# Upload data from blob storage to HDI cluster
+for i in range(1, 13):
+    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);" % (
+        i, i)
     cursor.execute(queryString)
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);"%(i,i)  
+    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);" % (
+        i, i)
     cursor.execute(queryString)
 ```
 
@@ -599,7 +604,7 @@ Since the data is in Hadoop cluster, you can use the pyodbc package to connect t
 queryString = """
     show tables in nyctaxidb2;
     """
-pd.read_sql(queryString,connection)
+pd.read_sql(queryString, connection)
 ```
 
 ![View existing tables](./media/vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
@@ -632,7 +637,7 @@ queryString = """
     )tc
     GROUP BY tipped;
     """
-results = pd.read_sql(queryString,connection)
+results = pd.read_sql(queryString, connection)
 
 results.columns = ['tipped', 'trip_count']
 df = results.copy()
@@ -660,7 +665,7 @@ queryString = """
                         and dropoff_longitude between -90 and -30
                         and dropoff_latitude between 30 and 90;
             """
-results = pd.read_sql(queryString,connection)
+results = pd.read_sql(queryString, connection)
 results.head(5)
 ```
 
@@ -668,9 +673,9 @@ results.head(5)
 
 ```python
 results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
-                    'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
-df = results.loc[results['trip_distance']<=100] #remove outliers
-df = df.loc[df['direct_distance']<=100] #remove outliers
+                   'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
+df = results.loc[results['trip_distance'] <= 100]  # remove outliers
+df = df.loc[df['direct_distance'] <= 100]  # remove outliers
 plt.scatter(df['direct_distance'], df['trip_distance'])
 ```
 
@@ -811,7 +816,7 @@ queryString = """
     select * from nyctaxi_downsampled_dataset limit 10;
     """
 cursor.execute(queryString)
-pd.read_sql(queryString,connection)
+pd.read_sql(queryString, connection)
 ```
 
 ![Top rows of data from the table](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)

@@ -117,7 +117,7 @@ Use the **LIKE** statement to check the **LicensePlate** field value. It should 
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
             ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
         END AS CarsPassed,
-        System.TimeStamp() AS Time
+        System.TimeStamp() AS AsaTime
     FROM
         Input TIMESTAMP BY Time
     GROUP BY
@@ -170,7 +170,7 @@ The **CASE** expression compares an expression to a set of simple expressions to
 
     SELECT
         Make,
-        System.TimeStamp() AS Time,
+        System.TimeStamp() AS AsaTime,
         COUNT(*) AS [Count]
     INTO
         AlertOutput
@@ -229,7 +229,7 @@ For example:
 ```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
-     System.TIMESTAMP() AS TIME
+     System.TIMESTAMP() AS AsaTIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
@@ -379,10 +379,9 @@ Now let's change the problem and find the first car of a particular make in ever
 **Explanation**:
 There are two steps in the query. The first one finds the latest time stamp in 10-minute windows. The second step joins the results of the first query with the original stream to find the events that match the last time stamps in each window. 
 
-## Query example: Detect the absence of events
+## Query example: Locate correlated events in a stream
 
-**Description**: Check that a stream has no value that matches a certain criterion.
-For example, have 2 consecutive cars from the same make entered the toll road within the last 90 seconds?
+**Description**: Find correlated events in a stream. For example, have 2 consecutive cars from the same make entered the toll road within the last 90 seconds?
 
 **Input**:
 
@@ -727,6 +726,6 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
