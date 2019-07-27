@@ -35,6 +35,8 @@ This topic shows you how to perform these tasks:
 
 ## Create integration account
 
+For this task, you can use either the Azure portal by following the steps in this section, [Azure PowerShell](https://docs.microsoft.com//powershell/module/azurerm.logicapp/New-AzureRmIntegrationAccount), or [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create).
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
 1. On the main Azure menu, select **Create a resource**. In the search box, enter "integration account" as your filter, and select **Integration Account**.
@@ -72,6 +74,8 @@ This topic shows you how to perform these tasks:
 ## Link to logic app
 
 To give your logic apps access to an integration account that contains your B2B artifacts, you must first link your integration account to your logic app. Both logic app and integration account must exist in the same region.
+
+For this task, you can use the Azure portal by following the steps in this section, [Azure PowerShell]
 
 1. In the Azure portal, find and open your logic app.
 
@@ -133,7 +137,7 @@ To make this change, you can use either the Azure portal by finding your integra
 1. At the command prompt, enter the [**az resource** command](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update), and set `skuName` to the higher tier that you want.
 
    ```Azure CLI
-   az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
+   az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
    ```
   
    For example, if you have the Basic tier, you can set `skuName` to `Standard`:
