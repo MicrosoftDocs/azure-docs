@@ -52,7 +52,7 @@ conceptualContent:
           itemType: concept
           text: Application Proxy for on-premises apps
       footerLink: 
-        url: ./manage-apps/index
+        url: ./manage-apps/index.yml
         text: See more
 
     - title: Authentication
@@ -67,7 +67,7 @@ conceptualContent:
           itemType: concept
           text: Azure AD password protection 
       footerLink: 
-        url: ./authentication/index
+        url: ./authentication/
         text: See more
 
     - title: Business-to-Business (B2B) 
