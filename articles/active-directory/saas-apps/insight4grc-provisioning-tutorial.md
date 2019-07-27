@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in In
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A Insight4GRC  tenant](https://www.rsmuk.com/).
+* [A Insight4GRC  tenant](https://www.insight4grc.com/).
 * A user account in Insight4GRC with Admin permissions.
 
 ## Assigning users to Insight4GRC 
@@ -53,8 +53,8 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Insight4GRC for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Insight4GRC.
 
-1. To obtain the bearer token, end-customer needs to contact support.ss@rsmuk.com and they will provide the bearer token to the customers.
-
+1. To obtain the bearer token, you will need to contact Insight4GRC at **support.ss@rsmuk.com**. This token value will be used in the **Secret Token** field in Azure AD.
+2. To obtain the SCIM endpoint URL, you will need to have your Insight4GRC domain name ready as it will be used to construct your SCIM endpoint URL. You can retrieve your Insight4GRC domain name as part of the initial software purchase with Insight4GRC.
 
 ## Add Insight4GRC  from the gallery
 
@@ -103,7 +103,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5.	Under the **Admin Credentials** section, input `https://[Insight4GRC Domain Name.insight4grc.com/public/api/scim/v2` in Tenant URL. In **Secret Token** textbox, enter the **Token value** which was given by Insight4GRC member. Click **Test Connection** to ensure Azure AD can connect to Insight4GRC. If the connection fails, ensure your Insight4GRC account has Admin permissions and try again.
+5.	Under the **Admin Credentials** section, input `https://{Insight4GRC Domain Name}.insight4grc.com/public/api/scim/v2` in **Tenant URL** using the `{Insight4GRC Domain Name}` value that was retrieved earlier. Enter the **Token value** retrieved earlier into  **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Insight4GRC. If the connection fails, ensure your Insight4GRC account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -146,8 +146,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Insight4GRC .
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
-
-## Connector limitations
 
 ## Additional resources
 
