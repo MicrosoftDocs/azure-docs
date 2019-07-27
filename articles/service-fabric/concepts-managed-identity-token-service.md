@@ -1,8 +1,8 @@
 ---
-title: Service Fabric concepts - MITS overview | Microsoft Docs
+title: Service Fabric -Managed Identiy overview | Microsoft Docs
 description: This article is an overview of MITS.
 services: service-fabric
-author: Nickomang 
+author: atsenthi 
 
 ms.service: service-fabric
 ms.topic: conceptual 
@@ -10,12 +10,15 @@ ms.date: 07/25/2019
 ms.author: atsenthi 
 ---
 
-# What is MITS?
+# What is Managed Identity?
 
 Introductory paragraph.
 
-## \<details about MITS\>
-
-Information about MITS.
+## About Managed Identity Token Service
+ 
+ ## System identiy
+ ## User identity 
+ 
+## Supported scenarios
 
 ## Next steps
