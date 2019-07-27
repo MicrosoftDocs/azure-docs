@@ -3,7 +3,7 @@ title: Glossary - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator Glossary
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
