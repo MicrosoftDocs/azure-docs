@@ -27,7 +27,7 @@ This article answers frequently asked questions (FAQ) about Azure Log Integratio
 
 Azure Log Integration is a Windows operating system service that you can use to integrate raw logs from your Azure resources into your on-premises security information and event management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud. You can then aggregate, correlate, analyze, and alert for security events associated with your applications.
 
-The preferred method for integrating Azure logs is by using your SIEM vendor's Azure Monitor connector and following these [instructions](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn't provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
+The preferred method for integrating Azure logs is by using your SIEM vendor's Azure Monitor connector and following these [instructions](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs). However, if your SIEM vendor doesn't provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -80,7 +80,7 @@ Append the subscription ID to the friendly name while adding the source:
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
 The event XML has the following metadata, including the subscription ID:
 
-![Event XML][1]
+![Event XML](media/azure-log-integration-faq/event-xml.png)
 
 ## Error messages
 ### When I run the command ```AzLog createazureid```, why do I get the following error?
@@ -103,16 +103,16 @@ The **azlog authorize** command assigns the role of reader to the Azure AD servi
 
 See:
 
-* [Audit operations with Azure Resource Manager](../../azure-resource-manager/resource-group-audit.md)
+* [Audit operations with Azure Resource Manager](/azure/azure-resource-manager/resource-group-audit)
 * [List the management events in a subscription in the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## Where can I find details on Azure Security Center alerts?
 
-See [Managing and responding to security alerts in Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md).
+See [Managing and responding to security alerts in Azure Security Center](/azure/security-center/security-center-managing-and-responding-alerts).
 
 ## How can I modify what is collected with VM diagnostics?
 
-For details on how to get, modify, and set the Azure Diagnostics configuration, see [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+For details on how to get, modify, and set the Azure Diagnostics configuration, see [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](/azure/virtual-machines/windows/ps-extensions-diagnostics?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 The following example gets the Azure Diagnostics configuration:
 
@@ -138,11 +138,10 @@ The following example sets the Azure Diagnostics configuration:
 
 After you make changes, check the storage account to ensure that the correct events are collected.
 
-If you have any issues during the installation and configuration, please open a [support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Select **Log Integration** as the service for which you are requesting support.
+If you have any issues during the installation and configuration, please open a [support request](/azure/azure-supportability/how-to-create-azure-support-request). Select **Log Integration** as the service for which you are requesting support.
 
 ## Can I use Azure Log Integration to integrate Network Watcher logs into my SIEM?
 
 Azure Network Watcher generates large quantities of logging information. These logs are not meant to be sent to a SIEM. The only supported destination for Network Watcher logs is a storage account. Azure Log Integration does not support reading these logs and making them available to a SIEM.
 
-<!--Image references-->
-[1]: ./media/security-azure-log-integration-faq/event-xml.png
+

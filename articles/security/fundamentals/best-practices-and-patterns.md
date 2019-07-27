@@ -23,7 +23,7 @@ The articles below contain security best practices to use when you’re designin
 
 The best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
-* [Azure boundary security best practices](../best-practices-network-security.md)
+* [Azure boundary security best practices](network-best-practices.md)
 * [Azure database security best practices](database-best-practices.md)
 * [Azure data security and encryption best practices](data-encryption-best-practices.md)
 * [Azure identity management and access control security best practices](identity-management-best-practices.md)
@@ -31,8 +31,8 @@ The best practices are intended to be a resource for IT pros. This might include
 * [Azure operational security best practices](operational-best-practices.md)
 * [Azure PaaS Best Practices](paas-deployments.md)
 * [Azure Service Fabric security best practices](service-fabric-best-practices.md)
-* [Best practices for Azure VM security](azure-security-best-practices-vms.md)
-* [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+* [Best practices for Azure VM security](iaas.md)
+* [Implementing a secure hybrid network architecture in Azure](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
 * [Internet of Things security best practices](iot-best-practices.md)
 * [Securing PaaS databases in Azure](paas-applications-using-sql.md)
 * [Securing PaaS web and mobile applications using Azure App Service](paas-applications-using-app-services.md)

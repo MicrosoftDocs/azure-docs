@@ -24,7 +24,7 @@ ms.custom: azlog
 >[!IMPORTANT]
 > The Azure Log integration feature will be deprecated by 06/15/2019. AzLog downloads were disabled on Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
-You should only use Azure log integration if an [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector isn't available from your Security Incident and Event Management (SIEM) vendor.
+You should only use Azure log integration if an [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-get-started) connector isn't available from your Security Incident and Event Management (SIEM) vendor.
 
 Azure Log Integration makes Azure logs available to your SIEM so you can create a unified security dashboard for all your assets.
 For more information about the status of an Azure Monitor connector, contact your SIEM vendor.
@@ -58,7 +58,7 @@ At a minimum, installing Azure Log Integration requires the following items:
     * Can be on-premises or hosted in Microsoft Azure.  
     * Must be running an x64 version of Windows Server 2008 R2 SP1 or later, and have Microsoft .NET 4.5.1 installed. To determine the .NET version installed, see [Determine which .NET Framework versions are installed](https://msdn.microsoft.com/library/hh925568).  
     * Must have connectivity to the Azure Storage account that's used for Azure Diagnostics logging. Later in this article, we describe how to confirm connectivity.
-  * A machine that you want to monitor. This is a VM running as an [Azure virtual machine](../virtual-machines/virtual-machines-windows-overview.md). The logging information from this machine is sent to the Azure Log Integration service machine.
+  * A machine that you want to monitor. This is a VM running as an [Azure virtual machine](/azure/virtual-machines/virtual-machines-windows-overview). The logging information from this machine is sent to the Azure Log Integration service machine.
 
 For a quick demonstration of how to create a virtual machine by using the Azure portal, take a look at the following video:<br /><br />
 
@@ -249,5 +249,5 @@ Before you attempt the steps in this article, you must review the Get started ar
 * [Introduction to Azure Log Integration](azure-log-integration-overview.md). This article introduces you to Azure Log Integration, its key capabilities, and how it works.
 * [Partner configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). This blog post shows you how to configure Azure Log Integration to work with partner solutions Splunk, HP ArcSight, and IBM QRadar. It describes our current guidance about how to configure the SIEM components. Check with your SIEM vendor for additional details.
 * [Azure Log Integration frequently asked questions (FAQ)](azure-log-integration-faq.md). This FAQ answers common questions about Azure Log Integration.
-* [Integrating Azure Security Center alerts with Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). This article shows you how to sync Security Center alerts and virtual machine security events that are collected by Azure Diagnostics and Azure activity logs. You sync the logs by using your Azure Monitor logs or SIEM solution.
+* [Integrating Azure Security Center alerts with Azure Log Integration](/azure/security-center/security-center-integrating-alerts-with-log-integration). This article shows you how to sync Security Center alerts and virtual machine security events that are collected by Azure Diagnostics and Azure activity logs. You sync the logs by using your Azure Monitor logs or SIEM solution.
 * [New features for Azure Diagnostics and Azure audit logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). This blog post introduces you to Azure audit logs and other features that can help you gain insight into the operations of your Azure resources.
