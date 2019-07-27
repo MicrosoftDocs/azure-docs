@@ -32,11 +32,11 @@ For a more detailed look at security in Azure Storage, see the [Azure Storage se
 
 ## Role-Based Access Control
 
-You can help secure your storage account by using Role-Based Access Control. Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users.
+You can help secure your storage account by using Role-Based Access Control. Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](/azure/role-based-access-control/built-in-roles), such as Storage Account Contributor, to assign privileges to users.
 
 Learn more:
 
-* [Azure Active Directory Role-Based Access Control](../../role-based-access-control/role-assignments-portal.md)
+* [Azure Active Directory Role-Based Access Control](/azure/role-based-access-control/role-assignments-portal)
 
 ## Delegated access to storage objects
 
@@ -46,16 +46,16 @@ The SAS is a URI that encompasses in its query parameters all the information ne
 
 Learn more:
 
-* [Understanding the SAS model](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)
-* [Create and use an SAS with Blob storage](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Understanding the SAS model](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+* [Create and use an SAS with Blob storage](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 
 ## Encryption in transit
 
 Encryption in transit is a mechanism of protecting data when it's transmitted across networks. With Azure Storage, you can secure data by using:
 
-* [Transport-level encryption](../../storage/common/storage-security-guide.md#encryption-in-transit), such as HTTPS, when you transfer data into or out of Azure Storage.
-* [Wire encryption](../../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption, for Azure file shares.
-* [Client-side encryption](../../storage/common/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), to encrypt the data before it's transferred into Storage and to decrypt the data after it is transferred out of Storage.
+* [Transport-level encryption](/azure/storage/common/storage-security-guide#encryption-in-transit), such as HTTPS, when you transfer data into or out of Azure Storage.
+* [Wire encryption](/azure/storage/common/storage-security-guide#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption, for Azure file shares.
+* [Client-side encryption](/azure/storage/common/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), to encrypt the data before it's transferred into Storage and to decrypt the data after it is transferred out of Storage.
 
 Learn more about client-side encryption:
 
@@ -66,14 +66,14 @@ Learn more about client-side encryption:
 
 For many organizations, [data encryption at rest](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step toward data privacy, compliance, and data sovereignty. Three Azure features provide encryption of data that's at rest:
 
-* [Storage Service Encryption](../../storage/common/storage-security-guide.md#encryption-at-rest) is always enabled and automatically encrypts storage service data when writing it to Azure Storage.
-* [Client-side encryption](../../storage/common/storage-security-guide.md#client-side-encryption) also provides the feature of encryption at rest.
-* [Azure Disk Encryption](../../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) enables you to encrypt the OS disks and data disks that an IaaS virtual machine uses.
+* [Storage Service Encryption](/azure/storage/common/storage-security-guide#encryption-at-rest) is always enabled and automatically encrypts storage service data when writing it to Azure Storage.
+* [Client-side encryption](/azure/storage/common/storage-security-guide#client-side-encryption) also provides the feature of encryption at rest.
+* [Azure Disk Encryption](/azure/storage/common/storage-security-guide#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) enables you to encrypt the OS disks and data disks that an IaaS virtual machine uses.
 
 Learn more about Storage Service Encryption:
 
 * [Azure Storage Service Encryption](https://azure.microsoft.com/services/storage/) is available for [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). For details on other Azure storage types, see [Azure Files](https://azure.microsoft.com/services/storage/files/), [Table storage](https://azure.microsoft.com/services/storage/tables/), and [Queue storage](https://azure.microsoft.com/services/storage/queues/).
-* [Azure Storage Service Encryption for Data at Rest](../../storage/common/storage-service-encryption.md)
+* [Azure Storage Service Encryption for Data at Rest](/azure/storage/common/storage-service-encryption)
 
 ## Azure Disk Encryption
 
@@ -91,7 +91,7 @@ Azure storage allows you to enable firewall rules for your storage accounts. Onc
 
 You should use this functionality  to secure your storage accounts to a specific set of allowed networks.
 
-For more information on Azure storage firewalls and virtual networks review the article [Configure Azure Storage Firewalls and Virtual Networks](../../storage/common/storage-network-security.md)
+For more information on Azure storage firewalls and virtual networks review the article [Configure Azure Storage Firewalls and Virtual Networks](/azure/storage/common/storage-network-security)
 
 ## Azure Data Box
 
@@ -102,8 +102,8 @@ Data Box Edge and Data Box Gateway are online data transfer products that act as
 Learn more:
 
 * [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
-* [Azure Data Box Edge](../../databox-online/data-box-edge-overview.md)
-* [Azure Data Box Gateway](../../databox-online/data-box-gateway-overview.md)
+* [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview)
+* [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview)
 
 ## Advanced Threat Protection
 
@@ -113,7 +113,7 @@ Advanced Threat Protection alerts can be viewed from [Azure Security Center](htt
 
 Learn more:
 
-* [Azure Storage Advanced Threat Protection Overview](../../storage/common/storage-advanced-threat-protection.md)
+* [Azure Storage Advanced Threat Protection Overview](/azure/storage/common/storage-advanced-threat-protection)
 
 ## Azure Key Vault
 
@@ -121,4 +121,4 @@ Azure Disk Encryption uses [Azure Key Vault](https://azure.microsoft.com/service
 
 Learn more
 
-* [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
+* [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)

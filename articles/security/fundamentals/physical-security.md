@@ -36,7 +36,7 @@ Availability zones are physically separate locations within an Azure region. Eac
 
 The following figure shows how the Azure global infrastructure pairs region and availability zones within the same data residency boundary for high availability, disaster recovery, and backup.
 
-![Diagram showing data residency boundary][1]
+![Diagram showing data residency boundary](./media/physical-security/data-residency-boundary.png)
 
 Geographically distributed datacenters enables Microsoft to be close to customers, to reduce network latency and allow for geo-redundant backup and failover.
 
@@ -84,5 +84,4 @@ To learn more about what Microsoft does to help secure the Azure infrastructure,
 - [Azure infrastructure integrity](infrastructure-integrity.md)
 - [Azure customer data protection](protection-customer-data.md)
 
-<!--Image references-->
-[1]: ./media/azure-physical-security/data-residency-boundary.png
+

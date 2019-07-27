@@ -70,28 +70,28 @@ The following sections give prescriptive guidance to build DDoS-resilient servic
 
 Ensure that security is a priority throughout the entire lifecycle of an application, from design and implementation to deployment and operations. Applications can have bugs that allow a relatively low volume of requests to use an inordinate amount of resources,  resulting in a service outage. 
 
-To help protect a service running on Microsoft Azure, you should have a good understanding of your application architecture and focus on the [five pillars of software quality](https://docs.microsoft.com/azure/architecture/guide/pillars).
+To help protect a service running on Microsoft Azure, you should have a good understanding of your application architecture and focus on the [five pillars of software quality](/azure/architecture/guide/pillars).
 You should know typical traffic volumes, the connectivity model between the application and other applications, and the service endpoints that are exposed to the public internet.
 
 Ensuring that an application is resilient enough to handle a denial of service that's targeted at the application itself is most important. Security and privacy are built into the Azure platform, beginning with the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). The SDL addresses security at every development phase and ensures that Azure is continually updated to make it even more secure.
 
 ### Design for scalability
 
-Scalability is how well a system can handle increased load. You must design your applications to [scale horizontally](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.
+Scalability is how well a system can handle increased load. You must design your applications to [scale horizontally](/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.
 
-For [Azure App Service](../app-service/app-service-value-prop-what-is.md), select an [App Service plan](../../app-service/overview-hosting-plans.md) that offers multiple instances. For Azure Cloud Services, configure each of your roles to use [multiple instances](../../cloud-services/cloud-services-choose-me.md). 
-For [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ensure that your virtual machine (VM) architecture includes more than one VM and that each VM is
-included in an [availability set](../virtual-machines/virtual-machines-windows-manage-availability.md). We recommend using [virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)
+For [Azure App Service](/azure/app-service/app-service-value-prop-what-is), select an [App Service plan](/azure/app-service/overview-hosting-plans) that offers multiple instances. For Azure Cloud Services, configure each of your roles to use [multiple instances](/azure/cloud-services/cloud-services-choose-me). 
+For [Azure Virtual Machines](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ensure that your virtual machine (VM) architecture includes more than one VM and that each VM is
+included in an [availability set](/azure/virtual-machines/virtual-machines-windows-manage-availability). We recommend using [virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
 for autoscaling capabilities.
 
 ### Defense in depth
 
 The idea behind defense in depth is to manage risk by using diverse defensive strategies. Layering security defenses in an application reduces the chance of a successful attack. We recommend that you implement secure designs for your applications by using the built-in capabilities of the Azure platform.
 
-For example, the risk of attack increases with the size (*surface area*) of the application. You can reduce the surface area by using whitelisting to close down the exposed IP address space and listening ports that are not needed on the load balancers ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) and [Azure Application Gateway](../../application-gateway/application-gateway-create-probe-portal.md)). [Network security groups (NSGs)](../../virtual-network/security-overview.md) are another way to reduce the attack surface.
-You can use [service tags](../../virtual-network/security-overview.md#service-tags) and [application security groups](../../virtual-network/security-overview.md#application-security-groups) to minimize complexity for creating security rules and configuring network security, as a natural extension of an application’s structure.
+For example, the risk of attack increases with the size (*surface area*) of the application. You can reduce the surface area by using whitelisting to close down the exposed IP address space and listening ports that are not needed on the load balancers ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) and [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)). [Network security groups (NSGs)](/azure/virtual-network/security-overview) are another way to reduce the attack surface.
+You can use [service tags](/azure/virtual-network/security-overview#service-tags) and [application security groups](/azure/virtual-network/security-overview#application-security-groups) to minimize complexity for creating security rules and configuring network security, as a natural extension of an application’s structure.
 
-You should deploy Azure services in a [virtual network](../../virtual-network/virtual-networks-overview.md) whenever possible. This practice allows service resources to communicate through private IP addresses. Azure service traffic from a virtual network uses public IP addresses as source IP addresses by default. Using [service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) will switch service traffic to use virtual network private addresses as the source IP addresses when they're accessing the Azure service from a virtual network.
+You should deploy Azure services in a [virtual network](/azure/virtual-network/virtual-networks-overview) whenever possible. This practice allows service resources to communicate through private IP addresses. Azure service traffic from a virtual network uses public IP addresses as source IP addresses by default. Using [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) will switch service traffic to use virtual network private addresses as the source IP addresses when they're accessing the Azure service from a virtual network.
 
 We often see customers' on-premises resources getting attacked along with their resources in Azure. If you're connecting an on-premises environment to Azure, we recommend that you minimize exposure of on-premises resources to the public internet. You can use the scale and advanced DDoS protection capabilities of Azure by deploying your well-known public entities in Azure. Because these publicly accessible entities are often a target for DDoS attacks, putting them in Azure reduces the impact on your on-premises resources.
 
@@ -127,7 +127,7 @@ The Azure DDoS Protection Basic service helps protect customers and prevent impa
 
 #### DDoS Protection telemetry, monitoring, and alerting
 
-DDoS Protection Standard exposes rich telemetry via [Azure Monitor](../azure-monitor/overview.md) for the duration of a DDoS attack. You can configure alerts for any of the Azure Monitor metrics that DDoS Protection uses. You can integrate logging with Splunk (Azure Event Hubs), Azure Monitor logs, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+DDoS Protection Standard exposes rich telemetry via [Azure Monitor](/azure/azure-monitor/overview) for the duration of a DDoS attack. You can configure alerts for any of the Azure Monitor metrics that DDoS Protection uses. You can integrate logging with Splunk (Azure Event Hubs), Azure Monitor logs, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 ##### DDoS mitigation policies
 
@@ -147,11 +147,11 @@ If the public IP address is under attack, the value for the metric **Under DDoS 
 
 We recommend configuring an alert on this metric. You'll then be notified when there’s an active DDoS mitigation performed on your public IP address.
 
-For more information, see [Manage Azure DDoS Protection Standard using the Azure portal](../virtual-network/ddos-protection-manage-portal.md).
+For more information, see [Manage Azure DDoS Protection Standard using the Azure portal](/azure/virtual-network/ddos-protection-manage-portal).
 
 #### Web application firewall for resource attacks
 
-Specific to resource attacks at the application layer, you should configure a web application firewall (WAF) to help secure web applications. A WAF inspects inbound web traffic to block SQL injections, cross-site scripting, DDoS, and other Layer 7 attacks. Azure provides [WAF as a feature of Application Gateway](../application-gateway/application-gateway-web-application-firewall-overview.md) for centralized protection of your web applications from common exploits and vulnerabilities. There are other WAF offerings available from Azure partners that might be more suitable for your needs via the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
+Specific to resource attacks at the application layer, you should configure a web application firewall (WAF) to help secure web applications. A WAF inspects inbound web traffic to block SQL injections, cross-site scripting, DDoS, and other Layer 7 attacks. Azure provides [WAF as a feature of Application Gateway](/azure/application-gateway/application-gateway-web-application-firewall-overview) for centralized protection of your web applications from common exploits and vulnerabilities. There are other WAF offerings available from Azure partners that might be more suitable for your needs via the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
 
 Even web application firewalls are susceptible to volumetric and state exhaustion attacks. We strongly recommend enabling DDoS Protection Standard on the WAF virtual network to help protect from volumetric and protocol attacks. For more information, see the [DDoS Protection reference architectures](#ddos-protection-reference-architectures) section.
 
@@ -212,7 +212,7 @@ For your DDoS response team, we recommend that you use simulation exercises as a
 
 ### Alerts during an attack
 
-Azure DDoS Protection Standard identifies and mitigates DDoS attacks without any user intervention. To get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](../virtual-network/ddos-protection-manage-portal.md) on the metric **Under DDoS attack or not**. You can choose to create alerts for the other DDoS metrics to understand the scale of the attack, traffic being dropped, and other details.
+Azure DDoS Protection Standard identifies and mitigates DDoS attacks without any user intervention. To get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](/azure/virtual-network/ddos-protection-manage-portal) on the metric **Under DDoS attack or not**. You can choose to create alerts for the other DDoS metrics to understand the scale of the attack, traffic being dropped, and other details.
 
 #### When to contact Microsoft support
 
@@ -244,7 +244,7 @@ If you suspect you're under a DDoS attack, escalate through your normal Azure Su
 
 ## DDoS Protection reference architectures
 
-DDoS Protection Standard is designed [for services that are deployed in a virtual network](../../virtual-network/virtual-network-for-azure-services.md). For other services, the default DDoS Protection Basic service applies. The following reference architectures are arranged by scenarios, with architecture patterns grouped together.
+DDoS Protection Standard is designed [for services that are deployed in a virtual network](/azure/virtual-network/virtual-network-for-azure-services). For other services, the default DDoS Protection Basic service applies. The following reference architectures are arranged by scenarios, with architecture patterns grouped together.
 
 ### Virtual machine (Windows/Linux) workloads
 
@@ -257,16 +257,16 @@ This reference architecture shows a set of proven practices for running multiple
 In this architecture, a workload is distributed across multiple VM instances. There is a single public IP address, and internet traffic is distributed to the VMs through a load balancer. DDoS Protection Standard is enabled on the virtual network of the Azure (internet) load balancer that has the public IP associated with it.
 
 The load balancer distributes incoming internet requests to the VM instances. Virtual machine scale sets allow the number of VMs to be scaled in or out manually, or automatically based on predefined rules. This is important if the resource is under DDoS attack. For more information on this reference architecture, see
-[this article](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm).
+[this article](/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm).
 
 #### Application running on Windows N-tier
 
-There are many ways to implement an N-tier architecture. The following diagram shows a typical three-tier web application. This architecture builds on the article [Run load-balanced VMs for scalability and availability](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm). The web and business tiers use load-balanced VMs.
+There are many ways to implement an N-tier architecture. The following diagram shows a typical three-tier web application. This architecture builds on the article [Run load-balanced VMs for scalability and availability](/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm). The web and business tiers use load-balanced VMs.
 
 ![Diagram of the reference architecture for an application running on Windows N-tier](./media/ddos-best-practices/image10.png)
 
 In this architecture, DDoS Protection Standard is enabled on the virtual network. All public IPs in the virtual network get DDoS protection for Layer 3 and 4. For Layer 7 protection, deploy Application Gateway in the WAF SKU. For more information on this reference architecture, see 
-[this article](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/n-tier).
+[this article](/azure/architecture/reference-architectures/virtual-machines-windows/n-tier).
 
 #### PaaS web application
 
@@ -277,17 +277,17 @@ A standby region is set up for failover scenarios.
 
 Azure Traffic Manager routes incoming requests to Application Gateway in one of the regions. During normal operations, it routes requests to Application Gateway in the active region. If that region becomes unavailable, Traffic Manager fails over to Application Gateway in the standby region.
 
-All traffic from the internet destined to the web application is routed to the [Application Gateway public IP address](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview) via Traffic Manager. In this scenario, the app service (web app) itself is not directly externally facing and is protected by Application Gateway. 
+All traffic from the internet destined to the web application is routed to the [Application Gateway public IP address](/azure/application-gateway/application-gateway-web-app-overview) via Traffic Manager. In this scenario, the app service (web app) itself is not directly externally facing and is protected by Application Gateway. 
 
 We recommend that you configure the Application Gateway WAF SKU (prevent mode) to help protect against Layer 7 (HTTP/HTTPS/WebSocket) attacks. Additionally, web apps are configured to [accept only traffic from the Application Gateway](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/) IP address.
 
-For more information about this reference architecture, see [this article](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
+For more information about this reference architecture, see [this article](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 ### Mitigation for non-web PaaS services
 
 #### HDInsight on Azure
 
-This reference architecture shows configuring DDoS Protection Standard for an [Azure HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/). Make sure that the HDInsight cluster is linked to a virtual network and that DDoS Protection is enabled on the virtual network.
+This reference architecture shows configuring DDoS Protection Standard for an [Azure HDInsight cluster](/azure/hdinsight/). Make sure that the HDInsight cluster is linked to a virtual network and that DDoS Protection is enabled on the virtual network.
 
 !["HDInsight" and "Advanced settings" panes, with virtual network settings](./media/ddos-best-practices/image12.png)
 
@@ -295,7 +295,7 @@ This reference architecture shows configuring DDoS Protection Standard for an [A
 
 In this architecture, traffic destined to the HDInsight cluster from the internet is routed to the public IP associated with the HDInsight gateway load balancer. The gateway load balancer then sends the traffic to the head nodes or the worker nodes directly. Because DDoS Protection Standard is enabled on the HDInsight virtual network, all public IPs in the virtual network get DDoS protection for Layer 3 and 4. This reference architecture can be combined with the N-Tier and multi-region reference architectures.
 
-For more information on this reference architecture, see the [Extend Azure HDInsight using an Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json)
+For more information on this reference architecture, see the [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json)
 documentation.
 
 
@@ -308,4 +308,4 @@ documentation.
 
 * [Azure DDoS Protection blog](https://aka.ms/ddosblog)
 
-* [Azure DDoS Protection documentation](../../virtual-network/ddos-protection-overview.md)
+* [Azure DDoS Protection documentation](/azure/virtual-network/ddos-protection-overview)

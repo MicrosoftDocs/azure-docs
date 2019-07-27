@@ -57,25 +57,25 @@ Learn more about antimalware software to help protect your virtual machines:
 
 * [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](antimalware.md)
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [How to install and configure Trend Micro Deep Security as a service on a Windows VM](../virtual-machines/windows/classic/install-trend.md)
-* [How to install and configure Symantec Endpoint Protection on a Windows VM](../virtual-machines/windows/classic/install-symantec.md)
+* [How to install and configure Trend Micro Deep Security as a service on a Windows VM](/azure/virtual-machines/windows/classic/install-trend)
+* [How to install and configure Symantec Endpoint Protection on a Windows VM](/azure/virtual-machines/windows/classic/install-symantec)
 * [Security solutions in the Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
 For even more powerful protection, consider using [Windows Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). With Windows Defender ATP, you get:
 
-* [Attack surface reduction](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
-* [Next generation protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
-* [Endpoint protection and response](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
-* [Automated investigation and remediation](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [Secure score](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-secure-score-windows-defender-advanced-threat-protection)
-* [Advanced hunting](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
-* [Management and APIs](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/management-apis)
-* [Microsoft Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
+* [Attack surface reduction](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
+* [Next generation protection](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
+* [Endpoint protection and response](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
+* [Automated investigation and remediation](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
+* [Secure score](/windows/security/threat-protection/windows-defender-atp/overview-secure-score-windows-defender-advanced-threat-protection)
+* [Advanced hunting](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
+* [Management and APIs](/windows/security/threat-protection/windows-defender-atp/management-apis)
+* [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
 Learn more:
 
-* [Get Started with WDATP](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/get-started)  
-* [Overview of WDATP capabilities](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview)  
+* [Get Started with WDATP](/windows/security/threat-protection/windows-defender-atp/get-started)  
+* [Overview of WDATP capabilities](/windows/security/threat-protection/windows-defender-atp/overview)  
 
 ## Hardware security module
 
@@ -85,7 +85,7 @@ Key Vault provides the option to store your keys in hardware security modules (H
 
 Learn more:
 
-* [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
+* [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
 * [Azure Key Vault blog](https://blogs.technet.microsoft.com/kv/)
 
 ## Virtual machine disk encryption
@@ -96,8 +96,8 @@ The solution is integrated with Azure Key Vault to help you control and manage t
 
 Learn more:
 
-* [Azure Disk Encryption for IaaS VMs](../azure-security-disk-encryption-overview.md)
-* [Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell](../quick-encrypt-vm-powershell.md)
+* [Azure Disk Encryption for IaaS VMs](/azure/security/azure-security-disk-encryption-overview)
+* [Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell](quick-encrypt-vm-powershell.md)
 
 ## Virtual machine backup
 
@@ -105,8 +105,8 @@ Azure Backup is a scalable solution that helps protect your application data wit
 
 Learn more:
 
-* [What is Azure Backup?](../backup/backup-introduction-to-azure-backup.md)
-* [Azure Backup service FAQ](../../backup/backup-azure-backup-faq.md)
+* [What is Azure Backup?](/azure/backup/backup-introduction-to-azure-backup)
+* [Azure Backup service FAQ](/azure/backup/backup-azure-backup-faq)
 
 ## Azure Site Recovery
 
@@ -122,9 +122,9 @@ Site Recovery:
 
 Learn more:
 
-* [What is Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
-* [How does Azure Site Recovery work?](../site-recovery/site-recovery-components.md)
-* [What workloads are protected by Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
+* [What is Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
+* [How does Azure Site Recovery work?](/azure/site-recovery/site-recovery-components)
+* [What workloads are protected by Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
 
 ## Virtual networking
 
@@ -134,8 +134,8 @@ An Azure virtual network is a logical construct built on top of the physical Azu
 
 Learn more:
 
-* [Azure network security overview](fundamentals/network-overview.md)
-* [Virtual Network overview](../../virtual-network/virtual-networks-overview.md)
+* [Azure network security overview](network-overview.md)
+* [Virtual Network overview](/azure/virtual-network/virtual-networks-overview)
 * [Networking features and partnerships for enterprise scenarios](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## Security policy management and reporting
@@ -144,14 +144,14 @@ Azure Security Center helps you prevent, detect, and respond to threats. Securit
 
 Security Center helps you optimize and monitor the security of your virtual machines by:
 
-* Providing [security recommendations](../../security-center/security-center-recommendations.md) for the virtual machines. Example recommendations include: apply system updates, configure ACLs endpoints, enable antimalware, enable network security groups, and apply disk encryption.
+* Providing [security recommendations](/azure/security-center/security-center-recommendations) for the virtual machines. Example recommendations include: apply system updates, configure ACLs endpoints, enable antimalware, enable network security groups, and apply disk encryption.
 * Monitoring the state of your virtual machines.
 
 Learn more:
 
-* [Introduction to Azure Security Center](../../security-center/security-center-intro.md)
-* [Azure Security Center frequently asked questions](../../security-center/security-center-faq.md)
-* [Azure Security Center planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
+* [Introduction to Azure Security Center](/azure/security-center/security-center-intro)
+* [Azure Security Center frequently asked questions](/azure/security-center/security-center-faq)
+* [Azure Security Center planning and operations](/azure/security-center/security-center-planning-and-operations-guide)
 
 ## Compliance
 

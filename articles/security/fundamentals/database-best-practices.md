@@ -108,7 +108,7 @@ Files related to [buffer pool extension (BPE)](https://docs.microsoft.com/sql/da
 Because an authorized user like a security administrator or a database administrator can access the data even if the database is encrypted with transparent data encryption, you should also follow these recommendations:
 
 - Enable SQL Server authentication at the database level.
-- Use Azure AD authentication by using [RBAC roles](../role-based-access-control/overview.md).
+- Use Azure AD authentication by using [RBAC roles](/azure/role-based-access-control/overview).
 - Make sure that users and applications use separate accounts to authenticate. This way, you can limit the permissions granted to users and applications and reduce the risk of malicious activity.
 - Implement database-level security by using fixed database roles (such as db_datareader or db_datawriter). Or you can create custom roles for your application to grant explicit permissions to selected database objects.
 
@@ -127,11 +127,11 @@ Auditing an instance of the SQL Server Database Engine or an individual database
 
 There are several levels of auditing for SQL Server, depending on government or standards requirements for your installation. SQL Server auditing provides tools and processes for enabling, storing, and viewing audits on various server and database objects.
 
-[Azure SQL Database auditing](../../sql-database/sql-database-auditing.md) tracks database events and writes them to an audit log in your Azure storage account.
+[Azure SQL Database auditing](/azure/sql-database/sql-database-auditing) tracks database events and writes them to an audit log in your Azure storage account.
 
 Auditing can help you maintain regulatory compliance, understand database activity, and find discrepancies and anomalies that might point to business concerns or security violations. Auditing facilitates adherence to compliance standards but doesn't guarantee compliance.
 
-To learn more about database auditing and how to enable it, see [Get started with SQL database auditing](../../sql-database/sql-database-auditing.md).
+To learn more about database auditing and how to enable it, see [Get started with SQL database auditing](/azure/sql-database/sql-database-auditing).
 
 ## Enable database threat detection
 Threat protection goes beyond detection. Database threat protection includes:
@@ -141,17 +141,17 @@ Threat protection goes beyond detection. Database threat protection includes:
 - Detecting and responding to potential threats as they occur so you can quickly respond and remediate.
 
 **Best practice**: Discover, classify, and label the sensitive data in your databases.   
-**Detail**: Classify the data in your SQL database by enabling [Data Discovery and Classification](../../sql-database/sql-database-data-discovery-and-classification.md) in Azure SQL Database. You can monitor access to your sensitive data in the Azure dashboard or download reports.
+**Detail**: Classify the data in your SQL database by enabling [Data Discovery and Classification](/azure/sql-database/sql-database-data-discovery-and-classification) in Azure SQL Database. You can monitor access to your sensitive data in the Azure dashboard or download reports.
 
 **Best practice**: Track database vulnerabilities so you can proactively improve your database security.   
-**Detail**: Use the Azure SQL Database [Vulnerability Assessment](../../sql-database/sql-vulnerability-assessment.md) service, which scans for potential database vulnerabilities. The service employs a knowledge base of rules that flag security vulnerabilities and show deviations from best practices, such as misconfigurations, excessive permissions, and unprotected sensitive data.
+**Detail**: Use the Azure SQL Database [Vulnerability Assessment](/azure/sql-database/sql-vulnerability-assessment) service, which scans for potential database vulnerabilities. The service employs a knowledge base of rules that flag security vulnerabilities and show deviations from best practices, such as misconfigurations, excessive permissions, and unprotected sensitive data.
 
 The rules are based on Microsoft best practices and focus on the security issues that present the biggest risks to your database and its valuable data. They cover both database-level issues and server-level security issues, like server firewall settings and server-level permissions. These rules also represent many of the requirements from regulatory bodies to meet their compliance standards.
 
 **Best practice**: Enable threat detection.  
-**Detail**:  Enable Azure SQL Database [Threat Detection](../../sql-database/sql-database-threat-detection.md) to get security alerts and recommendations on how to investigate and mitigate threats. You get alerts about suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and query patterns.
+**Detail**:  Enable Azure SQL Database [Threat Detection](/azure/sql-database/sql-database-threat-detection) to get security alerts and recommendations on how to investigate and mitigate threats. You get alerts about suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and query patterns.
 
-[Advanced Threat Protection](../sql-database/sql-advanced-threat-protection.md) is a unified package for advanced SQL security capabilities. It includes the services mentioned earlier: Data Discovery and Classification, Vulnerability Assessment, and Threat Detection. It provides a single location for enabling and managing these capabilities.
+[Advanced Threat Protection](/azure/sql-database/sql-advanced-threat-protection) is a unified package for advanced SQL security capabilities. It includes the services mentioned earlier: Data Discovery and Classification, Vulnerability Assessment, and Threat Detection. It provides a single location for enabling and managing these capabilities.
 
 Enabling these capabilities helps you:
 
@@ -164,7 +164,7 @@ In addition, Threat Detection integrates alerts with Azure Security Center for a
 
 ## Enable Feature restrictions
 
-The data contained in your databases can be exposed to attackers using attack vectors that leverage database errors and query execution times. Azure SQL Database provides a number of feature restriction mechanisms to protect your database. To learn more, see [SQL Database Feature Restrictions](../../sql-database/sql-database-feature-restrictions.md).
+The data contained in your databases can be exposed to attackers using attack vectors that leverage database errors and query execution times. Azure SQL Database provides a number of feature restriction mechanisms to protect your database. To learn more, see [SQL Database Feature Restrictions](/azure/sql-database/sql-database-feature-restrictions).
 
 ## Next steps
 See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.

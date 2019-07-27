@@ -571,7 +571,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration management support (versioning of configuration, etc.)| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml).|
+| Configuration management support (versioning of configuration, etc.)| Yes | Through [Azure Resource Manager](/azure/azure-resource-manager/index).|
 
 ## [Service Fabric](../../service-fabric/service-fabric-security-attributes.md)
 
