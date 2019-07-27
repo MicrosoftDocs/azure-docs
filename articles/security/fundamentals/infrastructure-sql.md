@@ -29,7 +29,7 @@ Azure SQL Database supports only the tabular data stream (TDS) protocol, which r
 ### Azure SQL Database firewall
 To help protect customer data, Azure SQL Database includes a firewall functionality, which by default prevents all access to the SQL Database server, as shown below.
 
-![Azure SQL Database firewall][1]
+![Azure SQL Database firewall](./media/infrastructure-sql/sql-database-firewall.png)
 
 The gateway firewall can limit addresses, which allows customers granular control to specify ranges of acceptable IP addresses. The firewall grants access based on the originating IP address of each request.
 
@@ -101,5 +101,4 @@ To learn more about what Microsoft does to secure the Azure infrastructure, see:
 - [Azure infrastructure integrity](infrastructure-integrity.md)
 - [Azure customer data protection](protection-customer-data.md)
 
-<!--Image references-->
-[1]: ./media/azure-infrastructure-sql/sql-database-firewall.png
+

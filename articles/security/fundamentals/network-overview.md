@@ -77,7 +77,7 @@ Learn more:
 
 #### ASC just in time VM access
 
-[Azure security center](../../security-center/security-center-intro.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate role-based access control [RBAC](../role-based-access-control/overview.md) permissions requests access. When the user is successfully authorized ASC makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
+[Azure security center](../../security-center/security-center-intro.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate role-based access control [RBAC](/azure/role-based-access-control/overview) permissions requests access. When the user is successfully authorized ASC makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
 
 Learn more:
 
@@ -137,7 +137,7 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 Learn more:
 
-* [Azure Firewall overview](../firewall/overview.md)
+* [Azure Firewall overview](/azure/firewall/overview)
 
 ## Secure remote access and cross-premises connectivity
 
@@ -233,7 +233,7 @@ Azure Application Gateway provides HTTP-based load balancing for your web-based 
 
 Learn more:
 
-* [Application Gateway overview](../application-gateway/application-gateway-introduction.md)
+* [Application Gateway overview](/azure/application-gateway/application-gateway-introduction)
 
 ### Network level load balancing
 
@@ -248,8 +248,8 @@ You can gain the benefits of network level load balancing in Azure by using Azur
 
 Learn more:
 
-* [Internet-facing load balancer between multiple virtual machines or services](../load-balancer/load-balancer-internet-overview.md)
-* [Internal load balancer overview](../load-balancer/load-balancer-internal-overview.md)
+* [Internet-facing load balancer between multiple virtual machines or services](/azure/load-balancer/load-balancer-internet-overview)
+* [Internal load balancer overview](/azure/load-balancer/load-balancer-internal-overview)
 
 ### Global load balancing
 
@@ -306,7 +306,7 @@ You can design perimeter networks in a number of different ways. The decision to
 
 Learn more:
 
-* [Microsoft Cloud Services and Network Security](../best-practices-network-security.md)
+* [Microsoft Cloud Services and Network Security](network-best-practices.md)
 
 ## Azure DDoS protection
 

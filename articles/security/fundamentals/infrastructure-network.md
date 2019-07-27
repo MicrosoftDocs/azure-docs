@@ -39,7 +39,7 @@ Azure has two separate architectures. Some existing Azure customers and shared s
 
 The following diagram provides a high-level overview of the network architecture within an Azure cluster:
 
-![Diagram of Azure network][1]
+![Diagram of Azure network](./media/infrastructure-network/network-arch.png)
 
 ### Quantum 10 devices
 The Quantum 10 design conducts layer 3 switching spread over multiple devices in a Clos/mesh design. The advantages of the Q10 design include larger capability and greater ability to scale existing network infrastructure. The design employs border leaf routers, spine switches, and top-of-rack routers to pass traffic to clusters across multiple routes, allowing for fault tolerance. Software load balancing, instead of hardware devices, handles security services such as network address translation.
@@ -104,5 +104,4 @@ To learn more about what Microsoft does to help secure the Azure infrastructure,
 - [Azure infrastructure integrity](infrastructure-integrity.md)
 - [Azure customer data protection](protection-customer-data.md)
 
-<!--Image references-->
-[1]: ./media/azure-infrastructure-network/network-arch.png
+

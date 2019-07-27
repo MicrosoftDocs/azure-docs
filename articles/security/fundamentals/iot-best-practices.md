@@ -30,7 +30,7 @@ IoT best practices can be categorized in the following way:
 * IoT solution deployer
 * IoT solution operator
 
-This article summarizes [Internet of Things Security Best Practices](../../../includes/iot-security-best-practices.md). Please refer to that article for more detailed information.
+This article summarizes [Internet of Things Security Best Practices](/azure/iot-fundamentals/iot-security-best-practices). Please refer to that article for more detailed information.
 
 ## IoT hardware manufacturer or integrator
 

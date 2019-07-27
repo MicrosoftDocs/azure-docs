@@ -393,7 +393,7 @@ In addition, Application Gateway WAF helps you monitor web applications against 
 
 The JSON formatted log goes directly to the customer’s storage account. You have full control over these logs and can apply your own retention policies.
 
-You can also ingest these logs into your own analytics system using [Azure Log Integration](https://aka.ms/AzLog). WAF logs are also integrated with [Azure Monitor logs](../log-analytics/log-analytics-overview.md) so you can use Azure Monitor logs to execute sophisticated fine-grained queries.
+You can also ingest these logs into your own analytics system using [Azure Log Integration](https://aka.ms/AzLog). WAF logs are also integrated with [Azure Monitor logs](/azure/log-analytics/log-analytics-overview) so you can use Azure Monitor logs to execute sophisticated fine-grained queries.
 
 #### Azure web application firewall (WAF)
 

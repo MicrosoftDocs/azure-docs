@@ -28,7 +28,7 @@ You own your data and identities, the responsibility for protecting them, the se
 
 The following chart summarizes the balance of responsibility between Microsoft and the customer.
 
-![Shared responsibility][1]
+![Shared responsibility](./media/management-monitoring-overview/shared-responsibility.png)
 
 For more information about security management, see [Security management in Azure](management.md).
 
@@ -55,8 +55,8 @@ Learn more:
 
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](antimalware.md)
-* [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](../virtual-machines/windows/classic/install-trend.md)
-* [How to install and configure Symantec Endpoint Protection on a Windows VM](../virtual-machines/windows/classic/install-symantec.md)
+* [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](/azure/virtual-machines/windows/classic/install-trend)
+* [How to install and configure Symantec Endpoint Protection on a Windows VM](/azure/virtual-machines/windows/classic/install-symantec)
 * [New Antimalware Options for Protecting Azure Virtual Machines](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## Multi-Factor Authentication
@@ -68,7 +68,7 @@ Multi-Factor Authentication helps safeguard access to data and applications whil
 Learn more:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
+* [What is Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
 * [How Azure Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## ExpressRoute
@@ -119,7 +119,7 @@ By providing notifications and recommended remediation, Identity Protection help
 
 Learn more:
 
-* [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md)
+* [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection)
 * [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## Security Center
@@ -145,5 +145,3 @@ Intelligent Security Graph provides real-time threat protection in Microsoft pro
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
-<!--Image references-->
-[1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png

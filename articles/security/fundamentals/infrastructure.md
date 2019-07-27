@@ -37,7 +37,7 @@ This series of articles provides information about what Microsoft does to secure
 ## Shared responsibility model
 It’s important to understand the division of responsibility between you and Microsoft. On-premises, you own the whole stack, but as you move to the cloud, some responsibilities transfer to Microsoft. The following graphic illustrates the areas of responsibility, according to the type of deployment of your stack (software as a service [SaaS], platform as a service [PaaS], infrastructure as a service [IaaS], and on-premises).
 
-![Graphic showing responsibilities][1]
+![Graphic showing responsibilities](./media/infrastructure/responsibility-zones.png)
 
 You are always responsible for the following, regardless of the type of deployment:
 
@@ -62,5 +62,4 @@ To learn more about what Microsoft does to help secure the Azure infrastructure,
 - [Azure infrastructure integrity](infrastructure-integrity.md)
 - [Azure customer data protection](protection-customer-data.md)
 
-<!--Image references-->
-[1]: ./media/azure-security-infrastructure/responsibility-zones.png
+
