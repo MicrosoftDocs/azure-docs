@@ -82,7 +82,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    - Replace `<storage directory bind>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage directory bind maps a location on your device that you provide to a set location in the module.
 
      - For Linux containers, the format is *\<storage path>:/blobroot*. For example, **/srv/containerdata:/blobroot** or **my-volume:/blobroot**.
-     - For Windows containers, the format is *\<storage path>:C:/BlobRoot*. For example, **C:/ContainerData:C:/BlobRoot** or **my-volume:C:/blobroot** or **smb-share-mapped-drive:C:/blobroot**. Read more about [Using SMB share as your local storage](how-to-store-data-blob.md#Using-SMB-share-as-your-local-storage)
+     - For Windows containers, the format is *\<storage path>:C:/BlobRoot*. For example, **C:/ContainerData:C:/BlobRoot** or **my-volume:C:/blobroot** or **smb-share-mapped-drive:C:/blobroot**. Read more about [Using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
      > Do not change the second half of the storage directory bind value, which points to a specific location in the module. The storage directory bind should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
@@ -190,7 +190,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 1. Replace `<storage directory bind>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage directory bind maps a location on your device that you provide to a set location in the module.  
 
       - For Linux containers, the format is *\<storage path>:/blobroot*. For example, **/srv/containerdata:/blobroot** or **my-volume:/blobroot**.
-      - For Windows containers, the format is *\<storage path>:C:/BlobRoot*. For example, **C:/ContainerData:C:/BlobRoot** or **my-volume:C:/blobroot** or **smb-share-mapped-drive:C:/blobroot**. Read more about [Using SMB share as your local storage](how-to-store-data-blob.md#Using-SMB-share-as-your-local-storage)
+      - For Windows containers, the format is *\<storage path>:C:/BlobRoot*. For example, **C:/ContainerData:C:/BlobRoot** or **my-volume:C:/blobroot** or **smb-share-mapped-drive:C:/blobroot**. Read more about [Using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
       > [!IMPORTANT]
       > Do not change the second half of the storage directory bind value, which points to a specific location in the module. The storage directory bind should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
