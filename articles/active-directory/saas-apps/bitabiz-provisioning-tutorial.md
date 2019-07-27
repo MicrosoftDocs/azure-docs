@@ -56,11 +56,11 @@ Before configuring BitaBIZ for automatic user provisioning with Azure AD, you wi
 
 	![BitaBIZ Admin Console](media/bitabiz-provisioning-tutorial/setup-admin.png)
 
-2.  Navigate to **INTEGRATION**. Click on it.
+2.  Navigate to **INTEGRATION**.
 
 	![BitaBIZ Admin Console](media/bitabiz-provisioning-tutorial/integration.png)
 
-2.	Navigate to **Microsoft Azure AD Provisioning**.  Select **Enabled** in Automatic user provisioning. Copy the values for **SCIM provisioning endpoint URL and  Bearer Token**. These values will be entered in the Tenant URL and Secret Token fields in the Provisioning tab of your BitaBIZ application in the Azure portal.
+2.	Navigate to **Microsoft Azure AD Provisioning**.  Select **Enabled** in Automatic user provisioning. Copy the values for **SCIM Provisioning endpoint URL** and  **Bearer Token**. These values will be entered in the Tenant URL and Secret Token fields in the Provisioning tab of your BitaBIZ application in the Azure portal.
 
 	![BitaBIZ Add SCIM](media/bitabiz-provisioning-tutorial/authentication.png)
 
@@ -112,7 +112,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the Admin Credentials section, input the **SCIM provisioning endpoint URL and Bearer Token** values retrieved earlier in Tenant URL and Secret Token respectively. Click **Test Connection** to ensure Azure AD can connect to BitaBIZ. If the connection fails, ensure your BitaBIZ account has Admin permissions and try again.
+5. Under the Admin Credentials section, input the **SCIM Provisioning endpoint URL** and **Bearer Token** values retrieved earlier in Tenant URL and Secret Token respectively. Click **Test Connection** to ensure Azure AD can connect to BitaBIZ. If the connection fails, ensure your BitaBIZ account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -151,6 +151,8 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Connector limitations
 
+* BitaBIZ requires **userName**, **email**, **firstName** and **lastName** as mandatory attributes. 
+* BitaBIZ does not support hard deletes currently.
 
 ## Additional resources
 
