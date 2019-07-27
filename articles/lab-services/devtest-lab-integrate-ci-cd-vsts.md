@@ -50,7 +50,7 @@ This section describes how to create the Azure Resource Manager template that yo
 1. Before you generate the Resource Manager template, add the [WinRM artifact](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-winrm) as part of creating the VM. Deployment tasks like *Azure File Copy* and *PowerShell on Target Machines* need WinRM access.
    
    > [!NOTE]
-   > When you use WinRM with a shared IP address, you must add a NAT rule to map an external port to the WinRM port. You don't need this step if you create the VM with a public IP address.
+   > When you use WinRM with a shared IP address, you must add a NAT rule to map an external port to the WinRM port. You don't need the NAT rule if you create the VM with a public IP address.
    >
    
 1. Save the template to your computer as a file named *CreateVMTemplate.json*.
@@ -116,7 +116,7 @@ To create the release pipeline:
 
 ### Create a DevTest Labs VM
 
-The next step of the deployment is to create the VM to use for the golden image VM for future deployments. You create the VM within your Azure DevTest Labs instance by using the *Azure DevTest Labs Create VM* task.
+The next step of the deployment is to create the golden image VM to use for future deployments. You create the VM within your Azure DevTest Labs instance by using the *Azure DevTest Labs Create VM* task.
 
 1. On the release pipeline **Pipeline** tab, select the hyperlinked text in **Stage 1** to **View stage tasks**, and then select the **+** next to **Agent job**. 
    
@@ -130,9 +130,9 @@ The next step of the deployment is to create the VM to use for the golden image 
    |---|---|
    |**Azure RM Subscription**|Select a service connection or subscription from **Available Azure Service Connections** or **Available Azure Subscriptions** in the dropdown, and select **Authorize** if necessary.<br /><br />**Note:** For information about creating a more restricted permissions connection to your Azure subscription, see [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).|
    |**Lab Name**|Select the name of an existing lab in which the lab VM will be created.|
-   |**Template Name**|Enter the full path and name of the template file you saved to your source code repository. You can use built-in properties to simplify the path, for example:<br /><br />`$(System.DefaultWorkingDirectory)/Contoso/Templates/CreateVMTemplate.json`|
+   |**Template Name**|Enter the full path and name of the template file you saved to your source code repository. You can use built-in properties to simplify the path, for example:<br /><br />`$(System.DefaultWorkingDirectory)/Templates/CreateVMTemplate.json`|
    |**Template Parameters**|Enter the parameters for the variables you defined earlier:<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|
-   |**Output Variables** > **Lab VM ID**|Enter the variable for the created lab VM ID. If you use the default **labVMId**, you can refer to the variable in subsequent tasks as *$(labVMId)*.<br /><br />You can create a name other than the default, but remember to use the correct name in subsequent tasks. You can write the Lab VM ID in the following form:<br /><br />`/subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{lab}/virtualMachines/{vm}`|
+   |**Output Variables** > **Lab VM ID**|Enter the variable for the created lab VM ID. If you use the default **labVMId**, you can refer to the variable in subsequent tasks as *$(labVMId)*.<br /><br />You can create a name other than the default, but remember to use the correct name in subsequent tasks. You can write the Lab VM ID in the following form:<br /><br />`/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`|
 
 ### Collect the details of the DevTest Labs VM
 
@@ -151,10 +151,10 @@ Execute the script you created earlier to collect the details of the DevTest Lab
    |**Azure Connection Type**|Select **Azure Resource Manager**.|
    |**Azure Subscription**|Select your service connection or subscription.| 
    |**Script Type**|Select **Script File Path**.|
-   |**Script Path**|Enter the full path and name of the PowerShell script that you saved to your source code repository. You can use built-in properties to simplify the path, for example:<br /><br />`$(System.DefaultWorkingDirectory/Contoso/Scripts/GetLabVMParams.ps1`|
+   |**Script Path**|Enter the full path and name of the PowerShell script that you saved to your source code repository. You can use built-in properties to simplify the path, for example:<br /><br />`$(System.DefaultWorkingDirectory/Scripts/GetLabVMParams.ps1`|
    |**Script Arguments**|Enter the name of the *labVmId* variable that was populated by the previous task, for example:<br /><br />`-labVmId '$(labVMId)'`|
 
-The script collects the required values and stores them in environment variables within the release pipeline, so that you can easily refer to them in subsequent steps.
+The script collects the required values and stores them in environment variables within the release pipeline, so you can easily refer to them in subsequent steps.
 
 ### Create a VM image from the DevTest Labs VM
 
