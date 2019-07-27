@@ -19,7 +19,7 @@ Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-do
 If desired, choose a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you create a C# console application for .NET Core on Windows or macOS by using the Cognitive Services [Speech SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
+In this article, you create a C# console application for .NET Core on Windows or macOS by using the Cognitive Services [Speech SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 or later (any edition).
 
 > [!NOTE]
 > .NET Core is an open-source, cross-platform .NET platform that implements the [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) specification.
