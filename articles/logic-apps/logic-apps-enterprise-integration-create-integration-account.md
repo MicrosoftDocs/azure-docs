@@ -18,8 +18,7 @@ ms.date: 07/26/2019
 Before you can build [enterprise integration and B2B solutions](../logic-apps/logic-apps-enterprise-integration-overview.md) by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you need to have an integration account. In this account, you can create, store, and manage B2B artifacts, such as trading partners, agreements, maps, schemas, certificates, and batch configurations. Also, before your logic app can work with these artifacts and use the Logic Apps B2B connectors, you must [link your integration account](#link-account) to your logic app. Both your integration account and logic app must exist in the *same* location or region.
 
 > [!TIP]
->
-> To create an integration account inside an integration service environment, see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment.md#create-integration-account-environment).
+> To create an integration account inside an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment.md#create-integration-account-environment).
 
 This article shows you how to perform these tasks:
 
@@ -54,7 +53,7 @@ This article shows you how to perform these tasks:
    | **Subscription** | Yes | <*Azure-subscription-name*> | The name for your Azure subscription |
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) to use for organizing related resources. For this example, create a new resource group with the name "FabrikamIntegration-RG". |
    | **Pricing Tier** | Yes | <*pricing-level*> | The pricing tier for the integration account. For this example, select **Free**. For more information, see these topics: <p>- [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md) <p>- [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **Location** | Yes | <*Azure-region*> | The region where to store your integration account metadata. Either select the same location as your logic app, or create your logic apps in the same location as your integration account. For this example, use "West US". |
+   | **Location** | Yes | <*Azure-region*> | The region where to store your integration account metadata. Either select the same location as your logic app, or create your logic apps in the same location as your integration account. For this example, use "West US". <p>**Note**: To create an integration account inside an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), select that ISE as the location. For more information, see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment.md#create-integration-account-environment). |
    | **Log Analytics** | No | Off, On | Keep the **Off** setting for this example. |
    |||||
 
