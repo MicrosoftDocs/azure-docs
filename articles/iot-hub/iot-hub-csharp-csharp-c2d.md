@@ -11,7 +11,7 @@ ms.date: 04/03/2019
 ms.author: robinsh
 ---
 
-# Send messages from the cloud to your device with IoT Hub (.NET)
+# Send messages from the cloud to your device with IoT Hub (C#)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
