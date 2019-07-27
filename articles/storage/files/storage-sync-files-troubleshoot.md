@@ -613,6 +613,17 @@ This error occurs because the Cloud Tiering filter driver (StorageSync.sys) vers
 
 This error occurs because the Azure File Sync service is unavailable. This error will auto-resolve when the Azure File Sync service because available again.
 
+<a id="-2134364045"></a>**Sync failed because the storage account has failed over to another region.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83073 |
+| **HRESULT (decimal)** | -2134364045 |
+| **Error string** | ECS_E_STORAGE_ACCOUNT_FAILED_OVER |
+| **Remediation required** | Yes |
+
+This error occurs because the storage account has failed over to another region. Azure File Sync does not support the storage account failover feature. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files. To resolve this issue, move the storage account to the primary region.
+
 <a id="-2134375922"></a>**Sync failed due to a transient problem with the sync database.**  
 
 | | |
