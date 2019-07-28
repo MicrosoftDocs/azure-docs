@@ -3,14 +3,14 @@ title: Deploy Azure dedicated hosts using the Azure PowerShell | Microsoft Docs
 description: Deploy VMs to dedicated hosts using Azure PowerShell.
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/25/2019
+ms.date: 07/28/2019
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
@@ -91,51 +91,46 @@ If you specified an availability zone when creating your host group, you are req
 $cred = Get-Credential
 New-AzVM `
    -Credential $cred `
-   -ResourceGroupName $rgName
+   -ResourceGroupName $rgName `
+   -Location $location `
    -Name myVM `
    -HostId $dhost.Id `
-   -image Win2016Datacenter `
+   -Image Win2016Datacenter `
    -Zone 1 `
-   -Location $location `
    -Size Standard_D4s_v3
 ```
 
+## Clean up
 
-OLD REMOVE ME!!!!
+You are being charged for your dedicated hosts even when no virtual machines are deployed. You should delete any hosts you are currently not using to save costs.  
 
-
-
+You can only delete a host when there are no any longer virtual machines using it. Delete the VMs using [Remove-AzVM](/powershell/module/az.compute/remove-azvm).
 
 ```powershell
-$vmName = "myVMonmyHost"
-
-# Create user object
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-# Network pieces
-$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
-$vnet = New-AzVirtualNetwork -ResourceGroupName $rgName -Location $location `
-  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
-$pip = New-AzPublicIpAddress -ResourceGroupName $rgName -Location $location -Sku Standard -Zone 1 `
-  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
-$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
-  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
-$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
-  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
-$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $rgName -Location $location `
-  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-
-# Create a virtual machine configuration using $imageVersion.Id to specify the shared image
-$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D4s_v3 -HostId $dHost.Id -Zone 1  | `
-Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
-Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
-Add-AzVMNetworkInterface -Id $nic.Id
-
-# Create a virtual machine
-New-AzVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
+Remove-AzVM -ResourceGroupName $rgName -Name myVM
 ```
+
+After deleting the VMs, you can delete the host using [Remove-AzHost](/powershell/module/az.compute/remove-azhost).
+
+```powershell
+Remove-AzHost -ResourceGroupName $rgName -Name myHost
+```
+
+Once you have deleted all of your hosts, you may delete the host group using [Remove-AzHostGroup](/powershell/module/az.compute/remove-azhostgroup). 
+
+```powershell
+Remove-AzHost -ResourceGroupName $rgName -Name myHost
+```
+
+You can also delete the entire resource group in a single command. This will delete all resources created in the group, including all of the VMs, hosts and host groups.
+ 
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name $rgName
+```
+
 
 ## Next steps
 
-You can also deploy dedicated hosts using the [Azure portal](dedicated-hosts-portal.md).
+- There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+
+- You can also deploy dedicated hosts using the [Azure portal](dedicated-hosts-portal.md).

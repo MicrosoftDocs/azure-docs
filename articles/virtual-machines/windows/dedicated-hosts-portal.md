@@ -3,7 +3,7 @@ title: Deploy Azure dedicated hosts using the Azure portal | Microsoft Docs
 description: Deploy VMs to dedicated hosts using the Azure portal.
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -38,4 +38,6 @@ ms.author: cynthn
 
 ## Next steps
 
-You can also deploy a dedicated host using [Azure PowerShell](dedicated-hosts-powershell.md).
+- There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+
+- You can also deploy a dedicated host using [Azure PowerShell](dedicated-hosts-powershell.md).

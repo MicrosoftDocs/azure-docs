@@ -4,7 +4,7 @@ description: Deploy VMs to dedicated hosts using the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -145,7 +145,7 @@ az group deployment create \
 You might want to read more about how to deploy from templates. Learn about how to incrementally update environments, use the parameters file, and access templates from a single storage location. 
 
 
-## Cleanup 
+## Clean up 
 
 You are being charged for your dedicated hosts even when no virtual machines are deployed. You should delete any hosts you are currently not using to save costs.  
 
@@ -175,4 +175,6 @@ az group delete -n myDHResourceGroup
 
 ## Next steps
 
-You can also create dedicated hosts using the [Azure portal](dedicated-hosts-portal.md).
+- You can also create dedicated hosts using the [Azure portal](dedicated-hosts-portal.md).
+
+- There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
