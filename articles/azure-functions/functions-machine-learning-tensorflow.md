@@ -59,31 +59,22 @@ The repository contains a few folders.
 
 Azure Functions requires Python 3.6.x. You'll create a virtual environment to ensure you're using the required Python version.
 
-Change the current working directory to the *start* folder and create a virtual environment named *.venv*. Replace `<PYTHON_PATH>` with the path to Python 3.6.x on your machine.
+Change the current working directory to the *start* folder. Then create and activate a virtual environment named *.venv*.
 
-```console
+### Linux and macOS:
+
+```bash
 cd start
-<PYTHON_PATH> -m venv .venv
-```
-
-Next, activate the virtual environment.
-
-*Linux, macOS, Windows Subsystem for Linux*
-
-```console
+python3.6 -m venv .venv
 source .venv/bin/activate
 ```
 
-*Windows Git Bash*
-
-```bash
-source .venv/Scripts/activate
-```
-
-*Windows Command Prompt or PowerShell*
+### Windows:
 
 ```powershell
-.venv\Scripts\activate
+cd start
+py -3.6 -m venv .venv
+.venv\scripts\activate
 ```
 
 The terminal prompt is now prefixed with `(.venv)` which indicates you have successfully activated the virtual environment. Confirm that `python` in the virtual environment is indeed Python 3.6.x.
@@ -162,13 +153,13 @@ You'll use a pre-built TensorFlow model that was trained with and exported from 
 
 The model consists of two files in the *<REPOSITORY_ROOT>/resources/model* folder: *model.db* and *labels.txt*. Copy them into the *classify* function's folder.
 
-*Linux and macOS*
+### Linux and macOS:
 
-```console
+```bash
 cp ../resources/model/* classify
 ```
 
-*Windows*
+### Windows:
 
 ```powershell
 copy ..\resources\model\* classify
@@ -180,13 +171,13 @@ Be sure to include the \* in the above command.
 
 Some helper functions for preparing the input image and making a prediction using TensorFlow are in a file named *predict.py* in the *resources* folder. Copy this file into the *classify* function's folder.
 
-*Linux and macOS*
+### Linux and macOS:
 
-```console
+```bash
 cp ../resources/predict.py classify
 ```
 
-*Windows*
+### Windows:
 
 ```powershell
 copy ..\resources\predict.py classify
