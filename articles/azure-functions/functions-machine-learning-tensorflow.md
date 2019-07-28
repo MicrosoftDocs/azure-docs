@@ -171,7 +171,7 @@ copy ..\resources\predict.py classify
 The helper library has some dependencies that need to be installed. In the terminal with the virtual environment activated, run the following commands in the function app folder that contains *requirements.txt*. Some installation steps may take a few minutes to complete.
 
 ```console
-pip install tensorflow Pillow requests
+pip install tensorflow Pillow requests --no-cache-dir
 ```
 
 Save the dependencies in *requirements.txt*.
