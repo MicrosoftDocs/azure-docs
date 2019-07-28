@@ -15,7 +15,9 @@ ms.date: 07/26/2019
 
 # Create and manage integration accounts for B2B solutions by using Azure Logic Apps
 
-Before you can build [enterprise integration and B2B solutions](../logic-apps/logic-apps-enterprise-integration-overview.md) by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you need to have an integration account. In this account, you can create, store, and manage B2B artifacts, such as trading partners, agreements, maps, schemas, certificates, and batch configurations. Also, before your logic app can work with these artifacts and use the Logic Apps B2B connectors, you must [link your integration account](#link-account) to your logic app. Both your integration account and logic app must exist in the *same* location or region.
+Before you can build [enterprise integration and B2B solutions](../logic-apps/logic-apps-enterprise-integration-overview.md) by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you need to create an integration account, which is a separate Azure resource that provides a secure, scalable, and manageable container for the integration artifacts that you define and use with your logic app workflows.
+
+For example, you can create, store, and manage B2B artifacts, such as trading partners, agreements, maps, schemas, certificates, and batch configurations. Also, before your logic app can work with these artifacts and use the Logic Apps B2B connectors, you must [link your integration account](#link-account) to your logic app. Both your integration account and logic app must exist in the *same* location or region.
 
 > [!TIP]
 > To create an integration account inside an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
