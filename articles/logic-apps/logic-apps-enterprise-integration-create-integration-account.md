@@ -18,7 +18,7 @@ ms.date: 07/26/2019
 Before you can build [enterprise integration and B2B solutions](../logic-apps/logic-apps-enterprise-integration-overview.md) by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you need to have an integration account. In this account, you can create, store, and manage B2B artifacts, such as trading partners, agreements, maps, schemas, certificates, and batch configurations. Also, before your logic app can work with these artifacts and use the Logic Apps B2B connectors, you must [link your integration account](#link-account) to your logic app. Both your integration account and logic app must exist in the *same* location or region.
 
 > [!TIP]
-> To create an integration account inside an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment.md#create-integration-account-environment).
+> To create an integration account inside an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
 
 This topic shows you how to perform these tasks:
 
@@ -57,7 +57,7 @@ For this task, you can use either the Azure portal by following the steps in thi
    | **Subscription** | Yes | <*Azure-subscription-name*> | The name for your Azure subscription |
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) to use for organizing related resources. For this example, create a new resource group with the name "FabrikamIntegration-RG". |
    | **Pricing Tier** | Yes | <*pricing-level*> | The pricing tier for the integration account, which you can change later. For this example, select **Free**. For more information, see these topics: <p>- [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **Location** | Yes | <*Azure-region*> | The region where to store your integration account metadata. Either select the same location as your logic app, or create your logic apps in the same location as your integration account. For this example, use "West US". <p>**Note**: To create an integration account inside an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), select that ISE as the location. For more information, see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment.md#create-integration-account-environment). |
+   | **Location** | Yes | <*Azure-region*> | The region where to store your integration account metadata. Either select the same location as your logic app, or create your logic apps in the same location as your integration account. For this example, use "West US". <p>**Note**: To create an integration account inside an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), select that ISE as the location. For more information, see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
    | **Log Analytics** | No | Off, On | Keep the **Off** setting for this example. |
    |||||
 
@@ -97,12 +97,12 @@ Now your logic app can use the artifacts in your integration account plus the B2
 
 ## Change pricing tier
 
-To increase the [limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) for an integration account, you can [upgrade to a higher pricing tier](#upgrade-tier), if available. For example, you can upgrade from the Free tier to the Basic tier or Standard tier. You can also [downgrade to a lower tier](#downgrade-tier), if available. For more information pricing information, see these topics:
+To increase the [limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) for an integration account, you can [upgrade to a higher pricing tier](#upgrade-pricing-tier), if available. For example, you can upgrade from the Free tier to the Basic tier or Standard tier. You can also [downgrade to a lower tier](#downgrade-pricing-tier), if available. For more information pricing information, see these topics:
 
 * [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 * [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts)
 
-<a name="upgrade-tier"></a>
+<a name="upgrade-pricing-tier"></a>
 
 ### Upgrade pricing tier
 
@@ -145,6 +145,8 @@ To make this change, you can use either the Azure portal by following the steps 
    ```Azure CLI
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Standard
    ```
+
+<a name="downgrade-pricing-tier"></a>
 
 ### Downgrade pricing tier
 
