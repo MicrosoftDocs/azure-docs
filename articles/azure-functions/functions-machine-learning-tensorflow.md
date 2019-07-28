@@ -57,7 +57,7 @@ The repository contains a few folders.
 
 ## Create and activate a Python virtual environment
 
-Azure Functions requires Python 3.6.x. Consider creating a virtual environment to ensure you're using the required Python version.
+Azure Functions requires Python 3.6.x. You'll create a virtual environment to ensure you're using the required Python version.
 
 Change the current working directory to the *start* folder and create a virtual environment named *.venv*. Replace `<PYTHON_PATH>` with the path to Python 3.6.x on your machine.
 
@@ -97,7 +97,7 @@ python --version
 
 ## Create an Azure Functions project
 
-Use the Azure Functions Core Tools to initialize a Python function app in the folder.
+In the *start* folder, use the Azure Functions Core Tools to initialize a Python function app.
 
 ```console
 func init --worker-runtime python
@@ -105,9 +105,9 @@ func init --worker-runtime python
 
 A function app can contain one or more Azure Functions. Open the *start* folder in an editor and examine the contents.
 
-- *local.settings.json*: Contains application settings used for local development
-- *host.json*: Contains settings for the Azure Functions host and extensions
-- *requirements.txt*: Contains Python packages required by this application
+- [*local.settings.json*](functions-run-local.md#local-settings-file): Contains application settings used for local development
+- [*host.json*](functions-host-json.md): Contains settings for the Azure Functions host and extensions
+- [*requirements.txt*](functions-reference-python.md#python-version-and-package-management): Contains Python packages required by this application
 
 ## Create an HTTP function
 
