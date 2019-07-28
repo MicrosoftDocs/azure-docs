@@ -44,6 +44,8 @@ The schema defines the valid and required properties of the security message inc
 
 >[!Note]
 > Messages sent that do not comply with the schema are ignored. Make sure to verify the schema before initiating sending data as ignored messages are not currently stored. 
+
+>[!Note]
 > Messages sent that were not set as a security message using the Azure IoT C/C# SDK will not be routed to the Azure Security Center for IoT pipeline
 
 ## Valid message example

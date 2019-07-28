@@ -39,14 +39,14 @@ For other platforms and agent flavors, see [Choose the right security agent](how
 
 ## Installation 
 
-To install and deploy the security agent, do the following:
+To install and deploy the security agent, use the following workflow:
 
 
-1. Download the most recent version to your machine from [Github](https://aka.ms/iot-security-github-c).
+1. Download the most recent version to your machine from [GitHub](https://aka.ms/iot-security-github-c).
 
 1. Extract the contents of the package and navigate to the _/Install_ folder.
 
-1. Add running permissions to the **InstallSecurityAgent script** by running the following:
+1. Add running permissions to the **InstallSecurityAgent script** by running the following command:
     
    ```
    chmod +x InstallSecurityAgent.sh
@@ -60,11 +60,11 @@ To install and deploy the security agent, do the following:
    
    See [How to configure authentication](concept-security-agent-authentication-methods.md) for more information about authentication parameters.
 
-This script does the following:
+This script performs the following function:
 
 1. Installs prerequisites.
 
-2. Adds a service user (with interactive login disabled).
+2. Adds a service user (with interactive sign in disabled).
 
 3. Installs the agent as a **Daemon** - assumes the device uses **systemd** for service management.
 

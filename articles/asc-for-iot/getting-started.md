@@ -29,13 +29,13 @@ Choose the service scenario that best meets your IoT device and environment requ
 ### Built-in deployment
 Using the seamless, built-in deployment option, Azure Security Center for IoT can be quickly integrated into your IoT Hub and provide security analysis of the IoT hub configuration, device identity and management, and hub-device communication patterns.
 
-* Start a [Built-in deployment](iot-hub-integration.md) featuring IoT Hub monitoring and recommendations. 
+Start a [Built-in deployment](iot-hub-integration.md) featuring IoT Hub monitoring and recommendations. 
     <br>
 
 ### Enhanced deployment
 For enhanced security capabilities, deploying Azure Security Center for IoT agents in addition to enabling IoT Hub security provides agent-based event collection, analysis and threat detection of key security data from your IoT devices as well as comprehensive security posture management capabilities.
 
-* Start an [Enhanced deployment](security-agents.md) featuring an agent-based comprehensive threat protection and security posture management solution.
+Start an [Enhanced deployment](security-agents.md) featuring an agent-based comprehensive threat protection and security posture management solution.
    
 
 ## Next steps

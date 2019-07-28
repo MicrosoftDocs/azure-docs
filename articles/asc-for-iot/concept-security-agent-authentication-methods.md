@@ -26,15 +26,15 @@ This article explains the different authentication methods you can use with the 
 For each device onboarded to Azure Security Center for IoT in the IoT Hub, a security module is required. To authenticate the device, Azure Security Center for IoT can use one of two methods. Choose the method that works best for your existing IoT solution. 
 
 > [!div class="checklist"]
-> * Security Module option
+> * SecurityModule option
 > * Device option
 
 ## Authentication methods
 
 The two methods for the AzureIoTSecurity agent to perform authentication:
 
- - **Module** authentication mode<br>
-   The Module is authenticated independently of the device twin.
+ - **SecurityModule** authentication mode<br>
+   The agent is authenticated using the security module identity independently of the device identity.
    Use this authentication type if you would like the security agent to use a dedicated authentication method through security module (symmetric key only).
 		
  - **Device** authentication mode<br>
@@ -46,7 +46,7 @@ See [Security agent installation parameters](#security-agent-installation-parame
 								
 ## Authentication methods known limitations
 
-- **Module** authentication mode only supports symmetric key authentication.
+- **SecurityModule** authentication mode only supports symmetric key authentication.
 - CA-Signed certificate is not supported by **Device** authentication mode.  
 
 ## Security agent installation parameters
@@ -55,19 +55,18 @@ When [deploying a security agent](how-to-deploy-agent.md), authentication detail
 These arguments are documented in the following table.
 
 
-|Parameter|Description|Options|
-|---------|---------------|---------------|
-|**identity**|Authentication mode| **Module** or **Device**|
-|**type**|Authentication type|**SymmetricKey** or **SelfSignedCertificate**|
-|**filePath**|Absolute full path for the file containing the certificate or the symmetric key| |
-|**gatewayHostname**|FQDN of the IoT Hub|Example: ContosoIotHub.azure-devices.net|
-|**deviceId**|Device ID|Example: MyDevice1|
-|**certificateLocationKind**|Certificate storage location|**LocalFile** or **Store**|
+|Linux Parameter Name | Windows Parameter Name | Shorthand Parameter |Description|Options|
+|---------------------|---------------|---------|---------------|---------------|
+|authentication-identity|AuthenticationIdentity|aui|Authentication identity| **SecurityModule** or **Device**|
+|authentication-method|AuthenticationMethod|aum|Authentication method|**SymmetricKey** or **SelfSignedCertificate**|
+|file-path|FilePath|f|Absolute full path for the file containing the certificate or the symmetric key| |
+|host-name|HostName|hn|FQDN of the IoT Hub|Example: ContosoIotHub.azure-devices.net|
+|device-id|DeviceId|di|Device ID|Example: MyDevice1|
+|certificate-location-kind|CertificateLocationKind|cl|Certificate storage location|**LocalFile** or **Store**|
+|
 
 
-When using the install security agent script, the following configuration is performed automatically.
-
-To edit the security agent authentication manually, edit the config file. 
+When using the install security agent script, the following configuration is performed automatically. To edit the security agent authentication manually, edit the config file. 
 
 ## Change authentication method after deployment
 
@@ -76,7 +75,7 @@ When deploying a security agent with an installation script, a configuration fil
 To change authentication methods after deployment, manual editing of the configuration file is required.
 
 
-### C# based security agent
+### C#-based security agent
 
 Edit _Authentication.config_ with the following parameters:
 
@@ -91,7 +90,7 @@ Edit _Authentication.config_ with the following parameters:
 </Authentication>
 ```
 
-### C based security agent
+### C-based security agent
 
 Edit _LocalConfiguration.json_ with the following parameters:
 

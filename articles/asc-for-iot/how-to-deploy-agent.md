@@ -24,7 +24,7 @@ ms.author: mlottner
 Azure Security Center for IoT provides reference architectures for security agents that monitor and collect data from IoT devices.
 To learn more, see [Security agent reference architecture](security-agent-architecture.md).
 
-Agents are developed as open source projects, and are available in two flavors: <br> [C](https://aka.ms/iot-security-github-c), and [C#](https://aka.ms/iot-security-github-cs).
+Agents are developed as open-source projects, and are available in two flavors: <br> [C](https://aka.ms/iot-security-github-c), and [C#](https://aka.ms/iot-security-github-cs).
 
 In this article, you learn how to: 
 > [!div class="checklist"]
@@ -40,18 +40,27 @@ The C-based security agent has a lower memory footprint, and is the ideal choice
 
 |     | C-based security agent | C#-based security agent |
 | --- | ----------- | --------- |
-| Open source | Available under [MIT license](https://en.wikipedia.org/wiki/MIT_License) in [Github](https://aka.ms/iot-security-github-cs) | Available under [MIT license](https://en.wikipedia.org/wiki/MIT_License) in [Github](https://aka.ms/iot-security-github-c) |
+| Open-source | Available under [MIT license](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-cs) | Available under [MIT license](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-c) |
 | Development language    | C | C# |
 | Supported Windows platforms? | No | Yes |
 | Windows prerequisites | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | Supported Linux platforms? | Yes, x64 and x86 | Yes, x64 only |
 | Linux prerequisites | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins, sudo, netstat, iptables |
-| Disk footprint | 10.5MB | 90MB |
-| Memory footprint (on average) | 5.5MB | 33MB |
+| Disk footprint | 10.5 MB | 90 MB |
+| Memory footprint (on average) | 5.5 MB | 33 MB |
 | [Authentication](concept-security-agent-authentication-methods.md) to IoT Hub | Yes | Yes |
 | Security data [collection](how-to-agent-configuration.md#supported-security-events) | Yes | Yes |
 | Event aggregation | Yes | Yes |
 | Remote configuration through [security module twin](concept-security-module.md) | Yes | Yes |
+|
+
+## Security agent installation guidelines
+
+For **Windows**:
+The Install SecurityAgent.ps1 script must be executed from an Administrator PowerShell window. 
+
+For **Linux**:
+The InstallSecurityAgent.sh must be run as superuser. We recommend prefixing the installation command with “sudo”.
 
 
 ## Choose an agent flavor 

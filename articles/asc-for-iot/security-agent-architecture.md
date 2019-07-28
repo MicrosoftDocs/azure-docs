@@ -47,6 +47,7 @@ Azure Security Center for IoT offers different installer agents for 32bit and 64
 |----------|----------------------------------------------|-------------|-------------------------------------------|
 | 32bit  | C  | C#  ||
 | 64bit  | C# or C           | C#      | We recommend using the C agent for devices with more restricted or minimal device resources.|
+|
 
 ## Next steps
 

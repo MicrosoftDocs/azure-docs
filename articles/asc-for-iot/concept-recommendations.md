@@ -32,11 +32,11 @@ Device recommendations provide insights and suggestions to improve device securi
 
 | Severity | Name                                                      | Data Source | Description                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Medium   | Open Ports on device                                      | Agent       | A listening endpoint was found on the device                                                                                                                                                          |
+| Medium   | Open Ports on device                                      | Agent       | A listening endpoint was found on the device .                                                                                                                                                        |
 | Medium   | Permissive firewall policy found in one of the chains. | Agent       | Allowed firewall policy found (INPUT/OUTPUT). Firewall policy should deny all traffic by default, and define rules to allow necessary communication to/from the device.                               |
 | Medium   | Permissive firewall rule in the input chain was found     | Agent       | A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or ports.                                                                                    |
 | Medium   | Permissive firewall rule in the output chain was found    | Agent       | A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or ports.                                                                                   |
-| Medium   | Operation system baseline validation has failed           | Agent       | Device doesn't comply with [CIS Linux benchmarks](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
+| Medium   | Operation system baseline validation has failed           | Agent       | Device doesn't comply with [CIS Linux benchmarks](https://www.cisecurity.org/cis-benchmarks/).                                                                                                        |
 
 ### Operational recommendations for IoT devices
 
@@ -46,7 +46,7 @@ Operational recommendations provide insights and suggestions to improve security
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
 | Low      | Agent sends unutilized messages          | Agent       | 10% or more of security messages were smaller than 4kb during the last 24 hours.  |
 | Low      | Security twin configuration not optimal | Agent       | Security twin configuration is not optimal.                                        |
-| Low      | Security twin configuration conflict    | Agent       | Conflicts were identified in the security twin configuration.                           |
+| Low      | Security twin configuration conflict    | Agent       | Conflicts were identified in the security twin configuration. |                          |
 
 
 ## Recommendations for IoT Hub

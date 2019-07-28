@@ -57,19 +57,19 @@ See the sample kql queries below to get started with investigating alerts and ac
 
 To find out if other alerts were triggered around the same time use the following kql query:
 
-  ~~~
+  ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityAlert
   | where ExtendedProperties contains device and ResourceId contains tolower(hub)
   | project TimeGenerated, AlertName, AlertSeverity, Description, ExtendedProperties
-  ~~~
+  ```
 
 ### Users with access
 
 To find out which users have access to this device use the following kql query: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -81,16 +81,16 @@ To find out which users have access to this device use the following kql query:
      GroupNames=extractjson("$.GroupNames", EventDetails, typeof(string)),
      UserName=extractjson("$.UserName", EventDetails, typeof(string))
   | summarize FirstObserved=min(TimestampLocal) by GroupNames, UserName
-  ~~~
+ ```
 Use this data to discover: 
-  1. Which users have access to the device?
-  2. Do the users with access have the expected permission levels? 
+- Which users have access to the device?
+- Do the users with access have the expected permission levels?
 
 ### Open ports
 
 To find out which ports in the device are currently in use or were used, use the following kql query: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -106,18 +106,18 @@ To find out which ports in the device are currently in use or were used, use the
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      RemotePort=extractjson("$.RemotePort", EventDetails, typeof(string))
   | summarize MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), AllowedRemoteIPAddress=makeset(RemoteAddress), AllowedRemotePort=makeset(RemotePort) by Protocol, LocalPort
-  ~~~
+ ```
 
 Use this data to discover:
-  1. Which listening sockets are currently active on the device?
-  2. Should the listening sockets that are currently active be allowed?
-  3. Are there any suspicious remote addresses connected to the device?
+- Which listening sockets are currently active on the device?
+- Should the listening sockets that are currently active be allowed?
+- Are there any suspicious remote addresses connected to the device?
 
 ### User logins
 
 To find users that logged into the device use the following kql query: 
  
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -137,18 +137,18 @@ To find users that logged into the device use the following kql query:
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      Result=extractjson("$.Result", EventDetails, typeof(string))
   | summarize CntLoginAttempts=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), CntIPAddress=dcount(RemoteAddress), IPAddress=makeset(RemoteAddress) by UserName, Result, LoginHandler
-  ~~~
+ ```
 
 Use the query results to discover:
-  1. Which users logged in to the device?
-  2. Are the users that logged in, supposed to log in?
-  3. Did the users that logged in connect from expected or unexpected IP addresses?
+- Which users logged in to the device?
+- Are the users that logged in, supposed to log in?
+- Did the users that logged in connect from expected or unexpected IP addresses?
   
 ### Process list
 
 To find out if the process list is as expected, use the following kql query: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -173,13 +173,13 @@ To find out if the process list is as expected, use the following kql query:
   ) on UserId
   | extend UserIdName = strcat("Id:", UserId, ", Name:", UserName)
   | summarize CntExecutions=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), ExecutingUsers=makeset(UserIdName), ExecutionCommandLines=makeset(CommandLine) by Executable
-  ~~~
+```
 
 Use the query results to discover:
 
-  1. Were there any suspicious processes running on the device?
-  2. Were processes executed by appropriate users?
-  3. Did any command line executions contain the correct and expected arguments?
+- Were there any suspicious processes running on the device?
+- Were processes executed by appropriate users?
+- Did any command line executions contain the correct and expected arguments?
 
 ## Next steps
 

@@ -47,6 +47,7 @@ This article provides an explanation of how to enable the Azure Security Center 
 |Japan East | Australia Southeast|Australia East|
 |East Asia| Southeast Asia| Korea Central|
 |Korea South| Central India| South India|
+|
 
 ## Enable Azure Security Center for IoT on your IoT Hub 
 

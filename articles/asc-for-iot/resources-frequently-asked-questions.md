@@ -20,7 +20,7 @@ ms.author: mlottner
 ---
 # Azure Security Center for IoT frequently asked questions  
 
-This article provides a list of frequently asked questions and answers about Azure Security Center  for IoT. 
+This article provides a list of frequently asked questions and answers about Azure Security Center for IoT. 
 
 ## Does Azure provide support for IoT security?
 
@@ -62,11 +62,11 @@ Azure Security Center for IoT agent provides device level threat coverage for de
 
 ## Where can I get the Azure Security Center for IoT security agent?
 
-The Azure Security Center for IoT security agent is open source and available on GitHub in 32 bit and 64-bit Windows and Linux versions: https://github.com/Azure/Azure-Security-IoT-Preview.
+The Azure Security Center for IoT security agent is open source and available on GitHub in 32 bit and 64-bit Windows and Linux versions: https://github.com/Azure/Azure-Security-IoT.
 
 ## Where does the Azure Security Center for IoT agent get installed? 
 
-Detailed installation and agent deployment information can be found in GitHub: https://github.com/Azure/Azure-Security-IoT-Preview.
+Detailed installation and agent deployment information can be found in GitHub: https://github.com/Azure/Azure-Security-IoT.
 
 ## What are the dependencies and prerequisites of the agent?
 
