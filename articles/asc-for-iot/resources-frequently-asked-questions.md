@@ -60,7 +60,7 @@ Agent installation on your IoT devices isn't mandatory in order to enable the Mi
 
 Azure Security Center for IoT agent provides device level threat coverage for device configuration, behavior, and access (by scanning the configuration), process & connectivity. The Azure Security Center for IoT security agent does not scan business-related data or activity.
 
-## Where I can get the Azure Security Center for IoT security agent?
+## Where can I get the Azure Security Center for IoT security agent?
 
 The Azure Security Center for IoT security agent is open source and available on GitHub in 32 bit and 64-bit Windows and Linux versions: https://github.com/Azure/Azure-Security-IoT-Preview.
 
@@ -110,7 +110,7 @@ The security agent is designed to rerun automatically with each device restart.
 
 ## Can the agent affect the performance of the device or other installed software?
 
-The agent consumes machine resources as any other application/process and should not disrupt normal device activity. Resource consumption on the device the agent runs is coupled with its setup and configuration. We recommend testing your agent configuration in a contained environment, along with interoperability with your other IoT applications and functionality, before attempting to deploy in a production environment.
+The agent consumes machine resources as any other application/process and should not disrupt normal device activity. Resource consumption on the device the agent runs on is coupled with its setup and configuration. We recommend testing your agent configuration in a contained environment, along with interoperability with your other IoT applications and functionality, before attempting to deploy in a production environment.
 
 ## I'm making some maintenance on the device. Can I turn off the agent?
 

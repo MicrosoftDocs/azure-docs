@@ -32,7 +32,7 @@ In this troubleshooting guide you'll learn how to:
 > * Understand and remediate security agent errors 
 
 ## Validate if the security agent is running
-1. To validate is the security agent is running, wait a few minutes after installing the agent and and run the following command:<br>
+1. To validate if the security agent is running, wait a few minutes after installing the agent and run the following command:<br>
 
 **C agent**
 ```bash
@@ -66,7 +66,7 @@ Note the timestamp of each error to help your remediation.
 ```bash
 systemctl restart ASCIoTAgent.service
 ```
-1. Repeat the previous process to retrieve stop and retrieve the errors if the agent continues to fail the startup process. 
+1. Repeat the previous steps to stop and retrieve the errors if the agent continues to fail the startup process. 
 
 ## Understand security agent errors
 
@@ -95,7 +95,7 @@ Azure Security Center for IoT agent encountered an error! Error in: {Error Code}
 ```bash
 systemctl restart ASCIoTAgent.service
 ```
-1. If required, repeat the previous processes to force stop the agent and retrieve the errors if the agent continues to fail the startup process. 
+2. If required, repeat the previous processes to force stop the agent and retrieve the errors if the agent continues to fail the startup process. 
 
 ## Next steps
 - Read the Azure Security Center for IoT service [Overview](overview.md)

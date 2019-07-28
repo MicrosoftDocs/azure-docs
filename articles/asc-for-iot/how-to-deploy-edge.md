@@ -40,7 +40,7 @@ Use the following steps to deploy an Azure Security Center for IoT security modu
 
 - In your IoT Hub, make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
 
-- Azure Security Center for IoT Edge module requires [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
+- Azure Security Center for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) be  installed on the IoT Edge device.
 
     - Install the framework by running the following command on your IoT Edge device:
    
@@ -54,7 +54,7 @@ Use the following steps to deploy an Azure Security Center for IoT security modu
 
 ### Deployment using Azure portal
 
-1. From Azure portal, open **Marketplace**.
+1. From the Azure portal, open **Marketplace**.
 
 1. Select **Internet of Things**, then search for **Azure Security Center for IoT** and select it.
 
@@ -105,9 +105,6 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 1. Click **Save**.
 1. Scroll to the bottom of the tab and select **Configure advanced Edge Runtime settings**.
    
-   >[!Note]
-   > Do **not** disable AMQP communication for the IoT Edge Hub.
-   > Azure Security Center for IoT module requires AMQP communication with the IoT Edge Hub.
    
 1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**.
 
@@ -136,14 +133,14 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 #### Step 2: Specify Routes 
 
 1. In the **Specify Routes** tab, make sure you have a route (explicit or implicit) that will forward messages from the **azureiotsecurity** module to **$upstream**, then click Next.
-    ```c#
-    // Default implicit route
+
+    ~~~Default implicit route
     "route": "FROM /messages/* INTO $upstream 
-    ```
-    ```c#
-    // Explicit route
+    ~~~
+
+    ~~~Explicit route
     "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream
-    ```
+    ~~~
 
 #### Step 3: Review Deployment
 
@@ -175,7 +172,7 @@ If you encounter an issue, container logs are the best way to learn about the st
 
    `sudo docker logs azureiotsecurity`
    
-1. For more verbose logs, add the following environment variable to **azureiotsecurity** module deployment: `logLevel=Debug`.
+1. For more verbose logs, add the following environment variable to the **azureiotsecurity** module deployment: `logLevel=Debug`.
 
 ## Next steps
 

@@ -33,11 +33,11 @@ Aggregation is currently available for the following types of events:
 * ProcessTerminate (Windows only)
 
 ## How does event aggregation work?
-When event aggregation is left **On**, Azure Security Center for IoT agents aggregates events for the interval period or time window.
+When event aggregation is left **On**, Azure Security Center for IoT agents aggregate events for the interval period or time window.
 Once the interval period has passed, the agent sends the aggregated events to the Azure cloud for further analysis.
-Each security agent stores the events in the agent memory for the time period before sending them to the Azure cloud.
+The aggregated events are stored in memory until being sent to the Azure cloud.
 
-To reduce the memory load on the agent memory, whenever the agent collects an identical event to one that is already being kept in memory, the agent increases the hit count of this specific event. When the time window passes, the agent sends the hit count of each specific type of event that occurred. Event aggregation is simply the aggregation of the hit counts of each collected type of event.
+To reduce the memory footprint of the agent, whenever the agent collects an identical event to one that is already being kept in memory, the agent increases the hit count of this specific event. When the aggregation time window passes, the agent sends the hit count of each specific type of event that occurred. Event aggregation is simply the aggregation of the hit counts of each collected type of event.
 
 Events are considered identical only when the following conditions are met: 
 

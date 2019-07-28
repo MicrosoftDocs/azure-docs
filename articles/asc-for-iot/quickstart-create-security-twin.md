@@ -48,9 +48,9 @@ _azureiotsecurity_ module twins can be created in two ways:
 
 See [agent configuration](how-to-agent-configuration.md) to learn how to modify or change the configuration of an existing module twin. 
 
-To create manually a new _azureiotsecurity_ module twin for a device use the following instructions: 
+To manually create a new _azureiotsecurity_ module twin for a device use the following instructions: 
 
-1. In your IoT Hub, locate and select the device you wish to create a security module twin for in your IoT Hub.
+1. In your IoT Hub, locate and select the device you wish to create a security module twin for.
 1. Click on your device, and then on **Add module identity**.
 1. In the **Module Identity Name** field, enter **azureiotsecurity**.
 

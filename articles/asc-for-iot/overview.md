@@ -32,11 +32,11 @@ Azure Security Center for IoT simplifies hybrid workload protection by deliverin
 
 ### Unified visibility and control
 
-Get a unified view of security across all of your on-premises and cloud workloads, including your Azure IoT solution. Automatically discover and onboard new devices and apply security policies across your workloads (Leaf devices, Edge devices, IOT Hub) to ensure compliance with security standards.
+Get a unified view of security across all of your on-premises and cloud workloads, including your Azure IoT solution. Automatically discover and onboard new devices and apply security policies across your workloads (Leaf devices, Edge devices, IoT Hub) to ensure compliance with security standards.
 
 ### Adaptive threat prevention
 
-Use Azure Security Center for IoT to continuously monitor the security of machines, networks, and Azure services, including your Azure IoT solution from edge devices to applications. You can choose to use from hundreds of built-in security assessments or create your own in the central Azure Security Center for IoT Hub dashboard. Optimize your security settings and improve your security score with actionable recommendations across virtual machines, networks, apps and data. With newly added IoT capabilities, you can now reduce attack surface for your Azure IoT solution and remediate issues before they can be exploited.
+Use Azure Security Center for IoT to continuously monitor the security of machines, networks, and Azure services, including your Azure IoT solution from edge devices to applications. You can choose from hundreds of built-in security assessments or create your own in the central Azure Security Center for IoT Hub dashboard. Optimize your security settings and improve your security score with actionable recommendations across virtual machines, networks, apps and data. With newly added IoT capabilities, you can now reduce the attack surface for your Azure IoT solution and remediate issues before they can be exploited.
 
 ### Intelligent threat detection and response
 
