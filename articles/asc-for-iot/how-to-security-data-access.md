@@ -28,10 +28,10 @@ Azure Security Center for IoT stores security alerts, recommendations, and raw s
 To configure which Log Analytics workspace is used:
 
 1. Open your IoT hub.
-1. Click **Security**
+1. Click the **Overview** blade under the **Security** section
 2. Click **Settings**, and change your Log Analytics workspace configuration.
 
-To access your Log Analytics workspace after configuration:
+To access your alerts and recommendations in your Log Analytics workspace after configuration:
 
 1. Choose an alert or recommendation in Azure Security Center for IoT. 
 2. Click **further investigation**, then click **To see which devices have this alert click here and view the DeviceId column**.
@@ -71,10 +71,10 @@ SecurityAlert
 
 ### Device summary
 
-Select the number of distinct security alerts detected last week by IoT Hub, device, alert severity, alert type.
+Get the number of distinct security alerts detected in the last week, grouped by IoT Hub, device, alert severity, alert type.
 
 ```
-// Select number of distinct security alerts detected last week by 
+// Get the number of distinct security alerts detected in the last week, grouped by 
 //   IoT hub, device, alert severity, alert type
 //
 SecurityAlert
@@ -150,10 +150,10 @@ SecurityRecommendation
 
 ### Device summary
 
-Select the number of distinct active security recommendations by IoT Hub, device, recommendation severity, and type.
+Get the number of distinct active security recommendations, grouped by IoT Hub, device, recommendation severity, and type.
 
 ```
-// Select number of distinct active security recommendations by 
+// Get the number of distinct active security recommendations, grouped by by 
 //   IoT hub, device, recommendation severity and type
 //
 SecurityRecommendation

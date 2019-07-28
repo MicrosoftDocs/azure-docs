@@ -21,7 +21,7 @@ ms.author: mlottner
 # Quickstart: Create custom alerts
 
 
-Using custom security groups and alerts, take full advantage of the end-to-end security information and categorical device knowledge to ensure better security across your IoT solution. 
+Using custom security groups and alerts, takes full advantage of the end-to-end security information and categorical device knowledge to ensure better security across your IoT solution. 
 
 ## Why use custom alerts? 
 
@@ -56,7 +56,7 @@ For example:
   },
   "version": 4,
   "tags": {
-    "securityGroup": "default"
+    "SecurityGroup": "default"
   }, 
 ```
 
@@ -77,10 +77,11 @@ Use security groups to group your devices into logical categories. After creatin
 
 The following table provides a summary of alerts available for customization.
 
-| Severity | Name | Data Source | Description | Suggested remediation|       
-|----------|----------------------------------------------|-------------|-------------------------------------------|--------------|
-| Low  | Custom alert - number of cloud to device messages in AMQP protocol is outside in the allowed range | IoT Hub | The amount of cloud to device messages (AMQP protocol) in a time window is not in the configured allowed range ||
-| Low      | Custom alert - number of rejected cloud to device messages in AMQP protocol is not in the allowed range | IoT Hub     | The amount of cloud to device messages (AMQP protocol) that were rejected by the device in a time window is not in the configured allowed range ||
+
+| Severity | Name | Data Source | Description | Suggested remediation|
+|---|---|---|---|---|
+| Low      | Custom alert - number of cloud to device messages in AMQP protocol is outside the allowed range          | IoT Hub     | The amount of cloud to device messages (AMQP protocol) in a time window is not in the configured allowed range                                  |
+| Low      | Custom alert - number of rejected cloud to device messages in AMQP protocol is not in the allowed range | IoT Hub     | The amount of cloud to device messages (AMQP protocol) that were rejected by the device in a time window is not in the configured allowed range |
 | Low      | Custom alert - number of device to cloud messages in AMQP protocol is not in the allowed range          | IoT Hub     | The amount of device to cloud messages (AMQP protocol) in a time window is not in the configured allowed range                                  |
 | Low      | Custom alert - number of direct method invokes is not in the allowed range                              | IoT Hub     | The amount of direct method invokes in a time window is not in the configured allowed range                                                     |
 | Low      | Custom alert - number of file uploads is not in the allowed range                                       | IoT Hub     | The amount of file uploads in a time window is not in the configured allowed range                                                              |

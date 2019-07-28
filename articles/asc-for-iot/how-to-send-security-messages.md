@@ -21,7 +21,7 @@ ms.author: mlottner
 
 # Send security messages SDK
 
-This how-to guide explains Azure Security Center for IoT service capabilities when you choose to collect and send your device security messages without using an Azure Security Center for IoT agent, and explains how to do so.  
+This how-to guide explains the Azure Security Center for IoT service capabilities when you choose to collect and send your device security messages without using an Azure Security Center for IoT agent, and explains how to do so.  
 
 In this guide, you learn how to: 
 > [!div class="checklist"]
@@ -42,7 +42,7 @@ Azure Security Center for IoT defines a security message using the following cri
 Each security message includes the metadata of the sender such as `AgentId`, `AgentVersion`, `MessageSchemaVersion` and a list of security events.
 The schema defines the valid and required properties of the security message including the types of events.
 
-[!NOTE]
+>[!Note]
 > Messages sent that do not comply with the schema are ignored. Make sure to verify the schema before initiating sending data as ignored messages are not currently stored. 
 > Messages sent that were not set as a security message using the Azure IoT C/C# SDK will not be routed to the Azure Security Center for IoT pipeline
 
@@ -84,7 +84,7 @@ Once set as a security message and sent, this message will be processed by Azure
 
 Send security messages without using the Azure Security Center for IoT agent, by using the [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) or [Azure IoT C device SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
 
-To send the device data from your devices for processing by Azure Security Center for IoT, use one of the following APIs to mark messages for correct routing to Azure Security Center for IoT processing pipeline. Messages sent this way will be processed and displayed as security insights within Azure Security Center for IoT within both IoT Hub or within Azure Security Center. 
+To send the device data from your devices for processing by Azure Security Center for IoT, use one of the following APIs to mark messages for correct routing to Azure Security Center for IoT processing pipeline. 
 
 All data that is sent, even if marked with the correct header, must also comply with the [Azure Security Center for IoT message schema](https://aka.ms/iot-security-schemas). 
 

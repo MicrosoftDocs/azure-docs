@@ -37,10 +37,34 @@ ASC for IoT insights and reporting are available using Azure IoT Hub and Azure S
 ## Supported service regions 
 
 ASC for IoT is currently supported for IoT Hubs in the following Azure regions:
-  - Central US
-  - Northern Europe
+  - Central US	
+  - East US	
+  - East US 2
+  - West Central US
+  - West US
+  - West US2
+  - Central US South
+  - North Central US
+  - Canada Central
+  - Canada East	
+  - North Europe	
+  - Brazil South
+  - France Central	
+  - UK West	
+  - UK South
+  - West Europe	
+  - Northern Europe	
+  - Japan West	
+  - Japan East	
+  - Australia Southeast
+  - Australia East
+  - East Asia	
   - Southeast Asia
-
+  - Korea Central
+  - Korea South	
+  - Central India
+  - South India
+  
 ## Where's my IoT Hub?
 
 Check your IoT Hub location to verify service availability before you begin. 

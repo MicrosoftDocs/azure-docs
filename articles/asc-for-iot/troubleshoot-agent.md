@@ -32,17 +32,19 @@ In this troubleshooting guide you'll learn how to:
 > * Understand and remediate security agent errors 
 
 ## Validate if the security agent is running
-1. To validate is the security agent is running, wait a few minutes after installing the agent and and run the following command. 
-    - If the command returns an empty line, the security agent was unable to start successfully. <br>
 
-**C agent**
-```bash
-grep "ASC for IoT Agent initialized" /var/log/syslog
-```
-**C# agent**
-```bash
-grep "Agent is initialized!" /var/log/syslog
-```
+1. To validate is the security agent is running, wait a few minutes after installing the agent and and run the following command. 
+     <br>
+
+    **C agent**
+    ```bash
+    grep "ASC for IoT Agent initialized" /var/log/syslog
+    ```
+    **C# agent**
+    ```bash
+    grep "Agent is initialized!" /var/log/syslog
+    ```
+2. If the command returns an empty line, the security agent was unable to start successfully.    
 
 ## Force stop the security agent 
 In cases where the security agent is unable to start, stop the agent with the following command, then continue to the error table below:
@@ -61,6 +63,7 @@ systemctl stop ASCIoTAgent.service
 > Error logs are shown in chronological order. Make sure to note the timestamp of each error to help your remediation. 
 
 ## Restart the agent
+
 1. After locating and fixing a security agent error, try to restart the agent by running the following command. 
     ```bash
     systemctl restart ASCIoTAgent.service
@@ -94,7 +97,7 @@ Azure Security Center for IoT agent encountered an error! Error in: {Error Code}
     ```bash
     systemctl restart ASCIoTAgent.service
     ```
-1. If required, repeat the previous processes to force stop the agent and retrieve the errors if the agent continues to fail the startup process. 
+2. If required, repeat the previous processes to force stop the agent and retrieve the errors if the agent continues to fail the startup process. 
 
 ## Next steps
 - Read the Azure Security Center for IoT service [Overview](overview.md)

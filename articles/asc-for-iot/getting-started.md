@@ -20,14 +20,14 @@ ms.author: mlottner
 ---
 # Get started with Azure Security Center for IoT
 
-This article provides an explanation of the different building blocks of the Azure Security Center for IoT service and explains how to get started with the service using either deployment option.  
+This article provides an explanation of the different building blocks of the Azure Security Center for IoT service and explains how to get started with the service using two possible deployment options.  
 
 ## Deployment options
 
 Choose the service scenario that best meets your IoT device and environment requirements. 
 
 ### Built-in deployment
-Using the seamless, built-in deployment option, Azure Security Center for IoT can be quickly integrated into your IoT Hub and provide security analysis of IoT hub configuration, device identity and management, and hub-device communication patterns.
+Using the seamless, built-in deployment option, Azure Security Center for IoT can be quickly integrated into your IoT Hub and provide security analysis of the IoT hub configuration, device identity and management, and hub-device communication patterns.
 
 * Start a [Built-in deployment](iot-hub-integration.md) featuring IoT Hub monitoring and recommendations. 
     <br>
