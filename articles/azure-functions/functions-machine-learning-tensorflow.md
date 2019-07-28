@@ -148,7 +148,7 @@ cp ../resources/model/* classify
 copy ..\resources\model\* classify
 ```
 
-Be sure to include the \* in the above command.
+Be sure to include the \* in the above command. Confirm that *classify* now contains files named *model.pb* and *labels.txt*.
 
 ## Add the helper functions and dependencies
 
@@ -166,9 +166,11 @@ cp ../resources/predict.py classify
 copy ..\resources\predict.py classify
 ```
 
+Confirm that *classify* now contains a file named *predict.py*.
+
 ### Install dependencies
 
-The helper library has some dependencies that need to be installed. In the terminal with the virtual environment activated, run the following commands in the function app folder that contains *requirements.txt*. Some installation steps may take a few minutes to complete.
+The helper library has some dependencies that need to be installed. In the terminal with the virtual environment activated, run the following commands in the *start* folder. Some installation steps may take a few minutes to complete.
 
 ```console
 pip install tensorflow Pillow requests --no-cache-dir
@@ -179,6 +181,8 @@ Save the dependencies in *requirements.txt*.
 ```console
 pip freeze > requirements.txt
 ```
+
+Open *requirements.txt* and confirm that it contains a list of dependencies for the application.
 
 ### Caching the model in global variables
 
