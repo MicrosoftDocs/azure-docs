@@ -73,9 +73,7 @@ For this task, you can use either the Azure portal by following the steps in thi
 
 ## Link to logic app
 
-To give your logic apps access to an integration account that contains your B2B artifacts, you must first link your integration account to your logic app. Both logic app and integration account must exist in the same region.
-
-For this task, you can use the Azure portal by following the steps in this section, [Azure PowerShell]
+To give your logic apps access to an integration account that contains your B2B artifacts, you must first link your integration account to your logic app. Both logic app and integration account must exist in the same region. For this task, you can use the Azure portal by following the steps in this section.
 
 1. In the Azure portal, find and open your logic app.
 
@@ -108,7 +106,7 @@ To increase the [limits](../logic-apps/logic-apps-limits-and-config.md#integrati
 
 ### Upgrade pricing tier
 
-To make this change, you can use either the Azure portal by finding your integration account or use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+To make this change, you can use either the Azure portal by following the steps in this section or the [Azure CLI](#upgrade-tier-azure-cli).
 
 #### Azure portal
 
@@ -125,6 +123,8 @@ To make this change, you can use either the Azure portal by finding your integra
    ![On integration account menu, select "Overview"](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-overview.png)
 
 1. On the Overview pane, select **Upgrade pricing tier**, which lists any available higher tiers. When you select a tier, the change immediately takes effect.
+
+<a name="upgrade-tier-azure-cli"></a>
 
 #### Azure CLI
 
@@ -216,6 +216,8 @@ If you want to link your logic app to another integration account, or no longer 
 
 You can move your integration account to another Azure resource group or Azure subscription. When you move resources, Azure creates new resource IDs, so make sure that you use the new IDs instead and update any scripts or tools associated with the moved resources. If you want to change the subscription, you must also specify an existing or new resource group.
 
+For this task, you can use either the Azure portal by following the steps in this section or the [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-move).
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
 1. In the main Azure search box, enter "integration accounts" as your filter, and select **Integration accounts**.
@@ -245,6 +247,8 @@ You can move your integration account to another Azure resource group or Azure s
 1. After you finish, make sure that you update any and all scripts with the new resource IDs for your moved resources.  
 
 ## Delete integration account
+
+For this task, you can use either the Azure portal by following the steps in this section, [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete), or [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/Remove-AzureRmIntegrationAccount).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
