@@ -1,6 +1,6 @@
 ---
 title: Onboard your Azure Stack virtual machines to Azure Sentinel | Microsoft Docs
-description: This article shows you how to provision the Azure Monitor, Update and Configuration Management virtual machine extension on a Azure Stack virtual machines and start monitoring them with Sentinel.
+description: This article shows you how to provision the Azure Monitor, Update, and Configuration Management virtual machine extension on Azure Stack virtual machines and start monitoring them with Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -24,7 +24,7 @@ ms.author: rkarlin
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-With Azure Sentinel you can monitor your VMs running on Azure and Azure Stack in one place. To on-board your Azure Stack machines to Azure Sentinel, you first need to add the virtual machine extension to your existing Azure Stack virtual machines. 
+With Azure Sentinel, you can monitor your VMs running on Azure and Azure Stack in one place. To on-board your Azure Stack machines to Azure Sentinel, you first need to add the virtual machine extension to your existing Azure Stack virtual machines. 
 
 After you connect Azure Stack machines, choose from a gallery of dashboards that surface insights based on your data. These dashboards can be easily customized to your needs.
 
@@ -32,24 +32,24 @@ After you connect Azure Stack machines, choose from a gallery of dashboards that
 
 ## Add the virtual machine extension 
 
-Add the **Azure Monitor, Update and Configuration Management** virtual machine extension to the virtual machines running on your Azure Stack. 
+Add the **Azure Monitor, Update, and Configuration Management** virtual machine extension to the virtual machines running on your Azure Stack. 
 
 1. In a new browser tab, log into your [Azure Stack portal](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal#access-the-portal).
 2. Go to the **Virtual machines** page, select the virtual machine that you want to protect with Azure Sentinel. For information on how to create a virtual machine on Azure Stack, see [Create a Windows server VM with the Azure Stack portal](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) or [Create a Linux server VM by using the Azure Stack portal](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
 3. Select **Extensions**. The list of virtual machine extensions installed on this virtual machine is shown.
 4. Click the **Add** tab. The **New Resource** menu blade opens and shows the list of available virtual machine extensions. 
-5. Select the **Azure Monitor, Update and Configuration Management** extension and click **Create**. The **Install extension** configuration blade opens.
+5. Select the **Azure Monitor, Update, and Configuration Management** extension and click **Create**. The **Install extension** configuration window opens.
 
-   ![Azure Monitor, Update and Configuration Management Settings](./media/connect-azure-stack/azure-monitor-extension.png)  
+   ![Azure Monitor, Update, and Configuration Management Settings](./media/connect-azure-stack/azure-monitor-extension-fix.png)  
 
->[!NOTE]
-> If you do not see the **Azure Monitor, Update and Configuration Management** extension listed in your marketplace, reach out to your Azure Stack operator to make it available.
+   >[!NOTE]
+   > If you do not see the **Azure Monitor, Update and Configuration Management** extension listed in your marketplace, reach out to your Azure Stack operator to make it available.
 
 6. On the Azure Sentinel menu, select **Workspace settings** followed by **Advanced**, and copy  the **Workspace ID** and **Workspace Key (Primary Key)**. 
 1. In the Azure Stack **Install extension** window, paste them in the indicated fields and click **OK**.
 1. After the extension installation completes, its status shows as **Provisioning Succeeded**. It might take up to one hour for the virtual machine to appear in the Azure Sentinel portal.
 
-For further information on installing and configuring the agent for Windows, see [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+For more information on installing and configuring the agent for Windows, see [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
 For Linux troubleshooting of agent issues, see [Troubleshoot Azure Log Analytics Linux Agent](../azure-monitor/platform/agent-linux-troubleshoot.md).
 
