@@ -188,11 +188,11 @@ If you want to link your logic app to another integration account, or no longer 
 
    ![On "Data" tab, select "Edit"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-select-edit.png)
 
-1. In the editor, find the `integrationAccount` property, and delete that property, which has this format:
+1. In the editor, find the `integrationAccount` object, and delete that property, which has this format:
 
    ```json
    {
-      // <...>
+      // <other-attributes>
       "integrationAccount": {
          "name": "<integration-account-name>",
          "id": "<integration-account-resource-ID>",
@@ -202,7 +202,7 @@ If you want to link your logic app to another integration account, or no longer 
 
    For example:
 
-   ![Find "integrationAccount" property definition](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
+   ![Find "integrationAccount" object](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 
 1. On the **Data** tab, select **Put** to save your changes.
 
