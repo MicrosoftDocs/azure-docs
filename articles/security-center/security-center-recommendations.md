@@ -25,7 +25,18 @@ This topic explains how to view and understand the recommendations in Azure Secu
 >
 
 ## What are security recommendations?
-Security Center periodically analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the needed controls.
+
+Recommendations are actions for you to take in order to secure make your resources.
+
+Security Center periodically analyzing the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remove them.
+
+Each recommendations provides you with:
+
+- A short description of what is being recommended.
+- The remediation steps to carry out in order to implement the recommendation. In some cases, one-click remediation is available.
+- Which resources are in need of you performing the recommended action on them.
+- The **secure score impact**, which is the amount that your secure score will go up if you implement this recommendation.
+
 
 ## Implementing security recommendations
 ### Set recommendations
@@ -70,6 +81,13 @@ After setting a security policy, Security Center analyzes the security state of 
 
 1. From the list, click on the recommendation.
 1. Follow the instructions in the *Remediation steps* section.
+ 
+    ![Recommendation details](./media/security-center-recommendations/recommendation-details.png)
+
+
+    ![Recommendation details](./media/security-center-recommendations/security-checks1.png)
+
+    ![Recommendation details](./media/security-center-recommendations/security-checks2.png)
 
 ## Next steps
 In this document, you were introduced to security recommendations in Security Center. To learn more about Security Center, see the following topics:
