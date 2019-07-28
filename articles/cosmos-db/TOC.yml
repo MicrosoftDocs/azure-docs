@@ -319,8 +319,6 @@
         - name: Store and manage Spring Data 
           href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db 
           maintainContext: true
-        - name: Migrate to Cassandra API using Striim
-          href: cosmosdb-cassandra-api-migrate-data-striim.md
         - name: Cassandra & Spark
           items:
           - name: Introduction
@@ -744,6 +742,8 @@
       items: 
       - name: Migrate to SQL API using Striim
         href: cosmosdb-sql-api-migrate-data-striim.md
+      - name: Migrate to Cassandra API using Striim
+        href: cosmosdb-cassandra-api-migrate-data-striim.md
     - name: Bulk executor library
       items: 
       - name: About bulk executor library
