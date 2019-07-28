@@ -13,7 +13,7 @@ ms.reviewer: sngun
  
 The Striim image in the Azure marketplace offers continuous real-time data movement from data warehouses and databases to Azure. While moving the data, you can perform in-line denormalization, data transformation, enable real-time analytics, and data reporting scenarios. It’s easy to get started with Striim to continuously move enterprise data to Azure Cosmos DB SQL API. Azure provides a marketplace offering that makes it easy to deploy Striim and migrate data to Azure Cosmos DB. 
 
-This article shows how to use Striim to migrate data from an **Oracle database**se to an **Azure Cosmos DB SQL API account**.
+This article shows how to use Striim to migrate data from an **Oracle database** to an **Azure Cosmos DB SQL API account**.
 
 ## Prerequisites
 
