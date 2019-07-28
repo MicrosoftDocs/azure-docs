@@ -44,7 +44,7 @@ Operational recommendations provide insights and suggestions to improve security
 
 | Severity | Name                                    | Data Source | Description                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
-| Low      | Agent sends unutilized messages          | Agent       | 10% or more of security messages were smaller than 4kb during the last 24 hours.  |
+| Low      | Agent sends unutilized messages          | Agent       | 10% or more of security messages were smaller than 4 KB during the last 24 hours.  |
 | Low      | Security twin configuration not optimal | Agent       | Security twin configuration is not optimal.                                        |
 | Low      | Security twin configuration conflict    | Agent       | Conflicts were identified in the security twin configuration. |                          |
 
@@ -60,3 +60,9 @@ Recommendation alerts provide insight and suggestions for actions to improve the
 | Medium   | IP filter rule includes large IP range                   | IoT Hub     | An allow IP filter rule source IP range is too large. Overly permissive rules can expose your IoT hub to malicious actors.                                                                                       |
 | Low      | Enable diagnostics logs in IoT Hub                       | IoT Hub     | Enable logs and retain them for up to a year. Retaining logs enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised.                                       |
 |
+
+## Next steps
+
+- Azure Security Center for IoT service [Overview](overview.md)
+- Learn how to [Access your security data](how-to-security-data-access.md)
+- Learn more about [Investigating a device](how-to-investigate-device.md)
