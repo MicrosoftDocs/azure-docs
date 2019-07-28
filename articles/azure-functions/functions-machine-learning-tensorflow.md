@@ -61,7 +61,7 @@ Azure Functions requires Python 3.6.x. You'll create a virtual environment to en
 
 Change the current working directory to the *start* folder. Then create and activate a virtual environment named *.venv*.
 
-### Linux and macOS:
+#### Linux and macOS:
 
 ```bash
 cd start
@@ -69,7 +69,7 @@ python3.6 -m venv .venv
 source .venv/bin/activate
 ```
 
-### Windows:
+#### Windows:
 
 ```powershell
 cd start
@@ -136,13 +136,13 @@ You'll use a pre-built TensorFlow model that was trained with and exported from 
 
 The model consists of two files in the *<REPOSITORY_ROOT>/resources/model* folder: *model.db* and *labels.txt*. Copy them into the *classify* function's folder.
 
-### Linux and macOS:
+#### Linux and macOS:
 
 ```bash
 cp ../resources/model/* classify
 ```
 
-### Windows:
+#### Windows:
 
 ```powershell
 copy ..\resources\model\* classify
@@ -154,13 +154,13 @@ Be sure to include the \* in the above command.
 
 Some helper functions for preparing the input image and making a prediction using TensorFlow are in a file named *predict.py* in the *resources* folder. Copy this file into the *classify* function's folder.
 
-### Linux and macOS:
+#### Linux and macOS:
 
 ```bash
 cp ../resources/predict.py classify
 ```
 
-### Windows:
+#### Windows:
 
 ```powershell
 copy ..\resources\predict.py classify
