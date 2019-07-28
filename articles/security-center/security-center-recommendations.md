@@ -76,7 +76,7 @@ After setting a security policy, Security Center analyzes the security state of 
 >[!NOTE] 
 > See [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
   
- ### Apply recommendations
+ ## Apply recommendations
 > After reviewing all recommendations, decide which one to apply first. We recommend that you use the secure score impact to evaluate which recommendations should be applied first.
 
 1. From the list, click on the recommendation.
@@ -84,10 +84,24 @@ After setting a security policy, Security Center analyzes the security state of 
  
     ![Recommendation details](./media/security-center-recommendations/recommendation-details.png)
 
+## One-click fix remediation
 
-    ![Recommendation details](./media/security-center-recommendations/security-checks1.png)
+One-click fix enables you to remediate a recommendation on a bulk of resources, with a single click. It is an option only is available for specific recommendations. One-click fix simplifies remediation and enables you to quickly improve your secure score.
 
-    ![Recommendation details](./media/security-center-recommendations/security-checks2.png)
+To implement one-click remediation:
+
+1. From the list of recommendations that have the **1-Click-fix** label, click on the recommendation.  
+
+   ![One-click fix](./media/security-center-recommendations/one-click-fix-select.png)
+
+2. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and click **Remediate**.
+
+    ![One-click fix](./media/security-center-recommendations/one-click-fix.png)
+
+    > [!NOTE]
+    > -It can take several minutes after remediation completes to see the resources in the **Healthy resources** tab. To view the the remediation actions, check the activity log where they are logged.
+  
+3. In the confirmation box, read the remediation details, insert the relevant parameters if required, and approve the remediation.
 
 ## Next steps
 In this document, you were introduced to security recommendations in Security Center. To learn more about Security Center, see the following topics:
