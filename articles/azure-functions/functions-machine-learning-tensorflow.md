@@ -8,7 +8,7 @@ manager: gwallace
 ms.service: azure-functions
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
 ---
@@ -35,9 +35,7 @@ To create Azure Functions in Python, you need to install a few tools.
 
 - [Python 3.6](https://www.python.org/downloads/release/python-360/)
 - [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
-- A code editor
-
-You may use any editor of your choice. We recommend [Visual Studio Code](https://code.visualstudio.com/) with the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extensions.
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Clone the tutorial repository
 
@@ -59,7 +57,7 @@ The repository contains a few folders.
 
 Azure Functions requires Python 3.6.x. You'll create a virtual environment to ensure you're using the required Python version.
 
-Change the current working directory to the *start* folder. Then create and activate a virtual environment named *.venv*.
+Change the current working directory to the *start* folder. Then create and activate a virtual environment named *.venv*. Depending on your Python installation, the commands to create a Python 3.6 virtual environment may differ from the following instructions.
 
 #### Linux and macOS:
 
