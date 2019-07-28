@@ -26,7 +26,7 @@ You can view and manage the security posture of multiple tenants in Security Cen
 
 ## Activate Azure delegated resource management
 
-In order set up cross-tenant management, you must onboard customers to Azure delegated resource management. To do so, you can [publish the new Managed Services](../lighthouse/how-to/publish-managed-services-offers.md) offer type to Azure Marketplace or alternatively, you can complete the onboarding process by [deploying Azure Resource Manager templates](../lighthouse/how-to/onboard-customer.md).
+In order set up cross-tenant management, you must onboard customers to Azure delegated resource management. To do so, you can [publish the new Managed Services](../lighthouse/how-to/publish-managed-services-offers.md) offer type to Azure Marketplace or alternatively, you can complete the onboarding process by [deploying Azure Resource Manager templates](../lighthouse/how-to/onboard-customer.md).  
 
 > [!NOTE]
 > Azure delegated resource management is one of the key components of Azure Lighthouse. 
