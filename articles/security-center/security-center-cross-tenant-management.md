@@ -22,7 +22,7 @@ ms.author: v-mohabe
 
 You can view and manage the security posture of multiple tenants in Security Center by activating Azure delegated resource management. Service providers can administer resources from different tenants efficiently, from one place, instead of signing in to each resource and implementing the same action repeatedly.  This simplified management ability enables you to delegate resources efficiently and it prevents errors that can happen when repeating the same action many times.
 
-  ![Cross-tenants management](./media/security-center-cross-tenant-management/cross-tenant-secure-score.png)
+  ![Cross-tenants management](./media/security-center-cross-tenant-management/cross-tenant-security-center.png)
 
 ## Activate Azure delegated resource management
 
@@ -37,7 +37,8 @@ The same management and security features, that you use for one tenant, you can 
 
 - Cross-tenant visibility enables you to view the overall health of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them.
 
-  ![Cross-tenant secure score management](./media/security-center-cross-tenant-management/cross-tenant-secure-score.png)
+  ![Cross-tenant secure score management](./media/security-center-cross-tenant-management/cross-tenant-security-list.png)
+
 
   ![Cross-tenant regulatory compliance](./media/security-center-cross-tenant-management/cross-tenant-regulatory-compliance.png)
 
