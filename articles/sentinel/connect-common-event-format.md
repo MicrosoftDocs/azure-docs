@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
 
 ---
@@ -25,27 +25,12 @@ ms.author: rkarlin
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can connect Azure Sentinel with an external solution that enables you to save log files in Syslog. If your appliance enables you to save logs as Syslog Common Event Format (CEF), the integration with Azure Sentinel enables you to easily run analytics and queries across the data.
+This article explains how to connect Azure Sentinel with your external security solutions that send Common Event Format (CEF) messages on top of Syslog. 
 
 > [!NOTE] 
 > Data is stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## How it works
-
-The connection between Azure Sentinel and your CEF appliance takes place in three steps:
-
-1. On the appliance you need to set these values so that the appliance sends the necessary logs in the necessary format to the Azure Sentinel Syslog agent, based on the Microsoft Monitoring Agent. You can modify these parameters in your appliance, as long as you also modify them in the Syslog daemon on the Azure Sentinel agent.
-    - Protocol = UDP
-    - Port = 514
-    - Facility = Local4
-    - Format = CEF
-2. The Syslog agent collects the data and sends it securely to Log Analytics, where it is parsed and enriched.
-3. The agent stores the data in a Log Analytics workspace so it can be queried as needed, using analytics, correlation rules, and dashboards.
-
-> [!NOTE]
-> The agent can collect logs from multiple sources, but must be installed on dedicated proxy machine.
-
-## Step 1: Connect to your CEF appliance via dedicated Azure VM
 
 You need to deploy an agent on a dedicated Linux machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is based on Resource Manager templates and can be used only if your dedicated Linux machine is a new VM you are creating in Azure.
 
@@ -55,8 +40,49 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 
  ![CEF on premises](./media/connect-cef/cef-syslog-onprem.png)
 
-### Deploy the agent
 
+The connection between Azure Sentinel and your CEF appliance takes place in three steps:
+- Connect to your security solution 
+
+
+## Step 1: Connect to security solution
+
+1. On the appliance you need to set these values so that the appliance sends the necessary logs in the necessary format to the Azure Sentinel Syslog agent, based on the Microsoft Monitoring Agent. You can modify these parameters in your appliance, as long as you also modify them in the Syslog daemon on the Azure Sentinel agent.
+    - Protocol = TCP
+    - Port = 514
+    - Format = CEF
+2. The Syslog agent collects the data and sends it securely to Log Analytics, where it is parsed and enriched.
+3. The agent sends the data to your Azure Sentinel Log Analytics workspace so it can be queried as needed, using analytics, correlation rules, and dashboards.
+
+> [!NOTE]
+> The agent can collect logs from multiple sources, but must be installed on dedicated proxy machine.
+
+
+## Deploy the agent
+
+In this step, you need to select a Linux machine that will act as a proxy between Azure Sentinel and your security solution. You will have to run a script on the proxy machine that installs the Microsoft Monitoring Agent and configures it as needed to listen for Syslog messages on port 514 over TCP and send the CEF messages to your Azure Sentinel workspace. 
+
+### Prerequisites
+Make sure the Linux machine you use as a proxy is running one of the following operating systems:
+
+   - 64-bit
+       - CentOS 6 and 7
+       - Amazon Linux 2017.09
+       - Oracle Linux 6 and 7
+       - Red Hat Enterprise Linux Server 6 and 7
+       - Debian GNU/Linux 8 and 9
+       - Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
+       - SUSE Linux Enterprise Server 12
+   - 32-bit
+      -  CentOS 6
+       - Oracle Linux 6
+       - Red Hat Enterprise Linux Server 6
+       - Debian GNU/Linux 8 and 9
+       - Ubuntu Linux 14.04 LTS and 16.04 LTS
+ 
+ Daemon versions:
+   Syslog-ng: 2.1 - 3.22.1
+   Rsyslog: v8
 
 1. In the Azure Sentinel portal, click **Data connectors** and select **Common Event Format (CEF)** and then **Open connector page**. 
 
