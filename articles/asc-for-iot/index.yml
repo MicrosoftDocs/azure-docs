@@ -50,9 +50,6 @@ sections:
       image: 
         src: media/index/tutorial.svg
         href: https://docs.microsoft.com/learn/azure
-
-  - type: paragraph
-    text: <a href="/learn/browse/?term=security">More interactive learning...</a>
 - title: Azure Security Center for IoT Videos 
   items:
   - type: list
@@ -60,11 +57,6 @@ sections:
     className: cardsFTitle
     items:
     - title: Microsoft Azure Security Center for IoT - Overview
-      href: https://youtu.be/pq5uSp9u_x0
-      image: 
-        src: https://docs.microsoft.com/media/common/i_video.svg
-        href: https://youtu.be/pq5uSp9u_x0
-    - title: Understand Azure Security Center for IoT
       href: https://youtu.be/pq5uSp9u_x0
       image: 
         src: https://docs.microsoft.com/media/common/i_video.svg

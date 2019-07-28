@@ -26,8 +26,9 @@ This option enables you to use the service without using Azure Security Center f
 ## Enable Built-in IoT Hub integration
 To enable monitoring your device identity management, device to cloud, and cloud to device communication patterns, do the following to start the service: 
 
-1. Open **IoT Hub**.
-1. Select **Secure your IoT solution**.
+1. Open your **IoT Hub**.
+1. Select the **Security overview** menu. 
+1. Click **Secure your IoT solution** and complete the onboarding form. 
 
 Congratulations! You've completed enabling the Azure Security Center for IoT service on your IoT Hub. 
 

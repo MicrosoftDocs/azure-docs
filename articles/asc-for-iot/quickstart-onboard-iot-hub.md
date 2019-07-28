@@ -55,9 +55,9 @@ To enable security on your IoT Hub, do the following:
 
 1. Open your **IoT Hub** in Azure portal. 
 1. Under the **Security** menu, click **Secure your IoT solution**
-1. Choose **Enable**. 
+1. Leave **Enable** selected as the default. 
 1. Select your Log analytics workspace.
-1. Provide your Log Analytics Workspace details. 
+1. Provide your Log Analytics workspace details. 
    - Elect to enable **twin collection** by leaving the **twin collection** toggle **On**.
    - Elect to store **raw events** in addition to the default information types of storage by selecting the **Store raw device security events** in Log Analytics. Leave the **raw event** toggle **On**. 
     
