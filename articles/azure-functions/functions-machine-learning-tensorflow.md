@@ -236,11 +236,20 @@ Keep the function app running.
 
 There's a simple web app in the *frontend* folder that consumes the HTTP API in the function app.
 
-Open a *separate* terminal and change to the *frontend* folder. Start an HTTP server with your Python 3.6 executable.
+Open a *separate* terminal and change to the *frontend* folder. Start an HTTP server with Python 3.6.
 
-```console
+#### Linux and macOS:
+
+```bash
 cd <FRONT_END_FOLDER>
-<PYTHON_PATH> -m http.server
+python3.6 -m http.server
+```
+
+#### Windows:
+
+```powershell
+cd <FRONT_END_FOLDER>
+py -3.6  -m http.server
 ```
 
 In a browser, navigate to the HTTP server's URL that is displayed in the terminal. A web app should appear. Enter one of the following photo URLs into the textbox. You may also use a URL of a publicly accessible cat or dog photo.
