@@ -29,13 +29,14 @@ You know your IoT devices best.
 
 For customers who fully understand their expected device behavior, Azure Security Center for IoT allows you to translate this understanding into a device behavior policy and alert on any deviation from expected, normal behavior.
 
-## Security Groups
+## Security groups
 
 Security groups enable you to define logical groups of devices, and manage their security state in a centralized way.
 
 These groups can represent devices with specific hardware, devices deployed in a certain location, or any other group suitable to your specific needs.
 
-Security groups are defined by a device twin tag property named **SecurityGroup**. By default, each IoT solution on IoT Hub has one security group named **default**. Change the value of the **SecurityGroup** property to change the security group of a device. 
+Security groups are defined by a device twin tag property named **SecurityGroup**. By default, each IoT solution on IoT Hub has one security group named **default**. Change the value of the **SecurityGroup** property to change the security group of a device.
+ 
 For example:
 
 ```
@@ -57,7 +58,7 @@ For example:
   "tags": {
     "securityGroup": "default"
   }, 
-
+```
 
 Use security groups to group your devices into logical categories. After creating the groups, assign them to the custom alerts of your choice, for the most effective end-to-end IoT security solution. 
 
@@ -76,9 +77,10 @@ Use security groups to group your devices into logical categories. After creatin
 
 The following table provides a summary of alerts available for customization.
 
-| Severity | Name | Data Source | Description | Suggested remediation|        |---|---|---|---|---|
-| Low      | Custom alert - number of cloud to device messages in AMQP protocol is outside in the allowed range          | IoT Hub     | The amount of cloud to device messages (AMQP protocol) in a time window is not in the configured allowed range                                  |
-| Low      | Custom alert - number of rejected cloud to device messages in AMQP protocol is not in the allowed range | IoT Hub     | The amount of cloud to device messages (AMQP protocol) that were rejected by the device in a time window is not in the configured allowed range |
+| Severity | Name | Data Source | Description | Suggested remediation|       
+|----------|----------------------------------------------|-------------|-------------------------------------------|--------------|
+| Low  | Custom alert - number of cloud to device messages in AMQP protocol is outside in the allowed range | IoT Hub | The amount of cloud to device messages (AMQP protocol) in a time window is not in the configured allowed range ||
+| Low      | Custom alert - number of rejected cloud to device messages in AMQP protocol is not in the allowed range | IoT Hub     | The amount of cloud to device messages (AMQP protocol) that were rejected by the device in a time window is not in the configured allowed range ||
 | Low      | Custom alert - number of device to cloud messages in AMQP protocol is not in the allowed range          | IoT Hub     | The amount of device to cloud messages (AMQP protocol) in a time window is not in the configured allowed range                                  |
 | Low      | Custom alert - number of direct method invokes is not in the allowed range                              | IoT Hub     | The amount of direct method invokes in a time window is not in the configured allowed range                                                     |
 | Low      | Custom alert - number of file uploads is not in the allowed range                                       | IoT Hub     | The amount of file uploads in a time window is not in the configured allowed range                                                              |

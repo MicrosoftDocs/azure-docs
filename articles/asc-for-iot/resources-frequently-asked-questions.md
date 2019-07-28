@@ -28,7 +28,7 @@ Azure provides an integrated view for monitoring and managing your IoT security 
 
 ## What is Azure's unique value proposition for IoT security?
 
-Azure Security Center for IoT enables enterprises to extend their existing cyber security view to their entire IoT solution. Azure provides an end to end view of your business solution, enabling you to take business-related actions and decisions based on your enterprise security posture and collected data. Combined security using Azure IoT, Azure IoT Edge, Azure Sphere, Azure Central, and Azure Security Center enable you to create the solution you want with the security you need.
+Azure Security Center for IoT enables enterprises to extend their existing cyber security view to their entire IoT solution. Azure provides an end to end view of your business solution, enabling you to take business-related actions and decisions based on your enterprise security posture and collected data. Combined security using Azure IoT, Azure IoT Edge, and Azure Security Center enable you to create the solution you want with the security you need.
 
 ## Who is Azure Security Center for IoT made for? 
 

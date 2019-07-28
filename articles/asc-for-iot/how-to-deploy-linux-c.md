@@ -18,7 +18,7 @@ ms.date: 07/23/2019
 ms.author: mlottner
 
 ---
-# Deploy Azure Security Center for IoT C-based security agent for Linux
+# Deploy Azure Security Center for IoT C based security agent for Linux
 
 This guide explains how to install and deploy the Azure Security Center for IoT C-based security agent on Linux.
 

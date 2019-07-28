@@ -76,7 +76,7 @@ When deploying a security agent with an installation script, a configuration fil
 To change authentication methods after deployment, manual editing of the configuration file is required.
 
 
-### C#-based security agent
+### C# based security agent
 
 Edit _Authentication.config_ with the following parameters:
 
@@ -91,7 +91,7 @@ Edit _Authentication.config_ with the following parameters:
 </Authentication>
 ```
 
-### C-based security agent
+### C based security agent
 
 Edit _LocalConfiguration.json_ with the following parameters:
 

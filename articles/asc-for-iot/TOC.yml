@@ -57,8 +57,8 @@
       href: how-to-deploy-linux-c.md
   - name: Troubleshoot a security agent
     items:
-    - name: Troubleshooting Azure Security Center for IoT Linux security agent
-      href: troubleshooting-agent.md
+    - name: Troubleshoot Azure Security Center for IoT Linux security agent
+      href: troubleshoot-agent.md
     - name: Local configuration C
       href: azure-iot-security-local-configuration-c.md
     - name: Local configuration C#

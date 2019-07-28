@@ -22,7 +22,7 @@ ms.author: mlottner
 
 # Quickstart: Onboard Azure Security Center for IoT service in IoT Hub
 
-This article provides an explanation of how to enable the Azure Security Center for IoT service on your existing IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT Hub using the Azure portal](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal) to get started. 
+This article provides an explanation of how to enable the Azure Security Center for IoT service on your existing IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT Hub using the Azure portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) to get started. 
 
 > [!NOTE]
 > Azure Security Center for IoT currently only supports standard tier IoT Hubs.

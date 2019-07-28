@@ -51,9 +51,9 @@ Azure Security Center for IoT security module for IoT Edge offers the following 
 Azure Security Center for IoT security module for IoT Edge runs in a privileged mode under IoT Edge.
 Privileged mode is required to allow the module to monitor the Operating System, and other IoT Edge modules.
 
-## Agent supported platforms
+## Module supported platforms
 
-Azure Security Center for IoT security module for IoT Edge is currently only available for Linux.
+Azure Security Center for IoT security module for IoT Edge is currently only available for Linux. 
 
 ## Next steps
 
