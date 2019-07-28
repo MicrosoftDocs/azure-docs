@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 ## Requirements
 
 * Azure Multi-Factor Authentication
-* Combined registration preview
+* Combined registration preview with users enabled for SSPR
 * FIDO2 security key preview requires compatible FIDO2 security keys
 * WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher
 * FIDO2 based Windows sign in requires Azure AD joined Windows 10 version 1809 or higher
@@ -97,7 +97,7 @@ Registration features for FIDO2 security keys rely on the combined registration 
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Browse to **Azure Active Directory** > **User Settings**
-   1. Click on **Manage settings for access panel preview features**
+   1. Click on **Manage user feature preview settings**
    1. Under **Users can use preview features for registering and managing security info - enhanced**.
       1. Choose **Selected** and choose a group of users who will participate in the preview.
       1. Or choose **All** to enable for everyone in your directory.
@@ -106,7 +106,7 @@ Registration features for FIDO2 security keys rely on the combined registration 
 ### Enable new passwordless authentication methods
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Browse to **Azure Active Directory** > **Authentication methods** > **Authentication method policy (Preview)**
+1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy (Preview)**
 1. Under each **Method**, choose the following options
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users

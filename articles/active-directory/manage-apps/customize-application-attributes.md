@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
-ms.custom: H1Hack27Feb2017
 
 ms.collection: M365-identity-device-management
 ---
@@ -49,12 +48,13 @@ Follow these steps to access the **Mappings** feature of user provisioning:
    ![Use Edit Attribute to edit user attributes](./media/customize-application-attributes/23.png)
 
 ### Understanding attribute-mapping types
-With attribute-mappings, you control how attributes are populated in a third-party SaaS application. 
+
+With attribute-mappings, you control how attributes are populated in a third-party SaaS application.
 There are four different mapping types supported:
 
 - **Direct** – the target attribute is populated with the value of an attribute of the linked object in Azure AD.
 - **Constant** – the target attribute is populated with a specific string you specified.
-- **Expression** - the target attribute is populated based on the result of a script-like expression. 
+- **Expression** - the target attribute is populated based on the result of a script-like expression.
   For more information, see [Writing Expressions for Attribute-Mappings in Azure Active Directory](functions-for-customizing-application-data.md).
 - **None** - the target attribute is left unmodified. However, if the target attribute is ever empty, it's populated with the Default value that you specify.
 
@@ -88,7 +88,7 @@ The attributes provisioned as part of Group objects can be customized in the sam
 
 ## Editing the list of supported attributes
 
-The user attributes supported for a given application are pre-configured. Most application's user management APIs don't support schema discovery. So, the Azure AD provisioning service isn't able to dynamically generate the list of supported attributes by making calls to the application. 
+The user attributes supported for a given application are pre-configured. Most application's user management APIs don't support schema discovery. So, the Azure AD provisioning service isn't able to dynamically generate the list of supported attributes by making calls to the application.
 
 However, some applications support custom attributes, and the Azure AD provisioning service can read and write to custom attributes. To enter their definitions into the Azure portal, select the **Show advanced options** check box at the bottom of the **Attribute Mapping** screen, and then select **Edit attribute list for** your app.
 
@@ -101,18 +101,18 @@ Applications and systems that support customization of the attribute list includ
 - Apps that support [SCIM 2.0](https://tools.ietf.org/html/rfc7643), where attributes defined in the [core schema](https://tools.ietf.org/html/rfc7643) need to be added
 
 > [!NOTE]
-> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. 
+> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined. This sometimes requires familiarity with the APIs and developer tools provided by an application or system.
 
 When editing the list of supported attributes, the following properties are provided:
 
-- **Name** - The system name of the attribute, as defined in the target object's schema. 
+- **Name** - The system name of the attribute, as defined in the target object's schema.
 - **Type** - The type of data the attribute stores, as defined in the target object's schema, which can be one of the following types:
   - *Binary* - Attribute contains binary data.
   - *Boolean* - Attribute contains a True or False value.
   - *DateTime* - Attribute contains a date string.
   - *Integer* - Attribute contains an integer.
   - *Reference* - Attribute contains an ID that references a value stored in another table in the target application.
-  - *String*  - Attribute contains a text string. 
+  - *String*  - Attribute contains a text string.
 - **Primary Key?** - Whether the attribute is defined as a primary key field in the target object's schema.
 - **Required?** - Whether the attribute is required to be populated in the target application or system.
 - **Multi-value?** - Whether the attribute supports multiple values.
@@ -124,19 +124,20 @@ To add a new attribute, scroll to the end of the list of supported attributes, p
 
 ## Restoring the default attributes and attribute-mappings
 
-Should you need to start over and reset your existing mappings back to their default state, you can select the **Restore default mappings** check box and save the configuration. Doing so sets all mappings as if the application was just added to your Azure AD tenant from the application gallery. 
+Should you need to start over and reset your existing mappings back to their default state, you can select the **Restore default mappings** check box and save the configuration. Doing so sets all mappings as if the application was just added to your Azure AD tenant from the application gallery.
 
-Selecting this option will effectively force a resynchronization of all users while the provisioning service is running. 
+Selecting this option will effectively force a resynchronization of all users while the provisioning service is running.
 
->[!IMPORTANT]
->We strongly recommend that **Provisioning status** be set to **Off** before invoking this option.
+> [!IMPORTANT]
+> We strongly recommend that **Provisioning status** be set to **Off** before invoking this option.
 
 ## What you should know
 
-- Microsoft Azure AD provides an efficient implementation of a synchronization process. In an initialized environment, only objects requiring updates are processed during a synchronization cycle. 
-- Updating attribute-mappings has an impact on the performance of a synchronization cycle. An update to the attribute-mapping configuration requires all managed objects to be reevaluated. 
+- Microsoft Azure AD provides an efficient implementation of a synchronization process. In an initialized environment, only objects requiring updates are processed during a synchronization cycle.
+- Updating attribute-mappings has an impact on the performance of a synchronization cycle. An update to the attribute-mapping configuration requires all managed objects to be reevaluated.
 - A recommended best practice is to keep the number of consecutive changes to your attribute-mappings at a minimum.
 - Adding a photo attribute to be provisioned to an app is not supported today as you cannot specify the format to sync the photo. You can request the feature on [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
+- The attribute IsSoftDeleted is often part of the default mappings for an application. IsSoftdeleted can be true in one of four scenarios (the user is out of scope due to being unassigned from the application, the user is out of scope due to not meeting a scoping filter, the user has been soft deleted in Azure AD, or the property AccountEnabled is set to false on the user). 
 
 ## Next steps
 

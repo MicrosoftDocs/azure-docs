@@ -22,7 +22,7 @@ With [Azure Active Directory (Azure AD) Conditional Access](../active-directory-
 - Things you should know 
 - What it is you should avoid doing when configuring Conditional Access policies. 
 
-This article assumes that you familiar the concepts and the terminology outlined in [What is Conditional Access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+This article assumes that you are familiar with the concepts and the terminology outlined in [What is Conditional Access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
 
 ## What’s required to make a policy work?
 

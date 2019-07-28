@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 07/10/2019
 
 # Customer intent: I want to analyze data using Jupyter Notebooks and KQL magic.
 ---
@@ -161,6 +161,9 @@ In many analytics scenarios, you may want to create reusable notebooks that cont
     ```python
     %kql --help "help"
     ```
+
+> [!TIP]
+> To receive information about all available configurations use `%config KQLmagic`. To troubleshoot and capture Kusto errors, such as connection issues and incorrect queries, use `%config Kqlmagic.short_errors=False`
 
 ## Next steps
 

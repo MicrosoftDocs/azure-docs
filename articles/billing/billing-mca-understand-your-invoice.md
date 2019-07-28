@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 07/22/2019
 ms.author: banders
 ---
 
@@ -85,7 +85,7 @@ The total amount due for each service family is calculated by subtracting *Azure
 
 ### How to pay
 
-At the bottom of the invoice, there are instructions for paying your bill. You can pay by check, wire, or online. If you pay online, you can use a credit/debit card or Azure credits, if applicable.
+At the bottom of the invoice, there are instructions for paying your bill. You can pay by check, wire, or online. If you pay online, you can use a credit card or Azure credits, if applicable.
 
 ### Publisher information
 
