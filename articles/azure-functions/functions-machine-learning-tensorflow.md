@@ -115,23 +115,6 @@ A new folder named *classify* is created, containing two files.
 - *\_\_init\_\_.py*: A file for the main function
 - *function.json*:  A file describing the function's trigger and its input and output bindings
 
-### Change the function authentication level
-
-By default, the function is configured with an authentication level of `function` that requires an authentication code to be included in every HTTP request. To allow anonymous requests, open *function.json* and change the `authLevel` of the HTTP trigger to `anonymous`.
-
-```json
-{
-    "authLevel": "anonymous",
-    "type": "httpTrigger",
-    "direction": "in",
-    "name": "req",
-    "methods": [
-        "get",
-        "post"
-    ]
-}
-```
-
 ### Run the function
 
 In the terminal with the Python virtual environment activated, start the function app.
