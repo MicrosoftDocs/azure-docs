@@ -22,14 +22,14 @@ ms.author: v-mohabe
 
 You can view and manage the security posture of multiple tenants in Security Center by activating Azure delegated resource management. Service providers can administer resources from different tenants efficiently, from one place, instead of signing in to each resource and implementing the same action repeatedly.  This simplified management ability enables you to delegate resources efficiently and it prevents errors that can happen when repeating the same action many times.
 
-> [!NOTE]
-> Azure delegated resource management is one of the key components of Azure Lighthouse. 
-
   ![Cross-tenants management](./media/security-center-cross-tenant-management/cross-tenant-secure-score.png)
 
 ## Activate Azure delegated resource management
 
 In order set up cross-tenant management, you must onboard customers to Azure delegated resource management. To do so, you can [publish the new Managed Services](../lighthouse/how-to/publish-managed-services-offers.md) offer type to Azure Marketplace or alternatively, you can complete the onboarding process by [deploying Azure Resource Manager templates](../lighthouse/how-to/onboard-customer.md).
+
+> [!NOTE]
+> Azure delegated resource management is one of the key components of Azure Lighthouse. 
 
 ## How does cross-tenant management work in Security Center
 
@@ -57,6 +57,6 @@ The same management and security features, that you use for one tenant, you can 
 
   ![Cross-tenant remediation](./media/security-center-cross-tenant-management/cross-tenant-alert-remediate.png)
 
-- Manage the various threat detection and protection services, such as  VM access[just-in-time (JIT)](security-center-just-in-time.md), [Adaptive Network Hardening](security-center-adaptive-network-hardening.md), and [File Integrity Monitoring (FIM)](security-center-file-integrity-monitoring.md).
+- Manage the various threat detection and protection services, such as  VM access [just-in-time (JIT)](security-center-just-in-time.md), [Adaptive Network Hardening](security-center-adaptive-network-hardening.md), and [File Integrity Monitoring (FIM)](security-center-file-integrity-monitoring.md).
 
   ![Cross-tenant Adaptive Network Hardening](./media/security-center-cross-tenant-management/cross-tenant-adaptive-network-hardening.png)
