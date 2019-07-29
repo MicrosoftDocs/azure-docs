@@ -41,9 +41,9 @@ If you wish to alias, remove, rename, or re-order columns, you must first switch
 However, if you wish to add custom rules, then you will click "Add mapping". Field mapping will provide you with a list of incoming and outgoing column names to map and alias. Choose "rule-based mapping" to create pattern matching rules.
 
 ## Rule-based mapping
-When you choose rule-based mapping, you are instructing ADF to evaluate your matching expression to match incoming pattern rules and define the outgoing field names. You may add any combination of both field and rule-based mappings. Field names are then generated at runtime by ADF based on incoming metadata from the source. You can view thhe names of the generated fields during debug and using the data preview pane.
+When you choose rule-based mapping, you are instructing ADF to evaluate your matching expression to match incoming pattern rules and define the outgoing field names. You may add any combination of both field and rule-based mappings. Field names are then generated at runtime by ADF based on incoming metadata from the source. You can view the names of the generated fields during debug and using the data preview pane.
 
-More details on pattern matching is availabe at the [Column Pattern documentation](concepts-data-flow-column-pattern.md).
+More details on pattern matching is available at the [Column Pattern documentation](concepts-data-flow-column-pattern.md).
 
 ## Next steps
 * After using Select to rename, reorder, and alias columns, use the [Sink transformation](data-flow-sink.md) to land your data into a data store.
