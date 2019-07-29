@@ -33,7 +33,7 @@ To quickly summarize, the approach involves creating a diagram, identifying thre
 
 When you launch the Threat Modeling Tool, you'll notice a few things, as seen in the picture:
 
-![Blank Start Page](./media/threat-modeling-tool-getting-started/tmtstart.png)
+![Blank Start Page](./media/threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### Threat model section
 
@@ -68,7 +68,7 @@ They are going through the process of developing their first threat model.
 > Cristina: Absolutely. Let’s take a look.
 > Ricardo opens the tool and shares his screen with Cristina.
 
-![Basic Threat Model](./media/threat-modeling-tool-getting-started/basictmt.png)
+![Basic Threat Model](./media/threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina: Ok, looks straightforward, but can you walk me through it?
 > Ricardo: Sure! Here is the breakdown:
@@ -114,7 +114,7 @@ Threats not applicable to the design due to existing mitigations or security gua
 
 Once Ricardo goes through the list with Cristina and adds important notes, mitigations/justifications, priority and status changes, he selects Reports -> Create Full Report -> Save Report, which prints out a nice report for him to go through with colleagues to ensure the proper security work is implemented.
 
-![Interaction Info](./media/threat-modeling-tool-getting-started/report.png)
+![Interaction Info](./media/threat-modeling-tool-feature-overview/report.png)
 
 If Ricardo wants to share the file instead, he can easily do so by saving in his organization’s OneDrive account. Once he does that, he can copy the document link and share it with his colleagues. 
 
