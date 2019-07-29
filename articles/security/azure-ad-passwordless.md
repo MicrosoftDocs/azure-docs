@@ -97,7 +97,7 @@ The following steps illustrate the sign-in authentication to Azure Active Direct
 
 7. The Cloud AP provider returns a successful authentication response to Windows after which the user is able to access Windows as well as cloud and on-premises applications without the need of authenticating again (SSO).
 
-For a deeper look at the authentication process in other scenarios involving Windows Hello for Business, see [Windows Hello for Business and Authentication](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-authentication#Azure-AD-join-authentication-to-Active-Directory-using-a-Key).
+For a deeper look at the authentication process in other scenarios involving Windows Hello for Business, see [Windows Hello for Business and Authentication](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-authentication#azure-ad-join-authentication-to-active-directory-using-a-key).
 
 #### User manages their Windows Hello for Business credentials
 

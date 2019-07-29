@@ -1,10 +1,10 @@
 ---
 title: "Quickstart: Create an object detection project with the Custom Vision SDK for Go"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and detect objects using the Go SDK.
 services: cognitive-services
 author: areddish
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision

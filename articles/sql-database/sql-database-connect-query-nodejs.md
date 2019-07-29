@@ -9,7 +9,6 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 03/25/2019
 ---
 # Quickstart: Use Node.js to query an Azure SQL database

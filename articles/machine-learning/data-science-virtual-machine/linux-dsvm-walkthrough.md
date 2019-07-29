@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: How to perform several common data science tasks with the Linux Data Science VM.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 editor: cgronlun
 ms.custom: seodec18
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 # Data science with a Linux Data Science Virtual Machine on Azure
@@ -33,7 +33,7 @@ Before you can use a Linux Data Science Virtual Machine, you must have the follo
 * An **Azure subscription**. If you do not already have one, see [Create your free Azure account today](https://azure.microsoft.com/free/).
 * A [**Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information on provisioning this VM, see [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
 * [X2Go](https://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
-* For a smoother scrolling experience, toggle the gfx.xrender.enabled flag in about:config in VMs FireFox browser. [See more here.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider toggling *mousewheel.enable_pixel_scrolling* to False. [Instructions here.](https://support.mozilla.org/en-US/questions/981140)
+* For a smoother scrolling experience, toggle the gfx.xrender.enabled flag in about:config in VMs FireFox browser. [See more here.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider toggling *mousewheel.enable_pixel_scrolling* to False. [Instructions here.](https://support.mozilla.org/questions/981140)
 * An **AzureML account**. If you don't already have one, sign up for new one at the [AzureML homepage](https://studio.azureml.net/). There is a free usage tier to help you get started.
 
 ## Download the spambase dataset

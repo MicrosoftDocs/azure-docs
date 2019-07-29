@@ -1,6 +1,6 @@
 ---
-title: Change, train app, C#
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Change, train app, C# - LUIS
+titleSuffix: Azure Cognitive Services
 description: In this C# quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
 author: diberry
@@ -53,7 +53,7 @@ The Visual Studio project needs **JsonFormatterPlus** and **CommandLineParser**.
 ### Write the C# code
 The **Program.cs** file should be:
 
-```C#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
