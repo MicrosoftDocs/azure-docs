@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: IoT Plug and Play Documentation (preview)
+title: IoT Plug and Play Preview Documentation
 metadata:
-  title: IoT Plug and Play Documentation (preview) - Tutorials, API Reference | Microsoft Docs
+  title: IoT Plug and Play Preview Documentation - Tutorials, API Reference | Microsoft Docs
   description: Learn how to use IoT Plug and Play with the help of tutorials, API references, videos, and other documentation.
   author: dominicbetts
   manager: philmea
@@ -12,7 +12,7 @@ metadata:
   ms.date: 07/23/2019
   ms.author: dobett
 abstract:
-  description: Learn how to use IoT Plug and Play to define a device model that enables cloud solutions to automatically understand your device and start interacting with it — all without writing any device code. Tutorials, API references, videos, and other documentation help you connect devices to cloud solutions such as Azure IoT Central or partner applications. 
+  description: Learn how to use IoT Plug and Play Preview to define a device model that enables cloud solutions to automatically understand your device and start interacting with it — all without writing any device code. Tutorials, API references, videos, and other documentation help you connect devices to cloud solutions such as Azure IoT Central or partner applications. 
   aside:
     image:
       alt: 
