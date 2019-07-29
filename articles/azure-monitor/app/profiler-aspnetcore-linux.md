@@ -34,21 +34,40 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
 1. Open a Command Prompt window on your machine. The following instructions work for all Windows, Linux, and Mac development environments.
 
-2. Create an ASP.NET Core MVC web application:
+1. Create an ASP.NET Core MVC web application:
 
     ```
     dotnet new mvc -n LinuxProfilerTest
     ```
 
-3. Change the working directory to the root folder for the project.
+1. Change the working directory to the root folder for the project.
 
-4. Add the NuGet package to collect the Profiler traces:
+1. Add the NuGet package to collect the Profiler traces:
 
-    ```
+    ```shell
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-5. Add a line of code in the **HomeController.cs** section to randomly delay a few seconds:
+1. Enable Application Insights in Program.cs:
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseApplicationInsights() // Add this line of code to Enable Application Insights
+            .UseStartup<Startup>();
+    ```
+    
+1. Enable Profiler in Startup.cs:
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+    }
+    ```
+
+1. Add a line of code in the **HomeController.cs** section to randomly delay a few seconds:
 
     ```csharp
         using System.Threading;
@@ -63,7 +82,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
             }
     ```
 
-6. Save and commit your changes to the local repository:
+1. Save and commit your changes to the local repository:
 
     ```
         git init
@@ -138,10 +157,7 @@ You should see output similar to the following example:
 
     ```
     APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
-    ASPNETCORE_HOSTINGSTARTUPASSEMBLIES: Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
-
-    ![Configure the app settings](./media/profiler-aspnetcore-linux/set-appsettings.png)
 
     When the app settings are changed, the site automatically restarts. After the new settings are applied, the Profiler immediately runs for two minutes. The Profiler then runs for two minutes every hour.
 
@@ -155,16 +171,8 @@ You should see output similar to the following example:
 
 ## Known issues
 
-### The Enable action in the Profiler Configuration pane doesn't work
-
-> [!NOTE]
-> If you host your app by using App Service on Linux, you don't need to re-enable the Profiler in the **Performance** pane in the Application Insights portal. You can include the NuGet package in your project and set the Application Insights **iKey** value in your web app settings to enable the Profiler.
-
-If you follow the enablement workflow for [Application Insights Profiler for Windows](./profiler.md) and select **Enable** in the **Configure Profiler** pane, you receive an error. The enable action tries to install the Windows version of the Profiler agent on the Linux environment.
-
-We're working on a resolution for this issue.
-
-![Don't try to re-enable the Profiler in the Performance pane](./media/profiler-aspnetcore-linux/issue-enable-profiler.png)
+### Profile Now button doesn't work for Linux Profiler
+The Linux version of the App Insights profiler does not yet support on demand profiling using the profile now button.
 
 
 ## Next steps

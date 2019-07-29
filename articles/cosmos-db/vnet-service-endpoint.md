@@ -4,7 +4,7 @@ description: This document describes about virtual network and subnet access con
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
 
@@ -50,6 +50,9 @@ NSG rules are used to limit connectivity to and from a subnet with virtual netwo
 
 ### Are service endpoints available for all VNets?
 No, Only Azure Resource Manager virtual networks can have service endpoint enabled. Classic virtual networks don’t support service endpoints.
+
+### Can I "Accept connections from within public Azure datacenters" when service endpoint access is enabled for Azure Cosmos DB?  
+This is required only when you want your Azure Cosmos DB account to be accessed by other Azure first party services like Azure Data factory, Azure Search or any service that is deployed in given Azure region.
 
 
 ## Next steps

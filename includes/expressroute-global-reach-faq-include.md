@@ -23,19 +23,19 @@ If your ExpressRoute circuits are in the same geopolitical region, you don't nee
 
 ### How will I be charged for ExpressRoute Global Reach?
 
-ExpressRoute enables connectivity from your on-premises network to Microsoft cloud services. ExpressRoute Global Reach enables connectivity between your own on-premises networks via your existing ExpressRoute circuits, leveraging Microsoft's global network. ExpressRoute Global Reach is billed separately from the existing ExpressRoute service. There is an Add-on fee for enabling this feature on each ExpressRoute circuit. Traffic between your on-premises networks enabled by ExpressRoute Global Reach will be billed for an egress rate at the source and for an ingress rate at the destination. The rates are based on the zone at which the circuits are located. See <pricing page>
+ExpressRoute enables connectivity from your on-premises network to Microsoft cloud services. ExpressRoute Global Reach enables connectivity between your own on-premises networks via your existing ExpressRoute circuits, leveraging Microsoft's global network. ExpressRoute Global Reach is billed separately from the existing ExpressRoute service. There is an Add-on fee for enabling this feature on each ExpressRoute circuit. Traffic between your on-premises networks enabled by ExpressRoute Global Reach will be billed for an egress rate at the source and for an ingress rate at the destination. The rates are based on the zone at which the circuits are located.
 
 ### Where is ExpressRoute Global Reach supported?
 
-ExpressRoute Global Reach is supported in [select countries or places](../articles/expressroute/expressroute-global-reach.md). The ExpressRoute circuits must be created at the peering locations in those countries or places.
+ExpressRoute Global Reach is supported in [select countries/regions or places](../articles/expressroute/expressroute-global-reach.md). The ExpressRoute circuits must be created at the peering locations in those countries/regions or places.
 
 ### I have more than two on-premises networks, each connected to an ExpressRoute circuit. Can I enable ExpressRoute Global Reach to connect all of my on-premises networks together?
 
-Yes, you can, as long as the circuits are in the supported countries. You need to connect two ExpressRoute circuits at a time. To create a fully meshed network, you need to enumerate all circuit pairs and repeat the configuration. 
+Yes, you can, as long as the circuits are in the supported countries/regions. You need to connect two ExpressRoute circuits at a time. To create a fully meshed network, you need to enumerate all circuit pairs and repeat the configuration. 
 
 ### Can I enable ExpressRoute Global Reach between two ExpressRoute circuits at the same peering location?
 
-No. The two circuits must be from different peering locations. If a metro in a supported country has more than one ExpressRoute peering location, you can connect together the ExpressRoute circuits created at different peering locations in that metro. 
+No. The two circuits must be from different peering locations. If a metro in a supported country/region has more than one ExpressRoute peering location, you can connect together the ExpressRoute circuits created at different peering locations in that metro. 
 
 ### If ExpressRoute Global Reach is enabled between circuit X and circuit Y, and between circuit Y and circuit Z, will my on-premises networks connected to circuit X and circuit Z talk to each other via Microsoft's network?
 

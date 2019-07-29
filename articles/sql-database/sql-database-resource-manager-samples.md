@@ -9,8 +9,7 @@ ms.devlang:
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer:
-manager: craigg
+ms.reviewer: sstein
 ms.date: 02/04/2019
 ---
 
@@ -28,7 +27,6 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [Logical server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | This Azure Resource Manager template creates a logical server for Azure SQL Database. |
 | [Elastic pool](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | This template allows you to deploy a new Elastic pool with its new associated SQL Server and new SQL Databases to assign to it. |
 | [Failover groups](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | This template creates two Azure SQL logical servers, a SQL database, and a failover group.|
-| [Advanced Threat Protection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | This template allows you to deploy an Azure SQL logical server with Advanced Threat Protection enabled and an optional Azure SQL Database. SQL Advanced Threat Protection is a unified package for advanced SQL security capabilities.|
 | [Threat Detection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | This template allows you to deploy an Azure SQL logical server and a set of Azure SQL Databases with Threat Detection enabled, with an email address for alerts for each database. Threat Detection is part of the SQL Advanced Threat Protection (ATP) offering and provides a layer of security that responds to potential threats over SQL servers and databases.|
 | [Auditing to Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | This template allows you to deploy an Azure SQL logical server with Auditing enabled to write audit logs to a blob storage. Auditing for Azure SQL Database tracks database events and writes them to an audit log that can be placed in your Azure storage account, OMS workspace, or Event Hubs.|
 | [Auditing to Azure Event Hub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | This template allows you to deploy an Azure SQL server with Auditing enabled to write audit logs to an exiting Event Hub. In order to send audit events to Event Hub, set auditing settings with `Enabled` `State` and set `IsAzureMonitorTargetEnabled` as `true`. Also, configure Diagnostic Settings with `SQLSecurityAuditEvents` diagnostic logs category on the `master` database (for serve level auditing). Auditing for Azure SQL Database and SQL Data Warehouse tracks database events and writes them to an audit log that can be placed in your Azure storage account, OMS workspace, or Event Hubs.|
@@ -48,4 +46,3 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [Network environment for Managed Instance](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | This deployment will create a configured Azure Virtual Network with two subnets - one that will be dedicated to your Managed Instances, and another one where you can place other resources (for example VMs, App Service environments, etc.). This template will create a properly configured networking environment where you can deploy Managed Instances. |
 | [Managed Instance with P2S connection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | This deployment will create an Azure Virtual Network with two subnets `ManagedInstance` and `GatewaySubnet`. Managed Instance will be deployed in ManagedInstance subnet. Virtual network gateway will be created in `GatewaySubnet` subnet and configured for Point-to-Site VPN connection. |
 | [Managed Instance with Virtual machine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | This deployment will create an Azure Virtual Network with two subnets `ManagedInstance` and `Management`. Managed Instance will be deployed in `ManagedInstance` subnet. Virtual machine with the latest version of SQL Server Management Studio (SSMS) will be deployed in `Management` subnet. |
-

@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
-ms.date: 11/07/2018
+ms.date: 04/03/2019
 ---
 # Ports beyond 1433 for ADO.NET 4.5
 
@@ -37,11 +36,11 @@ The sequence is as follows:
 
 1. ADO.NET 4.5 (or later) initiates a brief interaction with the Azure cloud, and receives a dynamically identified port number.
 
-   * The dynamically identified port number is in the range of 11000-11999 or 14000-14999.
+   * The dynamically identified port number is in the range of 11000-11999.
 2. ADO.NET then connects to the SQL Database server directly, with no middleware in between.
 3. Queries are sent directly to the database, and results are returned directly to the client.
 
-Ensure that the port ranges of 11000-11999 and 14000-14999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL Database.
+Ensure that the port ranges of 11000-11999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL Database.
 
 * In particular, ports in the range must be free of any other outbound blockers.
 * On your Azure VM, the **Windows Firewall with Advanced Security** controls the port settings.
@@ -77,7 +76,7 @@ https://www.microsoft.com/download/details.aspx?id=56567
 * Connect to Azure SQL Database V12 via Redirection
 https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
-* [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
+* [TDS protocol version list](https://www.freetds.org/userguide/tdshistory.htm)
 * [SQL Database Development Overview](sql-database-develop-overview.md)
 * [Azure SQL Database firewall](sql-database-firewall-configure.md)
 * [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)

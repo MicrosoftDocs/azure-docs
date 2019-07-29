@@ -3,15 +3,15 @@ title: Disaster recovery guidance for Azure Data Lake Storage Gen1 | Microsoft D
 description: Guidance on disaster recovery for Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Disaster recovery guidance for data in Azure Data Lake Storage Gen1

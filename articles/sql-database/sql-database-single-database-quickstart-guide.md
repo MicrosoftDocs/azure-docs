@@ -10,7 +10,6 @@ ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
 ms.date: 02/04/2019
 ---
 # Getting started with single databases in Azure SQL Database
@@ -45,3 +44,4 @@ These quickstarts enable you to quickly create or import your database to Azure 
 - Find more advanced how-to's in [how to use a single database in Azure SQL Database](sql-database-howto-single-database.md).
 - Find more sample scripts written in [PowerShell](sql-database-powershell-samples.md) and [Azure CLI](sql-database-cli-samples.md).
 - Learn more about the [management API](sql-database-single-databases-manage.md) that you can use to configure your databases.
+- [Identify the right Azure SQL Database/Managed Instance SKU for your on-premises database](/sql/dma/dma-sku-recommend-sql-db/).

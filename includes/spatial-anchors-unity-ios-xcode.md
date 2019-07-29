@@ -14,7 +14,7 @@ When the export is complete, a folder that contains the exported Xcode project w
 > if you're changing assets in your scene. (For example, if you're adding, removing, or changing parent/child relationships, or if you're adding, removing, or changing properties.) If you're only
 > making source code changes, **Append** should be enough.
 
-### Open the Xcode project
+### Convert the Xcode project to xcworkspace containing Azure Spatial Anchors references
 
 In the exported Xcode project folder, run this command in the Terminal to install the necessary CocoaPods for the project:
 

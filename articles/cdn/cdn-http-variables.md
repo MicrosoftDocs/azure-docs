@@ -8,7 +8,7 @@ manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -21,11 +21,11 @@ ms.author: magattus
 # HTTP variables for Azure CDN rules engine
 HTTP variables provide the means through which you can retrieve HTTP request and response metadata. This metadata can then be used to dynamically alter a request or a response. The use of HTTP variables is restricted to the following rules engine features:
 
-- [Cache-Key Rewrite](cdn-rules-engine-reference-features.md#cache-key-rewrite)
-- [Modify Client Request Header](cdn-rules-engine-reference-features.md#modify-client-request-header)
-- [Modify Client Response Header](cdn-rules-engine-reference-features.md#modify-client-response-header)
-- [URL Redirect](cdn-rules-engine-reference-features.md#url-redirect)
-- [URL Rewrite](cdn-rules-engine-reference-features.md#url-rewrite)
+- [Cache-Key Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
+- [Modify Client Request Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
+- [Modify Client Response Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
+- [URL Redirect](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
+- [URL Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
 
 ## Definitions
 The following table describes the supported HTTP variables. A blank value is returned when GEO metadata (for example, postal code) is unavailable for a particular request.
@@ -35,7 +35,7 @@ The following table describes the supported HTTP variables. A blank value is ret
 | ---- | -------- | ----------- | ------------ |
 | ASN (Requester) | %{geo_asnum} | Indicates the requester's AS number. <br /><br />**Deprecated:** %{virt_dst_asnum}. <br />This variable has been deprecated in favor of %{geo_asnum}. Although a rule that uses this deprecated variable will continue to work, you should update it to use the new variable. | AS15133 |
 | City (Requester) | %{geo_city} | Indicates the requester's city. | Los Angeles |
-| Continent (Requester) | %{geo_continent} | Indicates the requester's continent through its abbreviation. <br />Valid values are: <br />AF: Africa<br />AS: Asia<br />EU: Europe<br />NA: North America<br />OC: Oceania<br />SA: South America<br /><br />**Deprecated:** %{virt_dst_continent}. <ber />This variable has been deprecated in favor of %{geo_continent}. <br />Although a rule that uses this deprecated variable will continue to work, you should update it to use the new variable.| N/A |
+| Continent (Requester) | %{geo_continent} | Indicates the requester's continent through its abbreviation. <br />Valid values are: <br />AF: Africa<br />AS: Asia<br />EU: Europe<br />NA: North America<br />OC: Oceania<br />SA: South America<br /><br />**Deprecated:** %{virt_dst_continent}. <br />This variable has been deprecated in favor of %{geo_continent}. <br />Although a rule that uses this deprecated variable will continue to work, you should update it to use the new variable.| N/A |
 | Cookie Value | %{cookie_Cookie} | Returns the value corresponding to the cookie key identified by the Cookie term. | Sample Usage: <br />%{cookie__utma}<br /><br />Sample Value:<br />111662281.2.10.1222100123 |
 | Country (Requester) | %{geo_country} | Indicates the requester's country of origin through its country code. <br />**Deprecated:** %{virt_dst_country}. <br /><br />This variable has been deprecated in favor of %{geo_country}. Although a rule that uses this deprecated variable will continue to work, you should update it to use the new variable. | US |
 | Designated Market Area (Requester) | %{geo_dma_code} |Indicates the requester's media market by its region code. <br /><br />This field is only applicable to requests that originate from the United States.| 745 |
@@ -110,7 +110,7 @@ The following table describes circumstances under which the specified text isn't
 | Condition | Description | Example |
 | --------- | ----------- | --------|
 | Escaping % symbol | The percentage symbol can be escaped through the use of a backslash. <br />The sample value to the right will be treated as a literal value and not as an HTTP variable.| \%{host} |
-| Unknown variables | An empty string is always returned for unknown variables. | %{unknownvariable} |
+| Unknown variables | An empty string is always returned for unknown variables. | %{unknown_variable} |
 | Invalid characters or syntax | Variables that contain invalid characters or syntax are treated as literal values. <br /><br />Example #1: The specified value contains an invalid character (for example, -). <br /><br />Example #2: The specified value contains a double set of curly braces. <br /><br />Example #3: The specified value is missing a closing curly brace.<br /> | Example #1: %{resp_user-agent} <br /><br />Example #2: %{{host}} <br /><br />Example #3: %{host |
 | Missing variable name | A NULL value is always returned when a variable is not specified. | %{} |
 | Trailing characters | Characters that trail a variable are treated as literal values. <br />The sample value to the right contains a trailing curly brace that will be treated as a literal value. | %{host}} |
@@ -124,9 +124,9 @@ The following table describes how to define a default value.
 
 | Condition | Syntax | Example | Description |
 | --------- | ------ | --------| ----------- |
-| Set a header to a default value when it meets any of the following conditions: <br /><br />- Missing Header <br /><br />- Header value is set to NULL.| %{Variable:=Value} | %{http_referer:=unspecified} | The Referer header will only be set to *unspecified* when it is either missing or set to NULL. No action will take place if it has been set. |
-| Set a header to a default value when it is missing. | %{Variable=Value} | %{http_referer=unspecified} | The Referer header will only be set to *unspecified* when it is missing. No action will take place if it has been set. |
-| Set the header to a default value when it does not meet any of the following conditions: <br /><br />- Missing<br /><br /> - Set to NULL. | %{Variable:+Value} | %{http_referer:+unspecified} | The Referer header will only be set to *unspecified* when a value has been assigned to it. No action will take place if it is either missing or set to NULL. |
+| Set a header to a default value when it meets any of the following conditions: <br /><br />- Missing Header <br /><br />- Header value is set to NULL.| %{Variable:=Value} | %{http_referrer:=unspecified} | The Referrer header will only be set to *unspecified* when it is either missing or set to NULL. No action will take place if it has been set. |
+| Set a header to a default value when it is missing. | %{Variable=Value} | %{http_referrer=unspecified} | The Referrer header will only be set to *unspecified* when it is missing. No action will take place if it has been set. |
+| Set the header to a default value when it does not meet any of the following conditions: <br /><br />- Missing<br /><br /> - Set to NULL. | %{Variable:+Value} | %{http_referrer:+unspecified} | The Referrer header will only be set to *unspecified* when a value has been assigned to it. No action will take place if it is either missing or set to NULL. |
 
 ## Manipulating variables
 Variables can be manipulated in the following ways:

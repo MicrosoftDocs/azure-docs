@@ -1,5 +1,5 @@
 ---
-title: Composite entity tutorial
+title: Composite entity tutorial - LUIS
 titleSuffix: Azure Cognitive Services
 description: Add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 services: cognitive-services
@@ -16,7 +16,7 @@ ms.author: diberry
 # Tutorial: Group and extract related data
 In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 
-The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. It is similar to an hierarchical entity but can contain different types of entities. 
+The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. 
 
 The composite entity is a good fit for this type of data because the data:
 

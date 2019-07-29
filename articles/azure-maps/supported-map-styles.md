@@ -3,7 +3,7 @@ title: Supported map styles in Azure Maps| Microsoft Docs
 description: Map styles supported by Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -51,6 +51,17 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 **Applicable APIs:**
 * JS map control 
 * Android map control
+
+
+## grayscale_light
+**grayscale light** is a light version of the road map style.
+
+![grayscale light](./media/supported-map-styles/grayscale_light.png)
+
+**Applicable APIs:**
+* JS map control
+* Android map control
+
 
 ## night
 **night** is a dark version of the road map style with colored roads and symbols.

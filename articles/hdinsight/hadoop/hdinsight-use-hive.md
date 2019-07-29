@@ -2,14 +2,13 @@
 title: What is Apache Hive and HiveQL - Azure HDInsight 
 description: Apache Hive is a data warehouse system for Apache Hadoop. You can query data stored in Hive using HiveQL, which similar to Transact-SQL. In this document, learn how to use Hive and HiveQL with Azure HDInsight.
 keywords: hiveql,what is hive,hadoop hiveql,how to use hive,learn hive,what is hive
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 06/06/2019
 ---
 
 # What is Apache Hive and HiveQL on Azure HDInsight?
@@ -44,7 +43,7 @@ Use the following table to discover the different ways to use Hive with HDInsigh
 
 ## HiveQL language reference
 
-HiveQL language reference is available in the [language manual (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+HiveQL language reference is available in the [language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
 
 ## Hive and data structure
 
@@ -87,7 +86,7 @@ There are two types of tables that you can create with Hive:
     * You need a custom location, such as a non-default storage account.
     * A program other than hive manages the data format, location, etc.
 
-For more information, see the [Hive Internal and External Tables Intro][cindygross-hive-tables] blog post.
+For more information, see the [Hive Internal and External Tables Intro](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) blog post.
 
 ## User-defined functions (UDF)
 
@@ -200,50 +199,20 @@ Azure Data Factory allows you to use HDInsight as part of a Data Factory pipelin
 
 You can use SQL Server Integration Services (SSIS) to run a Hive job. The Azure Feature Pack for SSIS provides the following components that work with Hive jobs on HDInsight.
 
-* [Azure HDInsight Hive Task][hivetask]
+* [Azure HDInsight Hive Task](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Azure Subscription Connection Manager][connectionmanager]
+* [Azure Subscription Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-For more information, see the [Azure Feature Pack][ssispack] documentation.
+For more information, see the [Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis) documentation.
 
 ### Apache Oozie
 
 Apache Oozie is a workflow and coordination system that manages Hadoop jobs. For more information on using Oozie with Hive, see the [Use Apache Oozie to define and run a workflow](../hdinsight-use-oozie-linux-mac.md) document.
 
-## <a id="nextsteps"></a>Next steps
+## Next steps
 
 Now that you've learned what Hive is and how to use it with Hadoop in HDInsight, use the following links to explore other ways to work with Azure HDInsight.
 
-* [Upload data to HDInsight][hdinsight-upload-data]
-* [Use Apache Pig with HDInsight][hdinsight-use-pig]
-* [Use MapReduce jobs with HDInsight][hdinsight-use-mapreduce]
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: https://tez.apache.org
-[apache-hive]: https://hive.apache.org/
-[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: https://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
-[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
-
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-
-
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: ../hdinsight-upload-data.md
-
-[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
-
-
-[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+* [Upload data to HDInsight](../hdinsight-upload-data.md)
+* [Use Python User Defined Functions (UDF) with Apache Hive and Apache Pig in HDInsight](./python-udf-hdinsight.md)
+* [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)

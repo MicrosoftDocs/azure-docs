@@ -8,8 +8,6 @@
     href: azure-portal-supported-browsers-devices.md 
 - name: Concepts
   items:  
-  - name: Create and share Azure dashboards
-    href: azure-portal-dashboards.md
   - name: Share dashboards with role-based access control
     href: azure-portal-dashboard-share-access.md
   - name: Programmatically create Azure dashboards
@@ -18,20 +16,26 @@
   items:  
   - name: Turn on high contrast or change theme
     href: azure-portal-change-theme-high-contrast.md
+  - name: Add, remove, and sort favorites
+    href: azure-portal-add-remove-sort-favorites.md
+  - name: Create and share Azure dashboards
+    href: azure-portal-dashboards.md
   - name: Use a custom markdown tile
     href: azure-portal-markdown-tile.md
   - name: Export or delete user settings
     href: azure-portal-export-delete-settings.md
+  - name: Azure portal how-to video series
+    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
 - name: Reference
   items:
   - name: Keyboard shortcuts
     href: azure-portal-keyboard-shortcuts.md
+  - name: Safelist the Azure portal URLs
+    href: azure-portal-safelist-urls.md
   - name: Structure of Azure dashboards
     href: azure-portal-dashboards-structure.md
 - name: Resources
   items:
-  - name: Azure portal how-to video series
-    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/
   - name: Build your skills with Microsoft Learn

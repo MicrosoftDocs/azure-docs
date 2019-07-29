@@ -1,7 +1,6 @@
 ---
 title: Use ScaleR and SparkR with Azure HDInsight
 description: Use ScaleR and SparkR with ML Services on HDInsight
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
@@ -532,9 +531,7 @@ In this article, we’ve shown how it’s possible to combine use of SparkR for 
 
 - For more information on use of ML Server on Apache Spark, see the [Getting started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
-- For general information on ML Server, see the [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) article.
-
-- For information on ML Services on HDInsight, see [Overview of ML Services on HDInsight](r-server/r-server-overview.md) and [Get started with ML Services on Azure HDInsight](r-server/r-server-get-started.md).
+- For information on ML Services on HDInsight, see [Overview of ML Services on HDInsight](r-server/r-server-overview.md).
 
 For more information on use of SparkR, see:
 

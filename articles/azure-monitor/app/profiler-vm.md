@@ -27,7 +27,8 @@ You can also deploy Azure Application Insights Profiler on these services:
 ## Deploy Profiler on a virtual machine or a virtual machine scale set
 This article shows you how to get Application Insights Profiler running on your Azure virtual machine (VM) or Azure virtual machine scale set. Profiler is installed with the Azure Diagnostics extension for VMs. Configure the extension to run Profiler, and build the Application Insights SDK into your application.
 
-1. Add the Application Insights SDK to your [ASP.NET application](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) or regular [.NET Application](windows-services.md?toc=/azure/azure-monitor/toc.json).  
+1. Add the Application Insights SDK to your [ASP.NET application](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+
    To view profiles for your requests, you must send request telemetry to Application Insights.
 
 1. Install Azure Diagnostics extension on your VM. For full Resource Manager template examples, see:  

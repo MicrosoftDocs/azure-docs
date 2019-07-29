@@ -31,6 +31,7 @@ ms.author: mbullwin
 
 ## Can I use Application Insights with ...?
 
+* [Web apps on an IIS server in Azure VM or Azure virtual machine scale set](azure-vm-vmss-apps.md)
 * [Web apps on an IIS server - on-premises or in a VM](asp-net.md)
 * [Java web apps](java-get-started.md)
 * [Node.js apps](nodejs.md)
@@ -98,7 +99,7 @@ From server web apps:
 * HTTP requests
 * [Dependencies](asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
 * [Exceptions](asp-net-exceptions.md) and stack traces.
-* [Performance Counters](performance-counters.md) - If you use [Status Monitor](monitor-performance-live-website-now.md), [Azure monitoring](azure-web-apps.md), or the [Application Insights collectd writer](java-collectd.md).
+* [Performance Counters](performance-counters.md) - If you use [Status Monitor](monitor-performance-live-website-now.md), [Azure monitoring for App Services](azure-web-apps.md), [Azure monitoring for VM or virtual machine scale set](azure-vm-vmss-apps.md), or the [Application Insights collectd writer](java-collectd.md).
 * [Custom events and metrics](api-custom-events-metrics.md) that you code.
 * [Trace logs](asp-net-trace-logs.md) if you configure the appropriate collector.
 
@@ -126,9 +127,9 @@ Yes, in the server you can write:
 
 Learn more for [ASP.NET](api-filtering-sampling.md) or [Java](java-filter-telemetry.md).
 
-## How are City, Country and other geo location data calculated?
+## How are city, country/region, and other geo location data calculated?
 
-We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
+We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
 * Browser telemetry: We collect the sender's IP address.
 * Server telemetry: The Application Insights module collects the client IP address. It is not collected if `X-Forwarded-For` is set.

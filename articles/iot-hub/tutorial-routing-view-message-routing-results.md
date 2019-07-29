@@ -15,6 +15,8 @@ ms.custom: mvc
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Rules for routing the messages
 
 These are the rules for the message routing; these were set up in part 1 of this tutorial, and you see them work in this second part.
@@ -119,7 +121,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    **Endpoint**: Select **Messaging**. (If you select Operations Monitoring, you get the telemetry data about the IoT hub rather than the data you're sending through.) 
 
-   **Shared access policy name**: Select **iothubowner**. The portal fills in the Shared Access Policy Key for you.
+   **Shared access policy name**: Select **service**. The portal fills in the Shared Access Policy Key for you.
 
    **Consumer group**: Select the consumer group set up in step 1 of this tutorial. This tutorial uses **contosoconsumers**.
    
@@ -275,10 +277,10 @@ az group delete --name $resourceGroup
 
 ### Use PowerShell to clean up resources
 
-To remove the resource group, use the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
+To remove the resource group, use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## Next steps

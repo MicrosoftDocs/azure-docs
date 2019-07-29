@@ -48,7 +48,7 @@ sections:
     - image: 
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
       text: Java
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-java
     - image: 
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg
       text: Python (on Linux)

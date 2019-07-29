@@ -1,34 +1,48 @@
 ---
-title: Deploy multi-container groups in Azure Container Instances with Azure CLI and YAML
-description: Learn how to deploy a container group with multiple containers in Azure Container Instances by using the Azure CLI and a YAML file.
+title: Tutorial - Deploy a multi-container group in Azure Container Instances - YAML
+description: In this tutorial, you learn how to deploy a container group with multiple containers in Azure Container Instances by using a YAML file with the Azure CLI.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: danlep
 ---
 
-# Deploy a multi-container container group with YAML
+# Tutorial: Deploy a multi-container group using a YAML file
 
-Azure Container Instances supports the deployment of multiple containers onto a single host by using a [container group](container-instances-container-groups.md). Multi-container container groups are useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.
+> [!div class="op_single_selector"]
+> * [YAML](container-instances-multi-container-yaml.md)
+> * [Resource Manager](container-instances-multi-container-group.md)
+>
 
-There are two methods for deploying multi-container groups using the Azure CLI:
+Azure Container Instances supports the deployment of multiple containers onto a single host using a [container group](container-instances-container-groups.md). A container group is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.
 
-* YAML file deployment (this article)
-* [Resource Manager template deployment](container-instances-multi-container-group.md)
+In this tutorial, you follow steps to run a simple two-container sidecar configuration by deploying a YAML file using the Azure CLI. A YAML file provides a concise format for specifying the instance settings. You learn how to:
 
-Due to the YAML format's more concise nature, deployment with a YAML file is recommended when your deployment includes *only* container instances. If you need to deploy additional Azure service resources (for example, an Azure Files share) at the time of container instance deployment, Resource Manager template deployment is recommended.
+> [!div class="checklist"]
+> * Configure a YAML file
+> * Deploy the container group
+> * View the logs of the containers
 
 > [!NOTE]
-> Multi-container groups are currently restricted to Linux containers. While we're working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+> Multi-container groups are currently restricted to Linux containers.
 
-## Configure the YAML file
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To deploy a multi-container container group with the [az container create][az-container-create] command in the Azure CLI, you must specify the container group configuration in a YAML file, then pass the YAML file as a parameter to the  command.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Start by copying the following YAML into a new file named **deploy-aci.yaml**.
+## Configure a YAML file
+
+To deploy a multi-container group with the [az container create][az-container-create] command in the Azure CLI, you must specify the container group configuration in a YAML file. Then pass the YAML file as a parameter to the command.
+
+Start by copying the following YAML into a new file named **deploy-aci.yaml**. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
+
+```
+code deploy-aci.yaml
+```
 
 This YAML file defines a container group named "myContainerGroup" with two containers, a public IP address, and two exposed ports. The containers are deployed from public Microsoft images. The first container in the group runs an internet-facing web application. The second container, the sidecar, periodically makes HTTP requests to the web application running in the first container via the container group's local network.
 
@@ -67,6 +81,15 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
+To use a private container image registry, add the `imageRegistryCredentials` property to the container group, with values modified for your environment:
+
+```YAML
+  imageRegistryCredentials:
+  - server: imageRegistryLoginServer
+    username: imageRegistryUsername
+    password: imageRegistryPassword
+```
+
 ## Deploy the container group
 
 Create a resource group with the [az group create][az-group-create] command:
@@ -99,9 +122,9 @@ Name              ResourceGroup    Status    Image                              
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
-## View logs
+## View container logs
 
-View the log output of a container using the [az container logs][az-container-logs] command. The `--container-name` argument specifies the container from which to pull logs. In this example, the first container is specified.
+View the log output of a container using the [az container logs][az-container-logs] command. The `--container-name` argument specifies the container from which to pull logs. In this example, the `aci-tutorial-app` container is specified.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -116,7 +139,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-To see the logs for the side-car container, run the same command specifying the second container name.
+To see the logs for the sidecar container, run a similar command specifying the `aci-tutorial-sidecar` container.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -142,92 +165,25 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-As you can see, the sidecar is periodically making an HTTP request to the main web application via the group's local network to ensure that it is running. This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than 200 OK.
-
-## Deploy from private registry
-
-To use a private container image registry, include the following YAML with values modified for your environment:
-
-```YAML
-  imageRegistryCredentials:
-  - server: imageRegistryLoginServer
-    username: imageRegistryUsername
-    password: imageRegistryPassword
-```
-
-For example, the following YAML deploys a container group with a single container whose image is pulled from a private Azure Container Registry named "myregistry":
-
-```YAML
-apiVersion: 2018-10-01
-location: eastus
-name: myContainerGroup2
-properties:
-  containers:
-  - name: aci-tutorial-app
-    properties:
-      image: myregistry.azurecr.io/aci-helloworld:latest
-      resources:
-        requests:
-          cpu: 1
-          memoryInGb: 1.5
-      ports:
-      - port: 80
-  osType: Linux
-  ipAddress:
-    type: Public
-    ports:
-    - protocol: tcp
-      port: '80'
-  imageRegistryCredentials:
-  - server: myregistry.azurecr.io
-    username: myregistry
-    password: REGISTRY_PASSWORD
-tags: null
-type: Microsoft.ContainerInstance/containerGroups
-```
-
-## Export container group to YAML
-
-You can export the configuration of an existing container group to a YAML file by using the Azure CLI command [az container export][az-container-export].
-
-Useful for preserving a container group's configuration, export allows you to store your container group configurations in version control for "configuration as code." Or, use the exported file as a starting point when developing a new configuration in YAML.
-
-Export the configuration for the container group you created earlier by issuing the following [az container export][az-container-export] command:
-
-```azurecli-interactive
-az container export --resource-group myResourceGroup --name myContainerGroup --file deployed-aci.yaml
-```
-
-No output is displayed if the command is successful, but you can view the contents of the file to see the result. For example, the first few lines with `head`:
-
-```console
-$ head deployed-aci.yaml
-additional_properties: {}
-apiVersion: '2018-06-01'
-location: eastus
-name: myContainerGroup
-properties:
-  containers:
-  - name: aci-tutorial-app
-    properties:
-      environmentVariables: []
-      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
-```
+As you can see, the sidecar is periodically making an HTTP request to the main web application via the group's local network to ensure that it is running. This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than `200 OK`.
 
 ## Next steps
 
-This article covered the steps needed for deploying a multi-container Azure container instance. For an end-to-end Azure Container Instances experience, including using a private Azure container registry, see the Azure Container Instances tutorial.
+In this tutorial, you used a YAML file to deploy a multi-container group in Azure Container Instances. You learned how to:
 
-> [!div class="nextstepaction"]
-> [Azure Container Instances tutorial][aci-tutorial]
+> [!div class="checklist"]
+> * Configure a YAML file for a multi-container group
+> * Deploy the container group
+> * View the logs of the containers
+
+You can also specify a multi-container group using a [Resource Manager template](container-instances-multi-container-group.md). A Resource Manager template can be readily adapted for scenarios when you need to deploy additional Azure service resources with the container group.
 
 <!-- LINKS - External -->
-[cli-issue-6525]: https://github.com/Azure/azure-cli/issues/6525
+
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
 [az-container-create]: /cli/azure/container#az-container-create
-[az-container-export]: /cli/azure/container#az-container-export
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az-group-create

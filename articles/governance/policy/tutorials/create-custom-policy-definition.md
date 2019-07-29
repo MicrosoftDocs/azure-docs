@@ -1,15 +1,14 @@
 ---
 title: Create a custom policy definition
 description: Craft a custom policy definition for Azure Policy to enforce custom business rules.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/12/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
 ---
-# Create a custom policy definition
+# Tutorial: Create a custom policy definition
 
 A custom policy definition allows customers to define their own rules for using Azure. These rules
 often enforce:
@@ -21,8 +20,8 @@ often enforce:
 Whatever the business driver for creating a custom policy, the steps are the same for defining the
 new custom policy.
 
-Before creating a custom policy, check the [policy samples](../samples/index.md) to see if a policy that
-matches your needs already exists.
+Before creating a custom policy, check the [policy samples](../samples/index.md) to see if a policy
+that matches your needs already exists.
 
 The approach to creating a custom policy follows these steps:
 
@@ -33,7 +32,8 @@ The approach to creating a custom policy follows these steps:
 > - Determine which effect to use
 > - Compose the policy definition
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/)
+before you begin.
 
 ## Identify requirements
 
@@ -46,21 +46,20 @@ steps involved:
 
 Your requirements should clearly identify both the "to be" and the "not to be" resource states.
 
-While we've defined the expected state of the resource, we've not yet defined what we want done
-with non-compliant resources. Policy supports a number of [effects](../concepts/effects.md). For
-this tutorial, we'll define the business requirement as preventing the creation of resources if
-they aren't compliant with the business rules. To meet this goal, we'll use the
-[Deny](../concepts/effects.md#deny) effect. We also want the option to suspend the policy for
-specific assignments. As such, we'll use the [Disabled](../concepts/effects.md#disabled) effect
-and make the effect a [parameter](../concepts/definition-structure.md#parameters) in the policy
-definition.
+While we've defined the expected state of the resource, we've not yet defined what we want done with
+non-compliant resources. Azure Policy supports a number of [effects](../concepts/effects.md). For
+this tutorial, we'll define the business requirement as preventing the creation of resources if they
+aren't compliant with the business rules. To meet this goal, we'll use the [Deny](../concepts/effects.md#deny)
+effect. We also want the option to suspend the policy for specific assignments. As such, we'll use
+the [Disabled](../concepts/effects.md#disabled) effect and make the effect a [parameter](../concepts/definition-structure.md#parameters)
+in the policy definition.
 
 ## Determine resource properties
 
-Based on the business requirement, the Azure resource to audit with Policy is a storage account.
-However, we don't know the properties to use in the policy definition. Policy evaluates against the
-JSON representation of the resource, so we'll need to understand the properties available on that
-resource.
+Based on the business requirement, the Azure resource to audit with Azure Policy is a storage
+account. However, we don't know the properties to use in the policy definition. Azure Policy
+evaluates against the JSON representation of the resource, so we'll need to understand the
+properties available on that resource.
 
 There are many ways to determine the properties for an Azure resource. We'll look at each for
 this tutorial:
@@ -82,10 +81,10 @@ that includes the property you're looking to manage.
 
 The simplest way to find properties is to look at an existing resource of the same type. Resources
 already configured with the setting you want to enforce also provide the value to compare against.
-Look at the **Automation script** page (under **Settings**) in the Azure portal for that specific
+Look at the **Export template** page (under **Settings**) in the Azure portal for that specific
 resource.
 
-![Export template page on existing resource](../media/create-custom-policy-definition/automation-script.png)
+![Export template page on existing resource](../media/create-custom-policy-definition/export-template.png)
 
 Doing so for a storage account reveals a template similar to this example:
 
@@ -138,15 +137,15 @@ type.
 
 #### Create a resource in the portal
 
-Another way through the portal is the resource creation experience. While creating a storage
-account through the portal, an option under the **Advanced** tab is **Security transfer required**.
-This property has _Disabled_ and _Enabled_ options. The info icon has additional text that confirms
-this option is likely the property we want. However, the portal doesn't tell us the property name
-on this screen.
+Another way through the portal is the resource creation experience. While creating a storage account
+through the portal, an option under the **Advanced** tab is **Security transfer required**. This
+property has _Disabled_ and _Enabled_ options. The info icon has additional text that confirms this
+option is likely the property we want. However, the portal doesn't tell us the property name on this
+screen.
 
 On the **Review + create** tab, a link is at the bottom of the page to **Download a template for
-automation**. Selecting the link opens the template that creates the resource we configured. In
-this case, we see two key pieces of information:
+automation**. Selecting the link opens the template that creates the resource we configured. In this
+case, we see two key pieces of information:
 
 ```json
 ...
@@ -167,9 +166,9 @@ property we're looking for.
 #### Quickstart templates on GitHub
 
 The [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates) on GitHub has
-hundreds of Resource Manager templates built for different resources. These templates can be a
-great way to find the resource property you're looking for. Some properties may appear to be what
-you're looking for, but control something else.
+hundreds of Resource Manager templates built for different resources. These templates can be a great
+way to find the resource property you're looking for. Some properties may appear to be what you're
+looking for, but control something else.
 
 #### Resource reference docs
 
@@ -189,16 +188,15 @@ so you need to authenticate to the website with your Azure credentials. Once aut
 browse by providers, subscriptions, resource groups, and resources.
 
 Locate a storage account resource and look at the properties. We see the
-**supportsHttpsTrafficOnly** property here as well. Selecting the **Documentation** tab, we see
-that the property description matches what we found in the reference docs earlier.
+**supportsHttpsTrafficOnly** property here as well. Selecting the **Documentation** tab, we see that
+the property description matches what we found in the reference docs earlier.
 
 ## Find the property alias
 
-We've identified the resource property, but we need to map that property to an
-[alias](../concepts/definition-structure.md#aliases).
+We've identified the resource property, but we need to map that property to an [alias](../concepts/definition-structure.md#aliases).
 
-There are a few ways to determine the aliases for an Azure resource. We'll look at each for
-this tutorial:
+There are a few ways to determine the aliases for an Azure resource. We'll look at each for this
+tutorial:
 
 - Azure CLI
 - Azure PowerShell
@@ -223,9 +221,9 @@ our business requirements!
 
 ### Azure PowerShell
 
-In Azure PowerShell, the `Get-AzPolicyAlias` cmdlet is used to search for resource aliases.
-We'll filter for the **Microsoft.Storage** namespace based on the details we got about the Azure
-resource earlier.
+In Azure PowerShell, the `Get-AzPolicyAlias` cmdlet is used to search for resource aliases. We'll
+filter for the **Microsoft.Storage** namespace based on the details we got about the Azure resource
+earlier.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -240,11 +238,12 @@ Like Azure CLI, the results show an alias supported by the storage accounts name
 ### Azure Resource Graph
 
 [Azure Resource Graph](../../resource-graph/overview.md) is a new service in Preview. It enables
-another method to find properties of Azure resources. Here is a sample query for looking at a
-single storage account with Resource Graph:
+another method to find properties of Azure resources. Here is a sample query for looking at a single
+storage account with Resource Graph:
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
 ```
 
 ```azurecli-interactive
@@ -255,10 +254,25 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-The results look similar to what we see in the Resource Manager templates and through the
-Azure Resource Explorer. However, Azure Resource Graph results also include
-[alias](../concepts/definition-structure.md#aliases) details. Here is example output from a
-storage account for aliases:
+The results look similar to what we see in the Resource Manager templates and through the Azure
+Resource Explorer. However, Azure Resource Graph results can also include [alias](../concepts/definition-structure.md#aliases)
+details by _projecting_ the _aliases_ array:
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+Here is example output from a storage account for aliases:
 
 ```json
 "aliases": {
@@ -340,21 +354,20 @@ storage account for aliases:
 }
 ```
 
-Azure Resource Graph (Preview) can be used through [Cloud Shell](https://shell.azure.com), making
-it a fast and easy way to explore the properties of your resources.
+Azure Resource Graph (Preview) can be used through [Cloud Shell](https://shell.azure.com), making it
+a fast and easy way to explore the properties of your resources.
 
 ## Determine the effect to use
 
 Deciding what to do with your non-compliant resources is nearly as important as deciding what to
-evaluate in the first place. Each possible response to a non-compliant resource is called an
-[effect](../concepts/effects.md). The effect controls if the non-compliant resource is logged,
-blocked, has data appended, or has a deployment associated to it for putting the resource back into
-a compliant state.
+evaluate in the first place. Each possible response to a non-compliant resource is called an [effect](../concepts/effects.md).
+The effect controls if the non-compliant resource is logged, blocked, has data appended, or has a
+deployment associated to it for putting the resource back into a compliant state.
 
-For our example, Deny is the effect we want as we do not want non-compliant resources created in
-our Azure environment. Audit is a good first choice for a policy effect to determine what the
-impact of a policy is before setting it to Deny. One way to make changing the effect per assignment
-easier is to parameterize the effect. See [parameters](#parameters) below for the details on how.
+For our example, Deny is the effect we want as we do not want non-compliant resources created in our
+Azure environment. Audit is a good first choice for a policy effect to determine what the impact of
+a policy is before setting it to Deny. One way to make changing the effect per assignment easier is
+to parameterize the effect. See [parameters](#parameters) below for the details on how.
 
 ## Compose the definition
 
@@ -387,8 +400,8 @@ definition. Here is an empty template of what a policy definition looks like:
 ### Metadata
 
 The first three components are policy metadata. These components are easy to provide values for
-since we know what we are creating the rule for. [Mode](../concepts/definition-structure.md#mode)
-is primarily about tags and resource location. Since we don't need to limit evaluation to resources
+since we know what we are creating the rule for. [Mode](../concepts/definition-structure.md#mode) is
+primarily about tags and resource location. Since we don't need to limit evaluation to resources
 that support tags, we'll use the _all_ value for **mode**.
 
 ```json

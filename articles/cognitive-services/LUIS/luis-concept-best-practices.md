@@ -1,6 +1,6 @@
 ---
-title: Best practices
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Best practices - LUIS
+titleSuffix: Azure Cognitive Services
 description: Learn the LUIS best practices to get the best results from your LUIS app's model.
 services: cognitive-services
 author: diberry
@@ -116,12 +116,12 @@ For more information:
 
 ## Do leverage the suggest feature for active learning
 
-Use [active learning](luis-how-to-review-endoint-utt.md)'s **Review endpoint utterances** on a regular basis, instead of adding more example utterances to intents. Because the app is constantly receiving endpoint utterances, this list is growing and changing.
+Use [active learning](luis-how-to-review-endpoint-utterances.md)'s **Review endpoint utterances** on a regular basis, instead of adding more example utterances to intents. Because the app is constantly receiving endpoint utterances, this list is growing and changing.
 
 For more information:
 * Concept: [Concepts for enabling active learning by reviewing endpoint utterances](luis-concept-review-endpoint-utterances.md)
 * Tutorial: [Tutorial: Fix unsure predictions by reviewing endpoint utterances](luis-tutorial-review-endpoint-utterances.md)
-* How-to: [How to review endpoint utterances in LUIS portal](luis-how-to-review-endoint-utt.md)
+* How-to: [How to review endpoint utterances in LUIS portal](luis-how-to-review-endpoint-utterances.md)
 
 ## Do monitor the performance of your app
 

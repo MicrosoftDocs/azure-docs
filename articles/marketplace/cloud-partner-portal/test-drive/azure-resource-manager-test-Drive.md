@@ -1,22 +1,14 @@
 ---
-title: Azure Resource Manager Test Drive | Microsoft Docs
+title: Azure Resource Manager Test Drive | Azure Marketplace
 description: Build a Marketplace Test Drive using Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: pbutlerm
 manager: Patrick .Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
-
 
 # Azure Resource Manager Test Drive
 
@@ -397,7 +389,7 @@ Otherwise, create a new Tenant in Azure Active Directory.
 
 ![List of Azure Active Directory tenants](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Define the organization, domain and Country for the Azure AD tenant](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Define the organization, domain and country/region for the Azure AD tenant](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Confirm the selection](./media/azure-resource-manager-test-drive/subdetails6.png)
 

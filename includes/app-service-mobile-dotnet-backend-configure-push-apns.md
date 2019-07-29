@@ -75,7 +75,7 @@ ms.date: 08/23/2018
     // When adding record, send a push notification via APNS
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK, 
-        // see http://aka.ms/nodejshubs
+        // see https://aka.ms/nodejshubs
         logger.info('Running TodoItem.insert');
 
         // Create a payload that contains the new item Text.

@@ -58,7 +58,7 @@ You can make sure that you're joined by looking at your settings.
 
     ![Accounts on the Settings screen](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Select **Access work or school**, and make sure you see text that says something like, **Connected to *<your_organization>* Azure AD**.
+2. Select **Access work or school**, and make sure you see text that says something like, **Connected to *\<your_organization>* Azure AD**.
 
     ![Access work or school screen with connected contoso account](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -103,7 +103,7 @@ You can make sure that you're joined by looking at your settings.
 
     ![Accounts on the Settings screen](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Select **Access work or school**, and make sure you see text that says something like, **Connected to *<your_organization>* Azure AD**.
+2. Select **Access work or school**, and make sure you see text that says something like, **Connected to *\<your_organization>* Azure AD**.
 
     ![Access work or school screen with connected contoso account](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
@@ -112,3 +112,4 @@ After you join your device to your organization's network, you should be able to
 
 - If your organization wants you to register your personal device, such as your phone, see [Register your personal device on your organization's network](user-help-register-device-on-network.md).
 
+- If your organization is managed using Microsoft Intune and you have questions about enrollment, sign-in, or any other Intune-related issue, see the [Intune user help content](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

@@ -1,6 +1,6 @@
 ---
 title: Create an image factory in Azure DevTest Labs | Microsoft Docs
-description: Learn how to create a custom image factory in Azure DevTest Labs. 
+description: Learn how to create a custom image factory in Azure DevTest Labs.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -17,14 +17,14 @@ ms.author: spelluru
 ---
 
 # Create a custom image factory in Azure DevTest Labs
-This article shows you how to set up a custom image factory by using sample scripts available in the [Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory).
+This article shows you how to set up a custom image factory by using sample scripts available in the [Git repository](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).
 
 ## What's an image factory?
 An image factory is a configuration-as-code solution that builds and distributes images automatically on a regular basis with all the desired configurations. The images in the image factory are always up-to-date, and the ongoing maintenance is almost zero once the whole process is automated. And, because all the required configurations are already in the image, it saves the time from manually configuring the system after a VM has been created with the base OS.
 
 The significant accelerator to get a developer desktop to a ready state in DevTest Labs is using custom images. The downside of custom images is that there's something extra to maintain in the lab. For example, trial versions of products expire over time (or) newly released security updates aren't applied, which force us to refresh the custom image periodically. With an image factory, you have a definition of the image checked in to source code control and have an automated process to produce custom images based on the definition.
 
-The solution enables the speed of creating virtual machines from custom images while eliminating additional ongoing maintenance costs. With this solution, you can automatically create custom images, distribute them to other DevTest Labs, and retire the old images. In the following video, you learn about the image factory, and how it's implemented with DevTest Labs.  All the Azure Powershell scripts are freely available and located here:  [http://aka.ms/dtlimagefactory](http://aka.ms/dtlimagefactory).
+The solution enables the speed of creating virtual machines from custom images while eliminating additional ongoing maintenance costs. With this solution, you can automatically create custom images, distribute them to other DevTest Labs, and retire the old images. In the following video, you learn about the image factory, and how it's implemented with DevTest Labs.  All the Azure Powershell scripts are freely available and located here:  [https://aka.ms/dtlimagefactory](https://aka.ms/dtlimagefactory).
 
 <br/>
 
@@ -36,7 +36,7 @@ The solution enables the speed of creating virtual machines from custom images w
 
 ![High-level view of the solution](./media/create-image-factory/high-level-view-of-solution.png)
 
-There's a [VSTS Extension for DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) that enables you to execute these individual steps: 
+There's a [VSTS Extension for DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) that enables you to execute these individual steps:
 
 - Create custom image
 - Create VM

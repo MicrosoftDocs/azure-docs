@@ -1,7 +1,6 @@
 ---
 title: Sample - Allowed virtual network gateway SKUs
 description: This sample policy definition requires that virtual network gateways use an approved SKU and gateway type.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

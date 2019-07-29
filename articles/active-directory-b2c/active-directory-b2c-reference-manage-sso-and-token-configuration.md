@@ -2,14 +2,14 @@
 title: Manage SSO and token customization using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Learn about managing SSO and token customization using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -19,7 +19,11 @@ This article provides information about how you can manage your token, session, 
 
 ## Token lifetimes and claims configuration
 
-To change the settings on your token lifetimes, you add a [ClaimsProviders](claimsproviders.md) element in the relying party file of the policy you want to impact.  The **ClaimsProviders** element is a child of the [TrustFrameworkPolicy](trustframeworkpolicy.md) element. Inside, you'll need to put the information that affects your token lifetimes. The XML looks like this example:
+To change the settings on your token lifetimes, you add a [ClaimsProviders](claimsproviders.md) element in the relying party file of the policy you want to impact.  The **ClaimsProviders** element is a child of the [TrustFrameworkPolicy](trustframeworkpolicy.md) element. 
+
+Insert the ClaimsProviders element between the BasePolicy element and the RelyingParty element of the relying party file.
+
+Inside, you'll need to put the information that affects your token lifetimes. The XML looks like this example:
 
 ```XML
 <ClaimsProviders>

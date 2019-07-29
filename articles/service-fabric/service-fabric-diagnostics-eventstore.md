@@ -13,19 +13,19 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2019
+ms.date: 6/6/2019
 ms.author: srrengar
 
 ---
 
-# EventStore service overview
+# EventStore Overview
 
 >[!NOTE]
 >As of Service Fabric version 6.4. the EventStore APIs are only available for Windows clusters running on Azure only. We are working on porting this functionality to Linux as well as our Standalone clusters.
 
 ## Overview
 
-Introduced in version 6.2, the EventStore service is a monitoring option in Service Fabric. EventStore provides a way to understand the state of your cluster or workloads at a given point in time. 
+Introduced in version 6.2, the EventStore service is a monitoring option in Service Fabric. EventStore provides a way to understand the state of your cluster or workloads at a given point in time.
 The EventStore is a stateful Service Fabric service that maintains events from the cluster. The event are exposed through the Service Fabric Explorer, REST and APIs. EventStore queries the cluster directly to get diagnostics data on any entity in your cluster and should be used to help:
 
 * Diagnose issues in development or testing, or where you might be using a monitoring pipeline
@@ -37,7 +37,7 @@ The EventStore is a stateful Service Fabric service that maintains events from t
 To see a full list of events available in the EventStore, see [Service Fabric events](service-fabric-diagnostics-event-generation-operational.md).
 
 >[!NOTE]
->As of Service Fabric version 6.2. the EventStore APIs are currently in preview for Windows clusters running on Azure only. We are working on porting this functionality to Linux as well as our Standalone clusters.
+>As of Service Fabric version 6.4. the EventStore APIs and UX are generally available for Azure Windows clusters. We are working on porting this functionality to Linux as well as our Standalone clusters.
 
 The EventStore service can be queried for events that are available for each entity and entity type in your cluster. This means you can query for events on the following levels:
 * Cluster: events specific to the cluster itself (e.g. cluster upgrade)
@@ -68,9 +68,21 @@ In [fabricSettings.json in your cluster](service-fabric-cluster-fabric-settings.
     ],
 ```
 
-### Azure cluster
+### Azure cluster version 6.5+
+If your Azure cluster gets upgraded to version 6.5 or higher, EventStore will be automatically enabled on your cluster. To opt out, you need to update your cluster template with the following:
 
-In your cluster's Azure Resource Manager template, you can turn on the EventStore service by performing a [cluster config upgrade](service-fabric-cluster-config-upgrade-azure.md) and adding the following code. The `upgradeDescription` section configures the config upgrade to trigger a restart on the nodes. You can remove the section in another update.
+* Use an API version of `2019-03-01` or newer 
+* Add the following code to your properties section in your cluster
+  ```json  
+    "fabricSettings": [
+      …
+    ],
+    "eventStoreServiceEnabled": false
+  ```
+
+### Azure cluster version 6.4
+
+If you are using version 6.4, you can edit your Azure Resource Manager template to turn on EventStore service. This is done by performing a [cluster config upgrade](service-fabric-cluster-config-upgrade-azure.md) and adding the following code, you can use PlacementConstraints to put the replicas of the EventStore service on a specific NodeType e.g. a NodeType dedicated for the system services. The `upgradeDescription` section configures the config upgrade to trigger a restart on the nodes. You can remove the section in another update.
 
 ```json
     "fabricSettings": [
@@ -87,6 +99,10 @@ In your cluster's Azure Resource Manager template, you can turn on the EventStor
               {
                 "name": "MinReplicaSetSize",
                 "value": "1"
+              },
+              {
+                "name": "PlacementConstraints",
+                "value": "(NodeType==<node_type_name_here>)"
               }
             ]
           }

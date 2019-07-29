@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
 
@@ -112,7 +112,11 @@ On the **Protection Goal** page, select the following values:
 
 When you're done, select **OK** to move to the next section.
 
-### 2: Prepare source
+### 2: Select deployment planning
+
+In **Have you completed deployment planning**, select **I will do it later**, and then select **OK**.
+
+### 3: Prepare source
 
 On the **Prepare source** page, select **+ Configuration Server**.
 
@@ -137,7 +141,7 @@ On the **Prepare source** page, select **+ Configuration Server**.
 
 When you're done setting up the configuration server, go back to the portal and select the server that you created for **Configuration Server**. Select **OK** to go to 3: Prepare target.
 
-### 3: Prepare target
+### 4: Prepare target
 
 In this section, you enter information about the resources that you created in [Prepare Azure resources](#prepare-azure-resources) earlier in this tutorial.
 
@@ -146,8 +150,7 @@ In this section, you enter information about the resources that you created in [
 3. Site Recovery verifies that you have one or more compatible Azure storage account and network. These should be the resources that you created in [Prepare Azure resources](#prepare-azure-resources) earlier in this tutorial.
 4. When you're done, select **OK**.
 
-
-### 4: Prepare replication settings
+### 5: Prepare replication settings
 
 Before you can enable replication, you must create a replication policy.
 
@@ -155,12 +158,7 @@ Before you can enable replication, you must create a replication policy.
 2. In **Name**, enter **myReplicationPolicy**.
 3. Leave the rest of the default settings, and then select **OK** to create the policy. The new policy is automatically associated with the configuration server.
 
-### 5: Select deployment planning
-
-In **Have you completed deployment planning**, select **I will do it later**, and then select **OK**.
-
 When you're finished with all five sections under **Prepare Infrastructure**, select **OK**.
-
 
 ## Enable replication
 

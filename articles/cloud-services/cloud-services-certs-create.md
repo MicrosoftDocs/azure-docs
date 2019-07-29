@@ -3,18 +3,11 @@ title: Cloud Services and management certificates | Microsoft Docs
 description: Learn how to create and use certificates with Microsoft Azure
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: jeconnoc
+ms.author: gwallace
 
 ---
 # Certificates overview for Azure Cloud Services
@@ -35,7 +28,7 @@ You can upload service certificates to Azure either using the Azure portal or by
 Service certificates can be managed separately from your services, and may be managed by different individuals. For example, a developer may upload a service package that refers to a certificate that an IT manager has previously uploaded to Azure. An IT manager can manage and renew that certificate (changing the configuration of the service) without needing to upload a new service package. Updating without a new service package is possible because the logical name, store name, and location of the certificate is in the service definition file and while the certificate thumbprint is specified in the service configuration file. To update the certificate, it's only necessary to upload a new certificate and change the thumbprint value in the service configuration file.
 
 >[!Note]
->The [Cloud Services FAQ](cloud-services-faq.md) article has some helpful information about certificates.
+>The [Cloud Services FAQ - Configuration and Management](cloud-services-configuration-and-management-faq.md) article has some helpful information about certificates.
 
 ## What are management certificates?
 Management certificates allow you to authenticate with the classic deployment model. Many programs and tools (such as Visual Studio or the Azure SDK) use these certificates to automate configuration and deployment of various Azure services. These are not really related to cloud services. 
@@ -65,7 +58,7 @@ You can use any tool available to create a self-signed certificate as long as th
 There are two easy ways to create a certificate on Windows, with the `makecert.exe` utility, or IIS.
 
 ### Makecert.exe
-This utility has been deprecated and is no longer documented here. For more information, see [this MSDN article](https://msdn.microsoft.com/library/windows/desktop/aa386968).
+This utility has been deprecated and is no longer documented here. For more information, see [this MSDN article](/windows/desktop/SecCrypto/makecert).
 
 ### PowerShell
 ```powershell

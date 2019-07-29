@@ -24,6 +24,9 @@ This article lists common problems that you might encounter when you configure a
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Certificate problems
 
 ### You can't add an SSL certificate binding to an app 
@@ -263,8 +266,8 @@ This problem occurs for one of the following reasons:
     |Record type|Host|Point to|
     |------|------|-----|
     |A|@|IP address for an app|
-    |TXT|@|<app-name>.azurewebsites.net|
-    |CNAME|www|<app-name>.azurewebsites.net|
+    |TXT|@|`<app-name>.azurewebsites.net`|
+    |CNAME|www|`<app-name>.azurewebsites.net`|
 
 ## FAQ
 
@@ -310,7 +313,7 @@ Yes. When you access the Custom Domains and SSL blade in the Azure portal, you s
 
 **Can I transfer a domain from one subscription to another subscription?**
 
-You can move a domain to another subscription/resource group using the [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) PowerShell cmdlet.
+You can move a domain to another subscription/resource group using the [Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) PowerShell cmdlet.
 
 **How can I manage my custom domain if I don’t currently have an Azure App Service app?**
 
@@ -318,7 +321,6 @@ You can manage your domain even if you don’t have an App Service Web App. Doma
 
 **Can I move a web app with a custom domain to another subscription or from App Service Environment v1 to V2?**
 
-Yes, you can move your web app across subscriptions. Follow the guidance in [How to move resources in Azure](../azure-resource-manager/resource-group-move-resources.md). There are a few limitations when moving the web app. For more information, see [Limitations for moving App Service resources](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
-).
+Yes, you can move your web app across subscriptions. Follow the guidance in [How to move resources in Azure](../azure-resource-manager/resource-group-move-resources.md). There are a few limitations when moving the web app. For more information, see [Limitations for moving App Service resources](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 After moving the web app, the host name bindings of the domains within the custom domains setting should remain the same. No additional steps are required to configure the host name bindings.

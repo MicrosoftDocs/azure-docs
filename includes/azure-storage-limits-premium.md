@@ -5,18 +5,24 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 03/23/2019
+ms.date: 07/01/2019
 ms.author: rogarana
 ms.custom: include file
 ---
 
 ### Premium performance block blob storage
 
-A premium performance block blob storage account is optimized for applications that use smaller, kilobyte range, objects. It's ideal for applications that require very high transaction rates or consistent low-latency storage. Premium performance block blob storage is designed to scale with your applications. If you plan to deploy application(s) that require hundreds of thousands of requests per second or petabytes of storage capacity, please contact us by submitting a support request in the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+A premium performance block blob storage account is optimized for applications that use smaller, kilobyte range, objects. It's ideal for applications that require high transaction rates or consistent low-latency storage. Premium performance block blob storage is designed to scale with your applications. If you plan to deploy application(s) that require hundreds of thousands of requests per second or petabytes of storage capacity, please contact us by submitting a support request in the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### Premium performance FileStorage
+
+[!INCLUDE [azure-storage-limits-filestorage](azure-storage-limits-filestorage.md)]
+
+ For premium file share scale targets, see the [Premium files scale targets](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) section.
 
 ### Premium performance page blob storage
 
-Premium performance, general-purpose v1 or v2 storage accounts have the following scalability targets:
+Premium performance, general-purpose v1, or v2 storage accounts have the following scalability targets:
 
 | Total account capacity                            | Total bandwidth for a locally redundant storage account                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |

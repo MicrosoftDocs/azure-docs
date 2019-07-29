@@ -4,7 +4,7 @@ description: Frequently asked questions about Azure IaaS Windows VM disks and pr
 services: virtual-machines-windows
 documentationcenter: ''
 author: roygara
-manager: jeconnoc
+manager: twooley
 editor: tysonn
 
 ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91

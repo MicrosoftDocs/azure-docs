@@ -1,21 +1,14 @@
 ---
-title: Self-test client to pre-validate a virtual machine - Azure Marketplace | Microsoft Docs
+title: Self-test client to pre-validate a virtual machine | Azure Marketplace 
 description: How to create a self-test client for pre-validating a virtual machine image for the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler
-editor:
-
-ms.assetid:
 ms.service: marketplace
-ms.workload:
-ms.tgt_pltfrm:
-ms.devlang:
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
+
 # Create a self-test client to pre-validate an Azure virtual machine image
 
 Use this article as a guide for creating a client service that consumes the self-test API. You can use the self-test API to pre-validate a virtual machine (VM) to ensure it meets the latest Azure Marketplace publishing requirements. This client service enables you to test a VM before you submit your offer for Microsoft certification.

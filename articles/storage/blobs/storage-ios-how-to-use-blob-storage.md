@@ -2,13 +2,14 @@
 title: How to use object (Blob) storage from iOS - Azure | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
-author: michaelhauss
+author: mhopkins-msft
 
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 11/20/2018
-ms.author: michaelhauss
+ms.author: mhopkins
+ms.reviewer: seguler
 ms.subservice: blobs
 ---
 
@@ -75,7 +76,7 @@ You can then import the framework file into your application by doing the follow
 #import <AZSClient/AZSClient.h>
 ```
 
-If you are using Swift, you will need to create a bridging header and import <AZSClient/AZSClient.h> there:
+If you are using Swift, you will need to create a bridging header and import \<AZSClient/AZSClient.h> there:
 
 1. Create a header file `Bridging-Header.h`, and add the above import statement.
 2. Go to the *Build Settings* tab, and search for *Objective-C Bridging Header*.

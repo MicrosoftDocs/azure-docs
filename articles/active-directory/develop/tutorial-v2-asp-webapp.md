@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 ms.collection: M365-identity-device-management
@@ -24,3 +24,19 @@ ms.collection: M365-identity-device-management
 [!INCLUDE [3. Use](../../../includes/active-directory-develop-guidedsetup-aspnetwebapp-use.md)]
 [!INCLUDE [4. Configure](../../../includes/active-directory-develop-guidedsetup-aspnetwebapp-configure.md)]
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-aspnetwebapp-test.md)]
+
+## Next steps
+
+Learn about Web apps calling web APIs:.
+
+### Learn the steps to create the application used in this quickstart
+
+> [!div class="nextstepaction"]
+> [Web apps calling Web APIs]( https://aka.ms/msal-net-authorization-code)
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

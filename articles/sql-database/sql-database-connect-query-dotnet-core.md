@@ -7,10 +7,9 @@ ms.subservice: development
 ms.custom: 
 ms.devlang: dotnet
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 03/25/2019
 ---
 # Quickstart: Use .NET Core (C#) to query an Azure SQL database

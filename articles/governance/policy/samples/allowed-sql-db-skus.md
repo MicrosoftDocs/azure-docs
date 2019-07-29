@@ -1,7 +1,6 @@
 ---
 title: Sample - Allowed SQL DB SKUs
 description: This sample policy definition requires SQL databases to use an approved SKU.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

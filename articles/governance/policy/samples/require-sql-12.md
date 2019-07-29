@@ -1,7 +1,6 @@
 ---
 title: Sample - Require SQL Server version 12.0
 description: This sample policy definition requires SQL servers to be running version 12.0.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

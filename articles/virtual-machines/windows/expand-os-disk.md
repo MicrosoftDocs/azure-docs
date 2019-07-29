@@ -34,7 +34,7 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 > 
 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## Resize a managed disk

@@ -15,10 +15,7 @@ ms.author: jehollan
 ms.custom: mvc, devcenter
 ---
 
-# Create your first Azure function with Java and IntelliJ (preview)
-
-> [!NOTE]
-> Java for Azure Functions is currently in preview.
+# Create your first Azure function with Java and IntelliJ
 
 This article shows you:
 - How to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with IntelliJ IDEA and Apache Maven
@@ -51,7 +48,7 @@ To develop a function with Java and IntelliJ, install the following software:
 1. In the **Add Archetype** window, complete the fields as follows:
     - _GroupId_: com.microsoft.azure
     - _ArtifactId_: azure-functions-archetype
-    - _Version_: Use the latest version from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - _Version_: Use the latest version **1.22** from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Create a Maven project from archetype in IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Select **OK**, and then select **Next**.
 1. Enter your details for current project, and select **Finish**.
@@ -86,13 +83,13 @@ Maven creates the project files in a new folder with the same name as the _Artif
 1. Complete the _Name_ and _Settings_ fields, and then select **OK** to save the configuration.
 1. After setup, select **Debug < Remote Configuration Name >** or press Shift+F9 on your keyboard to start debugging.
 
-   ![Debug functions in IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
+   ![Debug functions in IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.png)
 
 1. When you're finished, stop the debugger and the running process. Only one function host can be active and running locally at a time.
 
 ## Deploy the function to Azure
 
-1. Before you can deploy your function to Azure, you must [log in by using the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. Before you can deploy your function to Azure, you must [sign in by using the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
    ``` azurecli
    az login

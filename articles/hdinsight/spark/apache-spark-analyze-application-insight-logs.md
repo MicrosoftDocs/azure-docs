@@ -1,7 +1,6 @@
 ---
 title: Analyze Application Insight logs with Spark - Azure HDInsight 
 description: Learn how to export Application Insight logs to blob storage, and then analyze the logs with Spark on HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -21,9 +20,6 @@ Learn how to use [Apache Spark](https://spark.apache.org/) on HDInsight to analy
 * An application that is configured to use Application Insights.
 
 * Familiarity with creating a Linux-based HDInsight cluster. For more information, see [Create Apache Spark on HDInsight](apache-spark-jupyter-spark-sql.md).
-
-  > [!IMPORTANT]  
-  > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * A web browser.
 

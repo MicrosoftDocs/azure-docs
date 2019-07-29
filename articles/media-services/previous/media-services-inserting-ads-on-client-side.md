@@ -156,7 +156,7 @@ Nonlinear ads are specified in a `<Creative>` element as well. The following exa
     </Creative>
 ```
 
-The <**NonLinearAds**> element can contain one or more <**NonLinear**> elements, each of which can describe a nonlinear ad. The <**NonLinear**> element specifies the resource for the nonlinear ad. The resource can be a <**StaticResource**>, an <**IFrameResource**>, or an <**HTMLResource**>. <**StaticResource**> describes a non-HTML resource and defines a creativeType attribute that specifies how the resource is displayed:
+The <**NonLinearAds**> element can contain one or more <**NonLinear**> elements, each of which can describe a nonlinear ad. The <**NonLinear**> element specifies the resource for the nonlinear ad. The resource can be a <**StaticResource**>, an <**IFrameResource**>, or an <**HTMLResource**>. \<**StaticResource**> describes a non-HTML resource and defines a creativeType attribute that specifies how the resource is displayed:
 
 Image/gif, image/jpeg, image/png – the resource is displayed in an HTML <**img**> tag.
 
@@ -166,7 +166,7 @@ Application/x-shockwave-flash – the resource is displayed in a Flash player.
 
 **IFrameResource** describes an HTML resource that can be displayed in an IFrame. **HTMLResource** describes a piece of HTML code that can be inserted into a web page. **TrackingEvents** specify tracking events and the URI to request when the event occurs. In this sample, the acceptInvitation and collapse events are tracked. For more information on the **NonLinearAds** element and its children, see IAB.NET/VAST. Note that the **TrackingEvents** element is located within the **NonLinearAds** element rather than the **NonLinear** element.
 
-Companion ads are defined within a `<CompanionAds>` element. The `<CompanionAds>` element can contain one or more `<Companion>` elements. Each `<Companion>` element describes a companion ad and can contain a `<StaticResource>`, `<IFrameResource>`, or `<HTMLResource>` which are specified in the same way as in a nonlinear ad. A VAST file can contain multiple companion ads and the player application can choose the most appropriate ad to display. For more information about VAST, see [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
+Companion ads are defined within a `<CompanionAds>` element. The `<CompanionAds>` element can contain one or more `<Companion>` elements. Each `<Companion>` element describes a companion ad and can contain a `<StaticResource>`, `<IFrameResource>`, or `<HTMLResource>` which are specified in the same way as in a nonlinear ad. A VAST file can contain multiple companion ads and the player application can choose the most appropriate ad to display. For more information about VAST, see [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf).
 
 ### Using a Digital Video Multiple Ad Playlist (VMAP) File
 A VMAP file allows you to specify when ad breaks occur, how long each break is, how many ads can be displayed within a break, and what types of ads may be displayed during a break. The following in an example VMAP file that defines a single ad break:
@@ -239,7 +239,7 @@ The <**AdSource**> element provides the player an inline ad response or a refere
 * `<AdTagURI>` a URI that references an ad response from another system
 * `<CustomAdData>` -an arbitrary string that represents a non-VAST response
 
-In this example, an in-line ad response is specified with a `<VASTAdData>` element that contains a VAST ad response. For more information about the other elements, see [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
+In this example, an in-line ad response is specified with a `<VASTAdData>` element that contains a VAST ad response. For more information about the other elements, see [VMAP](https://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
 The <**AdBreak**> element can also contain one <**TrackingEvents**> element. The <**TrackingEvents**> element allows you to track the start or end of an ad break or whether an error occurred during the ad break. The <**TrackingEvents**> element contains one or more <**Tracking**> elements, each of which specifies a tracking event and a tracking URI. The possible tracking events are:
 
@@ -359,7 +359,7 @@ An executable ad is created in code that must be executed in a runtime environme
     </MediaFiles>
 ```
 
-An executable ad can be initialized using the `<AdParameters>` element within the `<Linear>` or `<NonLinear>` elements in a VAST response. For more information on the `<AdParameters>` element, see [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). For more information about the VPAID API, see [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
+An executable ad can be initialized using the `<AdParameters>` element within the `<Linear>` or `<NonLinear>` elements in a VAST response. For more information on the `<AdParameters>` element, see [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf). For more information about the VPAID API, see [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ## Implementing a Windows or Windows Phone 8 Player with Ad Support
 The Microsoft Media Platform: Player Framework for Windows 8 and Windows Phone 8 contains a collection of sample applications that show you how to implement a video player application using the framework. You can download the Player Framework and the samples from [Player Framework for Windows 8 and Windows Phone 8](https://playerframework.codeplex.com).

@@ -41,7 +41,13 @@ The main symptom of this problem is 30018 events in the DC agent Admin event log
 
 ## The Proxy service can receive calls from DC agents in the domain but is unable to communicate with Azure
 
-Ensure the proxy machine has connectivity to the endpoints listed in the [deployment requirements](howto-password-ban-bad-on-premises-deploy.md).
+1. Ensure the proxy machine has connectivity to the endpoints listed in the [deployment requirements](howto-password-ban-bad-on-premises-deploy.md).
+
+1. Ensure that the forest and all proxy servers are registered against the same Azure tenant.
+
+   You can check this by running the  `Get-AzureADPasswordProtectionProxy` and `Get-AzureADPasswordProtectionDCAgent` PowerShell cmdlets, then compare the `AzureTenant` property of each returned item. For correct operation these must be the same within a forest, across all DC agents and proxy servers.
+
+   If an Azure tenant registration mismatch condition does exist, this can be repaired by running the `Register-AzureADPasswordProtectionProxy` and/or `Register-AzureADPasswordProtectionForest` PowerShell cmdlets as needed, making sure to use credentials from the same Azure tenant for all registrations.
 
 ## The DC agent is unable to encrypt or decrypt password policy files and other state
 

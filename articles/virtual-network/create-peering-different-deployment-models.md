@@ -3,8 +3,8 @@ title: Create an Azure virtual network peering - different deployment models - s
 description: Learn how to create a virtual network peering between virtual networks created through different Azure deployment models that exist in the same Azure subscription.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
-ms.author: jdial;anavin
+ms.author: kumud
+ms.reviewer: anavin
 ---
 # Create a virtual network peering - different deployment models, same subscription
 

@@ -30,7 +30,7 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
 1. Download the data from Azure blob with the following Python code sample using blob service. Replace the variable in the following code with your specific values:
 
 ```python
-from azure.storage.blob import BlobService
+from azure.storage.blob import BlockBlobService
 import tables
 
 STORAGEACCOUNTNAME= <storage_account_name>
@@ -41,7 +41,7 @@ BLOBNAME= <blob_name>
 
 #download from blob
 t1=time.time()
-blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
+blob_service=BlockBlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
 blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
 t2=time.time()
 print(("It takes %s seconds to download "+blobname) % (t2 - t1))
@@ -50,7 +50,7 @@ print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 1. Read the data into a pandas DataFrame from the downloaded file.
 
 ```python
-#LOCALFILE is the file path
+# LOCALFILE is the file path
 dataframe_blobdata = pd.read_csv(LOCALFILE)
 ```
 
@@ -109,7 +109,8 @@ dataframe_blobdata_noNA.shape
 Another way to replace missing values is with the mode function:
 
 ```python
-dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})
+dataframe_blobdata_mode = dataframe_blobdata.fillna(
+    {'<column_name>': dataframe_blobdata['<column_name>'].mode()[0]})
 ```
 
 1. Create a **histogram** plot using variable number of bins to plot the distribution of a variable
@@ -123,9 +124,9 @@ np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
 1. Look at **correlations** between variables using a scatterplot or using the built-in correlation function
 
 ```python
-#relationship between column_a and column_b using scatter plot
+# relationship between column_a and column_b using scatter plot
 plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
 
-#correlation between column_a and column_b
+# correlation between column_a and column_b
 dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 ```

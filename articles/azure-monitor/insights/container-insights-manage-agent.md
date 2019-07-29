@@ -31,7 +31,7 @@ The process to upgrade the agent consists of two straight forward steps. The fir
 >While you are performing this maintenance activity, the nodes in the cluster are not forwarding collected data, and performance views will not show data between the time you remove the agent and install the new version. 
 >
 
-To install the new version of the agent, follow the steps described in the [Onboard monitoring](container-insights-onboard.md?#enable-using-azure-cli) article using Azure CLI, to complete this process.  
+To install the new version of the agent, follow the steps described in the [enable monitoring using Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli), to complete this process.  
 
 After you've re-enabled monitoring, it might take about 15 minutes before you can view  updated health metrics for the cluster. To verify the agent upgraded successfully, run the command: `kubectl logs omsagent-484hw --namespace=kube-system`
 

@@ -93,7 +93,6 @@
         "jomolnar",
         "KatieCumming",
         "rjagiewich",
-        "v-thepet",
         "deneha",
         "ktoliver",
         "itechedit",
@@ -102,8 +101,19 @@
         "GitHubber17",
         "v-shils",
         "rmca14",
+        "trishamc",
+        "Jak-MS",
+        "garycentric",
+        "jborsecnik",
+        "Kellylorenebaker",
+        "ShannonLeavitt",
+        "v-albemi",
+        "v-dansch",
+        "chbain",
+        "atookey",
         "tfosmark",
-        "sdwheeler"
+        "sdwheeler",
+        "meganbradley"
       ],
       "_op_documentIdPathDepotMapping": {
         "articles/iot-central/": {
@@ -216,12 +226,12 @@
         "articles/blockchain/**/*.md": "https://feedback.azure.com/forums/586780-blockchain",
         "articles/cdn/**/*.md": "https://feedback.azure.com/forums/169397-cdn",
         "articles/chef/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "articles/china/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/cloud-partner-portal/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/cloud-services/**/*.md": "https://feedback.azure.com/forums/169386-cloud-services-web-and-worker-role",
         "articles/cloud-shell/**/*.md": "https://feedback.azure.com/forums/598699-azure-cloud-shell",
         "articles/cloudfoundry/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/cognitive-services/Academic-Knowledge/**/*.md": "https://cognitive.uservoice.com/forums/555931-academic-knowledge",
+        "articles/cognitive-services/Anomaly-Detector/**/*.md": "https://cognitive.uservoice.com/forums/912196-anomaly-detector",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "https://cognitive.uservoice.com/forums/598198-bing-autosuggest",
         "articles/cognitive-services/Bing-Custom-Search**/*.md": "https://cognitive.uservoice.com/forums/598147-bing-custom-search",
         "articles/cognitive-services/Bing-Entities-Search/**/*.md": "https://cognitive.uservoice.com/forums/601036-bing-entity-search",
@@ -262,6 +272,7 @@
         "articles/data-factory/**/*.md": "https://feedback.azure.com/forums/270578-data-factory",
         "articles/data-lake-analytics/**/*.md": "https://feedback.azure.com/forums/327234-data-lake",
         "articles/data-lake-store/**/*.md": "https://feedback.azure.com/forums/327234-data-lake",
+        "articles/data-share/**/*.md": "https://feedback.azure.com/forums/922759-azure-data-share-public-preview",
         "articles/dev-spaces/**/*.md": "https://github.com/Azure/dev-spaces/issues",
         "articles/devtest-lab/**/*.md": "https://feedback.azure.com/forums/320373-devtest-labs",
         "articles/digital-twins/**/*.md": "https://feedback.azure.com/forums/916621-azure-digital-twins",
@@ -287,6 +298,7 @@
         "articles/iot-suite/**/*.md": "https://feedback.azure.com/forums/321918-azure-iot",
         "articles/jenkins/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/key-vault/**/*.md": "https://feedback.azure.com/forums/906355-azure-key-vault",
+        "articles/lighthouse/**/*.md": "https://feedback.azure.com/forums/922753-azure-lighthouse",
         "articles/load-balancer/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77467",
         "articles/log-analytics/**/*.md": "https://feedback.azure.com/forums/267889-log-analytics",
         "articles/logic-apps/**/*.md": "https://feedback.azure.com/forums/287593-logic-apps",
@@ -336,6 +348,7 @@
         "articles/terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/time-series-insights/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/traffic-manager/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77466",
+        "articles/virtual-desktop/**/*.md": "https://windowsvirtualdesktop.uservoice.com/forums/921118-general",
         "articles/virtual-machine-scale-sets/**/*.md": "https://feedback.azure.com/forums/216843-virtual-machines",
         "articles/virtual-machines/**/*.md": "https://feedback.azure.com/forums/216843-virtual-machines",
         "articles/virtual-network/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77469",
@@ -373,7 +386,11 @@
       "titleSuffix": {
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/policy/**/*.md": "Azure Policy",
-        "articles/governance/resource-graph/**/*.md": "Azure Resource Graph"
+        "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
+        "articles/lighthouse/**/*.md": "Azure Lighthouse"
+      },
+      "manager": {
+        "articles/sql-database/**/*.md": "jroth"
       },
       "featureFlags": {
         "articles/**/*.md": [

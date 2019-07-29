@@ -26,7 +26,7 @@
       href: understand-cost-mgt-data.md
     - name: Understand and work with scopes
       href: understand-work-scopes.md
-    - name: Migrate from EA to MCA APIs 
+    - name: Migrate from EA to MCA APIs
       href: migrate-cost-management-api.md
   - name: How-to guides
     items:
@@ -34,6 +34,10 @@
       href: assign-access-acm-data.md
     - name: Use cost alerts
       href: cost-mgt-alerts-monitor-usage-spending.md
+    - name: Set up and configure AWS integration
+      href: aws-integration-set-up-configure.md
+    - name: Manage AWS cost and usage
+      href: aws-integration-manage.md
   - name: Reference
     items:
     - name: Azure Cost Management REST API
@@ -42,6 +46,8 @@
       href: https://docs.microsoft.com/rest/api/consumption
     - name: Resource Manager template
       href: /azure/templates/microsoft.consumption/budgets
+    - name: Cost Management REST API Samples
+      href: https://github.com/Azure-Samples/Cost-Management-Samples
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn

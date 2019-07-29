@@ -1,24 +1,29 @@
 ---
-title: Azure Data Factory Data Flow Derived Column Transformation
-description: Azure Data Factory Data Flow Derived Column Transformation
+title: Derived Column transformation in Mapping Data Flow - Azure Data Factory | Microsoft Docs
+description: Learn how to transform data at scale in Azure Data Factory with the Mapping Data Flow Derived Column transformation.
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
 ---
 
-# Azure Data Factory Data Flow Derived Column Transformation
+# Derived Column transformation in Mapping Data Flow
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Use the Derived Column transformation to generate new columns in your data flow or to modify existing fields.
 
-![derive column](media/data-flow/dc1.png "Derived Column")
+## Derived Column settings
 
-You can perform multiple Derived Column actions in a single Derived Column transformation. Click "Add Column" to transform more than 1 column in the single transformation step.
+To override an existing column, select it via the column dropdown. Otherwise, use the column selection field as a textbox and type in the new column's name. To build the derived column's expression, click on the 'Enter expression' box to open up the [Data Flow Expression Builder](concepts-data-flow-expression-builder.md).
 
-In the Column field, either select an existing column to overwrite with a new derived value, or click "Create New Column" to generate a new column with the newly derived value.
+![Derived column settings](media/data-flow/dc1.png "Derived column settings")
 
-The Expression text box will open the Expression Builder where you can build the expression for the derived columns using expression functions.
+To add additional derived columns, hover over an existing derived column and click '+'. Then, choose either 'Add column' or 'Add column pattern'. Column patterns may come in handy if your column names are variable from your sources. For more information, see [Column Patterns](concepts-data-flow-column-pattern.md).
+
+![New derived column selection](media/data-flow/columnpattern.png "New derived column selection")
+
+## Next steps
+
+- Learn more about the [Mapping Data Flow expression language](data-flow-expression-functions.md).

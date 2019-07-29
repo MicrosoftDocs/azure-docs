@@ -1,20 +1,12 @@
 ---
-title: Azure and Dynamics 365 consulting service offer | Microsoft Docs
+title: Azure and Dynamics 365 consulting service offer | Azure Marketplace
 description: Guide for defining and publishing an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: qianw211
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Azure and Dynamics 365 consulting service offer

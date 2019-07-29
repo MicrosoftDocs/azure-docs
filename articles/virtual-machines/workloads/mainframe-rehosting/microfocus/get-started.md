@@ -1,13 +1,11 @@
 ---
 title: Micro Focus dev/test environments on Azure | Microsoft Docs
 description: Rehost your IBM z/OS mainframe workloads using Micro Focus solutions on Azure virtual machines (VMs).
-services: virtual-machines-linux
-documentationcenter:
 author: njray
-manager: edprice
-editor: edprice
-tags:
-keywords:
+ms.author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
 ---
 
 # Micro Focus dev/test environments on Azure
@@ -20,5 +18,6 @@ Micro Focus offers development rehosting and test rehosting solutions that exten
 
 **Next steps**
 
-- [Install Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 on Azure](./set-up-micro-focus-on-azure.md)
+- [Install Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 on Azure](./set-up-micro-focus-azure.md)
 - [Set up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 in Azure](./demo.md)
+- [Run Enterprise Server in Docker containers on Azure](./run-enterprise-server-container.md)

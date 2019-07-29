@@ -121,6 +121,9 @@ Sometimes you don't want to back up everything on your app. Here are a few examp
 
 Partial backups allow you choose exactly which files you want to back up.
 
+> [!NOTE]
+> Individual databases in the backup can be 4GB max but the total max size of the backup is 10GB
+
 ### Exclude files from your backup
 Suppose you have an app that contains log files and static images that have been backup once and are not going to change. In such cases, you can exclude those folders and files from being stored in your future backups. To exclude files and folders from your backups, create a `_backup.filter` file in the `D:\home\site\wwwroot` folder of your app. Specify the list of files and folders you want to exclude in this file. 
 

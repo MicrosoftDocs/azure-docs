@@ -1,0 +1,98 @@
+- name: Personalizer Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Personalizer?
+    href: what-is-personalizer.md
+    displayName: loop, context, feature, action, rank, reward, developer, use case
+- name: Quickstarts
+  items:
+  - name: Create and use feedback loop
+    href: csharp-quickstart-commandline-feedback-loop.md
+    displayName: code, sample, quickstart, c#
+- name: Concepts
+  items:
+  - name: How Personalizer works
+    href: how-personalizer-works.md
+    displayName: rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model
+  - name: Where can you use Personalizer?
+    href: where-can-you-use-personalizer.md
+    displayName: checklist, considerations, effectiveness, recommendation engine
+  - name: Ethics & responsible use
+    href: ethics-responsible-use.md
+    displayName: best practice, design
+  - name: Fundamental concepts
+    items: 
+    - name: "Features Action and Context"
+      href: concepts-features.md
+      displayName: action, context, feature, namespace, JSON, best practice, set
+    - name: Active learning
+      href: concept-active-learning.md
+      displayName: active, inactive
+    - name: Rewards
+      href: concept-rewards.md
+      displayName: reward, wait time, default reward 
+    - name: Reinforcement learning
+      href: concepts-reinforcement-learning.md
+      displayName: RL, contextual bandits, Vowpal Wabbit
+    - name: Exploration
+      href: concepts-exploration.md
+  - name: Analysis
+    items: 
+    - name: Offline evaluation
+      href: concepts-offline-evaluation.md
+      displayName: learning policy, Counterfactual, features
+  - name: Scalability and performance
+    href: concepts-scalability-performance.md 
+- name: How-to guides
+  items:
+  - name: Create and configure Personalizer
+    href: how-to-settings.md
+    displayName: azure, portal, settings, evaluation, offline, policy, export, model
+  - name: Analyze
+    items: 
+    - name: Offline evaluation
+      href: how-to-offline-evaluation.md    
+- name: Reference
+  items:
+  - name: Samples
+    href: https://go.microsoft.com/fwlink/?linkid=2092083
+  - name: REST API Reference
+    href: https://go.microsoft.com/fwlink/?linkid=2092082
+  - name: SDKs
+    items:
+    - name: .NET
+      items: 
+      - name: .NET SDK Reference 
+        href: https://go.microsoft.com/fwlink/?linkid=2092353
+      - name: NuGet package
+        href: https://go.microsoft.com/fwlink/?linkid=2092272
+    - name: Go
+      items:
+      - name: SDK 
+        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer
+    - name: Node.js
+      items:
+      - name: NPM 
+        href: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
+    - name: Python
+      items: 
+      - name: Pypi package
+        href: https://pypi.org/project/azure-cognitiveservices-personalizer/
+- name: Resources
+  items:
+  - name: Troubleshooting
+    href: troubleshooting.md
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
+  - name: Azure Roadmap
+    href: https://go.microsoft.com/fwlink/?linkid=2092153
+  - name: Pricing 
+    href: https://go.microsoft.com/fwlink/?linkid=2092154
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/personalizer
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/921562-personalizer        

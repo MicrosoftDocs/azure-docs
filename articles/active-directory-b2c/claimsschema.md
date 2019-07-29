@@ -2,14 +2,14 @@
 title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: Specify the ClaimsSchema element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-The **ClaimsSchema** element defines the claim types that can be referenced as part of the policy. Claims schema is the place where you declare your claims. A claim can be first name, last name, display name, phone number and more. ClaimsSchema element contains list of **ClaimType** elements. The **ClaimType** element contains the **Id** attribute, which is the claim name. 
+The **ClaimsSchema** element defines the claim types that can be referenced as part of the policy. Claims schema is the place where you declare your claims. A claim can be first name, last name, display name, phone number and more. ClaimsSchema element contains list of **ClaimType** elements. The **ClaimType** element contains the **Id** attribute, which is the claim name.
 
 ```XML
 <BuildingBlocks>
@@ -85,7 +85,7 @@ In the following example, when the Identity Experience Framework interacts with 
 ```
 
 As a result, the JWT token issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
- 
+
 ```JSON
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
@@ -111,14 +111,14 @@ The following example configures a **PhoneNumber** claim with the `Simple` mask:
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
-  <Mask Type="Simple">XXX-XXX-</Mask>  
+  <Mask Type="Simple">XXX-XXX-</Mask>
   <UserHelpText>Your telephone number.</UserHelpText>
 </ClaimType>
 ```
 
 The Identity Experience Framework renders the phone number while hiding the first six digits:
 
-![Using claim type with mask](./media/claimsschema/mask.png)
+![Phone number claim shown in browser with first six digits masked by Xs](./media/claimsschema/mask.png)
 
 The following example configures a **AlternateEmail** claim with the `Regex` mask:
 
@@ -133,7 +133,7 @@ The following example configures a **AlternateEmail** claim with the `Regex` mas
 
 The Identity Experience Framework renders only the first letter of the email address and the email domain name:
 
-![Using claim type with mask](./media/claimsschema/mask-regex.png)
+![Email claim shown in browser with characters masked by asterisks](./media/claimsschema/mask-regex.png)
 
 
 ### Restriction
@@ -175,10 +175,10 @@ The following example configures a **city** dropdown list claim with a default v
   </Restriction>
 </ClaimType>
 ```
+
 Dropdown city list with a default value set to New York:
 
-![Dropdown city list](./media/claimsschema/dropdownsingleselect.png)
-
+![Dropdown control rendered in browser and showing default value](./media/claimsschema/dropdownsingleselect.png)
 
 ### Pattern
 
@@ -208,7 +208,7 @@ The following example configures an **email** claim with regular expression inpu
 
 The Identity Experience Framework renders the email address claim with email format input validation:
 
-![Using claim type with pattern](./media/claimsschema/pattern.png)
+![TextBox showing error message triggered by regex restriction](./media/claimsschema/pattern.png)
 
 ## UserInputType
 
@@ -218,7 +218,7 @@ Azure AD B2C supports a variety of user input types, such as a textbox, password
 
 The **TextBox** user input type is used to provide a single-line text box.
 
-![Using claim type with textbox](./media/claimsschema/textbox.png)
+![TextBox showing properties specified in claim type](./media/claimsschema/textbox.png)
 
 ```XML
 <ClaimType Id="displayName">
@@ -233,7 +233,7 @@ The **TextBox** user input type is used to provide a single-line text box.
 
 The **EmailBox** user input type is used to provide a basic email input field.
 
-![Using claim type with emailbox](./media/claimsschema/emailbox.png)
+![EmailBox showing properties specified in claim type](./media/claimsschema/emailbox.png)
 
 ```XML
 <ClaimType Id="email">
@@ -293,7 +293,7 @@ The **RadioSingleSelect** user input type is used to provide a collection of rad
     <Enumeration Text="Green " Value="Green" SelectByDefault="false" />
     <Enumeration Text="Orange" Value="Orange" SelectByDefault="true" />
   </Restriction>
-</ClaimType>	
+</ClaimType>
 ```
 
 ### DropdownSingleSelect
@@ -371,4 +371,4 @@ The **Paragraph** user input type is used to provide a field that shows text onl
 </ClaimType>
 ```
 
-To display one of the **Enumeration** values in a **responseMsg** claim, use `GetMappedValueFromLocalizedCollection` or `CreateStringClaim` claims transformation. For more information, see [String Claims Transformations](string-transformations.md) 
+To display one of the **Enumeration** values in a **responseMsg** claim, use `GetMappedValueFromLocalizedCollection` or `CreateStringClaim` claims transformation. For more information, see [String Claims Transformations](string-transformations.md)

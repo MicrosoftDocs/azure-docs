@@ -4,8 +4,8 @@ description: This article provides information troubleshooting Azure Automation 
 services: automation
 ms.service: automation
 ms.subservice: 
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
@@ -189,7 +189,7 @@ Start-Service -Name HealthService
 You receive the following message when trying to add a Hybrid Runbook Worker using the `Add-HybridRunbookWorker` cmdlet.
 
 ```error
-Machine is already registered to a different account
+Machine is already registered
 ```
 
 #### Cause

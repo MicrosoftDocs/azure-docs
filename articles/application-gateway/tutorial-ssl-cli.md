@@ -8,15 +8,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
 ---
-# Tutorial: Create an application gateway with SSL termination using the Azure CLI
+# Create an application gateway with SSL termination using the Azure CLI
 
 You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for [SSL termination](ssl-overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a self-signed certificate
@@ -24,17 +24,17 @@ In this tutorial, you learn how to:
 > * Create an application gateway with the certificate
 > * Create a virtual machine scale set with the default backend pool
 
-If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-ssl-powershell.md).
+If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-ssl-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires you to run the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires you to run the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a self-signed certificate
 
-For production use, you should import a valid certificate signed by trusted provider. For this tutorial, you create a self-signed certificate and pfx file using the openssl command.
+For production use, you should import a valid certificate signed by trusted provider. For this article, you create a self-signed certificate and pfx file using the openssl command.
 
 ```azurecli-interactive
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -178,5 +178,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create an application gateway that hosts multiple web sites](./tutorial-multiple-sites-cli.md)
+* [Create an application gateway that hosts multiple web sites](./tutorial-multiple-sites-cli.md)

@@ -2,14 +2,14 @@
 title: Define a RESTful technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
 description: Define a RESTful technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -180,7 +180,7 @@ The following example shows a REST API that returns an error message formatted i
 
 The following example shows a C# class that returns an error message:
 
-```C#
+```csharp
 public class ResponseContent
 {
   public string version { get; set; }

@@ -79,7 +79,7 @@ When groups have been imported, the menu lists the number of computers with grou
 ### System Center Configuration Manager
 When you configure Azure Monitor to import Configuration Manager collection memberships, it creates a computer group for each collection.  The collection membership information is retrieved every 3 hours to keep the  computer groups current. 
 
-Before you can import Configuration Manager collections, you must [connect Configuration Manager to Azure Monitor](collect-sccm.md).  You can then configure the import from **Advanced settings** in your Log Analytics workspace in the Azure portal.  Select **Computer Groups**, **SCCM**, and then **Import Configuration Manager collection memberships**.  There is no further configuration required.
+Before you can import Configuration Manager collections, you must [connect Configuration Manager to Azure Monitor](collect-sccm.md).  
 
 ![Computer groups from SCCM](media/computer-groups/configure-sccm.png)
 
@@ -122,15 +122,15 @@ A record is created in the Log Analytics workspace for each computer group membe
 
 | Property | Description |
 |:--- |:--- |
-| Type |*ComputerGroup* |
-| SourceSystem |*SourceSystem* |
-| Computer |Name of the member computer. |
-| Group |Name of the group. |
-| GroupFullName |Full path to the group including the source and source name. |
-| GroupSource |Source that group was collected from. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |Name of the source that the group was collected from.  For Active Directory, this is the domain name. |
-| ManagementGroupName |Name of the management group for SCOM agents.  For other agents, this is AOI-\<workspace ID\> |
-| TimeGenerated |Date and time the computer group was created or updated. |
+| `Type` |*ComputerGroup* |
+| `SourceSystem` |*SourceSystem* |
+| `Computer` |Name of the member computer. |
+| `Group` |Name of the group. |
+| `GroupFullName` |Full path to the group including the source and source name. |
+| `GroupSource` |Source that group was collected from. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSourceName` |Name of the source that the group was collected from.  For Active Directory, this is the domain name. |
+| `ManagementGroupName` |Name of the management group for SCOM agents.  For other agents, this is AOI-\<workspace ID\> |
+| `TimeGenerated` |Date and time the computer group was created or updated. |
 
 ## Next steps
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  

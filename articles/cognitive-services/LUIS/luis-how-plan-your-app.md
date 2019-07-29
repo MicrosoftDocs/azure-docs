@@ -1,6 +1,6 @@
 ---
-title: Plan your app
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Plan your app - LUIS
+titleSuffix: Azure Cognitive Services
 description: Outline relevant app intents and entities, and then create your application plans in Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
@@ -44,7 +44,7 @@ When you determine which entities to use in your app, keep in mind that there ar
 
 ## Next steps
 
-After your app is trained, published, and gets endpoint utterances, plan to implement prediction improvements with [active learning](luis-how-to-review-endoint-utt.md), [phrase lists](luis-concept-feature.md), and [patterns](luis-concept-patterns.md). 
+After your app is trained, published, and gets endpoint utterances, plan to implement prediction improvements with [active learning](luis-how-to-review-endpoint-utterances.md), [phrase lists](luis-concept-feature.md), and [patterns](luis-concept-patterns.md). 
 
 
 * See [Create your first Language Understanding Intelligent Services (LUIS) app](luis-get-started-create-app.md) for a quick walkthrough of how to create a LUIS app.

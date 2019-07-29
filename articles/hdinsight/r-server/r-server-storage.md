@@ -1,7 +1,6 @@
 ---
 title: Azure Storage solutions for ML Services on HDInsight - Azure 
 description: Learn about the different storage options available with ML Services on HDInsight
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -89,7 +88,7 @@ In your R code, point the name node reference to the **storage2** storage accoun
 
 All of the directory and file references now point to the storage account `wasb://container2@storage2.blob.core.windows.net`. This is the **Name Node** that you’ve specified.
 
-You have to configure the /user/RevoShare/<SSH username> directory on **storage2** as follows:
+You have to configure the `/user/RevoShare/<SSH username>` directory on **storage2** as follows:
 
 
 	hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
@@ -164,6 +163,5 @@ A major benefit of Azure Files is that the file shares can be mounted and used b
 ## Next steps
 
 * [Overview of ML Services cluster on HDInsight](r-server-overview.md)
-* [Get started with ML Services cluster on Apache Hadoop](r-server-get-started.md)
 * [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md)
 * [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

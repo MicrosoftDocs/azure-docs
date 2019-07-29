@@ -5,13 +5,13 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
 ---
 # Stream Azure Diagnostic Logs to Log Analytics workspace in Azure Monitor
 
-**[Azure diagnostic logs](diagnostic-logs-overview.md)** can be streamed in near real time to a Log Analytics workspace in Azure Monitor using the portal, PowerShell cmdlets or Azure CLI.
+**[Azure diagnostic logs](diagnostic-logs-overview.md)** can be streamed in near real time to a Log Analytics workspace in Azure Monitor using the portal, PowerShell cmdlets, or Azure CLI.
 
 ## What you can do with diagnostics logs in a Log Analytics workspace
 
@@ -54,7 +54,7 @@ The Log Analytics workspace does not have to be in the same subscription as the 
 
 4. Click **Save**.
 
-After a few moments, the new setting appears in your list of settings for this resource, and diagnostic logs are streamed to that workspace as soon as new event data is generated. Note that there may be up to fifteen minutes between when an event is emitted and when it appears in Log Analytics.
+After a few moments, the new setting appears in your list of settings for this resource, and diagnostic logs are streamed to that workspace as soon as new event data is generated. There may be up to 15 minutes between when an event is emitted and when it appears in Log Analytics.
 
 ### Via PowerShell Cmdlets
 
@@ -93,37 +93,105 @@ The `--resource-group` argument is only required if `--workspace` is not an obje
 
 In the Logs blade in the Azure Monitor portal, you can query diagnostic logs as part of the Log Management solution under the AzureDiagnostics table. There are also [several monitoring solutions for Azure resources](../../azure-monitor/insights/solutions.md) you can install to get immediate insight into the log data you are sending into Azure Monitor.
 
+### Examples
+
+```Kusto
+// Resources that collect diagnostic logs into this Log Analytics workspace, using Diagnostic Settings
+AzureDiagnostics
+| distinct _ResourceId
+```
+```Kusto
+// Resource providers collecting diagnostic logs into this Log Analytics worksapce, with log volume per category
+AzureDiagnostics
+| summarize count() by ResourceProvider, Category
+```
+```Kusto
+// Resource types collecting diagnostic logs into this Log Analytics workspace, with number of resources onboarded
+AzureDiagnostics
+| summarize ResourcesOnboarded=dcount(_ResourceId) by ResourceType
+```
+```Kusto
+// Operations logged by specific resource provider, in this example - KeyVault
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.KEYVAULT"
+| distinct OperationName
+```
+
+## Azure Diagnostics vs Resource-Specific  
+Once a Log Analytics destination is enabled in an Azure Diagnostics configuration, there are two distinct ways that data will show up in your workspace:  
+- **Azure Diagnostics** - This is the legacy method used today by the majority of Azure services. In this mode, all the data from any Diagnostic Setting pointed to a given workspace will end up in the _AzureDiagnostics_ table. 
+<br><br>Because many resources send data to the same table (_AzureDiagnostics_), the schema of this table is the super-set of the schemas of all the different data types being collected. For example, if you have created Diagnostic Settings for the collection of the following data types, all being sent to the same workspace:
+    - Audit logs of Resource 1 (having a schema consisting of columns A, B, and C)  
+    - Error logs of Resource 2 (having a schema consisting of columns D, E, and F)  
+    - Data flow logs of Resource 3 (having a schema consisting of columns G, H, and I)  
+
+    The AzureDiagnostics table will look as follows, with some sample data:  
+
+    | ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
+    | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+    | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+    | Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+    | Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+    | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+    | ... |
+
+- **Resource-Specific** - In this mode, individual tables in the selected workspace are created per each category selected in the Diagnostic Settings configuration. This newer method makes it much easier to find exactly you want to find through explicit separation of concerns: a table for every category. Additionally, it provides benefits in its support for dynamic types. You can already see this mode for select Azure resource types, for example [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) or [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) logs. Ultimately, we expect every data type to migrate to the Resource-Specific mode. 
+
+    In the example above, this would result in three tables being created: 
+    - Table _AuditLogs_ as follows:
+
+        | ResourceProvider | Category | A | B | C |
+        | -- | -- | -- | -- | -- |
+        | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+        | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+        | ... |
+
+    - Table _ErrorLogs_ as follows:  
+
+        | ResourceProvider | Category | D | E | F |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource2 | ErrorLogs | q1 | w1 | e1 |
+        | Microsoft.Resource2 | ErrorLogs | q2 | w2 | e2 |
+        | ... |
+
+    - Table _DataFlowLogs_ as follows:  
+
+        | ResourceProvider | Category | G | H | I |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource3 | DataFlowLogs | j1 | k1 | l1|
+        | Microsoft.Resource3 | DataFlowLogs | j3 | k3 | l3|
+        | ... |
+
+    Other benefits of using the Resource-Specific mode include improved performance across both ingestion latency and query times, better discoverability of schemas and their structure, the ability to grant RBAC rights on a specific table, and more.
+
+### Selecting Azure Diagnostic vs Resource-Specific mode
+For most Azure resources, you will not have a choice whether to use the Azure Diagnostic or Resource-Specific mode; the data will automatically flow through the method that the resource has selected to use. Please see the documentation provided by the resource you've enabled to send data to Log Analytics for details on which mode is being employed. 
+
+As stated in the previous section, it is ultimately the goal of Azure Monitor to have all services in Azure use the Resource-Specific mode. To facilitate this transition and ensure that no data is lost as part of it, some Azure services when onboarding to Log Analytics will provide you with a selection of mode:  
+   ![Diagnostic Settings mode selector](media/diagnostic-logs-stream-log-store/diagnostic-settings-mode-selector.png)
+
+We **strongly** recommend that, to avoid potentially difficult migrations down the road, any newly created Diagnostic Settings use the Resource Centric mode.  
+
+For existing Diagnostic Settings, once enabled by a particular Azure Resource, you will be able to retroactively switch from the Azure Diagnostic to the Resource-Specific mode. Your previously-ingested data will continue to be available in the _AzureDiagnostics_ table until it ages out as configured in your retention setting on the workspace, but any new data will be sent to the dedicated table. This means that for any queries that have to span both the old data and new (until the old data fully ages out), a [union](https://docs.microsoft.com/azure/kusto/query/unionoperator) operator in your queries will be required to combine the two data sets.
+
+Please look for news about new Azure services supporting logs in the Resource-Specific mode on the [Azure Updates](https://azure.microsoft.com/updates/) blog!
+
 ### Known limitation: column limit in AzureDiagnostics
-Because many resources send data types are all sent to the same table (_AzureDiagnostics_), the schema of this table is the super-set of the schemas of all the different data types being collected. For example, if you have created diagnostic settings for the collection of the following data types, all being sent to the same workspace:
-- Audit logs of Resource 1 (having a schema consisting of columns A, B, and C)  
-- Error logs of Resource 2 (having a schema consisting of columns D, E, and F)  
-- Data flow logs of Resource 3 (having a schema consisting of columns G, H, and I)  
- 
-The AzureDiagnostics table will look as follows, with some sample data:  
- 
-| ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
-| Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
-| Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
-| Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
-| ... |
- 
-There is an explicit limit of any given Azure Log table not having more than 500 columns. Once reached, any rows containing data with any column outside of the first 500 will be dropped at ingestion-time. The AzureDiagnostics table is in particular susceptible to be impacted this limit. This typically happens either because a large variety of data sources are sent to the same workspace, or several very verbose data sources being sent to the same workspace. 
- 
+There is an explicit limit of any given Azure Log table not having more than 500 columns. Once reached, any rows containing data with any column outside of the first 500 will be dropped at ingestion-time. The AzureDiagnostics table is in particular susceptible to be impacted this limit. This typically happens either because a large variety of data sources are sent to the same workspace, or several verbose data sources being sent to the same workspace. 
+
 #### Azure Data Factory  
-Azure Data Factory, due to a very detailed set of logs, is a resource that is known to be particularly impacted by this limit. In particular:  
+Azure Data Factory, because of a very detailed set of logs, is a resource that is known to be particularly impacted by this limit. In particular, for any Diagnostic Settings configured before the Resource-Specific mode was enabled or explicitly choosing to use the Resource-Specific mode for reverse-compatibility reasons:  
 - *User parameters defined against any activity in your pipeline*: there will be a new column created for every uniquely-named user parameter against any activity. 
-- *Activity inputs and outputs*: these vary activity-to-activity and generate a large amount of columns due to their verbose nature. 
+- *Activity inputs and outputs*: these vary activity-to-activity and generate a large number of columns because of their verbose nature. 
  
-As with the broader workaround proposals below, it is recommended to isolate ADF logs into their own workspace to minimize the chance of these logs impacting other log types being collected in your workspaces. We expect to have curated logs for Azure Data Factory available by mid-April 2019.
+As with the broader workaround proposals below, it is recommended to migrate your logs to use the Resource-Specific mode as soon as possible. If you are unable to do so immediately, an interim alternative is to isolate ADF logs into their own workspace to minimize the chance of these logs impacting other log types being collected in your workspaces. 
  
 #### Workarounds
-Short term, until the 500-column limit is redefined, it is recommended to separate verbose data types into separate workspaces to reduce the possibility of hitting the limit.
+Short term, until all Azure services are enabled in the Resource-Specific mode, for any services not yet supporting the Resource-Specific mode, it is recommended to separate verbose data types published by these services into separate workspaces to reduce the possibility of hitting the limit.  
  
-Longer term, Azure Diagnostics will be moving away from a unified, sparse schema into individual tables per each data type; paired with support for dynamic types, this will greatly improve the usability of data coming into Azure Logs through the Azure Diagnostics mechanism. You can already see this for select Azure resource types, for example [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) or [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) logs. Please look for news about new resource types in Azure supporting these curated logs on the [Azure Updates](https://azure.microsoft.com/updates/) blog!
+Longer term, Azure Diagnostics will be moving towards all Azure services supporting the Resource-Specific mode. We recommend the move to this mode as soon as possible to reduce the potential of being impacted by this 500 column limitation.  
 
 
 ## Next steps

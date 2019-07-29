@@ -1,7 +1,6 @@
 ---
 title: Sample - Audit SQL Server level audit setting
 description: This sample policy definition audits SQL server audit settings if those settings do not match a specified setting.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

@@ -159,11 +159,11 @@ To configure Azure AD single sign-on with Jamf Pro, perform the following steps:
 
 	![Jamf Pro Configuration](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-	a. Select **Other** as a option from the **IDENTITY PROVIDER** dropdown.
+	a. Select **Other** as an option from the **IDENTITY PROVIDER** dropdown.
 
 	b. In the **OTHER PROVIDER** textbox, enter **Azure AD**.
 
-	c. Select **Metadata URL** as a option from the **IDENTITY PROVIDER METADATA SOURCE** dropdown and in the following textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal.
+	c. Select **Metadata URL** as an option from the **IDENTITY PROVIDER METADATA SOURCE** dropdown and in the following textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal.
 
 	d. Copy the **Entity ID** value and paste it into the **Identifier (Entity ID)** textbox in **Jamf Pro Domain and URLs** section on Azure portal.
 
@@ -277,4 +277,4 @@ When you click the Jamf Pro tile in the Access Panel, you should be automaticall
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

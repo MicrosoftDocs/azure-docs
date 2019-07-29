@@ -86,6 +86,8 @@
     href: cal-s4h.md
   - name: SAP HANA infrastructure configurations and operations on Azure
     href: hana-vm-operations.md
+  - name: SAP HANA Azure virtual machine storage configurations
+    href: hana-vm-operations-storage.md
   - name: SAP HANA Availability in Azure Virtual Machines
     items:
     - name: SAP HANA on Azure Availability overview
@@ -122,8 +124,12 @@
       href: dbms_guide_sqlserver.md
     - name: Oracle Azure Virtual Machines DBMS deployment for SAP workload
       href: dbms_guide_oracle.md
-    - name: IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload
+    - name: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload
       href: dbms_guide_ibm.md
+    - name: High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server
+      href: dbms-guide-ha-ibm.md
+    - name: High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server
+      href: high-availability-guide-rhel-ibm-db2-luw.md
     - name: SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
       href: dbms_guide_sapase.md
     - name: SAP MaxDB, liveCache and Content Server deployment on Azure
@@ -164,6 +170,8 @@
         href: high-availability-guide-suse-netapp-files.md
       - name: HA on Red Hat Enterprise Linux for (A)SCS Instance
         href: high-availability-guide-rhel.md
+      - name: HA on Red Hat Enterprise Linux for (A)SCS Instance with Azure NetApp Files
+        href: high-availability-guide-rhel-netapp-files.md
     - name: Azure Infrastructure Preparation
       items:
       - name: Windows with Shared Disk for (A)SCS Instance
@@ -190,6 +198,8 @@
         href: high-availability-guide-suse-netapp-files.md
       - name: High availability for SAP NetWeaver on Red Hat Enterprise Linux
         href: high-availability-guide-rhel.md
+      - name: Red Hat Enterprise Linux with NFS for (A)SCS Instance with Azure NetApp Files
+        href: high-availability-guide-rhel-netapp-files.md
     - name: SAP Multi-SID
       items:
       - name: Windows with Shared Disk for (A)SCS Instance
@@ -198,6 +208,8 @@
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
   - name: Azure Site Recovery for SAP Disaster Recovery
     href: ../../../site-recovery/site-recovery-workload.md#protect-sap
+  - name: Azure Proximity Placement Groups for optimal network latency with SAP applications
+    href: sap-proximity-placement-scenarios.md
 - name: AAD SAP Identity Integration and Single-Sign-On
   items:
   - name: Integration with SAP Cloud

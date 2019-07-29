@@ -1,18 +1,17 @@
 ---
-title: 'Quickstart: Ingest data from Kafka into Azure Data Explorer'
-description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer from Kafka.'
-services: data-explorer
+title: 'Ingest data from Kafka into Azure Data Explorer'
+description: In this article, you learn how to ingest (load) data into Azure Data Explorer from Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/19/2018
+ms.topic: conceptual
+ms.date: 06/03/2019
  
 #Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from Kafka, so I can analyze streaming data.
 ---
  
-# Quickstart: Ingest data from Kafka into Azure Data Explorer
+# Ingest data from Kafka into Azure Data Explorer
  
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Kafka. Kafka is a distributed streaming platform that allows building of real-time streaming data pipelines that reliably move data between systems or applications.
  
@@ -20,11 +19,11 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
  
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. 
  
-* [A test cluster and database](create-cluster-database-portal.md)
+* [A test cluster and database](create-cluster-database-portal.md).
  
-* [A sample app](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) that generates data and sends it to Kafka
+* [A sample app](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) that generates data and sends it to Kafka.
 
-* [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/) to run the sample app
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) to run the sample app.
  
 ## Kafka connector setup
 
@@ -161,5 +160,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## Next steps
  
-> [!div class="nextstepaction"]
-> [Quickstart: Query data in Azure Data Explorer](web-query-data.md)
+* [Query data in Azure Data Explorer](web-query-data.md)

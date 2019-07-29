@@ -3,8 +3,8 @@ title: Remove an application registered with the Microsoft identity platform | A
 description: Learn how to remove an application registered with the Microsoft identity platform.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an application developer, I want to know how to remove my application from the Microsoft identity registered.
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Remove an application registered with the Microsoft identity platform (Preview)
+# Quickstart: Remove an application registered with the Microsoft identity platform
 
 Enterprise developers and software-as-a-service (SaaS) providers who have registered applications with Microsoft identity platform may need to remove an application's registration.
 
@@ -32,10 +32,7 @@ In this quickstart, you'll learn how to:
 
 ## Prerequisites
 
-To get started, make sure you complete these prerequisites:
-
-* Have a tenant that has applications registered to it. To learn how to add and register apps, see [Register an application with the Microsoft identity platform](quickstart-register-app.md).
-* Opt-in to the Preview experience for app registrations in the Azure portal. The steps in this quickstart correspond to the new UI and only work if you opted-in to the Preview experience..
+You must have a tenant that has applications registered to it. To learn how to add and register apps, see [Register an application with the Microsoft identity platform](quickstart-register-app.md).
 
 ## Remove an application authored by you or your organization
 
@@ -45,7 +42,7 @@ Applications that you or your organization have registered are represented by bo
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
 2. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-3. In the left-hand navigation pane, select the **Azure Active Directory** service, then select **App registrations (Preview)**. Find and select the application that you want to configure. Once you've selected the app, you'll see the application's **Overview** page.
+3. In the left-hand navigation pane, select the **Azure Active Directory** service, then select **App registrations**. Find and select the application that you want to configure. Once you've selected the app, you'll see the application's **Overview** page.
 4. From the **Overview** page, select **Delete**.
 5. Select **Yes** to confirm that you want to delete the app.
 

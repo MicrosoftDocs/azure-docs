@@ -44,6 +44,8 @@
       href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Restore a deleted user    
       href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Close your account in an unmanaged directory
+      href: users-close-account.md
     - name: Add B2B users  
       href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Assign role to B2B user    
@@ -66,8 +68,6 @@
       href: domains-admin-takeover.md
     - name: Azure AD Connect    
       href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Configure company branding    
-      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Manage groups    
     items: 
     - name: Manage access with groups    
@@ -116,16 +116,18 @@
       href: licensing-groups-change-licenses.md
     - name: Additional scenarios    
       href: licensing-group-advanced.md
-    - name: Group licensing with PowerShell
+    - name: Group licensing with PowerShell and Graph
       href: licensing-ps-examples.md
     - name: Service plan IDs for licensing
       href: licensing-service-plan-reference.md
   - name: Azure AD administrator roles    
     items: 
-    - name: Roles and permissions 
+    - name: Roles and permissions
       href: directory-assign-admin-roles.md
     - name: View and assign roles   
       href: directory-manage-roles-portal.md
+    - name: Assign roles with PowerShell
+      href: roles-assign-powershell.md
     - name: Delegate app admin roles
       href: roles-delegate-app-roles.md
     - name: Least-privileged roles by task   
@@ -140,6 +142,14 @@
         href: directory-emergency-access.md
     - name: Administrative units    
       href: directory-administrative-units.md
+  - name: Manage sign-in
+    items:    
+    - name: Customize company branding    
+      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Sign-in options
+      href: signin-account-support.md
+    - name: Home Realm Discovery
+      href: signin-realm-discovery.md
   - name: Integrate services with Azure AD
     items: 
     - name: Integrate LinkedIn with Azure AD    

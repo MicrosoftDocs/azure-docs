@@ -4,7 +4,7 @@ description: Learn how to add an announcement to a lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
-manager: 
+manager:
 editor: ''
 
 ms.assetid: 67a09946-4584-425e-a94c-abe57c9cbb82
@@ -33,8 +33,8 @@ The announcement feature is meant to be used for temporary notifications.  You c
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. If necessary, select **All Services**, and then select **DevTest Labs** from the list. (Your lab might already be shown on the Dashboard under **All Resources**).
-1. From the list of labs, select the lab in which you want to post an announcement.  
-1. On the lab's **Overview** area, select **Configuration and policies**.  
+1. From the list of labs, select the lab in which you want to post an announcement.
+1. On the lab's **Overview** area, select **Configuration and policies**.
 
     ![Configuration and policies button](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
 
@@ -79,7 +79,7 @@ When you no longer want to show this announcement to lab users, return to the **
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Azure Resource Manager template
-You can specify an announcement as part of an Azure Resource Manager template as shown in the following example: 
+You can specify an announcement as part of an Azure Resource Manager template as shown in the following example:
 
 ```json
 {
@@ -115,7 +115,7 @@ You can specify an announcement as part of an Azure Resource Manager template as
                 "support": {
                     "markdown": "",
                     "enabled": "Enabled"
-                }                
+                }
             },
             "resources": [
                 {
@@ -163,4 +163,4 @@ You can deploy an Azure Resource Manager template by using one of the following 
 
 ## Next steps
 * If you change or set a lab policy, you might want to post an announcement to inform users. [Set policies and schedules](devtest-lab-set-lab-policy.md) provides information about applying restrictions and conventions across your subscription by using customized policies.
-* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

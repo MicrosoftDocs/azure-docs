@@ -32,7 +32,7 @@ Your Data Box Edge device can deploy and run IoT Edge modules. Edge modules are 
 2. The file event generator creates a file event for each file written to the local share. The file events are also generated when a file is modified. The file events are then sent to IoT Edge Hub (in IoT Edge runtime).
 3. The IoT Edge custom module processes the file event to create a file event object that also contains a relative path for the file. The module generates an absolute path using the relative file path and copies the file from the local share to the cloud share. The module then deletes the file from the local share.
 
-![How Azure IoT Edge module works on Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
+![How Azure IoT Edge module works on Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
 
 Once the file is in the cloud share, it automatically gets uploaded to your Azure Storage account.
 

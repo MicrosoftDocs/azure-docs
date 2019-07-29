@@ -7,7 +7,8 @@ author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: ganesr;cherylmc
+ms.author: ganesr
+ms.reviewer: cherylmc
 ms.custom: seodec18
 
 ---
@@ -17,6 +18,7 @@ ms.custom: seodec18
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager template](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
@@ -28,6 +30,9 @@ This article walks you through the steps to check the status, update, or delete 
 **About Azure deployment models**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Before you begin
 
@@ -45,17 +50,17 @@ To sign in to your Azure account, use the following example:
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 2. Check the subscriptions for the account.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. If you have more than one subscription, select the subscription that you want to use.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
@@ -118,7 +123,7 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can do the following tasks with no downtime:
 
 * Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported. 
+* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported.
 * Change the metering plan from Metered Data to Unlimited Data. Changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.
 
@@ -147,8 +152,8 @@ Your circuit will now have the ExpressRoute premium add-on features enabled. As 
 
 > [!IMPORTANT]
 > This operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
-> 
-> 
+>
+>
 
 #### Considerations
 
@@ -182,8 +187,8 @@ Check the [ExpressRoute FAQ](expressroute-faqs.md) for supported bandwidth optio
 > You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
 >
 > You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
-> 
-> 
+>
+>
 
 #### Resize a circuit
 

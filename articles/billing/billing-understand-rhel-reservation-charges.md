@@ -33,7 +33,7 @@ For example, if you buy a plan for Red Hat Linux Enterprise Server for a VM with
 - 1 deployed VM with 3 or 4 vCPUs,
 - or 0.77 or about 77% of a VM with 5 or more vCPUs.
 
-The ratio for 5 or more vCPUs is 2.6. So a reservation for Red Hat with a VM with 5 or more vCPUs covers a only portion of the software cost, which is about 77%.
+The ratio for 5 or more vCPUs is 2.6. So a reservation for Red Hat with a VM with 5 or more vCPUs covers an only portion of the software cost, which is about 77%.
 
 ## Understand Red Hat VM usage before you buy
 

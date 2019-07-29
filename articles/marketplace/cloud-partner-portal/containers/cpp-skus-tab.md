@@ -1,22 +1,13 @@
 ---
-title: SKUs for an Azure Containers image | Microsoft Docs
+title: SKUs for an Azure Containers image | Azure Marketplace
 description: Configure SKUs for an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: pbutlerm
+ms.date: 04/24/2019
+ms.author: pabutler
 ---
-
 
 # Container SKUs tab
 
@@ -35,11 +26,13 @@ When you start creating a new offer, there aren't any SKUs associated with the o
     -   SKU metadata
     -   Container metadata
 
+
 ### SKU metadata
 
 The SKU metadata contains storefront display information for the container listing.
 
 ![SKU metadata](./media/containers-sku-details.png)
+
 
 ### Container metadata
 
@@ -47,29 +40,31 @@ The container metadata has reference information of your image repository detail
 
 ![Container metadata](./media/containers-image-repository.png)
     
-The **Image Repository Details** in the previous screen capture contains the following fields:
+The **Image Repository Details** in the previous screen capture contains the following fields.  Required fields are indicted by an asterisk (*).
 
--   **Subscription ID** - The Azure subscription ID where the ACR is present.
--   **Resource group name** - The resource group name of the ACR.
--   **Registry name** - The ACR name.
--   **Repository name** - The repository name. After this name is set, this value can't be changed. Use a unique name to avoid a conflict with other offers in your account.
--   **Username** - The username (admin username) associated with the ACR image.
--   **Password** - The password associated with the ACR image.
+-   **Subscription ID\*** - The Azure subscription ID where the ACR is present.
+-   **Resource group name\*** - The resource group name of the ACR.
+-   **Registry name\*** - The ACR name.
+-   **Repository name\*** - The repository name. After this name is set, this value can't be changed. Use a unique name to avoid a conflict with other offers in your account.
+-   **Username\*** - The username (admin username) associated with the ACR image.
+-   **Password\*** - The password associated with the ACR image.
 
     >[!NOTE]
     >The username and password are required to ensure that partners have access to the ACR mentioned in the publishing process.
+
 
 ### Image Version
 
 When publishing a container image, you can provide one or more image tags, and SHA digests.
 
-**Image Tag or Digest**
+**Image Tag\* or Digest**
  
 - This tag or digest must include a `latest` tag and a version tag (for example, starting with `xx.xx.xx-` where xx is a number). They should be [manifest tags](https://github.com/estesp/manifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. 
 - You can add several versions of container using tags. All manifest tags (except `latest`) must start with either `X.Y-` or `X.Y.Z-` where X, Y, Z are integers. <br/> For example, if a `latest` tag points to  `1.0.1-linux-x64`, `1.0.1-linux-arm32`, and `1.0.1-windows-arm32`, these tags need to be added here.
 
 >[!NOTE]
 >Remember to add a **test tag** to your image so you can identify the image during testing.
+
 
 ## Next steps
 

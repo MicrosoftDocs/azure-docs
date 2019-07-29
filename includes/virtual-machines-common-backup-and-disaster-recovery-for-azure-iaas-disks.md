@@ -2,11 +2,11 @@
 title: "include file"
 description: "include file"
 services: storage
-author: luywang
+author: roygara
 ms.service: storage
 ms.topic: "include"
 ms.date: 06/05/2018
-ms.author: luywang
+ms.author: rogarana
 ms.custom: "include file"
 ---
 
@@ -143,7 +143,7 @@ Use the following steps to enable backups of your VMs by using the [Azure portal
 
     b. On the **Recovery Services vaults** menu, click **Add** and follow the steps to create a new vault in the same region as the VM. For example, if your VM is in the West US region, pick West US for the vault.
 
-1.	Verify the storage replication for the newly created vault. Access the vault under **Recovery Services vaults** and go to **Settings** > **Backup Configuration**. Ensure the **geo-redundant storage** option is selected by default. This option ensures that your vault is automatically replicated to a secondary datacenter. For example, your vault in West US is automatically replicated to East US.
+1.	Verify the storage replication for the newly created vault. Access the vault under **Recovery Services vaults** and go to **Properties** > **Backup Configuration** > **Update**. Ensure the **geo-redundant storage** option is selected by default. This option ensures that your vault is automatically replicated to a secondary datacenter. For example, your vault in West US is automatically replicated to East US.
 
 1.	Configure the backup policy and select the VM from the same UI.
 

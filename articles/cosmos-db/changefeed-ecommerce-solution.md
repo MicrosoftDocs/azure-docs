@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/12/2018
+ms.date: 05/28/2019
 ms.author: sngun
 
 ---
@@ -37,7 +37,7 @@ The following diagram represents the data flow and components involved in the so
    }
    ```
 
-2. **Cosmos DB:** The generated data is stores in an Azure Cosmos DB collection.  
+2. **Cosmos DB:** The generated data is stored in an Azure Cosmos DB collection.  
 
 3. **Change Feed:** The change feed will listen for changes to the Azure Cosmos DB collection. Each time a new document is added into the collection (that is when an event occurs such a user viewing an item, adding an item to their cart, or purchasing an item), the change feed will trigger an [Azure Function](../azure-functions/functions-overview.md).  
 
@@ -161,7 +161,7 @@ To see how change feed processes new actions on an e-commerce site, have to simu
 
 1. Navigate back to the repository in File Explorer, and right-click **ChangeFeedFunction.sln** to open it again in a new Visual Studio window.  
 
-2. Navigate to the **App.config** file.Within the <appSettings> block, add the endpoint and unique **PRIMARY KEY** that of your Azure Cosmos DB account that you retrieved earlier.  
+2. Navigate to the **App.config** file.Within the `<appSettings>` block, add the endpoint and unique **PRIMARY KEY** that of your Azure Cosmos DB account that you retrieved earlier.  
 
 3. Add in the **collection** and **database** names. (These names should be **changefeedlabcollection** and **changefeedlabdatabase** unless you choose to name yours differently.)
 

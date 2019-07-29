@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ---
@@ -19,7 +19,7 @@ Currently, bulk executor library is supported by Azure Cosmos DB SQL API and Gre
 
 ## Prerequisites
 
-* If you don’t already have Visual Studio 2017 installed, you can download and use the [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable Azure development during the Visual Studio setup.
+* If you don’t already have Visual Studio 2019 installed, you can download and use the [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable Azure development during the Visual Studio setup.
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin. 
 
@@ -111,7 +111,7 @@ The "BulkImportSample" application generates random documents and bulk imports t
    |NumberOfDocumentsImported (long)   |  The total number of documents that were successfully imported out of the documents supplied to the bulk import API call.       |
    |TotalRequestUnitsConsumed (double)   |   The total request units (RU) consumed by the bulk import API call.      |
    |TotalTimeTaken (TimeSpan)    |   The total time taken by the bulk import API call to complete execution.      |
-   |BadInputDocuments (List<object>)   |     The list of bad-format documents that were not successfully imported in the bulk import API call. User should fix the documents returned and retry import. Bad-formatted documents include documents whose ID value is not a string (null or any other datatype is considered invalid).    |
+   |BadInputDocuments (List\<object>)   |     The list of bad-format documents that were not successfully imported in the bulk import API call. User should fix the documents returned and retry import. Bad-formatted documents include documents whose ID value is not a string (null or any other datatype is considered invalid).    |
 
 ## Bulk update data in Azure Cosmos DB
 

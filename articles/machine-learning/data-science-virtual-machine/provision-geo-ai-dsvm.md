@@ -4,7 +4,7 @@ description: Learn how to create and configure the Geo AI Data Science Virtual M
 keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 
@@ -14,9 +14,9 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/05/2018
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 
@@ -84,7 +84,7 @@ Otherwise, you can sign up for new ArcGIS account and license or get a [free tri
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Once you have signup for a either a paid or a free trial ArcGIS account, you can authorize ArcGIS Pro for your account by following the instructions in the [Getting Started with ArcGIS Pro documentation](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+After you sign up for either a paid or free trial ArcGIS account, you can authorize ArcGIS Pro for your account by following the instructions in [Getting Started with ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 After you sign in to ArcGIS Pro desktop with your ArcGIS account, you are ready to begin using the data science tools that are installed and configured on the VM for your Geospatial analytics and machine learning projects.
 

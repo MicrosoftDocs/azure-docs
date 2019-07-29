@@ -1,7 +1,6 @@
 ---
 title: Sample - Allowed application gateway SKUs
 description: This sample policy definition requires that application gateways use an approved SKU.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

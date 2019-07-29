@@ -3,9 +3,8 @@ title: 'Tutorial: Configure ThousandEyes for automatic user provisioning with Az
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to ThousandEyes.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -14,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
-ms.author: asmalser-msft
+ms.date: 03/28/2019
+ms.author: arvinh
 
 ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure ThousandEyes for automatic user provisioning
-
 
 The objective of this tutorial is to show you the steps you need to perform in ThousandEyes and Azure AD to automatically provision and de-provision user accounts from Azure AD to ThousandEyes. 
 
@@ -29,15 +27,12 @@ The objective of this tutorial is to show you the steps you need to perform in T
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-*   An Azure Active directory tenant
-*   An active [ThousandEyes account](https://www.thousandeyes.com/pricing)
-*   A ThousandEyes user account that has been assigned a Role which includes the following 3 permissions:
-    * view all users
-    * edit user
-    * API access permissions
+* An Azure Active directory tenant
+* A ThousandEyes tenant with the [Standard plan](https://www.thousandeyes.com/pricing) or better enabled 
+* A user account in ThousandEyes with Admin permissions 
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK_ThousandEyes-support-for-SCIM). 
+> The Azure AD provisioning integration relies on the [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), which is available to ThousandEyes teams on the Standard plan or better.
 
 ## Assigning users to ThousandEyes
 
@@ -49,33 +44,18 @@ Before configuring and enabling the provisioning service, you need to decide wha
 
 ### Important tips for assigning users to ThousandEyes
 
-*	It is recommended that a single Azure AD user is assigned to ThousandEyes to test the provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Azure AD user is assigned to ThousandEyes to test the provisioning configuration. Additional users and/or groups may be assigned later.
 
-*	When assigning a user to ThousandEyes, you must select either the **User** role or another valid application-specific role (if available) in the assignment dialogue. The **Default Access** role does not work for provisioning, and these users are skipped.
-
-## Configure auto-provisioned user roles in ThousandEyes
-
-For each account group, you are auto-provisioning users into you can configure a set of roles to be applied when the new user account is created. By default, auto-provisioning users are assigned the _Regular User_ role for all account groups unless configured otherwise.
-
-1. To specify a new set of roles for auto-provisioned users log-into ThousandEyes and navigate to the SCIM Settings section **> your user icon in the top right corner > Account Settings > Organization > Security & Authentication.** 
-
-   ![Navigate to SCIM API Settings](https://monosnap.com/file/kqY8Il7eysGFAiCLCQWFizzM27PiBG)
-
-2. Add an entry for each account group, assign a set of roles then *save* your changes.
-
-   ![Set default roles and account groups for users created via SCIM API](https://monosnap.com/file/16siam6U8xDQH1RTnaxnmIxvsZuNZG)
-
+* When assigning a user to ThousandEyes, you must select either the **User** role, or another valid application-specific role (if available) in the assignment dialog. The **Default Access** role does not work for provisioning, and these users are skipped.
 
 ## Configuring user provisioning to ThousandEyes 
 
 This section guides you through connecting your Azure AD to ThousandEyes's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in ThousandEyes based on user and group assignment in Azure AD.
 
 > [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On (SSO) for ThousandEyes, following the [instructions provided in Azure knowledge base](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-tutorial) to complete SSO. SSO can be configured independently of automatic provisioning, though these two features complement each other.
-
+> You may also choose to enabled SAML-based Single Sign-On for ThousandEyes, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### Configure automatic user account provisioning to ThousandEyes in Azure AD
-
 
 1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
 
@@ -88,7 +68,7 @@ This section guides you through connecting your Azure AD to ThousandEyes's user 
 	![ThousandEyes Provisioning](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
 5. Under the **Admin Credentials**  section, input the **OAuth Bearer Token**
-generated by your ThousandEyes' account (you can find and or generate a token under your ThousandEyes account **Profile** section).
+generated by your ThousandEyes's account (you can find and or generate a token under your ThousandEyes account **Profile** section).
 
 	![ThousandEyes Provisioning](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
@@ -96,7 +76,7 @@ generated by your ThousandEyes' account (you can find and or generate a token un
 
 7. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox "Send an email notification when a failure occurs."
 
-8. Click **Save**. 
+8. Click **Save**.
 
 9. Under the Mappings section, select **Synchronize Azure Active Directory Users to ThousandEyes**.
 
@@ -104,12 +84,11 @@ generated by your ThousandEyes' account (you can find and or generate a token un
 
 11. To enable the Azure AD provisioning service for ThousandEyes, change the **Provisioning Status** to **On** in the **Settings** section
 
-12. Click **Save**. 
+12. Click **Save**.
 
 This operation starts the initial synchronization of any users and/or groups assigned to ThousandEyes in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
-
 
 ## Additional resources
 

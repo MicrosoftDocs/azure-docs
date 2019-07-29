@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -27,7 +27,7 @@ With the information provided by the [user sign-ins report](concept-sign-ins.md)
 
 - Who signed in to my application?
 - Which applications were signed in to?
-- Which sign-ins failed why?
+- Which sign-ins failed and why?
 
 When a sign-in fails, you will see an error code corresponding to the failure. This article lists the error codes and their descriptions, along with a suggested course of action where applicable. 
 
@@ -63,7 +63,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50001|The service principal name was not found in this tenant. This can happen if the application has not been installed by the administrator of the tenant, or if the resource principal was not found in the directory or is invalid.|
 |50002|Sign-in failed due to restricted proxy access on tenant. If it's your own tenant policy, you can change your restricted tenant settings to fix this issue.|
 |50003|Sign-in failed due to missing signing key or certificate. This might be because there was no signing key configured in the application. Check out the resolutions outlined at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). If the issue persists, contact the application owner or the application administrator.|
-|50005|User tried to login to a device from a platform that's currently not supported through conditional access policy.|
+|50005|User tried to login to a device from a platform that's currently not supported through Conditional Access policy.|
 |50006| Signature verification failed due to invalid signature. Check out the resolution outlined at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). If the issue persists, contact the application owner or application administrator.|
 |50007|Partner encryption certificate was not found for this application. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Microsoft to get this fixed.|
 |50008|SAML assertion is missing or misconfigured in the token. Contact your federation provider.|
@@ -104,7 +104,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50128|Invalid domain name - No tenant-identifying information found in either the request or implied by any provided credentials.|
 |50129|Device is not workplace joined - **Workplace join** is required to register the device.|
 |50130|Claim value cannot be interpreted as known auth method.|
-|50131|Used in various conditional access errors. E.g. Bad Windows device state, request blocked due to suspicious activity, access policy, and security policy decisions.|
+|50131|Used in various Conditional Access errors. E.g. Bad Windows device state, request blocked due to suspicious activity, access policy, and security policy decisions.|
 |50132|Credentials have been revoked due to the following reasons:<ul><li>SSO Artifact is invalid or expired</li><li>Session not fresh enough for application</li><li>A silent sign-in request was sent but the user's session with Azure AD is invalid or has expired.</li></ul>|
 |50133|Session is invalid due to expiration or recent password change.|
 |50135|Password change is required due to account risk.|
@@ -130,8 +130,8 @@ You can also programmatically access the sign-in data using the [reporting API](
 |52004|User has not provided consent for access to LinkedIn resources. |
 |53000|Conditional Access policy requires a compliant device, and the device is not compliant. Have the user enroll their device with an approved MDM provider like Intune.|
 |53001|Conditional Access policy requires a domain joined device, and the device is not domain joined. Have the user use a domain joined device.|
-|53002|Application used is not an approved application for conditional access. User needs to use one of the apps from the list of approved applications to use in order to get access.|
-|53003|Access has been blocked due to conditional access policies.|
+|53002|Application used is not an approved application for Conditional Access. User needs to use one of the apps from the list of approved applications to use in order to get access.|
+|53003|Access has been blocked due to Conditional Access policies.|
 |53004|User needs to complete Multi-factor authentication registration process before accessing this content. User should register for multi-factor authentication.|
 |65001|Application X doesn't have permission to access application Y or the permission has been revoked. Or The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. Or The user or administrator has not consented to use the application with ID X. Send an authorization request to your tenant admin to act on behalf of the App : Y for Resource : Z.|
 |65004|User declined to consent to access the app. Have the user retry the sign-in and consent to the app|
@@ -171,9 +171,15 @@ You can also programmatically access the sign-in data using the [reporting API](
 |81012|This is not an error condition. It indicates that user trying to sign in to Azure AD is different from the user signed into the device. You can safely ignore this code in the logs.|
 |90010|The request is not supported for various reasons. For example, the request is made using an unsupported request method (only POST method is supported) or the token signing algorithm that was requested is not supported. Contact the application developer.|
 |90014| A required field for a protocol message was missing, contact the application owner. If you are the application owner, ensure that you have all the necessary parameters for the login request. |
+|90051|	Invalid Delegation Token. Invalid national Cloud ID ({cloudId}) is specified.|
 |90072| The account needs to be added as an external user in the tenant first. Sign-out and sign-in again with a different Azure AD account.|
 |90094| The grant requires administrator permissions. Ask your tenant administrator to provide consent for this application.|
+|500021|Tenant is restricted by company proxy. Denying the resource access.|
+|500121| Authentication failed during strong authentication request.|
 |500133| The assertion is not within its valid time range. Ensure that the access token is not expired before using it for user assertion, or request a new token.|
+|530021|Application does not meet the Conditional Access approved app requirements.|
+|7000218|The request body must contain the following parameter: 'client_assertion' or 'client_secret'.|
+
 
 ## Next steps
 

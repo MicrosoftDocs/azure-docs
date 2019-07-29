@@ -24,7 +24,7 @@
     href: provision-geo-ai-dsvm.md 
 - name: Concepts
   items:
-  - name: Discover the DSVM
+  - name: Discover DSVM
     href: dsvm-tools-overview.md
   - name: Deep Learning and AI frameworks
     href: dsvm-deep-learning-ai-frameworks.md
@@ -65,11 +65,8 @@
 - name: Resources
   items:
   - name: R developer guide 
-    href: ../r-developers-guide.md
-  - name: Blog
-    href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
+    href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
   - name: MSDN forum
-    href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
+    href: https://social.microsoft.com/Forums/home?forum=dsvm
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=dsvm
-

@@ -8,25 +8,20 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/21/2019
+ms.date: 07/08/2019
 ms.custom: seodec18
 
 ---
 
 # Quickstart: Use your own notebook server to get started with Azure Machine Learning
 
-In this article, you use your own notebook server to run code that is logged in the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning.
+Use your own Python environment and Jupyter Notebook Server to get started with Azure Machine Learning service.  For a quickstart with no SDK installation, see [Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
-This quickstart uses your own Python environment and Jupyter Notebook Server. For a quickstart with no installation, see [Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning](quickstart-run-cloud-notebook.md) 
+This quickstart shows how you can use the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md) to keep track of your machine learning experiments. You will run Python code that log values into the workspace.
 
 View a video version of this quickstart:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
-
-In this quickstart, you:
-
-* Write code that logs values inside the workspace.
-* View the logged values in your workspace.
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2G9N6]
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
@@ -34,14 +29,29 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 * A Python 3.6 notebook server with the Azure Machine Learning SDK installed
 * An Azure Machine Learning service workspace
-* A workspace configuration file (**aml_config/config.json** ).
+* A workspace configuration file (**.azureml/config.json**).
 
-Get all these prerequisites from [Create an Azure Machine Learning service workspace](setup-create-workspace.md#portal).
+Get all these prerequisites from [Create an Azure Machine Learning service workspace](setup-create-workspace.md#sdk).
+
 
 
 ## Use the workspace
 
-Create a script or start a notebook in the same directory as your workspace configuration file. Run this code that uses the basic APIs of the SDK to track experiment runs.
+Create a script or start a notebook in the same directory as your workspace configuration file (**.azureml/config.json**).
+
+### Attach to workspace
+
+This code reads information from the configuration file to attach to your workspace.
+
+```
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+### Log values
+
+Run this code that uses the basic APIs of the SDK to track experiment runs.
 
 1. Create an experiment in the workspace.
 1. Log a single value into the experiment.
@@ -57,7 +67,7 @@ When the run finishes, you can view the experiment run in the Azure portal. To p
 print(run.get_portal_url())
 ```
 
-Use the link to view the logged values in the Azure portal in your browser.
+This code returns a link you can use to view the logged values in the Azure portal in your browser.
 
 ![Logged values in the Azure portal](./media/quickstart-run-local-notebook/logged-values.png)
 

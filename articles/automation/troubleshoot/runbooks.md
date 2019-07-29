@@ -2,8 +2,8 @@
 title: Troubleshoot errors with Azure Automation Runbooks
 description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
@@ -132,7 +132,7 @@ To use a certificate with the Azure classic deployment model cmdlets, refer to [
 
 #### Issue
 
-You receive the following error when invoking a childrunbook with the `-Wait` switch and the output stream contains and object:
+You receive the following error when invoking a child runbook with the `-Wait` switch and the output stream contains and object:
 
 ```error
 Object reference not set to an instance of an object
@@ -300,6 +300,8 @@ This error occurs due to one of the following issues:
 
 4. Your runbook attempted to call an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
 
+5. Your runbook attempted to write too much exception data to the output stream.
+
 #### Resolution
 
 Any of the following solutions fix the problem:
@@ -311,6 +313,8 @@ Any of the following solutions fix the problem:
 * Another solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers aren't limited by the memory and network limits that Azure sandboxes are.
 
 * If you need to call a process (such as .exe or subprocess.call) in a runbook, you'll need to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+
+* There is a 1MB limit on the job output stream. Ensure that you enclose calls to an executable or subprocess in a try/catch block. If they throw an exception, write the message from that exception into an Automation variable. This will prevent it from being written into the job output stream.
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object
 
@@ -478,6 +482,29 @@ There are two ways to resolve this error:
 
 * Edit the runbook, and reduce the number of job streams that it emits​.
 * Reduce the number of streams to be retrieved when running the cmdlet. To follow this behavior, you can specify the `-Stream Output` parameter to the `Get-AzureRmAutomationJobOutput` cmdlet to retrieve only output streams. ​
+
+### <a name="cannot-invoke-method"></a>Scenario: PowerShell job fails with error: Cannot invoke method
+
+#### Issue
+
+You receive the following error message when starting a PowerShell Job in a runbook running in Azure:
+
+```error
+Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
+```
+
+#### Cause
+
+This error may occur when you start a PowerShell job in a runbook ran in Azure. This behavior may occur because runbooks ran in an Azure sandbox may not run in the [Full language mode](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
+
+#### Resolution
+
+There are two ways to resolve this error:
+
+* Instead of using `Start-Job`, use `Start-AzureRmAutomationRunbook` to start a runbook
+* If your runbook has this error message, run it on a Hybrid Runbook Worker
+
+To learn more about this behavior and other behaviors of Azure Automation Runbooks, see [Runbook behavior](../automation-runbook-execution.md#runbook-behavior).
 
 ## Next steps
 

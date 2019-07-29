@@ -2,53 +2,53 @@
 title: Developer notes for custom policies - Azure Active Directory B2C | Microsoft Docs
 description: Notes for developers on configuring and maintaining Azure AD B2C with custom policies.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
 # Developer notes for custom policies in Azure Active Directory B2C
 
-Custom policy configuration in Azure Active Directory B2C is now generally available. This method of configuration is targeted at advanced identity developers building complex identity solutions. Custom policies make the power of the Identity Experience Framework available in Azure AD B2C tenants. 
+Custom policy configuration in Azure Active Directory B2C is now generally available. This method of configuration is targeted at advanced identity developers building complex identity solutions. Custom policies make the power of the Identity Experience Framework available in Azure AD B2C tenants.
 Advanced identity developers using custom policies should plan to invest some time completing walk-throughs and reading reference documents.
 
-While most of the custom policy options available are now generally available, there are underlying capabilities, such as technical profile types and content definition APIs that are at different stages in the software lifecycle. Many more are coming. The table below specifies the level of availability at a more granular level.  
+While most of the custom policy options available are now generally available, there are underlying capabilities, such as technical profile types and content definition APIs that are at different stages in the software lifecycle. Many more are coming. The table below specifies the level of availability at a more granular level.
 
 ## Features that are generally available
 
-- Author and upload custom authentication user journeys by using custom policies.  
-    - Describe user journeys step-by-step as exchanges between claims providers.  
-    - Define conditional branching in user journeys.  
-- Interoperate with REST API-enabled services in your custom authentication user journeys.  
-- Federate with identity providers that are compliant with the OpenIDConnect protocol.  
-- Federate with identity providers that adhere to the SAML 2.0 protocol.   
+- Author and upload custom authentication user journeys by using custom policies.
+    - Describe user journeys step-by-step as exchanges between claims providers.
+    - Define conditional branching in user journeys.
+- Interoperate with REST API-enabled services in your custom authentication user journeys.
+- Federate with identity providers that are compliant with the OpenIDConnect protocol.
+- Federate with identity providers that adhere to the SAML 2.0 protocol.
 
 ## Responsibilities of custom policy feature-set developers
 
-Manual policy configuration grants lower-level access to the underlying platform of Azure AD B2C and results in the creation of a unique, trust framework. The many possible permutations of custom identity providers, trust relationships, integrations with external services, and step-by-step workflows require a methodical approach to design and configuration. 
+Manual policy configuration grants lower-level access to the underlying platform of Azure AD B2C and results in the creation of a unique, trust framework. The many possible permutations of custom identity providers, trust relationships, integrations with external services, and step-by-step workflows require a methodical approach to design and configuration.
 
 Developers consuming the custom policy feature set should adhere to the following guidelines:
 
-- Become familiar with the configuration language of the custom policies and key/secrets management. For more information, see [TrustFrameworkPolicy](trustframeworkpolicy.md). 
-- Take ownership of scenarios and custom integrations. Document your work and inform your live site organization.  
-- Perform methodical scenario testing. 
-- Follow software development and staging best practices with a minimum of one development and testing environment and one production environment. 
-- Stay informed about new developments from the identity providers and services you integrate with. For example, keep track of changes in secrets and of scheduled and unscheduled changes to the service. 
-- Set up active monitoring, and monitor the responsiveness of production environments. For more information about integrating with Application Insights, see [Azure Active Directory B2C: Collecting Logs](active-directory-b2c-custom-guide-eventlogger-appins.md). 
-- Keep contact email addresses current in the Azure subscription, and stay responsive to the Microsoft live-site team emails. 
+- Become familiar with the configuration language of the custom policies and key/secrets management. For more information, see [TrustFrameworkPolicy](trustframeworkpolicy.md).
+- Take ownership of scenarios and custom integrations. Document your work and inform your live site organization.
+- Perform methodical scenario testing.
+- Follow software development and staging best practices with a minimum of one development and testing environment and one production environment.
+- Stay informed about new developments from the identity providers and services you integrate with. For example, keep track of changes in secrets and of scheduled and unscheduled changes to the service.
+- Set up active monitoring, and monitor the responsiveness of production environments. For more information about integrating with Application Insights, see [Azure Active Directory B2C: Collecting Logs](active-directory-b2c-custom-guide-eventlogger-appins.md).
+- Keep contact email addresses current in the Azure subscription, and stay responsive to the Microsoft live-site team emails.
 - Take timely action when advised to do so by the Microsoft live-site team.
 
 ## Terms for features in public preview
 
-- We encourage you to use the public preview features for evaluation purposes only. 
+- We encourage you to use the public preview features for evaluation purposes only.
 - Service level agreements (SLAs) do not apply to the public preview features.
-- Support requests for public preview features can be filed through regular support channels. 
+- Support requests for public preview features can be filed through regular support channels.
 
 ## Features by stage and known issues
 
@@ -57,7 +57,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 ### Identity Providers, Tokens, Protocols
 
 | Feature | Development | Preview | GA | Notes |
-|-------- | ----------- | ------- | -- | ----- |
+|-------- | :-----------: | :-------: | :--: | ----- |
 | IDP-OpenIDConnect |  |  | X | For example, Google+.  |
 | IDP-OAUTH2 |  |  | X | For example, Facebook.  |
 | IDP-OAUTH1 (twitter) |  | X |  | For example, Twitter. |
@@ -74,7 +74,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 ### Component Support
 
 | Feature | Development | Preview | GA | Notes |
-| ------- | ----------- | ------- | -- | ----- |
+| ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Multi Factor Authentication |  |  | X |  |
 | Azure Active Directory as local directory |  |  | X |  |
 | Azure Email subsystem for email verification |  |  | X |  |
@@ -85,7 +85,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 ### Content Definition
 
 | Feature | Development | Preview | GA | Notes |
-| ------- | ----------- | ------- | -- | ----- |
+| ------- | :-----------: | :-------: | :--: | ----- |
 | Error page, api.error |  |  | X |  |
 | IDP selection page, api.idpselections |  |  | X |  |
 | IDP selection for signup, api.idpselections.signup |  |  | X |  |
@@ -96,12 +96,12 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Self-asserted social account sign-up, api.selfasserted |  |  | X |  |
 | Self-asserted profile update, api.selfasserted.profileupdate |  |  | X |  |
 | Unified signup or sign-in page, api.signuporsignin, with parameter "disableSignup" |  |  | X |  |
-| JavaScript / Page contract |  | X |  |  |
+| JavaScript / Page layout |  | X |  |  |
 
 ### App-IEF integration
 
 | Feature | Development | Preview | GA | Notes |
-| ------- | ----------- | ------- | -- | ----- |
+| ------- | :-----------: | :-------: | :--: | ----- |
 | Query string parameter domain_hint |  |  | X | Available as claim, can be passed to IDP. |
 | Query string parameter login_hint |  |  | X | Available as claim, can be passed to IDP. |
 | Insert JSON into UserJourney via client_assertion | X |  |  | Will be deprecated. |
@@ -111,7 +111,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 ### Session Management
 
 | Feature | Development | Preview | GA | Notes |
-| ------- | ----------- | ------- | -- | ----- |
+| ------- | :-----------: | :-------: | :--: | ----- |
 | SSO Session Provider |  |  | X |  |
 | External Login Session Provider |  |  | X |  |
 | SAML SSO  Session Provider |  |  | X |  |
@@ -120,7 +120,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 ### Security
 
 | Feature | Development | Preview | GA | Notes |
-|-------- | ----------- | ------- | -- | ----- |
+|-------- | :-----------: | :-------: | :--: | ----- |
 | Policy Keys- Generate, Manual, Upload |  |  | X |  |
 | Policy Keys- RSA/Cert, Secrets |  |  | X |  |
 | Policy upload |  |  | X |  |
@@ -128,10 +128,11 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 ### Developer interface
 
 | Feature | Development | Preview | GA | Notes |
-| ------- | ----------- | ------- | -- | ----- |
+| ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Portal-IEF UX |  |  | X |  |
 | Application Insights UserJourney Logs |  | X |  | Used for troubleshooting during development.  |
 | Application Insights Event Logs (via orchestration steps) |  | X |  | Used to monitor user flows in production. |
 
 ## Next steps
-[Learn more about custom policies and the differences with user flows](active-directory-b2c-overview-custom.md).
+
+Learn more about [custom policies and the differences with user flows](active-directory-b2c-overview-custom.md).
