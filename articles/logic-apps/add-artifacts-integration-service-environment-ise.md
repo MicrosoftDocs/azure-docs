@@ -92,7 +92,7 @@ You can add Microsoft-managed connectors that available to use in your ISE but a
 
 1. On the **Add a new managed connector** pane, open the **Find connector** list. If the connector that you want is available, select that connector, and then select **Create**.
 
-   Any eligible connectors that aren't deployed in your ISE appear available for you to select. Connectors that are already deployed in your ISE appear as unavailable for selection.
+   The list shows only those connectors that are eligible but aren't deployed in your ISE. Connectors that are already deployed in your ISE appear unavailable for selection.
 
    ![Select eligible connector](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
