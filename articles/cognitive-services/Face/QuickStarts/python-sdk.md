@@ -115,7 +115,9 @@ The following code takes a single detected face and searches a set of other face
 
 The following code creates a **PersonGroup** with three different **Person** objects. It associates each **Person** with a set of example images, and then it trains to be able to recognize each person. 
 
-In order to step through this scenario, you need three sets of face images corresponding to three different people. The code below defines three **Person** objects and looks for image files that start with `adult1`, `adult2`, and `child`.
+In order to step through this scenario, you need to save the following images to the root directory of your project: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+
+This group of images contains three sets of face images corresponding to three different people. The code will define three **Person** objects and associate them with image files that start with `woman`, `man`, and `child`.
 
 Once you've set up your images, define a label for the **PersonGroup** object you'll create.
 
@@ -136,13 +138,15 @@ The following code takes an image with multiple faces and tries to find the iden
 
 ### Take a snapshot for data migration
 
-See the [Migrate your face data](../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of this feature.
+The Snapshots feature lets you move your saved face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face API subscription. You may want to do this if, for example, you've created a **PersonGroup** object using a free trial subscription and now want to migrate it to a paid subscription. See the [Migrate your face data](../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of the Snapshots feature.
 
-Variables:
+In this example, you will migrate the **PersonGroup** you created in [Create and train a person group](#create-and-train-a-person-group). You can either complete that section first, or use your own Face data construct(s).
+
+First, create the following variables TBD
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
 
-Then code:
+Then code: TBD
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot)]
 
@@ -171,12 +175,10 @@ If you migrated data using the Snapshot feature in this quickstart, you'll also 
 
 ## Next steps
 
-In this quickstart, you learned how to use the Face library for Python to do a number of tasks like detect faces, 
+In this quickstart, you learned how to use the Face library for Java to do basis tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
->[Next article]()
+> [Face API reference (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)
 
 * [What is the Face API?](../overview.md)
-* [Article2](../overview.md)
-* [Article3](../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).
