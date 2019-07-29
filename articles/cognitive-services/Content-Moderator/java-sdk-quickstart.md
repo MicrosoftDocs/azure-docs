@@ -116,7 +116,7 @@ In the application's `main` method, create a [ContentModeratorClient](https://do
 
 [!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_client)]
 
-### Moderate images
+## Moderate images
 
 In the **src/main/** folder of your project, create a **resources** folder and navigate to it. Then create a new text file, *ImageFiles.txt*. In this file, you add the URLs of images to analyze&mdash;one URL on each line. You can use the following sample contents:
 
@@ -129,9 +129,38 @@ Then, in your *ContentModeratorQuickstart.java* file, add the following class de
 
 [!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_evaluationdata)]
 
-Next, add the following code to the bottom of the `main` method. Or, you can add it to a separate method that's called from `main`. This code uses the Content Moderator client object to analyze the images at the given URLs for adult/racy content, image text, and human faces. It stores the returned information in `EvaluationData` objects and then prints the results to an output file, *src/main/resources/ModerationOutput.json*.
+Next, add the following code to the bottom of the `main` method. Or, you can add it to a separate method that's called from `main`. This code steps through each line of the _ImageFiles.txt_ file.
 
-[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod)]
+[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_iterate)]
+
+### Check of adult/racy content
+This line of code checks the image at the given URL for adult or racy content. See the Image moderation conceptual guide for information on these terms.
+
+[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_ar)]
+
+### Check for text
+This line of code checks the image for visible text.
+
+[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_text)]
+
+### Check for faces
+This line of code checks the image for human faces.
+
+[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_faces)]
+
+Finally, store the returned information in the `EvaluationData` list.
+
+[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_storedata)]
+
+### Print results
+
+After the `while` loop, add the following code, which prints the results to the console and to an output file, *src/main/resources/ModerationOutput.json*.
+
+[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_printdata)]
+
+Close out the `try` statement and add a `catch` statement to complete the method.
+
+[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_catch)]
 
 ## Run the application
 
