@@ -13,7 +13,7 @@ ms.subservice: disks
 
 # Creating an incremental snapshot
 
-Incremental snapshots are snapshots that consist only of all the changes since the last snapshot. They are a new capability for managed disk snapshots that are considerably more cost effective, since, with it, each individual snapshot no longer requires storing the entire VHD, unless you choose to. Incremental snapshots can still be used to create a full managed disk or, to make another full snapshot in either the same or a different Azure subscription.
+Incremental snapshots are snapshots that consist only of all the changes since the last snapshot. They are a new capability for managed disk snapshots that are considerably more cost effective, since each individual snapshot no longer requires storing the entire VHD, unless you choose to. Incremental snapshots can still be used to create a full managed disk or, to make another full snapshot in either the same or a different Azure subscription.
 
 Incremental snapshots offer a unique capability. They enable you to perform a diff to get the changes between two incremental snapshots of the same managed disks.
 
