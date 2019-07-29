@@ -10,7 +10,7 @@ services: iot-central
 manager: philmea
 ---
 
-# Device connectivity in Azure IoT Central (Feature preview)
+# Device connectivity in Azure IoT Central (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 

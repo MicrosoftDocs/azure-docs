@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: timlt
 ---
 
-# What is Azure IoT Central (Feature preview)?
+# What is Azure IoT Central (preview features)?
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 

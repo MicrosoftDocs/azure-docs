@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: philmea
 ---
 
-# Take a tour of the Azure IoT Central UI (Feature preview)
+# Take a tour of the Azure IoT Central UI (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 

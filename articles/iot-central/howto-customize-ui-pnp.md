@@ -13,7 +13,7 @@ manager: philmea
 
 ---
 
-# Customize the Azure IoT Central UI (Feature preview)
+# Customize the Azure IoT Central UI (preview features)
 
 *This article applies to administrators.*
 

@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: philmea
 ---
 
-# Tutorial: Configure rules and actions for your device in Azure IoT Central (Feature preview)
+# Tutorial: Configure rules and actions for your device in Azure IoT Central (preview features)
 
 *This article applies to operators, builders, and administrators.*
 
