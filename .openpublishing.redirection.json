@@ -28020,6 +28020,111 @@
       "redirect_document_id": true
     },
     {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-auditing-and-logging.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-auditing-and-logging",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-authentication.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-authentication",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-authorization.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-authorization",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-communication-security.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-communication-security",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-configuration-management.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-configuration-management",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-cryptography.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-cryptography",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-exception-management.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-exception-management",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-feature-overview.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-feature-overview",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-getting-started.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-getting-started",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-input-validation.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-input-validation",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-mitigations.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-mitigations",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71509112.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71509112",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71510231.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71510231",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71601261.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71601261",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71604081.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71604081",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71607021.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71607021",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-releases.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-sensitive-data.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-sensitive-data",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-session-management.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-session-management",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-threats.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-threats",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool",
+            "redirect_document_id": true
+    },
+    {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-downlevel-clients.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-auditing-overview",
       "redirect_document_id": false
@@ -38257,11 +38362,6 @@
     {
       "source_path": "articles/backup/backup-sql-server-azure-vms.md",
       "redirect_url": "/azure/backup/backup-azure-sql-database",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-factory/tumbling-window-trigger-dependency.md",
-      "redirect_url": "/azure/data-factory/how-to-create-tumbling-window-trigger",
       "redirect_document_id": false
     },
     {
