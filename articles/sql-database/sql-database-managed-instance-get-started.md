@@ -10,8 +10,7 @@ ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
-manager: craigg
-ms.date: 07/11/2019
+ms.date: 05/07/2019
 ---
 # Quickstart: Create an Azure SQL Database managed instance
 

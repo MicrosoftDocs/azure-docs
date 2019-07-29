@@ -3,7 +3,7 @@ title: Scale up an Azure Service Fabric node type | Microsoft Docs
 description: Learn how to scale a Service Fabric cluster by adding a Virtual Machine Scale Set.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/13/2019
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Scale up a Service Fabric cluster primary node type
