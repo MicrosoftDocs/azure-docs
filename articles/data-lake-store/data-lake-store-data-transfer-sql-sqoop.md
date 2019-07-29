@@ -130,7 +130,7 @@ An HDInsight cluster already has the Sqoop packages available. If you've configu
 
 For information about performance tuning your Sqoop job to copy data to Data Lake Storage Gen1, see the [Sqoop performance blog post](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
 
-## See also
+## Next steps
 
 * [Copy data from Azure Storage Blobs to Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Secure data in Data Lake Storage Gen1](data-lake-store-secure-data.md)
