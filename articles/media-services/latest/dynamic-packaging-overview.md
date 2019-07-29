@@ -90,7 +90,7 @@ You can use these delivery protocols for your content in Media Services dynamic 
 |MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
-## Delivery codec support 
+## Delivery codecs support 
 
 ### Video codecs
 
@@ -99,11 +99,12 @@ Dynamic packaging supports the following video codecs:
 
 ### Audio codecs
 
-Dynamic packaging doesn't support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it's a legacy codec).
+Dynamic packaging supports the following audio protocols descrubed below:
 
-Dynamic packaging supports the following audio protocols
 * MP4 files
 * Multiple audio tracks
+
+Dynamic packaging doesn't support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it's a legacy codec).
 
 #### MP4 files
 
