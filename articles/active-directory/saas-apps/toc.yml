@@ -1023,6 +1023,8 @@
         href: ringcentral-tutorial.md
       - name: Riskware
         href: riskware-tutorial.md
+      - name: Robin
+        href: robin-tutorial.md
       - name: RStudio Connect
         href: rstudio-connect-tutorial.md
       - name: RolePoint
@@ -1458,6 +1460,8 @@
         href: figma-provisioning-tutorial.md
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
+      - name: Fuze
+        href: fuze-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
@@ -1478,6 +1482,8 @@
         href: leapsome-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
+      - name: myPolicies
+        href: mypolicies-provisioning-tutorial.md
     - name: N - Z
       items:
       - name: Netsuite
@@ -1498,6 +1504,8 @@
         href: servicenow-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
+      - name: Smartsheet
+        href: smartsheet-provisioning-tutorial.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
