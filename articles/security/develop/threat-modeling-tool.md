@@ -44,10 +44,10 @@ The table below contains important links to get you started with the Threat Mode
 | Step  | Description                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
 | **1** | [Download the Threat Modeling Tool](https://aka.ms/threatmodelingtool)                                |
-| **2** | [Read Our getting started guide](./azure-security-threat-modeling-tool-getting-started.md)    |
-| **3** | [Get familiar with the features](./azure-security-threat-modeling-tool-feature-overview.md)   |
-| **4** | [Learn about generated threat categories](./azure-security-threat-modeling-tool-threats.md)   |
-| **5** | [Find mitigations to generated threats](./azure-security-threat-modeling-tool-mitigations.md) |
+| **2** | [Read Our getting started guide](threat-modeling-tool-getting-started.md)    |
+| **3** | [Get familiar with the features](threat-modeling-tool-feature-overview.md)   |
+| **4** | [Learn about generated threat categories](threat-modeling-tool-threats.md)   |
+| **5** | [Find mitigations to generated threats](threat-modeling-tool-mitigations.md) |
 
 ## Resources
 

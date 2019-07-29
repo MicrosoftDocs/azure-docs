@@ -27,13 +27,13 @@ This article builds on existing knowledge of the SDL threat modeling approach. F
 
 To quickly summarize, the approach involves creating a diagram, identifying threats, mitigating them and validating each mitigation. Here’s a diagram that highlights this process:
 
-![SDL Process](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
+![SDL Process](./media/threat-modeling-tool-getting-started/sdlapproach.png)
 
 ## Starting the threat modeling process
 
 When you launch the Threat Modeling Tool, you'll notice a few things, as seen in the picture:
 
-![Blank Start Page](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
+![Blank Start Page](./media/threat-modeling-tool-getting-started/tmtstart.png)
 
 ### Threat model section
 
@@ -43,7 +43,7 @@ When you launch the Threat Modeling Tool, you'll notice a few things, as seen in
 | **Create a Model**                          | Opens a blank canvas for you to draw your diagram. Make sure to select which template you’d like to use for your model                                                                                                                                                                                                                                                                                                                                                                       |
 | **Template for New Models**                 | You must select which template to use before creating a model. Our main template is the Azure Threat Model Template, which contains Azure-specific stencils, threats and mitigations. For generic models, select the SDL TM Knowledge Base from the drop-down menu. Want to create your own template or submit a new one for all users? Check out our **[Template Repository](https://github.com/Microsoft/threat-modeling-templates)** GitHub Page to learn more                              |
 | **Open a Model**                            | <p>Opens previously saved threat models. The Recently Opened Models feature is great if you need to open your most recent files. When you hover over the selection, you’ll find 2 ways to open models:</p><p><ul><li>Open From this Computer – classic way of opening a file using local storage</li><li>Open from OneDrive – teams can use folders in OneDrive to save and share all their threat models in a single location to help increase productivity and collaboration</li></ul></p> |
-| **Getting Started Guide**                   | Opens the **[Microsoft Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** main page                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Getting Started Guide**                   | Opens the **[Microsoft Threat Modeling Tool](threat-modeling-tool.md)** main page                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ### Template section
 
@@ -68,7 +68,7 @@ They are going through the process of developing their first threat model.
 > Cristina: Absolutely. Let’s take a look.
 > Ricardo opens the tool and shares his screen with Cristina.
 
-![Basic Threat Model](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
+![Basic Threat Model](./media/threat-modeling-tool-getting-started/basictmt.png)
 
 > Cristina: Ok, looks straightforward, but can you walk me through it?
 > Ricardo: Sure! Here is the breakdown:
@@ -87,17 +87,17 @@ Once he clicks on the analysis view from the icon menu selection (file with magn
 
 This approach is like securing your house by ensuring each door and window has a locking mechanism in place before adding an alarm system or chasing after the thief.
 
-![Basic Threats](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
+![Basic Threats](./media/threat-modeling-tool-getting-started/basicthreats.png)
 
 Ricardo begins by selecting the first item on the list. Here’s what happens:
 
 First, the interaction between the two stencils is enhanced
 
-![Interaction](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
+![Interaction](./media/threat-modeling-tool-getting-started/interaction.png)
 
 Second, additional information about the threat appears in the Threat Properties window
 
-![Interaction Info](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
+![Interaction Info](./media/threat-modeling-tool-getting-started/interactioninfo.png)
 
 The generated threat helps him understand potential design flaws. The STRIDE categorization gives him an idea on potential attack vectors, while the additional description tells him exactly what’s wrong, along with potential ways to mitigate it. He can use editable fields to write notes in the justification details or change priority ratings depending on his organization’s bug bar.
 
@@ -114,7 +114,7 @@ Threats not applicable to the design due to existing mitigations or security gua
 
 Once Ricardo goes through the list with Cristina and adds important notes, mitigations/justifications, priority and status changes, he selects Reports -> Create Full Report -> Save Report, which prints out a nice report for him to go through with colleagues to ensure the proper security work is implemented.
 
-![Interaction Info](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
+![Interaction Info](./media/threat-modeling-tool-getting-started/report.png)
 
 If Ricardo wants to share the file instead, he can easily do so by saving in his organization’s OneDrive account. Once he does that, he can copy the document link and share it with his colleagues. 
 
