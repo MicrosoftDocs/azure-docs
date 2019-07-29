@@ -131,7 +131,7 @@ az network traffic-manager endpoint create \
     --resource-group MyResourceGroup \
     --profile-name <profile_name> \
     --type azureEndpoints \
-    --target-resource id <ID from az webapp show> \
+    --target-resource-id <ID from az webapp show> \
     --priority 1 \
     --endpoint-status Enabled
 ```
@@ -155,7 +155,7 @@ az network traffic-manager endpoint create \
     --resource-group MyResourceGroup \
     --profile-name <profile_name> \
     --type azureEndpoints \
-    --target-resource id <ID from az webapp show> \
+    --target-resource-id <ID from az webapp show> \
     --priority 2 \
     --endpoint-status Enabled
 
