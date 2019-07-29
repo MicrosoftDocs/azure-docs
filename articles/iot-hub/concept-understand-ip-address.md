@@ -7,7 +7,7 @@ ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 07/29/2019
 ---
 
 # Understand the IP address of your IoT hub
@@ -29,5 +29,3 @@ This IP address can change without notice. In a failover or disaster recovery sc
 ## Outbound firewall rules for IoT hub
 
 Try to create firewall rules and filtering based on the IoT hub host name or domain. If you can only allow outbound traffic to specific addresses, poll your IoT hub IP address regularly and update your firewall rules.
-
-
