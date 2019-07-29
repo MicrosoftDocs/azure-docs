@@ -71,5 +71,8 @@ When you generate new columns with column patterns, you can access those new col
 * Use "byName" to identify the new columns by their name.
 * In Column Patterns, use "Name", "Stream", "Position", or "Type" or any combination of those to match new columns.
 
+## Rule-based mapping
+The Select and Sink transformation support pattern matching via rule-based mapping. This will allow you to build rules that can map drifted columns to column aliases and to sink those columns to your destination.
+
 ## Next steps
 In the [Data Flow Expression Language](data-flow-expression-functions.md) you will find additional facilities for column patterns and schema drift including "byName" and "byPosition".
