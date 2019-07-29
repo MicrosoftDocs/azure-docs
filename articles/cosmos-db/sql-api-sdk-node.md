@@ -138,7 +138,7 @@ if (item === undefined) { console.log('item not found') }
 ```
 
 ##### Default Multi Region Write
-The SDK will now write to multiple regions by default if your database configuration supports it. This was previously opt-in behavior.
+The SDK will now write to multiple regions by default if your Cosmos configuration supports it. This was previously opt-in behavior.
 
 ##### Proper Error Objects
 Failed requests now throw proper Error or subclasses of Error. Previously they threw plain JS objects.
