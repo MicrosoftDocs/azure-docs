@@ -94,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![image](common/edit-attribute.png)
 
 	> [!NOTE]
-	> Academy Attendance supports two roles for users: **Lecturer** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+	> Academy Attendance supports two roles for users: **Lecturer** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. Please refer to [this](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-enterprise-app-role-management) doc which explains how to create custom roles in Azure AD.
 
 1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
 
