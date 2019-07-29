@@ -13,7 +13,7 @@ services: event-grid
 
 # Persist state in Windows
 
-Topics and Subscriptions created in the Event Grid module are by default stored in the container filesystem. Without persistence, if the module were redeployed then all the metadata created would be lost. To preserve the data across deployments, you will need to persist the data outside the container filesystem. The rest of the document details the steps needed to deploy Event Grid module with persistence in Windows deployments.
+Topics and subscriptions created in the Event Grid module are by default stored in the container filesystem. Without persistence, if the module were redeployed then all the metadata created would be lost. To preserve the data across deployments, you will need to persist the data outside the container filesystem. The rest of the document details the steps needed to deploy Event Grid module with persistence in Windows deployments.
 
 > [!NOTE]
 >Currently only metadata is persisted. Events are stored in-memory. If Event Grid module is redeployed or restarted then any undelivered events will be lost.

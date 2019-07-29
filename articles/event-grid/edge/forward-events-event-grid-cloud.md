@@ -11,7 +11,7 @@ ms.service: event-grid
 services: event-grid
 ---
 
-# Tutorial: Forward edge events to Event Grid cloud
+# Tutorial: Forward events to Event Grid cloud
 
 This article walks through all the steps needed to forward edge events to Event Grid in cloud. You might want to do this for the following reasons:
 

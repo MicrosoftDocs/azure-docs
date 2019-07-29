@@ -19,9 +19,9 @@ Refer to [Event Grid Concepts](concepts.md) documentation to understand what an 
 
 ## Prerequisites
 
-In order to complete this tutorial, you will need:-
+In order to complete this tutorial, you will need an
 
-* **Azure Event Grid module on IoT Edge Device** - Follow the steps in described [here](deploy-event-grid-portal.md) on how to do that if not already done.
+**Azure Event Grid module on IoT Edge Device** - Follow the steps in described [here](deploy-event-grid-portal.md) on how to do that if not already done.
 
 ## Step 1: Create Azure Function in Cloud via portal
 

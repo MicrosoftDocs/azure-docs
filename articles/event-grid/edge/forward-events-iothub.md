@@ -11,7 +11,7 @@ ms.service: event-grid
 services: event-grid
 ---
 
-# Tutorial: Forward Event Grid events to IoTHub
+# Tutorial: Forward events to IoTHub
 
 This article walks through all the steps needed to forward Event Grid events to other IoT Edge modules, IoTHub using routes. You might want to do this for the following reasons:
 
