@@ -557,7 +557,7 @@
     - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
     - name: Create a tumbling window trigger dependency
-      href: tumbling-window-trigger.dependency.md
+      href: tumbling-window-trigger-dependency.md
   - name: Templates
     items:
     - name: Overview of templates

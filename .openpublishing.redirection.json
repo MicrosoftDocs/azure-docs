@@ -37855,11 +37855,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/data-factory/tumbling-window-trigger-dependency.md",
-      "redirect_url": "/azure/data-factory/how-to-create-tumbling-window-trigger",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudcruiser.md",
       "redirect_url": "/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview",
       "redirect_document_id": false
