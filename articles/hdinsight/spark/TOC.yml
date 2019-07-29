@@ -50,10 +50,10 @@
     href: ../hdinsight-version-release.md
   - name: Monitor cluster availability with Ambari and Azure Monitor logs
     href: ../hdinsight-cluster-availability.md 
-  - name: Troubleshooting
+  - name: Troubleshoot
     items:
     - name: RpcTimeoutException exception
-      href: ./apache-spark-ts-rpctimeoutexception.md
+      href: ./apache-spark-troubleshoot-rpctimeoutexception.md
 - name: How to
   items:
   - name: Use cluster storage
