@@ -53,7 +53,7 @@ To get started, you need to set up an Azure NetApp Files account.
    az provider register --namespace Microsoft.NetApp --wait
    ```
 
-   ![An image of an Azure Cloud Shell window running the two cmdlets from step 5.](media/3be21e3963ae3ebd7ae051b3d9fa727a.png)
+   ![An image of an Azure Cloud Shell window running the two commands from step 5.](media/3be21e3963ae3ebd7ae051b3d9fa727a.png)
 
 6. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
 
