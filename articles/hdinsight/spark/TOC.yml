@@ -52,8 +52,12 @@
     href: ../hdinsight-cluster-availability.md
   - name: Troubleshoot
     items:
+    - name: OutOfMemoryError exception
+      items:
+      - name: Insufficient heap memory
+        href: ./apache-spark-ts-outofmemory-heap.md
     - name: Kyro serialization failed
-      href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
+      href: ./apache-spark-ts-sparkexception-kryo-serialization-failed.md
 - name: How to
   items:
   - name: Use cluster storage
