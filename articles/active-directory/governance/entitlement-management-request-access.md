@@ -50,6 +50,9 @@ Once you have found the access package in the My Access portal, you can submit a
 
 **Prerequisite role:** Requestor
 
+1. Find the access package in the list.  If necessary, you can search by typing a search string and then selecting the **Name**, **Catalog**, or **Resources** filter.
+
+    ![My Access portal - Resource search](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
 1. Click the checkmark to select the access package.
 
     ![My Access portal - Access packages](./media/entitlement-management-shared/my-access-access-packages.png)

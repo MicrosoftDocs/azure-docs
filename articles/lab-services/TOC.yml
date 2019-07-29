@@ -300,13 +300,15 @@
 - name: Resources
   items:
   - name: Classroom Labs
-    items:
+    items:    
     - name: Azure updates
       href: https://azure.microsoft.com/updates/?product=lab-services
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/lab-services/
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-lab-services
+    - name: Frequently asked questions
+      href: classroom-labs/classroom-labs-faq.md
   - name: DevTest Labs
     items:
     - name: Azure updates
