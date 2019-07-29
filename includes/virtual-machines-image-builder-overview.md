@@ -43,6 +43,7 @@ AIB will support Azure Marketplace base OS images:
 - Ubuntu 16.04
 - RHEL 7.6
 - CentOS 7.6
+- Win 10 RS5 Ent / Pro / EVD (Enterprise for Virtual Desktop) 
 - Windows 2016
 - Windows 2019
 
