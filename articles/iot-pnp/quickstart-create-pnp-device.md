@@ -53,7 +53,6 @@ In this quickstart, you prepare a development environment you can use to clone a
 
 1. Open a command prompt. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
-        
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
     ```
@@ -73,12 +72,14 @@ In this quickstart, you use an existing sample device capability model and assoc
 
 1. Download the [device capability model](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/digitaltwin_client/samples/SampleDevice.capabilitymodel.json) and [interface sample](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/digitaltwin_client/samples/digitaltwin_sample_environmental_sensor/EnvironmentalSensor.interface.json) and save files into `pnp_app` folder.
 
-1. In the files you downloaded, replace `<YOUR_COMPANY_NAME_HERE>` in the `@id` and `schema` fields with a unique value. Use only the characters a-z, A-Z, 0-9, and underscore. For more more information, see [Digital Twin identifier format](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
+    > [!TIP]
+    > To download a file from GitHub, navigate to the file, right-click on **Raw**, and then select **Save link as**.
 
 1. Open `pnp_app` folder with VS Code. You can view the files with intellisense:
 
     ![Device capability model](media/quickstart-create-pnp-device/dcm.png)
 
+1. In the files you downloaded, replace `<YOUR_COMPANY_NAME_HERE>` in the `@id` and `schema` fields with a unique value. Use only the characters a-z, A-Z, 0-9, and underscore. For more more information, see [Digital Twin identifier format](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
 
 ## Generate the C code stub
 
@@ -110,7 +111,7 @@ You use the device SDK to build the generated device code stub. The application 
 
 1. Add the line below at the bottom of the `CMakeLists.txt` file to include the device code stub folder when compiling:
 
-    ```
+    ```txt
     add_subdirectory(pnp_app/sample_device)
     ```
 
@@ -146,7 +147,7 @@ You use the device SDK to build the generated device code stub. The application 
 
 ### Publish device model files to model repository
 
-In order to validation the device code with **Azure IoT Explorer**, You need to publish the files to the model repository.
+In order to validate the device code with **Azure IoT Explorer**, you need to publish the files to the model repository.
 
 1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
 
@@ -162,21 +163,34 @@ In order to validation the device code with **Azure IoT Explorer**, You need to 
     > [!NOTE]
     > If you get errors on publishing the device model files, you can try use command **IoT Plug and Play: Sign out Model Repository** to sign out and go through the steps again.
 
-### Use the Azure IoT explorer to validate the code:
+### Use the Azure IoT explorer to validate the code
 
 1. Open Azure IoT explorer, you see the **App configurations** page.
+
 1. Enter your IoT Hub connection string and click **Connect**.
+
 1. After you connect, you see the device overview page.
+
 1. To add your company repository, select **Settings**, then **+ New**, and then **Organization repository**.
+
 1. Add the connection string for your company repository. You can find this on the connection strings page for your company repository in the [Azure Certified for IoT](https://aka.ms/adbtest) portal. Select **Connect**.
+
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
+
 1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the plug and play primitives - properties, commands and telemetry.
+
 1. Select the **Telemetry** page to view the telemetry data the device is sending.
+
 1. Select the **Properties(non-writable)** page to view the non-writable properties reported by the device.
+
 1. Select the **Properties(writable)** page to view the writable properties you can update.
+
 1. Expand property **name**, update with a new name and select **update writable property**. The status of the update is shown in the **Status** column. When the update is done, the new name shows up in the **Reported Property** column.
+
 1. Select the **Command** page to view all the commands the device supports.
+
 1. Expand the **blink** command and set a new blink time interval. Select **Send Command** to call the command on the device.
+
 1. Go to the simulated device to verify that the command executed as expected.
 
 ## Next steps

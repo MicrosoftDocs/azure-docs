@@ -52,7 +52,7 @@ To use the Azure IoT extension for Azure CLI, you need:
 az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
 ```
 
-- (Optional) The connection string for your organization's model repository, or a connection string that is shared to you from a third-party. A model repository for your organization is created when you [onboard to the Azure Certified for IoT portal](howto-onboard-portal.md).
+- (Optional) The connection string for your organization's model repository, or a connection string that is shared to you from a third-party. A model repository for your organization is created when you first [onboard to the Azure Certified for IoT portal](howto-onboard-portal.md).
 
 ### Interact with a device
 
@@ -63,13 +63,13 @@ You can use the extension to view and interact with IoT Plug and Play devices th
 List all devices on an IoT Hub:
 
 ```cmd/sh
-az iot hub device-identity list--hub-name {YourIoTHubName}
+az iot hub device-identity list --hub-name {YourIoTHubName} --login {YourIoTHubConnectionString}
 ```
 
 List all interfaces registered by an IoT Plug and Play device:
 
 ```cmd/sh
-az iot dt list-interfaces --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
+az iot dt list-interfaces --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
 ```
 
 #### Properties
@@ -77,13 +77,13 @@ az iot dt list-interfaces --hub-name {YourIoTHubName}  --device-id {YourDeviceID
 List all properties and property values for a device:
 
 ```cmd/sh
-az iot dt list-properties --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
+az iot dt list-properties --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
 ```
 
 Set the value of a read-write property:
 
 ```cmd/sh
-az iot dt update-property --property-name {TwinPropertyName} --property-value {TwinPropertyValue} --interface {YourInterfaceID} --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
+az iot dt update-property --property-name {TwinPropertyName} --property-value {TwinPropertyValue} --interface {YourInterfaceID} --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
 ```
 
 #### Commands
@@ -91,13 +91,13 @@ az iot dt update-property --property-name {TwinPropertyName} --property-value {T
 List all commands for a device:
 
 ```cmd/sh
-az iot dt list-commands --login {YourIoTHubConnectionString}--device-id {YourDeviceID} --repository {PlugAndPlayRepositoryEndpoint}
+az iot dt list-commands --login {YourIoTHubConnectionString}--device-id {YourDeviceID} --repository {PlugAndPlayRepositoryEndpoint} --login {YourIoTHubConnectionString}
 ```
 
 Invoke a command:
 
 ```cmd/sh
-az iot dt invoke-command --command-name [Interface Command Name] --command-payload {CommandPayloadOrFilePath} --interface {YourInterfaceID} --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
+az iot dt invoke-command --command-name [Interface Command Name] --command-payload {CommandPayloadOrFilePath} --interface {YourInterfaceID} --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
 ```
 
 #### Telemetry
@@ -105,13 +105,13 @@ az iot dt invoke-command --command-name [Interface Command Name] --command-paylo
 Monitor all IoT Plug and Play telemetry from all devices and interfaces:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName}
+az iot dt monitor-events --hub-name {YourIoTHubName} --login {YourIoTHubConnectionString}
 ```
 
 Monitor all telemetry from a particular IoT Plug and Play device:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName}  --device-id {YourDeviceID}
+az iot dt monitor-events --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
 ```
 
 ### Manage interfaces in a model repository
