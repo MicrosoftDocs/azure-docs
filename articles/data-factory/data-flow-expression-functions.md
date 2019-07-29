@@ -144,10 +144,6 @@ Concatenates a variable number of strings together with a separator. The first p
 * ``isNull(concatWS(null, 'dataflow', 'is', 'awesome')) -> true``
 * ``concatWS(' is ', 'dataflow', 'awesome') -> 'dataflow is awesome'``
 *********************************
-### <code>contains</code>
-<code><b>contains(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => boolean</b></code><br/><br/>
-
-*********************************
 ### <code>cos</code>
 <code><b>cos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calculates a cosine value
@@ -285,10 +281,6 @@ Always returns a false value. Use the function syntax(false()) if there is a col
 * ``(10 + 20 > 30) -> false``
 * ``(10 + 20 > 30) -> false()``
 *********************************
-### <code>filter</code>
-<code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
-
-*********************************
 ### <code>first</code>
 <code><b>first(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
 Gets the first value of a column group. If the second parameter ignoreNulls is omitted, it is assumed false
@@ -332,10 +324,6 @@ Returns the greatest value among the list of values as input skipping null value
 Gets the hour value of a timestamp. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.
 * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12``
 * ``hour(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 12``
-*********************************
-### <code>iMap</code>
-<code><b>iMap(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => any</b></code><br/><br/>
-
 *********************************
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
@@ -514,10 +502,6 @@ Left trims a string of leading characters. If second parameter is unspecified, i
 * ``ltrim('  dumbo  ') -> 'dumbo  '``
 * ``ltrim('!--!du!mbo!', '-!') -> 'du!mbo!'``
 *********************************
-### <code>map</code>
-<code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
-
-*********************************
 ### <code>max</code>
 <code><b>max(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
 Gets the maximum value of a column
@@ -659,10 +643,6 @@ Raises one number to the power of another
 Computes the rank of a value in a group of values. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will produce gaps in the sequence. Rank works even when data is not sorted and looks for change in values
 * ``rank(salesQtr, salesAmt)``
 *********************************
-### <code>reduce</code>
-<code><b>reduce(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : binaryfunction, <i>&lt;value4&gt;</i> : unaryfunction) => any</b></code><br/><br/>
-
-*********************************
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
 Extract a matching substring for a given regex pattern. The last parameter identifies the match group and is defaulted to 1 if omitted. Use `<regex>`(back quote) to match a string without escaping
@@ -790,10 +770,6 @@ Extracts a subset of an array from a position. Position is 1 based. If the lengt
 * ``isNull(slice([10, 20, 30, 40], 2)[0]) -> true``
 * ``isNull(slice([10, 20, 30, 40], 2)[20]) -> true``
 * ``slice(['a', 'b', 'c', 'd'], 8) -> []``
-*********************************
-### <code>sort</code>
-<code><b>sort(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => array</b></code><br/><br/>
-
 *********************************
 ### <code>soundex</code>
 <code><b>soundex(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
