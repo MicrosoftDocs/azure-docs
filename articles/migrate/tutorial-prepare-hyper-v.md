@@ -209,7 +209,7 @@ Azure Migrate needs permissions to discover on-premises VMs.
 
 Integration Services should be enabled on each VM so that Azure Migrate can capture operating system information on the VM.
 
-- On VMs that you want to discover and assess, enable [Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) on each VM. 
+On VMs that you want to discover and assess, enable [Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) on each VM. 
 
 ## Prepare for Hyper-V migration
 
