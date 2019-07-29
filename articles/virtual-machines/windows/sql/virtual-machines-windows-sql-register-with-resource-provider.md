@@ -155,7 +155,8 @@ Verify current SQL Server VM registration status using either Az CLI or PowerShe
 
 
   ```powershell-interactive
-  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
+  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> `
+  -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
   ```
 
 An error indicates that the SQL Server VM has not been registered with the resource provider. 
