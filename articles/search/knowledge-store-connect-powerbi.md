@@ -1,23 +1,24 @@
 ---
 title: 'Connect to knowledge store with Power BI - Azure Search'
-description: Create a knowledge store using the Import data wizard and connect with Power BI for analysis and exploration.
-manager: eladz
-author: vkurpad
+description: Create a knowledge store using the Import data wizard in Azure portal, and then connect with Power BI for analysis and exploration.
+
+author: heidisteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
-ms.author: vikurpad
+ms.author: heidist
  
 ---
-# Create an Azure Search knowledge store in the Azure portal and 
+# Create an Azure Search knowledge store and connect using Power BI
 
 > [!Note]
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
 
-Knowledge store is an Azure Search preview feature that persists output from an AI enrichment pipeline for subsequent analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files from a supported data source, sends it to Azure Search indexing, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves results to a knowledge store in Azure storage. From knowledge store, you can attach tools like Power BI or Storage Explorer to explore the results.
+Knowledge store is a feature in Azure Search that persists output from an AI enrichment pipeline for subsequent analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files from a supported data source, sends it to Azure Search indexing, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves results to a knowledge store in Azure storage. From knowledge store, you can attach tools like Power BI or Storage Explorer to explore the results.
 
 In this article, create a knowledge store in the portal, and then connect and explore using Power Query in Power BI Desktop. 
 
@@ -47,11 +48,11 @@ Load the .csv file into Azure Blob storage so that it can be accessed by an Azur
 
 1. After the container is created, open it and select **Upload** on the command bar.
 
-1. Navigate to the folder containing the **HotelReviews-Free.csv** sample file. Select the file and then click **Upload**.
+1. Navigate to the folder containing the **HotelReviews-Free.csv**, select the file, and click **Upload**.
 
    ![Upload the .csv file](media/knowledge-store-howto-powerbi/hotel-reviews-blob-container.png "Upload the .csv file")
 
-1. While you are in Azure storage, get the connection string and container name.  You will need both of these strings in [Create Data Source](#create-data-source):
+1. While you are in Azure storage, get the connection string and container name.  You will need both of these strings when creating a data source object:
 
    1. In the overview page, click **Access Keys** and copy a *connection string*. It starts with `DefaultEndpointsProtocol=https;` and concludes with `EndpointSuffix=core.windows.net`. Your account name and key are in between. 
 
@@ -124,14 +125,43 @@ Use the Import Data wizard to create the knowledge store. You will import the da
 
 1. Enter the Account Key.
 
-1. Select Document, KeyPhrases, and Pages. These are the tables created by Import data wizard when you select the same-named items in knowledge store configuration.
+1. Select Document, KeyPhrases, and Pages. These are the tables created by Import data wizard when you select the same-named items in knowledge store configuration. Click **Load**.
 
+1. Open Power Query by clicking the **Edit Queries** command.
 
-## Try it with larger data sets
+   ![Open Power Query](media/knowledge-store-howto-powerbi/powerbi-edit-queries.png "Open Power Query")
 
-We purposely kept the data set small to avoid charges for a demo walkthrough. For a more realistic experience, you can create and then attach a billable Cognitive Services resource to enable a larger number of transactions against the sentiment analyzer, keyphrase extraction, and language detector.
+1. For Documents:
 
-Create new containers in Azure Blob storage and upload each CSV file to its own container.
+   - Remove the PartitionKey, RowKey, and Timestamp columns created by Azure Table storage. Knowledge store provides relationships used in this analysis.
+
+   - Expand the content column.
+
+     ![Edit tables](media/knowledge-store-howto-powerbi/powerbi-edit-table.png "Edit tables")
+
+1. Select all of the fields and then deselect those starting with "metadata".
+
+1. Correct the data type for the following columns using ABC-123 icon on each column:
+
+   - Date columns should be **DateTime**
+   - *Latitude* should be **Decimal Number**
+   - *Longitude* should be **Decimal Number**
+
+1. Repeat the previous steps for KeyPhrases, removing PartitionKey and other columns, expanding content columns, setting *SentimentScore* to **Decimal Number**.
+
+1. Repeat again for Pages, removing PartitionKey and other columns, expanding content columns. There are no data type modifications for this table.
+
+1. Click **Close and Apply** on the far left of the Power Query command bar.
+
+1. Validate that Power BI recognizes the relationships that knowledge store created within your data. Click on the relationships tile on the left navigation pane. All three tables should be related.
+
+   ![Validate relationships](media/knowledge-store-howto-powerbi/powerbi-relationships.png "Validate relationships")
+
+## Try with larger data sets
+
+We purposely kept the data set small to avoid charges for a demo walkthrough. For a more realistic experience, you can create and then attach a billable Cognitive Services resource to enable a larger number of transactions against the sentiment analyzer, keyphrase extraction, and language detector skills.
+
+Create new containers in Azure Blob storage and upload each CSV file to its own container. Specify one of these containers in the data source creation step in Import data wizard.
 
 | Description | Link |
 |-------------|------|
@@ -140,13 +170,15 @@ Create new containers in Azure Blob storage and upload each CSV file to its own 
 | Medium (6000 Records)| [HotelReviews_Medium.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Medium.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D)
 | Large (Full dataset 35000 Records) | [HotelReviews_Large.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Large.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D)|
 
-Attach a billable [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) resource, created at the *S0* tier, in the same region as Azure Search to use larger data sets. 
+In the enrichment step of the wizard, attach a billable [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) resource, created at the *S0* tier, in the same region as Azure Search to use larger data sets. 
 
   ![Create a Cognitive Services resource](media/knowledge-store-howto-powerbi/create-cognitive-service.png "Create a Cognitive Services resource")
 
 ## Next steps
 
-For more step-by-step walkthroughs demonstrating knowledge store, continue with this next article that shows you how to create a knowledge store using REST APIs and Postman.
+If you want to repeat this exercise or do another AI enrichment walkthrough, delete the *hotel-reviews-idx* indexer that you just created. Deleting the indexer resets the free daily transaction counter  back to zero. 
+
+For more step-by-step walkthroughs demonstrating knowledge store, continue with the next article that shows you how to create a knowledge store using REST APIs and Postman.
 
 > [!div class="nextstepaction"]
 > [Get started with knowledge store](knowledge-store-howto.md)
