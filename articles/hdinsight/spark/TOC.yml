@@ -60,6 +60,8 @@
       href: ./apache-spark-troubleshoot-illegalargumentexception.md
     - name: Apache Spark Streaming application stops
       href: ./apache-spark-troubleshoot-application-stops.md
+    - name: RpcTimeoutException exception
+      href: ./apache-spark-troubleshoot-rpctimeoutexception.md
     - name: Kyro serialization failed
       href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
 - name: How to
