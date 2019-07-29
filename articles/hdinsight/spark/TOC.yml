@@ -60,6 +60,8 @@
       href: ./apache-spark-troubleshoot-illegalargumentexception.md
     - name: Apache Spark Streaming application stops
       href: ./apache-spark-troubleshoot-application-stops.md
+    - name: RpcTimeoutException exception
+      href: ./apache-spark-troubleshoot-rpctimeoutexception.md
     - name: Blocking Cross Origin API
       href: ./apache-spark-troubleshoot-blocking-cross-origin.md
 - name: How to
