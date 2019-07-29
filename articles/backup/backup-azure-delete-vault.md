@@ -87,10 +87,10 @@ Before you proceed further read **[this](#before-you-start)** section to underst
 
      Review the warning message and the instructions provided in the consent check box.
     
-> [!NOTE]
->- If the protected server is in sync with Azure Service and backup items exist, then the consent check box will display number of dependent backup items and the link to view the backup items.
->- If the protected server is not in sync with Azure Service and backup items exist, then the consent check box will display number of backup items.
->- If backup items does not exist, then the consent check box will ask for deletion.
+    > [!NOTE]
+    >- If the protected server is in sync with Azure Service and backup items exist, then the consent check box will display number of dependent backup items and the link to view the backup items.
+    >- If the protected server is not in sync with Azure Service and backup items exist, then the consent check box will display number of backup items.
+    >- If backup items does not exist, then the consent check box will ask for deletion.
 
 4. Select the consent check box and click **Delete**.
 
