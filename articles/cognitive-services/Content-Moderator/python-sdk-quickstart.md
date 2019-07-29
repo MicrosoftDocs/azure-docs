@@ -84,7 +84,7 @@ These code snippets show you how to do the following tasks with the Content Mode
 * [Use a custom image list](#use-a-custom-image-list)
 * [Create a review](#create-a-review)
 
-### Authenticate the client
+## Authenticate the client
 
 > [!NOTE]
 > This quickstart assumes you've [created an environment variable](../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your Content Moderator key, named `CONTENTMODERATOR_SUBSCRIPTION_KEY`.
@@ -93,7 +93,7 @@ Instantiate a client with your endpoint and key. Create a [CognitiveServicesCred
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_client)]
 
-### Moderate text
+## Moderate text
 
 The following code uses a Content Moderator client to analyze a body of text and print the results to the console. First, create a **text_files/** folder at the root of your project and add a *content_moderator_text_moderation.txt* file. Add your own text to this file, or use the following sample text:
 
@@ -110,7 +110,7 @@ Then, add the following function definition to your Python script. Call the func
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_textmod)]
 
-### Use a custom terms list
+## Use a custom terms list
 
 The following code shows how to manage a list of custom terms for text moderation. You can use the [ListManagementTermListsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementtermlistsoperations?view=azure-python) class to create a terms list, manage the individual terms, and screen other bodies of text against it.
 
@@ -128,7 +128,7 @@ Then, add the following function definition to your Python script. Each section 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_termslist)]
 
-### Moderate images
+## Moderate images
 
 The following code uses a Content Moderator client, along with an [ImageModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python) object, to analyze images for adult and racy content.
 
@@ -140,7 +140,7 @@ Then add the following function definition. Call this function later in the scri
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagemod)]
 
-### Use a custom image list
+## Use a custom image list
 
 The following code shows how to manage a custom list of images for image moderation. This feature is useful if your platform frequently receives instances of the same set of images that you want to screen out. By maintaining a list of these specific images, you can improve performance. The [ListManagementImageListsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementimagelistsoperations?view=azure-python) class allows you to create an image list, manage the individual images on the list, and compare other images against it.
 
@@ -155,7 +155,7 @@ Then, add the following function definition to your script. Call this function l
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagelist)]
 
-### Create a review
+## Create a review
 
 You can use the Content Moderator Python SDK to feed content into the [Review tool](https://contentmoderator.cognitive.microsoft.com) so that human moderators can review it. To learn more about the Review tool, see the [Conceptual guide](./review-tool-user-guide/human-in-the-loop.md).
 
