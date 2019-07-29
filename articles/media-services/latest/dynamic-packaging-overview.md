@@ -235,7 +235,7 @@ If an audio track name is specified in the .ism file, Media Services adds a `Lab
 
 The player can use the `Label` element to display on its UI.
 
-### Signaling audio description track(s)
+### Signaling audio description tracks
 
 A customer could annotate an audio track as audio description in the manifest. To do that, they would add “accessibility” and “role” parameters to the .ism file. Media Services will recognize audio description if an audio track has param “accessibility” with value “description”, and param “role” with value “alternate”. If Media Services detects the audio description in the .ism file, the audio description information is passed to the client manifest as `Accessibility="description"` and `Role="alternate"` attributes into the `StreamIndex` element .
 
