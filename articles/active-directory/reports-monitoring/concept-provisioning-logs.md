@@ -58,12 +58,9 @@ You can access the provisioning logs by selecting **Provisioning Logs** in the *
 
 ![Sign-in activity](./media/concept-provisioning-logs/61.png "Sign-in activity")
 
-> [!IMPORTANT]
-Lore Ipsum
 
 A provisioning log has a default list view that shows:
 
-- This list needs to be updated
 - The sign-in date
 - The related user
 - The application the user has signed-in to
