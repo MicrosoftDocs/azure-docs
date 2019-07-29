@@ -46,7 +46,7 @@ Before you proceed further read **[this](#before-you-start)** section to underst
 
 To stop protection and delete the backup data, perform the below:
 
-1. From portal > **Recovery Services vault** > **Backup Items** choose the protected items in cloud(Example AzureVirtual Machine, Azure Storage (Azure Files), SQL un Azure VM ect.).
+1. From portal > **Recovery Services vault** > **Backup Items** choose the protected items in cloud(Example AzureVirtual Machine, Azure Storage (Azure Files), SQL un Azure VM and so on).
 
     ![select the backup type](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
