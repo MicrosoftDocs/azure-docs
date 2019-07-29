@@ -49,7 +49,7 @@ Schedule the meeting from 8 to 9
 
 ## Are multiple entities in an utterance the same thing as roles? 
 
-Multiple entities can exist in an utterance and can be extracted without using roles. If the context of the sentence indicates with version of the entity has a value, then a role should be used. 
+Multiple entities can exist in an utterance and can be extracted without using roles. If the context of the sentence indicates which version of the entity has a value, then a role should be used. 
 
 ### Don't use roles for duplicates without meaning
 
