@@ -48,7 +48,7 @@ To stop protection and delete the backup data, perform the below:
 
 1. From portal > **Recovery Services vault** > **Backup Items** choose the protected items in cloud(Example AzureVirtual Machine, Azure Storage (Azure Files), SQL un Azure VM ect.).
 
-    ![select the backup type](./media/backup-azure-delete-vault/azure-storage-selected.jpg)
+    ![select the backup type](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
 2. Right-click on the backup item, depending on whether the backup item is protected or not the menu will display **Stop Backup** or **Delete backup data**.
 
@@ -85,12 +85,12 @@ Before you proceed further read **[this](#before-you-start)** section to underst
 
      ![delete backup data](./media/backup-azure-delete-vault/delete-protected-server.png)
 
-     Review the warning message and the instructions provided in the consent checkbox.
+     Review the warning message and the instructions provided in the consent check box.
     
 > [!NOTE]
->- If the protected server is in sync with Azure Service and backup items exist, then the consent checkbox will display number of dependent backup items and the link to view the backup items.
->- If the protected server is not in sync with Azure Service and backup items exist, then the consent checkbox will display number of backup items.
->- If backup items does not exist, then the consent checkbox will ask for deletion.
+>- If the protected server is in sync with Azure Service and backup items exist, then the consent check box will display number of dependent backup items and the link to view the backup items.
+>- If the protected server is not in sync with Azure Service and backup items exist, then the consent check box will display number of backup items.
+>- If backup items does not exist, then the consent check box will ask for deletion.
 
 4. Select the consent check box and click **Delete**.
 
@@ -141,7 +141,7 @@ To stop protection and delete backup data, perform the below steps:
 
 1.	In DPM Administrator Console, click **Protection** on the navigation bar.
 2.	In the display pane, select the protection group member that you want to remove. Right-click to choose **Stop Protection of Group Members** option.
-3.	From the **Stop Protection** dialog box, select **Delete protected data** > **Delete storage online** checkbox and then click **Stop Protection**.
+3.	From the **Stop Protection** dialog box, select **Delete protected data** > **Delete storage online** check box and then click **Stop Protection**.
 
     ![Delete storage online](./media/backup-azure-delete-vault/delete-storage-online.png)
 
