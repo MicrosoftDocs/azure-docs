@@ -53,7 +53,7 @@ When turn-off auto-mapping, you will have the option to add either column-based 
 
 ![Rule-based Mapping](media/data-flow/rules4.png "Rule-based mapping")
 
-When you choose rule-based mapping, you are instructing ADF to evaluate your matching expression to match incoming pattern rules and define the outgoing field names. You may add any combination of both field and rule-based mappings. Field names are then generated at runtime by ADF based on incoming metadata from the source. You can view thhe names of the generated fields during debug and using the data preview pane.
+When you choose rule-based mapping, you are instructing ADF to evaluate your matching expression to match incoming pattern rules and define the outgoing field names. You may add any combination of both field and rule-based mappings. Field names are then generated at runtime by ADF based on incoming metadata from the source. You can view the names of the generated fields during debug and using the data preview pane.
 
 Details on pattern matching are at [Column Pattern documentation](concepts-data-flow-column-pattern.md).
 
