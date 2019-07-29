@@ -4,7 +4,7 @@ description: Key elements of controlling egress traffic in Azure to meet Austral
 author: galey801
 ms.service: azure-australia
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 07/29/2019
 ms.author: grgale
 ---
 
@@ -22,14 +22,14 @@ The following key requirements for controlling egress traffic in Azure have been
 
 Description|Source
 --------------- |------------------
-**Implement Network Segmentation and Segregation**, for example, use an n-tier architecture, using host-based firewalls and network access controls to limit inbound and outbound network connectivity to only required ports and protocols.| _Cloud Computing for Tenants_
-**Implement adequately high bandwidth, low latency, reliable network connectivity** between the tenant (including the tenant’s remote users) and the cloud service to meet the tenant’s availability requirements  | _Cloud Computing for Tenants_
-**Apply technologies at more than just the network layer**. Each host and network should be segmented and segregated, where possible, at the lowest level that can be practically managed. In most cases, this applies from the data link layer up to and including the application layer; however, in sensitive environments, physical isolation may be appropriate. Host-based and network-wide measures should be deployed in a complementary manner and be centrally monitored. Just implementing a firewall or security appliance as the only security measure is not sufficient. |_ACSC Protect: Implementing Network Segmentation and Segregation_
-**Use the principles of least privilege and need‐to‐know**. If a host, service, or network doesn’t need to communicate with another host, service, or network, it should not be allowed to. If a host, service, or network only needs to talk to another host, service, or network on a specific port or protocol, it should be restricted to only those ports and protocols. Adopting these principles across a network will complement the minimisation of user privileges and significantly increase the overall security posture of the environment. |_ACSC Protect: Implementing Network Segmentation and Segregation_
-**Separate hosts and networks based on their sensitivity or criticality to business operations**. This may include using different hardware or platforms depending on different security classifications, security domains, or availability/integrity requirements for certain hosts or networks. In particular, separate management networks and consider physically isolating out-of-band management networks for sensitive environments. |_ACSC Protect: Implementing Network Segmentation and Segregation_
-**Identify, authenticate, and authorise access by all entities to all other entities**. All users, hosts, and services should have their access to all other users, hosts, and services restricted to only those required to perform their designated duties or functions. All legacy or local services which bypass or downgrade the strength of identification, authentication, and authorisation services should be disabled wherever possible and have their use closely monitored. |_ACSC Protect: Implementing Network Segmentation and Segregation_
-**Implement allow listing of network traffic instead of deny listing**. Only permit access for known good network traffic (traffic that is identified, authenticated, and authorised), rather than denying access to known bad network traffic (for example, blocking a specific address or service). Allow lists result in a superior security policy to deny lists, and significantly improve your capacity to detect and assess potential network intrusions. |_ACSC Protect: Implementing Network Segmentation and Segregation_
-**Defining an allow list of permitted websites and blocking all unlisted websites** effectively removes one of the most common data delivery and exfiltration techniques used by an adversary. If users have a legitimate requirement to access numerous websites, or a rapidly changing list of websites; you should consider the costs of such an implementation. Even a relatively permissive allow list offers better security than relying on deny lists, or no restrictions at all, while still reducing implementation costs. An example of a permissive allow list could be permitting the entire Australian subdomain, that is ‘*.au’, or allowing the top 1,000 sites from the Alexa site ranking (after filtering Dynamic Domain Name System (DDNS) domains and other inappropriate domains).| _Australian Government Information Security Manual (ISM)_
+**Implement Network Segmentation and Segregation**, for example, use an n-tier architecture, using host-based firewalls and network access controls to limit inbound and outbound network connectivity to only required ports and protocols.| [Cloud Computing for Tenants](https://acsc.gov.au/publications/protect/cloud-security-tenants.htm)
+**Implement adequately high bandwidth, low latency, reliable network connectivity** between the tenant (including the tenant’s remote users) and the cloud service to meet the tenant’s availability requirements  | [ACSC Protect: Implementing Network Segmentation and Segregation](https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm)
+**Apply technologies at more than just the network layer**. Each host and network should be segmented and segregated, where possible, at the lowest level that can be practically managed. In most cases, this applies from the data link layer up to and including the application layer; however, in sensitive environments, physical isolation may be appropriate. Host-based and network-wide measures should be deployed in a complementary manner and be centrally monitored. Just implementing a firewall or security appliance as the only security measure is not sufficient. |[ACSC Protect: Implementing Network Segmentation and Segregation](https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm)
+**Use the principles of least privilege and need‐to‐know**. If a host, service, or network doesn’t need to communicate with another host, service, or network, it should not be allowed to. If a host, service, or network only needs to talk to another host, service, or network on a specific port or protocol, it should be restricted to only those ports and protocols. Adopting these principles across a network will complement the minimisation of user privileges and significantly increase the overall security posture of the environment. |[ACSC Protect: Implementing Network Segmentation and Segregation](https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm)
+**Separate hosts and networks based on their sensitivity or criticality to business operations**. This may include using different hardware or platforms depending on different security classifications, security domains, or availability/integrity requirements for certain hosts or networks. In particular, separate management networks and consider physically isolating out-of-band management networks for sensitive environments. |[ACSC Protect: Implementing Network Segmentation and Segregation](https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm)
+**Identify, authenticate, and authorise access by all entities to all other entities**. All users, hosts, and services should have their access to all other users, hosts, and services restricted to only those required to perform their designated duties or functions. All legacy or local services which bypass or downgrade the strength of identification, authentication, and authorisation services should be disabled wherever possible and have their use closely monitored. |[ACSC Protect: Implementing Network Segmentation and Segregation](https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm)
+**Implement allow listing of network traffic instead of deny listing**. Only permit access for known good network traffic (traffic that is identified, authenticated, and authorised), rather than denying access to known bad network traffic (for example, blocking a specific address or service). Allow lists result in a superior security policy to deny lists, and significantly improve your capacity to detect and assess potential network intrusions. |[ACSC Protect: Implementing Network Segmentation and Segregation](https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm)
+**Defining an allow list of permitted websites and blocking all unlisted websites** effectively removes one of the most common data delivery and exfiltration techniques used by an adversary. If users have a legitimate requirement to access numerous websites, or a rapidly changing list of websites; you should consider the costs of such an implementation. Even a relatively permissive allow list offers better security than relying on deny lists, or no restrictions at all, while still reducing implementation costs. An example of a permissive allow list could be permitting the entire Australian subdomain, that is ‘*.au’, or allowing the top 1,000 sites from the Alexa site ranking (after filtering Dynamic Domain Name System (DDNS) domains and other inappropriate domains).| [Australian Government Information Security Manual (ISM)](https://www.cyber.gov.au/ism)
 |
 
 This article provides information and recommendations on how network traffic leaving your Azure environment is controlled. It covers systems deployed in Azure using both Infrastructure as a Service (IaaS) and Platform as a Service (PaaS).
@@ -104,7 +104,7 @@ PaaS resources deployed into a virtual network receive dedicated IP addresses an
 
 ## General guidance
 
-To design and build secure solutions within Azure, it is critical to understand and control the network traffic so that only identified and authorised communication can occur. The intent of this guidance and the specific component guidance in later sections is to describe the tools and services that can be utilised to apply the principles outlined in the _ACSC Protect: Implementing Network Segmentation and Segregation_ across Azure workloads. This includes detailing how to create a virtual architecture for securing resources when it is not possible to apply the same traditional physical and network controls that are possible in an on-premises environment.
+To design and build secure solutions within Azure, it is critical to understand and control the network traffic so that only identified and authorised communication can occur. The intent of this guidance and the specific component guidance in later sections is to describe the tools and services that can be utilised to apply the principles outlined in the [ACSC Protect: Implementing Network Segmentation and Segregation](https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm) across Azure workloads. This includes detailing how to create a virtual architecture for securing resources when it is not possible to apply the same traditional physical and network controls that are possible in an on-premises environment.
 
 ### Guidance
 
@@ -160,19 +160,19 @@ Subnets are a crucial component for network segmentation and segregation within 
 
 The subnets within a virtual network should be planned to meet the requirements of workloads and systems. Individuals involved in the design or implementation of subnets should refer to the ACSC guidelines for network segmentation to determine how systems should be grouped together within a subnet.
 
-| Resource                                          | Link                                                         |
-| :------------------------------------------------ | :----------------------------------------------------------- |
-| *Add, change, or delete a virtual network subnet* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
+|Resource|Link|
+|---|---|
+|*Add, change, or delete a virtual network subnet* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
 |
 
 ### Network interface
 
 Network interfaces are the source for all egress traffic from a virtual machine. Network Interfaces enable the configuration of IP Addressing, and can be used to apply NSGs or for routing traffic through an NVA. The Network Interfaces for virtual machines should be planned and configured appropriately to align with overall network segmentation and segregation objectives.
 
-| Resource | Link |
-| --- | --- |
-| *Create, Change, or Delete a Network Interface* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface) |
-| *Network Interface IP Addressing*               | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)
+|Resource|Link|
+|---|---|
+|*Create, Change, or Delete a Network Interface* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface) |
+|*Network Interface IP Addressing*               | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)
 |
 
 ### VNet integrated PaaS
@@ -193,10 +193,10 @@ When deploying PaaS into a virtual network where routing and NSG controls have b
 
 Public IP addresses are used when communicating outside a virtual network. This includes PaaS resources and any routes with a next hop of Internet. Commonwealth entities should plan the allocation of Public IP addresses carefully and only assign them to resources where there is a genuine requirement. As a general design practice, Public IP addresses should be allocated to controlled egress points for the virtual network such as Azure Firewall, VPN Gateway, or Network Virtual Appliances.
 
-| Resource  | Link |
-| --- | ---|
-| *Public IP Addresses Overview*  | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) |
-| *Create, change, or delete a public IP address* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
+|Resource|Link|
+|---|---|
+|*Public IP Addresses Overview*  | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) |
+|*Create, change, or delete a public IP address* | [https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
 |
 
 ## Effective routes
@@ -218,33 +218,29 @@ Individuals involved in the design or implementation of routing topologies in Az
 
 ### System routes
 
-For System Routes, individuals involved in the design or implementation of virtual networks should understand the default system routes and the options available to complement or override those routes.
-
-Resource | Link
------| -----
- *System routes overview* | <https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#system-routes>
+For [System Routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#system-routes), individuals involved in the design or implementation of virtual networks should understand the default system routes and the options available to complement or override those routes.
 
 ### Service endpoints
 
-Enabling service endpoints on a subnet provides a direct communication path to the associated PaaS resource. This can provide increased performance and security by restricting the available communication path to just that service. The use of service endpoints does introduce a potential data exfiltration path as the default configuration allows access to all instances of the PaaS service rather than the specific instances required for an application or system.
+Enabling [service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) on a subnet provides a direct communication path to the associated PaaS resource. This can provide increased performance and security by restricting the available communication path to just that service. The use of service endpoints does introduce a potential data exfiltration path as the default configuration allows access to all instances of the PaaS service rather than the specific instances required for an application or system.
 
 Commonwealth entities should evaluate the risk associated with providing direct access to the PaaS resource including the likelihood and consequence of the path being misused.
 
 To reduce potential risks associated with service endpoints, implement service endpoint policies where possible or consider enabling service endpoints on an Azure Firewall or NVA subnet and routing traffic from specific subnets through it where additional filtering, monitoring, or inspection can be applied.
 
-| Resource                                                     | Link                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| *Service endpoints overview*                                 | <https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview> |
-| *Tutorial: Restrict network access to PaaS resources with virtual network service endpoints using the Azure portal* | <https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources> |
+|Resource|Link|
+|---|---|
+|*Tutorial: Restrict network access to PaaS resources with virtual network service endpoints using the Azure portal* |[https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources)|
+|
 
 ### Route tables
 
 Route tables provide an administrator configured mechanism for controlling network traffic within Azure. Route tables can be utilised for forwarding traffic through to an Azure Firewall or NVA, connect directly to external resources, or to override Azure system routes. Route tables can also be used to prevent networks learnt through a virtual network gateway from being made available to resources in a subnet by disabling virtual network gateway route propagation.
 
-Resource | Link
------| -----
- *Routing Concepts - custom routes* | <https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes>
- *Tutorial: Route network traffic* | <https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal>
+|Resource|Link|
+|---|---|
+|*Routing Concepts - custom routes* |[https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes)|
+|*Tutorial: Route network traffic* |[https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal)|
 |
 
 ### Border Gateway Protocol (BGP)
@@ -253,12 +249,12 @@ BGP can be utilised by virtual network gateways to dynamically exchange routing 
 
 Individuals involved in the design or implementation of virtual networks and virtual network gateways in Azure should take time to understand the behaviour and configuration options available for BGP in Azure.
 
-Resource | Link
------| -----
-*Routing Concepts: BGP* | <https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#next-hop-types-across-azure-tools>
-*ExpressRoute routing requirements* | <https://docs.microsoft.com/azure/expressroute/expressroute-routing>
- *About BGP with Azure VPN Gateway* | <https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview>
- *Tutorial: Configure a site-to-site VPN over ExpressRoute Microsoft peering* | <https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering>
+|Resource|Link|
+|---|---|
+|*Routing Concepts: BGP* | [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#next-hop-types-across-azure-tools](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#next-hop-types-across-azure-tools)|
+|*ExpressRoute routing requirements* | [https://docs.microsoft.com/azure/expressroute/expressroute-routing](https://docs.microsoft.com/azure/expressroute/expressroute-routing)|
+|*About BGP with Azure VPN Gateway* |[https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview)|
+|*Tutorial: Configure a site-to-site VPN over ExpressRoute Microsoft peering* |[https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering](https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering)|
 |
 
 ## Next hop types
@@ -278,10 +274,10 @@ When configuring VNet peering, it is critical that individuals involved in the d
 3. **Allow gateway transit:** Check this box to allow the peered virtual network to utilise the virtual network gateway attached to this virtual network. *Allow gateway transit* is enabled on the virtual network with the virtual network gateway resource, but only applies if *Use remote gateways* is enabled on the other virtual network.
 4. **Use remote gateways:** Check this box to allow traffic from this virtual network to flow through a virtual network gateway attached to the virtual network being peered with. *Use remote gateways* is enabled on the virtual network without a virtual network gateway and only applies if the *Allow gateway transit* option is enabled on the other virtual network.
 
-| Resource                                              | Link                                                         |
-| ----------------------------------------------------- | ------------------------------------------------------------ |
-| Concepts: Virtual network peering                   | <https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview> |
-| Create, change, or delete a virtual network peering | <https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering> |
+|Resource|Link|
+|---|---|
+| Concepts: Virtual network peering                   | [https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) |
+| Create, change, or delete a virtual network peering | [https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering)|
 |
 
 ### Virtual network gateway
@@ -334,8 +330,8 @@ Examples of services that can be added using the next hop of Internet are:
 1. Key Management Services for Windows activation
 2. App Service Environment management
 
-| Resource  | Link |
-| --- | ---|
+|Resource|Link|
+|---|---|
 | Outbound connections in Azure | [https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) |
 | Use Azure custom routes to enable KMS activation | [https://docs.microsoft.com/bs-latn-ba/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation](https://docs.microsoft.com/bs-latn-ba/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) |
 | Locking down an App Service Environment  | [https://docs.microsoft.com/azure/app-service/environment/firewall-integration](https://docs.microsoft.com/azure/app-service/environment/firewall-integration) |
@@ -361,29 +357,29 @@ NSGs are used to specify the inbound and outbound traffic permitted for a subnet
 
 It is important to note that the default configuration for an NSG permits outbound traffic to all addresses within the virtual network and all public IP addresses.
 
-Resource | Link
------| -----
-Network Security Overview | [https://docs.microsoft.com/azure/virtual-network/security-overview](https://docs.microsoft.com/azure/virtual-network/security-overview)
-Create, change, or delete a network security group | [https://docs.microsoft.com/azure/virtual-network/manage-network-security-group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+|Resource|Link|
+|---|---|
+|Network Security Overview | [https://docs.microsoft.com/azure/virtual-network/security-overview](https://docs.microsoft.com/azure/virtual-network/security-overview)|
+|Create, change, or delete a network security group | [https://docs.microsoft.com/azure/virtual-network/manage-network-security-group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)|
 |
 
 ### Azure Firewall
 
 Azure Firewall can be utilised to build a hub and spoke network topology and enforce centralised network security controls. Azure Firewall can be used to meet the necessary requirements of the ISM for egress traffic by implementing an allow listing approach where only the IP addresses, protocols, ports, and FQDNs required for system functionality are authorised. Commonwealth entities should take a risk-based approach to determine whether the security capabilities provided by Azure Firewall are sufficient for their requirements. For scenarios where additional security capabilities beyond those provided by Azure Firewall are required, commonwealth entities should consider implementing NVAs.
 
-Resource | Link
------| -----
- *Azure Firewall Documentation* | [https://docs.microsoft.com/azure/firewall](https://docs.microsoft.com/azure/firewall)
- *Tutorial: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell* | [https://docs.microsoft.com/azure/firewall/tutorial-hybrid-ps](https://docs.microsoft.com/azure/firewall/tutorial-hybrid-ps)
+|Resource|Link|
+|---|---|
+|*Azure Firewall Documentation* | [https://docs.microsoft.com/azure/firewall](https://docs.microsoft.com/azure/firewall)|
+|*Tutorial: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell* | [https://docs.microsoft.com/azure/firewall/tutorial-hybrid-ps](https://docs.microsoft.com/azure/firewall/tutorial-hybrid-ps)|
 |
 
 ### Network Virtual Appliances (NVAs)
 
 NVAs can be used to build a hub and spoke network topology, provide enhanced or complementary network capabilities or can be used as an alternative to Azure network mechanisms for familiarity and consistent support and management with on-premises network services. NVAs can be deployed to meet specific security requirements such as; scenarios where there is a requirement for identity awareness associated to network traffic, HTTPS decryption, content inspection, filtering, or other security capabilities. NVAs should be deployed in a highly available configuration and individuals involved in the design or implementation of NVAs should consult the appropriate vendor documentation for guidelines on deployment in Azure.
 
-Resource | Link
------| -----
- *Deploy highly available network virtual appliances* | [https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha)
+|Resource|Link|
+|---|---|
+|*Deploy highly available network virtual appliances* | [https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha)|
 |
 
 ### Service endpoint policies (Preview)
@@ -400,11 +396,11 @@ Configure service endpoint policies based on availability of the service and a s
 
 Azure Policy is a key component for enforcing and maintaining the integrity of the logical architecture of the Azure environment. There are a variety of services and egress network traffic paths available through Azure services. It is crucial that Commonwealth entities are aware of the resources that exist within their environment and the available network egress points. To ensure that unauthorised network egress points are not created in the Azure environment, Commonwealth entities should use Azure Policy to control the types of resources that can be deployed and the configuration of those resources. Practical examples include restricting resources to only those authorised and approved for use and requiring NSGs to be added to subnets.
 
-Resource | Link
------| -----
-*Azure Policy Overview* | [https://docs.microsoft.com/azure/governance/policy/overview](https://docs.microsoft.com/azure/governance/policy/overview)
-*Allowed Resource Types sample policy* | [https://docs.microsoft.com/azure/governance/policy/samples/allowed-resource-types](https://docs.microsoft.com/azure/governance/policy/samples/allowed-resource-types)
-*Force NSG on a subnet sample policy*| [https://docs.microsoft.com/azure/governance/policy/samples/nsg-on-subnet](https://docs.microsoft.com/azure/governance/policy/samples/nsg-on-subnet)
+|Resource | Link|
+|---|---|
+|*Azure Policy Overview* | [https://docs.microsoft.com/azure/governance/policy/overview](https://docs.microsoft.com/azure/governance/policy/overview)|
+|*Allowed Resource Types sample policy* | [https://docs.microsoft.com/azure/governance/policy/samples/allowed-resource-types](https://docs.microsoft.com/azure/governance/policy/samples/allowed-resource-types)|
+|*Force NSG on a subnet sample policy*| [https://docs.microsoft.com/azure/governance/policy/samples/nsg-on-subnet](https://docs.microsoft.com/azure/governance/policy/samples/nsg-on-subnet)|
 |
 
 ## PaaS egress capabilities
