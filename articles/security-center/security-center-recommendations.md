@@ -26,11 +26,11 @@ This topic explains how to view and understand the recommendations in Azure Secu
 
 ## What are security recommendations?
 
-Recommendations are actions for you to take in order to secure make your resources.
+Recommendations are actions for you to take in order to secure your resources.
 
 Security Center periodically analyzing the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remove them.
 
-Each recommendations provides you with:
+Each recommendation provides you with:
 
 - A short description of what is being recommended.
 - The remediation steps to carry out in order to implement the recommendation. In some cases, one-click remediation is available.
