@@ -8,12 +8,12 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 08/01/2019
 ---
 
 # Add artifacts to your integration service environment (ISE) in Azure Logic Apps
 
-After you create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), add artifacts such as logic apps, integration accounts, and custom connectors so that they can access the resources in your Azure virtual network.
+After you create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), add artifacts such as logic apps, integration accounts, and connectors so that they can access the resources in your Azure virtual network.
 
 ## Prerequisites
 
@@ -79,6 +79,22 @@ To create an integration account that uses an ISE, follow these steps:
 1. Continue by adding artifacts to your integration account, such as [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) and [agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md).
 
 1. To manage integration accounts in your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md).
+
+<a name="add-api-connectors-environment"></a>
+
+## Add managed connectors to an ISE
+
+You can add Microsoft-managed connectors that available to use in your ISE but aren't deployed in your ISE.
+
+1. On your ISE menu, under **Settings**, select **Managed connectors**. On the toolbar, select **Add**.
+
+   ![View managed connectors](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
+
+1. On the **Add a new managed connector** pane, open the **Find connector** list. If the connector that you want is available, select that connector, and then select **Create**.
+
+   Any eligible connectors that aren't deployed in your ISE appear available for you to select. Connectors that are already deployed in your ISE appear as unavailable for selection.
+
+   ![Select eligible connector](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
 <a name="create-custom-connectors-environment"></a>
 
