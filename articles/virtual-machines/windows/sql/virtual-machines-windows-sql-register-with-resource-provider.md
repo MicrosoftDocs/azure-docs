@@ -91,7 +91,6 @@ If the SQL IaaS Extension is already installed on the VM, then registering with 
   ```
 
 
-
 ## Register SQL Server 2008/R2 on Windows Server 2008 VMs
 
 SQL Server 2008 and 2008 R2 installed on Windows Server 2008 can be registered with the SQL VM resource provide in the [NoAgent](virtual-machines-windows-sql-server-agent-extension.md) mode. This option assures compliance and allows the SQL Server VM to be monitored in the Azure portal with limited functionality.
@@ -105,8 +104,9 @@ The following table details the acceptable values for the parameters provided du
 | &nbsp;             | &nbsp;                                   |
 
 
-To register your SQL Server 2008 or 2008 R2 on Windows Server 2008 instance, use the following Powershell code snippet:  
+To register your SQL Server 2008 or 2008 R2 on Windows Server 2008 instance, use the following Powershell or Az CLI code snippet:  
 
+# [PowerShell](#tab/powershell)
   ```powershell-interactive
      # Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
@@ -116,6 +116,15 @@ To register your SQL Server 2008 or 2008 R2 on Windows Server 2008 instance, use
       -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='AHUB'; `
        sqlManagement='NoAgent';sqlImageSku='Standard';sqlImageOffer='SQL2008R2-WS2008'}
   ```
+
+# [AZ CLI](#tab/bash)
+
+  ```azurecli-interactive
+   az sql vm create -n sqlvm -g myresourcegroup -l eastus |
+   --license-type AHUB --sql-mgmt-type NoAgent 
+   --image-sku Enterprise --image-offer SQL2008-WS2008R2
+ ```
+---
 
 ## Verify registration status
 You can verify if your SQL Server has already been registered with the SQL VM resource provider using the Azure portal, Azure CLI, or PowerShell. 
@@ -146,6 +155,7 @@ Verify current SQL Server VM registration status with the following PowerShell c
   ```powershell-interactive
   Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
   ```
+
 An error indicates that the SQL Server VM has not been registered with the resource provider. 
 
 ---
