@@ -23,6 +23,10 @@ Every data flow requires at least one source transformation. Add as many sources
 
 Associate your Data Flow source transformation with exactly one Data Factory dataset. The dataset defines the shape and location of the data you want to write to or read from. You can use wildcards and file lists in your source to work with more than one file at a time.
 
+Using a **Wilcard Pattern** option will instruct ADF to loop through each matching folder and file in a single Source transformation. This is a very effective way to process multiple files within a single flow. To track the file name that is currently being processed, set a field name for the "Column to store file name" field in Source Options.
+
+Note that you can set multiple wildcard matching patterns. Click the + sign next to your existing wildcard pattern to add more.
+
 ## Data Flow staging areas
 
 Data Flow works with *staging* datasets that are all in Azure. Use these datasets for staging when you're transforming your data. 
