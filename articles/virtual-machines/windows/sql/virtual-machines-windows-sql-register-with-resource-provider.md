@@ -139,18 +139,20 @@ To verify the status of registration using the Azure portal, do the following.
 
     ![Verify status with SQL RP registration](media/virtual-machines-windows-sql-register-with-rp/verify-registration-status.png)
 
-### Az CLI
+### Command line
 
-Verify current SQL Server VM registration status with the following AZ CLI command. `ProvisioningState` will show `Succeeded` if registration was successful. 
+Verify current SQL Server VM registration status using either Az CLI or PowerShell. `ProvisioningState` will show `Succeeded` if registration was successful. 
+
+# [AZ CLI](#tab/bash)
+
 
   ```azurecli-interactive
   az sql vm show -n <vm_name> -g <resource_group>
-  ```
+ ```
 
 
-### PowerShell
+# [PowerShell](#tab/powershell)
 
-Verify current SQL Server VM registration status with the following PowerShell cmdlet. `ProvisioningState` will show `Succeeded` if registration was successful. 
 
   ```powershell-interactive
   Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
@@ -176,7 +178,11 @@ The following steps will register the SQL VM resource provider to your Azure sub
 
    ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
-### Az CLI
+### Command line
+
+Register your SQL VM resource provider to your Azure subscription using either Az CLI or PowerShell. 
+
+# [AZ CLI](#tab/bash)
 The following code snippet will register the SQL VM resource provider to your Azure subscription. 
 
 ```azurecli-interactive
@@ -184,9 +190,7 @@ The following code snippet will register the SQL VM resource provider to your Az
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-### PowerShell
-
-The following PowerShell code snippet will register the SQL VM resource provider to your Azure subscription.
+# [PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # Register the new SQL VM resource provider to your subscription
@@ -199,6 +203,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
  - The SQL VM resource provider only supports SQL Server VMs deployed using the 'Resource Manager'. SQL Server VMs deployed using the 'classic model' are not supported. 
  - The SQL VM resource provider only supports SQL Server VMs deployed to the public cloud. Deployments to the private, or government cloud, are not supported. 
  
+
 ## Frequently asked questions 
 
 **Should I register my SQL Server VM provisioned from a SQL image on Azure Marketplace?**
