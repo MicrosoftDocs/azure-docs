@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 06/30/2019
+ms.date: 07/29/2019
 ms.author: juliako
 ---
 
@@ -27,9 +27,9 @@ A **Cognitive Insights** widget includes all visual insights that were extracted
 
 |Name|Definition|Description|
 |---|---|---|
-|widgets|Strings separated by comma|Allows you to control the insights you want to render. <br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` will render only people and brands UI insights<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>not supported via URL at version=2<br/><br/>**Note:** The widgets URL param is not supported in version 2. |
-|locale|A short language code|Controls the insights language. Default is `en`. For example: `language=de`.|
-|tab|The default selected tab|Controls the insights tab that is rendered by default. `tab=timeline` renders the insights with the timeline tab selected.|
+|`widgets`|Strings separated by comma|Allows you to control the insights you want to render. <br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` will render only people and brands UI insights<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>not supported via URL at version=2<br/><br/>**Note:** The widgets URL param is not supported in version 2. |
+|`locale`|A short language code|Controls the insights language. Default is `en`. For example: `language=de`.|
+|`tab`|The default selected tab|Controls the insights tab that is rendered by default. `tab=timeline` renders the insights with the timeline tab selected.|
 
 ### Player widget
 
@@ -37,12 +37,24 @@ A **Player** widget enables you to stream the video using adaptive bit rate. The
 
 |Name|Definition|Description|
 |---|---|---|
-|t|Seconds from the start|Makes the player start playing from the given time point.<br/>Example: `t=60`.|
-|captions|A language code|Fetches the caption in the given language during the widget loading to be available in the captions menu.<br/>Example: `captions=en-US`.|
-|showCaptions|A boolean value|Makes the player load with the captions already enabled.<br/>Example: `showCaptions=true`.|
-|type||Activates an audio player skin (video part is removed).<br/>Example: `type=audio`.|
-|autoplay|A boolean value|Indicates if the player should start playing the video when loaded (default is true).<br/>Example: `autoplay=false`.|
-|language|A language code|Controls the player language (default is en-US)<br/>Example: `language=de-DE`.|
+|`t`|Seconds from the start|Makes the player start playing from the given time point.<br/>Example: `t=60`.|
+|`captions`|A language code|Fetches the caption in the given language during the widget loading to be available in the captions menu.<br/>Example: `captions=en-US`.|
+|`showCaptions`|A boolean value|Makes the player load with the captions already enabled.<br/>Example: `showCaptions=true`.|
+|`type`||Activates an audio player skin (video part is removed).<br/>Example: `type=audio`.|
+|`autoplay`|A boolean value|Indicates if the player should start playing the video when loaded (default is true).<br/>Example: `autoplay=false`.|
+|`language`|A language code|Controls the player language (default is en-US)<br/>Example: `language=de-DE`.|
+
+### Editor widget 
+
+The **Editor** widget enables you to create new projects and manage video's insights.
+
+|Name|Definition|Description|
+|---|---|---|
+|`accessToken`<sup>*</sup>|String|If the `accessToken` value is present, the access is given to videos in other accounts. <br/>If there is no `accessToken`, the user is unable to edit or get any data about videos in other accounts.  |
+|`language`|A language code|Controls the player language (default is en-US)<br/>Example: `language=de-DE`.|
+|`locale`|A short language code|Controls the insights language. Default is `en`. For example: `language=de`.|
+
+<sup>*</sup>The owner should be providing `accessToken` with caution. 
 
 ## Embedding public content
 
