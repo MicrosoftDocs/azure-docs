@@ -6,7 +6,7 @@ author: ChJenk
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 08/07/2019
 ms.author: v-chjenk
 ---
 
@@ -71,9 +71,9 @@ On November 19, 2018, [Microsoft acquired FSLogix](https://blogs.microsoft.com/b
 
 Since the acquisition, Microsoft started replacing existing user profile solutions, like UPD, with FSLogix profile containers.
 
-## Azure Files integration with Azure Active Directory
+## Azure Files integration with Azure Active Directory Domain Service
 
-FSLogix profile containers performance and features take advantage of the cloud. On Sept. 24, 2018, Microsoft Azure Files announced a public preview of [Azure Files supporting Azure Active Directory authentication](https://azure.microsoft.com/blog/azure-active-directory-integration-for-smb-access-now-in-public-preview/). By addressing both cost and administrative overhead, Azure Files with Azure Active Directory authentication is a premium solution for user profiles in the new Windows Virtual Desktop service.
+FSLogix profile containers performance and features take advantage of the cloud. On August 7th, 2019, Microsoft Azure Files announced the general availability of [Azure Files Azure Active Directory Domain Service (AD DS) Authentication](..\storage\files\storage-files-active-directory-overview.md). By addressing both cost and administrative overhead, Azure Files with AD DS Authentication is a premium solution for user profiles in the Windows Virtual Desktop service.
 
 ## Best practices for Windows Virtual Desktop
 
