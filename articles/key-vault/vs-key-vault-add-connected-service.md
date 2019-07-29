@@ -35,7 +35,7 @@ Before you begin, make sure that you're signed into Visual Studio. Sign in with 
 
 1. Select the subscription you want to use, and then choose a new or existing Key Vault. If you choose the new Key Vault, an **Edit** link appears. Select it to configure your new Key Vault.
 
-   ![Select your subscription](media/vs-key-vault-add-connected-service/KeyVaultConnectedService3.PNG)
+   ![Select your subscription](media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
 1. In Edit Azure Key Vault, enter the name you want to use for the Key Vault.
 
@@ -47,11 +47,11 @@ Before you begin, make sure that you're signed into Visual Studio. Sign in with 
 1. Follow the **Manage secrets stored in this Key Vault** link to open the **Secrets** page for your Key Vault. If you closed the page or the project, you can navigate to it in the [Azure portal](https://portal.azure.com) by choosing **All Services** and, under **Security**, choosing **Key Vault**, then choose your Key Vault.
 1. In the Key Vault section for the key vault you created, choose **Secrets**, then **Generate/Import**.
 
-   ![Generate/Import a secret](media/vs-key-vault-add-connected-service/generate-secrets.jpg)
+   ![Generate/Import a secret](media/vs-key-vault-add-connected-service/azure-generate-secrets.png)
 
 1. Enter a secret, such as "MySecret" and give it any string value as a test, then choose the **Create** button.
 
-   ![Create a secret](media/vs-key-vault-add-connected-service/create-a-secret.jpg)
+   ![Create a secret](media/vs-key-vault-add-connected-service/azure-create-a-secret.png)
 
 1. (optional) Enter another secret, but this time put it into a category by naming it "Secrets--MySecret". This syntax specifies a category "Secrets" that contains a secret "MySecret".
 
@@ -59,10 +59,10 @@ Now, you can access your secrets in code. The next steps are different depending
 
 ## Access your secrets in code
 
-1. In Solution Explorer, right-click on your project, and select **Manage NuGet Packages**. IN the **Browse** tab, locate and install these two NuGet packages:
-   [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet libraries.
+1. In Solution Explorer, right-click on your project, and select **Manage NuGet Packages**. In the **Browse** tab, locate and install these two NuGet packages:
+   [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-2. Select the Program.cs tab and replace the Program class with the following code:
+1. Select the `Program.cs` tab and replace the Program class with the following code:
 
    ```csharp
     public class Program
@@ -94,8 +94,8 @@ Now, you can access your secrets in code. The next steps are different depending
     }
    ```
 
-3. Next open About.cshtml.cs file and write the following code:
-   1. Include a reference to Microsoft.Extensions.Configuration by this using statement:
+1. Next open `About.cshtml.cs` file and write the following code:
+   1. Include a reference to `Microsoft.Extensions.Configuration` by this using statement:
 
        ```csharp
        using Microsoft.Extensions.Configuration
@@ -110,7 +110,7 @@ Now, you can access your secrets in code. The next steps are different depending
        }
        ```
 
-   1. Update the OnGet method. Update the placeholder value shown here with the secret name you created in the above commands.
+   1. Update the `OnGet` method. Update the placeholder value shown here with the secret name you created in the above commands.
 
        ```csharp
        public void OnGet()
@@ -128,7 +128,7 @@ When no longer needed, delete the resource group. This deletes the Key Vault and
 
 1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 2. Select **Delete resource group**.
-3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
+3. In the **TYPE THE RESOURCE GROUP NAME:** box, enter in the name of the resource group and select **Delete**.
 
 ## How your ASP.NET Core project is modified
 
@@ -183,7 +183,7 @@ Affects the project file .NET references and `packages.config` (NuGet references
 
 ### Added files for ASP.NET Framework
 
-- ConnectedService.json added, which records some information about the Connected Service provider, version, and a link to the documentation.
+- `ConnectedService.json` added, which records some information about the Connected Service provider, version, and a link to the documentation.
 
 ### Project file changes for ASP.NET Framework
 
@@ -220,4 +220,4 @@ Affects the project file .NET references and `packages.config` (NuGet references
 
 ## Next steps
 
-Learn more about Key Vault development by reading the [Key Vault Developer's Guide](key-vault-developers-guide.md)
+Learn more about Key Vault development by reading the [Key Vault Developer's Guide](key-vault-developers-guide.md).
