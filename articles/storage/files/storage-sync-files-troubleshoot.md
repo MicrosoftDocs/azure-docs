@@ -353,15 +353,15 @@ No action is required. When a file or file share (cloud endpoint) is restored us
 |-|-|
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (decimal)** | -2134364065 |
-| **Error string** | ECS_E_CANNOT_ACCESS_EXTERNAL_STORAGE_ACCOUNT |
+| **Error string** | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED |
 | **Remediation required** | Yes |
 
 This error occurs because the Azure File Sync agent cannot access the Azure file share, which may be because the Azure file share or the storage account hosting it no longer exists. You can troubleshoot this error by working through the following steps:
 
 1. [Verify the storage account exists.](#troubleshoot-storage-account)
-2. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
-3. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
-4. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
+2. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
+3. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
+4. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**The storage account name used could not be resolved.**  
 
