@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2019
+ms.date: 07/29/2019
 ms.author: v-mohabe
 
 ---
@@ -98,12 +98,15 @@ To implement one-click remediation:
 
     ![One-click fix](./media/security-center-recommendations/one-click-fix.png)
 
-    > [!NOTE]
-    > -It can take several minutes after remediation completes to see the resources in the **Healthy resources** tab. To view the the remediation actions, check the activity log where they are logged.
-  
 3. In the confirmation box, read the remediation details, insert the relevant parameters if required, and approve the remediation.
 
+   ![One-click fix](./media/security-center-recommendations/one-click-fix-remediate.png)
+
+    > [!NOTE]
+    > -It can take several minutes after remediation completes to see the resources in the **Healthy resources** tab. To view the the remediation actions, check the activity log where they are logged.
+
 ## Next steps
+
 In this document, you were introduced to security recommendations in Security Center. To learn more about Security Center, see the following topics:
 
 * [Setting security policies in Azure Security Center](tutorial-security-policy.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
