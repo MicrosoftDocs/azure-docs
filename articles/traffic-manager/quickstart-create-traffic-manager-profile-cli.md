@@ -112,7 +112,7 @@ When the primary endpoint is unavailable, traffic automatically routes to the fa
 
 In the following example, replace **<app1name_eastus>** and **<app2name_westeurope>** with the App Names created for each region in the previous section, replace **<appspname_eastus>** and **<appspname_westeurope>** with the name used to create the App Service plans in the previous section, and replace **<profile_name>** with the profile name used in the previous section. 
 
-**East US Endpoint**
+**East US endpoint**
 
 ```azurecli-interactive
 
@@ -136,7 +136,7 @@ az network traffic-manager endpoint create \
     --endpoint-status Enabled
 ```
 
-**West Europe Endpoint**
+**West Europe endpoint**
 
 ```azurecli-interactive
 
