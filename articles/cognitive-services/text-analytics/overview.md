@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 07/29/2019
 ms.author: aahi
 ---
 
@@ -104,7 +104,7 @@ The Text Analytics API uses Unicode encoding for text representation and charact
 
 ## Next steps
 
-+ [Sign up](how-tos/text-analytics-how-to-signup.md) for an access key and review the steps for [calling the API](how-tos/text-analytics-how-to-call-api.md).
++ See [what's new in the Text Analytics API](whats-new.md) for information on new releases and features.
 
 + [Quickstart](quickstarts/csharp.md) is a walkthrough of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code. If you prefer, you can start with the [Python quickstart](quickstarts/python.md) instead.
 
