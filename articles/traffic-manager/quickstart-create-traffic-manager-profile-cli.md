@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running a version of the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
-## Create a Resource Group
+## Create a resource group
 Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location:
@@ -59,12 +59,12 @@ az network traffic-manager profile create \
 
 ```
 
-## Create Web Apps
+## Create web apps
 
 For this quickstart, you'll need two instances of a web application deployed in two different Azure regions (*East US* and *West Europe*). Each will serve as primary and failover endpoints for Traffic Manager.
 
-### Create Web App Service plans
-Create Web App service plans using [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) for the two instances of the web application that you will deploy in two different Azure regions.
+### Create web app service plans
+Create web app service plans using [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) for the two instances of the web application that you will deploy in two different Azure regions.
 
 In the following example, replace **<appspname_eastus>** and **<appspname_westeurope>** with a unique App Service Plan Name
 
@@ -83,7 +83,7 @@ az appservice plan create \
     --sku S1
 
 ```
-### Create a Web App in the App Service Plan
+### Create a web app in the app service plan
 Create two instances the web application using [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in the App Service plans in the *East US* and *West Europe* Azure regions.
 
 In the following example, replace **<app1name_eastus>** and **<app2name_westeurope>** with a unique App Name, and replace **<appspname_eastus>** and **<appspname_westeurope>** with the name used to create the App Service plans in the previous section.
@@ -161,7 +161,7 @@ az network traffic-manager endpoint create \
 
 ```
 
-## Test Traffic Manager profile
+## Test your Traffic Manager profile
 
 In this section, you'll check the domain name of your Traffic Manager profile. You'll also configure the primary endpoint to be unavailable. Finally, you get to see that the web app is still available. It's because Traffic Manager sends the traffic to the failover endpoint.
 
