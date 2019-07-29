@@ -54,7 +54,7 @@ In the video below we demonstrate how to edit the content of the portal, customi
 
 ## <a name="faq"></a> Frequently asked questions
 
-This section contains common questions about the new developer portal, which are of general nature. For questions specific to the self-hosted version, please refer to [the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki).
+In this section we answer common questions about the new developer portal, which are of general nature. For questions specific to the self-hosted version, refer to [the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki).
 
 ### How can I migrate content from the old developer portal to the new one?
 
@@ -66,27 +66,27 @@ The portal is currently in preview and it will become generally available by the
 
 ### Will the old portal be deprecated?
 
-Yes, it'll be deprecated after the new one becomes generally available. If you have concerns, please raise them [in a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/121).
+Yes, it will be deprecated after the new one becomes generally available. If you have concerns, raise them [in a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/121).
 
 ### Does the new portal have all the features of the old portal?
 
 The goal of general availability is to provide a scenario-based feature parity with the old portal. Until then, the preview version might not have selected features implemented.
 
-The exceptions are the *Applications* and *Issues* from the old portal, which won't be available in the new portal. If you use *Issues* in the old portal and can't live without them in the new one, please give us your feedback [in a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/122).
+The exceptions are the *Applications* and *Issues* from the old portal, which won't be available in the new portal. If you use *Issues* in the old portal and need them in the new one, post a comment in [a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/122).
 
 ### I want to move the content of the new portal between environments. How can I do that and do I need to go with the self-hosted version?
 
-You can do so regardless if your portal is managed or self-hosted. The new developer portal supports extracting content through the management API of your API Management service. The APIs are documented [in the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki/). We have also written [a script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat), which might help you get started.
+You can do so in both portal versions - managed and self-hosted. The new developer portal supports extracting content through the management API of your API Management service. The APIs are documented [in the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki/). We have also written [a script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat), which might help you get started.
 
-We're still working on aligning this process with the API Management dev-ops resource kit.
+We're still working on aligning this process with the API Management DevOps resource kit.
 
-### How can I select a layout when creating a new page?
+### How can I select a *layout* when creating a new *page*?
 
-A layout gets applied to a page by matching its URL template to the page's URL. For example, layout with a URL template of `/wiki/*` will be applied to every page with the `/wiki/` segment: `/wiki/getting-started`, `/wiki/styles`, etc.
+A *layout* gets applied to a page by matching its URL template to the *page's* URL. For example, *layout* with a URL template of `/wiki/*` will be applied to every *page* with the `/wiki/` segment: `/wiki/getting-started`, `/wiki/styles`, and so on.
 
 ### Why doesn't the interactive developer console work?
 
-It is likely related to CORS. The interactive console makes a client-side API request from the browser. You can resolve the CORS problem by adding [a CORS policy](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) on your API(s). You can either specify all the parameters manually (e.g., origin as https://contoso.com) or use a wildcard `*` value.
+It is likely related to CORS. The interactive console makes a client-side API request from the browser. You can resolve the CORS problem by adding [a CORS policy](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) on your API(s). You can either specify all the parameters manually (for example, origin as https://contoso.com) or use a wildcard `*` value.
 
 ### Where can I file bugs?
 
