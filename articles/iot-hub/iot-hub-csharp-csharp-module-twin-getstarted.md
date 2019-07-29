@@ -46,9 +46,9 @@ To complete this tutorial, you need the following prerequisites:
 
 In this section, you create a .NET console app on your simulated device that updates the module twin reported properties.
 
-Before you begin, get your module connection string. Sign in to [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and select **IoT Devices**. Find **myFirstDevice**. Select **myFirstDevice** to open it, and then select **myFirstModule** to open it. In **Module Identity Details**, copy the **Connection string (primary key)**when needed in the following procedure.
+Before you begin, get your module connection string. Sign in to [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and select **IoT Devices**. Find **myFirstDevice**. Select **myFirstDevice** to open it, and then select **myFirstModule** to open it. In **Module Identity Details**, copy the **Connection string (primary key)** when needed in the following procedure.
 
-    ![Azure portal module detail](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.png)
+   ![Azure portal module detail](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.png)
 
 1. In Visual Studio, add a new project to your solution by selecting **File > New > Project**. In Create a new project, select **Console App (.NET Framework)**, and select **Next**.
 
