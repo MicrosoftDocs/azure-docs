@@ -30,7 +30,7 @@ You can host function apps in a couple of ways:
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Inbound IP restrictions & private site access](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[Virtual network integration](#virtual-network-integration)|❌No|✅Yes (Regional)|✅Yes (Regional and Gateway)|✅Yes|
-|[Virtual network triggers (non-http)](#virtual-network-triggers-(non-http))|❌No| ❌No|✅Yes|✅Yes|
+|[Virtual network triggers (non-http)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
 |[Hybrid Connections](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[Outbound IP Restrictions](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
