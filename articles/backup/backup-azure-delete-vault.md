@@ -52,7 +52,7 @@ To stop protection and delete the backup data, perform the below:
 
 2. Right-click on the backup item:
 
-    - If item is still protected, choose **Stop backup**. Select **Delete Backup Data** from the drop down. Enter the name of the Backup item (case sensitive), select a reason, enter comments, and click **Stop backup**.
+    - If item is still protected, choose **Stop backup**. Select **Delete Backup Data** from the drop-down. Enter the name of the Backup item (case sensitive), select a reason, enter comments, and click **Stop backup**.
 
         ![select the backup type](./media/backup-azure-delete-vault/stop-backup-item.png)
 
