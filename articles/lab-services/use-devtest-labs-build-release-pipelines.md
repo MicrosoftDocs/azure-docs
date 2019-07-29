@@ -19,6 +19,7 @@ ms.author: spelluru
 # Use DevTest Labs in Azure DevOps build and release pipelines
 This article provides information on how DevTest Labs can be used in Azure DevOps build and release pipelines. 
 
+## Overall flow
 The basic flow is to have a **build pipeline** that does the following tasks:
 
 1. Build the application code.
@@ -32,8 +33,6 @@ Once the build has been completed successfully, the **release pipeline** will us
 One of the necessary premises is that all the information needed to recreate the tested ecosystem is available within the build artifacts, including the configuration of the Azure resources. As Azure resources incur a cost when used, companies want to either control or track the use of these resources. In some situations, Azure Resource Manager templates that are used to create and configure the resources may be managed by another department like IT. And, these templates might be stored in a different repository. It leads to an interesting situation where a build will be created and tested, and both the code and the configuration will need to be stored within the build artifacts to properly recreate the system in production. 
 
 Using DevTest Labs during the build/test phase, you can add Azure Resource Manager templates and supporting files to the build sources so that during the release phase the exact configuration used to test with is deployed to production. The **Create Azure DevTest Labs Environment** task with the proper configuration will save the Resource Manager templates within the build artifacts. For this example, you’ll be using the code from the [Tutorial: Build a .NET Core and SQL Database web app in Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md), to deploy and test the web app in Azure.
-
-## Overall flow
 
 ![Overall flow](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
