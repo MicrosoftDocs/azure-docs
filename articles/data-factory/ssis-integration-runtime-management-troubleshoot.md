@@ -74,7 +74,7 @@ The error message is like “Invalid object name 'catalog.catalog_properties'.�
 
 ## Custom setup
 
-Custom Setup provides an interface to add your own setup steps during the provisioning or reconfiguration of your SSIS IR. For more information, see [Customize setup for the Azure-SSIS integration runtime](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+Custom Setup provides an interface to add your own setup steps during the provisioning or reconfiguration of your SSIS IR. For more information, see [Customize setup for the Azure-SSIS integration runtime](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
 
 Ensure your container contains only the necessary custom setup files, as all the files in the container will be downloaded onto the SSIS IR worker node. It’s recommended to test the custom setup script on a local machine to fix any script execution issues before running the script in SSIS IR.
 

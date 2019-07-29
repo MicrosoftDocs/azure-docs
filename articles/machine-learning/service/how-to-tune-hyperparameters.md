@@ -249,7 +249,7 @@ If no policy is specified, the hyperparameter tuning service will let all traini
 
 ## Allocate resources
 
-Control your resource budget for your hyperparameter tuning experiment by specifying the [maximum total number of training runs]().  Optionally specify the maximum duration for your hyperparameter tuning experiment.
+Control your resource budget for your hyperparameter tuning experiment by specifying the maximum total number of training runs.  Optionally specify the maximum duration for your hyperparameter tuning experiment.
 
 * `max_total_runs`: Maximum total number of training runs that will be created. Upper bound - there may be fewer runs, for instance, if the hyperparameter space is finite and has fewer samples. Must be a number between 1 and 1000.
 * `max_duration_minutes`: Maximum duration in minutes of the hyperparameter tuning experiment. Parameter is optional, and if present, any runs that would be running after this duration are automatically canceled.

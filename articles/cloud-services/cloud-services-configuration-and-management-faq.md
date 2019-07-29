@@ -278,7 +278,7 @@ See [Service-specific limits](../azure-subscription-service-limits.md#subscripti
 ### Why does the drive on my Cloud Service VM show very little free disk space?
 This is expected behavior, and it shouldn't cause any issue to your application. Journaling is turned on for the %approot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However there are several things to be aware of that essentially turn this into a non-issue.
 
-The %approot% drive size is calculated as <size of .cspkg + max journal size + a margin of free space>, or 1.5 GB, whichever is larger. The size of your VM has no bearing on this calculation. (The VM size only affects the size of the temporary C: drive.) 
+The %approot% drive size is calculated as \<size of .cspkg + max journal size + a margin of free space>, or 1.5 GB, whichever is larger. The size of your VM has no bearing on this calculation. (The VM size only affects the size of the temporary C: drive.) 
 
 It is unsupported to write to the %approot% drive. If you are writing to the Azure VM, you must do so in a temporary LocalStorage resource (or other option, such as Blob storage, Azure Files, etc.). So the amount of free space on the %approot% folder is not meaningful. If you are not sure if your application is writing to the %approot% drive, you can always let your service run for a few days and then compare the "before" and "after" sizes. 
 

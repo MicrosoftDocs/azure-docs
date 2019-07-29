@@ -1,7 +1,7 @@
 ---
 title: Azure Backup Monitoring Alert FAQ
 description: 'Answers to common questions about: The Azure Backup Monitoring Alert'
-services: backup
+
 author: srinathvasireddy
 manager: sivan
 ms.service: backup
