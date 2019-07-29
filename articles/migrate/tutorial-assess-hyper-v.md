@@ -173,19 +173,30 @@ Set up the appliance for the first time.
 
 ### Delegate credentials for SMB VHDs
 
-If you're running VHDs on SMBs, you must enable delegation of credentials from the appliance to the Hyper-V hosts. If you didn't do this on each host in the [previous tutorial](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), do this now from the appliance:
+If you're running VHDs on SMBs, you must enable delegation of credentials from the appliance to the Hyper-V hosts. This requires the following:
 
-1. On the appliance VM, run this command. HyperVHost1/HyperVHost2 are example host names.
+- You enable each host to act as a delegate for the appliance. You should have done this in the previous tutorial, when you prepared Hyper-V for assessment and migration. You should have either set up CredSSP for the hosts [manually](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), or by [running the Hyper-V Prerequisites Configuration script](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script).
+- Enable CredSSP delegation so that the Azure Migrate appliance can act as the client, delegating credentials to a host.
+
+Enable on the appliance as follows:
+
+#### Option 1
+
+On the appliance VM, run this command. HyperVHost1/HyperVHost2 are example host names.
 
     ```
     Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
     ```
+    Example: ``` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force ```
 
-2. Alternatively, do this in the Local Group Policy Editor on the appliance:
-    - In **Local Computer Policy** > **Computer Configuration**, click **Administrative Templates** > **System** > **Credentials Delegation**.
-    - Double-click **Allow delegating fresh credentials**, and select **Enabled**.
-    - In **Options**, click **Show**, and add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
-    - In  **Credentials Delegation**, double-click **Allow delegating fresh credentials with NTLM-only server authentication**. Again, add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
+#### Option 2
+
+Alternatively, do this in the Local Group Policy Editor on the appliance:
+
+1. In **Local Computer Policy** > **Computer Configuration**, click **Administrative Templates** > **System** > **Credentials Delegation**.
+2. Double-click **Allow delegating fresh credentials**, and select **Enabled**.
+3. In **Options**, click **Show**, and add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
+4. Then, in **Credentials Delegation**, double-click **Allow delegating fresh credentials with NTLM-only server authentication**. Again, add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
 
 ## Start continuous discovery
 
