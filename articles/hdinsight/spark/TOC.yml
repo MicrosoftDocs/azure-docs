@@ -50,9 +50,12 @@
     href: ../hdinsight-version-release.md
   - name: Monitor cluster availability with Ambari and Azure Monitor logs
     href: ../hdinsight-cluster-availability.md
-
   - name: Troubleshoot
     items:
+    - name: OutOfMemoryError exception
+      items:
+      - name: Insufficient heap memory
+        href: ./apache-spark-troubleshoot-outofmemory-heap.md
     - name: Apache Spark job fails - NoClassDefFoundError
       href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
 - name: How to
