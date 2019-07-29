@@ -133,7 +133,7 @@ If you chose to not use the Azure IoT device SDK, you can use the SDK source cod
 
 Implement the **Device Information** interface on your device and provide device-specific information from the device at run time.
 
-You can use an example implementation of the **Device Information** interface for [Linux](https://github.com/Azure/azure-iot-sdk-c-pnp/) as reference.
+You can use an example implementation of the **Device Information** interface for [Linux](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) as reference.
 
 ### Implement all the capabilities defined in your model
 
