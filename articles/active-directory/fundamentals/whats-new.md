@@ -77,7 +77,9 @@ We're removing the MFA server IP address from the [Office 365 IP Address and URL
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
 
-On July 26, 2019, we changed how we provide app-only tokens through the client credentials grant. Previously, apps could get tokens to call other apps, regardless of whether the called app was in the tenant or if roles were consented to for that app. We've updated this behavior so resources, sometimes called Web APIs, are set to be single-tenant, making sure the client app exists in the resource tenant. If your app isn't located in the resource tenant, you'll get an error message that says, "The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant." To fix this problem, you must create the client app service principal in your tenant, using either the [admin consent endpoint](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) or the manual process, ensuring your tenant has given the app permission to operate within the tenant.
+On July 26, 2019, we changed how we provide app-only tokens through the client credentials grant. Previously, apps could get tokens to call other apps, regardless of whether the called app was in the tenant or if roles were consented to for that app. We've updated this behavior so resources, sometimes called Web APIs, are set to be single-tenant, making sure the client app exists in the resource tenant.
+
+If your app isn't located in the resource tenant, you'll get an error message that says, "The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant." To fix this problem, you must create the client app service principal in your tenant, using either the [admin consent endpoint](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) or the manual process, ensuring your tenant has given the app permission to operate within the tenant.
 
 For more information, see [What's new for authentication?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes).
 
@@ -160,7 +162,7 @@ For more information, see [Authentication methods usage & insights (preview)](ht
 
 ---
 
-### New security reports are available for all Azure AD administrators
+### New security reports are available for all Azure AD administrators - NEED MORE INFO LINK
 
 **Type:** New feature  
 **Service category:** Identity Protection  
@@ -175,6 +177,8 @@ All Azure AD administrators can now select the banner at the top of an existing 
 - Confirmation of compromised or safe entities
 
 - Risk state, including: At risk, Dismissed, Remediated, and Confirmed compromised
+
+For more information, see ...
 
 ---
 
