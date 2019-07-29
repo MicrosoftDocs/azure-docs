@@ -56,6 +56,10 @@
       items:
       - name: Insufficient heap memory
         href: ./apache-spark-troubleshoot-outofmemory-heap.md
+    - name: IllegalArgumentException exception
+      href: ./apache-spark-troubleshoot-illegalargumentexception.md
+    - name: Apache Spark Streaming application stops
+      href: ./apache-spark-troubleshoot-application-stops.md
     - name: Kyro serialization failed
       href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
 - name: How to

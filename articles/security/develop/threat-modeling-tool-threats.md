@@ -22,7 +22,7 @@ ms.author: rodsan
 
 The Threat Modeling Tool is a core element of the Microsoft Security Development Lifecycle (SDL). It allows software architects to identify and mitigate potential security issues early, when they are relatively easy and cost-effective to resolve. As a result, it greatly reduces the total cost of development. Also, we designed the tool with non-security experts in mind, making threat modeling easier for all developers by providing clear guidance on creating and analyzing threat models.
 
-> Visit the **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** to get started today!
+> Visit the **[Threat Modeling Tool](threat-modeling-tool.md)** to get started today!
 
 The Threat Modeling Tool helps you answer certain questions, such as the ones below:
 
@@ -45,4 +45,4 @@ To better help you formulate these kinds of pointed questions, Microsoft uses th
 
 ## Next steps
 
-Proceed to **[Threat Modeling Tool Mitigations](./azure-security-threat-modeling-tool-mitigations.md)** to learn the different ways you can mitigate these threats with Azure.
+Proceed to **[Threat Modeling Tool Mitigations](threat-modeling-tool-mitigations.md)** to learn the different ways you can mitigate these threats with Azure.
