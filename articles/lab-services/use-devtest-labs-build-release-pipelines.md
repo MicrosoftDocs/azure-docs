@@ -42,7 +42,7 @@ There are a couple of items that need to be created beforehand:
 
 - Two repositories. The first one with the code from the tutorial and a Resource Manager template with two additional VMs. The second one will contain the base Azure Resource Manager template (existing configuration).
 - A Resource Group for deployment of the production code and configuration.
-- A lab needs to be setup with a [connection to the configuration repository](devtest-lab-create-environment-from-arm.md) for the build pipeline. The Resource Mangaer template needs to be checked into the configuration repository as azuredeploy.json with the metadata.json to allow DevTest lab to recognize and deploy the template.
+- A lab needs to be set up with a [connection to the configuration repository](devtest-lab-create-environment-from-arm.md) for the build pipeline. The Resource Manager template needs to be checked into the configuration repository as azuredeploy.json with the metadata.json to allow DevTest Labs to recognize and deploy the template.
 
 The build pipeline will create a DevTest Labs environment and deploy the code for testing.
 
@@ -51,7 +51,7 @@ In Azure DevOps, create a build pipeline using the code from the [Tutorial: Buil
 
 ![Select the ASP.NET template](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
-You need to add three additional tasks to create the environment in DevTest Lab and deploy to the environment.
+You need to add three additional tasks to create the environment in DevTest Labs and deploy to the environment.
 
 ![Pipeline with three tasks](./media/use-devtest-labs-build-release-pipelines/pipeline-tasks.png)
 
@@ -65,7 +65,7 @@ In the create environment task (**Azure DevTest Labs Create Environment** task) 
 
 We recommend that you use drop-down lists on the page instead of entering the information manually. If you manually enter the information, enter fully qualified Azure Resource Ids. The task displays the friendly names instead of resource Ids. 
 
-The environment name is the displayed name shown within DevTest labs. It should be a unique name for each build. For example: **TestEnv$(Build.BuildId)**. 
+The environment name is the displayed name shown within DevTest Labs. It should be a unique name for each build. For example: **TestEnv$(Build.BuildId)**. 
 
 You can specify either parameters file or parameters to pass information into the Resource Manager template. 
 
@@ -74,7 +74,7 @@ Select the **Create output variables based on the environment template output** 
 ![Create Azure DevTest Labs Environment task](./media/use-devtest-labs-build-release-pipelines/create-environment.png)
 
 ### Populate environment task
-The second task (**Azure DevTest Labs Populate Environment** task) is to update the existing DevTest Lab environment. The Create environment task outputs **BaseEnv.environmentResourceId** that's used to configure environment name for this task. The Resource Manager template for this example has two parameters - **adminUserName** and **adminPassword**. 
+The second task (**Azure DevTest Labs Populate Environment** task) is to update the existing DevTest Labs environment. The Create environment task outputs **BaseEnv.environmentResourceId** that's used to configure environment name for this task. The Resource Manager template for this example has two parameters - **adminUserName** and **adminPassword**. 
 
 ![Populate Azure DevTest Labs Environment task](./media/use-devtest-labs-build-release-pipelines/populate-environment.png)
 
@@ -91,7 +91,7 @@ For the first task, specify the name and location of the resource group. The tem
 For the second task **Deploy Azure App Service**, specify the Azure subscription, select **Web App** for the **App type**, and **$(WebSite)** for the **App Service name**. You can leave remaining settings with default values. 
 
 ## Test Run
-Now that both pipelines are setup, manually queue up a build and see it work. The next step is to set the appropriate trigger for the build and connect the build to the release pipeline.
+Now that both pipelines are set up, manually queue up a build and see it work. The next step is to set the appropriate trigger for the build and connect the build to the release pipeline.
 
 ## Next steps
 See the following articles:
