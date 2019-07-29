@@ -83,16 +83,7 @@ mkdir -p src/main/java
 
 Then create a file named *ContentModeratorQuickstart.java* in the new folder. Open the file in your preferred editor or IDE and import the following libraries at the top:
 
-```java
-import com.google.gson.*;
-
-import com.microsoft.azure.cognitiveservices.vision.contentmoderator.*;
-import com.microsoft.azure.cognitiveservices.vision.contentmoderator.models.*;
-
-import java.io.*;
-import java.lang.Object.*;
-import java.util.*;
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imports)]
 
 ## Object model
 
@@ -118,22 +109,12 @@ These code snippets show you how to do the following tasks with the Content Mode
 > [!NOTE]
 > This step assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Content Moderator key, named `AZURE_CONTENTMODERATOR_KEY`.
 
-
 In the application's `main` method, create a [ContentModeratorClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable) object using your subscription endpoint value and subscription key environment variable. 
 
 > [!NOTE]
 > If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
-```java
-/**
- * Authenticate
- */
-// Create a variable called AZURE_CONTENTMODERATOR_KEY in your environment settings, with your key as its value.
-// Replace the first part ("westus") with your own, if needed.
-ContentModeratorClient client = ContentModeratorManager
-    .authenticate(new AzureRegionBaseUrl()
-    .fromString("https://westus.api.cognitive.microsoft.com"), System.getenv("AZURE_CONTENTMODERATOR_KEY"));
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_client)]
 
 ### Moderate images
 
@@ -146,72 +127,11 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 Then, in your *ContentModeratorQuickstart.java* file, add the following class definition inside the **ContentModeratorQuickstart** class. This inner class will be used later in the image moderation process.
 
-```Java    
-// Contains the image moderation results for an image, including text and face detection.
-public static class EvaluationData {
-    // The URL of the evaluated image.
-    public String ImageUrl;
-    // The image moderation results.
-    public Evaluate ImageModeration;
-    // The text detection results.
-    public OCR TextDetection;
-    // The face detection results;
-    public FoundFaces FaceDetection;
-}
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_evaluationdata)]
 
 Next, add the following code to the bottom of the `main` method. Or, you can add it to a separate method that's called from `main`. This code uses the Content Moderator client object to analyze the images at the given URLs for adult/racy content, image text, and human faces. It stores the returned information in `EvaluationData` objects and then prints the results to an output file, *src/main/resources/ModerationOutput.json*.
 
-```java
-// Create an object in which to store the image moderation results.
-List<EvaluationData> evaluationData = new ArrayList<EvaluationData>();
-
-/**
- * Read image URLs from the input file and evaluate/moderate each one.
- */
-// ImageFiles.txt is the file that contains the image URLs to evaluate.
-// Relative paths are relative to the execution directory.
-try (BufferedReader inputStream = new BufferedReader(new FileReader(new File("src\\main\\resources\\ImageFiles.txt")))){
-    String line;
-    while ((line = inputStream.readLine()) != null) {
-        if (line.length() > 0) {
-            // Evalutate each line of text
-            BodyModelModel url = new BodyModelModel();
-            url.withDataRepresentation("URL");
-            url.withValue(line);
-            EvaluationData imageData = new EvaluationData(); 
-            imageData.ImageUrl = url.value();
-
-            // Evaluate for adult and racy content.
-            imageData.ImageModeration = client.imageModerations().evaluateUrlInput("application/json", url, new EvaluateUrlInputOptionalParameter().withCacheImage(true));
-            Thread.sleep(1000);
-
-            // Detect and extract text.
-            imageData.TextDetection = client.imageModerations().oCRUrlInput("eng", "application/json", url, new OCRUrlInputOptionalParameter().withCacheImage(true));
-            Thread.sleep(1000);
-
-            // Detect faces.
-            imageData.FaceDetection = client.imageModerations().findFacesUrlInput("application/json", url, new FindFacesUrlInputOptionalParameter().withCacheImage(true));
-            Thread.sleep(1000);
-
-            evaluationData.add(imageData);
-        }
-    }
-
-    // Save the moderation results to a file.
-    // ModerationOutput.json is the file to contain the output from the evaluation.
-    // Relative paths are relative to the execution directory.
-    BufferedWriter writer = new BufferedWriter(new FileWriter(new File("src\\main\\resources\\ModerationOutput.json")));
-    Gson gson = new GsonBuilder().setPrettyPrinting().create();            
-    System.out.println("adding imageData to file: " + gson.toJson(evaluationData).toString());
-    writer.write(gson.toJson(evaluationData).toString());
-    writer.close();
-
-}   catch (Exception e) {
-    System.out.println(e.getMessage());
-    e.printStackTrace();
-}
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod)]
 
 ## Run the application
 
