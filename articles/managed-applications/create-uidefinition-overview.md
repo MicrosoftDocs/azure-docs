@@ -72,7 +72,7 @@ To set the managed application resource name, you must include a value named `ap
 ```
 
 ## Functions
-CreateUiDefinition provides [functions](create-uidefinition-functions.md) for working with elements' inputs and outputs, and features such as conditionals. These fuctions are similar in both syntax and functionality to Azure Resource Manager template functions.
+CreateUiDefinition provides [functions](create-uidefinition-functions.md) for working with elements' inputs and outputs, and features such as conditionals. These functions are similar in both syntax and functionality to Azure Resource Manager template functions.
 
 ## Next steps
 The createUiDefinition.json file itself has a simple schema. The real depth of it comes from all the supported elements and functions. Those items are described in greater detail at:
