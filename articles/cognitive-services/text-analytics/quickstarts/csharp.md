@@ -27,7 +27,7 @@ For technical details, refer to the SDK for .NET [Text Analytics reference](http
 
 ## Prerequisites
 
-* Any edition of [visual studio 2017 or later]
+* Any edition of Visual Studio 2017 or later
 * The Text Analytics [SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
