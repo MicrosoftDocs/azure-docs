@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/26/2019
 ---
 # Controlling and granting database access to SQL Database and SQL Data Warehouse
