@@ -7,7 +7,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 06/25/2019
+ms.date: 07/23/2019
 ms.topic: article
 ms.service: iot-edge
 
@@ -17,14 +17,18 @@ ms.service: iot-edge
 
 You can turn your business logic into modules for Azure IoT Edge. This article shows you how to use Visual Studio Code as the main tool to develop and debug modules.
 
+For modules written in C#, Node.js, or Java, there are two ways to debug your module in Visual Studio Code: You can either attach a process in a module container or launch the module code in debug mode. For modules written in Python or C, they can only be debugged by attaching to a process in Linux amd64 containers.
+
+If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
+
+This article provides instructions for developing and debugging modules in multiple languages for multiple architectures. Currently, Visual Studio Code provides support for modules written in C#, C, Python, Node.js, and Java. The supported device architectures are X64 and ARM32. For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
+
+>[!NOTE]
+>Develop and debugging support for Linux ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+
 ## Prerequisites
 
 You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. An IoT Edge device can be another physical device.
-
-For modules written in C#, Node.js, or Java, there are two ways to debug your module in Visual Studio Code: You can either attach a process in a module container or launch the module code in debug mode. For modules written in Python or C, they can only be debugged by attaching to a process in Linux amd64 containers.
-
-> [!TIP]
-> If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
 
 Install [Visual Studio Code](https://code.visualstudio.com/) first and then add the following extensions:
 
@@ -63,8 +67,7 @@ Unless you're developing your module in C, you also need the Python-based [Azure
 > [!NOTE]
 > If you have multiple Python including pre-installed python 2.7 (for example, on Ubuntu or macOS), make sure you are using the correct `pip` or `pip3` to install **iotedgehubdev**
 
-> [!NOTE]
-> To test your module on a device, you'll need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows](quickstart.md). If you are running IoT Edge daemon on your development machine, you might need to stop EdgeHub and EdgeAgent before you move to next step.
+To test your module on a device, you'll need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows](quickstart.md). If you are running IoT Edge daemon on your development machine, you might need to stop EdgeHub and EdgeAgent before you move to next step.
 
 ## Create a new solution template
 
@@ -94,7 +97,7 @@ There are four items within the solution:
 
 - A **.vscode** folder contains debug configurations.
 
-- A **modules** folder has subfolders for each module.  Within the folder for each module there is a file, **module.json**, that controls how modules are built and deployed.  This file would need to be modified to change the module deployment container regristry from localhost to a remote registry. At this point, you only have one module.  But you can add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**.
+- A **modules** folder has subfolders for each module.  Within the folder for each module there is a file, **module.json**, that controls how modules are built and deployed.  This file would need to be modified to change the module deployment container registry from localhost to a remote registry. At this point, you only have one module.  But you can add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**.
 
 - An **.env** file lists your environment variables. If Azure Container Registry is your registry, you'll have an Azure Container Registry username and password in it.
 
