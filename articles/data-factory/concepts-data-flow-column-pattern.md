@@ -43,3 +43,4 @@ When mapping columns in Source and Select tranformations, you will have an optio
 
 ## Next steps
 * Learn more about the ADF Mapping Data Flow [expression language](http://aka.ms/dataflowexpressions) for data transformations
+* Use column patterns in the [Sink transformation](data-flow-sink.md) and [Select transformation](data-flow-select.md) with rule-based mapping
