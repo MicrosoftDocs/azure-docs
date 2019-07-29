@@ -55,12 +55,12 @@ The error message for this scenario currently states:
 
 `The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.`
 
-To remedy this issue, use the Admin Consent experience to create the client application service principal in your tenant, or create it manually.  This ensures that the tenant has given the application permission to operate within the tenant.  
+To remedy this issue, use the Admin Consent experience to create the client application service principal in your tenant, or create it manually.  This requirement ensures that the tenant has given the application permission to operate within the tenant.  
 
 #### Example request
 
 `https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`
-In this example, the resource tenant or authority is contoso.com, the resource app is a single-tenant app called `gateway.contoso.com/api` for the Contoso tenant, and the client app is `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`.  If the client app has a service principal within Contoso.com, this request can continue.  If it doesn't, however, then the request will fail with the error above.  
+In this example, the resource tenant (authority) is contoso.com, the resource app is a single-tenant app called `gateway.contoso.com/api` for the Contoso tenant, and the client app is `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`.  If the client app has a service principal within Contoso.com, this request can continue.  If it doesn't, however, then the request will fail with the error above.  
 
 If the Contoso gateway app were a multi-tenant application, however, then the request would continue regardless of the client app having a service principal within Contoso.com.  
 
@@ -72,11 +72,11 @@ If the Contoso gateway app were a multi-tenant application, however, then the re
 
 **Protocol impacted**: All flows
 
-Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure AD applications can now register and use redirect (reply) URIs with static query parameters (e.g. https://contoso.com/oauth2?idp=microsoft) for OAuth 2.0 requests.  Dynamic redirect URIs are still forbidden as they represent a security risk, and this cannot be used to retain state information across an authentication request - for that, use the `state` parameter.
+Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure AD applications can now register and use redirect (reply) URIs with static query parameters (such as https://contoso.com/oauth2?idp=microsoft) for OAuth 2.0 requests.  Dynamic redirect URIs are still forbidden as they represent a security risk, and this cannot be used to retain state information across an authentication request - for that, use the `state` parameter.
 
-The static query parameter is subject to string matching for redirect URIs like any other part of the redirect URI - if no string is registered that matches the URI-decoded redirect_uri, then the requst will be rejected.  If the URI is found in the app registration, then the entire string will be used to redirect the user, including the static query parameter. 
+The static query parameter is subject to string matching for redirect URIs like any other part of the redirect URI - if no string is registered that matches the URI-decoded redirect_uri, then the request will be rejected.  If the URI is found in the app registration, then the entire string will be used to redirect the user, including the static query parameter. 
 
-Note that at this time (End of July 2019), the app registration UX in Azure Portal still block query parameters.  However, you can edit the application manifest manually to add query parameters and test this in your app.  
+Note that at this time (End of July 2019), the app registration UX in Azure portal still block query parameters.  However, you can edit the application manifest manually to add query parameters and test this in your app.  
 
 
 ## March 2019
