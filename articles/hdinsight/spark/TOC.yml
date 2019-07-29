@@ -58,6 +58,8 @@
         href: ./apache-spark-troubleshoot-outofmemory-heap.md
     - name: Apache Spark job fails - NoClassDefFoundError
       href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
+    - name: Slow Apache Spark jobs - storage container
+      href: ./apache-spark-troubleshoot-job-slowness-container.md
     - name: IllegalArgumentException exception
       href: ./apache-spark-troubleshoot-illegalargumentexception.md
     - name: Apache Spark Streaming application stops
