@@ -198,7 +198,7 @@ In your Conditional Access policy, you can require that an access attempt to the
 
 ![Control access for approved client apps](./media/technical-reference/21.png)
 
-This setting applies to the following client apps:
+This setting applies to the following client apps in v2 policies:
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
