@@ -371,6 +371,7 @@ JMS's dynamic topology functions:
 | createBrowser               | unsupported. Use the Peek() functionality of the Service Bus API                         |
 | createQueue                 | create a queue via management API/tools/portal                                           | 
 | createTemporaryQueue        | create a queue via management API/tools/portal with *AutoDeleteOnIdle* set to an expiration period |
+| receiveNoWait               | utilize the receive() method provided by the Service Bus SDK and specify a very low or zero timeout |
 
 ## Summary
 This how-to guide showed how to use Service Bus brokered messaging features (queues and publish/subscribe topics) from Java using the popular JMS API and AMQP 1.0.
