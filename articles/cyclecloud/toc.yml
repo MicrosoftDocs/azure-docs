@@ -42,14 +42,6 @@
       href: storage-nfs-mounts.md
     - name: Blobs
       href: storage-blobs.md
-  - name: Data Management
-    items:
-    - name: Overview
-      href: data-overview.md
-    - name: Endpoint Creation
-      href: endpoint-creation.md
-    - name: Data Encryption
-      href: data-encryption.md
   - name: Network Configuration
     items:
     - name: Network Security
