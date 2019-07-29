@@ -10,7 +10,7 @@ ms.service: iot-central
 manager: peterpr
 ---
 
-# Export your data to Azure Blob Storage (Feature preview)
+# Export your data to Azure Blob Storage (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 

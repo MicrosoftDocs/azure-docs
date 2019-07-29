@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Tutorial: Add a simulated device to your Azure IoT Central application (Feature preview)
+# Tutorial: Add a simulated device to your Azure IoT Central application (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 

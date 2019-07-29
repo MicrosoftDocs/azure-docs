@@ -10,7 +10,7 @@ ms.service: iot-central
 manager: peterpr
 ---
 
-# Export your data in Azure IoT Central (Feature preview)
+# Export your data in Azure IoT Central (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 

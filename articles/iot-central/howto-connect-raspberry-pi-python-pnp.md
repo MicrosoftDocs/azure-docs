@@ -10,7 +10,7 @@ services: iot-central
 manager: timlt
 ---
 
-# Connect a Raspberry Pi to your Azure IoT Central application (Python) (Feature preview)
+# Connect a Raspberry Pi to your Azure IoT Central application (Python) (preview features)
 
 [!INCLUDE [howto-raspberrypi-selector](../../includes/iot-central-howto-raspberrypi-selector.md)]
 

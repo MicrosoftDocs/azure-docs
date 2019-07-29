@@ -38,7 +38,7 @@ In this guide, you learn how to:
 
 ## Prerequisites
 
-To test your device code in this guide, you need an IoT Central application created from the Plug and Play application template. If you don't already have an IoT Central application to use, complete the quickstart [Create an Azure IoT Central application (Feature preview)](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json):
+To test your device code in this guide, you need an IoT Central application created from the Plug and Play application template. If you don't already have an IoT Central application to use, complete the quickstart [Create an Azure IoT Central application (preview features)](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json):
 
 To work with the device capability model in this guide, you need:
 

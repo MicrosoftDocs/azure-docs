@@ -10,7 +10,7 @@ services: iot-central
 manager: sandeep.pujar
 ---
 
-# Connect SensorTile.box device to your Azure IoT Central application (Feature preview)
+# Connect SensorTile.box device to your Azure IoT Central application (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 

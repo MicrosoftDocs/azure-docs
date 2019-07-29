@@ -9,7 +9,7 @@ ms.date: 06/09/2019
 ms.topic: conceptual
 ---
 
-# Visualize and analyze your Azure IoT Central data in a Power BI dashboard (Feature preview)
+# Visualize and analyze your Azure IoT Central data in a Power BI dashboard (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 

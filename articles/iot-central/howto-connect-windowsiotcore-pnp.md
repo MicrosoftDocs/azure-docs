@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Connect a Windows IoT Core device to your Azure IoT Central application (Feature preview)
+# Connect a Windows IoT Core device to your Azure IoT Central application (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
