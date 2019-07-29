@@ -53,7 +53,7 @@
   - name: Troubleshoot
     items:
     - name: Blocking Cross Origin API
-      href: ./apache-spark-ts-blocking-cross-origin.md
+      href: ./apache-spark-troubleshoot-blocking-cross-origin.md
 - name: How to
   items:
   - name: Use cluster storage
