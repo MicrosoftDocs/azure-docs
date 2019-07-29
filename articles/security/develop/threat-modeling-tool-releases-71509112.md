@@ -32,7 +32,7 @@ The Microsoft Threat Modeling Tool 2016, which is available from the [Microsoft 
 
 Additional Azure stencils and their associated threats and mitigations have been added to the stencil set shipping with this release. Significant changes were made in the focus areas of “Azure App Services”, “Azure Database Offerings”, and “Azure Storage.”
 
-![Azure Stencil Updates](./media/azure-security-threat-modeling-tool-releases-71509112/tmt_azure_stencil_update-300x70.png)
+![Azure Stencil Updates](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencil_update-300x70.png)
 
 ### OneDrive integration feature removed
 
@@ -56,7 +56,7 @@ The “Save To OneDrive”, “Open From OneDrive”, and “Share a Link” fea
 
 In the Analysis View of the tool, if the user has a high-resolution screen that is set by default to magnify for readability in Windows, the “Possible Mitigation(s)” section of a threat may appear with small text.
 
-![Known issue with high-resolution screens](./media/azure-security-threat-modeling-tool-releases-71509112/tmt_screen_resolution-300x153.png)
+![Known issue with high-resolution screens](./media/threat-modeling-tool-releases-71509112/tmt_screen_resolution-300x153.png)
 
 #### Workaround
 
@@ -68,19 +68,19 @@ The user can click on the mitigation text and use the standard Windows zoom cont
 
 The “Open From OneDrive” feature of the Preview release has been removed. Users with “Recently Opened Models” that were saved to OneDrive will receive the following error.
 
-![OneDrive feature removed](./media/azure-security-threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
+![OneDrive feature removed](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
 
 #### Workaround
 
 Users of OneDrive are encouraged to use Microsoft’s [OneDrive for Windows](https://onedrive.live.com/about/en-us/download/) client to access their files stored on OneDrive through the standard and “Open a model” dialog.
 
-![OneDrive feature removed](./media/azure-security-threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
+![OneDrive feature removed](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
 
 ### My organization uses the 2016 version of the tool, can I use the Azure stencil set?
 
 Yes, you can! The [Azure stencil set is available on github](https://github.com/Microsoft/threat-modeling-templates/), and can be loaded in the 2016 version of the tool. To create a new model with the Azure stencil set, use the “Template For New Models” dialog on the main menu screen. TMT 2016 cannot render the links found in the “Possible Mitigations” fields of the Azure stencil set, therefore you may see links displayed as HTML tags.
 
-![Azure Stencil Updates in 2016 Client](./media/azure-security-threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
+![Azure Stencil Updates in 2016 Client](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
 
 ## System requirements
 
