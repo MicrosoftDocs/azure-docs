@@ -111,7 +111,7 @@ To manage command-line arguments, add the main code. Add method to the **Program
 
 ### Copy utterances.json to output directory
 
-In the Solution Explorer, add the `utterances.json` by right-clicking in the Solution Explorer's project name, then selecting **Add**, then selecting **Existing item**. Select the `utterances.json` file. This adds the file to the project. Then it needs to be added to the output direction. Right-click the `utterances.json` and select **Properties**. In the properties windows, mark the **Build Action** of `Content`, and the **Copy to Output Directory** of `Copy Always`.  
+In the Solution Explorer, add the `utterances.json` by right-clicking in the Solution Explorer's project name, then selecting **Add**, then selecting **Existing item**. Select the `utterances.json` file. This adds the file to the project. Then it needs to be added to the output directory. Right-click the `utterances.json` and select **Properties**. In the properties windows, mark the **Build Action** of `Content`, and the **Copy to Output Directory** of `Copy Always`.  
 
 ![Mark the JSON file as content](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 
