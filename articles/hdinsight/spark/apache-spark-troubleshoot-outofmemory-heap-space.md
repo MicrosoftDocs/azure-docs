@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/26/2019
+ms.date: 07/29/2019
 ---
 
 # Scenario: Java heap space error when trying to open Apache Spark history server in Azure HDInsight

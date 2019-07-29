@@ -55,7 +55,7 @@
     - name: OutOfMemoryError exception
       items:
       - name: Java heap space
-        href: ./apache-spark-ts-outofmemory-heap-space.md
+        href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
 - name: How to
   items:
   - name: Use cluster storage
