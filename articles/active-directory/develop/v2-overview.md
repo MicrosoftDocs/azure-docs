@@ -59,6 +59,7 @@ The following chart outlines common authentication app scenarios – use it as a
 
 If you’d like to learn more about core authentication concepts, we recommend you start with these topics:
 
+- [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
 - [Authentication basics](authentication-scenarios.md)
 - [Application and service principals](app-objects-and-service-principals.md)
 - [Audiences](v2-supported-account-types.md)
