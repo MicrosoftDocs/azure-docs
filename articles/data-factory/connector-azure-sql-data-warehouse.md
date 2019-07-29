@@ -542,8 +542,6 @@ The solution is to unselect "**Use type default**" option (as false) in copy act
 
 **Others**
 
-For more known PolyBase issues, refer to [Troubleshooting Azure SQL Data Warehouse PolyBase load](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
-
 ### SQL Data Warehouse resource class
 
 To achieve the best possible throughput, assign a larger resource class to the user that loads data into SQL Data Warehouse via PolyBase.
