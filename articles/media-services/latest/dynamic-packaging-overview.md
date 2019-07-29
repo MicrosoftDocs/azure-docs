@@ -124,13 +124,15 @@ Dynamic packaging supports MP4 files, which contain audio that's encoded with th
 
 Dynamic packaging supports multi audio tracks for HLS output (version 4 or later) for streaming assets that have multiple audio tracks with multiple codecs and languages.
 
-## Manifest examples 
+## Manifest files 
  
 In Media Services dynamic packaging, the streaming client manifests for HLS, MPEG-DASH, and Smooth Streaming are dynamically generated based on the format selector in the URL. For more information, see [delivery protocols](#delivery-protocols). 
 
 A manifest file includes streaming metadata such as track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), and video codec (FourCC). It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments that are available and their location. Fragments (or segments) are the actual "chunks" of video content.
 
-### HLS
+### Examples
+
+#### HLS
 
 Here's an example of an HLS manifest file, also called an HLS master playlist: 
 
@@ -157,7 +159,7 @@ QualityLevels(3579827)/Manifest(video,format=m3u8-aapl)
 QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 ```
 
-### MPEG-DASH
+#### MPEG-DASH
 
 Here's an example of an MPEG-DASH manifest file, also called an MPEG-DASH Media Presentation Description (MPD):
 
@@ -190,7 +192,7 @@ Here's an example of an MPEG-DASH manifest file, also called an MPEG-DASH Media 
    </Period>
 </MPD>
 ```
-### Smooth Streaming
+#### Smooth Streaming
 
 Here's an example of a Smooth Streaming manifest file:
 
@@ -213,6 +215,30 @@ Here's an example of a Smooth Streaming manifest file:
    </StreamIndex>
 </SmoothStreamingMedia>
 ```
+
+### Naming of tracks in the manifest
+
+If an audio track name is specified in the .ism file, Media Services adds a `Label` element within an `AdaptationSet` to specify the textural information for the specific audio track. An example of the output DASH manifest:
+
+```xml
+<AdaptationSet codecs="mp4a.40.2" contentType="audio" lang="en" mimeType="audio/mp4" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
+  <Label>audio_track_name</Label>
+  <Role schemeIdUri="urn:mpeg:dash:role:2011" value="main"/>
+  <Representation audioSamplingRate="48000" bandwidth="131152" id="German_Forest_Short_Poem_english-en-68s-2-lc-128000bps_seg">
+    <BaseURL>German_Forest_Short_Poem_english-en-68s-2-lc-128000bps_seg.mp4</BaseURL>
+  </Representation>
+</AdaptationSet>
+```
+
+The player can use the `Label` element to display on its UI.
+
+### Signaling audio description track(s)
+
+A customer could annotate an audio track as audio description in the manifest. To do that, they would add “accessibility” and “role” parameters to the .ism file. Media Services will recognize audio description if an audio track has param “accessibility” with value “description”, and param “role” with value “alternate”. If Media Services detects the audio description in the .ism file, the audio description information is passed to the client manifest as `Accessibility="description"` and `Role="alternate"` attributes into the `StreamIndex` element .
+
+If the combination of “accessibility” = “description” and “role” = “alternate” is set in .ism file,  the DASH manifest and Smooth manifest carry values as set in “accessibility” and “role” parameters. It is the customer’s responsibility to set these two values right and to mark an audio track as audio description. Per DASH spec, “accessibility” = “description” and “role” = “alternate” together means an audio track is audio description.
+
+For HLS v7 and above (`format=m3u8-cmaf`), its playlist carries `CHARACTERISTICS="public.accessibility.describes-video"` only when the combination of “accessibility” = “description” and “role” = “alternate” is set in .ism file. 
 
 ## Dynamic manifest
 
