@@ -31,7 +31,7 @@ The extension can be used with the following languages, which are supported by t
 * [PowerShell](functions-reference-powershell.md)
 * [Python](functions-reference-python.md)
 
-<sup>*</sup>Requires you that you [set C# script as your default project language](#c-script-projects).
+<sup>*</sup>Requires that you [set C# script as your default project language](#c-script-projects).
 
 In this article, examples are currently available only for JavaScript (Node.js) and C# class library functions.  
 
