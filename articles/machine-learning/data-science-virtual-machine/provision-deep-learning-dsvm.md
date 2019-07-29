@@ -13,7 +13,7 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: vijetaj
 
@@ -64,7 +64,7 @@ Once the VM is created, you can remote desktop into it using the Admin account c
 
 ### Linux Edition
 
-After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the [**Basics**](#basics) section of step 3 for the text shell interface. For more information about SSH connections to Azure VMs, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](/azure/virtual-machines/linux/use-remote-desktop). On a Windows client, you can download an SSH client tool like [Putty](https://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client. 
+After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the [**Basics**](#basics) section of step 3 for the text shell interface. For more information about SSH connections to Azure VMs, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../../virtual-machines/linux/use-remote-desktop.md). On a Windows client, you can download an SSH client tool like [Putty](https://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client. 
 
 > [!NOTE]
 > The X2Go client performed better than X11 forwarding in our testing. We recommend using the X2Go client for a graphical desktop interface.
