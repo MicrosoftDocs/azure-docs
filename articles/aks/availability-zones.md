@@ -120,7 +120,6 @@ az group create --name myResourceGroup --location eastus2
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --kubernetes-version 1.13.5 \
     --generate-ssh-keys \
     --enable-vmss \
     --load-balancer-sku standard \

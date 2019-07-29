@@ -86,7 +86,7 @@ While this feature is in preview, the following additional limitations apply:
 
 ## Create an AKS cluster
 
-To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.13.5* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
+To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.13.9* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -99,7 +99,7 @@ az aks create \
     --enable-vmss \
     --node-count 1 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.5
+    --kubernetes-version 1.13.9
 ```
 
 It takes a few minutes to create the cluster.
@@ -120,56 +120,96 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name mynodepool \
     --node-count 3 \
-    --kubernetes-version 1.12.6
+    --kubernetes-version 1.12.7
 ```
 
 To see the status of your node pools, use the [az aks node pool list][az-aks-nodepool-list] command and specify your resource group and cluster name:
 
 ```azurecli-interactive
-az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster -o table
+az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
 The following example output shows that *mynodepool* has been successfully created with three nodes in the node pool. When the AKS cluster was created in the previous step, a default *nodepool1* was created with a node count of *1*.
 
 ```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
+$ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 
-AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
------------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
-VirtualMachineScaleSets  3        110        mynodepool  1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
+[
+  {
+    ...
+    "count": 3,
+    ...
+    "name": "mynodepool",
+    "orchestratorVersion": "1.12.7",
+    ...
+    "vmSize": "Standard_DS2_v2",
+    ...
+  },
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "nodepool1",
+    "orchestratorVersion": "1.13.9",
+    ...
+    "vmSize": "Standard_DS2_v2",
+    ...
+  }
+]
 ```
 
 > [!TIP]
-> If no *OrchestratorVersion* or *VmSize* is specified when you add a node pool, the nodes are created based on the defaults for the AKS cluster. In this example, that was Kubernetes version *1.13.5* and node size of *Standard_DS2_v2*.
+> If no *OrchestratorVersion* or *VmSize* is specified when you add a node pool, the nodes are created based on the defaults for the AKS cluster. In this example, that was Kubernetes version *1.13.9* and node size of *Standard_DS2_v2*.
 
 ## Upgrade a node pool
 
-When your AKS cluster was created in the first step, a `--kubernetes-version` of *1.13.5* was specified. This sets the Kubernetes version for both the control plane and the initial node pool. There are different commands for upgrading the Kubernetes version of the control plane and the node pool. The `az aks upgrade` command is used to upgrade the control plane, while the `az aks nodepool upgrade` is used to upgrade an individual node pool.
+When your AKS cluster was created in the first step, a `--kubernetes-version` of *1.13.9* was specified. This sets the Kubernetes version for both the control plane and the initial node pool. There are different commands for upgrading the Kubernetes version of the control plane and the node pool. The `az aks upgrade` command is used to upgrade the control plane, while the `az aks nodepool upgrade` is used to upgrade an individual node pool.
 
-Let's upgrade the *mynodepool* to Kubernetes *1.13.7*. Use the [az aks node pool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
+Let's upgrade the *mynodepool* to Kubernetes *1.13.9*. Use the [az aks node pool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.13.7 \
+    --kubernetes-version 1.13.9 \
     --no-wait
 ```
 
 > [!Tip]
-> To upgrade the control plane  to *1.13.7*, run `az aks upgrade -k 1.13.7`.
+> To upgrade the control plane to *1.14.5*, run `az aks upgrade -k 1.14.5`.
 
-List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *1.13.7*:
+List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *1.13.9*:
 
 ```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
-AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
------------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
-VirtualMachineScaleSets  3        110        mynodepool  1.13.7                 100             Linux     Upgrading            myResourceGroup  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
+[
+  {
+    ...
+    "count": 3,
+    ...
+    "name": "mynodepool",
+    "orchestratorVersion": "1.13.9",
+    ...
+    "provisioningState": "Upgrading",
+    ...
+    "vmSize": "Standard_DS2_v2",
+    ...
+  },
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "nodepool1",
+    "orchestratorVersion": "1.13.9",
+    ...
+    "provisioningState": "Succeeded",
+    ...
+    "vmSize": "Standard_DS2_v2",
+    ...
+  }
+]
 ```
 
 It takes a few minutes to upgrade the nodes to the specified version.
@@ -205,12 +245,34 @@ az aks nodepool scale \
 List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Scaling* state with a new count of *5* nodes:
 
 ```console
-$ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster -o table
+$ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
 
-AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
------------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
-VirtualMachineScaleSets  5        110        mynodepool  1.13.7                 100             Linux     Scaling              myResourceGroup  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
+[
+  {
+    ...
+    "count": 5,
+    ...
+    "name": "mynodepool",
+    "orchestratorVersion": "1.13.9",
+    ...
+    "provisioningState": "Scaling",
+    ...
+    "vmSize": "Standard_DS2_v2",
+    ...
+  },
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "nodepool1",
+    "orchestratorVersion": "1.13.9",
+    ...
+    "provisioningState": "Succeeded",
+    ...
+    "vmSize": "Standard_DS2_v2",
+    ...
+  }
+]
 ```
 
 It takes a few minutes for the scale operation to complete.
@@ -233,12 +295,34 @@ az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name myn
 The following example output from the [az aks node pool list][az-aks-nodepool-list] command shows that *mynodepool* is in the *Deleting* state:
 
 ```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
-AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
------------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
-VirtualMachineScaleSets  5        110        mynodepool  1.13.7                 100             Linux     Deleting             myResourceGroup  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
+[
+  {
+    ...
+    "count": 5,
+    ...
+    "name": "mynodepool",
+    "orchestratorVersion": "1.13.9",
+    ...
+    "provisioningState": "Deleting",
+    ...
+    "vmSize": "Standard_DS2_v2",
+    ...
+  },
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "nodepool1",
+    "orchestratorVersion": "1.13.9",
+    ...
+    "provisioningState": "Succeeded",
+    ...
+    "vmSize": "Standard_DS2_v2",
+    ...
+  }
+]
 ```
 
 It takes a few minutes to delete the nodes and the node pool.
@@ -264,12 +348,34 @@ az aks nodepool add \
 The following example output from the [az aks node pool list][az-aks-nodepool-list] command shows that *gpunodepool* is *Creating* nodes with the specified *VmSize*:
 
 ```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
-AgentPoolType            Count    MaxPods    Name         OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
------------------------  -------  ---------  -----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
-VirtualMachineScaleSets  1        110        gpunodepool  1.13.5                 100             Linux     Creating             myResourceGroup  Standard_NC6
-VirtualMachineScaleSets  1        110        nodepool1    1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
+[
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "gpunodepool",
+    "orchestratorVersion": "1.13.9",
+    ...
+    "provisioningState": "Creating",
+    ...
+    "vmSize": "Standard_NC6",
+    ...
+  },
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "nodepool1",
+    "orchestratorVersion": "1.13.9",
+    ...
+    "provisioningState": "Succeeded",
+    ...
+    "vmSize": "Standard_DS2_v2",
+    ...
+  }
+]
 ```
 
 It takes a few minutes for the *gpunodepool* to be successfully created.
@@ -282,8 +388,8 @@ You now have two node pools in your cluster - the default node pool initially cr
 $ kubectl get nodes
 
 NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.5
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.5
+aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.9
+aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.9
 ```
 
 The Kubernetes scheduler can use taints and tolerations to restrict what workloads can run on nodes.
@@ -360,7 +466,7 @@ When you use an Azure Resource Manager template to create and managed resources,
 Create a template such as `aks-agentpools.json` and paste the following example manifest. This example template configures the following settings:
 
 * Updates the *Linux* agent pool named *myagentpool* to run three nodes.
-* Sets the nodes in the node pool to run Kubernetes version *1.13.5*.
+* Sets the nodes in the node pool to run Kubernetes version *1.13.9*.
 * Defines the node size as *Standard_DS2_v2*.
 
 Edit these values as need to update, add, or delete node pools as needed:
@@ -425,7 +531,7 @@ Edit these values as need to update, add, or delete node pools as needed:
             "storageProfile": "ManagedDisks",
       "type": "VirtualMachineScaleSets",
             "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-            "orchestratorVersion": "1.13.5"
+            "orchestratorVersion": "1.13.9"
       }
     }
   ]
@@ -450,7 +556,7 @@ AKS nodes do not require their own public IP addresses for communication. Howeve
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](##manage-node-pools-using-a-resource-manager-template) and adding the following boolean value property "enableNodePublicIP" on the agentPoolProfiles. Set this to `true` as by default it will be set as `false` if not specified. This is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
+After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and adding the following boolean value property "enableNodePublicIP" on the agentPoolProfiles. Set this to `true` as by default it will be set as `false` if not specified. This is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
 
 ```
 "agentPoolProfiles":[  
@@ -460,7 +566,7 @@ After successful registration, deploy an Azure Resource Manager template followi
       "agentCount": 3,
       "agentVmSize": "Standard_DS2_v2",
       "osType": "Linux",
-      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+      "vnetSubnetId": "[parameters('vnetSubnetId')]",
       "enableNodePublicIP":true
     }
 ```
