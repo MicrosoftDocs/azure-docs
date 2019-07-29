@@ -89,7 +89,7 @@ Listed below are the fields in the schema and what they signify
 
 | Field | Format | Comments |
 |:---   |:---    |:---  |
-| TableName	| AzureNetworkAnalytics_CL | Table for Traffic Anlaytics data
+| TableName	| AzureNetworkAnalytics_CL | Table for Traffic Analytics data
 | SubType_s	| FlowLog |	Subtype for the flow logs. Use only "FlowLog", other values of SubType_s are for internal workings of the product |
 | FASchemaVersion_s |	1	| Schema version. Does not reflect NSG Flow Log version |
 | TimeProcessed_t	| Date and Time in UTC	| Time at which the Traffic Analytics processed the raw flow logs from the storage account |
