@@ -5,6 +5,7 @@
   - name: What is Azure IoT Hub?
     href: about-iot-hub.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Send telemetry
     items:
