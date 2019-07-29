@@ -47,6 +47,8 @@
       href: functions-integrate-storage-queue-output-binding.md
     - name: Storage - Visual Studio Code
       href: functions-add-output-binding-storage-queue-vs-code.md
+    - name: Storage - Visual Studio
+      href: functions-add-output-binding-storage-queue-vs.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
