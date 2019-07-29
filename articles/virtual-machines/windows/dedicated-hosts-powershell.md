@@ -45,7 +45,7 @@ You can also decide to use both availability zones and fault domains. This examp
 
 
 ```powershell
-$rgName = "myPSDHRG"
+$rgName = "myDHResourceGroup"
 $location = "East US"
 
 New-AzResourceGroup -Location $location -Name $rgName
@@ -84,7 +84,7 @@ $dHost = New-AzHost `
 
 Create a virtual machine on the dedicated host. 
 
-If you specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine. There is no such requirement for fault domains. For this example, because our host group is in zone 1, we need to create the VM in zone 1, and make sure the `-Sku` for the public IP address is `Standard`.  
+If you specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine. For this example, because our host group is in zone 1, we need to create the VM in zone 1.  
 
 
 ```powershell
@@ -122,7 +122,7 @@ Once you have deleted all of your hosts, you may delete the host group using [Re
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
-You can also delete the entire resource group in a single command. This will delete all resources created in the group, including all of the VMs, hosts and host groups.
+You can also delete the entire resource group in a single command using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). This will delete all resources created in the group, including all of the VMs, hosts and host groups.
  
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $rgName
