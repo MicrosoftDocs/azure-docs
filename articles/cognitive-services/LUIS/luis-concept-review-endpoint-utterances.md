@@ -31,7 +31,7 @@ Endpoint utterances are taken from end-user queries on the application’s HTTP 
 Reviewing suggested utterances doesn't need to be done every day but should be part of your regular maintenance of LUIS. 
 
 ## Delete review items programmatically
-Use the **[delete unlabelled utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API. Back up these utterances before deletion by **[exporting the log files](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
+Use the **[delete unlabeled utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API. Back up these utterances before deletion by **[exporting the log files](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
 
 ## Next steps
 
