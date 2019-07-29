@@ -3,7 +3,7 @@ title: Create tumbling window trigger dependencies in Azure Data Factory | Micro
 description: Learn how to create dependency on a tumbling window trigger in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: daperlov
+author: djpmsft
 manager: craigg
 editor:
 
