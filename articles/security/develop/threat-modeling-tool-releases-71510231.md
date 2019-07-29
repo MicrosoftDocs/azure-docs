@@ -20,7 +20,7 @@ ms.author: jegeib
 
 # Threat Modeling Tool update release 7.1.51023.1 - 11/1/2018
 
-As originally noted in the [GA release notes](./azure-security-threat-modeling-tool-releases-71509112.md), we have released an update (7.1.51023.1) to the Microsoft Threat Modeling Tool that will require users of the Preview version (preview clients with version < 7.1.50911.2) to upgrade to the supported GA release. This release does not contain any new functionality or fixes.
+As originally noted in the [GA release notes](threat-modeling-tool-releases-71509112.md), we have released an update (7.1.51023.1) to the Microsoft Threat Modeling Tool that will require users of the Preview version (preview clients with version < 7.1.50911.2) to upgrade to the supported GA release. This release does not contain any new functionality or fixes.
 
 - Users of the Preview version will automatically download the upgrade when the client is opened. If you choose not to install the new update, the Preview version of the tool will close.
 - Users of the GA version of the tool will be prompted to choose whether or not they want to upgrade.
