@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ---
 
-# Mapping Data Flow Schema Drift
+# Mapping data flow schema drift
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -60,7 +60,7 @@ Then, we will round and sum the values for each of those matched columns:
 
 ```round(sum ($$))```
 
-You can test this out with the Azure Data Factory Data Flow sample "Taxi Demo". Switch on the Debug session using the Debug toggle at the top of the Data Flow design surface so that you can see your results interactively:
+You can see this schema drift functionality at work with the Azure Data Factory Data Flow sample "Taxi Demo". Switch on the Debug session using the Debug toggle at the top of the Data Flow design surface so that you can see your results interactively:
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
