@@ -1,6 +1,6 @@
 ---
-title: Manage versions
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Manage versions - LUIS
+titleSuffix: Azure Cognitive Services
 description: Versions allow you to build and publish different models. A good practice is to clone the current active model to a different version of the app before making changes to the model.
 services: cognitive-services
 author: diberry

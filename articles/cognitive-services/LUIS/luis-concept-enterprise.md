@@ -1,6 +1,6 @@
 ---
-title: Enterprise concepts 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Enterprise concepts - LUIS
+titleSuffix: Azure Cognitive Services
 description: Understand design concepts for large LUIS apps or multiple apps including LUIS and QnA Maker together.
 services: cognitive-services
 author: diberry
