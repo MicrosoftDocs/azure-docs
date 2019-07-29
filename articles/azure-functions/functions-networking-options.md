@@ -32,7 +32,7 @@ You can host function apps in a couple of ways:
 |[Virtual network integration](#virtual-network-integration)|❌No|✅Yes (Regional)|✅Yes (Regional and Gateway)|✅Yes|
 |[Virtual network triggers (non-http)](#virtual-network-triggers-(non-http))|❌No| ❌No|✅Yes|✅Yes|
 |[Hybrid Connections](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
-|[Outbound IP Restrictions](#private-site-access)|❌No| ❌No|❌No|✅Yes|
+|[Outbound IP Restrictions](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
 
 ## Inbound IP restrictions
@@ -40,7 +40,7 @@ You can host function apps in a couple of ways:
 You can use IP restrictions to define a priority-ordered list of IP addresses that are allowed/denied access to your app. The list can include IPv4 and IPv6 addresses. When there's one or more entries, an implicit "deny all" exists at the end of the list. IP restrictions work with all function-hosting options.
 
 > [!NOTE]
-> With network restrictions in place you will only be able to use the portal editor from within your virtual network, or if you have whitelisted the IP of the machine you are using to access the Azure portal. However, you can still access any features on the **Platform features** tab from any machine.
+> With network restrictions in place you will only be able to use the portal editor from within your virtual network or if you have whitelisted the IP of the machine you are using to access the Azure portal. However, you can still access any features on the **Platform features** tab from any machine.
 
 To learn more, see [Azure App Service static access restrictions](../app-service/app-service-ip-restrictions.md).
 
@@ -52,14 +52,6 @@ Private site access refers to making your app accessible only from a private net
 * Private site access is also available with an App Service Environment configured with an internal load balancer (ILB). For more information, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 There are many ways to access virtual network resources in other hosting options. But an App Service Environment is the only way to allow triggers for a function to occur over a virtual network.
-
-## Virtual network triggers (non-http)
-
-Currently an App Service plan or App Service environment is the only way to configure function app triggers other than HTTP from within a virtual network. 
-
-To give an example, if you were to configure Cosmos DB to only accept traffic from a virtual network, you would need to deploy your function app in an app service plan with virtual network integration with that virtual network to configure comos DB triggers from that resource. While in preview, configuring VNET integration will not allow the Premium plan to trigger off of that Cosmos resource.
-
-Check [this list for all non-http triggers](./functions-triggers-bindings.md#supported-bindings) to double check what is supported.
 
 ## Virtual network integration
 
@@ -104,6 +96,14 @@ Virtual network integration in Functions uses shared infrastructure with App Ser
 * [Gateway required VNet Integration](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
 To learn more about using virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
+
+## Virtual network triggers (non-http)
+
+Currently an App Service plan or App Service environment is the only way to configure function app triggers other than HTTP from within a virtual network. 
+
+To give an example, if you were to configure Cosmos DB to only accept traffic from a virtual network, you would need to deploy your function app in an app service plan with virtual network integration with that virtual network to configure comos DB triggers from that resource. While in preview, configuring VNET integration will not allow the Premium plan to trigger off of that Cosmos resource.
+
+Check [this list for all non-http triggers](./functions-triggers-bindings.md#supported-bindings) to double check what is supported.
 
 ## Hybrid Connections
 
