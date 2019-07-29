@@ -71,7 +71,7 @@ After generation finishes, it opens a new VS Code window with the code. If you o
 
 ## Use the generated code in your device project
 
-Here are instructions of how to use the generated code in your own device project on different platforms.
+Here are instructions of how to use the generated code in your own device project on different platforms as development machine.
 
 ### Linux
 
@@ -133,7 +133,7 @@ Follow these steps to build the device code together with the device C SDK on Li
 
 ### Windows
 
-You can either use CMake and Visual Studio C/C++ compilers to build the device code together with the device C SDK on Windows by following [IoT Plug and Play quickstart](./quickstart-create-pnp-device.md), or follow these steps to include the `.vcxproj` in your Visual Studio solution.
+You can either use CMake and Visual Studio C/C++ compilers to build the device code together with the device C SDK on Windows by following [IoT Plug and Play quickstart](./quickstart-create-pnp-device.md), or follow these steps to include the `.vcxproj` in your Visual Studio solution, if you don't use CMake to build your project.
 
 1. Open your VS solution.
 
@@ -142,6 +142,65 @@ You can either use CMake and Visual Studio C/C++ compilers to build the device c
 1. Select the `vcxproj` file in the generated code folder to include it as part of the solution.
 
 1. From there, you can continue implement your device code and build the solution in VS.
+
+### macOS
+
+Follow these steps to build the device code together with the device C SDK on macOS using CMake.
+
+1. Open terminal application.
+
+1. Use [Homebrew](https://homebrew.sh) to install all the dependencies:
+
+    ```bash
+    brew update
+    brew install git cmake pkgconfig openssl ossp-uuid
+    ```
+
+1. Verify that [CMake](https://cmake.org/) is at least version **2.8.12**:
+
+    ```bash
+    cmake --version
+    ```
+
+1. [Patch CURL](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#upgrade-curl-on-mac-os) to the latest version available.
+
+1. Clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c-pnp) repository:
+
+    ```sh
+    git clone https://github.com/Azure/azure-iot-sdk-c-pnp --recursive -b public-preview
+    ```
+
+    You should expect this operation to take several minutes to complete.
+
+1. Copy the folder that contains the generated code into the device SDK root folder.
+
+1. In VS Code, open `CMakeLists.txt` in the device SDK root folder.
+
+1. Add the following line at the end of the `CMakeLists.txt` file to include the device code stub folder when you compile the SDK:
+
+    ```
+    add_subdirectory({generated_code_folder_name})
+    ```
+
+1. Create a `cmake` subdirectory in the device SDK root folder, and navigate to that folder.
+
+    ```sh
+    mkdir cmake
+    cd cmake
+    ```
+
+1. Run the following commands to use CMake build the device SDK and the generated code stub:
+
+    ```cmd\sh
+    cmake -DOPENSSL_ROOT_DIR:PATH=/usr/local/opt/openssl ..
+    cmake --build .
+
+1. After the build success, run it by specifying the IoT Hub device connection string as parameter.
+
+    ```cmd\sh
+    cd azure-iot-sdk-c-pnp/cmake/{generated_code_folder_name}/
+    ./testing_device "[IoT Hub device connection string]"
+    ```
 
 ## Iterate by re-generating the scaffolding code
 
@@ -154,6 +213,13 @@ The code generator supports re-generation of the code if you update your DCM or 
 1. Select **Re-generate code for {project name}**.
 
 1. It will use the previous setting you configured and re-generate the code. But it will not overwrite the files involved with user code such as `main.c` and `{project_name}_impl.c`.
+
+> [!NOTE]
+> If you update the URN id in your interface file, it will be treated as a new interface. When re-generating the code, it generates code for interface but not overwrite the original one in `{project_name}_impl.c`.
+
+## Problems and Feedback
+
+Azure IoT Device Workbench extension is an open sourced project on Github. For any issues and feature requests, you can [create issue on Github](https://github.com/microsoft/vscode-iot-workbench/issues).
 
 ## Next steps
 
