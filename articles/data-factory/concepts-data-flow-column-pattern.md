@@ -37,7 +37,7 @@ To build patterns based on columns, you can match on column name, type, stream, 
 ![column position](media/data-flow/position.png "Column position")
 
 ## Rule-based mapping
-When mapping columns in Source and Select tranformations, you will have an option to choose "Fixed mapping" or "Rule-based mapping". When you know the schema of your data and expect specific columns from the Source dataset that always match specific static names, you can use fixed mapping. But when you are working with flexible schemas, use rule-based mapping. You will be able to build a pattern match using the rules described above.
+When mapping columns in Source and Select transformations, you will have an option to choose "Fixed mapping" or "Rule-based mapping". When you know the schema of your data and expect specific columns from the Source dataset that always match specific static names, you can use fixed mapping. But when you are working with flexible schemas, use rule-based mapping. You will be able to build a pattern match using the rules described above.
 
 ![rule based mapping](media/data-flow/rule2.png "Rule based mapping")
 
