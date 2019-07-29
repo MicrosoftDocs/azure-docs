@@ -27,11 +27,13 @@ sections:
   items:
   - type: paragraph
     text: Learn how to <a href="quickstart-create-pnp-device">use a device capability model to create a device</a>.
+  - type: paragraph
+    text: Learn how to <a href="quickstart-connect-pnp-device-solution">connect a device to your solution</a>.
 - title: Step-by-Step Tutorials
   items:
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-pnp-visual-studio-code">Create a device using VS Code</a>
+    - html: <a href="tutorial-pnp-visual-studio-code">Create a device using Visual Studio Code</a>
     - html: <a href="tutorial-build-device-certification">Build a device ready for certification</a>
     - html: <a href="tutorial-certification-test">Certify your device</a>
