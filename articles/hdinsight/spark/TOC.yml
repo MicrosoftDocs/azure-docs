@@ -52,6 +52,10 @@
     href: ../hdinsight-cluster-availability.md 
   - name: Troubleshoot
     items:
+    - name: OutOfMemoryError exception
+      items:
+      - name: Insufficient heap memory
+        href: ./apache-spark-troubleshoot-outofmemory-heap.md
     - name: Apache Spark Streaming application stops
       href: ./apache-spark-troubleshoot-application-stops.md
 - name: How to
