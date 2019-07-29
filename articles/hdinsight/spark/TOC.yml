@@ -53,7 +53,7 @@
   - name: Troubleshoot
     items:
     - name: Kyro serialization failed
-      href: ./apache-spark-ts-sparkexception-kryo-serialization-failed.md
+      href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
 - name: How to
   items:
   - name: Use cluster storage

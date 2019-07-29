@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/26/2019
+ms.date: 07/29/2019
 ---
 
 # Scenario: Unable to download large data sets using JDBC/ODBC and Apache Thrift software framework in Azure HDInsight
