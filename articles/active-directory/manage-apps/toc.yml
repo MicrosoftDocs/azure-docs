@@ -307,7 +307,6 @@
       href: application-proxy-release-version-history.md
   - name: Resources
     items:
-<<<<<<< HEAD
     - name: Azure AD deployment plans
       href: /azure/active-directory/fundamentals/active-directory-deployment-plans?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: Azure feedback forum
@@ -326,7 +325,6 @@
       href: https://stackoverflow.com/questions/tagged/azure-active-directory
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-=======
      - name: Overview
        expanded: true
        items:
@@ -460,4 +458,3 @@
           href: https://stackoverflow.com/questions/tagged/azure-active-directory
         - name: Videos
           href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
->>>>>>> 055fd8caa09474955ca6baec2922bd8446d37d70

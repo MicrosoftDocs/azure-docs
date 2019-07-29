@@ -1,5 +1,5 @@
 ---
-title: Enable automatic user provisioning for multi-tenant applications
+title: Enable automatic user provisioning for Azure multi-tenant applications
 description: A guide for independent software vendors for enabling automated provisioning
 services: active-directory
 documentationcenter: 'azure'
@@ -71,18 +71,16 @@ To help determine which integration option to use for your application, refer to
 | Support guest accounts (B2B)| √| √| √ |
 | Support non-enterprise accounts (B2C)| X| √| √ |
 
-"*" – Azure AD Connect setup is required to sync users from AD to Azure AD.  
-"+" </sup>– Using SCIM for provisioning does not preclude you from integrating your application with MIcrosoft Graph for other purposes.
+<sup>*</sup> – Azure AD Connect setup is required to sync users from AD to Azure AD.  
+<sup>+</sup >– Using SCIM for provisioning does not preclude you from integrating your application with MIcrosoft Graph for other purposes.
 
 ## Azure AD Provisioning Service
 
-The Azure AD provisioning service uses SCIM, a protocol supported by many identity providers (IdPs). We recommend you use SCIM if you want to support IdPs in addition to Azure AD. Any SCIM-compliant IDP can work with your SCIM endpoint.
+The Azure AD provisioning services uses SCIM, a protocol supported by many identity providers (IdPs). We recommend you use the Azure AD provisioning service if you want to support IdPs in addition to Azure AD, as any SCIM-compliant IdP can connect to your SCIM endpoint.
 
-The Azure AD provisioning service connects to your SCIM 2.0 endpoint, which any SCIM-compliant identity providers (IdPs) can connect to. The service connects to your SCIM endpoint. Using a SCIM endpoint allows any SCIM-compliant IdP to provision users to your application.
+For more information on how the Azure AD Provisioning Service users SCIM, see: 
 
-For more information on how the Azure AD Provisioning Service users SCIM, see:
-
-* [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
 * [Understand the Azure AD SCIM implementation](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
@@ -118,11 +116,11 @@ Learn more about using Microsoft Graph for provisioning:
 
 If you want to provision users only upon first sign in to your application, and do not need to automatically deprovision users, SAML JIT is an option. Your application must support SAML 2.0 as a federation protocol to use SAML JIT.
 
-SAML JIT uses the claims information in the SAML token to create and update user information in the application. Customers can configure these required claims in the Azure AD application as needed. Note that sometimes the JIT provisioning needs to be enabled from the application side so that customer can use this feature. SAML JIT is useful for creating and updating users, but it can't delete or deactivate the users in the application.
+SAML JIT uses the claims information in the SAML token to create and update user information in the application. Customers can configure these required claims in the Azure AD application as needed. Sometimes the JIT provisioning needs to be enabled from the application side so that customer can use this feature. SAML JIT is useful for creating and updating users, but it can't delete or deactivate the users in the application.
 
 ## Next Steps
 
-* [Enable Single Sign-on for your application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/isv-sso-content)
+* [Enable Single Sign-on for your application](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-sso-content)
 
 * [Submit your application listing](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) and partner with Microsoft to create documentation on Microsoft’s site.
 
