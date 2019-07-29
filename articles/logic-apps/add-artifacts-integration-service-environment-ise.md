@@ -23,7 +23,7 @@ After you create an [integration service environment (ISE)](../logic-apps/connec
 
 <a name="create-logic-apps-environment"></a>
 
-## Create logic apps in an ISE
+## Create logic apps
 
 To build logic apps that run in your integration service environment (ISE), follow these steps:
 
@@ -53,7 +53,7 @@ To build logic apps that run in your integration service environment (ISE), foll
 
 <a name="create-integration-account-environment"></a>
 
-## Create integration accounts in an ISE
+## Create integration accounts
 
 Based on the [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) selected at creation, your ISE includes specific integration account usage at no additional cost. Logic apps that exist in an integration service environment (ISE) can reference only integration accounts that exist in the same ISE. So, for an integration account to work with logic apps in an ISE, both the integration account and logic apps must use the *same environment* as their location. For more information about integration accounts and ISEs, see [Integration accounts with ISE](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment
 ).
@@ -80,9 +80,9 @@ To create an integration account that uses an ISE, follow these steps:
 
 1. To manage integration accounts in your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md).
 
-<a name="add-api-connectors-environment"></a>
+<a name="add-ise-connectors-environment"></a>
 
-## Add managed connectors to an ISE
+## Add ISE connectors
 
 You can add Microsoft-managed connectors that available to use in your ISE but aren't deployed in your ISE.
 
@@ -98,7 +98,7 @@ You can add Microsoft-managed connectors that available to use in your ISE but a
 
 <a name="create-custom-connectors-environment"></a>
 
-## Create custom connectors in an ISE
+## Create custom connectors
 
 To use custom connectors in your ISE, create those custom connectors from directly inside your ISE.
 
