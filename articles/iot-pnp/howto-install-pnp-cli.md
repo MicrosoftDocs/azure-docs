@@ -31,15 +31,11 @@ This article shows you how to:
 
 ## Install Azure IoT extension for Azure CLI
 
-### Step 1 - Install Python
-
-[Python 2.7x or Python 3.x](https://www.python.org/downloads/) is required.
-
-### Step 2 - Install the Azure CLI
+### Step 1 - Install the Azure CLI
 
 Follow the [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to set up Azure CLI in your environment. Your Azure CLI version must be version 2.0.67 or above. Use `az –version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
 
-### Step 3 - Install IoT extension
+### Step 2 - Install IoT extension
 
 [The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension) describes several ways to install the extension. The simplest way is to run `az extension add --name azure-cli-iot-ext`. After installation, you can use `az extension list` to validate the currently installed extensions or `az extension show --name azure-cli-iot-ext` to see details about the IoT extension. To remove the extension, you can use `az extension remove --name azure-cli-iot-ext`.
 
