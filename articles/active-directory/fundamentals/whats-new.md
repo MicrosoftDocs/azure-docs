@@ -81,8 +81,8 @@ On July 26, 2019, we changed how we provide app-only tokens through the client c
 
 For more information, see [What's new for authentication?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes).
 
->[NOTE]
->The existing consent between the client and the API is not required and apps should still be doing their own authorization checks.
+> [NOTE]
+> The existing consent between the client and the API is not required and apps should still be doing their own authorization checks.
 
 ---
 
