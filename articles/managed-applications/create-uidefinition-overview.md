@@ -46,7 +46,7 @@ The schema of the parameters property depends on the combination of the specifie
 
 Including `$schema` is recommended, but optional. If specified, the value for `version` must match the version within the `$schema` URI.
 
-You can use a JSON editor to create your UI definition then test it in the [UI Definition Sandbox] (https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) to preview it. For more information about the sandbox, see [Test your portal interface for Azure Managed Applications](test-createuidefinition.md).
+You can use a JSON editor to create your UI definition then test it in the [UI Definition Sandbox](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) to preview it. For more information about the sandbox, see [Test your portal interface for Azure Managed Applications](test-createuidefinition.md).
 
 ## Basics
 Basics is the first step generated when the Azure portal parses the file. In addition to displaying the elements specified in `basics`, the portal injects elements for users to choose the subscription, resource group, and location for the deployment. When possible, elements that query deployment-wide parameters, like the name of a cluster or administrator credentials, should go in this step.
