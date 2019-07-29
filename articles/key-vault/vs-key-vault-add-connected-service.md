@@ -144,11 +144,11 @@ Affects the project file .NET references and NuGet package references.
 
 ### Added files for ASP.NET Core
 
-- ConnectedService.json added, which records some information about the Connected Service provider, version, and a link the documentation.
+- `ConnectedService.json` added, which records some information about the Connected Service provider, version, and a link the documentation.
 
 ### Project file changes for ASP.NET Core
 
-- Added the Connected Services ItemGroup and ConnectedServices.json file.
+- Added the Connected Services ItemGroup and `ConnectedServices.json` file.
 
 ### launchsettings.json changes for ASP.NET Core
 
@@ -188,7 +188,7 @@ Affects the project file .NET references and `packages.config` (NuGet references
 ### Project file changes for ASP.NET Framework
 
 - Added the Connected Services ItemGroup and ConnectedServices.json file.
-- References to the .NET assemblies described in the [Added references](#added-references) section.
+- References to the .NET assemblies described in the [Added references](#added-references-for-aspnet-framework) section.
 
 ### web.config or app.config changes
 
