@@ -106,8 +106,8 @@ Check that the zipped file is secure, before you deploy it.
 
 1. On the machine to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the VHD
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - `C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]`
+    - Example usage: `C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256`
 3.  For appliance version 1.19.06.27, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
@@ -153,9 +153,9 @@ Set up the appliance for the first time.
 1. In the web app > **Set up prerequisites**, do the following:
     - **License**: Accept the license terms, and read the third-party information.
     - **Connectivity**: The app checks that the VM has internet access. If the VM uses a proxy:
-        - Click **Proxy settings**, and specify the proxy address and listening port, in the form http://ProxyIPAddress or http://ProxyFQDN.
-        - Specify credentials if the proxy needs authentication.
-        - Only HTTP proxy is supported.
+      - Click **Proxy settings**, and specify the proxy address and listening port, in the form http://ProxyIPAddress or http://ProxyFQDN.
+      - Specify credentials if the proxy needs authentication.
+      - Only HTTP proxy is supported.
     - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for VM discovery to work properly.
     - **Install updates**: Azure Migrate Server Assessment checks that the appliance has the latest updates installed.
 
@@ -184,10 +184,11 @@ Enable on the appliance as follows:
 
 On the appliance VM, run this command. HyperVHost1/HyperVHost2 are example host names.
 
-    ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
-    ```
-    Example: ``` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force ```
+```
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+```
+
+Example: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `
 
 #### Option 2
 
