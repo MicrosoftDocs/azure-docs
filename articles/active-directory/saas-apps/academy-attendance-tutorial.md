@@ -42,10 +42,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Academy Attendance supports **SP** initiated SSO
-
-
 * Academy Attendance supports **Just In Time** user provisioning
-
 
 ## Adding Academy Attendance from the gallery
 
@@ -57,7 +54,6 @@ To configure the integration of Academy Attendance into Azure AD, you need to ad
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Academy Attendance** in the search box.
 1. Select **Academy Attendance** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on
 
@@ -98,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![image](common/edit-attribute.png)
 
 	> [!NOTE]
-	> Academy Attendance supports two roles for users: **Lecturer** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+	> Academy Attendance supports two roles for users: **Lecturer** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
 1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
 
