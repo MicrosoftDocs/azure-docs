@@ -1,7 +1,7 @@
 ---
 title: Key phrase extraction using the Text Analytics REST API
 titleSuffix: Azure Cognitive Services
-description: How to extract key phrases using the Text Analytics REST API from Azure Cognitive Services.
+description: How to extract key phrases by using the Text Analytics REST API from Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -67,13 +67,13 @@ Document size must be 5,120 or fewer characters per document, and you can have u
 
 For information about request definition, see [How to call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
 
-+ Create a **POST** request. Review the API documentation for this request: [Key Phrases API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
++ Create a **POST** request. Review the API documentation for this request: [Key Phrases API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6).
 
-+ Set the HTTP endpoint for key phrase extraction, using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). It must include the `/keyPhrases` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
++ Set the HTTP endpoint for key phrase extraction by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). It must include the `/keyPhrases` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`.
 
 + Set a request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-how-to-access-key.md).
 
-+ In the request body, provide the JSON documents collection you prepared for this analysis
++ In the request body, provide the JSON documents collection you prepared for this analysis.
 
 > [!Tip]
 > Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) to structure a request and POST it to the service.
