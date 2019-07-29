@@ -177,19 +177,30 @@ As the Run is executed, it goes through the following stages:
 
 Once you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
 
-Add the following code to your training script, **chainer_mnist.py**, to save the model. 
+Wait for the model to complete its training:
 
-``` Python
-    serializers.save_npz(os.path.join(args.output_dir, 'model.npz'), model)
+```Python
+run.wait_for_completion()
 ```
 
-Register the model to your workspace with the following code.
+After the model has completed, register the model to your workspace with the following code.  
 
 ```Python
 model = run.register_model(model_name='chainer-dnn-mnist', model_path='outputs/model.npz')
 ```
 
+You can also download a local copy of the model. This can be useful for doing additional model validation work locally. In the training script, `chainer_mnist.py`, a saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy from datastore.
 
+```Python
+# Create a model folder in the current directory
+os.makedirs('./model', exist_ok=True)
+
+for f in run.get_file_names():
+    if f.startswith('outputs/model'):
+        output_file_path = os.path.join('./model', f.split('/')[-1])
+        print('Downloading from {} to {} ...'.format(f, output_file_path))
+        run.download_file(name=f, output_file_path=output_file_path)
+```
 
 ## Next steps
 
