@@ -100,6 +100,8 @@ az role assignment create \
 
 ## Create an image definition and gallery
 
+>> Note!! A Shared Image Gallery (SIG) and SIG Image Definition must exist, for Image Builder to distribute to it, Image Builder will NOT create an SIG.
+
 Create an image gallery. 
 
 ```azurecli-interactive
