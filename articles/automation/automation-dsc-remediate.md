@@ -14,9 +14,9 @@ manager: nirb
 
 When servers are registered with Azure Automation State Configuration,
 the 'Configuration Mode' is set to ApplyOnly, ApplyandMonitor, or ApplyAndAutoCorrect.
-If the mode is not set to AutoCorrect,
+If the mode isn't set to AutoCorrect,
 servers that drift from a compliant state for any reason
-will remain non-compliant until they are manually corrected.
+will remain non-compliant until they're manually corrected.
 
 Azure compute offers a feature named Run Command
 that allows customers to run scripts inside virtual machines.
@@ -41,14 +41,15 @@ Update-DscConfiguration -Wait -Verbose
 
 ## Correct drift of Linux virtual machines
 
-Similar functionality is not currently available for Linux servers.
+Similar functionality isn't currently available for Linux servers.
 The only option is to repeat the registration process.
-For Azure nodes this can be performed from the portal
+For Azure nodes,
+drift-correction can be done from the portal
 or using Az Automation cmdlets.
-Details about this process are documented in the documentation page
+Details about this process are documented in the page
 [Onboarding machines for management by Azure Automation State Configuration](/azure/automation/automation-dsc-onboarding#azure-portal).
 For hybrid nodes,
-this can be performed using the included Python scripts.
+drift-correction can be done using the included Python scripts.
 See the documentation in
 [PowerShell DSC for Linux repo](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 
