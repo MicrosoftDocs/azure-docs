@@ -527,25 +527,9 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 | **Error string** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Remediation required** | Yes |
 
-This error can be caused by:
+This error typically occurs because the server time is incorrect. If the server is running in a virtual machine, verify the time on the host is correct.
 
-- Server time is incorrect
-- Server endpoint deletion failed
-- Certificate used for authentication is expired. 
-	To check if the certificate is expired, perform the following steps:  
-	1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
-	2. Check if the client authentication certificate is expired.
-
-If the server time is correct, perform the following steps to resolve the issue:
-
-1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
-2. Run the following PowerShell command on the server:
-
-    ```powershell
-    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
-    ```
-
-<a id="-2134375680"></a>**Sync failed due to certificate expiration.**  
+<a id="-2134364040"></a>**Sync failed due to certificate expiration.**  
 
 | | |
 |-|-|
@@ -569,7 +553,7 @@ If the client authentication certificate is expired, perform the following steps
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
-<a id="-2134375680"></a>**Sync failed due to authentication certificate not found.**  
+<a id="-2134375896"></a>**Sync failed due to authentication certificate not found.**  
 
 | | |
 |-|-|
@@ -588,6 +572,17 @@ To resolve this issue, perform the following steps:
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
+
+<a id="-2134364039"></a>**Sync failed due to authentication identity not found.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83079 |
+| **HRESULT (decimal)** | -2134364039 |
+| **Error string** | ECS_E_AUTH_IDENTITY_NOT_FOUND |
+| **Remediation required** | Yes |
+
+This error occurs because the server endpoint deletion failed and the endpoint is now in a partially deleted state. To resolve this issue, retry deleting the server endpoint.
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**The volume where the server endpoint is located is low on disk space.**  
 
