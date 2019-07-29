@@ -106,7 +106,7 @@ Container has to be specified in the dataset. Your wildcard path must therefore 
 
 To move source files to another location post-processing, first select "Move" for file operation. Then, set the "from" directory. If you are not using any wildcards for your path, then the "from" setting will be the same folder as your source folder.
 
-If you have a wildcarded source path, ex:
+If you have a source path with wildcard, your syntax will look like this below:
 
 ```/data/sales/20??/**/*.csv```
 
@@ -151,8 +151,7 @@ You can modify the column data types in a later derived-column transformation. U
 ![Settings for default data formats](media/data-flow/source2.png "Default formats")
 
 ### Add dynamic content
-
-When you click inside of fields in the setting panel, you will see a hyperlink for "Add dynamic content". When you click here, you will launch the Expression Builder. This is where you can set values for settings dynamically using expressions, static literal values, or parameters.
+When you click inside of fields in the setting panel, you will see a hyperlink for "Add dynamic content". When you select to launch the Expression Builder, you will set values dynamically using expressions, static literal values, or parameters.
 
 ![Parameters](media/data-flow/params6.png "Parameters")
 
