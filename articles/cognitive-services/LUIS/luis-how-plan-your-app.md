@@ -36,7 +36,7 @@ Think about the [intents](luis-concept-intent.md) that are important to your app
 
 Once you have determined the intents, create 15 to 30 example utterances for each intent. To begin with, do not have fewer than this number or create too many utterances for each intent. Each utterance should be different from the previous utterance. A good variety in the utterances includes overall word count, word choice, verb tense, and punctuation. 
 
-Review [utterances](luis-concept-utterance) for more information.
+Review [utterances](luis-concept-utterance.md) for more information.
 
 ## Identify your entities
 
