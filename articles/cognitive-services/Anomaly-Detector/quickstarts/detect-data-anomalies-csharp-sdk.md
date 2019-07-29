@@ -18,8 +18,8 @@ Get started with the Anomaly Detector client library for .NET. Follow these step
 
 Use the Anomaly Detector client library for .NET to:
 
-* Detect anomalies as a batch
-* Detect the anomaly status of the latest data point
+* Detect anomalies throughout your time series dataset, as a batch request
+* Detect the anomaly status of the latest data point in your time series
 
 [Library reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Samples](https://github.com/Azure-Samples/anomalydetector)
 
