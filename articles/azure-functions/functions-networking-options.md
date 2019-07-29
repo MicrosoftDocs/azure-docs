@@ -30,7 +30,7 @@ You can host function apps in a couple of ways:
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Inbound IP restrictions & private site access](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[Virtual network integration](#virtual-network-integration)|❌No|✅Yes (Regional)|✅Yes (Regional and Gateway)|✅Yes|
-|[Virtual network triggers (non-http)](#virtual-network-triggers)|❌No| ❌No|✅Yes|✅Yes|
+|[Virtual network triggers (non-http)](#virtual-network-triggers-(non-http))|❌No| ❌No|✅Yes|✅Yes|
 |[Hybrid Connections](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[Outbound IP Restrictions](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
@@ -59,7 +59,7 @@ Currently an App Service plan or App Service environment is the only way to conf
 
 To give an example, if you were to configure Cosmos DB to only accept traffic from a virtual network, you would need to deploy your function app in an app service plan with virtual network integration with that virtual network to configure comos DB triggers from that resource. While in preview, configuring VNET integration will not allow the Premium plan to trigger off of that Cosmos resource.
 
-Check [this list for all non-http triggers](./functions-triggers-bindings#supported-bindings) to double check what is supported.
+Check [this list for all non-http triggers](./functions-triggers-bindings.md#supported-bindings) to double check what is supported.
 
 ## Virtual network integration
 
@@ -100,8 +100,8 @@ There are some things that VNet Integration doesn't support including:
 * NetBios
 
 Virtual network integration in Functions uses shared infrastructure with App Service web apps. To read more about the two types of virtual network integration see:
-* [Regional VNET Integration](../app-service/web-sites-integrate-with-vnet#regional-vnet-integration)
-* [Gateway required VNet Integration](../app-service/web-sites-integrate-with-vnet#gateway-required-vnet-integration)
+* [Regional VNET Integration](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
+* [Gateway required VNet Integration](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
 To learn more about using virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
 
