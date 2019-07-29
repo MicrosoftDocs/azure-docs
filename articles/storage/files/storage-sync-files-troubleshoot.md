@@ -669,6 +669,17 @@ This error occurs because the Cloud Tiering filter driver (StorageSync.sys) vers
 
 This error occurs because the Azure File Sync service is unavailable. This error will auto-resolve when the Azure File Sync service because available again.
 
+<a id="-2146233088"></a>**Sync failed due to an exception.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80131500 |
+| **HRESULT (decimal)** | -2146233088 |
+| **Error string** | COR_E_EXCEPTION |
+| **Remediation required** | Yes |
+
+This error occurs because sync failed due to an exception. If the error persists for several hours, please open a support case.
+
 <a id="-2134364045"></a>**Sync failed because the storage account has failed over to another region.**  
 
 | | |
