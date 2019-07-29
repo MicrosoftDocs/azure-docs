@@ -35,7 +35,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
    {
        "name": "sampleTopic1",
        "properties" : {
-          "inputschema": "customeventschema",
+          "inputschema": "eventGridSchema",
        },
    }
    ```
@@ -80,10 +80,15 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
    ```json
    [{
+       "id": "eventId-func-0",
+       "eventType": "recordInserted",
+       "subject": "myapp/vehicles/motorcycles",
+       "eventTime": "2019-07-28T21:03:07+00:00",
+       "dataVersion": "1.0"
        "data": {
             "make": "Ducati",
             "model": "Monster"
-        }
+        },
     }]
     ```
 
