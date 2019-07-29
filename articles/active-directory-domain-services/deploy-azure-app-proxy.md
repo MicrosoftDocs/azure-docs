@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Deploy Azure Active Directory Application Proxy | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Deploy Azure AD Application Proxy | Microsoft Docs'
 description: Use Azure AD Application Proxy on Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
@@ -84,7 +84,7 @@ Previously, you provisioned a Windows Server virtual machine and joined it to th
     ![Troubleshooter success](./media/app-proxy/app-proxy-connector-troubleshooter.png)
 5. You should see the newly installed connector listed on the Application proxy page in your Azure AD directory.
 
-    ![](./media/app-proxy/app-proxy-connector-page.png)
+    ![In the Azure portal, the installed connector shows as being available](./media/app-proxy/app-proxy-connector-page.png)
 
 > [!NOTE]
 > You may choose to install connectors on multiple servers to guarantee high availability for authenticating applications published through the Azure AD Application Proxy. Perform the same steps listed above to install the connector on other servers joined to your managed domain.

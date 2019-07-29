@@ -6,7 +6,8 @@ author: HannibalSII
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/02/2018
-ms.author: hascipio; v-divte; v-miclar
+ms.author: hascipio
+ms.reviewer: v-divte; v-miclar
 ---
 
 # Common issues during VHD creation (FAQ)
