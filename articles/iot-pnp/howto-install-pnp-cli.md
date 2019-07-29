@@ -41,12 +41,6 @@ Follow the [installation instructions](https://docs.microsoft.com/cli/azure/inst
 
 ### Step 3 - Install IoT extension
 
-> [!NOTE]
-> Bug bash: Skip this section. Instead you need to get an **azure-cli-iot-ext** WHL file.
-> 1. Remove any previously installed IoT CLI Extension: `az extension remove --name azure-cli-iot-ext`
-> 1. Add the Plug and Play enabled extension: `az extension add -y --source azure_cli_iot_ext-VERSION-py2.py3-none-any.whl`
-> 1. Verify the installation of **azure-cli-iot-ext** version: `az extension list`
-
 [The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension) describes several ways to install the extension. The simplest way is to run `az extension add --name azure-cli-iot-ext`. After installation, you can use `az extension list` to validate the currently installed extensions or `az extension show --name azure-cli-iot-ext` to see details about the IoT extension. To remove the extension, you can use `az extension remove --name azure-cli-iot-ext`.
 
 ## Use Azure IoT extension for Azure CLI
