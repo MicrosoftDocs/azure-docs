@@ -115,6 +115,9 @@ To determine whether your user account role has the required permissions:
 <a id="server-endpoint-createjobfailed"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134375898 or 0x80c80226)**  
 This issue occurs if the server endpoint path is on the system volume and cloud tiering is enabled. Cloud tiering is not supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
 
+<a id="server-endpoint-createjobfailed-invalidpath"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2147024894 or 0x80070002)**  
+This issue occurs if the server endpoint path specified is not valid. Verify the server endpoint path specified is a locally attached NTFS volume. Note, Azure File Sync does not support mapped drives as a server endpoint path.
+
 <a id="server-endpoint-createjobfailed-compression"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134347507 or 0x80c8710d)**  
 This issue occurs because Azure File Sync does not support server endpoints on volumes which have a compressed System Volume Information folder. To resolve this issue, decompress the System Volume Information folder. If the System Volume Information folder is the only folder compressed on the volume, perform the following steps:
 
