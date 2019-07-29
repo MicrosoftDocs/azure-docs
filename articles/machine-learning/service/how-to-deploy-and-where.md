@@ -53,7 +53,7 @@ Machine learning models are registered in your Azure Machine Learning workspace.
 + **Using the CLI**
 
   ```azurecli-interactive
-  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
+  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
   ```
 
   > [!TIP]
