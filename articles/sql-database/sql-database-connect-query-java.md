@@ -9,7 +9,6 @@ ms.topic: quickstart
 author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 03/25/2019
 ---
 # Quickstart: Use Java to query an Azure SQL database

@@ -8,7 +8,6 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
 ---
