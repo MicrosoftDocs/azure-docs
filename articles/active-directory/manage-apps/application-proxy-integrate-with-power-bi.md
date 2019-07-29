@@ -39,12 +39,12 @@ There isn’t much to configure on the Reporting Services side. Just be sure to 
 
 To set up KCD for Reporting services, use the steps in the following sections.
 
-## Configure the Service Principal Name (SPN)
+### Configure the Service Principal Name (SPN)
 
 The SPN is a unique identifier for a service that uses Kerberos authentication. You'll need to make sure you have a proper HTTP SPN present for your report server. For information on how to configure the proper Service Principal Name (SPN) for your report server, see [Register a Service Principal Name (SPN) for a Report Server](https://msdn.microsoft.com/library/cc281382.aspx).
 You can verify that the SPN was added by running the Setspn command with the -L option. To learn more about this command, see [Setspn](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spn-setspn-syntax.aspx).
 
-## Enable Negotiate authentication
+### Enable Negotiate authentication
 
 To enable a report server to use Kerberos authentication, configure the Authentication Type of the report server to be RSWindowsNegotiate. Configure this setting using the rsreportserver.config file.
 
@@ -58,7 +58,7 @@ To enable a report server to use Kerberos authentication, configure the Authenti
 
 For more information, see [Modify a Reporting Services Configuration File](https://msdn.microsoft.com/library/bb630448.aspx) and [Configure Windows Authentication on a Report Server](https://msdn.microsoft.com/library/cc281253.aspx).
 
-## Ensure the Connector is trusted
+### Ensure the Connector is trusted
 
 Ensure the Connector is trusted for delegation to the SPN added to the Reporting Services application pool account. Configure KCD so that the Azure AD Application Proxy service can delegate user identities to the Reporting Services application pool account. Configure KCD by enabling the Application Proxy connector to retrieve Kerberos tickets for your users who have been authenticated in Azure AD. Then that server passes the context to the target application, or Reporting Services in this case.
 
