@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 09/25/2018
 ---
 # Accelerate real-time big data analytics with Spark connector for Azure SQL Database and SQL Server
