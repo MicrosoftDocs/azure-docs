@@ -30,6 +30,8 @@
     href: concepts-model-discovery.md
 - name: How-to guides
   items:
+  - name: Use IoT Device Workbench
+    href: howto-use-iot-device-workbench.md
   - name: Install IoT explorer
     href: howto-install-iot-explorer.md
   - name: Install Azure CLI extension
