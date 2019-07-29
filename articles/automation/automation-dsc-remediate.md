@@ -1,6 +1,6 @@
 ---
-title: Remediate non-compliant DSC servers
-description: How to re-apply configurations on demand to servers where the configuration state has drifted
+title: Remediate non-compliant Azure Automation State Configuration servers
+description: How to reapply configurations on demand to servers where the configuration state has drifted
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -45,7 +45,7 @@ Similar functionality is not currently available for Linux servers.
 The only option is to repeat the registration process.
 For Azure nodes this can be performed from the portal
 or using Az Automation cmdlets.
-Details about this process are documented in the documenation page
+Details about this process are documented in the documentation page
 [Onboarding machines for management by Azure Automation State Configuration](/azure/automation/automation-dsc-onboarding#azure-portal).
 For hybrid nodes,
 this can be performed using the included Python scripts.
