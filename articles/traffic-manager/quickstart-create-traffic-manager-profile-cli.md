@@ -72,13 +72,13 @@ In the following example, replace **<appspname_eastus>** and **<appspname_westeu
 
 az appservice plan create \
     --name <appspname_eastus> \
-    --resource-group MyResourceGroup \
+    --resource-group myResourceGroup \
     --location eastus \
     --sku S1
 
 az appservice plan create \
     --name <appspname_westeurope> \
-    --resource-group MyResourceGroup \
+    --resource-group myResourceGroup \
     --location westeurope \
     --sku S1
 
@@ -93,12 +93,12 @@ In the following example, replace **<app1name_eastus>** and **<app2name_westeuro
 az webapp create \
     --name <app1name_eastus> \
     --plan <appspname_eastus> \
-    --resource-group MyResourceGroup
+    --resource-group myResourceGroup
 
 az webapp create \
     --name <app2name_westeurope> \
     --plan <appspname_westeurope> \
-    --resource-group My ResourceGroup
+    --resource-group myResourceGroup
 
 ```
 
@@ -118,7 +118,7 @@ In the following example, replace **<app1name_eastus>** and **<app2name_westeuro
 
 az webapp show \
     --name <app1name_eastus> \
-    --resource-group MyResourceGroup \
+    --resource-group myResourceGroup \
     --query id
 
 ```
@@ -128,7 +128,7 @@ Make note of id displayed in output and use in the following command to add the 
 
 az network traffic-manager endpoint create \
     --name <app1name_eastus> \
-    --resource-group MyResourceGroup \
+    --resource-group myResourceGroup \
     --profile-name <profile_name> \
     --type azureEndpoints \
     --target-resource-id <ID from az webapp show> \
@@ -142,7 +142,7 @@ az network traffic-manager endpoint create \
 
 az webapp show \
     --name <app2name_westeurope> \
-    --resource-group MyResourceGroup \
+    --resource-group myResourceGroup \
     --query id
 
 ```
@@ -152,7 +152,7 @@ Make note of id displayed in output and use in the following command to add the 
 
 az network traffic-manager endpoint create \
     --name <app1name_westeurope> \
-    --resource-group MyResourceGroup \
+    --resource-group myResourceGroup \
     --profile-name <profile_name> \
     --type azureEndpoints \
     --target-resource-id <ID from az webapp show> \
@@ -175,7 +175,7 @@ Determine the DNS name of the Traffic Manager profile using [az network traffic-
 
 az network traffic-manager profile show \
     --name <profile_name> \
-    --resource-group MyResourceGroup \
+    --resource-group myResourceGroup \
     --query dnsConfig.fqdn
 
 ```
@@ -193,7 +193,7 @@ Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile
 
     az network traffic-manager endpoint update \
         --name <app1name_eastus> \
-        --resource-group MyResourceGroup \
+        --resource-group myResourceGroup \
         --profile-name <profile_name> \
         --type azureEndpoints \
         --endpoint-status Disabled
@@ -210,7 +210,7 @@ When you're done, delete the resource groups, web applications, and all related 
 ```azurepowershell-interactive
 
 az group delete \
-    --resource-group MyResourceGroup
+    --resource-group myResourceGroup
 
 ```
 
