@@ -19,7 +19,7 @@
     href: azure-active-directory-authentication.md
 - name: Reference
   items:
-  - name: SDK Reference
+  - name: JavaScript SDK Reference
     href: reference.md
 - name: Resources
   items:
