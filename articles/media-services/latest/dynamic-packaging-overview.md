@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/26/2019
+ms.date: 07/29/2019
 ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
@@ -44,6 +44,16 @@ Here's a common workflow for Media Services on-demand streaming with dynamic pac
 This diagram shows the workflow for on-demand streaming with dynamic packaging:
 
 ![Diagram of a workflow for on-demand streaming with dynamic packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+
+### Encoding to adaptive bitrate MP4s
+
+The following articles show examples of [how to encode a video with Media Services](encoding-concept.md):
+
+* [Encode from an HTTPS URL by using built-in presets](job-input-from-http-how-to.md)
+* [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md)
+* [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md)
+
+See the list of Media Encoder Standard [formats and codecs](media-encoder-standard-formats.md).
 
 ## Live streaming workflow
 
@@ -80,30 +90,22 @@ You can use these delivery protocols for your content in Media Services dynamic 
 |MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
-## Encode to adaptive bitrate MP4s
+## Delivery codec support 
 
-The following articles show examples of [how to encode a video with Media Services](encoding-concept.md):
-
-* [Encode from an HTTPS URL by using built-in presets](job-input-from-http-how-to.md)
-* [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md)
-* [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md)
-
-See the list of Media Encoder Standard [formats and codecs](media-encoder-standard-formats.md).
-
-## Video codecs
+### Video codecs
 
 Dynamic packaging supports the following video codecs:
 * MP4 files, which contain video that's encoded with [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC or AVC1) or [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1, or hvc1).
 
-## Audio codecs
-
-Dynamic packaging supports the following audio protocols:
-* MP4 files
-* Multiple audio tracks
+### Audio codecs
 
 Dynamic packaging doesn't support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it's a legacy codec).
 
-### MP4 files
+Dynamic packaging supports the following audio protocols
+* MP4 files
+* Multiple audio tracks
+
+#### MP4 files
 
 Dynamic packaging supports MP4 files, which contain audio that's encoded with the following protocols: 
 
@@ -120,11 +122,11 @@ Dynamic packaging supports MP4 files, which contain audio that's encoded with th
     * DTS Express (dtse)
     * DTS-HD Lossless (no core) (dtsl)
 
-### Multiple audio tracks
+#### Multiple audio tracks
 
 Dynamic packaging supports multi audio tracks for HLS output (version 4 or later) for streaming assets that have multiple audio tracks with multiple codecs and languages.
 
-## Manifest files 
+## Manifests 
  
 In Media Services dynamic packaging, the streaming client manifests for HLS, MPEG-DASH, and Smooth Streaming are dynamically generated based on the format selector in the URL. For more information, see [delivery protocols](#delivery-protocols). 
 
