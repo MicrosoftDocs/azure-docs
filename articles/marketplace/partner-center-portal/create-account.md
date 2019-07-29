@@ -47,7 +47,7 @@ So that you can link your company's work email account domain to your new Partne
 
 #### Agree to terms and conditions
 
-You'll need to agree to two sets of terms and conditions in the [Microsoft Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560).
+You'll need to agree to terms and conditions in the [Microsoft Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560).
 
 #### Provide your publisher profile
 
