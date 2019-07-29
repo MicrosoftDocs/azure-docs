@@ -15,7 +15,7 @@ ms.author: dapine
 
 # Install and run Text Analytics containers
 
-The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection. Entity linking is not currently supported in a container.
+Containers enable you to run the Text Analytic APIs in your own environment, containers are great for specific security and data governance requirements. The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection. Entity linking is not currently supported in a container.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -25,7 +25,7 @@ To run any of the Text Analytics containers, you must have the host computer and
 
 ## Preparation
 
-You must meet the following prerequisites before using Text Analytics containers:
+The following prerequisites before using Text Analytics containers:
 
 |Required|Purpose|
 |--|--|
