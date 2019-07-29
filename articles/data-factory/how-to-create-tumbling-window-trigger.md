@@ -37,11 +37,11 @@ A tumbling window has the following trigger type properties:
         "type": "TumblingWindowTrigger",
         "runtimeState": "<<Started/Stopped/Disabled - readonly>>",
         "typeProperties": {
-            "frequency": "<<Minute/Hour>>",
+            "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime: "<<datetime – optional>>"",
-            "delay": "<<timespan – optional>>",
+            "endTime: <<datetime – optional>>,
+            "delay": <<timespan – optional>>,
             “maxConcurrency”: <<int>> (required, max allowed: 50),
             "retryPolicy": {
                 "count": <<int - optional, default: 0>>,
@@ -50,8 +50,8 @@ A tumbling window has the following trigger type properties:
 			"dependsOn": [
 				{
 					"type": "TumblingWindowTriggerDependencyReference",
-					"size": "<<timespan – optional>>",
-					"offset": "<<timespan – optional>>",
+					"size": <<timespan – optional>>,
+					"offset": <<timespan – optional>>,
 					"referenceTrigger": {
 						"referenceName": "MyTumblingWindowDependency1",
 						"type": "TriggerReference"
@@ -59,8 +59,8 @@ A tumbling window has the following trigger type properties:
 				},
 				{
 					"type": "SelfDependencyTumblingWindowTriggerReference",
-					"size": "<<timespan – optional>>",
-					"offset": "<<timespan>>"
+					"size": <<timespan – optional>>,
+					"offset": <<timespan>>
 				}
 			]
         },
@@ -100,8 +100,8 @@ The following table provides a high-level overview of the major JSON elements th
 | **retryPolicy: Count** | The number of retries before the pipeline run is marked as "Failed."  | Integer | An integer, where the default is 0 (no retries). | No |
 | **retryPolicy: intervalInSeconds** | The delay between retry attempts specified in seconds. | Integer | The number of seconds, where the default is 30. | No |
 | **dependsOn: type** | The type of TumblingWindowTriggerReference. Required if a dependency is set. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | No |
-| **dependsOn: size** | The Size of the dependency tumbling window. Provide a value in time span format. | Timespan<br/>(hh:mm:ss)  | A timespan value where the default is the window size of the child trigger  | No |
-| **dependsOn: offset** | The offset of the dependency trigger. | Timespan<br/>(hh:mm:ss) |  A timespan value that must be negative in a self-dependency | Self-Dependency: Yes<br/>Other: No  |
+| **dependsOn: size** | The size of the dependency tumbling window. | Timespan<br/>(hh:mm:ss)  | A positive timespan value where the default is the window size of the child trigger  | No |
+| **dependsOn: offset** | The offset of the dependency trigger. | Timespan<br/>(hh:mm:ss) |  A timespan value that must be negative in a self-dependency. If no value specified, the window is the same as the trigger itself. | Self-Dependency: Yes<br/>Other: No  |
 
 ### WindowStart and WindowEnd system variables
 
@@ -143,6 +143,10 @@ The following points apply to existing **TriggerResource** elements:
 
 * If the value for the **frequency** element (or window size) of the trigger changes, the state of the windows that are already processed is *not* reset. The trigger continues to fire for the windows from the last window that it executed by using the new window size.
 * If the value for the **endTime** element of the trigger changes (added or updated), the state of the windows that are already processed is *not* reset. The trigger honors the new **endTime** value. If the new **endTime** value is before the windows that are already executed, the trigger stops. Otherwise, the trigger stops when the new **endTime** value is encountered.
+
+### Tumbling Window Trigger Dependency
+
+If you want to make sure that a tumbling window trigger is executed only after the successful execution of another tumbling window trigger in the data factory, [create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md). 
 
 ## Sample for Azure PowerShell
 

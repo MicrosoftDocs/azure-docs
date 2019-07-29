@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 07/29/2019
 ms.author: daperlov
 ---
 # Create a tumbling window trigger dependency
@@ -25,46 +25,47 @@ In order to build a dependency chain and make sure that a trigger is executed on
 
 To create dependency on a trigger, select **Trigger > Advanced > New**, and then choose the trigger to depend on with the appropriate offset and size. Select **Finish** and publish the data factory changes for the dependencies to take effect.
 
-![](media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png)
+![Dependency Creation](media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png "Dependency Creation")
 
 ## Tumbling window dependency properties
 
-A tumbling window trigger dependency has the following properties:
+A tumbling window trigger with a dependency has the following properties:
 
 ```json
 {
-	"name": "DemoTrigger",
-	"properties": {
-		"runtimeState": "Started",
-		"pipeline": {
-			"pipelineReference": {
-				"referenceName": "Demo",
-				"type": "PipelineReference"
-			}
-		},
-		"type": "TumblingWindowTrigger",
-		"typeProperties": {
-			"frequency": "Hour",
-			"interval": 1,
-			"startTime": "2018-10-04T00:00:00.000Z",
-			"delay": "00:00:00",
-			"maxConcurrency": 50,
-			"retryPolicy": {
-				"intervalInSeconds": 30
-			},
+    "name": "MyTriggerName",
+    "properties": {
+        "type": "TumblingWindowTrigger",
+        "runtimeState": <<Started/Stopped/Disabled - readonly>>,
+        "typeProperties": {
+            "frequency": <<Minute/Hour>>,
+            "interval": <<int>>,
+            "startTime": <<datetime>>,
+            "endTime": <<datetime – optional>>,
+            "delay": <<timespan – optional>>,
+            "maxConcurrency": <<int>> (required, max allowed: 50),
+            "retryPolicy": {
+                "count": <<int - optional, default: 0>>,
+                "intervalInSeconds": <<int>>,
+            },
 			"dependsOn": [
 				{
 					"type": "TumblingWindowTriggerDependencyReference",
-					"size": "-02:00:00",
-					"offset": "-01:00:00",
+					"size": <<timespan – optional>>,
+					"offset": <<timespan – optional>>,
 					"referenceTrigger": {
-						"referenceName": "DemoDependency1",
+						"referenceName": "MyTumblingWindowDependency1",
 						"type": "TriggerReference"
 					}
+				},
+				{
+					"type": "SelfDependencyTumblingWindowTriggerReference",
+					"size": <<timespan – optional>>,
+					"offset": <<timespan>>
 				}
 			]
-		}
-	}
+        }
+    }
 }
 ```
 
@@ -72,16 +73,16 @@ The following table provides the list of attributes needed to define a Tumbling 
 
 | **Property Name** | **Description**  | **Type** | **Required** |
 |---|---|---|---|
-| Trigger  | All the existing tumbling window triggers are displayed in this drop down. Choose the trigger to take dependency on.  | TumblingWindowTrigger | Yes |
-| Offset | Offset of the dependency trigger. Provide a value in time span format and both negative and positive offsets are allowed. This parameter is mandatory if the trigger is depending on itself and in all other cases it is optional. Note that self-dependency should always be a negative offset. | Timespan<br/>(hh:mm:ss) | Self-Dependency: Yes<br/>Other: No |
-| Window Size | Size of the dependency tumbling window. Provide a value in time span format. This parameter is optional. | Timespan<br/>(hh:mm:ss) | No  |
+| type  | All the existing tumbling window triggers are displayed in this drop down. Choose the trigger to take dependency on.  | TumblingWindowTriggerDependencyReference or SelfDependencyTumblingWindowTriggerReference | Yes |
+| offset | Offset of the dependency trigger. Provide a value in time span format and both negative and positive offsets are allowed. This property is mandatory if the trigger is depending on itself and in all other cases it is optional. Note that self-dependency should always be a negative offset. If no value specified, the window is the same as the trigger itself. | Timespan<br/>(hh:mm:ss) | Self-Dependency: Yes<br/>Other: No |
+| size | Size of the dependency tumbling window. Provide a positive timespan value. This property is optional. | Timespan<br/>(hh:mm:ss) | No  |
 
 > [!NOTE]
 > A tumbling window trigger can depend on a maximum of two other triggers.
 
 ## Tumbling window self-dependency properties
 
-In the scenarios where the trigger should not proceed to next window until the previous window is successfully completed, build a self-dependency. Self-dependency trigger will have below properties:
+In scenarios where the trigger should not proceed to next window until the previous window is successfully completed, build a self-dependency. A self-dependency trigger that is dependent on the success of earlier runs of itself within the previous hr will have the below properties:
 
 ```json
 {
@@ -115,44 +116,45 @@ In the scenarios where the trigger should not proceed to next window until the p
 	}
 }
 ```
+## Usage scenarios and examples
 
-Below are the illustrations of the scenarios and the usage of tumbling window dependency properties.
+Below are illustrations of scenarios and usage of tumbling window dependency properties.
 
-## Dependency offset
+### Dependency offset
 
-![](media/tumbling-window-trigger-dependency/tumbling-window-dependency02.png)
+![Offset Example](media/tumbling-window-trigger-dependency/tumbling-window-dependency02.png "Offset Example")
 
-## Dependency size
+### Dependency size
 
-![](media/tumbling-window-trigger-dependency/tumbling-window-dependency03.png)
+![Size example](media/tumbling-window-trigger-dependency/tumbling-window-dependency03.png "Size example")
 
-## Self-dependency
+### Self-dependency
 
-![](media/tumbling-window-trigger-dependency/tumbling-window-dependency04.png)
-
-## Usage scenarios
+![Self-dependency](media/tumbling-window-trigger-dependency/tumbling-window-dependency04.png "Self-dependency")
 
 ### Dependency on another tumbling window trigger
 
-For instance, a daily telemetry processing job depending on another daily job aggregating the last 7 days output and generates 7-day rolling window streams:
+A daily telemetry processing job depending on another daily job aggregating the last 7 days output and generates 7-day rolling window streams:
 
-![](media/tumbling-window-trigger-dependency/tumbling-window-dependency05.png)
+![Dependency example](media/tumbling-window-trigger-dependency/tumbling-window-dependency05.png "Dependency example")
 
 ### Dependency on itself
 
 A daily job with no gaps in the output streams of the job:
 
-![](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png)
+![Self-dependency example](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Self-dependency example")
 
 ## Monitor dependencies
 
 You can monitor the dependency chain and the corresponding windows from the trigger run monitoring page. Navigate to  **Monitoring > Trigger Runs**.
 
-![](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png)
+![Monitor trigger runs](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Monitor trigger runs")
 
-Click on the looking glass to view all the dependent trigger runs of the selected window.
+Click on the action icon to view all the dependent trigger runs of the selected window.
 
-![](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png)
+![Monitor dependencies](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitor dependencies")
+
+In the above example, a daily trigger is dependent on an hourly trigger with no window defined and an offset of 3 hrs. As a result, the trigger runs after 24 successful runs of the dependency.
 
 ## Next steps
 
