@@ -678,7 +678,7 @@ This error occurs because the Azure File Sync service is unavailable. This error
 | **Error string** | COR_E_EXCEPTION |
 | **Remediation required** | Yes |
 
-This error occurs because sync failed due to an exception. If the error persists for several hours, please open a support case.
+This error occurs because sync failed due to an exception. If the error persists for several hours, please create a support request.
 
 <a id="-2134364045"></a>**Sync failed because the storage account has failed over to another region.**  
 
