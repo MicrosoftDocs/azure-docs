@@ -303,7 +303,7 @@ The table below contains all of the unicode characters Azure File Sync does not 
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### Common sync errors
-<a id="-2147023673"></a>**The sync session was canceled.**  
+<a id="-2147023673"></a>**The sync session was cancelled.**  
 
 | | |
 |-|-|
@@ -539,13 +539,13 @@ This error can be caused by:
 If the server time is correct, perform the following steps to resolve the issue:
 
 1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
-2. Run the following PowerShell commands on the server:
+2. Run the following PowerShell command on the server:
 
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
-<a id="-2134375680"></a>**Sync failed due to certificate expiration**  
+<a id="-2134375680"></a>**Sync failed due to certificate expiration.**  
 
 | | |
 |-|-|
@@ -564,6 +564,26 @@ If the client authentication certificate is expired, perform the following steps
 
 1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
 2. Run the following PowerShell commands on the server:
+
+    ```powershell
+    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
+    ```
+
+<a id="-2134375680"></a>**Sync failed due to authentication certificate not found.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c80228 |
+| **HRESULT (decimal)** | -2134375896 |
+| **Error string** | ECS_E_AUTH_SRV_CERT_NOT_FOUND |
+| **Remediation required** | Yes |
+
+This error occurs because the certificate used for authentication is not found.
+
+To resolve this issue, perform the following steps:
+
+1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
+2. Run the following PowerShell command on the server:
 
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
