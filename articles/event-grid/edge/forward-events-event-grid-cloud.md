@@ -88,7 +88,7 @@ Create an event grid subscription in the edge,
           "properties": {
             "endpointUrl": "https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events",
              "sasKey": "<your-event-grid-topic-saskey>",
-             "topicName": "testegcloudtopic.westus2-1",
+             "topicName": "testegcloudtopic",
           }
         }
       }
@@ -96,7 +96,7 @@ Create an event grid subscription in the edge,
     ```
 
    >[!NOTE]
-   > The **endpointUrl** specifies that the Event Grid topic URL in the cloud. The **sasKey** refers to Event Grid cloud topic's key. The value in **topicName** will used to stamp all outgoing events to Event Grid. This can be useful when posting to an Event Grid Domain Topic. For more information about Event Grid Domain Topic, see the [documentation](https://docs.microsoft.com/azure/event-grid/event-domains)
+   > The **endpointUrl** specifies that the Event Grid topic URL in the cloud. The **sasKey** refers to Event Grid cloud topic's key. The value in **topicName** will used to stamp all outgoing events to Event Grid. This can be useful when posting to an Event Grid Domain Topic. For more information about Event Grid Domain Topic, review the documentation available [here](https://docs.microsoft.com/azure/event-grid/event-domains)
 
 2. Run the following command to create the subscription. HTTP Status Code of 200 OK should be returned.
 
@@ -112,7 +112,7 @@ To publish an event in edge,
 
    ```json
    [{
-       "id": "eventId-0",
+       "id": "eventId-egcloud-0",
        "eventType": "recordInserted",
        "subject": "myapp/vehicles/motorcycles",
        "eventTime": "2019-07-28T21:03:07+00:00",
@@ -138,6 +138,6 @@ For information on viewing events delivered by the cloud topic, see the [tutoria
 
 In this tutorial, you published event on the edge and forwarded to Event Grid in cloud. Now that you know the basic steps to forward to Event Grid in cloud:
 
-* Vary the input schema on the edge and cloud
-* Explore the various destination types offered by Event Grid cloud
 * Post to Event Grid Domain Topics in the cloud
+* Forward events to IoTHub by following this [tutorial](forward-events-iothub.md)
+* Forward events to Webhook in the cloud by following this [tutorial](pub-sub-events-webhook-cloud.md)

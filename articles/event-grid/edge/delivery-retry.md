@@ -16,9 +16,10 @@ services: event-grid
 Event Grid provides durable delivery. It tries to deliver each message at least once for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there is a failure, Event Grid retries delivery based on a fixed **retry schedule** and **retry policy**.  Currently Event Grid module delivers an event at a time to the subscriber. The payload is however an array with a single event.
 
 > [!IMPORTANT]
->There is no persistence support for event data. This means redeploying Event Grid module will cause you to lose any events that were not yet delivered. Event persistence is under development and will be supported in a future release.
+>There is no persistence support for event data. This means redeploying or restart of Event Grid module will cause you to lose any events that were not yet delivered.
 
 ## Retry Schedule
+
 Event Grid waits up to 60 seconds for a response after delivering a message. If the subscriber's endpoint does not ACK the response, then the message will be enqueued in one of our back off queues for subsequent retries.
 
 There are two pre-configured back off queues that determine the schedule on which a retry will be attempted. They are:-
@@ -30,7 +31,7 @@ There are two pre-configured back off queues that determine the schedule on whic
 
 ### How it works
 
-1. Message arrives Event Grid module. Attempt is made to deliver it immediately.
+1. Message arrives into Event Grid module. Attempt is made to deliver it immediately.
 
 1. If delivery fails, then the message is enqueued into 1-minute queue and retried after a minute.
 
@@ -45,10 +46,7 @@ There are two configurations that determine retry policy. They are:-
 * Maximum number of attempts
 * Event TTL
 
-An event will be dropped if either of the limits of the retry policy is reached. The retry schedule itself was described above.
-
-Configuration of these limits can be done either for all subscribers or per subscription basis. 
-The below section describes each one is further detail.
+An event will be dropped if either of the limits of the retry policy is reached. The retry schedule itself was described above. Configuration of these limits can be done either for all subscribers or per subscription basis. The below section describes each one is further detail.
 
 ## Configuring defaults for all subscribers
 
@@ -66,7 +64,7 @@ Refer to our [API  documentation](api.md) on how to do configure defaults per su
 
 ## Examples
 
-###  Set up retry policy in Event Grid module with maxNumberOfAttempts = 3 and Event TTL of 30 minutes
+### Set up retry policy in Event Grid module with maxNumberOfAttempts = 3 and Event TTL of 30 minutes
 
 ```json
  {
@@ -86,7 +84,7 @@ Refer to our [API  documentation](api.md) on how to do configure defaults per su
  }
  ```
 
-###  Set up Web hook subscription with maxNumberOfAttempts = 3 and Event TTL of 30 minutes
+### Set up Web hook subscription with maxNumberOfAttempts = 3 and Event TTL of 30 minutes
 
 ```json
 {
@@ -106,6 +104,6 @@ Refer to our [API  documentation](api.md) on how to do configure defaults per su
                 "eventExpiryInMinutes": 30,
                 "maxDeliveryAttempts": 3
               },
-   }        
+   }
 }
 ```

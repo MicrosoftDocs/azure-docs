@@ -127,10 +127,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps:
 
-* Try publishing events with different schemas
-* Try creating multiple subscriptions
-* Try creating/updating subscription with filters
-* Try creating/updating subscription with retry policy
-* Try out client authentication from custom IoT modules
-* Validate event grid module's server certificate, identity certificate from custom IoT modules
-* Register any webhook in the cloud such as Azure Function in cloud to receive edge events
+* Create/update subscription with filters
+* Set up persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
+* Follow [documentation](configure-client-auth.md) to configure client authentication
+* Forward events to Azure Functions in the cloud by following this [tutorial](pub-sub-events-webhook-cloud.md)

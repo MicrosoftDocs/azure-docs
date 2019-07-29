@@ -93,7 +93,7 @@ See [Security and authentication](security-authentication.md) guide for all the 
  ```
 
 >[!NOTE]
-> With **PortBindings** cause the internal ports to be mapped onto the container host. It now makes it possible to reach Event Grid module from outside the IoT Edge container network provided IoT edge device is reachable publicly.
+> By default every IoT Module is part of the an IoT Edge runtime created bridge network. This enables different IoT modules on the same network to communicate with each other. **PortBindings** allows you to map a container internal port onto the host machine thereby allowing anyone to be able to access Event Grid module's port from outside.
 
 >[!IMPORTANT]
 > While the ports can be made accessible outside the IoT Edge network, client authentication will enforce who is actually allowed to make calls into the module.

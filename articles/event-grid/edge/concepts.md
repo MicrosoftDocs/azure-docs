@@ -45,7 +45,7 @@ See [REST API documentation](api.md) on how to manage subscriptions in Event Gri
 
 ## Event handlers
 
-From an Event Grid perspective, an event handler is the place where the event is sent. The handler takes some further action to process the event. Event Grid supports several handler types. You can use a supported Azure service or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`, for edge Hub the event is delivered without any exception it is considered successful, for event grid it is tried until we get a status code of `200 - OK`.
+From an Event Grid perspective, an event handler is the place where the event is sent. The handler takes further action to process the event. Event Grid supports several handler types. You can use a supported Azure service or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook or Event Grid as destination event handlers, the event is retried until the handler returns a status code of `200 – OK`. For edge Hub the if event is delivered without any exception it is considered successful.
 
 ## Security
 

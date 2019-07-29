@@ -12,12 +12,11 @@ services: event-grid
 ---
 
 # Persist state in Windows
-Topics and Subscriptions created in the Event Grid module are by default stored in the container filesystem. Without persistence, if the module were redeployed then all the metadata created would be lost. To preserve the data across deployments, you will need to persist the data outside the container filesystem. To enable persistence across deployments, we make use of [docker volumes](https://docs.docker.com/storage/volumes/). 
 
-The rest of the document details the steps needed to deploy Event Grid module with persistence in Windows deployments.
+Topics and Subscriptions created in the Event Grid module are by default stored in the container filesystem. Without persistence, if the module were redeployed then all the metadata created would be lost. To preserve the data across deployments, you will need to persist the data outside the container filesystem. The rest of the document details the steps needed to deploy Event Grid module with persistence in Windows deployments.
 
 > [!NOTE]
->Currently only metadata is persisted. Events are stored in-memory. If Event Grid module is redeployed, restarted then any undelivered events will be lost.
+>Currently only metadata is persisted. Events are stored in-memory. If Event Grid module is redeployed or restarted then any undelivered events will be lost.
 
 Unlike Linux deployments, on Windows Event Grid module runs under **ContainerUser**, a low-privileged user already available in Windows. No extra setup is required.
 
@@ -30,6 +29,7 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
    ```sh
    mkdir <your-directory-name-here>
    ```
+
     For example,
 
       ```sh
@@ -37,7 +37,7 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
       ```
 
 1. Use **Binds** to mount your directory and redeploy Event Grid module from Azure portal
-   
+
     ```json
     {
          "HostConfig": {
@@ -46,9 +46,13 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
              ]
          }
     }
-    ``` 
+    ```
+
+    >[!IMPORTANT]
+    >Do not change the second part of the bind value. It points to a specific location in the module. For Event Grid module on Windows it has to be **C:\\app\\metadataDb**.
+
     For example,
-    
+
     ```json
     {
         "Env": [
@@ -63,7 +67,7 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
             "outbound:webhook:httpsOnly=true",
             "outbound:webhook:skipServerCertValidation=false",
             "outbound:webhook:allowUnknownCA=true",
-         ],         
+         ],
          "HostConfig": {
             "Binds": [
                 "C:\\myhostdir:C:\\app\\metadataDb"
@@ -79,9 +83,6 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
     }
     ```
 
->[!IMPORTANT]
->Do not change the second part of the bind value. It points to a specific location in the module. For Event Grid module on Windows it has to be **C:\\app\\metadataDb**.
-
 ## Option 2: Mount host directory via docker volume
 
 Alternatively you can create a docker volume, map the volume onto the container as follows.
@@ -91,6 +92,7 @@ Alternatively you can create a docker volume, map the volume onto the container 
     ```sh
     docker -H npipe:////./pipe/iotedge_moby_engine volume create <your-volume-name-here>
     ```
+
     For example,
 
    ```sh
@@ -98,9 +100,9 @@ Alternatively you can create a docker volume, map the volume onto the container 
    ```
 
 1. Use **Binds** to mount this volume and redeploy Event Grid module from Azure portal
-    
+
    For example,
-    
+
    ```json
    {
         "Env": [
@@ -130,6 +132,9 @@ Alternatively you can create a docker volume, map the volume onto the container 
          }
     }
     ```
+
+    >[!IMPORTANT]
+    >Do not change the second of the bind value. It points to a specific location in the module. For Event Grid module on linux it has to be **C:\\app\\metadataDb**.
 
     For example,
 
@@ -162,6 +167,3 @@ Alternatively you can create a docker volume, map the volume onto the container 
          }
     }
     ```
-
->[!IMPORTANT]
->Do not change the second of the bind value. It points to a specific location in the module. For Event Grid module on linux it has to be **C:\\app\\metadataDb**.
