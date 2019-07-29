@@ -36,7 +36,7 @@ Using DevTest Labs during the build/test phase, you can add Azure Resource Manag
 
 ![Overall flow](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
-## Setup Azure resources
+## Set up Azure resources
 There are a couple of items that need to be created beforehand:
 
 - Two repositories. The first one with the code from the tutorial and a Resource Manager template with two additional VMs. The second one will contain the base Azure Resource Manager template (existing configuration).
