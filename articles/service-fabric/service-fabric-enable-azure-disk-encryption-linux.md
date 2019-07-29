@@ -3,7 +3,7 @@ title: Enable Disk encryption for Azure Service Fabric Linux clusters | Microsof
 description: This article describes how to enable disk encryption for Azure Service Fabric cluster nodes in Linux by using Azure Resource Manager and Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: navya
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2019
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Enable disk encryption for Azure Service Fabric cluster nodes in Linux 

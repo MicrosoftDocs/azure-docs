@@ -1,6 +1,6 @@
 ---
-title: Currency Prebuilt entity
-titleSuffix: Azure
+title: Currency Prebuilt entity - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains currency prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry

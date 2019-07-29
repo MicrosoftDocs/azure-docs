@@ -56,8 +56,6 @@
       href: best-practices-distributive-collaborative-development-environment.md    
     - name: Integration with Azure DevOps
       href: devtest-lab-dev-ops.md
-    - name: Use claim capabilities 
-      href: devtest-lab-use-claim-capabilities.md
     - name: Scenarios
       items:
       - name: Popular scenarios for using DevTest Labs
@@ -68,6 +66,8 @@
         href: devtest-lab-test-env.md
       - name: Use labs for training
         href: devtest-lab-training-lab.md
+      - name: Scenarios for using claimable VMs
+        href: devtest-lab-use-claim-capabilities.md
 - name: How-to guides
   items:
   - name: Classroom labs
@@ -172,6 +172,8 @@
         href: devtest-lab-resize-vm.md
       - name: Redeploy a VM
         href: devtest-lab-redeploy-vm.md
+      - name: Configure autoshutdown of a VM 
+        href: devtest-lab-auto-shutdown-vm.md
       - name: Create and manage claimable VMs
         href: devtest-lab-add-claimable-vm.md
       - name: Configure secrets
@@ -253,6 +255,8 @@
         href: devtest-lab-guidance-prescriptive-adoption.md
       - name: Reference architecture
         href: devtest-lab-reference-architecture.md
+      - name: Deliver proof of concept
+        href: deliver-proof-concept.md
       - name: Scale up your DevTest Labs deployment
         href: devtest-lab-guidance-scale.md
       - name: Orchestrate the implementation of DevTest Labs
@@ -296,13 +300,15 @@
 - name: Resources
   items:
   - name: Classroom Labs
-    items:
+    items:    
     - name: Azure updates
       href: https://azure.microsoft.com/updates/?product=lab-services
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/lab-services/
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-lab-services
+    - name: Frequently asked questions
+      href: classroom-labs/classroom-labs-faq.md
   - name: DevTest Labs
     items:
     - name: Azure updates

@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create an image classification project with the Custom Vision SDK for C#"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and make a prediction using the .NET SDK with C#.
 services: cognitive-services
 author: anrothMSFT

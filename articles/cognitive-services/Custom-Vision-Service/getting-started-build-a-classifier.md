@@ -1,30 +1,31 @@
 ---
-title: Build a classifier - Custom Vision Service
-titlesuffix: Azure Cognitive Services
-description: Learn how to use the Custom Vision website to create an image classification model.
+title: "Quickstart Build a classifier - Custom Vision Service"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you'll learn how to use the Custom Vision website to create an image classification model.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
-ms.date: 04/03/2019
+ms.topic: quickstart
+ms.date: 07/12/2019
 ms.author: anroth
 ---
 
-# How to build a classifier with Custom Vision
+# Quickstart: How to build a classifier with Custom Vision
 
-To use the Custom Vision Service for image classification, you must first build a classifier model. In this guide, you'll learn how to build a classifier through the Custom Vision website.
+In this quickstart, you'll learn how to build a classifier through the Custom Vision website. Once you build a classifier model, you can use the Custom Vision service for image classification.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-- A valid Azure subscription. [Create an account](https://azure.microsoft.com/free/) for free.
 - A set of images with which to train your classifier. See below for tips on choosing images.
 
-
 ## Create Custom Vision resources in the Azure portal
-To use Custom Vision Service, you will need to create Custom Vision Training and Prediction resources in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). This will create both a Training and Prediction resource. 
+
+To use the Custom Vision Service, you'll need to create Custom Vision Training and Prediction resources in the Azure portal. Fill out the dialog window on the [Create Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) page to create both a Training and Prediction resource. 
 
 ## Create a new project
 
@@ -58,21 +59,7 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 
 ## Choose training images
 
-As a minimum, we recommend you use at least 30 images per tag in the initial training set. You'll also want to collect a few extra images to test your model once it is trained.
-
-In order to train your model effectively, use images with visual variety. Select images with that vary by:
-* camera angle
-* lighting
-* background
-* visual style
-* individual/grouped subject(s)
-* size
-* type
-
-Additionally, make sure all of your training images meet the following criteria:
-* .jpg, .png, or .bmp format
-* no greater than 6MB in size (4MB for prediction images)
-* no less than 256 pixels on the shortest edge; any images shorter than this will be automatically scaled up by the Custom Vision Service
+[!INCLUDE [choose training images](includes/choose-training-images.md)]
 
 ## Upload and tag images
 
@@ -114,9 +101,7 @@ After training has completed, the model's performance is estimated and displayed
 
 ### Probability Threshold
 
-Note the **Probability Threshold** slider on the left pane of the **Performance** tab. This is the threshold for a predicted probability to be considered correct when computing precision and recall.
-
-Interpreting prediction calls with a high probability threshold tends to return results with high precision at the expense of recall (the found classifications are correct, but many were not found); a low probability threshold does the opposite (most of the actual classifications were found, but there are false positives within that set). With this in mind, you should set the probability threshold according to the specific needs of your project. Later, on the client side, you should use the same probability threshold value as a filter when receiving prediction results from the model.
+[!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
 ## Manage training iterations
 
@@ -124,7 +109,8 @@ Each time you train your classifier, you create a new _iteration_ with its own u
 
 ## Next steps
 
-In this guide, you learned how to create and train an image classification model using the Custom Vision website. Next, get more information on the iterative process of improving your model.
+In this quickstart, you learned how to create and train an image classification model using the Custom Vision website. Next, get more information on the iterative process of improving your model.
 
-[Test and retrain a model](test-your-model.md)
+> [!div class="nextstepaction"]
+> [Test and retrain a model](test-your-model.md)
 

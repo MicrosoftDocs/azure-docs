@@ -1,7 +1,7 @@
 ---
 title: Azure Backup for SQL Server workloads using Azure Backup Server
 description: An introduction to backing up SQL Server databases using Azure Backup Server
-services: backup
+
 author: kasinh
 manager: vvithal
 ms.service: backup
