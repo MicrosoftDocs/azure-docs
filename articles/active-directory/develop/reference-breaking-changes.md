@@ -41,7 +41,7 @@ August 2019: Enforce POST semantics according to URL parsing rules - duplicate p
 
 ## July 2019
 
-### App-only tokens for single-tenant applications will only be issued if the client app exists in the resource tenant
+### App-only tokens for single-tenant applications are only issued if the client app exists in the resource tenant
 
 **Effective date**: July 26, 2019
 
