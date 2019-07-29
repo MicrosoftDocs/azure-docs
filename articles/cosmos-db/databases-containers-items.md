@@ -4,7 +4,7 @@ description: This article describes how to create and use databases, containers,
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
 
@@ -120,6 +120,9 @@ Every Azure Cosmos item has the following system-defined properties. Depending o
 |\_self | System-generated | Addressable URI of the item | Yes | No | No | No | No |
 |id | Either | User-defined unique name in a logical partition. If the user doesn’t specify the ID, the system automatically generates one. | Yes | Yes | Yes | Yes | Yes |
 |Arbitrary user-defined properties | User-defined | User-defined properties represented in API-native representation (including JSON, BSON, and CQL) | Yes | Yes | Yes | Yes | Yes |
+
+> [!NOTE]
+> Uniqueness of the `id` property is only enforced within each logical partition. Multiple documents can have the same `id` property with different partition key values.
 
 ### Operations on items
 
