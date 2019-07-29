@@ -37,45 +37,39 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## July 2019
 
-[648202](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=648202&triage=true&fullScreen=false&_a=edit)
-
-### Application Proxy preparing for TLS 1.2 only support
+### Plan for change: Application Proxy service update to support only TLS 1.2
 
 **Type:** Plan for change  
 **Service category:** App Proxy  
 **Product capability:** Access Control
 
-To provide the best-in-class encryption to our customers, we are making updates to the Application Proxy service to limit access to only TLS 1.2 protocols. Based on customer readiness changes will be gradually rolled out to customers who are only using TLS 1.2 protocols and will not see any impact from this change. TLS 1.0 and 1.1 deprecation will complete on August 31, 2019. Customers who are still using TLS 1.0 and 1.1 will receive advance notice to prepare for this change. 
+To help provide you with our strongest encryption, we're going to begin limiting Application Proxy service access to only TLS 1.2 protocols. This limitation will initially be rolled out to customers who are already using TLS 1.2 protocols, so you won't see the impact. Complete deprecation of the TLS 1.0 and TLS 1.1 protocols will be complete on August 31, 2019. Customers still using TLS 1.0 and TLS 1.1 will receive advanced notice to prepare for this change.
 
-To best prepare for this change make sure that all client-server and browser-server combinations are updated to use TLS 1.2 to maintain connection to Application Proxy service. These include clients your users are using to access applications published through Application Proxy. See here for more details.
+To maintain the connection to the Application Proxy service throughout this change, we recommend that you make sure your client-server and browser-server combinations are updated to use TLS 1.2. We also recommend that you make sure to include any client systems used by your employees to access apps published through the Application Proxy service.
+
+For more information, see [Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
 
 ---
 
-[761445](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=761445&triage=true&fullScreen=false&_a=edit)
-
-### Application Gallery design refresh upcomming
+### Plan for change: Design updates are coming for the Application Gallery
 
 **Type:** Plan for change  
 **Service category:** Enterprise Apps  
 **Product capability:** SSO
 
-Changes are coming over the next few weeks to the design of the application gallery. You'll be able to easily find which apps support provisioning, OpenID Connect, and SAML through our update app gallery experience.
+New user interface changes are coming to the design of the **Add from the gallery** area of the **Add an application** blade. These changes will help you more easily find your apps that support automatic provisioning, OpenID Connect, Security Assertion Markup Language (SAML), and Password single sign-on (SSO).
 
 ---
 
-[761733](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=761733&triage=true&fullScreen=false&_a=edit)
-
-### MFA server IP addressed are no longer included in the Office 365 IP Address 
+### Plan for change: Removal of the MFA server IP address from the Office 365 IP address
 
 **Type:** Plan for change  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
 
-MFA server IP addressed are no longer included in the Office 365 IP Address and URL Web service. Customers who rely on these page to update their firewall settings, should make sure they are also including the list of IP addresses that is documented under Azure Multi-Factor Authentication Server firewall requirements. Note: there is no change to the list of IP addresses.  
+We're removing the MFA server IP address from the [Office 365 IP Address and URL Web service](https://docs.microsoft.com/office365/enterprise/office-365-ip-web-service). If you currently rely on these pages to update your firewall settings, you must make sure you're also including the list of IP addresses documented in the **Azure Multi-Factor Authentication Server firewall requirements** section of the [Getting started with the Azure Multi-Factor Authentication Server](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy#azure-multi-factor-authentication-server-firewall-requirements) article.
 
 ---
-
-[777708](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=777708&triage=true&fullScreen=false&_a=edit)
 
 ### App-only tokens now require the resource application (Web API) to exist in the resource tenant
 
@@ -83,16 +77,14 @@ MFA server IP addressed are no longer included in the Office 365 IP Address and 
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
 
-A security change went live July 26th that changes the way app-only tokens (via the client credentials grant) are issued. Previously, applications were allowed to get tokens to call any other app, regardless of presence in the tenant or roles consented to for that application.  This behavior has been updated so that for resources (sometimes called Web APIs) set to be single-tenant (the default), the client application must exist within the resource tenant.  Note that existing consent between the client and the API is still not required, and apps should still be doing their own authorization checks.  
+On July 26, 2019, we changed how we provide app-only tokens through the client credentials grant. Previously, apps could get tokens to call other apps, regardless of whether the called app was in the tenant or if roles were consented to for that app. We've updated this behavior so resources, sometimes called Web APIs, are set to be single-tenant, making sure the client app exists in the resource tenant. If your app isn't located in the resource tenant, you'll get an error message that says, "The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant." To fix this problem, you must create the client app service principal in your tenant, using either the [admin consent endpoint](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) or the manual process, ensuring your tenant has given the app permission to operate within the tenant.
 
-The error message for this scenario currently states: 
-"The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant."
+For more information, see [What's new for authentication?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes).
 
-To remedy this issue, use the Admin Consent experience to create the client application service principal in your tenant, or create it manually.  This ensures that the tenant has given the application permission to operate within the tenant.  
+>[NOTE]
+>The existing consent between the client and the API is not required and apps should still be doing their own authorization checks.
 
 ---
-
-[767026](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=767026&triage=true&fullScreen=false&_a=edit)
 
 ### New Federated Apps available in Azure AD App gallery - July 2019
 
@@ -100,16 +92,37 @@ To remedy this issue, use the Admin Consent experience to create the client appl
 **Service category:** Enterprise Apps  
 **Product capability:** 3rd Party Integration
 
-In July 2019 we have added following 18 new applications in our App gallery with Federation support:
+In July 2019, we've added these 18 new apps with Federation support to the app gallery:
 
-Ungerboeck Software, Bright Pattern Omnichannel Contact Center, Clever Nelly, AcquireIO, Looop, productboard, MS Azure SSO Access for Ethidex Compliance Office™, Hype, Abstract, Ascentis, Flipsnack, Wandera, TwineSocial, Kallidus, HyperAnna, PharmID WasteWitness, i2B Connect, JFrog Artifactory
+[Ungerboeck Software](https://docs.microsoft.com/azure/active-directory/saas-apps/ungerboeck-software-tutorial), [Bright Pattern Omnichannel Contact Center](https://docs.microsoft.com/azure/active-directory/saas-apps/bright-pattern-omnichannel-contact-center-tutorial), [Clever Nelly](https://docs.microsoft.com/azure/active-directory/saas-apps/clever-nelly-tutorial), [AcquireIO](https://docs.microsoft.com/azure/active-directory/saas-apps/acquireio-tutorial), [Looop](https://www.looop.co/schedule-a-demo/), productboard, [MS Azure SSO Access for Ethidex Compliance Office™](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on#password-based-sso), [Hype](https://docs.microsoft.com/azure/active-directory/saas-apps/hype-tutorial), [Abstract](https://docs.microsoft.com/azure/active-directory/saas-apps/abstract-tutorial), [Ascentis](https://docs.microsoft.com/azure/active-directory/saas-apps/ascentis-tutorial), [Flipsnack](https://www.flipsnack.com/accounts/sign-in-sso.html), [Wandera](https://docs.microsoft.com/azure/active-directory/saas-apps/wandera-tutorial), [TwineSocial](https://stage.twinesocial.com/), [Kallidus](https://docs.microsoft.com/azure/active-directory/saas-apps/kallidus-tutorial), [HyperAnna](https://docs.microsoft.com/azure/active-directory/saas-apps/hyperanna-tutorial), [PharmID WasteWitness](https://www.pharmid.com/), [i2B Connect](https://www.i2b-online.com/sign-up-to-use-i2b-connect-here-sso-access/), [JFrog Artifactory](https://docs.microsoft.com/azure/active-directory/saas-apps/jfrog-artifactory-tutorial)
 
-You can also find the documentation of all the applications from here https://aka.ms/appstutorial 
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/azureadapprequest
+For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
 
 ---
 
-[777283](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=777283&triage=true&fullScreen=false&_a=edit)
+### Automate user account provisioning for these newly supported SaaS apps
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** Monitoring & Reporting
+
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [Dialpad](https://docs.microsoft.com/azure/active-directory/saas-apps/dialpad-provisioning-tutorial)
+
+- [Federated Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/federated-directory-provisioning-tutorial)
+
+- [Figma](https://docs.microsoft.com/azure/active-directory/saas-apps/figma-provisioning-tutorial)
+
+- [Leapsome](https://docs.microsoft.com/azure/active-directory/saas-apps/leapsome-provisioning-tutorial)
+
+- [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-provisioning-tutorial)
+
+- [Smartsheet](https://docs.microsoft.com/azure/active-directory/saas-apps/smartsheet-provisioning-tutorial)
+
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+
+---
 
 ### New Azure AD Domain Services service tag for Network Security Group
 
@@ -117,25 +130,11 @@ For listing your application in the Azure AD app gallery, please read the detail
 **Service category:** Azure AD Domain Services  
 **Product capability:** Azure AD Domain Services
 
-You can now secure inbound traffic to your Azure AD Domain Services virtual network subnet using the AzureActiveDirectoryDomainServices network service tag in your Azure network security group.  Say goodbye to managing long list of IP addresses and ranges.
+If you're tired of managing long lists of IP addresses and ranges, you can use the new **AzureActiveDirectoryDomainServices** network service tag to help secure inbound traffic to your Azure AD Domain Services virtual network subnet for your Azure network security group.
 
-For more information, see Network Security Groups for Azure AD Domain Services.
-
----
-
-[669972](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=669972&triage=true&fullScreen=false&_a=edit)
-
-### B2B direct federation using SAML/WS-Fed is in public preview
-
-**Type:** New feature  
-**Service category:** B2B  
-**Product capability:** B2B/B2C
-
-Direct federation makes it easier for you to work with partners whose IT managed identity solution is not Azure AD. It works with identity systems that support the SAML or WS-Fed standards. When you set up a direct federation relationship with a partner, any new guest user you invite from that domain can collaborate with you using their existing organizational account. This makes the user experience for your guests more seamless.
+For more information about this new service tag, see [Network Security Groups for Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/network-considerations#default-network-service-group).
 
 ---
-
-[671553](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=671553&triage=true&fullScreen=false&_a=edit)
 
 ### New Security Audits for Azure AD Domain Services (Public Preview)
 
@@ -143,115 +142,115 @@ Direct federation makes it easier for you to work with partners whose IT managed
 **Service category:** Azure AD Domain Services  
 **Product capability:** Azure AD Domain Services
 
-We're pleased to announce the release of security audits for Azure AD Domain Service to public preview. Security audits enables you to use the Azure AD Domain Service portal to stream security audit events to targeted resources. Resources that can receive these events include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. 
+We're pleased to announce the release of Azure AD Domain Service Security Auditing to public preview. Security auditing helps provide you with critical insight into your authentication services by streaming security audit events to targeted resources, including Azure Storage, Azure Log Analytics workspaces, and Azure Event Hub, using the Azure AD Domain Service portal.
 
-For more information, see the, Security Audits for Azure AD Domain Services documentation.
-
----
-
-[735815](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=735815&triage=true&fullScreen=false&_a=edit)
-
-### Modern security reports (e.g. Risky users, Risky sign-ins) are now available for all Azure AD customers
-
-**Type:** New feature  
-**Service category:** Identity Protection  
-**Product capability:** Identity Security & Protection
-
-All Azure AD customers can now click on the banners on top of existing security reports (e.g. Users flagged for risk) to try out the new experience (e.g. Risky users). Over time, these reports will replace the existing reports. The new reports provide customers following abilities on top of the ones provided by legacy reports:
-Advanced filtering and sorting.
-Bulk actions (e.g. Dismiss user risk).
-Confirm entities compromised (or safe).
-Insightful 'Risk state' covering states such as: At risk, Dismissed, Remediated, Confirmed compromised.
-Note: No special action will be needed from the customers. All the data visible in the existing security reports will be available (along with additional insights) in the new security reports.
+For more information, see [Enable Security Audits for Azure AD Domain Services (Preview)](https://docs.microsoft.com/azure/active-directory-domain-services/security-audit-events).
 
 ---
 
-[744973](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=744973&triage=true&fullScreen=false&_a=edit)
-
-### Monitor sign in activity to your applications
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** Monitoring & Reporting
-
-Automate creating, updating, and deleting user accounts for these newly integrated following apps:
-Dialpad
-Federated Directory
-Figma
-Leapsome
-Peakon
-Smartsheet​
-For more information about how to better secure your organization through automated user account provisioning, see Automate user provisioning to SaaS applications with Azure AD.
-
----
-
-[452332](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=452332&triage=true&fullScreen=false&_a=edit)
-
-### Authentication Methods Usage & Insights
+### New Authentication methods usage & insights (Public Preview)
 
 **Type:** New feature  
 **Service category:** Self Service Password Reset  
 **Product capability:** Monitoring & Reporting
 
-Authentication Methods Usage & Insights includes registration and usage details around self-service Password Reset (SSPR) and Multi-factor authentication (MFA) services. The feature helps you understand the adoption these services in your organization and gives you insights such as how many users are registered to use SSPR and MFA, how often SSPR is used to reset passwords, as well as which methods are used for resetting passwords.
+The new Authentication methods usage & insights reports can help you to understand how features like Azure Multi-Factor Authentication and self-service password reset are being registered and used in your organization, including the number of registered users for each feature, how often self-service password reset is used to reset passwords, and by which method the reset happens.
+
+For more information, see [Authentication methods usage & insights (preview)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-methods-usage-insights).
 
 ---
 
-[462076](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=462076&triage=true&fullScreen=false&_a=edit)
+### New security reports are available for all Azure AD administrators
 
-### Duplicate Group Name check in the Azure AD portal
+**Type:** New feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+
+All Azure AD administrators can now select the banner at the top of an existing security report to try out the new security experience (for example, Risky users). Over time, these new reports will replace the older versions, with the new reports providing you the following additional capabilities:
+
+- Advanced filtering and sorting
+
+- Bulk actions, such as dismissing user risk
+
+- Confirmation of compromised or safe entities
+
+- Risk state, including: At risk, Dismissed, Remediated, and Confirmed compromised
+
+---
+
+### Automate user account provisioning for these newly supported SaaS apps
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** Monitoring & Reporting
+
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [Dialpad](https://docs.microsoft.com/azure/active-directory/saas-apps/dialpad-provisioning-tutorial)
+
+- [Federated Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/federated-directory-provisioning-tutorial)
+
+- [Figma](https://docs.microsoft.com/azure/active-directory/saas-apps/figma-provisioning-tutorial)
+
+- [Leapsome](https://docs.microsoft.com/azure/active-directory/saas-apps/leapsome-provisioning-tutorial)
+
+- [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-provisioning-tutorial)
+
+- [Smartsheet](https://docs.microsoft.com/azure/active-directory/saas-apps/smartsheet-provisioning-tutorial)
+
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+
+---
+
+### New check for duplicate group names in the Azure AD portal
 
 **Type:** New feature  
 **Service category:** Group Management  
 **Product capability:** Collaboration
 
-Now, when a group name is added during group creation or changed during group update in the Azure AD portal, a check will be performed  to determine if the name is already used for another group. If the name is already in use, to avoid duplicate naming, you'll be asked to modify the name of your group.
+Now, when you create or update a group name from the Azure AD portal, we'll perform a check to make sure you aren't duplicating an existing group name in your resource. If the name is already in use for another group, you'll be asked to modify your name.
 
-For more information, see Manage groups in Azure AD portal.
+For more information, see [Manage groups in the Azure AD portal](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context).
 
 ---
 
-[520083](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=520083&triage=true&fullScreen=false&_a=edit)
-
-### Azure AD now supports static query parameters in reply URIs
+### Azure AD now supports static query parameters in reply (redirect) URIs - NEED MORE INFO LINK
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
 
-Per RFC 6749, Azure AD applications can now register and use reply (redirect) URIs with static query parameters (e.g. https://contoso.com/oauth2?idp=microsoft) for OAuth 2.0 requests.  Dynamic reply URIs are still forbidden as they represent a security risk, and this cannot be used to retain state information across an authentication request - for that, use the `state` parameter.
+Azure AD apps can now register and use reply (redirect) URIs with static query parameters (for example, `https://contoso.com/oauth2?idp=microsoft`) for OAuth 2.0 requests. Dynamic reply URIs are still forbidden because they represent a security risk and can't retain state information across an authentication request. The static query parameter is subject to string matching for reply URIs, just like any other part of the reply URI. If there's no registered string that matches the URI-decoded redirect-uri, the request is rejected. If the reply URI is found, the entire string is used to redirect the user, including the static query parameter.
 
-The static query parameter is subject to string matching for reply URIs like any other part of the reply URI - if no string is registered that matches the URI-decoded redirect_uri, then the requst will be rejected.  If the reply URI is found, then the entire string will be used to redirect the user, including the static query parameter. 
+Currently, the app registration screens of the Azure portal still block query parameters. However, you can manually edit the app manifest to add and test query parameters in your app.
 
-Note that at this time (End of July 2019), the app registration UX in Azure Portal still block query parameters.  However, you can edit the application manifest manually to add query parameters and test this in your app.  
+For more information, see ...
 
 ---
 
-[580332](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=580332&triage=true&fullScreen=false&_a=edit)
-
-### Azure AD features available bsed on licenses available in the tenant
+### View a list of available Azure AD features, based on your license - NEED MORE INFO LINK
 
 **Type:** New feature  
 **Service category:** Other  
 **Product capability:** Directory
 
-Customer can now get a list of features they can use in the Azure AD tenant based on the Azure AD licenses available in their tenant.
+You can now view a list of your available and active Azure AD features, based on your license type, from the **Licenses - Overview** page of the Azure portal.
+
+For more information about the **Licenses - Overview** page, see ... For a complete list of available features per license type, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ---
 
-[607277](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=607277&triage=true&fullScreen=false&_a=edit)
-
-### Activity Logs (MS Graph APIs) for Azure AD is now available through PowerShell Cmdlets
+### Activity logs (MS Graph APIs) for Azure AD are now available through PowerShell Cmdlets
 
 **Type:** New feature  
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
 
-We are excited to announce the availability of Azure AD activity logs (Audit and Sign-ins) through Azure AD PowerShell module. While you were able to create your own scripts using the through MS Graph API endpoints, we are now extending that capability through PowerShell cmdlets as well. Fore more information on how to use these cmdlets, check out our documentation and start using them today.
+We're excited to announce that Azure AD activity logs (Audit and Sign-ins reports) are now available through the Azure AD PowerShell module. Previously, you could create your own scripts using MS Graph API endpoints, and now we've extended that capability to PowerShell cmdlets.
+
+For more information about how to use these cmdlets, see [Azure AD PowerShell cmdlets for reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-powershell-reporting).
 
 ---
-
-[746440](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=746440&triage=true&fullScreen=false&_a=edit)
 
 ### Updated filter controls for Audit and Sign-in logs in Azure AD
 
@@ -259,7 +258,21 @@ We are excited to announce the availability of Azure AD activity logs (Audit and
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
 
-Customers have been asking for the ability to apply various filters to the sign-in and audit logs without having to add them as a column to the grid. In order to fulfill this requirement, we have changed the way filters work in the Azure Portal for both the activity logs in Azure AD. With this updated and improved filter control, you can select the filters you want to apply without having to add them as a column to the grid, thereby, keeping the report clean as well as scoped to your needs. In addition, you can decide how many filters you want to show in the UI, thereby, increasing the real estate space to see the grid rows. Here's are a few screenshots of the new filter controls:
+We've updated the Audit and Sign-in log reports so you can now apply various filters without having to add them as columns on the report screens. Additionally, you can now decide how many filters you want to show on the screen. These updates all work together to make your reports easier to read and more scoped to your needs.
+
+For more information about these updates, see [Filter audit logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs#filtering-audit-logs) and [Filter sign-in activities](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#filter-sign-in-activities).
+
+---
+
+### New B2B direct federation using SAML/WS-Fed (Public Preview)
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+
+Direct federation helps to make it easier for you to work with partners whose IT-managed identity solution is not Azure AD, by working with identity systems that support the SAML or WS-Fed standards. After you set up a direct federation relationship with a partner, any new guest user you invite from that domain can collaborate with you using their existing organizational account, making the user experience for your guests more seamless.
+
+For more information, see [Direct federation with AD FS and third-party providers for guest users (preview)](https://docs.microsoft.com/azure/active-directory/b2b/direct-federation).
 
 ---
 
@@ -291,13 +304,13 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### Automate user account provisioning for these newly-supported SaaS apps
+### Automate user account provisioning for these newly supported SaaS apps
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
 **Product capability:** Monitoring & Reporting
 
-You can now automate creating, updating, and deleting user accounts for these newly-integrated apps:
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
 
 - [Zoom](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial)
 
@@ -329,7 +342,7 @@ For more information, see [Check the status of user provisioning](https://docs.m
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
 
-We've updated Azure AD so that your company branding now appears on the sign out and error screens, as well as the sign-in page. You don't have to do anything to turn this feature on, Azure AD simply uses the assets you've already set up in the **Company branding** area of the Azure portal.
+We've updated Azure AD so that your company branding now appears on the sign out and error screens, as well as the sign-in page. You don't have to do anything to turn on this feature, Azure AD simply uses the assets you've already set up in the **Company branding** area of the Azure portal.
 
 For more information about setting up your company branding, see [Add branding to your organization's Azure Active Directory pages](https://docs.microsoft.com/azure/active-directory/fundamentals/customize-branding).
 
@@ -815,7 +828,7 @@ You can now download large amounts of activity logs directly from the Azure port
 
 - Determine your output format, either JSON or CSV.
 
-For more details about this feature, see [Quickstart: Download an audit report using the Azure portal](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-download-audit-report)
+For more information about this feature, see [Quickstart: Download an audit report using the Azure portal](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-download-audit-report)
 
 ---
 
