@@ -56,6 +56,8 @@
       items:
       - name: Insufficient heap memory
         href: ./apache-spark-troubleshoot-outofmemory-heap.md
+    - name: IllegalArgumentException exception
+      href: ./apache-spark-troubleshoot-illegalargumentexception.md
 - name: How to
   items:
   - name: Use cluster storage
