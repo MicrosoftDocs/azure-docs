@@ -43,7 +43,7 @@ To add your SSH key to a Linux AKS node, complete the following steps:
 1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. The cluster name is assigned to the variable named *CLUSTER_RESOURCE_GROUP*. Replace *myResourceGroup* with the name of your Resource Group where you AKS Cluster is located:
 
     ```azurecli-interactive
-    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+    $CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
 1. List the VMs in the AKS cluster resource group using the [az vm list][az-vm-list] command. These VMs are your AKS nodes:
@@ -77,7 +77,7 @@ To add your SSH key to a Linux AKS node that's part of a virtual machine scale s
 1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. The cluster name is assigned to the variable named *CLUSTER_RESOURCE_GROUP*. Replace *myResourceGroup* with the name of your Resource Group where you AKS Cluster is located:
 
     ```azurecli-interactive
-    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+    $CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
 1. Next, get the virtual machine scale set for your AKS cluster using the [az vmss list][az-vmss-list] command. The virtual machine scale set name is assigned to the variable named *SCALE_SET_NAME*:
