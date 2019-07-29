@@ -60,9 +60,6 @@ In this quickstart, you use a sample environmental sensor that's written in Node
     git clone https://github.com/azure-samples/azure-iot-samples-node
     ```
 
-    > [!NOTE]
-    > For bug bash, we don't have the packages publicly published yet. Please copy everything from _\\\pierreca-dev\pnp-node-sdk-preview-2019-7-17_ folder into a local folder in your computer. In later steps, please replace with _/samples/device directory_ for running the device sample, and replace with _/samples/service directory_ for running the device sample. 
-
 1. In a terminal, go to the root folder of your cloned repository, navigate to the **/azure-iot-samples-node/tree/master/digital-twins/Quickstarts/Device** folder, and then install all the dependencies by running the following command:
 
     ```cmd/sh

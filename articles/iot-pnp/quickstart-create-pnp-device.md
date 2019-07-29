@@ -27,25 +27,11 @@ To complete this quickstart, you need to install the following software on your 
 
 ### Install Azure IoT Device Workbench
 
-Install the Azure IoT Device Workbench extension from a .vsix file. Use the following steps to install the extension in VS Code. The extension can't be installed from Windows Explorer:
+Use the following steps to install the Azure IoT Device Workbench extension in VS Code:
 
-1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr). Latest version: `0.10.8`.
-1. In VS Code, select **Extensions** tab.
-1. Select **Install from VSIX**.
-    ![Install Azure IoT Device Workbench extension](media/quickstart-create-pnp-device/install-vsix.png)
-1. Select the .vsix file you downloaded.
+1. In VS Code, select the **Extensions** tab.
+1. Search for **Azure IoT Device Workbench**.
 1. Select **Install**.
-
-> [!NOTE]
-> The above experience will be replaced by directly installing from VS Code marketplace after IoT Plug and Play go public preview.
-
-> [!NOTE]
-> If you have problem on using the extension, such as *command 'iotworkbench.iotPnPOpenRepository' not found*. Follow this step to reinstall the extension from scratch.
-> 1. Uninstall the IoT Device Workbench
-> 1. Close VS Code
-> 1. Navigate to `C:\Users\{yourname}\.vscode\extensions` folder
-> 1. Remove all `vsciot-vscode.vscode-iot-workbench-[version]` folders
-> 1. Open VS Code and then re-install from the .vsix file
 
 ### Install the Azure IoT explorer
 
@@ -65,10 +51,10 @@ You also need an Azure IoT hub with at least one registered device in your Azure
 
 In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT C device SDK.
 
-1. Open a command prompt. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c-pnp) GitHub repository:
+1. Open a command prompt. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c-pnp --recursive -b public-preview-utopia
+    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
     ```
 
     You should expect this operation to take several minutes to complete.
@@ -84,7 +70,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 
 In this quickstart, you use an existing sample device capability model and associated interfaces.
 
-1. Download the [device capability model](https://github.com/Azure/azure-iot-sdk-c-pnp/blob/public-preview-utopia/digitaltwin_client/samples/SampleDevice.capabilitymodel.json) and [interface sample](https://github.com/Azure/azure-iot-sdk-c-pnp/blob/public-preview-utopia/digitaltwin_client/samples/digitaltwin_sample_environmental_sensor/EnvironmentalSensor.interface.json) and save files into `pnp_app` folder.
+1. Download the [device capability model](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/digitaltwin_client/samples/SampleDevice.capabilitymodel.json) and [interface sample](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/digitaltwin_client/samples/digitaltwin_sample_environmental_sensor/EnvironmentalSensor.interface.json) and save files into `pnp_app` folder.
 
     > [!TIP]
     > To download a file from GitHub, navigate to the file, right-click on **Raw**, and then select **Save link as**.
