@@ -38,7 +38,7 @@ At the end of this tutorial, you run two .NET console apps.
 * **SendCloudToDevice**, which sends a cloud-to-device message to the device app through IoT Hub, and then receives its delivery acknowledgment.
 
 > [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through [Azure IoT device SDKs](iot-hub-devguide-sdks.md). For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
+> IoT Hub has SDK support for many device platforms and languages (including C, Java, Python, and Javascript) through [Azure IoT device SDKs](iot-hub-devguide-sdks.md). For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
 >
 
 To complete this tutorial, you need the following:
@@ -88,21 +88,11 @@ In this section, you'll modify the device app you created in [Send telemetry fro
    ReceiveC2dAsync();
    ```
 
-## Get the IoT Hub connection string
+## Get the IoT hub connection string
 
-First, retrieve the IoT Hub connection string from the portal.
+In this article you create a backend service to send cloud-to-device messages through the IoT hub you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md). To send cloud-to-device messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), select **Resource groups**.
-
-2. Select the Resource group you are using for this how-to.
-
-3. Select the IoT Hub you are using.
-
-4. In the pane for the hub, select **Shared access policies**.
-
-5. Select **iothubowner**. It shows the connection strings on the **iothubowner** panel. Select the copy icon for the **Connection string--primary key**. Save the connection string for later use.
-
-   ![Get IoT Hub connection string](./media/iot-hub-csharp-csharp-c2d/get-iot-hub-connection-string.png)
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## Send a cloud-to-device message
 
@@ -126,7 +116,7 @@ Now you write a .NET console app that sends cloud-to-device messages to the devi
    using Microsoft.Azure.Devices;
    ```
 
-5. Add the following fields to the **Program** class. Substitute the placeholder value with the IoT hub connection string you saved previously in this section. 
+5. Add the following fields to the **Program** class. Substitute the placeholder value with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
 
    ``` csharp
    static ServiceClient serviceClient;
@@ -140,7 +130,7 @@ Now you write a .NET console app that sends cloud-to-device messages to the devi
    {
         var commandMessage = new
          Message(Encoding.ASCII.GetBytes("Cloud to device message."));
-        await serviceClient.SendAsync("myDevice", commandMessage);
+        await serviceClient.SendAsync("myFirstDevice", commandMessage);
    }
    ```
 

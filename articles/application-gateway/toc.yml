@@ -121,11 +121,13 @@
       - name: End-to-end SSL - PowerShell
         href: application-gateway-end-to-end-ssl-powershell.md
     - name: Manage certificates
-      items:
-      - name: Create certificates for whitelisting backend
+      items:             
+      - name: Certificates for the backend
         href: certificates-for-backend-authentication.md
       - name: Renew certificates
         href: renew-certificates.md
+      - name: Generate self-signed certificates
+        href: self-signed-certificates.md
     - name: SSL policy
       items:
       - name: Configure SSL policy
@@ -212,7 +214,7 @@
     items:
       - name: ILB with an App Service Environment
         href: create-gateway-internal-load-balancer-app-service-environment.md
-      - name: Redirection to App Service’s URL
+      - name: App service issues
         href: troubleshoot-app-service-redirection-app-service-url.md
       - name: Session affinity issues
         href: how-to-troubleshoot-application-gateway-session-affinity-issues.md

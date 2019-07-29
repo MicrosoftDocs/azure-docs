@@ -27,8 +27,6 @@ Instead of seeing a prompt for a password after entering a username, a person wh
 
 ## Enable my users
 
-For public preview, an admin must first add a policy via powershell to allow use of the credential in the tenant. Review the "Known Issues” section before taking this step.
-
 ### Tenant prerequisites
 
 * Azure Active Directory
@@ -38,6 +36,10 @@ For public preview, an admin must first add a policy via powershell to allow use
 ### Steps to enable
 
 Follow the steps in the article [Enable passwordless sign in for Azure AD](howto-authentication-passwordless-enable.md#enable-new-passwordless-authentication-methods), to enable passwordless authentication methods in your directory.
+
+> [!NOTE]
+> If you previously enabled this feature for your tenant by using a PowerShell script, setting a new policy for users and groups overwrites the existing tenant-wide policy. 
+>
 
 ## How do my end users enable phone sign-in?
 
