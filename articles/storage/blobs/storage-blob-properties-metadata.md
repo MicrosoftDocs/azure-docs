@@ -13,7 +13,7 @@ ms.subservice: blobs
 
 # Manage blob properties and metadata with .NET
 
-Blobs support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
+In addition to the data they contain, Blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
 
 ## About properties and metadata
 
@@ -24,11 +24,11 @@ Blobs support system properties and user-defined metadata, in addition to the da
 Retrieving metadata and property values for a Blob storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the **FetchAttributes** or **FetchAttributesAsync** method. The exception to this rule is that the **Exists** and **ExistsAsync** methods call the appropriate **FetchAttributes** method under the covers. When you call one of these methods, you don't need to also call **FetchAttributes**.
 
 > [!IMPORTANT]
-> If you find that property or metadata values for a storage resource have not been populated, then check that your code calls the **FetchAttributes** or **FetchAttributesAsync** method.
+> If you find that property or metadata values for a storage resource have not been populated, check that your code calls the **FetchAttributes** or **FetchAttributesAsync** method.
 
 ## Set and retrieve properties
 
-The following code example sets system properties on a blob. One value is set using the collection's **Add** method. The other value is set using implicit key/value syntax. Both are valid.
+The following code example sets the *ContentType* and *ContentLanguage* system properties on a blob.
 
 ```csharp
 public static async Task SetBlobPropertiesAsync(CloudBlob blob)
@@ -92,19 +92,21 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
 
-Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Base64-encode or URL-encode metadata values containing non-ASCII characters.
+Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. [Base64-encode](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) or [URL-encode](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode) metadata values containing non-ASCII characters.
 
-The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names preserve the case with which they were created, but are case-insensitive when set or read. If two or more metadata headers with the same name are submitted for a resource, Blob storage returns HTTP error code 400 (Bad Request).
+The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names maintain the case used when they were created, but are case-insensitive when set or read. If two or more metadata headers using the same name are submitted for a resource, Blob storage returns HTTP error code 400 (Bad Request).
 
-The following code example sets metadata on a blob. One value is set using the collection's **Add** method. The other value is set using implicit key/value syntax. Both are valid.
+The following code example sets metadata on a blob. One value is set using the collection's **Add** method. The other value is set using implicit key/value syntax.
 
 ```csharp
 public static async Task AddBlobMetadataAsync(CloudBlob blob)
 {
     try
     {
-        // Add some metadata to the blob.
+        // Add metadata to the blob by calling the Add method.
         blob.Metadata.Add("docType", "textDocuments");
+
+        // Add metadata to the blob by using key/value syntax.
         blob.Metadata["category"] = "guidance";
 
         // Set the blob's metadata.
