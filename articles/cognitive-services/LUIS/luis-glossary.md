@@ -1,6 +1,6 @@
 ---
-title: Glossary 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Glossary - LUIS
+titleSuffix: Azure Cognitive Services
 description: The glossary explains terms that you might encounter as you work with the LUIS API Service.
 services: cognitive-services
 author: diberry
@@ -91,11 +91,11 @@ An example endpoint looks like:
 
 In [batch testing](luis-interactive-test.md#batch-testing), a measure of the test's accuracy.
 
-## <a name="false-negative"></a>False negative (TN)
+## <a name="false-negative"></a>False negative (FN)
 
 In [batch testing](luis-interactive-test.md#batch-testing), the data points represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
 
-## <a name="false-positive"></a>False positive (TP)
+## <a name="false-positive"></a>False positive (FP)
 
 In [batch testing](luis-interactive-test.md#batch-testing), the data points represent utterances in which your app incorrectly predicted the existence of the target intent/entity.
 

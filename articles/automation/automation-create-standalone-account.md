@@ -4,8 +4,8 @@ description: This article walks you through the steps of creating, testing, and 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm

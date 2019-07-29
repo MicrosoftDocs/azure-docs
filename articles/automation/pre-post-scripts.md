@@ -4,11 +4,11 @@ description: This article describes how to configure and manage pre and post scr
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2019
 ms.topic: conceptual
-manager: carmonm 
+manager: carmonm
 ---
 # Manage pre and post scripts
 

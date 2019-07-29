@@ -131,6 +131,8 @@ To determine which user flow was used in signing an ID token (and from where to 
 
 After you've acquired the metadata document from the OpenID Connect metadata endpoint, you can use the RSA 256 public keys to validate the signature of the ID token. There might be multiple keys listed at this endpoint, each identified by a `kid` claim. The header of the ID token also contains a `kid` claim, which indicates which of these keys was used to sign the ID token.
 
+To verify the tokens from Azure AD B2C, you need to generate the public key using the exponent(e) and modulus(n). You need to determine how to do this in your respective programming language accordingly. The official documentation on Public Key generation with the RSA protocol can be found here: https://tools.ietf.org/html/rfc3447#section-3.1
+
 After you've validated the signature of the ID token, there are several claims that you need to verify. For instance:
 
 - Validate the `nonce` claim to prevent token replay attacks. Its value should be what you specified in the sign-in request.

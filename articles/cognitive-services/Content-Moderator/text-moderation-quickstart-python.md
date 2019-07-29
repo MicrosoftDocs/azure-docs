@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Analyze text content in Python - Content Moderator"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: How to analyze text content for various objectionable material using the Content Moderator SDK for Python
 services: cognitive-services
 author: PatrickFarley
@@ -9,10 +9,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 
-#As a Python developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
+# As a Python developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
 # Quickstart: Analyze text content for objectionable material in Python
@@ -30,47 +30,41 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Install the Content Moderator Python SDK by opening a command prompt and running the following command:
 
-```
+```bash
 pip install azure-cognitiveservices-vision-contentmoderator
 ```
 
 ## Import modules
 
-Create a new Python script named _ContentModeratorQS.py_ and add the following code to import the necessary parts of the SDK.
+Create a new Python script named _ContentModeratorQS.py_ and add the following code to import the necessary parts of the SDK. The pretty print module is included for an easier to read JSON response.
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=1-10)]
-
-Also import the "pretty print" function to handle the final output.
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=12)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=imports)]
 
 
 ## Initialize variables
 
-Next, add variables for your Content Moderator subscription key and endpoint URL. You will need to replace `<your subscription key>` with the value of your key. You may also need to change the value of `endpoint_url` to use the region identifier that corresponds to your subscription key. Free trial subscription keys are generated in the **westus** region.
+Next, add variables for your Content Moderator subscription key and endpoint URL. Add the name `CONTENT_MODERATOR_SUBSCRIPTION_KEY` to your environment variables with your subscription key as its value. For your base endpoint URL, add `CONTENT_MODERATOR_ENDPOINT` to your environment variables with your region-specific URL as its value, for example `https://westus.api.cognitive.microsoft.com`. Free trial subscription keys are generated in the **westus** region.
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=14-16)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=authentication)]
 
+A string of multiline text from a file will be moderated. Include the [content_moderator_text_moderation.txt](https://github.com/Azure-Samples/cognitive-services-content-moderator-samples/blob/master/documentation-samples/python/content_moderator_text_moderation.txt) file into your local root folder and add its file name to your variables:
 
-For the sake of simplicity, you will analyze text directly from the script. Define a new string of text content to moderate:
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=18-21)]
-
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModerationFile)]
 
 ## Query the Moderator service
 
-Create a **ContentModeratorClient** instance using your subscription key and endpoint URL. Then, use its member **TextModerationOperations** instance to call the moderation API. See the **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** reference documentation for more information on how to call it.
+Create a **ContentModeratorClient** instance using your subscription key and endpoint URL. 
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=client)]
 
-## Print the response
+Then, use your client with its member **TextModerationOperations** instance to call the moderation API with the function `screen_text`. See the **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** reference documentation for more information on how to call it.
 
-Finally, check that the call completed successfully and returned a **Screen** instance. Then print the returned data to the console.
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModeration)]
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=38-39)]
+## Check the printed response
 
-
-The sample text used in this quickstart results in the following output:
+Run the sample and confirm the response. Upon successful completion is returns a **Screen** instance. 
+A successful result is shown below:
 
 ```console
 {'auto_corrected_text': '" Is this a garbage email abide@ abed. com, phone: '

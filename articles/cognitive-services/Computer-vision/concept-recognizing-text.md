@@ -32,7 +32,7 @@ The Read operation maintains the original line groupings of recognized words in 
 The Read API works with images that meet the following requirements:
 
 - The image must be presented in JPEG, PNG, BMP, PDF, or TIFF format.
-- The dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels. PDF pages must be 17 x 17 inches or smaller.
+- The dimensions of the image must be between 50 x 50 and 10000 x 10000 pixels. PDF pages must be 17 x 17 inches or smaller.
 - The file size of the image must be less than 20 megabytes (MB).
 
 ### Limitations

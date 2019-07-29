@@ -1,178 +1,138 @@
 ---
-title: Create event-based workflows or actions - Azure Logic Apps | Microsoft Docs
-description: Automate event-based workflows or actions by using webhooks and Azure Logic Apps
+title: Create event-based tasks and workflows in Azure Logic Apps
+description: Trigger, pause, and resume automated tasks, processes, and workflows based on events that happen at an endpoint by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
-ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
-ms.topic: article
+ms.reviewer: klam, LADocs
+ms.topic: conceptual
+ms.date: 07/05/2019
 tags: connectors
-ms.date: 07/21/2016
 ---
 
-# Create event-based workflows or actions by using webhooks and Azure Logic Apps
+# Automate event-based tasks and workflows by using HTTP webhooks in Azure Logic Apps
 
-With the webhook action and trigger, you can start, pause, 
-and resume flows to perform these tasks:
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP Webhook connector, you can automate workflows that wait and run based on specific events that happen at an HTTP or HTTPS endpoint by building logic apps. For example, you can create a logic app that monitors a service endpoint by waiting for a specific event before triggering the workflow and running the specified actions, rather than regularly checking or *polling* that endpoint.
 
-* Trigger from an [Azure Event Hub](https://github.com/logicappsio/EventHubAPI) when an item is received
-* Wait for an approval before continuing a workflow
+Here are some example event-based workflows:
 
-Learn more about [how to create custom APIs that support a webhook](../logic-apps/logic-apps-create-api-app.md).
+* Wait for an item to arrive from an [Azure Event Hub](https://github.com/logicappsio/EventHubAPI) before triggering a logic app run.
+* Wait for an approval before continuing a workflow.
 
-## Use the webhook trigger
+## How do webhooks work?
 
-A [*trigger*](../connectors/apis-list.md) is an event that starts a logic app workflow. 
-The webhook trigger is event-based, which doesn't depend on polling for new items. 
-When you save your logic app with a webhook trigger, or when you change your logic 
-app from disabled to enabled, the webhook trigger *subscribes* to the specified 
-service or endpoint by registering a *callback URL* with that service or endpoint. 
-The trigger then uses that URL to run the logic app as necessary. Like the 
-[request trigger](connectors-native-reqres.md), the logic app fires immediately 
-when the expected event happens. The trigger *unsubscribes* if you remove the 
-trigger and save your logic app, or when you change your logic app from 
-enabled to disabled.
+An HTTP webhook trigger is event-based, which doesn't depend on checking or polling regularly for new items. When you save a logic app that starts with a webhook trigger, or when you change your logic app from disabled to enabled, the webhook trigger *subscribes* to a specific service or endpoint by registering a *callback URL* with that service or endpoint. The trigger then waits for that service or endpoint to call the URL, which starts running the logic app. Similar to the [Request trigger](connectors-native-reqres.md), the logic app fires immediately when the specified event happens. The trigger *unsubscribes* from the service or endpoint if you remove the trigger and save your logic app, or when you change your logic app from enabled to disabled.
 
-Here's an example that shows how to set up an HTTP trigger in the Logic App Designer. 
-The steps assume that you have already deployed or are accessing an API that follows 
-the [webhook subscribe and unsubscribe pattern in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
-
-**To add the webhook trigger**
-
-1. Add the **HTTP Webhook** trigger as the first step in a logic app.
-2. Fill in the parameters for the webhook subscribe and unsubscribe calls.
-
-   This step follows the same pattern as the [HTTP action](connectors-native-http.md) format.
-
-     ![HTTP Trigger](./media/connectors-native-webhook/using-trigger.png)
-
-3. Add at least one action.
-4. Click **Save** to publish the logic app. 
-This step calls the subscribe endpoint with the callback URL needed to trigger this logic app.
-5. Whenever the service makes an `HTTP POST` to the callback URL, 
-the logic app fires, and includes any data passed into the request.
-
-## Use the webhook action
-
-An [*action*](../connectors/apis-list.md) is an operation 
-that's defined and run by your logic app's workflow. 
-When a logic app runs a webhook action, that action 
-*subscribes* to the specified service or endpoint by 
-registering a *callback URL* with that service or endpoint. 
-The webhook action then waits until that service calls the URL 
-before the logic app resumes running. The logic app unsubscribes 
-from the service or endpoint in these cases: 
+An HTTP webhook action is also event-based and *subscribes* to a specific service or endpoint by registering a *callback URL* with that service or endpoint. The webhook action pauses the logic app's workflow and waits until the service or endpoint calls the URL before the logic app resumes running. The action logic app *unsubscribes* from the service or endpoint in these cases:
 
 * When the webhook action successfully finishes
 * If the logic app run is canceled while waiting for a response
 * Before the logic app times out
 
-For example, the [**Send approval email**](connectors-create-api-office365-outlook.md) 
-action is an example of webhook action that follows this pattern. 
-You can extend this pattern into any service through the webhook action. 
+For example, the Office 365 Outlook connector's [**Send approval email**](connectors-create-api-office365-outlook.md) action is an example of webhook action that follows this pattern. You can extend this pattern into any service by using the webhook action.
 
-Here's an example that shows how to set up a webhook action in the Logic App Designer. 
-These steps assume that you have already deployed or are accessing an API that follows the 
-[webhook subscribe and unsubscribe pattern used in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-actions). 
+For more information, see these topics:
 
-**To add a webhook action**
+* [HTTP Webhook trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
+* [Webhooks and subscriptions](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
+* [Create custom APIs that support a webhook](../logic-apps/logic-apps-create-api-app.md)
 
-1. Choose **New Step** > **Add an action**.
+## Prerequisites
 
-2. In the search box, type "webhook" to find the **HTTP Webhook** action.
+* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-    ![Select query action](./media/connectors-native-webhook/using-action-1.png)
+* The URL for an already deployed endpoint or API that supports the webhook subscribe and unsubscribe pattern for [webhook triggers in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) or [webhook actions in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-actions) as appropriate
 
-3. Fill in the parameters for the webhook subscribe and unsubscribe calls
+* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-   This step follows the same pattern as the [HTTP action](connectors-native-http.md) format.
+* The logic app where you want to wait for specific events at the target endpoint. To start with the HTTP Webhook trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use the HTTP Webhook action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
 
-     ![Complete query action](./media/connectors-native-webhook/using-action-2.png)
-   
-   At runtime, the logic app calls the subscribe endpoint after reaching that step.
+## Add an HTTP Webhook trigger
 
-4. Click **Save** to publish the logic app.
+This built-in trigger registers a callback URL with the specified service and waits for that service to send an HTTP POST request to that URL. When this event happens, the trigger fires and immediately runs the logic app.
 
-## Technical details
+1. Sign in to the [Azure portal](https://portal.azure.com). Open your blank logic app in Logic App Designer.
 
-Here are more details about the triggers and actions that webhook supports.
+1. On the designer, in the search box, enter "http webhook" as your filter. From the **Triggers** list, select the **HTTP Webhook** trigger.
 
-## Webhook triggers
+   ![Select HTTP Webhook trigger](./media/connectors-native-webhook/select-http-webhook-trigger.png)
 
-| Action | Description |
-| --- | --- |
-| HTTP Webhook |Subscribe a callback URL to a service that can call the URL to fire logic app as needed. |
+   This example renames the trigger to "HTTP Webhook trigger" so that the step has a more descriptive name. Also, the example later adds an HTTP Webhook action, and both names must be unique.
 
-### Trigger details
+1. Provide the values for the [HTTP Webhook trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) that you want to use for the subscribe and unsubscribe calls, for example:
 
-#### HTTP Webhook
+   ![Enter HTTP Webhook trigger parameters](./media/connectors-native-webhook/http-webhook-trigger-parameters.png)
 
-Subscribe a callback URL to a service that can call the URL to fire logic app as needed.
-An * means required field.
+1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-| Display Name | Property Name | Description |
-| --- | --- | --- |
-| Subscribe Method* |method |HTTP Method to use for subscribe request |
-| Subscribe URI* |uri |HTTP URI to use for subscribe request |
-| Unsubscribe Method* |method |HTTP method to use for unsubscribe request |
-| Unsubscribe URI* |uri |HTTP URI to use for unsubscribe request |
-| Subscribe Body |body |HTTP request body for subscribe |
-| Subscribe Headers |headers |HTTP request headers for subscribe |
-| Subscribe Authentication |authentication |HTTP authentication to use for subscribe. [See HTTP connector](connectors-native-http.md#authentication) for details |
-| Unsubscribe Body |body |HTTP request body for unsubscribe |
-| Unsubscribe Headers |headers |HTTP request headers for unsubscribe |
-| Unsubscribe Authentication |authentication |HTTP authentication to use for unsubscribe. [See HTTP connector](connectors-native-http.md#authentication) for details |
+   For more information about authentication types available for HTTP Webhook, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-**Output Details**
+1. Continue building your logic app's workflow with actions that run when the trigger fires.
 
-Webhook request
+1. When you're finished, done, remember to save your logic app. On the designer toolbar, select **Save**.
 
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| Headers |object |Webhook request headers |
-| Body |object |Webhook request object |
-| Status Code |int |Webhook request status code |
+   Saving your logic app calls the subscribe endpoint and registers the callback URL for triggering this logic app.
 
-## Webhook actions
+1. Now, whenever the target service sends an `HTTP POST` request to the callback URL, the logic app fires, and includes any data that is passed through the request.
 
-| Action | Description |
-| --- | --- |
-| HTTP Webhook |Subscribe a callback URL to a service that can call the URL to resume a workflow step as needed. |
+## Add an HTTP Webhook action
 
-### Action details
+This built-in action registers a callback URL with the specified service, pauses the logic app's workflow, and waits for that service to send an HTTP POST request to that URL. When this event happens, the action resumes running the logic app.
 
-#### HTTP Webhook
+1. Sign in to the [Azure portal](https://portal.azure.com). Open your logic app in Logic App Designer.
 
-Subscribe a callback URL to a service that can call the URL to resume a workflow step as needed.
-An * means required field.
+   This example uses the HTTP Webhook trigger as the first step.
 
-| Display Name | Property Name | Description |
-| --- | --- | --- |
-| Subscribe Method* |method |HTTP Method to use for subscribe request |
-| Subscribe URI* |uri |HTTP URI to use for subscribe request |
-| Unsubscribe Method* |method |HTTP method to use for unsubscribe request |
-| Unsubscribe URI* |uri |HTTP URI to use for unsubscribe request |
-| Subscribe Body |body |HTTP request body for subscribe |
-| Subscribe Headers |headers |HTTP request headers for subscribe |
-| Subscribe Authentication |authentication |HTTP authentication to use for subscribe. [See HTTP connector](connectors-native-http.md#authentication) for details |
-| Unsubscribe Body |body |HTTP request body for unsubscribe |
-| Unsubscribe Headers |headers |HTTP request headers for unsubscribe |
-| Unsubscribe Authentication |authentication |HTTP authentication to use for unsubscribe. [See HTTP connector](connectors-native-http.md#authentication) for details |
+1. Under the step where you want to add the HTTP Webhook action, select **New step**.
 
-**Output Details**
+   To add an action between steps, move your pointer over the arrow between steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-Webhook request
+1. On the designer, in the search box, enter "http webhook" as your filter. From the **Actions** list, select the **HTTP Webhook** action.
 
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| Headers |object |Webhook request headers |
-| Body |object |Webhook request object |
-| Status Code |int |Webhook request status code |
+   ![Select HTTP Webhook action](./media/connectors-native-webhook/select-http-webhook-action.png)
+
+   This example renames the action to "HTTP Webhook action" so that the step has a more descriptive name.
+
+1. Provide the values for the HTTP Webhook action parameters, which are similar to the [HTTP Webhook trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger) that you want to use for the subscribe and unsubscribe calls, for example:
+
+   ![Enter HTTP Webhook action parameters](./media/connectors-native-webhook/http-webhook-action-parameters.png)
+
+   During runtime, the logic app calls the subscribe endpoint when running this action. Your logic app then pauses the workflow and waits for the target service to send an `HTTP POST` request to the callback URL. If the action completes successfully, the action unsubscribes from the endpoint, and your logic app resumes running the workflow.
+
+1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
+
+   For more information about authentication types available for HTTP Webhook, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+
+1. When you're finished, remember to save your logic app. On the designer toolbar, select **Save**.
+
+## Connector reference
+
+For more information about trigger and action parameters, which are similar to each other, see [HTTP Webhook parameters](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger).
+
+### Output details
+
+Here is more information about the outputs from an HTTP Webhook trigger or action, which returns this information:
+
+| Property name | Type | Description |
+|---------------|------|-------------|
+| headers | object | The headers from the request |
+| body | object | JSON object | The object with the body content from the request |
+| status code | int | The status code from the request |
+|||
+
+| Status code | Description |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Accepted |
+| 400 | Bad request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 500 | Internal server error. Unknown error occurred. |
+|||
 
 ## Next steps
 
-* [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Find other connectors](apis-list.md)
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

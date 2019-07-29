@@ -104,7 +104,7 @@ In this section, you use a Resource Manager template to create HDInsight cluster
    * **Cluster Login Password**: Enter the Hadoop HTTP user password.
    * **Ssh User Name**: Enter the SSH user name. The default name is **sshuser**.
    * **Ssh Password**: Enter the SSH user password.
-   * **Install Script Action**: Keep the default value for going through this tutorial.
+   * **Install Script Action**: Keep the default value for going through this article.
      
      Some properties have been hardcoded in the template: Cluster type, Cluster worker node count, Edge node size, and Edge node name.
 4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the cluster with the edge node.

@@ -3,7 +3,7 @@ title: Security for CloudSimple services
 description: Describes the shared responsibility models for security of CloudSimple services
 author: sharaths-cs 
 ms.author: b-shsury 
-ms.date: 4/27/19 
+ms.date: 04/27/2019 
 ms.topic: article 
 ms.service: vmware 
 ms.reviewer: cynthn 

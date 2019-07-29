@@ -4,7 +4,7 @@ description: Learn about solutions that integrate Oracle apps running on Microso
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 tags: 
 
 ms.assetid: 
@@ -69,5 +69,7 @@ Identity is one of the core pillars of the partnership between Microsoft and Ora
 Currently, this integration allows you to manage in one central location, which is Azure Active Directory. Azure AD synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
 
 ## Next steps
+
+Get started with a [cross-cloud network](configure-azure-oci-networking.md) between Azure and OCI. 
 
 For more information and whitepapers about OCI, see the [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentation.

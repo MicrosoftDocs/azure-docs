@@ -3,7 +3,7 @@ title: Azure Container Registry content formats
 description: Learn about supported content formats in Azure Container Registry.
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article

@@ -5,29 +5,25 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 07/29/2019
 ms.author: dacurwin
 ---
 
-# Common questions about backing up files and folders 
+# Common questions about backing up files and folders
 
 This article has answers to common questions abound backing up files and folders with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.
 
 ## General
 
-### Why does the MARS agent need .NET framework 4.5.2 or higher?
-
-New functionality available in [instant restore](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) needs .NET Framework 4.5.2 or higher.
-
 ## Configure backups
 
-### Where can I download the latest version of the MARS agent? 
-The latest MARS agent used when backing up Windows Server machines, System Center DPM, and Microsoft Azure Backup server is available for [download](https://aka.ms/azurebackup_agent). 
+### Where can I download the latest version of the MARS agent?
+The latest MARS agent used when backing up Windows Server machines, System Center DPM, and Microsoft Azure Backup server is available for [download](https://aka.ms/azurebackup_agent).
 
 ### How long are vault credentials valid?
 Vault credentials expire after 48 hours. If the credentials file expires, download the file again from the Azure portal.
 
-### From what drives can I back up files and folders? 
+### From what drives can I back up files and folders?
 
 You can't back up the following types of drives and volumes:
 
@@ -40,29 +36,20 @@ You can't back up the following types of drives and volumes:
 
 ### What file and folder types are supported?
 
-The following types are supported:
-
-* Encrypted
-* Compressed
-* Sparse
-* Compressed + Sparse
-* Hard Links: Not supported, skipped
-* Reparse Point: Not supported, skipped
-* Encrypted + Sparse: Not supported, skipped
-* Compressed Stream: Not supported, skipped
-* Reparse points, including DFS links and junction points
-
+[Learn more](backup-support-matrix-mars-agent.md#supported-file-types-for-backup) about the types of files and folders supported for backup.
 
 ### Can I use the MARS agent to back up files and folders on an Azure VM?  
-Yes. Azure Backup provides VM-level backup for Azure VMs using the VM extension for the Azure VM agent. If you want to back up  files and folders on the guest Windows operating system on the VM, you can install the MARS agent to do that. 
+Yes. Azure Backup provides VM-level backup for Azure VMs using the VM extension for the Azure VM agent. If you want to back up  files and folders on the guest Windows operating system on the VM, you can install the MARS agent to do that.
 
-### Can I use the MARS agent to back up files and folders on temporary storage for the Azure VM? 
-Yes. Install the MARS agent, and back up files and folders on the guest Windows operating system to temporary storage. - Backup jobs fail about temporary storage data is wiped out.
+### Can I use the MARS agent to back up files and folders on temporary storage for the Azure VM?
+Yes. Install the MARS agent, and back up files and folders on the guest Windows operating system to temporary storage.
+
+- Backup jobs fail when temporary storage data is wiped out.
 - If the temporary storage data is deleted, you can only restore to non-volatile storage.
 
 ### How do I register a server to another region?
 
-Backup data is sent to the datacenter of the vault in which the server is registered. The easiest way to change the datacenter is to uninstall and reinstall the agent, and then register the machine to a new vault in the region you need
+Backup data is sent to the datacenter of the vault in which the server is registered. The easiest way to change the datacenter is to uninstall and reinstall the agent, and then register the machine to a new vault in the region you need.
 
 ### Does the MARS agent support Windows Server 2012 deduplication?
 Yes. The MARS agent converts the deduplicated data to normal data when it prepares the backup operation. It then optimizes the data for backup, encrypts the data, and then sends the encrypted data to the vault.
@@ -75,7 +62,7 @@ When you rename a Windows machine, all currently configured backups are stopped.
 
 - You need to register the new machine name with the Backup vault.
 - When you register the new name with the vault, the first operation is a *full* backup.
-- If you need to recover data backed up to the vault with the old server name, use the option to restore to an alternate location in the Recover Data Wizard. [Learn more](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
+- If you need to recover data backed up to the vault with the old server name, use the option to restore to an alternate location in the Recover Data Wizard. [Learn more](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
 ### What is the maximum file path length for backup?
 The MARS agent relies on NTFS, and uses the filepath length specification limited by the [Windows API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). If the files you want to protect are longer than the allowed value, back up the parent folder or the disk drive.  
@@ -96,27 +83,40 @@ This warning can appear even though you've configured a backup policy, when the 
 The size of the cache folder determines the amount of data that you are backing up.
 - The cache folder volumes should have free space that equals at least 5-10% of the total size of backup data.
 - If the volume has less than 5% free space, either increase the volume size, or move the cache folder to a volume with enough space.
-- If you backup Windows System State, you would need an additional 30-35 GB of free space in the volume containing the cache folder
-### How do I change the cache location for the MARS agent?
+- If you backup Windows System State, you will need an additional 30-35 GB of free space in the volume containing the cache folder.
 
+### How to check if scratch folder is valid and accessible?
+
+1. By default scratch folder is located at `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+2. Make sure the path of your scratch folder location matches with the values of the registry key entries shown below:
+
+  | Registry path | Registry Key | Value |
+  | --- | --- | --- |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*New cache folder location* |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*New cache folder location* |
+
+### How do I change the cache location for the MARS agent?
 
 1. Run this command in an elevated command prompt to stop the Backup engine:
 
     ```PS C:\> Net stop obengine```
 
-2. Don't move the files. Instead, copy the cache space folder to a different drive that has sufficient space.
-3. Update the following registry entries with the path of the new cache folder.<br/>
+2. If you have configured System State backup, open Disk Management and unmount the disk(s) with names in the format `"CBSSBVol_<ID>"`.
+3. Don't move the files. Instead, copy the cache space folder to a different drive that has sufficient space.
+4. Update the following registry entries with the path of the new cache folder.<br/>
 
     | Registry path | Registry Key | Value |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*New cache folder location* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*New cache folder location* |
 
-4. Restart the Backup engine at an elevated command prompt:
+5. Restart the Backup engine at an elevated command prompt:
+
+    ```PS C:\> Net stop obengine```
 
     ```PS C:\> Net start obengine```
 
-5. After the backup finishes successfully using the new location, you can remove the original cache folder.
+6. Run an ad-hoc backup. After the backup finishes successfully using the new location, you can remove the original cache folder.
 
 
 ### Where should the cache folder be located?
@@ -138,8 +138,8 @@ The following attributes or their combinations are not supported for the cache f
 The cache folder and the metadata VHD do not have the necessary attributes for the Azure Backup agent.
 
 ### Is there a way to adjust the amount of bandwidth used for backup?
- 
-Yes, you can use the **Change Properties** option in the MARS agent to adjust the bandwidth and timing. [Learn more](backup-configure-vault.md#enable-network-throttling)**.
+
+Yes, you can use the **Change Properties** option in the MARS agent to adjust the bandwidth and timing. [Learn more](backup-configure-vault.md#enable-network-throttling).
 
 ## Restore
 

@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;milangada;
+ms.author: juliako
+ms.reviewer: milangada
 
 ---
 # How to scale encoding with .NET SDK

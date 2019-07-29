@@ -2,8 +2,8 @@
 title: Troubleshoot errors with Update Management
 description: Learn how to troubleshoot issues with Update Management
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation

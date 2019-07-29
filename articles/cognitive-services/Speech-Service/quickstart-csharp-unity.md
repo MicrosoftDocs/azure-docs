@@ -1,18 +1,20 @@
 ---
-title: 'Quickstart: Recognize speech, Unity - Speech Services'
+title: 'Quickstart: Recognize speech, Unity - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Use this guide to create a speech-to-text application with Unity and the Speech SDK for Unity (Beta). When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ---
 
 # Quickstart: Recognize speech with the Speech SDK for Unity (Beta)
+
+Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-csharp-unity.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -30,7 +32,7 @@ To complete this project, you'll need:
 
 * [Unity 2018.3 or later](https://store.unity.com/) with [Unity 2019.1 adding support for UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * For ARM64 support, install the [optional build tools for ARM64, and the Windows 10 SDK for ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
+     * For ARM64 support, install the [optional build tools for ARM64, and the Windows 10 SDK for ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)
 * A subscription key for the Speech Service. [Get one for free](get-started.md).
 * Access to your computer's microphone.
 

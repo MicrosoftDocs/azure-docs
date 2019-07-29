@@ -5,7 +5,7 @@ services: functions
 cloud: 
 documentationcenter: 
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 
 ms.assetid:
 ms.service: azure-functions

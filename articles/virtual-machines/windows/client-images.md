@@ -4,7 +4,7 @@ description: How to use Visual Studio subscription benefits to deploy Windows 7,
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4

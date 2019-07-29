@@ -1,13 +1,13 @@
 ---
 title: Restore Key Vault key and secret for encrypted VMs using Azure Backup
 description: Learn how to restore Key Vault key and secret in Azure Backup using PowerShell
-services: backup
+
 author: geetha
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.author: geetha
+ms.author: geg
 ---
 # Restore Key Vault key and secret for encrypted VMs using Azure Backup
 

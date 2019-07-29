@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 ---
-# Azure Data Box Heavy limits (preview)
 
+# Azure Data Box Heavy limits
 
 Consider these limits as you deploy and operate your Azure Data Box Heavy device. The following table describes these limits for the Data Box.
 

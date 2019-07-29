@@ -297,7 +297,7 @@ Delete the content of Index.cshtml in its entirety, and rebuild the file in the 
             {
                 // Display the hotel name and description.
                 @Html.TextAreaFor(m => Model.resultList.Results[i].Document.HotelName, new { @class = "box1" })
-                @Html.TextArea("desc", Model.resultList.Results[i].Document.Description, new { @class = "box2" })
+                @Html.TextArea($"desc{i}", Model.resultList.Results[i].Document.Description, new { @class = "box2" })
             }
         }
     }
