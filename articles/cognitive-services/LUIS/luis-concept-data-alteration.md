@@ -14,10 +14,10 @@ ms.author: diberry
 ---
 
 # Alter utterance data before or during prediction
-LUIS provides ways to manipulate the utterance before or during the prediction. These include fixing spelling, and fixing timezone issues for prebuild datetimeV2. 
+LUIS provides ways to manipulate the utterance before or during the prediction. These include [fixing spelling](luis-tutorial-bing-spellcheck.md), and fixing timezone issues for prebuilt [datetimeV2](luis-reference-prebuilt-datetimev2.md). 
 
 ## Correct spelling errors in utterance
-LUIS uses [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) to correct spelling errors in the utterance. LUIS needs the key associated with that service. Create the key, then add the key as a querystring parameter at the [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356). 
+LUIS uses [Bing Spell Check API V7](../spell-check/overview.md) to correct spelling errors in the utterance. LUIS needs the key associated with that service. Create the key, then add the key as a querystring parameter at the [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356). 
 
 You can also correct spelling errors in the **Test** panel by [entering the key](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key is kept as a session variable in the browser for the Test panel. Add the key to the Test panel in each browser session you want spelling corrected. 
 
@@ -48,7 +48,7 @@ When [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-se
 The Bing spell check API used in LUIS does not support a white-list of words to ignore during the spell check alterations. If you need to white-list words or acronyms, process the utterance in the client application with a white list before sending the utterance to LUIS for intent prediction.
 
 ## Change time zone of prebuilt datetimeV2 entity
-When a LUIS app uses the prebuilt datetimeV2 entity, a datetime value can be returned in the prediction response. The timezone of the request is used to determine the correct datetime to return. If the request is coming from a bot or another centralized application before getting to LUIS, correct the timezone LUIS uses. 
+When a LUIS app uses the prebuilt [datetimeV2](luis-reference-prebuilt-datetimev2.md) entity, a datetime value can be returned in the prediction response. The timezone of the request is used to determine the correct datetime to return. If the request is coming from a bot or another centralized application before getting to LUIS, correct the timezone LUIS uses. 
 
 ### Endpoint querystring parameter
 The timezone is corrected by adding the user's timezone to the [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) using the `timezoneOffset` param. The value of `timezoneOffset` should be the positive or negative number, in minutes, to alter the time.  
