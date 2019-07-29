@@ -61,6 +61,8 @@ You can view and manage the connections that were created by the logic apps runn
 
 1. To remove connections that you no longer need in your ISE, select those connections, and then select **Delete**. To confirm that you want to delete, select **Yes**.
 
+<a name="manage-api-connectors"></a>
+
 ## Manage API connectors
 
 You can view and manage the API connectors that are deployed to your ISE.
