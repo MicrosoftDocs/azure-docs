@@ -306,7 +306,7 @@ Now, change the URL to http://&lt;ip-address&gt;:8081/images/test.htm, replacing
 When no longer needed, remove the resource group, application gateway, and all related resources.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 ## Next steps
 
