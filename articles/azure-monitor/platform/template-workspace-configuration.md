@@ -181,7 +181,6 @@ The following template sample illustrates how to:
         "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
       }
     },
-    {
     "immediatePurgeDataOn30Days": {
       "type": "bool",
       "metadata": {
