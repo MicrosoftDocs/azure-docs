@@ -82,8 +82,8 @@ The name of this setting is `deviceToCloudUploadProperties`
 | ----- | ----- | ---- | ---- |
 | uploadOn | true, false | Set to `false` by default. If you want to turn the feature on, set this field to `true`. | `deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, OldestFirst | Allows you to choose the order in which the data is copied to Azure. Set to `OldestFirst` by default. The order is determined by last modified time of Blob | `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` is a connection string that allows you to specify the Azure Storage account to which you want your data uploaded. Specify `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Add appropriate EndpointSuffix of Azure where data will be uploaded, it varies for Global Azure, Government Azure, and Microsoft Azure Stack. | `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Allows you to Specify the container names you want to upload to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically assign the container name as `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. You can create template strings for target container name, check out the possible values column. <br>* %h -> IoT Hub Name (3-50 characters). <br>* %d -> IoT Edge Device ID (1 to 129 characters). <br>* %m -> Module Name (1 to 64 characters). <br>* %c -> Source Container Name (3 to 63 characters). <br><br>Maximum size of the container name is 63 characters, while automatically assigning the target container name if the size of container exceeds 63 characters it will trim each section (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) to 15 characters. | `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target: <targetName>` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` is a connection string that allows you to specify the storage account to which you want your data uploaded. Specify `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Add appropriate EndpointSuffix of Azure where data will be uploaded, it varies for Global Azure, Government Azure, and Microsoft Azure Stack. <br><br> You can choose to specify Azure Storage SAS connection string here. But you have to update this property when it expires.  | `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Allows you to specify the container names you want to upload to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically assign the container name as `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. You can create template strings for target container name, check out the possible values column. <br>* %h -> IoT Hub Name (3-50 characters). <br>* %d -> IoT Edge Device ID (1 to 129 characters). <br>* %m -> Module Name (1 to 64 characters). <br>* %c -> Source Container Name (3 to 63 characters). <br><br>Maximum size of the container name is 63 characters, while automatically assigning the target container name if the size of container exceeds 63 characters it will trim each section (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) to 15 characters. | `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target: <targetName>` |
 | deleteAfterUpload | true, false | Set to `false` by default. When it is set to `true`, it will automatically delete the data when upload to cloud storage is finished | `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
 
 
@@ -96,6 +96,23 @@ The name of this setting is `deviceAutoDeleteProperties`
 | deleteOn | true, false | Set to `false` by default. If you want to turn the feature on, set this field to `true`. | `deviceAutoDeleteProperties__deleteOn={false,true}` |
 | deleteAfterMinutes | `<minutes>` | Specify the time in minutes. The module will automatically delete your blobs from local storage when this value expires | `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading to cloud storage if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires. Note: For this property to work uploadOn should be set to true| `deviceAutoDeleteProperties__retainWhileUploading={false,true}` |
+
+## Using SMB share as your local storage
+You can provide SMB share as your local storage path, when you deploy windows container of this module on Windows host.
+You can run `New-SmbGlobalMapping` PowerShell command to map the SMB share locally on the IoT device running Windows. Make sure the IoT device can read/write to the remote SMB share.
+
+Below are the configuration steps:
+```PowerShell
+$creds = Get-Credential
+New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
+```
+Example: <br>
+`$creds = Get-Credentials` <br>
+`New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: `
+
+This command will use the credentials to authenticate with the remote SMB server. Then, map the remote share path to G: drive letter (can be any other available drive letter). The IoT device now have the data volume mapped to a path on the G: drive. 
+
+For your deployment the value of `<storage directory bind>` can be **G:/ContainerData:C:/BlobRoot**.
 
 ## Configure log files
 
@@ -216,4 +233,4 @@ You can reach us at absiotfeedback@microsoft.com
 
 ## Next steps
 
-Learn more about [Deploy Azure Blob Storage on IoT Edge](how-to-deploy-blob.md)
+Learn how to [Deploy Azure Blob Storage on IoT Edge](how-to-deploy-blob.md)
