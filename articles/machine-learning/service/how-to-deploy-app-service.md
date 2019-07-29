@@ -23,9 +23,9 @@ Learn how to deploy a model from the Azure Machine Learning service as a web app
 
 With Azure Machine Learning service, you can create Docker images from trained machine learning models. This image contains a web service that receives data, submits it to the model, and then returns the response. Azure App Service can be used to deploy the image, and provides the following features:
 
-* __SSL support__ for secure communications between clients and the service.
-* __Scale out__ to multiple instances without having to redeploy.
-* __Two factor authentication__ for enhanced security.
+* [SSL support](/azure/app-service/app-service-web-ssl-cert-load) for secure communications between clients and the service.
+* [Scale out](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) to multiple instances without having to redeploy.
+* [Advanced authentication](/azure/app-service/configure-authentication-provider-aad) for enhanced security.
 
 For more information on features provided by Azure App Service, see the [App Service overview](/azure/app-service/overview).
 
