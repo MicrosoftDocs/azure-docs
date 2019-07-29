@@ -16,7 +16,7 @@ ms.date: 07/02/2019
 ms.author: jingwang
 
 ---
-# Copy data from Teradata using Azure Data Factory
+# Copy data from Teradata by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 >
 > * [Version 1](v1/data-factory-onprem-teradata-connector.md)
@@ -158,7 +158,7 @@ To copy data from Teradata, the following properties are supported:
 
 > [!NOTE]
 >
-> `RelationalTable` type dataset is still supported. Going forward, however, you should use the new one.
+> `RelationalTable` type dataset is still supported. However, we recommend that you use the new dataset.
 
 **Previous payload:**
 
@@ -195,14 +195,14 @@ To copy data from Teradata, the following properties are supported in the copy a
 | partitionOptions | Specifies the data partitioning options used to load data from Teradata. <br>Allow values are: **None** (default), **Hash** and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), also configure the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. This determines the parallel degree to concurrently load data from a Teradata database. For example, you might set this to 4. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when partition option isn't `None`. | No |
 | partitionColumnName | Specify the name of the source column **in integer type** that will be used by range partitioning for parallel copy. If not specified, the primary key of the table is auto-detected and used as the partition column. <br>Apply when the partition option is `Hash` or `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfHashPartitionCondition` or  `?AdfRangePartitionColumnName` in WHERE clause. See example in [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
-| partitionUpperBound | Maximum value of the partition column to copy data out. <br>Apply when partition option is `DynamicRange`. If you use query to retrieve source data, hook `?AdfRangePartitionUpbound` in the WHERE clause. For an example, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
-| PartitionLowerBound | Minimum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionLowbound` in the WHERE clause. For an example, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
+| partitionUpperBound | The maximum value of the partition column to copy data out. <br>Apply when partition option is `DynamicRange`. If you use query to retrieve source data, hook `?AdfRangePartitionUpbound` in the WHERE clause. For an example, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
+| PartitionLowerBound | The minimum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionLowbound` in the WHERE clause. For an example, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
 
 > [!NOTE]
 >
-> `RelationalSource` type copy source is still supported, but it doesn't support the new built-in parallel load from Teradata (partition options). Going forward, you should use the new one.
+> `RelationalSource` type copy source is still supported, but it doesn't support the new built-in parallel load from Teradata (partition options). However, we recommend that you use the new dataset.
 
-**Example: copy data using a basic query without partition**
+**Example: copy data by using a basic query without partition**
 
 ```json
 "activities":[
