@@ -83,7 +83,7 @@ If your app isn't located in the resource tenant, you'll get an error message th
 
 For more information, see [What's new for authentication?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes).
 
-> [NOTE]
+> [!NOTE]
 > The existing consent between the client and the API is not required and apps should still be doing their own authorization checks.
 
 ---
