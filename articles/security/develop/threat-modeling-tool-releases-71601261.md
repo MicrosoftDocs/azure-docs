@@ -37,7 +37,7 @@ Based on customer feedback, an option has been added to the tool to enable or di
 
 The option to toggle model validation on and off can be found in the File->Settings->Options menu. The default value for this setting is Disabled.
 
-![Model Validation Option](./media/azure-security-threat-modeling-tool-releases-71601261/tmt_model_validation_option.png)
+![Model Validation Option](./media/threat-modeling-tool-releases-71601261/tmt_model_validation_option.png)
 
 ## System requirements
 
