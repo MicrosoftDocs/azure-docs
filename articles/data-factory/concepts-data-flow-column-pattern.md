@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ---
 
-# Azure data factory mapping data flows column patterns
+# Mapping data flows column patterns
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
