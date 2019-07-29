@@ -29,15 +29,15 @@ This article assumes you've already deployed Report Services and [enabled Appl
 
 - Enabling Application Proxy requires installing a connector on a Windows server and completing the [prerequisites](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) so that the connector can communicate with Azure AD services.  
 - When publishing Power BI, we recommended you use the same internal and external domains. To learn more about custom domains, see [Working with custom domains in Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
-- This integration is currently only available for the **Power BI Mobile iOS** application. Android support is coming.
+- This integration is currently only available for the **Power BI Mobile iOS** application.
 
 ## Step 1: Configure Kerberos Constrained Delegation (KCD)
 
-For on-premises applications that use Windows authentication, you can achieve single sign-on (SSO) with the Kerberos authentication protocol and a feature called Kerberos constrained delegation (KCD). KCD, when configured, allows the Application Proxy connector to obtain a Windows token for a user, even if the user hasn’t signed into Windows directly. To learn more about KCD, see [Kerberos Constrained Delegation Overview](https://technet.microsoft.com/library/jj553400.aspx) and [Kerberos Constrained Delegation for single sign-on to your apps with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
+For on-premises applications that use Windows authentication, you can achieve single sign-on (SSO) with the Kerberos authentication protocol and a feature called Kerberos constrained delegation (KCD). When configured, KCD allows the Application Proxy connector to obtain a Windows token for a user, even if the user hasn’t signed into Windows directly. To learn more about KCD, see [Kerberos Constrained Delegation Overview](https://technet.microsoft.com/library/jj553400.aspx) and [Kerberos Constrained Delegation for single sign-on to your apps with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
 There isn’t much to configure on the Reporting Services side. Just be sure to have a valid Service Principal Name (SPN) to enable the proper Kerberos authentication to occur. Also make sure the Reporting Services server is enabled for Negotiate authentication.
 
-To set up KCD for Reporting services, use the steps in the following sections.
+To set up KCD for Reporting services, continue with the following steps.
 
 ### Configure the Service Principal Name (SPN)
 
@@ -58,9 +58,8 @@ To enable a report server to use Kerberos authentication, configure the Authenti
 
 For more information, see [Modify a Reporting Services Configuration File](https://msdn.microsoft.com/library/bb630448.aspx) and [Configure Windows Authentication on a Report Server](https://msdn.microsoft.com/library/cc281253.aspx).
 
-### Ensure the Connector is trusted
-
-Ensure the Connector is trusted for delegation to the SPN added to the Reporting Services application pool account. Configure KCD so that the Azure AD Application Proxy service can delegate user identities to the Reporting Services application pool account. Configure KCD by enabling the Application Proxy connector to retrieve Kerberos tickets for your users who have been authenticated in Azure AD. Then that server passes the context to the target application, or Reporting Services in this case.
+### Ensure the Connector is trusted for delegation to the SPN added to the Reporting Services application pool account
+Configure KCD so that the Azure AD Application Proxy service can delegate user identities to the Reporting Services application pool account. Configure KCD by enabling the Application Proxy connector to retrieve Kerberos tickets for your users who have been authenticated in Azure AD. Then that server passes the context to the target application, or Reporting Services in this case.
 
 To configure KCD, repeat the following steps for each connector machine:
 
@@ -69,8 +68,8 @@ To configure KCD, repeat the following steps for each connector machine:
 3. Double-click the computer, and then select the **Delegation** tab.
 4. Set the delegation settings to **Trust this computer for delegation to the specified services only**. Then, select **Use any authentication protocol**.
 5. Select **Add**, and then select **Users or Computers**.
-6. Enter the service account that you're using for Reporting Services. Use the account you added the SPN to within the Reporting Services configuration.
-7. Click **OK**. Click **OK** again to save the changes.
+6. Enter the service account that you're using for Reporting Services. This is the account you added the SPN to within the Reporting Services configuration.
+7. Click **OK**. To save the changes, click **OK** again.
 
 For more information, see [Kerberos Constrained Delegation for single sign-on to your apps with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
@@ -88,13 +87,13 @@ Now you're ready to configure Azure AD Application Proxy.
 
 2. Once your app is published, configure the single sign-on settings with the following steps:
 
-    a. On the application page in the portal, select Single sign-on.
+   a. On the application page in the portal, select **Single sign-on**.
 
-    b. For Single Sign-on Mode, select Integrated Windows Authentication.
+   b. For **Single Sign-on Mode**, select **Integrated Windows Authentication**.
 
-    c. Set Internal Application SPN to the value that you set earlier.  
+   c. Set **Internal Application SPN** to the value that you set earlier.  
 
-    d. Choose the **Delegated Login Identity** for the connector to use on behalf of your users. For more information, see [Working with different on-premises and cloud identities](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
+   d. Choose the **Delegated Login Identity** for the connector to use on behalf of your users. For more information, see [Working with different on-premises and cloud identities](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
 
    e. Click **Save** to save your changes.
 
@@ -104,29 +103,28 @@ To finish setting up your application, go to **the Users and groups** sectio
 
 Native apps are programs developed to use on a platform or device. Before the Power BI mobile app can connect and access an API, you must register it in Azure AD.  
 
-1. Register the application in Azure AD by following the steps in [Step 2: Register you native application](application-proxy-configure-native-client-application.md#step-2-register-your-native-application).
+1. Register the application in Azure AD by following [Step 2 in How to enable native client applications to interact with proxy applications](application-proxy-configure-native-client-application.md#step-2-register-your-native-application).
 
-   Add the following Redirect URIs when registering the app:
-   - Entries for Power BI Mobile – iOS:
-   - msauth://code/mspbi-adal://com.microsoft.powerbimobile
-   - msauth://code/mspbi-adalms://com.microsoft.powerbimobilems
-   - mspbi-adal://com.microsoft.powerbimobile
-   - mspbi-adalms://com.microsoft.powerbimobilems
+   When registering the app for Power BI Mobile iOS, add the following Redirect URIs:
+   - `msauth://code/mspbi-adal://com.microsoft.powerbimobile`
+   - `msauth://code/mspbi-adalms://com.microsoft.powerbimobilems`
+   - `mspbi-adal://com.microsoft.powerbimobile`
+   - `mspbi-adalms://com.microsoft.powerbimobilems`
 
    > [!IMPORTANT]
    > The Redirect URIs must be added for the application to work correctly.
 
 Now that you've registered your native application, you can give it access to other applications in your directory, in this case to access Report Services published through Application Proxy. Follow the steps in [Step 3: Grant access to your proxy application](application-proxy-configure-native-client-application.md#step-3-grant-access-to-your-proxy-application).
 
-## Step 4: Connecting from the Power BI Mobile App
+## Step 4: Connect from the Power BI Mobile App
 
-1. Within the Power BI mobile app, you'll want to connect to your Reporting Services instance. To do that, supply the **External URL** for the application you published through Application Proxy.
+1. In the Power BI mobile app, connect to your Reporting Services instance. To do this, enter the **External URL** for the application you published through Application Proxy.
 
    ![Power BI mobile app with External URL](media/application-proxy-integrate-with-power-bi/app-proxy-power-bi-mobile-app.png)
 
-2. When you select **Connect**, you'll be directed to the Azure Active Directory sign in page. Enter valid credentials for your user.
+2. Select **Connect**. You'll be directed to the Azure Active Directory sign in page.
 
-3. After you select **Sign in**, you'll see the elements from your Reporting Services server.
+3. Enter valid credentials for your user and select **Sign in**. You'll see the elements from your Reporting Services server.
 
 ## Step 5: Configure Intune policy for managed devices (optional)
 
@@ -146,7 +144,7 @@ You can use Microsoft Intune to manage the client apps that your company's workf
 
 ## Troubleshooting
 
-Application returns an error page after trying to load a report for over a few minutes. By default, Application Proxy supports applications that take up to 85 seconds to respond to a request. To lengthen this setting to 180 seconds, select the backend timeout to **Long** in the App Proxy settings page for the application. For tips on how to create fast and reliable reports see [Power BI Reports Best Practices](https://docs.microsoft.com/power-bi/power-bi-reports-performance).
+If the application returns an error page after trying to load a report for more than a few minutes, you might need to change the timeout setting. By default, Application Proxy supports applications that take up to 85 seconds to respond to a request. To lengthen this setting to 180 seconds, select the back-end timeout to **Long** in the App Proxy settings page for the application. For tips on how to create fast and reliable reports see [Power BI Reports Best Practices](https://docs.microsoft.com/power-bi/power-bi-reports-performance).
 
 ## Next steps
 
