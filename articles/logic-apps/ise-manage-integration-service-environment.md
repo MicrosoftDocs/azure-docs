@@ -63,7 +63,7 @@ You can view and manage the connections that were created by the logic apps runn
 
 <a name="manage-api-connectors"></a>
 
-## Manage API connectors
+## Manage ISE connectors
 
 You can view and manage the API connectors that are deployed to your ISE.
 
