@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 07/29/2019
 ms.author: b-juche
 ---
 # Azure NetApp Files SDKs
