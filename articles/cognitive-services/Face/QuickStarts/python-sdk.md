@@ -113,15 +113,15 @@ The following code takes a single detected face and searches a set of other face
 
 ### Create and train a person group
 
-The following code creates a 
+The following code creates a **PersonGroup** with three different **Person** objects. It associates each **Person** with a set of example images, and then it trains to be able to recognize each person. 
 
-You first need to 
+In order to step through this scenario, you need three sets of face images corresponding to three different people. The code below defines three **Person** objects and looks for image files that start with `adult1`, `adult2`, and `child`.
 
-variables:
+Once you've set up your images, define a label for the **PersonGroup** object you'll create.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroupvars)]
 
-Then code:
+Then, add the following code to the bottom of your script.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup)]
 
