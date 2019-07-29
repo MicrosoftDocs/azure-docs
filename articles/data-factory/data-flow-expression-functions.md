@@ -75,30 +75,30 @@ Returns the angle in radians between the positive x-axis of a plane and the poin
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Gets the average of values of a column
-* ``avg(sales) -> ``
+* ``avg(sales)``
 *********************************
 ### <code>avgIf</code>
 <code><b>avgIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Based on a criteria gets the average of values of a column
-* ``avgIf(region == 'West', sales) -> ``
+* ``avgIf(region == 'West', sales)``
 *********************************
 ### <code>byName</code>
 <code><b>byName(<i>&lt;column name&gt;</i> : string) => any</b></code><br/><br/>
 Selects a column value by name in the stream. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...).  Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions
-* ``toString(byName('parent')) -> ``
-* ``toLong(byName('income')) -> ``
-* ``toBoolean(byName('foster')) -> ``
-* ``toLong(byName($debtCol)) -> ``
-* ``toString(byName('Bogus Column')) -> ``
+* ``toString(byName('parent'))``
+* ``toLong(byName('income'))``
+* ``toBoolean(byName('foster'))``
+* ``toLong(byName($debtCol))``
+* ``toString(byName('Bogus Column'))``
 *********************************
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
 Selects a column value by its relative position(1 based) in the stream. If the position is out of bounds it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...)Computed inputs are not supported but you can use parameter substitutions
-* ``toString(byPosition(1)) -> ``
-* ``toDecimal(byPosition(2), 10, 2) -> ``
-* ``toBoolean(byName(4)) -> ``
-* ``toString(byName($colName)) -> ``
-* ``toString(byPosition(1234)) -> ``
+* ``toString(byPosition(1))``
+* ``toDecimal(byPosition(2), 10, 2)``
+* ``toBoolean(byName(4))``
+* ``toString(byName($colName))``
+* ``toString(byPosition(1234))``
 *********************************
 ### <code>case</code>
 <code><b>case(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, <i>&lt;false_expression&gt;</i> : any, ...) => any</b></code><br/><br/>
@@ -161,40 +161,40 @@ Calculates a hyperbolic cosine of a value
 ### <code>count</code>
 <code><b>count([<i>&lt;value1&gt;</i> : any]) => long</b></code><br/><br/>
 Gets the aggregate count of values. If the optional column(s) is specified, it ignores NULL values in the count
-* ``count(custId) -> ``
-* ``count(custId, custName) -> ``
-* ``count() -> ``
-* ``count(iif(isNull(custId), 1, NULL)) -> ``
+* ``count(custId)``
+* ``count(custId, custName)``
+* ``count()``
+* ``count(iif(isNull(custId), 1, NULL))``
 *********************************
 ### <code>countDistinct</code>
 <code><b>countDistinct(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => long</b></code><br/><br/>
 Gets the aggregate count of distinct values of a set of columns
-* ``countDistinct(custId, custName) -> ``
+* ``countDistinct(custId, custName)``
 *********************************
 ### <code>countIf</code>
 <code><b>countIf(<i>&lt;value1&gt;</i> : boolean, [<i>&lt;value2&gt;</i> : any]) => long</b></code><br/><br/>
 Based on a criteria gets the aggregate count of values. If the optional column is specified, it ignores NULL values in the count
-* ``countIf(state == 'CA' && commission < 10000, name) -> ``
+* ``countIf(state == 'CA' && commission < 10000, name)``
 *********************************
 ### <code>covariancePopulation</code>
 <code><b>covariancePopulation(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Gets the population covariance between two columns
-* ``covariancePopulation(sales, profit) -> ``
+* ``covariancePopulation(sales, profit)``
 *********************************
 ### <code>covariancePopulationIf</code>
 <code><b>covariancePopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number, <i>&lt;value3&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the population covariance of two columns
-* ``covariancePopulationIf(region == 'West', sales) -> ``
+* ``covariancePopulationIf(region == 'West', sales)``
 *********************************
 ### <code>covarianceSample</code>
 <code><b>covarianceSample(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Gets the sample covariance of two columns
-* ``covarianceSample(sales, profit) -> ``
+* ``covarianceSample(sales, profit)``
 *********************************
 ### <code>covarianceSampleIf</code>
 <code><b>covarianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number, <i>&lt;value3&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the sample covariance of two columns
-* ``covarianceSampleIf(region == 'West', sales, profit) -> ``
+* ``covarianceSampleIf(region == 'West', sales, profit)``
 *********************************
 ### <code>crc32</code>
 <code><b>crc32(<i>&lt;value1&gt;</i> : any, ...) => long</b></code><br/><br/>
@@ -204,7 +204,7 @@ Calculates the CRC32 hash of set of column of varying primitive datatypes given 
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>
 The CumeDist function computes the position of a value relative to all values in the partition. The result is the number of rows preceding or equal to the current row in the ordering of the partition divided by the total number of rows in the window partition. Any tie values in the  ordering will evaluate to the same position.
-* ``cumeDist() -> ``
+* ``cumeDist()``
 *********************************
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
@@ -246,7 +246,7 @@ Converts radians to degrees
 ### <code>denseRank</code>
 <code><b>denseRank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
 Computes the rank of a value in a group of values. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will not produce gaps in the sequence. Dense Rank works even when data is not sorted and looks for change in values
-* ``denseRank(salesQtr, salesAmt) -> ``
+* ``denseRank(salesQtr, salesAmt)``
 *********************************
 ### <code>divide</code>
 <code><b>divide(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -292,8 +292,8 @@ Always returns a false value. Use the function syntax(false()) if there is a col
 ### <code>first</code>
 <code><b>first(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
 Gets the first value of a column group. If the second parameter ignoreNulls is omitted, it is assumed false
-* ``first(sales) -> ``
-* ``first(sales, false) -> ``
+* ``first(sales)``
+* ``first(sales, false)``
 *********************************
 ### <code>floor</code>
 <code><b>floor(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -365,32 +365,32 @@ Finds the position(1 based) of the substring within a string. 0 is returned if n
 ### <code>isDelete</code>
 <code><b>isDelete([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
 Checks if the row is marked for delete. For transformations taking more than one input stream you can pass the (1-based) index of the stream. Default value for the stream index is 1
-* ``isDelete() -> ``
-* ``isDelete(1) -> ``
+* ``isDelete()``
+* ``isDelete(1)``
 *********************************
 ### <code>isError</code>
 <code><b>isError([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
 Checks if the row is marked as error. For transformations taking more than one input stream you can pass the (1-based) index of the stream. Default value for the stream index is 1
-* ``isError() -> ``
-* ``isError(1) -> ``
+* ``isError()``
+* ``isError(1)``
 *********************************
 ### <code>isIgnore</code>
 <code><b>isIgnore([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
 Checks if the row is marked to be ignored. For transformations taking more than one input stream you can pass the (1-based) index of the stream. Default value for the stream index is 1
-* ``isIgnore() -> ``
-* ``isIgnore(1) -> ``
+* ``isIgnore()``
+* ``isIgnore(1)``
 *********************************
 ### <code>isInsert</code>
 <code><b>isInsert([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
 Checks if the row is marked for insert. For transformations taking more than one input stream you can pass the (1-based) index of the stream. Default value for the stream index is 1
-* ``isInsert() -> ``
-* ``isInsert(1) -> ``
+* ``isInsert()``
+* ``isInsert(1)``
 *********************************
 ### <code>isMatch</code>
 <code><b>isMatch([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
 Checks if the row is matched at lookup. For transformations taking more than one input stream you can pass the (1-based) index of the stream. Default value for the stream index is 1
-* ``isMatch() -> ``
-* ``isMatch(1) -> ``
+* ``isMatch()``
+* ``isMatch(1)``
 *********************************
 ### <code>isNull</code>
 <code><b>isNull(<i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -401,30 +401,30 @@ Checks if the value is NULL
 ### <code>isUpdate</code>
 <code><b>isUpdate([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
 Checks if the row is marked for update. For transformations taking more than one input stream you can pass the (1-based) index of the stream. Default value for the stream index is 1
-* ``isUpdate() -> ``
-* ``isUpdate(1) -> ``
+* ``isUpdate()``
+* ``isUpdate(1)``
 *********************************
 ### <code>kurtosis</code>
 <code><b>kurtosis(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Gets the kurtosis of a column
-* ``kurtosis(sales) -> ``
+* ``kurtosis(sales)``
 *********************************
 ### <code>kurtosisIf</code>
 <code><b>kurtosisIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the kurtosis of a column
-* ``kurtosisIf(region == 'West', sales) -> ``
+* ``kurtosisIf(region == 'West', sales)``
 *********************************
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
 Gets the value of the first parameter evaluated n rows before the current row. The second parameter is the number of rows to look back and the default value is 1. If there are not as many rows a value of null is returned unless a default value is specified
-* ``lag(amount, 2) -> ``
-* ``lag(amount, 2000, 100) -> ``
+* ``lag(amount, 2)``
+* ``lag(amount, 2000, 100)``
 *********************************
 ### <code>last</code>
 <code><b>last(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
 Gets the last value of a column group. If the second parameter ignoreNulls is omitted, it is assumed false
-* ``last(sales) -> ``
-* ``last(sales, false) -> ``
+* ``last(sales)``
+* ``last(sales, false)``
 *********************************
 ### <code>lastDayOfMonth</code>
 <code><b>lastDayOfMonth(<i>&lt;value1&gt;</i> : datetime) => date</b></code><br/><br/>
@@ -434,8 +434,8 @@ Gets the last date of the month given a date
 ### <code>lead</code>
 <code><b>lead(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look after&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
 Gets the value of the first parameter evaluated n rows after the current row. The second parameter is the number of rows to look forward and the default value is 1. If there are not as many rows a value of null is returned unless a default value is specified
-* ``lead(amount, 2) -> ``
-* ``lead(amount, 2000, 100) -> ``
+* ``lead(amount, 2)``
+* ``lead(amount, 2000, 100)``
 *********************************
 ### <code>least</code>
 <code><b>least(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
@@ -521,12 +521,12 @@ Left trims a string of leading characters. If second parameter is unspecified, i
 ### <code>max</code>
 <code><b>max(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
 Gets the maximum value of a column
-* ``max(sales) -> ``
+* ``max(sales)``
 *********************************
 ### <code>maxIf</code>
 <code><b>maxIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Based on a criteria, gets the maximum value of a column
-* ``maxIf(region == 'West', sales) -> ``
+* ``maxIf(region == 'West', sales)``
 *********************************
 ### <code>md5</code>
 <code><b>md5(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
@@ -536,12 +536,12 @@ Calculates the MD5 digest of set of column of varying primitive datatypes and re
 ### <code>mean</code>
 <code><b>mean(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Gets the mean of values of a column. Same as AVG
-* ``mean(sales) -> ``
+* ``mean(sales)``
 *********************************
 ### <code>meanIf</code>
 <code><b>meanIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Based on a criteria gets the mean of values of a column. Same as avgIf
-* ``meanIf(region == 'West', sales) -> ``
+* ``meanIf(region == 'West', sales)``
 *********************************
 ### <code>millisecond</code>
 <code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
@@ -551,12 +551,12 @@ Gets the millisecond value of a date. You can pass an optional timezone in the f
 ### <code>min</code>
 <code><b>min(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
 Gets the minimum value of a column
-* ``min(sales) -> ``
+* ``min(sales)``
 *********************************
 ### <code>minIf</code>
 <code><b>minIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Based on a criteria, gets the minimum value of a column
-* ``minIf(region == 'West', sales) -> ``
+* ``minIf(region == 'West', sales)``
 *********************************
 ### <code>minus</code>
 <code><b>minus(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -599,8 +599,8 @@ Multiplies pair of numbers. Same as the * operator
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
 The NTile function divides the rows for each window partition into `n` buckets ranging from 1 to at most `n`. Bucket values will differ by at most 1. If the number of rows in the partition does not divide evenly into the number of buckets, then the remainder values are distributed one per bucket, starting with the first bucket. The NTile function is useful for the calculation of tertiles, quartiles, deciles, and other common summary statistics. The function calculates two variables during initialization: The size of a regular bucket will have one extra row added to it. Both variables are based on the size of the current partition. During the calculation process the function keeps track of the current row number, the current bucket number, and the row number at which the bucket will change (bucketThreshold). When the current row number reaches bucket threshold, the bucket value is increased by one and the threshold is increased by the bucket size (plus one extra if the current bucket is padded).
-* ``nTile() -> ``
-* ``nTile(numOfBuckets) -> ``
+* ``nTile()``
+* ``nTile(numOfBuckets)``
 *********************************
 ### <code>negate</code>
 <code><b>negate(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -657,7 +657,7 @@ Raises one number to the power of another
 ### <code>rank</code>
 <code><b>rank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
 Computes the rank of a value in a group of values. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will produce gaps in the sequence. Rank works even when data is not sorted and looks for change in values
-* ``rank(salesQtr, salesAmt) -> ``
+* ``rank(salesQtr, salesAmt)``
 *********************************
 ### <code>reduce</code>
 <code><b>reduce(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : binaryfunction, <i>&lt;value4&gt;</i> : unaryfunction) => any</b></code><br/><br/>
@@ -731,7 +731,7 @@ Rounds a number given an optional scale and an optional rounding mode. If the sc
 ### <code>rowNumber</code>
 <code><b>rowNumber() => integer</b></code><br/><br/>
 Assigns a sequential row numbering for rows in a window starting with 1
-* ``rowNumber() -> ``
+* ``rowNumber()``
 *********************************
 ### <code>rpad</code>
 <code><b>rpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
@@ -774,12 +774,12 @@ Calculates a hyperbolic sine value
 ### <code>skewness</code>
 <code><b>skewness(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Gets the skewness of a column
-* ``skewness(sales) -> ``
+* ``skewness(sales)``
 *********************************
 ### <code>skewnessIf</code>
 <code><b>skewnessIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the skewness of a column
-* ``skewnessIf(region == 'West', sales) -> ``
+* ``skewnessIf(region == 'West', sales)``
 *********************************
 ### <code>slice</code>
 <code><b>slice(<i>&lt;array to slice&gt;</i> : array, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of items&gt;</i> : integral]) => array</b></code><br/><br/>
@@ -824,32 +824,32 @@ Checks if the string starts with the supplied string
 ### <code>stddev</code>
 <code><b>stddev(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Gets the standard deviation of a column
-* ``stdDev(sales) -> ``
+* ``stdDev(sales)``
 *********************************
 ### <code>stddevIf</code>
 <code><b>stddevIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the standard deviation of a column
-* ``stddevIf(region == 'West', sales) -> ``
+* ``stddevIf(region == 'West', sales)``
 *********************************
 ### <code>stddevPopulation</code>
 <code><b>stddevPopulation(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Gets the population standard deviation of a column
-* ``stddevPopulation(sales) -> ``
+* ``stddevPopulation(sales)``
 *********************************
 ### <code>stddevPopulationIf</code>
 <code><b>stddevPopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the population standard deviation of a column
-* ``stddevPopulationIf(region == 'West', sales) -> ``
+* ``stddevPopulationIf(region == 'West', sales)``
 *********************************
 ### <code>stddevSample</code>
 <code><b>stddevSample(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Gets the sample standard deviation of a column
-* ``stddevSample(sales) -> ``
+* ``stddevSample(sales)``
 *********************************
 ### <code>stddevSampleIf</code>
 <code><b>stddevSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the sample standard deviation of a column
-* ``stddevSampleIf(region == 'West', sales) -> ``
+* ``stddevSampleIf(region == 'West', sales)``
 *********************************
 ### <code>subDays</code>
 <code><b>subDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
@@ -872,24 +872,24 @@ Extracts a substring of a certain length from a position. Position is 1 based. I
 ### <code>sum</code>
 <code><b>sum(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Gets the aggregate sum of a numeric column
-* ``sum(col) -> ``
+* ``sum(col)``
 *********************************
 ### <code>sumDistinct</code>
 <code><b>sumDistinct(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Gets the aggregate sum of distinct values of a numeric column
-* ``sumDistinct(col) -> ``
+* ``sumDistinct(col)``
 *********************************
 ### <code>sumDistinctIf</code>
 <code><b>sumDistinctIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column
-* ``sumDistinctIf(state == 'CA' && commission < 10000, sales) -> ``
-* ``sumDistinctIf(true, sales) -> ``
+* ``sumDistinctIf(state == 'CA' && commission < 10000, sales)``
+* ``sumDistinctIf(true, sales)``
 *********************************
 ### <code>sumIf</code>
 <code><b>sumIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column
-* ``sumIf(state == 'CA' && commission < 10000, sales) -> ``
-* ``sumIf(true, sales) -> ``
+* ``sumIf(state == 'CA' && commission < 10000, sales)``
+* ``sumIf(true, sales)``
 *********************************
 ### <code>tan</code>
 <code><b>tan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -1005,8 +1005,8 @@ Always returns a true value. Use the function syntax(true()) if there is a colum
 ### <code>typeMatch</code>
 <code><b>typeMatch(<i>&lt;type&gt;</i> : string, <i>&lt;base type&gt;</i> : string) => boolean</b></code><br/><br/>
 Matches the type of the column. Can only be used in pattern expressions.number matches short, integer, long, double, float or decimal, integral matches short, integer, long, fractional matches double, float, decimal and datetime matches date or timestamp type
-* ``typeMatch(type, 'number') -> ``
-* ``typeMatch('date', 'datetime') -> ``
+* ``typeMatch(type, 'number')``
+* ``typeMatch('date', 'datetime')``
 *********************************
 ### <code>upper</code>
 <code><b>upper(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -1016,32 +1016,32 @@ Uppercases a string
 ### <code>variance</code>
 <code><b>variance(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Gets the variance of a column
-* ``variance(sales) -> ``
+* ``variance(sales)``
 *********************************
 ### <code>varianceIf</code>
 <code><b>varianceIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the variance of a column
-* ``varianceIf(region == 'West', sales) -> ``
+* ``varianceIf(region == 'West', sales)``
 *********************************
 ### <code>variancePopulation</code>
 <code><b>variancePopulation(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Gets the population variance of a column
-* ``variancePopulation(sales) -> ``
+* ``variancePopulation(sales)``
 *********************************
 ### <code>variancePopulationIf</code>
 <code><b>variancePopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the population variance of a column
-* ``variancePopulationIf(region == 'West', sales) -> ``
+* ``variancePopulationIf(region == 'West', sales)``
 *********************************
 ### <code>varianceSample</code>
 <code><b>varianceSample(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Gets the unbiased variance of a column
-* ``varianceSample(sales) -> ``
+* ``varianceSample(sales)``
 *********************************
 ### <code>varianceSampleIf</code>
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Based on a criteria, gets the unbiased variance of a column
-* ``varianceSampleIf(region == 'West', sales) -> ``
+* ``varianceSampleIf(region == 'West', sales)``
 *********************************
 ### <code>weekOfYear</code>
 <code><b>weekOfYear(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
