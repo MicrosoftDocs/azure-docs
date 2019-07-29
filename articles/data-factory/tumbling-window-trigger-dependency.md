@@ -74,7 +74,7 @@ The following table provides the list of attributes needed to define a Tumbling 
 | **Property Name** | **Description**  | **Type** | **Required** |
 |---|---|---|---|
 | type  | All the existing tumbling window triggers are displayed in this drop down. Choose the trigger to take dependency on.  | TumblingWindowTriggerDependencyReference or SelfDependencyTumblingWindowTriggerReference | Yes |
-| offset | Offset of the dependency trigger. Provide a value in time span format and both negative and positive offsets are allowed. This property is mandatory if the trigger is depending on itself and in all other cases it is optional. Note that self-dependency should always be a negative offset. If no value specified, the window is the same as the trigger itself. | Timespan<br/>(hh:mm:ss) | Self-Dependency: Yes<br/>Other: No |
+| offset | Offset of the dependency trigger. Provide a value in time span format and both negative and positive offsets are allowed. This property is mandatory if the trigger is depending on itself and in all other cases it is optional. Self-dependency should always be a negative offset. If no value specified, the window is the same as the trigger itself. | Timespan<br/>(hh:mm:ss) | Self-Dependency: Yes<br/>Other: No |
 | size | Size of the dependency tumbling window. Provide a positive timespan value. This property is optional. | Timespan<br/>(hh:mm:ss) | No  |
 
 > [!NOTE]
@@ -134,7 +134,7 @@ Below are illustrations of scenarios and usage of tumbling window dependency pro
 
 ### Dependency on another tumbling window trigger
 
-A daily telemetry processing job depending on another daily job aggregating the last 7 days output and generates 7-day rolling window streams:
+A daily telemetry processing job depending on another daily job aggregating the last seven days output and generates seven day rolling window streams:
 
 ![Dependency example](media/tumbling-window-trigger-dependency/tumbling-window-dependency05.png "Dependency example")
 
