@@ -81,7 +81,34 @@ This problem may have several causes.
 
 1. The password validation algorithm may actually be working as expected. See [How are passwords evaluated](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
-## Directory Services Repair Mode
+## Ntdsutil.exe is unable to set a new Directory Services Repair Mode password
+
+Active Directory will always validate a new DSRM password to make sure it meets the domain's password complexity requirements; this validation also calls into password filter dlls like Azure AD Password Protection. If the new DSRM password is rejected, this may fail as follows:
+
+```text
+C:\>ntdsutil.exe
+ntdsutil: set dsrm password
+Reset DSRM Administrator Password: reset password on server null
+Please type password for DS Restore Mode Administrator Account: ********
+Please confirm new password: ********
+Setting password failed.
+        WIN32 Error Code: 0xa91
+        Error Message: Password doesn't meet the requirements of the filter dll's
+```
+
+Note that when Azure AD Password Protection logs the password validation event log event(s) for an Active Directory DSRM password, it is expected that the event log messages will not include a user name. This is because the DSRM account is a local utility account that is not part of the actual Active Directory domain.  
+
+## Domain controller replica promotion fails because of a weak Directory Services Repair Mode password
+
+This issue is basically the same as the one above. During the DC promotion process, the new DSRM password will be submitted to an existing DC in the domain for validation. If the new DSRM password is rejected, this may fail as follows:
+
+```powershell
+Install-ADDSDomainController : Verification of prerequisites for Domain Controller promotion failed. The Directory Services Restore Mode password does not meet a requirement of the password filter(s). Supply a suitable password.
+```
+
+Just like in the above issue, any Azure AD Password Protection password validation outcome event will have empty user names for this scenario.
+
+## Booting into Directory Services Repair Mode
 
 If the domain controller is booted into Directory Services Repair Mode, the DC agent service detects this condition and will cause all password validation or enforcement activities to be disabled, regardless of the currently active policy configuration.
 
