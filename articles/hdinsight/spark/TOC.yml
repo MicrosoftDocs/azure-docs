@@ -58,6 +58,10 @@
         href: ./apache-spark-troubleshoot-outofmemory-heap.md
     - name: Slow Apache Spark jobs - listStatus
       href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
+    - name: IllegalArgumentException exception
+      href: ./apache-spark-troubleshoot-illegalargumentexception.md
+    - name: Apache Spark Streaming application stops
+      href: ./apache-spark-troubleshoot-application-stops.md
 - name: How to
   items:
   - name: Use cluster storage
