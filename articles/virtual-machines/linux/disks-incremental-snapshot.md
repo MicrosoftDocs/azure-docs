@@ -13,9 +13,11 @@ ms.subservice: disks
 
 # Creating an incremental snapshot
 
-A regular snapshot is a full, read-only copy of a virtual hard drive (VHD). You can take a snapshot of an OS or data disk VHD to use as a backup or to troubleshoot virtual machine (VM) issues. An incremental snapshot, is a snapshot which consists only of the changes that occured between the last snapshot. It is billed only for that difference in space, is stored on zone redundant storage (ZRS) standard HDDS where it is supported, and is stored on local redundant storage (LRS) standard HDDs where ZRS is not supported.
+Incremental snapshots are snapshots that consist only of all the changes since the last snapshot. They are a new capability for managed disk snapshots that are considerably more cost effective, since, with it, each individual snapshot no longer requires storing the entire VHD, unless you choose to. Incremental snapshots can still be used to create a full managed disk or, to make another full snapshot in either the same or a different Azure subscription.
 
-Functionally, it is identical to a regular snapshot in all other ways. It can be used to create a full managed disk, it can be used to make a full snapshot in the same or another subscription.
+Incremental snapshots offer a unique capability. They enable you to perform a diff to get the changes betweeen two incremental snapshots of the same managed disks.
+
+There are a few differences between an incremental snapshot and a regular snapshot. Incremental snapshots will always use standard HDDs, irrespective of whatever disk type the source VHD is. Incremental snapshots use ZRS if ZRS is available in the selected region, otherwise LRS is used, this behavior cannot be changed.
 
 ## ARM template
 
@@ -41,9 +43,6 @@ Create an incremental snapshot for a managed disk by setting the apiVersion as 2
     "name": "[concat( parameters('diskName'),'_snapshot1')]",
     "location": "[resourceGroup().location]",
     "apiVersion": "2019-03-01",
-    "sku": {
-      "name": "Standard_ZRS"
-    },
     "properties": {
       "creationData": {
         "createOption": "Copy",
