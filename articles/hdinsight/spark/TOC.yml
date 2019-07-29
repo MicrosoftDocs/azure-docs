@@ -54,6 +54,8 @@
     items:
     - name: OutOfMemoryError exception
       items:
+      - name: Insufficient heap memory
+        href: ./apache-spark-troubleshoot-outofmemory-heap.md
       - name: Livy Server fails to start
         href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
 - name: How to
