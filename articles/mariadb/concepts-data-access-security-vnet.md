@@ -156,4 +156,4 @@ For articles on creating VNet rules, see:
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
