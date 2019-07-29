@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 07/29/2019
 ms.author: edjez
 ---
 
@@ -29,7 +29,6 @@ The more important features have stronger weights in the model. Because these fe
 
 To see feature importance results, you must run an evaluation. The resulting information about feature importance represents the current Personalizer online model. The evaluation analyzes feature importance of the model saved at the end date of the evaluation period. 
 
-**What does this next line mean? Why is it important?** 
 The evaluation creates human-readable feature labels based on the feature names observed during the evaluation period.
 
 The feature importance results do not represent other policies and models tested or created during the evaluation.  The evaluation will not include features sent to Personalizer after the end of the evaluation period.
