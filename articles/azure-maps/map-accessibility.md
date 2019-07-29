@@ -4,7 +4,7 @@ description: How to build an accessible application using Azure Maps
 services: azure-maps 
 author: chgennar
 ms.author: chgennar
-ms.date: 07/26/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: timlt
