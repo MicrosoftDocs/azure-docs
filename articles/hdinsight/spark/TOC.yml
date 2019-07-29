@@ -52,6 +52,10 @@
     href: ../hdinsight-cluster-availability.md 
   - name: Troubleshoot
     items:
+    - name: OutOfMemoryError exception
+      items:
+      - name: Insufficient heap memory
+        href: ./apache-spark-troubleshoot-outofmemory-heap.md
     - name: Slow Apache Spark jobs - storage container
       href: ./apache-spark-troubleshoot-job-slowness-container.md
 - name: How to
