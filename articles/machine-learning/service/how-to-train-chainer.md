@@ -79,6 +79,8 @@ In this tutorial, the training script **chainer_mnist.py** is already provided f
 
 To use Azure ML's tracking and metrics capabilities, you will have to add a small amount of Azure ML code inside your training script.  The training script **chainer_mnist.py** shows how to log some metrics to your Azure ML run. To do so, you access the Azure ML `Run` object within the script.
 
+The provided training script uses example data from the chainer `datasets.mnist.get_mnist` function.  For your own data, use the steps such as [Train and register Keras models at scale with Azure Machine Learning service](how-to-train-keras.md#upload-dataset-and-scripts) to make that data available during training.
+
 Copy the training script **chainer_mnist.py** into your project directory.
 
 ```
