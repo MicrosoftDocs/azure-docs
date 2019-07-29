@@ -67,9 +67,6 @@ application {
 repositories {
     mavenCentral()
 }
-dependencies {
-	compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.2-beta")
-}
 ```
 
 From your working directory, run the following command to create a project source folder:
@@ -82,18 +79,17 @@ Navigate to the new folder and create a file called *ComputerVisionQuickstarts.j
 
 [!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imports)]
 
-Add a class definition for **ComputerVisionQuickstarts**
+Then add a class definition for **ComputerVisionQuickstarts**.
 
 ### Install the client library
 
 This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
 
-In your project's *build.gradle.kts* file, be sure to include the client library as an `implementation` statement. 
+In your project's *build.gradle.kts* file, include the Computer Vision client library as a dependency.
 
 ```kotlin
 dependencies {
-    compile("com.squareup.okhttp:okhttp:2.5.0")
-    compile("com.microsoft....") <!-- Consider highlighting the line containing the library-->
+	compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.2-beta")
 }
 ```
 
@@ -130,7 +126,7 @@ The following code adds a `main` method to your class and creates variables for 
 
 The following code defines a method, `AnalyzeLocalImage`, which uses the client object to analyze a local image and print the results. The method returns a text description, categorization, list of tags, detected faces, adult content flags, main colors, and image type.
 
-First, create a **resources** folder in the **src/main/** folder of your project, and add an image you'd like to analyze. Then add the following code to your **ComputerVisionQuickstarts** class. If necessary, change the value of the `pathToLocalImage` to match your image file. This method prints detailed results to the console for each scope of image analysis.
+First, create a **resources/** folder in the **src/main/** folder of your project, and add an image you'd like to analyze. Then add the following code to your **ComputerVisionQuickstarts** class. If necessary, change the value of the `pathToLocalImage` to match your image file. This method prints detailed results to the console for each scope of image analysis.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal)]
 
