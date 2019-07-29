@@ -58,3 +58,6 @@ In this sample script, change the highlighted lines to customize the admin usern
 ## Clean up deployment
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 [!code-azurecli-interactive[main](../../cli_scripts/mysql/create-mysql-server-vnet/delete-mysql.sh "Delete the resource group.")]
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../resource-manager-supported-services.md
