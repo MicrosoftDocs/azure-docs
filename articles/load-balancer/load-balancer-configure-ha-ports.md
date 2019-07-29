@@ -13,7 +13,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Configure High Availability Ports for an internal load balancer

@@ -131,6 +131,58 @@ Users can't override the minimum `maxPods` validation.
 
 AKS agent nodes are billed as standard Azure virtual machines, so if you've purchased [Azure reservations][reservation-discounts] for the VM size that you are using in AKS, those discounts are automatically applied.
 
+## Can I move/migrate my cluster between Azure tenants?
+
+The `az aks update-credentials` command can be used to move an AKS cluster between Azure tenants. Follow the instructions in [Choose to update or create a service principal](https://docs.microsoft.com/azure/aks/update-credentials) and then [update aks cluster with new credentials](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-credentials).
+
+## Can I move/migrate my cluster between subscriptions?
+
+Movement of clusters between subscriptions is currently unsupported.
+
+## Can I move my AKS clusters from the current azure subscription to another? 
+
+Moving your AKS cluster and it's associated resources between Azure subscriptions is not supported.
+
+## Why is my cluster delete taking so long? 
+
+Most clusters are deleted upon user request; in some cases, especially where customers are bringing their own Resource Group, or doing cross-RG tasks deletion can take additional time or fail. If you have an issue with deletes, double-check that you do not have locks on the RG, that any resources outside of the RG are disassociated from the RG, etc.
+
+## If I have pod / deployments in state 'NodeLost' or 'Unknown' can I still upgrade my cluster?
+
+You can, but AKS does not recommend this. Upgrades should ideally be performed when the state of the cluster is known and healthy.
+
+## If I have a cluster with one or more nodes in an Unhealthy state or shut down, can I perform an upgrade?
+
+No, please delete/remove any nodes in a failed state or otherwise removed from the cluster prior to upgrading.
+
+## I ran a cluster delete, but see the error `[Errno 11001] getaddrinfo failed` 
+
+Most commonly, this is caused by users having one or more Network Security Groups (NSGs) still in use and associated with the cluster.  Please remove them and attempt the delete again.
+
+## I ran an upgrade, but now my pods are in crash loops, and readiness probes fail?
+
+Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) and [AKS update credentials](https://docs.microsoft.com/azure/aks/update-credentials).
+
+## My cluster was working, but suddenly can not provision LoadBalancers, mount PVCs, etc.? 
+
+Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal)  and [AKS update credentials](https://docs.microsoft.com/azure/aks/update-credentials).
+
+## Can I use the virtual machine scale set APIs to scale manually?
+
+No, scale operations by using the virtual machine scale set APIs aren't supported. Use the AKS APIs (`az aks scale`).
+
+## Can I use virtual machine scale sets to manually scale to 0 nodes?
+
+No, scale operations by using the virtual machine scale set APIs aren't supported.
+
+## Can I stop or de-allocate all my VMs?
+
+While AKS has resilience mechanisms to withstand such a config and recover from it, this is not a recommended configuration.
+
+## Can I use custom VM extensions?
+
+No AKS is a managed service, and manipulation of the IaaS resources is not supported. To install custom components, etc. please leverage the kubernetes APIs and mechanisms. For example, leverage DaemonSets to install required components.
+
 <!-- LINKS - internal -->
 
 [aks-regions]: ./quotas-skus-regions.md#region-availability
