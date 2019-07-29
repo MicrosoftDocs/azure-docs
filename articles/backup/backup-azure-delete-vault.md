@@ -26,7 +26,7 @@ You cannot delete a Recovery Services vault that has dependencies such as protec
 
 - If you delete a on-premises protected item (MARS, MABS or DPM to Azure) from portal containing dependencies, a warning message is displayed:
 
-  ![Delete protected server error](./media/backup-azure-delete-vault/error-message.png)
+  ![Delete protected server error](./media/backup-azure-delete-vault/error-message.jpg)
 
   
 To gracefully delete the vault, choose the scenario that matches your setup and follow the recommended steps:
