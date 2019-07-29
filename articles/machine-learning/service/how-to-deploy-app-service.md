@@ -84,4 +84,6 @@ print(response.json())
 ## Next steps
 
 * For more information on configuring your Web App, see the [App Service on Linux](/azure/app-service/containers/) documentation.
-* For more information on autoscaling, see [Understand Autoscale settings](/azure/azure-monitor/platform/autoscale-understanding-settings).
+* For more information on scaling, see [Get started with Autoscale in Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
+* For more information on SSL support, see [Use an SSL certificate in your Azure App Service](/azure/app-service/app-service-web-ssl-cert-load).
+* For more information on authentication, see [Configure your App Service app to use Azure Active Directory sign-in](/azure/app-service/configure-authentication-provider-aad).
