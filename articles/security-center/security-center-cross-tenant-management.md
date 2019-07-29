@@ -34,7 +34,13 @@ In order set up cross-tenant management, you must onboard customers to Azure del
 
 ## How does cross-tenant management work in Security Center
 
-You are able to review and manage subscriptions across multiple tenants in the same way that you manage multiple subscriptions in a single tenant. The views and actions are basically the same. Here are some examples:
+You are able to review and manage subscriptions across multiple tenants in the same way that you manage multiple subscriptions in a single tenant.
+
+From each screen, click on the filter icon to select the tenants to view.
+
+  ![Filter tenants](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
+
+The views and actions are basically the same. Here are some examples:
 
 - Cross-tenant visibility enables you to view the overall health of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them.
 
