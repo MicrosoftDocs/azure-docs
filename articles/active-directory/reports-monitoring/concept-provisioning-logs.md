@@ -1,6 +1,6 @@
 ---
 title: Provisioning logs in the Azure Active Directory portal | Microsoft Docs
-description: Introduction to sign-in activity reports in the Azure Active Directory portal 
+description: Introduction to provisioning activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/10/2019
+ms.date: 07/29/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -126,19 +126,20 @@ Possible values are:
 
 - 1 month
 - 7 days
+- 30 days
 - 24 hours
 - Custom time interval
 
 When you select a custom timeframe, you can configure a start time and an  
 
-## Drawer tabs (needs work)
+## Drawer tabs 
 
 The **Steps** tab outlines the steps taken to provision an object. Provisioning an object can consist of four steps: 
 
-- Import user
-- Determine if user is in scope
-- Match user between source and target
-- Provision user (take action - this could be a create, update, delete, or disable)
+- Import object
+- Determine if the object is in scope
+- Match object between source and target
+- Provision object (take action - this could be a create, update, delete, or disable)
 
 The **troubleshoot and recomendations** tab provides the error code and reason. The error information is only available in the case of a failure. 
 
@@ -159,7 +160,7 @@ The **summary** tab provides an overview of what happened and identifiers for th
 
 ## Next steps
 
-* [Sign-in activity report error codes](reference-sign-ins-error-codes.md)
-* [Azure AD data retention policies](reference-reports-data-retention.md)
-* [Azure AD report latencies](reference-reports-latencies.md)
+* [Check the status of user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)
+* [Problem configuring user provisioning to an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
+
 
