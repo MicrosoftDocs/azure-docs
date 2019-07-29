@@ -545,6 +545,30 @@ If the server time is correct, perform the following steps to resolve the issue:
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
+<a id="-2134375680"></a>**Sync failed due to certificate expiration**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83078 |
+| **HRESULT (decimal)** | -2134364040 |
+| **Error string** | ECS_E_AUTH_SRV_CERT_EXPIRED |
+| **Remediation required** | Yes |
+
+This error occurs because the certificate used for authentication is expired.
+
+To confirm the certificate is expired, perform the following steps:  
+1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
+2. Check if the client authentication certificate is expired.
+
+If the client authentication certificate is expired, perform the following steps to resolve the issue:
+
+1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
+2. Run the following PowerShell commands on the server:
+
+    ```powershell
+    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
+    ```
+
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**The volume where the server endpoint is located is low on disk space.**  
 
 | | |
