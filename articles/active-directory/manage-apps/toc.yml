@@ -307,6 +307,7 @@
       href: application-proxy-release-version-history.md
   - name: Resources
     items:
+<<<<<<< HEAD
     - name: Azure AD deployment plans
       href: /azure/active-directory/fundamentals/active-directory-deployment-plans?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: Azure feedback forum
@@ -325,3 +326,138 @@
       href: https://stackoverflow.com/questions/tagged/azure-active-directory
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+=======
+     - name: Overview
+       expanded: true
+       items:
+       - name: What is Application Proxy?
+         href: what-is-application-proxy.md
+     - name: Tutorials
+       items:
+       - name: Add an on-premises app - portal
+         href: application-proxy-add-on-premises-application.md
+     - name: Concepts
+       items: 
+       - name: Application Proxy
+         href: application-proxy.md
+       - name: Plan an Application Proxy deployment
+         href: application-proxy-deployment-plan.md
+       - name: Connectors
+         href: application-proxy-connectors.md
+       - name: Connector groups
+         href: application-proxy-connector-groups.md
+       - name: Security
+         href: application-proxy-security.md
+       - name: Network topology
+         href: application-proxy-network-topology.md
+       - name: High availability and load balancing
+         href: application-proxy-high-availability-load-balancing.md
+       - name: Comparison of remote access solutions
+         href: application-proxy-migration.md
+     - name: How-to guides
+       items:
+       - name: Configure connectors
+         items:
+         - name: Configure with proxy servers
+           href: application-proxy-configure-connectors-with-proxy-servers.md
+         - name: Register connector - silent install
+           href: application-proxy-register-connector-powershell.md
+       - name: Configure application access
+         items:
+         - name: Configure claims-aware apps
+           href: application-proxy-configure-for-claims-aware-applications.md
+         - name: Give mobile and desktop apps access to on-premises APIs
+           href: application-proxy-secure-api-access.md 
+         - name: Configure mobile and desktop client apps
+           href: application-proxy-configure-native-client-application.md
+         - name: Configure custom home page
+           href: application-proxy-configure-custom-home-page.md
+         - name: Translate inline links
+           href: application-proxy-configure-hard-coded-link-translation.md
+         - name: Configure cookie settings
+           href: application-proxy-configure-cookie-settings.md
+         - name: Publish using wildcards
+           href: application-proxy-wildcard.md
+         - name: Remove personal data
+           href: application-proxy-remove-personal-data.md
+         - name: Configure custom domain
+           href: application-proxy-configure-custom-domain.md
+         - name: Single sign-on with Application Proxy
+           items:
+           - name: Kerberos constrained Delegation (KCD)
+             href: application-proxy-configure-single-sign-on-with-kcd.md
+           - name: Password vaulting
+             href: application-proxy-configure-single-sign-on-password-vaulting.md
+           - name: Headers
+             href: application-proxy-configure-single-sign-on-with-ping-access.md
+           - name: SAML SSO
+             href: application-proxy-configure-single-sign-on-on-premises-apps.md
+         - name: Publishing walkthroughs
+           items:
+           - name: Integrate with Cloud App Security
+             href: application-proxy-integrate-with-microsoft-cloud-application-security.md
+           - name: Integrate with Remote Desktop
+             href: application-proxy-integrate-with-remote-desktop-services.md
+           - name: Integrate with SharePoint
+             href: application-proxy-integrate-with-sharepoint-server.md
+           - name: Integrate with Teams
+             href: application-proxy-integrate-with-teams.md
+           - name: Integrate with Tableau
+             href: application-proxy-integrate-with-tableau.md
+           - name: Integrate with Qlik
+             href: application-proxy-qlik.md
+       - name: Troubleshoot Application Proxy
+         items:
+         - name: Application Proxy troubleshooting
+           href: application-proxy-troubleshoot.md
+         - name: Connector troubleshooting flowchart
+           href: application-proxy-debug-connectors.md
+         - name: Application troubleshooting flowchart
+           href: application-proxy-debug-apps.md
+         - name: Problem displaying app page
+           href: application-proxy-page-appearance-broken-problem.md
+         - name: Application load is too long
+           href: application-proxy-page-load-speed-problem.md
+         - name: Links on application page not working
+           href: application-proxy-page-links-broken-problem.md
+         - name: What ports to open for my app
+           href: application-proxy-connectivity-ports-how-to.md
+         - name: No working connector in a connector group for my app
+           href: application-proxy-connectivity-no-working-connector.md
+         - name: Configure in admin portal
+           href: application-proxy-config-how-to.md
+         - name: Configure single sign-on to my app
+           href: application-proxy-config-sso-how-to.md
+         - name: Problem creating an app in admin portal
+           href: application-proxy-config-problem.md
+         - name: Configure Kerberos Constrained Delegation
+           href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
+         - name: Configure with PingAccess
+           href: application-proxy-back-end-ping-access-how-to.md
+         - name: Can't Access this Corporate Application error
+           href: application-proxy-sign-in-bad-gateway-timeout-error.md
+         - name: Problem installing the Application Proxy Agent Connector
+           href: application-proxy-connector-installation-problem.md
+         - name: Sign-in problem
+           href: application-sign-in-problem-on-premises-application-proxy.md
+         - name: CORS issues in Application Proxy
+           href: application-proxy-understand-cors-issues.md
+     - name: Reference
+       items:
+       - name: Application Proxy version history
+         href: application-proxy-release-version-history.md
+     - name: Resources
+       items:
+        - name: Azure feedback forum
+          href: https://feedback.azure.com/forums/169401-azure-active-directory
+        - name: MSDN forum
+          href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+        - name: Pricing
+          href: https://azure.microsoft.com/pricing/details/active-directory
+        - name: Service updates
+          href: https://azure.microsoft.com/updates/?product=active-directory
+        - name: Stack Overflow
+          href: https://stackoverflow.com/questions/tagged/azure-active-directory
+        - name: Videos
+          href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+>>>>>>> 055fd8caa09474955ca6baec2922bd8446d37d70

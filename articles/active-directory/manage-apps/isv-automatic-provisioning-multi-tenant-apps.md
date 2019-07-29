@@ -23,7 +23,7 @@ Automatic user provisioning is the process of automating the creation, maintenan
 
 ## Why enable automatic user provisioning?
 
-Applications that require that a user record is present in the application before a user’s first sign in need user provisioning. There are benefits to you as a service provider, and benefits to your customers.
+Applications that require that a user record is present in the application before a user’s first sign in require user provisioning. There are benefits to you as a service provider, and benefits to your customers.
 
 ### Benefits to you as the service provider
 
@@ -31,7 +31,7 @@ Applications that require that a user record is present in the application befor
 
 * Reduce actual and perceived customer effort to adopt your application.
 
-* Reduce your costs in integrating with multiple IdPs for automatic user provisioning by using System for Cross-Domain Identity Management (SCIM) provisioning.
+* Reduce your costs in integrating with multiple identity providers (IdPs) for automatic user provisioning by using System for Cross-Domain Identity Management (SCIM)-based provisioning.
 
 * Reduce support costs by providing rich logs to help customers troubleshoot user provisioning issues.
 
@@ -41,7 +41,7 @@ Applications that require that a user record is present in the application befor
 
 ### Benefits to your customers
 
-* Increase security by automatically removing application access for users who change roles or leave the organization to your application.
+* Increase security by automatically removing access to your application for users who change roles or leave the organization to your application.
 
 * Simplify user management for your application by avoiding human error and repetitive work associated with manual provisioning.
 
@@ -55,7 +55,7 @@ Azure AD provides several integration paths to enable automatic user provisionin
 
 * When using the [Microsoft Graph](https://docs.microsoft.com/graph/), your application manages inbound and outbound provisioning of users and groups from Azure AD to your application by querying the Microsoft Graph API.
 
-* The Security Assertion Markup Language Just in Time (SAML JIT) user provisioning can be enabled if your application is using SAML for federation. It's based on the claims information sent in the SAML Claim token.
+* The Security Assertion Markup Language Just in Time (SAML JIT) user provisioning can be enabled if your application is using SAML for federation. It uses claims information sent in the SAML token to provision users.
 
 To help determine which integration option to use for your application, refer to the high-level comparison table, and then see the more detailed information on each option.
 
@@ -76,7 +76,7 @@ To help determine which integration option to use for your application, refer to
 
 ## Azure AD Provisioning Service
 
-The Azure AD provisioning service uses SCIM, a protocol supported by many identity providers (IdPs). We recommend you use SCIM if you want to support IdPs in addition to Azure AD. Any SCIM-compliant IDP can connect to your SCIM endpoint.
+The Azure AD provisioning service uses SCIM, a protocol supported by many identity providers (IdPs). We recommend you use SCIM if you want to support IdPs in addition to Azure AD. Any SCIM-compliant IDP can work with your SCIM endpoint.
 
 The Azure AD provisioning service connects to your SCIM 2.0 endpoint, which any SCIM-compliant identity providers (IdPs) can connect to. The service connects to your SCIM endpoint. Using a SCIM endpoint allows any SCIM-compliant IdP to provision users to your application.
 
@@ -90,7 +90,7 @@ For more information on how the Azure AD Provisioning Service users SCIM, see:
 
 ## Microsoft Graph for Provisioning
 
-When you use Microsoft Graph for provisioning, you have rich user data available. In addition to the details of users and groups, you can also fetch additional information like the user’s roles, manager and direct reports, owned and registered devices, and hundreds of other data pieces available in the [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
+When you use Microsoft Graph for provisioning, you have access to all the rich user data available in Graph. In addition to the details of users and groups, you can also fetch additional information like the user’s roles, manager and direct reports, owned and registered devices, and hundreds of other data pieces available in the [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
 
 More than 15 million organizations, and 90% of fortune 500 companies use Azure AD while subscribing to Microsoft cloud services like Office 365, Microsoft Azure, Enterprise Mobility Suite, or Microsoft 365. You can use Microsoft Graph to integrate your app with administrative workflows, such as employee onboarding (and termination), profile maintenance, and more. 
 
@@ -113,7 +113,8 @@ Learn more about using Microsoft Graph for provisioning:
 * [Best practices for working with Microsoft Graph](https://docs.microsoft.com/graph/best-practices-concept)
 
 * [Featured scenarios for Microsoft Graph](https://developer.microsoft.com/graph/examples)
-## SAML JIT
+
+## Using SAML JIT for provisioning
 
 If you want to provision users only upon first sign in to your application, and do not need to automatically deprovision users, SAML JIT is an option. Your application must support SAML 2.0 as a federation protocol to use SAML JIT.
 

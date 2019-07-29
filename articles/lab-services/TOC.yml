@@ -255,6 +255,8 @@
         href: devtest-lab-guidance-prescriptive-adoption.md
       - name: Reference architecture
         href: devtest-lab-reference-architecture.md
+      - name: Deliver proof of concept
+        href: deliver-proof-concept.md
       - name: Scale up your DevTest Labs deployment
         href: devtest-lab-guidance-scale.md
       - name: Orchestrate the implementation of DevTest Labs
@@ -298,13 +300,15 @@
 - name: Resources
   items:
   - name: Classroom Labs
-    items:
+    items:    
     - name: Azure updates
       href: https://azure.microsoft.com/updates/?product=lab-services
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/lab-services/
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-lab-services
+    - name: Frequently asked questions
+      href: classroom-labs/classroom-labs-faq.md
   - name: DevTest Labs
     items:
     - name: Azure updates
