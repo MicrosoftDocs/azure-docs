@@ -34,7 +34,7 @@ Traffic Analytics is a cloud-based solution that provides visibility into user a
 3. Flows that have the same Source IP, Destination IP, Destination port, NSG name, NSG rule, Flow Direction, and Transport layer protocol (TCP or UDP) (Note: Source port is excluded for aggregation) are clubbed into a single flow by Traffic Analytics
 4. This single record is decorated (Details in the section below) and ingested in Log Analytics by Traffic Analytics.This process can take upto 1 hour max.
 5. FlowStartTime_t field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”.
-6. For any resource in TA, the flows indicated in the UI are total flows seen by the NSG, but in Log Anlaytics user will see only the single, reduced record. To see all the flows, use the blob_id field,  which can be referenced from Storage. The total flow count for that record will match the individual flows seen in the blob.
+6. For any resource in TA, the flows indicated in the UI are total flows seen by the NSG, but in Log Analytics user will see only the single, reduced record. To see all the flows, use the blob_id field,  which can be referenced from Storage. The total flow count for that record will match the individual flows seen in the blob.
 
 The below query helps you looks at all flow logs from on-premise in the last 30 days.
 ```
@@ -91,7 +91,7 @@ Listed below are the fields in the schema and what they signify
 |:---   |:---    |:---  |
 | TableName	| AzureNetworkAnalytics_CL | Table for Traffic Anlaytics data
 | SubType_s	| FlowLog |	Subtype for the flow logs. Use only "FlowLog", other values of SubType_s are for internal workings of the product |
-| FASchemaVersion_s |	1	| Scehma version. Does not reflect NSG Flow Log version |
+| FASchemaVersion_s |	1	| Schema version. Does not reflect NSG Flow Log version |
 | TimeProcessed_t	| Date and Time in UTC	| Time at which the Traffic Analytics processed the raw flow logs from the storage account |
 | FlowIntervalStartTime_t |	Date and Time in UTC |	Starting time of the flow log processing interval. This is time from which flow interval is measured |
 | FlowIntervalEndTime_t	| Date and Time in UTC | Ending time of the flow log processing interval |
@@ -137,7 +137,7 @@ Listed below are the fields in the schema and what they signify
 | ConnectingVNets_s	| Space separated list of virtual network names | In case of hub and spoke topology, hub virtual networks will be populated here |
 | Country_s | Two letter country code (ISO 3166-1 alpha-2) | Populated for flow type ExternalPublic. All IP addresses in PublicIPs_s field will share the same country code |
 | AzureRegion_s | Azure region locations | Populated for flow type AzurePublic. All IP addresses in PublicIPs_s field will share the Azure region |
-| AllowedInFlows_d | | Count of inbound flows that were allowed. This represents the number of flows that shared the same four-tuple inbound to the netweork interface at which the flow was captured |
+| AllowedInFlows_d | | Count of inbound flows that were allowed. This represents the number of flows that shared the same four-tuple inbound to the network interface at which the flow was captured |
 | DeniedInFlows_d |  | Count of inbound flows that were denied. (Inbound to the network interface at which the flow was captured) |
 | AllowedOutFlows_d | |	Count of outbound flows that were allowed (Outbound to the network interface at which the flow was captured) |
 | DeniedOutFlows_d	| |	Count of outbound flows that were denied (Outbound to the network interface at which the flow was captured) |
@@ -147,7 +147,7 @@ Listed below are the fields in the schema and what they signify
 | InboundBytes_d |	Bytes received as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
 | OutboundBytes_d |	Bytes sent as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
 | CompletedFlows_d	|  | This is populated with non-zero value only for the Version 2 of NSG flow log schema |
-| PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries seperated by bars |
+| PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars |
 
 ### Notes
 
