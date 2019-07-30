@@ -324,12 +324,12 @@ This table provides basic fields about Backup Management Servers.
 
 |Field  |Data Type  | Description  |
 |---------|---------|----------|
-|BackupManagmentServerName_s     |Text         |Name of the Backup Management Server        |
+|BackupManagementServerName_s     |Text         |Name of the Backup Management Server        |
 |AzureBackupAgentVersion_s     |Text         |Version of the Azure Backup Agent on the Backup Management Server          |
-|BackupManagmentServerVersion_s     |Text         |Version of the Backup Management Server|
-|BackupManagmentServerOSVersion_s     |Text            |OS version of the Backup Management Server|
+|BackupManagementServerVersion_s     |Text         |Version of the Backup Management Server|
+|BackupManagementServerOSVersion_s     |Text            |OS version of the Backup Management Server|
 |BackupManagementServerType_s     |Text         |Type of the Backup Management Server, as MABS, SC DPM|
-|BackupManagmentServerUniqueId_s     |Text         |Field to uniquely identify the Backup Management Server       |
+|BackupManagementServerUniqueId_s     |Text         |Field to uniquely identify the Backup Management Server       |
 
 ### PreferredWorkloadOnVolume
 

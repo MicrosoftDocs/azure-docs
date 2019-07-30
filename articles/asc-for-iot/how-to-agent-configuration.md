@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Security Center for IoT agent Preview| Microsoft Docs
+title: Configure Azure Security Center for IoT agent| Microsoft Docs
 description: Learn how to configure agents for use with Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,18 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/25/2019
 ms.author: mlottner
 
 ---
+
 # Tutorial: Configure security agents
 
-> [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This article explains Azure Security Center (ASC) for IoT security agent, how to change them configure ASC for IoT security agents.
+This article explains Azure Security Center for IoT security agents, and details how to change and configure them. 
 
 > [!div class="checklist"]
 > * Configure security agents
@@ -34,17 +30,17 @@ This article explains Azure Security Center (ASC) for IoT security agent, how to
 
 ## Agents
 
-ASC for IoT security agents collect data from IoT devices and perform security actions to mitigate the detected vulnerabilities. Security agent configuration is controllable using a set of module twin properties you can customize. In general, secondary updates to these properties are infrequent.  
+Azure Security Center for IoT security agents collect data from IoT devices and perform security actions to mitigate the detected vulnerabilities. Security agent configuration is controllable using a set of module twin properties you can customize. In general, secondary updates to these properties are infrequent.  
 
-ASC for IoT’s security agent twin configuration object is a .json format object. The configuration object is a set of controllable properties that you can define to control the behavior of the agent. 
+Azure Security Center for IoT’s security agent twin configuration object is a JSON format object. The configuration object is a set of controllable properties that you can define to control the behavior of the agent. 
 
 These configurations help you customize the agent for each scenario required. For example, automatically excluding some events, or keeping power consumption to a minimal level are possible by configuring these properties.  
 
-Use the ASC for IoT security agent configuration [schema](https://aka.ms/iot-security-github-module-schema) to make changes.  
+Use the Azure Security Center for IoT security agent configuration [schema](https://aka.ms/iot-security-github-module-schema) to make changes.  
 
 ## Configuration objects 
 
-Each ASC for IoT security agent related property is located in the agent configuration object, within the desired properties section, of the **azureiotsecurity** module. 
+Properties related to every Azure Security Center for IoT security agent are located in the agent configuration object, within the desired properties section, of the **azureiotsecurity** module. 
 
 To modify the configuration, create and modify this object inside the **azureiotsecurity** module twin identity. 
 
@@ -52,13 +48,10 @@ If the agent configuration object does not exist in the **azureiotsecurity** mod
 
 ```json
 "desired": {
-  "azureiot*com^securityAgentConfiguration^1*0*0": {
+  "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
   } 
 }
 ```
-
-Make sure to validate your agent configuration changes against this [schema](https://aka.ms/iot-security-github-module-schema).
-The agent will not launch if the configuration object does not match the schema.
 
 ## Configuration schema and validation 
 
@@ -66,6 +59,21 @@ Make sure to validate your agent configuration against this [schema](https://aka
 
  
 If, while the agent is running, the configuration object is changed to a non-valid configuration (the configuration does not match the schema), the agent will ignore the invalid configuration and will continue using the current configuration. 
+
+### Configuration validation
+
+Azure Security Center for IoT security agent reports its current configuration inside the reported properties section of the **azureiotsecurity** module twin identity.
+The agent reports all the available properties, if a property was not set by the user, the agent reports the default configuration.
+
+In order to validate your configuration, compare the values set on the desired section with the values reported in the reported section.
+
+If there is a mismatch between the desired and the reported properties, then the agent was not able to parse the configuration.
+
+Validate your desired properties against the [schema](https://aka.ms/iot-security-github-module-schema), fix the errors and set your desired properties again!
+
+> [!NOTE]
+> A configuration error alert will be fired from the agent in case that the agent was not able to parse the desired configuration.
+> Compare the reported and desired section to understand if the alert still applies
 
 ## Editing a property 
 
@@ -76,24 +84,28 @@ To use a default property value, remove the property from the configuration obje
 
 1. In your IoT Hub, locate and select the device you wish to change.
 
-1. Click on your device, and then on **azureiotsecurity** module.
+2. Click on your device, and then on **azureiotsecurity** module.
 
-1. Click on **Module Identity Twin**.
+3. Click on **Module Identity Twin**.
 
-1. Edit the desired properties of the security module.
+4. Edit the properties you wish to change in the security module.
    
    For example, to configure connection events as high priority and collect high priority events every 7 minutes, use the following configuration.
    
    ```json
     "desired": {
-      "azureiot*com^securityAgentConfiguration^1*0*0": {
-        "highPriorityMessageFrequency": "PT7M",    
-        "eventPriorityConnectionCreate": "High" 
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
+        "highPriorityMessageFrequency": {
+          "value" : "PT7M"
+        },    
+        "eventPriorityConnectionCreate": {
+          "value" : "High" 
+        }
       } 
     }, 
     ```
 
-1. Click **Save**.
+5. Click **Save**.
 
 ### Using a default value
 
@@ -101,18 +113,18 @@ To use a default property value, remove the property from the configuration obje
 
 ## Default properties 
 
-The following table contains the controllable properties of ASC for IoT security agents.
+The following table contains the controllable properties of Azure Security Center for IoT security agents.
 
-Default values are available in the proper schema in [Github](https://aka.ms/iot-security-module-default).
+Default values are available in the proper schema in [GitHub](https\://aka.ms/iot-security-module-default).
 
 | Name| Status | Valid values| Default values| Description |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|highPriorityMessageFrequency|Required: false |Valid values: Duration in ISO 8601 Format |Default value: PT7M |Max time before high priority messages are sent.|
-|lowPriorityMessageFrequency |Required: false|Valid values: Duration in ISO 8601 Format |Default value: PT5H |Max time before low priority messages are sent.| 
-|snapshotFrequency |Require: false|Valid values:Duration in ISO 8601 Format |Default value PT13H |Time interval for the creation of device status snapshots.| 
+|highPriorityMessageFrequency|Required: false |Valid values: Duration in ISO 8601 Format |Default value: PT7M |Max time interval before high priority messages are sent.|
+|lowPriorityMessageFrequency |Required: false|Valid values: Duration in ISO 8601 Format |Default value: PT5H |Max time before low-priority messages are sent.| 
+|snapshotFrequency |Require: false|Valid values: Duration in ISO 8601 Format |Default value PT13H |Time interval for the creation of device status snapshots.| 
 |maxLocalCacheSizeInBytes |Required: false |Valid values: |Default value: 2560000, larger than 8192 | Maximum storage (in bytes) allowed for the message cache of an agent. Maximum amount of space allowed to store messages on the device, before messages are sent.| 
 |maxMessageSizeInBytes |Required: false |Valid values: A positive number, larger than 8192, less than 262144 |Default value: 204800 |Maximum allowed size of an agent to cloud message. This setting controls the amount of maximum data sent in each message. |
-|eventPriority${EventName} |Required: false |Valid values: High, Low, Off |Default values: |Priority of every agent generated event | 
+|eventPriority${EventName} |Required: false |Valid values: High, Low, Off |Default values: |Priority of every agent-generated event | 
 
 ### Supported security events
 
@@ -132,10 +144,11 @@ Default values are available in the proper schema in [Github](https://aka.ms/iot
 |Connection create |eventPriorityConnectionCreate|Low|False|Audits TCP connections created to and from the device. |
 |Firewall configuration| eventPriorityFirewallConfiguration|Low|True|Snapshot of device firewall configuration (firewall rules). |
 |OS baseline| eventPriorityOSBaseline| Low|True|Snapshot of device OS baseline check.|
+|
  
 
 ## Next steps
 
-- [Understand ASC for IoT recommendations](concept-recommendations.md)
-- [Explore ASC for IoT alerts](concept-security-alerts.md)
+- [Understand Azure Security Center for IoT recommendations](concept-recommendations.md)
+- [Explore Azure Security Center for IoT alerts](concept-security-alerts.md)
 - [Access raw security data](how-to-security-data-access.md)
