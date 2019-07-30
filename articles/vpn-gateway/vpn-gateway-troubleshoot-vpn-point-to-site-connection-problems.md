@@ -43,8 +43,7 @@ To resolve this problem, follow these steps:
     | Certificate | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
-    | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
-    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
+    | AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
 3. Go to C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
 
