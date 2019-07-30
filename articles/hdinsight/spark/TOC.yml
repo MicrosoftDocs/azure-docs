@@ -70,6 +70,8 @@
       href: ./apache-spark-troubleshoot-rpctimeoutexception.md
     - name: Blocking Cross Origin API
       href: ./apache-spark-troubleshoot-blocking-cross-origin.md
+    - name: Kryo serialization failed
+      href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
 - name: How to
   items:
   - name: Use cluster storage
