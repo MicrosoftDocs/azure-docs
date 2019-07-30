@@ -22,7 +22,7 @@
 
 ## Create a host group
 
-A **host group** is a new resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following with your dedicated hosts: 
+A **host group** is a new resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following options with your dedicated hosts: 
 - Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
 - Span across multiple fault domains which are mapped to physical racks. 
  
@@ -39,7 +39,7 @@ In this example, we will create a host group using 1 availability zone and 2 fau
 
 	![Host groups search result.](./media/virtual-machines-common-dedicated-hosts-portal/host-group.png)
 1. In the **Host Groups (preview)** page, select **Create**.
-1. Select the subscription your would like to use and then select **Create new** to create a new resource group.
+1. Select the subscription you would like to use, and then select **Create new** to create a new resource group.
 1. Type *myDedicatedHostsRG* as the **Name** and then select **OK**.
 1. For **Host group name**, type *myHostGroup*.
 1. For **Location**, select **East US**.
@@ -54,7 +54,7 @@ It should only take a few moments to create the host group.
 
 ## Create a dedicated host
 
-Now create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU capture the supported VM series as well as the hardware generation for your dedicated host.  During the preview, we will support the following host SKU values:
+Now create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.  During the preview, we will support the following host SKU values:
 
 - DSv3_Type1
 - ESv3_Type1
@@ -68,7 +68,7 @@ If you set a fault domain count for your host group, you will be asked to specif
 
 	![Host groups search result.](./media/virtual-machines-common-dedicated-hosts-portal/host.png)
 1. In the **Dedicated Hosts (preview)** page, select **Create**.
-1. Select the subscription your would like to use.
+1. Select the subscription you would like to use.
 1. Select *myDedicatedHostsRG* as the **Resource group**.
 1. In **Instance details**, type *myHost* for the **Name** and select *East US* for the location.
 1. In **Hardware profile**, select *Standard Es3 family - Type 1* for the **Size family**, select *myHostGrup* for the **Host group** and then select *1* for the **Fault domain**. Leave the defaults for the rest of the fields.

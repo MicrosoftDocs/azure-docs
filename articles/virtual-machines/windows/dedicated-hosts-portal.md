@@ -33,7 +33,7 @@ ms.author: cynthn
 1. At the top of the page, select the **Advanced** tab and in the **Host** section, select *myHostGroup* for **Host group** and *myHost* for the **Host**. 
 	![Select host group and host](./media/dedicated-hosts-portal/advanced.png)
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
-1. When you see the message that validtion has passed, select **Create**.
+1. When you see the message that validation has passed, select **Create**.
 
 
 ## Next steps
