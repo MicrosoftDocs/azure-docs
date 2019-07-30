@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Enable remote access to Power BI Mobile with Azure AD Application Proxy
 
-This article discusses how to use Azure AD Application Proxy to enable the Power BI mobile app to connect to Power BI Report Server (PBIRS) and SQL Server Reporting Services (SSRS) 2016. Through this integration, users who are away from the corporate network can access their Power BI reports from the Power BI mobile app and be protected by Azure AD authentication. This protection includes [security benefits](application-proxy-security.md#security-benefits) such as conditional access and multi-factor authentication.  
+This article discusses how to use Azure AD Application Proxy to enable the Power BI mobile app to connect to Power BI Report Server (PBIRS) and SQL Server Reporting Services (SSRS) 2016 and later. Through this integration, users who are away from the corporate network can access their Power BI reports from the Power BI mobile app and be protected by Azure AD authentication. This protection includes [security benefits](application-proxy-security.md#security-benefits) such as conditional access and multi-factor authentication.  
 
 ## Prerequisites
 
@@ -105,11 +105,14 @@ Native apps are programs developed to use on a platform or device. Before the Po
 
 1. Register the application in Azure AD by following [Step 2 in How to enable native client applications to interact with proxy applications](application-proxy-configure-native-client-application.md#step-2-register-your-native-application).
 
-   When registering the app for Power BI Mobile iOS, add the following Redirect URIs:
+   When registering the app for Power BI Mobile **iOS**, add the following Redirect URIs:
    - `msauth://code/mspbi-adal://com.microsoft.powerbimobile`
    - `msauth://code/mspbi-adalms://com.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
+   
+   When registering the app for Power BI Mobile **Android**, add the following Redirect URIs:
+   - `urn:ietf:wg:oauth:2.0:oob`
 
    > [!IMPORTANT]
    > The Redirect URIs must be added for the application to work correctly.
