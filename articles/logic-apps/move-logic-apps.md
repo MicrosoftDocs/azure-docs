@@ -67,9 +67,14 @@ Also, you can test moving your logic apps to another resource group before actua
 
 ## Move logic apps between regions
 
-For the easiest way to redeploy your logic app to a different region or location, use Visual Studio (free Community edition or greater) and the Azure Logic Apps Tools for Visual Studio. These tools let you find and download your logic app from the Azure portal into Visual Studio. When you download your logic app, you get an Azure Resource Manager template that includes the resource definitions for your logic app, connections, and other dependencies. This template also automatically parameterizes, or defines parameters for, the values used for provisioning and deploying your logic app and other resources. You can then use a separate parameters file to specify the new region or location for moving your logic app. That way, you can more easily change these values based on your deployment needs.
+For the easiest way to redeploy your logic app to a different region or location, use [Visual Studio (free Community edition or greater) and the Azure Logic Apps Tools for Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md). These tools let you open and download your logic app from the Azure portal into Visual Studio. When you download your logic app, Visual Studio creates a parameterized Azure Resource Manager template that's mostly ready for deployment and includes the resource definitions for your logic app, including the workflow itself, and for managed connections. This template also parameterizes the values that the template uses at deployment so that you can more easily change how you provision and deploy your logic app based on your needs. You can then use a separate parameters file to provide the new location and other necessary information for deployment.
 
-After you successfully redeploy your logic app, you can delete the original resources from the previous location.
+The template that you get in Visual Studio includes only the resource definitions for your logic app and its connections. If your logic app uses integration accounts and B2B artifacts, such as partners, agreements, schemas, and maps, you must separately export the template for that integration account by using the Azure portal. This template includes the resource definitions for the integration account and artifacts. However, this template isn't fully parameterized, so you have to manually parameterize those values that you want to use for deployment. To export this template, on your integration account's menu, under **Settings**, select **Export template**, and then select **Download**.
+
+> [!IMPORTANT]
+> For other resources that your logic apps uses, such as integration accounts, connections to other systems or services, and custom connectors, make sure that your logic apps can access equivalent resources in the same region where you move those logic apps, based on your particular scenario.
+>
+> For example, to link a logic app to an integration account, both resources must exist in the same region. In disaster recovery scenarios, you most likely want the same integration account in both source and destination regions. In a different scenario, you might want to use different integration accounts in the source and destination regions.
 
 For more information about these tasks, see these topics:
 
