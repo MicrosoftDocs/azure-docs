@@ -1,9 +1,7 @@
 
 # Azure Active Directory + ServiceNow
 Get started building workflows in ServiceNow and automating your business processes. No more passwords blocking you from signing in. 
-
-
-<Insert Image> 
+![sdf](media/Experiment/ServiceNow.PNG) 
 
 
 ## What can you do with Azure AD + ServiceNow?
@@ -15,8 +13,6 @@ Get started building workflows in ServiceNow and automating your business proces
 > * secure access to your applications with conditional access policies
 > * Govern access to your applications through access reviews
 > * Monitor access to your applications with sign in logs
-
-![sdf](media/Experiment/ServiceNow.PNG) 
 
 ## Get started
 
