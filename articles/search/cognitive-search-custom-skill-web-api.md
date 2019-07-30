@@ -22,6 +22,7 @@ The structure of the JSON payloads are described further down in this document.
 
 > [!NOTE]
 > The indexer will retry twice for certain standard HTTP status codes returned from the Web API. These HTTP status codes are: 
+> * `502 Bad Gateway`
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
