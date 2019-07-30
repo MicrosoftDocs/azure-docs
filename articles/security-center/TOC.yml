@@ -186,7 +186,7 @@
       href: security-center-alerts-type.md
     - name: UEBA for Azure resources and users
       href: security-center-ueba-mcas.md
-    - name: Customize Security configurations
+    - name: Customize security configurations
       href: security-center-customize-os-security-config.md
 
 - name: Reference
