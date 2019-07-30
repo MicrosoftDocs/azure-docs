@@ -37,9 +37,9 @@ Your services continue to run normally. You're charged pay-as-you-go rates for y
 
 The following conditions are required to renew a reservation:
 
-1. You must be an owner of the existing reservation.
-2. You must be an owner of the subscription if the reservation is scoped to a single subscription or resource group.
-3. You must be an owner of the subscription if it has a shared scope.
+- You must be an owner of the existing reservation.
+- You must be an owner of the subscription if the reservation is scoped to a single subscription or resource group.
+- You must be an owner of the subscription if it has a shared scope.
 
 ## Default renewal settings
 
@@ -63,7 +63,7 @@ If you make any of the following changes to the expiring reservation, the reserv
 
 The new reservation inherits the scope and instance size flexibility setting from the expiring reservation during renewal.
 
-## New reservation access
+## New reservation permissions
 
 Azure copies the permissions from the expiring reservation to the new reservation. Additionally, the subscription account administrator of the reservation purchase has access to the new reservation.
 
