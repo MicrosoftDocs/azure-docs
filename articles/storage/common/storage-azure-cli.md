@@ -325,7 +325,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 
 ### Set the content type
 
-The content type, also known as the MIME type, identitifies the format of the data in the blob. Browsers and other software use the content type to determine how to process the data. For example, the content type for PNG images is `image/png`. To set the content type, use the `blob update` command:
+The content type, also known as the MIME type, identifies the format of the data in the blob. Browsers and other software use the content type to determine how to process the data. For example, the content type for PNG images is `image/png`. To set the content type, use the `blob update` command:
 
 ```azurecli
 az storage blob update
