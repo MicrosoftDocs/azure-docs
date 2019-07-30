@@ -128,7 +128,7 @@ You can also obtain the path and pin location information by using the [Data Upl
     }
     ```
 
-4. Select **Send** and review the response header. Upon a successful request, the Location header will contain the status URI to access or download the data for future use. The status URI would be of the following format.  
+4. Select **Send** and review the response header. Upon a successful request, the Location header will contain the status URI to check the current status of the upload request. The status URI would be of the following format.  
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
