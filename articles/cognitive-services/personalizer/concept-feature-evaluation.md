@@ -37,7 +37,8 @@ The feature importance results do not represent other policies and models tested
 
 Personalizer evaluates features by creating "groups" of features that have similar importance. One group can be said to have overall stronger importance than others, but within the group, ordering of features is alphabetically.
 
-Features information includes:
+Information about each Feature includes:
+
 * Whether the feature comes from Context or Actions.
 * Feature Key and Value.
 
