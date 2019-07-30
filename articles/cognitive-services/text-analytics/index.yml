@@ -53,19 +53,19 @@ sections:
     - image: 
         src: media/index/logo_java.svg
       text: Java
-      href: quickstarts/java
+      href: quickstarts/java-sdk
     - image: 
         src: media/index/logo_nodejs.svg
       text: Node.js
-      href: quickstarts/nodejs
+      href: quickstarts/nodejs-sdk
     - image: 
         src: media/index/logo_python.svg
       text: Python
-      href: quickstarts/python
+      href: quickstarts/python-sdk
     - image: 
         src: media/index/logo_go.svg
       text: Go
-      href: quickstarts/go
+      href: quickstarts/go-sdk
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
