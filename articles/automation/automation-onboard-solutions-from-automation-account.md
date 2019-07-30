@@ -98,6 +98,8 @@ To enable the solution for all available machines, select **Enable on all availa
 
 To enable the solution for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved searches and Scope Configurations from the workspace. This action opens the solution to all Azure and non-Azure machines that are reporting to the workspace. When selected, this action disables the **Manage Machines** button permanently as there's no Scope Configuration left.
 
+You can add the Scope Configurations back by adding the initial saved searches back. For more information, see [Saved searches](#saved-searches).
+
 ### Selected machines
 
 To enable the solution for one or more machines, select **Enable on selected machines** and click **add** next to each machine you want to add to the solution. This task adds the selected machine names to the computer group saved search query for the solution.
