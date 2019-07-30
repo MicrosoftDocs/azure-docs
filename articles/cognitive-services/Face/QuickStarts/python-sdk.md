@@ -132,7 +132,7 @@ The following code creates a **PersonGroup** with three different **Person** obj
 
 ### Create PersonGroup
 
-In order to step through this scenario, you need to save the following images to the root directory of your project: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+To step this scenario, you need to save the following images to the root directory of your project: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 This group of images contains three sets of face images corresponding to three different people. The code will define three **Person** objects and associate them with image files that start with `woman`, `man`, and `child`.
 
@@ -140,7 +140,7 @@ Once you've set up your images, define a label at the top of your script for the
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroupvars)]
 
-Then add the following code to the bottom of your script. This creates a **PersongGroup** and three **Person** objects.
+Then add the following code to the bottom of your script. This code creates a **PersongGroup** and three **Person** objects.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_create)]
 
@@ -158,7 +158,7 @@ Once you've assigned faces, you must train the **PersonGroup** so that it can id
 
 ## Identify a face
 
-The following code takes an image with multiple faces and tries to find the identity of each person in the image. It does this by comparing each detected face to a **PersonGroup**, a database of different **Person** objects that each have several faces associated with them. 
+The following code takes an image with multiple faces and looks to find the identity of each person in the image. It compares each detected face to a **PersonGroup**, a database of different **Person** objects that each have several faces associated with them. 
 
 > [!IMPORTANT]
 > In order to run this example, you must first run the code in [Create and train a person group](#create-and-train-a-person-group).
@@ -177,7 +177,7 @@ The **identify** method takes an array of detected faces and compares them to a 
 
 ## Take a snapshot for data migration
 
-The Snapshots feature lets you move your saved face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face subscription. You may want to do this if, for example, you've created a **PersonGroup** object using a free trial subscription and now want to migrate it to a paid subscription. See the [Migrate your face data](../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of the Snapshots feature.
+The Snapshots feature lets you move your saved face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face subscription. You may want to use this feature if, for example, you've created a **PersonGroup** object using a free trial subscription and now want to migrate it to a paid subscription. See the [Migrate your face data](../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of the Snapshots feature.
 
 In this example, you will migrate the **PersonGroup** you created in [Create and train a person group](#create-and-train-a-person-group). You can either complete that section first, or use your own Face data construct(s).
 
@@ -219,7 +219,7 @@ The rest of the snapshot operations take place within an asynchronous function.
 
     [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait2)]
 
-Once you've completed these steps, you will be able to access your face data constructs from your new (target) subscription.
+Once you've completed these steps, you'll be able to access your face data constructs from your new (target) subscription.
 
 ## Run the application
 
