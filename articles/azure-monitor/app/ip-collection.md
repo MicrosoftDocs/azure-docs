@@ -78,8 +78,8 @@ If you only need to modify the behavior for a single Application Insights resour
 
     ![Screenshot adds a comma after "IbizaAIExtension" and add a new line below with "DisableIpMasking": true](media/ip-collection/save.png)
 
-    > [!NOTE]
-    > If you experience an error that says: _The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group._ Temporarily select a different resource group from the dropdown and then re-select your original resource group to resolve the error.
+    > [!WARNING]
+    > If you experience an error that says: **_The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group._** Temporarily select a different resource group from the dropdown and then re-select your original resource group to resolve the error.
 
 5. Select **I agree** > **Purchase**. 
 
