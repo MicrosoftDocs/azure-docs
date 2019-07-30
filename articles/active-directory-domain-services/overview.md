@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 07/19/2019
+ms.date: 07/30/2019
 ms.author: iainfou
 
 #Customer intent: As an IT administrator or decision maker, I want to understand what Azure AD DS is and how it can benefit my organization.
@@ -29,7 +29,7 @@ The following video provides an overview of how Azure AD DS integrates with your
 
 ## Common ways to provide identity solutions in the cloud
 
-When you migrate existing workloads to the cloud, directory-aware applications may use LDAP for read or write access to an on-premises AD DS directory. Applications that run on Windows Server are typically deployed on domain-joined so they can be managed securely using Group Policy. To authenticate end users, the applications may also rely on Windows integrated authentication, such as Kerberos or NTLM authentication.
+When you migrate existing workloads to the cloud, directory-aware applications may use LDAP for read or write access to an on-premises AD DS directory. Applications that run on Windows Server are typically deployed on domain-joined so they can be managed securely using Group Policy. To authenticate end users, the applications may also rely on Windows-integrated authentication, such as Kerberos or NTLM authentication.
 
 IT administrators often use one of the following solutions to provide an identity service to applications that run in Azure:
 
@@ -49,7 +49,7 @@ To provide identity services to applications and VMs in the cloud, Azure AD DS i
 * **Integrated with Azure AD:** User accounts, group memberships, and credentials are automatically available from your Azure AD tenant. New users, groups, or changes to attributes from your Azure AD tenant or your on-premises AD DS environment are automatically synchronized to Azure AD DS.
 * **Use your corporate credentials/passwords:** Passwords for users in your Azure AD tenant work with Azure AD DS. Users can use their corporate credentials to domain-join machines, sign in interactively or over remote desktop, and authenticate against the Azure AD DS managed domain.
 * **Support for domain-join:** Windows client and Server operating systems can domain-join Azure AD DS managed domains, as with an on-premises AD DS environment.
-* **NTLM and Kerberos authentication:** With support for NTLM and Kerberos authentication, you can deploy applications that rely on Windows integrated authentication.
+* **NTLM and Kerberos authentication:** With support for NTLM and Kerberos authentication, you can deploy applications that rely on Windows-integrated authentication.
 * **LDAP bind & LDAP read support:** You can use applications that rely on LDAP binds to authenticate users in an Azure AD DS managed domain. Applications that use LDAP read operations to query user and computer attributes can also work against Azure AD DS managed domains.
 * **Secure LDAP (LDAPS):** Secure LDAP access is available within the virtual network by default. You can also enable secure LDAP access over the internet.
 * **Group Policy:** You can use a single built-in GPO each for the users and computers containers to enforce compliance with required security policies. You can also create your own custom GPOs and assign them to custom organizational units.
