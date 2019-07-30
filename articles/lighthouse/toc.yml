@@ -43,6 +43,10 @@
     href: ./how-to/view-manage-service-providers.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/managedservices?view=azure-cli-latest
+  - name: Azure PowerShell
+    href: https://docs.microsoft.com/powershell/module/az.managedservices/?view=azps-2.4.0#managed_services
   - name: Azure SDK for .NET
     href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet
   - name: Azure SDK for .NET (NuGet)
