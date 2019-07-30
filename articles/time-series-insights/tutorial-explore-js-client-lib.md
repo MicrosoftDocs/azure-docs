@@ -101,7 +101,7 @@ First, let's view the [HTML and JavaScript source code](https://github.com/Micro
 
 ## Time Series Insights JavaScript client library concepts
 
-The Time Series Insights client library (*tsclient.js*) provides abstractions for two important JavaScript functionalities:
+The Time Series Insights client library (*tsiclient.js*) provides abstractions for two important JavaScript functionalities:
 
 * **Wrapper methods for calling the Time Series Insights Query APIs**: REST APIs you can use to query for Time Series Insights data by using aggregate expressions. The methods are organized under the TsiClient.Server namespace of the library.
 
