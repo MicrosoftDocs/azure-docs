@@ -26,7 +26,7 @@ ms.author: cherylmc
 The tables in this article provide information on ExpressRoute locations, ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
 > [!Note]
-> ExpressRoute is supported across all Azure regions and locations. Azure regions and ExpressRoute locations are two distinct and different concepts, understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
+> Azure regions and ExpressRoute locations are two distinct and different concepts, understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
 >
 >
 
@@ -37,6 +37,9 @@ Azure regions are global datacenters where Azure compute, networking and storage
 ExpressRoute locations (sometimes referred to as peering locations or meet-me-locations) are co-location facilities where Microsoft Enterprise Edge (MSEE) devices are located. ExpressRoute locations are the entry point to Microsoft’s network – and are globally distributed, providing customers the opportunity to connect to Microsoft’s network around the world. These locations are where ExpressRoute partners and ExpressRoute Direct customers issue cross connections to Microsoft’s network. In general, the ExpressRoute location does not need to match the Azure region. For example, a customer can create an ExpressRoute circuit with the resource location *East US*, in the *Seattle* Peering location.
 
 You will have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region.
+
+## <a name="partners"></a>ExpressRoute connectivity providers
+ExpressRoute is supported across all Azure regions and locations.
 
 ### Azure regions to ExpressRoute locations within a geopolitical region.
 The following table provides a map of Azure regions to ExpressRoute locations within a geopolitical region.
