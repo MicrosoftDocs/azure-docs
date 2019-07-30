@@ -72,10 +72,9 @@ First, register your migration application in Azure AD. Then, create an applicat
 
 1. In the **Registered app** page, select **Settings**.
 1. Select **Keys**.
+1. Add a new key (also known as a client secret), and then copy the key for later use.
 
     ![Application ID value and Keys menu item highlighted in Azure portal](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
-
-1. Add a new key (also known as a client secret), and then copy the key for later use.
 
 ### Step 1.3: Grant administrative permission to your application
 
