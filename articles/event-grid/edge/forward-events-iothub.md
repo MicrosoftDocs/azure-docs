@@ -11,7 +11,7 @@ ms.service: event-grid
 services: event-grid
 ---
 
-# Tutorial: Forward Event Grid events to IoTHub
+# Tutorial: Forward events to IoTHub
 
 This article walks through all the steps needed to forward Event Grid events to other IoT Edge modules, IoTHub using routes. You might want to do this for the following reasons:
 
@@ -30,13 +30,13 @@ In order to complete this tutorial, you will need:-
 
 As a publisher of an event, you need to create an event grid topic. Topic refers to an "endpoint" where publishers can then send events to.
 
-1. Create topic2.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
+1. Create topic4.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
    ```json
    {
-       "name": "sampleTopic2",
+       "name": "sampleTopic4",
        "properties" : {
-          "inputschema": "customeventschema",
+          "inputschema": "eventGridSchema",
        },
    }
    ```
@@ -44,14 +44,14 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 1. Run the following command to create the topic. HTTP Status Code of 200 OK should be returned.
 
     ```sh
-    curl -k -H "Content-Type: application/json" -X PUT -g -d @topic2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
+    curl -k -H "Content-Type: application/json" -X PUT -g -d @topic4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
     ```
 
 ## Step 2: Create event subscription
 
-   Subscribers can register for events published to a topic. In order to receive any event, they will need to create an Event grid subscription on a topic of interest. 
+   Subscribers can register for events published to a topic. In order to receive any event, they will need to create an Event grid subscription on a topic of interest.
 
-1. Create subscription2.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
+1. Create subscription4.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
    ```json
     {
@@ -59,7 +59,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
         "destination": {
           "endpointType": "edgeHub",
           "properties": {
-            "outputName": "sampleSub2"
+            "outputName": "sampleSub4"
           }
         }
       }
@@ -67,14 +67,12 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
     ```
 
    >[!NOTE]
-   > The **endpointType** specifies that the subscriber is edgeHub. The **outputName** specifies the output through which the Event Grid module will route events that match this subscription to edgeHub.
-  
-    Events that match the above subscription will be written to **/messages/modules/eventgridmodule/outputs/sampleSub2**.
+   > The **endpointType** specifies that the subscriber is edgeHub. The **outputName** specifies the output on which the Event Grid module will route events that match this subscription to edgeHub. For example, events that match the above subscription will be written to **/messages/modules/eventgridmodule/outputs/sampleSub4**.
 
 2. Run the following command to create the subscription. HTTP Status Code of 200 OK should be returned.
 
     ```sh
-    curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
+    curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/eventSubscriptions/sampleSubscription4?api-version=2019-01-01-preview
     ```
 
 ## Step 3: Setup edgeHub route
@@ -89,8 +87,8 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
    1. Select **Next** and to the routes section
    1. In the routes, add a new route
 
-      ```sh 
-      "FROM /messages/modules/eventgridmodule/outputs/sampleSub2 INTO $upstream"
+      ```sh
+      "fromEventGridToIoTHub":"FROM /messages/modules/eventgridmodule/outputs/sampleSub4 INTO $upstream"
       ```
 
       For example,
@@ -98,13 +96,13 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
       ```json
       {
           "routes": {
-            "fromEventGridToIoTHub": "FROM /messages/modules/eventgridmodule/outputs/sampleSub2 INTO $upstream"
+            "fromEventGridToIoTHub": "FROM /messages/modules/eventgridmodule/outputs/sampleSub4 INTO $upstream"
           }
       }
       ```
 
    >[!NOTE]
-   > The above route will forward any events that match the subscription to be forwarded from Event Grid module to IoTHub. You can use edgeHub [routing](https://docs.microsoft.com/azure/iot-edge/module-composition) featuers to further filter, route the Event Grid events to other IoT Edge modules.
+   > The above route will forward any events matched for this subscription to be forwarded to IoTHub. You can use edgeHub [routing](https://docs.microsoft.com/azure/iot-edge/module-composition) features to further filter, route the Event Grid events to other IoT Edge modules.
 
 ## Step 4: Setup IoTHub route
 
@@ -112,31 +110,47 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
 ## Step 5: Publish event
 
-1. Create event2.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
+1. Create event4.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
    ```json
    [{
+       "id": "eventId-iothub-1",
+       "eventType": "recordInserted",
+       "subject": "myapp/vehicles/motorcycles",
+       "eventTime": "2019-07-28T21:03:07+00:00",
+       "dataVersion": "1.0",
        "data": {
             "make": "Ducati",
             "model": "Monster"
-        }
+        },
     }]
     ```
 
 1. Run the following command to publish event
 
     ```sh
-    curl -k -H "Content-Type: application/json" -X POST -g -d @event2.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/events?api-version=2019-01-01-preview
+    curl -k -H "Content-Type: application/json" -X POST -g -d @event4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/events?api-version=2019-01-01-preview
     ```
 
 ## Step 6: Verify event delivery
 
 Refer to IoT Hub [routing tutorial](https://docs.microsoft.com/azure/iot-hub/tutorial-routing) to view the events.
 
+## Cleanup resources
+
+* Run the following command to delete the topic and all its subscriptions in the edge
+
+    ```sh
+    curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
+    ```
+
+* Delete any resources created while setting up IoTHub routing in the cloud as well.
+
 ## Next steps
 
 In this tutorial, you created an event grid topic, edgeHub subscription, and published events. Now that you know the basic steps to forward to edgeHub:
 
-* Forwarding all events emitted by Event Grid module's subscription to edgeHub
-* Try consuming events from other IoT Edge Modules such as Azure Function using EdgeHubTrigger
-* Use edgeHub route filters to partition events  
+* Use edgeHub route filters to partition events
+* Set up persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
+* Follow [documentation](configure-client-auth.md) to configure client authentication
+* Forward events to Azure Event Grid in the cloud by following this [tutorial](forward-events-event-grid-cloud.md)

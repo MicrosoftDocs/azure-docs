@@ -59,6 +59,7 @@ All events have the following top-level data:
 | metadataVersion | string | No | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
 ### Example - EventGrid schema event
+
 ```json
 [{
        "id": "1807",

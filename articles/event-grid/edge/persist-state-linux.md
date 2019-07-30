@@ -12,9 +12,8 @@ services: event-grid
 ---
 
 # Persist state in Linux
-Topics and Subscriptions created in the Event Grid module are by default stored in the container filesystem. Without persistence, if the module were redeployed then all the metadata created would be lost. To preserve the data across deployments, you will need to persist the data outside the container filesystem. To enable persistence across deployments, we make use of [docker volumes](https://docs.docker.com/storage/volumes/). 
 
-The rest of the document details the steps needed to deploy Event Grid module with persistence in Linux deployments.
+Topics and subscriptions created in the Event Grid module are by default stored in the container filesystem. Without persistence, if the module were redeployed then all the metadata created would be lost. To preserve the data across deployments, you will need to persist the data outside the container filesystem. The rest of the document details the steps needed to deploy Event Grid module with persistence in Linux deployments.
 
 > [!NOTE]
 >Currently only metadata is persisted. Events are stored in-memory. If Event Grid module is redeployed, restarted then any undelivered events will be lost.
@@ -67,9 +66,13 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
              ]
          }
     }
-    ``` 
+    ```
+
+    >[!IMPORTANT]
+    >Do not change the second part of the bind value. It points to a specific location in the module. For Event Grid module on linux it has to be **/app/metadata**.
+
     For example,
-    
+
     ```json
     {
         "Env": [
@@ -84,7 +87,7 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
             "outbound:webhook:httpsOnly=true",
             "outbound:webhook:skipServerCertValidation=false",
             "outbound:webhook:allowUnknownCA=true",
-         ],         
+         ],
          "HostConfig": {
             "Binds": [
                 "/myhostdir:/app/metadataDb"
@@ -99,9 +102,6 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
          }
     }
     ```
-
->[!IMPORTANT]
->Do not change the second part of the bind value. It points to a specific location in the module. For Event Grid module on linux it has to be **/app/metadata**.
 
 ### Option 2: Mount host directory via docker volume
 
@@ -191,6 +191,9 @@ Alternatively you can create a docker volume, map the volume onto the container 
     }
     ```
 
+    >[!IMPORTANT]
+    >Do not change the second of the bind value. It points to a specific location in the module. For Event Grid module on linux it has to be **/app/metadata**.
+
     For example,
 
     ```json
@@ -222,6 +225,3 @@ Alternatively you can create a docker volume, map the volume onto the container 
          }
     }
     ```
-
->[!IMPORTANT]
->Do not change the second of the bind value. It points to a specific location in the module. For Event Grid module on linux it has to be **/app/metadata**.

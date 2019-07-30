@@ -35,7 +35,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
    {
        "name": "sampleTopic1",
        "properties" : {
-          "inputschema": "customeventschema",
+          "inputschema": "eventGridSchema",
        },
    }
    ```
@@ -80,10 +80,15 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 
    ```json
    [{
+       "id": "eventId-func-0",
+       "eventType": "recordInserted",
+       "subject": "myapp/vehicles/motorcycles",
+       "eventTime": "2019-07-28T21:03:07+00:00",
+       "dataVersion": "1.0",
        "data": {
             "make": "Ducati",
             "model": "Monster"
-        }
+        },
     }]
     ```
 
@@ -115,22 +120,36 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
     ```json
     Received event data [
         {
-            "data": {
-                "make": "Ducati",
-                "model": "Monster"
-            }
+          "id": "eventId-func-0",
+          "topic": "sampleTopic1",
+          "subject": "myapp/vehicles/motorcycles",
+          "eventType": "recordInserted",
+          "eventTime": "2019-07-28T21:03:07+00:00",
+          "dataVersion": "1.0",
+          "metadataVersion": "1",
+          "data": {
+            "make": "Ducati",
+            "model": "Monster"
+          }
         }
-    ]
+      ]
     ```
+
+## Cleanup resources
+
+* Run the following command to delete the topic and all its subscriptions
+
+    ```sh
+    curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
+    ```
+
+* Delete the subscriber module from your IoT Edge device.
 
 ## Next steps
 
 In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps:
 
-* Try publishing events with different schemas
-* Try creating multiple subscriptions
-* Try creating/updating subscription with filters
-* Try creating/updating subscription with retry policy
-* Try out client authentication from custom IoT modules
-* Validate event grid module's server certificate, identity certificate from custom IoT modules
-* Register any webhook in the cloud such as Azure Function in cloud to receive edge events
+* Create/update subscription with filters
+* Set up persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
+* Follow [documentation](configure-client-auth.md) to configure client authentication
+* Forward events to Azure Functions in the cloud by following this [tutorial](pub-sub-events-webhook-cloud.md)
