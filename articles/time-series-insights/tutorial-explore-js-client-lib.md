@@ -44,8 +44,6 @@ In this video, we introduce the open-source Time Series Insights JavaScript SDK:
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
-
-
 ## Time Series Insights sample application
 
 Throughout this tutorial, we use a free, hosted Time Series Insights sample app to explore the source code behind the application and to explore the Time Series Insights JavaScript client library. By using the sample app, you'll learn how to interact with Time Series Insights in JavaScript and visualize data through charts and graphs.
@@ -101,7 +99,7 @@ First, let's view the [HTML and JavaScript source code](https://github.com/Micro
 
 ## Time Series Insights JavaScript client library concepts
 
-The Time Series Insights client library (*tsclient.js*) provides abstractions for two important JavaScript functionalities:
+The Time Series Insights client library (*tsiclient.js*) provides abstractions for two important JavaScript functionalities:
 
 * **Wrapper methods for calling the Time Series Insights Query APIs**: REST APIs you can use to query for Time Series Insights data by using aggregate expressions. The methods are organized under the TsiClient.Server namespace of the library.
 

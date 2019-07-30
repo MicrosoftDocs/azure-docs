@@ -93,8 +93,10 @@ When Azure VMs are created after the migration (failover), they're joined to thi
 6. For **Resource group**, select **Use existing**, and then select **migrationRG**.
 7. For **Location**, select **West Europe**.
 8. Under **Subnet**, leave the default values for **Name** and **IP range**.
-9. Leave the **Service Endpoints** option disabled.
-10. When you're done, select **Create**.
+9. Add instructions for DDoS protection settings.
+10. Leave the **Service Endpoints** option disabled.
+11. Add instructions for Firewall settings.
+12. When you're done, select **Create**.
 
 ## Prepare the infrastructure
 
@@ -154,7 +156,7 @@ In this section, you enter information about the resources that you created in [
 
 Before you can enable replication, you must create a replication policy.
 
-1. Select **Replicate and Associate**.
+1. Select **Create and Associate**.
 2. In **Name**, enter **myReplicationPolicy**.
 3. Leave the rest of the default settings, and then select **OK** to create the policy. The new policy is automatically associated with the configuration server.
 
