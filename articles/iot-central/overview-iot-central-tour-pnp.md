@@ -1,4 +1,4 @@
----
+*--
 title: Take a tour of the Azure IoT Central UI | Microsoft Docs
 description: As a builder, become familiar with the key areas of the Azure IoT Central UI that you use to create an IoT solution.
 author: dominicbetts
@@ -9,7 +9,7 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
----
+*--
 
 # Take a tour of the Azure IoT Central UI (preview features)
 
@@ -19,16 +19,16 @@ This article introduces you to the Microsoft Azure IoT Central UI. You can use t
 
 As a _builder_, you use the Azure IoT Central UI to define your Azure IoT Central solution. You can use the UI to:
 
-- Define the types of device that connect to your solution.
-- Configure the rules and actions for your devices.
-- Customize the UI for an _operator_ who uses your solution.
+* Define the types of device that connect to your solution.
+* Configure the rules and actions for your devices.
+* Customize the UI for an _operator_ who uses your solution.
 
 As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Central solution. You can use the UI to:
 
-- Monitor your devices.
-- Configure your devices.
-- Troubleshoot and remediate issues with your devices.
-- Provision new devices.
+* Monitor your devices.
+* Configure your devices.
+* Troubleshoot and remediate issues with your devices.
+* Provision new devices.
 
 ## Use the left navigation menu
 
@@ -36,7 +36,7 @@ Use the left navigation menu to access the different areas of the application. Y
 
 | Menu | Description |
 | ---- | ----------- |
-| ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar.png) | <ul><li>The **Dashboard** button displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.</li><li>The **Device Explorer** button lists the simulated and real devices associated with each device template in the application. As an operator, you use the **Device Explorer** to manage your connected devices.</li><li>The **Device Groups** button lets you view and create device groups. As an operator, you can create device groups as a logical collection of devices specified by a query.</li><li>The **Analytics** button shows analytics derived from device telemetry for devices and device groups. As an operator, you can create custom views on top of device data to derive insights from your application.</li><li>The **Jobs** button enables bulk device management by having you create and run jobs to perform updates at scale.</li><li>The **Rules** button lets you edit rules that fire based on device telemetry and trigger customizable actions.</li><li>The **Device Templates** button shows the tools a builder uses to create and manage device templates.</li><li>The **Continuous Data Export** button an administrator to configure a continuous export to other Azure services such as storage and queues.</li><li>The **Administration** button shows the application administration pages where an administrator can manage application settings, users, and roles.</li></ul> |
+| ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar.png) | <ul><li>The **Dashboard** page displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.</li><li>The **Devices** page lists the simulated and real devices associated with each device template in the application. As an operator, you use **Devices** to manage your connected devices.</li><li>The **Device groups** page lets you view and create device groups. As an operator, you can create device groups as a logical collection of devices specified by a query.</li><li>The **Rules** page lets you edit rules that fire based on device telemetry and trigger customizable actions.</li><li>The **Analytics** page shows analytics derived from device telemetry for devices and device groups. As an operator, you can create custom views on top of device data to derive insights from your application.</li><li>The **Jobs** page enables bulk device management by having you create and run jobs to perform updates at scale.</li><li>The **Device templates** page shows the tools a builder uses to create and manage device templates.</li><li>The **Data Export** page enables an administrator to configure a continuous export to other Azure services such as storage and queues.</li><li>The **Administration** page shows the application administration pages where an administrator can manage application settings, users, and roles.</li></ul> |
 
 ## Search, help, and support
 
@@ -44,10 +44,10 @@ The top menu appears on every page:
 
 ![Toolbar](media/overview-iot-central-tour-pnp/toolbar.png)
 
-- To search for device templates and devices, enter a **Search** value.
-- To change the UI language or theme, choose the **Settings** icon.
-- To sign out of the application, choose the **Account** icon.
-- To get help and support, choose the **Help** drop-down for a list of resources. In a trial application, the support resources include access to [live chat](howto-show-hide-chat.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+* To search for device templates and devices, enter a **Search** value.
+* To change the UI language or theme, choose the **Settings** icon.
+* To sign out of the application, choose the **Account** icon.
+* To get help and support, choose the **Help** drop-down for a list of resources. In a trial application, the support resources include access to [live chat](howto-show-hide-chat.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 You can choose between a light theme or a dark theme for the UI:
 
@@ -64,9 +64,9 @@ You can choose between a light theme or a dark theme for the UI:
 
 * As an operator, you can create personalized dashboards and switch between them and the default dashboard. To learn more, see the [Create and manage personal dashboards](howto-personalize-dashboard.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) how-to article.
 
-## Device explorer
+## Devices
 
-![Explorer page](media/overview-iot-central-tour-pnp/explorer.png)
+![Devices page](media/overview-iot-central-tour-pnp/explorer.png)
 
 The explorer page shows the _devices_ in your Azure IoT Central application grouped by _device template_.
 
@@ -75,9 +75,15 @@ The explorer page shows the _devices_ in your Azure IoT Central application grou
 
 ## Device groups
 
-![Device Groups page](media/overview-iot-central-tour-pnp/devicesets.png)
+![Device groups page](media/overview-iot-central-tour-pnp/devicesets.png)
 
 The _device groups_ page shows device groups created by the builder. A device group is a collection of related devices. A builder defines a query to identify the devices that are included in a device group. You use device groups when you customize the analytics in your application. To learn more, see the [Use device groups in your Azure IoT Central application](howto-use-device-sets-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
+
+## Rules
+
+![Rules page](media/overview-iot-central-tour-pnp/rules.png)
+
+The rules page lets you define rules based on telemetry, device state, or device events. When a rule fires, it can trigger an action such as sending an email to an operator. The builder uses this page to create and manage rules, see the [Configure rules and actions for your devices in Azure IoT Central](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial.
 
 ## Analytics
 
@@ -91,31 +97,25 @@ The analytics page shows charts that help you understand how the devices connect
 
 The jobs page lets you run bulk device management operations on your devices. The builder uses this page to update device properties, settings, and commands. To learn more, see the [Run a job](howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 
-## Rules
-
-![Rules page](media/overview-iot-central-tour-pnp/rules.png)
-
-The rules page lets you define rules based on telemetry, device state, or device events. When a rule fires, it can trigger an action such as sending an email to an operator. The builder uses this page to create and manage rules, see the [Configure rules and actions for your devices in Azure IoT Central](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial.
-
 ## Device templates
 
-![Device Templates page](media/overview-iot-central-tour-pnp/templates.png)
+![Device templates page](media/overview-iot-central-tour-pnp/templates.png)
 
 The device templates page is where a builder creates and manages the device templates in the application. A device template specifies device characteristics such as:
 
-- Telemetry, state, and event measurements.
-- Properties.
-- Commands.
+* Telemetry, state, and event measurements.
+* Properties.
+* Commands.
 
 The builder can also create forms and dashboards for operators to use to manage devices.
 
 To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial.
 
-## Continuous data export
+## Data export
 
-![Continuous Data Export page](media/overview-iot-central-tour-pnp/export.png)
+![Data export page](media/overview-iot-central-tour-pnp/export.png)
 
-The continuous data export page is where an administrator defines how to stream data, such as telemetry, from the application. Other services can store the exported data or use it for analysis. To learn more, see the [Export your data in Azure IoT Central](howto-export-data.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
+The data export page is where an administrator defines how to stream data, such as telemetry, from the application. Other services can store the exported data or use it for analysis. To learn more, see the [Export your data in Azure IoT Central](howto-export-data.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 
 ## Administration
 
