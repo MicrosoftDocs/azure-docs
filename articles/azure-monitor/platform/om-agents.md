@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 07/30/2019
 ms.author: magoedte
 ---
 # Connect Operations Manager to Azure Monitor
@@ -137,7 +137,7 @@ After configuring integration with your Log Analytics workspace, it only establi
 1. Open the Operations Manager console and select the **Administration** workspace.
 1. Expand the Operations Management Suite node and click **Connection**.
 1. Click the **Add a Computer/Group** link under the Actions heading on the right-side of the pane.
-1. In the **Computer Search** dialog box, you can search for computers or groups monitored by Operations Manager. Select computers or groups to onboard to Azure Monitor, click **Add**, and then click **OK**.
+1. In the **Computer Search** dialog box, you can search for computers or groups monitored by Operations Manager. Select computers or groups including the Operations Manager Management Server to onboard to Azure Monitor, click **Add**, and then click **OK**.
 
 You can view computers and groups configured to collect data from the Managed Computers node under Operations Management Suite in the **Administration** workspace of the Operations console. From here, you can add or remove computers and groups as necessary.
 
