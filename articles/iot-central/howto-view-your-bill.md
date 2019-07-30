@@ -1,6 +1,6 @@
 ---
-title: View bill in Azure IoT Central application | Microsoft Docs
-description: As an administrator, how to view bill in your Azure IoT Central application
+title: View your bill and convert trial to pay as you go in Azure IoT Central application | Microsoft Docs
+description: As an administrator, learn how to view your bill and covert from trial to pay as you go in your Azure IoT Central application
 author: v-krghan
 ms.author: v-krghan
 ms.date: 07/26/2019
@@ -21,7 +21,7 @@ To access and use the **Administration** section, you must be in the **Administr
 
 To view your bill, go to the **Billing** page in the **Administration** section. The Azure billing page opens in a new tab, where you can see the bill for each of your Azure IoT Central applications.
 
-### Convert your Trial to Pay-As-You-Go
+## Convert your Trial to Pay-As-You-Go
 
 You can convert your Trial application to a Pay-As-You-Go application. Here are the differences between these types of applications.
 
@@ -46,7 +46,4 @@ To complete this self-service process, follow these steps:
 
 ## Next steps
 
-Now that you've learned how to view your bill in Azure IoT Central application, here is the suggested next step:
-
-> [!div class="nextstepaction"]
-> [Set up the device template](howto-set-up-template.md)
+Now that you've learned about how to view your bill in Azure IoT Central application, the suggested next step is to learn about [Customize application UI](howto-customize-ui.md) in Azure IoT Central.

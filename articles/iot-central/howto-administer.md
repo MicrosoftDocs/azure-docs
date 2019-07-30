@@ -12,20 +12,6 @@ manager: peterpr
 
 # Administer your IoT Central application
 
-After you create an IoT Central application, you can go to the **Administration** section to:
-
-- Manage application settings
-- Manage users
-- Manage roles
-- View your bill
-- Convert your Trial to Pay-As-You-Go
-- Export data
-- Manage device connection
-- Use access tokens for developer tools
-- Customize the UI of your application
-- Customize help links in the application
-- Manage IoT Central programmatically
-
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application. The [Manage application settings](#manage-application-settings) section in this article explains more about how to manage the application settings.
 
 ## Manage application settings
@@ -79,14 +65,6 @@ Connect devices at scale in your application using the keys and certificates her
 
 Generate access tokens to use them in developer tools. Currently the only developer tool available is the IoT Central explorer for monitoring device messages and changes in properties and settings. Learn more about the [IoT Central explorer](howto-use-iotc-explorer.md).
 
-## Customize your application
-
-For more information about changing the colors and icons in your application, see [Customize the Azure IoT Central UI](./howto-customize-ui.md).
-
-## Customize help
-
-For more information about adding custom help links in your application, see [Customize the Azure IoT Central UI](./howto-customize-ui.md).
-
 ## Manage programatically
 
 IoT Central Azure Resource Manager SDK packages are available for Node, Python, C#, Ruby, Java, and Go. You can use these packages to create, list, update, or delete IoT Central applications. The packages include helpers to manage authentication and error handling.
@@ -105,8 +83,5 @@ To learn more, see the following GitHub repositories and packages:
 | Go | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
 
 ## Next steps
-
-Now that you've learned how to administer your Azure IoT Central application, here is the suggested next step:
-
-> [!div class="nextstepaction"]
-> [Manage users and roles](howto-manage-users-and-roles.md)
+ 
+Now that you've learned about how to administer your Azure IoT Central application, the suggested next step is to learn about [Manage users and roles](howto-manage-users-and-roles.md) in Azure IoT Central.

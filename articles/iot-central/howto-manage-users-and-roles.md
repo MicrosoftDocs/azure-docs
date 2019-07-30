@@ -65,7 +65,4 @@ Users in the **Application Operator** role can't make changes to device template
 
 ## Next steps
 
-Now that you've learned how to manage users and roles in your Azure IoT Central application, here is the suggested next step:
-
-> [!div class="nextstepaction"]
-> [View your bill](howto-view-your-bill.md)
+Now that you've learned about how to manage users and roles in your Azure IoT Central, the suggested next step is to learn about [View your bill](howto-view-your-bill.md) in Azure IoT Central.
