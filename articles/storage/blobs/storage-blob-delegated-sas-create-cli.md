@@ -24,17 +24,17 @@ When you create a user delegation SAS using your Azure AD credentials, the signa
 
 ## Get a user delegation SAS for a container
 
-To create a user delegation SAS with Azure CLI, call the [az storage container generate-sas](/cli/azure/storage/container#az-storage-container-generate-sas) command. Specify *login* for the `--auth-mode` parameter so that requests made to Azure Storage are authorized with your Azure AD credentials. Specify the `--as-user` parameter to indicate that the SAS returned should be a user delegation SAS. Finally, specify an expiry value for the user delegation SAS that is within 7 days of the current time.
+To create a user delegation SAS for a container with Azure CLI, call the [az storage container generate-sas](/cli/azure/storage/container#az-storage-container-generate-sas) command. Specify *login* for the `--auth-mode` parameter so that requests made to Azure Storage are authorized with your Azure AD credentials. Specify the `--as-user` parameter to indicate that the SAS returned should be a user delegation SAS. Finally, specify an expiry value for the user delegation SAS that is within 7 days of the current time.
 
-The following example returns a user delegation SAS token with read permissions.
+Supported permissions for a user delegation SAS on a container include Add, Create, Delete, List, Read, and Write. Permissions can be combined. For more information about these permissions, see ???.
 
-The **az storage container generate-sas** command returns the SAS token, which you can append to the container resource URI. Remember to replace the placeholder values in brackets with your own values:
+The following example returns a user delegation SAS token for a container. The **az storage container generate-sas** command returns the SAS token, which you can then append to the container resource URI. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli-interactive
 az storage container generate-sas \
     --account-name <storage-account> \
     --name sample-container \
-    --permissions r \
+    --permissions a|c|d|l|r|w \
     --expiry <date-time> \
     --auth-mode login \
     --as-user
@@ -43,6 +43,28 @@ az storage container generate-sas \
 The user delegation SAS token returned is similar to the token shown in following example:
 
 `se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26T18%3A01%3A22Z&ske=2019-07-27T00%3A00%3A00Z&sks=b&skv=2018-11-09&sig=<signature>`
+
+## Get a user delegation SAS for a blob
+
+To create a user delegation SAS for a blob with Azure CLI, call the [az storage blob generate-sas](/cli/azure/storage/blob#az-storage-blob-generate-sas) command. Specify *login* for the `--auth-mode` parameter so that requests made to Azure Storage are authorized with your Azure AD credentials. Specify the `--as-user` parameter to indicate that the SAS returned should be a user delegation SAS. Finally, specify an expiry value for the user delegation SAS that is within 7 days of the current time.
+
+Supported permissions for a user delegation SAS on a blob include Add, Create, Delete, Read, and Write. For more information about these permissions, see ???.
+
+The following example returns a user delegation SAS token for a blob. The **az storage blob generate-sas** command returns the SAS token, which you can then append to the blob resource URI. Remember to replace the placeholder values in brackets with your own values:
+
+```azurecli-interactive
+az storage blob generate-sas \
+    --account-name <storage-account> \
+    --container-name sample-container \
+    --name blob1.txt \
+    --permissions a|c|d|r|w \
+    --expiry <date-time> \
+    --auth-mode login \
+    --as-user
+```
+
+> [!NOTE]
+> A user delegation SAS does not support defining permissions with a stored access policy.
 
 ## See also
 
