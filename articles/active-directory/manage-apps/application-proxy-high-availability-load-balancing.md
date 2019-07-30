@@ -40,7 +40,7 @@ Connectors establish their connections based on principles for high availability
 
    - In step 2, requests go to different Application Proxy service instances, so connections are more likely to be made with different connectors. As a result, connectors are almost evenly used within the group.
 
-   - A connection is only reused if the connection is broken or an idle period of 10 minutes occurs. For example, the connection may be broken when a machine or connector service restarts or there's a network disruption.
+   - A connection is only reestablished if the connection is broken or an idle period of 10 minutes occurs. For example, the connection may be broken when a machine or connector service restarts or there's a network disruption.
 
 5. The connector passes the request to the application’s back-end server. Then the application sends the response back to the connector.
 6. The connector completes the response by opening an outbound connection to the service instance from where the request came. Then this connection is immediately closed. By default, each connector is limited to 200 concurrent outbound connections.
