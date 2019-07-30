@@ -19,7 +19,7 @@ This how-to guide shows you how to use the samples in the Node service SDK to le
 
 If you haven't completed the [Connect an IoT Plug and Play device to your solution](quickstart-connect-pnp-device-solution.md) quickstart, you should do so now. The quickstart shows you how to download and install the SDK and run some of the samples.
 
-Before running the service samples, open a new terminal, go to the root folder of your cloned repository, navigate to the **/azure-iot-samples-node/tree/master/digital-twins/Quickstarts/Service** folder, and then install all the dependencies by running the following command:
+Before you run the service samples, open a new terminal, go to the root folder of your cloned repository, navigate to the **/azure-iot-samples-node/tree/master/digitaltwins/quickstarts/service** folder, and then  run the following command to install the dependencies:
 
     ```cmd/sh
     npm install
