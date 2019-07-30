@@ -174,6 +174,21 @@ You can cancel the transfer request until the request is approved or declined. T
 
 SaaS products don't transfer with the subscriptions. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS products. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you perform management operations like deleting and viewing the details of the product. User must be a resource owner on the SaaS product to transfer resource ownership.
 
+## Troubleshooting
+
+### <a id="no-button"></a> Why don't I see the "Transfer requests" option?
+
+Make sure you are logged in with your email address that has access to the Microsoft customer Agreement billing account. To check if the email address has access to the Microsoft Customer Agreement billing account, see [Check for access](#check-for-access).
+
+### <a id="no-button"></a> Why doesn't my subscription type support transfer? 
+
+Unfortunately, not all types of subscriptions support billing ownership transfer. To view list of subscription types that support transfers, see [Supported subscription types](#supported-subscription-types)
+
+### <a id="no-button"></a> Why am I receiving an access denied error when I try to transfer billing ownership of a subscription? 
+
+You'll see this error if you're trying to transfer a Microsoft Azure Plan subscription and you don't have the necessary permission. To transfer a Microsoft Azure plan subscription, you need to be an owner or contributor on the invoice section to which the subscription is billed. For more information, see [Manage subscriptions for invoice section](billing-understand-mca-roles.md#manage-subscriptions-for-invoice-section).
+
+
 ## Check for access
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
