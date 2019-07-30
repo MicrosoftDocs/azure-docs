@@ -1,6 +1,6 @@
 ---
 title: Create a Cognitive Services resource in the Azure portal
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Get started with Azure Cognitive Services by creating and subscribing to a resource in the Azure portal.
 services: cognitive-services
 author: aahill

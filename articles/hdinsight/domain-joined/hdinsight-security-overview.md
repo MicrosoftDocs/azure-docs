@@ -12,7 +12,7 @@ ms.date: 07/22/2019
 
 # Overview of enterprise security in Azure HDInsight
 
-Azure HDInsight offers a number of methods to address your enterprise security needs. Most of these solutions are optional, and are not activated by default. This flexibility allows you to choose the security features that are most important to you, and helps you to avoid paying for features that you don't want. This also means that it is your responsibility to make sure that the correct solutions are enabled for your setup and environment.
+Azure HDInsight offers a number of methods to address your enterprise security needs. Most of these solutions are not activated by default. This flexibility allows you to choose the security features that are most important to you, and helps you to avoid paying for features that you don't want. This also means that it is your responsibility to make sure that the correct solutions are enabled for your setup and environment.
 
 This article looks at security solutions by dividing security solutions along the lines of four traditional security pillars: perimeter security, authentication, authorization, and encryption.
 
@@ -24,25 +24,23 @@ One way of looking at enterprise security divides security solutions into four m
 
 ### Perimeter security
 
-Perimeter security in HDInsight is achieved through virtual networks and the Azure VPN Gateway service. An enterprise admin can create an ESP cluster inside a virtual network and use network security groups (firewall rules) to restrict access to the virtual network. Only the IP addresses defined in the inbound firewall rules will be able to communicate with the HDInsight cluster. This configuration provides perimeter security.
+Perimeter security in HDInsight is achieved through [virtual networks](../hdinsight-plan-virtual-network-deployment.md). An enterprise admin can create a cluster inside a virtual network(VNET) and use network security groups(NSG) to restrict access to the virtual network. Only the allowed IP addresses in the inbound NSG rules will be able to communicate with the HDInsight cluster. This configuration provides perimeter security.
 
-Another layer of perimeter security is achieved through the VPN Gateway service. The gateway acts as first line of defense for any incoming request to the HDInsight cluster. It accepts the request, validates it, and only then allows the request to pass to the other nodes in cluster. In this way, the gateway provides perimeter security to other name and data nodes in the cluster.
+All clusters deployed in a VNET will also have a private endpoint that resolves to a private IP inside the VNET for private HTTP access to the cluster gateways.
 
 ### Authentication
 
-The [Enterprise Security Package](apache-domain-joined-architecture.md) from HDInsight provides Active Directory-based authentication, multi-user support, and role-based access control. The Active Directory integration is achieved through the use of [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). With these capabilities, you can create an HDInsight cluster that's joined to an Active Directory domain. You can then configure a list of employees from the enterprise who can authenticate through Azure Active Directory to sign in to the HDInsight cluster.
+The [Enterprise Security Package](apache-domain-joined-architecture.md) from HDInsight provides Active Directory-based authentication, multi-user support, and role-based access control. The Active Directory integration is achieved through the use of [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). With these capabilities, you can create an HDInsight cluster that's joined to a managed Active Directory domain. You can then configure a list of employees from the enterprise who can authenticate and sign in to the cluster.
 
-With this setup, enterprise employees can sign in to the cluster nodes by using their domain credentials. They can also use their domain credentials to authenticate with other approved endpoints like Apache Ambari Views, ODBC, JDBC, PowerShell, and REST APIs to interact with the cluster. No one from outside the enterprise can sign in or access the HDInsight cluster.
-
-The enterprise admin can also configure role-based access control (RBAC) to secure Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) and [Kafka](apache-domain-joined-run-kafka.md) using Apache Ranger. Configuring RBAC policies allows you to associate permissions with a role in the organization. This layer of abstraction makes it easier to ensure that people have only the permissions needed to perform their work responsibilities. Ranger also allows you to audit the data access of employees and any changes done to access control policies.
-
-Apache Oozie is also enabled on ESP clusters. To access the Oozie web UI, users should enable [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
+With this setup, enterprise employees can sign in to the cluster nodes by using their domain credentials. They can also use their domain credentials to authenticate with other approved endpoints like Apache Ambari Views, ODBC, JDBC, PowerShell, and REST APIs to interact with the cluster. 
 
 ### Authorization
 
-A best practice that most enterprises follow is making sure that not every employee has access to all enterprise resources. Likewise, the admin can define role-based access control policies for the cluster resources.
+A best practice that most enterprises follow is making sure that not every employee has access to all enterprise resources. Likewise, the admin can define role-based access control policies for the cluster resources. This is only available in the ESP clusters.
 
-For example, the admin can configure [Apache Ranger](https://ranger.apache.org/) to set access control policies for Hive. This functionality ensures that employees can access only as much data as they need to be successful in their jobs. SSH access to the cluster is also restricted to only the administrator.
+The hadoop admin can configure role-based access control (RBAC) to secure Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) and [Kafka](apache-domain-joined-run-kafka.md) using those plugins in Apache Ranger. Configuring RBAC policies allows you to associate permissions with a role in the organization. This layer of abstraction makes it easier to ensure that people have only the permissions needed to perform their work responsibilities. Ranger also allows you to audit the data access of employees and any changes done to access control policies.
+
+For example, the admin can configure [Apache Ranger](https://ranger.apache.org/) to set access control policies for Hive. This functionality ensures row-level and column-level filtering (data masking) and filters the sensitive data from unauthorized users.
 
 ### Auditing
 

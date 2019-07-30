@@ -1,6 +1,6 @@
 ---
 title: Create a Cognitive Services resource using the Azure CLI
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Get started with Azure Cognitive Services by creating and subscribing to a resource using the Azure command line interface.
 services: cognitive-services
 author: aahill
