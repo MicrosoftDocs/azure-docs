@@ -13,8 +13,6 @@ ms.author: pafarley
 
 # Quickstart: Face client library for Python
 
-[!code-python[](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=initVars)]
-
 Get started with the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face API service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 Use the Face client library for Python to:
