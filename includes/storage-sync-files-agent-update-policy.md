@@ -40,7 +40,10 @@ ipmo .\StorageSync.Management.ServerCmdlets.dll
 
 You can run `Get-StorageSyncAgentAutoUpdatePolicy` to check the current policy setting and determine if you want to change it.
 
-To change it to the delayed update track, you can use: `Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration`
+To change the current policy setting to the delayed update track, you can use: `Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration`
+
+To change the current policy setting to the immediate update track, you can use:
+`Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest`
 
 #### Agent lifecycle and change management guarantees
 Azure File Sync is a cloud service, which continuously introduces new features and improvements. This means that a specific Azure File Sync agent version can only be supported for a limited time. To facilitate your deployment, the following rules guarantee you have enough time and notification to accommodate agent updates/upgrades in your change management process:
