@@ -3,13 +3,13 @@ title: Active learning - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: edjez
+ms.author: diberry
 ---
 
 # Active learning and learning policies 
