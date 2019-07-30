@@ -74,14 +74,6 @@ Besides Event Grid, another alternative for processing blobs is the Queue storag
 
 ## Trigger - example
 
-See the language-specific example:
-
-* [C#](#trigger---c-example)
-* [C# script (.csx)](#trigger---c-script-example)
-* [Java](#trigger---java-example)
-* [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
-
 # [C#](#tab/trigger-csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that writes a log when a blob is added or updated in the `samples-workitems` container.
@@ -473,7 +465,7 @@ See the language-specific example:
 * [JavaScript](#input---javascript-example)
 * [Python](#input---python-example)
 
-### Input - C# example
+# [C#](#tab/input-csharp)
 
 The following example is a [C# function](functions-dotnet-class-library.md) that uses a queue trigger and an input blob binding. The queue message contains the name of the blob, and the function logs the size of the blob.
 
@@ -488,7 +480,7 @@ public static void Run(
 }
 ```
 
-### Input - C# script example
+# [C# Script](#tab/input-csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -537,7 +529,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-### Input - JavaScript example
+# [JavaScript](#tab/input-javascript)
 
 <!--Same example for input and output. -->
 
@@ -586,7 +578,7 @@ module.exports = function(context) {
 };
 ```
 
-### Input - Python example
+# [Python](#tab/input-python)
 
 <!--Same example for input and output. -->
 
@@ -638,7 +630,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
     return inputblob
 ```
 
-### Input - Java examples
+# [Java](#tab/input-java)
 
 This section contains the following examples:
 
@@ -693,6 +685,8 @@ This section contains the following examples:
 ```
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobInput` annotation on parameters whose value would come from a blob.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+
+---
 
 ## Input - attributes
 
@@ -771,15 +765,7 @@ Use Blob storage output bindings to write blobs.
 
 ## Output - example
 
-See the language-specific example:
-
-* [C#](#output---c-example)
-* [C# script (.csx)](#output---c-script-example)
-* [Java](#output---java-examples)
-* [JavaScript](#output---javascript-example)
-* [Python](#output---python-example)
-
-### Output - C# example
+# [C#](#tab/output-csharp)
 
 The following example is a [C# function](functions-dotnet-class-library.md) that uses a blob trigger and two output blob bindings. The function is triggered by the creation of an image blob in the *sample-images* container. It creates small and medium size copies of the image blob.
 
@@ -829,7 +815,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 };
 ```
 
-### Output - C# script example
+# [C# Script](#tab/output-csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -878,7 +864,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-### Output - JavaScript example
+# [JavaScript](#tab/output-javascript)
 
 <!--Same example for input and output. -->
 
@@ -927,7 +913,7 @@ module.exports = function(context) {
 };
 ```
 
-### Output - Python example
+# [Python](#tab/output-python)
 
 <!--Same example for input and output. -->
 
@@ -980,7 +966,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
     outputblob.set(inputblob)
 ```
 
-### Output - Java examples
+# [Java](#tab/output-java)
 
 This section contains the following examples:
 
@@ -1046,6 +1032,8 @@ This section contains the following examples:
 ```
 
  In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobOutput` annotation on function parameters whose value would be written to an object in blob storage.  The parameter type should be `OutputBinding<T>`, where T is any native Java type or a POJO.
+
+---
 
 ## Output - attributes
 
