@@ -25,9 +25,9 @@ ADF can move PBs level of data for data lake migration and tens of TB data for E
 ## Why ADF can be used for data migration 
 
 1. ADF can easily scale up amount of horsepower to move data in serverless manner with high performance, resilience, and scalability and only pay for what you use.  
-  * ADF has no limitation on data volume and number of files (customer proven on PBs level data migration to Azure) 
-  * ADF can 100% utilize your network and storage bandwidth to achieve the highest data movement throughput in your environment.   
-  * ADF follows the pay-as-you-go strategy, so that you only need to pay for the time when you are using ADF to do the data migration to Azure.  
+	* ADF has no limitation on data volume and number of files (customer proven on PBs level data migration to Azure) 
+	* ADF can 100% utilize your network and storage bandwidth to achieve the highest data movement throughput in your environment.   
+	* ADF follows the pay-as-you-go strategy, so that you only need to pay for the time when you are using ADF to do the data migration to Azure.  
 2. ADF has ability to perform one-time historical load as well as scheduled incremental load. 
 3. ADF use Azure IR for moving data between publicly accessible data lake/warehouse endpoints, or alternatively use self-hosted IR for moving data for data lake/warehouse endpoints inside VNet or behind firewall. 
 4. ADF has enterprise-grade security: either use MSI or Service Identity for secured service-to-service integration, or alternatively leverage Azure Key Vault for credential management. 
@@ -45,7 +45,7 @@ There are three key considerations when selecting online vs. offline migration a
 
 If you want to complete the data migration within 2 weeks (migration window).  You can see a cut line in the picture below to show when it is good to use online migration tool (ADF) with different data size and network bandwidth.   
 
-    ![oneline vs. offline](media/data-migration-guidance-overview/online-offline.png)
+![oneline vs. offline](media/data-migration-guidance-overview/online-offline.png)
 
 > [!NOTE]
 > The benefit of online migration approach is that you can achieve both historical data loading and incremental feeds end to end by one tool.  By doing so, the data can be keeping synchronized between existing and new store during the entre migration window so that you can rebuild your ETL logic at the same time. 
