@@ -87,4 +87,4 @@ Emails are sent to different people depending on your purchase method:
 - Cloud Solution Provider customers - Emails are sent to the partner notification contact.
 
 ## Next steps
-- To learn more about Azure Reservations, see [What are Azure Reservations?](billing-save-compute-costs-reservations.md).
+- To learn more about Azure Reservations, see [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
