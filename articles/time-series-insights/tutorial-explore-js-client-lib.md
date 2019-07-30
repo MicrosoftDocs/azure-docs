@@ -44,8 +44,6 @@ In this video, we introduce the open-source Time Series Insights JavaScript SDK:
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
-
-
 ## Time Series Insights sample application
 
 Throughout this tutorial, we use a free, hosted Time Series Insights sample app to explore the source code behind the application and to explore the Time Series Insights JavaScript client library. By using the sample app, you'll learn how to interact with Time Series Insights in JavaScript and visualize data through charts and graphs.
