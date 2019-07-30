@@ -195,7 +195,7 @@ Ability to update the certificates and client secrets properties on single-tenan
   - TokenEncryptionKeyId
 - microsoft.directory/applications.myOrganization/credentials/update: Grants the same permissions as microsoft.directory/applications/credentials/update, but only for single-directory applications.
 - microsoft.directory/applications/owners/update
-Ability to update the owner property on single-tenant and multi-directory tenant. Grants access to all fields on the application registration owners page:
+Ability to update the owner property on single-tenant and multi-tenant applications. Grants access to all fields on the application registration owners page:
 
    ![This permissions grants access to the app registration owners page](./media/roles-custom-available-permissions/app-registration-owners.png)
 
