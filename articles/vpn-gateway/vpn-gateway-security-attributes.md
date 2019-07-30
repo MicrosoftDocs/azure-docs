@@ -13,7 +13,7 @@ ms.author: mbaldwin
 ---
 # Security attributes for Azure VPN Gateway
 
-This article documents the common security attributes built into Azure VPN Gateway.
+This article documents the security attributes built into Azure VPN Gateway.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
