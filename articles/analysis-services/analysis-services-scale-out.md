@@ -76,8 +76,6 @@ To learn more, see [Monitor server metrics](analysis-services-monitor.md).
 
 3. Click **Save** to provision your new query replica servers. 
 
-The same pricing tier applies to all replicas of the server.
-
 When configuring scale-out for a server the first time, models on your primary server are automatically synchronized with replicas in the query pool. Automatic synchronization only occurs once, when you first configure scale-out to one or more replicas. Subsequent changes to the number of replicas on the same server *will not trigger another automatic synchronization*. Automatic synchronization will not occur again even if you set the server to zero replicas and then again scale-out to any number of replicas. 
 
 ## Synchronize 
@@ -139,6 +137,10 @@ For end-user client connections like Power BI Desktop, Excel, and custom apps, u
 For SSMS, SSDT, and connection strings in PowerShell, Azure Function apps, and AMO, use **Management server name**. The management server name includes a special `:rw` (read-write) qualifier. All processing operations occur on the (primary) management server.
 
 ![Server names](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## Scale up \ down vs. Scale out
+
+You can change server's pricing tier on server with multiple replicas. The same pricing tier applies to all replicas. Scale up and scale down operation will first bring down all replicas all at once then bring up all replicas on the new pricing tier.
 
 ## Troubleshoot
 
