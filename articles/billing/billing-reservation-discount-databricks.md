@@ -32,9 +32,9 @@ For example, when a quantity of Data Analytics – Standard tier is consumed, th
 
 ## Determine plan use
 
-To determine your DBCU plan use, go to the Azure portal \&gt; **Reservations** and click the purchased Databricks plan. Your utilization to-date is shown with any remaining units. For more information about determining your reservation use, see the [See reservation usage](billing-reservation-apis.md#see-reservation-usage) article.
+To determine your DBCU plan use, go to the Azure portal > **Reservations** and click the purchased Databricks plan. Your utilization to-date is shown with any remaining units. For more information about determining your reservation use, see the [See reservation usage](billing-reservation-apis.md#see-reservation-usage) article.
 
-## Usage data discount application
+## How discount application shows in usage data
 
 When the pre-purchase discount applies to your Databricks usage, on-demand charges appear as zero in the usage data. For more information about reservation costs and usage, see [Get Enterprise Agreement reservation costs and usage](billing-understand-reserved-instance-usage-ea.md).
 

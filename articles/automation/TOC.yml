@@ -253,6 +253,9 @@
     - name: Compiling DSC configurations
       href: automation-dsc-compile.md
       displayName: state configuration, composite resources, configurationData
+    - name: Remediate non-compliant DSC servers
+      href: automation-dsc-remediate.md
+      displayName: state configuration, DSC, remediate
     - name: Composing DSC Configurations using Composite Resources
       href: compose-configurationwithcompositeresources.md
     - name: Continuous deployment using Chocolatey
@@ -292,6 +295,8 @@
       displayName: module, import
 - name: Cross-Component Scenarios
   items:
+    - name: Send an email from a Runbook using SendGrid
+      href: automation-send-email.md
     - name: Runbook gallery
       href: automation-runbook-gallery.md
     - name: Monitor runbooks with metric alerts

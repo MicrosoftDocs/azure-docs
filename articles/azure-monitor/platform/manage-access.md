@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 07/16/2019
 ms.author: magoedte
 ---
 
@@ -187,12 +187,18 @@ Each workspace can have multiple accounts associated with it, and each account c
 
 The following activities also require Azure permissions:
 
-| Action                                                          | Azure Permissions Needed | Notes |
-|-----------------------------------------------------------------|--------------------------|-------|
-| Adding and removing monitoring solutions                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | These permissions need to be granted at resource group or subscription level. |
-| Changing the pricing tier                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
+||Action |Azure Permissions Needed |Notes |
+|-------|-------------------------|------|
+| Adding and removing monitoring solutions | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | These permissions need to be granted at resource group or subscription level. |
+| Changing the pricing tier | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Viewing data in the *Backup* and *Site Recovery* solution tiles | Administrator / Co-administrator | Accesses resources deployed using the classic deployment model |
-| Creating a workspace in the Azure portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+| Creating a workspace in the Azure portal | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+| View workspace basic properties and enter the workspace blade in the portal | `Microsoft.OperationalInsights/workspaces/read` ||
+| Query logs using any interface | `Microsoft.OperationalInsights/workspaces/query/read` ||
+| Access all log types using queries | `Microsoft.OperationalInsights/workspaces/query/*/read` ||
+| Access a specific log table | `Microsoft.OperationalInsights/workspaces/query/<table_name>/read` ||
+| Read the workspace keys to allow sending logs to this workspace | `Microsoft.OperationalInsights/workspaces/sharedKeys/action` ||
+
 
 
 #### Manage access to Log Analytics Workspace using Azure permissions 
@@ -210,9 +216,9 @@ The Log Analytics Reader role includes the following Azure actions:
 
 | Type    | Permission | Description |
 | ------- | ---------- | ----------- |
-| Action | `*/read`   | Ability to view all Azure resources and resource configuration. Includes viewing: <br> Virtual machine extension status <br> Configuration of Azure diagnostics on resources <br> All properties and settings of all resources |
-| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Ability to perform Log Search v2 queries |
-| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Ability to perform Log Search v1 queries |
+| Action | `*/read`   | Ability to view all Azure resources and resource configuration. Includes viewing: <br> Virtual machine extension status <br> Configuration of Azure diagnostics on resources <br> All properties and settings of all resources. <br> For workspaces, it allows full unrestricted permissions to read the workspace settings and perform query on the data. See more granular options above. |
+| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecated, no need to assign them to users.s |
+| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Deprecated, no need to assign them to users. |
 | Action | `Microsoft.Support/*` | Ability to open support cases |
 |Not Action | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Prevents reading of workspace key required to use the data collection API and to install agents. This prevents the user from adding new resources to the workspace |
 
@@ -237,7 +243,7 @@ The Log Analytics Contributor role includes the following Azure actions:
 
 | Permission | Description |
 | ---------- | ----------- |
-| `*/read`     | Ability to view all resources and resource configuration. Includes viewing: <br> Virtual machine extension status <br> Configuration of Azure diagnostics on resources <br> All properties and settings of all resources |
+| `*/read`     | Ability to view all Azure resources and resource configuration. Includes viewing: <br> Virtual machine extension status <br> Configuration of Azure diagnostics on resources <br> All properties and settings of all resources. <br> For workspaces, it allows full unrestricted permissions to read the workspace settings and perform query on the data. See more granular options above. |
 | `Microsoft.Automation/automationAccounts/*` | Ability to create and configure Azure Automation accounts, including adding and editing runbooks |
 | `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Add, update and remove virtual machine extensions, including the Microsoft Monitoring Agent extension and the OMS Agent for Linux extension |
 | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | View the storage account key. Required to configure Log Analytics to read logs from Azure storage accounts |
@@ -263,7 +269,7 @@ When users query logs from a workspace using resource-centric access, they'll ha
 | Permission | Description |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Examples:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Ability to view all log data for the resource.  |
-
+| `Microsoft.Insights/diagnosticSettings/write ` | Ability to configure diagnostics setting to allow setting up logs for this resource. |
 
 This permission is usually granted from a role that includes _\*/read or_ _\*_ permissions such as the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles. Note that custom roles that include specific actions or dedicated built-in roles might not include this permission.
 

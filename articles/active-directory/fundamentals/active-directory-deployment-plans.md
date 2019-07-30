@@ -2,7 +2,7 @@
 title: Deployment plans - Azure Active Directory | Microsoft Docs
 description: End-to-end guidance about how to deploy many Azure Active Directory capabilities.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -55,9 +55,9 @@ Roles might include the following
 |-|-|
 |[Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)|Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure MFA helps safeguard your access to data and applications, while meeting the demand for a simple sign-in process.|
 |[Conditional Access](https://aka.ms/deploymentplans/ca)|With Conditional Access, you can implement automated access control decisions for who can access your cloud apps, based on conditions.|
-|[Self-service password reset](https://aka.ms/SSPRDPDownload)|Self-service password reset helps your users reset their password, without administrator intervention, when and where they need to.|
+|[Self-service password reset](https://aka.ms/deploymentplans/sspr)|Self-service password reset helps your users reset their password, without administrator intervention, when and where they need to.|
 |[Privileged Identity Management](https://aka.ms/deploymentplans/pim)|Azure AD Privileged Identity Management (PIM) helps you manage privileged administrative roles across Azure AD, Azure resources, and other Microsoft Online Services. PIM provides solutions like just-in-time access, request approval workflows, and fully integrated access reviews so you can identify, uncover, and prevent malicious activities of privileged roles in real time.|
-|[Single sign-on](https://aka.ms/SSODPDownload)|Single sign-on helps you access all the apps and resources you need to do business, while signing in only once, using a single user account. After you've signed in, you can go from Microsoft Office to SalesForce, to Box without being required to authenticate (for example, type a password) a second time.|
+|[Single sign-on](https://aka.ms/deploymentplans/sso)|Single sign-on helps you access all the apps and resources you need to do business, while signing in only once, using a single user account. After you've signed in, you can go from Microsoft Office to SalesForce, to Box without being required to authenticate (for example, type a password) a second time.|
 |[Seamless SSO](https://aka.ms/SeamlessSSODPDownload)|Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. After you turn on this feature, users won't need to type in their passwords to sign in to Azure AD, and usually, won't even need to type in their usernames. This feature provides your users easy access to your cloud-based applications without needing any additional on-premises components.|
 |[Access Panel](https://aka.ms/AccessPanelDPDownload)|Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, such as the ability to request access to new apps and groups, or manage access to these resources on behalf of others.|
 |[ADFS to Password Hash Sync](https://aka.ms/deploymentplans/adfs2phs)|With Password Hash Synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD, letting Azure AD to authenticate users with no interaction with the on-premises Active Directory|
