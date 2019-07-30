@@ -111,6 +111,15 @@ The version of the Functions runtime to use in this function app. A tilde with m
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|~2|
 
+## FUNCTIONS\_WORKER\_PROCESS\_COUNT
+
+Specifies the maximum number of language worker process threads. Supported value are 1-10, with a default of 1. Function invocations are  evenly distributed among the language worker processes. Language worker processes are spawned every 10secs until the count set by FUNCTIONS\_WORKER\_PROCESS\_COUNT is reached. Using multiple language worker processes is not the same as scaling. Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. This setting currently only supports the Python language.
+
+|Key|Sample value|
+|---|------------|
+|FUNCTIONS\_WORKER\_PROCESS\_COUNT|2|
+
+
 ## FUNCTIONS\_WORKER\_RUNTIME
 
 The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell), and `python` (Python).
