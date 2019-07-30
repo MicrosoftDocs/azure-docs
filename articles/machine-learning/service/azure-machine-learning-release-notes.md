@@ -20,19 +20,56 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ## 2019-07-29
 
-### Azure Machine Learning SDK for Python v1.0.TBD
-
-+ **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
-  
-  + **Preview features**
-    + [Contrib features below] 
-
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
+### Azure Machine Learning SDK for Python v1.0.54
 
 + **Bug fixes and improvements**
-  + [Insert fixes and improvements below. Link github issues resolved with this release]
+  + **automl-client-core-nativeclient**
+    + Fixed failures of Timeseries if preprocess flag is True
+  + **azureml-automl-core**
+    + Fixes a bug where validation size for CV splits is small and results in bad predicted vs. true charts for regression and forecasting.
+    + The logging of forecasting tasks on the remote runs improved, now user is provided with comprehensive error message if the run was failed.
+    + Fixed failures of Timeseries if preprocess flag is True.
+    + Made some forecasting data validation error messages more actionable.
+    + Reduced memory consumption of AutoML runs by dropping and/or lazy loading of datasets, especially in between process spawns
+  + **azureml-contrib-explain-model**
+    + Added model_task flag to explainers to allow user to override default automatic inference logic for model type
+    + Widget changes: Automatically installs with contrib, no more nbextension install/enable - support explanation with just global feature importance (eg Permutative)
+    + Dashboard changes: - Box plots and violin plots in addition to beeswarm plot on summary page - Much faster rerendering of beeswarm plot on 'Top -k' slider change - helpful message explaining how top-k is computed - Useful customizable messages in place of charts when data not provided
+  + **azureml-core**
+    + Added Model.package() method to create Docker images and Dockerfiles that encapsulate models and their dependencies.
+    + Updated local webservices to accept InferenceConfigs containing Environment objects.
+    + Fixed Model.register() producing invalid models when '.' (for the current directory) is passed as the model_path parameter.
+    + Add Run.submit_child, the functionality mirrors Experiment.submit while specifying the run as the parent of the submitted child run.
+    + Support configuration options from Model.register in Run.register_model.
+    + Ability to run JAR jobs on existing cluster.
+    + Now supporting instance_pool_id and cluster_log_dbfs_path parameters.
+    + Added support for using an Environment object when deploying a Model to a Webservice. The Environment object can now be provided as a part of the InferenceConfig object.
+    + Add appinsifht mapping for new regions - centralus - westus - northcentralus
+    + Added documentation for all the attributes in all the Datastore classes.
+    + Added blob_cache_timeout parameter to `Datastore.register_azure_blob_container`.
+    + Added save_to_directory and load_from_directory methods to azureml.core.environment.Environment.
+    + Added the "az ml environment download" and "az ml environment register" commands to the CLI.
+  + **azureml-dataprep**
+    + Added a `parallelize` argument to `append_columns`. If True, data will be loaded into memory but execution will run in parallel; if False, execution will be streaming but single-threaded.
+  + **azureml-explain-model**
+    + Added dataset tracking to Explanations using the Dataset service (preview).
+    + Decreased default batch size when streaming global explanations from 10k to 100
+    + Added model_task flag to explainers to allow user to override default automatic inference logic for model type
+  + **azureml-mlflow**
+    + Fix bug in mlflow.azureml.build_image where nested directories are ignored.
+  + **azureml-pipeline-steps**
+    + Ability to run JAR jobs on existing cluster.
+    + Now supporting instance_pool_id and cluster_log_dbfs_path parameters.
+    + DatabricksStep supports pipeline parameters now
+  + **azureml-train-automl**
+    + Added docstrings for the Ensemble related files.
+    + Updated docs to more appropriate language for `max_cores_per_iteration` and `max_concurrent_iterations`
+    + The logging of forecasting tasks on the remote runs improved, now user is provided with comprehensive error message if the run was failed.
+    + Removed get_data from pipeline automlstep notebook.
+    + Started support dataprep in automlstep.
+  + **azureml-train-core**
+    + Added support for gloo in PyTorch Estimator.
+
 
 ## 2019-07-23
 
