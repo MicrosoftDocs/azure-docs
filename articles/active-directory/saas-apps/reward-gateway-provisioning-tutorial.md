@@ -60,7 +60,7 @@ Before configuring Reward Gateway for automatic user provisioning with Azure AD,
 
 	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/image001.png)
 
-3.	Copy the values of **SCIM URL (v2) and OAuth Bearer Token**. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your Reward Gateway application in the Azure portal.
+3.	Copy the values of **SCIM URL (v2)** and **OAuth Bearer Token**. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your Reward Gateway application in the Azure portal.
 
 	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/image03.png)
 
@@ -149,6 +149,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Connector limitations
 
+* Reward Gateway does not support group provisioing currently.
 
 ## Additional resources
 
