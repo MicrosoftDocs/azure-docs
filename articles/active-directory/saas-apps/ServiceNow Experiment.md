@@ -16,10 +16,9 @@ Get started building workflows in ServiceNow and automating your business proces
 > * Govern access to your applications through access reviews
 > * Monitor access to your applications with sign in logs
 
+![sdf](media/Experiment/ServiceNow.PNG) 
 
 ## Get started
 
 
-[!div class="checklist"]
-* Enable Azure Multi-Factor Authentication
-* Test Azure Multi-Factor Authentication
+
