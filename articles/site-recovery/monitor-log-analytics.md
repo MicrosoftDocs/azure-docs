@@ -83,7 +83,7 @@ AzureDiagnostics 
 | render piechart 
 ```
 
-### Query RPO
+### Query RPO time
 
 This query plots a bar chart of Azure VMs replicated with Site Recovery, broken down by recovery point objectives (RPO): Less than 15 minutes, between 15-30 minutes, more than 30 minutes.
 
@@ -99,9 +99,22 @@ rpoInSeconds_d <= 1800, "15-30Min",  
 | render barchart 
 ```
 
+![Query RPO](./media/monitoring-log-analytics/example1.png)
+
 ### Query Site Recovery jobs
 
 This query retrieves all Site Recovery jobs (for all disaster recovery scenarios), triggered in the last 72 hours, and their completion state.
+
+```
+AzureDiagnostics   
+| where Category == "AzureSiteRecoveryEvents"   
+| where TimeGenerated >= ago(72h)   
+| project AffectedObject=affectedResourceName_s , VaultName = Resource, Description_s = healthErrors_s , Severity = Level  
+```
+
+### Query Site Recovery events
+
+This query retrieves all Site Recovery events (for all disaster recovery scenarios) raised in the last 72 hours, along with their severity. 
 
 ```
 AzureDiagnostics   
@@ -150,6 +163,7 @@ AzureDiagnostics  
 | project TimeGenerated, name_s , RPO_in_seconds = rpoInSeconds_d   
 | render timechart 
 ```
+![Query machine RPO](./media/monitoring-log-analytics/example2.png)
 
 ### Query data change for a VM
 
@@ -166,6 +180,7 @@ Category contains "Upload", "UploadRate", "none") 
 | project TimeGenerated , InstanceWithType , Churn_MBps = todouble(Value_s)/1048576   
 | render timechart  
 ```
+![Query data change](./media/monitoring-log-analytics/example3.png)
 
 ### Query Azure to Azure disaster recovery
 
