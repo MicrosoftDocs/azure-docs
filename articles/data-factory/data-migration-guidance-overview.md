@@ -1,6 +1,6 @@
 ---
-title: Use Azure Data Factory to migrate data from your data lake and EDW to Azure | Microsoft Docs
-description: Use Azure Data Factory to migrate data from your data lake and EDW to Azure.
+title: Use Azure Data Factory to migrate data from your data lake and data warehouse to Azure | Microsoft Docs
+description: Use Azure Data Factory to migrate data from your data lake and data warehouse to Azure.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/30/2019
 ---
-# Use Azure Data Factory to migrate data from your data lake and EDW to Azure 
+# Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure 
 
 Azure Data Factory can be the tool to do data migration when you want to migrate your data lake or enterprise data warehouse (EDW) to Azure. The data lake migration and EDW migration are related to the following scenarios: 
 
