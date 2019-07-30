@@ -1,6 +1,6 @@
 ---
-title: "NativeAzureFileSystem ... RequestBodyTooLarge" appears in log for Apache Spark streaming app in Azure HDInsight
-description: "NativeAzureFileSystem ... RequestBodyTooLarge" appears in log for Apache Spark streaming app in Azure HDInsight
+title: NativeAzureFileSystem ... RequestBodyTooLarge appears in log for Apache Spark streaming app in Azure HDInsight
+description: NativeAzureFileSystem ... RequestBodyTooLarge appears in log for Apache Spark streaming app in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
