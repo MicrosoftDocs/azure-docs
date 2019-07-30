@@ -1,7 +1,6 @@
 ---
 title: Azure Quickstart - Create a blob in object storage with Python | Microsoft Docs
 description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Python to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
-services: storage  
 author: mhopkins-msft
  
 ms.custom: mvc

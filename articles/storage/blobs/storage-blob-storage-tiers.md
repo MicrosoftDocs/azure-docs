@@ -1,7 +1,6 @@
 ---
 title: Hot, cool, and archive access tiers for blobs - Azure Storage
 description: Hot, cool, and archive access tiers for Azure storage accounts.
-services: storage
 author: mhopkins-msft
 
 ms.service: storage

@@ -1,7 +1,6 @@
 ---
 title: Azure CLI samples for Blob storage | Microsoft Docs
 description: Azure CLI samples for working with Azure Blob Storage
-services: storage
 author: mhopkins-msft
 
 ms.custom: mvc

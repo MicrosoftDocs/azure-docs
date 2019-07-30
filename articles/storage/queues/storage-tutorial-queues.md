@@ -1,7 +1,6 @@
 ---
 title: Tutorial - Work with Azure storage queues - Azure Storage
 description: A tutorial on how to use the Azure Queue service to create queues, and insert, get, and delete messages.
-services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins

@@ -1,7 +1,6 @@
 ---
 title: Azure PowerShell samples for Azure Blob storage | Microsoft Docs
 description: Azure PowerShell samples for working with Azure Blob storage
-services: storage
 author: mhopkins-msft
 
 ms.service: storage

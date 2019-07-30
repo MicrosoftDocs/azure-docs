@@ -1,7 +1,6 @@
 ---
 title: Introduction to Azure Queues - Azure Storage
 description: Introduction to Azure Queues
-services: storage
 author: mhopkins-msft
 
 ms.service: storage

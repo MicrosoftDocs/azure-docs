@@ -1,7 +1,6 @@
 ---
 title: Perform operations on Azure Queue storage with PowerShell - Azure Storage
 description: How to perform operations on Azure Queue storage with PowerShell
-services: storage
 author: mhopkins-msft
 
 ms.service: storage
