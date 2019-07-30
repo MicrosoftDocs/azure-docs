@@ -64,6 +64,6 @@ Typically the size of a log is 15-20 KB.
 
 ## Next steps
 
-Learn how to monitor with [Site Recovery inbuilt monitoring](site-recovery-monitor-troubleshoot.md), or [Azure Monitor](monitor-log-analytics.md).
+Learn how to monitor with [Site Recovery inbuilt monitoring](site-recovery-monitor-and-troubleshoot.md), or [Azure Monitor](monitor-log-analytics.md).
 
 
