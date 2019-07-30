@@ -178,7 +178,7 @@ Consider creating methods for team members, users and business owners to report 
 
 Any person thinking about side effects of use of any technology is limited by their perspective and life experience. Expand the range of opinions available by bringing in more diverse voices into your teams, users, or advisory boards; such that it is possible and encouraged for them to speak up. Consider training and learning materials to further expand the team knowledge in this domain, and to add capability to discuss complex and sensitive topics.
 
-Consider treating tasks regarding responsible use just like other crosscutting tasks in the application lifecycle, such as tasks related to user experience, security, or devops. These tasks and their requirements can't be an afterthought. Responsible use should be discussed and verified throughout the application lifecycle.
+Consider treating tasks regarding responsible use just like other crosscutting tasks in the application lifecycle, such as tasks related to user experience, security, or DevOps. These tasks and their requirements can't be an afterthought. Responsible use should be discussed and verified throughout the application lifecycle.
  
 ## Questions and feedback
 
