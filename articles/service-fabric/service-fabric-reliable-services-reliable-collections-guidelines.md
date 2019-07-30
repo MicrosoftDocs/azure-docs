@@ -3,7 +3,7 @@ title: Guidelines & Recommendations for Reliable Collections in  Azure Service F
 description: Guidelines and Recommendations for using Service Fabric Reliable Collections
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: masnider,rajak,zhol
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Guidelines and recommendations for Reliable Collections in Azure Service Fabric

@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Monitoring and performance tuning
