@@ -153,6 +153,11 @@ You can get the public key from the transaction node list. Copy the public key f
           provider: new Web3.providers.HttpProvider(beta),
           network_id: "*",
         }
+      },
+      compilers: {
+        solc: {
+          evmVersion: "byzantium"
+        }
       }
     }
     ```
