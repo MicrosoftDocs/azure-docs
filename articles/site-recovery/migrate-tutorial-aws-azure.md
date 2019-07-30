@@ -93,9 +93,9 @@ When Azure VMs are created after the migration (failover), they're joined to thi
 6. For **Resource group**, select **Use existing**, and then select **migrationRG**.
 7. For **Location**, select **West Europe**.
 8. Under **Subnet**, leave the default values for **Name** and **IP range**.
-9. Add instrusctions for DDoS protection settings
+9. Add instructions for DDoS protection settings.
 10. Leave the **Service Endpoints** option disabled.
-11. Add instructions for Firewall settings
+11. Add instructions for Firewall settings.
 12. When you're done, select **Create**.
 
 ## Prepare the infrastructure
