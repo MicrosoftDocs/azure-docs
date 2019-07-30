@@ -79,7 +79,7 @@ If a server is not listed under **Registered servers** for a Storage Sync Servic
 
 ## Sync group management
 <a id="cloud-endpoint-using-share"></a>**Cloud endpoint creation fails, with this error: "The specified Azure FileShare is already in use by a different CloudEndpoint"**  
-This issue occurs if the Azure file share is already in use by another cloud endpoint. 
+This error occurs if the Azure file share is already in use by another cloud endpoint. 
 
 If you see this message and the Azure file share currently is not in use by a cloud endpoint, complete the following steps to clear the Azure File Sync metadata on the Azure file share:
 
@@ -91,7 +91,7 @@ If you see this message and the Azure file share currently is not in use by a cl
 3. Right-click **SyncService**, and then select **Delete**.
 
 <a id="cloud-endpoint-authfailed"></a>**Cloud endpoint creation fails, with this error: "AuthorizationFailed"**  
-This issue occurs if your user account doesn't have sufficient rights to create a cloud endpoint. 
+This error occurs if your user account doesn't have sufficient rights to create a cloud endpoint. 
 
 To create a cloud endpoint, your user account must have the following Microsoft Authorization permissions:  
 * Read: Get role definition
@@ -113,13 +113,13 @@ To determine whether your user account role has the required permissions:
     * **Role definition** should have **Read** and **Write** permissions.
 
 <a id="server-endpoint-createjobfailed"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134375898 or 0x80c80226)**  
-This issue occurs if the server endpoint path is on the system volume and cloud tiering is enabled. Cloud tiering is not supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
+This error occurs if the server endpoint path is on the system volume and cloud tiering is enabled. Cloud tiering is not supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
 
 <a id="server-endpoint-createjobfailed-invalidpath"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2147024894 or 0x80070002)**  
-This issue occurs if the server endpoint path specified is not valid. Verify the server endpoint path specified is a locally attached NTFS volume. Note, Azure File Sync does not support mapped drives as a server endpoint path.
+This error occurs if the server endpoint path specified is not valid. Verify the server endpoint path specified is a locally attached NTFS volume. Note, Azure File Sync does not support mapped drives as a server endpoint path.
 
 <a id="server-endpoint-createjobfailed-compression"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134347507 or 0x80c8710d)**  
-This issue occurs because Azure File Sync does not support server endpoints on volumes which have a compressed System Volume Information folder. To resolve this issue, decompress the System Volume Information folder. If the System Volume Information folder is the only folder compressed on the volume, perform the following steps:
+This error occurs because Azure File Sync does not support server endpoints on volumes which have a compressed System Volume Information folder. To resolve this issue, decompress the System Volume Information folder. If the System Volume Information folder is the only folder compressed on the volume, perform the following steps:
 
 1. Download [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) tool.
 2. Run the following command from an elevated command prompt to launch a command prompt running under the system account: **PsExec.exe -i -s -d cmd**
@@ -128,11 +128,11 @@ This issue occurs because Azure File Sync does not support server endpoints on v
 	**compact /u /s**
 
 <a id="server-endpoint-createjobfailed-limitreached"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134376345 or 0x80C80067)**  
-This issue occurs if the server endpoints per server limit is reached. Azure File Sync currently supports up to 30 server endpoints per server. For more information, see 
+This error occurs if the server endpoints per server limit is reached. Azure File Sync currently supports up to 30 server endpoints per server. For more information, see 
 [Azure File Sync scale targets](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-file-sync-scale-targets).
 
 <a id="server-endpoint-deletejobexpired"></a>**Server endpoint deletion fails, with this error: "MgmtServerJobExpired" (Error code: -2134347757 or 0x80c87013)**  
-This issue occurs if the server is offline or doesn't have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+This error occurs if the server is offline or doesn't have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Unable to open server endpoint properties page or update cloud tiering policy**  
 This issue can occur if a management operation on the server endpoint fails. If the server endpoint properties page does not open in the Azure portal, updating server endpoint using PowerShell commands from the server may fix this issue. 
