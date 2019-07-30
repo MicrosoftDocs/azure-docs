@@ -20,9 +20,7 @@ At the end of this tutorial, you will have two Python console apps:
 
 * **ReportConnectivity.py**, a Python app, which simulates a device that connects to your IoT hub with the device identity created earlier, and reports its connectivity condition.
 
-> [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages (including C, Java, Javascript, and Python) through Azure IoT device SDKs. For instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python).
->
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-installation-notes.md)]
 
 The following are the installation instructions for the prerequisites.
 

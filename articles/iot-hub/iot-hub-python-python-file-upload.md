@@ -30,9 +30,7 @@ At the end of this tutorial you run the Python console app:
 
 * **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
 
-> [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python).
->
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-installation-notes.md)]
 
 The following are the installation instructions for the prerequisites.
 
