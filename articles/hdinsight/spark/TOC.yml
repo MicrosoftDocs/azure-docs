@@ -68,7 +68,7 @@
       href: ./apache-spark-troubleshoot-rpctimeoutexception.md
     - name: Blocking Cross Origin API
       href: ./apache-spark-troubleshoot-blocking-cross-origin.md
-    - name: Kyro serialization failed
+    - name: Kryo serialization failed
       href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
 - name: How to
   items:
