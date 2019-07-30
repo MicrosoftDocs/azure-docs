@@ -58,6 +58,8 @@
         href: ./apache-spark-troubleshoot-outofmemory-heap.md
       - name: Java heap space
         href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+      - name: Livy Server fails to start
+        href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
     - name: Slow Apache Spark jobs - storage container
       href: ./apache-spark-troubleshoot-job-slowness-container.md
     - name: IllegalArgumentException exception
