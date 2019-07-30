@@ -28,6 +28,8 @@
       items:
       - name: GC overhead limit exceeded
         href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+    - name: Apache Hive View time out
+      href: ./interactive-query-troubleshoot-view-time-out.md
 - name: How to
   items:
   - name: Migrate Hive workloads to HDInsight 4.0
