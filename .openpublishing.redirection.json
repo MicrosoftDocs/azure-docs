@@ -1017,18 +1017,53 @@
     },
     {
       "source_path": "articles/cognitive-services/bing-entity-search/resize-and-crop-thumbnails.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/bing-news-search/resize-and-crop-thumbnails.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/bing-visual-search/resize-and-crop-thumbnails.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-image-search/bing-image-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-entities-search/bing-entity-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-news-search/bing-news-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-video-search/bing-video-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-viusal-search/bing-visual-search-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-viusal-search/bing-autosuggest-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-viusal-search/bing-spell-check-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/management-groups/overview.md",
