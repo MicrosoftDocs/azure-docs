@@ -62,13 +62,13 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
 1. In the **Catalog** drop-down list, select the catalog you want to create the access package in. For example, you might have a catalog owner that manages all the marketing resources that can be requested. In this case, you could select the marketing catalog.
 
-    You will only see catalogs you have permission to create access packages in. To create access package in an existing catalog, you must be at least a Global administrator, a User administrator, catalog owner in that catalog, or access package manager in that catalog.
+    You will only see catalogs you have permission to create access packages in. To create an access package in an existing catalog, you must be at least a Global administrator, a User administrator, catalog owner in that catalog, or access package manager in that catalog.
 
     ![Access package - Basics](./media/entitlement-management-access-package-create/basics.png)
 
     If you are a Global administrator, or a User administrator, and would like to create your access package in a new catalog that's not listed, click **Create new**. Enter the Catalog name and description and then click **Create**.
 
-    The access package you are creating and any resources included in it will be added to the new catalog. You can later also add additional catalog owners.
+    The access package you are creating and any resources included in it will be added to the new catalog. You can also  add additional catalog owners later.
 
 
 1. Click **Next**.
