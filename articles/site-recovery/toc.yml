@@ -423,39 +423,44 @@
     href: hyper-v-vmm-powershell-resource-manager.md
   - name: Add Azure Automation runbooks to recovery plans to orchestrate failover
     href: site-recovery-runbook-automation.md
-- name: Monitor and troubleshoot
+- name: Monitoring
   items:
-  - name: Monitor Azure Site Recovery
+  - name: Common questions about monitoring
+    href: monitoring-common-questions.md
+  - name: Monitor Site Recovery
     href: site-recovery-monitor-and-troubleshoot.md
-  - name: Azure VMs
+  - name: Monitor Site Recovery with Log Analytics
+    href: monitor-log-analytics
+  - name: Monitor process servers
+    href: vmware-physical-azure-monitor-process-server.md
+- name: Troubleshooting
+  - name: Troubleshoot Azure VMs
     items:
-    - name: Troubleshoot replication errors for Azure VMs
+    - name: Troubleshoot Azure VM replication
       href: azure-to-azure-troubleshoot-errors.md
-    - name: Troubleshoot ongoing replication for Azure VMs
+    - name: Troubleshoot ongoing replication
       href: azure-to-azure-troubleshoot-replication.md
-    - name: Troubleshoot the Mobility service for Azure VMs
+    - name: Troubleshoot Mobility service issues
       href: site-recovery-extension-troubleshoot.md
-  - name: VMware/physical server
+  - name: Troubleshoot VMware VMs/physical servers
     items: 
-    - name: Monitor process servers
-      href: vmware-physical-azure-monitor-process-server.md
-    - name: Troubleshoot VMware to Azure replication
+    - name: Troubleshoot VMware VM/physical server replication
       href: vmware-azure-troubleshoot-replication.md
-    - name: Troubleshoot the configuration server
+    - name: Troubleshoot configuration servers
       href: vmware-azure-troubleshoot-configuration-server.md
     - name: Troubleshoot process servers
       href: vmware-physical-azure-troubleshoot-process-server.md
-    - name: Troubleshoot push installation of the Mobility service for VMware VMs/physical servers
+    - name: Troubleshoot push installation of the Mobility service
       href: vmware-azure-troubleshoot-push-install.md
     - name: Troubleshoot failover to Azure
       href: site-recovery-failover-to-azure-troubleshoot.md
     - name: Troubleshoot reprotection and failback of VMware VMs 
       href: vmware-azure-troubleshoot-failback-reprotect.md
-    - name: Troubleshoot Microsoft Azure Site Recovery Provider upgrade failures
+    - name: Troubleshoot Provider upgrade failures
       href: vmware-azure-troubleshoot-upgrade-failures.md
     - name: Troubleshoot vCenter discovery failures
       href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
-  - name: Hyper-V
+  - name: Troubleshoot Hyper-V
     items:
     - name: Troubleshoot Hyper-V replication
       href: hyper-v-azure-troubleshoot.md

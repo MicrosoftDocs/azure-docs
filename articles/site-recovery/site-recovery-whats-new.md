@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 07/30/2019
 ms.author: raynew
 ---
 # What's new in Site Recovery
@@ -13,6 +13,27 @@ ms.author: raynew
 The [Azure Site Recovery](site-recovery-overview.md) service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest releases, new features, and new content. This page is updated on a regular basis.
 
 If you have suggestions for Site Recovery features, we'd love to [hear your feedback](https://feedback.azure.com/forums/256299-site-recovery).
+
+
+## Updates (July 2019)
+
+### Update rollup 38
+
+[Update rollup 38](https://support.microsoft.com/help/4513507/) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
+
+
+### General
+
+Site Recovery now supports used of general purpose v2 storage accounts for cache storage or target storage. Previously only v1 was supported.
+
+### VMware to Azure disaster recovery
+
+You can now replicate disks up to 8 TB, when replicating to an Azure VM with managed disks.
 
 
 ## Updates (June 2019)
