@@ -9,17 +9,17 @@ ms.assetid: 5365B568-EA55-4D97-8FBE-0AF60158D4D5
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 07/30/2019
 ms.author: scottwhi
 ---
 
 # Using decoration markers to highlight text
 
-Bing supports hit highlighting, which marks query terms (or other terms that Bing finds relevant) in the display strings of some answers. By default, Bing doesn't include highlighting markers in display strings. To enable the markers, include the `textDecorations` query parameter in your request and set it to `true`. 
+Bing supports hit highlighting, which marks query terms (or other terms that Bing finds relevant) in the display strings of some answers. For example, a webpage result's `name`, `displayUrl`, and `snippet` fields might contain marked query terms. 
 
-## Hit highlighting on query terms 
+By default, Bing doesn't include highlighting markers in display strings. To enable the markers, include the `textDecorations` query parameter in your request and set it to `true`.
 
-Bing supports hit highlighting, which marks query terms (or other terms that Bing finds relevant) in the display strings of some answers. For example, a webpage result's `name`, `displayUrl`, and `snippet` fields might contain marked query terms.
+## Hit highlighting example
 
 The following example shows a web result for `Sailing Dinghy`. Bing marked the beginning and end of the query term using the E000 and E001 Unicode characters
   
