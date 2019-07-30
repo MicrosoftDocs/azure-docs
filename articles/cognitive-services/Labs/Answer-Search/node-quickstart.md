@@ -17,7 +17,7 @@ The following Node example creates a query for information about Yosemite Nation
 
 ## Prerequisites
 
-Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 This example uses Node v8.9.4
 
