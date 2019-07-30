@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 07/29/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -127,6 +127,17 @@ To better understand entitlement management and its documentation, you should re
 | resource directory | A directory that has one or more resources to share. |
 | assigned users | An assignment of an access package to a user, so that the user has all the resource roles of that access package. |
 | enable | The process of making an access package available for users to request. |
+
+## Which users must have licenses?
+
+Each active internal user must have a paid Azure AD Premium P2 license. An active internal user is the following:
+
+- A user that initiates a request for an access package.
+- A user that has been assigned an access package.
+
+As part of the licenses for internal users, you can also invite a number for external users (or guest users). For information about how to calculate the number of external users, see [Azure Active Directory B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
+
+For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
 ## License requirements
 
