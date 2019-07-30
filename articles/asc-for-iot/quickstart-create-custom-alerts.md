@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
-ms.author: yoafr
+ms.author: mlottner
 
 ---
 # Quickstart: Create custom alerts
