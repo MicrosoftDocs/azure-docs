@@ -35,15 +35,15 @@ We recommend that you review [common monitoring questions](monitoring-common-que
 
 1. In the vault, click **Diagnostic settings** > **Add diagnostic setting**.
 
-    ![Select diagnostic logging](./media/monitor-log-analytics/add-diagnostic.png)
+    ![Select diagnostic logging](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. In **Diagnostic settings**, specify a name for log action, and select **Send to Log Analytics**.
 
-    ![Add diagnostic logging](./media/monitor-log-analytics/diagnostic-setting.png)
+    ![Add diagnostic logging](./media/monitoring-log-analytics/diagnostic-setting.png)
 3. Select the Azure Monitor Logs subscription, and the Log Analytics workspace.
 4. From the log list, select all the logs with the prefix **AzureSiteRecovery**. Then click **OK**.
 
-    ![Select workspace](./media/monitor-log-analytics/select-workspace.png)
+    ![Select workspace](./media/monitoring-log-analytics/select-workspace.png)
 
 The Site Recovery logs will start to feed into a table **AzureDiagnostics** in the selected workspace.
 
