@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Analyze a remote image with a REST API and Java - Azure Cognitive Services"
+title: "Quickstart: Analyze a remote image with the REST API and Java"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision API with Java.
 services: cognitive-services
