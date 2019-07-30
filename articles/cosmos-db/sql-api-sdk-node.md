@@ -65,10 +65,10 @@ ms.author: dech
   * User cancelable requests
 * Update to the latest Cosmos REST API version where all containers have unlimited scale
 * Make it easier to use Cosmos from the browser
-* Better align with the new Azure JS SDK guidlines
+* Better align with the new Azure JS SDK guidelines
 
-#### Migration Guide for Breaking Changes
-##### Improved Client Constructor Options
+#### Migration guide for breaking changes
+##### Improved client Constructor pptions
 
 Constructor options have been simplified:
 
@@ -92,13 +92,13 @@ const client = new CosmosClient({
 ```
 
 ##### Simplified QueryIterator API
-In v2 there were many different ways to iterate or retrieve results from a query. We have attempted to simplify the v3 API and remove similar or duplciate APIs:
+In v2 there were many different ways to iterate or retrieve results from a query. We have attempted to simplify the v3 API and remove similar or duplicate APIs:
 
 * Remove iterator.next() and iterator.current(). Use fetchNext() to get pages of results.
 * Remove iterator.forEach(). Use async iterators instead.
 * iterator.executeNext() renamed to iterator.fetchNext()
 * iterator.toArray() renamed to iterator.fetchAll()
-* Pages are now proper Response objects intead of plain JS objects
+* Pages are now proper Response objects instead of plain JS objects
 * const container = client.database(dbId).container(containerId)
 
 ``` js
@@ -115,10 +115,10 @@ for await(const { result: item } in client.databases.readAll().getAsyncIterator(
 }
 ```
 
-##### Fixed Containers are now Paritioned
+##### Fixed containers are now partitioned
 The Cosmos service now supports partition keys on all containers, including those that were previously created as fixed containers. The v3 SDK updates to the latest API version that implements this change, but it is not breaking. If you do not supply a partition key for operations, we will default to a system key that works with all your existing containers and documents.
 
-##### upsert removed for Stored Procedures
+##### Upsert removed for stored procedures
 Previously upsert was allowed for non-partitioned collections, but with the API version update, all collections are partitioned so we removed it entirely.
 
 ##### Item reads will not throw on 404
@@ -137,15 +137,15 @@ const { result: item }  = container.items.read(id, undefined)
 if (item === undefined) { console.log('item not found') }
 ```
 
-##### Default Multi Region Write
+##### Default multi-region write
 The SDK will now write to multiple regions by default if your Cosmos configuration supports it. This was previously opt-in behavior.
 
-##### Proper Error Objects
+##### Proper error objects
 Failed requests now throw proper Error or subclasses of Error. Previously they threw plain JS objects.
 
-#### New Features
-##### User Cancellable Requests
-The move to fetch internally allows us to use the browser AbortController API to support user cancellable operations. In the case of operations where multiple requests are potentially in progress (like cross partition queries), all requests for the operation will be canceled. Modern browser users will already have AbortController. Node.js users will need to use a polyfill library
+#### New features
+##### User-cancelable requests
+The move to fetch internally allows us to use the browser AbortController API to support user-cancelable operations. In the case of operations where multiple requests are potentially in progress (like cross partition queries), all requests for the operation will be canceled. Modern browser users will already have AbortController. Node.js users will need to use a polyfill library
 
 ``` js
  const controller = new AbortController()
@@ -165,7 +165,7 @@ Header token generation was split out into a new library, @azure/cosmos-sign. An
 ##### UUID for generated IDs
 v2 had custom code to generate item IDs. We have switched to the well known and maintained community library uuid.
 
-##### Connection Strings
+##### Connection strings
 It is now possible to pass a connection string copied from the Azure portal:
 
 ``` js
@@ -175,7 +175,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
  const { results } = await items.query('SELECT * FROM root r OFFSET 1 LIMIT 2').fetchAll()
 ```
 
-#### Improved Browser Experience
+#### Improved browser experience
 While it was possible to use the v2 SDK in the browser it was not an ideal experience. You needed to polyfill several node.js built-in libraries and use a bundler like Webpack or Parcel. The v3 SDK makes the out of the box experience much better for browser users.
 
 * Replace request internals with fetch (#245)
@@ -183,7 +183,7 @@ While it was possible to use the v2 SDK in the browser it was not an ideal exper
 * Remove node builtin usage in favor of universal packages/APIs (#328)
 * Switch to node-abort-controller (#294)
 
-#### Bug Fixes
+#### Bug fixes
 * Fix offer read and bring back offer tests (#224)
 * Fix EnableEndpointDiscovery (#207)
 * Fix missing RUs on paginated results (#360)
@@ -197,7 +197,7 @@ While it was possible to use the v2 SDK in the browser it was not an ideal exper
 * Add string to conflict query type (#237)
 * Add uniqueKeyPolicy to container (#234)
 
-#### Engineering Systems
+#### Engineering systems
 Not always the most visible changes, but they help our team ship better code, faster.
 
 * Use rollup for production builds (#104)
@@ -240,7 +240,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 
 #### Engineering Improvements
 * Add integration test for typescript consumption (#199)
-* Enable installing directly from github (#194)
+* Enable installing directly from GitHub (#194)
 
 ### <a name="2.0.5"/>2.0.5</a>
 * Adds interface for node Agent type. Typescript users no longer have to install @types/node as a dependency
