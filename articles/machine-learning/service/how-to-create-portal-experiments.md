@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: tsikiksr
+ms.author: cgronlun
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
@@ -176,7 +176,7 @@ Training jobs can take a while for each pipeline to finish running.
 
 ### View training run details
 
-Drill down on any of the output models to see training run details, like performance metrics and distribution charts. [Learn more about charts](how-to-track-experiments.md#understanding-automated-ml-charts).
+Drill down on any of the output models to see training run details, like performance metrics and distribution charts. [Learn more about charts](how-to-understand-automated-ml.md).
 
 ![Iteration details](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -239,4 +239,5 @@ Automated ML helps you with deploying the model without writing code:
 ## Next steps
 
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
+* [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn how to consume a web service](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

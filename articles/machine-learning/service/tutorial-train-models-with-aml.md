@@ -97,7 +97,7 @@ Create a workspace object from the existing workspace. `Workspace.from_config()`
 ```python
 # load workspace configuration from the config.json file in the current folder.
 ws = Workspace.from_config()
-print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
+print(ws.name, ws.location, ws.resource_group, ws.location, sep='\t')
 ```
 
 ### Create an experiment
@@ -105,9 +105,9 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 Create an experiment to track the runs in your workspace. A workspace can have multiple experiments:
 
 ```python
+from azureml.core import Experiment
 experiment_name = 'sklearn-mnist'
 
-from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
@@ -137,18 +137,20 @@ if compute_name in ws.compute_targets:
         print('found compute target. just use it. ' + compute_name)
 else:
     print('creating a new compute target...')
-    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
-                                                                min_nodes = compute_min_nodes,
-                                                                max_nodes = compute_max_nodes)
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size=vm_size,
+                                                                min_nodes=compute_min_nodes,
+                                                                max_nodes=compute_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+    compute_target = ComputeTarget.create(
+        ws, compute_name, provisioning_config)
 
     # can poll for a minimum number of nodes and for a specific timeout.
     # if no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    compute_target.wait_for_completion(
+        show_output=True, min_node_count=None, timeout_in_minutes=20)
 
-     # For a more detailed view of current AmlCompute status, use get_status()
+    # For a more detailed view of current AmlCompute status, use get_status()
     print(compute_target.get_status().serialize())
 ```
 
@@ -171,12 +173,16 @@ import urllib.request
 import os
 
 data_folder = os.path.join(os.getcwd(), 'data')
-os.makedirs(data_folder, exist_ok = True)
+os.makedirs(data_folder, exist_ok=True)
 
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'train-images.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'train-labels.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'test-images.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'test-labels.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
+                           filename=os.path.join(data_folder, 'train-images.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
+                           filename=os.path.join(data_folder, 'train-labels.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
+                           filename=os.path.join(data_folder, 'test-images.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz',
+                           filename=os.path.join(data_folder, 'test-labels.gz'))
 ```
 
 You will see output similar to this:
@@ -191,15 +197,18 @@ Load the compressed files into `numpy` arrays. Then use `matplotlib` to plot 30 
 from utils import load_data
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
-X_train = load_data(os.path.join(data_folder, 'train-images.gz'), False) / 255.0
+X_train = load_data(os.path.join(
+    data_folder, 'train-images.gz'), False) / 255.0
 X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-y_train = load_data(os.path.join(data_folder, 'train-labels.gz'), True).reshape(-1)
-y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
+y_train = load_data(os.path.join(
+    data_folder, 'train-labels.gz'), True).reshape(-1)
+y_test = load_data(os.path.join(
+    data_folder, 'test-labels.gz'), True).reshape(-1)
 
 # now let's show some randomly chosen images from the traininng set.
 count = 0
 sample_size = 30
-plt.figure(figsize = (16, 6))
+plt.figure(figsize=(16, 6))
 for i in np.random.permutation(X_train.shape[0])[:sample_size]:
     count = count + 1
     plt.subplot(1, sample_size, count)
@@ -226,7 +235,8 @@ The MNIST files are uploaded into a directory named `mnist` at the root of the d
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir=data_folder, target_path='mnist', overwrite=True, show_progress=True)
+ds.upload(src_dir=data_folder, target_path='mnist',
+          overwrite=True, show_progress=True)
 ```
 
 You now have everything you need to start training a model.
@@ -245,7 +255,7 @@ Create a directory to deliver the necessary code from your computer to the remot
 
 ```python
 import os
-script_folder  = os.path.join(os.getcwd(), "sklearn-mnist")
+script_folder = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
 
@@ -340,9 +350,9 @@ script_params = {
 }
 
 est = SKLearn(source_directory=script_folder,
-                script_params=script_params,
-                compute_target=compute_target,
-                entry_script='train.py')
+              script_params=script_params,
+              compute_target=compute_target,
+              entry_script='train.py')
 ```
 
 ### Submit the job to the cluster
@@ -376,7 +386,7 @@ You can check the progress of a running job in several ways. This tutorial uses 
 
 ### Jupyter widget
 
-Watch the progress of the run with a Jupyter widget. Like the run submission, the widget is asynchronous and provides live updates every 10 to 15 seconds until the job finishes:
+Watch the progress of the run with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10 to 15 seconds until the job finishes:
 
 ```python
 from azureml.widgets import RunDetails
@@ -394,7 +404,7 @@ If you need to cancel a run, you can follow [these instructions](https://aka.ms/
 Model training and monitoring happen in the background. Wait until the model has finished training before you run more code. Use `wait_for_completion` to show when the model training is finished:
 
 ```python
-run.wait_for_completion(show_output=False) # specify True for a verbose log
+run.wait_for_completion(show_output=False)  # specify True for a verbose log
 ```
 
 ### Display run results
@@ -425,8 +435,9 @@ Register the model in the workspace, so that you or other collaborators can late
 
 ```python
 # register model
-model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
-print(model.name, model.id, model.version, sep = '\t')
+model = run.register_model(model_name='sklearn_mnist',
+                           model_path='outputs/sklearn_mnist_model.pkl')
+print(model.name, model.id, model.version, sep='\t')
 ```
 
 ## Clean up resources

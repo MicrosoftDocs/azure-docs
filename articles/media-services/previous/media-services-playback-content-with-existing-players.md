@@ -27,13 +27,13 @@ Click on the desired video (make sure it was [published](media-services-portal-p
 
 Some considerations apply:
 
-* The **MEDIA SERVICES CONTENT PLAYER** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, use another player. For example, [Azure Media Player](http://aka.ms/azuremediaplayer).
+* The **MEDIA SERVICES CONTENT PLAYER** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, use another player. For example, [Azure Media Player](https://aka.ms/azuremediaplayer).
 
 ![AMSPlayer][AMSPlayer]
 
 ### Azure Media Player
 
-Use [Azure Media Player](http://aka.ms/azuremediaplayer) to playback your content (clear or protected) in any of the following formats:
+Use [Azure Media Player](https://aka.ms/azuremediaplayer) to playback your content (clear or protected) in any of the following formats:
 
 * Smooth Streaming
 * MPEG DASH

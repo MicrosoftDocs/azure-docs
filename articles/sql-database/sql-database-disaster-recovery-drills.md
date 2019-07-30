@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 12/18/2018
 ---
 # Performing Disaster Recovery Drill

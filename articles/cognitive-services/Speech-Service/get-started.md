@@ -1,7 +1,7 @@
 ---
-title: Try Speech Services for free
+title: Try Speech Service for free
 titleSuffix: Azure Cognitive Services
-description: Getting started with the Speech Services is easy and affordable. A 30-day free trial lets you discover what the service can do and decide whether it's right for your application's needs.
+description: Getting started with the Speech Service is easy and affordable. A 30-day free trial lets you discover what the service can do and decide whether it's right for your application's needs.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -84,7 +84,7 @@ To add a Speech Services resource (free or paid tier) to your Azure account:
 
    * A name for the new resource. The name helps you distinguish among multiple subscriptions to the same service.
    * Choose the Azure subscription that the new resource is associated with to determine how the fees are billed.
-   * Choose the region where the resource will be used. Currently, the Speech Services is available in East Asia, North Europe, and West US regions.
+   * Choose the [region](regions.md) where the resource will be used.
    * Choose either a free or paid pricing tier. Click **View full pricing details** for complete information about pricing and usage quotas for each tier.
    * Create a new resource group for this Speech subscription or assign the subscription to an existing resource group. Resource groups help you keep your various Azure subscriptions organized.
    * For convenient access to your subscription in the future, select the **Pin to dashboard** check box.

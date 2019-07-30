@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/22/2019
+ms.date: 07/29/2019
 ---
 
 # Quickstart: Explore Azure Time Series Insights
@@ -74,6 +74,13 @@ This Time Series Insights explorer quickstart offers a guided tour of features t
    [![Filter series](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
 
 After you finish the quickstart, you can experiment with the sample data set to create different visualizations.
+
+## Clean up resources
+
+Now that you've completed the tutorial, clean up the resources you created:
+
+1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, locate your Azure Time Series Insights resource group.
+1. Either delete the entire resource group (and all resources contained within it) by selecting **Delete** or remove each resource individually.
 
 ## Next steps
 
