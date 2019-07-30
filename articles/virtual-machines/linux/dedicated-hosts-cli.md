@@ -20,7 +20,7 @@ ms.author: cynthn
 # Preview: Deploy VMs to dedicated hosts using the Azure CLI
  
 
-This article guides you through how to create an Azure dedicated host to host your virtual machines (VMs). 
+This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
 
 Make sure that you have installed Azure CLI version 2.0.70 or later, and signed in to an Azure account using `az login`. 
 
@@ -127,10 +127,13 @@ az vm create \
 
 ## Check the status of the host
 
-You can check the host health status and how many virtual machines you can still deploy to the host using [GetAzHost](/powershell/module/az.compute/get-azhost) with the `-InstanceView` parameter.
+You can check the host health status and how many virtual machines you can still deploy to the host using [az vm host get-instance-view](/cli/azure/vm#az-vm-host-get-instance-view).
 
 ```bash
-az vm host get-instance-view -g myDHResourceGroup --host-group myHostGroup --name myHost
+az vm host get-instance-view \
+   -g myDHResourceGroup \
+   --host-group myHostGroup \
+   --name myHost
 ```
  The output will look similar to this:
  

@@ -18,7 +18,7 @@ ms.author: cynthn
 
 # Preview: Deploy VMs to dedicated hosts using the Azure PowerShell
 
-This article guides you through how to create an Azure dedicated host to host your virtual machines (VMs). 
+This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
 
 Make sure that you have installed the latest Azure PowerShell module installed and you are signed in to an Azure account in with `Connect-AzAccount`. 
 
@@ -108,7 +108,11 @@ New-AzVM `
 You can check the host health status and how many virtual machines you can still deploy to the host using [GetAzHost](/powershell/module/az.compute/get-azhost) with the `-InstanceView` parameter.
 
 ```
-Get-AzHost -ResourceGroupName $rgName -Name myHost -HostGroupName $hostGroup.Name -InstanceView
+Get-AzHost `
+   -ResourceGroupName $rgName `
+   -Name myHost `
+   -HostGroupName $hostGroup.Name `
+   -InstanceView
 ```
 
 The output will look similar to this:

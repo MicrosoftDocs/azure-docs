@@ -18,6 +18,8 @@ ms.author: cynthn
 
 # Preview: Deploy VMs to dedicated hosts using the portal
 
+This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
+
 [!INCLUDE [virtual-machines-common-dedicated-hosts-portal](../../../includes/virtual-machines-common-dedicated-hosts-portal.md)]
 
 ## Create a VM
