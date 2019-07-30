@@ -26,11 +26,11 @@ You may also see an IP address in the "Origin" field in the Jupyter log.
 
 ## Cause
 
-This error can be caused by a few things:
+This error can be caused by a couple things:
 
-1. If you have configured Network Security Group (NSG) Rules to restricts access to the cluster. Restricting access with NSG rules will still allow you to directly access Apache Ambari and other services using the IP address rather than the cluster name. However, when accessing Jupyter, you could see a 404 "Not Found" error.
+- If you have configured Network Security Group (NSG) Rules to restricts access to the cluster. Restricting access with NSG rules will still allow you to directly access Apache Ambari and other services using the IP address rather than the cluster name. However, when accessing Jupyter, you could see a 404 "Not Found" error.
 
-1. If you have given your HDInsight gateway a customized DNS name other than the standard `xxx.azurehdinsight.net`.
+- If you have given your HDInsight gateway a customized DNS name other than the standard `xxx.azurehdinsight.net`.
 
 ## Resolution
 
