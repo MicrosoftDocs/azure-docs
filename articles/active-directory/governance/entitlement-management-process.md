@@ -45,7 +45,7 @@ A user that needs access to an access package can submit an access request. Depe
 | Expired | If no approvers approve a request within the approval request timeout, the request expires. To try again, the user will have to resubmit their request. |
 | Denied | Approver denies a request. |
 | Approved | Approver approves a request. |
-| Delivering | User has **not** been assigned access to all the resources in the access package. If this is an external user, the user has not yet accessed the resource directory and accepted the permissions prompt. |
+| Delivering | User has **not** been assigned access to all the resources in the access package. If this is an external user, the user may not yet have accessed the resource directory and accepted the consent prompt. |
 | Delivered | User has been assigned access to all the resources in the access package. |
 | Access extended | If extensions are allowed in the policy, the user extended the assignment. |
 | Access expired | User's access to the access package has expired. To get access again, the user will have to submit a request. |
