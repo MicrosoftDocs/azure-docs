@@ -104,7 +104,7 @@ These code snippets show you how to do the following tasks with the Content Mode
 * [Authenticate the client](#authenticate-the-client)
 * [Moderate images](#moderate-images)
 
-### Authenticate the client
+## Authenticate the client
 
 > [!NOTE]
 > This step assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Content Moderator key, named `AZURE_CONTENTMODERATOR_KEY`.
@@ -118,6 +118,8 @@ In the application's `main` method, create a [ContentModeratorClient](https://do
 
 ## Moderate images
 
+### Get images
+
 In the **src/main/** folder of your project, create a **resources** folder and navigate to it. Then create a new text file, *ImageFiles.txt*. In this file, you add the URLs of images to analyze&mdash;one URL on each line. You can use the following sample contents:
 
 ```
@@ -125,9 +127,13 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 ```
 
+### Use helper class
+
 Then, in your *ContentModeratorQuickstart.java* file, add the following class definition inside the **ContentModeratorQuickstart** class. This inner class will be used later in the image moderation process.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_evaluationdata)]
+
+### Iterate through images
 
 Next, add the following code to the bottom of the `main` method. Or, you can add it to a separate method that's called from `main`. This code steps through each line of the _ImageFiles.txt_ file.
 
