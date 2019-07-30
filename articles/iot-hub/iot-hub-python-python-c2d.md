@@ -36,7 +36,7 @@ At the end of this tutorial, you run two Python console apps:
 
 * **SendCloudToDeviceMessage.py**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgment.
 
-[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-installation-notes.md)]
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
 The following are the installation instructions for the prerequisites. For this how-to, you do not need to install the service-client package.
 
