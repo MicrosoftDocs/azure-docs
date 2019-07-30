@@ -333,7 +333,7 @@ Sync sessions may fail for various reasons including the server being restarted 
 | **Error string** | ECS_E_USER_REQUEST_THROTTLED |
 | **Remediation required** | No |
 
-No action is required; the server will try again. If this error persists for longer than a couple hours, create a support request.
+No action is required; the server will try again. If this error persists for several hours, create a support request.
 
 <a id="-2134364043"></a>**Sync is blocked until change detection completes post restore**  
 
@@ -345,6 +345,17 @@ No action is required; the server will try again. If this error persists for lon
 | **Remediation required** | No |
 
 No action is required. When a file or file share (cloud endpoint) is restored using Azure Backup, sync is blocked until change detection completes on the Azure file share. Change detection runs immediately once the restore is complete and the duration is based on the number of files in the file share.
+
+<a id="-2147216747"></a>**Sync failed because the sync database was unloaded.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80041295 |
+| **HRESULT (decimal)** | -2147216747 |
+| **Error string** | SYNC_E_METADATA_INVALID_OPERATION |
+| **Remediation required** | No |
+
+This error typically occurs when a backup application creates a VSS snapshot and the sync database is unloaded. If this error persists for several hours, create a support request.
 
 <a id="-2134364065"></a>**Sync can't access the Azure file share specified in the cloud endpoint.**  
 
