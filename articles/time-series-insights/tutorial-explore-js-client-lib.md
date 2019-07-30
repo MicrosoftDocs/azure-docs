@@ -30,6 +30,13 @@ Specifically, you'll learn about:
 > * The Time Series Insights sample app source files are provided in the [GitHub sample repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * Read the [Time Series Insights client reference documentation](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
+## Prerequisites
+
+* Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
+
+* This tutorial uses your browser's **Developer Tools** feature. Modern web browsers ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others)
+typically provide access to the **Web Inspector View** through the F12 hotkey on your keyboard. Another way to access the view is to right-click on a webpage, and then select **Inspect Element**.
+
 ## Video
 
 In this video, we introduce the open-source Time Series Insights JavaScript SDK:
@@ -37,10 +44,7 @@ In this video, we introduce the open-source Time Series Insights JavaScript SDK:
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
-## Prerequisites
 
-This tutorial uses your browser's **Developer Tools** feature. Modern web browsers ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others)
-typically provide access to the **Web Inspector View** through the F12 hotkey on your keyboard. Another way to access the view is to right-click on a webpage, and then select **Inspect Element**.
 
 ## Time Series Insights sample application
 
@@ -304,6 +308,13 @@ The code that's used to illustrate brushes is shown in the `Line Chart with Cont
 [!code-javascript[code-sample-brushes](~/samples-javascript/pages/tutorial/index.html?range=526-540&highlight=1,13)]
 
 [![Line chart with context menu to create pie chart and bar chart by using brushes](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png#lightbox)
+
+## Clean up resources
+
+Now that you've completed the tutorial, clean up the resources you created:
+
+1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, locate your Azure Time Series Insights resource group.
+1. Either delete the entire resource group (and all resources contained within it) by selecting **Delete** or remove each resource individually.
 
 ## Next steps
 
