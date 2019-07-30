@@ -8,6 +8,7 @@ ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
+ms.subservice: security-fundamentals
 ms.workload: identity
 ---
 # Choose the right authentication method for your Azure Active Directory hybrid identity solution 

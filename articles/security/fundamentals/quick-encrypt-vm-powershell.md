@@ -7,6 +7,7 @@ author: msmbaldwin
 manager: MBaldwin
 ms.assetid: c8abd340-5ed4-42ec-b83f-4d679b61494d
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na 

@@ -8,6 +8,7 @@ ms.author: martinco
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: active-directory
+ms.subservice: security-fundamentals
 ms.workload: identity
 ---
 # A world without passwords with Azure Active Directory

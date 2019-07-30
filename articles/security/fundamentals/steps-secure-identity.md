@@ -6,6 +6,7 @@ author: martincoetzer
 manager: manmeetb
 tags: azuread
 ms.service: active-directory
+ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
