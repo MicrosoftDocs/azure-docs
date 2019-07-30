@@ -39,7 +39,7 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 * Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for seven days for free. After you sign up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * View your resource on the [Azure portal](https://portal.azure.com/)
 
-After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `CONTENTMODERATOR_SUBSCRIPTION_KEY`.
+After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `CONTENT_MODERATOR_SUBSCRIPTION_KEY`.
  
 ### Create a python script
 
@@ -87,7 +87,7 @@ These code snippets show you how to do the following tasks with the Content Mode
 ## Authenticate the client
 
 > [!NOTE]
-> This quickstart assumes you've [created an environment variable](../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your Content Moderator key, named `CONTENTMODERATOR_SUBSCRIPTION_KEY`.
+> This quickstart assumes you've [created an environment variable](../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your Content Moderator key, named `CONTENT_MODERATOR_SUBSCRIPTION_KEY`.
 
 Instantiate a client with your endpoint and key. Create a [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) object with your key, and use it with your endpoint to create an [ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python) object.
 
