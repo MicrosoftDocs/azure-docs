@@ -98,7 +98,7 @@ This solution creates a virtual machine as a domain-joined bastion host with the
 
 - [Antimalware extension](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 - [Azure Diagnostics extension](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-template)
-- [Azure Disk Encryption](./security/azure-security-disk-encryption-overview.md) using Azure Key Vault
+- [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) using Azure Key Vault
 - An [auto-shutdown policy](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) to reduce consumption of virtual machine resources when not in use
 - [Windows Defender Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard) enabled so that credentials and other secrets run in a protected environment that is isolated from the running operating system
 
@@ -152,7 +152,7 @@ In transit: When data is being transferred between components, locations, or pro
 
 Azure Storage: To meet encrypted data at rest requirements, all [Azure Storage](https://azure.microsoft.com/services/storage/) uses Azure Key Vault to maintain control of keys that access and encrypt the data. This helps protect and safeguard cardholder data in support of organizational security commitments and compliance requirements defined by PCI DSS 3.2.
 
-Azure Disk Encryption: [Azure Disk Encryption](./security/azure-security-disk-encryption-overview.md) leverages the BitLocker feature of Windows to provide volume encryption for data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
+Azure Disk Encryption: [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) leverages the BitLocker feature of Windows to provide volume encryption for data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
 
 Azure SQL Database: The Azure SQL Database instance uses the following database security measures:
 
