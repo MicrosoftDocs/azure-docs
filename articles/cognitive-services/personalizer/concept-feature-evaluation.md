@@ -3,13 +3,13 @@ title: Feature evaluation - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: edjez
+ms.author: diberry
 ---
 
 # Feature evaluation
