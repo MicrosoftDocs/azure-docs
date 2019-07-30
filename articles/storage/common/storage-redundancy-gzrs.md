@@ -1,22 +1,21 @@
 ---
-title: Build highly available Azure Storage applications on geo-zone-redundant storage (GZRS) (preview) | Microsoft Docs
+title: Build highly available Azure Storage applications with geo-zone-redundant storage (GZRS) (preview) | Microsoft Docs
 description: Geo-zone-redundant storage (GZRS) marries the high availability of zone-redundant storage (ZRS) with protection from regional outages as provided by geo-redundant storage (GRS). Data in a GZRS storage account is replicated across Azure availability zones in the primary region and also replicated to a secondary geographic region for protection from regional disasters.
-services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 07/30/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.subservice:
+ms.subservice: common
 ---
 
-# Geo-zone-redundant storage for highly availability and maximum durability (preview)
+# Build highly available Azure Storage applications with geo-zone-redundant storage (GZRS) (preview)
 
 Geo-zone-redundant storage (GZRS) (preview) marries the high availability of [zone-redundant storage (ZRS)](storage-redundancy-zrs.md) with protection from regional outages as provided by [geo-redundant storage (GRS)](storage-redundancy-grs.md). Data in a GZRS storage account is replicated across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region and also replicated to a secondary geographic region for protection from regional disasters.
 
-With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn’t recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year. GZRS also offers the same [scalability targets](storage-scalability-targets.md)as LRS, ZRS, GRS or RA-GRS. You can optionally enable read access to data in the secondary region with read-access geo-zone-redundant storage (RA-GZRS) if your applications need to be able to read data in the event of a disaster in the primary region.
+With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn’t recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year. GZRS also offers the same [scalability targets](storage-scalability-targets.md) as LRS, ZRS, GRS, or RA-GRS. You can optionally enable read access to data in the secondary region with read-access geo-zone-redundant storage (RA-GZRS) if your applications need to be able to read data in the event of a disaster in the primary region.
 
 Microsoft recommends using GZRS for applications requiring consistency, durability, high availability, excellent performance, and resilience for diaster recovery. For the additional security of read access to the secondary region in the event of a regional disaster, enable RA-GZRS for your storage account.
 
