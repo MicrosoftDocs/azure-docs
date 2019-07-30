@@ -74,7 +74,7 @@ Besides Event Grid, another alternative for processing blobs is the Queue storag
 
 ## Trigger - example
 
-# [C#](#tab/trigger-csharp)
+# [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that writes a log when a blob is added or updated in the `samples-workitems` container.
 
@@ -90,7 +90,7 @@ The string `{name}` in the blob trigger path `samples-workitems/{name}` creates 
 
 For more information about the `BlobTrigger` attribute, see [Trigger - attributes](#trigger---attributes).
 
-# [C# Script](#tab/trigger-csharp-script)
+# [C# Script](#tab/csharp-script)
 
 The following example shows a blob trigger binding in a *function.json* file and [Python code](functions-reference-python.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
@@ -137,7 +137,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-# [JavaScript](#tab/trigger-javascript)
+# [JavaScript](#tab/javascript)
 
 The following example shows a blob trigger binding in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` container.
 
@@ -171,7 +171,7 @@ module.exports = function(context) {
 };
 ```
 
-# [Python](#tab/trigger-python)
+# [Python](#tab/python)
 
 The following example shows a blob trigger binding in a *function.json* file and [Python code](functions-reference-python.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
@@ -208,7 +208,7 @@ def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
 ```
 
-# [Java](#tab/trigger-java)
+# [Java](#tab/java)
 
 The following example shows a blob trigger binding in a *function.json* file and [Java code](functions-reference-java.md) that uses the binding. The function writes a log when a blob is added or updated in the `myblob` container.
 
@@ -457,7 +457,7 @@ Use a Blob storage input binding to read blobs.
 
 ## Input - example
 
-# [C#](#tab/input-csharp)
+# [C#](#tab/csharp)
 
 The following example is a [C# function](functions-dotnet-class-library.md) that uses a queue trigger and an input blob binding. The queue message contains the name of the blob, and the function logs the size of the blob.
 
@@ -472,7 +472,7 @@ public static void Run(
 }
 ```
 
-# [C# Script](#tab/input-csharp-script)
+# [C# Script](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -521,7 +521,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-# [JavaScript](#tab/input-javascript)
+# [JavaScript](#tab/javascript)
 
 <!--Same example for input and output. -->
 
@@ -570,7 +570,7 @@ module.exports = function(context) {
 };
 ```
 
-# [Python](#tab/input-python)
+# [Python](#tab/python)
 
 <!--Same example for input and output. -->
 
@@ -622,7 +622,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
     return inputblob
 ```
 
-# [Java](#tab/input-java)
+# [Java](#tab/java)
 
 This section contains the following examples:
 
@@ -757,7 +757,7 @@ Use Blob storage output bindings to write blobs.
 
 ## Output - example
 
-# [C#](#tab/output-csharp)
+# [C#](#tab/csharp)
 
 The following example is a [C# function](functions-dotnet-class-library.md) that uses a blob trigger and two output blob bindings. The function is triggered by the creation of an image blob in the *sample-images* container. It creates small and medium size copies of the image blob.
 
@@ -807,7 +807,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 };
 ```
 
-# [C# Script](#tab/output-csharp-script)
+# [C# Script](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -856,7 +856,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-# [JavaScript](#tab/output-javascript)
+# [JavaScript](#tab/javascript)
 
 <!--Same example for input and output. -->
 
@@ -905,7 +905,7 @@ module.exports = function(context) {
 };
 ```
 
-# [Python](#tab/output-python)
+# [Python](#tab/python)
 
 <!--Same example for input and output. -->
 
@@ -958,7 +958,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
     outputblob.set(inputblob)
 ```
 
-# [Java](#tab/output-java)
+# [Java](#tab/java)
 
 This section contains the following examples:
 
