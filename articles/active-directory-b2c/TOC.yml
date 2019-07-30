@@ -101,7 +101,7 @@
       items:
       - name: User interface customization
         href: customize-ui-overview.md
-      - name: JavaScript and page contracts
+      - name: JavaScript and page layouts
         href: user-flow-javascript-overview.md
       - name: Customize language
         href: active-directory-b2c-reference-language-customization.md
@@ -115,7 +115,7 @@
       items:
       - name: Amazon
         href: active-directory-b2c-setup-amzn-app.md
-      - name: Azure AD (Single Tenant)
+      - name: Azure AD (Single-tenant)
         href: active-directory-b2c-setup-oidc-azure-active-directory.md
       - name: Microsoft Account
         href: active-directory-b2c-setup-msa-app.md
@@ -175,9 +175,9 @@
         items:
         - name: Amazon
           href: setup-amazon-custom.md
-        - name: Azure AD (Single-Tenant)
+        - name: Azure AD (Single-tenant)
           href: active-directory-b2c-setup-aad-custom.md
-        - name: Azure AD (Multi-Tenant)
+        - name: Azure AD (Multi-tenant)
           href: active-directory-b2c-setup-commonaad-custom.md
         - name: Google
           href: active-directory-b2c-custom-setup-goog-idp.md
@@ -282,7 +282,7 @@
             href: oauth1-technical-profile.md
           - name: OAuth2
             href: oauth2-technical-profile.md
-          - name: OpenId Connect
+          - name: OpenID Connect
             href: openid-connect-technical-profile.md
           - name: REST
             href: restful-technical-profile.md
