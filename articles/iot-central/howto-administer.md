@@ -26,7 +26,7 @@ After you create an IoT Central application, you can go to the **Administration*
 - Customize help links in the application
 - Manage IoT Central programmatically
 
-To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application. The [Manage Users](#manage-users) section in this article explains more about how to assign the **Administrator** role to other users.
+To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application. The [Manage application settings](#manage-application-settings) section in this article explains more about how to manage the application settings.
 
 ## Manage application settings
 
@@ -66,79 +66,6 @@ Use the **Delete** button to permanently delete your IoT Central application. Th
 > [!Note]
 > To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-## Manage users
-
-### Add users
-
-Every user must have a user account before they can sign in and access an Azure IoT Central application. Microsoft Accounts (MSAs) and Azure Active Directory (Azure AD) accounts are supported in Azure IoT Central. Azure Active Directory groups aren't currently supported in Azure IoT Central.
-
-For more information, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
-
-1. To add a user to an IoT Central application, go to the **Users** page in the **Administration** section.
-
-    ![List of users](media/howto-administer/image1.png)
-
-1. To add a user, on the **Users** page, choose **+ Add user**.
-
-1. Choose a role for the user from the **Role** drop-down menu. Learn more about roles in the [Manage roles](#manage-roles) section of this article.
-
-    ![Role selection](media/howto-administer/image3.png)
-
-    > [!NOTE]
-    >  To add users in bulk, enter the user IDs of all the users you'd like to add separated by semi-colons. Choose a role from the **Role** drop-down menu. Then select **Save**.
-
-### Edit the roles that are assigned to users
-
-Roles can't be changed after they are assigned. To change the role that's assigned to a user, delete the user, and then add the user again with a different role.
-
-### Delete users
-
-To delete users, select one or more check boxes on the **Users** page. Then select **Delete**.
-
-## Manage roles
-
-Roles enable you to control who within your organization can perform various tasks in IoT Central. There are three roles you can assign to users of your application.
-
-### Administrator
-
-Users in the **Administrator** role have access to all functionality in an application.
-
-The user who creates an application is automatically assigned to the **Administrator** role. There must always be at least one user in the **Administrator** role.
-
-### Application Builder
-
-Users in the **Application Builder** role can do everything in an application except administer the application. Builders can create, edit, and delete device templates and devices, manage device sets, and run analytics and jobs. Builders won't have access to the **Administration** section of the application.
-
-### Application Operator
-
-Users in the **Application Operator** role can't make changes to device templates and can't administer the application. Operators can add and delete devices, manage device sets, and run analytics and jobs. Operators won't have access to the **Application Builder** and **Administration** pages.
-
-## View your bill
-
-To view your bill, go to the **Billing** page in the **Administration** section. The Azure billing page opens in a new tab, where you can see the bill for each of your Azure IoT Central applications.
-
-### Convert your Trial to Pay-As-You-Go
-
-You can convert your Trial application to a Pay-As-You-Go application. Here are the differences between these types of applications.
-
-- **Trial** applications are free for seven days before they expire. They can be converted to Pay-As-You-Go at any time before they expire.
-- **Pay-As-You-Go** applications are charged per device, with the first five devices free.
-
-Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
-
-To complete this self-service process, follow these steps:
-
-1. Go to the **Billing** page in the **Administration** section.
-
-    ![Trial state](media/howto-administer/freetrialbilling.png)
-
-1. Select **Convert to Pay-As-You-Go**.
-
-    ![Convert trial](media/howto-administer/convert.png)
-
-1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your Pay-As-You-Go application.
-
-1. After you select **Convert**, your application is now a Pay-As-You-Go application and you start getting billed.
 
 ## Export data
 
@@ -182,4 +109,4 @@ To learn more, see the following GitHub repositories and packages:
 Now that you've learned how to administer your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Set up the device template](howto-set-up-template.md)
+> [Manage users and roles](howto-manage-users-and-roles.md)
