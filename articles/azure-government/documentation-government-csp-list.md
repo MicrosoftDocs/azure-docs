@@ -298,7 +298,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Trigent Solutions Inc.](http://trigentsolutions.com/)|
 |[Triple Point Security Incorporated](https://www.triplepointsecurity.com)|
 |[U2Cloud LLC](https://www.u2cloud.com)|
-|[UDRI - SSG](https://ssg.udri.udayton.edu/)|
+|[UDRI - SSG](https://www.udayton.edu/udri/_resources/docs/ssg_v8.pdf)|
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
 |[Universal EVoIP Transitions](https://universalevoiptransitions.com/contact)|
@@ -329,7 +329,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 
 |Partner Name|
 |----------------------------|
-|[Arrow Enterprise Computing Solutions, Inc.](http://ecs.arrow.com/)|
+|[Arrow Enterprise Computing Solutions, Inc.](https://www.arrow.com/ecs/)|
 |[Crayon Software Experts LCC](https://www.crayon.com/en-US)|
 |[Ingram Micro Inc.](https://usa.ingrammicro.com/)|
 |[Insight Public Sector Inc](https://www.ips.insight.com/en_US/public-sector.html)|
