@@ -16,18 +16,18 @@
       href: deploy-event-grid-portal.md
     - name: Publish and subscribe events with Azure Functions
       href: pub-sub-events-webhook-cloud.md
-  - name: Forward events to IoTHub
-    items:
-    - name: Deploy Event Grid IoT module
-      href: deploy-event-grid-portal.md
-    - name: Forward events to IoTHub
-      href: forward-events-iothub.md
   - name: Forward events to Event Grid cloud
     items:
     - name: Deploy Event Grid IoT module
       href: deploy-event-grid-portal.md
     - name: Forward events to Event Grid cloud
       href: forward-events-event-grid-cloud.md
+  - name: Forward events to IoTHub
+    items:
+    - name: Deploy Event Grid IoT module
+      href: deploy-event-grid-portal.md
+    - name: Forward events to IoTHub
+      href: forward-events-iothub.md
 - name: Concepts
   items:
   - name: Event Grid concepts

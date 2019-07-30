@@ -69,7 +69,7 @@ Create an event grid subscription in the edge,
         "destination": {
           "endpointType": "eventGrid",
           "properties": {
-            "endpointUrl": "<your-event-grid-cloud-topic-endpoint-url>",
+            "endpointUrl": "<your-event-grid-cloud-topic-endpoint-url>?api-version=2018-01-01",
              "sasKey": "<your-event-grid-topic-saskey>",
              "topicName": null,
           }
@@ -77,6 +77,9 @@ Create an event grid subscription in the edge,
       }
     }
     ```
+
+   >[!NOTE]
+   > The **endpointUrl** specifies that the Event Grid topic URL in the cloud. The **sasKey** refers to Event Grid cloud topic's key. The value in **topicName** will used to stamp all outgoing events to Event Grid. This can be useful when posting to an Event Grid Domain Topic. For more information about Event Grid Domain Topic, review the documentation available [here](https://docs.microsoft.com/azure/event-grid/event-domains)
 
     For example,
 
@@ -86,17 +89,14 @@ Create an event grid subscription in the edge,
         "destination": {
           "endpointType": "eventGrid",
           "properties": {
-            "endpointUrl": "https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events",
+            "endpointUrl": "https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01",
              "sasKey": "<your-event-grid-topic-saskey>",
-             "topicName": "testegcloudtopic",
+             "topicName": null,
           }
         }
       }
     }
     ```
-
-   >[!NOTE]
-   > The **endpointUrl** specifies that the Event Grid topic URL in the cloud. The **sasKey** refers to Event Grid cloud topic's key. The value in **topicName** will used to stamp all outgoing events to Event Grid. This can be useful when posting to an Event Grid Domain Topic. For more information about Event Grid Domain Topic, review the documentation available [here](https://docs.microsoft.com/azure/event-grid/event-domains)
 
 2. Run the following command to create the subscription. HTTP Status Code of 200 OK should be returned.
 
@@ -116,7 +116,7 @@ To publish an event in edge,
        "eventType": "recordInserted",
        "subject": "myapp/vehicles/motorcycles",
        "eventTime": "2019-07-28T21:03:07+00:00",
-       "dataVersion": "1.0"
+       "dataVersion": "1.0",
        "data": {
             "make": "Ducati",
             "model": "Monster"
@@ -133,6 +133,16 @@ To publish an event in edge,
 ## Step 5: Verify edge event in cloud
 
 For information on viewing events delivered by the cloud topic, see the [tutorial](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal).
+
+## Cleanup resources
+
+* Run the following command to delete the topic and all its subscriptions
+
+    ```sh
+    curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3?api-version=2019-01-01-preview
+    ```
+
+* Delete Event Grid topic and subscription created in the cloud as well.
 
 ## Next steps
 

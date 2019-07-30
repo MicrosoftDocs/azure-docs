@@ -25,7 +25,32 @@ In order to complete this tutorial, you will need an
 
 ## Step 1: Create Azure Function in Cloud via portal
 
-Follow the steps outlined in the [tutorial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function) to create an Azure Function in cloud. In your new function, click </> Get function URL at the top right, select default (Function key), and then click Copy. You will need to use the function URL value later in the tutorial.
+Follow the steps outlined in the [tutorial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function) to create an Azure Function in cloud.
+Replace the code snippet like below:
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
+public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    dynamic data = JsonConvert.DeserializeObject(requestBody);
+
+    log.LogInformation($"C# HTTP trigger received {data}.");
+    return data != null
+        ? (ActionResult)new OkResult()
+        : new BadRequestObjectResult("Please pass in the request body");
+}
+```
+
+In your new function, click </> Get function URL at the top right, select default (Function key), and then click Copy. You will need to use the function URL value later in the tutorial.
 
 ## Step 2: Create topic
 
@@ -86,7 +111,7 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
        "eventType": "recordInserted",
        "subject": "myapp/vehicles/motorcycles",
        "eventTime": "2019-07-28T21:03:07+00:00",
-       "dataVersion": "1.0"
+       "dataVersion": "1.0",
        "data": {
             "make": "Ducati",
             "model": "Monster"
@@ -103,6 +128,16 @@ As a publisher of an event, you need to create an event grid topic. Topic refers
 ## Step 5: Verify event delivery
 
 Refer to this [tutorial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function) about viewing the events that were delivered to the function.
+
+## Cleanup resources
+
+* Run the following command to delete the topic and all its subscriptions
+
+    ```sh
+    curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
+    ```
+
+* Delete the Azure Function created in the cloud.
 
 ## Next steps
 
