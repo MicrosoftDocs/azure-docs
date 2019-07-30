@@ -408,8 +408,8 @@ Only one background audio file is allowed per SSML document. However, you can in
 |-----------|-------------|---------------------|
 | src | Specifies the location/URL of the background audio file. | Required if using background audio in your SSML document. |
 | volume | Specifies the volume of the background audio file. **Accepted values**: `0` to `100` inclusive. The default value is `1`. | Optional |
-| fadein | Specifies the duration of the background audio fade in. **Accepted values**: `0` to `10000` inclusive.  | Optional |
-| fadeout | Specifies the duration of the background audio fade out. **Accepted values**: `0` to `10000` inclusive.  | Optional |
+| fadein | Specifies the duration of the background audio fade in in milliseconds. The default value is `0`, which is the equivalent to no fade in. **Accepted values**: `0` to `10000` inclusive.  | Optional |
+| fadeout | Specifies the duration of the background audio fade out in milliseconds. The default value is `0`, which is the equivalent to no fade out. **Accepted values**: `0` to `10000` inclusive.  | Optional |
 
 **Example**
 
