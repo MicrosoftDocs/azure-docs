@@ -68,31 +68,17 @@ You can continue with the tutorial while the nodes are being provisioned. When p
     cd truffledemo
     ```
 
-1. Launch Truffle's interactive development console.
+1. Use the Truffle console to connect to the default transaction node.
 
     ``` bash
-    truffle develop
+    truffle console --network defaultnode
     ```
 
-    Truffle creates a local development blockchain and provides an interactive console.
+    Truffle connects to the default transaction node and provides an interactive console.
 
 ## Create Ethereum account
 
-Use Web3 to connect to the default transaction node and create an Ethereum account. You can get the Web3 connection string from the Azure portal.
-
-1. In the Azure portal, navigate to the default transaction node and select **Transaction nodes > Sample code > Web3**.
-1. Copy the JavaScript from **HTTPS (Access key 1)**
-    ![Web3 sample code](./media/send-transaction/web3-code.png)
-
-1. Paste the Web3 JavaScript code for the default transaction node into the Truffle interactive development console. The code creates a Web3 object that is connected to your Azure Blockchain Service transaction node.
-
-    ```bash
-    truffle(develop)> var Web3 = require("Web3");
-    truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
-    truffle(develop)> var web3 = new Web3(provider);
-    ```
-
-    You can call methods on the Web3 object to interact with your transaction node.
+Use Web3 to connect to the default transaction node and create an Ethereum account. You can call methods on the Web3 object to interact with your transaction node.
 
 1. Create a new account on the default transaction node. Replace the password parameter with your own strong password.
 
@@ -156,21 +142,16 @@ You can get the public key from the transaction node list. Copy the public key f
           })(),
     
           network_id: "*",
-          gas: 0,
           gasPrice: 0,
           from: myAccount
         },
         alpha: {
           provider: new Web3.providers.HttpProvider(alpha),
           network_id: "*",
-          gas: 0,
-          gasPrice: 0
         },
         beta: {
           provider: new Web3.providers.HttpProvider(beta),
           network_id: "*",
-          gas: 0,
-          gasPrice: 0
         }
       }
     }
