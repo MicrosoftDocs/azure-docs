@@ -71,7 +71,7 @@ For information about request definition, see [How to call the Text Analytics AP
 
 + Set the HTTP endpoint for key phrase extraction by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). It must include the `/keyPhrases` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`.
 
-+ Set a request header to include the [access key](../../cognitive-services-apis-create-account#get-the-keys-for-your-resource) for Text Analytics operations.
++ Set a request header to include the [access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) for Text Analytics operations.
 
 + In the request body, provide the JSON documents collection you prepared for this analysis.
 
