@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Ro
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A Rollbar tenant](https://rollbar.com/pricing/).
+* [A Rollbar tenant](https://rollbar.com/pricing/) that has an Enterprise Plan.
 * A user account in Rollbar with Admin permissions.
 
 ## Assigning users to Rollbar
@@ -52,17 +52,15 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Rollbar for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Rollbar.
 
- 1. First thing to take into account is that this is an enterprise feature, so the account should be in an enterprise plan. You can request the access to the feature through sales@rollbar.com and get enabled as a feature for the account.
-
-2. Sign in to your [Rollbar Admin Console](https://rollbar.com/login/). Click on **Account Settings**.
+1. Sign in to your [Rollbar Admin Console](https://rollbar.com/login/). Click on **Account Settings**.
 
 	![Rollbar Admin Console](media/rollbar-provisioning-tutorial/image00.png)
 
-3.	Under **AZURE-SCIM-PROVISIONING**, Click on **Account Access Tokens**.
+2. Navigate to your **Rollbar Tenant Name > Account Access Tokens**.
 
 	![Rollbar Admin Console](media/rollbar-provisioning-tutorial/account.png)
 
-4. Copy the value of **SCIM** and this value will be entered in the Secret Token field in the Provisioning tab of your Rollbar application in the Azure portal.
+3. Copy the value of **SCIM**. This value will be entered in the Secret Token field in the Provisioning tab of your Rollbar application in the Azure portal.
 
 	![Rollbar Admin Console](media/rollbar-provisioning-tutorial/scim.png)
 
@@ -113,7 +111,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, Input the **Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Rollbar. If the connection fails, ensure your Rollbar account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input the **Account Access Token** value retrieved earlier into **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Rollbar. If the connection fails, ensure your Rollbar account has Admin permissions and try again.
 
 	![Rollbar Admin Console](media/rollbar-provisioning-tutorial/admin.png)
 
@@ -157,9 +155,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md)
 	
-## Connector limitations
-
-
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
