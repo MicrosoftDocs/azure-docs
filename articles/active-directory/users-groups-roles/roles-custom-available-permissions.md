@@ -224,4 +224,4 @@ Ability to update the owner property on single-tenant and multi-directory tenant
 
 - Create custom roles using [the Azure portal, Azure AD PowerShell, and Graph API](roles-create-custom.md)
 - [View the assignments for a custom role](roles-view-assignments.md)
-- [Assign Azure AD custom roles in PowerShell](roles-assign-powershell.md)
+<!-- - [Assign Azure AD custom roles in PowerShell](roles-assign-powershell.md)-->

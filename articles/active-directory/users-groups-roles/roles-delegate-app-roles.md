@@ -89,11 +89,11 @@ Follow the instructions in the [Assign roles to users with Azure Active Director
 Creating custom roles and assigning custom roles are separate steps:
 
 - [Create a custom *role definition*](roles-create-custom.md) and [add permissions to it from a preset list](roles-custom-available-permissions.md). These are the same permissions used in the built-in roles.
-- [Create a *role assignment*](roles-assign-powershell.md) to assign the custom role.
+- [Create a *role assignment*](roles-assign-graph.md) to assign the custom role.
 
 This separation allows you to create a single role definition and then assign it many times at different *scopes*. A custom role can be assigned at organization-wide scope, or it can be assigned at the scope if a single Azure AD object. An example of an object scope is a single app registration. Using different scopes, the same role definition can be assigned to Sally over all app registrations in the organization and then to Naveen over only the Contoso Expense Reports app registration.
 
-For more information on the basics of custom roles, see the [custom roles overview](roles-custom-overview.md), as well as how to [create a custom role](roles-create-custom.md) and how to [assign a role](roles-assign-powershell.md).
+For more information on the basics of custom roles, see the [custom roles overview](roles-custom-overview.md), as well as how to [create a custom role](roles-create-custom.md) and how to [assign a role](roles-assign-graph.md).
 
 ## Next steps
 
