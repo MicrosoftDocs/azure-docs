@@ -12,7 +12,7 @@ ms.author: tomfitz
 
 By default, you can deploy up to 800 instances of a resource type in each resource group. However, some resource types are exempt from the 800 instance limit. This article lists the Azure resource types that can have more than 800 instances in a resource group. All other resources types are limited to 800 instances.
 
-For some resource types, you need to enable a feature to exceed 800 instances. If necessary, the feature is listed with the resource type. For information about how to register for a feature, see [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) or [az feature register](/cli/azure/feature#az-feature-register).
+For some resource types, you need to contact support to have the 800 instance limit removed. Those resource types are noted in this article.
 
 
 ## Microsoft.Automation
@@ -27,7 +27,7 @@ For some resource types, you need to enable a feature to exceed 800 instances. I
 
 ## Microsoft.BotService
 
-* botServices - Register feature Microsoft.Resources/ARMDisableResourcesPerRGLimit
+* botServices - Contact support to extend the limit.
 
 ## Microsoft.Compute
 
@@ -111,7 +111,7 @@ For some resource types, you need to enable a feature to exceed 800 instances. I
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses - Register feature Microsoft.Resources/ARMDisableResourcesPerRGLimit
+* publicIPAddresses - Contact support to extend the limit.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -122,7 +122,7 @@ For some resource types, you need to enable a feature to exceed 800 instances. I
 
 ## Microsoft.PowerBI
 
-* workspaceCollections - Register feature Microsoft.PowerBI/UnlimitedQuota
+* workspaceCollections - Contact support to extend the limit.
 
 ## Microsoft.Scheduler
 
