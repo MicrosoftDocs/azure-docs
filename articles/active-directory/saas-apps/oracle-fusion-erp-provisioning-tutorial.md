@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Oracle Fusion ERP  for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Oracle Fusion ERP for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Oracle Fusion ERP.
 services: active-directory
 documentationcenter: ''
@@ -38,29 +38,29 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Assign Users to Oracle Fusion ERP 
 Azure Active Directory uses a concept called assignments to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Oracle Fusion ERP . Once decided, you can assign these users and/or groups to Oracle Fusion ERP  by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Oracle Fusion ERP. Once decided, you can assign these users and/or groups to Oracle Fusion ERP by following the instructions here:
  
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md) 
 
  ## Important tips for assigning users to Oracle Fusion ERP 
 
- * It is recommended that a single Azure AD user is assigned to Oracle Fusion ERP  to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+ * It is recommended that a single Azure AD user is assigned to Oracle Fusion ERP to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
 * When assigning a user to Oracle Fusion ERP, you must select any valid application-specific role (if available) in the assignment dialog. Users with the Default Access role are excluded from provisioning.
 
-## Setup Oracle Fusion ERP  for provisioning
+## Setup Oracle Fusion ERP for provisioning
 
-Before configuring Oracle Fusion ERP  for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Oracle Fusion ERP.
+Before configuring Oracle Fusion ERP for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Oracle Fusion ERP.
 
 1. Sign in to your [Oracle Fusion ERP Admin Console](https://cloud.oracle.com/sign-in)
 
 2. Click the Navigator on the top-left top corner. Under **Tools**, select **Security Console**.
 
-	![Oracle Fusion ERP  Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/login.png)
+	![Oracle Fusion ERP Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/login.png)
 
 3. Navigate to **Users**.
 	
-	![Oracle Fusion ERP  Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/user.png)
+	![Oracle Fusion ERP Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/user.png)
 
 4. Save the username and password for the admin user account which you will use to log into the Oracle Fusion ERP admin console. These values need to be entered in the **Admin Username** and **Password** fields in the Provisioning tab of your Oracle Fusion ERP application in the Azure portal.
 
@@ -68,7 +68,7 @@ Before configuring Oracle Fusion ERP  for automatic user provisioning with Azure
 
 To configure Oracle Fusion ERP for automatic user provisioning with Azure AD, you need to add Oracle Fusion ERP from the Azure AD application gallery to your list of managed SaaS applications.
 
-**To add Oracle Fusion ERP  from the Azure AD application gallery, perform the following steps:**
+**To add Oracle Fusion ERP from the Azure AD application gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
 
@@ -84,14 +84,14 @@ To configure Oracle Fusion ERP for automatic user provisioning with Azure AD, yo
 
 4. In the search box, enter **Oracle Fusion ERP**, select **Oracle Fusion ERP** in the results panel.
 
-	![Oracle Fusion ERP  in the results list](common/search-new-app.png)
+	![Oracle Fusion ERP in the results list](common/search-new-app.png)
 
  ## Configure automatic user provisioning to Oracle Fusion ERP 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Oracle Fusion ERP  based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Oracle Fusion ERP based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Oracle Fusion ERP , following the instructions provided in the [Oracle Fusion ERP Single sign-on tutorial](oracle-fusion-erp-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for Oracle Fusion ERP, following the instructions provided in the [Oracle Fusion ERP Single sign-on tutorial](oracle-fusion-erp-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for Fuze in Azure AD:
 
@@ -101,7 +101,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 2. In the applications list, select **Oracle Fusion ERP**.
 
-	![The Oracle Fusion ERP  link in the Applications list](common/all-applications.png)
+	![The Oracle Fusion ERP link in the Applications list](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
@@ -113,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` in **Tenant URL**. Enter the admin user name and password retrieved earlier into the **Admin Username** and **Password** fields. Click on **Test connection** between Azure AD and Oracle Fusion ERP. 
 
-	![Oracle Fusion ERP  Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/admin.png)
+	![Oracle Fusion ERP Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/admin.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
@@ -123,11 +123,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Oracle Fusion ERP**.
 
-	![Oracle Fusion ERP  Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png)
+	![Oracle Fusion ERP Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png)
 	
-9. Review the user attributes that are synchronized from Azure AD to Oracle Fusion ERP  in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Oracle Fusion ERP  for update operations. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to Oracle Fusion ERP in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Oracle Fusion ERP for update operations. Select the **Save** button to commit any changes.
 
-	![Oracle Fusion ERP  Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png)
+	![Oracle Fusion ERP Add SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png)
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -135,7 +135,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Define the users and/or groups that you would like to provision to Oracle Fusion ERP  by choosing the desired values in **Scope** in the **Settings** section.
+12. Define the users and/or groups that you would like to provision to Oracle Fusion ERP by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
