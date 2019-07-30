@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 07/29/2019
   ms.author: nitinme
 abstract:
   description: 'The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, named entity recognition and language detection. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.'
@@ -34,11 +34,11 @@ sections:
           image:
             src: ../media/index/i_get-started.svg
           title: Sign up for Text Analytics API
-        - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
-          html: <p>Learn how to get the access keys and endpoints for Text Analytics API.</p>
+        - href: /azure/cognitive-services/text-analytics/whats-new
+          html: <p>Stay up-to-date with recent developments in the Text Analytics API.</p>
           image:
             src: ../media/index/i_tasks.svg
-          title: Access keys for Text Analytics API
+          title: What's new in the Text Analytics API?
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
