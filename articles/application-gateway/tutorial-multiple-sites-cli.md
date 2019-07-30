@@ -244,7 +244,7 @@ Change the address to your other domain and you should see something like the fo
 When no longer needed, remove the resource group, application gateway, and all related resources.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 
 ## Next steps
