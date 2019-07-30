@@ -56,7 +56,7 @@ Before configuring Symantec Web Security Service for automatic user provisioning
 
 	![Symantec Web Security Service](media/symantec-web-security-service/service.png)
 
-2. Navigate to **Account Maintenance**. Select **Integrations** Click **+New Intgeration**
+2. Navigate to **Account Maintenance**. Select **Integrations** Click **+New Integration**
 
 	![Symantec Web Security Service](media/symantec-web-security-service/acount.png)
 
