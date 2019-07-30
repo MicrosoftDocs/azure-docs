@@ -244,42 +244,6 @@ Currently, the app registration screens of the Azure portal still block query pa
 
 ---
 
-### View a list of available Azure AD features, based on your license - NEED MORE INFO LINK
-
-**Type:** New feature  
-**Service category:** Other  
-**Product capability:** Directory
-
-You can now view a list of your available and active Azure AD features, based on your license type, from the **Licenses - Overview** page of the Azure portal.
-
-For more information about the **Licenses - Overview** page, see ... For a complete list of available features per license type, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
-
----
-
-### Activity logs (MS Graph APIs) for Azure AD are now available through PowerShell Cmdlets
-
-**Type:** New feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
-
-We're excited to announce that Azure AD activity logs (Audit and Sign-ins reports) are now available through the Azure AD PowerShell module. Previously, you could create your own scripts using MS Graph API endpoints, and now we've extended that capability to PowerShell cmdlets.
-
-For more information about how to use these cmdlets, see [Azure AD PowerShell cmdlets for reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-powershell-reporting).
-
----
-
-### Updated filter controls for Audit and Sign-in logs in Azure AD
-
-**Type:** Changed feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
-
-We've updated the Audit and Sign-in log reports so you can now apply various filters without having to add them as columns on the report screens. Additionally, you can now decide how many filters you want to show on the screen. These updates all work together to make your reports easier to read and more scoped to your needs.
-
-For more information about these updates, see [Filter audit logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs#filtering-audit-logs) and [Filter sign-in activities](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#filter-sign-in-activities).
-
----
-
 ### New B2B direct federation using SAML/WS-Fed (Public Preview)
 
 **Type:** New feature  
