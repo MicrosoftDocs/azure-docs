@@ -86,6 +86,12 @@ This error means that the registry login server did not respond with an access t
 
 *Potential solutions*: Verify if the user has the right permissions on the registry; run `az login` to refresh permissions, tokens, and credentials.
 
+## CONNECTIVITY_SSL_ERROR
+
+This error means that the CLI encountered a SSL (Secure Sockets Layer) error while trying to connect to the container registry. This error typically occurs if you're running or using a proxy server to connect to the container registry.
+
+*Potential solutions*: Verify if you're using a proxy server to connect to the container registry. If so, try connecting without the proxy server or restart your machine. In addition, an environment variable that disables SSL verification on the CLI could be setup.
+
 ## LOGIN_SERVER_ERROR
 
 This error means that the CLI was unable to find the login server of the given registry, and no default suffix was found for the current cloud. This error can occur if the registry does not exist, if the user does not have the right permissions on the registry, if the registry's cloud and the current Azure CLI cloud do not match, or if the Azure CLI version is obsolete.
