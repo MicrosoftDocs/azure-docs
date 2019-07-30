@@ -32,7 +32,10 @@ This tutorial helps you detect threats with Azure Sentinel.
 > * Create detection rules
 > * Automate threat responses
 
-## Create detection rules
+## Use out-of-the-box detections
+
+You can enable out-of-the box detections using the templates 
+## Create custom detection rules
 
 To investigate cases, you first have to create detection rules. 
 

@@ -54,7 +54,7 @@ To on-board Azure Sentinel, you first need to [connect to your security sources]
 
 After connecting data sources you can choose from a gallery of [expertly created dashboards](quickstart-get-visibility.md#dashboards) that surface insights from your data sources. Each dashboard is fully customizable - you can add your own logic or modify queries, or you can create a dashboard from scratch.
 
-The dashboards provide interactive visualization using advanced analytics to help your security analysts get a better understanding of what’s going on during an attack. The investigation tools enable you to deep dive on any field, from any data, to rapidly develop threat context. 
+The dashboards are based on Azure Workbooks to provide interactive visualization using advanced analytics to help your security analysts get a better understanding of what’s going on during an attack. They can be easily customized allowing you to create exactly the dashboard you need from the data across Azure Sentinel. The investigation tools enable you to deep dive on any field, from any data, to rapidly develop threat context. For more information on customizing your dashboards with Azure Workbooks see 
 
 ![Dashboards](./media/overview/dashboards.png)
 
