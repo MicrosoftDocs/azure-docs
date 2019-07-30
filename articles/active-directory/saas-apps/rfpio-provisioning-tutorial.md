@@ -119,7 +119,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://<instance>.rfpio.com/rfpserver/scim/v2 ` in **Tenant URL**. Input the **API Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to RFPIO. If the connection fails, ensure your RFPIO account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://<instance>.rfpio.com/rfpserver/scim/v2 ` in **Tenant URL**. Exampel `https://<Azure-test1>.rfpio.com/rfpserver/scim/v2` Input the **API Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to RFPIO. If the connection fails, ensure your RFPIO account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
