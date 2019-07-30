@@ -65,19 +65,20 @@ First, register your migration application in Azure AD. Then, create an applicat
    - For **Sign-on URL**, use `https://localhost` (it's not relevant for this application).
    - Select **Create**.
 
-1. After the application is created, in the **Applications** list, select the newly created **B2CUserMigration** application.
-1. Select **Properties**, copy the **Application ID**, and save it for later.
+    After the application is created, the **Registered app** page is displayed showing the its properties.
+1. Copy the application's **Application ID**, and save it for later.
 
 ### Step 1.2: Create the application secret
 
-1. In the Azure portal **Registered App** window, select **Keys**.
+1. In **Registered app** page, select **Settings**.
+1. Select **Keys**.
 1. Add a new key (also known as a client secret), and then copy the key for later use.
 
    ![Application ID value and Keys menu item highlighted in Azure portal](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
 
 ### Step 1.3: Grant administrative permission to your application
 
-1. In the Azure portal **Registered App** window, select **Required permissions**.
+1. In the **Settings** menu, select **Required permissions**.
 1. Select **Windows Azure Active Directory**.
 1. In the **Enable Access** pane, under **Application Permissions**, select **Read and write directory data**, and then select **Save**.
 1. In the **Required permissions** pane, select **Grant Permissions**.
