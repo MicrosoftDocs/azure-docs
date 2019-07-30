@@ -67,7 +67,13 @@ Also, you can test moving your logic apps to another resource group before actua
 
 ## Move logic apps between regions
 
-For the easiest way to deploy your logic app to a different region or location, use [Visual Studio (free Community edition or greater) and the Azure Logic Apps Tools for Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md). These tools let you open and download your logic app from the Azure portal into Visual Studio. When you download your logic app, Visual Studio creates a parameterized [Azure Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) that's mostly ready for deployment and includes the resource definitions for your logic app, including the workflow itself, and for connections. This template also parameterizes the values that the template uses at deployment so that you can more easily change how you provision and deploy your logic app based on your needs. You can then use a separate parameters file to provide the new location and other necessary information for deployment.
+When you want to move your logic app to a different region, your options depend on how you created your logic app. With the first two options, you must recreate or reauthenticate the connections in your logic app.
+
+* In the Azure portal, you can create a blank logic app in the new region and copy the underlying workflow definition and connections from the source app to the destination app. To view the underlying code, on the Logic App Designer toolbar, select **Code view**.
+
+* If you use [Visual Studio (free Community edition or greater) and the Azure Logic Apps Tools for Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), you can open and download your logic app from the Azure portal. When you download your logic app, Visual Studio creates a parameterized [Azure Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) that's mostly ready for deployment and includes the resource definitions for your logic app, including the workflow itself, and for connections. This template also parameterizes the values that the template uses at deployment so that you can more easily change how you provision and deploy your logic app based on your needs. You can then use a separate parameters file to provide the new location and other necessary information for deployment.
+
+* If you created and deployed your logic app by using a continuous integration (CI) and continuous delivery (CD) pipeline, such as Azure DevOps Pipelines, you can just deploy your app to the new region.
 
 ### Related resources
 
@@ -77,12 +83,13 @@ For example, to link a logic app to an integration account, both resources must 
 
 Custom connectors for Azure Logic Apps are visible and available to the connectors' authors and also to users who have the same Azure Active Directory tenant and Azure subscription for logic apps in the region where those apps are deployed. For more information, see [Share custom connectors in your organization](https://docs.microsoft.com/connectors/custom-connectors/share).
 
-The template that you get in Visual Studio includes only the resource definitions for your logic app and its connections. If your logic app uses other resources, for example, an integration account and B2B artifacts, such as partners, agreements, schemas, and maps, you must separately export the template for that integration account by using the Azure portal. This template includes the resource definitions for the integration account and artifacts. However, this template isn't fully parameterized, so you have to manually parameterize those values that you want to use for deployment. To export this template, follow these steps:
+The template that you get in Visual Studio includes only the resource definitions for your logic app and its connections. If your logic app uses other resources, for example, an integration account and B2B artifacts, such as partners, agreements, schemas, and maps, you must separately export the template for that integration account by using the Azure portal. This template includes the resource definitions for the integration account and artifacts. However, this template isn't fully parameterized, so you have to manually parameterize those values that you want to use for deployment.
+
+To export the template for an integration account, follow these steps:
 
 1. On your integration account's menu, under **Settings**, select **Export template**.
 1. On the toolbar, select **Download**, and save the template.
-1. Open the template in Visual Studio, Visual Studio Code, or another editor.
-
+1. Open and edit the template to parameterize the necessary values for deployment.
 
 For more information about these tasks, see these topics:
 
