@@ -1,5 +1,5 @@
 ---
-title: Use AMQP 1.0 with Java Message Service API and Service Bus
+title: Use AMQP 1.0 with Java Message Service API and Azure Service Bus
 description: How to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
