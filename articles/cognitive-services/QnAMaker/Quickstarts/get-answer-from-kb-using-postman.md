@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Use Postman to get answer from knowledge base - QnA Maker"
-titlesuffix: Azure Cognitive Services 
+titleSuffix: Azure Cognitive Services 
 description: This quickstart walks you through getting an answer from your knowledge base using Postman.
 services: cognitive-services
 author: diberry

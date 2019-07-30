@@ -42,7 +42,7 @@ Advanced Threat Protection for Azure Storage ingests diagnostic logs of read, wr
 
 When you subscribe to the Standard tier in Azure Security Center, Advanced Threat Protection is automatically set up on all of your storage accounts. You can enable or disable Advanced Threat Protection for your storage accounts under a specific subscription as follows:
 
-1. Launch **Azure Security Center** in the [Azure portal]([https://portal.azure.com).
+1. Launch **Azure Security Center** in the [Azure portal](https://portal.azure.com).
 1. From the main menu, click **Pricing & settings**.
 1. Click the subscription that you want to enable or disable threat protection for its storage accounts.
 
@@ -64,7 +64,7 @@ For more information, see
 
 Use an Azure Policy to enable Advanced Threat Protection across storage accounts under a specific subscription or resource group.
 
-1. Lunch the Azure **Policy - Definitions** page.
+1. Launch the Azure **Policy - Definitions** page.
 
 1. Search for the **Deploy Advanced Threat Protection on Storage Accounts** policy.
 
