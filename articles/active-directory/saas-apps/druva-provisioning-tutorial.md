@@ -119,7 +119,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
+6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications, and select **Send an email notification when a failure occurs**.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
@@ -150,7 +150,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Druva.
 
-	For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md)
+	For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 	
 ## Connector limitations
 
