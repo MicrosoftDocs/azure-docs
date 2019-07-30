@@ -17,11 +17,11 @@ ms.date: 06/29/2018
 ms.author: rkarlin
 
 ---
-# Custom Alert Rules in Azure Security Center (Preview)
-This document helps you to create custom alert rules in Azure Security Center.
+# Custom Alert Rules in Azure Security Center (Retired)
+This document helps you to create custom alert rules (Preview) in Azure Security Center.
 
 > [!NOTE]
-> Custom alerts has been retired from Security Center. 
+> Custom alerts has been retired from Security Center on June 30th, 2019. 
 
 ## Retirement of Custom Alert rules in Azure Security Center
 
