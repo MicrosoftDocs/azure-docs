@@ -1,27 +1,30 @@
 ---
-title: "Quickstart: Create a feedback loop - Personalizer"
+title: "Quickstart: Personalizer client library for .NET | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
-description: Personalize content in this C# quickstart with the Personalizer service.
+description:  Get started with the Personalizer client library for .NET using a learning loop. 
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 06/11/2019
+ms.date: 07/30/2019
 ms.author: diberry
 #Customer intent: 
 
 ---
 
-# Quickstart: Personalize content using C# 
+# Quickstart: Personalize client library for .NET
 
 Display personalized content in this C# quickstart with the Personalizer service.
 
-This sample demonstrates how to use the Personalizer client library for C# to perform the following actions: 
+Get started with the Personalizer client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.
 
  * Rank a list of actions for personalization.
  * Report reward to allocate to the top ranked action based on user selection for the specified event.
+
+
+[Reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [Samples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
 Getting started with Personalizer involves the following steps:
 
