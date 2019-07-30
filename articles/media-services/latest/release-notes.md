@@ -33,9 +33,9 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ## August 2019
 
-### South Africa North is open for Media Services 
+### South Africa regional pair is open for Media Services 
 
-Media Services is now available in the South Africa North region (as well as South Africa West).
+Media Services is now available in South Africa North and South Africa West regons.
 
 For more information, see [Clouds and regions in which Media Services v3 exists](azure-clouds-regions.md).
 
