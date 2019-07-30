@@ -1,14 +1,13 @@
 ---
 title: Get started with Azure IoT Hub device twins (Python) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT SDKs for Python to implement the simulated device app and a service app that adds the tags and runs the IoT Hub query.
-author: kgremban
-manager: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: kgremban
+ms.date: 07/30/2019
+ms.author: robinsh
 ---
 # Get started with device twins (Python)
 
