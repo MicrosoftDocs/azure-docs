@@ -18,12 +18,12 @@ ms.author: rkarlin
 
 ---
 
-# Customize OS security configurations in Azure Security Center (Preview)
+# Customize OS security configurations in Azure Security Center (Retired)
 
-This walkthrough demonstrates how to customize OS security configuration assessments in Azure Security Center.
+This walkthrough demonstrates how to customize OS security configuration assessments (Preview) in Azure Security Center.
 
 > [!NOTE]
-> The ability to customize OS security configurations will be retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
+> The ability to customize OS security configurations (Preview feature) has been retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
 
 ## What are OS security configurations?
 
