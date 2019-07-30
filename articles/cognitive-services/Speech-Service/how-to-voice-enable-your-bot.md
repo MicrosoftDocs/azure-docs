@@ -285,7 +285,7 @@ Bot receive and send Activity messages. In the "Activity Log" window of the Dire
     "type":"message"
 }
 ```
-### Review the source code that uses Speech SDK 
+### View the source code for Speech SDK calls 
 
 Direct Line Speech Client uses the NuGet package [Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) which contains the Speech SDK. A good starting point to view the code is the method InitSpeechConnector() in file *DLSpeechClient\MainWindow.xaml.cs* ([GitHub link](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs#L187)), which creates these two Speech SDK objects: 
 - [DialogServiceConfig](https://docs.microsoft.com/en-us/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig) - For configuration settings (speech subscription key, key region, bot secret)
@@ -309,9 +309,11 @@ In this example, we will change from en-us to de-de (German).
 
 Change the SSML string to use one of the standard German voices instead of the English JessaRUS voice:
 ```csharp
-string body = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='de-DE-Stefan-Apollo'>" + $"{message}" + "</voice></speak>";
+string body = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis'><voice name='de-DE-Stefan-Apollo'>" + $"{message}" + "</voice></speak>";
  ```
-Note that the above change uses the short voice name format, whereas the original line used the full voice name format. Either format will work.
+Note the following in the above:
+- The short voice name format was used ("de-DE-Stefan-Apollo"), whereas the original line used the full-length voice name format. Either format will work.
+- The "xml:lang" tag was omitted. This tag is actually ignored by Microsoft Text-to-speech, so it can safely be removed. The desired spoken language is solely parsed from the voice name tag.  
 
 Now republish your bot to Azure and try it out:
 - Build your solution in Visual Studio and fix any build errors
@@ -321,6 +323,28 @@ Now republish your bot to Azure and try it out:
 - Open the Direct Line Speech Client application, click on the settings button (upper-right gear ico), and enter "de-de" in the Language field. This sets the spoken language to be recognized, overriding the default "en-us".
 - Continue to follow the instructions in [Test your echo-bot with Direct Line Speech Client](#test-your-echo-bot-with-direct-line-speech-client) to reconnect with your newly deployed bot, speak in the new language and hear you bot reply in that language with the new voice.
 
+## Add custom wake word activation
+
+The Speech SDK supports custom wake word activation. Similar to "Hey Cortana" for Microsoft's Assistant, you can write an application that will continuously listen for a wake word or phrase of your choice. wake word detection is done on the client application. Only after a wake word is detected, audio starts streaming to the cloud (to Direct Line Speech channel and your bot).
+
+Follow these steps to create a model file for a wake word of your choice, configure Direct Line Speech Client to load this model, and test it with the echo-bot:
+1. Follow the instructions in [Create a custom wake word by using the Speech service](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
+1. The model file you downloaded is a zip file named after your selected wake word (e.g. "hey-computer.zip" if your wake word was "Hey Computer"). Unzip the file (Open Windows Explorer, right-click the file and select "extract all"), to get the file named kws.table.
+1. In Direct Line Speech Client application, open the settings menu (gears icon on the top right). In "Model file path" enter the full-path name of the kws.table file on your disk.
+1. Check the "Enabled" box. You should see this message next to the check box: "Will listen for the wake word upon next connection". If you entered the wrong file, you may get an error message here.
+1. Make sure the speech *subscription key* and *subscription key region* are entered (and possibly *language*), and then press *OK* to close the setting page.
+1. Select a *Bot Secret*. Press *Reconnect*. This message will appear at the bottom: "New conversation started - type, press the microphone button, or say the wake word". The application is now continuously listening.
+1. Now say any phrase that starts with your wake word. For example: "Hey computer, what time is it?" (no need to pause between the wake word and the rest of the phrase). You should see the transcription of your sentence and the bot echoing your phrase shortly after that.  
+1. Continue to experiment and alternate between the 3 types of input to your bot:
+    - Typed-text in the bottom bar
+    - Pressing the microphone icon and speaking
+    - Saying a phrase that starts with your wake word 
+
+### View the source code that enables wake word
+
+In the Direct Line Client source code, have a look at these two places to start exploring the code related to enabling wake word:
+1. The file *DLSpeechClient\Models.cs* [(GitHub link)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs) has a call to Speeck SDK method [KeywordRecognitionModel.fromFile()](https://docs.microsoft.com/en-us/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile) to instantiate the model from the file on disk.
+1. In the file *DLSpeechClient\MainWindow.xaml.cs* [(GitHub link)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs), the call to Speech SDK method [DialogServiceConnector.StartKeywordRecognitionAsync()](https://docs.microsoft.com/en-us/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync) activates continuous listening for the wake word.
 <!--
 
 - snipet code inside DL Speech client
@@ -353,15 +377,19 @@ If you're not going to continue using the echo-bot deployed in this tutorial, yo
 1. Find the one named SpeechEchoBotTutorial-ResourceGroup, and click on the three dots (...) on the right side
 1. Select "Delete resource group".
 
+## How much will it cost me to voice-enable my bot?
+
+TODO
+
 ## Next steps
 
 - Submit feedback below on this Tutorial
 - Update your Azure subscription as needed in order to
     -  Deploy to an [Azure region closer to you](https://azure.microsoft.com/en-us/global-infrastructure/locations/) (instead of West US) to see bot response time improvement
-    -  Deploy to an [Azure region that supports Neural TTS voices](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#standard-and-neural-voices) (instead of West US). Update your bot to use Neral voice and hear the improvement compared to standard voice. 
+    -  Deploy to an [Azure region that supports Neural TTS voices](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#standard-and-neural-voices) (instead of West US). Update your bot to use Neural voice and hear the improvement compared to standard voice. 
 - Build your own client application with the Speech SDK:
     - [C# (UWP)](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstart-virtual-assistant-csharp-uwp), [Java (Windows, macOS, Linux)](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstart-virtual-assistant-java-jre), or [Java (Android)](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstart-virtual-assistant-java-jre) Quickstart documentation
-    - [Speech SDK sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk#voice-first-virtual-assistants-quickstarts) for C#(UWP) and Java (Windows, macOS, Linux)
+    - [Speech SDK sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk#voice-first-virtual-assistants-quickstarts) for C# (UWP), Java (Windows, macOS, Linux) and [C# Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/unity/VirtualAssistantPreview)
     - Post a tagged Speech SDK question to [Stack Overlow](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework). See Speech SDK [Support and help options](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/support)
 - Build and deploy your own voice-enabled bot:
     - Build a [Bot-Framework bot](https://dev.botframework.com/). Register it with [Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) and [customize your bot for voice](https://docs.microsoft.com/en-us/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
