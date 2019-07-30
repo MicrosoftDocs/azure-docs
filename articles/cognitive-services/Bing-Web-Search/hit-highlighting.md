@@ -21,7 +21,7 @@ By default, Bing doesn't include highlighting markers in display strings. To ena
 
 ## Hit highlighting example
 
-The following example shows a web result for `Sailing Dinghy`. Bing marked the beginning and end of the query term using the E000 and E001 Unicode characters
+The following example shows a web result for `Sailing Dinghy`. Bing marked the beginning and end of the query term using the E000 and E001 Unicode characters.
   
 ![Hit Highlighting](./media/cognitive-services-bing-web-api/bing-hit-highlighting.png) 
 
