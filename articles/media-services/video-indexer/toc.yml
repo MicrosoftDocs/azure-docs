@@ -72,7 +72,9 @@
       - name: using Video Indexer website
         href: customize-language-model-with-website.md
       - name: using Video Indexer API
-        href: customize-language-model-with-api.md             
+        href: customize-language-model-with-api.md      
+    - name: Disaster-recovery
+      href: video-indexer-disaster-recovery.md       
 - name: Reference
   items:
   - name: Video Indexer API
