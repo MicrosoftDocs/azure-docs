@@ -31,15 +31,15 @@ The least privileged role required to create and assign Azure AD custom roles is
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged Role administrator or Global administrator permissions in the Azure AD organization.
 1. Select **Azure Active Directory**, select **Roles and administrators**, and then select **New custom role**.
 
-    ![Create or edit roles from the Roles and administrators page](./media/roles-custom/new-custom-role.png)
+    ![Create or edit roles from the Roles and administrators page](./media/roles-create-custom/new-custom-role.png)
 
 1. On the **Basics** tab, provide "Application Registration Creator" for the name of the role and "Can create an unlimited number of application registrations" for the role description, and then select **Next**.
 
-    ![provide a name and description for a custom role on the Basics tab](./media/roles-quickstart-app-registrations-limits/basics-tab.png)
+    ![provide a name and description for a custom role on the Basics tab](./media/roles-quickstart-app-registration-limits/basics-tab.png)
 
 1. On the **Permissions** tab, enter "microsoft.directory/applications/create" in the search box, and then select the checkboxes next to the desired permissions, and then select **Next**.
 
-    ![Select the permissions for a custom role on the Permissions tab](./media/roles-quickstart-app-registrations-limits/permissions-tab.png)
+    ![Select the permissions for a custom role on the Permissions tab](./media/roles-quickstart-app-registration-limits/permissions-tab.png)
 
 1. On the **Review + create** tab, review the permissions and select **Create**.
 

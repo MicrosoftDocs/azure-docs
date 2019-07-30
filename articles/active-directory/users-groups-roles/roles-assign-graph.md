@@ -76,7 +76,8 @@ HTTP/1.1 404 Not Found
 
 HTTP request to create a single resource scoped role assignment on a built-in role definition.
 
-> [!NOTE] Built-in roles today have a limitation where they can be scoped only to the “/” organization-wide scope or the “/AU/*” scope. Single resource scoping does not work for built-in roles, but works for custom roles.
+> [!NOTE] 
+> Built-in roles today have a limitation where they can be scoped only to the “/” organization-wide scope or the “/AU/*” scope. Single resource scoping does not work for built-in roles, but works for custom roles.
 
 POST
 
