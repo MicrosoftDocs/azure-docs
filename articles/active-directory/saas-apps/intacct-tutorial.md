@@ -203,7 +203,7 @@ To set up Azure AD users so they can sign in to Sage Intacct, they must be provi
 
     c. Click **Save**. The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active.
 
-1. Click **Single sign-on** tab and make sure the **Federated SSO user id** value and `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` attribute value in the **User Attributes** section in the Azure portal should be same.
+1. Click **Single sign-on** tab and make sure the **Federated SSO user ID** value and `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` attribute value in the **User Attributes** section in the Azure portal should be same.
 
 	![User Information](./media/intacct-tutorial/ic790044.png "User Information")
 
