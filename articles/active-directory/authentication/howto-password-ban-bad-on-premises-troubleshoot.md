@@ -39,7 +39,7 @@ The main symptom of this problem is 30018 events in the DC agent Admin event log
 
    The Azure AD Password Protection Proxy installer automatically creates a Windows Firewall inbound rule that allows access to any inbound ports listened to by the Azure AD Password Protection Proxy service. If this rule is later deleted or disabled, DC agents will be unable to communicate with the Proxy service. If the builtin Windows Firewall has been disabled in lieu of another firewall product, you must configure that firewall to allow access to any inbound ports listened to by the Azure AD Password Protection Proxy service. This configuration may be made more specific if the Proxy service has been configured to listen on a specific static RPC port (using the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet).
 
-## The Proxy service can receive calls from DC agents in the domain but is unable to communicate with Azure
+## Proxy service is unable to communicate with Azure
 
 1. Ensure the proxy machine has connectivity to the endpoints listed in the [deployment requirements](howto-password-ban-bad-on-premises-deploy.md).
 
@@ -49,7 +49,7 @@ The main symptom of this problem is 30018 events in the DC agent Admin event log
 
    If an Azure tenant registration mismatch condition does exist, this problem can be fixed by running the `Register-AzureADPasswordProtectionProxy` and/or `Register-AzureADPasswordProtectionForest` PowerShell cmdlets as needed, making sure to use credentials from the same Azure tenant for all registrations.
 
-## The DC agent is unable to encrypt or decrypt password policy files and other state
+## DC agent is unable to encrypt or decrypt password policy files
 
 This problem can manifest with a variety of symptoms but usually has a common root cause.
 
@@ -81,9 +81,9 @@ This problem may have several causes.
 
 1. The password validation algorithm may actually be working as expected. See [How are passwords evaluated](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
-## Ntdsutil.exe fails to set a weak Directory Services Repair Mode password
+## Ntdsutil.exe fails to set a weak DSRM password
 
-Active Directory will always validate a new DSRM password to make sure it meets the domain's password complexity requirements; this validation also calls into password filter dlls like Azure AD Password Protection. If the new DSRM password is rejected, the following error message results:
+Active Directory will always validate a new Directory Services Repair Mode password to make sure it meets the domain's password complexity requirements; this validation also calls into password filter dlls like Azure AD Password Protection. If the new DSRM password is rejected, the following error message results:
 
 ```text
 C:\>ntdsutil.exe
@@ -98,9 +98,9 @@ Setting password failed.
 
 When Azure AD Password Protection logs the password validation event log event(s) for an Active Directory DSRM password, it is expected that the event log messages will not include a user name. This happens because the DSRM account is a local account that is not part of the actual Active Directory domain.  
 
-## Domain controller replica promotion fails because of a weak Directory Services Repair Mode password
+## Domain controller replica promotion fails because of a weak DSRM password
 
-During the DC promotion process, the new DSRM password will be submitted to an existing DC in the domain for validation. If the new DSRM password is rejected, the following error message results:
+During the DC promotion process, the new Directory Services Repair Mode password will be submitted to an existing DC in the domain for validation. If the new DSRM password is rejected, the following error message results:
 
 ```powershell
 Install-ADDSDomainController : Verification of prerequisites for Domain Controller promotion failed. The Directory Services Restore Mode password does not meet a requirement of the password filter(s). Supply a suitable password.
@@ -108,7 +108,7 @@ Install-ADDSDomainController : Verification of prerequisites for Domain Controll
 
 Just like in the above issue, any Azure AD Password Protection password validation outcome event will have empty user names for this scenario.
 
-## Domain controller demotion fails due to a weak new local admin password
+## Domain controller demotion fails due to a weak local Administrator password
 
 It is supported to demote a domain controller that is still running the DC agent software. Administrators should be aware however that the DC agent software continues to enforce the current password policy during the demotion procedure. The new local Administrator account password (specified as part of the demotion operation) is validated like any other password. Microsoft recommends that secure passwords be chosen for local Administrator accounts as part of a DC demotion procedure.
 

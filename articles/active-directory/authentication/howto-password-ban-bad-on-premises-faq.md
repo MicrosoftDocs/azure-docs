@@ -17,6 +17,8 @@ ms.collection: M365-identity-device-management
 
 # Azure AD Password Protection on-premises - Frequently asked questions
 
+This section provides answers to many commonly asked questions about Azure AD Password Protection.
+
 ## General questions
 
 **Q: What guidance should users be given on how to select a secure password?**
