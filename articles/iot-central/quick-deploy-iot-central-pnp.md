@@ -24,11 +24,11 @@ As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure 
 
 Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page. You need to sign in with a Microsoft personal or work or school account.
 
-To start creating a new Azure IoT Central application, select **New Application**. This takes you to the **Create Application** page.
+To start creating a new Azure IoT Central application, select **New Application**. This takes you to the **Create an application** page.
 
-![Azure IoT Central Create Application page](media/quick-deploy-iot-central-pnp/iotcentralcreate.png)
+![Azure IoT Central create an application page](media/quick-deploy-iot-central-pnp/iotcentralcreate.png)
 
-To create a new Azure IoT Central application that includes preview features such as Plug and Play:
+To create a new Azure IoT Central application that includes preview features such as IoT Plug and Play:
 
 1. Choose a payment plan:
    - **Trial** applications are free for 7 days before they expire. They can be converted to Pay-As-You-Go at any time before they expire. If you create a **Trial** application, you need to enter your contact information and choose whether to receive information and tips from Microsoft.
@@ -41,10 +41,9 @@ To create a new Azure IoT Central application that includes preview features suc
 
 1. Choose a friendly application name, such as **Contoso IoT**. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
 
-1. Choose the **Public Preview** application template. An application template can contain predefined items such as device templates and dashboards to help you get started.
+1. Choose the **Preview application** template. An application template can contain predefined items such as device templates and dashboards to help you get started.
 
-
-1. Select **Create**.
+1. Select **Create** at the bottom of the page.
 
 ## Next steps
 
