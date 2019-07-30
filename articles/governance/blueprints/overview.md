@@ -117,10 +117,10 @@ be assigned.
 
 ## Blueprint assignment
 
-Each **Published** **Version** of a blueprint can be assigned to an existing subscription. In the
-portal, the blueprint defaults the **Version** to the one **Published** most recently. If there are
-artifact parameters (or blueprint parameters), then the parameters are defined during the
-assignment process.
+Each **Published** **Version** of a blueprint can be assigned (with a max name length of 90
+characters) to an existing subscription. In the portal, the blueprint defaults the **Version** to
+the one **Published** most recently. If there are artifact parameters (or blueprint parameters),
+then the parameters are defined during the assignment process.
 
 ## Permissions in Azure Blueprints
 
