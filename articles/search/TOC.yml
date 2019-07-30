@@ -131,6 +131,8 @@
       href: search-what-is-an-index.md
     - name: Create an index (portal)
       href: search-create-index-portal.md
+    - name: Create a multi-language index
+      href: search-language-support.md
     - name: Analyzers
       items:
       - name: Adding analyzers
@@ -193,6 +195,8 @@
       href: search-howto-schedule-indexers.md
     - name: Map fields
       href: search-indexer-field-mappings.md
+    - name: Connect to SQL Managed Instance
+      href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
     - name: Connect to SQL Server VMs
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
     - name: Monitor indexers
@@ -227,7 +231,9 @@
       href: cognitive-search-resources-documentation.md
   - name: Knowledge store (preview)
     items:
-    - name: How to get started
+    - name: Connect using Power BI
+      href: knowledge-store-connect-powerbi.md
+    - name: Create using REST and Postman
       href: knowledge-store-howto.md
   - name: Query data
     items:
@@ -330,8 +336,6 @@
       href: cognitive-search-skill-keyphrases.md
     - name: Language Detection
       href: cognitive-search-skill-language-detection.md
-    - name: Named Entity Recognition
-      href: cognitive-search-skill-named-entity-recognition.md
     - name: Entity Recognition
       href: cognitive-search-skill-entity-recognition.md
     - name: Text Merger
@@ -340,6 +344,8 @@
       href: cognitive-search-skill-textsplit.md 
     - name: Sentiment
       href: cognitive-search-skill-sentiment.md
+    - name: Text Translation (Preview)
+      href: cognitive-search-skill-text-translation.md
     - name: Image Analysis
       href: cognitive-search-skill-image-analysis.md
     - name: OCR
@@ -348,18 +354,23 @@
       href: cognitive-search-skill-shaper.md
     - name: Conditional
       href: cognitive-search-skill-conditional.md
-    - name: Deprecated Skills
-      href: cognitive-search-skill-deprecated.md
   - name: Custom skills
     items:
     - name: Custom Web API
       href: cognitive-search-custom-skill-web-api.md
+  - name: Deprecated Skills
+    href: cognitive-search-skill-deprecated.md
+    items:
+    - name: Named Entity Recognition
+      href: cognitive-search-skill-named-entity-recognition.md
 - name: Resources
   items:
   - name: Azure Community Support
     href: https://azure.microsoft.com/support/community/?product=search
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
+  - name: Feedback Forum (UserVoice)
+    href:  https://feedback.azure.com/forums/263029-azure-search 
   - name: Demo sites
     items:
     - name: Financial files demo

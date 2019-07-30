@@ -25,7 +25,7 @@ This tutorial is the third in a series that demonstrates how to assess and migra
 > * Set up the target environmen..
 > * Enable replication.
 > * Run a test migration to make sure everything's working as expected.
-> * Run a a full migration to Azure.
+> * Run a full migration to Azure.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 

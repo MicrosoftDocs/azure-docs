@@ -5,7 +5,7 @@ author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
-ms.date: 01/08/2019
+ms.date: 07/23/2019
 ms.author: lbosq
 ---
 # Quickstart: Create, query, and traverse an Azure Cosmos DB graph database using the Gremlin console
@@ -103,7 +103,7 @@ Let's begin by adding five person vertices for *Thomas*, *Mary Kay*, *Robin*, *B
 Input (Thomas):
 
 ```
-g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
+g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1).property('pk', 'pk')
 ```
 
 Output:
@@ -114,7 +114,7 @@ Output:
 Input (Mary Kay):
 
 ```
-g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2).property('pk', 'pk')
 
 ```
 
@@ -128,7 +128,7 @@ Output:
 Input (Robin):
 
 ```
-g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
+g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3).property('pk', 'pk')
 ```
 
 Output:
@@ -140,7 +140,7 @@ Output:
 Input (Ben):
 
 ```
-g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4).property('pk', 'pk')
 
 ```
 
@@ -153,7 +153,7 @@ Output:
 Input (Jack):
 
 ```
-g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5).property('pk', 'pk')
 ```
 
 Output:

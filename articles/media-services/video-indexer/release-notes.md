@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/22/2019
 ms.author: juliako
 ---
 

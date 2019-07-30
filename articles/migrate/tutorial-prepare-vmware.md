@@ -101,7 +101,7 @@ To prepare for VMware VM assessment, you need to verify Hyper-V host and VM sett
 
 ### Verify VMware settings
 
-1. [Verify](migrate-support-matrix-vmware.md#assessment-vmware-server-requirements) VMware server requirements for VM assessment.
+1. [Verify](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) VMware server requirements for VM assessment.
 2. [Make sure](migrate-support-matrix-vmware.md#assessment-port-requirements) that the required ports are open on vCenter servers.
 
 
