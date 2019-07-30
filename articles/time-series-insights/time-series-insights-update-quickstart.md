@@ -10,7 +10,7 @@ ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/22/2019
+ms.date: 07/29/2019
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Preview demo environment
@@ -68,10 +68,9 @@ The Time Series Insights Preview explorer demonstrates historical data and root 
 
 Using Time Series Insights and our sensor telemetry, we've discovered a long-term and problematic trend hidden in the historical data. With these new insights, we can:
 
-> [!div class="checklist"]
-> * Explain what actually occurred.
-> * Correct the problem.
-> * Put superior alert notification systems into place.
+* Explain what actually occurred.
+* Correct the problem.
+* Put superior alert notification systems into place.
 
 ## Root cause analysis
 
@@ -110,6 +109,13 @@ Using Time Series Insights and our sensor telemetry, we've discovered a long-ter
     * Change the display to overlay all **Generator System** sensors on the same chart scale.
 
       [![Change the display to include everything](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+
+## Clean up resources
+
+Now that you've completed the tutorial, clean up the resources you created:
+
+1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, locate your Azure Time Series Insights resource group.
+1. Either delete the entire resource group (and all resources contained within it) by selecting **Delete** or remove each resource individually.
 
 ## Next steps
 
