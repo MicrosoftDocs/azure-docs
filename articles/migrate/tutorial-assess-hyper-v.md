@@ -127,7 +127,7 @@ Import the downloaded file, and create the VM.
     ![Deploy VHD](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
 2. In the Import Virtual Machine Wizard > **Before you begin**, click **Next**.
-3. In **Locate Folder**, specify the folder containing the extracted VHD. Then click **Next**.
+3. In **Locate Folder**, specify the folder containing the extracted Virtual Machine XMF file. Then click **Next**.
 1. In **Select Virtual Machine**, click **Next**.
 2. In **Choose Import Type**, click **Copy the virtual machine (create a new unique ID)**. Then click **Next**.
 3. In **Choose Destination**, leave the default setting. Click **Next**.
