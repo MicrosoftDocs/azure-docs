@@ -76,5 +76,5 @@ Common mistakes when sending features include the following:
 
 ## Next steps
 
-Understand [scalability and performance](concepts-scalability-performance.md) with Personalizer
+Understand [scalability and performance](concepts-scalability-performance.md) with Personalizer.
 
