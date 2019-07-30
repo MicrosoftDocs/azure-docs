@@ -14,21 +14,32 @@ By default, you can deploy up to 800 instances of a resource type in each resour
 
 For some resource types, you need to enable a feature to exceed 800 instances. If necessary, the feature is listed with the resource type. For information about how to register for a feature, see [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) or [az feature register](/cli/azure/feature#az-feature-register).
 
-## Resources exempt from resource group limit
+## Microsoft.Automation
 
-> [!div class="mx-tableFixed"]
-> | Resource provider | Resource type | Feature required |
-> | ------------- | ----------- | --------- |
-> | Microsoft.Automation | automationAccounts |  |
-> | Microsoft.AzureStack | registrations |  |
-> | Microsoft.AzureStack | registrations/customerSubscriptions |  |
-> | Microsoft.AzureStack | registrations/products |  |
-> | Microsoft.BotService | botServices | Register feature Microsoft.Resources/ARMDisableResourcesPerRGLimit |
-> | Microsoft.Compute | disks |   |
+* automationAccounts
 
-* Microsoft.Compute/images
-* Microsoft.Compute/snapshots
-* Microsoft.Compute/virtualMachines
+## Microsoft.AzureStack
+
+* registrations
+
+## Microsoft.AzureStack
+
+* registrations/customerSubscriptions
+* registrations/products
+
+## Microsoft.BotService
+
+* botServices - Register feature Microsoft.Resources/ARMDisableResourcesPerRGLimit
+
+## Microsoft.Compute
+
+* disks
+* images
+* snapshots
+* virtualMachines
+
+## next
+
 * Microsoft.ContainerRegistry/registries/buildTasks
 * Microsoft.ContainerRegistry/registries/buildTasks/listSourceRepositoryProperties
 * Microsoft.ContainerRegistry/registries/buildTasks/steps
