@@ -16,5 +16,7 @@ Get started building workflows in ServiceNow and automating your business proces
 
 ## Get started
 
+[Get started setting up ServiceNow.](https://google.com)
 
+[![Alt text](media/Experiment/GettingStarted.PNG)](http://google.com)
 
