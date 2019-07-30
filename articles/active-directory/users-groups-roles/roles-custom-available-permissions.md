@@ -1,6 +1,6 @@
 ---
-title: Custom administrator role permissions to delegate app registration management - Azure Active Directory | Microsoft Docs
-description: Custom administrator role available permissions for delegating identity management. 
+title: Custom administrator role permissions for app registration management - Azure Active Directory | Microsoft Docs
+description: Custom administrator role permissions for delegating identity management. 
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/30/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -65,7 +65,7 @@ There are two permissions available for granting the ability to delete app regis
 
 ### Read
 
-All member users in the organization can read app registration information by default. However, guest users and applications (service principals) do not. If you plan to assign a role to a guest user or application, you must include the appropriate read permissions.
+All member users in the organization can read app registration information by default. However, guest users and applications (service principals) can't. If you plan to assign a role to a guest user or application, you must include the appropriate read permissions.
 
 - microsoft.directory/applications/allProperties/read: Ability to read all properties of single-tenant and multi-tenant applications outside of sensitive properties like credentials.
 - microsoft.directory/applications.myOrganization/allProperties/read: Grants the same permissions as microsoft.directory/applications/allProperties/read, but only for single-tenant applications.
@@ -126,7 +126,7 @@ All member users in the organization can read app registration information by de
   - AvailableToOtherTenants
   - SignInAudience
 - microsoft.directory/applications.myOrganization/audience/update: Grants the same permissions as microsoft.directory/applications/audience/update, but only for single-tenant applications.
-- microsoft.directory/applications/authentication/update: Ability to update the reply URL, logout URL, implicit flow, and publisher domain properties on single-tenant and multi-tenant applications. Grants access to all fields on the application registration authentication page except supported account types:
+- microsoft.directory/applications/authentication/update: Ability to update the reply URL, sign-out URL, implicit flow, and publisher domain properties on single-tenant and multi-tenant applications. Grants access to all fields on the application registration authentication page except supported account types:
 
     ![Grants access to app registration authentication but not supported account types](./media/roles-custom-available-permissions/supported-account-types.png)
 
@@ -224,4 +224,3 @@ Ability to update the owner property on single-tenant and multi-directory tenant
 
 - Create custom roles using [the Azure portal, Azure AD PowerShell, and Graph API](roles-create-custom.md)
 - [View the assignments for a custom role](roles-view-assignments.md)
-<!-- - [Assign Azure AD custom roles in PowerShell](roles-assign-powershell.md)-->

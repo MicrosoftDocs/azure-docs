@@ -1,6 +1,6 @@
 ---
 title: Assign and remove custom administrator roles using Microsoft Graph API - Azure Active Directory | Microsoft Docs
-description: Automate role assignments by managing members of an Azure AD administrator role with Graph API in Azure Active Directory
+description: Assign and remove Azure AD administrator roles with Graph API in Azure Active Directory
 services: active-directory
 author: curtand
 manager: daveba
@@ -74,9 +74,9 @@ Response
 HTTP/1.1 404 Not Found
 ```
 
-HTTP request to create a single resource scoped role assignment on a built-in role definition. 
+HTTP request to create a single resource scoped role assignment on a built-in role definition.
 
-> Built-in roles today have a limitation where they can be scoped only to the “/” organization-wide scope or the “/AU/*” scope. Single resource scoping does not work for built-in roles, but works for custom roles.
+> [!NOTE] Built-in roles today have a limitation where they can be scoped only to the “/” organization-wide scope or the “/AU/*” scope. Single resource scoping does not work for built-in roles, but works for custom roles.
 
 POST
 

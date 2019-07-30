@@ -1,6 +1,6 @@
 ---
 title: Delegate application administrator creation and management permissions - Azure Active Directory | Microsoft Docs
-description: Application access management delegating roles to grant permissions rights in Azure Active Directory
+description: Grant permissions for application access management in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -40,8 +40,8 @@ By default in Azure AD, all users can register application registrations and man
 1. Sign in to your Azure AD organization with an account that eligible for the Global administrator role in your Azure AD organization.
 1. When you have obtained sufficient permissions, set one or both of the following:
 
-  - On the [User settings page for your organization](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), set the **Users can register applications** setting to No. This will disable the default ability for users to create application registrations.
-  - On the [user settings for enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), set the **Users can consent to applications accessing company data on their behalf** setting to No. This will disable the default ability for users to consent to applications accessing company data on their behalf.
+    - On the [User settings page for your organization](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), set the **Users can register applications** setting to No. This will disable the default ability for users to create application registrations.
+    - On the [user settings for enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), set the **Users can consent to applications accessing company data on their behalf** setting to No. This will disable the default ability for users to consent to applications accessing company data on their behalf.
 
 ### Grant individual permissions to create and consent to applications when the default ability is disabled
 

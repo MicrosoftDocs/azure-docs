@@ -1,6 +1,6 @@
 ---
-title: Preview custom administrator roles grant scope to restrict identity access identity management - Azure Active Directory | Microsoft Docs
-description: Preview custom administrator roles for delegating identity management. You can now manage the scope of an Azure AD administrator role in the Azure portal, Azure AD PowerShell, or Graph API.
+title: Preview Azure administrator roles with customizable permissions - Azure Active Directory | Microsoft Docs
+description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/30/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -31,7 +31,7 @@ Preview features:
   - Assign built-in roles at organization-wide scope (parity with GA cmdlets)
   - Azure AD Graph API support
 
-Azure AD role-based access control is a public preview feature of Azure Azure AD and is available with any paid Azure AD license plan. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure AD role-based access control is a public preview feature of Azure AD and is available with any paid Azure AD license plan. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Understand Azure AD role-based access control
 

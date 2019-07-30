@@ -11,7 +11,7 @@
   - name: Assign licenses to users    
     href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Assign a role for app registrations only
-    href: roles-qs-appreg-limits.md
+    href: roles-quickstart-app-registration-limits.md
   - name: Set groups expiration    
     href: groups-quickstart-expiration.md
   - name: Set groups naming policy    
@@ -128,6 +128,8 @@
       href: directory-assign-admin-roles.md
     - name: View and assign roles   
       href: directory-manage-roles-portal.md
+    - name: Assign custom roles in Graph API
+      href: roles-assign-powershell.md
     - name: Custom roles preview
       items:
       - name: Custom roles preview

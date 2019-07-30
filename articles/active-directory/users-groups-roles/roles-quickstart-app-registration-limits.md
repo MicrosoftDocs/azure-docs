@@ -1,6 +1,6 @@
 ---
-title: Grant the ability to create an unlimited number of app registrations - Azure Active Directory | Microsoft Docs
-description: You can assign a custom Azure AD administrator role to create any number of app registrations in the Azure AD admin center.
+title: Grant an individual permission to exceed restrictions on app registrations - Azure Active Directory | Microsoft Docs
+description: Assign a custom role to grant unrestricted app registrations in the Azure AD Active Directory.
 services: active-directory
 author: curtand
 manager: mtillman
