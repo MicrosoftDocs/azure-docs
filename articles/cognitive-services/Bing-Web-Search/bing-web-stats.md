@@ -15,7 +15,7 @@ ms.custom: seodec2018
 
 # Add analytics to the Bing Search APIs
 
-Bing Statistics provides analytics for the Bing Search APIs. These analytics include call volume, top query strings, geographic distribution, and more. You can enable Bing Statistics in the [Azure portal](https://ms.portal.azure.com) by navigating to your Azure resource, and clicking **Enable Bing Statistics**.
+Bing Statistics provides analytics for the Bing Search APIs. These analytics include call volume, top query strings, geographic distribution, and more. You can enable Bing Statistics in the [Azure portal](https://ms.portal.azure.com) by navigating to your Azure resource and clicking **Enable Bing Statistics**.
 
 > [!IMPORTANT]
 > * Bing Statistics is not available with free trial subscriptions, or resources on the free `F0` pricing tier.
@@ -27,7 +27,7 @@ The following image shows the available analytics for each Bing Search API endpo
 
 ![Distribution by endpoint support matrix](./media/bing-statistics/bing-statistics-matrix.png)
 
-## Accessing your analytics
+## Access your analytics
 
 Bing updates analytics data every 24 hours and maintains up to 13 months' worth of history that you can access from the [analytics dashboard](https://bingapistatistics.com). Make sure you're signed in using the same Microsoft account (MSA) you used to sign up for Bing Statistics.
 
@@ -35,7 +35,7 @@ Bing updates analytics data every 24 hours and maintains up to 13 months' worth 
 > * It may take up to 24 hours for metrics to surface on the dashboard. The dashboard shows the date and time the data was last updated.  
 > * Metrics are available from the time you enable the Bing Statistics Add-in.
 
-## Filtering the data
+## Filter the data
 
 By default, the charts and graphs display all metrics and data that you have access to. You can filter the data shown in the charts and graphs by selecting the resources, markets, endpoints, and reporting period you're interested in. You can change the following filters:
 
@@ -46,11 +46,11 @@ By default, the charts and graphs display all metrics and data that you have acc
 - **Endpoints**: The Bing Search API endpoints. The list contains all endpoints for which you have a paid subscription. By default, all endpoints are selected.  
 
 - **Time Frame**: The reporting period. You can specify:
-  - All&mdash;Includes up to 13 months' worth of data  
-  - Past 24 hours&mdash;Includes analytics from the last 24 hours  
-  - Past week&mdash;Includes analytics from the previous seven days  
-  - Past month&mdash;Includes analytics from the previous 30 days  
-  - A custom date range&mdash;Includes analytics from the specified date range, if available  
+  - **All**: Includes up to 13 months' worth of data  
+  - **Past 24 hours**: Includes analytics from the last 24 hours  
+  - **Past week**: Includes analytics from the previous seven days  
+  - **Past month**: Includes analytics from the previous 30 days  
+  - **A custom date range**: Includes analytics from the specified date range, if available  
 
 ## Charts and graphs
 
@@ -89,7 +89,7 @@ The following are possible metrics and endpoint restrictions.
 
 - **Safe Search Distribution**: The distribution of safe search values. For example, off, moderate, or strict. The `safeSearch` query parameter contains the value, if specified. Otherwise, Bing defaults the value to moderate.  
 
-- **Answers Requested Distribution**: The Web Search API answers you requested in the `responseFilter` query parameter.  
+- **Answers Requested Distribution**: The Web Search API answers that you requested in the `responseFilter` query parameter.  
 
 - **Answers Returned Distribution**: The answers that Web Search API returned in the response.
 
