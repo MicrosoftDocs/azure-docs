@@ -13,7 +13,7 @@ ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
 
-experimental: true
+experimental: false
 experiment_id: 565f208d-553a-4c
 ---
 
@@ -82,7 +82,7 @@ See the language-specific example:
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-### Trigger - C# example
+# [C#](#tab/trigger-csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that writes a log when a blob is added or updated in the `samples-workitems` container.
 
@@ -98,7 +98,7 @@ The string `{name}` in the blob trigger path `samples-workitems/{name}` creates 
 
 For more information about the `BlobTrigger` attribute, see [Trigger - attributes](#trigger---attributes).
 
-### Trigger - C# script example
+# [C# Script](#tab/trigger-csharp-script)
 
 The following example shows a blob trigger binding in a *function.json* file and [Python code](functions-reference-python.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
@@ -145,7 +145,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-### Trigger - JavaScript example
+# [JavaScript](#tab/trigger-javascript)
 
 The following example shows a blob trigger binding in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` container.
 
@@ -179,7 +179,7 @@ module.exports = function(context) {
 };
 ```
 
-### Trigger - Python example
+# [Python](#tab/trigger-python)
 
 The following example shows a blob trigger binding in a *function.json* file and [Python code](functions-reference-python.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
@@ -216,7 +216,7 @@ def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
 ```
 
-### Trigger - Java example
+# [Java](#tab/trigger-java)
 
 The following example shows a blob trigger binding in a *function.json* file and [Java code](functions-reference-java.md) that uses the binding. The function writes a log when a blob is added or updated in the `myblob` container.
 
@@ -253,6 +253,7 @@ public void run(
 }
 ```
 
+---
 
 ## Trigger - attributes
 
