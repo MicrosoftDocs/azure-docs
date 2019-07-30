@@ -1,7 +1,7 @@
 ---
 title: Feature evaluation - Personalizer
 titleSuffix: Azure Cognitive Services
-description: 
+description: When you run an Evaluation in your Personalizer resource from the Azure portal, Personalizer provides information about what features of context and actions are influencing the model. 
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -74,7 +74,7 @@ Common mistakes when sending features include the following:
 * With large numbers of users, it is unlikely that each user's interaction will weigh more than all the population's interaction, so sending user IDs (even if non-PII) will probably add more noise than value to the model.
 * Sending date-time fields as precise timestamps instead of featurized time values. Having features such as Context.TimeStamp.Day=Monday or "Context.TimeStamp.Hour"="13" is more useful. There will be at most 7 or 24 feature values for each. But "Context.TimeStamp":"1985-04-12T23:20:50.52Z" is so precise that there will be no way to learn from it because it will never happen again.
 
-## More Information
+## Next steps
 
-
+Understand [scalability and performance](concepts-scalability-performance.md) with Personalizer
 
