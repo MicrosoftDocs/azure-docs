@@ -160,7 +160,7 @@ Use the [az cognitiveservices account keys list](https://docs.microsoft.com/cli/
 
 ## Pricing tiers and billing
 
-Pricing tiers (and the amount you get billed) is based on the number of transactions you send using your authentication information. Each pricing tier specifies the:
+Pricing tiers (and the amount you get billed) are based on the number of transactions you send using your authentication information. Each pricing tier specifies the:
 * maximum number of allowed transactions per second (TPS).
 * service features enabled within the pricing tier.
 * The cost for a predefined amount of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
