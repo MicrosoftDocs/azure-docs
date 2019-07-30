@@ -79,8 +79,6 @@
     href: security-center-provide-security-contact-details.md
   - name: Pricing tier
     href: security-center-pricing.md
-  - name: Security configurations
-    href: security-center-customize-os-security-config.md
   - name: Tenant-wide visibility
     href: security-center-management-groups.md
   - name: Implement security recommendations
@@ -188,6 +186,8 @@
       href: security-center-alerts-type.md
     - name: UEBA for Azure resources and users
       href: security-center-ueba-mcas.md
+    - name: Customize security configurations
+      href: security-center-customize-os-security-config.md
 
 - name: Reference
   items:
