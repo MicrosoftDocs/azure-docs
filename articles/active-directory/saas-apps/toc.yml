@@ -1516,6 +1516,8 @@
         href: slack-provisioning-tutorial.md
       - name: Smartsheet
         href: smartsheet-provisioning-tutorial.md
+      - name: Symantec Web Security Service
+        href: symantec-web-security-service.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
