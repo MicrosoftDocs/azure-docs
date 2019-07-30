@@ -139,7 +139,7 @@ Next, add the following code to the bottom of the `main` method. Or, you can add
 
 [!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_iterate)]
 
-### Check of adult/racy content
+### Check for adult/racy content
 This line of code checks the image at the given URL for adult or racy content. See the Image moderation conceptual guide for information on these terms.
 
 [!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_ar)]
