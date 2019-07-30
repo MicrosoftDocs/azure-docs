@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create an image classification project with the Custom Vision SDK for C#"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and make a prediction using the .NET SDK with C#.
 services: cognitive-services
 author: anrothMSFT
@@ -66,6 +66,7 @@ The images for this project are included. They are referenced in the **LoadImage
 This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 ```csharp
+var iteration = trainingApi.TrainProject(project.Id);
 // The returned iteration will be in progress, and can be queried periodically to see when it has completed
 while (iteration.Status == "Training")
 {

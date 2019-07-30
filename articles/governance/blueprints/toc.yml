@@ -49,11 +49,17 @@
     - name: Steps to deploy
       displayName: standards, iso, 27001
       href: ./samples/iso27001-ase-sql-workload/deploy.md
-  - name: NIST SP 800-53 Rev 4
+  - name: NIST SP 800-53 Rev4
     items:
+    - name: Overview
+      displayName: standards, nist, 800-53, rev 4
+      href: ./samples/nist-sp-800-53-rev4/index.md
     - name: Control mapping
-      displayName: standards, nist, 800-53
+      displayName: standards, nist, 800-53, rev 4
       href: ./samples/nist-sp-800-53-rev4/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, nist, 800-53, rev 4
+      href: ./samples/nist-sp-800-53-rev4/deploy.md
   - name: PCI-DSS v3.2.1
     items:
     - name: Overview
