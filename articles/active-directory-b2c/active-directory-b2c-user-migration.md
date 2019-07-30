@@ -50,7 +50,7 @@ To communicate with the Graph API, you first must have a service account with ad
 First, register your migration application in Azure AD. Then, create an application key (application secret) and set the application with write privileges.
 
 1. Sign in to the [Azure portal][Portal].
-1. Select the **Directory + subscription** filter in the upper-right section of the portal
+1. Select the **Directory + subscription** filter in the upper-right section of the portal.
 1. Select the directory containing your Azure AD B2C tenant.
 1. In the left-hand menu, select **Azure Active Directory** (*not* Azure AD B2C). To find it, you might need to select **All services**.
 1. Select **App registrations (Legacy)**.
