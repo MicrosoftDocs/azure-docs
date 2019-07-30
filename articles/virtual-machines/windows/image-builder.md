@@ -15,7 +15,7 @@ This article is to show you how you can create a customized Windows image using 
 - Windows Restart - restarts the VM.
 - PowerShell (inline) - run a specific command. In this example, it creates a directory on the VM using `mkdir c:\\buildActions`.
 - File - copy a file from GitHub onto the VM. This example copies [index.md](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) to `c:\buildArtifacts\index.html` on the VM.
-- buildTimeoutInMinutes - Increase a build time to allow for longer running builds, default 240mins.
+- buildTimeoutInMinutes - Increase a build time to allow for longer running builds, the default is 240 minutes.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
@@ -87,7 +87,7 @@ This is going to be used to store the Image Configuration Template Artifact and 
 az group create -n $imageResourceGroup -l $location
 ```
 
-## Set Permissions on the Resource Group
+## Set Permissions on the resource group
 Give Image Builder 'contributor' permission to create the image in the created resource group, without this, the image build will fail. 
 
 The `--assignee` value is the app registration ID for the Image Builder service. 
@@ -100,9 +100,9 @@ az role assignment create \
 ```
 
 
-## Download the Image Configuration Template Example
+## Download the image configuration template example
 
-A parameterized Image ConfigurationTemplate has been created for you to try immediately,  download the example .json file and configure it with the variables you set in a previous step.
+A parameterized image configuration template has been created for you to try immediately,  download the example .json file and configure it with the variables you set previously.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json -o helloImageTemplateWin.json
@@ -115,13 +115,15 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateWin.json
 
 ```
 
-You can modify this example, in the terminal, just run:
+You can modify this example, in the terminal using `vi`.
+
 ```azurecli-interactive
 vi helloImageTemplateLinux.json
 ```
-Note:
-* For source image, you must always [specify a version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), you cannot use `latest`.
-* If you add or change the resource group where the image is to be distributed to, you must ensure the permissions are set, this is at the begining of this article.
+
+> [!NOTE]
+> For source image, you must always [specify a version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), you cannot use `latest`.
+> If you add or change the resource group where the image is to be distributed to, you must ensure the permissions are set. Instructions are at the begining of this article.
 
 ## Create the image
 
@@ -140,11 +142,12 @@ On success, this will return a success message back to the console, and create a
 
 Additionally, in the background, Image Builder will have created a staging resource group in your subcription, that it uses for the image build. It will be in this format: `IT_<DestinationResourceGroup>_<TemplateName>`
 
->>Note! You must not delete the staging resource group directly, you must delete the image template artifact, this will delete it, you can use the code at the end of this walk through, in 'Clean Up'.
+> [!Note]
+> You must not delete the staging resource group directly, you must delete the image template artifact, this will delete it.
 
 If the service reports a failure during the image configuration template submission:
-* Please review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) steps. 
-* You will need to delete the tempate using the code below, before you retry submission:
+-  Review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) steps. 
+- You will need to delete the tempate, using the following snippet, before you retry submission.
 
 ```azurecli-interactive
 az resource delete \
@@ -154,7 +157,7 @@ az resource delete \
 ```
 
 ## Start the image build.
-Before you start the image build, ensure you have not deleted the destination image resource group!
+Start the image building process using [az resource invoke-action](/cli/azure/resourceaz-resource-invoke-action).
 
 ```azurecli-interactive
 az resource invoke-action \

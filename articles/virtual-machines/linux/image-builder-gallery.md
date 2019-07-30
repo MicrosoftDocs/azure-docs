@@ -99,9 +99,10 @@ az role assignment create \
 
 
 ## Create an image definition and gallery
->> Note!! A Shared Image Gallery (SIG) and SIG Image Definition must exist, for Image Builder to distribute to it, Image Builder will NOT create an SIG.
 
-Create an image gallery. 
+To use Image Builder with a shared image gallery, you need to have an existing image gallery and image definition. Image Builder will not create the image gallery and image definition for you.
+
+If you don't already have a gallery and image definition to use, start by creating them. First, create an image gallery.
 
 ```azurecli-interactive
 az sig create \
@@ -109,7 +110,7 @@ az sig create \
     --gallery-name $sigName
 ```
 
-Create an image definition.
+Then, create an image definition.
 
 ```azurecli-interactive
 az sig image-definition create \
