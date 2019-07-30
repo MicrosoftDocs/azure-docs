@@ -434,6 +434,7 @@
   - name: Monitor process servers
     href: vmware-physical-azure-monitor-process-server.md
 - name: Troubleshooting
+  items:
   - name: Troubleshoot Azure VMs
     items:
     - name: Troubleshoot Azure VM replication
