@@ -51,7 +51,7 @@ You can migrate VMware VMs to Azure using the Azure Migrate Server Migration too
 To decide whether you want to use agentless or agent-based migration, review these articles:
 
 - [Learn about](server-migrate-overview.md) the VMware migration options.
-- [Review the limitations](server-migrate-overview.md#agentless-migration-limitations) for agentless migration.
+- [Compare migration methods](server-migrate-overview.md#compare-migration-methods).
 - [Follow this article](tutorial-migrate-vmware.md) to try out agentless migration.
 
 
@@ -116,7 +116,7 @@ The tenant/global admin can grant permissions as follows
 
 #### Assign Application Developer role 
 
-The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+The tenant/global admin can assign the Application Developer role to an account. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Assign permissions to create Key Vault
 

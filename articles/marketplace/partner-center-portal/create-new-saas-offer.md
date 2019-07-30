@@ -108,11 +108,14 @@ Promote your business with Microsoft by creating a marketplace listing. Selectin
 
 - **How do you want potential customers to interact with this listing offer?**
 
-##### Get it now (Free)
-List your offer to customers for free by providing a valid URL (beginning with http or https) where they can access your app.  For example: `https://contoso.com/saas-app`
+##### Get it now (free)
+List your offer to customers for free by providing a valid URL (beginning with *http* or *https*) where they can access your app.  For example: `https://contoso.com/saas-app`
 
-##### Free trial (Listing)
-List your offer to customers with a link to a free trial by providing a valid URL (beginning with http or https) where they can access your app.  For example: `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+##### Free trial (listing)
+List your offer to customers with a link to a free trial by providing a valid URL (beginning with *http* or *https*), where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  For example: `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+
+> [!NOTE]
+> The tokens your application will receive through your trial link can only be used to obtain user information through Azure AD to automate account creation in your app. Microsoft Accounts (MSA) are not supported for authentication using this token.
 
 ##### Contact me
 Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
@@ -215,6 +218,92 @@ Up to 3,000 characters of text can be entered in this field. For additional tips
 - **Search keywords**: Enter up to three search keywords that customers can use to find your offer in the marketplace(s).
 - **Getting started instructions** (required): Explain how to configure and start using your app for potential customers.  This quickstart can contain links to more detailed online documentation. Up to 3,000 characters of text can be entered in this field. 
 
+#### **Description**
+
+This is a required field. Items to include in the description: 
+
+* Clearly describe your offer's value proposition in the first few sentences of your description.  
+* Keep in mind that the first few sentences might be displayed in search engine results.  
+* Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
+* Use industry-specific vocabulary or benefit-based wording as much as possible. 
+
+Core components of your value proposition should include the following information: 
+
+* Description of the product. 
+* Type of user that benefits from the product. 
+* Customer needs or pain that the product addresses. 
+
+To make your offer description more engaging you can use HTML tags to format the description. 
+
+1. If you want to create paragraphs, add `<p>` at the begging of the text and add `</p>` at the end.
+
+    **Example**: 
+
+    `<p>` This is my first paragraph. `</p>` <br>
+    `<p>` This is my second paragraph. `</p>` <br>
+
+    The above would look like this:
+
+    <p> This is my first paragraph. </p>
+    <p> This is my second paragraph. </p>
+
+1. If you want to add a **bulleted list of items**, place your text within the `<li>` tags below. You can copy and paste more bulleted items (items between the `<li>` and `</li>` tags) within the `<ul>` and `</ul>` tags. Make sure you add the `<ul></ul>`. 
+
+    **Example**:
+
+    ```
+    <ul> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
+    </ul> 
+    ```
+
+    The above would look like this:
+    <ul> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
+    </ul> 
+
+1. To **bold** content, add `<b>` at the beginning of the text you want to bold and add `</b>` at the end of the text you want to bold. 
+
+    **Example**: `<b>` FREE TRIAL `</b>`
+    
+    The above would cause the words FREE TRIAL to be bolded in the description of the offer in the storefront. 
+
+    **FREE TRIAL**
+
+1. To add **line breaks** between your content, add `<br>` before the content that you want to start on a new line. If you want to leave a space and make sure content starts on a new line, add `<br><br>` before the content. 
+
+    **Example**:
+
+    This is a text line. `<br>` This is a text line that will start in a new line. `<br><br>` This is a line that will start two lines below. 
+
+    The above would look like this:
+
+    This is a text line. <br> This is a text line that will start in a new line. <br><br> This is a line that will start two lines below. 
+
+1. If you want to **increase the size of the text**, first choose how big you want the text to be. Use the below examples. After you have selected the size of the text, add the corresponding `<H*></H*>` tags to the beginning and ending of the text. 
+
+    **Example**:
+
+    `<h1>`This is heading 1`</h1>` <br>
+    `<h2>`This is heading 2`</h2>` <br>
+    `<h3>`This is heading 3`</h3>` <br>
+    `<h4>`This is heading 4`</h4>` <br>
+    `<h5>`This is heading 5`</h5>` <br>
+    `<h6>`This is heading 6`</h6>` 
+
+    The above would look like this:
+
+    <h1>This is heading 1</h1> 
+    <h2>This is heading 2</h2> 
+    <h3>This is heading 3</h3> 
+    <h4>This is heading 4</h4> 
+    <h5>This is heading 5</h5> 
+    <h6>This is heading 6</h6> 
+
 #### Links
 
 - **Privacy Policy** (required): Link to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy
@@ -254,7 +343,7 @@ The **Preview** tab enables you to define a limited **Preview Audience** for rel
 
 - **Define a Preview Audience: Add a single AAD/MSA account email per line, along with an optional description.**
 
-Add up to ten (10) email addresses manually, or twenty (20) if uploading a CSV file, for existing Microsoft Account (MSA) or Azure Active Directory (AAD) accounts to help with validating your offer before publishing live. By adding these accounts, you are defining an audience that will be allowed preview access to your offer before it is published to the marketplace(s). If your offer is already live, you may still define a preview audience for testing any changes or updates to your offer.
+Add up to ten (10) email addresses manually, or twenty (20) if uploading a CSV file, for existing Microsoft Account (MSA) or Azure Active Directory accounts to help with validating your offer before publishing live. By adding these accounts, you are defining an audience that will be allowed preview access to your offer before it is published to the marketplace(s). If your offer is already live, you may still define a preview audience for testing any changes or updates to your offer.
 
 > [!NOTE]
 > The preview audience differs from a private audience. A preview audience is allowed access to your offer _prior_ to being published live in the marketplaces. You may also choose to create a plan and make it available only to a private audience. In the **plan listing** tab, you can define a private audience with the **This is a private plan** checkbox. You can then define a private audience of up to 20,000 customers using Azure Tenant IDs.

@@ -103,7 +103,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the toolbar on the top, click **Settings**.
 
-    ![Configure Single Sign-On](./media/kiteworks-tutorial/tutorial_kiteworks_06.png) 
+    ![Configure Single Sign-On](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
 1. In the **Authentication and Authorization** section, click **SSO Setup**.
 
@@ -117,7 +117,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. Select **Initiate AuthnRequest**.
 
-    c. In the **IDP Entity ID** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal. 
+    c. In the **IDP Entity ID** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
 
     d. In the **Single Sign-On Service URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
@@ -134,7 +134,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **Name** field, enter `B.Simon`.
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
@@ -161,7 +161,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 The objective of this section is to create a user called Britta Simon in Kiteworks.
 
-Kiteworks supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Kitewors if it doesn't exist yet.
+Kiteworks supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Kiteworks if it doesn't exist yet.
 
 > [!NOTE]
 > If you need to create a user manually, you need to contact the [Kiteworks support team](https://accellion.com/support).
@@ -174,8 +174,8 @@ When you click the Kiteworks tile in the Access Panel, you should be automatical
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

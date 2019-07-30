@@ -223,10 +223,10 @@ Refer to the following list to configure access to Azure Resource Manager:
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
-| Azure Global | `https://storage.azure.com/` | Available |
-| Azure Government | `https://storage.azure.com/` | Available |
-| Azure Germany | `https://storage.azure.com/` | Available |
-| Azure China 21Vianet | `https://storage.azure.com/` | Available |
+| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Available |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Available |
+| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Available |
+| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Available |
 
 ### Azure Analysis Services
 

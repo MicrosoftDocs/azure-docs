@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| |
 	|--|
 	| `https://microsoft.hyperanna.com/userservice/auth/saml` |
-	|` https://anna.hyperanna.com/userservice/auth/saml` |
+	| `https://anna.hyperanna.com/userservice/auth/saml` |
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -149,9 +149,9 @@ When you click the HyperAnna tile in the Access Panel, you should be automatical
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

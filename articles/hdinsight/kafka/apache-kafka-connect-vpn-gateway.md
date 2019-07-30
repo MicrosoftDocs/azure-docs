@@ -51,7 +51,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
      > * Each client must connect using a VPN software client.
      > * The VPN client does not pass name resolution requests to the virtual network, so you must use IP addressing to communicate with Kafka. IP communication requires additional configuration on the Kafka cluster.
 
-For more information on using HDInsight in a virtual network, see [Extend HDInsight by using Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
+For more information on using HDInsight in a virtual network, see [Plan a virtual network for Azure HDInsight clusters](../hdinsight-plan-virtual-network-deployment.md).
 
 ## <a id="on-premises"></a> Connect to Apache Kafka from an on-premises network
 
@@ -363,7 +363,7 @@ To validate connectivity to Kafka, use the following steps to create and run a P
 
 ## Next steps
 
-For more information on using HDInsight with a virtual network, see the [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md) document.
+For more information on using HDInsight with a virtual network, see the [Plan a virtual network deployment for Azure HDInsight clusters](../hdinsight-plan-virtual-network-deployment.md) document.
 
 For more information on creating an Azure Virtual Network with Point-to-Site VPN gateway, see the following documents:
 

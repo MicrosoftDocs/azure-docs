@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Manually add an account to the app
+
 If your camera is unable to capture the QR code, you can manually add your account information to the Microsoft Authenticator app for two-factor verification. This works for work or school accounts and non-Microsoft accounts.
 
 The codes provided for your accounts aren't case-sensitive and don't require spaces when added into the Microsoft Authenticator app.
@@ -26,7 +27,7 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
 ## Add your work or school account
 
 1. On your computer, note the **Code** and **Url** information on the **Configure mobile app** page. Keep this page open so you can see the code and URL.
-    
+
     ![Screen that provides the QR code](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
 2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Work or school account**.
@@ -34,7 +35,7 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
 3. Select **OR ENTER CODE MANUALLY**.
 
     ![Screen for scanning a QR code](./media/user-help-auth-app-add-account-manual/auth-app-manual-code.png)
-   
+
 4. Enter the **Code** and **URL** from Step 1, and then select **Finish**.
 
     ![Screen for entering code and URL](./media/user-help-auth-app-add-account-manual/auth-app-code-url.png)
@@ -74,6 +75,7 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
     >For more information about two-factor verification and your Facebook account, see [What is two-factor authentication and how does it work?](https://www.facebook.com/help/148233965247823).
 
 ## Add your Amazon account
+
 You can add your Amazon account by turning on two-factor verification and then adding the account to the app.
 
 1. On your computer, select **Can't scan the barcode** from the **Choose how you'll receive codes** page with the QR code.

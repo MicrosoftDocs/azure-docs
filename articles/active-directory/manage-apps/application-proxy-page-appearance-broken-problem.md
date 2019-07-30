@@ -1,5 +1,5 @@
 ---
-title: Application page does not display correctly for an Application Proxy application | Microsoft Docs
+title: App page doesn't display correctly for Application Proxy app | Microsoft Docs
 description: Guidance when the page isn’t displaying correctly in an Application Proxy Application you have integrated with Azure AD
 services: active-directory
 documentationcenter: ''
