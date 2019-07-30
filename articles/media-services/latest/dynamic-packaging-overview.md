@@ -99,7 +99,7 @@ Dynamic packaging supports the following video codecs:
 
 ### Audio codecs
 
-Dynamic packaging supports the following audio protocols descrubed below:
+Dynamic packaging supports the following audio protocols described below:
 
 * MP4 files
 * Multiple audio tracks
