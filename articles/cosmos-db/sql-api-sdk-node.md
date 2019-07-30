@@ -50,7 +50,7 @@ ms.author: dech
 * Fixes bug when user supplies partial retry options
 
 ### <a name="3.0.3"/>3.0.3</a>
-* Prevent webpack from resolving modules called with require
+* Prevent Webpack from resolving modules called with require
 
 ### <a name="3.0.2"/>3.0.2</a>
 * Fixes a long outstanding bug where RUs were always being reported as 0 for aggregate queries
@@ -68,7 +68,7 @@ ms.author: dech
 * Better align with the new Azure JS SDK guidelines
 
 #### Migration guide for breaking changes
-##### Improved client Constructor pptions
+##### Improved client Constructor options
 
 Constructor options have been simplified:
 
