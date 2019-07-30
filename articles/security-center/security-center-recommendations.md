@@ -86,7 +86,7 @@ After setting a security policy, Security Center analyzes the security state of 
 
 ## One-click fix remediation
 
-One-click fix enables you to remediate a recommendation on a bulk of resources, with a single click. It is an option only is available for specific recommendations. One-click fix simplifies remediation and enables you to quickly improve your secure score.
+One-click fix enables you to remediate a recommendation on a bulk of resources, with a single click. It is an option only available for specific recommendations. One-click fix simplifies remediation and enables you to quickly improve your secure score and increase the security in your environment.
 
 To implement one-click remediation:
 
@@ -94,16 +94,26 @@ To implement one-click remediation:
 
    ![One-click fix](./media/security-center-recommendations/one-click-fix-select.png)
 
-2. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and click **Remediate**.
+2. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and click **Remediate**. 
+
+    > [!NOTE]
+    > Some of the listed resources might be disabled, because you do not have the appropriate permissions to modify them.
 
     ![One-click fix](./media/security-center-recommendations/one-click-fix.png)
 
-3. In the confirmation box, read the remediation details, insert the relevant parameters if required, and approve the remediation.
+3. In the confirmation box, read the remediation details and implications. 
 
+    > [!NOTE]
+    > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the 1-click remediation.
+
+4. Insert the relevant parameters if required, and approve the remediation.
+ 
    ![One-click fix](./media/security-center-recommendations/one-click-fix-remediate.png)
 
     > [!NOTE]
     > -It can take several minutes after remediation completes to see the resources in the **Healthy resources** tab. To view the the remediation actions, check the activity log where they are logged.
+
+5. Once completed, a notification appears (click the bell in the menu bar) informing you if the remediation succeeded.
 
 ## Next steps
 
