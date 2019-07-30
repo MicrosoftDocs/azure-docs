@@ -77,7 +77,7 @@ mkdir -p src/main/java
 
 Navigate to the new folder and create a file called *ComputerVisionQuickstarts.java*. Open it in your preferred editor or IDE and add the following `import` statements:
 
-[!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imports)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imports)]
 
 Then add a class definition for **ComputerVisionQuickstarts**.
 
@@ -120,7 +120,7 @@ The following code adds a `main` method to your class and creates variables for 
 > [!NOTE]
 > If you created the environment variable after you launched the application, you'll need to close and reopen the editor, IDE, or shell running it to access the variable.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_main)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_main)]
 
 ### Analyze an image
 
@@ -128,7 +128,7 @@ The following code defines a method, `AnalyzeLocalImage`, which uses the client 
 
 First, create a **resources/** folder in the **src/main/** folder of your project, and add an image you'd like to analyze. Then add the following code to your **ComputerVisionQuickstarts** class. If necessary, change the value of the `pathToLocalImage` to match your image file. This method prints detailed results to the console for each scope of image analysis.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal)]
 
 ## Run the application
 
