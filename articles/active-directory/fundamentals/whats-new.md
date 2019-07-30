@@ -174,13 +174,13 @@ For more information, see [Authentication methods usage & insights (preview)](ht
 
 ---
 
-### New security reports are available for all Azure AD administrators - NEED MORE INFO LINK
+### New security reports are available for all Azure AD administrators (Public Preview)
 
 **Type:** New feature  
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
 
-All Azure AD administrators can now select the banner at the top of an existing security report to try out the new security experience (for example, Risky users). Over time, these new reports will replace the older versions, with the new reports providing you the following additional capabilities:
+All Azure AD administrators can now select the banner at the top of existing security reports, such as the **Users flagged for risk** report, to start using the new security experience as shown in the **Risky users** and the **Risky sign-ins** reports. Over time, all of the security reports will move from the older versions to the new versions, with the new reports providing you the following additional capabilities:
 
 - Advanced filtering and sorting
 
@@ -188,9 +188,9 @@ All Azure AD administrators can now select the banner at the top of an existing 
 
 - Confirmation of compromised or safe entities
 
-- Risk state, including: At risk, Dismissed, Remediated, and Confirmed compromised
+- Risk state, covering: At risk, Dismissed, Remediated, and Confirmed compromised
 
-For more information, see ...
+For more information, see [Risky users report](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risky-users-signins#risky-users-report) and [Risky sign-ins report](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risky-users-signins#risky-sign-ins-report).
 
 ---
 
