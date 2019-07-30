@@ -3,8 +3,7 @@ title: Threat intelligence and Security alert map in Azure Security Center | Mic
 description: Learn how to use the security alert map and threat intelligence capability in Azure Security Center to identify potential threats in your VMs and computers.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: yoafr
 editor: ''
 
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
@@ -14,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
-ms.author: rkarlin
+ms.author: yoafr
 
 ---
 # Security alerts map and threat intelligence

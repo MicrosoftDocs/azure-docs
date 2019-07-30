@@ -3,8 +3,7 @@ title: Monitoring and processing security events in Azure Security Center | Micr
 description: Learn how you can use Security Center's events dashboard to see security events from your Azure VMs and non-Azure computers.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: yoafr
 editor: ''
 
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -14,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
-ms.author: rkarlin
+ms.author: yoafr
 
 ---
 # Monitoring and processing security events in Azure Security Center

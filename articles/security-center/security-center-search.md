@@ -3,8 +3,7 @@ title: Azure Security Center search | Microsoft Docs
 description: Learn how Azure Security Center uses Azure Monitor logs search to retrieve and analyze your security data.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: yoafr
 editor: ''
 
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
@@ -14,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
-ms.author: rkarlin
+ms.author: yoafr
 
 ---
 # Azure Security Center search (Retired)
