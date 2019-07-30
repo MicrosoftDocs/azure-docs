@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -20,7 +20,7 @@ This article describes a technique for enabling support for multiple token issue
 The following sections present an example of how to enable multiple issuers in a web application and corresponding web API that use the [Microsoft OWIN][katana] middleware components (Katana). Although the code examples are specific to the Microsoft OWIN middleware, the general technique should be applicable to other OWIN libraries.
 
 > [!NOTE]
-> This article is intended for Azure AD B2C customers with currently deployed applications that reference `login.microsoftonline.com` and who want to migrate to the recommended `b2clogin.com` endpoint. If you're setting up a new application, use [b2clogin.com](b2clogin.md) as directed elsewhere in the documentation.
+> This article is intended for Azure AD B2C customers with currently deployed applications that reference `login.microsoftonline.com` and who want to migrate to the recommended `b2clogin.com` endpoint. If you're setting up a new application, use [b2clogin.com](b2clogin.md) as directed.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Start by selecting one of your existing user flows:
 1. Select an existing policy, for example *B2C_1_signupsignin1*, then select **Run user flow**
 1. Under the **Run user flow** heading near the top of the page, select the hyperlink to navigate to the OpenID Connect discovery endpoint for that user flow.
 
-    ![Well-known URI hyperlink in the Run now page of the Azure portal](media/multi-domain-jwt-validation/portal-01-policy-link.png)
+    ![Well-known URI hyperlink in the Run now page of the Azure portal](media/multi-token-endpoints/portal-01-policy-link.png)
 
 1. In the page that opens in your browser, record the `issuer` value, for example:
 
