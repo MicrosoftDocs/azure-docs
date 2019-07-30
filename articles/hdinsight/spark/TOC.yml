@@ -49,17 +49,25 @@
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
   - name: Monitor cluster availability with Ambari and Azure Monitor logs
-    href: ../hdinsight-cluster-availability.md 
+    href: ../hdinsight-cluster-availability.md
   - name: Troubleshoot
     items:
     - name: OutOfMemoryError exception
       items:
       - name: Insufficient heap memory
         href: ./apache-spark-troubleshoot-outofmemory-heap.md
+      - name: Java heap space
+        href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+    - name: Slow Apache Spark jobs - storage container
+      href: ./apache-spark-troubleshoot-job-slowness-container.md
     - name: IllegalArgumentException exception
       href: ./apache-spark-troubleshoot-illegalargumentexception.md
     - name: Apache Spark Streaming application stops
       href: ./apache-spark-troubleshoot-application-stops.md
+    - name: RpcTimeoutException exception
+      href: ./apache-spark-troubleshoot-rpctimeoutexception.md
+    - name: Blocking Cross Origin API
+      href: ./apache-spark-troubleshoot-blocking-cross-origin.md
 - name: How to
   items:
   - name: Use cluster storage
