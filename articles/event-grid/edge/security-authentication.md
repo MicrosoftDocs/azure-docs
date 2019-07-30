@@ -175,7 +175,7 @@ By default, Event Grid module is deployed with the following configuration:-
             "outbound:clientAuth:clientCert:source=IoTEdge",
             "outbound:webhook:httpsOnly=true",
             "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true",
+            "outbound:webhook:allowUnknownCA=true"
         ],
         "HostConfig": {
             "PortBindings": {

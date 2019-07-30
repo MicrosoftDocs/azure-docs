@@ -38,26 +38,31 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
 1. Create a directory on the host filesystem by running the below command.
 
    ```sh
-   md <your-directory-name-here>
+   sudo mkdir <your-directory-name-here>
    ```
+
     For example,
 
-      ```sh
-      md /myhostdir
-      ```
+    ```sh
+    sudo mkdir /myhostdir
+    ```
 
-1. Next, make **eventgriduser** owner of this folder by running the below command.
+1. Next, make everyone be able to read, write on this folder by running the below command.
 
-   ```sh
-   sudo chown eventgriduser:eventgriduser -R <your-directory-name-here>
+    ```sh
+   sudo chmod a+rwx -R <your-directory-name-here>
    ```
+
+   >[!IMPORTANT]
+   >In production you will typically add the user to the group that owns the folder instead of giving everyone access to this folder.
+
     For example,
     ```sh
-    sudo chown eventgriduser:eventgriduser -R /myhostdir
+    sudo chmod a+rwx -R /myhostdir
     ```
 
 1. Use **Binds** to mount your directory and redeploy Event Grid module from Azure portal
-   
+
     ```json
     {
          "HostConfig": {
@@ -86,7 +91,7 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
             "outbound:clientAuth:clientCert:source=IoTEdge",
             "outbound:webhook:httpsOnly=true",
             "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true",
+            "outbound:webhook:allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
@@ -145,16 +150,19 @@ Alternatively you can create a docker volume, map the volume onto the container 
        ]
     ```
 
-1. Make **eventgriduser** owner of the directory pointed by **Mountpoint**.
-   
+1. Next, make everyone be able to read, write on this folder by running the below command.
+
     ```sh
-    sudo chown eventgriduser:eventgriduser -R <your-mount-point-value-here>
-    ```
+   sudo chmod a+rwx -R <your-directory-name-here>
+   ```
+
+   >[!IMPORTANT]
+   >In production you will typically add the user to the group that owns the folder instead of giving everyone access to this folder.
 
     For example,
-
+    
     ```sh
-    sudo chown eventgriduser:eventgriduser -R /var/lib/docker/volumes/myeventgridvol/_data
+    sudo chmod a+rwx -R /var/lib/docker/volumes/myeventgridvol/_data
     ```
 
 1. Use **Binds** to mount this volume and redeploy Event Grid module from Azure portal
@@ -174,7 +182,7 @@ Alternatively you can create a docker volume, map the volume onto the container 
             "outbound:clientAuth:clientCert:source=IoTEdge",
             "outbound:webhook:httpsOnly=true",
             "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true",
+            "outbound:webhook:allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
@@ -209,7 +217,7 @@ Alternatively you can create a docker volume, map the volume onto the container 
             "outbound:clientAuth:clientCert:source=IoTEdge",
             "outbound:webhook:httpsOnly=true",
             "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true",
+            "outbound:webhook:allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [

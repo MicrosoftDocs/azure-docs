@@ -18,7 +18,7 @@ Topics and subscriptions created in the Event Grid module are by default stored 
 > [!NOTE]
 >Currently only metadata is persisted. Events are stored in-memory. If Event Grid module is redeployed or restarted then any undelivered events will be lost.
 
-Unlike Linux deployments, on Windows Event Grid module runs under **ContainerUser**, a low-privileged user already available in Windows. No extra setup is required.
+Unlike Linux deployments, on Windows Event Grid module runs under **ContainerUser**, a low-privileged user already available in Windows and is part of the local machine's Users No extra setup is required.
 
 We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to enable persistence. Persistence in docker basically involves mounting a host directory onto the container. There are a couple of ways to mount host directory onto a container.
 
@@ -66,7 +66,7 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
             "outbound:clientAuth:clientCert:source=IoTEdge",
             "outbound:webhook:httpsOnly=true",
             "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true",
+            "outbound:webhook:allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
@@ -99,6 +99,43 @@ Alternatively you can create a docker volume, map the volume onto the container 
    docker -H npipe:////./pipe/iotedge_moby_engine volume create myeventgridvol
    ```
 
+1. Get the host directory that the volume maps to by running the below command
+
+    ```sh
+    docker -H npipe:////./pipe/iotedge_moby_engine volume inspect <your-volume-name-here>
+    ```
+
+    For example,
+
+   ```sh
+   docker -H npipe:////./pipe/iotedge_moby_engine volume inspect myeventgridvol
+   ```
+
+   Sample Output:-
+
+   ```sh
+   [
+    {
+        "CreatedAt": "2019-07-30T21:20:59Z",
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "C:\\ProgramData\\iotedge-moby\\volumes\\myeventgridvol\\_data",
+        "Name": "myeventgridvol",
+        "Options": {},
+        "Scope": "local"
+    }
+   ]
+   ```
+
+1. Add the group **Users** to value pointed by **Mountpoint** as follows:
+    1. Open File Explorer
+    1. Navigate to the folder pointed by **Mountpoint**
+    1. Right click and go to properties
+    1. Select **Security**
+    1. Under *Group or user names:*, click on **Edit**
+    1. Click on **Add** and enter `Users` and click on **Check Names** and click **Ok**
+    1. Under *Permissions for Users*, select `Modify` and click **Ok**
+
 1. Use **Binds** to mount this volume and redeploy Event Grid module from Azure portal
 
    For example,
@@ -116,7 +153,7 @@ Alternatively you can create a docker volume, map the volume onto the container 
             "outbound:clientAuth:clientCert:source=IoTEdge",
             "outbound:webhook:httpsOnly=true",
             "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true",
+            "outbound:webhook:allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
@@ -151,7 +188,7 @@ Alternatively you can create a docker volume, map the volume onto the container 
             "outbound:clientAuth:clientCert:source=IoTEdge",
             "outbound:webhook:httpsOnly=true",
             "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true",
+            "outbound:webhook:allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
