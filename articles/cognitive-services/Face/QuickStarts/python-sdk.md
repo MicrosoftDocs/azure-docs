@@ -47,7 +47,7 @@ Create a new Python script&mdash;*quickstart-file.py*, for example. Then open it
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
 
-Then, create variables for your resource's Azure endpoint and key.
+Then, create variables for your resource's Azure endpoint and key. You may need to change the first part of the endpoint (`westus`) to match your subscription.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_subvars)]
 
@@ -82,12 +82,12 @@ These code snippets show you how to do the following tasks with the Face client 
 
 * [Authenticate the client](#authenticate-the-client)
 * [Detect faces in an image](#detect-faces-in-an-image)
-* [Find similar faces](find-similar-faces)
+* [Find similar faces](#find-similar-faces)
 * [Create and train a person group](#create-and-train-a-person-group)
 * [Identify a face](#identify-a-face)
 * [Take a snapshot for data migration](#take-a-snapshot-for-data-migration)
 
-### Authenticate the client
+## Authenticate the client
 
 > [!NOTE]
 > This quickstart assumes you've [created an environment variable](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your Face key, named `FACE_SUBSCRIPTION_KEY`.
@@ -96,59 +96,128 @@ Instantiate a client with your endpoint and key. Create a [CognitiveServicesCred
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_auth)]
 
-### Detect faces in an image
+## Detect faces in an image
 
 The following code detects a face in a remote image. It prints the detected face's ID to the console and also stores it in program memory. Then, it detects the faces in an image with multiple people and prints their IDs to the console as well. By changing the parameters in the [detect_with_url](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python#detect-with-url-url--return-face-id-true--return-face-landmarks-false--return-face-attributes-none--recognition-model--recognition-01---return-recognition-model-false--detection-model--detection-01---custom-headers-none--raw-false----operation-config-) method, you can return different information with each [DetectedFace](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.models.detectedface?view=azure-python) object.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detect)]
 
-### Find similar faces
+See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py) for more detection scenarios.
 
-The following code takes a single detected face and searches a set of other faces to find matches. When it finds a match, it prints the rectangle coordinates of the matched face to the console. See the [find_similar](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python#find-similar-face-id--face-list-id-none--large-face-list-id-none--face-ids-none--max-num-of-candidates-returned-20--mode--matchperson---custom-headers-none--raw-false----operation-config-) method to learn how to modify this behavior.
+## Find similar faces
 
-> [!IMPORTANT]
-> In order to run this example, you must first run the code in [Detect faces in an image](#detect-faces-in-an-image).
+The following code takes a single detected face and searches a set of other faces to find matches. When it finds a match, it prints the rectangle coordinates of the matched face to the console. 
+
+### Find matches
+
+First, run the code in the above section ([Detect faces in an image](#detect-faces-in-an-image)) to save a reference to a single face. Then run the following code to get references to several faces in a group image.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detectgroup)]
+
+Then add the following code block to find instances of the first face in the group. See the [find_similar](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python#find-similar-face-id--face-list-id-none--large-face-list-id-none--face-ids-none--max-num-of-candidates-returned-20--mode--matchperson---custom-headers-none--raw-false----operation-config-) method to learn how to modify this behavior.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar)]
 
-### Create and train a person group
+### Print matches
+
+Use the following code to print the match details to the console.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar_print)]
+
+## Create and train a person group
 
 The following code creates a **PersonGroup** with three different **Person** objects. It associates each **Person** with a set of example images, and then it trains to be able to recognize each person. 
+
+### Create PersonGroup
 
 In order to step through this scenario, you need to save the following images to the root directory of your project: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 This group of images contains three sets of face images corresponding to three different people. The code will define three **Person** objects and associate them with image files that start with `woman`, `man`, and `child`.
 
-Once you've set up your images, define a label for the **PersonGroup** object you'll create.
+Once you've set up your images, define a label at the top of your script for the **PersonGroup** object you'll create.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroupvars)]
 
-Then, add the following code to the bottom of your script.
+Then add the following code to the bottom of your script. This creates a **PersongGroup** and three **Person** objects.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup)]
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_create)]
 
-### Identify a face
+### Assign faces to Persons
 
-The following code takes an image with multiple faces and tries to find the identity of each person in the image. It does this by comparing each detected face to a **PersonGroup**, a database of different **Person** objects that each have several faces associated with them. If a detected face matches the faces of a known **Person**, the code prints the match to the console.
+The following code sorts your images by their prefix, detects faces, and assigns the faces to each **Person** object.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_assign)]
+
+### Train PersonGroup
+
+Once you've assigned faces, you must train the **PersonGroup** so that it can identify the visual features associated with each of its **Person** objects. The following code calls the asynchronous **train** method and polls the result, printing the status to the console.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_train)]
+
+## Identify a face
+
+The following code takes an image with multiple faces and tries to find the identity of each person in the image. It does this by comparing each detected face to a **PersonGroup**, a database of different **Person** objects that each have several faces associated with them. 
 
 > [!IMPORTANT]
 > In order to run this example, you must first run the code in [Create and train a person group](#create-and-train-a-person-group).
 
+### Get a test image
+
+The following code looks in the root of your project for an image _test-image-person-group.jpg_ and detects the faces in the image. You can find this image with the images used for **PersonGroup** management: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify_testimage)]
+
+### Identify faces
+
+The **identify** method takes an array of detected faces and compares them to a **PersonGroup**. If it can match a detected face to a **Person**, it saves the result. This code prints detailed match results to the console.
+
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
 
-### Take a snapshot for data migration
+## Take a snapshot for data migration
 
-The Snapshots feature lets you move your saved face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face API subscription. You may want to do this if, for example, you've created a **PersonGroup** object using a free trial subscription and now want to migrate it to a paid subscription. See the [Migrate your face data](../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of the Snapshots feature.
+The Snapshots feature lets you move your saved face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face subscription. You may want to do this if, for example, you've created a **PersonGroup** object using a free trial subscription and now want to migrate it to a paid subscription. See the [Migrate your face data](../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of the Snapshots feature.
 
 In this example, you will migrate the **PersonGroup** you created in [Create and train a person group](#create-and-train-a-person-group). You can either complete that section first, or use your own Face data construct(s).
 
-First, create the following variables TBD
+### Set up target subscription
+
+First, you must have a second Azure subscription with a Face resource; you can do this by following the steps in the [Setting up](#setting-up) section. 
+
+Then, create the following variables near the top of your script. You'll also need to create new environment variables for the subscription ID of your Azure account, as well as the key and subscription ID of your new (target) account. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
 
-Then code: TBD
+### Authenticate target client
 
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot)]
+Later in your script, save your current client object as the source client, and then authenticate a new client object for your target subscription. 
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_auth)]
+
+### Use a snapshot
+
+The rest of the snapshot operations take place within an asynchronous function. 
+
+1. The first step is to **take** the snapshot, which saves your original subscription's face data to a temporary cloud location. This method returns an ID that you use to query the status of the operation.
+
+    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_take)]
+
+1. Next, query the ID until the operation has completed.
+
+    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait)]
+
+    This code makes use of the `wait_for_operation` function, which you should define separately:
+
+    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_waitforop)]
+
+1. Go back to your asynchronous function. Use the **apply** operation to write your face data to your target subscription. This method also returns an ID.
+
+    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_apply)]
+
+1. Again, use the `wait_for_operation` function to query the ID until the operation has completed.
+
+    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait2)]
+
+Once you've completed these steps, you will be able to access your face data constructs from your new (target) subscription.
 
 ## Run the application
 
