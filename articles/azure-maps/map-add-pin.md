@@ -3,7 +3,7 @@ title: Add a Symbol layer to Azure Maps | Microsoft Docs
 description: How to add symbols to the Javascript map
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/2/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
