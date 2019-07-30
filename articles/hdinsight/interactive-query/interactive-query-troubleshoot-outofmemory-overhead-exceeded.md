@@ -34,7 +34,7 @@ hive.auto.convert.join=false
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
+If setting this value didn't resolve your issue, visit one of the following...
 
 * Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
