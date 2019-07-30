@@ -24,6 +24,8 @@ Truffle is a blockchain development environment you can use to connect to an Azu
 * [Create an Azure Blockchain member](create-member.md)
 * Install [Truffle](https://github.com/trufflesuite/truffle). Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 * Install [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is needed for Web3.
+* Install [Visual Studio Code](https://code.visualstudio.com/Download)
+* Install [Visual Studio Code Solidity extension](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
 
 ## Create Truffle project
 
@@ -49,38 +51,51 @@ Truffle is a blockchain development environment you can use to connect to an Azu
     ```
 
     You may receive npm warnings during installation.
+    
+## Configure Truffle project
 
-1. Launch Truffle's interactive development console.
+To configure the Truffle project, you need some transaction node information from the Azure portal.
 
-    ``` bash
-    truffle develop
+### Transaction node endpoint addresses
+
+1. In the Azure portal, navigate to each transaction node and select **Transaction nodes > Connection strings**.
+1. Copy and save the endpoint URL from **HTTPS (Access key 1)** for each transaction node. You need the endpoint addresses for the smart contract configuration file later in the tutorial.
+
+    ![Transaction endpoint address](./media/send-transaction/endpoint.png)
+
+### Edit configuration file
+
+1. Launch Visual Studio Code and open the Truffle project directory folder using the **File > Open Folder** menu.
+1. Open the Truffle configuration file `truffle-config.js`.
+1. Replace the contents of the file with the following configuration information. Add a variable containing the endpoint address. Replace the angle bracket with values you collected from previous sections.
+
+    ``` javascript
+    var defaultnode = "<default transaction node connection string>";   
+    var Web3 = require("web3");
+    
+    module.exports = {
+      networks: {
+        defaultnode: {
+          provider: new Web3.providers.HttpProvider(defaultnode),
+          network_id: "*"
+        }
+      }
+    }
     ```
 
-    Truffle creates a local development blockchain and provides an interactive console.
+1. Save the changes to `truffle-config.js`.
 
 ## Connect to transaction node
 
-Use *Web3* to connect to the transaction node. You can get the *Web3* connection string from the Azure portal.
+Use *Web3* to connect to the transaction node.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
+1. Use the Truffle console to connect to the default transaction node.
 
-    ![Select default transaction node](./media/connect-truffle/transaction-nodes.png)
-
-1. Select **Sample Code > Web3**.
-1. Copy the JavaScript from **HTTPS (Access key 1)**. You need the code for Truffle's interactive development console.
-
-    ![Web3 code](./media/connect-truffle/web3-code.png)
-
-1. Paste the JavaScript code from the previous step into the Truffle interactive development console. The code creates a web3 object that is connected to your Azure Blockchain Service transaction node.
-
-    Example output:
-
-    ```bash
-    truffle(develop)> var Web3 = require("Web3");
-    truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
-    truffle(develop)> var web3 = new Web3(provider);
+    ``` bash
+    truffle console --network defaultnode
     ```
+
+    Truffle connects to the default transaction node and provides an interactive console.
 
     You can call methods on the **web3** object to interact with your transaction node.
 
@@ -93,7 +108,7 @@ Use *Web3* to connect to the transaction node. You can get the *Web3* connection
     Example output:
 
     ```bash
-    truffle(develop)> web3.eth.getBlockNumber();
+    truffle(defaultnode)> web3.eth.getBlockNumber();
     18567
     ```
 1. Exit the Truffle development console.
