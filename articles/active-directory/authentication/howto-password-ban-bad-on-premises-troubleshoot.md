@@ -81,9 +81,9 @@ This problem may have several causes.
 
 1. The password validation algorithm may actually be working as expected. See [How are passwords evaluated](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
-## Ntdsutil.exe is unable to set a new Directory Services Repair Mode password
+## Ntdsutil.exe fails to set a weak Directory Services Repair Mode password
 
-Active Directory will always validate a new DSRM password to make sure it meets the domain's password complexity requirements; this validation also calls into password filter dlls like Azure AD Password Protection. If the new DSRM password is rejected, this may fail as follows:
+Active Directory will always validate a new DSRM password to make sure it meets the domain's password complexity requirements; this validation also calls into password filter dlls like Azure AD Password Protection. If the new DSRM password is rejected, ntdsutil.exe reports the following:
 
 ```text
 C:\>ntdsutil.exe
@@ -100,13 +100,19 @@ Note that when Azure AD Password Protection logs the password validation event l
 
 ## Domain controller replica promotion fails because of a weak Directory Services Repair Mode password
 
-This issue is basically the same as the one above. During the DC promotion process, the new DSRM password will be submitted to an existing DC in the domain for validation. If the new DSRM password is rejected, this may fail as follows:
+During the DC promotion process, the new DSRM password will be submitted to an existing DC in the domain for validation. If the new DSRM password is rejected, this may fail as follows:
 
 ```powershell
 Install-ADDSDomainController : Verification of prerequisites for Domain Controller promotion failed. The Directory Services Restore Mode password does not meet a requirement of the password filter(s). Supply a suitable password.
 ```
 
 Just like in the above issue, any Azure AD Password Protection password validation outcome event will have empty user names for this scenario.
+
+## Domain controller demotion fails due to a weak new local admin password
+
+It is supported to demote a domain controller that is still running the DC agent software. Administrators should be aware however that the DC agent software continues to enforce the current password policy during the demotion procedure. The new local Administrator account password (specified as part of the demotion operation) is validated like any other password. Microsoft recommends that secure passwords be chosen for local Administrator accounts as part of a DC demotion procedure.
+
+Once the demotion has succeeded, and the domain controller has been rebooted and is again running as a normal member server, the DC agent software reverts to running in a passive mode. It may then be uninstalled at any time.
 
 ## Booting into Directory Services Repair Mode
 
@@ -117,12 +123,6 @@ If the domain controller is booted into Directory Services Repair Mode, the DC a
 If a situation occurs where the DC agent service is causing problems, the DC agent service may be immediately shut down. The DC agent password filter dll still attempts to call the non-running service and will log warning events (10012, 10013), but all incoming passwords are accepted during that time. The DC agent service may then also be configured via the Windows Service Control Manager with a startup type of “Disabled” as needed.
 
 Another remediation measure would be to set the Enable mode to No in the Azure AD Password Protection portal. Once the updated policy has been downloaded, each DC agent service will go into a quiescent mode where all passwords are accepted as-is. For more information, see [Enforce mode](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
-
-## Domain controller demotion
-
-It is supported to demote a domain controller that is still running the DC agent software. Administrators should be aware however that the DC agent software continues to enforce the current password policy during the demotion procedure. The new local Administrator account password (specified as part of the demotion operation) is validated like any other password. Microsoft recommends that secure passwords be chosen for local Administrator accounts as part of a DC demotion procedure; however the validation of the new local Administrator account password by the DC agent software may be disruptive to pre-existing demotion operational procedures.
-
-Once the demotion has succeeded, and the domain controller has been rebooted and is again running as a normal member server, the DC agent software reverts to running in a passive mode. It may then be uninstalled at any time.
 
 ## Removal
 
