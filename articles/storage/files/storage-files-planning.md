@@ -203,6 +203,7 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 
 |Region  |Supported redundancy  |Supports existing storage accounts  |
 |---------|---------|---------|
+|Australia East     |LRS|No         |
 |SouthEast Asia     |LRS|No         |
 |West Europe     |LRS, ZRS|No         |
 |West US 2     |LRS, ZRS|No         |
