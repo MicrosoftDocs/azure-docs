@@ -3,7 +3,7 @@ title: Run an Azure Service Fabric service under system and local security accou
 description: Learn how to run a Service Fabric application under system and local security accounts.  Create security principals and apply the Run-As policy to securely run your services.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Run a service as a local user account or local system account

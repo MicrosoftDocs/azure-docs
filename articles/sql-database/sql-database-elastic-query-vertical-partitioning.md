@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Query across cloud databases with different schemas (preview)

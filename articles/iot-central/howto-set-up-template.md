@@ -144,6 +144,8 @@ assetloc: {
 }
 ```
 
+Once the real device is connected, the location you added as a measurement is updated with the value sent by the device. After you've configured your location measurement, you can [add a map to visualize the location in the device dashboard](#add-a-location-measurement-in-the-dashboard).
+
 ## Settings
 
 Settings control a device. They enable operators to provide inputs to the device. You can add multiple settings to your device template that appear as tiles on the **Settings** tab for operators to use. You can add many types of settings: number, text, date, toggle, and section label.
@@ -240,7 +242,7 @@ You can create a location property as a device property that the device reports.
 
    !["Configure Device Properties" form with details for location](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Once the real device is connected, the location you added as a device property is updated with the value sent by the device. After you've configured your location property, you can [add a map to visualize the location in the device dashboard](#add-a-location-in-the-dashboard).
+Once the real device is connected, the location you added as a device property is updated with the value sent by the device. After you've configured your location property, you can [add a map to visualize the location in the device dashboard](#add-a-location-property-in-the-dashboard).
 
 ## Commands
 
@@ -278,9 +280,9 @@ For example, you can add a **Settings and Properties** tile to show a selection 
 
 Now when an operator views the dashboard in the **Device Explorer**, they can see the tile.
 
-### Add a location in the dashboard
+### Add a location measurement in the dashboard
 
-If you configured a location measurement, you can visualize the location with a map in your device dashboard.
+If you configured a location measurement, you can visualize the location with a map in your device dashboard. For location measurements, you have the option to plot the location history.
 
 1. Navigate to the **Dashboard** tab.
 
@@ -289,6 +291,22 @@ If you configured a location measurement, you can visualize the location with a 
 1. Give the map a title. The following example has the title **Device Current Location**. Then choose the location measurement that you previously configured on the **Measurements** tab. In the following example, the **Asset Location** measurement is selected:
 
    !["Configure Map" form with details for title and properties](./media/howto-set-up-template/locationcloudproperty5map.png)
+
+1. Select **Save**. The map tile now displays the location that you selected.
+
+You can resize the map tile. When an operator views the dashboard in the **Device Explorer**, all the dashboard tiles that you've configured, including a location map are visible.
+
+### Add a location property in the dashboard
+
+If you configured a location property, you can visualize the location with a map in your device dashboard.
+
+1. Navigate to the **Dashboard** tab.
+
+1. On the device dashboard, select **Map** from the library.
+
+1. Give the map a title. The following example has the title **Device Current Location**. Then choose the location property that you previously configured on the **Properties** tab. In the following example, the **Device Location** measurement is selected:
+
+   ![Configure Map form with details for title and properties](./media/howto-set-up-template/locationcloudproperty6map.png)
 
 1. Select **Save**. The map tile now displays the location that you selected.
 

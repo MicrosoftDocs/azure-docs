@@ -1,6 +1,6 @@
 ---
-title: Run Kubernetes Service
-titleSuffix: Text Analytics - Azure Cognitive Services
+title: Run Kubernetes Service - Text Analytics
+titleSuffix: Azure Cognitive Services
 description: Deploy the language detection container, with a running sample, to the Azure Kubernetes Service, and test it in a web browser. 
 services: cognitive-services
 author: IEvangelist

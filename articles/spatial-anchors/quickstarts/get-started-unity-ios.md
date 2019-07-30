@@ -21,7 +21,6 @@ You'll learn how to:
 > [!div class="checklist"]
 > * Create a Spatial Anchors account
 > * Prepare Unity build settings
-> * Download and import the Unity ARKit Plugin
 > * Configure the Spatial Anchors account identifier and account key
 > * Export the Xcode project
 > * Deploy and run on an iOS device
@@ -32,7 +31,7 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a>, <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a>, and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
+- A macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1+</a>, <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a>, and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
 - Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git`.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
@@ -48,7 +47,7 @@ To complete this quickstart, make sure you have:
 
 ## Configure account identifier and key
 
-In the **Project** pane, navigate to `Assets/AzureSpatialAnchorsPlugin/Examples` and open the `AzureSpatialAnchorsBasicDemo.unity` scene file.
+In the **Project** pane, navigate to `Assets/AzureSpatialAnchors.Examples/Scenes` and open the `AzureSpatialAnchorsBasicDemo.unity` scene file.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
@@ -62,10 +61,11 @@ Save the scene by selecting **File** -> **Save**.
 
 Follow the instructions in the app to place and recall an anchor.
 
-> [!NOTE]
-> When running the app, if you don't see the camera as the background (for instance you instead see a blank, blue or other textures) then you likely need to re-import assets in Unity. Stop the app. From the top menu in Unity, choose **Assets -> Re-import all**. Then, run the app again.
+When finished, stop the app by pressing **Stop** in Xcode.
 
-In Xcode, stop the app by pressing **Stop**.
+## Troubleshooting
+
+When running the app, if you don't see the camera as the background (for instance you instead see a blank, blue or other textures) then you likely need to re-import assets in Unity. Stop the app. From the top menu in Unity, choose **Assets -> Re-import all**. Then, run the app again.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
