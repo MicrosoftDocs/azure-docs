@@ -100,8 +100,6 @@
     href: tag-nodes.md
   - name: Use Images
     href: images.md
-  - name: Create Custom Roles
-    href: create-custom-roles.md
 - name: Reference
   items:
   - name: Cluster Reference
