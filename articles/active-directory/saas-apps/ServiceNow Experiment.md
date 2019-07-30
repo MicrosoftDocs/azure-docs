@@ -10,16 +10,16 @@ Get started building workflows in ServiceNow and automating your business proces
 
 
 > [!div class="checklist"]
-> * Create and connect to a VM
-> * Select and use VM images
-> * View and use specific VM sizes
-> * Resize a VM
-> * View and understand VM state
+> * Stop managing passwords. Sign into ServiceNow with the same corporate credentials you use to sign into Office (SSO)
+> * Automatically provision user account into ServiceNow when users need access and deprovision accounts when they leave
+> * secure access to your applications with conditional access policies
+> * Govern access to your applications through access reviews
+> * Monitor access to your applications with sign in logs
 
 
 ## Get started
 
 
-> [!div class="checklist"]
-> * Enable Azure Multi-Factor Authentication
-> * Test Azure Multi-Factor Authentication
+[!div class="checklist"]
+* Enable Azure Multi-Factor Authentication
+* Test Azure Multi-Factor Authentication
