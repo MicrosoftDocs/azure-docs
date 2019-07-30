@@ -17,7 +17,7 @@ This article answers common questions about monitoring Azure [Site Recovery](sit
 
 ### How is the RPO value logged different from the latest available recovery point?
 
-Site Recovery uses a multi-step asynchronous process to replicate machines to Azure.
+Site Recovery uses a multi-step, asynchronous process to replicate machines to Azure.
 
 - In the penultimate step of replication, recent changes on the machine, along with metadata, are copied into a log/cache storage account.
 - These changes, along with the tag to identify a recoverable point, are written to the storage account/managed disk in the target region.
