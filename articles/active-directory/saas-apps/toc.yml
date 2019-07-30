@@ -1412,7 +1412,7 @@
         href: asana-provisioning-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
-      - name: BITABIZ
+      - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: BlueJeans
         href: bluejeans-provisioning-tutorial.md
