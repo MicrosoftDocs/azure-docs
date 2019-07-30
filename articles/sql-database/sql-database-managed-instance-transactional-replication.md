@@ -136,6 +136,7 @@ In this configuration, an Azure SQL Database (single, pooled, and instance datab
 1. [Configure replication between two managed instances](replication-with-sql-database-managed-instance.md). 
 1. [Create a publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Create a push subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) by using the Azure SQL Database server name as the subscriber (for example `N'azuresqldbdns.database.windows.net` and the Azure SQL Database name as the destination database (for example **Adventureworks**. )
+1. Learn about the [limitations of Transactional replication for a managed instance](sql-database-managed-instance-transact-sql-information.md#replication)
 
 
 
