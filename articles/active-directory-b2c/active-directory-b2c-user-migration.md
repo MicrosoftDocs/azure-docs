@@ -70,7 +70,7 @@ First, register your migration application in Azure AD. Then, create an applicat
 
 ### Step 1.2: Create the application secret
 
-1. In **Registered app** page, select **Settings**.
+1. In the **Registered app** page, select **Settings**.
 1. Select **Keys**.
 
     ![Application ID value and Keys menu item highlighted in Azure portal](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
