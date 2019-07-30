@@ -23,11 +23,11 @@ With this feature, you can create a new Azure-SSIS IR or attach an existing one 
 ## Azure-enable SSIS projects
 You can create new Azure-enabled SSIS projects using the **Integration Services Project (Azure-Enabled)** template.
 
-![New Azure-enabled SSIS project](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-new-project.png)
+![New Azure-Enabled SSIS Project](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-new-project.png)
 
 Alternatively, you can Azure-enable your existing SSIS projects by right-clicking on the project node in Solution Explorer panel of SSDT to pop up a menu and then selecting the **Azure-Enabled** menu item.
 
-![Azure-enable existing SSIS project](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-existing-project.png)
+![Azure-Enable Existing SSIS Project](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-existing-project.png)
 
 Azure-enabling your existing SSIS projects requires you to set their target server version to be the latest one supported by Azure-SSIS IR, which is currently **SQL Server 2017**, so if you have not done so already, a dialog window will pop up to do this.
 
@@ -36,25 +36,25 @@ By connecting your Azure-enabled projects to SSIS in ADF, you can upload your pa
 
 1. Right-click on the project or **Linked Azure Resources** node in Solution Explorer panel of SSDT to pop up a menu and select the **Connect To SSIS in Azure Data Factory** menu item to launch the **SSIS in ADF Connection Wizard**.
 
-   ![Azure-enable existing SSIS project](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-existing-project2.png)
+   ![Connect to SSIS in ADF](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-existing-project2.png)
 
 2. On the **SSIS in ADF Introduction** page, review the introduction and click on the **Next** button to continue.
 
-   ![Azure-enable existing SSIS project](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard.png)
+   ![SSIS in ADF Introduction](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard.png)
 
 3. On the **Select SSIS IR in ADF** page, select your existing ADF and Azure-SSIS IR to run packages or create new ones if you do not have any.
    - To select your existing Azure-SSIS IR, select the relevant Azure subscription and ADF first.
    - If you select your existing ADF that does not have any Azure-SSIS IR, click on the **Create SSIS IR** button to create a new one on ADF portal/app.
    - If you select your existing Azure subscription that does not have any ADF, click on the **Create SSIS IR** button to launch the **Integration Runtime Creation Wizard**, where you can enter the location and prefix for us to automatically create a new Azure Resource Group, Data Factory, and SSIS IR on your behalf, named in the following pattern: **YourPrefix-RG/DF/IR-YourCreationTime**.
    
-   ![Azure-enable existing SSIS project](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard2.png)
+   ![Select SSIS IR in ADF](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard2.png)
 
 4. On the **Select Azure Storage** page, select your existing Azure Storage account to upload packages into Azure Files or create a new one if you do not have any.
    - To select your existing Azure Storage account, select the relevant Azure subscription first.
    - If you select the same Azure subscription as your Azure-SSIS IR that does not have any Azure Storage account, click on the **Create Azure Storage** button for us to automatically create a new one on your behalf in the same location as your Azure-SSIS IR, named by combining a prefix of your Azure-SSIS IR name and its creation date.
    - If you select a different Azure subscription that does not have any Azure Storage account, click on the **Create Azure Storage** button to create a new one on Azure portal.
    
-   ![Azure-enable existing SSIS project](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard3.png)
+   ![Select Azure Storage](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard3.png)
 
 5. Click on the **Connect** button to complete your connection.  We will display your selected Azure-SSIS IR and Azure Storage account under the **Linked Azure Resources** node in Solution Explorer panel of SSDT.  We will also refresh the status of your Azure-SSIS IR, while you can manage it by right-clicking on its node to pop up a menu and then selecting the **Start\Stop\Manage** menu item that takes you to ADF portal/app to do so.
 
@@ -63,11 +63,11 @@ By connecting your Azure-enabled projects to SSIS in ADF, you can upload your pa
 After connecting your projects to SSIS in ADF, you can execute packages on Azure-SSIS IR.  You have two options to start package executions:
 -  Click on the **Start** button in SSDT toolbar to drop down a menu and select the **Execute in Azure** menu item 
 
-   ![Azure-enable existing SSIS project](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-execute-package.png)
+   ![Execute in Azure](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-execute-package.png)
 
 -  Right-click on the package node in Solution Explorer panel of SSDT to pop up a menu and select the **Execute Package in Azure** menu item.
 
-   ![Azure-enable existing SSIS project](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-execute-package2.png)
+   ![Execute Package in Azure](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-execute-package2.png)
 
 > [!NOTE]
 > Executing your packages in Azure requires you to have a running Azure-SSIS IR, so if your Azure-SSIS IR is stopped, a dialog window will pop up to start it.  Excluding any custom setup time, this process should be completed within 5 minutes, but could take approximately 20 - 30 minutes for Azure-SSIS IR joining a virtual network.  After executing your packages in Azure, you can stop your Azure-SSIS IR to manage its running cost by right-clicking on its node in Solution Explorer panel of SSDT to pop up a menu and then selecting the **Start\Stop\Manage** menu item that takes you to ADF portal/app to do so.
