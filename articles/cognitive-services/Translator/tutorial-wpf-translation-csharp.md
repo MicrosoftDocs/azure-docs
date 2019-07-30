@@ -45,7 +45,7 @@ Before we continue, you'll need the following:
 
 * An Azure Cognitive Services subscription. [Get a Cognitive Services key](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-resource).
 * A Windows machine
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) - Community or Enterprise
+* [Visual Studio 2019](https://www.visualstudio.com/downloads/) - Community or Enterprise
 
 > [!NOTE]
 > We recommend creating the subscription in the West US region for this tutorial. Otherwise, you'll need to change endpoints and regions in the code as you work through this exercise.  
