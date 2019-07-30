@@ -65,9 +65,9 @@ The **Editor** widget enables you to create new projects and manage video's insi
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
 	After clicking the button, an embed modal will appear on the screen where you can choose what widget you want to embed in your application.
-	Selecting a widget (**Player** or **Cognitive Insights**), generates the embedded code for you to paste in your application.
+	Selecting a widget (**Cognitive Insights**, **Player**, or **Editor**), generates the embedded code for you to paste in your application.
  
-4. Choose the type of widget you want (**Cognitive Insights** or **Player**).
+4. Choose the type of widget you want (**Cognitive Insights**, **Player**, or **Editor**).
 5. Copy the embed code, and add to your application. 
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
@@ -102,7 +102,7 @@ To get Video Indexer widgets to communicate with other components, the Video Ind
 
 If you choose to implement your own player code and do the integration with **Cognitive Insights** widgets, it is your responsibility to validate the origin of the message that comes from VideoIndexer.ai.
 
-### Embed both types of widgets in your application / blog (recommended) 
+### Embed widgets in your application / blog (recommended) 
 
 This section shows how to achieve interaction between two Video Indexer widgets so when a user clicks the insight control on your application, the player jumps to the relevant moment.
 
@@ -221,7 +221,7 @@ For more information, see [this demo](https://codepen.io/videoindexer/pen/YEyPLd
 
 ## Adding subtitles
 
-If you embed Video Indexer insights with your own AMP player, you can use the **GetVttUrl** method to get closed captions (subtitles). You can also call a javascript method from the Video Indexer AMP plugin **getSubtitlesUrl** (as shown earlier). 
+If you embed Video Indexer insights with your own [Azure Media Player](https://aka.ms/azuremediaplayer), you can use the **GetVttUrl** method to get closed captions (subtitles). You can also call a javascript method from the Video Indexer AMP plugin **getSubtitlesUrl** (as shown earlier). 
 
 ## Customizing embeddable widgets
 
