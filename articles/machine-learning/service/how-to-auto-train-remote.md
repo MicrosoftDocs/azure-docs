@@ -42,17 +42,19 @@ Create the AmlCompute target in your workspace (`ws`) if it doesn't already exis
 from azureml.core.compute import AmlCompute
 from azureml.core.compute import ComputeTarget
 
-amlcompute_cluster_name = "automlcl" #Name your cluster
-provisioning_config = AmlCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2",
+amlcompute_cluster_name = "automlcl"  # Name your cluster
+provisioning_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2_V2",
                                                             # for GPU, use "STANDARD_NC6"
-                                                            #vm_priority = 'lowpriority', # optional
-                                                            max_nodes = 6)
+                                                            # vm_priority = 'lowpriority', # optional
+                                                            max_nodes=6)
 
-compute_target = ComputeTarget.create(ws, amlcompute_cluster_name, provisioning_config)
+compute_target = ComputeTarget.create(
+    ws, amlcompute_cluster_name, provisioning_config)
 
 # Can poll for a minimum number of nodes and for a specific timeout.
 # If no min_node_count is provided, it will use the scale settings for the cluster.
-compute_target.wait_for_completion(show_output = True, min_node_count = None, timeout_in_minutes = 20)
+compute_target.wait_for_completion(
+    show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
 You can now use the `compute_target` object as the remote compute target.
@@ -106,7 +108,8 @@ run_config.target = compute_target
 run_config.environment.docker.enabled = True
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
 
-dependencies = CondaDependencies.create(pip_packages=["scikit-learn", "scipy", "numpy"])
+dependencies = CondaDependencies.create(
+    pip_packages=["scikit-learn", "scipy", "numpy"])
 run_config.environment.python.conda_dependencies = dependencies
 ```
 
@@ -139,7 +142,7 @@ automl_config = AutoMLConfig(task='classification',
                              run_configuration=run_config,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
-                            )
+                             )
 ```
 
 ### Enable model explanations
@@ -150,13 +153,13 @@ Set the optional `model_explainability` parameter in the `AutoMLConfig` construc
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = compute_target,
+                             compute_target=compute_target,
                              run_configuration=run_config,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                              model_explainability=True,
-                             X_valid = X_test
-                            )
+                             X_valid=X_test
+                             )
 ```
 
 ## Submit training experiment
@@ -205,24 +208,33 @@ You will see output similar to the following example:
 
 ## Explore results
 
-You can use the same Jupyter widget as the one in [the training tutorial](tutorial-auto-train-models.md#explore-the-results) to see a graph and table of results.
+You can use the same [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) as shown in [the training tutorial](tutorial-auto-train-models.md#explore-the-results) to see a graph and table of results.
 
 ```python
 from azureml.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
+
 Here is a static image of the widget.  In the notebook, you can click on any line in the table to see run properties and output logs for that run.   You can also use the dropdown above the graph to view a graph of each available metric for each iteration.
 
 ![widget table](./media/how-to-auto-train-remote/table.png)
 ![widget plot](./media/how-to-auto-train-remote/plot.png)
 
-The widget displays a URL you can use to see and explore the individual run details.
+The widget displays a URL you can use to see and explore the individual run details.  
+
+If you aren't in a Jupyter notebook, you can display the URL  from the run itself:
+
+```
+remote_run.get_portal_url()
+```
+
+The same information is available in your workspace.  To learn more about these results, see [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 ### View logs
 
 Find logs on the DSVM under `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
-## Best model explanation
+## <a name="explain"></a> Best model explanation
 
 Retrieving model explanation data allows you to see detailed information about the models to increase transparency into what's running on the back-end. In this example, you run model explanations only for the best fit model. If you run for all models in the pipeline, it will result in significant run time. Model explanation information includes:
 

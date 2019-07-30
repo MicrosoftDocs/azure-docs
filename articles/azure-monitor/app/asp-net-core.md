@@ -420,4 +420,4 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 * [Configure a snapshot collection](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](../../azure-monitor/app/api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
 * Use [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) to check your app constantly from around the world.
-* [Dependency Injection in ASP.NET Core](https://docs.microsoft.com/aspnet/fundamentals/dependency-injection)
+* [Dependency Injection in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)

@@ -8,7 +8,7 @@
     href: whats-new.md
 - name: Tutorials
   items:
-  - name: VMware VM assessment and migration
+  - name: Assess and migrate VMware VMs
     items:
     - name: Prepare VMware for assessment and migration
       href: tutorial-prepare-vmware.md
@@ -22,7 +22,7 @@
         href: tutorial-migrate-vmware.md
       - name: Migrate VMware VMs with agent-based migration
         href: tutorial-migrate-vmware-agent.md
-  - name: Hyper-V assessment and migration
+  - name: Assess and migrate Hyper-V VMs
     items:
     - name: Prepare Hyper-V for assessment and migration
       href: tutorial-prepare-hyper-v.md
@@ -30,7 +30,7 @@
       href: tutorial-assess-hyper-v.md
     - name: Migrate Hyper-V VMs
       href: tutorial-migrate-hyper-v.md
-  - name: Migrate physical servers and virtual machines
+  - name: Migrate physical servers and VMs
     href: tutorial-migrate-physical-virtual-machines.md
 - name: Concepts
   items:
