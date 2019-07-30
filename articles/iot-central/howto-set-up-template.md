@@ -58,7 +58,7 @@ To add a new telemetry measurement, select **+ New Measurement**, choose **Telem
 
 > [!NOTE]
 > The field names in the device template must match the property names in the corresponding device code in order for the telemetry measurement to be displayed in the application when a real device is connected. Do the same when you configure settings, device properties, and commands as you continue to define the device template in the following sections.
-.png
+
 For example, you can add a new temperature telemetry measurement:
 
 | Display Name        | Field Name    |  Units    | Min   |Max|
@@ -105,7 +105,7 @@ Provide the details for **Display Name**, **Field Name**, and **Values** of the 
 
 For example, you can add a new **Fan Mode** state that has two possible values that the device can send, **Operating** and **Stopped**.
 
-| Display Name | Field Name    |  Value 1   | Display Name | Value 2    |Display Name  | 
+| Display Name | Field Name    |  Value 1   | Display Name | Value 2    |Display Name  |
 | -------------| ------------- |----------- | -------------| -----------| -------------|
 | Fan Mode     | fanmode       |  1         | Operating    |     0      | Stopped      |
 
@@ -250,9 +250,9 @@ Commands are used to remotely manage a device. They enable operators to run comm
 
 How is a command different from a setting?
 
-* **Setting**: A setting is a configuration that you want to apply to a device. You want the device to persist that configuration until you change it. For example, you want to set the temperature of your freezer, and you want that setting even when the freezer restarts.
+- **Setting**: A setting is a configuration that you want to apply to a device. You want the device to persist that configuration until you change it. For example, you want to set the temperature of your freezer, and you want that setting even when the freezer restarts.
 
-* **Command**: You use commands to instantly run a command on the device remotely from IoT Central. If a device isn't connected, the command times out and fails. For example, you want to restart a device.
+- **Command**: You use commands to instantly run a command on the device remotely from IoT Central. If a device isn't connected, the command times out and fails. For example, you want to restart a device.
 
 For example, you can add a new **Echo** command by selecting the **Commands** tab, then selecting **+ New Command**, and entering the new command details:
 
@@ -318,7 +318,6 @@ To learn more about how to use tiles in Azure IoT Central, see [Use dashboard ti
 
 Now that you've learned how to set up a device template in your Azure IoT Central application, you can:
 
-> [!div class="nextstepaction"]
-> [Create a new device template version](howto-version-device-template.md)
-> [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md)
-> [Connect a generic client application to your Azure IoT Central application (Node.js)](howto-connect-nodejs.md)
+- [Create a new device template version](howto-version-device-template.md)
+- [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md)
+- [Connect a generic client application to your Azure IoT Central application (Node.js)](howto-connect-nodejs.md)
