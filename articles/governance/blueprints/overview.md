@@ -164,6 +164,15 @@ role](../../role-based-access-control/custom-roles.md).
 > completes. If using a user-assigned managed identity, only the user creating the blueprint
 > assignment needs **Owner** permissions.
 
+## Naming limits
+
+The following is a list of limitations that exist for certain fields:
+
+|Object|Field|Characters|Max. Length|
+|-|-|-|-|
+|Blueprint|Version|letters, numbers, and hyphens|20|
+|Blueprint assignment|Name| |90|
+
 ## Video overview
 
 The following overview of Azure Blueprints is from Azure Fridays. For video download,
