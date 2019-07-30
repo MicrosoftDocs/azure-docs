@@ -14,6 +14,7 @@ By default, you can deploy up to 800 instances of a resource type in each resour
 
 For some resource types, you need to enable a feature to exceed 800 instances. If necessary, the feature is listed with the resource type. For information about how to register for a feature, see [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) or [az feature register](/cli/azure/feature#az-feature-register).
 
+
 ## Microsoft.Automation
 
 * automationAccounts
@@ -21,9 +22,6 @@ For some resource types, you need to enable a feature to exceed 800 instances. I
 ## Microsoft.AzureStack
 
 * registrations
-
-## Microsoft.AzureStack
-
 * registrations/customerSubscriptions
 * registrations/products
 
@@ -38,72 +36,106 @@ For some resource types, you need to enable a feature to exceed 800 instances. I
 * snapshots
 * virtualMachines
 
-## next
+## Microsoft.ContainerRegistry
 
-* Microsoft.ContainerRegistry/registries/buildTasks
-* Microsoft.ContainerRegistry/registries/buildTasks/listSourceRepositoryProperties
-* Microsoft.ContainerRegistry/registries/buildTasks/steps
-* Microsoft.ContainerRegistry/registries/buildTasks/steps/listBuildArguments
-* Microsoft.ContainerRegistry/registries/eventGridFilters
-* Microsoft.ContainerRegistry/registries/replications
-* Microsoft.ContainerRegistry/registries/tasks
-* Microsoft.ContainerRegistry/registries/webhooks
-* Microsoft.DBforMariaDB/servers
-* Microsoft.DBforMySQL/servers
-* Microsoft.DBforPostgreSQL/serverGroups
-* Microsoft.DBforPostgreSQL/servers
-* Microsoft.DBforPostgreSQL/serversv2
-* Microsoft.EnterpriseKnowledgeGraph/services
-* Microsoft.GuestConfiguration/guestConfigurationAssignments
-* Microsoft.GuestConfiguration/software
-* Microsoft.GuestConfiguration/softwareUpdateProfile
-* Microsoft.GuestConfiguration/softwareUpdates
-* Microsoft.Logic/integrationAccounts
-* Microsoft.Logic/workflows
-* Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies
-* Microsoft.Network/applicationSecurityGroups
-* Microsoft.Network/bastionHosts
-* Microsoft.Network/ddosProtectionPlans
-* Microsoft.Network/dnszones
-* Microsoft.Network/dnszones/A
-* Microsoft.Network/dnszones/AAAA
-* Microsoft.Network/dnszones/CAA
-* Microsoft.Network/dnszones/CNAME
-* Microsoft.Network/dnszones/MX
-* Microsoft.Network/dnszones/NS
-* Microsoft.Network/dnszones/PTR
-* Microsoft.Network/dnszones/SOA
-* Microsoft.Network/dnszones/SRV
-* Microsoft.Network/dnszones/TXT
-* Microsoft.Network/dnszones/all
-* Microsoft.Network/dnszones/recordsets
-* Microsoft.Network/networkIntentPolicies
-* Microsoft.Network/networkInterfaces
-* Microsoft.Network/privateDnsZones
-* Microsoft.Network/privateDnsZones/A
-* Microsoft.Network/privateDnsZones/AAAA
-* Microsoft.Network/privateDnsZones/CNAME
-* Microsoft.Network/privateDnsZones/MX
-* Microsoft.Network/privateDnsZones/PTR
-* Microsoft.Network/privateDnsZones/SOA
-* Microsoft.Network/privateDnsZones/SRV
-* Microsoft.Network/privateDnsZones/TXT
-* Microsoft.Network/privateDnsZones/all
-* Microsoft.Network/privateDnsZones/virtualNetworkLinks
-* Microsoft.Network/privateEndpoints
-* Microsoft.Network/privateLinkServices
-* Microsoft.Network/publicIPAddresses - Register feature Microsoft.Resources/ARMDisableResourcesPerRGLimit
-* Microsoft.Network/publicIPAddresses - Register feature Microsoft.Resources/ARMDisableResourcesPerRGLimit
-* Microsoft.Network/serviceEndpointPolicies
-* Microsoft.Network/trafficmanagerprofiles
-* Microsoft.Network/virtualNetworkTaps
-* Microsoft.PortalSdk/rootResources
-* Microsoft.PowerBI/workspaceCollections - Register feature Microsoft.PowerBI/UnlimitedQuota
-* Microsoft.PowerBI/workspaceCollections - Register feature Microsoft.PowerBI/UnlimitedQuota
-* Microsoft.Scheduler/jobcollections
-* Microsoft.Storage/storageAccounts
-* Microsoft.Web/apiManagementAccounts/apis
-* Microsoft.Web/sites
+* registries/buildTasks
+* registries/buildTasks/listSourceRepositoryProperties
+* registries/buildTasks/steps
+* registries/buildTasks/steps/listBuildArguments
+* registries/eventGridFilters
+* registries/replications
+* registries/tasks
+* registries/webhooks
+
+## Microsoft.DBforMariaDB
+
+* servers
+
+## Microsoft.DBforMySQL
+
+* servers
+
+## Microsoft.DBforPostgreSQL
+
+* serverGroups
+* servers
+* serversv2
+
+## Microsoft.EnterpriseKnowledgeGraph
+
+* services
+
+## Microsoft.GuestConfiguration
+
+* guestConfigurationAssignments
+* software
+* softwareUpdateProfile
+* softwareUpdates
+
+## Microsoft.Logic
+
+* integrationAccounts
+* workflows
+
+## Microsoft.Network
+
+* applicationGatewayWebApplicationFirewallPolicies
+* applicationSecurityGroups
+* bastionHosts
+* ddosProtectionPlans
+* dnszones
+* dnszones/A
+* dnszones/AAAA
+* dnszones/CAA
+* dnszones/CNAME
+* dnszones/MX
+* dnszones/NS
+* dnszones/PTR
+* dnszones/SOA
+* dnszones/SRV
+* dnszones/TXT
+* dnszones/all
+* dnszones/recordsets
+* networkIntentPolicies
+* networkInterfaces
+* privateDnsZones
+* privateDnsZones/A
+* privateDnsZones/AAAA
+* privateDnsZones/CNAME
+* privateDnsZones/MX
+* privateDnsZones/PTR
+* privateDnsZones/SOA
+* privateDnsZones/SRV
+* privateDnsZones/TXT
+* privateDnsZones/all
+* privateDnsZones/virtualNetworkLinks
+* privateEndpoints
+* privateLinkServices
+* publicIPAddresses - Register feature Microsoft.Resources/ARMDisableResourcesPerRGLimit
+* serviceEndpointPolicies
+* trafficmanagerprofiles
+* virtualNetworkTaps
+
+## Microsoft.PortalSdk
+
+* rootResources
+
+## Microsoft.PowerBI
+
+* workspaceCollections - Register feature Microsoft.PowerBI/UnlimitedQuota
+
+## Microsoft.Scheduler
+
+* jobcollections
+
+## Microsoft.Storage
+
+* storageAccounts
+
+## Microsoft.Web
+
+* apiManagementAccounts/apis
+* sites
 
 ## Next steps
 
