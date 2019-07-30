@@ -116,6 +116,24 @@ The JSON syntax for the earlier example is:
       }
     }
 
+## Manipulation using ARM Template
+
+In the Properties section of your App Service ARM Template use the following Syntax to add IPv4 Addresses:
+
+```
+"properties": {
+    "ipSecurityRestrictions": [
+        {
+            "ipAddress": "100.10.101.0",
+            "subnetMask": "255.255.255.0"
+        },
+        {
+            "ipAddress": "100.10.100.0",
+            "subnetMask": "255.255.255.0"
+        }
+    ]
+}
+```
 ## Function App IP Restrictions
 
 IP restrictions are available for both Function Apps with the same functionality as App Service plans. Enabling IP restrictions will disable the portal code editor for any disallowed IPs.
