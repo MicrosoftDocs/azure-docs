@@ -134,9 +134,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	1. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **ID Provider Certificate** textbox
 
-	1. Select **Administrators log into Druva Cloud through SSO provider** checkbox.
-
-	1. Druva recommends to enable **Failsafe for Administrators** so that they have to access the DCP console in case of any failures in IdP. It also enables the administrators to use both SSO and DCP password to access the DCP console.
+	   > [!NOTE]
+	   > To Enable Single Sign-On for administrators, Select **Administrators log into Druva Cloud through SSO provider** and **Allow failsafe access to Druva Cloud administrators(recommended)** checkboxes. Druva recommends to enable **Failsafe for Administrators** so that they have to access the DCP console in case of any failures in IdP. It also enables the administrators to use both SSO and DCP password to access the DCP console.
 
 	1. Click **Save**. This enables the access to Druva Cloud Platform using SSO.
 
