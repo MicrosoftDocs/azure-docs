@@ -10,7 +10,7 @@ ms.date: 04/26/2018
 ms.author: menchi
 ---
 
-# Get started with IoT Hub module identity and module twin (C#)
+# Get started with IoT Hub module identity and module twin (.NET)
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
