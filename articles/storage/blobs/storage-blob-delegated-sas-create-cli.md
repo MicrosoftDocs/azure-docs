@@ -1,5 +1,5 @@
 ---
-title: Create a shared access signature (SAS) using Azure Active Directory credentials with Azure CLI - Azure Storage
+title: Create a shared access signature (SAS) using Azure Active Directory credentials with Azure CLI (preview) - Azure Storage
 description: Learn how to create a shared access signature (SAS) using Azure Active Directory credentials in Azure Storage using Azure CLI.
 services: storage
 author: tamram
@@ -12,21 +12,19 @@ ms.reviewer: cbrooks
 ms.subservice: blobs
 ---
 
-# Create a shared access signature (SAS) for a container or blob using Azure Active Directory credentials with Azure CLI
+# Create a shared access signature (SAS) for a container or blob using Azure Active Directory credentials with Azure CLI (preview)
 
-A shared access signature (SAS) enables you to grant limited access to containers and blobs in your storage account. When you create a SAS, you specify its constraints, including which object or objects a client is allowed to access, what permissions they have on those objects, and how long the SAS is valid. This article shows how to use Azure Active Directory (Azure AD) credentials to create a SAS for a container or blob with Azure CLI.
+A shared access signature (SAS) enables you to grant limited access to containers and blobs in your storage account. When you create a SAS, you specify its constraints, including which object or objects a client is allowed to access, what permissions they have on those objects, and how long the SAS is valid. This article shows how to use Azure Active Directory (Azure AD) credentials to create a SAS for a container or blob with Azure CLI (preview).
+
+To use the Azure CLI to secure a SAS with Azure AD credentials, first make sure that you have installed the latest version of Azure CLI. For more information about installing the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
-
-## Use Azure AD credentials to secure a SAS
-
-When you create a user delegation SAS using your Azure AD credentials, the signature is derived from an OAuth 2.0 token. You can acquire the OAuth 2.0 token in one of the following ways:
 
 ## Get a user delegation SAS for a container
 
 To create a user delegation SAS for a container with Azure CLI, call the [az storage container generate-sas](/cli/azure/storage/container#az-storage-container-generate-sas) command. Specify *login* for the `--auth-mode` parameter so that requests made to Azure Storage are authorized with your Azure AD credentials. Specify the `--as-user` parameter to indicate that the SAS returned should be a user delegation SAS. Finally, specify an expiry value for the user delegation SAS that is within 7 days of the current time.
 
-Supported permissions for a user delegation SAS on a container include Add, Create, Delete, List, Read, and Write. Permissions can be combined. For more information about these permissions, see ???.
+Supported permissions for a user delegation SAS on a container include Add, Create, Delete, List, Read, and Write. Permissions can be combined. For more information about these permissions, see [Create a user delegation SAS](/rest/api/storageservices/create-a-user-delegation-sas).
 
 The following example returns a user delegation SAS token for a container. The **az storage container generate-sas** command returns the SAS token, which you can then append to the container resource URI. Remember to replace the placeholder values in brackets with your own values:
 
@@ -48,7 +46,7 @@ The user delegation SAS token returned is similar to the token shown in followin
 
 To create a user delegation SAS for a blob with Azure CLI, call the [az storage blob generate-sas](/cli/azure/storage/blob#az-storage-blob-generate-sas) command. Specify *login* for the `--auth-mode` parameter so that requests made to Azure Storage are authorized with your Azure AD credentials. Specify the `--as-user` parameter to indicate that the SAS returned should be a user delegation SAS. Finally, specify an expiry value for the user delegation SAS that is within 7 days of the current time.
 
-Supported permissions for a user delegation SAS on a blob include Add, Create, Delete, Read, and Write. For more information about these permissions, see ???.
+Supported permissions for a user delegation SAS on a blob include Add, Create, Delete, Read, and Write. For more information about these permissions, see [Create a user delegation SAS](/rest/api/storageservices/create-a-user-delegation-sas).
 
 The following example returns a user delegation SAS token for a blob. The **az storage blob generate-sas** command returns the SAS token, which you can then append to the blob resource URI. Remember to replace the placeholder values in brackets with your own values:
 
