@@ -156,7 +156,7 @@ In this section, you enter information about the resources that you created in [
 
 Before you can enable replication, you must create a replication policy.
 
-1. Select **Replicate and Associate**.
+1. Select **Create and Associate**.
 2. In **Name**, enter **myReplicationPolicy**.
 3. Leave the rest of the default settings, and then select **OK** to create the policy. The new policy is automatically associated with the configuration server.
 
