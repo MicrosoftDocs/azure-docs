@@ -136,17 +136,17 @@ You can also obtain the path and pin location information by using the [Data Upl
 
 5. Copy your status URI and append the subscription-key parameter to it with its value being your Azure Maps account subscription key that you used to upload the data. The status URI format should look like the one below:
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 6. To get the, udId open a new tab in the Postman app and select GET HTTP method on the builder tab and make a GET request at the status URI. If your data upload was successful, you will receive a udId in the response body. Copy the udId.
 
-  ```JSON
-  {
-     "udid" : "{udId}"
-  }
-  ```
+   ```JSON
+   {
+      "udid" : "{udId}"
+   }
+   ```
 
 7. Use the `udId` value received from the Data Upload API to render features on the map. To do this, open a new tab in the collection you created in the preceding section. Select the GET HTTP method on the builder tab and enter this URL to make a GET request:
 
