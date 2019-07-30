@@ -58,6 +58,8 @@
         href: ./apache-spark-troubleshoot-outofmemory-heap.md
       - name: Java heap space
         href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+      - name: Livy Server fails to start
+        href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
     - name: Apache Spark job fails - NoClassDefFoundError
       href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
     - name: Slow Apache Spark jobs - storage container
@@ -70,6 +72,8 @@
       href: ./apache-spark-troubleshoot-rpctimeoutexception.md
     - name: Blocking Cross Origin API
       href: ./apache-spark-troubleshoot-blocking-cross-origin.md
+    - name: Kryo serialization failed
+      href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
 - name: How to
   items:
   - name: Use cluster storage
