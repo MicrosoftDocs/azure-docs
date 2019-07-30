@@ -4,8 +4,7 @@ description: Create a knowledge store using the Import data wizard in Azure port
 
 author: heidisteen
 services: search
-ms.service: azure-search
-ms.subservice: cognitive-search
+ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
