@@ -29,7 +29,7 @@ The following image shows the available analytics for each Bing Search API endpo
 
 ## Accessing your analytics
 
-Bing updates analytics data every 24 hours and maintains up to 13 month's worth of history that you can access from the [analytics dashboard](https://bingapistatistics.com). Make sure you're signed in using the same Microsoft account (MSA) you used to sign up for Bing Statistics.
+Bing updates analytics data every 24 hours and maintains up to 13 months' worth of history that you can access from the [analytics dashboard](https://bingapistatistics.com). Make sure you're signed in using the same Microsoft account (MSA) you used to sign up for Bing Statistics.
 
 > [!NOTE]  
 > * It may take up to 24 hours for metrics to surface on the dashboard. The dashboard shows the date and time the data was last updated.  
@@ -46,7 +46,7 @@ By default, the charts and graphs display all metrics and data that you have acc
 - **Endpoints**: The Bing Search API endpoints. The list contains all endpoints for which you have a paid subscription. By default, all endpoints are selected.  
 
 - **Time Frame**: The reporting period. You can specify:
-  - All&mdash;Includes up to 13 month's worth of data  
+  - All&mdash;Includes up to 13 months' worth of data  
   - Past 24 hours&mdash;Includes analytics from the last 24 hours  
   - Past week&mdash;Includes analytics from the previous seven days  
   - Past month&mdash;Includes analytics from the previous 30 days  
