@@ -226,7 +226,7 @@ In addition to these operations, the solution back end can:
 
 The device app operates on the device twin using the following atomic operations:
 
-* **Retrieve device twin**. This operation returns the device twin document (including tags and desired and reported system properties) for the currently connected device.
+* **Retrieve device twin**. This operation returns the device twin document (including desired and reported system properties) for the currently connected device. (Tags are not visible to device apps.)
 
 * **Partially update reported properties**. This operation enables the partial update of the reported properties of the currently connected device. This operation uses the same JSON update format that the solution back end uses for a partial update of desired properties.
 
