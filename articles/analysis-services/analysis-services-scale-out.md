@@ -68,13 +68,15 @@ To learn more, see [Monitor server metrics](analysis-services-monitor.md).
 
 ### In Azure portal
 
-1. In the portal, click **Scale-out**. Use the slider to select the number of query replica servers. The number of replicas you choose is in addition to your existing server.
+1. In the portal, click **Scale-out**. Use the slider to select the number of query replica servers. The number of replicas you choose is in addition to your existing server.  
 
 2. In **Separate the processing server from the querying pool**, select yes to exclude your processing server from query servers. Client [connections](#connections) using the default connection string (without `:rw`) are redirected to replicas in the query pool. 
 
    ![Scale-out slider](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
 3. Click **Save** to provision your new query replica servers. 
+
+The same pricing tier applies to all replicas of the server.
 
 When configuring scale-out for a server the first time, models on your primary server are automatically synchronized with replicas in the query pool. Automatic synchronization only occurs once, when you first configure scale-out to one or more replicas. Subsequent changes to the number of replicas on the same server *will not trigger another automatic synchronization*. Automatic synchronization will not occur again even if you set the server to zero replicas and then again scale-out to any number of replicas. 
 
