@@ -27,9 +27,9 @@ The usual cause of this issue is that a proxy has not yet been registered. If a 
 
 ## The DC agent is not able to communicate with a proxy
 
-The main symptom of this problem is 30018 events in the DC agent Admin event log. This may have several possible causes:
+The main symptom of this problem is 30018 events in the DC agent Admin event log. This problem may have several possible causes:
 
-1. The DC agent is located in an isolated portion of the network that does not allow network connectivity to the registered proxy(s). This problem may therefore be expected\benign as long as other DC agents can communicate with the proxy(s) in order to download password policies from Azure, which will then be obtained by the isolated DC via replication of the policy files in the sysvol share.
+1. The DC agent is located in an isolated portion of the network that does not allow network connectivity to the registered proxy(s). This problem may therefore be benign as long as other DC agents can communicate with the proxy(s) in order to download password policies from Azure, which will then be obtained by the isolated DC via replication of the policy files in the sysvol share.
 
 1. The proxy host machine is blocking access to the RPC endpoint mapper endpoint (port 135)
 
@@ -45,9 +45,9 @@ The main symptom of this problem is 30018 events in the DC agent Admin event log
 
 1. Ensure that the forest and all proxy servers are registered against the same Azure tenant.
 
-   You can check this by running the  `Get-AzureADPasswordProtectionProxy` and `Get-AzureADPasswordProtectionDCAgent` PowerShell cmdlets, then compare the `AzureTenant` property of each returned item. For correct operation these must be the same within a forest, across all DC agents and proxy servers.
+   You can check this requirement by running the  `Get-AzureADPasswordProtectionProxy` and `Get-AzureADPasswordProtectionDCAgent` PowerShell cmdlets, then compare the `AzureTenant` property of each returned item. For correct operation the reported tenant name must be the same across all DC agents and proxy servers.
 
-   If an Azure tenant registration mismatch condition does exist, this can be repaired by running the `Register-AzureADPasswordProtectionProxy` and/or `Register-AzureADPasswordProtectionForest` PowerShell cmdlets as needed, making sure to use credentials from the same Azure tenant for all registrations.
+   If an Azure tenant registration mismatch condition does exist, this problem can be fixed by running the `Register-AzureADPasswordProtectionProxy` and/or `Register-AzureADPasswordProtectionForest` PowerShell cmdlets as needed, making sure to use credentials from the same Azure tenant for all registrations.
 
 ## The DC agent is unable to encrypt or decrypt password policy files and other state
 
@@ -59,7 +59,7 @@ By default the KDS service's service start mode is configured as Manual (Trigger
 
 If the KDS service start mode has been configured to Disabled, this configuration must be fixed before Azure AD Password Protection will work properly.
 
-A simple test for this issue is to manually start the KDS service, either via the Service management MMC console, or using other service management tools (for example, run "net start kdssvc" from a command prompt console). The KDS service is expected to start successfully and stay running.
+A simple test for this issue is to manually start the KDS service, either via the Service management MMC console, or using other management tools (for example, run "net start kdssvc" from a command prompt console). The KDS service is expected to start successfully and stay running.
 
 The most common root cause for the KDS service being unable to start is that the Active Directory domain controller object is located outside of the default Domain Controllers OU. This configuration is not supported by the KDS service and is not a limitation imposed by Azure AD Password Protection. The fix for this condition is to move the domain controller object to a location under the default Domain Controllers OU.
 
@@ -83,7 +83,7 @@ This problem may have several causes.
 
 ## Ntdsutil.exe fails to set a weak Directory Services Repair Mode password
 
-Active Directory will always validate a new DSRM password to make sure it meets the domain's password complexity requirements; this validation also calls into password filter dlls like Azure AD Password Protection. If the new DSRM password is rejected, ntdsutil.exe reports the following:
+Active Directory will always validate a new DSRM password to make sure it meets the domain's password complexity requirements; this validation also calls into password filter dlls like Azure AD Password Protection. If the new DSRM password is rejected, the following error message results:
 
 ```text
 C:\>ntdsutil.exe
@@ -96,11 +96,11 @@ Setting password failed.
         Error Message: Password doesn't meet the requirements of the filter dll's
 ```
 
-Note that when Azure AD Password Protection logs the password validation event log event(s) for an Active Directory DSRM password, it is expected that the event log messages will not include a user name. This is because the DSRM account is a local utility account that is not part of the actual Active Directory domain.  
+When Azure AD Password Protection logs the password validation event log event(s) for an Active Directory DSRM password, it is expected that the event log messages will not include a user name. This happens because the DSRM account is a local account that is not part of the actual Active Directory domain.  
 
 ## Domain controller replica promotion fails because of a weak Directory Services Repair Mode password
 
-During the DC promotion process, the new DSRM password will be submitted to an existing DC in the domain for validation. If the new DSRM password is rejected, this may fail as follows:
+During the DC promotion process, the new DSRM password will be submitted to an existing DC in the domain for validation. If the new DSRM password is rejected, the following error message results:
 
 ```powershell
 Install-ADDSDomainController : Verification of prerequisites for Domain Controller promotion failed. The Directory Services Restore Mode password does not meet a requirement of the password filter(s). Supply a suitable password.
