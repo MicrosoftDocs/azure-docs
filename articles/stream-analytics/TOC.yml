@@ -7,6 +7,7 @@
   - name: End-to-end solution patterns
     href: stream-analytics-solution-patterns.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create a job - Azure portal
     href: stream-analytics-quick-create-portal.md
@@ -94,10 +95,12 @@
       href: stream-analytics-clean-up-your-job.md
     - name: Pair jobs for reliability
       href: stream-analytics-job-reliability.md
-    - name: Authenticate with managed identity
+    - name: Authenticate with managed identity - ADLS Gen 1 output
       href: stream-analytics-managed-identities-adls.md
     - name: Use SQL reference data
       href: sql-reference-data.md
+    - name: Authenticate with managed identity - Blob output
+      href: blob-output-managed-identity.md
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis
@@ -118,6 +121,9 @@
       href: stream-analytics-threshold-based-rules.md
     - name: Process Kafka events
       href: ../event-hubs/event-hubs-kafka-stream-analytics.md
+      maintainContext: true
+    - name: Process Event Hubs data 
+      href: ../event-hubs/process-data-azure-stream-analytics.md
       maintainContext: true
     - name: Geospatial scenarios
       href: geospatial-scenarios.md
@@ -143,6 +149,8 @@
         href: stream-analytics-scale-jobs.md
     - name: Scale with ML functions
       href: stream-analytics-scale-with-machine-learning-functions.md
+    - name: Scale with repartitioning
+      href: repartition.md
   - name: Automate
     items:
     - name: Using .NET SDK

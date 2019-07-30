@@ -99,7 +99,7 @@ Steps for enabling modern authentication can be found in the following articles:
 
 ## Enable the baseline policy
 
-The policy **Baseline policy: Block legacy authentication (preview)** comes pre-configured and will show up at the top when you navigate to the Conditional Access blade in Azure portal.
+The policy **Baseline policy: Block legacy authentication (preview)** comes pre-configured and will show up at the top when you navigate to the Conditional Access blade in Azure portal. This setting only takes effect after a successful login, so users will still have the option to attempt using legacy authentication.
 
 To enable this policy and protect your organization:
 
@@ -114,5 +114,5 @@ To enable this policy and protect your organization:
 For more information, see:
 
 * [Conditional Access baseline protection policies](concept-baseline-protection.md)
-* [Five steps to securing your identity infrastructure](../../security/azure-ad-secure-steps.md)
+* [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md)
 * [What is Conditional Access in Azure Active Directory?](overview.md)

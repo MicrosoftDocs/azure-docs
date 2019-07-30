@@ -1,7 +1,7 @@
 ---
 title: Back up Windows system state to Azure
 description: Learn to back up the system state of Windows Server and/or Windows computers to Azure.
-services: backup
+
 author: saurabhsensharma
 manager: shivamg
 keywords: how to backup; how to back up; backup files and folders

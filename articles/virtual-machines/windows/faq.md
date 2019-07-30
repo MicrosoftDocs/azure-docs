@@ -4,7 +4,7 @@ description: Provides answers to some of the common questions about Windows virt
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-management
 

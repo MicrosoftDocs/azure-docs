@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
-ms.author: jonbeck;amverma
-
+ms.author: amverma
+ms.reviewer: jonbeck
 ---
 
 # High performance compute VM sizes

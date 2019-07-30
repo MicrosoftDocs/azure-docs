@@ -20,9 +20,11 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 # Disable user sign-ins for an enterprise app in Azure Active Directory
+
 It's easy to disable an enterprise application so no users can sign in to it in Azure Active Directory (Azure AD). You need the appropriate permissions to manage the enterprise app. And, you must be global admin for the directory.
 
 ## How do I disable user sign-ins?
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 1. Select **All services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
 1. On the **Azure Active Directory** -  ***directoryname*** pane (that is, the Azure AD pane for the directory you're managing), select **Enterprise applications**.
@@ -32,6 +34,7 @@ It's easy to disable an enterprise application so no users can sign in to it in 
 1. Select the **Save** command.
 
 ## Next steps
+
 * [See all my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)
 * [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)

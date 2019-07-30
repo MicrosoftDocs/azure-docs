@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/15/2019
-ms.author: v-gedod
+ms.author: aahi
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search SDK for C#

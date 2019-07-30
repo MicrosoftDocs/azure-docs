@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2019
+ms.date: 07/09/2019
 ms.author: chackdan
 
 ---
@@ -156,7 +156,7 @@ Since the capacity needs of a cluster is determined by workload you plan to run 
 For production workloads: 
 
 - It's recommended to dedicate your clusters primary NodeType to system services, and use placement constraints to deploy your application to secondary NodeTypes.
-- The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent with a minimum of 50 GB of local SSD.
+- The recommended VM SKU is Standard D2_V2 or equivalent with a minimum of 50 GB of local SSD.
 - The minimum supported use VM SKU is Standard_D2_V3 or Standard D1_V2 or equivalent with a minimum of 50 GB of local SSD. 
 - Our recommendation is a minimum of 50 GB. For your workloads, especially when running Windows containers, larger disks are required. 
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
@@ -178,7 +178,7 @@ So for production workloads, the minimum recommended non-Primary Node type size 
 
 For production workloads 
 
-- The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent with a minimum of 50 GB of local SSD.
+- The recommended VM SKU is Standard D2_V2 or equivalent with a minimum of 50 GB of local SSD.
 - The minimum supported use VM SKU is Standard_D2_V3 or Standard D1_V2 or equivalent with a minimum of 50 GB of local SSD. 
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
 - A series VM SKUs are not supported for production workloads for performance reasons.
@@ -193,7 +193,7 @@ This guidance of stateless Workloads that you are running on the non-primary nod
 
 For production workloads 
 
-- The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent. 
+- The recommended VM SKU is Standard D2_V2 or equivalent. 
 - The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent. 
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
 - A series VM SKUs are not supported for production workloads for performance reasons.

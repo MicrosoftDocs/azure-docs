@@ -33,6 +33,12 @@
   items:
   - name: Python SDK
     items:
+    - name: Create first ML experiment
+      items:
+      - name: 1. Setup workspace & dev environment
+        href: tutorial-1st-experiment-sdk-setup.md
+      - name: 2. Train your first model
+        href: tutorial-1st-experiment-sdk-train.md
     - name: Image classification (MNIST data)
       items:
       - name: 1. Train a model
@@ -56,6 +62,11 @@
     - name: Deploy regression model
       displayName: experiment drag-and-drop visual interface Tutorial 2
       href: ui-tutorial-automobile-price-deploy.md
+  - name: Automated machine learning
+    items:
+    - name: Classification (Bank data)
+      displayName: automl, automated, auto ml, portal, ui
+      href: tutorial-first-experiment-automated-ml.md
 - name: Samples
   items:
   - name: Notebooks
@@ -141,10 +152,10 @@
       href: how-to-configure-environment.md
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
-      href: how-to-enable-logging.md 
+      href: how-to-enable-logging.md
     - name: Set input & output directories
       displayName: large data, write, experiment files, size limit
-      href: how-to-save-write-experiment-files.md 
+      href: how-to-save-write-experiment-files.md
     - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       href: how-to-vscode-tools.md
@@ -178,7 +189,7 @@
     - name: Create estimators in training
       href: how-to-train-ml-models.md
     - name: Use Scikit-learn
-      href: how-to-train-scikit-learn.md  
+      href: how-to-train-scikit-learn.md
     - name: Use TensorFlow
       href: how-to-train-tensorflow.md
     - name: Use Keras
@@ -202,7 +213,7 @@
       href: how-to-use-mlflow.md
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics
-      href: how-to-monitor-tensorboard.md      
+      href: how-to-monitor-tensorboard.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
@@ -217,25 +228,32 @@
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
-    - name: View accuracy metrics
-      href: how-to-understand-accuracy-metrics.md  
+    - name: Understand charts and metrics
+      href: how-to-understand-automated-ml.md  
   - name: Deploy & serve models
     items:
     - name: Where and how to deploy
-      displayName: publish azure kubernetes azure container instances
+      displayName: publish web service
       href: how-to-deploy-and-where.md
-    - name: GPUs
+    - name: Azure Container Instances
+      href: how-to-deploy-azure-container-instance.md
+    - name: Azure Kubernetes Service
+      href: how-to-deploy-azure-kubernetes-service.md
+    - name: GPU inference
       href: how-to-deploy-inferencing-gpus.md
-    - name: FPGAs
+    - name: FPGAs inference
       href: how-to-deploy-fpga-web-service.md
     - name: IoT Edge
       href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: Azure App Service
+      displayName: web app
+      href: how-to-deploy-app-service.md
     - name: Custom Docker image
       href: how-to-deploy-custom-docker-image.md
     - name: Deploy existing models
       displayName: publish existing model
       href: how-to-deploy-existing-model.md
-    - name: Troubleshoot
+    - name: Troubleshoot & Debug
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
     items:
@@ -245,7 +263,7 @@
     - name: Run batch predictions
       displayName: score scoring asynchronous consume pipeline
       href: how-to-run-batch-predictions.md
-  - name: Monitor web services
+  - name: Monitor models
     items:
     - name: Collect & evaluate model data
       displayName: track production
@@ -258,7 +276,7 @@
     displayName: pipelines
     items:
     - name: Create an ML pipeline
-      href: how-to-create-your-first-pipeline.md  
+      href: how-to-create-your-first-pipeline.md
     - name: 'CI/CD of ML workflows with Azure Pipelines'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
@@ -273,9 +291,6 @@
   - name: Machine learning SDK
     displayName: api core package python data prep
     href: https://aka.ms/aml-sdk
-  - name: Monitoring SDK
-    displayName: api package python monitor
-    href: https://aka.ms/aml-monitoring-sdk
   - name: Machine Learning CLI
     displayName: cli, extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
@@ -319,10 +334,10 @@
       - name: Partition and Sample
         href: ../algorithm-module-reference/partition-and-sample.md
     - name: Machine learning
-      items:  
+      items:
       - name: Score Model
         href: ../algorithm-module-reference/score-model.md
-      - name: Assign Data To Clusters 
+      - name: Assign Data To Clusters
         href: ../algorithm-module-reference/assign-data-to-clusters.md
       - name: Train Model
         href: ../algorithm-module-reference/train-model.md
@@ -361,7 +376,7 @@
       - name: K-Means Clustering
         href: ../algorithm-module-reference/k-means-clustering.md
     - name: Python and R language modules
-      items:  
+      items:
       - name: Execute Python Script
         href: ../algorithm-module-reference/execute-python-script.md
       - name: Create Python Model
