@@ -22,4 +22,8 @@ ms.author: cynthn
 
 ## Next steps
 
-You can deploy a dedicated host using the [Azure portal](dedicated-hosts-portal.md).
+- You can deploy a dedicated host using [Azure PowerShell](../windows/dedicated-hosts-powershell.md), the [portal](dedicated-hosts-portal.md) and [Azure CLI](dedicated-hosts-cli.md).
+
+- For more infomation, see the [Dedicated hosts](dedicated-hosts.md) overview.
+
+- There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.

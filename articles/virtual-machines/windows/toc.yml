@@ -148,11 +148,11 @@
   items:
   - name: Create VMs
     items:
-    - name: Deploy dedicated hosts
+    - name: Use dedicated hosts
       items:
-      - name: Deploy using PowerShell
+      - name: PowerShell
         href: dedicated-hosts-powershell.md
-      - name: Deploy using portal
+      - name: Portal
         href: dedicated-hosts-portal.md
     - name: Use C#
       href: csharp.md

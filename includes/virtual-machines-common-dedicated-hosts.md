@@ -22,7 +22,7 @@ Azure Dedicated Host is a service that provides physical servers - able to host 
 > - The preview initial release supports the following VM series: DSv3 and ESv3. 
 > - During the preview, you won't be able to resize a virtual machine deployed to a dedicated host.
 > - Control over maintenance capabilities is in a limited preview. Start by taking this [nomination survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u) to try them out.  
-
+> During the preview we won't be offering the option for reserved capacity. 
 
 ## Benefits 
 
@@ -81,12 +81,9 @@ The infrastructure supporting your virtual machines may occasionally be updated 
 >  Maintenance control is currently in a limited preview stage and requires an onboarding process. 
 > Apply for this preview by submitting a [nomination survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
 
-## Capacity considerations and reservations
+## Capacity considerations
 
 Once a dedicated host is provisioned, Azure assigns it to physical server. This guarantees the availability of the capacity when you need to provision your VM. Azure uses the entire capacity in the region (or zone) to pick a physical server for your host. It also means that customers can expect to be able to grow their dedicated host footprint without the concern of running out of space in the cluster.
-
-> [!NOTE]
-> During the preview we won't be offering the option for reserved capacity. 
 
 ## Pricing
 
@@ -106,10 +103,7 @@ Different `types` for the same VM series will be from different CPU vendors and 
 
 Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
-During the preview, we will support the following host SKU\types:
-
-- DSv3_Type1
-- ESv3_Type1
+During the preview, we will support the following host SKU\types:  DSv3_Type1 and ESv3_Type1
 
  
 ## Host life cycle

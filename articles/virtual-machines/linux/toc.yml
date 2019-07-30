@@ -162,11 +162,11 @@
       href: create-vm-rest-api.md
     - name: Copy or clone a VM
       href: copy-vm.md
-    - name: Deploy dedicated hosts
+    - name: Use dedicated hosts
       items:
-      - name: Deploy using CLI
+      - name: CLI
         href: dedicated-hosts-cli.md
-      - name: Deploy using portal
+      - name: Portal
         href: dedicated-hosts-portal.md
   - name: Secure VMs
     items:
