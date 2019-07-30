@@ -52,7 +52,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Templafy for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Templafy.
 
-1. Sign in to your [Templafy Admin Console](https://azureadapp.templafy.com/). Click on **Administration**.
+1. Sign in to your Templafy Admin Console. Click on **Administration**.
 
 	![Templafy Admin Console](media/templafy-provisioning-tutorial/image00.png)
 
