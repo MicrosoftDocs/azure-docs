@@ -242,7 +242,7 @@ You can create a location property as a device property that the device reports.
 
    !["Configure Device Properties" form with details for location](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Once the real device is connected, the location you added as a device property is updated with the value sent by the device. After you've configured your location property, you can [add a map to visualize the location in the device dashboard](#add-a-location-in-the-dashboard).
+Once the real device is connected, the location you added as a device property is updated with the value sent by the device. After you've configured your location property, you can [add a map to visualize the location in the device dashboard](#add-a-location-property-in-the-dashboard).
 
 ## Commands
 
