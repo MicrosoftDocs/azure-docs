@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type one of the following URL:
+    a. In the **Identifier** text box, type one of the following URLs:
 
     | | |
     |-|-|
@@ -90,7 +90,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://kamino.mysecuredatavault.com`|
     | | |
 
-    b. In the **Reply URL** text box, type one of the following URL:
+    b. In the **Reply URL** text box, type one of the following URLs:
+
     | | |
     |-|-|
     | `https://red-us.mysecuredatavault.com/AssertionConsumerService.aspx`|
@@ -101,7 +102,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, AssertionConsumerService.aspx:
+    In the **Sign-on URL** text box, type one of the following URLs:
+
     | | |
     |-|-|
     | `https://red-us.mysecuredatavault.com/`|
