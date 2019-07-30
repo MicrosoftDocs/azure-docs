@@ -90,9 +90,10 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 - Port 445 (TCP outbound) needs to be open in the security rules of the managed instance subnet to access the Azure file share. 
 - Port 1433 (TCP outbound) needs to be opened if the Publisher/Distributor are on a managed instance and the subscriber is on-premises.
 
-  >[!NOTE]
-  > - You may encounter error 53 when connecting to an Azure Storage File if the outbound network security group (NSG) port 445 is blocked when the distributor is an instance database and the subscriber is on-premises. [Update the vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) to resolve this issue. 
-  > - If the publisher and distributor databases on a managed instances use [auto failover-groups](sql-database-auto-failover-group.md), the managed instance administrator must [delete all publications on the old primary and reconfigure them on the new primary after a failover occurs](sql-database-managed-instance-transact-sql-information.md#replication).
+
+>[!NOTE]
+> - You may encounter error 53 when connecting to an Azure Storage File if the outbound network security group (NSG) port 445 is blocked when the distributor is an instance database and the subscriber is on-premises. [Update the vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) to resolve this issue. 
+> - If the publisher and distributor databases on a managed instances use [auto failover-groups](sql-database-auto-failover-group.md), the managed instance administrator must [delete all publications on the old primary and reconfigure them on the new primary after a failover occurs](sql-database-managed-instance-transact-sql-information.md#replication).
 
 ### Compare Data Sync with Transactional Replication
 
