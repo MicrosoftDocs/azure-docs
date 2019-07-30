@@ -15,9 +15,9 @@ ms.author: juliako
 
 # Embed Video Indexer widgets into your applications
 
-This article shows how you can embed Video Indexer widgets into your applications. Video Indexer supports embedding two types of widgets into your application: **Cognitive Insights** and **Player**. 
+This article shows how you can embed Video Indexer widgets into your applications. Video Indexer supports embedding three types of widgets into your application: **Cognitive Insights**, **Player**, and **Editor**. 
 
-Starting with version 2, the widget base URL includes the account's region. For example, an account in the West US region generates: `https://wus2.videoindexer.ai/embed/insights/...`.
+Starting with version 2, the widget base URL includes the region of the specified account. For example, an account in the West US region generates: `https://wus2.videoindexer.ai/embed/insights/...`.
 
 ## Widget types
 
@@ -50,7 +50,7 @@ The **Editor** widget enables you to create new projects and manage video's insi
 
 |Name|Definition|Description|
 |---|---|---|
-|`accessToken`<sup>*</sup>|String|If the `accessToken` value is present, the access is given to videos in other accounts. <br/>If there is no `accessToken`, the user is unable to edit or get any data about videos in other accounts.  |
+|`accessToken`<sup>*</sup>|String|The `accessToken` parameter is required when using the editor widget.<br/>The access token  provides access to videos that are only within the account that is used to embed the widget. |
 |`language`|A language code|Controls the player language (default is en-US)<br/>Example: `language=de-DE`.|
 |`locale`|A short language code|Controls the insights language. Default is `en`. For example: `language=de`.|
 
