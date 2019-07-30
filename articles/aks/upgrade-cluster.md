@@ -2,12 +2,12 @@
 title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Upgrade an Azure Kubernetes Service (AKS) cluster
@@ -19,6 +19,9 @@ For AKS clusters that use multiple node pools or Windows Server nodes (both curr
 ## Before you begin
 
 This article requires that you are running the Azure CLI version 2.0.65 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+> [!WARNING]
+> An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have a low compute quota available, the upgrade may fail.  See [increase quotas](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) for more information.
 
 ## Check for available AKS cluster upgrades
 

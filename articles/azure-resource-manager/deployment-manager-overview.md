@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 To deploy your service across many regions and make sure it's running as expected in each region, you can use Azure Deployment Manager to coordinate a staged rollout of the service. Just as you would for any Azure deployment, you define the resources for your service in [Resource Manager templates](resource-group-authoring-templates.md). After creating the templates, you use Deployment Manager to describe the topology for your service and how it should be rolled out.
 
-Deployment Manager is a feature of Resource Manager. It expands your capabilities during deployment. Use Deployment Manager when you have a complex service that needs to be deployed to several regions. By staging the rollout of your service, you can find potential problems before it has been deployed to all regions. If you don't need the extra precautions of a staged rollout, use the standard [deployment options](resource-group-template-deploy-portal.md) for Resource Manager. Deployment Manager seamlessly integrates with all existing third-party tools that support Resource Manager deployments, such as continuous integration and continuous delivery (CI/CD) offerings. 
+Deployment Manager is a feature of Resource Manager. It expands your capabilities during deployment. Use Deployment Manager when you have a complex service that needs to be deployed to several regions. By staging the rollout of your service, you can find potential problems before it has been deployed to all regions. If you don't need the extra precautions of a staged rollout, use the standard [deployment options](resource-group-template-deploy-portal.md) for Resource Manager. Deployment Manager seamlessly integrates with all existing third-party tools that support Resource Manager deployments, such as continuous integration and continuous delivery (CI/CD) offerings.
 
 Azure Deployment Manager is in preview. Help us improve the feature by providing [feedback](https://aka.ms/admfeedback).
 
@@ -26,7 +26,12 @@ To use Deployment Manager, you need to create four files:
 
 You deploy the topology template before deploying the rollout template.
 
-The Azure Deployment Manager REST API reference can be found [here](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Additional resources:
+
+- The [Azure Deployment Manager REST API reference](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
+- [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+- [An Azure Deployment Manager sample](https://github.com/Azure-Samples/adm-quickstart).
 
 ## Identity and access
 
@@ -186,7 +191,7 @@ In the rollout template, you create an artifact source for the binaries you need
 
 ### Steps
 
-You can define a step to perform either before or after your deployment operation. Currently, only the `wait` step and the 'healthCheck' step are available. 
+You can define a step to perform either before or after your deployment operation. Currently, only the `wait` step and the 'healthCheck' step are available.
 
 The wait step pauses the deployment before continuing. It allows you to verify that your service is running as expected before deploying the next service unit. The following example shows the general format of a wait step.
 
@@ -257,13 +262,13 @@ For more information, see [rollouts template reference](/azure/templates/Microso
 
 ## Parameter file
 
-You create two parameter files. One parameter file is used when deploying the service topology, and the other is used for the rollout deployment. There are some values that you need to make sure are the same in both parameter files.  
+You create two parameter files. One parameter file is used when deploying the service topology, and the other is used for the rollout deployment. There are some values that you need to make sure are the same in both parameter files.
 
 ## containerRoot variable
 
 With versioned deployments, the path to your artifacts changes with each new version. The first time you run a deployment the path might be `https://<base-uri-blob-container>/binaries/1.0.0.0`. The second time it might be `https://<base-uri-blob-container>/binaries/1.0.0.1`. Deployment Manager simplifies getting the correct root path for the current deployment by using the `$containerRoot` variable. This value changes with each version and isn't known before deployment.
 
-Use the `$containerRoot` variable in the parameter file for template to deploy the Azure resources. At deployment time, this variable is replaced with the actual values from the rollout. 
+Use the `$containerRoot` variable in the parameter file for template to deploy the Azure resources. At deployment time, this variable is replaced with the actual values from the rollout.
 
 For example, during rollout you create an artifact source for the binary artifacts.
 

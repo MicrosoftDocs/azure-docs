@@ -4,7 +4,7 @@ description: Scheduled events using the Azure Metadata service for on your Windo
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 

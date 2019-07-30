@@ -60,7 +60,7 @@ Use the following command to navigate to the new `MyFunctionProj` project folder
 cd MyFunctionProj
 ```
 
-## Reference bindings
+## Enable extension bundles
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 

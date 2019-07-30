@@ -4,7 +4,7 @@ description: High-availability architecture and scenarios for SAP NetWeaver on A
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''

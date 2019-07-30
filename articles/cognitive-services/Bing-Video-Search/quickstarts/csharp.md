@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Search for videos using the Bing Video Search REST API and C#"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using C#.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/19/2019
 ms.author: aahi
 ---
 

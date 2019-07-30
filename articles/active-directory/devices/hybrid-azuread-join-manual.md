@@ -138,7 +138,7 @@ The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
 * Uses the Active Directory PowerShell module and Azure Active Directory Domain Services (Azure AD DS) tools. These tools rely on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
 * Is only supported by the MSOnline PowerShell module version 1.1.166.0. To download this module, use [this link](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
-* If the Azure AD DS tools are not installed, `Initialize-ADSyncDomainJoinedComputerSync` will fail. You can install the Azure AD DS tools through Server Manager under **Features** > **Remote Server Administration Tools** > **Role Administration Tools**.
+* If the AD DS tools are not installed, `Initialize-ADSyncDomainJoinedComputerSync` will fail. You can install the AD DS tools through Server Manager under **Features** > **Remote Server Administration Tools** > **Role Administration Tools**.
 
 For domain controllers running Windows Server 2008 or earlier versions, use the following script to create the service connection point. In a multi-forest configuration, use the following script to create the service connection point in each forest where computers exist.
 

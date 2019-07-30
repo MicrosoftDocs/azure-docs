@@ -42,12 +42,12 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-If you intend to use interactive authentication, as seen above, you want to use the `.WithRedirectUri` modifier:
+If you intend to use interactive authentication or Device Code Flow, as seen above, you want to use the `.WithRedirectUri` modifier:
 
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .WithDefaultRedirectUri()
         .Build();
 ```
 
@@ -58,7 +58,7 @@ The following code instantiates a Public client application from a configuration
 ```CSharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
-        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .WithDefaultRedirectUri()
         .Build();
 ```
 
@@ -69,7 +69,7 @@ You can elaborate the application building by adding a number of modifiers. For 
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .WithDefaultRedirectUri()
         .WithAadAuthority(AzureCloudInstance.AzureUsGovernment,
                          AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
@@ -166,7 +166,7 @@ Now, to create your application, you'll just need to write the following code:
 ```CSharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
-           .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+           .WithDefaultRedirectUri()
            .Build();
 ```
 

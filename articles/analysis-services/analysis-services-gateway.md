@@ -14,7 +14,7 @@ The on-premises data gateway provides secure data transfer between on-premises d
 
 Getting setup with the gateway the first time is a four-part process:
 
-- **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (guest) accounts are not supported.
+- **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) Azure AD. Azure B2B (guest) accounts are not supported.
 
 - **Register your gateway** - In this step, you specify a name and recovery key for your gateway and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource can be registered in any region, but we recommend it be in the same region as your Analysis Services servers. 
 
@@ -60,7 +60,7 @@ The following are the fully qualified domain names used by the gateway.
 | *.powerbi.com |80 |HTTP used to download the installer. |
 | *.powerbi.com |443 |HTTPS |
 | *.analysis.windows.net |443 |HTTPS |
-| *.login.windows.net |443 |HTTPS |
+| *.login.windows.net, login.live.com, aadcdn.msauth.net |443 |HTTPS |
 | *.servicebus.windows.net |5671-5672 |Advanced Message Queuing Protocol (AMQP) |
 | *.servicebus.windows.net |443, 9350-9354 |Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) |
 | *.frontend.clouddatahub.net |443 |HTTPS |
@@ -68,7 +68,7 @@ The following are the fully qualified domain names used by the gateway.
 | login.microsoftonline.com |443 |HTTPS |
 | *.msftncsi.com |443 |Used to test internet connectivity if the gateway is unreachable by the Power BI service. |
 | *.microsoftonline-p.com |443 |Used for authentication depending on configuration. |
-
+| dc.services.visualstudio.com	|443 |Used by AppInsights to collect telemetry. |
 ### <a name="force-https"></a>Forcing HTTPS communication with Azure Service Bus
 You can force the gateway to communicate with Azure Service Bus by using HTTPS instead of direct TCP; however, doing so can greatly reduce performance. You can modify the *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* file by changing the value from `AutoDetect` to `Https`. This file is typically located at *C:\Program Files\On-premises data gateway*.
 
@@ -80,7 +80,7 @@ You can force the gateway to communicate with Azure Service Bus by using HTTPS i
 
 ## Tenant level administration 
 
-There is currently no single place where tenant administrators  can manage all the gateways that other users have installed and configured.  If you’re a tenant administrator, it's recommended you ask users in your organization to add you as an administrator to every gateway they install. This allows you to manage all the gateways in your organization through the Gateway Settings page or through [PowerShell commands](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+There is currently no single place where tenant administrators  can manage all the gateways that other users have installed and configured.  If you’re a tenant administrator, it's recommended you ask users in your organization to add you as an administrator to every gateway they install. This allows you to manage all the gateways in your organization through the Gateway Settings page or through [PowerShell commands](/data-integration/gateway/service-gateway-powershell-support). 
 
 
 ## <a name="faq"></a>Frequently asked questions

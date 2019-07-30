@@ -4,7 +4,7 @@ description: How to use cloud-init to run a bash script in a Linux VM during cre
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

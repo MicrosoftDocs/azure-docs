@@ -2,7 +2,6 @@
 title: Azure Resource Manager template structure and syntax | Microsoft Docs
 description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
 author: tfitzmac
-ms.assetid: 19694cb4-d9ed-499a-a2cc-bcfc4922d7f5
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/31/2019

@@ -48,7 +48,7 @@ The Resource Graph module for PowerShell is **Az.ResourceGraph**.
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Validate that the module has been imported and is the correct version (0.7.1):
+1. Validate that the module has been imported and is the correct version (0.7.3):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
@@ -99,11 +99,11 @@ still limited to the top five results.
 
 > [!NOTE]
 > If the query does not return results from a subscription you already have access to, then note that
-> `Search-AzGraph` cmdlet defaults to subscriptions in the default context. To see the list of subscription ids
+> `Search-AzGraph` cmdlet defaults to subscriptions in the default context. To see the list of subscription IDs
 > which are part of the default context run this `(Get-AzContext).Account.ExtendedProperties.Subscriptions`
 > If you wish to search across all the subscriptions you have access to, one can set the PSDefaultParameterValues for
-> `Search-AzGraph' cmdlet by running 
-> `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID }`
+> `Search-AzGraph` cmdlet by running 
+> `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## Clean up resources
 

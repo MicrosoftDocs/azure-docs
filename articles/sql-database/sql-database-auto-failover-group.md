@@ -10,23 +10,22 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
-ms.date: 05/06/2019
+ms.date: 07/18/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
 
-Auto-failover groups is a SQL Database feature that allows you to manage replication and failover of a group of databases on a SQL Database server or all databases in a managed instance to another region. It uses the same underlying technology as [active geo-replication](sql-database-active-geo-replication.md). You can initiate failover manually or you can delegate it to the SQL Database service based on a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
+Auto-failover groups is a SQL Database feature that allows you to manage replication and failover of a group of databases on a SQL Database server or all databases in a managed instance to another region. It is a declarative abstraction on top of the existing [active geo-replication](sql-database-active-geo-replication.md) feature, designed to simplify deployment and management of geo-replicated databases at scale. You can initiate failover manually or you can delegate it to the SQL Database service based on a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
 
 > [!NOTE]
-> When working with single or pooled databases on a SQL Database server and you want multiple secondaries in the same or different regions, use [active geo-replication](sql-database-active-geo-replication.md).
+> When working with single or pooled databases on a SQL Database server and you want multiple secondaries in the same or different regions, use [active geo-replication](sql-database-active-geo-replication.md). 
 
 When you are using auto-failover groups with automatic failover policy, any outage that impacts one or several of the databases in the group results in automatic failover. In addition, auto-failover groups provide read-write and read-only listener end-points that remain unchanged during failovers. Whether you use manual or automatic failover activation, failover switches all secondary databases in the group to primary. After the database failover is completed, the DNS record is automatically updated to redirect the endpoints to the new region. For the specific RPO and RTO data, see [Overview of Business Continuity](sql-database-business-continuity.md).
 
 When you are using auto-failover groups with automatic failover policy, any outage that impacts databases in the SQL Database server or managed instance results in automatic failover. You can manage auto-failover group using:
 
 - The [Azure portal](sql-database-implement-geo-distributed-database.md)
-- [PowerShell: Failover Group](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+- [PowerShell: Failover Group](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - [REST API: Failover group](https://docs.microsoft.com/rest/api/sql/failovergroups).
 
 After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
@@ -37,7 +36,10 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Failover group (FOG)**
 
-  A failover group is a group of databases managed by a single SQL Database server or within a single managed instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region. When created for managed instances, a failover group contains all user databases in the instance and therefore only one failover group can be configured on an instance.
+  A failover group is a named group of databases managed by a single SQL Database server or within a single managed instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region. When created for managed instances, a failover group contains all user databases in the instance and therefore only one failover group can be configured on an instance.
+  
+  > [!IMPORTANT]
+  > The name of the failover group must be globally unique within the `.database.windows.net` domain.
 
 - **SQL Database servers**
 
@@ -71,11 +73,11 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Failover group read-write listener**
 
-  A DNS CNAME record formed that points to the current primary's URL. It allows the read-write SQL applications to transparently reconnect to the primary database when the primary changes after failover. When the failover group is created on a SQL Database server, the DNS CNAME record for the listener URL is formed as `<fog-name>.database.windows.net`. When the failover group is created on a managed instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.database.windows.net`.
+  A DNS CNAME record that points to the current primary's URL. It is created automatically when the failover group is created and allows the read-write SQL workload to transparently reconnect to the primary database when the primary changes after failover. When the failover group is created on a SQL Database server, the DNS CNAME record for the listener URL is formed as `<fog-name>.database.windows.net`. When the failover group is created on a managed instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.database.windows.net`.
 
 - **Failover group read-only listener**
 
-  A DNS CNAME record formed that points to the read-only listener that points to the secondary's URL. It allows the read-only SQL applications to transparently connect to the secondary using the specified load-balancing rules. When the failover group is created on a SQL Database server, the DNS CNAME record for the listener URL is formed as `<fog-name>.secondary.database.windows.net`. When the failover group is created on a managed instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.secondary.database.windows.net`.
+  A DNS CNAME record formed that points to the read-only listener that points to the secondary's URL. It is created automatically when the failover group is created and allows the read-only SQL workload to transparently connect to the secondary using the specified load-balancing rules. When the failover group is created on a SQL Database server, the DNS CNAME record for the listener URL is formed as `<fog-name>.secondary.database.windows.net`. When the failover group is created on a managed instance, the DNS CNAME record for the listener URL is formed as `<fog-name>.zone_id.secondary.database.windows.net`.
 
 - **Automatic failover policy**
 
@@ -248,14 +250,14 @@ The above configuration will ensure that the automatic failover will not block c
 
 ## Enabling geo-replication between managed instances and their VNets
 
-When you set up a failover group between primary and secondary managed instances in two different regions, each instance is isolated using an independent VNet. To allow replication traffic between these VNets ensure these prerequisites are met:
+When you set up a failover group between primary and secondary managed instances in two different regions, each instance is isolated using an independent virtual network. To allow replication traffic between these VNets ensure these prerequisites are met:
 
 1. The two managed instances need to be in different Azure regions.
-2. Your secondary must be empty (no user databases).
-3. The primary and secondary managed instances need to be in the same Resource Group.
-4. The VNets that the managed instances are part of need to be connected through a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Global VNet Peering is not supported.
-5. The two managed instance VNets cannot have overlapping IP addresses.
-6. You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the other managed instanced subnet. This is to allow replication traffic between the instances
+1. The two managed instances need to be the same service tier, and have the same storage size. 
+1. Your secondary managed instance must be empty (no user databases).
+1. The virtual networks used by the the managed instances need to be connected through a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or Express Route. When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is not supported.
+1. The two managed instance VNets cannot have overlapping IP addresses.
+1. You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the other managed instanced subnet. This is to allow replication traffic between the instances
 
    > [!IMPORTANT]
    > Misconfigured NSG security rules leads to stuck database copy operations.
@@ -270,6 +272,9 @@ This sequence is recommended specifically to avoid the problem where the seconda
 
 > [!NOTE]
 > If you created secondary database as part of the failover group configuration it is not recommended to downgrade the secondary database. This is to ensure your data tier has sufficient capacity to process your regular workload after failover is activated.
+
+> [!IMPORTANT]
+> Upgrading or downgrading a Managed Instance which is a member of a failover group is currently not supported.
 
 ## Preventing the loss of critical data
 
@@ -299,7 +304,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 |  | |
 
 > [!IMPORTANT]
-> For a sample script, see [Configure and failover a failover group for a single database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md).
+> For a sample script, see [Configure and failover a failover group for a single database](scripts/sql-database-add-single-db-to-failover-group-powershell.md).
 >
 
 ### PowerShell: Managing failover groups with Managed Instances (preview)
@@ -358,9 +363,9 @@ As discussed previously, auto-failover groups and active geo-replication can als
 ## Next steps
 
 - For sample scripts, see:
-  - [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Configure and failover a failover group for a single database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+  - [Use PowerShell to configure active geo-replication for a single database in Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+  - [Use PowerShell to configure active geo-replication for a pooled database in Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [Use PowerShell to add an Azure SQL Database single database to a failover group](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 - To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).

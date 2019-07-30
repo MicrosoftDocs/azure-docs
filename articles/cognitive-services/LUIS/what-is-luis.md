@@ -1,5 +1,6 @@
 ---
-title: What is Language Understanding (LUIS) - Azure Cognitive Services | Microsoft Docs
+title: What is Language Understanding (LUIS)?
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) is a cloud-based API service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 services: cognitive-services
 author: diberry
@@ -7,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/23/2019
+ms.date: 06/11/2019
 ms.author: diberry
 #Customer intent: As a developer incorporating LUIS into my client application, I want to understand what natural language processing (LUIS) is, so that I can determine if it will meet my Cognitive Language needs.
 ---
@@ -97,7 +98,7 @@ LUIS provides tools, versioning, and collaboration with other LUIS authors to in
 LUIS, as a REST API, can be used with any product, service, or framework that makes an HTTP request. The following list contains the top Microsoft products and services used with LUIS.
 
 The top client application for LUIS is:
-* [Web app bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0) quickly creates a LUIS-enabled chat bot to talk with a user via text input. Uses [Bot Framework][bot-framework] version [3.x](https://github.com/Microsoft/BotBuilder) or [4.x](https://github.com/Microsoft/botbuilder-dotnet) for a complete bot experience.
+* [Web app bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) quickly creates a LUIS-enabled chat bot to talk with a user via text input. Uses [Bot Framework][bot-framework] version [4.x](https://github.com/Microsoft/botbuilder-dotnet) for a complete bot experience.
 
 Tools to quickly and easily use LUIS with a bot:
 * [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) The NPM package provides authoring and prediction with as either a stand-alone command line tool or as import. 

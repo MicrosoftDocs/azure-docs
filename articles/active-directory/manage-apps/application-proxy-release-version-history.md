@@ -13,7 +13,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
-ms.subservice: manage-apps
+ms.subservice: app-mgmt
 ms.author: mimart
 
 ms.collection: M365-identity-device-management

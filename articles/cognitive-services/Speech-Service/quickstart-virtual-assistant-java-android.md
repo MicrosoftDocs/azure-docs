@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Custom voice-first virtual assistant (Preview), Java (Android) - Speech Services'
+title: 'Quickstart: Custom voice-first virtual assistant (Preview), Java (Android) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to create a voice-first virtual assistant application in Java on Android using the Speech SDK
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 5/24/2019
+ms.date: 07/05/2019
 ms.author: travisw
 ---
 
@@ -25,15 +25,12 @@ This application is built with the Speech SDK Maven package and Android Studio 3
 
 ## Prerequisites
 
-* An Azure subscription key for Speech Services in the **westus2** region. Create this subscription on the [Azure portal](https://portal.azure.com).
+* An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com).
 * A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 * [Android Studio](https://developer.android.com/studio/) v3.3 or later
- 
-    > [!NOTE]
-    > Direct Line Speech (Preview) is currently only available in the **westus2** region.
 
     > [!NOTE]
-    > The 30-day trial for the standard pricing tier described in [Try Speech Services for free](get-started.md) is restricted to **westus** (not **westus2**) and is thus not compatible with Direct Line Speech. Free and standard tier **westus2** subscriptions are compatible.
+    > Direct Line Speech (Preview) is currently available in a subset of Speech Services regions. Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#Voice-first virtual assistants) and ensure your resources are deployed in one of those regions.
 
 ## Create and configure a project
 
@@ -121,8 +118,8 @@ The text and graphical representation of your UI should now look like this:
 
     import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
     import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
-    import com.microsoft.cognitiveservices.speech.dialog.BotConnectorConfig;
-    import com.microsoft.cognitiveservices.speech.dialog.SpeechBotConnector;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConfig;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConnector;
 
     import org.json.JSONException;
     import org.json.JSONObject;
@@ -134,10 +131,10 @@ The text and graphical representation of your UI should now look like this:
         private static String channelSecret = "YourChannelSecret";
         // Replace below with your own speech subscription key
         private static String speechSubscriptionKey = "YourSpeechSubscriptionKey";
-        // Replace below with your own speech service region (note: only 'westus2' is currently supported)
+        // Replace below with your own speech service region (note: only a subset of regions are currently supported)
         private static String serviceRegion = "YourSpeechServiceRegion";
 
-        private SpeechBotConnector botConnector;
+        private DialogServiceConnector connector;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -155,24 +152,24 @@ The text and graphical representation of your UI should now look like this:
         }
 
         public void onBotButtonClicked(View v) {
-            // Recreate the SpeechBotConnector on each button press, ensuring that the existing one is closed
-            if (botConnector != null) {
-                botConnector.close();
-                botConnector = null;
+            // Recreate the DialogServiceConnector on each button press, ensuring that the existing one is closed
+            if (connector != null) {
+                connector.close();
+                connector = null;
             }
 
-            // Create the SpeechBotConnector from the channel and speech subscription information
-            BotConnectorConfig config = BotConnectorConfig.fromSecretKey(channelSecret, speechSubscriptionKey, serviceRegion);
-            botConnector = new SpeechBotConnector(config, AudioConfig.fromDefaultMicrophoneInput());
+            // Create the DialogServiceConnector from the channel and speech subscription information
+            DialogServiceConfig config = DialogServiceConfig.fromBotSecret(channelSecret, speechSubscriptionKey, serviceRegion);
+            connector = new DialogServiceConnector(config, AudioConfig.fromDefaultMicrophoneInput());
 
             // Optional step: preemptively connect to reduce first interaction latency
-            botConnector.connectAsync();
+            connector.connectAsync();
 
-            // Register the SpeechBotConnector's event listeners
+            // Register the DialogServiceConnector's event listeners
             registerEventListeners();
 
             // Begin sending audio to your bot
-            botConnector.listenOnceAsync();
+            connector.listenOnceAsync();
         }
 
         private void registerEventListeners() {
@@ -180,32 +177,32 @@ The text and graphical representation of your UI should now look like this:
             TextView activityText = (TextView) this.findViewById(R.id.activityText); // 'activityText' is the ID of your text view
 
             // Recognizing will provide the intermediate recognized text while an audio stream is being processed
-            botConnector.recognizing.addEventListener((o, recoArgs) -> {
+            connector.recognizing.addEventListener((o, recoArgs) -> {
                 recoText.setText("  Recognizing: " + recoArgs.getResult().getText());
             });
 
             // Recognized will provide the final recognized text once audio capture is completed
-            botConnector.recognized.addEventListener((o, recoArgs) -> {
+            connector.recognized.addEventListener((o, recoArgs) -> {
                 recoText.setText("  Recognized: " + recoArgs.getResult().getText());
             });
 
             // SessionStarted will notify when audio begins flowing to the service for a turn
-            botConnector.sessionStarted.addEventListener((o, sessionArgs) -> {
+            connector.sessionStarted.addEventListener((o, sessionArgs) -> {
                 recoText.setText("Listening...");
             });
 
             // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-            botConnector.sessionStopped.addEventListener((o, sessionArgs) -> {
+            connector.sessionStopped.addEventListener((o, sessionArgs) -> {
             });
 
             // Canceled will be signaled when a turn is aborted or experiences an error condition
-            botConnector.canceled.addEventListener((o, canceledArgs) -> {
+            connector.canceled.addEventListener((o, canceledArgs) -> {
                 recoText.setText("Canceled (" + canceledArgs.getReason().toString() + ") error details: {}" + canceledArgs.getErrorDetails());
-                botConnector.disconnectAsync();
+                connector.disconnectAsync();
             });
 
             // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities.
-            botConnector.activityReceived.addEventListener((o, activityArgs) -> {
+            connector.activityReceived.addEventListener((o, activityArgs) -> {
                 try {
                     // Here we use JSONObject only to "pretty print" the condensed Activity JSON
                     String rawActivity = activityArgs.getActivity().serialize();
@@ -252,7 +249,7 @@ The text and graphical representation of your UI should now look like this:
 
    * The method `onBotButtonClicked` is, as noted earlier, the button click handler. A button press triggers a single interaction ("turn") with your bot.
 
-   * The `registerEventListeners` method demonstrates the events used by the SpeechBotConnector and basic handling of incoming activities.
+   * The `registerEventListeners` method demonstrates the events used by the `DialogServiceConnector` and basic handling of incoming activities.
 
 1. In the same file, replace the configuration strings to match your resources:
 
@@ -260,7 +257,7 @@ The text and graphical representation of your UI should now look like this:
 
     * Replace `YourSpeechSubscriptionKey` with your subscription key.
 
-    * Replace `YourServiceRegion` with the [region](regions.md) associated with your subscription (Note: only 'westus2' is currently supported).
+    * Replace `YourServiceRegion` with the [region](regions.md) associated with your subscription Only a subset of Speech Services regions are currently supported with Direct Line Speech. For more information, see [regions](regions.md#voice-first-virtual-assistants).
 
 ## Build and run the app
 
@@ -281,9 +278,11 @@ Once the application and its activity have launched, click the button to begin t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
-> [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## See also
 - [About voice-first virtual assistants](voice-first-virtual-assistants.md)
+- [Get a Speech Services subscription key for free](get-started.md)
 - [Custom wake words](speech-devices-sdk-create-kws.md)
+- [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)

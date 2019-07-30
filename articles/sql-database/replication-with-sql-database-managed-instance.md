@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
-manager: craigg
 ms.date: 02/07/2019
 ---
 # Configure replication in an Azure SQL Database managed instance database
@@ -168,7 +167,7 @@ EXEC sp_adddistpublisher
   @login = N'$(username)',
   @password = N'$(password)',
   @working_directory = N'$(file_storage)',
-  @storage_connection_string = N'$(file_storage_key)';
+  @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
 
 This script configures a local publisher on the managed instance, adds a linked server, and creates a set of jobs for the SQL Server Agent. 

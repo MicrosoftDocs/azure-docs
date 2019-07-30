@@ -36,7 +36,7 @@ The following services are used in this example.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
 
-+ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) and [Azure Search SDK](https://aka.ms/search-sdk-preview) can be used to call the preview REST API. There is no portal or .NET SDK support for customer-managed encryption at this time.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) and [Azure Search SDK](https://aka.ms/search-sdk-preview) can be used to call the preview REST API. There is no portal or .NET SDK support for customer-managed encryption at this time.
 
 ## 1 - Enable key recovery
 

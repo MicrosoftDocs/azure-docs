@@ -1,5 +1,6 @@
 ---
 title: Text Moderation - Content Moderator
+titleSuffix: Azure Cognitive Services
 description: Use text moderation for possible unwanted text, PII, and custom lists of terms.
 services: cognitive-services
 author: sanjeev3

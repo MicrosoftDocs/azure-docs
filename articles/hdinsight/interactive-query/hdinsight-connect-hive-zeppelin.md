@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Execute Apache Hive queries in Azure HDInsight - Apache Zeppelin'
-description: Learn how to use Apache Zeppelin to run Apache Hive queries.
+description: In this quickstart, you learn how to use Apache Zeppelin to run Apache Hive queries.
 keywords: hdinsight,hadoop,hive,interactive query,LLAP 
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -80,12 +80,3 @@ In this quickstart, you learned how to use Apache Zeppelin to run Apache Hive qu
 
 > [!div class="nextstepaction"]
 > [Connect to Azure HDInsight and run Apache Hive queries using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
-
-## See also
-
-* [Visualize Apache Hive data with Microsoft Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* [Visualize Interactive Query Apache Hive data with Power BI in Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Connect Excel to Apache Hadoop by using Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
-* [Use Azure HDInsight Tool for Visual Studio Code](../hdinsight-for-vscode.md).
-* [Upload Data to HDInsight](../hdinsight-upload-data.md).

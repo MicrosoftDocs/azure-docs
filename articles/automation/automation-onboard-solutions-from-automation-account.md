@@ -3,8 +3,8 @@ title: Learn how to onboard Update Management, Change Tracking, and Inventory so
 description: Learn how to onboard an Azure Virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
@@ -97,6 +97,8 @@ To enable the solution for all available machines, select **Enable on all availa
 ### All available and future machines
 
 To enable the solution for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved searches and Scope Configurations from the workspace. This action opens the solution to all Azure and non-Azure machines that are reporting to the workspace. When selected, this action disables the **Manage Machines** button permanently as there's no Scope Configuration left.
+
+You can add the Scope Configurations back by adding the initial saved searches back. For more information, see [Saved searches](#saved-searches).
 
 ### Selected machines
 

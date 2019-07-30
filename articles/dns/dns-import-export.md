@@ -6,6 +6,7 @@ author: vhorne
 ms.service: dns
 ms.date: 4/3/2019
 ms.author: victorh
+ms.topic: conceptual
 ---
 
 # Import and export a DNS zone file using the Azure CLI

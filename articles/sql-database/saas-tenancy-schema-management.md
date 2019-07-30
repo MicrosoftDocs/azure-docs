@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 09/19/2018
 ---
 # Manage schema in a SaaS application using the database-per-tenant pattern with Azure SQL Database

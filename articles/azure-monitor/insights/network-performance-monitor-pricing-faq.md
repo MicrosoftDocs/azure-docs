@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
-ms.author: ajaycode
+ms.author: agummadi
 ---
 
 # Pricing changes for Azure Network Performance Monitor

@@ -190,7 +190,7 @@ And then use your favorite method of making an HTTP POST to publish your events 
 
 ## Search lists of topics or subscriptions
 
-In order to make searching and managing of large numbers of topics or subscriptions, Event Grid's APIs support list an pagination.
+In order to make searching and managing of large numbers of topics or subscriptions, Event Grid's APIs support listing and pagination.
 
 ### Using CLI
 

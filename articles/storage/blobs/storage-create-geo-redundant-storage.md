@@ -79,8 +79,6 @@ Follow these steps to create a read-access geo-redundant storage account:
    | **Deployment model** | Resource Manager  | Resource Manager contains the latest features.|
    | **Account kind** | StorageV2 | For details on the types of accounts, see [types of storage accounts](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performance** | Standard | Standard is sufficient for the example scenario. |
-   | **Replication**| Read-access geo-redundant storage (RA-GRS) | This setting is necessary for the sample to work. |
-   |**Subscription** | your subscription |For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
    | **Replication**| Read-access geo-redundant storage (RA-GRS) | This is necessary for the sample to work. |
    |**Subscription** | your subscription |For details about your subscriptions, see [Subscriptions](https://account.azure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
@@ -357,7 +355,8 @@ The `retry_callback` event handler is called when the download of the image fail
 def retry_callback(retry_context):
     global retry_count
     retry_count = retry_context.count
-    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.write(
+        "\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
     sys.stdout.flush()
 
     # Check if we have more than n-retries in which case switch to secondary

@@ -8,8 +8,7 @@ ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
-ms.date: 02/08/2019
+ms.date: 07/29/2019
 ---
 # Tutorial: Design a relational database in a single database within Azure SQL Database using SSMS
 
@@ -25,6 +24,8 @@ Azure SQL database is a relational database-as-a-service (DBaaS) in the Microsof
 
 *If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
+> [!TIP]
+> The following Microsoft Learn module helps you learn for free how to [Develop and configure an ASP.NET application that queries an Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), including the creation of a simple database.
 > [!NOTE]
 > For the purpose of this tutorial, we are using a single database. You could also use a pooled database in an elastic pool or an instance database in a managed instance. For connectivity to a managed instance, see these managed instance quickstarts: [Quickstart: Configure Azure VM to connect to an Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) and [Quickstart: Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md).
 
@@ -221,10 +222,10 @@ The following diagram shows how these tables are related to each other. Some of 
 4. Execute the following commands to insert sample data into the tables replacing the values for *server*, *database*, *user*, and *password* with the values for your environment.
 
    ```cmd
-   bcp Course in SampleCourseData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 You have now loaded sample data into the tables you created earlier.

@@ -47,7 +47,7 @@
     - name: .NET
       href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
   - name: Use and display requirements
@@ -74,6 +74,7 @@
   - name: Language and region support
     href: language-support.md
   - name: Analytics for Bing Autosuggest API
-    href: bing-autosuggest-stats.md
+    maintainContext: true
+    href: ../bing-web-search/bing-web-stats.md
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

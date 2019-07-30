@@ -1,6 +1,6 @@
 ---
-title: Create a new app
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Create a new app - LUIS
+titleSuffix: Azure Cognitive Services
 description: Create and manage your applications on the Language Understanding (LUIS) webpage.
 services: cognitive-services
 author: diberry
@@ -60,7 +60,7 @@ You can create a new app with the authoring APIs in a couple of ways:
 
 Possible errors are: 
 
-* An app with that name already exists. Reimport the app, and set the **Optional Name** to a new name. 
+* An app with that name already exists. To fix this, reimport the app, and set the **Optional Name** to a new name. 
 
 ## Export app for backup
 

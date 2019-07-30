@@ -34,6 +34,8 @@
       href: virtual-machines-windows-sql-automated-backup-v2.md
   - name: Management
     items:
+    - name: With the Azure portal
+      href: virtual-machines-windows-sql-manage-portal.md
     - name: Extend support for SQL 2008 & R2
       href: virtual-machines-windows-sql-server-2008-eos-extend-support.md
     - name: Connect to a VM
@@ -56,8 +58,12 @@
       href: virtual-machines-windows-portal-sql-server-provision.md
     - name: Use Azure PowerShell
       href: virtual-machines-windows-ps-sql-create.md
+  - name: Register with the resource provider
+    href: virtual-machines-windows-sql-register-with-resource-provider.md
   - name: Change licensing model for SQL VM
     href: virtual-machines-windows-sql-ahb.md
+  - name: Change edition of SQL Server 
+    href: virtual-machines-windows-sql-change-edition.md
   - name: Migrate
     items:
     - name: Migrate a SQL Server database

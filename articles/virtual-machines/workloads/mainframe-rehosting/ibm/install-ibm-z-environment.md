@@ -4,8 +4,11 @@ description: Deploy IBM Z Development and Test Environment (zD&T) on Azure Virtu
 services: virtual-machines-linux
 documentationcenter:
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 04/02/2019
 tags:
 keywords:
 ---

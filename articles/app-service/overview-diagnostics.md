@@ -99,12 +99,12 @@ Like proactive CPU monitoring, proactive auto-healing offers an easy, proactive 
 
 ![Proactive auto-healing](./media/app-service-diagnostics/proactive-auto-healing-10.png)
 
-## Change analysis
+## Change analysis (only for Windows app)
 
-In a fast-paced development environment, sometimes it may be difficult to keep track of all the changes made to your app and let alone pinpoint on a change that caused an unhealthy behavior. Change analysis can help you narrow down on the changes made to your app to facilitate trouble-shooting experience. Change analysis is embedded in diagnostic report such as **Application Crashes** so you can use it concurrently with other metrics.
+In a fast-paced development environment, sometimes it may be difficult to keep track of all the changes made to your app and let alone pinpoint on a change that caused unhealthy behavior. Change analysis can help you narrow down on the changes made to your app to facilitate trouble-shooting experience. Change analysis is found in **Application Changes** and also embedded in a diagnostic report such as **Application Crashes** so you can use it concurrently with other metrics.
+
+Change analysis has to be enabled before using the feature. For more information on change analysis, visit [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
 
 ![Change analysis default page](./media/app-service-diagnostics/change-analysis-default-page-11.png)
 
 ![Diff view](./media/app-service-diagnostics/diff-view-12.png)
-
-Change analysis has to be enabled before using the feature. For more information on change analysis, visit [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).

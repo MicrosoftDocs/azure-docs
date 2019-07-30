@@ -16,7 +16,7 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: "Through devices in Azure AD, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to manage these device identities in Azure AD. This enables you to make sure that your users are accessing your resources from devices that meet your standards for security and compliance.<br>Device Identity management is also the foundation for device-based conditional access. With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices."
+  description: "Through devices in Azure AD, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to manage these device identities in Azure AD. This enables you to make sure that your users are accessing your resources from devices that meet your standards for security and compliance.<br>Device Identity management is also the foundation for device-based Conditional Access. With device-based Conditional Access, you can ensure that access to resources in your environment is only possible with managed devices."
 sections:
 - title: Step-by-step tutorials
   items:

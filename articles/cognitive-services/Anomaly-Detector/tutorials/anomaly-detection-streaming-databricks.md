@@ -1,5 +1,6 @@
 ---
 title: "Tutorial: Anomaly detection on streaming data using Azure Databricks"
+titleSuffix: Azure Cognitive Services
 description: Use the Anomaly Detector API and Azure Databricks to monitor anomalies in your data.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
@@ -7,7 +8,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
 ---
@@ -668,7 +669,7 @@ Result as below:
 +--------------------+-------+
 |2019-04-16T00:00:00Z|  false|
 +--------------------+-------+
-
+```
 
 That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then run anomaly detection on streaming data in near real time.
 Although in this tutorial, the granularity is hourly, you can always change the granularity to meet your need. 

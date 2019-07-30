@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
-manager: craigg
 ms.date: 05/14/2019
 ---
 # An overview of Azure SQL Database security capabilities
@@ -94,9 +93,9 @@ SQL Database secures customer data by encrypting data in motion with [Transport 
 
 Sql Server enforces encryption (SSL/TLS) at all times for all connections. This ensures all data is encrypted "in transit" between the client and server irrespective of the setting of **Encrypt** or **TrustServerCertificate** in the connection string.
 
-As a best practice, recommend that in your application's connection string you specify an encrypted connection and _**not**_ trust the server certificate. This forces the your application to verify the server certificate and thus prevents your application from being vulnerable to man in the middle type attacks .
+As a best practice, recommend that in your application's connection string you specify an encrypted connection and _**not**_ trust the server certificate. This forces your application to verify the server certificate and thus prevents your application from being vulnerable to man in the middle type attacks.
 
-For example when using the ADO.NET driver this is accomplished via  **Encrypt=True** and **TrustServerCertificate=False**.If you obtain your connection string from the Azure portal, it will have the correct settings.
+For example when using the ADO.NET driver this is accomplished via  **Encrypt=True** and **TrustServerCertificate=False**. If you obtain your connection string from the Azure portal, it will have the correct settings.
 
 > [!IMPORTANT]
 > Note that some non-Microsoft drivers may not use TLS by default or rely on an older version of TLS (<1.2) in order to function. In this case SQL Server still allows you to connect to your database. However, we recommend that you evaluate the security risks of allowing such drivers and application to connect to SQL Database, especially if you store sensitive data. 

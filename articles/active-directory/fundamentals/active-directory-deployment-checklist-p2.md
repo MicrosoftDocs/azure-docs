@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: 
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/29/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer:
+ms.reviewer: martinco
 
 ms.collection: M365-identity-device-management
 ---
@@ -50,7 +50,7 @@ In this phase, administrators enable baseline security features to create a more
 | [Disable periodic password resets for cloud-based user accounts](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Periodic password resets encourage your users to increment their existing passwords. Use the guidelines in Microsoft's password guidance doc and mirror your on-premises policy to cloud-only users. | Azure AD Free |
 | [Customize Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md) | Stop lockouts from cloud-based users from being replicated to on-premises Active Directory users | Azure AD Basic |
 | [Enable Extranet Smart Lockout for AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | AD FS extranet lockout protects against brute force password guessing attacks, while letting valid AD FS users continue to use their accounts. | |
-| [Deploy Azure AD Multi-Factor Authentication using conditional access policies](../authentication/howto-mfa-getstarted.md) | Require users to perform two-step verification when accessing sensitive applications using conditional access policies. | Azure AD Premium P1 |
+| [Deploy Azure AD Multi-Factor Authentication using Conditional Access policies](../authentication/howto-mfa-getstarted.md) | Require users to perform two-step verification when accessing sensitive applications using Conditional Access policies. | Azure AD Premium P1 |
 | [Enable Azure Active Directory Identity Protection](../identity-protection/enable.md) | Enable tracking of risky sign-ins and compromised credentials for users in your organization. | Azure AD Premium P2 |
 | [Use risk events to trigger multi-factor authentication and password changes](../authentication/tutorial-risk-based-sspr-mfa.md) | Enable automation that can trigger events such as multi-factor authentication, password reset, and blocking of sign-ins based on risk. | Azure AD Premium P2 |
 | [Enable converged registration for self-service password reset and Azure AD Multi-Factor Authentication (preview)](../authentication/concept-registration-mfa-sspr-converged.md) | Allow your users to register from one common experience for both Azure Multi-Factor Authentication and self-service password reset. | Azure AD Premium P1 |
@@ -68,7 +68,8 @@ Next, we add to the foundation laid in phase 1 by importing our users and enabli
 | [Assign licenses to users by group membership in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Save time and effort by creating licensing groups that enable or disable features by group instead of setting per user. | |
 | [Create a plan for guest user access](../b2b/what-is-b2b.md) | Collaborate with guest users by letting them sign in to your apps and services with their own work, school, or social identities. | [Azure AD B2B licensing guidance](../b2b/licensing-guidance.md) |
 | [Decide on device management strategy](../devices/overview.md) | Decide what your organization allows regarding devices. Registering vs joining, Bring Your Own Device vs company provided. | |
-| [Deploy Windows Hello for Business in your organization](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepare for password-less authentication using Windows Hello | |
+| [Deploy Windows Hello for Business in your organization](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepare for passwordless authentication using Windows Hello | |
+| [Deploy passwordless authentication methods for your users](../authentication/concept-authentication-passwordless.md) | Provide your users with convenient passwordless authentication methods | Azure AD Premium P1 |
 
 ## Phase 3: Manage applications
 

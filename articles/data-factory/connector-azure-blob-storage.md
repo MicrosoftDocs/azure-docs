@@ -56,7 +56,10 @@ Azure Blob connector support the following authentication types, refer to the co
 - [Managed identities for Azure resources authentication](#managed-identity)
 
 >[!NOTE]
->HDInsights, Azure Machine Learning and Azure SQL Data Warehouse PolyBase load only support Azure Blob storage account key authentication.
+>When using PolyBase to load data into SQL Data Warehouse, if your source or staging Blob storage is configured with Virtual Network endpoint, you must use managed identity authentication as required by PolyBase, and use Self-hosted Integration Runtime with version 3.18 or above. See the [managed identity authentication](#managed-identity) section with more configuration prerequisites.
+
+>[!NOTE]
+>HDInsights and Azure Machine Learning activities only support Azure Blob storage account key authentication.
 
 ### Account key authentication
 
@@ -268,6 +271,9 @@ Refer to [Authenticate access to Azure Storage using Azure Active Directory](../
 
     - **As source**, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
     - **As sink**, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
+
+>[!IMPORTANT]
+>If you use PolyBase to load data from Blob (as source or as staging) into SQL Data Warehouse, when using managed identity authentication for Blob, make sure you also follow steps 1 and 2 in [this guidance](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) to 1) register your SQL Database server with Azure Active Directory (Azure AD) and 2) assign the Storage Blob Data Contributor role to your SQL Database server; the rest are handled by Data Factory. If your Blob storage is configured with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
 
 These properties are supported for an Azure Blob storage linked service:
 

@@ -13,7 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
-ms.author: aelnably;nicking
+ms.author: aelnably
+ms.reviewer: nicking
 ms.custom: seodec18
 
 ---

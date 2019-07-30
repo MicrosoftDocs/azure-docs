@@ -41,6 +41,8 @@
       href: logic-apps-create-logic-apps-from-templates.md
     - name: Migrate from BizTalk Services
       href: logic-apps-move-from-mabs.md
+    - name: Export flows from Microsoft Flow and deploy to Azure Logic Apps
+      href: export-from-microsoft-flow-logic-app-template.md
     - name: Control workflow execution
       items:
       - name: Conditional statements
@@ -120,6 +122,8 @@
           href: logic-apps-enterprise-integration-edifact-decode.md
         - name: Handle EDIFACT files with UNH2.5 segment
           href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
+      - name: Exchange RosettaNet messages
+        href: logic-apps-enterprise-integration-rosettanet.md
       - name: Exchange X12 messages
         href: logic-apps-enterprise-integration-x12.md
         items: 
@@ -151,6 +155,8 @@
         href: logic-apps-enterprise-integration-b2b-business-continuity.md
   - name: Connect to virtual networks with isolated environments
     href: connect-virtual-network-vnet-isolated-environment.md
+  - name: Add artifacts to integration service environments
+    href: add-artifacts-integration-service-environment-ise.md  
   - name: Access on-premises data
     items: 
       - name: Install data gateway
@@ -243,6 +249,8 @@
         href: ../connectors/connectors-native-recurrence.md
       - name: Request / Response
         href: ../connectors/connectors-native-reqres.md
+      - name: RosettaNet
+        href: logic-apps-enterprise-integration-rosettanet.md
       - name: RSS
         href: ../connectors/connectors-create-api-rss.md
       - name: Salesforce
@@ -289,6 +297,8 @@
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
       href: logic-apps-enterprise-integration-accounts.md
+    - name: Manage integration service environments
+      href: ise-manage-integration-service-environment.md
     - name: Migrate to latest schema
       href: ../connectors/connectors-schema-migration.md
   - name: Test
@@ -297,10 +307,12 @@
         href: test-logic-apps-mock-data-static-results.md
   - name: Deploy
     items:
+      - name: Overview - Automate logic app deployment
+        href: logic-apps-azure-resource-manager-templates-overview.md
       - name: Create logic app templates
-        href: logic-apps-create-deploy-template.md
+        href: logic-apps-create-azure-resource-manager-templates.md
       - name: Deploy logic app templates
-        href: logic-apps-create-deploy-azure-resource-manager-templates.md        
+        href: logic-apps-deploy-azure-resource-manager-templates.md        
   - name: Monitor
     items: 
       - name: Monitor logic apps
@@ -371,7 +383,7 @@
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelogicapps
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-logic-apps
   - name: Twitter
