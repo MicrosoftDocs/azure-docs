@@ -100,6 +100,78 @@ New-AzVM `
    -Size Standard_D4s_v3
 ```
 
+> [!WARNING]
+> If you create a virtual machine on a host which does not have enough resources, the virtual machine will be created in a FAILED state. 
+
+## Check the status of the host
+
+You can check the host health status and how many virtual machines you can still deploy to the host using [GetAzHost](/powershell/module/az.compute/get-azhost) with the `-InstanceView` parameter.
+
+```
+Get-AzHost -ResourceGroupName $rgName -Name myHost -HostGroupName $hostGroup.Name -InstanceView
+```
+
+The output will look similar to this:
+
+```
+ResourceGroupName      : myDHResourceGroup
+PlatformFaultDomain    : 1
+AutoReplaceOnFailure   : True
+HostId                 : 12345678-1234-1234-abcd-abc123456789
+ProvisioningTime       : 7/28/2019 5:31:01 PM
+ProvisioningState      : Succeeded
+InstanceView           : 
+  AssetId              : abc45678-abcd-1234-abcd-123456789abc
+  AvailableCapacity    : 
+    AllocatableVMs[0]  : 
+      VmSize           : Standard_D2s_v3
+      Count            : 32
+    AllocatableVMs[1]  : 
+      VmSize           : Standard_D4s_v3
+      Count            : 16
+    AllocatableVMs[2]  : 
+      VmSize           : Standard_D8s_v3
+      Count            : 8
+    AllocatableVMs[3]  : 
+      VmSize           : Standard_D16s_v3
+      Count            : 4
+    AllocatableVMs[4]  : 
+      VmSize           : Standard_D32-8s_v3
+      Count            : 2
+    AllocatableVMs[5]  : 
+      VmSize           : Standard_D32-16s_v3
+      Count            : 2
+    AllocatableVMs[6]  : 
+      VmSize           : Standard_D32s_v3
+      Count            : 2
+    AllocatableVMs[7]  : 
+      VmSize           : Standard_D64-16s_v3
+      Count            : 1
+    AllocatableVMs[8]  : 
+      VmSize           : Standard_D64-32s_v3
+      Count            : 1
+    AllocatableVMs[9]  : 
+      VmSize           : Standard_D64s_v3
+      Count            : 1
+  Statuses[0]          : 
+    Code               : ProvisioningState/succeeded
+    Level              : Info
+    DisplayStatus      : Provisioning succeeded
+    Time               : 7/28/2019 5:31:01 PM
+  Statuses[1]          : 
+    Code               : HealthState/available
+    Level              : Info
+    DisplayStatus      : Host available
+Sku                    : 
+  Name                 : DSv3-Type1
+Id                     : /subscriptions/10101010-1010-1010-1010-101010101010/re
+sourceGroups/myDHResourceGroup/providers/Microsoft.Compute/hostGroups/myHostGroup/hosts
+/myHost
+Name                   : myHost
+Location               : eastus
+Tags                   : {}
+```
+
 ## Clean up
 
 You are being charged for your dedicated hosts even when no virtual machines are deployed. You should delete any hosts you are currently not using to save costs.  

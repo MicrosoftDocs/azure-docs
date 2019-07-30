@@ -101,6 +101,8 @@
       href: compute-benchmark-scores.md
   - name: Endorsed distros
     href: endorsed-distros.md
+  - name: Dedicated hosts
+    href: dedicated-hosts.md
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
@@ -152,8 +154,6 @@
       href: copy-vm.md
     - name: Deploy dedicated hosts
       items:
-      - name: Overview
-        href: dedicated-hosts.md
       - name: Deploy using CLI
         href: dedicated-hosts-cli.md
       - name: Deploy using portal

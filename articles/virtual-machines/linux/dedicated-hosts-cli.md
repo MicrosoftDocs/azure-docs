@@ -120,7 +120,115 @@ az vm create \
    -g myDHResourceGroup \
    --zone 1
 ```
-  
+ 
+> [!WARNING]
+> If you create a virtual machine on a host which does not have enough resources, the virtual machine will be created in a FAILED state. 
+
+
+## Check the status of the host
+
+You can check the host health status and how many virtual machines you can still deploy to the host using [GetAzHost](/powershell/module/az.compute/get-azhost) with the `-InstanceView` parameter.
+
+```bash
+az vm host get-instance-view -g myDHResourceGroup --host-group myHostGroup --name myHost
+```
+ The output will look similar to this:
+ 
+```json
+{
+  "autoReplaceOnFailure": true,
+  "hostId": "6de80643-0f45-4e94-9a4c-c49d5c777b62",
+  "id": "/subscriptions/10101010-1010-1010-1010-101010101010/resourceGroups/myDHResourceGroup/providers/Microsoft.Compute/hostGroups/myHostGroup/hosts/myHost",
+  "instanceView": {
+    "assetId": "12345678-1234-1234-abcd-abc123456789",
+    "availableCapacity": {
+      "allocatableVms": [
+        {
+          "count": 31.0,
+          "vmSize": "Standard_D2s_v3"
+        },
+        {
+          "count": 15.0,
+          "vmSize": "Standard_D4s_v3"
+        },
+        {
+          "count": 7.0,
+          "vmSize": "Standard_D8s_v3"
+        },
+        {
+          "count": 3.0,
+          "vmSize": "Standard_D16s_v3"
+        },
+        {
+          "count": 1.0,
+          "vmSize": "Standard_D32-8s_v3"
+        },
+        {
+          "count": 1.0,
+          "vmSize": "Standard_D32-16s_v3"
+        },
+        {
+          "count": 1.0,
+          "vmSize": "Standard_D32s_v3"
+        },
+        {
+          "count": 1.0,
+          "vmSize": "Standard_D48s_v3"
+        },
+        {
+          "count": 0.0,
+          "vmSize": "Standard_D64-16s_v3"
+        },
+        {
+          "count": 0.0,
+          "vmSize": "Standard_D64-32s_v3"
+        },
+        {
+          "count": 0.0,
+          "vmSize": "Standard_D64s_v3"
+        }
+      ]
+    },
+    "statuses": [
+      {
+        "code": "ProvisioningState/succeeded",
+        "displayStatus": "Provisioning succeeded",
+        "level": "Info",
+        "message": null,
+        "time": "2019-07-24T21:22:40.604754+00:00"
+      },
+      {
+        "code": "HealthState/available",
+        "displayStatus": "Host available",
+        "level": "Info",
+        "message": null,
+        "time": null
+      }
+    ]
+  },
+  "licenseType": null,
+  "location": "eastus2",
+  "name": "myHost",
+  "platformFaultDomain": 1,
+  "provisioningState": "Succeeded",
+  "provisioningTime": "2019-07-24T21:22:40.604754+00:00",
+  "resourceGroup": "myDHResourceGroup",
+  "sku": {
+    "capacity": null,
+    "name": "DSv3-Type1",
+    "tier": null
+  },
+  "tags": null,
+  "type": null,
+  "virtualMachines": [
+    {
+      "id": "/subscriptions/10101010-1010-1010-1010-101010101010/resourceGroups/MYDHRESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/MYVM",
+      "resourceGroup": "MYDHRESOURCEGROUP"
+    }
+  ]
+}
+
+```
  
 ## Export as a template 
 You can export a template if you now want to create an additional development environment with the same parameters, or a production environment that matches it. Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can build JSON templates manually or export an existing environment to create the JSON template for you. Use [az group export](/cli/azure/group#az-group-export) to export your resource group.
