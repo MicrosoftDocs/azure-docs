@@ -29,6 +29,8 @@ With agent version 6, the file sync team has introduced an agent auto-upgrade fe
 
  ##### Changing the auto-upgrade setting
 
+The following instructions describe how to change the settings after you've completed the installer, if you need to make changes.
+
 Open a shell and navigate to the directory where you installed the sync agent then import the server cmdlets, by default this would look something like this:
 ```powershell
 cd C:\Program Files\Azure\StorageSyncAgent
