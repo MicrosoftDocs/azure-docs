@@ -4,8 +4,8 @@ description: Describes how to group machines before you run an assessment with t
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/15/2019
-ms.author: raynew
+ms.date: 07/17/2019
+ms.author: hamusa
 ---
 
 # Create a group for assessment
@@ -46,15 +46,15 @@ You can now use this group when you [create an assessment](how-to-create-assessm
 
 ## Refine a group with dependency mapping
 
-Dependency mapping helps you to visualize dependencies across machines. - You typically use dependency mapping when you want to assess machine groups with higher levels of confidence.
-- It helps you to cross-checking machine dependencies, before you run an assessment. 
+Dependency mapping helps you to visualize dependencies across machines. You typically use dependency mapping when you want to assess machine groups with higher levels of confidence.
+- It helps you to cross-check machine dependencies, before you run an assessment. 
 - It also helps to effectively plan your migration to Azure, by ensuring that nothing is left behind, and thus avoiding surprise outages during migration.
 - You can discover interdependent systems that need to migrate together, and identify whether a running system is still serving users, or is a candidate for decommissioning instead of migration.
 
 If you've already [set up dependency mapping](how-to-create-group-machine-dependencies.md), and want to refine an existing group, do the following:
 
-1. In **Azure Migrate: Server Assessment**, click **Groups**.
-2. Click the group you want to define.
+1. In the **Servers** tab, in **Azure Migrate: Server Assessment** tile, click **Groups**.
+2. Click the group you want to refine.
     - If you haven't yet set up dependency mapping, the **Dependencies** column will show a **Requires installation** status. For each VM for which you want to visualize dependencies, click **Requires installation**. Install a couple of agents on each VM, before you can map the machine dependencies. [Learn more](how-to-create-group-machine-dependencies.md).
 
         ![Add dependency mapping](./media/how-to-create-a-group/add-dependency-mapping.png)
@@ -63,18 +63,18 @@ If you've already [set up dependency mapping](how-to-create-group-machine-depend
 
 3. After clicking **View dependencies**, the group dependency map shows the following:
 
-    - Inbound (clients) and outbound (servers) TCP connections to and from all machines in the group.
+    - Inbound (clients) and outbound (servers) TCP connections to and from all machines in the group that have the dependency agents installed.
     - Dependent machines that don't have the dependency agents installed are grouped by port numbers.
     - Dependent machines with dependency agents installed are shown as separate boxes.
     - Processes running inside the machine. Expand each machine box to view the processes.
     - Machine properties (including FQDN, operating system, MAC address). Click on each machine box to view the details.
 
-4. To refine dependencies, you can modify the time range (an hour by default), specify start and end dates, or the duration.
+4. To view dependencies in a time interval of your choice, modify the time range (an hour by default) by specifying  start and end dates, or the duration.
 
     > [!NOTE]
     > Time range can be up to an hour. If you need a longer range, use [Azure Monitor to query dependent data](how-to-create-group-machine-dependencies.md) for a longer period.
 
-5. After you've identified dependencies, you can modify the group. Use Ctrl+Click to add or remove machines from the group.
+5. After you've identified the dependencies you would like to add to or remove from the group, you can modify the group. Use Ctrl+Click to add or remove machines from the group.
 
     - You can only add machines that have been discovered.
     - Adding and removing machines invalidates past assessments for a group.

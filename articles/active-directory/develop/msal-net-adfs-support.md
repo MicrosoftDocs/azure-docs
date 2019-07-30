@@ -27,7 +27,7 @@ Active Directory Federation Services (AD FS) in Windows Server enables you to ad
 Microsoft Authentication Library for .NET (MSAL.NET) supports two scenarios for authenticating against AD FS:
 
 - MSAL.NET talks to Azure Active Directory, which itself is *federated* with AD FS.
-- MSAL.NET talks **directly** to an ADFS authority. This is only supported from AD FS 2019 and above. One of the scenarios this highlights is [Azure Stack](https://azure.microsoft.com/en-us/overview/azure-stack/) support
+- MSAL.NET talks **directly** to an ADFS authority. This is only supported from AD FS 2019 and above. One of the scenarios this highlights is [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) support
 
 
 ## MSAL connects to Azure AD, which is federated with AD FS
@@ -59,4 +59,4 @@ Currently, there are no plans to support a direct connection to:
 
 ## See also
 
-For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)
+For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)

@@ -1,7 +1,7 @@
 ---
 title: Recover data from an Azure Backup Server
 description: Recover the data you've protected to a Recovery Services vault from any Azure Backup Server registered to that vault.
-services: backup
+
 author: kasinh
 manager: vijayts
 ms.service: backup

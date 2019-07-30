@@ -62,7 +62,7 @@ If you have existing Azure Storage, you can register it as a datastore on your w
 
 ####  Storage guidance
 
-We recommend blob storage and blob datastores. Both standard and premium storage are available for blobs. Although more expensive, we suggest premium storage due to faster throughput speeds that may improve the speed of your training runs, particlularly if you train against a large data set. See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) for storage account cost information.
+We recommend blob storage and blob datastores. Both standard and premium storage are available for blobs. Although more expensive, we suggest premium storage due to faster throughput speeds that may improve the speed of your training runs, particularly if you train against a large data set. See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) for storage account cost information.
 
 >[!NOTE]
 > Azure Machine Learning service supports other types of datastores,   which may be useful for specific scenarios. For example, if you need to train using data stored in a database, you might use the AzureSQLDatabaseDatastore or AzurePostgreSqlDatastore. See [this table](#matrix) for the available datastore types.
@@ -237,6 +237,18 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
+
+## Access datastores during for scoring
+
+The Azure Machine Learning service provides several ways to use your models for scoring. Some of these methods do not provide access to datastores. Use the following table to understand which methods allow you to access datastores during scoring:
+
+| Method | Datastore access | Description |
+| ----- | :-----: | ----- |
+| [Batch prediction](how-to-run-batch-predictions.md) | ✔ | Make predictions on large quantities of data asynchronously. |
+| [Web service](how-to-deploy-and-where.md) | &nbsp; | Deploy model(s) as a web service. |
+| [IoT Edge module](how-to-deploy-and-where.md) | &nbsp; | Deploy model(s) to IoT Edge devices. |
+
+For situations where the SDK does not provide access to datastores, you may be able to create custom code using the relevant Azure SDK to access the data. For example, using the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) to access data stored in blobs.
 
 ## Next steps
 
