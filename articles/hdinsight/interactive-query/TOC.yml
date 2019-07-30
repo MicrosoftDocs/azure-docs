@@ -24,6 +24,10 @@
     maintainContext: true
   - name: Troubleshoot
     items:
+    - name: OutOfMemoryError exception
+      items:
+      - name: GC overhead limit exceeded
+        href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
     - name: ZooKeeperHiveClientException - HiveServer2 configs
       href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveServer-configs.md
 - name: How to
