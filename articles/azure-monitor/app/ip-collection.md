@@ -87,7 +87,7 @@ If you only need to modify the behavior for a single Application Insights resour
 
     In this case nothing new is being purchased, we are just updating the config of the existing Application Insights resource.
 
-6. Once the deployment is complete new telemetry data will recorded with the first three octets populated with the IP and the last octet zeroed out.
+6. Once the deployment is complete new telemetry data will be recorded with the first three octets populated with the IP and the last octet zeroed out.
 
     If you were to select and edit template again you would only see the default template and would not see your newly added property and its associated value. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set. Run the following PowerShell: (Replace `Fabrikam-dev` with the appropriate resource and resource group name.)
     
