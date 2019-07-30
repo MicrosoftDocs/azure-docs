@@ -261,11 +261,11 @@ The Azure Security and Compliance Blueprint – PCI DSS Customer Responsibility 
 The Azure Security and Compliance Blueprint – PCI DSS PaaS Web Application Implementation Matrix provides information on which PCI DSS 3.2 requirements are addressed by the PaaS web application architecture, including detailed descriptions of how the implementation meets the requirements of each covered article.
 
 ## Deploy this solution
-This Azure Security and Compliance Blueprint Automation is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available here.
+This Azure Security and Compliance Blueprint Automation is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available on [GitHub](https://github.com/Azure-Samples/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms-AzureRM.git).
 
 ### Quickstart
 
-1.	Clone or download this GitHub repository to your local workstation.
+1.	Clone or download the [GitHub repository](https://github.com/Azure-Samples/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms-AzureRM.git) to your local workstation.
 2.	Review 0-Setup-AdministrativeAccountAndPermission.md and run the provided commands.
 3.	Deploy a test solution with Contoso sample data or pilot an initial production environment.
 
@@ -279,17 +279,6 @@ A secure VPN tunnel or ExpressRoute needs to be configured to securely establish
 By implementing a secure VPN tunnel with Azure, a virtual private connection between an on-premises network and an Azure Virtual Network can be created. This connection takes place over the Internet and allows customers to securely "tunnel" information inside an encrypted link between the customer's network and Azure. Site-to-Site VPN is a secure, mature technology that has been deployed by enterprises of all sizes for decades. The IPsec tunnel mode is used in this option as an encryption mechanism.
 
 Because traffic within the VPN tunnel does traverse the Internet with a site-to-site VPN, Microsoft offers another, even more secure connection option. Azure ExpressRoute is a dedicated WAN link between Azure and an on-premises location or an Exchange hosting provider. As ExpressRoute connections do not go over the Internet, these connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet. Furthermore, because this is a direct connection of customer's telecommunication provider, the data does not travel over the Internet and therefore is not exposed to it.
-
-Best practices for implementing a secure hybrid network that extends an on-premises network to Azure are available.
-
-### Disclaimer
-
-- This document is for informational purposes only. MICROSOFT MAKES NO WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, AS TO THE INFORMATION IN THIS DOCUMENT. This document is provided "as-is." Information and views expressed in this document, including URL and other Internet website references, may change without notice. Customers reading this document bear the risk of using it.
-- This document does not provide customers with any legal rights to any intellectual property in any Microsoft product or solutions.
-- Customers may copy and use this document for internal reference purposes.
-- Certain recommendations in this document may result in increased data, network, or compute resource usage in Azure, and may increase a customer's Azure license or subscription costs.
-- This architecture is intended to serve as a foundation for customers to adjust to their specific requirements and should not be used as-is in a production environment.
-- This document is developed as a reference and should not be used to define all means by which a customer can meet specific compliance requirements and regulations. Customers should seek legal support from their organization on approved customer implementations.
 
 ## Next steps
 The following articles can help you design, develop, and deploy secure applications.
