@@ -16,13 +16,16 @@ For some resource types, you need to enable a feature to exceed 800 instances. I
 
 ## Resources exempt from resource group limit
 
-* Microsoft.Automation/automationAccounts
-* Microsoft.AzureStack/registrations
-* Microsoft.AzureStack/registrations/customerSubscriptions
-* Microsoft.AzureStack/registrations/products
-* Microsoft.BotService/botServices - Register feature Microsoft.Resources/ARMDisableResourcesPerRGLimit
-* Microsoft.BotService/botServices - Register feature Microsoft.Resources/ARMDisableResourcesPerRGLimit
-* Microsoft.Compute/disks
+> [!div class="mx-tableFixed"]
+> | Resource provider | Resource type | Feature required |
+> | ------------- | ----------- | --------- |
+> | Microsoft.Automation | automationAccounts |  |
+> | Microsoft.AzureStack | registrations |  |
+> | Microsoft.AzureStack | registrations/customerSubscriptions |  |
+> | Microsoft.AzureStack | registrations/products |  |
+> | Microsoft.BotService | botServices | Register feature Microsoft.Resources/ARMDisableResourcesPerRGLimit |
+> | Microsoft.Compute | disks |   |
+
 * Microsoft.Compute/images
 * Microsoft.Compute/snapshots
 * Microsoft.Compute/virtualMachines
