@@ -37,7 +37,7 @@ At the end of this tutorial you run two .NET console apps:
 * **ReadFileUploadNotification**, which receives file upload notifications from your IoT hub.
 
 > [!NOTE]
-> IoT Hub supports many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
+> IoT Hub supports many device platforms and languages (including C, Java, Python, and Javascript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
 
 To complete this tutorial, you need the following:
 
