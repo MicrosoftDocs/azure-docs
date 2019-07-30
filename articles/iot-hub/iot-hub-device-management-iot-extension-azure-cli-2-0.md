@@ -18,7 +18,7 @@ ms.author: menchi
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[The IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) is a new open source IoT extension that adds to the capabilities of the [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). The Azure CLI includes commands for interacting with Azure resource manager and management endpoints. For example, you can use Azure CLI to create an Azure VM or an IoT hub. A CLI extension enables an Azure service to augment the Azure CLI giving you access to additional service-specific capabilities. The IoT extension gives IoT developers command line access to all IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
+[The IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) is a new open source IoT extension that adds to the capabilities of the [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). The Azure CLI includes commands for interacting with Azure Resource Manager and management endpoints. For example, you can use Azure CLI to create an Azure VM or an IoT hub. A CLI extension enables an Azure service to augment the Azure CLI giving you access to additional service-specific capabilities. The IoT extension gives IoT developers command line access to all IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
