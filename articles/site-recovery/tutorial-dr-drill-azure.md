@@ -95,6 +95,6 @@ If you want to connect to Azure VMs using RDP/SSH after failover, [prepare to co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run a failover and failback for VMware VMs](vmware-azure-tutorial-failover-failback.md).
-> [Run a failover and failback for Hyper-V VMs](hyper-v-azure-failover-failback-tutorial.md).
+> [Run a failover and failback for VMware VMs](vmware-azure-tutorial-failover-failback.md)
+> [Run a failover and failback for Hyper-V VMs](hyper-v-azure-failover-failback-tutorial.md)
 > [Run a failover and failback for physical machines](physical-to-azure-failover-failback.md)

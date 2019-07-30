@@ -3,7 +3,7 @@ title: Add an Image layer to Azure Maps | Microsoft Docs
 description: How to add an Image Layer to the Javascript map
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/3/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
