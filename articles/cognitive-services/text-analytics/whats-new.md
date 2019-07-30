@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 07/30/2019
 ms.author: aahi
 ---
 
