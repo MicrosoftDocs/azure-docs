@@ -39,7 +39,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-Now create an experiment in your workspace. An experiment is another foundational cloud resource that represents a collection of trials (individual model runs). In this tutorial you use the experiment to create runs and track your model training in the Azure Portal. Parameters include your workspace reference, and a string name for the experiment.
+Now create an experiment in your workspace. An experiment is another foundational cloud resource that represents a collection of trials (individual model runs). In this tutorial you use the experiment to create runs and track your model training in the Azure portal. Parameters include your workspace reference, and a string name for the experiment.
 
 
 ```python
