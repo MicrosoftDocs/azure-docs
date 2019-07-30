@@ -111,7 +111,7 @@ You can request billing ownership of the subscription types listed below.
 - [Azure in Open Licensing](https://azure.microsoft.com/offers/ms-azr-0111p/)\*
 - [Azure Pass Sponsorship](https://azure.microsoft.com/offers/azure-pass/)\*
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
-- [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/)\* 
+- [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/)\*
 - [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) 
 - [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
