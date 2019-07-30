@@ -130,8 +130,7 @@ To learn how, see [update existing assignments](../how-to/update-existing-assign
 If the blueprint is no longer needed, it can be unassigned from the management group or
 subscription. During blueprint unassignment, the following occurs:
 
-- Removal of blueprint [resource locking](resource-locking.md), including the **denyAssignment** if
-  it exists
+- Removal of [blueprint resource locking](resource-locking.md)
 - Deletion of the blueprint assignment object
 - (Conditional) If a **system-assigned managed identity** was used, it's also deleted
 
