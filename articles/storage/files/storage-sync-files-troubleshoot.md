@@ -687,7 +687,7 @@ This error occurs because the Azure File Sync service is unavailable. This error
 | **HRESULT** | 0x80131500 |
 | **HRESULT (decimal)** | -2146233088 |
 | **Error string** | COR_E_EXCEPTION |
-| **Remediation required** | Yes |
+| **Remediation required** | No |
 
 This error occurs because sync failed due to an exception. If the error persists for several hours, please create a support request.
 
