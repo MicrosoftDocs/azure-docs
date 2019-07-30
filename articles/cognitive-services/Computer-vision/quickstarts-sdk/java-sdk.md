@@ -110,7 +110,7 @@ These code snippets show you how to do the following tasks with the Computer Vis
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze an image](#analyze-an-image)
 
-### Authenticate the client
+## Authenticate the client
 
 > [!NOTE]
 > This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Computer Vision key, named `AZURE_COMPUTERVISION_API_KEY`.
@@ -122,7 +122,7 @@ The following code adds a `main` method to your class and creates variables for 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_main)]
 
-### Analyze an image
+## Analyze an image
 
 The following code defines a method, `AnalyzeLocalImage`, which uses the client object to analyze a local image and print the results. The method returns a text description, categorization, list of tags, detected faces, adult content flags, main colors, and image type.
 
