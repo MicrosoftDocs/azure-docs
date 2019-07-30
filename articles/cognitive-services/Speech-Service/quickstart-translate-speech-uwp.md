@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.author: erhopf
+ms.topic: quickstart
 ---
 
 # Quickstart: Translate speech with the Speech SDK for C# (UWP)
 
 Quickstarts are also available for [speech-to-text](quickstart-csharp-uwp.md), [text-to-speech](quickstart-text-to-speech-csharp-uwp.md) and [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md).
 
-In this quickstart, you'll create a simple Universal Windows Platform (UWP) application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
+In this quickstart, you'll create a simple Universal Windows Platform (UWP) application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 or later.
 
 For a complete list of languages available for speech translation, see [language support](language-support.md).
 
@@ -27,7 +28,7 @@ For a complete list of languages available for speech translation, see [language
 
 This quickstart requires:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or later
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 
 ## Create a Visual Studio project
