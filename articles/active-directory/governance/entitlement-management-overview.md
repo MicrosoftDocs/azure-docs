@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/29/2019
+ms.date: 07/30/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -128,22 +128,23 @@ To better understand entitlement management and its documentation, you should re
 | assigned users | An assignment of an access package to a user, so that the user has all the resource roles of that access package. |
 | enable | The process of making an access package available for users to request. |
 
-## Which users must have licenses?
-
-Each active internal user must have a paid Azure AD Premium P2 license. An active internal user is the following:
-
-- A user that initiates a request for an access package.
-- A user that has been assigned an access package.
-
-As part of the licenses for internal users, you can also invite a number for external users (or guest users). For information about how to calculate the number of external users you can invite, see [Azure Active Directory B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
-
-For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
-
 ## License requirements
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use in this preview.
+
+### Which users must have licenses?
+
+Your tenant must have at least as many Azure AD Premium P2 licenses as you have active member users. Active member users in entitlement management include:
+
+- A user that initiates or approves a request for an access package.
+- A user that has been assigned an access package. 
+- A user that manages access packages.
+
+As part of the licenses for member users, you can also allow a number of guest users to interact with entitlement management.  For information about how to calculate the number of guest users you can include, see [Azure Active Directory B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
+
+For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
 ## Next steps
 
