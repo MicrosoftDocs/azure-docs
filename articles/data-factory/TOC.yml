@@ -586,7 +586,7 @@
   items:
   - name: Data migration from data lake & EDW
     items:
-	- name: Why ADF
+    - name: Why ADF
       href: data-migration-guidance-overview.md
 - name: Reference
   items:
