@@ -457,14 +457,6 @@ Use a Blob storage input binding to read blobs.
 
 ## Input - example
 
-See the language-specific example:
-
-* [C#](#input---c-example)
-* [C# script (.csx)](#input---c-script-example)
-* [Java](#input---java-examples)
-* [JavaScript](#input---javascript-example)
-* [Python](#input---python-example)
-
 # [C#](#tab/input-csharp)
 
 The following example is a [C# function](functions-dotnet-class-library.md) that uses a queue trigger and an input blob binding. The queue message contains the name of the blob, and the function logs the size of the blob.
