@@ -135,7 +135,7 @@ Each active internal user must have a paid Azure AD Premium P2 license. An activ
 - A user that initiates a request for an access package.
 - A user that has been assigned an access package.
 
-As part of the licenses for internal users, you can also invite a number for external users (or guest users). For information about how to calculate the number of external users, see [Azure Active Directory B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
+As part of the licenses for internal users, you can also invite a number for external users (or guest users). For information about how to calculate the number of external users you can invite, see [Azure Active Directory B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
 
 For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
