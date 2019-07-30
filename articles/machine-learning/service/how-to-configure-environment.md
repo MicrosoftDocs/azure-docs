@@ -25,7 +25,7 @@ The following table shows each development environment covered in this article, 
 | [Local environment](#local) | Full control of your development environment and dependencies. Run with any build tool, environment, or IDE of your choice. | Takes longer to get started. Necessary SDK packages must be installed, and an environment must also be installed if you don't already have one. |
 | [Azure Databricks](#aml-databricks) | Ideal for running large-scale intensive machine learning workflows on the scaleable Apache Spark platform. | Overkill for experimental machine learning, or smaller-scale experiments and workflows. Additional cost incurred for Azure Databricks. See [pricing details](https://azure.microsoft.com/pricing/details/databricks/). |
 | [The Data Science Virtual Machine (DSVM)](#dsvm) | Similar to the cloud-based notebook VM (Python and the SDK are pre-installed), but with additional popular data science and machine learning tools pre-installed. Easy to scale and combine with other custom tools and workflows. | A slower getting started experience compared to the cloud-based notebook VM. |
-| [Azure Notebooks](#aznotebooks) | Free and light weight getting started experience, with Python and the SDK pre-installed. | Less-powerful VM's available compared to cloud-based notebook VM. |
+| [Azure Notebooks](#aznotebooks) | Free and light weight getting started experience, with Python and the SDK pre-installed. | Less-powerful VM's available compared to cloud-based notebook VM. Isolated from workspace and other resources. |
 
 This article also provides additional usage tips for the following tools:
 
