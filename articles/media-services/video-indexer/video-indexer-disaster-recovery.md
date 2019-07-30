@@ -27,18 +27,12 @@ An Azure subscription. If you don't have an Azure subscription yet, sign up for 
 
 ## Failover to a secondary account
 
-In order to handle BCDR, you need to have two Video Indexer accounts. 
+In order to implement BCDR, you need to have two Video Indexer accounts to handle redundancy.
 
-1. Review  [Manage multiple tenants](manage-multiple-tenants.md).
-1. Choose one of the following multi tendency options.
+1. [Create two Video Indexer accounts connected to Azure](connect-to-azure.md). One for your primary region and the other to the paired azure region. 
+1. If there is a failure in your primary region, switch to indexing using the secondary account.
 
-    * Video Indexer account per tenant
-    
-        ![Video Indexer account per tenant](./media/manage-multiple-tenants/video-indexer-account-per-tenant.png)
-    * Azure subscription per tenant
-    
-        ![Azure subscription per tenant](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
-1. Create two [Video Indexer accounts connected to Azure](connect-to-azure.md).
+For information about using multiple tenants, see [Manage multiple tenants](manage-multiple-tenants.md). To implement BCDR, choose one of these two options: [Video Indexer account per tenant](manage-multiple-tenants.md#video-indexer-account-per-tenant) or [Azure subscription per tenant](manage-multiple-tenants.md#azure-subscription-per-tenant).
 
 ## Next steps
 
