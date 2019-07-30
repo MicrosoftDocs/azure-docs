@@ -29,7 +29,7 @@ This article explains how traffic distribution works with your Application Proxy
 
 ## Traffic distribution across connectors
 
-Connectors establish their connections based on principles for high availability. There's no guarantee that traffic will always be evenly distributed across connectors. However, usage varies and requests are randomly sent to Application Proxy service instances. As a result, traffic is typically distributed almost evenly across the connectors. The diagram and steps below illustrate how connections are established between users and connectors.
+Connectors establish their connections based on principles for high availability. There's no guarantee that traffic will always be evenly distributed across connectors and there is no session affinity. However, usage varies and requests are randomly sent to Application Proxy service instances. As a result, traffic is typically distributed almost evenly across the connectors. The diagram and steps below illustrate how connections are established between users and connectors.
 
 ![Diagram showing connections between users and connectors](media/application-proxy-high-availability-load-balancing/application-proxy-connections.png)
 
