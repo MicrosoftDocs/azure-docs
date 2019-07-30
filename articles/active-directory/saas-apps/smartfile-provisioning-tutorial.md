@@ -109,7 +109,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5.  Under the **Admin Credentials** section, input `https://<sitename>.smartfile.com/ftp/scim` in **Tenant URL** Example `https://<demo1.test>.smartfile.com/ftp/scim`. Enter the bearer token value (ProductKey:ProductPassword) that you saved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to SmartFile. If the connection fails, ensure your SmartFile account has Admin permissions and try again.
+5.  Under the **Admin Credentials** section, input `https://<sitename>.smartfile.com/ftp/scim` in **Tenant URL** Example `https://<demo1.test>.smartfile.com/ftp/scim`. Enter the **Bearer token** value (ProductKey:ProductPassword) that you saved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to SmartFile. If the connection fails, ensure your SmartFile account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
