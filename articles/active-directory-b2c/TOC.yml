@@ -196,8 +196,10 @@
         href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
     - name: Pass through external IdP token
       href: idp-pass-through-custom.md
-    - name: Set up direct sign-in
-      href: direct-signin.md
+    - name: Adaptive experience
+      items:
+      - name: Set up direct sign-in
+        href: direct-signin.md
     - name: Add your own business logic
       items:
       - name: Validate user input
