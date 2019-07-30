@@ -25,7 +25,7 @@ ms.author: cherylmc
 
 The tables in this article provide information on ExpressRoute locations, ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
-> ![Note]
+> [!Note]
 > ExpressRoute is supported across all Azure regions and locations. Azure regions and ExpressRoute locations are two distinct and different concepts, understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
 >
 >
