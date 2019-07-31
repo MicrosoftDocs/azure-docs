@@ -48,33 +48,26 @@ To complete this tutorial, you need the following:
 
 In this section, you modify the simulated device app you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) to receive cloud-to-device messages from the IoT hub.
 
-1. Using a text editor, open the SimulatedDevice.js file.
+1. Using a text editor, open the **SimulatedDevice.js** file. This file is located in the **iot-hub\Quickstarts\simulated-device** folder off of the root folder where you downloaded the Node.js sample code in the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) quickstart.
 
-2. Modify the **connectCallback** function to handle messages sent from IoT Hub. In this example, the device always invokes the **complete** function to notify IoT Hub that it has processed the message. Your new version of the **connectCallback** function looks like the following snippet:
+2. Add a call to the `client.on` function to register a handler for messages sent from IoT Hub. Add the call just after the line that creates the device client as in the following snippet:
 
     ```javascript
-    var connectCallback = function (err) {
-      if (err) {
-        console.log('Could not connect: ' + err);
-      } else {
-        console.log('Client connected');
-        client.on('message', function (msg) {
-          console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
-          client.complete(msg, printResultFor('completed'));
-        });
-        // Create a message and send it to the IoT Hub every second
-        setInterval(function(){
-            var temperature = 20 + (Math.random() * 15);
-            var humidity = 60 + (Math.random() * 20);
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
-            var message = new Message(data);
-            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
-            console.log("Sending message: " + message.getData());
-            client.sendEvent(message, printResultFor('send'));
-        }, 1000);
-      }
-    };
+    var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
+
+    client.on('message', function (msg) {
+      console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
+      client.complete(msg, function (err) {
+        if (err) {
+          console.error('completed error: ' + err.toString());
+        } else {
+          console.log('completed sent');
+        }
+      });
+    });
     ```
+
+    In this example, the device always invokes the **complete** function to notify IoT Hub that it has processed the message. 
   
    > [!NOTE]
    > If you use HTTPS instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTPS support, and IoT Hub throttling, see the [IoT Hub developer guide](iot-hub-devguide-messaging.md).
