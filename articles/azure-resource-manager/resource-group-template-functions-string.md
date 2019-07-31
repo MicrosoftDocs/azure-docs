@@ -4,7 +4,7 @@ description: Describes the functions to use in an Azure Resource Manager templat
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 04/08/2019
+ms.date: 07/31/2019
 ms.author: tomfitz
 
 ---
@@ -1014,7 +1014,7 @@ Returns the number of characters in a string, elements in an array, or root-leve
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or string |The array to use for getting the number of elements, the string to use for getting the number of characters, or the object to use for getting the number of root-level properties. |
+| arg1 |Yes |array, string, or object |The array to use for getting the number of elements, the string to use for getting the number of characters, or the object to use for getting the number of root-level properties. |
 
 ### Return value
 
