@@ -1,8 +1,8 @@
 ---
-title: Service Fabric - Set up a cluster with MITS | Microsoft Docs
+title: Service Fabric - Configure Service Fabric cluster to enable Managed Identity Token Service | Microsoft Docs
 description: This article shows you how to set up a Service Fabric cluster with Managed Identity
 services: service-fabric
-author: Nickomang
+author: athinanthny
 
 ms.service: service-fabric
 ms.topic: article
@@ -10,18 +10,14 @@ ms.date: 07/25/2019
 ms.author: atsenthi
 ---
 
-# Set up a Service Fabric cluster with MITS
+# Title here
 
 Introductory paragraph.
 
-## Application template
+## Prerequisites
 
-Insert link to samples.
-
-## Application package
-
-Link to sample.
-
-Managed Identity doc references.
+## Enable Managed Identity Token Service in Service Fabric cluster
 
 ## Next steps
+
+Link to how to enable application to use managed identity.

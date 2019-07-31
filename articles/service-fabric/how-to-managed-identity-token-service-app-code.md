@@ -1,8 +1,8 @@
 ---
-title: Service Fabric - Use MITS with Service Fabric application code | Microsoft Docs
-description: This article walks through the experience of setting up a Service Fabric cluster
+title: Service Fabric - Use Managed Identity with Service Fabric Application | Microsoft Docs
+description: How to Use Managed Identity in your Service Fabric application code
 services: service-fabric
-author: Nickomang
+author: athinanthny
 
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -11,9 +11,11 @@ ms.date: 7/25/2019
 ms.author: atsenthi 
 ---
 
-# MITS and the REST protocol
 
 Introductory paragraph.
+
+# REST protocol
+
 
 ## Code sample
 
