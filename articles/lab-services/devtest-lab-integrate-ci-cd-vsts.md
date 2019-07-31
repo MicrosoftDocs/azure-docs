@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2019
+ms.date: 07/31/2019
 ms.author: spelluru
 ---
 
@@ -49,7 +49,7 @@ This section describes how to create the Azure Resource Manager template that yo
 
 1. To create a Resource Manager template in your subscription, follow the procedure in [Use a Resource Manager template](devtest-lab-use-resource-manager-template.md).
    
-1. Before you generate the Resource Manager template, add the [WinRM artifact](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-winrm) as part of creating the VM. Deployment tasks like *Azure File Copy* and *PowerShell on Target Machines* need WinRM access.
+1. Before you generate the Resource Manager template, add the [WinRM artifact](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-winrm) as part of creating the VM. Deployment tasks like *Azure File Copy* and *PowerShell on Target Machines* need WinRM access. The WinRM artifact requires a hostname as a parameter, which should be the fully qualified domain name (FQDN) of the VM. 
    
    > [!NOTE]
    > When you use WinRM with a shared IP address, you must add a NAT rule to map an external port to the WinRM port. You don't need the NAT rule if you create the VM with a public IP address.
@@ -61,7 +61,7 @@ This section describes how to create the Azure Resource Manager template that yo
 
 ## Create a script to get VM properties
 
-When you run task steps like *Azure File Copy* or *PowerShell on Target Machines* in the release pipeline, the following script collects the values that you need to deploy an app to a VM. You would ordinarily use these tasks to deploy your app to an Azure VM. The tasks require values such as the VM resource group name, IP address, and fully qualified domain name (FQDN).
+When you run task steps like *Azure File Copy* or *PowerShell on Target Machines* in the release pipeline, the following script collects the values that you need to deploy an app to a VM. You would ordinarily use these tasks to deploy your app to an Azure VM. The tasks require values such as the VM resource group name, IP address, and FQDN.
 
 To create the script file:
 
@@ -138,7 +138,7 @@ The next step is to create the golden image VM to use for future deployments. Yo
 
 Execute the script you created earlier to collect the details of the DevTest Labs VM. 
 
-1. On the release pipeline **Pipeline** tab, select the hyperlinked text in **Stage 1** to **View stage tasks**, and then select the **+** next to **Agent job**. 
+1. On the release pipeline **Pipeline** tab, select the hyperlinked text in **Stage 1** to **View stage tasks**, and then select the plus sign **+** next to **Agent job**. 
    
 1. Under **Add tasks**, select **Azure PowerShell**, and select **Add**. 
    
@@ -160,7 +160,7 @@ The script collects the required values and stores them in environment variables
 
 The next task is to create an image of the newly deployed VM in your Azure DevTest Labs instance. You can then use the image to create copies of the VM on demand whenever you want to execute a dev task or run some tests. 
 
-1. On the release pipeline **Pipeline** tab, select the hyperlinked text in **Stage 1** to **View stage tasks**, and then select the **+** next to **Agent job**. 
+1. On the release pipeline **Pipeline** tab, select the hyperlinked text in **Stage 1** to **View stage tasks**, and then select the plus sign **+** next to **Agent job**. 
    
 1. Under **Add tasks**, select **Azure DevTest Labs Create Custom Image**, and select **Add**. 
    
@@ -185,7 +185,7 @@ The VM information you need for the parameters of these tasks is stored in three
 
 The final task is to delete the VM that you deployed in your Azure DevTest Labs instance. You would ordinarily delete the VM after you execute the dev tasks or run the tests that you need on the deployed VM. 
 
-1. On the release pipeline **Pipeline** tab, select the hyperlinked text in **Stage 1** to **View stage tasks**, and then select the **+** next to **Agent job**. 
+1. On the release pipeline **Pipeline** tab, select the hyperlinked text in **Stage 1** to **View stage tasks**, and then select the plus sign **+** next to **Agent job**. 
    
 1. Under **Add tasks**, select **Azure DevTest Labs Delete VM**, and select **Add**. 
    
