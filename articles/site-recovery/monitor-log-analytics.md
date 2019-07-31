@@ -11,22 +11,22 @@ ms.author: raynew
 
 # Monitor Site Recovery with Azure Monitor Logs
 
-This article describes how to monitor machines protected by Azure [Site Recovery](site-recovery-overview.md) using [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md).
+This article describes how to monitor machines replicated by Azure [Site Recovery](site-recovery-overview.md), using [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md).
 
-Azure Monitor Logs provide a log data platform that collects activity and diagnostic logs, along with other monitoring data. Within Azure Monitor Logs, you use [Log Analytics](../azure-monitor/log-query/log-query-overview.md) to write and test log queries, and to interactively analyze log data. After analyzing log data, you can visualize and query log results, and configure alerts to take actions based on the query results.
+Azure Monitor Logs provide a log data platform that collects activity and diagnostic logs, along with other monitoring data. Within Azure Monitor Logs, you use [Log Analytics](../azure-monitor/log-query/log-query-overview.md) to write and test log queries, and to interactively analyze log data. You can visualize and query log results, and configure alerts to take actions based on monitored data.
 
 For Site Recovery, you can Azure Monitor Logs to help you do the following:
 
-- Monitor Site Recovery, including replication health and the health of protected items, test failover status, Site Recovery events, and disk metrics.
-- Set up alerts based on monitoring results.
+- **Monitor Site Recovery health and status**. For example, you can monitor replication health, test failover status, Site Recovery events, recovery point objectives (RPOs) for protected machines, and disk/data change rates.
+- **Set up alerts for Site Recovery**. For example, you can configure alerts for machine health, test failover status, or Site Recovery job status.
 
 
 ## Before you start
 
-Before you set up Azure Monitor Logs with Site Recovery, you should have the following in place:
+Here's what you need:
 
 - At least one machine protected in a Recovery Services vault.
-- A Log Analytics workspace that can store the Site Recovery logs. [Learn about](../azure-monitor/learn/quick-create-workspace.md) setting up a workspace.
+- A Log Analytics workspace to store Site Recovery logs. [Learn about](../azure-monitor/learn/quick-create-workspace.md) setting up a workspace.
 - A basic understanding of how to write, run, and analyze log queries in Log Analytics. [Learn more](../azure-monitor/log-query/get-started-portal.md).
 
 We recommend that you review [common monitoring questions](monitoring-common-questions.md) before you start.
@@ -38,27 +38,25 @@ We recommend that you review [common monitoring questions](monitoring-common-que
     ![Select diagnostic logging](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. In **Diagnostic settings**, specify a name for log action, and select **Send to Log Analytics**.
-
-    ![Add diagnostic logging](./media/monitoring-log-analytics/diagnostic-setting.png)
 3. Select the Azure Monitor Logs subscription, and the Log Analytics workspace.
 4. From the log list, select all the logs with the prefix **AzureSiteRecovery**. Then click **OK**.
 
     ![Select workspace](./media/monitoring-log-analytics/select-workspace.png)
 
-The Site Recovery logs start to feed into a table **AzureDiagnostics** in the selected workspace.
+The Site Recovery logs start to feed into a table (**AzureDiagnostics**) in the selected workspace.
 
 
 ## Query the logs - examples
 
-You retrieve data from logs using log queries written with the [Kusto query language](../azure-monitor/log-query/get-started-queries.md). Here are a few examples of common queries you might use for Site Recovery monitoring.
+You retrieve data from logs using log queries written with the [Kusto query language](../azure-monitor/log-query/get-started-queries.md). This section provides a few examples of common queries you might use for Site Recovery monitoring.
 
 > [!NOTE]
-> Some of the examples use **replicationProviderName_s** set to **A2A**. This retrieves Azure VMs that are replicated to a secondary Azure region using Site Recovery. In these examples, you can replace **A2A** with **InMageAzureV2** if you want to retrieve on-premises VMware VMs or physical servers that are replicated to Azure using Site Recovery.
+> Some of the examples use **replicationProviderName_s** set to **A2A**. This retrieves Azure VMs that are replicated to a secondary Azure region using Site Recovery. In these examples, you can replace **A2A** with **InMageAzureV2**, if you want to retrieve on-premises VMware VMs or physical servers that are replicated to Azure using Site Recovery.
 
 
 ### Query replication health
 
-This query plots a pie chart for current replication health of all protected Azure VMs, broken down into three states: Normal, Warning, or Critical.
+This query plots a pie chart for the current replication health of all protected Azure VMs, broken down into three states: Normal, Warning, or Critical.
 
 ```
 AzureDiagnostics  
@@ -71,7 +69,7 @@ AzureDiagnostics 
 ```
 ### Query Mobility service version
 
-This query plots a pie chart for Azure VMs replicated with Site Recovery, broken down into the versions of the Mobility agent that they're running.
+This query plots a pie chart for Azure VMs replicated with Site Recovery, broken down by the version of the Mobility agent that they're running.
 
 ```
 AzureDiagnostics  
@@ -85,14 +83,14 @@ AzureDiagnostics 
 
 ### Query RPO time
 
-This query plots a bar chart of Azure VMs replicated with Site Recovery, broken down by recovery point objectives (RPO): Less than 15 minutes, between 15-30 minutes, more than 30 minutes.
+This query plots a bar chart of Azure VMs replicated with Site Recovery, broken down by recovery point objective (RPO): Less than 15 minutes, between 15-30 minutes, more than 30 minutes.
 
 ```
+AzureDiagnostics 
 | where replicationProviderName_s == "A2A"   
 | where isnotempty(name_s) and isnotnull(name_s)  
 | extend RPO = case(rpoInSeconds_d <= 900, "<15Min",   
-rpoInSeconds_d <= 1800, "15-30Min",   
-">30Min")  
+rpoInSeconds_d <= 1800, "15-30Min", ">30Min")  
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s  
 | project name_s , RPO  
 | summarize Count = count() by RPO  
@@ -106,10 +104,10 @@ rpoInSeconds_d <= 1800, "15-30Min",  
 This query retrieves all Site Recovery jobs (for all disaster recovery scenarios), triggered in the last 72 hours, and their completion state.
 
 ```
-AzureDiagnostics   
-| where Category == "AzureSiteRecoveryEvents"   
+AzureDiagnostics  
+| where Category == "AzureSiteRecoveryJobs"  
 | where TimeGenerated >= ago(72h)   
-| project AffectedObject=affectedResourceName_s , VaultName = Resource, Description_s = healthErrors_s , Severity = Level  
+| project JobName = OperationName , VaultName = Resource , TargetName = affectedResourceName_s, State = ResultType  
 ```
 
 ### Query Site Recovery events
@@ -123,9 +121,9 @@ AzureDiagnostics  
 | project AffectedObject=affectedResourceName_s , VaultName = Resource, Description_s = healthErrors_s , Severity = Level  
 ```
 
-### Query test failover health
+### Query test failover state (pie chart)
 
-This query plots a pie chart for the test failover health for Azure VMs replicated with Site Recovery.
+This query plots a pie chart for the test failover status of Azure VMs replicated with Site Recovery.
 
 ```
 AzureDiagnostics  
@@ -138,8 +136,9 @@ AzureDiagnostics 
 | render piechart 
 ```
 
-### Query test failover status
-This query plots a table for the test failover status for Azure VMs replicated with Site Recovery.
+### Query test failover state (table)
+
+This query plots a table for the test failover status of Azure VMs replicated with Site Recovery.
 
 ```
 AzureDiagnostics   
@@ -152,7 +151,7 @@ AzureDiagnostics  
 
 ### Query machine RPO
 
-This query plots a trend graph that tracks the RPO for a specific Azure VM (ContosoVM123) for the last 72 hours.
+This query plots a trend graph that tracks the RPO  of a specific Azure VM (ContosoVM123) for the last 72 hours.
 
 ```
 AzureDiagnostics   
@@ -165,9 +164,9 @@ AzureDiagnostics  
 ```
 ![Query machine RPO](./media/monitoring-log-analytics/example2.png)
 
-### Query data change for a VM
+### Query data change rate (churn) for a VM
 
-This query plots a trend graph that tracks the data change and upload rate for a specific Azure VM (ContosoVM123). This information is only available for Azure VMs replicated to a secondary Azure region.
+This query plots a trend graph for a specific Azure VM (ContosoVM123), that tracks the data change rate (Write Bytes per Second), and data upload rate. This information is only available for Azure VMs replicated to a secondary Azure region.
 
 ```
 AzureDiagnostics   
@@ -182,9 +181,9 @@ Category contains "Upload", "UploadRate", "none") 
 ```
 ![Query data change](./media/monitoring-log-analytics/example3.png)
 
-### Query Azure to Azure disaster recovery
+### Query disaster recovery summary (Azure to Azure)
 
-This query plots a summary table for Azure VMs being replicated using Site Recovery, to a secondary Azure region.  It shows VM name, replication and protection status, RPO, test failover status, Mobility agent version, any active replication errors, and the source location.
+This query plots a summary table for Azure VMs replicated to a secondary Azure region.  It shows VM name, replication and protection status, RPO, test failover status, Mobility agent version, any active replication errors, and the source location.
 
 ```
 AzureDiagnostics 
@@ -194,9 +193,9 @@ AzureDiagnostics 
 | project VirtualMachine = name_s , Vault = Resource , ReplicationHealth = replicationHealth_s, Status = protectionState_s, RPO_in_seconds = rpoInSeconds_d, TestFailoverStatus = failoverHealth_s, AgentVersion = agentVersion_s, ReplicationError = replicationHealthErrors_s, SourceLocation = primaryFabricName_s 
 ```
 
-### Query on-premises to Azure disaster recovery (VMware/physical servers)
+### Query disaster recovery summary (VMware/physical servers)
 
-This query plots a summary table for VMware VMs and physical servers being replicated to Azure using Site Recovery.  It shows  machine name, replication and protection status, RPO, test failover status, Mobility agent version, any active replication errors, and the relevant process server.
+This query plots a summary table for VMware VMs and physical servers replicated to Azure.  It shows  machine name, replication and protection status, RPO, test failover status, Mobility agent version, any active replication errors, and the relevant process server.
 
 ```
 AzureDiagnostics  
@@ -208,14 +207,14 @@ AzureDiagnostics 
 
 ## Set up alerts - examples
 
-You can set up Site Recovery alerts based on Azure Monitor data. [Learn more](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) about setting up log alerts on analytics queries. 
+You can set up Site Recovery alerts based on Azure Monitor data. [Learn more](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) about setting up log alerts. 
 
 > [!NOTE]
-> Some of the examples use **replicationProviderName_s** set to **A2A**. This sets alerts for Azure VMs that are replicated to a secondary Azure region using Site Recovery. In these examples, you can replace **A2A** with **InMageAzureV2** if you want to set alerts for on-premises VMware VMs or physical servers that are replicated to Azure using Site Recovery.
+> Some of the examples use **replicationProviderName_s** set to **A2A**. This sets alerts for Azure VMs that are replicated to a secondary Azure region. In these examples, you can replace **A2A** with **InMageAzureV2** if you want to set alerts for on-premises VMware VMs or physical servers replicated to Azure.
 
 ### Multiple machines in a critical state
 
-Set up an alert if more than 20 replicated Azure VMs go into a Critical state, and set the alert threshold to 20.
+Set up an alert if more than 20 replicated Azure VMs go into a Critical state.
 
 ```AzureDiagnostics   
 | where replicationProviderName_s == "A2A"   
@@ -224,10 +223,11 @@ Set up an alert if more than 20 replicated Azure VMs go into a Critical state, a
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count() 
 ```
+For the alert, set **Threshold value** to 20.
 
 ### Single machine in a critical state
 
-Set up an alert if a specific replicated Azure VM goes into a Critical state, and set the alert threshold for the VM to one.
+Set up an alert if a specific replicated Azure VM goes into a Critical state.
 
 ```
 AzureDiagnostics   
@@ -238,10 +238,11 @@ AzureDiagnostics  
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
+For the alert, set **Threshold value** to 1.
 
 ### Multiple machines exceed RPO
 
-Set up an alert if the RPO for more than 20 Azure VMs is more than 30 minutes, and set the alert threshold to 20.
+Set up an alert if the RPO for more than 20 Azure VMs exceeds 30 minutes.
 ```
 AzureDiagnostics   
 | where replicationProviderName_s == "A2A"   
@@ -251,10 +252,11 @@ AzureDiagnostics  
 | project name_s , rpoInSeconds_d   
 | summarize count()  
 ```
- 
+For the alert, set **Threshold value** to 20.
+
 ### Single machine exceeds RPO
 
-Set up an alert if the RPO for a single Azure Ms is more than 30 minutes, and set the alert threshold to one.
+Set up an alert if the RPO for a single Azure VM exceeds 30 minutes.
 
 ```
 AzureDiagnostics   
@@ -266,10 +268,11 @@ AzureDiagnostics  
 | project name_s , rpoInSeconds_d   
 | summarize count()  
 ```
+For the alert, set **Threshold value** to 1.
 
 ### Test failover for multiple machines exceeds 90 days
 
-Set up an alert if the last test failover date for more than 20 VMs exceeds 90 days. Set the alert threshold to 20.
+Set up an alert if the last successful test failover was more than 90 days, for more than 20 VMs. 
 
 ```
 AzureDiagnostics  
@@ -280,11 +283,11 @@ AzureDiagnostics 
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
+For the alert, set **Threshold value** to 20.
 
 ### Test failover for single machine exceeds 90 days
 
-Set up an alert if the last test failover date for a specified Azure VM is older than 90 days. Set the threshold value to one.
-
+Set up an alert if the last successful test failover for a specific VM was more than 90 days ago.
 ```
 AzureDiagnostics  
 | where replicationProviderName_s == "A2A"   
@@ -295,21 +298,20 @@ AzureDiagnostics 
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
+For the alert, set **Threshold value** to 1.
 
-### Reprotect job fails
+### Site Recovery job fails
 
-Set up an alert if any reprotect job (for all Site Recovery scenarios) fails during the last day. Set alert frequency to one day.
-
+Set up an alert if a Site Recovery job (in this case the Reprotect job) fails for any Site Recovery scenario, during the last day. 
 ```
 AzureDiagnostics   
 | where Category == "AzureSiteRecoveryJobs"   
 | where OperationName == "Reprotect"  
 | where ResultType == "Failed"  
-| where TimeGenerated >= ago(1d)     
 | summarize count()  
 ```
 
-
+For the alert, set **Threshold value** to 1, and **Period** to 1440 minutes, to check failures in the last day.
 
 ## Next steps
 
