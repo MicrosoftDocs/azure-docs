@@ -104,14 +104,14 @@ If you use Azure AD Domain Services to provide authentication for applications a
 1. Azure AD Connect retrieves the public key for the tenant's instance of Azure AD Domain Services.
 1. When a user changes their password, the on-premises domain controller stores the result of the password change (hashes) in two attributes:
     * *unicodePwd* for the NTLM password hash.
-    * *supplementalCredentials* for the Kerberos password hashes.
-1. Azure AD Connect detects password changes through the directory replication channel (attribute changes the need replication to other domain controllers).
+    * *supplementalCredentials* for the Kerberos password hash.
+1. Azure AD Connect detects password changes through the directory replication channel (attribute changes the need for replication to other domain controllers).
 1. For each user whose password has changed, Azure AD Connect performs the following steps:
     * Generates a random AES 256-bit symmetric key.
     * Generates a random initialization vector needed for the first round of encryption.
     * Extracts Kerberos password hashes from the *supplementalCredentials* attributes.
     * Checks the Azure AD Domain Services security configuration *SyncNtlmPasswords* setting.
-        * If this setting is disabled, generates a random, high-entropy NTLM hash (different from the user's password) and combines the value with the exacted Kerberos password hashes from the *supplementalCrendatials* attribute into one data structure.
+        * If this setting is disabled, generates a random, high-entropy NTLM hash (different from the user's password). This hash is then combined with the exacted Kerberos password hashes from the *supplementalCrendetials* attribute into one data structure.
         * If enabled, combines the value of the *unicodePwd* attribute with the extracted Kerberos password hashes from the *supplementalCredentials* attribute into one data structure.
     * Encrypts the single data structure using the AES symmetric key.
     * Encrypts the AES symmetric key using the tenant's Azure AD Domain Services public key.
@@ -119,10 +119,10 @@ If you use Azure AD Domain Services to provide authentication for applications a
 1. Azure AD stores the encrypted AES symmetric key, the encrypted data structure, and the initialization vector for the user.
 1. Azure AD pushes the encrypted AES symmetric key, the encrypted data structure, and the initialization vector using an internal synchronization mechanism over an encrypted HTTP session to Azure AD Domain Services.
 1. Azure AD Domain Services retrieves the private key for the tenant's instance from Azure Key vault.
-1. For each encrypted set of data (representing a single user's password changed), Azure AD Domain Services then performs the following steps:
+1. For each encrypted set of data (representing a single user's password change), Azure AD Domain Services then performs the following steps:
     * Uses its private key to decrypt the AES symmetric key.
     * Uses the AES symmetric key with the initialization vector to decrypt the encrypted data structure that contains the password hashes.
-    * Writes the Kerberos password hashes it received to the Azure AD Domain Services domain controller. The hashes are saved into the user object's *supplementalCredentials* attribute that is encrypted to the Azure AD Domain Services domain controller's public key.
+    * Writes the Kerberos password hashes it receives to the Azure AD Domain Services domain controller. The hashes are saved into the user object's *supplementalCredentials* attribute that is encrypted to the Azure AD Domain Services domain controller's public key.
     * Azure AD Domain Services writes the NTLM password hash it received to the Azure AD Domain Services domain controller. The hash is saved into the user object's *unicodePwd* attribute that is encrypted to the Azure AD Domain Services domain controller's public key.
 
 ## Enable password hash synchronization
