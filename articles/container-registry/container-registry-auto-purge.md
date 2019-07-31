@@ -60,7 +60,7 @@ az acr run \
 
 ### Run in a scheduled task
 
-The following example uses the [az-acr-task-create][az-acr-task-create] command to create a daily [scheduled ACR task](container-registry-tasks-scheduled.md). The task runs `acr purge` to delete tags modified more than 7 days ago in the `hello-world` repository. The task runs in the local context.
+The following example uses the [az acr task create][az-acr-task-create] command to create a daily [scheduled ACR task](container-registry-tasks-scheduled.md). The task runs `acr purge` to delete tags modified more than 7 days ago in the `hello-world` repository. The task runs in the local context.
 
 ```azurecli
 az acr task create --name purgeTask \
