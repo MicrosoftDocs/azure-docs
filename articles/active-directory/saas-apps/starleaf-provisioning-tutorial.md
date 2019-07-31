@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in St
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A StarLeaf tenant](https://www.starleaf.com/pricing/).
+* [A StarLeaf tenant](https://www.starleaf.com/solutions/).
 * A user account in StarLeaf with Admin permissions.
 
 ## Assign Users to StarLeaf
@@ -50,17 +50,17 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup StarLeaf for provisioning
 
-Before configuring StarLeaf for automatic user provisioning with Azure AD, you will need to retrieve some provisioning information from StarLeaf.
+Before configuring StarLeaf for automatic user provisioning with Azure AD, you will need to configure SCIM provisioning in StarLeaf:
 
 1. Sign in to your [StarLeaf Admin Console](https://portal.starleaf.com/#page=login). Navigate to **Integrations** > **Add integration**.
 
 	![StarLeaf Add SCIM](media/starleaf-provisioning-tutorial/image00.png)
 
-2. Select the **Type&Name**. Click Apply.
+2. Select the **Type** to be Microsoft Azure Active Directory. Enter a suitable name in **Name**. Click Apply.
 
 	![StarLeaf Add SCIM](media/starleaf-provisioning-tutorial/image01.png)
 
-3.  The **SCIM base URL** and **Access token** values are displayed in the bottom. Save these values as these will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your StarLeaf application in the Azure portal. 
+3.  The **SCIM base URL** and **Access token** values will be then displayed. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your StarLeaf application in the Azure portal. 
 
 	![StarLeaf Create Token](media/starleaf-provisioning-tutorial/image02.png)
 
@@ -147,6 +147,8 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## 	Connector limitations
 
+* StarLeaf does not currently support group provisioning. 
+* StarLeaf requires that **email** and **userName** values to have the same source value.
 
 ## Additional resources
 
