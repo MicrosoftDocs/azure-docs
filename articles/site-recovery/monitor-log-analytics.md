@@ -71,7 +71,7 @@ AzureDiagnostics 
 ```
 ### Query Mobility service version
 
-This query plots a pie chart of Azure VMs replicated with Site Recovery, broken down into the versions of the Mobility agent that they're running.
+This query plots a pie chart for Azure VMs replicated with Site Recovery, broken down into the versions of the Mobility agent that they're running.
 
 ```
 AzureDiagnostics  
