@@ -5,7 +5,7 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 07/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
@@ -32,7 +32,7 @@ This tutorial guides you through the process of creating an Azure Time Series In
 ## Prerequisites
 
 * If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-* Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, see [Manage access by using role-based access control and the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+* Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, see [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Overview
 

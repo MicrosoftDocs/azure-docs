@@ -10,7 +10,6 @@ ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 07/16/2019
 ---
 # Use PowerShell to add an Azure SQL Database single database to a failover group 

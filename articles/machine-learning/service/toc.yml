@@ -33,6 +33,12 @@
   items:
   - name: Python SDK
     items:
+    - name: Create first ML experiment
+      items:
+      - name: 1. Setup workspace & dev environment
+        href: tutorial-1st-experiment-sdk-setup.md
+      - name: 2. Train your first model
+        href: tutorial-1st-experiment-sdk-train.md
     - name: Image classification (MNIST data)
       items:
       - name: 1. Train a model
@@ -146,10 +152,10 @@
       href: how-to-configure-environment.md
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
-      href: how-to-enable-logging.md 
+      href: how-to-enable-logging.md
     - name: Set input & output directories
       displayName: large data, write, experiment files, size limit
-      href: how-to-save-write-experiment-files.md 
+      href: how-to-save-write-experiment-files.md
     - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       href: how-to-vscode-tools.md
@@ -183,7 +189,7 @@
     - name: Create estimators in training
       href: how-to-train-ml-models.md
     - name: Use Scikit-learn
-      href: how-to-train-scikit-learn.md  
+      href: how-to-train-scikit-learn.md
     - name: Use TensorFlow
       href: how-to-train-tensorflow.md
     - name: Use Keras
@@ -207,7 +213,7 @@
       href: how-to-use-mlflow.md
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics
-      href: how-to-monitor-tensorboard.md      
+      href: how-to-monitor-tensorboard.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
@@ -239,6 +245,9 @@
       href: how-to-deploy-fpga-web-service.md
     - name: IoT Edge
       href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: Azure App Service
+      displayName: web app
+      href: how-to-deploy-app-service.md
     - name: Custom Docker image
       href: how-to-deploy-custom-docker-image.md
     - name: Deploy existing models
@@ -267,7 +276,7 @@
     displayName: pipelines
     items:
     - name: Create an ML pipeline
-      href: how-to-create-your-first-pipeline.md  
+      href: how-to-create-your-first-pipeline.md
     - name: 'CI/CD of ML workflows with Azure Pipelines'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
@@ -325,10 +334,10 @@
       - name: Partition and Sample
         href: ../algorithm-module-reference/partition-and-sample.md
     - name: Machine learning
-      items:  
+      items:
       - name: Score Model
         href: ../algorithm-module-reference/score-model.md
-      - name: Assign Data To Clusters 
+      - name: Assign Data To Clusters
         href: ../algorithm-module-reference/assign-data-to-clusters.md
       - name: Train Model
         href: ../algorithm-module-reference/train-model.md
@@ -367,7 +376,7 @@
       - name: K-Means Clustering
         href: ../algorithm-module-reference/k-means-clustering.md
     - name: Python and R language modules
-      items:  
+      items:
       - name: Execute Python Script
         href: ../algorithm-module-reference/execute-python-script.md
       - name: Create Python Model
