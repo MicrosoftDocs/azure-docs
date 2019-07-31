@@ -32,6 +32,8 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * List all the images in your subscription
 > * Delete an image
 
+In Public Preview, we have the [Azure VM Image Builder](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/image-builder-overview) service, simply describe your customizations in a template, and it will handle the image creation steps in this article! [Get started](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/image-builder) trying it today!
+
 ## Before you begin
 
 The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create new VM instances.
