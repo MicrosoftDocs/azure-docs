@@ -41,6 +41,7 @@ Windows Defender uses the Windows Update client to download and install signatur
 >    - You have binary artifacts committed you would like to analyze with BinSkim.
 
 Screenshot and details on configuring below. 
+
 ![BinSkim Setup](./media/security-tools/7-binskim-task-details.png)  
 1. Set the build configuration to Debug to produce ***.pdb** debug files. They're used by BinSkim to map issues found in the output binary back to source code. 
 2. Choose Type = **Basic** & Function = **Analyze** to avoid researching and creating your own command line. 
@@ -67,7 +68,8 @@ Screenshot and details on configuring below.
 For more details on BinSkim about command line arguments, rules by ID or exit codes, visit the [BinSkim User Guide](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md)
 
 ## Credential Scanner Task
-Screenshot and details on configuring below. 
+Screenshot and details on configuring below.
+ 
 ![Credential Scanner Customization](./media/security-tools/3-taskdetails.png)
 
 Available options include 
@@ -143,7 +145,9 @@ For More information about TSLint, visit [TSLint GitHub Repo](https://github.com
 
 ## Publish Security Analysis Logs Task
 Screenshot and details on configuring below.
+
 ![Customizing Publish Security Analysis](./media/security-tools/9-publish-security-analsis-logs600.png)  
+
 - **Artifact name** -can be any String Identifier
 - **Artifact Type** - you can publish logs to the Azure-DevOps server or to a file share that is accessible to the build agent. 
 - **Tools** - You can choose to preserve logs for individual/specific tools or select **All Tools** to preserve all logs. 
@@ -158,6 +162,7 @@ You can customize the base logs folder where logs are to be found, but this is n
 
 ## Post-Analysis Task
 Screenshot and details on configuring below.
+
 ![Customizing Post-Analysis](./media/security-tools/a-post-analysis600.png) 
 - **Tools** - Select the tools in your build definition for which you would like to inject a build break based on its findings. For each tool selected, there may be an option to select whether you would like to break on Errors only or both Errors and Warnings. 
 - **Report** - You can optionally write the results that are found and causing the build break to the Azure DevOps console window and log file. 
