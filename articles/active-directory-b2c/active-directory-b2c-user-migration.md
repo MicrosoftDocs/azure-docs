@@ -191,7 +191,6 @@ To validate the migration, use one of the following two methods:
 - To search for a user by display name, use the Azure portal:
 
    1. Open **Azure AD B2C**, and then select **Users**.
-
    1. In the search box, type the user's display name, and then view the user's profile.
 
 - To retrieve a user by sign-in email address, use this sample application:
@@ -227,7 +226,7 @@ If you migrate users with a random password, they must reset their password. To 
 
 To get the link to your password reset policy, follow these steps. This procedure assumes you've previously created a password reset [custom policy](active-directory-b2c-get-started-custom.md).
 
-1. Select the directory containing your Azure AD B2C tenant by using the **Directory + subscription** filter in the upper-right section of the [Azure portal](https://portal.azure.com)
+1. Select the directory containing your Azure AD B2C tenant by using the **Directory + subscription** filter in the upper-right section of the [Azure portal](https://portal.azure.com).
 1. Select **Azure AD B2C** in the left-hand menu (or from within **All services**).
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select your password reset policy. For example, *B2C_1A_PasswordReset*.
@@ -265,7 +264,6 @@ To track the password change, you use an Azure table. When you run the pre-migra
 ### 4.1: Update your application setting
 
 1. To test the RESTful API demo, open `AADB2C.UserMigration.sln` in Visual Studio.
-
 1. In the `AADB2C.UserMigration.API` project, open the *Web.config* file. Replace the setting with the one configured in [Step 2.2](#step-22-configure-the-application-settings):
 
     ```json
@@ -337,9 +335,9 @@ After you define the technical profile for your RESTful API, tell your Azure AD 
 
 ### Step 4.5: Test the custom policy by using Run Now
 
-1. Select **Azure AD B2C Settings**, and then go to **Identity Experience Framework**.
-1. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.
-1. Try to sign in with one of the migrated users' credentials, and then select **Sign In**. Your REST API should throw the following error message:
+1. Select **Azure AD B2C**, and then select **Identity Experience Framework**.
+1. Open *B2C_1A_signup_signin*, the relying party (RP) custom policy that you uploaded, and then select **Run now**.
+1. Enter the credentials of one of the migrated users, and then select **Sign In**. Your REST API should throw the following error message:
 
     ![Sign-in Sign-up page showing the change password error message](media/active-directory-b2c-user-migration/pre-migration-error-message.png)
 
