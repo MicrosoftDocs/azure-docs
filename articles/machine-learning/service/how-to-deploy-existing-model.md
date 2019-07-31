@@ -1,5 +1,5 @@
 ---
-title: How to use an existing model
+title: Use and deploy existing models
 titleSuffix: Azure Machine Learning service
 description: 'Learn how you can use Azure Machine Learning service with models that were trained outside the service. You can register models created outside Azure Machine Learning service, and then deploy them as a web service or Azure IoT Edge module.'
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: larryfr
 ms.date: 06/19/2019
 ---
 
-# How to use an existing model with Azure Machine Learning service
+# Use an existing model with Azure Machine Learning service
 
 Learn how to use an existing machine learning model with the Azure Machine Learning service.
 
