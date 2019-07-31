@@ -24,8 +24,8 @@ Truffle is a blockchain development environment you can use to connect to an Azu
 * [Create an Azure Blockchain member](create-member.md)
 * Install [Truffle](https://github.com/trufflesuite/truffle). Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 * Install [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is needed for Web3.
-* Install [Visual Studio Code](https://code.visualstudio.com/Download)
-* Install [Visual Studio Code Solidity extension](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
+* Install [Visual Studio Code](https://code.visualstudio.com/download).
+* Install [Visual Studio Code Solidity extension](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity).
 
 ## Create Truffle project
 
