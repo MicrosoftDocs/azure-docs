@@ -1,6 +1,6 @@
 - name: Submit your solutions to AppSource via Seller Dashboard
   items:
-    name: Overview
+  - name: Overview
     href: submit-to-the-office-store.md
   - name: Optimize add-in placement and ranking in AppSource
     href: optimize-for-store-discovery.md
