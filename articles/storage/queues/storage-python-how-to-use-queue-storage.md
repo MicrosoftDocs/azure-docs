@@ -4,12 +4,12 @@ description: Learn how to use the Azure Queue service from Python to create and 
 author: mhopkins-msft
 ms.service: storage
 
-ms.devlang: python
-ms.topic: article
-ms.date: 12/14/2018
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 12/14/2018
+ms.service: storage
 ms.subservice: queues
+ms.topic: conceptual
+ms.reviewer: cbrooks
 ---
 
 # How to use Queue storage from Python

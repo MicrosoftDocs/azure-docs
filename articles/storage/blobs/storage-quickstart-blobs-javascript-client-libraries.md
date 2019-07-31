@@ -4,13 +4,12 @@ description: Learn to use an instance of BlobService to upload, list, and delete
 keywords: storage, javascript, html
 author: mhopkins-msft
 
-ms.custom: mvc
-ms.service: storage
 ms.author: mhopkins
-ms.reviewer: seguler
 ms.date: 11/14/2018
-ms.topic: quickstart
+ms.service: storage
 ms.subservice: blobs
+ms.topic: quickstart
+ms.custom: mvc
 ---
 
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->

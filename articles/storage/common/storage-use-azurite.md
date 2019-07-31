@@ -3,11 +3,11 @@ title: Use the Azurite open-source emulator for blob storage development and tes
 description: The Azurite open-source emulator (preview) provides a free local environment for testing your Azure Blob storage applications.
 author: mhopkins-msft
 
-ms.service: storage
-ms.topic: article
-ms.date: 06/12/2019
 ms.author: mhopkins
+ms.date: 06/12/2019
+ms.service: storage
 ms.subservice: common
+ms.topic: conceptual
 ---
 
 # Use the Azurite open-source emulator for blob storage development and testing (preview)
