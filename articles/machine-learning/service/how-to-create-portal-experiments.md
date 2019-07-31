@@ -63,7 +63,7 @@ Select **Create Experiment** and populate the **Create a new automated machine l
 
 1. Select a data file from your storage container, or upload a file from your local computer to the container. Public preview only supports local file uploads and Azure Blob Storage accounts.
 
-    ![Select data file for experiment](media/how-to-create-portal-experiments/select-file.png)
+    [![Select data file](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 
 1. Use the preview and profile tabs to further configure your data for this experiment.
 
@@ -100,33 +100,22 @@ Select **Create Experiment** and populate the **Create a new automated machine l
 
 You can get a vast variety of summary statistics across your data set to verify whether your data set is ML-ready. For non-numeric columns, they include only basic statistics like min, max, and error count. For numeric columns, you can also review their statistical moments and estimated quantiles. Specifically, our data profile includes:
 
-* **Feature**: name of the column that is being summarized.
-
-* **Profile**: an in-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
-
-* **Type distribution**: an in-line value count of types within a column. Nulls are their own type, so this visualization is useful for detecting odd or missing values.
-
-* **Type**: the inferred type of the column. Possible values include: strings, booleans, dates, and decimals.
-
-* **Min**: the minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (e.g. booleans).
-
-* **Max**: the maximum value of the column. Like "min," blank entries appear for features with irrelevant types.
-
-* **Count**: the total number of missing and non-missing entries in the column.
-
-* **Not missing count**: the number of entries in the column that are not missing. Empty strings and errors are treated as values, so they will not contribute to the "not missing count."
-
-* **Quantiles** (at 0.1, 1, 5, 25, 50, 75, 95, 99, and 99.9% intervals): the approximated values at each quantile to provide a sense of the distribution of the data. Blank entries appear for features with irrelevant types.
-
-* **Mean**: the arithmetic mean of the column. Blank entries appear for features with irrelevant types.
-
-* **Standard deviation**: the standard deviation of the column. Blank entries appear for features with irrelevant types.
-
-* **Variance**: the variance of the column. Blank entries appear for features with irrelevant types.
-
-* **Skewness**: the skewness of the column. Blank entries appear for features with irrelevant types.
-
-* **Kurtosis**: the kurtosis of the column. Blank entries appear for features with irrelevant types.
+Advanced settings|Description
+------|------
+Feature| Name of the column that is being summarized.
+Profile| In-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
+Type distribution| In-line value count of types within a column. Nulls are their own type, so this visualization is useful for detecting odd or missing values.
+Type|Inferred type of the column. Possible values include: strings, booleans, dates, and decimals.
+Min| Minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (e.g. booleans).
+Max| Maximum value of the column. Like "min," blank entries appear for features with irrelevant types.
+Count| Total number of missing and non-missing entries in the column.
+Not missing count| Number of entries in the column that are not missing. Empty strings and errors are treated as values, so they will not contribute to the "not missing count."
+Quantiles| Approximated values at each quantile to provide a sense of the distribution of the data. Blank entries appear for features with irrelevant types.
+Mean| Arithmetic mean of the column. Blank entries appear for features with irrelevant types.
+Standard deviation| Standard deviation of the column. Blank entries appear for features with irrelevant types.
+Variance| Variance of the column. Blank entries appear for features with irrelevant types.
+Skewness| Skewness of the column. Blank entries appear for features with irrelevant types.
+Kurtosis| Kurtosis of the column. Blank entries appear for features with irrelevant types.
 
 <a name="preprocess"></a>
 
@@ -171,15 +160,11 @@ Once you have the best model at hand, it is time to deploy it as a web service t
 Automated ML helps you with deploying the model without writing code:
 
 1. You have a few options for deployment. 
-    1. If you want to deploy the best model based on the metric criteria you set for the experiment, select **Deploy Best Model** from the **Run Detail** page.
+   Choose the model to deploy:
+      + Option 1: To deploy the best model (according to the metric criteria you defined), select Deploy Best Model from the Run Detail page.
 
-        ![Deploy model button](media/how-to-create-portal-experiments/deploy-model-button.png)
-
-    1. If you want to deploy a specific model iteration, drill down on the model to open its specific run detail page and select **Deploy Model**.
-
-        ![Deploy model button](media/how-to-create-portal-experiments/deploy-model-button2.png)
-
-1. Populate the **Deploy Best Model** pane,
+    + Option 2: To deploy a specific model iteration from this experiment, drill down on the model to open its run detail page and select Deploy Model.
+1. Populate the **Deploy Model** pane,
 
     Field| Value
     ----|----
