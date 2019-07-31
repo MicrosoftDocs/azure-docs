@@ -142,13 +142,16 @@ Replaces values within a string. It works differently depending on the parameter
 * When **oldValue** and **template** are provided:
   
   * Replaces all occurrences of the **oldValue** in the **template** with the **source** value
+* When **regexPattern** and **replacementValue** are provided:
+
+  * The function applies the **regexPattern** to the **source** string and you can use the regex group names to construct the string for **replacementValue**
 * When **regexPattern**, **regexGroupName**, **replacementValue** are provided:
   
-  * Replaces all values matching **oldValue** **regexPattern** in the **source** string with **replacementValue**
-* When **regexPattern**, **regexGroupName**, **replacementPropertyName** are provided:
+  * The function applies the **regexPattern** to the **source** string and replaces all values matching **regexGroupName** with **replacementValue**
+* When **regexPattern**, **regexGroupName**, **replacementAttributeName** are provided:
   
   * If **source** has no value, **source** is returned
-  * If **source** has a value, uses **regexPattern** and **regexGroupName** to extract **replacementValue** from the property with **replacementPropertyName**. **replacementValue** is returned as the result
+  * If **source** has a value, the function applies the **regexPattern** to the **source** string and replaces all values matching **regexGroupName** with the value associated with **replacementAttributeName**
 
 **Parameters:**<br> 
 
@@ -159,7 +162,7 @@ Replaces values within a string. It works differently depending on the parameter
 | **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. Or, when **replacementPropertyName** is used, pattern to extract value from **replacementPropertyName**. |
 | **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. Only when  **replacementPropertyName** is used, we will extract value of this group as **replacementValue** from **replacementPropertyName**. |
 | **replacementValue** |Optional |String |New value to replace old one with. |
-| **replacementPropertyName** |Optional |String |Name of the attribute to be used for replacement value, when **source** has no value. |
+| **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value |
 | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
 
 - - -
