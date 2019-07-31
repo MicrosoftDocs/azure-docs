@@ -11,8 +11,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2019
-ms.author: chmutali
+ms.date: 07/31/2019
+ms.author: mimart
 
 ms.collection: M365-identity-device-management
 ---
