@@ -122,7 +122,6 @@ The NTLM and Kerberos compatible password hashes are always stored in an encrypt
 As described in a preceding section of this article, there is no synchronization from your managed domain back to your Azure AD tenant. You may choose to [create a custom Organizational Unit (OU)](create-ou.md) in your managed domain. Further, you can create other OUs, users, groups, or service accounts within these custom OUs. None of the objects created within custom OUs are synchronized back to your Azure AD tenant. These objects are available for use only within your managed domain. Therefore, these objects are not visible using Azure AD PowerShell cmdlets, Azure AD Graph API or using the Azure AD management UI.
 
 ## Related Content
-* [Features - Azure AD Domain Services](overview.md#azure-ad-ds-features)
 * [Deployment scenarios - Azure AD Domain Services](scenarios.md)
 * [Networking considerations for Azure AD Domain Services](network-considerations.md)
 * [Get started with Azure AD Domain Services](tutorial-create-instance.md)
