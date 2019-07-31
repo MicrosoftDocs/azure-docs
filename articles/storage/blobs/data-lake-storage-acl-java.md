@@ -139,15 +139,16 @@ throws URISyntaxException, StorageException{
 
         if (cloudBlobDirectory != null)
         {
-            PathPermissions pathPermissions  = new PathPermissions();
-            RolePermissions otherPermission = new RolePermissions();
-            otherPermission.setRead(true);
-            pathPermissions.setOther(otherPermission);
-            cloudBlobDirectory.setPermissions(pathPermissions);
-
-            cloudBlobDirectory.uploadPermissions();
+            PathAccessControlEntry entry = new PathAccessControlEntry();
+            entry.setDefaultScope(true);
+            RolePermissions perms = new RolePermissions();
+            perms.setRead(true);
+            entry.setAccessControlType(AccessControlType.OTHER);
+            entry.setPermissions(perms);
+            cloudBlobDirectory.getAccessControlList().add(entry);
+            cloudBlobDirectory.uploadACL();
         }
-
+  
     }
 
 }
@@ -177,15 +178,15 @@ throws URISyntaxException, StorageException{
             if (cloudBlockBlob != null){
 
                 cloudBlockBlob.downloadSecurityInfo();
-
-                PathPermissions pathPermissions  = new PathPermissions();
                 RolePermissions otherPermission = new RolePermissions();
                 otherPermission.setRead(true);
-                pathPermissions.setOther(otherPermission);
-                cloudBlockBlob.setPermissions(pathPermissions);
+                PathAccessControlEntry entry = new PathAccessControlEntry();
+                entry.setAccessControlType(AccessControlType.OTHER);
+                entry.setPermissions(otherPermission);
+                cloudBlockBlob.uploadACL();
 
             }
-            
+
 
         }
      }
