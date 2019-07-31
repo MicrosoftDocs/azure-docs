@@ -1,13 +1,13 @@
 ---
 title: Configure reports for Azure Backup
 description: Configure Power BI reports for Azure Backup by using a Recovery Services vault.
-
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: adigan
+ms.author: dacurwin
 ---
 # Configure Azure Backup reports
 This article shows steps to follow to configure reports for Azure Backup by using a Recovery Services vault. It also shows how to access reports by using Power BI. After you finish these steps, you can go directly to Power BI to view, customize, and create reports.
