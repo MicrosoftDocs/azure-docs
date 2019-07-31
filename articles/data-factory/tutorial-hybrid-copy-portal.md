@@ -81,7 +81,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
     ![Storage account search](media/doc-common-process/search-storage-account.png)
 
-1. In the list of storage accounts, filter for your storage account, if needed. Then select your storage account. 
+1. In the list of storage accounts, filter for your storage account if needed. Then select your storage account. 
 
 1. In the **Storage account** window, select **Access keys**.
 
@@ -191,11 +191,20 @@ In this step, you create a data factory and start the Data Factory UI to create 
 1. Go to the **Sink** tab at the bottom of the **Properties** window, and select **+ New**. 
 
 1. In the **New Dataset** dialog box, select **Azure Blob Storage**. Then select **Continue**. 
+<<<<<<< HEAD
 1. In the **Select Format** dialog box, choose the format type of your data. Then select **Continue**. 
+=======
+
+1. In **Select Format** dialog box, choose the format type of your data. Then select **Continue**. 
+>>>>>>> Update Tutorial-Copy on-premises data to cloud--UI
 
     ![Data format selection](./media/doc-common-process/select-data-format.png)
 
+<<<<<<< HEAD
 1. In the **Set Properties** dialog box, enter **AzureBlobDataset** for **Name**. Next to **Linked service**, select **+ New**. 
+=======
+1. In the **Set Properties** dialog box, enter **AzureBlobDataset** for Name. Next to the **Linked service** text box, select **+ New**.
+>>>>>>> Update Tutorial-Copy on-premises data to cloud--UI
 
 1. In the **New Linked Service (Azure Blob Storage)** dialog box, enter **AzureStorageLinkedService** as name, select your storage account from the **Storage account** name list. Test connection, and then select **Finish** to deploy the linked service.
 1. After the linked service is created, you're back to the **Set properties** page. Select **Continue**.
@@ -206,7 +215,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
     
     b. In **File path**, enter **adftutorial/fromonprem** for the **Container/ Directory** part. If the output folder doesn't exist in the adftutorial container, Data Factory automatically creates the output folder.
     
-    c. For the **File** part, select Add dynamic content.
+    c. For the **File** part, select **Add dynamic content**.
     ![dynamic expression for resolving file name](./media/tutorial-hybrid-copy-portal/file-name.png)
 
     d. Add `@CONCAT(pipeline().RunId, '.txt')`, and then select **Finish**. This action will rename the file with PipelineRunID.txt. 
