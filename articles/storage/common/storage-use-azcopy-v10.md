@@ -15,7 +15,8 @@ ms.subservice: common
 AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you download AzCopy, connect to your storage account, and then transfer files.
 
 > [!NOTE]
-> AzCopy **V10** is the currently supported version of AzCopy.
+> AzCopy **V10** is the currently supported version of AzCopy. 
+> (for 32 bit versions of Windows, use AzCopy 7.3 [https://aka.ms/downloadazcopynet])
 >
 > If you need to use AzCopy **v8.1**, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
