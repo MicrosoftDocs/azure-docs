@@ -17,7 +17,7 @@ You can use the Update Management solution in Azure Automation to manage operati
 You can enable Update Management for virtual machines directly from your Azure Automation account. To learn how to enable Update Management for virtual machines from your Automation account, see [Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a virtual machine from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtual machines.
 
 > [!NOTE]
-> The Update Management solution requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [./how-to/region-mappings.md]. The region mappings do not affect the ability to manage virtual machines in a
+> The Update Management solution requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings]. The region mappings do not affect the ability to manage virtual machines in a
 > separate region than your Automation account.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
