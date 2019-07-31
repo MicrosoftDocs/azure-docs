@@ -13,11 +13,11 @@ ms.custom: include file
 
 To get the IoT Hub connection string for the **registryReadWrite** policy, follow these steps:
 
-1. Open your IoT hub in the [Azure portal](https://portal.azure.com).  
+1. Open your hub in the [Azure portal](https://portal.azure.com).  
 
-   To find your IoT hub, select **Resource groups**. Select the resource group where your IoT hub is located, and then select your IoT hub from the list of resources.
+   To find your hub, select **Resource groups**. Select the resource group where your hub is located, and then select your hub from the list of resources.
 
-2. On the left-side pane of your IoT hub, select **Shared access policies**.
+2. On the left-side pane of your hub, select **Shared access policies**.
 
 3. From the list of policies, select the **registryReadWrite** policy.
 

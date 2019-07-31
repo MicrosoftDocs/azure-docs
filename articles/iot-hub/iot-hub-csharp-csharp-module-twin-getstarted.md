@@ -13,7 +13,7 @@ ms.author: menchi
 # Get started with IoT Hub module identity and module twin using .NET back end and .NET device
 
 > [!NOTE]
-> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, a module identity and module twin allows for isolated configuration and conditions for each component.
+> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provide visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, a module identities and module twins allow for isolated configuration and conditions for each component.
 
 At the end of this tutorial, you'll have two .NET console apps:
 
@@ -34,7 +34,7 @@ To complete this tutorial, you need the following prerequisites:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## Get the IoT hub connection string
+## Get the IoT Hub connection string
 
 [!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
 
@@ -46,18 +46,19 @@ To complete this tutorial, you need the following prerequisites:
 
 In this section, you create a .NET console app on your simulated device that updates the module twin reported properties.
 
-Before you begin, get your module connection string. Sign in to [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and select **IoT Devices**. Find **myFirstDevice**. Select **myFirstDevice** to open it, and then select **myFirstModule** to open it. In **Module Identity Details**, copy the **Connection string (primary key)** when needed in the following procedure.
+Before you begin, get your module connection string. Sign in to the [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and select **IoT Devices**. Find **myFirstDevice**. Select **myFirstDevice** to open it, and then select **myFirstModule** to open it. In **Module Identity Details**, copy the **Connection string (primary key)** when needed in the following procedure.
 
    ![Azure portal module detail](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.png)
 
-1. In Visual Studio, add a new project to your solution by selecting **File > New > Project**. In Create a new project, select **Console App (.NET Framework)**, and select **Next**.
+1. In Visual Studio, add a new project to your solution by selecting **File** > **New** > **Project**. In Create a new project, select **Console App (.NET Framework)**, and select **Next**.
 
-1. Name the project **UpdateModuleTwinReportedProperties**. For **Solution**, select **Add to solution**. Make sure the .NET Framework version is 4.6.1 or later.
+1. Name the project *UpdateModuleTwinReportedProperties*. For **Solution**, select **Add to solution**. Make sure the .NET Framework version is 4.6.1 or later.
 
-    ![Create a visual studio project](./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png)
+    ![Create a Visual Studio project](./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png)
 
-1. In Visual Studio, open **Tools > NuGet Package Manager > Manage NuGet Packages for Solution**. Select the **Browse** tab.
-1. Search for **Microsoft.Azure.Devices.Client**. Select it and then select **Install**.
+1. Select **Create** to create your project.
+1. In Visual Studio, open **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution**. Select the **Browse** tab.
+1. Search for and select **Microsoft.Azure.Devices.Client**, and then select **Install**.
 
     ![Install Azure IoT Hub .NET service SDK current version](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
@@ -141,7 +142,7 @@ Before you begin, get your module connection string. Sign in to [Azure portal](h
 
     This code sample shows you how to retrieve the module twin and update reported properties with AMQP protocol. In public preview, we only support AMQP for module twin operations.
 
-1. Optionally, you can add these statements to **Main** method to send an event to IoT Hub from your module. Place these lines below the `try catch` block.
+1. Optionally, you can add these statements to the **Main** method to send an event to IoT Hub from your module. Place these lines below the `try catch` block.
 
     ```csharp
     Byte[] bytes = new Byte[2];
@@ -154,9 +155,15 @@ Before you begin, get your module connection string. Sign in to [Azure portal](h
 
 ## Run the apps
 
-You can now run the apps. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for the apps, and **OK** to accept your changes. 
+You can now run the apps.
 
-And then press F5 to start the apps.
+1. In Visual Studio, in **Solution Explorer**, right-click your solution, and then select **Set StartUp projects**.
+
+1. Under **Common Properties**, select **Startup Project.**
+
+1. Select **Multiple startup projects**, and then select **Start** as the action for the apps, and **OK** to accept your changes.
+
+1. Press **F5** to start the apps.
 
 ## Next steps
 
