@@ -50,7 +50,7 @@ In this section, you modify the simulated device app you created in [Send teleme
 
 1. Using a text editor, open the **SimulatedDevice.js** file. This file is located in the **iot-hub\Quickstarts\simulated-device** folder off of the root folder of the Node.js sample code you downloaded in the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) quickstart.
 
-2. Add a call to the `client.on` function to register a handler for messages sent from IoT Hub. Add the call just after the line that creates the device client as in the following snippet:
+2. Register a handler with the device client to receive messages sent from IoT Hub. Add the call to `client.on` just after the line that creates the device client as in the following snippet:
 
     ```javascript
     var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
