@@ -4,7 +4,7 @@ description: Learn about the available Azure disk types for Linux virtual machin
 author: roygara
 ms.author: rogarana
 ms.date: 05/10/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ---
