@@ -1,25 +1,33 @@
 ---
 title: 'Node.js Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
 description: Explains how to create an index, load data, and run queries using Node.js and the Azure Search REST APIs.
-author: jj09
-manager: jlembicz
+author: lobrien
+manager: cgronlun
+tags: azure-portal
 services: search
 ms.service: search
-ms.topic: conceptual
-ms.date: 04/26/2017
-ms.author: jjed
-ms.custom: seodec2018
+ms.devlang: javascript
+ms.topic: quickstart
+ms.date: 07/30/2019
+ms.author: laobri
 ---
-# Quickstart: Create an Azure Search index in Node.js
+# Quickstart: Create and Query an Azure Search index in Node.js
 > [!div class="op_single_selector"]
+> * [JavaScript](search-get-started-nodejs.md)
+> * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
-> * [.NET](search-howto-dotnet-sdk.md)
-> 
-> 
+> * [PowerShell](search-create-index-rest-api.md)
+> * [Python](search-get-started-python.md)
+> * [Postman](search-get-started-postman.md)
 
-Learn how to build a custom Node.js search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
+Create a Node.js application that that creates, loads, and queries an Azure Search index. This article demonstrates how to create the application step-by-step. Alternately, you can [download and run the complete application.](tk)
 
-We used [Node.js](https://Nodejs.org) and NPM, [Sublime Text 3](https://www.sublimetext.com/3), and Windows PowerShell on Windows 8.1 to develop and test this code.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+We used [Node.js](https://Nodejs.org), NPM, [Visual Studo Code](tk), and Windows PowerShell on Windows 10 to develop and test this code. We also tested the code under the Linux Subsystem for Windows and from the MacOS command line. 
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com). See [Create an Azure Search service in the portal](search-create-service-portal.md) for step-by-step instructions.
 
