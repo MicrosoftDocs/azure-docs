@@ -91,7 +91,6 @@ A convolutional neural network is a particularly effective type of artificial ne
 
 The following articles show you how to use deep learning technology on the [Azure Machine Learning service](/azure/machine-learning/service/):
 
-- [Classify iris flowers with a Scikit-learn model](how-to-train-scikit-learn.md)
 - [Classify handwritten digits with a TensorFlow model](how-to-train-tensorflow.md)
 - [Classify handwritten digits with a TensorFlow estimator and Keras](how-to-train-keras.md)
 - [Classify images with a Pytorch model](how-to-train-pytorch.md)
