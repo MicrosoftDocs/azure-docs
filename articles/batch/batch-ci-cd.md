@@ -358,7 +358,7 @@ In this example, we will focus on the **hpc-application** folder. The **hpc-appl
 
 ## Continuous deployment
 
-Azure Pipelines also used to deploy your application and underlying infrastructure. [Release pipelines](https://docs.microsoft.com/azure/devops/pipelines/release/what-is-release-management?view=azure-devops) is the component that enables continuous deployment and automates your release process.
+Azure Pipelines also used to deploy your application and underlying infrastructure. [Release pipelines](https://docs.microsoft.com/azure/devops/pipelines/release) is the component that enables continuous deployment and automates your release process.
 
 ### Deploying your application and underlying infrastructure
 

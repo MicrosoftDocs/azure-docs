@@ -9,13 +9,31 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/30/2019
 ms.custom: seodec18
 
 ---
 # Known issues and troubleshooting Azure Machine Learning service
 
 This article helps you find and correct errors or failures encountered when using the Azure Machine Learning service.
+
+## Visual interface issues
+
+Visual interface for machine learning service issues.
+
+### Long compute preparation time
+
+Create new compute or evoke leaving compute takes time, may be a few minutes or even longer. The team is working for optimization.
+
+
+### Cannot run an experiment only contains dataset 
+
+You might want to run an experiment only contains dataset  to visualize the dataset. However, it's not allowed to run an experiment only contains dataset today. We are actively fixing this issue.
+ 
+Before the fix, you can connect the dataset to any data transformation module (Select Columns in Dataset, Edit Metadata, Split Data etc.) and run the experiment. Then you can visualize the dataset. 
+
+Below image shows how:
+![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
 ## SDK installation issues
 
@@ -48,6 +66,9 @@ You will not be able to deploy models on FPGAs until you have requested and been
 Tensor Flow
 Automated machine learning does not currently support tensor flow version 1.13. Installing this version will cause package dependencies to stop working. We are working to fix this issue in a future release. 
 
+### Experiment Charts
+
+Binary classification charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering corectly in user interface since 4/12. Chart plots are currently showing inverse results, where better performing models are shown with lower results. A resolution is under investigation.
 
 ## Databricks
 
@@ -93,6 +114,14 @@ If you see this error when you use automated machine learning:
 1. Detach and then reattach the cluster to your notebook. 
 
 If these steps don't solve the issue, try restarting the cluster.
+
+### FailToSendFeather
+
+If you see a `FailToSendFeather` error when reading data on Azure Databricks cluster, refer to the following solutions:
+
+* Upgrade `azureml-sdk[automl_databricks]` package to the latest version.
+* Add `azure-dataprep` version 1.1.8 or above.
+* Add `pyarrow` version 0.11 or above.
 
 ## Azure portal
 

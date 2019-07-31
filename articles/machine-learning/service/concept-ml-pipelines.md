@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 12/4/2018
+ms.date: 05/14/2019
 ms.custom: seodec18
 ---
 
-# Build machine learning pipelines with the Azure Machine Learning service
+# Build reusable ML pipelines in Azure Machine Learning service
 
 In this article, learn about the machine learning pipelines you can build with the Azure Machine Learning SDK for Python, and the advantages to using pipelines.
 
@@ -29,6 +29,7 @@ The following diagram shows an example pipeline:
 
 ![Machine learning pipelines in Azure Machine Learning service](./media/concept-ml-pipelines/pipelines.png)
 
+<a name="compare"></a>
 ### Which Azure pipeline technology should I use?
 
 The Azure cloud provides several other pipelines, each with a different purpose. The following table lists the different pipelines and what they are used for:

@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Deploy and explore a multitenant SaaS app that uses the database-per-tenant pattern with SQL Database
@@ -248,7 +247,7 @@ The two charts illustrate that elastic pools and SQL Database are well suited to
 
 - For more information, see additional [tutorials that build on the Wingtip Tickets SaaS database-per-tenant application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - To learn about elastic pools, see [What is an Azure SQL elastic pool?](sql-database-elastic-pool.md).
-- To learn about elastic jobs, see [Manage scaled-out cloud databases](sql-database-elastic-jobs-overview.md).
+- To learn about elastic jobs, see [Manage scaled-out cloud databases](elastic-jobs-overview.md).
 - To learn about multitenant SaaS applications, see [Design patterns for multitenant SaaS applications](saas-tenancy-app-design-patterns.md).
 
 ## Next steps

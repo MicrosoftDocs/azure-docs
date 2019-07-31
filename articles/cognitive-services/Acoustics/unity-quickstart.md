@@ -17,7 +17,7 @@ ms.author: kegodin
 Use Project Acoustics sample content for Unity to experiment with simulation-backed design controls.
 
 Software requirements:
-* [Unity 2018.2+](http://unity3d.com) for Windows
+* [Unity 2018.2+](https://unity3d.com) for Windows
 * [Project Acoustics sample content package](https://www.microsoft.com/download/details.aspx?id=57346)
 
 What's included in the sample package?

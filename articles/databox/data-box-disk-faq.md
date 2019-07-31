@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/23/2019
 ms.author: alkohli
 ---
 # What is Azure Data Box Disk?
@@ -50,6 +50,9 @@ A.  To see where the Data Box Disks are currently available, go to the [Region a
 
 ### Q. Which regions can I store data in with Data Box Disks?
 A. Data Box Disk is supported for all regions within US, Canada, Australia, West Europe and North Europe, Korea and Japan. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
+
+### Q. Will my Data Box Disk cross country borders during shipping?
+A. Data Box Disk are shipped from within the same country as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where disks can ship to and from any EU country.
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, please [contact Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).

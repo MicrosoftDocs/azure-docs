@@ -2,12 +2,12 @@
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster using an Azure Resource Manager template and deploy an application in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
@@ -79,8 +79,8 @@ The template used in this quickstart is to [deploy an Azure Kubernetes Service c
 
     * **Subscription**: Select an Azure subscription.
     * **Resource group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, then choose **OK**.
-    * **Cluster name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
     * **Location**: Select a location, such as **East US**.
+    * **Cluster name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
     * **DNS prefix**: Enter a unique DNS prefix for your cluster, such as *myakscluster*.
     * **Linux Admin Username**: Enter a username to connect using SSH, such as *azureuser*.
     * **SSH RSA Public Key**: Copy and paste the *public* part of your SSH key pair (by default, the contents of *~/.ssh/id_rsa.pub*).
@@ -114,13 +114,13 @@ To verify the connection to your cluster, use the [kubectl get][kubectl-get] com
 kubectl get nodes
 ```
 
-The following example output shows the nodes created in the previous steps. Make sure that the status of the node is *Ready*:
+The following example output shows the nodes created in the previous steps. Make sure that the status for all the nodes is *Ready*:
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.16
-aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.16
-aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.16
+aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
+aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
+aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 ```
 
 ## Run the application
@@ -291,7 +291,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
-[aks-quickstart-templates]: https://azure.microsoft.com/en-us/resources/templates/?term=Azure+Kubernetes+Service
+[aks-quickstart-templates]: https://azure.microsoft.com/resources/templates/?term=Azure+Kubernetes+Service
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md

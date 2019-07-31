@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/16/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -98,19 +98,19 @@ To configure Azure AD single sign-on with BlueJeans, perform the following steps
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+	![Edit Basic SAML Configuration](media/bluejeans-tutorial/edit-urls-bluejeans.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. In the **Basic SAML Configuration** dialog, enter the following values:
 
-    ![BlueJeans Domain and URLs single sign-on information](common/sp-identifier.png)
+    ![BlueJeans Domain and URLs single sign-on information](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-    a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.BlueJeans.com`
-
-    b. In the **Identifier** text box, type a URL: `http://samlsp.bluejeans.com`
-
-	> [!NOTE]
-	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [BlueJeans Client support team](https://support.bluejeans.com/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   - In the **Identifier** text box, type the following:
+    `http://samlsp.bluejeans.com`
+    
+   - In the **Sign-on URL** text box, type the landing page URL provided to you by BlueJeans (to get this value, you can contact the [BlueJeans Client support team](https://support.bluejeans.com/contact)):
+    `https://<companyname>.bluejeans.com`
+    
+   - Click **Save**.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -270,4 +270,4 @@ When you click the BlueJeans tile in the Access Panel, you should be automatical
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -2,13 +2,13 @@
 title: Azure CLI samples for Blob storage | Microsoft Docs
 description: Azure CLI samples for working with Azure Blob Storage
 services: storage
-author: tamram
+author: mhopkins-msft
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: sample
 ms.date: 06/13/2017
-ms.author: tamram
+ms.author: mhopkins
 ---
 
 # Azure CLI samples for Azure Blob storage

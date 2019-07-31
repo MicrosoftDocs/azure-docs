@@ -96,7 +96,7 @@ For convenience, the IP address of the remote end of a connection is included in
 
 | Property | Description |
 |:--|:--|
-|RemoteCountry |The name of the country hosting RemoteIp.  For example, *United States* |
+|RemoteCountry |The name of the country/region hosting RemoteIp.  For example, *United States* |
 |RemoteLatitude |The geolocation latitude. For example, *47.68* |
 |RemoteLongitude |The geolocation longitude. For example, *-122.12* |
 
@@ -119,13 +119,6 @@ Every RemoteIp property in *VMConnection* table is checked against a set of IPs 
 
 ### Ports 
 Ports on a machine that actively accept incoming traffic or could potentially accept traffic, but are idle during the reporting time window, are written to the VMBoundPort table.  
-
->[!NOTE]
->Azure Monitor for VMs does not support collecting and recording port data in a Log Analytics workspace in the following regions:  
->- East US  
->- West Europe
->
-> Collecting this data is enabled in the other [supported regions](vminsights-onboard.md#log-analytics) for Azure Monitor for VMs. 
 
 Every record in VMBoundPort is identified by the following fields: 
 
@@ -197,7 +190,7 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 | ProductVersion_s | The product version |
 | FileVersion_s | The file version |
 | CommandLine_s | The command line |
-| ExecutablePath _s | The path to the executable file |
+| ExecutablePath_s | The path to the executable file |
 | WorkingDirectory_s | The working directory |
 | UserName | The account under which the process is executing |
 | UserDomain | The domain under which the process is executing |

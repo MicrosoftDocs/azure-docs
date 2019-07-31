@@ -7,17 +7,18 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: 
-manager: craigg
-ms.date: 05/06/2019
+ms.date: 04/26/2019
 ---
 # Azure SQL Database glossary of terms
 
 |Context|Term|More information|
 |:---|:---|:---|
 |Azure service name|Azure SQL Database or SQL Database|[The Azure SQL Database service](sql-database-technical-overview.md)|
+|Compute tier|Serverless (preview)|[Serverless compute tier](sql-database-serverless.md)
+||Provisioned|[Serverless compute tier](sql-database-serverless.md)
 |Deployment options |Single database|[Single databases](sql-database-single-database.md)|
 ||Elastic pool|[Elastic pool](sql-database-elastic-pool.md)|
 ||Managed instance|[Managed instance](sql-database-managed-instance.md)|

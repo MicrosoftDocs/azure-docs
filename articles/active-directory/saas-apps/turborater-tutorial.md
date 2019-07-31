@@ -66,15 +66,15 @@ To configure the integration of TurboRater into Azure AD, you need to add TurboR
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with TurboRater based on a test user named  **Britta Simon**. For single sign-on to work, you must establish a link between an Azure AD user and the related user in TurboRater.
+In this section, you configure and test Azure AD single sign-on with TurboRater based on a test user named  **B Simon**. For single sign-on to work, you must establish a link between an Azure AD user and the related user in TurboRater.
 
 To configure and test Azure AD single sign-on with TurboRater, you need to complete the following building blocks:
 
 1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
 1. **[Configure TurboRater single sign-on](#configure-turborater-single-sign-on)** to configure the single sign-on settings on the application side.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-1. **[Create a TurboRater test user](#create-a-turborater-test-user)** so that there's a user named Britta Simon in TurboRater who's linked to the Azure AD user named Britta Simon.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Azure AD single sign-on.
+1. **[Create a TurboRater test user](#create-a-turborater-test-user)** so that there's a user named B. Simon in TurboRater who's linked to the Azure AD user named B. Simon.
 1. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -145,9 +145,9 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
     ![The User pane](common/user-properties.png)
 
-    1. In the **Name** box, enter **BrittaSimon**.
+    1. In the **Name** box, enter **BSimon**.
   
-    1. In the **User name** box, enter **BrittaSimon\@\<yourcompanydomain>.\<extension>**. For example, **BrittaSimon\@contoso.com**.
+    1. In the **User name** box, enter **BSimon\@\<yourcompanydomain>.\<extension>**. For example, **BSimon\@contoso.com**.
 
     1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
 
@@ -155,7 +155,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to TurboRater.
+In this section, you enable B. Simon to use Azure single sign-on by granting their access to TurboRater.
 
 1. In the Azure portal, select **Enterprise applications** > **All applications** > **TurboRater**.
 
@@ -173,7 +173,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![The Add Assignment pane](common/add-assign-user.png)
 
-1. In the **Users and groups** pane, select **Britta Simon** in the **Users** list, and then choose **Select** at the bottom of the pane.
+1. In the **Users and groups** pane, select **B. Simon** in the **Users** list, and then choose **Select** at the bottom of the pane.
 
 1. If you're expecting a role value in the SAML assertion, then in the **Select Role** pane, select the appropriate role for the user from the list. At the bottom of the pane, choose **Select**.
 
@@ -181,7 +181,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create a TurboRater test user
 
-In this section, you create a user called Britta Simon in TurboRater. Work with the [TurboRater support team](https://www.getitc.com/support) to add Britta Simon as a user in TurboRater. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B. Simon in TurboRater. Work with the [TurboRater support team](https://www.getitc.com/support) to add B. Simon as a user in TurboRater. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
@@ -195,4 +195,4 @@ When you select **TurboRater** in the My Apps portal, you should be automaticall
 
 * [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-* [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

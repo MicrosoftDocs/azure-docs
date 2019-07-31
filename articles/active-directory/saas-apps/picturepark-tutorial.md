@@ -246,7 +246,7 @@ In order to enable Azure AD users to sign into Picturepark, they must be provisi
    
     e. In the **Company** textbox, type the **Company name** of the user. 
    
-    f. In the **Country** textbox, select the **Country** of the user.
+    f. In the **Country** textbox, select the **Country/Region** of the user.
   
     g. In the **ZIP** textbox, type the **ZIP code** of the city.
    
@@ -268,9 +268,9 @@ When you click the Picturepark tile in the Access Panel, you should be automatic
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

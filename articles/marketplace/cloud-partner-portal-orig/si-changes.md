@@ -1,20 +1,20 @@
 ---
-title: Seller Insights Release Notes | Microsoft Docs
+title: Seller Insights Release Notes 
 description: Provides information on changes to the Seller Insights feature.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
 
-ms.assetid: 
+author: v-miclar
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 3/3/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Seller Insights release notes 

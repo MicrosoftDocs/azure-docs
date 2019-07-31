@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech, C# (.NET Core Windows)'
+title: 'Quickstart: Translate speech, C# (.NET Core Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll create a simple .NET Core application to capture user speech, translate it to another language, and output the text to the command line. This guide is designed for Windows users.
 services: cognitive-services
@@ -8,13 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
 # Quickstart: Translate speech with the Speech SDK for .NET Core
 
-In this quickstart, you'll create a simple .NET Core application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
+Quickstarts are also available for [speech-to-text](quickstart-csharp-dotnet-windows.md) and [text-to-speech](quickstart-text-to-speech-dotnetcore.md).
+
+In this quickstart, you'll create a simple .NET Core application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 or later.
 
 For a complete list of languages available for speech translation, see [language support](language-support.md).
 
@@ -23,7 +25,7 @@ For a complete list of languages available for speech translation, see [language
 This quickstart requires:
 
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or later
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 
 ## Create a Visual Studio project

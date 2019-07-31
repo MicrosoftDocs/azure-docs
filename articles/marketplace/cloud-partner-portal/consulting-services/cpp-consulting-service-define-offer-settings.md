@@ -1,20 +1,12 @@
 ---
-title: Azure and Dynamics 365 consulting service offer - Define offer settings | Microsoft Docs
-description: Guide for defining offer settings in an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal.
+title: Define offer settings for a consulting service offer | Azure Marketplace 
+description: Define offer settings in an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal for the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: qianw211
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
+ms.date: 04/23/2019
+ms.author: pabutler
 ---
 
 # Offer settings tab
@@ -23,7 +15,8 @@ On the **New Offer** screen, the first step is to create the offer identity. The
 
 ![Create a new consulting service offer - Offer Settings tab](media/consultingoffer-settings-tab.png)
 
-### Offer ID
+
+### Offer ID*
 
 This identifier is a unique name you create when you first submit the offer. It must consist only of lowercase alphanumeric characters, dashes, or underscores. The **Offer ID** is visible in the URL and affects search engine results. An example is *yourcompanyname_exampleservice*.
 
@@ -32,11 +25,13 @@ As shown in the example, the **Offer ID** is appended to your publisher ID to cr
 >[!Note]
 >After an offer is live, its identifier can't be updated.
 
-### Publisher ID
+
+### Publisher ID*
 
 This identifier is related to your account. After you sign in with your organizational account, your **Publisher ID** shows up in the drop-down menu.
 
-### Name
+
+### Name*
 
 This string displays as the offer name on AppSource or in the Azure Marketplace. The **Name** box is limited to 50 characters. The reviewer might need to edit your title to append the duration and offer type to your offer name.
 

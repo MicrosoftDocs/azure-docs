@@ -91,6 +91,7 @@ The following table shows the mapping between some Azure services and Azure Gove
 | Key Vault DNS Suffix | \*.vault.usgovcloudapi.net | \*.vault.azure.net |
 | Service Bus DNS Suffix | \*.servicebus.usgovcloudapi.net | \*.servicebus.windows.net |
 | API Management | \*.azure-api.us | \*.azure-api.net |
+| Azure Service Fabric cluster | \*.cloudapp.usgovcloudapi.net | \*.cloudapp.azure.com |
 | Container Registry Suffix | \*.azurecr.us | \*.azurecr.io |
 | Gallery Url | https:\//gallery.azure.us/ | https:\//gallery.azure.com/ |
 | Classic Deployment Model Url | https:\//management.core.usgovcloudapi.net/ | https:\//management.core.windows.net/ |

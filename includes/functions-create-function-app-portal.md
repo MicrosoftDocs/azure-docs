@@ -5,7 +5,7 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/25/2018
+ms.date: 05/05/2019
 ms.author: glenga
 ms.custom: include file
 ---
@@ -36,7 +36,4 @@ ms.custom: include file
 
     ![Define new function app settings](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-5. Select **Go to resource** to view your new function app.
-
-> [!TIP]
-> Having trouble finding your function apps in the portal, try [adding Function Apps to your favorites in the Azure portal](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite).
+5. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.

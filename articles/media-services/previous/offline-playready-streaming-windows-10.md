@@ -36,9 +36,9 @@ Azure Media Services support offline download/playback with DRM protection. This
 
 This section gives some background on offline mode playback, especially why:
 
-* In some countries, Internet availability and/or bandwidth is still limited. Users may choose to download first to be able to watch content in high enough resolution for satisfactory viewing experience. In this case, more often, the issue is not network availability, rather it is limited network bandwidth. OTT/OVP providers are asking for offline mode support.
+* In some countries/regions, Internet availability and/or bandwidth is still limited. Users may choose to download first to be able to watch content in high enough resolution for satisfactory viewing experience. In this case, more often, the issue is not network availability, rather it is limited network bandwidth. OTT/OVP providers are asking for offline mode support.
 * As disclosed at Netflix 2016 Q3 shareholder conference, downloading content is a “oft-requested feature”, and “we are open to it” said by Reed Hastings, Netflix CEO.
-* Some content providers may disallow DRM license delivery beyond a country's border. If a user needs to travel abroad and still wants to watch content, offline download is needed.
+* Some content providers may disallow DRM license delivery beyond a country/region's border. If a user needs to travel abroad and still wants to watch content, offline download is needed.
  
 The challenge we face in implementing offline mode is the following:
 

@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use the Azure portal to protect 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 

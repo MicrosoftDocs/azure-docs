@@ -41,7 +41,7 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
 
 Choose the SDK language that you want to use to create the simulated device, and follow the steps until you create the individual enrollment.
 
-When you create the individual enrollment, select **Enable** to declare that the simulated TPM device on your Windows development machine is an **IoT Edge device**.
+When you create the individual enrollment, select **True** to declare that the simulated TPM device on your Windows development machine is an **IoT Edge device**.
 
 Simulated device and individual enrollment guides:
 
@@ -77,15 +77,9 @@ Get-Service iotedge
 
 Examine service logs from the last 5 minutes.
 
-```powershell
-# Displays logs from last 5 min, newest at the bottom.
 
-Get-WinEvent -ea SilentlyContinue `
-  -FilterHashtable @{ProviderName= "iotedged";
-    LogName = "application"; StartTime = [datetime]::Now.AddMinutes(-5)} |
-  select TimeCreated, Message |
-  sort-object @{Expression="TimeCreated";Descending=$false} |
-  format-table -autosize -wrap
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
 List running modules.

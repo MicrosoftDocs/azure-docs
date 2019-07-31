@@ -11,6 +11,5 @@ ms.author: danlep
 * West US 2 
 * South Central US 
 * West Europe 
-* North Europe 
-* East Asia 
+* North Europe
 * Central India 

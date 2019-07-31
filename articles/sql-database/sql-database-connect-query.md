@@ -7,10 +7,9 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: 
-manager: craigg
 ms.date: 12/18/2018
 ---
 # Quickstarts: Azure SQL Database connect and query
@@ -33,6 +32,7 @@ The following document includes links to Azure examples showing how to connect a
 |[PHP](sql-database-connect-query-php.md)|This quickstart demonstrates how to use PHP to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.|
 |[Python](sql-database-connect-query-python.md)|This quickstart demonstrates how to use Python to connect to an Azure SQL database and use Transact-SQL statements to query data. |
 |[Ruby](sql-database-connect-query-ruby.md)|This quickstart demonstrates how to use Ruby to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.|
+|[R](sql-database-connect-query-r.md)|This quickstart demonstrates how to use R with Azure SQL Database Machine Learning Services to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.|
 |||
 
 ## TLS considerations for SQL Database connectivity

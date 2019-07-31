@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
 ---
@@ -17,7 +17,7 @@ ms.author: kegodin
 This how-to explains integration of the Project Acoustics Unity plugin into your Unity project.
 
 Software requirements:
-* [Unity 2018.2+](http://unity3d.com) for Windows
+* [Unity 2018.2+](https://unity3d.com) for Windows
 * [Project Acoustics Unity package](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ## Import the plugin

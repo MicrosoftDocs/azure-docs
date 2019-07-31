@@ -3,8 +3,8 @@ title: Understanding the Azure Active Directory app manifest | Microsoft Docs
 description: Detailed coverage of the Azure Active Directory app manifest, which represents an application's identity configuration in an Azure AD tenant, and is used to facilitate OAuth authorization, consent experience, and more.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 The application manifest contains a definition of all the attributes of an application object in the Microsoft identity platform. It also serves as a mechanism for updating the application object. For more info on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
 
-You can configure an app's attributes through the Azure portal or programmatically using [REST API](https://docs.microsoft.com/en-us/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) or [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#applications). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
+You can configure an app's attributes through the Azure portal or programmatically using [REST API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) or [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
 
 * If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you can't change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
 * If you need to define permissions and roles that your app supports, you must modify the application manifest.
@@ -45,7 +45,7 @@ To configure the application manifest:
 
 | Key  | Value type | Description  | Example value |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Nullable Int32 | Specifies the access token version expected by the resource. This changes the version and format of the JWT produced independent of the endpoint or client used to request the access token.<br/><br/>The endpoint used, v1.0 or v2.0, is chosen by the client and only impacts the version of id_tokens. Resources need to explicitly configure `accesstokenAcceptedVersion` to indicate the supported access token format.<br/><br/>Possible values for `accesstokenAcceptedVersion` are 1, 2, or null. If the value is null, this defaults to 1, which corresponds to the v1.0 endpoint. | `2` |
+| `accessTokenAcceptedVersion` | Nullable Int32 | Specifies the access token version expected by the resource. This changes the version and format of the JWT produced independent of the endpoint or client used to request the access token.<br/><br/>The endpoint used, v1.0 or v2.0, is chosen by the client and only impacts the version of id_tokens. Resources need to explicitly configure `accesstokenAcceptedVersion` to indicate the supported access token format.<br/><br/>Possible values for `accesstokenAcceptedVersion` are 1, 2, or null. If the value is null, this defaults to 1, which corresponds to the v1.0 endpoint. <br/><br/>If `signInAudience` is `AzureADandPersonalMicrosoftAccount`, the value must be `2`  | `2` |
 | `addIns` | Collection | Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its "FileHandler" functionality. This will let services like Office 365 call the application in the context of a document the user is working on. | <code>{<br>&nbsp;&nbsp;&nbsp;"id":"968A844F-7A47-430C-9163-07AE7C31D407"<br>&nbsp;&nbsp;&nbsp;"type": "FileHandler",<br>&nbsp;&nbsp;&nbsp;"properties": [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"key": "version", "value": "2" }<br>&nbsp;&nbsp;&nbsp;]<br>}</code>|
 | `allowPublicClient` | Boolean | Specifies the fallback application type. Azure AD infers the application type from the replyUrlsWithType by default. There are certain scenarios where Azure AD cannot determine the client app type (e.g. [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) flow where HTTP request happens without a URL redirection). In those cases Azure AD will interpret the application type based on the value of this property. If this value is set to true the fallback application type is set as public client, such as an installed app running on a mobile device. The default value is false which means the fallback application type is confidential client such as web app. | `false` |
 | `availableToOtherTenants` | Boolean | true if the application is shared with other tenants; otherwise, false. <br><br> _Note: This is available only in App registrations (Legacy) experience. Replaced by `signInAudience` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience._ | |
@@ -54,7 +54,7 @@ To configure the application manifest:
 | `displayName` | String | The display name for the app. <br><br> _Note: This is available only in App registrations (Legacy) experience. Replaced by `name` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience._ | `"MyRegisteredApp"` |
 | `errorUrl` | String | Unsupported. | |
 | `groupMembershipClaims` | String | Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects. To set this attribute, use one of the following valid string values:<br/><br/>- `"None"`<br/>- `"SecurityGroup"` (for security groups and Azure AD roles)<br/>- `"All"` (this will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of. | `"SecurityGroup"` |
-| `homepage` | String | The URL to the application's homepage. <br><br> _Note: This is available only in App registrations (Legacy) experience. Replaced by `signInUrl` in the [App registrations ](https://go.microsoft.com/fwlink/?linkid=2083908) experience._ | `"https://MyRegisteredApp"` |
+| `homepage` | String | The URL to the application's homepage. <br><br> _Note: This is available only in App registrations (Legacy) experience. Replaced by `signInUrl` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience._ | `"https://MyRegisteredApp"` |
 | `objectId` | String | The unique identifier for the app in the directory. <br><br> _Note: This is available only in App registrations (Legacy) experience. Replaced by `id` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience._ | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
 | `optionalClaims` | String | The optional claims returned in the token by the security token service for this specific app.<br>At this time, apps that support both personal accounts and Azure AD (registered through the app registration portal) cannot use optional claims. However, apps registered for just Azure AD using the v2.0 endpoint can get the optional claims they requested in the manifest. For more info, see [optional claims](active-directory-optional-claims.md). | `null` |
 | `id` | String | The unique identifier for the app in the directory. This ID is not the identifier used to identify the app in any protocol transaction. It's used for the referencing the object in directory queries. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |

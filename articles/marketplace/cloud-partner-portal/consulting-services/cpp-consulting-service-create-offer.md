@@ -1,23 +1,15 @@
 ---
-title: Azure and Dynamics 365 consulting service offer - Create the offer | Microsoft Docs
-description: Guide for creating an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal.
+title: Create a consulting offer | Azure Marketplace
+description: Create an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal for the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: qianw211
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
-# Create an offer
+# Create a consulting offer
 
 This article describes how to create and publish a consulting service offer.
 

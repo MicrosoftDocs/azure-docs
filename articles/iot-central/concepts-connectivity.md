@@ -7,7 +7,7 @@ ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
+manager: philmea
 ---
 
 # Device connectivity in Azure IoT Central
@@ -102,7 +102,7 @@ A key scenario IoT Central enables is for OEMs to mass manufacture devices that 
 
 The following diagram outlines this flow:
 
-![Connection settings](media/concepts-connectivity/device-connection-flow.png)
+![Connection settings](media/concepts-connectivity/device-connection-flow1.png)
 
 The following steps describe this process in more detail. The steps differ slightly depending on whether you're using SAS or X.509 certificates for device authentication:
 

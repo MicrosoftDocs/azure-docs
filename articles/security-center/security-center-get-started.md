@@ -73,7 +73,7 @@ To enable automatic provisioning of the Microsoft Monitoring Agent:
 2. On the row of the subscription, select **Edit settings>**.
 3. In the **Data Collection** tab, set **Auto provisioning** to **On**.
 4. Select **Save**.
-****
+---
   ![Enable automatic provisioning][6]
 
 With this new insight into your Azure VMs, Security Center can provide additional Recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional Security alerts.

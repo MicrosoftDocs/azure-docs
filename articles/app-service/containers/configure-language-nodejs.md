@@ -51,7 +51,7 @@ This setting specifies the Node.js version to use, both at runtime and during au
 
 ## Configure Node.js server
 
-The Node.js containers come with [PM2](http://pm2.keymetrics.io/), a production process manager. You can configure your app to start with PM2, or with NPM, or with a custom command.
+The Node.js containers come with [PM2](https://pm2.keymetrics.io/), a production process manager. You can configure your app to start with PM2, or with NPM, or with a custom command.
 
 - [Run custom command](#run-custom-command)
 - [Run npm start](#run-npm-start)
@@ -95,12 +95,12 @@ The container automatically starts your app with PM2 when one of the common Node
 - *app.js*
 - *index.js*
 - *hostingstart.js*
-- One of the following [PM2 files](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* and *ecosystem.config.js*
+- One of the following [PM2 files](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* and *ecosystem.config.js*
 
 You can also configure a custom start file with the following extensions:
 
 - A *.js* file
-- A [PM2 file](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
+- A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
 
 To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -133,7 +133,7 @@ Once finished with debugging, stop the debugger by selecting **Disconnect**. Whe
 
 ## Access environment variables
 
-In App Service, you can [set app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) outside of your app code. Then you can access them using the standard Node.js pattern. For example, to access an app setting called `NODE_ENV`, use the following code:
+In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them using the standard Node.js pattern. For example, to access an app setting called `NODE_ENV`, use the following code:
 
 ```javascript
 process.env.NODE_ENV
@@ -222,7 +222,7 @@ fi
 
 In App Service, [SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
 
-Popular web frameworks let you access the `X-Forwarded-*` information in your standard app pattern. In [Express](https://expressjs.com/), you can use [trust proxies](http://expressjs.com/guide/behind-proxies.html). For example:
+Popular web frameworks let you access the `X-Forwarded-*` information in your standard app pattern. In [Express](https://expressjs.com/), you can use [trust proxies](https://expressjs.com/guide/behind-proxies.html). For example:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -249,7 +249,7 @@ When a working Node.js app behaves differently in App Service or has errors, try
     - Depending on your *package.json*, different packages may be installed for production mode (`dependencies` vs. `devDependencies`).
     - Certain web frameworks may deploy static files differently in production mode.
     - Certain web frameworks may use custom startup scripts when running in production mode.
-- Run your app in App Service in development mode. For example, in [MEAN.js](http://meanjs.org/), you can set your app to development mode in runtime by [setting the `NODE_ENV` app setting](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Run your app in App Service in development mode. For example, in [MEAN.js](https://meanjs.org/), you can set your app to development mode in runtime by [setting the `NODE_ENV` app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ## Next steps
 

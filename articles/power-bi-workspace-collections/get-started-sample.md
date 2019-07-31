@@ -2,7 +2,7 @@
 title: Get started with a sample
 description: In this article, we'll introduce you to the Power BI Workspace Collections get started sample.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
@@ -204,7 +204,7 @@ public ActionResult Reports()
 }
 ```
 
-Task<ActionResult> Report(string reportId)
+Task\<ActionResult> Report(string reportId)
 
 ```csharp
 public async Task<ActionResult> Report(string reportId)

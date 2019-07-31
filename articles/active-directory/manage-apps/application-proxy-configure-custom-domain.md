@@ -3,8 +3,8 @@ title: Custom domains in Azure AD Application Proxy | Microsoft Docs
 description: Manage custom domains in Azure AD Application Proxy so that the URL for the app is the same regardless of where your users access it. 
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/31/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 
@@ -68,7 +68,9 @@ When you have those three requirements ready, follow these steps to set up your 
 ### Certificate format
 There is no restriction on the certificate signature methods. Elliptic Curve Cryptography (ECC), Subject Alternative Name (SAN), and other common certificate types are all supported. 
 
-You can use a wildcard certificate as long as the wildcard matches the desired external URL. 
+You can use a wildcard certificate as long as the wildcard matches the desired external URL.
+
+Certificates issued by your own public key infrastructure (PKI) can be used if the certificate chain is installed on your client devices. Intune can be used to deploy these certificates to managed devices. For non-managed devices these certificates must be manually installed.
 
 ### Changing the domain
 All verified domains appear in the External URL dropdown list for your application. To change the domain, just update that field for the application. If the domain you want isn't in the list, [add it as a verified domain](../fundamentals/add-custom-domain.md). If you select a domain that doesn't have an associated certificate yet, follow steps 5-7 to add the certificate. Then, make sure you update the DNS record to redirect from the new external URL. 
@@ -82,7 +84,7 @@ Currently all certificate management is through individual application pages so 
 
 ## Next steps
 * [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Azure AD authentication.
-* [Enable conditional access](application-proxy-integrate-with-sharepoint-server.md) to your published apps.
+* [Enable Conditional Access](application-proxy-integrate-with-sharepoint-server.md) to your published apps.
 * [Add your custom domain name to Azure AD](../fundamentals/add-custom-domain.md)
 
 

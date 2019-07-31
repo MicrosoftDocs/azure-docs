@@ -232,12 +232,12 @@ Now, test the firewall to confirm that it works as expected.
 1. From the Azure portal, review the network settings for the **Srv-Work** virtual machine and note the private IP address.
 2. Connect a remote desktop to **Srv-Jump** virtual machine, and sign in. From there, open a remote desktop connection to the **Srv-Work** private IP address.
 
-3. Open Internet Explorer and browse to http://www.google.com.
+3. Open Internet Explorer and browse to https://www.google.com.
 4. Select **OK** > **Close** on the Internet Explorer security alerts.
 
    You should see the Google home page.
 
-5. Browse to http://www.microsoft.com.
+5. Browse to https://www.microsoft.com.
 
    You should be blocked by the firewall.
 

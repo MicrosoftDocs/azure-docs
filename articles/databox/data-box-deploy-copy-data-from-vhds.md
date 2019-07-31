@@ -1,5 +1,5 @@
 ---
-title: Import data from VHDs and copy to managed disks with Microsoft Azure Data Box| Microsoft Docs
+title: Tutorial to copy data from VHDs to managed disks with Azure Data Box| Microsoft Docs
 description: Learn how to copy data from VHDs from on-premises VM workloads to your Azure Data Box
 services: databox
 author: alkohli

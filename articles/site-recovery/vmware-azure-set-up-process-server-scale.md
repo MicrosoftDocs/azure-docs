@@ -19,7 +19,7 @@ By default, when you're replicating VMware VMs or physical servers to Azure usin
 
 Make sure you've performed [capacity planning](site-recovery-plan-capacity-vmware.md) for VMware replication. This helps you to identify how and when you should deploy additional process servers.
 
-From 9.24 version, guidance is added during selection of process server for new replications. Process server will be marked Healthy, Warning and Critial based on certain criteria. To understand different scenarios that can influence state of process server, visit [process server selection guidance](vmware-azure-manage-process-server.md#process-server-selection-guidance).
+From 9.24 version, guidance is added during selection of process server for new replications. Process server will be marked Healthy, Warning and Critical based on certain criteria. To understand different scenarios that can influence state of process server, review the [process server alerts](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > Use of a cloned Process Server component is not supported. Follow the steps in this article for each PS scale-out.
