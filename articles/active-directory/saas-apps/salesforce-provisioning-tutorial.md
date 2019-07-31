@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 07/31/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -117,3 +117,4 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 * [Managing user account provisioning for Enterprise Apps](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Configure Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)
+* [Configure language settings on Salesforce side](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5)
