@@ -49,7 +49,7 @@ We make use of [docker volumes](https://docs.docker.com/storage/volumes/) to ena
     ```
 
     >[!IMPORTANT]
-    >Do not change the second part of the bind value. It points to a specific location in the module. For Event Grid module on Windows it has to be **C:\\app\\metadataDb**.
+    >Do not change the second part of the bind value. It points to a specific location in the module. For Event Grid module on windows it has to be **C:\\app\\metadataDb**.
 
     For example,
 
@@ -171,7 +171,7 @@ Alternatively you can create a docker volume, map the volume onto the container 
     ```
 
     >[!IMPORTANT]
-    >Do not change the second of the bind value. It points to a specific location in the module. For Event Grid module on linux it has to be **C:\\app\\metadataDb**.
+    >Do not change the second of the bind value. It points to a specific location in the module. For Event Grid module on windows it has to be **C:\\app\\metadataDb**.
 
     For example,
 
