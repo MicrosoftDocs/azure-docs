@@ -7,22 +7,22 @@
 - name: Quickstarts
   expaned: true
   items:
-  - name: Train custom model and extract data  
+  - name: Using the REST API
     items:
-    - name: Using the REST API
+    - name: Train custom model and extract data  
       items:
       - name: cURL
         href: quickstarts/curl-train-extract.md
       - name: Python
         href: quickstarts/python-train-extract.md
-  - name: Use prebuilt receipts model
-    items:
-    - name: Using the REST API
+    - name: Use prebuilt receipt model
       items:
       - name: cURL
         href: quickstarts/curl-receipts.md
       - name: Python
         href: quickstarts/python-receipts.md
+  - name: Using the .NET SDK
+    href: quickstarts/dotnet-sdk.md
 - name: How-to guides
   items:
   - name: Build a training data set

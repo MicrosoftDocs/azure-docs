@@ -6,26 +6,24 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: larryfr
-author: Blackmist
-ms.date: 05/14/2019
+ms.author: jmartens
+author: j-martens
+ms.date: 07/25/2019
 ms.custom: seodec18
 ---
 
 # Azure Machine Learning service release notes
 
-In this article, learn about the Azure Machine Learning service releases.  For a full description of each SDK, visit the reference docs for:
-+ The Azure Machine Learning's [**main SDK for Python**](https://aka.ms/aml-sdk)
-+ The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
+In this article, learn about the Azure Machine Learning service releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://aka.ms/aml-sdk) reference page.
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
-## 2019-07-15
+## 2019-07-23
 
 ### Azure Machine Learning SDK for Python v1.0.53
 
 + **New features**
-    + Automated Machine Learning now supports training ONNX models on the remote compute target
+  + Automated Machine Learning now supports training ONNX models on the remote compute target
   + Azure Machine Learning now provides ability to resume training from a previous run, checkpoint or model files.
     + Learn how to [use estimators to resume training from a previous run](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
@@ -57,7 +55,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + add scipy sparse support for LimeExplainer
     + add batch_size to mimic explainer when include_local=False for streaming global explanations in batches to improve execution time of DecisionTreeExplainableModel
   + **azureml-contrib-featureengineering**
-    + Use one or two sentences - Use past tense - End with period Example: -Fixed the issue in useful_util, this time it actually works.
     + Fix for calling set_featurizer_timeseries_params(): dict value type change and null check - Add notebook for timeseries featurizer
     + Update NimbusML dependency to 1.2.0 version (current latest).
   + **azureml-core**
@@ -78,9 +75,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Model description can now properly be updated after registration
     + Model and Image deletion now provides more information about upstream objects that depend on them which causes the delete to fail
     + Improve resource utilization of remote runs using azureml.mlflow.
-  + **azureml-dataprep**
-    + Dataflow objects can now be iterated over, producing a sequence of records.
-    + Add `_summarize_each` as experimental feature to `azureml.dataprep.Dataflow`.
   + **azureml-explain-model**
     + Fixed transformations argument for LIME explainer for raw feature importance in azureml-contrib-explain-model package
     + add scipy sparse support for LimeExplainer
@@ -94,9 +88,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-mlflow**
     + Improve performance of mlflow.set_experiment(experiment_name)
     + Fix bug in use of InteractiveLoginAuthentication for mlflow tracking_uri
-    + Improve the documentation of the azureml-mlflow package
-    + Patch bug where mlflow.log_artifacts("my_dir") would save artifacts under "my_dir/<artifact-paths>" instead of "<artifact-paths>" - [x] I investigated optional gates failures and do not introduce any new failures - [] I am too lazy even to read this section
     + Improve resource utilization of remote runs using azureml.mlflow.
+    + Improve the documentation of the azureml-mlflow package
+    + Patch bug where mlflow.log_artifacts("my_dir") would save artifacts under "my_dir/<artifact-paths>" instead of "<artifact-paths>"
   + **azureml-opendatasets**
     + Pin pyarrow of opendatasets to old versions (<0.14.0) because of memory issue newly introduced there.
     +  Move azureml-contrib-opendatasets to azureml-opendatasets. - Allow open dataset classes to be registered to AML workspace and leverage AML Dataset capabilities seamlessly. - Improve NoaaIsdWeather enrich performance in non-SPARK version significantly.
@@ -113,6 +107,15 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-core**
     + Strings are now accepted as compute target for Automated Hyperparameter Tuning
     + The unused RunConfiguration setting auto_prepare_environment has been marked as deprecated.
+
+### Azure Machine Learning Data Prep SDK v1.1.9
+
++ **New features**
+  + Added support for reading a file directly from a http or https url.
+
++ **Bug fixes and improvements**
+  + Improved error message when attempting to read a Parquet Dataset from a remote source (which is not currently supported).
+  + Fixed a bug when writing to Parquet file format in ADLS Gen 2, and updating the ADLS Gen 2 container name in the path.
 
 ## 2019-07-09
 

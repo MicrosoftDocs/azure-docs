@@ -37,6 +37,6 @@ The sample shows several basic examples of Query API usage:
 
 ## Next steps
 
-- To learn more about querying, read the [Query API reference](/rest/api/time-series-insights/preview-query).
+- To learn more about querying, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/preview-query).
 
 - Read how to [connect a JavaScript single-page app](tutorial-create-tsi-sample-spa.md) to Time Series Insights.
