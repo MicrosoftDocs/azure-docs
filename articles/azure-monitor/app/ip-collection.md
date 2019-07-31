@@ -193,7 +193,7 @@ namespace MyWebApp
 ```
 
 > [!NOTE]
-> If you are unable to access `ISupportProperies`, check and make sure you are running the latest stable release of the ASP.NET Core SDK. `ISupportProperties` is intended for high cardinality values, whereas `GlobalProperies` are more appropriate for low cardinality values like Region name, environment name, etc. 
+> If you are unable to access `ISupportProperies`, check and make sure you are running the latest stable release of the ASP.NET Core SDK. `ISupportProperties` are intended for high cardinality values, whereas `GlobalProperies` are more appropriate for low cardinality values like Region name, environment name, etc. 
 
 ### Enable telemetry initializer for ASP.NET Core
 
