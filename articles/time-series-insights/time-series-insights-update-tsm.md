@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/12/2019
+ms.date: 07/30/2019
 ms.custom: seodec18
 ---
 
@@ -24,9 +24,9 @@ This document describes Time Series Models, their capabilities, and how to start
 
 Traditionally, the data that's collected from IoT devices lack contextual information, which makes it difficult to find and analyze sensors quickly. The main motivation for Time Series Model is to simplify finding and analyzing IoT data. It achieves this objective by enabling the curation, maintenance, and enrichment of time series data to help prepare consumer-ready datasets.
 
-**Consider the fictitious scenario of a new Contoso smart oven.** Suppose that each Contoso smart oven has five temperature sensors, one for each top burner and one for the oven itself. Until recently, each Contoso temperature sensor sent, stored, and visualized its data individually. For its kitchen appliance monitoring, Contoso relied on basic charts, one for each sensor.
+## Scenario: Contoso's new smart oven
 
-[![Basic isolated charts](media/v2-update-tsm/basic-charting.png)](media/v2-update-tsm/basic-charting.png#lightbox)
+**Consider the fictitious scenario of a new Contoso smart oven.** Suppose that each Contoso smart oven has five temperature sensors, one for each top burner and one for the oven itself. Until recently, each Contoso temperature sensor sent, stored, and visualized its data individually. For its kitchen appliance monitoring, Contoso relied on basic charts, one for each sensor.
 
 While Contoso was satisfied with their initial data aggregation and visualization solution, several limitations became apparent:
 
