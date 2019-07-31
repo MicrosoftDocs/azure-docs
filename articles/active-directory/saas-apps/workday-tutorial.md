@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. In the **Identifier** text box, type a URL using the following pattern:
-    `https://www.workday.com`
+    `http://www.workday.com`
 
 	c. In the **Reply URL** text box, type a URL using the following pattern:
     `https://impl.workday.com/<tenant>/login-saml.htmld`
@@ -197,9 +197,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![SSO configuration](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO configuration")
 
-    a.  In the **Service Provider ID** textbox, type **https://www.workday.com**.
-
-    b. Select **Do Not Deflate SP-initiated Authentication Request**.
+    a.  In the **Service Provider ID** textbox, type **http://www.workday.com**.
+    
+    b. Select **SP Initiated**, **Sign SP-initiated Request**, **Do Not Deflate SP-initiated Authentication Request**.
 
     c. As **Authentication Request Signature Method**, select **SHA256**.
 
