@@ -629,7 +629,7 @@ This section contains the following examples:
 * [HTTP trigger, look up blob name from query string](#http-trigger-look-up-blob-name-from-query-string-java)
 * [Queue trigger, receive blob name from queue message](#queue-trigger-receive-blob-name-from-queue-message-java)
 
-#### HTTP trigger, look up blob name from query string (Java)
+#### HTTP trigger, look up blob name from query string
 
  The following example shows a Java function that uses the ```HttpTrigger``` annotation to receive a parameter containing the name of a file in a blob storage container. The ```BlobInput``` annotation then reads the file and passes its contents to the function as a ```byte[]```.
 
@@ -654,7 +654,7 @@ This section contains the following examples:
   }
 ```
 
-#### Queue trigger, receive blob name from queue message (Java)
+#### Queue trigger, receive blob name from queue message
 
  The following example shows a Java function that uses the ```QueueTrigger``` annotation to receive a message containing the name of a file in a blob storage container. The ```BlobInput``` annotation then reads the file and passes its contents to the function as a ```byte[]```.
 
