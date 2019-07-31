@@ -13,6 +13,36 @@ ms.author: normesta
 
 This article shows you how to use PowerShell to manage directories in storage accounts that have a hierarchical namespace.
 
+## Connect to your storage account
+
+1. Open a Windows PowerShell command window.
+
+2. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+3. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in.
+
+   ```powershell
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+4. Get the storage account context.
+
+   ```powershell
+   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+   $ctx = $storageAccount.Context
+   ```
+
+   * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+
+   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+
 ## Rename or move a directory
 
 Rename or move a directory by using the `Move-AzStorageBlobDirectory` cmdlet.

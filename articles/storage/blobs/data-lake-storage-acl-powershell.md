@@ -11,7 +11,37 @@ ms.author: normesta
 
 # Manage file and directory level permissions in Azure Storage by using PowerShell
 
-This article shows you how to use PowerShell to get and set the access control lists (ACLs) of directories and files in storage accounts that have a hierarchical namespace. 
+This article shows you how to use PowerShell to get and set the access control lists (ACLs) of directories and files in storage accounts that have a hierarchical namespace.
+
+## Connect to your storage account
+
+1. Open a Windows PowerShell command window.
+
+2. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+3. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that contains your directories and files.
+
+   ```powershell
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+4. Get the storage account context that contains your directories and files.
+
+   ```powershell
+   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+   $ctx = $storageAccount.Context
+   ```
+
+   * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+
+   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 ## Get the ACL of a directory
 
