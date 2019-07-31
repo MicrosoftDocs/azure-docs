@@ -1,6 +1,7 @@
 - name: Submit your solutions to AppSource via Seller Dashboard
-  href: submit-to-the-office-store.md
   items:
+    name: Overview
+    href: submit-to-the-office-store.md
   - name: Optimize add-in placement and ranking in AppSource
     href: optimize-for-store-discovery.md
   - name: License your add-ins
@@ -50,8 +51,9 @@
   - name: View the acquisitions report
     href: view-acquisitions-report.md
 - name: Submit your solutions to AppSource via Partner Center (preview)
-  href: submit-to-appsource-via-partner-center.md
   items:
+  - name: Overview
+    href: submit-to-appsource-via-partner-center.md
   - name: Open a developer account
     href: open-a-developer-account.md
     items:
@@ -59,11 +61,11 @@
         href: account-types-locations-and-fees.md
       - name: Manage account settings and profile
         href: manage-account-settings-and-profile.md
-  - name: Manage account users
-    href: manage-account-users.md
-    items:
-      - name: Associate Azure AD with your account
-        href: associate-azure-ad-with-partner-center.md
+   - name: Manage account users
+      href: manage-account-users.md
+      items:
+        - name: Associate Azure AD with your account
+          href: associate-azure-ad-with-partner-center.md
   - name: Optimize add-in placement and ranking in AppSource
     href: optimize-for-store-discovery.md
   - name: License your add-ins
