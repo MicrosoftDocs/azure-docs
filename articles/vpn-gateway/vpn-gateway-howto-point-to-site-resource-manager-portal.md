@@ -3,11 +3,10 @@ title: 'Connect a computer to an Azure virtual network using Point-to-Site and n
 description: Connect Windows, Mac OS X, and Linux clients securely to an Azure virtual network using P2S and self-signed or CA issued certificates. This article uses the Azure portal.
 services: vpn-gateway
 author: cherylmc
-tags: azure-resource-manager
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 6/18/2019
+ms.date: 07/31/2019
 ms.author: cherylmc
 
 ---
