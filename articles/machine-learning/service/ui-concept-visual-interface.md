@@ -51,7 +51,7 @@ An experiment consists of datasets and analytical modules, which you connect tog
 * All required parameters for each module must be set.
 
 
-For a more complete walkthrough of a predictive analytics solution, see [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
+To learn how to get started with the visual interface, see [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
 
 ## Dataset
 
