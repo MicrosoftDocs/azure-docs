@@ -33,7 +33,7 @@ sections:
           html: <p>Learn how to sign up for the Text Analytics API.</p>
           image:
             src: ../media/index/i_get-started.svg
-          title: Sign up for Text Analytics API
+          title: Sign up for the Text Analytics API
         - href: /azure/cognitive-services/text-analytics/whats-new
           html: <p>Stay up-to-date with recent developments in the Text Analytics API.</p>
           image:
@@ -69,7 +69,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to develop applications using the Text Analytics API:'
+    text: 'Learn how to develop applications by using the Text Analytics API:'
   - type: list
     style: unordered
     items: 
