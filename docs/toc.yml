@@ -1,5 +1,55 @@
-- name: Submit your solutions to AppSource
+- name: Submit your solutions to AppSource via Seller Dashboard
   href: submit-to-the-office-store.md
+- name: Optimize add-in placement and ranking in AppSource
+  href: optimize-for-store-discovery.md
+- name: License your add-ins
+  items:
+  - name: Overview
+    href: license-your-add-ins.md
+  - name: How add-in licenses work
+    href: how-licenses-work.md
+  - name: Add license checks to Office and SharePoint Add-ins
+    href: add-license-checks-to-office-and-sharepoint-add-ins.md
+  - name: Implement licensing to upsell add-ins
+    href: implement-licensing-for-add-in-services.md
+  - name: Add-in license schema
+    href: add-in-license-schema.md
+- name: Create effective AppSource listings
+  items:
+  - name: Overview
+    href: create-effective-office-store-listings.md
+  - name: Craft effective AppSource store images
+    href: craft-effective-appsource-store-images.md
+- name: Prepare localized apps and add-ins
+  href: prepare-localized-apps-and-add-ins.md
+- name: Submit add-ins via Seller Dashboard
+  items: 
+  - name: Overview
+    href: use-the-seller-dashboard-to-submit-to-the-office-store.md
+  - name: Upload your package
+    href: upload-package.md
+  - name: Create your Store listing
+    href: office-store-listing.md
+  - name: Add lead management details
+    href: add-lead-management-details.md
+  - name: Decide on a pricing model
+    href: decide-on-a-pricing-model.md
+  - name: Create or update client IDs and secrets
+    href: create-or-update-client-ids-and-secrets.md
+  - name: Create or update client IDs and secrets
+    href: create-or-update-client-ids-and-secrets.md
+  - name: AppSource submission FAQ
+    href: office-store-submission-faq.md    
+- name: Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China
+  href: submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md
+- name: Validation policies
+  href: validation-policies.md
+- name: Promote your AppSource solution
+  href: promote-your-office-store-solution.md
+- name: View the acquisitions report
+  href: view-acquisitions-report.md
+- name: Submit your solutions to AppSource via Partner Center (preview)
+  href: submit-to-appsource-via-partner-center.md
   items:
   - name: Open a developer account
     href: open-a-developer-account.md
@@ -53,22 +103,6 @@
       href: create-effective-office-store-listings.md
     - name: Craft effective AppSource store images
       href: craft-effective-appsource-store-images.md
-- name: Submit add-ins via Seller Dashboard
-  items: 
-  - name: Overview
-    href: use-the-seller-dashboard-to-submit-to-the-office-store.md
-  - name: Upload your package
-    href: upload-package.md
-  - name: Create your Store listing
-    href: office-store-listing.md
-  - name: Add lead management details
-    href: add-lead-management-details.md
-  - name: Decide on a pricing model
-    href: decide-on-a-pricing-model.md
-  - name: Create or update client IDs and secrets
-    href: create-or-update-client-ids-and-secrets.md
-  - name: AppSource submission FAQ
-    href: office-store-submission-faq.md
 - name: Add-in management and services
   items:
     - name: Mange add-in names
@@ -85,3 +119,4 @@
   href: view-acquisitions-report.md
 - name: Getting paid
   href: getting-paid.md
+
