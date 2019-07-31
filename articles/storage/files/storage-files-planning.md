@@ -93,7 +93,7 @@ Currently, you cannot directly convert between a standard file share and a premi
 > [!IMPORTANT]
 > Premium file shares are only available with LRS and are available in most regions that offer storage accounts. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure.
 
-### Provisioned shares
+#### Provisioned shares
 
 Premium file shares are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput.
 
@@ -130,7 +130,7 @@ The following table illustrates a few examples of these formulae for the provisi
 > [!NOTE]
 > File shares performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. To achieve maximum performance scale, spread the load across multiple VMs. Please refer [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
 
-### Bursting
+#### Bursting
 
 Premium file shares can burst their IOPS up to a factor of three. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee, file shares can burst *up to* the limit.
 
@@ -203,6 +203,7 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 
 |Region  |Supported redundancy  |Supports existing storage accounts  |
 |---------|---------|---------|
+|Australia East     |LRS|No         |
 |SouthEast Asia     |LRS|No         |
 |West Europe     |LRS, ZRS|No         |
 |West US 2     |LRS, ZRS|No         |
