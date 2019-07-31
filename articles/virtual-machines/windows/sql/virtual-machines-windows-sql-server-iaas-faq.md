@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2018
+ms.date: 07/30/2019
 ms.author: mathoma
 ---
 # Frequently asked questions for SQL Server running on Windows virtual machines in Azure
