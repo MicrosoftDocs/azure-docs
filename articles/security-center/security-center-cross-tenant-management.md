@@ -42,7 +42,7 @@ From each screen, click on the filter icon to select the tenants to view.
 
 The views and actions are basically the same. Here are some examples:
 
-- Cross-tenant visibility enables you to view the overall health of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them. The following image shows one secure score measuring the overall security health of all the selected subscriptions from different tenants. It prioritizes your security recommendations, so you know which recommendations to perform first. This helps you find the most serious security vulnerabilities so you can prioritize remediating them.
+- Cross-tenant visibility enables you to view the overall health of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them. The following image shows one secure score measuring the overall security health of all the selected subscriptions from different tenants. It prioritizes your security recommendations, so you know which ones to remediate first. This helps you find the most serious security vulnerabilities so you can prioritize remediating them.
 
 Secure score is a tool that helps you assess your workload security posture.depicting the recommendations and prioritizes them for you, so you know which recommendations to perform first. This helps you find the most serious security vulnerabilities so you can prioritize investigation for all of your tenants.
 
