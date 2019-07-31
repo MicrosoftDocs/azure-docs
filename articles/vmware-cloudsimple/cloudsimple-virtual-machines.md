@@ -31,4 +31,4 @@ CloudSimple virtual machines from Azure portal provide a self-service mechanism 
 ## Next steps
 
 * Learn how to [Consume VMware VMs on Azure](quickstart-create-vmware-virtual-machine.md)
-* Learn how to [Map your Azure subscription](https://docs.azure.cloudsimple.com/azuresubscriptionmapping/)
+* Learn how to [Map your Azure subscription](https://docs.azure.cloudsimple.com/azure-subscription-mapping/)

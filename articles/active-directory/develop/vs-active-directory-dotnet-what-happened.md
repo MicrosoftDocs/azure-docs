@@ -2,6 +2,8 @@
 title: Changes made to a MVC project when you connect to Azure AD
 description: Describes what happens to your MVC project when you connect to Azure AD by using Visual Studio connected services
 services: active-directory
+ms.service: active-directory
+ms.subservice: develop
 author: ghogen
 manager: douge
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
@@ -139,7 +141,7 @@ Additional changes if you selected the **Read directory data** option:
 
 ### File backup (Visual Studio 2015)
 
-When adding the connected service, Visual Studio 2015 backs up changed and removed files. All affected files are saved in the folder `Backup/AzureAD`. Visual Studio 2017 does not create backups.
+When adding the connected service, Visual Studio 2015 backs up changed and removed files. All affected files are saved in the folder `Backup/AzureAD`. Visual Studio 2017 and later does not create backups.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`

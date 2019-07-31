@@ -5,7 +5,7 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 6/27/2019
 ms.author: raynew
 
 ---
@@ -30,7 +30,7 @@ Site Recovery contributes to application-level protection and recovery as follow
 * App-agnostic, providing replication for any workloads running on a supported machine.
 * Near-synchronous replication, with RPOs as low as 30 seconds to meet the needs of most critical business apps.
 * App-consistent snapshots, for single or multi-tier applications.
-* Integration with SQL Server AlwaysOn, and partnership with other application-level replication technologies, including AD replication, SQL AlwaysOn, Exchange Database Availability Groups (DAGs) and Oracle Data Guard.
+* Integration with SQL Server AlwaysOn, and partnership with other application-level replication technologies, including AD replication, SQL AlwaysOn, Exchange Database Availability Groups (DAGs).
 * Flexible recovery plans, that enable you to recover an entire application stack with a single click, and to include external scripts and manual actions in the plan.
 * Advanced network management in Site Recovery and Azure to simplify app network requirements, including the ability to reserve IP addresses, configure load-balancing, and integration with Azure Traffic Manager, for low RTO network switchovers.
 * A rich automation library that provides production-ready, application-specific scripts that can be downloaded and integrated with recovery plans.

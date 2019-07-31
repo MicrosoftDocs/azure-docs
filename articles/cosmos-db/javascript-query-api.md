@@ -4,7 +4,7 @@ description: This article introduces the concepts for JavaScript language-integr
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/08/2018
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 

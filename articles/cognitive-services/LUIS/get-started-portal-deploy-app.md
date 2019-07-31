@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Deploy an app with the LUIS portal" 
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to deploy your LUIS app to the prediction endpoint after the app is ready to return utterance predictions to a client application, such as a chat bot. This quickstart walks you through how to deploy an application by creating a prediction endpoint resource, assigning the resource to the app, training the app, and publishing the app. 
 services: cognitive-services
 author: diberry
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/07/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to deploy a LUIS app in the LUIS portal so I can understand the process of putting the model on the prediction endpoint. 
 ---
@@ -69,11 +69,11 @@ Every time you create a new resource for LUIS, you need to assign the resource t
 
 ## Train and publish the app
 
-Train the app when you're ready to test it. Publish the app when you want the currently trained version to be available to client applications from the prediction endpoint runtime.
+Train the app when you're ready to test it. Publish the app when you want the currently trained version to be available to client applications from the query prediction endpoint runtime.
 
 1. If the app is untrained, select **Train** from the menu in the upper right.
 
-1. Select **Publish** from the menu. Accept the default environment settings, and select **Publish**.
+1. Select **Publish** from the top menu. Accept the default environment settings, and select **Publish**.
 
 1. When the green success notification bar appears at the top of the browser window, select **Refer to the list of endpoints**.
 

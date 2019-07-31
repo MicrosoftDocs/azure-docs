@@ -42,6 +42,7 @@ These system variables can be referenced anywhere in the trigger JSON if the tri
 
 ## Tumbling Window Trigger scope
 These system variables can be referenced anywhere in the trigger JSON if the trigger is of type: "TumblingWindowTrigger."
+(Note: The timestamp is by default in ISO 8601 format)
 
 | Variable Name | Description |
 | --- | --- |

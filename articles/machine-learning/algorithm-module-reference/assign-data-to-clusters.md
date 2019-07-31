@@ -12,39 +12,37 @@ ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
-# Assign Data to Clusters
+# Module: Assign Data to Clusters
 
-This article describes how to use the [Assign Data to Clusters](assign-data-to-clusters.md) module in visual interface, to generate predictions using a clustering model that was trained using the K-Means clustering algorithm.
+This article describes how to use the *Assign Data to Clusters* module in the Azure Machine Learning visual interface. The module generates predictions through a clustering model that was trained with the *K-means clustering* algorithm.
 
-The module returns a dataset that contains the probable assignments for each new data point. 
+The Assign Data to Clusters module returns a dataset that contains the probable assignments for each new data point. 
 
 
 ## How to use Assign Data to Clusters
   
-1.  In visual interface, locate a previously trained clustering model. You can create and train a clustering model by using either of these methods:  
+1. In the Azure Machine Learning visual interface, locate a previously trained clustering model. You can create and train a clustering model by using either of the following methods:  
   
-    - Configure the K-means algorithm using the [K-Means Clustering](k-means-clustering.md) module, and then train the model using a dataset and the [Train Clustering Model](train-clustering-model.md) module.  
+    - Configure the K-means clustering algorithm by using the [K-Means Clustering](k-means-clustering.md) module, and train the model by using a dataset and the Train Clustering Model module (this article).  
   
-  
-    You can also add an existing trained clustering model from the **Saved Models** group in your workspace.
+    - You can also add an existing trained clustering model from the **Saved Models** group in your workspace.
 
-2. Attach the trained model to the left input port of [Assign Data to Clusters](assign-data-to-clusters.md).  
+2. Attach the trained model to the left input port of **Assign Data to Clusters**.  
 
-3. Attach a new dataset as input. In this dataset, labels are optional. Generally, clustering is an unsupervised learning method so it is not expected that you will know categories in advance.
+3. Attach a new dataset as input. 
 
-    However, the input columns must be the same as the columns that were used in training the clustering model, or an error occurs.
+   In this dataset, labels are optional. Generally, clustering is an unsupervised learning method. You are not expected to know the categories in advance. However, the input columns must be the same as the columns that were used in training the clustering model, or an error occurs.
 
     > [!TIP]
-    > To reduce the number of columns output from cluster predictions, use [Select Columns in Dataset](select-columns-in-dataset.md), and select a subset of the columns. 
+    > To reduce the number of columns that are written to the interface from the cluster predictions, use [Select columns in the dataset](select-columns-in-dataset.md), and select a subset of the columns. 
     
-4. Leave the option **Check for Append or Uncheck for Result Only** selected if you want the results to contain the full input dataset, together with a column indicating the results (cluster assignments).
+4. Leave the **Check for Append or Uncheck for Result Only** check box selected if you want the results to contain the full input dataset, including a column that displays the results (cluster assignments).
   
-    If you deselect this option, you get back just the results. This might be useful when creating predictions as part of a web service.
+    If you clear this check box, only the results are returned. This option might be useful when you create predictions as part of a web service.
   
 5.  Run the experiment.  
   
 ### Results
 
- 
-+  To view the values in the dataset, right-click the module, select **Result datasets**, and click **Visualize**.
++  To view the values in the dataset, right-click the module, select **Result datasets**, and then select **Visualize**.
 

@@ -1,5 +1,5 @@
 ---
-title: Knowledge Store introduction and overview - Azure Search
+title: Knowledge store introduction and overview (preview) - Azure Search
 description: Send enriched documents to Azure storage where you can view, reshape, and consume enriched documents in Azure Search and in other applications.
 manager: cgronlun
 author: HeidiSteen
@@ -7,29 +7,35 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 08/02/2019
 ms.author: heidist
 
 ---
-# What is Knowledge Store in Azure Search?
+# What is knowledge store in Azure Search?
 
-Knowledge Store is an optional feature of Azure Search, currently in public preview, that saves enriched documents and metadata created by an AI-based indexing pipeline [(cognitive search)](cognitive-search-concept-intro.md). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. 
+> [!Note]
+> Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
+>
 
-If you have used cognitive search in the past, you already know that skillsets can be used to move a document through a sequence of enrichments. The outcome can be an Azure Search index, or (new in this preview) projections in a knowledge store.
+Knowledge store is a feature of Azure Search that saves enriched documents and metadata created by an AI-based indexing pipeline [(cognitive search)](cognitive-search-concept-intro.md). An enriched document is a pipeline's output, created from content that has been extracted, structured, and analyzed using resources in Cognitive Services. In a standard AI-based pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, documents are saved for subsequent evaluation, exploration, and can potentially become inputs to a downstream data science workload. 
 
-Projections are your mechanism for structuring data for consumption in a downstream app. You can use [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) built for Azure storage, or any app that connects to Azure storage, which opens up new possibilities for consuming enriched documents. Some examples are data science pipelines and custom analytics.
+If you have used cognitive search in the past, you already know that skillsets are used to move a document through a sequence of enrichments. The outcome can be an Azure Search index, or (new in this preview) projections in a knowledge store. The two outputs, search index and knowledge store, are physically distinct from each other. They share the same content, but are stored and used in very different ways.
 
-![Knowledge Store in pipeline diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge Store in pipeline diagram")
+Physically, a knowledge store is created in an Azure Storage account, either as Azure Table storage or Blob storage, depending on how you configure the pipeline. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
 
-To use Knowledge Store, add a `knowledgeStore` element to a skillset that defines step-wise operations in an indexing pipeline. During execution, Azure Search creates a space in your Azure storage account and fills it with definitions and content created by the pipeline.
+Projections are your mechanism for structuring data in a knowledge store. For example, through projections, you can choose whether output is saved as a single blob or a collection of related tables. An easy way to view knowledge store contents is through the built-in [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) for Azure storage.
 
-## Benefits of Knowledge Store
+![Knowledge store in pipeline diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge store in pipeline diagram")
+
+To use knowledge store, add a `knowledgeStore` element to a skillset that defines step-wise operations in an indexing pipeline. During execution, Azure Search creates a space in your Azure storage account and fills it with definitions and content created by the pipeline.
+
+## Benefits of knowledge store
 
 A knowledge store gives you structure, context, and actual content - gleaned from unstructured and semi-structured data files like blobs, image files that have undergone analysis, or even structured data that is reshaped into new forms. In a [step-by-step walkthrough](knowledge-store-howto.md) written for this preview, you can see first-hand how a dense JSON document is partitioned out into substructures, reconstituted into new structures, and otherwise made available for downstream processes like machine learning and data science workloads.
 
-Although it's useful to see what an AI-based indexing pipeline can produce, the real power of Knowledge Store is the ability to reshape data. You might start with a basic skillset, and then iterate over it to add increasing levels of structure, which you can then combine into new structures, consumable in other apps besides Azure Search.
+Although it's useful to see what an AI-based indexing pipeline can produce, the real power of knowledge store is the ability to reshape data. You might start with a basic skillset, and then iterate over it to add increasing levels of structure, which you can then combine into new structures, consumable in other apps besides Azure Search.
 
-Enumerated, the benefits of Knowledge Store include the following:
+Enumerated, the benefits of knowledge store include the following:
 
 + Consume enriched documents in [analytics and reporting tools](#tools-and-apps) other than search. Power BI with Power Query is a compelling choice, but any tool or app that can connect to Azure storage can pull from a knowledge store that you create.
 
@@ -230,11 +236,11 @@ When using multiple services, create all of your services in the same region for
 
 **Step 4: [Get started with the portal](cognitive-search-quickstart-blob.md) - or - [Get started with sample data using REST and Postman](knowledge-store-howto.md)** 
 
-You can use REST `api-version=2019-05-06-Preview` to construct an AI-based pipeline that includes Knowledge Store. In the newest preview API, the Skillset object provides the `knowledgeStore` definition.
+You can use REST `api-version=2019-05-06-Preview` to construct an AI-based pipeline that includes knowledge store. In the newest preview API, the Skillset object provides the `knowledgeStore` definition.
 
 ## Takeaways
 
-Knowledge Store offers a variety of benefits including but not limited to enabling use of the enriched documents in scenarios other than search, cost controls, and managing drift in your enrichment process. These features are all available to use simply by adding a storage account to your skillset and using the updated expression language as described in [How to get started with Knowledge Store](knowledge-store-howto.md). 
+Knowledge store offers a variety of benefits including but not limited to enabling use of the enriched documents in scenarios other than search, cost controls, and managing drift in your enrichment process. These features are all available to use simply by adding a storage account to your skillset and using the updated expression language as described in [How to get started with knowledge store](knowledge-store-howto.md). 
 
 ## Next steps
 

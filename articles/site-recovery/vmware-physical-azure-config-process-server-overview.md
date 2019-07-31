@@ -5,7 +5,7 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ---
 
@@ -23,7 +23,7 @@ For disaster recovery of on-premises VMware VMs and physical servers, you need a
 **Role** | The configuration server coordinates communications between on-premises and Azure, and manages data replication. | Learn more about the architecture for [VMware](vmware-azure-architecture.md) and [physical server](physical-azure-architecture.md) disaster recovery to Azure.
 **VMware requirements** | For disaster recovery of on-premises VMware VMs, you must install and run the configuration server as a on-premises, highly available VMware VM. | [Learn about](vmware-azure-deploy-configuration-server.md#prerequisites) the prerequisites.
 **VMware deployment** | We recommend that you deploy the configuration server using a downloaded OVA template. This method provides a simply way to set up a configuration server that complies with all requirements and prerequisites.<br/><br/> If for some reason you're unable to deploy a VMware VM using an OVA template, you can set up the configuration server machines manually, as described below for physical machine disaster recovery. | [Deploy](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) with an OVA template.
-**Physical server requirements** | For disaster recovery on on-premises physical servers, you deploy the configuration server manually. | [Learn about](/physical-azure-set-up-source.md#prerequisites) the prerequisites.
+**Physical server requirements** | For disaster recovery on on-premises physical servers, you deploy the configuration server manually. | [Learn about](physical-azure-set-up-source.md#prerequisites) the prerequisites.
 **Physical server deployment** | If it can't be installed as a VMware VM, you can install it on a physical server. | [Deploy](physical-azure-set-up-source.md#set-up-the-source-environment) the configuration server manually.
 
 
@@ -46,5 +46,5 @@ The master target server handles replication data during failback from Azure.
 
 
 ## Next steps
-- Review the [architecture](/vmware-azure-architecture.md) for disaster recovery of VMware VMs and physical servers.
+- Review the [architecture](vmware-azure-architecture.md) for disaster recovery of VMware VMs and physical servers.
 - Review the [requirements and prerequisites](vmware-physical-azure-support-matrix.md) for disaster recovery of VMware VMs and physical servers to Azure. 

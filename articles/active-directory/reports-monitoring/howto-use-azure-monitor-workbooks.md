@@ -1,7 +1,7 @@
 ---
 
 title: Use Azure Monitor workbooks for Azure Active Directory reports | Microsoft Docs
-description: Learn how to use the Azure Monitor workbooks for Azure Active Directory reports
+description: Learn how to use Azure Monitor workbooks for Azure Active Directory reports.
 services: active-directory
 author: MarkusVi
 manager: daveba
@@ -18,55 +18,54 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ---
 
-# How to: Use Azure Monitor workbooks for Azure Active Directory reports
+# How to use Azure Monitor workbooks for Azure Active Directory reports
 
 Do you want to:
 
-- Understand the impact of your [conditional access policies](../conditional-access/overview.md) on your users' sign in experience?
+- Understand the effect of your [Conditional Access policies](../conditional-access/overview.md) on your users' sign-in experience?
 
-- Troubleshoot sign-in failures to get a better view of your organization sign-in health as well as resolve issues quickly?
+- Troubleshoot sign-in failures to get a better view of your organization's sign-in health and to resolve issues quickly?
 
-- Know who is using legacy authentications to sign on to your environment? By [blocking legacy authentication](../conditional-access/block-legacy-authentication.md), you can improve your tenant's protection.
+- Know who's using legacy authentications to sign in to your environment? (By [blocking legacy authentication](../conditional-access/block-legacy-authentication.md), you can improve your tenant's protection.)
 
-
-[Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, Analytics queries, Azure Metrics, and parameters into rich interactive reports. Azure Active Directory provides you with workbooks for monitoring that help you to find answers to the questions above.
+To help you to address these questions, Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, analytics queries, metrics, and parameters into rich interactive reports. 
 
 This article:
 
-- Assumes that you are familiar with how to [Create interactive reports with Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+- Assumes you're familiar with how to [Create interactive reports by using Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
 
-- Explains how you can use the Azure Monitor workbooks about monitoring to answer the questions above.
+- Explains how to use Monitor workbooks to understand the effect of your Conditional Access policies, to troubleshoot sign-in failures, and to identify legacy authentications.
  
 
 
 ## Prerequisites
 
-To use this feature, you need:
+To use Monitor workbooks, you need:
 
-- An Azure Active Directory tenant, with a premium (P1/P2) license. Learn how to [get a premium license](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- An Active Directory tenant with a premium (P1 or P2) license. Learn how to [get a premium license](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - A [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-## Access workbooks 
+## Workbook access 
 
 To access workbooks:
 
-1. Sign in to your [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. On the left navbar, click **Azure Active Directory**.
+2. On the left navigation pane, select **Azure Active Directory**.
 
-3. In the **Monitoring** section, click **Insights**. 
+3. In the **Monitoring** section, select **Workbooks**. 
 
-    ![Insights](./media/howto-use-azure-monitor-workbooks/41.png)
+    ![Select Insights](./media/howto-use-azure-monitor-workbooks/41.png)
 
-4. Click a report or template, or click **Open** in the toolbar. 
+4. Select a report or template, or on the toolbar select **Open**. 
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/42.png)
+    ![Select Open](./media/howto-use-azure-monitor-workbooks/42.png)
 
 
 ## Sign-in analysis
 
-To access the sign-in analysis workbook, click **Sign-ins** in the **Usage** section. 
+To access the sign-in analysis workbook, in the **Usage** section, select **Sign-ins**. 
 
 This workbook shows the following sign-in trends:
 
@@ -78,7 +77,7 @@ This workbook shows the following sign-in trends:
 
 - Failure
 
-You can filter each trend by:
+You can filter each trend by the following categories:
 
 - Time range
 
@@ -86,24 +85,24 @@ You can filter each trend by:
 
 - Users
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/43.png)
+![Sign-in analysis](./media/howto-use-azure-monitor-workbooks/43.png)
 
 
-For each trend, you get a breakdown by:
+For each trend, you get a breakdown by the following categories:
 
 - Location
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/45.png)
+    ![Sign-ins by location](./media/howto-use-azure-monitor-workbooks/45.png)
 
 - Device
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/46.png)
+    ![Sign-ins by device](./media/howto-use-azure-monitor-workbooks/46.png)
 
 
 ## Sign-ins using legacy authentication 
 
 
-To access the sign-ins using [legacy authentication](../conditional-access/block-legacy-authentication.md) workbook, click **Sign-ins using Legacy Authentication** in the **Usage** section. 
+To access the workbook for sign-ins that use [legacy authentication](../conditional-access/block-legacy-authentication.md), in the **Usage** section, select **Sign-ins using Legacy Authentication**. 
 
 This workbook shows the following sign-in trends:
 
@@ -112,7 +111,7 @@ This workbook shows the following sign-in trends:
 - Success
 
 
-You can filter each trend by:
+You can filter each trend by the following categories:
 
 - Time range
 
@@ -120,25 +119,23 @@ You can filter each trend by:
 
 - Users
 
-- Protocols 
+- Protocols
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/47.png)
+![Sign-ins by legacy authentication](./media/howto-use-azure-monitor-workbooks/47.png)
 
 
 For each trend, you get a breakdown by app and protocol.
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/48.png)
+![Legacy-authentication sign-ins by app and protocol](./media/howto-use-azure-monitor-workbooks/48.png)
 
 
 
-## Sign-ins by conditional access 
+## Sign-ins by Conditional Access 
 
 
-To access the sign-ins by [conditional access policies](../conditional-access/overview.md) workbook, click **Sign-ins by Conditional Access** in the **Conditional access** section. 
+To access the workbook for sign-ins by [Conditional Access policies](../conditional-access/overview.md), in the **Conditional Access** section, select **Sign-ins by Conditional Access**. 
 
-This workbook shows the trend for disabled sign-ins.
-
-You can filter each trend by:
+This workbook shows the trends for disabled sign-ins. You can filter each trend by the following categories:
 
 - Time range
 
@@ -146,12 +143,12 @@ You can filter each trend by:
 
 - Users
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/49.png)
+![Sign-ins using Conditional Access](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
-For the disabled sign-ins, you get a breakdown by the conditional access status.
+For disabled sign-ins, you get a breakdown by the Conditional Access status.
 
-![Conditional access status](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![Conditional Access status](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 
@@ -162,7 +159,7 @@ For the disabled sign-ins, you get a breakdown by the conditional access status.
 
 ## Sign-ins by grant controls
 
-To access the sign-ins by [grant controls](../conditional-access/controls.md) workbook, click **Sign-ins by Grant Controls** in the **Conditional access** section. 
+To access the workbook for sign-ins by [grant controls](../conditional-access/controls.md), in the **Conditional Access** section, select **Sign-ins by Grant Controls**. 
 
 This workbook shows the following disabled sign-in trends:
 
@@ -175,7 +172,7 @@ This workbook shows the following disabled sign-in trends:
 - Other
 
 
-You can filter each trend by:
+You can filter each trend by the following categories:
 
 - Time range
 
@@ -183,26 +180,26 @@ You can filter each trend by:
 
 - Users
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/50.png)
+![Sign-ins by grant controls](./media/howto-use-azure-monitor-workbooks/50.png)
 
 
 For each trend, you get a breakdown by app and protocol.
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/51.png)
+![Breakdown of recent sign-ins](./media/howto-use-azure-monitor-workbooks/51.png)
 
 
 
 
 ## Sign-ins failure analysis
 
-Use the **Sign-ins failure analysis** workbook to troubleshoot errors with:
+Use the **Sign-ins failure analysis** workbook to troubleshoot errors with the following:
 
 - Sign-ins
-- Conditional access policies
-- Legacy authentication. 
+- Conditional Access policies
+- Legacy authentication 
 
 
-To access the sign-ins by conditional access data, click **Sign-ins using Legacy Authentication** in the **Troubleshoot** section. 
+To access the sign-ins by Conditional Access data, in the **Troubleshoot** section, select **Sign-ins using Legacy Authentication**. 
 
 This workbook shows the following sign-in trends:
 
@@ -215,7 +212,7 @@ This workbook shows the following sign-in trends:
 - Failure
 
 
-You can filter each trend by:
+You can filter each trend by the following categories:
 
 - Time range
 
@@ -223,18 +220,18 @@ You can filter each trend by:
 
 - Users
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/52.png)
+![Troubleshooting sign-ins](./media/howto-use-azure-monitor-workbooks/52.png)
 
 
-To troubleshoot sign-ins, you get a breakdown by:
+To help you troubleshoot sign-ins, Azure Monitor gives you a breakdown by the following categories:
 
 - Top errors
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/53.png)
+    ![Summary of top errors](./media/howto-use-azure-monitor-workbooks/53.png)
 
 - Sign-ins waiting on user action
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/54.png)
+    ![Summary of sign-ins waiting on user action](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
 
@@ -243,4 +240,4 @@ To troubleshoot sign-ins, you get a breakdown by:
 
 ## Next steps
 
-* [Create interactive reports with Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)
+[Create interactive reports by using Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).

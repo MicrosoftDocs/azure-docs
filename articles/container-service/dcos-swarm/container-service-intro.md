@@ -46,7 +46,7 @@ users and contributors.
 DC/OS and Apache Mesos include an impressive feature set:
 
 * Proven scalability
-* Fault-tolerant replicated master and slaves using Apache ZooKeeper
+* Fault-tolerant replicated primary and secondaries using Apache ZooKeeper
 * Support for Docker-formatted containers
 * Native isolation between tasks with Linux containers
 * Multiresource scheduling (memory, CPU, disk, and ports)

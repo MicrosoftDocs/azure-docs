@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/28/2018
+ ms.date: 05/13/2019
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -135,6 +135,10 @@ For managed disks you cannot rename them. However, you may rename an unmanaged d
 **Can I use GPT partitioning on an Azure Disk?**
 
 GPT partitioning can be used only on data disks, not OS disks. OS disks must use the MBR partition style.
+
+**What disk types support snapshots?**
+
+Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra SSDs do not support snapshots.
 
 ## Standard SSD disks
 
@@ -334,7 +338,7 @@ Yes.
 
 **What are the largest disk sizes supported by Azure Backup and Azure Site Recovery service?**
 
-The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Support for the larger disks up to 32 TiB will be added soon.
+The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Support for the larger disks up to 32 TiB is not yet available.
 
 **What are the recommended VM sizes for larger disk sizes (>4 TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
 
@@ -346,7 +350,7 @@ You can either stop and start the VM that the disk is attached to or, detach and
 
 **What regions are the managed disk sizes of 8 TiB, 16 TiB, and 32 TiB supported in?**
 
-The 8 TiB, 16 TiB, and 32 TiB disk SKUs are supported in all regions under global Azure. Support for Microsoft Azure Government and Azure China 21Vianet is not yet available.
+The 8 TiB, 16 TiB, and 32 TiB disk SKUs are supported in all regions under global Azure, Microsoft Azure Government, and Azure China 21Vianet.
 
 **Do we support enabling Host Caching on all disk sizes?**
 

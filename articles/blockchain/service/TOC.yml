@@ -47,6 +47,8 @@
     href: manage-consortium-powershell.md
 - name: Resources
   items:
+  - name: Blockchain REST API
+    href: https://docs.microsoft.com/rest/api/blockchain/
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/blockchain/
   - name: Azure Blockchain Service Visual Studio Code extension
@@ -56,7 +58,7 @@
   - name: Community
     href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
   - name: Forum
-    href: https://social.msdn.microsoft.com/forums/security/home?forum=AzureBlockchainService
+    href: https://aka.ms/workbenchforum
   - name: Product feedback
     href: https://feedback.azure.com/forums/921130-azure-blockchain-service
   - name: Pricing

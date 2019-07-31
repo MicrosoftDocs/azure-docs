@@ -6,7 +6,7 @@ metadata:
   title: Personalizer - Tutorials, Quickstarts, API Reference
   description: Learn how to use Personalizer service to allow your application to choose the best experience to show to your users, learning from their real-time behavior. 
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -58,7 +58,7 @@ sections:
     className: cardsD
     items:
     - title: REST APIs 
-      html: <p><a href="https://aka.ms/personalizer-rest-api-docs"> Personalizer API</a></p>   
+      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=2092082"> Personalizer API</a></p>   
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI

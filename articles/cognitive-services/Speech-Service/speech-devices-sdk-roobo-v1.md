@@ -1,5 +1,5 @@
 ---
-title: Speech Devices SDK Roobo Smart Audio Dev Kit v1 - Speech Services
+title: Speech Devices SDK Roobo Smart Audio Dev Kit v1 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with the Speech Devices SDK, Roobo Smart Audio Dev Kit v1.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
@@ -65,7 +65,7 @@ For more development information, see the [Roobo development guide](http://dwn.r
 
 ## Audio
 
-Roobo provides a tool that captures all audio to flash memory. It might help you troubleshoot audio issues. A version of the tool is provided for each development kit configuration. On the  [Roobo site](http://ddk.roobo.com/), select your device, and then select the **Roobo Tools** link at the bottom of the page.
+Roobo provides a tool that captures all audio to flash memory. It might help you troubleshoot audio issues. A version of the tool is provided for each development kit configuration. On the  [Roobo site](https://ddk.roobo.com/), select your device, and then select the **Roobo Tools** link at the bottom of the page.
 
 ## Next steps
 

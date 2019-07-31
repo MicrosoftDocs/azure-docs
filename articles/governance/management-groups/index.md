@@ -4,7 +4,7 @@ description: Learn about the management groups, how their permissions work, and 
 author: rthorn17
 
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
-ms.service: azure-resource-manager
+ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
@@ -123,7 +123,7 @@ The following chart shows the list of roles and the supported actions on managem
 |Reader                      |        |        |        |        |               |               | X     |
 |MG Reader*                  |        |        |        |        |               |               | X     |
 |Resource Policy Contributor |        |        |        |        |               | X             |       |
-|User Access Administrator   |        |        |        |        | X             |               |       |
+|User Access Administrator   |        |        |        |        | X             | X             |       |
 
 *: MG Contributor and MG Reader only allow users to do those actions on the management group scope.  
 **: Role Assignments on the Root management group aren't required to move a subscription or management group to and from it.  See [Manage your resources with management groups](manage.md) for details on moving items within the hierarchy.

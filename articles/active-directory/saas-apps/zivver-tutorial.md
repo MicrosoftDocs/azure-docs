@@ -112,7 +112,7 @@ To configure Azure AD single sign-on with ZIVVER, perform the following steps:
 
 	| Name | Namespace | Source Attribute|
 	| ---------------| --------------- |
-	| ZivverAccountKey | https://zivver.com/SAML/Attributes | user.objectid |
+	| ZivverAccountKey | https:\//zivver.com/SAML/Attributes | user.objectid |
 
 	>[!NOTE]
 	>If you are using a hybrid setup with Active Directory on-premise and Azure AD Connect Tool, VALUE should be set to `user.objectGUID`
@@ -229,5 +229,5 @@ When you click the ZIVVER tile in the Access Panel, you should be automatically 
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

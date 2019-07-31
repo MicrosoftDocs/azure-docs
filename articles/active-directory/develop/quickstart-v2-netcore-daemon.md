@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
@@ -22,8 +22,6 @@ ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API from a console app using app's identity
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 In this quickstart, you'll learn how to write a .NET Core application that can get an access token using the app's own identity and then call the Microsoft Graph API to display a [list of users](https://docs.microsoft.com/graph/api/user-list) in the directory. This scenario is useful for situations where headless, unattended job or a windows service needs to run with an application identity, instead of a user's identity.
 
@@ -95,6 +93,10 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
     > > [Generate a new client secret]()
     
+    > [!div class="sxs-lookup" renderon="portal"]
+    > > [!NOTE]
+    > > This quickstart supports Enter_the_Supported_Account_Info_Here.
+    
     > [!div renderon="docs"]
     >> Where:
     >> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
@@ -107,7 +109,7 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
     
 #### Step 4: Admin consent
 
-If you try to run the application at this point, you will receive *HTTP 403 - Forbidden* error: `Insufficient privileges to complete the operation`. This happens because any *app-only permission* requires Admin consent, which means that a global administrator of your directory must give consent to your application. Select one of the options below depending on your role:
+If you try to run the application at this point, you'll receive *HTTP 403 - Forbidden* error: `Insufficient privileges to complete the operation`. This happens because any *app-only permission* requires Admin consent, which means that a global administrator of your directory must give consent to your application. Select one of the options below depending on your role:
 
 ##### Global tenant administrator
 
@@ -121,7 +123,7 @@ If you try to run the application at this point, you will receive *HTTP 403 - Fo
 
 ##### Standard user
 
-If you are a standard user of your tenant, then you need to ask a global administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
+If you're a standard user of your tenant, then you need to ask a global administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
@@ -137,7 +139,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 #### Step 5: Run the application
 
-If you are using Visual Studio, press **F5** to run the application, otherwise, run the application via command prompt or console:
+If you're using Visual Studio, press **F5** to run the application, otherwise, run the application via command prompt or console:
 
 ```console
 cd {ProjectFolder}\daemon-console
@@ -210,7 +212,7 @@ result = await app.AcquireTokenForClient(scopes)
 > |---------|---------|
 > | `scopes` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom Web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration (Preview). |
 
-For more information, please see the [reference documentation for `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)
+For more information, please see the [reference documentation for `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
@@ -231,3 +233,8 @@ To know more about the auth flow for this scenario, see the Oauth 2.0 client cre
 
 > [!div class="nextstepaction"]
 > [Client credential flows with MSAL.NET](https://aka.ms/msal-net-client-credentials)
+
+Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

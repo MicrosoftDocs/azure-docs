@@ -1,5 +1,5 @@
 ---
-title: Speech Devices SDK microphone array recommendations - Speech Services
+title: Speech Devices SDK microphone array recommendations - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Devices SDK microphone array recommendations. The following array geometries are recommended for use with the Microsoft Audio Stack. Location of sound sources and rejection of ambient noise is improved with greater number of microphones with dependencies on specific applications, user scenarios, and the device form factor.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/16/2019
 ms.author: erhopf
 ---
 # Speech Devices SDK Microphone array recommendations
@@ -27,9 +27,11 @@ device form factor.
 
 |          | Circular Array    |       |  Linear Array              |                |
 |----------|-------------------|-------------------|----------------|----------------|
-|          |![7 mic circular array](media/speech-devices-sdk/7-mic-c.png)|![4 mic circular array](media/speech-devices-sdk/4-mic-c.png)|![4 mic linear array](media/speech-devices-sdk/4-mic-l.png)|![2 mic linear array](media/speech-devices-sdk/2-mic-l.png)|
+|          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# Mics  | 7                 | 4                 | 4              | 2              |
 | Geometry | 6 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced| 3 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced | Length = 120 mm, Spacing = 40 mm | Spacing = 40 mm |
+
+Microphone channels should be ordered according to the numbering depicted for each above array, increasing from 0.  The Microsoft Audio Stack will require an additional reference stream of audio playback to perform echo cancellation.
 
 ## Component selection
 
@@ -39,17 +41,16 @@ The recommended properties when selecting microphones are:
 
 | Parameter                         | Recommended                       |
 |-----------------------------------|-----------------------------------|
-| SNR                               | \> 65 dB (1 kHz signal 94 dBSPL, A-weighted noise)   |
+| SNR                               | \>= 65 dB (1 kHz signal 94 dBSPL, A-weighted noise)   |
 | Amplitude Matching                | ± 1 dB @ 1 kHz                     |
 | Phase Matching                    | ± 2° @ 1 kHz                       |
-| Acoustic Overload Point (AOP)     | \> 120 dBSPL (THD = 10%)          |
+| Acoustic Overload Point (AOP)     | \>= 120 dBSPL (THD = 10%)          |
 | Bit Rate                          | Minimum 24-bit                    |
 | Sampling Rate                     | Minimum 16 kHz\*                   |
-| Directivity                       | Omnidirectional                   |
 | Frequency Response                | ± 3 dB, 200-8000 Hz Floating Mask\*|
 | Reliability                       | Storage Temperature Range -40°C  to 70°C<br />Operating Temperature Range -20°C to 55°C  |
 
-*\*Higher sampling rates or "wider" frequency ranges may be necessary
+*\* Higher sampling rates or "wider" frequency ranges may be necessary
 for high-quality communications (VoIP) applications*
 
 Good component selection must be paired with good
@@ -59,19 +60,19 @@ requirements (for example: operating temperature ranges).
 
 ## Microphone array integration
 
-The performance of the arrays when integrated into a device and after
-any fixed gain or EQ should meet the following recommendations:
+The performance of the microphone array when integrated into a device will differ from the component specification. It is important to ensure that the microphones are well matched after integration. Therefore the device performance measured after any fixed gain or EQ should meet the following recommendations:
 
 |  Parameter        |    Recommended |
 |--------------------|----------------------------------------------------|
-|  SNR                 | \> 65 dB (1 kHz signal 94 dBSPL, A-weighted noise) |
+|  SNR                 | \> 63 dB (1 kHz signal 94 dBSPL, A-weighted noise) |
 |  Output Sensitivity  | -26 dBFS/Pa @ 1 kHz (recommended) |
 |  Amplitude Matching  | ± 2 dB, 200-8000 Hz |
-|  Phase Matching      | ± 5°, 200-8000 Hz |
-| THD%                 | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5th Order |
-|  Frequency Response  | ± 6 dB, 200-8000 Hz Floating Mask\* |
+| THD%\*                 | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5th Order |
+|  Frequency Response  | ± 6 dB, 200-8000 Hz Floating Mask\*\* |
 
-*\*"Wider" frequency ranges may be necessary for high-quality
+*\*\* A low distortion speaker is required to measure THD (e.g. Neumann KH120)*
+
+*\*\* "Wider" frequency ranges may be necessary for high-quality
 communications (VoIP) applications*
 
 ## Speaker integration recommendations
@@ -123,4 +124,4 @@ higher sample rates and bit depths.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn more about the [Speech Devices SDK](speech-devices-sdk.md)
+> [Learn more about the Speech Devices SDK](speech-devices-sdk.md)

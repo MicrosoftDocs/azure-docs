@@ -2,13 +2,13 @@
 title: Tutorial - Use Azure Key Vault with a Windows virtual machine in Python | Microsoft Docs
 description: In this tutorial, you configure an ASP.NET core application to read a secret from your key vault.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---

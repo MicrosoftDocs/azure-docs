@@ -53,7 +53,7 @@ The subnet of the target VM is selected based on the name of the subnet of the s
 
 - If a subnet with the same name as the source VM subnet is available in the target network, that subnet is set for the target VM.
 - If a subnet with the same name doesn't exist in the target network, the first subnet in the alphabetical order is set as the target subnet.
-- You can modify the in the **Compute and Network** settings for the VM.
+- You can modify the target subnet in the **Compute and Network** settings for the VM.
 
     ![Compute and Network compute properties window](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 

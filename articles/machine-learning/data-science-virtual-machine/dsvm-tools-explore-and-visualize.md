@@ -4,7 +4,7 @@ description: Data exploration and visualization tools for the Data Science Virtu
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 
 
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 
 # Data exploration and visualization tools on the Data Science Virtual Machine
 
-A key step in data science is to understand the data. Visualization and data exploration tools help accelerate data understanding. Here are some tools provided on the DSVM that facilitate this key step. 
+A key step in data science is to understand the data. Visualization and data exploration tools help accelerate data understanding. Here are some tools provided on the DSVM that make this key step easier. 
 
 ## Apache Drill
 |    |           |
@@ -40,7 +40,7 @@ A key step in data science is to understand the data. Visualization and data exp
 | What is it?   |  Weka is a collection of machine learning algorithms for data mining tasks. The algorithms can either be applied directly to a dataset or called from your own Java code. Weka contains tools for data pre-processing, classification, regression, clustering, association rules, and visualization. |
 | Supported DSVM Editions     | Windows, Linux     |
 | Typical Uses      | General ML Tool     |
-| How to use / run it?      | On Windows, search for Weka in the Start Menu. On Linux, log in with X2Go, then navigate to Applications -> Development -> Weka. |
+| How to use / run it?      | On Windows, search for Weka in the Start Menu. On Linux, sign in with X2Go, then navigate to Applications -> Development -> Weka. |
 | Links to Samples      | [Weka samples](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Related Tools on the DSVM      |LightGBM, Rattle, Xgboost   |
 
@@ -54,12 +54,12 @@ A key step in data science is to understand the data. Visualization and data exp
 | Links to Samples      | [Rattle](https://togaware.com/onepager/) |
 | Related Tools on the DSVM      |LightGBM, Weka, Xgboost   |
 
-## PowerBI Desktop 
+## Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Interactive Data Visualization and BI Tool    |
 | Supported DSVM Versions      | Windows  |
 | Typical Uses      |  Data Visualization and building Dashboards   |
 | How to use / run it?      | Desktop Shortcut (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Related Tools on the DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
+| Related Tools on the DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
 

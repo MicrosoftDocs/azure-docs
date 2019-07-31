@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
 ---
@@ -22,7 +22,7 @@ Software requirements:
 * [Wwise plugin for Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * If you're using a direct integration of the Wwise SDK instead of using the Wwise Unreal plugins, consult the Project Acoustics Unreal plugin and adjust Wwise API calls.
 
-If you'd like to use Project Acoustics with an audio engine other than Wwise, contact us on the [Project Acoustics forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics). You can use the Project Acoustics Unreal plugin to query acoustics data and then make API calls to your engine.
+If you'd like to use Project Acoustics with an audio engine other than Wwise, make an enhancement request on the [Project Acoustics discussion forum](https://github.com/microsoft/ProjectAcoustics/issues). You can use the Project Acoustics Unreal plugin to query acoustics data and then make API calls to your engine.
 
 ## Download Project Acoustics
 If you haven't already, download the [Project Acoustics Unreal & Wwise plugin package](https://www.microsoft.com/download/details.aspx?id=58090)). 

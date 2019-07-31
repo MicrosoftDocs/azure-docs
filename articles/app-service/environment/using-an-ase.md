@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use App Service environment - Azure
 description: How to create, publish, and scale apps in an Azure App Service environment
 services: app-service
@@ -12,13 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
 ---
 # Use an App Service environment #
-
-## Overview ##
 
 Azure App Service Environment is a deployment of Azure App Service into a subnet in a customer’s Azure virtual network. It consists of:
 
@@ -57,17 +55,14 @@ To create an app in an ASE:
 
 1. Select your OS. 
 
-    * Hosting a Linux app in an ASE is a new preview feature, so we suggest that you do not add Linux apps into an ASE that is currently running production workloads. 
-    * Adding a Linux app into an ASE means that the ASE will also be in preview mode. 
-
 1. Select an existing App Service plan in your ASE, or create a new one by following these steps:
 
 	a. Select **Create New**.
 
 	b. Enter the name for your App Service plan.
 
-	c. Select your ASE in the **Location** drop-down list. Hosting a Linux app in an ASE is only enabled in 6 regions, at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** 
-
+	c. Select your ASE in the **Location** drop-down list. 
+	
 	d. Select an **Isolated** pricing tier. Select **Select**.
 
 	e. Select **OK**.
