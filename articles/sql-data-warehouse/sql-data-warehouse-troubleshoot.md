@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 4/26/2019
+ms.date: 7/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -29,7 +29,7 @@ This article lists common troubleshooting question.
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio object explorer is missing AAD users           | This is a known issue.  As a workaround, view the users in [sys.database_principals][sys.database_principals].  See [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] to learn more about using Azure Active Directory with SQL Data Warehouse. |
 | Manual scripting, using the scripting wizard, or connecting via SSMS is slow, not responding, or producing errors | Ensure that users have been created in the master database. In scripting options, also make sure that the engine edition is set as “Microsoft Azure SQL Data Warehouse Edition” and engine type is “Microsoft Azure SQL Database”. |
-| Generate scripts fails in SSMS                             | Generating a script for SQL data warehouse fails if the option "Generate script for dependent objects" option is set to "True." As a workaround, users must manually go to Tools -> Options ->SQL Server Object Explorer -> Generate script for dependent options and set to false |
+| Generate scripts fails in SSMS                               | Generating a script for SQL data warehouse fails if the option "Generate script for dependent objects" option is set to "True." As a workaround, users must manually go to Tools -> Options ->SQL Server Object Explorer -> Generate script for dependent options and set to false |
 
 ## Performance
 | Issue                                                        | Resolution                                                   |
@@ -47,14 +47,8 @@ This article lists common troubleshooting question.
 | Msg 40847: Could not perform the operation because server would exceed the allowed Database Transaction Unit quota of 45000. | Either reduce the [DWU][DWU] of the database you are trying to create or [request a quota increase][request a quota increase]. |
 | Investigating space utilization                              | See [Table sizes][Table sizes] to understand the space utilization of your system. |
 | Help with managing tables                                    | See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary]. |
-| Transparent data encryption (TDE) progress bar is not updating in the Azure Portal | You can view the state of TDE via [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
+| Transparent data encryption (TDE) progress bar is not updating in the Azure portal | You can view the state of TDE via [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
-## Polybase
-| Issue                                           | Resolution                                                   |
-| :---------------------------------------------- | :----------------------------------------------------------- |
-| Exports fail with TINYINT and DATE types             | For Parquet and ORC file formats, DATE type values must be between 1970-01-01 00:00:01 UTC and 2038-01-19 03:14:07. TINYINT type values must be between 0-127.    |
-| Issue with Parquet DECIMAL type: writing from Spark type DecimalType(18,4) and importing into a column of type double or real gives “Error: java.base/java.lang.Long cannot be cast to java.base/java.lang.Float”. | You must import into bigint and divide by 10000 or use the [Databricks] SQL DW connector. |
-| Issue with Parquet DATE type: writing from Spark type Date and importing into a column of type date or datetime gives “Error: java.base/java.lang.Integer cannot be cast to parquet.io.api.Binary”. | You must use a different Spark type (int) and compute the date or use the [Databricks] SQL DW connector. |
 
 ## Differences from SQL Database
 | Issue                                 | Resolution                                                   |

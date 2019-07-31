@@ -155,4 +155,4 @@ To disable Azure Disk Encryption with CLI, use [az vm encryption disable](/cli/a
 In this document, you learned more about some common problems in Azure Disk Encryption and how to troubleshoot those problems. For more information about this service and its capabilities, see the following articles:
 
 - [Apply disk encryption in Azure Security Center](../security-center/security-center-apply-disk-encryption.md)
-- [Azure data encryption at rest](azure-security-encryption-atrest.md)
+- [Azure data encryption at rest](fundamentals/encryption-atrest.md)
