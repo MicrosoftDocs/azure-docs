@@ -4,7 +4,7 @@ description: Find answers to frequently asked questions about Azure Files.
 services: storage
 author: roygara
 ms.service: storage
-ms.date: 01/02/2019
+ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
@@ -164,35 +164,27 @@ This article answers common questions about Azure Files features and functionali
     
 ## Security, authentication, and access control
 * <a id="ad-support"></a>
-**Is Active Directory-based authentication and access control supported by Azure Files?**  
+**Is Identity-based authentication and access control supported by Azure Files?**  
     
-    Yes, Azure Files supports identity-based authentication and access control with Azure Active Directory (Azure AD) (Preview). Azure AD authentication over SMB for Azure Files leverages Azure Active Directory Domain Services to enable domain-joined VMs to access shares, directories, and files using Azure AD credentials. For more details, see [Overview of Azure Active Directory authentication over SMB for Azure Files (Preview)](storage-files-active-directory-overview.md). 
+    Yes, Azure Files supports identity-based authentication and access control leveraging Azure AD Domain Service(AAD DS). AAD DS authentication over SMB for Azure Files enables AAD DS domain-joined Windows VMs to access shares, directories, and files using Azure AD credentials. For more details, see [Overview of Azure Files Azure Active Directory Domain Service (AAD DS) Authentication Support for SMB Access](storage-files-active-directory-overview.md). 
 
     Azure Files offers two additional ways to manage access control:
 
     - You can use shared access signatures (SAS) to generate tokens that have specific permissions, and which are valid for a specified time interval. For example, you can generate a token with read-only access to a specific file that has a 10-minute expiry. Anyone who possesses the token while the token is valid has read-only access to that file for those 10 minutes. Currently, shared access signature keys are supported only via the REST API or in client libraries. You must mount the Azure file share over SMB by using the storage account keys.
 
     - Azure File Sync preserves and replicates all discretionary ACLs, or DACLs, (whether Active Directory-based or local) to all server endpoints that it syncs to. Because Windows Server can already authenticate with Active Directory, Azure File Sync is an effective stop-gap option until full support for Active Directory-based authentication and ACL support arrives.
-
-* <a id="ad-support-regions"></a>
-**Is the preview of Azure AD over SMB for Azure Files available in all Azure regions?**
-
-    The preview is available in all public regions.
-
-* <a id="ad-support-on-premises"></a>
-**Does Azure AD authentication over SMB for Azure Files (Preview) support authentication using Azure AD from on-premises machines?**
-
-    No, Azure Files does not support authentication with Azure AD from on-premises machines in the preview release.
+    
+    You can refer to [Authorizing access to Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a comprehensive representation of all protocols supported on Azure Storage services. 
 
 * <a id="ad-support-devices"></a>
-**Does Azure AD authentication over SMB for Azure Files (Preview) support SMB access using Azure AD credentials from devices joined to or registered with Azure AD?**
+**Does Azure Files AAD DS Authentication support SMB access using Azure AD credentials from devices joined to or registered with Azure AD?**
 
     No, this scenario is not supported.
 
 * <a id="ad-support-rest-apis"></a>
 **Are there REST APIs to support Get/Set/Copy directory/file NTFS ACLs?**
 
-    The preview release does not support REST APIs to get, set, or copy NTFS ACLs for directories or files.
+    For now, we do not support REST APIs to get, set, or copy NTFS ACLs for directories or files.
 
 * <a id="ad-vm-subscription"></a>
 **Can I access Azure Files with Azure AD credentials from a VM under a different subscription?**
@@ -200,17 +192,17 @@ This article answers common questions about Azure Files features and functionali
     If the subscription under which the file share is deployed is associated with the same Azure AD tenant as the Azure AD Domain Services deployment to which the VM is domain-joined, then you can then access Azure Files using the same Azure AD credentials. The limitation is imposed not on the subscription but on the associated Azure AD tenant.    
     
 * <a id="ad-support-subscription"></a>
-**Can I enable Azure AD authentication over SMB for Azure Files with an Azure AD tenant that is different from the primary tenant with which the file share is associated?**
+**Can I enable Azure Files AAD DS Authentication with an Azure AD tenant that is different from the primary tenant with which the file share is associated?**
 
-    No, Azure Files only supports Azure AD integration with an Azure AD tenant that resides in the same subscription as the file share. Only one subscription can be associated with an Azure AD tenant.
+    No, Azure Files only supports Azure AD DS integration with an Azure AD tenant that resides in the same subscription as the file share. Only one subscription can be associated with an Azure AD tenant.
 
 * <a id="ad-linux-vms"></a>
-**Does Azure AD authentication over SMB for Azure Files (Preview) support Linux VMs?**
+**Does Azure Files AAD DS Authentication support Linux VMs?**
 
-    No, authentication from Linux VMs is not supported in the preview release.
+    No, authentication from Linux VMs is not supported.
 
 * <a id="ad-aad-smb-afs"></a>
-**Can I leverage Azure AD authentication over SMB capabilities on file shares managed by Azure File Sync?**
+**Can I leverage Azure Files AAD DS Authentication on file shares managed by Azure File Sync?**
 
     No, Azure Files does not support preserving NTFS ACLs on file shares managed by Azure File Sync. The file ACLs carried from on-premises file servers are persisted by Azure File Sync. Any NTFS ACLs configured natively against Azure Files will be overwritten by the Azure File Sync service. Additionally, Azure Files does not support authentication with Azure AD credentials for access to file shares managed by the Azure File Sync service.
 
