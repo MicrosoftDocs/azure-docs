@@ -15656,6 +15656,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/cognitive-services-text-analytics-how-to-access-key.md",
+      "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/cognitive-services-text-analytics-how-to-sign-up.md",
+      "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/text-analytics/text-analytics-supported-languages.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/language-support",
       "redirect_document_id": true
@@ -37407,6 +37417,11 @@
     {
       "source_path": "articles/machine-learning/service/how-to-manage-dataset-definitions.md",
       "redirect_url": "https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/service/concept-data-drift.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-monitor-data-drift",
       "redirect_document_id": false
     },
     {
