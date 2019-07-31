@@ -1,6 +1,6 @@
 ---
-title: Data extraction
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Data extraction - LUIS
+titleSuffix: Azure Cognitive Services
 description: Extract data from utterance text with intents and entities. Learn what kind of data can be extracted from Language Understanding (LUIS).
 services: cognitive-services
 author: diberry

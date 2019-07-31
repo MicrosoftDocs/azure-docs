@@ -1,7 +1,7 @@
 ---
-title: Release Notes - Speech Services
-titlesuffix: Azure Cognitive Services
-description: See a running log of feature releases, improvements, bug fixes, and known issues for Azure Speech Services.
+title: Release Notes - Speech Service
+titleSuffix: Azure Cognitive Services
+description: See a running log of feature releases, improvements, bug fixes, and known issues for the Speech Service.
 services: cognitive-services
 author: BrianMouncer
 manager: nitinme

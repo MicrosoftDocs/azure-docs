@@ -36,7 +36,7 @@ This article describes how to edit and manage existing access packages.
 
 A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is by adding resource roles to your access package. You can add resource roles for groups, applications, and SharePoint sites.
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -60,7 +60,7 @@ You can have entitlement management automatically add users to a group when they
 You can select any Office 365 group or Azure AD security group.  Administrators can add any group to a catalog; catalog owners can add any group to the catalog if they are owner of the group. Keep the following Azure AD constraints in mind when selecting a group:
 
 - When a user, including a guest, is added as a member to a group, they can see all the other members of that group.
-- Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect.  
+- Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect, or that was created in Exchange Online as a distribution group.  
 - The membership of dynamic groups cannot be updated by adding or removing a member, so dynamic group memberships are not suitable for use with entitlement management.
 
 1. On the **Add resource roles to access package** page, click **Groups** to open the Select groups pane.
@@ -134,7 +134,7 @@ Azure AD can automatically assign users access to a SharePoint Online site or Sh
 
 ## Remove resource roles
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -156,7 +156,7 @@ The following diagram shows the high-level process to create a policy for an exi
 
 ![Create a policy process](./media/entitlement-management-access-package-edit/policy-process.png)
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -176,7 +176,7 @@ The following diagram shows the high-level process to create a policy for an exi
 
 You can edit a policy at any time. If you change the expiration date for a policy, the expiration date for requests that are already in a pending approval or approved state will not change.
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -198,7 +198,7 @@ You can edit a policy at any time. If you change the expiration date for a polic
 
 In some cases, you might want to directly assign specific users to an access package so that users don't have to go through the process of requesting the access package. To directly assign users, the access package must have a policy that allows administrator direct assignments.
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -226,7 +226,7 @@ In some cases, you might want to directly assign specific users to an access pac
 
 ## View who has an assignment
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -246,7 +246,7 @@ In some cases, you might want to directly assign specific users to an access pac
 
 ## View requests
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -258,7 +258,7 @@ In some cases, you might want to directly assign specific users to an access pac
 
 ## View a request's delivery errors
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -278,7 +278,7 @@ In some cases, you might want to directly assign specific users to an access pac
 
 You can only cancel a pending request that has not yet been delivered.
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -294,7 +294,7 @@ You can only cancel a pending request that has not yet been delivered.
 
 Most users in your directory can sign in to the My Access portal and automatically see a list of access packages they can request. However, for external business partner users that are not yet in your directory, you will need to send them a link that they can use to request an access package. As long as the access package is enabled for external users and you have a policy for the external user's directory, the external user can use the My Access portal link to request the access package.
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -310,7 +310,7 @@ Most users in your directory can sign in to the My Access portal and automatical
 
 Access packages are discoverable by default. This means that if a policy allows a user to request the access package, they will automatically see the access package listed in their My Access portal.
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -328,7 +328,7 @@ Access packages are discoverable by default. This means that if a policy allows 
 
 An access package can only be deleted if it has no active user assignments.
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
