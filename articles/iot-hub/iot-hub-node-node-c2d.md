@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 06/16/2017
 ---
 
-# Send cloud-to-device messages with IoT Hub (Node)
+# Send cloud-to-device messages with IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
