@@ -248,7 +248,7 @@ In these steps, you use the Functions extension to create a function app in Azur
 1. The extension performs the following actions, which you can observe in Visual Studio Code popup messages and the **Output** window (the process takes a few minutes):
 
     - Create a resource group using the name you gave (removing hyphens).
-    - In that resource group, create the storage account, hosting plan, and function app. By default, a [Consumption plan](functions-scale.md#consumption-plan) is created. To run your functions in a dedicated plan, you need to [enabled publishing with advanced create options](functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options).
+    - In that resource group, create the storage account, hosting plan, and function app. By default, a [Consumption plan](functions-scale.md#consumption-plan) is created. To run your functions in a dedicated plan, you need to [enable publishing with advanced create options](functions-develop-vs-code.md).
     - Deploy your code to the function app.
 
     The **Azure: Functions** explorer also shows progress:

@@ -30,8 +30,7 @@ You can set the partitioning scheme from the **Optimize** tab. If you want Data 
 ![Options on the Optimize tab](media/data-flow/opt001.png "sink options")
 
 ## Field mapping
-
-On the **Mapping** tab of your sink transformation, you can map the incoming columns on the left to the destinations on the right. When you sink data flows to files, Data Factory will always write new files to a folder. When you map to a database dataset, you can generate a new table that uses this schema by setting  **Save Policy** to **Overwrite**. Or insert new rows in an existing table and then map the fields to the existing schema. 
+On the **Mapping** tab of your sink transformation, you can map the incoming columns on the left to the destinations on the right. When you sink data flows to files, Data Factory will always write new files to a folder. When you map to a database dataset, you will choose database table operation options to insert, update, upsert, or delete.
 
 ![The Mapping tab](media/data-flow/sink2.png "Sinks")
 
@@ -48,6 +47,15 @@ To reset your column mappings, select **Re-map**.
 Select **Validate schema** to fail the sink if the schema changes.
 
 Select **Clear the folder** to truncate the contents of the sink folder before writing the destination files in that target folder.
+
+## Rule-based mapping
+When turn-off auto-mapping, you will have the option to add either column-based mapping (fixed mapping) or rule-based mapping. Rule-based mapping will allow you to write expressions with pattern matching. 
+
+![Rule-based Mapping](media/data-flow/rules4.png "Rule-based mapping")
+
+When you choose rule-based mapping, you are instructing ADF to evaluate your matching expression to match incoming pattern rules and define the outgoing field names. You may add any combination of both field and rule-based mappings. Field names are then generated at runtime by ADF based on incoming metadata from the source. You can view the names of the generated fields during debug and using the data preview pane.
+
+Details on pattern matching are at [Column Pattern documentation](concepts-data-flow-column-pattern.md).
 
 ## File name options
 
@@ -83,5 +91,4 @@ Choose database settings:
 > When you update or delete rows in your database sink, you must set the key column. This setting allows the alter-row transformation to determine the unique row in the data movement library (DML).
 
 ## Next steps
-
 Now that you've created your data flow, add a [Data Flow activity to your pipeline](concepts-data-flow-overview.md).

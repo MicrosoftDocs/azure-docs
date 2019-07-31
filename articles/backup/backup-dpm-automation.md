@@ -1,13 +1,13 @@
 ---
 title: Azure Backup - Use PowerShell to back up DPM workloads
 description: Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell
-
-author: kasinh
-manager: vvithal
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
-ms.author: adigan
+ms.author: dacurwin
 ---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
 
