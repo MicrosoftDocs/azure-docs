@@ -1,5 +1,5 @@
 ---
-title: How to deploy a model using a custom Docker image 
+title: Deploy models with a custom Docker image 
 titleSuffix: Azure Machine Learning service
 description: 'Learn how to use a custom Docker image when deploying your Azure Machine Learning service models. When deploying a trained model, a Docker image is created to host the image, web server, and other components needed to run the service. While Azure Machine Learning service provides a default image for you, you can also use your own image.'
 services: machine-learning
