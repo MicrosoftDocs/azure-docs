@@ -50,11 +50,10 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup iPass SmartConnect for provisioning
 
-Before configuring iPass SmartConnect for automatic user provisioning with Azure AD, you need to add iPass SmartConnect from the Azure AD application gallery to your list of managed SaaS applications.
+Before configuring iPass SmartConnect for automatic user provisioning with Azure AD, you will need to retrieve configuration information from the iPass SmartConnect admin console:
 
-1. Customers are expected to have the bearer token of their tenant.
-2. This is provided at the very start of iPass setup.
-3. If they forgot the bearer token, they will need to reach out to help@ipass.com.
+1. To retrieve the bearer token that is needed to authenticate against your iPass SmartConnect SCIM endpoint, refer to the very first time that you set up iPass SmartConnect as this value is only provided then. 
+2. If you do not have the bearer token, reach out to [iPass SmartConnect's support team](help@ipass.com) to retrieve a new one.
 
 ## Add iPass SmartConnect from the gallery
 
@@ -103,7 +102,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://openmobile.ipass.com/moservices/scim/v1` in **Tenant URL**. In **Secret Token** field, enter the bearer Token value provided at the very start of iPass setup. Click **Test Connection** to ensure Azure AD can connect to myPolicies. If the connection fails, ensure your myPolicies account has Admin permissions and try again
+5. Under the **Admin Credentials** section, input `https://openmobile.ipass.com/moservices/scim/v1` in **Tenant URL**. Enter the bearer token retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to iPass SmartConnect. If the connection fails, ensure that your iPass SmartConnect account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -142,6 +141,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Connector limitations
 
+* iPass SmartConnect only accepts usernames that have their domains registered in the iPass SmartConnect admin console.  
 
 ## Additional resources
 
