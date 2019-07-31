@@ -351,7 +351,9 @@ Binding to `string`, `Byte[]`, or POCO is only recommended if the blob size is s
 In JavaScript, access the input blob data using `context.bindings.<name from function.json>`.
 
 # [Python / Java](#tab/python+java)
+
 ??
+
 ---
 
 ## Trigger - blob name patterns
@@ -427,7 +429,9 @@ module.exports = function (context, myBlob) {
 ```
 
 # [Python / Java](#tab/python+java)
+
 ??
+
 ---
 
 ## Trigger - blob receipts
@@ -1138,7 +1142,9 @@ Binding to `string` or `Byte[]` is only recommended if the blob size is small, a
 In JavaScript, access the blob data using `context.bindings.<name from function.json>`.
 
 # [Python / Java](#tab/python+java)
+
 ??
+
 ---
 
 ## Exceptions and return codes
