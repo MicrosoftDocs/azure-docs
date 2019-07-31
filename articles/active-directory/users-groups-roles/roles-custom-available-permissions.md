@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 07/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -38,7 +38,7 @@ There are applications.myOrganization versions of all read and update permission
 
 ![Declare a single-tenant application or multi-tenant application](./media/roles-custom-available-permissions/supported-account-types.png)
 
-Details for the following permissions are listed in [Available custom role permissions in Azure Active Directory](roles-custom-available-permissions.md).
+Details for the following permissions for the custom roles preview are listed in [Available custom role permissions in Azure Active Directory](roles-custom-available-permissions.md).
 
 ### Create and delete
 
@@ -51,7 +51,7 @@ If both permissions are assigned, the create permission will take precedence. Th
 
 Create permissions grant access to the **New registration** command.
 
-[These permissions grant access to the New Registration portal command](./media/roles-custom-available-permissions/grant-new-registration.png)
+[These permissions grant access to the New Registration portal command](./media/roles-create-custom/new-custom-role.png)
 
 There are two permissions available for granting the ability to delete app registrations:
 
@@ -89,6 +89,7 @@ Grants the same permissions as microsoft.directory/applications/allProperties/re
 Grants the same permissions as microsoft.directory/applications/standard/read, but for only single-tenant applications.
 
 #### microsoft.directory/applications/owners/read
+
 Grants the ability to read owners property on single-tenant and multi-tenant applications. Grants access to all fields on the application registration owners page:
 
 ![This permissions grants access to the app registration owners page](./media/roles-custom-available-permissions/app-registration-owners.png)

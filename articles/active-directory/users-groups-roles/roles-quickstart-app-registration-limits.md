@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -109,22 +109,22 @@ get-module azureadpreview
 Assign the role using the below PowerShell script:
 
 ``` PowerShell
-	# Basic role information
-	$description = "Application Registration Creator"
-	$displayName = "Can create an unlimited number of application registrations."
-	$templateId = (New-Guid).Guid
-	
-	# Set of permissions to grant
-	$allowedResourceAction =
-	@(
-	    "microsoft.directory/applications/create"
-	)
-	$resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
-	$rolePermission = @{'resourceActions' = $resourceActions}
-	$rolePermissions = $rolePermission
-	
-	# Create new custom admin role
-	$customRole = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+# Basic role information
+$description = "Application Registration Creator"
+$displayName = "Can create an unlimited number of application registrations."
+$templateId = (New-Guid).Guid
+
+# Set of permissions to grant
+$allowedResourceAction =
+@(
+    "microsoft.directory/applications/create"
+)
+$resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
+$rolePermission = @{'resourceActions' = $resourceActions}
+$rolePermissions = $rolePermission
+
+# Create new custom admin role
+$customRole = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
 ### Create a custom role using Microsoft Graph API

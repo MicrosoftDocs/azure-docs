@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -25,7 +25,7 @@ This article describes how to view custom roles you have assigned in Azure Activ
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 1. Select **Azure Active Directory**, select **Roles and administrators**, and then select a role to view its properties.
 
-    ![View or edit roles from the Roles and administrators page](./media/roles-view-assignments/role-list.png)
+    ![View or edit roles from the Roles and administrators page](./media/roles-create-custom/new-custom-role.png)
 
 1. Select **Assignments** to view the assignments for the role.
 
@@ -95,9 +95,9 @@ HTTP/1.1 200 OK
 ## View the assignments of a role with single-application scope using the Azure AD portal (preview)
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
-1. Select Azure Active Directory, select **App registrations**, and then select the app registration to view its properties.
+1. Select Azure Active Directory, select **App registrations**, and then select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
 
-    ![Create or edit app registrations from the App registrations page](./media/roles-view-assignments/app-registrations.png)
+    ![Create or edit app registrations from the App registrations page](./media/roles-create-custom/appreg-all-apps.png)
 
 1. Select **Roles and administrators**, and then select a role to view its properties.
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -51,20 +51,16 @@ Like built-in roles, custom roles can be assigned at default organization scope 
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Application developer permissions in the Azure AD organization.
 1. Select **App registrations**.
-1. Select the app registration to which you are granting access to manage. You might have to select the **All applications** tab to see the complete list of app registrations in your Azure AD organization.
+1. Select the app registration to which you are granting access to manage. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
 
-    ![Select the app registration as a resource scope for a role assignment](./media/roles-create-custom/permissions-tab.png)
+    ![Select the app registration as a resource scope for a role assignment](./media/roles-create-custom/appreg-all-apps.png)
 
 1. In the app registration, select **Roles and administrators**. If you haven't already created one, instructions are in the [preceding procedure](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
 
     If you assign this role from the context of an open app registration, then the assignee has permissions on that single app registration. The role you're assigning shows up in the list on every app registration. This access model, where an owner can be assigned permission to specific Azure AD resources by roles, is similar to the model used in [Azure RBAC](../../role-based-access-control/overview.md) for Azure resource access control.
 
 1. Select the role to open the **Assignments** page.
-
-    ![Select role in the Roles and administrators list to see role assignments](./media/roles-create-custom/permissions-tab.png)
-
 1. Select **Add assignment** to add a user. The user won't be granted any permissions over any app registration other than the selected one.
-    ![Select Add assignment to add a user as the security principal to a role assignment](./media/roles-create-custom/permissions-tab.png)
 
 ## Create a custom role using Azure AD PowerShell
 
