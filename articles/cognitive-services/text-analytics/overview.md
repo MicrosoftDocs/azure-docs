@@ -1,5 +1,5 @@
 ---
-title: What is Text Analytics API? - Capabilities - 
+title: What is the Text Analytics API? - Capabilities - 
 titleSuffix: Azure Cognitive Services
 description: Use the Text Analytics API from Azure Cognitive Services for sentiment analysis, key phrase extraction, language detection, and entity recognition.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 07/30/2019
 ms.author: aahi
 ---
 
-# What is Text Analytics API?
+# What is the Text Analytics API?
 
 The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, language detection, and entity recognition.
 
@@ -71,7 +71,7 @@ You can start using the Text Analytics API in your processes, even if you don't 
 
 ## Supported languages
 
-This section has been moved to a separate article for better discoverability. Refer to [Supported languages in Text Analytics API](text-analytics-supported-languages.md) for this content.
+This section has been moved to a separate article for better discoverability. Refer to [Supported languages in the Text Analytics API](text-analytics-supported-languages.md) for this content.
 
 <a name="data-limits"></a>
 
@@ -112,4 +112,4 @@ The Text Analytics API uses Unicode encoding for text representation and charact
 
 + Dig in a little deeper with this [sentiment analysis tutorial](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) using Azure Databricks.
 
-+ Check out our list of blog posts and more videos on how to use Text Analytics API with other tools and technologies in our [External & Community Content page](text-analytics-resource-external-community.md).
++ Check out our list of blog posts and more videos on how to use the Text Analytics API with other tools and technologies in our [External & Community Content page](text-analytics-resource-external-community.md).
