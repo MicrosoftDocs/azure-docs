@@ -54,29 +54,30 @@ The provisioning logs provide answers to the following questions:
 * How roles were imported from Amazon Web Services?
 * What users were unsuccessfully created in DropBox?
 
-You can access the provisioning logs by selecting **Provisioning Logs** in the **Activity** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Note that it may take up to two hours for some provisioning records to show up in the portal.
+You can access the provisioning logs by selecting **Provisioning Logs** in the **Monitoring** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). It can take up to two hours for some provisioning records to show up in the portal.
 
-![Sign-in activity](./media/concept-provisioning-logs/61.png "Sign-in activity")
+![Provisioning logs](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisioning logs")
 
 
 A provisioning log has a default list view that shows:
 
-- The sign-in date
-- The related user
-- The application the user has signed-in to
-- The sign-in status
-- The status of the risk detection
-- The status of the multi-factor authentication (MFA) requirement
+- The identity
+- The action
+- The source system
+- The target system
+- The status
+- The date
 
-![Sign-in activity](./media/concept-provisioning-logs/01.png "Sign-in activity")
+
+![Default columns](./media/concept-provisioning-logs/default-columns.png "Default columns")
 
 You can customize the list view by clicking **Columns** in the toolbar.
 
-![Sign-in activity](./media/concept-provisioning-logs/19.png "Sign-in activity")
+![Column chooser](./media/concept-provisioning-logs/column-chooser.png "Column chooser")
 
 This enables you to display additional fields or remove fields that are already displayed.
 
-![Sign-in activity](./media/concept-provisioning-logs/02.png "Sign-in activity")
+![Available columns](./media/concept-provisioning-logs/available-columns.png "Available columns")
 
 Select an item in the list view to get more detailed information.
 
@@ -87,15 +88,15 @@ Select an item in the list view to get more detailed information.
 
 To narrow down the reported data to a level that works for you, you can filter the provisioning data using the following default fields. Note that the values in the filters are dynamically populated based on your tenant. If, for example, you don't have any create events in your tenant, there won't be a filter option for create.
 
-- Action
-- Application
 - Identity
-- Source System
-- Target System
+- Action
+- Source system
+- Target system
 - Status
 - Date
 
-![Sign-in activity](./media/concept-provisioning-logs/04.png "Sign-in activity")
+
+![Filter](./media/concept-provisioning-logs/filter.png "Filter")
 
 The **Identity** filter enables you to specify the name or the identity that you care about. This identity could be a user, group, role, or other object. You can search by the name or id of the object. The id varies by scenario. For example, when provisioning an object from Azure AD to SalesForce, the Source ID is the object ID of the user in Azure AD while the TargetID is the ID of the user in Salesforce. When provisioning from Workday to Active Directory, the Source ID is the Workday worker employee ID. Note that the Name of the user may not always be present in the Identity column. There will always be one ID. 
 
@@ -127,7 +128,20 @@ Possible values are:
 - 24 hours
 - Custom time interval
 
-When you select a custom timeframe, you can configure a start time and an  
+When you select a custom time frame, you can configure a start date and an end date.
+
+
+In addition to the default fields, when selected, you can also include the following fields in your filter:
+
+- **Job ID** - Short description of the job ID 
+
+- **Cycle ID** - Short description of the cycle ID
+
+- **Change ID** - Short description of the change ID 
+
+
+
+  
 
 ## Drawer tabs 
 
