@@ -182,6 +182,17 @@ Sets the source image an existing image version in a Shared Image Gallery. The i
 
 The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
+## Properties: buildTimeoutInMinutes
+By default, the Image Builder will run for 240 minutes, after that time, it will timeout and stop, irrespective of completing the image build. If the timeout is hit, you will see an error similar to below:
+
+```text
+[ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
+[ERROR] complete: 'context deadline exceeded'
+```
+If you do not specify a buildTimeoutInMinutes value, or set it to 0, is will use the default value, you can increase or decrease the value, the max is 960mins (16hrs). For Windows, we do not advise setting this below 60mins. If you find you are hitting the timeout, you should review the [logs](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs), and check if the customization step is waiting, e.g. user input. 
+
+If you find you need more time for customizations to complete, set this to what you roughly need, with some overhead, do not set it too high, the timeout prevents image builder waiting for too long, in the event of an issue. 
+
 ## Properties: customize
 
 
@@ -191,7 +202,6 @@ When using `customize`:
 - You can use multiple customizers, but they must have a unique `name`.
 - Customizers execute in the order specified in the template.
 - If one customizer fails, then the whole customization component will fail and report back an error.
-- Consider how much time your image build will require, and adjust the 'buildTimeoutInMinutes' property to allow image builder enough time to complete.
 - It is strongly advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
 - Do not put sensitive data in the scripts. 
 - The script locations need to be publicly accessible, unless you are using [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
