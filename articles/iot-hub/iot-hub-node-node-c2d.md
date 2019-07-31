@@ -48,7 +48,7 @@ To complete this tutorial, you need the following:
 
 In this section, you modify the simulated device app you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) to receive cloud-to-device messages from the IoT hub.
 
-1. Using a text editor, open the **SimulatedDevice.js** file. This file is located in the **iot-hub\Quickstarts\simulated-device** folder off of the root folder where you downloaded the Node.js sample code in the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) quickstart.
+1. Using a text editor, open the **SimulatedDevice.js** file. This file is located in the **iot-hub\Quickstarts\simulated-device** folder off of the root folder of the Node.js sample code you downloaded in the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) quickstart.
 
 2. Add a call to the `client.on` function to register a handler for messages sent from IoT Hub. Add the call just after the line that creates the device client as in the following snippet:
 
@@ -59,9 +59,9 @@ In this section, you modify the simulated device app you created in [Send teleme
       console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
       client.complete(msg, function (err) {
         if (err) {
-          console.error('completed error: ' + err.toString());
+          console.error('complete error: ' + err.toString());
         } else {
-          console.log('completed sent');
+          console.log('complete sent');
         }
       });
     });
