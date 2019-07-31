@@ -1,4 +1,3 @@
----
 title: Azure Blob storage bindings for Azure Functions
 description: Understand how to use Azure Blob storage triggers and bindings in Azure Functions.
 services: functions
@@ -249,6 +248,8 @@ public void run(
 
 ## Trigger - attributes
 
+# [C#](#tab/csharp)
+
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a blob trigger:
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
@@ -303,6 +304,12 @@ The storage account to use is determined in the following order:
 * The `StorageAccount` attribute applied to the class.
 * The default storage account for the function app ("AzureWebJobsStorage" app setting).
 
+# [C# Script / JavaScript / Python / Java](#tab/csharp-script+javascript+python+java)
+
+Attributes are a feature of C# class libraries and are therefore irrelevant to your selected language.
+
+---
+
 ## Trigger - configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `BlobTrigger` attribute.
@@ -318,6 +325,8 @@ The following table explains the binding configuration properties that you set i
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Trigger - usage
+
+# [C# / C# Script](#tab/csharp+csharp-script)
 
 In C# and C# script, you can use the following parameter types for the triggering blob:
 
@@ -337,7 +346,13 @@ If you try to bind to one of the Storage SDK types and get an error message, mak
 
 Binding to `string`, `Byte[]`, or POCO is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) later in this article.
 
+# [JavaScript](#tab/javascript)
+
 In JavaScript, access the input blob data using `context.bindings.<name from function.json>`.
+
+# [Python / Java](#tab/python+java)
+??
+---
 
 ## Trigger - blob name patterns
 
@@ -382,6 +397,8 @@ If the blob is named *{20140101}-soundfile.mp3*, the `name` variable value in th
 
 ## Trigger - metadata
 
+# [C# / C# Script](#tab/csharp+csharp-script)
+
 The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. These values have the same semantics as the [Cloud​Blob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) type.
 
 |Property  |Type  |Description  |
@@ -399,6 +416,8 @@ public static void Run(string myBlob, string blobTrigger, ILogger log)
     log.LogInformation($"Full blob path: {blobTrigger}");
 } 
 ```
+# [JavaScript](#tab/javascript)
+
 
 ```javascript
 module.exports = function (context, myBlob) {
@@ -406,6 +425,10 @@ module.exports = function (context, myBlob) {
     context.done();
 };
 ```
+
+# [Python / Java](#tab/python+java)
+??
+---
 
 ## Trigger - blob receipts
 
@@ -1029,6 +1052,8 @@ This section contains the following examples:
 
 ## Output - attributes
 
+# [C#](#tab/csharp)
+
 In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
 
 The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
@@ -1055,6 +1080,12 @@ public static void Run(
 }
 ```
 
+# [C# Script / JavaScript / Python / Java](#tab/csharp-script+javascript+python+java)
+
+Attributes are a feature of C# class libraries and are therefore irrelevant to your selected language.
+
+---
+
 For a complete example, see [Output example](#output---example).
 
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes](#trigger---attributes).
@@ -1075,6 +1106,8 @@ The following table explains the binding configuration properties that you set i
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Output - usage
+
+# [C# / C# Script](#tab/csharp+csharp-script)
 
 In C# and C# script, you can bind to the following types to write blobs:
 
@@ -1100,8 +1133,13 @@ In async functions, use the return value or `IAsyncCollector` instead of an `out
 
 Binding to `string` or `Byte[]` is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) earlier in this article.
 
+# [JavaScript](#tab/javascript)
 
 In JavaScript, access the blob data using `context.bindings.<name from function.json>`.
+
+# [Python / Java](#tab/python+java)
+??
+---
 
 ## Exceptions and return codes
 
