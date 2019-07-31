@@ -3,19 +3,20 @@ title: Create a Windows VM with Azure Image Builder (preview)
 description: Create a Windows VM with the Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
 ---
 # Preview: Create a Windows VM with Azure Image Builder
 
-This article is to show you how you can create a customized Windows image using the Azure VM Image Builder. The example in this article uses three different [customizers](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) for customizing the image:
+This article is to show you how you can create a customized Windows image using the Azure VM Image Builder. The example in this article uses [customizers](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) for customizing the image:
 - PowerShell (ScriptUri) - download and run a [PowerShell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
 - Windows Restart - restarts the VM.
 - PowerShell (inline) - run a specific command. In this example, it creates a directory on the VM using `mkdir c:\\buildActions`.
 - File - copy a file from GitHub onto the VM. This example copies [index.md](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) to `c:\buildArtifacts\index.html` on the VM.
-- buildTimeoutInMinutes - Increase a build time to allow for longer running builds, the default is 240 minutes.
+
+You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and you can increase a build time to allow for longer running builds.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
@@ -56,7 +57,7 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Storage
 ```
 
-## Setup Example Variables
+## Set variables
 
 We will be using some pieces of information repeatedly, so we will create some variables to store that information.
 
@@ -80,15 +81,16 @@ Create a variable for your subscription ID. You can get this using `az account s
 subscriptionID=<Your subscription ID>
 ```
 ## Create a resource group
-This is going to be used to store the Image Configuration Template Artifact and also the Image.
+This is going to be used to store the image configuration template artifact	 and the image.
 
 
 ```azurecli-interactive
 az group create -n $imageResourceGroup -l $location
 ```
 
-## Set Permissions on the resource group
-Give Image Builder 'contributor' permission to create the image in the created resource group, without this, the image build will fail. 
+## Set permissions on the resource group
+
+Give Image Builder 'contributor' permission to create the image in the resource group. Without this, the image build will fail. 
 
 The `--assignee` value is the app registration ID for the Image Builder service. 
 
@@ -102,7 +104,7 @@ az role assignment create \
 
 ## Download the image configuration template example
 
-A parameterized image configuration template has been created for you to try immediately,  download the example .json file and configure it with the variables you set previously.
+A parameterized image configuration template has been created for you to try. Download the example .json file and configure it with the variables you set previously.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json -o helloImageTemplateWin.json
@@ -115,16 +117,16 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateWin.json
 
 ```
 
-You can modify this example, in the terminal using `vi`.
+You can modify this example, in the terminal using a text editor like `vi`.
 
 ```azurecli-interactive
 vi helloImageTemplateLinux.json
 ```
 
 > [!NOTE]
-> For source image, you must always [specify a version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), you cannot use `latest`.
-> If you add or change the resource group where the image is to be distributed to, you must ensure the permissions are set. Instructions are at the begining of this article.
-
+> For the source image, you must always [specify a version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), you cannot use `latest`.
+> If you add or change the resource group where the image is distributed to, you must make the [permissions are set](#set-permissions-on-the-resource-group) on the resource group.
+ 
 ## Create the image
 
 Submit the image configuration to the VM Image Builder service
@@ -138,12 +140,12 @@ az resource create \
     -n helloImageTemplateWin01
 ```
 
-On success, this will return a success message back to the console, and create an Image Builder Configuration Template artifact in the $imageResourceGroup. You can see this in the Portal in the resource group, when you enable 'Show hidden types'.
+When complete, this will return a success message back to the console, and create an `Image Builder Configuration Template` in the `$imageResourceGroup`. You can see this resource in the resource gorup in the Azure portal, if you enable 'Show hidden types'.
 
-Additionally, in the background, Image Builder will have created a staging resource group in your subcription, that it uses for the image build. It will be in this format: `IT_<DestinationResourceGroup>_<TemplateName>`
+In the background, Image Builder will also create a staging resource group in your subcription. This resource group is used for the image build. It will be in this format: `IT_<DestinationResourceGroup>_<TemplateName>`
 
 > [!Note]
-> You must not delete the staging resource group directly, you must delete the image template artifact, this will delete it.
+> You must not delete the staging resource group directly. First delete the image template artifact, this will cause the staging resource group to be deleted.
 
 If the service reports a failure during the image configuration template submission:
 -  Review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) steps. 
@@ -202,7 +204,7 @@ You should see these two directories created during image customization:
 
 When you are done, delete the resources.
 
-### Delete the Image Builder Template
+### Delete the image builder template
 ```azurecli-interactive
 az resource delete \
     --resource-group $imageResourceGroup \
@@ -210,7 +212,7 @@ az resource delete \
     -n helloImageTemplateWin01
 ```
 
-### Delete the Image Resource Group
+### Delete the image resource group
 ```azurecli-interactive
 az group delete -n $imageResourceGroup
 ```
