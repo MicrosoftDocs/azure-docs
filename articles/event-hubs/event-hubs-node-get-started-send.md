@@ -57,10 +57,11 @@ This section shows you how to create a Node.js application that sends events to 
     ```javascript
     const { EventHubClient } = require("@azure/event-hubs");
 
-    // Connection string - primary key of the Event Hubs namespace
-    const connectionString = "Endpoint=sb://<EVENT HUBS NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SHARED ACCESS KEY>";
+    // Connection string - primary key of the Event Hubs namespace. 
+    // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    const connectionString = "Endpoint=sb://<EVENT HUBS NAMESPACE NAME>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SHARED ACCESS KEY>";
 
-    // Name of the event hub
+    // Name of the event hub. For example: myeventhub
     const eventHubsName = "<EVENT HUB NAME>";
 
     async function main() {
