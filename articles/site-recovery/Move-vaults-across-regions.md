@@ -1,5 +1,5 @@
 ---
-title: Moving Site recovery configuration to another Azure region | Microsoft Docs
+title: Moving Azure Site Recovery configuration to another Azure region | Microsoft Docs
 description: Guidance for moving Site Recovery configuration to another Azure region
 services: site-recovery
 author: rajani-janaki-ram
@@ -10,9 +10,9 @@ ms.author: rajanaki
 ms.custom: MVC
 ---
 
-# Moving Recovery Services vault and Site recovery configuration to another Azure region
+# Moving Recovery Services vault and  Azure Site Recovery configuration to another Azure region
 
-There are various scenarios in which you'd want to move your existing Azure resources from one region to another - manageability,  governance reasons, or to due to company mergers/ acquisitions etc. One of the related resources you might want to move when you move you Azure VMs is the disaster recovery configuration for the same. There is no first-class way to move an existing disaster recovery configuration from one region to another. This is essentially because you would have configured your target region based on your source VM region, and when you decide to change that, the previously existing configurations of target region cannot be re-used and has to be reset. This article defines the step-by-step process to reconfigure the disaster recovery set up and move to a different region.
+There are various scenarios in which you'd want to move your existing Azure resources from one region to another - manageability,  governance reasons, or to due to company mergers/ acquisitions etc. One of the related resources you might want to move when you move you Azure VMs is the disaster recovery configuration for the same. There is no first-class way to move an existing disaster recovery configuration from one region to another. This is essentially because you would have configured your target region based on your source VM region, and when you decide to change that, the previously existing configurations of target region cannot be re-used and has to be reset. This article defines the step-by-step process to reconfigure the disaster recovery set-up and move to a different region.
 
 In this document, you will:
 
@@ -42,7 +42,7 @@ For each of the Azure VM that is being replicated, navigate to  **Protected Item
 
 - Target resource group
 - Cache storage account
-- Target storage account  (in case of un-managed disk based Azure VM) 
+- Target storage account  (in case of unmanaged disk-based Azure VM) 
 - Target network
 
 
@@ -67,6 +67,6 @@ Follow the steps mentioned below based on your requirement to move Azure VMs to 
 - [Move Azure VMs to another region](azure-to-azure-tutorial-migrate.md)
 - [Move Azure VMs into Availability Zones](move-azure-VMs-AVset-Azone.md)
 
-## Re-set up site recovery based on the new source region for the VMs.
+## Re-set up Site Recovery based on the new source region for the VMs
 
 Configure disaster recovery for the Azure VMs that have been moved to the new region using steps mentioned [here](azure-to-azure-tutorial-enable-replication.md)
