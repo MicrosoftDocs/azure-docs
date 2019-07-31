@@ -97,7 +97,7 @@ You might want to set a time range, as searches over a shorter range are faster.
 
 Search for complete words, not substrings. Use quotation marks to enclose special characters.
 
-| string | *Not* found | Found |
+| String | *Not* found | Found |
 | --- | --- | --- |
 | HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |United States|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
