@@ -17,7 +17,7 @@ ms.reviewer: chrisseg
 
 In this tutorial, you'll use the Azure Blockchain Development Kit for Ethereum to create and deploy a smart contract then execute a smart contract function via a transaction on a consortium blockchain network.
 
-You use Azure Blockchain Development Kit to:
+You use Azure Blockchain Development Kit for Ethereum to:
 
 > [!div class="checklist"]
 > * Connect to Azure Blockchain Service consortium blockchain member
