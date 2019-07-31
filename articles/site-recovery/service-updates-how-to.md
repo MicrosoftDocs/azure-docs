@@ -16,7 +16,10 @@ This article provides an overview of [Azure Site Recovery](site-recovery-overvie
 
 Site Recovery publishes service updates on a regular basis. Updates include new features, support improvements, component updates, and bug fixes. In order to take advantage of the latest features and fixes, we recommend running the latest versions of Site Recovery components. 
  
-## Support statement for Azure Site Recovery
+ 
+## Updates support
+
+### Support statement for Azure Site Recovery
 
 We recommend always upgrading to the latest component versions:
 
@@ -26,9 +29,9 @@ We recommend always upgrading to the latest component versions:
 > Official support is for upgrading from > N-4 version to N version. For example, if you're running  you are on N-6, you need to first upgrade to N-4, and then upgrade to N.
 
 
-## Supported updates
+### Links to currently supported update rollups
 
-Get a list of the latest updates and component upgrades in [this article](site-recovery-whats-new.md).
+ Review the latest update rollup (version N) in [this article](site-recovery-whats-new.md). Remember that Site Recovery provides support for N-4 versions.
 
 
 
