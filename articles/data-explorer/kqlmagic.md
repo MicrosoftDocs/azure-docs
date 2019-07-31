@@ -34,7 +34,7 @@ Jupyter Notebook is an open-source web application that allows you to create and
 1. Load KQL magic:
 
     ```python
-    reload_ext Kqlmagic
+    %reload_ext Kqlmagic
     ```
 
 ## Connect to the Azure Data Explorer Help cluster
