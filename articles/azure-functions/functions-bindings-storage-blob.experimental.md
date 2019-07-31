@@ -654,8 +654,8 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
 
 This section contains the following examples:
 
-* [HTTP trigger, look up blob name from query string](#http-trigger-look-up-blob-name-from-query-string-java)
-* [Queue trigger, receive blob name from queue message](#queue-trigger-receive-blob-name-from-queue-message-java)
+* [HTTP trigger, look up blob name from query string](#http-trigger-look-up-blob-name-from-query-string)
+* [Queue trigger, receive blob name from queue message](#queue-trigger-receive-blob-name-from-queue-message)
 
 #### HTTP trigger, look up blob name from query string
 
