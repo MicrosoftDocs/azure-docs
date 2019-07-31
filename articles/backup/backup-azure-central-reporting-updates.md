@@ -1,13 +1,13 @@
 ---
 title: Update the Azure Backup central reporting content pack 
 description: Information about updates to the Azure Backup content pack in Power BI
-
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: kasinh
+ms.author: dacurwin
 
 ---
 # Update the Azure Backup central reporting content pack 
