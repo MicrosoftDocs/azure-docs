@@ -1,3 +1,4 @@
+---
 title: Azure Blob storage bindings for Azure Functions
 description: Understand how to use Azure Blob storage triggers and bindings in Azure Functions.
 services: functions
