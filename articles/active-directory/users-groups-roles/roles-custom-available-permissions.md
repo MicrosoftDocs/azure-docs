@@ -44,8 +44,8 @@ Details for the following permissions are listed in [Available custom role permi
 
 There are two permissions available for granting the ability to create app registrations:
 
-- microsoft.directory/applications/createAsOwner
-- microsoft.directory/applications/create
+- **microsoft.directory/applications/createAsOwner**
+- **microsoft.directory/applications/create**
 
 If both permissions are assigned, the create permission will take precedence. Though the createAsOwner permission does not automatically add the creator as the first owner, owners can be specified during the creation of the app registration when using Graph APIs or PowerShell cmdlets.
 
@@ -70,7 +70,7 @@ Grants the ability to delete app registrations restricted to those that are acce
 
 ### Read
 
-All member users in the organization can read app registration information by default. However, guest users and applications (service principals) can't. If you plan to assign a role to a guest user or application, you must include the appropriate read permissions.
+All member users in the organization can read app registration information by default. However, guest users and application service principals can't. If you plan to assign a role to a guest user or application, you must include the appropriate read permissions.
 
 #### microsoft.directory/applications/allProperties/read
 
@@ -144,7 +144,7 @@ Grants access to all fields on the application registration authentication page:
 
 ![This permission grants access to app registration authentication page](./media/roles-custom-available-permissions/supported-account-types.png)
 
-Grants access to the following properties on the application entity:
+Grants access to the following properties on the application resource:
 
 - AvailableToOtherTenants
 - SignInAudience
@@ -159,7 +159,7 @@ Ability to update the reply URL, sign-out URL, implicit flow, and publisher doma
 
 ![Grants access to app registration authentication but not supported account types](./media/roles-custom-available-permissions/supported-account-types.png)
 
- Grants access to the following properties on the application entity:
+ Grants access to the following properties on the application resource:
 
 - AcceptMappedClaims
 - AccessTokenAcceptedVersion
@@ -183,7 +183,7 @@ Ability to update the name, logo, homepage URL, terms of service URL, and privac
 
 ![This permission grants access to the app registration branding page](./media/roles-custom-available-permissions/app-registration-branding.png)
 
-Grants access to the following properties on the application entity:
+Grants access to the following properties on the application resource:
 
 - AllowActAsForAllClients
 - AllowPassthroughUsers
@@ -229,7 +229,7 @@ Ability to update the certificates and client secrets properties on single-tenan
 
 ![This permission grants access to the app registration certificates & secrets page](./media/roles-custom-available-permissions/app-registration-secrets.png)
 
-Grants access to the following properties on the application entity:
+Grants access to the following properties on the application resource:
 - AsymmetricKey
 - EncryptedSecretKey
 - KeyDescription
@@ -246,7 +246,7 @@ Ability to update the owner property on single-tenant and multi-tenant. Grants a
 
 ![This permissions grants access to the app registration owners page](./media/roles-custom-available-permissions/app-registration-owners.png)
 
-Grants access to the following properties on the application entity:
+Grants access to the following properties on the application resource:
 - Owners
 
 #### microsoft.directory/applications.myOrganization/owners/update
@@ -261,7 +261,7 @@ Ability to update the delegated permissions, application permissions, authorized
 
 ![This permissions grants access to the app registration Expose an API page](./media/roles-custom-available-permissions/app-registration-expose-api.png)
 
-Grants access to the following properties on the application entity:
+Grants access to the following properties on the application resource:
 
 - AppIdentifierUri
 - Entitlement
