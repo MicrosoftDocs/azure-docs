@@ -67,8 +67,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + The logging of forecasting tasks on the remote runs improved, now user is provided with comprehensive error message if the run was failed.
     + Removed get_data from pipeline automlstep notebook.
     + Started support dataprep in automlstep.
-  + **azureml-train-core**
-    + Added support for gloo in PyTorch Estimator.
 
 
 ## 2019-07-23
