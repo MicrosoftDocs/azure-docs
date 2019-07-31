@@ -372,7 +372,19 @@ and [Azure PowerShell](../assign-policy-powershell.md).
 > assigned, the prerequisites aren't deployed and the policy always shows that '0' servers are
 > compliant.
 
-### OPTIONAL: Signing Guest Configuration packages
+## Policy lifecycle
+
+After you have published a custom Azure Policy using your custom content package,
+there are two fields that must be updated if you would like to publish a new release.
+
+- **Version**: When you run the cmdlet `New-GuestConfigurationPolicy` cmdlet you must specify a version number greater than what is currently published.  This will update the version of the Guest Configuration assignment in the new policy file so the extension will recognize that the package has been updated.
+- **contentHash**: This is updated automatically by the `New-GuestConfigurationPolicy` cmdlet.  It is a hash value of the package created by `New-GuestConfigurationPackage`.  This must be correct for the `.zip` file you publish.  If only the `contentUri` property is updated, such as in the case where someone could make a manual change to the Policy definition from the portal, the Extension will not accept the content package.
+
+The easiest way to release an updated package is to repeat the process described in this article
+and provide an updated version number.
+That will guarantee all properties have been correctly updated.
+
+## OPTIONAL: Signing Guest Configuration packages
 
 Guest Configuration custom policies by default use SHA256 hash to validate that the policy package
 hasn't changed from when it was published to when it's read by the server that is being audited.
