@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot Azure Backup Server
 description: Troubleshoot installation, registration of Azure Backup Server, and backup and restore of application workloads.
-
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: srinathv
+ms.author: dacurwin
 ---
 
 # Troubleshoot Azure Backup Server
