@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Explore the Azure Time Series Insights Preview demo environment | Microsoft Docs'
-description: Understand the Azure Time Series Insights Preview demo environment.
+description: Quickstart to understand the Azure Time Series Insights Preview demo environment.
 ms.service: time-series-insights 
 services: time-series-insights
 author: ashannon7
@@ -21,11 +21,12 @@ The Time Series Insights Preview demo environment contains a scenario company, C
 
 In this quickstart, you learn how to use Time Series Insights to find actionable insights in Contoso data. You also conduct a short root cause analysis to better predict critical failures and to perform maintenance.
 
+> [!IMPORTANT]
+> Create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) if you don't have one.
+
 ## Explore the Time Series Insights explorer in a demo environment
 
 The Time Series Insights Preview explorer demonstrates historical data and root causes analysis. To get started:
-
-1. Create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) if you don't have one.
 
 1. Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment.  
 

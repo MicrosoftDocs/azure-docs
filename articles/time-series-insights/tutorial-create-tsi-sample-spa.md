@@ -27,9 +27,9 @@ In this tutorial, you'll learn about:
 > * The source code for this tutorial is provided on [GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * The Time Series Insights [client sample app](https://insights.timeseries.azure.com/clientsample) is hosted to show the completed app used in this tutorial.
 
-## Prerequisites
+Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
 
-* Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
+## Prerequisites
 
 * A free copy of Visual Studio. Download the [2017 or 2019 Community versions](https://www.visualstudio.com/downloads/) to get started.
 
