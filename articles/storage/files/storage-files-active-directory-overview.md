@@ -6,7 +6,7 @@ author: roygara
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/30/2019
 ms.author: rogarana
 ---
 
