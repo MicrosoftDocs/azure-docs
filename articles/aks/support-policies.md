@@ -125,7 +125,7 @@ Although customers can sign in to and change worker nodes, doing this is discour
 As a managed service, AKS has specific networking and connectivity requirements. These requirements are less flexible than requirements for normal IaaS components. In AKS, operations like customizing NSG rules, blocking a specific port (for example, using firewall rules that block outbound port 443), and whitelisting URLs can make your cluster unsupportable.
 
 > [!NOTE]
-> Currently, AKS doesn't allow you to completely lock down egress from your cluster (for example, explicit domain or port whitelisting). The list of URLs and ports is subject to change without warning. You can get the updated list by creating an Azure Support ticket. The list is only for customers who are willing to accept that their cluster availability could be affected *at any time.*
+> Currently, AKS doesn't allow you to completely lock down egress traffic from your cluster. To control the list of URLs and ports your cluster can use for outbound traffic see  [limit egress traffic](limit-egress-traffic.md).
 
 ## Unsupported alpha and beta Kubernetes features
 

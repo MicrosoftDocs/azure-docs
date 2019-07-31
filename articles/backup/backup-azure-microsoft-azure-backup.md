@@ -1,13 +1,13 @@
 ---
 title: Use Azure Backup Server to back up workloads to Azure
 description: Use Azure Backup Server to protect or back up workloads to the Azure portal.
-
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: kasinh
+ms.author: dacurwin
 ---
 
 # Install and upgrade Azure Backup Server

@@ -19,9 +19,9 @@ This article describes how to replicate Azure Disk Encryption-enabled VMs from o
 >Azure Site Recovery currently supports only Azure VMs that run a Windows OS and that are [enabled for encryption with Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app).
 
 ## <a id="required-user-permissions"></a> Required user permissions
-Site Recovery requires the user to have permissions to create the key vault in the target region and copy keys to the region.
+Site Recovery requires the user to have permissions to create the key vault in the target region and copy keys from source region key vault to the target region key vault.
 
-To enable replication of Disk Encryption-enabled VMs from the Azure portal, the user needs the following permissions:
+To enable replication of Disk Encryption-enabled VMs from the Azure portal, the user needs the following permissions on both the **source region and target region** key vaults.
 
 - Key vault permissions
     - List, Create and Get
