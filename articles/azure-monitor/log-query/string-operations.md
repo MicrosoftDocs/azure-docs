@@ -25,7 +25,7 @@ ms.author: bwren
 
 This article describes how to edit, compare, search in and perform a variety of other operations on strings.
 
-Each character in a string has an index number, according to its location. The first character is at index 0, the next character is 1, and so one. Different string functions use index numbers as shown in the following sections. Many of the following examples use the **print** command for to demonstrate string manipulation without using a specific data source.
+Each character in a string has an index number, according to its location. The first character is at index 0, the next character is 1, and so on. Different string functions use index numbers as shown in the following sections. Many of the following examples use the **print** command for to demonstrate string manipulation without using a specific data source.
 
 
 ## Strings and escaping them
@@ -85,7 +85,7 @@ Operator       |Description                         |Case-Sensitive|Example (yie
 
 ## countof
 
-Counts occurrences of a substring in a string. Can match plain strings or use regex. Plain string matches may overlap while regex matches don't.
+Counts occurrences of a substring in a string. Can match plain strings or use regex. Plain string matches may overlap while regex matches do not.
 
 ### Syntax
 ```
@@ -124,7 +124,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 
 ## extract
 
-Gets a match for a regular expression from a given string. Optionally also converts the extracted substring the specified type.
+Gets a match for a regular expression from a given string. Optionally also converts the extracted substring to the specified type.
 
 ### Syntax
 
