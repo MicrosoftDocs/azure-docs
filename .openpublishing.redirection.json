@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/security/develop/security-code-analysis-install.md",
-      "redirect_url": "articles/security/develop/security-code-analysis-onboard.md",
+      "redirect_url": "articles/security/develop/security-code-analysis-onboard",
       "redirect_document_id": true
     },
     {
