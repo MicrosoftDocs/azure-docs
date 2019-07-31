@@ -33,7 +33,7 @@ This article shows you how to:
 
 ### Step 1 - Install the Azure CLI
 
-Follow the [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to set up Azure CLI in your environment. Your Azure CLI version must be version 2.0.67 or above. Use `az –version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
+Follow the [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to set up Azure CLI in your environment. Your Azure CLI version must be version 2.0.67 or above. Use `az -–version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
 
 ### Step 2 - Install IoT extension
 
@@ -83,7 +83,7 @@ az iot dt list-properties --hub-name {YourIoTHubName}  --device-id {YourDeviceID
 Set the value of a read-write property:
 
 ```cmd/sh
-az iot dt update-property --property-name {TwinPropertyName} --property-value {TwinPropertyValue} --interface {YourInterfaceID} --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
+az iot dt update-property --interface-payload {JSONPayload or filepath} --interface {YourInterfaceName} --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
 ```
 
 #### Commands
@@ -91,27 +91,29 @@ az iot dt update-property --property-name {TwinPropertyName} --property-value {T
 List all commands for a device:
 
 ```cmd/sh
-az iot dt list-commands --login {YourIoTHubConnectionString}--device-id {YourDeviceID} --repository {PlugAndPlayRepositoryEndpoint} --login {YourIoTHubConnectionString}
+az iot dt list-commands --login {YourIoTHubConnectionString} --device-id {YourDeviceID} --repo-login {PlugAndPlayRepositoryEndpoint} --login {YourIoTHubConnectionString}
 ```
+
+Without the `--repo-login` parameter, this command uses the public model repository.
 
 Invoke a command:
 
 ```cmd/sh
-az iot dt invoke-command --command-name [Interface Command Name] --command-payload {CommandPayloadOrFilePath} --interface {YourInterfaceID} --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
+az iot dt invoke-command --command-name [Interface Command Name] --command-payload {CommandPayloadOrFilePath} --interface {YourInterfaceName} --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
 ```
 
 #### Telemetry
 
-Monitor all IoT Plug and Play telemetry from all devices and interfaces:
+Monitor all IoT Plug and Play telemetry from all devices and interfaces going to the $Default event hub endpoint:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --login {YourIoTHubConnectionString}
+az iot dt monitor-events --login {YourIoTHubConnectionString} 
 ```
 
-Monitor all telemetry from a particular IoT Plug and Play device:
+Monitor all telemetry from a particular IoT Plug and Play device going to a specified event hub endpoint:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
+az iot dt monitor-events --device-id {YourDeviceID} --login {YourIoTHubConnectionString} --consumer-group {YourConsumerGroup}
 ```
 
 ### Manage interfaces in a model repository
@@ -127,7 +129,7 @@ Without the `--login` parameter, this command lists the interfaces in the public
 Show an interface in the IoT Plug and Play model repository:
 
 ```cmd/sh
-az iot pnp interface show --interface {YourInterfaceID} --login {CompanyModelRepoConnectionString}
+az iot pnp interface show --interface {YourInterfaceId} --login {CompanyModelRepoConnectionString}
 ```
 
 Without the `--login` parameter, this command shows the interface in the public model repository.
@@ -151,7 +153,7 @@ You can't directly update an interface in the public model repository.
 Publish an interface on the IoT Plug and Play company model repository. This operation makes the interface immutable:
 
 ```cmd/sh
-az iot pnp interface publish --interface {YourInterfaceID} --login {CompanyModelRepoConnectionString}
+az iot pnp interface publish --interface {YourInterfaceName} --login {CompanyModelRepoConnectionString}
 ```
 
 You can't directly publish an interface in the public model repository.
@@ -169,7 +171,7 @@ Without the `--login` parameter, this command lists the models in the public mod
 Show a device capability model in an IoT Plug and Play model repository:
 
 ```cmd/sh
-az iot pnp model show --interface {YourInterfaceID} --login {CompanyModelRepoConnectionString}
+az iot pnp model show --interface {YourInterfaceName} --login {CompanyModelRepoConnectionString}
 ```
 
 Without the `--login` parameter, this command shows an interface in the public model repository.
@@ -193,7 +195,7 @@ You can't directly update a model in the public model repository.
 Publish a device capability model in the IoT Plug and Play company model repository. This operation makes the interface immutable:
 
 ```cmd/sh
-az iot pnp model publish --interface {YourInterfaceID} --login {CompanyModelRepoConnectionString}
+az iot pnp model publish --interface {YourInterfaceName} --login {CompanyModelRepoConnectionString}
 ```
 
 You can't directly publish an model in the public model repository.
