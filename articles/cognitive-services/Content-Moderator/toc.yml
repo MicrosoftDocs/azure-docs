@@ -11,16 +11,16 @@
     href: quick-start.md
   - name: Using the client SDK
     items:
-    - name: C#
+    - name: Using the .NET SDK
       items:
       - name: Analyze image content
         href: image-moderation-quickstart-dotnet.md
       - name: Analyze text content
         href: text-moderation-quickstart-dotnet.md
-    - name: Python
-      items:
-      - name: Analyze text content
-        href: text-moderation-quickstart-python.md
+    - name: Using the Python SDK
+      href: python-sdk-quickstart.md
+    - name: Using the Java SDK
+      href: java-sdk-quickstart.md
 - name: Tutorials
   items:
   - name: Moderate e-commerce images
