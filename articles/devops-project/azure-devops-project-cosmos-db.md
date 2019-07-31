@@ -13,7 +13,7 @@ monikerRange: 'vsts'
 
 # Deploy Node.js apps powered by Azure Cosmos DB with DevOps Projects
 
-Azure DevOps Projects offers a streamlined experience where you can create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. You do this by using your existing code and Git repository (repo) or by selecting a sample application.
+Azure DevOps Projects offers a streamlined experience where you can create a continuous integration (CI) and continuous deployment (CD) pipeline to Azure. You do this by using your existing code and Git repository (repo) or by selecting a sample application.
 
 DevOps Projects also:
 
@@ -54,7 +54,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
     ![Add a database](_img/azure-devops-project-cosmos-db/add-database.png)
 
-    Azure Cosmos DB supports various application frameworks, such as **Express.js**, **Sample Node.js app**, and **Sail.js**. In this tutorial, we use **Express.js**.
+    Azure DevOps Projects supports various application frameworks, such as **Express.js**, **Sample Node.js app**, and **Sail.js**. In this tutorial, we use **Express.js**.
 
 1. Select an Azure service to deploy the application, and then select **Next**. Your options include Windows Web App, Azure Kubernetes Service, and Azure Web App for Containers. In this tutorial, we use **Windows Web App**.
 
@@ -120,7 +120,7 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 
 1. Under **Artifacts**, select **Drop**. The build pipeline you examined in the previous steps produces the output that's used for the artifact.
 
-1. To the right of the **Drop** icon, select **Continuous deployment trigger**. This release pipeline has enabled continuous deployment trigger, which runs a deployment every time a new build artifact is available. You can disable the trigger so that your deployments run manually.
+1. To the right of the **Drop** icon, select **Continuous deployment trigger**. This release pipeline has enabled continuous deployment trigger, which executes a deployment every time a new build artifact is available. You can disable the trigger so that your deployments execute manually.
 
 1. At the right, select the section **View releases** to display a history of releases.
 
@@ -130,12 +130,12 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 
 1. Select **View Logs**. The logs contain useful information about the deployment process. You can view them both during and after deployments.
 
-## Commit code changes and run the CI/CD pipeline
+## Commit code changes and execute the CI/CD pipeline
 
 > [!NOTE]
 > The following procedure tests the CI/CD pipeline by making a simple text change.
 
-You're now ready to collaborate with a team on your app by using a CI/CD process that deploys your latest work to your App Service. Each change to the Git repo starts a build in Azure DevOps, and a CD pipeline runs a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repo. For example, you can clone the Git repo in your favorite tool or IDE, and then push changes to this repo.
+You're now ready to collaborate with a team on your app by using a CI/CD process that deploys your latest work to your App Service. Each change to the Git repo starts a build in Azure DevOps, and a CD pipeline executes a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repo. For example, you can clone the Git repo in your favorite tool or IDE, and then push changes to this repo.
 
 1. In the Azure DevOps menu, select **Repos** and then **Files**. Then go to your repo.
 
@@ -145,7 +145,7 @@ You're now ready to collaborate with a team on your app by using a CI/CD process
 
 1. In the upper-right corner, select **Commit**, and then select **Commit** again to push your change.
 
-     After a few seconds, a build starts in Azure DevOps and a release runs to deploy the changes. Monitor the build status on the DevOps Projects dashboard or in the browser with your Azure DevOps organization.
+     After a few seconds, a build starts in Azure DevOps and a release executes to deploy the changes. Monitor the build status on the DevOps Projects dashboard or in the browser with your Azure DevOps organization.
 
 ## Clean up resources
 
