@@ -132,7 +132,7 @@ To get the application up and running, you need to install these tools:
 - [Git](https://git-scm.com/) on your system. Git is used to clone the source code locally.
 - [jq](https://stedolan.github.io/jq/), a UNIX tool for querying JSON in a user-friendly way.
 
-You need an Azure subscription to deploy the sample app's resources. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/en-us/free/) to test the sample app.
+You need an Azure subscription to deploy the sample app's resources. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/) to test the sample app.
 
 After installing these tools, you’re ready to deploy the app on Azure.
 
