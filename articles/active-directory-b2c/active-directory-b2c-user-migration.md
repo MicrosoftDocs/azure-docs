@@ -72,7 +72,7 @@ First, register your migration application in Azure AD. Then, create an applicat
 
 1. In the **Registered app** page, select **Settings**.
 1. Select **Keys**.
-1. Add a new key (also known as a client secret), and then copy the key for later use.
+1. Under **Passwords**, add a new key (also known as a client secret) named *MyClientSecret* or another name of your choosing, select an expiration window, select **Save**, and then copy the key value for later use.
 
     ![Application ID value and Keys menu item highlighted in Azure portal](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
 
@@ -81,7 +81,7 @@ First, register your migration application in Azure AD. Then, create an applicat
 1. In the **Settings** menu, select **Required permissions**.
 1. Select **Windows Azure Active Directory**.
 1. In the **Enable Access** pane, under **Application Permissions**, select **Read and write directory data**, and then select **Save**.
-1. In the **Required permissions** pane, select **Grant Permissions**.
+1. In the **Required permissions** pane, select **Grant Permissions**, then select **Yes**.
 
    ![Read/write directory checkbox, Save, and Grant permissions highlighted](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
 
