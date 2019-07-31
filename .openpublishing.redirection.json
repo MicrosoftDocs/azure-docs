@@ -37371,7 +37371,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/concept-data-drift.md",
-      "redirect_url": "azure/machine-learning/service/how-to-monitor-data-drift",
+      "redirect_url": "/azure/machine-learning/service/how-to-monitor-data-drift",
       "redirect_document_id": false
     },
     {
