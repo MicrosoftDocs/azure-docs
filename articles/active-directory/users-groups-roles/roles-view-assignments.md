@@ -23,10 +23,7 @@ This article describes how to view custom roles you have assigned in Azure Activ
 ## View the assignments of a role with directory scope using the Azure AD portal
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
-1. Select **Azure Active Directory**, select **Roles and administrators**, and then select a role to view its properties.
-
-    ![View or edit roles from the Roles and administrators page](./media/roles-create-custom/new-custom-role.png)
-
+1. Select **Azure Active Directory**, select **Roles and administrators**, and then select a role to open it and view its properties.
 1. Select **Assignments** to view the assignments for the role.
 
     ![View role assignments and permissions when you open a role from the list](./media/roles-view-assignments/role-assignments.png)
