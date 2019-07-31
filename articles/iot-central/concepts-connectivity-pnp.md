@@ -33,7 +33,7 @@ This article describes the following use cases:
 1. [Connect devices at scale using SAS](#connect-devices-at-scale-using-sas)
 1. [Connect devices at scale using X.509 certificates](#connect-devices-using-x509-certificates) this is the recommended approach for production environments.
 1. [Connect without first registering devices](#connect-without-registering-devices)
-1. [Connect devices using Azure IoT Plug and Play features](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+1. [Connect devices using IoT Plug and Play features](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 ## Connect a single device
 
@@ -140,22 +140,22 @@ The following steps describe this process in more detail. The steps differ sligh
 ## Connect devices with IoT Plug and Play
 
 One of the key features of IoT Plug and Play with IoT Central is the ability to associate device templates automatically on device connection. Along with device credentials, devices can now send the **CapabilityModelId** as part of the device registration call and IoT Central will discover and associate the device template. The discovery process follows the following order:
+
 1. Associates with the Device Template if already published in the IoT Central app.
 1. Fetches from the Global Repository of Published and Certified capability models.
 
 Below is the format of the additional payload the device would send during the DPS registration call
 
-	```javascript
-	'__iot:interfaces': {
-                CapabilityModelId: <this is the URN for the capability model>
-            }
-	```
+```javascript
+'__iot:interfaces': {
+              CapabilityModelId: <this is the URN for the capability model>
+          }
+```
 
-To learn more about connecting an IoT Plug and Play device, see how to [Connect a Plug and Play device](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+To learn more about connecting an IoT Plug and Play device, see how to [Connect an IoT Plug and Play device](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 > [!NOTE]
 > Note that the Auto-Approve option should be enabled for devices to automatically connect, discover the model and start sending data.
-
 
 ## Device status
 
@@ -175,7 +175,6 @@ When a real device connects to your IoT Central application, its device status c
     - A set of devices is added using **Import** on the **Devices** page without specifying the Device Template
     - Devices not registered manually on the **Devices** page connected with valid credentials but without specifying the Template ID during registration.  
 The Operator can associate a device to a Template from the **Devices** page using the **Migrate** button.
-
 
 ## SDK support
 
@@ -230,7 +229,7 @@ All data exchanged between devices and your Azure IoT Central is encrypted. IoT 
 
 Now that you've learned about device connectivity in Azure IoT Central, here are the suggested next steps:
 
-- [Connect a Plug and Play device](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+- [Connect an IoT Plug and Play device](howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 - [Prepare and connect a DevKit device](howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 - [Prepare and connect a Raspberry Pi](howto-connect-raspberry-pi-python-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 - [Connect a generic Node.js client to your Azure IoT Central application](howto-connect-nodejs-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
