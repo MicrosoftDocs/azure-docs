@@ -315,7 +315,6 @@ Configuration FirewalldEnabled {
 
         ChefInSpecResource FirewalldEnabled {
             Name = 'FirewalldEnabled'
-            GithubPath = "guestConfiguration/Linux/InSpecProfiles/FirewalldEnabled/"
             AttributesYmlContent = "DefaultFirewalldProfile: [public]"
         }
     }
