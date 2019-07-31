@@ -12,9 +12,9 @@ manager: philmea
 
 # Administer your IoT Central application
 
-After you create an IoT Central application, you can go to the **Administration** section to manage users and roles.
+This article describes how, as a administrator, you can add, edit and delete users in your Azure IoT Central application and also how to manage roles in your Azure IoT Central application.
 
-To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application. The [Manage Users](#manage-users) section in this article explains more about how to assign the **Administrator** role to other users.
+To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
 
 ## Manage users
 

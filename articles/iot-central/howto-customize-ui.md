@@ -15,9 +15,10 @@ manager: philmea
 
 # Customize the Azure IoT Central UI 
 
-*This article applies to administrators.*
+This article describes how, as a administrator, you can 
+customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. 
 
-IoT Central lets you customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. The following screenshot shows a page using the standard theme:
+The following screenshot shows a page using the standard theme:
 
 ![Standard IoT Central theme](./media/howto-customize-ui/standard-ui.png)
 

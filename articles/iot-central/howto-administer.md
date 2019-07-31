@@ -12,7 +12,9 @@ manager: peterpr
 
 # Administer your IoT Central application
 
-To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application. The [Manage application settings](#manage-application-settings) section in this article explains more about how to manage the application settings.
+This article describes how, as a administrator, you can manage application settings in your bill in Azure IoT Central application.
+
+To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application. 
 
 ## Manage application settings
 
