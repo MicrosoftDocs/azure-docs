@@ -28,9 +28,10 @@ In this tutorial, you learn how to:
 >[!TIP]
 > [IoT solution accelerators](https://www.azureiotsolutions.com/Accelerators) provide enterprise-grade preconfigured solutions that you can use to accelerate the development of custom IoT solutions.
 
+Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
+
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 * Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, see [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Create a device simulation
@@ -56,7 +57,7 @@ In this section, you create three simulated devices that send data to an Azure I
 
     [![Create Device Simulation solution page](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-## Create a Time Series Insights Preview PAYG environment
+## Create a Preview PAYG environment
 
 This section describes how to create an Azure Time Series Insights Preview environment and connect it to the IoT hub created by the IoT Solution Accelerator using the [Azure portal](https://portal.azure.com/).
 
@@ -124,7 +125,9 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
    If your credentials aren't listed, you must grant yourself permission to access the environment. To learn more about setting permissions, read [Grant data access](./time-series-insights-data-access.md).
 
-## Stream data into your environment
+## Stream data
+
+Now that you've deployed your Time Series Insights environment, stream data into it for analysis.
 
 1. Navigate back to the [Azure IoT solution accelerators page](https://www.azureiotsolutions.com/Accelerators). Locate your solution in your solution accelerator dashboard. Then, select **Launch**:
 
@@ -152,7 +155,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
     [![Azure IoT simulation dashboard](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
-## Analyze data in your environment
+## Analyze data
 
 In this section, you perform basic analytics on your time series data by using the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
