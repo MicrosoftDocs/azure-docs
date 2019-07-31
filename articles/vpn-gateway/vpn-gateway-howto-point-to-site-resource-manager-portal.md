@@ -16,7 +16,6 @@ This article helps you securely connect individual clients running Windows, Linu
 
 ![Connect a computer to an Azure VNet - Point-to-Site connection diagram](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
-
 ## Architecture
 
 Point-to-Site native Azure certificate authentication connections use the following items, which you configure in this exercise:
@@ -68,7 +67,7 @@ After you create your virtual network, you can add the IP address of a DNS serve
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->The Basic SKU does not support IKEv2 or RADIUS authentication. If you are planning on having Mac clients connect to your virtual network, do not use the Basic SKU.
+>The Basic gateway SKU does not support IKEv2 or RADIUS authentication. If you plan on having Mac clients connect to your virtual network, do not use the Basic SKU.
 >
 
 ## <a name="generatecert"></a>5. Generate certificates

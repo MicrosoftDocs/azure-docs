@@ -10,11 +10,11 @@
  ms.custom: include file
 ---
 1. In the portal, on the left side, click **+ Create a resource** and type 'Virtual Network Gateway' in search. Locate **Virtual network gateway** in the search return and click the entry. On the **Virtual network gateway** page, click **Create**. This opens the **Create virtual network gateway** page.
-2. On the **Create virtual network gateway** page, fill in the values for your virtual network gateway.
 
    ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw.png "Create virtual network gateway page fields")
 
    ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw2.png "Create virtual network gateway page fields")
+2. On the **Create virtual network gateway** page, fill in the values for your virtual network gateway.
 
    **Project details**
 
@@ -29,21 +29,20 @@
    - **VPN type**: Select the VPN type that is specified for your configuration. Most configurations require a Route-based VPN type.
    - **SKU**: Select the gateway SKU from the dropdown. The SKUs listed in the dropdown depend on the VPN type you select. For more information about gateway SKUs, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-    **Virtual Network**
+      **Virtual network**: Choose the virtual network to which you want to add this gateway.
 
-    **Virtual network**: Choose the virtual network to which you want to add this gateway.
-    **Gateway subnet address range**: This field only appears if the virtual network you selected does not have a gateway subnet. Fill in the range if you don't already have a gateway subnet. If possible, make the range /27 or larger (/26,/25 etc.)
+      **Gateway subnet address range**: This field only appears if the virtual network you selected does not have a gateway subnet. Fill in the range if you don't already have a gateway subnet. If possible, make the range /27 or larger (/26,/25 etc.)
 
-    **Public IP address**
-
-    This setting specifies the public IP address object that gets associated to the VPN gateway. The public IP address is dynamically assigned to this object when the VPN gateway is created. VPN Gateway currently only supports *Dynamic* Public IP address allocation. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
+    **Public IP address**: This setting specifies the public IP address object that gets associated to the VPN gateway. The public IP address is dynamically assigned to this object when the VPN gateway is created. VPN Gateway currently only supports *Dynamic* Public IP address allocation. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
 
      - **Public IP address**: Leave **Create new** selected.
      - **Public IP address name**: In the text box, type a name for your public IP address instance.
      - **Assignment**: VPN gateway supports only Dynamic.
 
-4. **Active-Active mode**: Only select **Enable active-active mode** if you are creating an active-active gateway configuration. Otherwise, leave this setting unselected.
-5. Leave **Configure BGP ASN** deselected, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this can be changed.
-6. Click **Review + Create** to begin creating the VPN gateway. The settings are validated and you'll see the "Deploying Virtual network gateway" tile on the dashboard. Creating a gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
+   **Active-Active mode**: Only select **Enable active-active mode** if you are creating an active-active gateway configuration. Otherwise, leave this setting unselected.
 
-After the gateway is created, view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device. You can click the connected device (your virtual network gateway) to view more information.
+   Leave **Configure BGP ASN** deselected, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this can be changed.
+
+3. Click **Review + Create** to run validation. Once validation passes, click **Create** to deploy the VPN gateway. A gateway can take up to 45 minutes to fully create and deploy. You can see the deployment status on the Overview page for your gateway.
+
+After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
