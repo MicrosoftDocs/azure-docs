@@ -114,10 +114,19 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
+<<<<<<< HEAD
 5. Under the Admin Credentials section, input `https://<Snowflake Account URL>/scim/v2` in tenant 	URL. An example of the tenant URL: `https://acme.snowflakecomputing.com/scim/v2`
 
 6. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Snowflake. If the connection fails, ensure your Snowflake account has Admin permissions and try again.
 
+=======
+5. Under the **Admin Credentials** section, input `https://<account>.<region>.<cloud>.Snowflakecomputing.com/scim/v2` in **Tenant URL**. Example URL:
+
+	![snowflake Account](media/snowflake-provisioning-tutorial/account.png)
+
+6. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Snowflake. If the connection fails, ensure your Snowflake account has Admin permissions and try again.
+
+>>>>>>> 3ad29c56adb0943d7a3a17442f4307b4898195a2
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
 7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
