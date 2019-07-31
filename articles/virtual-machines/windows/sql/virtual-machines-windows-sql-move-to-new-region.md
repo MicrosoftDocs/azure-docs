@@ -22,11 +22,11 @@ ms.reviewer: jroth
 This article teaches you how to use Azure Site Recovery to migrate your SQL Server virtual machine (VM) from one region to another within Azure. 
 
 Moving a SQL Server VM requires doing the following:
-1. Preparing to move: Confirm that both your source SQL Server VM and target region are adequately prepared for the move. 
-1. Configure the Azure Site Recovery vault: Moving your SQL Server VM requires that it is a replicated object within the Azure Site Recovery vault. You need to add your SQL Server VM to the Azure Site Recovery vault. 
-1. Test the move: Migrating the SQL Server VM requires failing it over from the source region to the replicated target region. To ensure that the move process will succeed, you need to first test that your SQL Server VM can successfully failover to the target region. This will help expose any issues and avoid them when performing the actual move. 
-1. Move the VM: Once your test failover passed, and you know that you are safe to migrate your SQL Server VM, you can perform the move of the VM to the target region. 
-1. Remove the source VMs: To avoid billing charges, remove the SQL Server VM from the vault, and any unnecessary resources that are left over in the resource group. 
+1. [**Preparing to move**](#prepare-to-move): Confirm that both your source SQL Server VM and target region are adequately prepared for the move. 
+1. [**Configure the Azure Site Recovery vault**](#configure-azure-site-recovery-vault): Moving your SQL Server VM requires that it is a replicated object within the Azure Site Recovery vault. You need to add your SQL Server VM to the Azure Site Recovery vault. 
+1. [**Test the move**](#test-move-process): Migrating the SQL Server VM requires failing it over from the source region to the replicated target region. To ensure that the move process will succeed, you need to first test that your SQL Server VM can successfully failover to the target region. This will help expose any issues and avoid them when performing the actual move. 
+1. [**Move the VM**](#move-the-sql-server-vm): Once your test failover passed, and you know that you are safe to migrate your SQL Server VM, you can perform the move of the VM to the target region. 
+1. [**Clean up source resources**](#clean-up-source-resources): To avoid billing charges, remove the SQL Server VM from the vault, and any unnecessary resources that are left over in the resource group. 
 
 ## Verify prerequisites 
 
@@ -63,7 +63,7 @@ Moving a SQL Server VM requires doing the following:
     - For any additional networking components, see the [networking documentation](../../../virtual-network/virtual-networks-overview.md).
 - Manually create a non-production network in the target region if you want to test the configuration before you perform the final move to the target region. We recommend this step because it ensures minimal interference with the production network. 
 
-## Configure the Azure Site Recovery vault   
+## Configure Azure Site Recovery vault   
 
 The following steps show you how to use Azure Site Recovery to copy data to the target region. Create the Recovery Services vault in any region other than the source region. 
 
@@ -89,7 +89,7 @@ The following steps show you how to use Azure Site Recovery to copy data to the 
 
    ![Verify replication status](media/virtual-machines-windows-sql-move-to-new-region/check-replication-status.png)
 
-## Test the move process
+## Test move process
 The following steps show you how to use Azure Site Recovery to test the move process. 
 
 1. Navigate to your **Recovery Services vault** in the [Azure portal](https://portal.azure.com) and select **Replicated items**. 
@@ -131,9 +131,8 @@ The following steps show you how to move the SQL Server VM from your source regi
 1. Navigate back to the vault, select **Replicated Items**, select the SQL Server VM, and select **Commit** to finish the move process to the target region. Wait until the commit job finishes. 
 1. Register your SQL Server VM with the SQL VM resource provider to enable **SQL virtual machine** manageability in the Azure portal and features associated with the resource provider. For more information, see [Register SQL Server VM with SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md). 
 
-
-## Remove source VM from vault
-The following steps show you how to remove the source SQL Server VMs. 
+## Clean up source resources
+To avoid billing charges, remove the SQL Server VM from the vault, and delete any unnecessary associated resources. 
 
 1. Navigate back to the **Site Recovery** vault, select **Replicated items**, and select the SQL Server VM. 
 1. Select **Disable Replication**. Select a reason for disabling protection, and then select **OK** to disable replication. 
