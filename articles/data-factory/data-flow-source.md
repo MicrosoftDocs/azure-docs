@@ -128,7 +128,7 @@ And "to" as
 
 ```/backup/priorSales```
 
-In this case, all subdirectories under /data/sales which were sourced are moved relative to /backup/priorSales.
+In this case, all files which were sourced under /data/sales are moved to /backup/priorSales.
 
 ### SQL datasets
 
