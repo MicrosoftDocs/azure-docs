@@ -87,7 +87,7 @@ Once a dedicated host is provisioned, Azure assigns it to physical server. This 
 
 ## Quotas
 
-There is a quota limit of 3000 vCPUs for dedicated hosts, but the number of hosts you can deploy will also be limited by the quota limit for the VM size family you want to use for the host. For example, I have a **Pay-as-you-go** subscription and I would like to deploy a dedicated host in the East US region, using the Dsv3 size series. In the screenshot below, you can see that I only have a quota of 10 vCPUs available for the Dsv3 size series in the East US region. In this case, I need to request a quota increase to at least 64 vCPUs before I can deploy a dedicated host. Select the **Request increase** button in the upper right corner to file a request if needed.
+There is a default quota limit of 3000 vCPUs for dedicated hosts, per region. But, the number of hosts you can deploy is also limited by the quota for the VM size family used for the host. For example, a **Pay-as-you-go** subscription may only have a quota of 10 vCPUs available for the Dsv3 size series, in the East US region. In this case, you need to request a quota increase to at least 64 vCPUs before you can deploy a dedicated host. Select the **Request increase** button in the upper right corner to file a request if needed.
 
 ![Screenshot of the usage and quotas page in the portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
