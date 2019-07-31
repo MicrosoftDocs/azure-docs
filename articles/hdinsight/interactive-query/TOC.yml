@@ -22,6 +22,12 @@
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
+  - name: Troubleshoot
+    items:
+    - name: OutOfMemoryError exception
+      items:
+      - name: GC overhead limit exceeded
+        href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
 - name: How to
   items:
   - name: Migrate Hive workloads to HDInsight 4.0
@@ -298,7 +304,7 @@
   - name: Enterprise security
     items:
     - name: Overview
-      href: ../domain-joined/apache-domain-joined-introduction.md
+      href: ../domain-joined/hdinsight-security-overview.md
       maintainContext: true
     - name: Plan for enterprise security
       href: ../domain-joined/apache-domain-joined-architecture.md

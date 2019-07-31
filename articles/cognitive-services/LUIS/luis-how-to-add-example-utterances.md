@@ -1,6 +1,6 @@
 ---
-title: Add example utterances
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Add example utterances - LUIS
+titleSuffix: Azure Cognitive Services
 description: Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add example utterances to an intent.
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 

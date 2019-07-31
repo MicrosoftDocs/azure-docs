@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 08/25/2017
 ---
 
-# Get started with device management (Node)
+# Get started with device management (Node.js)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 

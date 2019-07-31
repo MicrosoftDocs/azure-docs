@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
-manager: craigg
 ms.date: 12/18/2018
 ---
 # Explore SaaS analytics with Azure SQL Database, SQL Data Warehouse, Data Factory, and Power BI
