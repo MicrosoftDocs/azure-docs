@@ -30,12 +30,9 @@ After setting a security policy, Security Center analyzes the security state of 
 
 1. To view each recommendation's details, click on the recommendation.
 
-    ![Recommendation details](./media/security-center-recommendations/recommendation-details.png)
+   ![Recommendation details](./media/security-center-recommendations/recommendation-details.png)
 
-1. To view each recommendation's details, click on the recommendation.
-
-    ![Recommendation details](./media/security-center-recommendations/recommendation-details.png)
-
+   
     >[!NOTE] 
     > See [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
   
