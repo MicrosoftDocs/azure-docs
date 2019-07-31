@@ -3,7 +3,8 @@
 This article explains the Limits, quotas and throttling for Plug and Play public preview. There are existing [quotas and throttling](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-quotas-throttling) for an IoT Hub, this will also apply to Plug and Play. In addition, here are the Plug and Play specific limits, quotas and throttling.
 
 ## IoT Hub
-For public preview, we have these known limits and quotas that apply to an IoT Hub
+For public preview, we have these known limits and quotas that apply to an IoT Hub.
+
 | Limits, restrictions & throttles | Value | Notes |
 |-----|-----|-----|
 | # of DCMs or Interfaces that can be registered per Hub | 1500 ||
@@ -18,6 +19,8 @@ For public preview, we have these known limits and quotas that apply to an IoT H
 | Resolution API calls across SKU (regardless of units) | 100 request/sec |
 
 ## Model Repository
+For public preview, we have these known limits and quotas that apply to a model repository.
+
 | Limits, restrictions & throttles| Value |
 |-----|-----|
 | # of company model repositories per AAD tenant | 1 |
