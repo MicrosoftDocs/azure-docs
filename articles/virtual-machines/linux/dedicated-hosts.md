@@ -23,7 +23,7 @@ ms.author: cynthn
 
 ## Next steps
 
-- You can deploy a dedicated host using the [Azure CLI](dedicated-hosts-cli.md), [portal](dedicated-hosts-portal.md) and [PowerShell](../windows/dedicated-hosts-powershell.md).
+- You can deploy a dedicated host using the [Azure CLI](dedicated-hosts-cli.md), [portal](dedicated-hosts-portal.md), and [PowerShell](../windows/dedicated-hosts-powershell.md).
 
 - For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
