@@ -11,11 +11,12 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 07/30/2019
 ms.author: mbullwin
 
 ---
 # Using Search in Application Insights
+
 Search is a feature of [Application Insights](../../azure-monitor/app/app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
 (For more complex queries over your data, use [Analytics](../../azure-monitor/log-query/get-started-portal.md).)
@@ -24,15 +25,13 @@ Search is a feature of [Application Insights](../../azure-monitor/app/app-insigh
 
 ### In the Azure portal
 
-You can open diagnostic search explicitly from the Application Insights Overview blade of your application:
+You can open diagnostic search from the Application Insights Overview tab of your application (located at in the top bar) or under investigate on the left.
 
-![Open diagnostic search](./media/diagnostic-search/001.png)
+![Search tab](./media/diagnostic-search/view-custom-events.png)
 
-![Screenshot of diagnostic search graphs](./media/diagnostic-search/002.png)
+Go to the Event types' drop-down menu to see a list of telemetry items- server requests, page views, custom events that you have coded, and so on. At the top of the results' list is a summary chart showing counts of events over time.
 
-The main body of Diagnostic Search is a list of telemetry items - server requests, page views, custom events that you have coded, and so on. At the top of the list is a summary chart showing counts of events over time.
-
-Click Refresh to get new events.
+Click out of the drop-down menu or Refresh to get new events.
 
 ### In Visual Studio
 
@@ -52,59 +51,49 @@ The Track Operation tab is available when you open a request or a page view. An 
 
 Select any telemetry item to see key fields and related items.
 
-![Screenshot of an individual dependency request](./media/diagnostic-search/003.png)
+![Screenshot of an individual dependency request](./media/diagnostic-search/telemetry_item.png)
 
-This will launch the end-to-end transaction details view:
-
-![Screenshot of end-to-end transaction details view.](./media/diagnostic-search/004.png)
+This will launch the end-to-end transaction details view.
 
 ## Filter event types
-Open the Filter blade and choose the event types you want to see. (If, later, you want to restore the filters with which you opened the blade, click Reset.)
 
-![Choose Filter and select telemetry types](./media/diagnostic-search/02-filter-req.png)
+Open the Event types' drop-down menu and choose the event types you want to see. (If, later, you want to restore the filters, click Reset.)
 
 The event types are:
 
 * **Trace** - [Diagnostic logs](../../azure-monitor/app/asp-net-trace-logs.md) including TrackTrace, log4Net, NLog, and System.Diagnostic.Trace calls.
 * **Request** - HTTP requests received by your server application, including pages, scripts, images, style files, and data. These events are used to create the request and response overview charts.
-* **Page View** - [Telemetry sent by the web client](../../azure-monitor/app/javascript.md), used to create page view reports. 
+* **Page View** - [Telemetry sent by the web client](../../azure-monitor/app/javascript.md), used to create page view reports.
 * **Custom Event** - If you inserted calls to TrackEvent() in order to [monitor usage](../../azure-monitor/app/api-custom-events-metrics.md), you can search them here.
 * **Exception** - Uncaught [exceptions in the server](../../azure-monitor/app/asp-net-exceptions.md), and those that you log by using TrackException().
 * **Dependency** - [Calls from your server application](../../azure-monitor/app/asp-net-dependencies.md) to other services such as REST APIs or databases, and AJAX calls from your [client code](../../azure-monitor/app/javascript.md).
 * **Availability** - Results of [availability tests](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ## Filter on property values
-You can filter events on the values of their properties. The available properties depend on the event types you selected. 
 
-For example, pick out requests with a specific response code. 
-
-![Expand a property and choose a value](./media/diagnostic-search/03-response500.png)
+You can filter events on the values of their properties. The available properties depend on the event types you selected. Click on the filter icon ![Filter icon](./media/diagnostic-search/filter-icon.png) to start.
 
 Choosing no values of a particular property has the same effect as choosing all values. It switches off filtering on that property.
 
-### Narrow your search
-Notice that the counts to the right of the filter values show how many occurrences there are in the current filtered set. 
-
-In this example, it's clear that the 'Rpt/Employees' request results in most of the '500' errors:
-
-![Expand a property and choose a value](./media/diagnostic-search/04-failingReq.png)
+Notice that the counts to the right of the filter values show how many occurrences there are in the current filtered set.
 
 ## Find events with the same property
-Find all the items with the same property value:
 
-![Right-click a property](./media/diagnostic-search/12-samevalue.png)
+To find all the items with the same property value either type it into the search bar or click the checkbox when looking through properties in the filter tab.
+
+![Click the checkbox of a property in the filter tab](./media/diagnostic-search/filter-property.png)
 
 ## Search the data
 
 > [!NOTE]
-> To write more complex queries, open [**Analytics**](../../azure-monitor/log-query/get-started-portal.md) from the top of the Search blade.
-> 
+> To write more complex queries, open [**Logs (Analytics)**](../../azure-monitor/log-query/get-started-portal.md) from the top of the Search blade.
+>
 
-You can search for terms in any of the property values. This is particularly useful if you have written [custom events](../../azure-monitor/app/api-custom-events-metrics.md) with property values. 
+You can search for terms in any of the property values. This is useful if you have written [custom events](../../azure-monitor/app/api-custom-events-metrics.md) with property values.
 
-You might want to set a time range, as searches over a shorter range are faster. 
+You might want to set a time range, as searches over a shorter range are faster.
 
-![Open diagnostic search](./media/diagnostic-search/appinsights-311search.png)
+![Open diagnostic search](./media/diagnostic-search/search-property.png)
 
 Search for complete words, not substrings. Use quotation marks to enclose special characters.
 
@@ -128,15 +117,16 @@ If your app generates a lot of telemetry (and you are using the ASP.NET SDK vers
 [Learn about sampling](../../azure-monitor/app/sampling.md).
 
 ## Create work item
-You can create a bug in GitHub or Azure DevOps with the details from any telemetry item. 
 
-![Click New Work Item, edit the fields, and then click OK.](./media/diagnostic-search/42.png)
+You can create a bug in GitHub or Azure DevOps with the details from any telemetry item.
+
+Go to the end-to-end transaction detail view by clicking on any telemetry item then select **Create work item**.
+
+![Click New Work Item, edit the fields, and then click OK.](./media/diagnostic-search/work-item.png)
 
 The first time you do this, you are asked to configure a link to your Azure DevOps organization and project.
 
-![Fill the URL of your Azure DevOps Services and the Project name, and click Authorize](./media/diagnostic-search/41.png)
-
-(You can also configure the link on the Work Items blade.)
+(You can also configure the link on the Work Items tab.)
 
 ## Send more telemetry to Application Insights
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
@@ -153,10 +143,6 @@ See the [Limits summary](../../azure-monitor/app/pricing.md#limits-summary).
 
 ### How can I see POST data in my server requests?
 We don't log the POST data automatically, but you can use [TrackTrace or log calls](../../azure-monitor/app/asp-net-trace-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.
-
-## Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Next steps
 * [Write complex queries in Analytics](../../azure-monitor/log-query/get-started-portal.md)
