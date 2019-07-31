@@ -10,7 +10,7 @@ ms.author: cgronlun
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/2019
+ms.date: 08/02/2019
 
 ---
 
@@ -32,19 +32,19 @@ Navigate to the left pane of your workspace. Select Automated Machine Learning u
 
 ![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)
 
- If this is your first time doing any experiments you'll see the Welcome to Automated Machine Learning screen. 
+ If this is your first time doing any experiments you'll see the **Welcome to Automated Machine Learning** screen. 
 
-Otherwise, you'll see your Automated machine learning dashboard with an overview of all of your automated machine learning experiments, including those created with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
+Otherwise, you'll see your **Automated machine learning** dashboard with an overview of all of your automated machine learning experiments, including those created with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
 
 ## Create an experiment
 
-Select the Create Experiment button and populate the Create a new automated machine learning experiment form.
+Select **Create Experiment** and populate the **Create a new automated machine learning experiment** form.
 
-1. Enter your experiment name.
+1. Enter a unique experiment name.
 
 1. Select a compute for the data profiling and training job. A list of your existing computes is available in the dropdown. To create a new compute, follow the instructions in step 3.
 
-1. Select the Create a new compute button to configure your compute context for this experiment.
+1. Select **Create a new compute** to configure your compute context for this experiment.
 
     Field|Description
     ---|---
@@ -52,7 +52,7 @@ Select the Create Experiment button and populate the Create a new automated mach
     Virtual machine size| Select the virtual machine size for your compute.
     Additional settings| *Min node*: Enter the minimum number of nodes for your compute. The minimum number of nodes for AML compute is 0. To enable data profiling, you must have 1 or more nodes. <br> *Max node*: Enter the maximum number of nodes for your compute. The default is 6 nodes for an AML Compute.
 
-      To start the creation of your new compute, select **Create**. This can take a few moments.
+      Select **Create**. Creation of a new compute can take a few minutes.
 
       >[!NOTE]
       > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See 7b for more details on data profiling).
@@ -67,19 +67,20 @@ Select the Create Experiment button and populate the Create a new automated mach
 
 1. Use the preview and profile tabs to further configure your data for this experiment.
 
-    1. On the Preview tab, indicate if your data includes headers, and select the features (columns) for training using the **Included** switch buttons in each feature column.
+    1. On the **Preview** tab, indicate if your data includes headers, and select the features (columns) for training using the **Included** switch buttons in each feature column.
 
-    1. On the Profile tab, you can view the [data profile](#profile) by feature, as well as the distribution, type, and summary statistics (mean, median, max/min, and so on) of each.
+    1. On the **Profile** tab, you can view the [data profile](#profile) by feature, as well as the distribution, type, and summary statistics (mean, median, max/min, and so on) of each.
 
         >[!NOTE]
         > The following error message will appear if your compute context is **not** profiling enabled: *Data profiling is only available for compute targets that are already running*.
 
 1. Select the training job type: classification, regression, or forecasting.
 
-1. Select target column. The column which you would like to do the predictions on.
+1. Select target column; this is the column which you would like to do predictions on.
 
 1. For forecasting:
     1. Select time column: This column contains the time data to be used.
+
     1. Select forecast horizon: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it will become. [Learn more about forecasting and forecast horizon](how-to-auto-train-forecast.md).
 
 1. (Optional) Advanced settings: additional settings you can use to better control the training job.
@@ -92,10 +93,6 @@ Select the Create Experiment button and populate the Create a new automated mach
     Validation| Select one of the cross validation options to use in the training job. [Learn more about cross validation](how-to-configure-auto-train.md).
     Concurrency| Select the multi-core limits you would like to use when using multi-core compute.
     Blocked algorithm| Select algorithms you want to exclude from the training job.
-
-
-> [!NOTE]
-> For more information on fields, click the information tool tip.
 
 <a name="profile"></a>
 
@@ -151,15 +148,15 @@ When configuring your experiments, you can enable the advanced setting `Preproce
 
 ## Run experiment and view results
 
-To run the experiment, click Start. The experiment preparing process takes a couple of minutes.
+Select **Start** to run your experiment. The experiment preparing process takes a couple of minutes.
 
 ### View experiment details
 
-Once the experiment preparation phase is done, you'll see the Run Detail screen. This gives you a full list of the models created. By default, the model that scores the highest based on your parameters is at the top of the list. As the training job tries out more models, they are added to the iteration list and chart. Use the iteration chart to get a quick comparison of the metrics for the models produced so far.
+Once the experiment preparation phase is done, you'll see the Run Detail screen begin to populate. This screen gives you a full list of the models created. By default, the model that scores the highest based on ythe chosen metric is at the top of the list. As the training job tries out more models, they are added to the iteration list and chart. Use the iteration chart to get a quick comparison of the metrics for the models produced so far.
 
 Training jobs can take a while for each pipeline to finish running.
 
-![Run details dashboard](media/how-to-create-portal-experiments/run-details.png)
+[![Run details dashboard](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
 ### View training run details
 
