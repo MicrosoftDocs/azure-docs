@@ -1,0 +1,37 @@
+- name: Azure HPC Cache documentation
+  href: index.yml 
+
+- name: Overview
+  items:
+  - name: What is Azure HPC Cache?
+    href: hpc-cache-overview.md
+
+- name: Quickstarts
+  items: 
+        ??? 
+
+- name: Tutorials
+  items:  
+  - name: Prerequisites
+    href: hpc-cache-prereqs.md
+  - name: Create the cache
+    href: hpc-cache-create.md  
+  - name: Add storage
+    href: hpc-cache-add-storage.md
+  - name: Mount clients
+    href: hpc-cache-mount.md
+
+- name: How-to guides
+  items:
+  - name: Populate new Blob storage
+    href: hpc-cache-ingest.md
+  - name: Configure aggregated namespace  
+    href: hpc-cache-mount-clients.md
+  - name: Monitor the Azure HPC Cache
+    href: hpc-cache-monitor.md
+    
+- name: Resources
+  items: 
+  - name: Open a support ticket
+    href: hpc-cache-support-ticket.md
+
