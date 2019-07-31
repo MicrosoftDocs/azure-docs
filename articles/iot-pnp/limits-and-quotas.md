@@ -15,7 +15,7 @@ For public preview, we have these known limits and quotas that apply to an IoT H
 | Max size of a property value - regular twin | 512 bytes ||
 | Max size of a property value - large twin | 4096 bytes ||
 | Max size of a command name | 100 bytes ||
-| Resolution API calls across SKU (regardless of units) | 100 request/sec ||
+| Resolution API calls across SKU (regardless of units) | 100 request/sec |
 
 ## Model Repository
 | Limits, restrictions & throttles| Value |
