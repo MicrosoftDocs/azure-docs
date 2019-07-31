@@ -7,7 +7,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 07/131/2019
 ms.author: normesta
 
 ---
@@ -96,7 +96,7 @@ The following table lists all other features and tools that are not yet supporte
 | **Blobfuse** |Not yet supported|
 | **Custom domains** |Not yet supported|
 | **File System Explorer** | Limited support |
-| **Diagnostic logging** |Supported only if you enroll in the [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview.|
+| **Diagnostic logging** |Diagnostic logs are supported only if you enroll in the [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview, and then use PowerShell to enable them. Enabling logs by using other tools, such as Azure portal, is not yet supported. <br><br>For an example, see [Enable Storage logging using PowerShell](https://docs.microsoft.com/en-us/azure/storage/common/storage-analytics-logging?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#enable-storage-logging-using-powershell).
 | **Immutable storage** |Not yet supported <br><br>Immutable storage gives the ability to store data in a [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) state.|
 | **Object-level tiers** |Cool and archive tiers are supported only if you enroll in the [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview. <br><br> All other access tiers are not yet supported.|
 | **Powershell and CLI support** | Limited functionality <br><br>Management operations such as creating an account is supported. Data plane operations such as uploading and downloading files is in public preview as part of [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md). Working with directories and setting access control lists (ACLs) is not yet supported. |
