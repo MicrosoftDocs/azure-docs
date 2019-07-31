@@ -106,7 +106,7 @@ First, set a wildcard to include all paths that are the partitioned folders plus
 
 ![Part source file settings](media/data-flow/partfile2.png "Partition file setting")
 
-Now use the Partition Root Folder setting to tell ADF what is the top-level of the folder structure. Now, when you view the contents of your data, you'll see that ADF will add the resolved partitions found in each of your folder levels.
+Now use the Partition Root Path setting to tell ADF what is the top-level of the folder structure. Now, when you view the contents of your data, you'll see that ADF will add the resolved partitions found in each of your folder levels.
 
 ![Part root path](media/data-flow/partfile1.png "Part root path preview")
 
