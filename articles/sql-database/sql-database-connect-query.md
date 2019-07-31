@@ -10,7 +10,6 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-manager: craigg
 ms.date: 12/18/2018
 ---
 # Quickstarts: Azure SQL Database connect and query

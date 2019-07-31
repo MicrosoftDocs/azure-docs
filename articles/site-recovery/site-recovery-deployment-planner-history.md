@@ -6,12 +6,21 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 04/24/2019
+ms.date: 07/29/2019
 ms.author: dapatil
 ---
 # Azure Site Recovery Deployment Planner Version History
 
 This article provides history of all versions of Azure Site Recovery Deployment Planner along with the fixes, known limitations in each and their release dates.
+
+## Version 2.5
+
+**Release Date: July 29, 2019**
+
+**Fixes:**
+
+- For VMware virtual machines and physical machines, recommendation is updated to be based on replication to Managed Disks.
+- Added support for Windows 10 (x64), Windows 8.1 (x64), Windows 8 (x64), Windows 7 (x64) SP1 or later
 
 ## Version 2.4
 
@@ -22,8 +31,8 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 - Improved operating system compatibility, specifically when handling localization-based errors.
 - Added VMs with up to 20 Mbps of data change rate (churn) to the compatibility checklist.
 - Improved error messages
-  - Added support for vCenter 6.7.
-  - Added support for Windows Server 2019 and Red Hat Enterprise Linux (RHEL) workstation.
+- Added support for vCenter 6.7.
+- Added support for Windows Server 2019 and Red Hat Enterprise Linux (RHEL) workstation.
 
 
 

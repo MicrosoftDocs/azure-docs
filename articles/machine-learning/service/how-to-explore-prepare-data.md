@@ -164,7 +164,7 @@ ds_def.head(3)
 |1|10516598|False| 41.744107 |-87.664494|
 |2|10519196|False| NaN|NaN|
 
-Next, check the `MEAN` value of the latitude column using the [`summarize()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) function. This function accepts an array of columns in the `group_by_columns` parameter to specify the aggregation level. The `summary_columns` parameter accepts the `SummaryColumnsValue` function, which specifies the current column name, the new calculated field name, and the `SummaryFunction` to perform.
+Next, check the `MEAN` value of the latitude column using the [`summarize()`](/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-ml-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow--summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) function. This function accepts an array of columns in the `group_by_columns` parameter to specify the aggregation level. The `summary_columns` parameter accepts the `SummaryColumnsValue` function, which specifies the current column name, the new calculated field name, and the `SummaryFunction` to perform.
 
 ```Python
 lat_mean = ds_def.summarize(group_by_columns = ['Arrest'],
