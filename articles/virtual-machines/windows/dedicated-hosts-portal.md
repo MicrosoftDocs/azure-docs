@@ -40,7 +40,7 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 
 ## Next steps
 
-- For more infomation, see the [Dedicated hosts](dedicated-hosts.md) overview.
+- For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
 - There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
 

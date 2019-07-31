@@ -278,7 +278,7 @@ az group delete -n myDHResourceGroup
 
 ## Next steps
 
-- For more infomation, see the [Dedicated hosts](dedicated-hosts.md) overview.
+- For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
 - You can also create dedicated hosts using the [Azure portal](dedicated-hosts-portal.md).
 
