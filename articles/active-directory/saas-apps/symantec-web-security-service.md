@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Symantec Web Security Service for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Symantec Web Security Service.
+title: 'Tutorial: Configure Symantec Web Security Service (WSS)for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Symantec Web Security Service (WSS).
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -18,9 +18,9 @@ ms.date: 07/23/2019
 ms.author: Zhchia
 ---
 
-# Tutorial: Configure Symantec Web Security Service for automatic user provisioning
+# Tutorial: Configure Symantec Web Security Service (WSS) for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Symantec Web Security Service and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Symantec Web Security Service.
+The objective of this tutorial is to demonstrate the steps to be performed in Symantec Web Security Service (WSS) and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Symantec Web Security Service (WSS).
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
@@ -32,47 +32,47 @@ The objective of this tutorial is to demonstrate the steps to be performed in Sy
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant
-* [A Symantec Web Security Service tenant](https://www.websecurity.symantec.com/buy-renew?inid=brmenu_nav_brhome)
-* A user account in Symantec Web Security Service with Admin permissions.
+* [A Symantec Web Security Service (WSS) tenant](https://www.websecurity.symantec.com/buy-renew?inid=brmenu_nav_brhome)
+* A user account in Symantec Web Security Service (WSS) with Admin permissions.
 
-## Assigning users to Symantec Web Security Service
+## Assigning users to Symantec Web Security Service (WSS)
 
 Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Symantec Web Security Service. Once decided, you can assign these users and/or groups to Symantec Web Security Service by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Symantec Web Security Service (WSS). Once decided, you can assign these users and/or groups to Symantec Web Security Service (WSS) by following the instructions here:
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
-## Important tips for assigning users to Symantec Web Security Service
+## Important tips for assigning users to Symantec Web Security Service (WSS)
 
-* It is recommended that a single Azure AD user is assigned to Symantec Web Security Service to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Azure AD user is assigned to Symantec Web Security Service(WSS)(WSS) to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
-* When assigning a user to Symantec Web Security Service, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When assigning a user to Symantec Web Security Service(WSS)(WSS), you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-## Setup Symantec Web Security Service for provisioning
+## Setup Symantec Web Security Service  (WSS)  for provisioning
 
-Before configuring Symantec Web Security Service for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Symantec Web Security Service.
+Before configuring Symantec Web Security Service (WSS) for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Symantec Web Security Service (WSS).
 
 1. Sign in to your [Security Service for provisioning](https://portal.threatpulse.com/login.jsp). Navigate to **Solutions** > Click **Service**.
 
-	![Symantec Web Security Service](media/symantec-web-security-service/service.png)
+	![Symantec Web Security Service(WSS)](media/symantec-web-security-service/service.png)
 
 2. Navigate to **Account Maintenance**. Select **Integrations** Click **+New Integration**
 
-	![Symantec Web Security Service](media/symantec-web-security-service/acount.png)
+	![Symantec Web Security Service (WSS)](media/symantec-web-security-service/acount.png)
 
 3.  Select **Third-party User& Groups Sync**. 
 
 	![Symantec Web Security Service](media/symantec-web-security-service/third-party-users.png)
 
-4.  Copy the **SCIM URL** and **Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Symantec Web Security Service application in the Azure portal.
+4.  Copy the **SCIM URL** and **Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Symantec Web Security Service (WSS)application in the Azure portal.
 
 	![Symantec Web Security Service](media/symantec-web-security-service/scim.png)
 
-## Add Symantec Web Security Service from the gallery
+## Add Symantec Web Security Service (WSS)from the gallery
 
-To configure Symantec Web Security Service for automatic user provisioning with Azure AD, you need to add Symantec Web Security Service from the Azure AD application gallery to your list of managed SaaS applications.
+To configure Symantec Web Security Service (WSS)for automatic user provisioning with Azure AD, you need to add Symantec Web Security Service (WSS)from the Azure AD application gallery to your list of managed SaaS applications.
 
-**To add Symantec Web Security Service from the Azure AD application gallery, perform the following steps:**
+**To add Symantec Web Security Service (WSS)from the Azure AD application gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
 
@@ -88,16 +88,16 @@ To configure Symantec Web Security Service for automatic user provisioning with 
 
 4. In the search box, enter **Symantec Web Security Service**, select **Symantec Web Security Service** in the results panel, and then click the **Add** button to add the application.
 
-	![Symantec Web Security Service in the results list](common/search-new-app.png)
+	![Symantec Web Security Service (WSS)in the results list](common/search-new-app.png)
 
-## Configuring automatic user provisioning to Symantec Web Security Service 
+## Configuring automatic user provisioning to Symantec Web Security Service (WSS)
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Symantec Web Security Service based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Symantec Web Security Service (WSS)based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Symantec Web Security Service , following the instructions provided in the [Symantec Web Security Service Single sign-on tutorial](Symantec Web Security Service-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Symantec Web Security Service (WSS), following the instructions provided in the [Symantec Web Security Service (WSS)Single sign-on tutorial](Symantec Web Security Service-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
-### To configure automatic user provisioning for Symantec Web Security Service in Azure AD:
+### To configure automatic user provisioning for Symantec Web Security Service (WSS)in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
@@ -105,7 +105,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 2. In the applications list, select **Symantec Web Security Service**.
 
-	![The Symantec Web Security Service link in the Applications list](common/all-applications.png)
+	![The Symantec Web Security Service (WSS)link in the Applications list](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
@@ -115,7 +115,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the Admin Credentials section, input the **SCIM URL** and **Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Symantec Web Security Service. If the connection fails, ensure your Symantec Web Security Service account has Admin permissions and try again.
+5. Under the Admin Credentials section, input the **SCIM URL** and **Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Symantec Web Security Service. If the connection fails, ensure your Symantec Web Security Service (WSS)account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -127,19 +127,19 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Symantec Web Security Service**.
 
-	![Symantec Web Security Service User Mappings](media/symantec-web-security-service/usermapping.png)
+	![Symantec Web Security Service (WSS) User Mappings](media/symantec-web-security-service/usermapping.png)
 
-9. Review the user attributes that are synchronized from Azure AD to Symantec Web Security Service in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Symantec Web Security Service for update operations. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to Symantec Web Security Service (WSS)in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Symantec Web Security Service (WSS)for update operations. Select the **Save** button to commit any changes.
 
-	![Symantec Web Security Service User Mappings](media/symantec-web-security-service/userattribute.png)
+	![Symantec Web Security Service (WSS)User Mappings](media/symantec-web-security-service/userattribute.png)
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Symantec Web Security Service**.
 
-	![Symantec Web Security Service User Mappings](media/symantec-web-security-service/groupmapping.png)
+	![Symantec Web Security Service (WSS)User Mappings](media/symantec-web-security-service/groupmapping.png)
 
-11. Review the group attributes that are synchronized from Azure AD to Symantec Web Security Service in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Symantec Web Security Service for update operations. Select the **Save** button to commit any changes.
+11. Review the group attributes that are synchronized from Azure AD to Symantec Web Security Service (WSS)in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Symantec Web Security Service (WSS)for update operations. Select the **Save** button to commit any changes.
 
-	![Symantec Web Security Service User Mappings](media/symantec-web-security-service/groupattribute.png)
+	![Symantec Web Security Service (WSS)User Mappings](media/symantec-web-security-service/groupattribute.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -147,7 +147,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to Symantec Web Security Service by choosing the desired values in **Scope** in the **Settings** section.
+14. Define the users and/or groups that you would like to provision to Symantec Web Security Service (WSS)by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
