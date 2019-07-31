@@ -56,7 +56,8 @@ The following steps will help create a Conditional Access policy to require thos
       * Exchange administrator
       * Conditional Access administrator
       * Security administrator
-      * Helpdesk (Password) administrator
+      * Helpdesk administrator
+      * Password administrator
       * Billing administrator
       * User administrator
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
