@@ -758,6 +758,8 @@ The following table explains the binding configuration properties that you set i
 
 ## Input - usage
 
+# [C# Script](#tab/csharp+csharp-script)
+
 In C# and C# script, you can use the following parameter types for the blob input binding:
 
 * `Stream`
@@ -777,7 +779,15 @@ If you try to bind to one of the Storage SDK types and get an error message, mak
 
 Binding to `string` or `Byte[]` is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) earlier in this article.
 
-In JavaScript, access the blob data using `context.bindings.<name from function.json>`.
+# [JavaScript](#tab/javascript)
+
+Access the blob data using `context.bindings.<name from function.json>`.
+
+# [Python / Java](#tab/python+java)
+
+??
+
+---
 
 ## Output
 
