@@ -1,14 +1,13 @@
 ---
 title: Upload files from devices to Azure IoT Hub with Python | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Python. Uploaded files are stored in an Azure storage blob container.
-author: kgremban
-manager: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.author: kgremban
+ms.date: 07/30/2019
+ms.author: robinsh
 ---
 
 # Upload files from your device to the cloud with IoT Hub (Python)
@@ -30,9 +29,7 @@ At the end of this tutorial you run the Python console app:
 
 * **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
 
-> [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python).
->
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
 The following are the installation instructions for the prerequisites.
 
