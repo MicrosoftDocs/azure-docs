@@ -121,7 +121,7 @@ If you provisioned a SQL Server VM from PAYG Azure Marketplace images then SQL l
 
 You are only eligible to self-install SQL Server on Azure VM via Azure Hybrid Benefit and you should [register these VMs with SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) by setting the SQL Server license as AHB to indicate the AHB usage according to Microsoft Product Terms.
 
-You can only change the license type of a SQL Server VM as PAYG or AHB if the SQL VM is registered with SQL VM resource provider; and all SQL VMs should be registered with SQL VM RP for license compliance.
+You can only change the license type of a SQL Server VM as PAYG or AHB if the SQL VM is registered with SQL VM resource provider; and all SQL VMs should be registered with SQL VM resource provider for license compliance.
 
 ## Remarks
 

@@ -215,11 +215,11 @@ The previous command confirms the agent is installed and provides general status
    ```
 
 ## Removal
-In the Azure portal, you can uninstall the extension by clicking the ellipsis on the **Extensions** window of your virtual machine properties. Then click **Delete**.
+You can uninstall the extension n the Azure portal by selecting the ellipsis on the **Extensions** window of your virtual machine properties. Then select **Delete**.
 
 ![Uninstall the SQL Server IaaS Agent Extension in Azure portal](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 
-You can also use the **Remove-AzVMSqlServerExtension** PowerShell cmdlet.
+You can also use the **Remove-AzVMSqlServerExtension** PowerShell cmdlet: 
 
    ```powershell-interactive
     Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"

@@ -221,7 +221,7 @@ If your SQL Server VM is self-installed, not provisioned from the SQL images on 
 
 **What is the default SQL management mode when registering with SQL VM resource provider?**
 
-The default SQL management mode when registering with SQL VM RP is _Full_. If SQL Management property is not set when registering with SQL VM resource provider, then the mode will be set as Full Manageability. Having SQL IaaS Extension installed on the VM is the prerequisite to registering with SQL VM resource provider in Full Manageability mode.
+The default SQL management mode when registering with SQL VM resource provider is _Full_. If SQL Management property is not set when registering with SQL VM resource provider, then the mode will be set as Full Manageability. Having SQL IaaS Extension installed on the VM is the prerequisite to registering with SQL VM resource provider in Full Manageability mode.
 
 **What are the prerequisites to register with SQL VM resource provider?**
 
@@ -249,7 +249,7 @@ No. SQL management mode property is only available when registering with SQL VM 
 
 **Can I register with SQL VM resource provider without specifying the SQL license Type?**
 
-No. SQL license type is not an optional property when registering with SQL VM RP. You have to set SQL license type as PAYG or AHUB when registering with SQL VM resource provider in all manageability modes (no-agent, lightweight and Full) both with AZ CLI and PowerShell.
+No. SQL license type is not an optional property when registering with SQL VM resource provider. You have to set SQL license type as PAYG or AHUB when registering with SQL VM resource provider in all manageability modes (no-agent, lightweight and Full) both with AZ CLI and PowerShell.
 
 **Can I upgrade the SQL IaaS Extension from no-agent mode to Full mode?**
 
@@ -279,7 +279,7 @@ Yes. SQL VM resource provider will register only one SQL instance. SQL VM resour
 
 Yes. SQL FCI instances on an Azure VM can be registered with SQL VM resource provider in lightweight mode. However, SQL FCI instances cannot be upgraded to full manageability mode.
 
-**Can I register my VM with SQL VM RP if Always ON availability group is configured?**
+**Can I register my VM with SQL VM resource provider if Always ON availability group is configured?**
 
 Yes. There are no restrictions to registering a SQL Server instance on an Azure VM with SQL VM resource provider if participating in an Always ON availability group configuration.
 
