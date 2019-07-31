@@ -584,7 +584,7 @@
       href: ssis-integration-runtime-ssis-activity-faq.md
 - name: Scenarios
   items:
-  - name: Data migration for data lake & data warehouse
+  - name: Data migration for data lake & EDW
     items:
     - name: Why Azure Data Factory
       href: data-migration-guidance-overview.md
