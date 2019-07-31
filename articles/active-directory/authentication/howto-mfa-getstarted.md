@@ -358,6 +358,9 @@ Now that you have planned your solution, you can implement by following the step
 1. Send user communications and get users to enroll at [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Keep track of who’s enrolled](#identify-non-registered-users)
 
+> [!TIP]
+> Government cloud users can enroll at [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
+
 ## Manage your solution
 
 Reports for Azure MFA

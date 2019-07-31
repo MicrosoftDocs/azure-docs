@@ -54,7 +54,7 @@ This tutorial also uses data from the sample application's Time Series Insights 
 1. Create a directory to store your application project files. Then, go to each of the following URLs. Right-click the **Raw** link in the upper-right corner of the page, and then select **Save as** to save the files in your project directory.
 
    - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): the HTML and JavaScript for the page
-   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): the CSS style sheet
+   - [*sampleStyles.css*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): the CSS style sheet
 
    > [!NOTE]
    > Depending on the browser, you might need to change the file extensions to .html or .css before you save the file.
