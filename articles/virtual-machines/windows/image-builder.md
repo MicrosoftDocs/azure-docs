@@ -81,7 +81,7 @@ Create a variable for your subscription ID. You can get this using `az account s
 subscriptionID=<Your subscription ID>
 ```
 ## Create a resource group
-This is going to be used to store the image configuration template artifact	 and the image.
+This resource group is used to store the image configuration template artifact and the image.
 
 
 ```azurecli-interactive
@@ -140,16 +140,16 @@ az resource create \
     -n helloImageTemplateWin01
 ```
 
-When complete, this will return a success message back to the console, and create an `Image Builder Configuration Template` in the `$imageResourceGroup`. You can see this resource in the resource gorup in the Azure portal, if you enable 'Show hidden types'.
+When complete, this will return a success message back to the console, and create an `Image Builder Configuration Template` in the `$imageResourceGroup`. You can see this resource in the resource group in the Azure portal, if you enable 'Show hidden types'.
 
-In the background, Image Builder will also create a staging resource group in your subcription. This resource group is used for the image build. It will be in this format: `IT_<DestinationResourceGroup>_<TemplateName>`
+In the background, Image Builder will also create a staging resource group in your subscription. This resource group is used for the image build. It will be in this format: `IT_<DestinationResourceGroup>_<TemplateName>`
 
 > [!Note]
 > You must not delete the staging resource group directly. First delete the image template artifact, this will cause the staging resource group to be deleted.
 
 If the service reports a failure during the image configuration template submission:
 -  Review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) steps. 
-- You will need to delete the tempate, using the following snippet, before you retry submission.
+- You will need to delete the template, using the following snippet, before you retry submission.
 
 ```azurecli-interactive
 az resource delete \
@@ -158,7 +158,7 @@ az resource delete \
     -n helloImageTemplateLinux01
 ```
 
-## Start the image build.
+## Start the image build
 Start the image building process using [az resource invoke-action](/cli/azure/resourceaz-resource-invoke-action).
 
 ```azurecli-interactive
