@@ -125,10 +125,11 @@ Content-Length: 54
 
 If you need to record the entire IP address rather than just the first three octets, you can use a [telemetry initializer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) to copy the IP address to a custom field that will not be masked.
 
-### ASP.NET
+### ASP.NET / ASP.NET Core
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 
 namespace MyWebApp
@@ -137,15 +138,20 @@ namespace MyWebApp
     {
         public void Initialize(ITelemetry telemetry)
         {
-            if(!string.IsNullOrEmpty(telemetry.Context.Location.Ip))
+            ISupportProperties propTelemetry = telemetry as ISupportProperties;
+
+            if (propTelemetry !=null && !propTelemetry.Properties.ContainsKey("client-ip"))
             {
-                telemetry.Context.Properties["client-ip"] = telemetry.Context.Location.Ip;
+                string clientIPValue = telemetry.Context.Location.Ip;
+                propTelemetry.Properties.Add("client-ip", clientIPValue);
             }
         }
-    }
-
+    } 
 }
 ```
+
+> [!NOTE]
+> If you are unable to access `ISupportProperties`, check and make sure you are running the latest stable release of the ASP.NET Core SDK. `ISupportProperties` are intended for high cardinality values, whereas `GlobalProperties` are more appropriate for low cardinality values like region name, environment name, etc. 
 
 ### Enable telemetry initializer for .ASP.NET
 
@@ -166,34 +172,6 @@ namespace MyWebApp
 }
 
 ```
-
-### ASP.NET Core
-
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.DataContracts;
-using Microsoft.ApplicationInsights.Extensibility;
-
-namespace MyWebApp
-{
-    public class CloneIPAddress : ITelemetryInitializer
-    {
-        public void Initialize(ITelemetry telemetry)
-        {
-            ISupportProperties propTelemetry = (ISupportProperties)telemetry;
-
-            if (!propTelemetry.Properties.ContainsKey("client-ip"))
-            {
-                string clientIPValue = telemetry.Context.Location.Ip;
-                propTelemetry.Properties.Add("client-ip", clientIPValue);
-            }
-        }
-    }
-}
-```
-
-> [!NOTE]
-> If you are unable to access `ISupportProperies`, check and make sure you are running the latest stable release of the ASP.NET Core SDK. `ISupportProperties` are intended for high cardinality values, whereas `GlobalProperies` are more appropriate for low cardinality values like Region name, environment name, etc. 
 
 ### Enable telemetry initializer for ASP.NET Core
 
