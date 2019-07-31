@@ -73,7 +73,7 @@
     - name: .NET
       href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideo?view=azure-dotnet
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/videosearch?view=azure-java-stable
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvideosearch?view=azure-java-stable
     - name: Python 
       href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python
     - name: Node.js 
@@ -102,6 +102,7 @@
   - name: Try it!
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
   - name: Analytics for Bing Video Search API
-    href: bing-video-stats.md
+    maintainContext: true
+    href: ../bing-web-search/bing-web-stats.md
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
