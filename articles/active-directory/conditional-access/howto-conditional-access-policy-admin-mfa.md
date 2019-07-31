@@ -1,12 +1,12 @@
 ---
-title: 
-description: 
+title: Conditional Access: Require MFA for administrators
+description: Create a custom Conditional Access policy to require administrators to perform multi-factor authentication
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 
+ms.date: 07/30/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,65 +15,57 @@ ms.reviewer: calebb, rogoya
 
 ms.collection: M365-identity-device-management
 ---
-# Require MFA for Admins
+# Conditional Access: Require MFA for administrators
 
-Require MFA for Admins is a baseline policy that requires multi-factor authentication (MFA) for the following directory roles, which are considered some of the most privileged Azure AD roles:
-1.	Global Administrator
-2.	SharePoint Administrator
-3.	Exchange Administrator
-4.	Conditional Access Administrator
-5.	Security Administrator
-6.	Helpdesk Administrator/Password Administrator
-7.	Billing Administrator
-8.	User Administrator
-Below is how you can configure Require MFA for Admins using Conditional Access.
-Step 1: Creating A New Policy
-Navigate to the Conditional Access blade and select New policy
- 
+Accounts that are assigned administrative rights are targeted by attackers. Requiring multi-factor authentication (MFA) on those accounts is an easy way to reduce the risk of those accounts being compromised.
 
- 
+Microsoft recommends you require MFA on the following roles at a minimum:
 
+* Global administrator
+* SharePoint administrator
+* Exchange administrator
+* Conditional Access administrator
+* Security administrator
+* Helpdesk (Password) administrator
+* Billing administrator
+* User administrator
 
+Organizations can choose to include or exclude roles as they see fit.
 
- 
-Step 2: Naming and Selecting the Administrator Roles
-Name your Conditional Access policy “Require MFA for Admins” or something similar. To mimick Baseline Protection, your CA policy must apply to the above eight AAD administrator roles. 
-To do so, select Users and groups. Under the Include tab, choose Select users and group and check the Directory roles box. Using the dropdown menu, select the below eight AAD administrator roles:
-1.	Global Administrator
-2.	SharePoint Administrator
-3.	Exchange Administrator
-4.	Conditional Access Administrator
-5.	Security Administrator
-6.	Helpdesk Administrator/Password Administrator
-7.	Billing Administrator
-8.	User Administrator
+## User exclusions
 
- 
- 
-If you have users that are assigned one of these eight roles that need to be excluded from this policy, click the Exclude tab and select the users that need to be excluded from the policy. 
- 
- 
-Once you’re done defining your user exclusions, you have successfully defined the administrators this policy will apply to. Click Done to move on. 
- 
+Conditional Access policies are powerful tools, we recommend excluding the following accounts from your policy:
 
- 
-Step 3: Selecting Policy Scope  
-Baseline policy: Require MFA for Admins applies to all cloud applications. To configure the equivalent using CA, select the Cloud apps or actions and set the toggle at the top to Cloud apps. Under the Include tab, select All cloud apps. If you have applications that you don’t want to require MFA for, use the Exclude tab to remove these applications from the policy.
-Click Done once you’ve completed selecting the Cloud applications this policy will apply to. 
- 
+* **Emergency access** or **break-glass** accounts to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant take steps to recover access.
+   * More information can be found in the article, [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md).
+* **Service accounts** and **service principles**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services and allow programmatic access to applications. Service accounts should be excluded since MFA can’t be completed programmatically.
+   * If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md). As a temporary workaround, you can exclude these specific accounts from the baseline policy.
 
- 
-Step 4: Defining Client Apps
-The goal of the Require MFA for Admins policy is to challenge privileged AAD administrators every single time they sign-in. We need to ensure that regardless of which protocol or client app the administrator is logging in from, the administrator will be challenged for MFA. 
-Click on Conditions -> Client apps and then set the Configure toggle at the top of the blade to Yes. The following checkboxes will appear. Make sure you have the following selected. Once complete, click Done.
-  
- 
-Step 5: Defining Access Controls
-Now that we have your conditions defined, we need to define our Access controls. Select Grant and choose Grant access. Many different options will appear. Since the policy requires administrators to perform MFA every single time they sign in, select the first option: Require multi-factor authentication. 
-Click Select to save your selection and move on. 
- 
- 
-Step 6: Enabling Policy
-Now you’ve completed configuring your policy. To enable it, set the Enable policy toggle to On. Click Create and you’ve now created a CA policy for Require MFA for Admins. 
- 
- 
+## Create a Conditional Access policy
+
+The following steps will help create a Conditional Access policy to require those assigned administrative roles to perform multi-factor authentication.
+
+1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Browse to **Azure Active Directory** > **Conditional Access**.
+1. Select **New policy**.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+1. Under **Assignments**, select **Users and groups**
+   1. Under **Include**, select **Directory roles (preview)** and choose the following roles at a minimum:
+      * Global administrator
+      * SharePoint administrator
+      * Exchange administrator
+      * Conditional Access administrator
+      * Security administrator
+      * Helpdesk (Password) administrator
+      * Billing administrator
+      * User administrator
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   1. Select **Done**.
+1. Under **Cloud apps or actions** > **Include**, select **All cloud apps** and select **Done**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+1. Set **Enable policy** to **On**.
+1. Select **Create** to create and enable your policy.
+
+## Next steps
+
+[Conditional Access policy templates](howto-conditional-access-policy-templates.md)

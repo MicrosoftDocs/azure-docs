@@ -1,6 +1,6 @@
 ---
 title: 
-description: 
+description: Create a custom Conditional Access policy to 
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,8 @@ ms.reviewer: calebb, rogoya
 
 ms.collection: M365-identity-device-management
 ---
-# Risk-based MFA Policy – P2 license required
+# Conditional Access: Risk-based multi-factor authentication
+
 Along with protecting tenant administrators and privileged actions, the rest of the users in your tenant need to be protected as well. We recommend using a risk based MFA policy to help protect all of your users with MFA while striking a balance between usability and security. 
 Note: An Azure AD P2 license is required to configure these policies. Additionally, the risk configurations explained in the walkthrough is simply a recommendation. Please configure policies specific to the security needs of your environment.
 The below tutorial explains how to configure policies using Azure AD Identity Protection that accomplish the below recommendations:

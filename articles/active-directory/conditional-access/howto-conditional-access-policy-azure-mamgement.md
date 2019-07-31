@@ -1,6 +1,6 @@
 ---
 title: 
-description: 
+description: Create a custom Conditional Access policy to 
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,8 @@ ms.reviewer: calebb, rogoya
 
 ms.collection: M365-identity-device-management
 ---
-# Require MFA for Service Management
+# Conditional Access: Require MFA for Azure management
+
 Organizations use a variety of Azure services and manage them from Azure Resource Manager based tools like:
 •	Azure portal
 •	Azure PowerShell

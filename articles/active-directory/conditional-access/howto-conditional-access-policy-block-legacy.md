@@ -1,6 +1,6 @@
 ---
 title: 
-description: 
+description: Create a custom Conditional Access policy to 
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,8 @@ ms.reviewer: calebb, rogoya
 
 ms.collection: M365-identity-device-management
 ---
-# Block Legacy Authentication
+# Conditional Access: Block legacy authentication
+
 The Block legacy authentication (preview) baseline policy blocks authentication requests that are made using legacy protocols. Modern authentication must be used to successfully sign in for all users. Used in conjunction with the other baseline policies, requests coming from legacy protocols will be blocked. This policy does not block Exchange ActiveSync.
 Baseline policy: Block legacy authentication applies tenant wide to all users. Before configuring and enabling this policy, ensure that all your users are using modern authentication supported applications and are not dependent on legacy protocols.
 

@@ -1,6 +1,6 @@
 ---
 title: 
-description: 
+description: Create a custom Conditional Access policy to 
 
 services: active-directory
 ms.service: active-directory
