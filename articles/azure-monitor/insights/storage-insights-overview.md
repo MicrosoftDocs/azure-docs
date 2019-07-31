@@ -33,6 +33,9 @@ Azure Monitor for Storage are several Azure Monitor workbooks tied together, whi
 
 This feature does not require you to enable or configure anything, the metrics are already collected by default. If you are unfamiliar with the comprehensive set of metrics available with Azure Storage and need a description of their purpose and how to interpret their values, review [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
+>[!NOTE]
+>There is no charge to access this feature and you will only be charged for the Azure Monitor  as outlined here - https://azure.microsoft.com/en-us/pricing/details/monitor/  
+
 ## View from Azure Monitor
 
 From Azure Monitor, you can view utilization and capacity details for multiple storage accounts in your subscription, and identify performance or capacity problems quickly before they affect your applications.
