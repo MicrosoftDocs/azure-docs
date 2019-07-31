@@ -171,8 +171,8 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-### Define access mode in Resource Manager template
-To configure the access mode in an Azure Resource Manager template, set the **enableLogAccessUsingOnlyResourcePermissions** feature flag on the workspace to one of the following values.
+### Define access control mode in Resource Manager template
+To configure the access control mode in an Azure Resource Manager template, set the **enableLogAccessUsingOnlyResourcePermissions** feature flag on the workspace to one of the following values.
 
 - **false**: Set the workspace to workspace-centric permissions. This is the default setting if the flag isn't set.
 - **true**: Set the workspace to resource-centric permissions.
