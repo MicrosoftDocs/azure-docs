@@ -7,7 +7,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 07/31/2019
 ms.author: normesta
 
 ---
@@ -96,7 +96,7 @@ The following table lists all other features and tools that are not yet supporte
 | **Blobfuse** |Not yet supported|
 | **Custom domains** |Not yet supported|
 | **File System Explorer** | Limited support |
-| **Diagnostic logging** |Supported only if you enroll in the [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview.|
+| **Diagnostic logging** |Diagnostic logs are supported only if you enroll in the [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview, and then use PowerShell to enable them. Enabling logs by using other tools, such as Azure portal, is not yet supported. <br><br>This PowerShell command enables diagnostic logs: <br>`Set-AzureStorageServiceLoggingProperty -ServiceType blobs -LoggingOperations read,write,delete -RetentionDays 5`. <br><br>For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-2.5.0).
 | **Immutable storage** |Not yet supported <br><br>Immutable storage gives the ability to store data in a [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) state.|
 | **Object-level tiers** |Cool and archive tiers are supported only if you enroll in the [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview. <br><br> All other access tiers are not yet supported.|
 | **Powershell and CLI support** | Limited functionality <br><br>Management operations such as creating an account is supported. Data plane operations such as uploading and downloading files is in public preview as part of [multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md). Working with directories and setting access control lists (ACLs) is not yet supported. |
