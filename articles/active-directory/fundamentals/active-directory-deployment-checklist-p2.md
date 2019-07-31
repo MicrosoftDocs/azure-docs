@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: 
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/29/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer:
+ms.reviewer: martinco
 
 ms.collection: M365-identity-device-management
 ---
@@ -68,7 +68,8 @@ Next, we add to the foundation laid in phase 1 by importing our users and enabli
 | [Assign licenses to users by group membership in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Save time and effort by creating licensing groups that enable or disable features by group instead of setting per user. | |
 | [Create a plan for guest user access](../b2b/what-is-b2b.md) | Collaborate with guest users by letting them sign in to your apps and services with their own work, school, or social identities. | [Azure AD B2B licensing guidance](../b2b/licensing-guidance.md) |
 | [Decide on device management strategy](../devices/overview.md) | Decide what your organization allows regarding devices. Registering vs joining, Bring Your Own Device vs company provided. | |
-| [Deploy Windows Hello for Business in your organization](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepare for password-less authentication using Windows Hello | |
+| [Deploy Windows Hello for Business in your organization](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepare for passwordless authentication using Windows Hello | |
+| [Deploy passwordless authentication methods for your users](../authentication/concept-authentication-passwordless.md) | Provide your users with convenient passwordless authentication methods | Azure AD Premium P1 |
 
 ## Phase 3: Manage applications
 
