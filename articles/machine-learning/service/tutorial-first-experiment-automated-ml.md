@@ -15,7 +15,7 @@ ms.date: 07/23/2019
 
 # Tutorial: Train and deploy a classification model with automated machine learning in the Azure portal (Preview)
 
-In this tutorial, you learn how to create your first automated machine learning experiment in the Azure portal. This example  creates a classification model to predict whether or not a client will subscribe to a term deposit with the bank.
+In this tutorial, you learn how to create your first automated machine learning experiment in the Azure portal. This example creates a classification model to predict whether a client will subscribe to a term deposit with the bank.
 
 By using the automated machine learning capabilities of the service and the Azure portal, you begin the automated machine learning process. The algorithm selection and hyperparameter tuning is done for you. The automated machine learning technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion, all without you writing a single line of code.
 
@@ -162,4 +162,4 @@ In this automated machine learning tutorial, you used the Azure portal to create
 
 >[!NOTE]
 > This Bank Marketing dataset is made available under the [Creative Commons (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Any rights in individual contents of the database are licensed under the [Database Contents License](https://creativecommons.org/publicdomain/zero/1.0/) and available on [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). This dataset was originally available within the [UCI Machine Learning Database](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
->  Please cite the following work: <br> [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014.
+> Please cite the following work: <br> [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014.
