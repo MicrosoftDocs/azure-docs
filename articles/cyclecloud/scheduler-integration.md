@@ -10,6 +10,16 @@ ms.author: adjohnso
 
 The Azure CycleCloud platform has built-in, first-class support for several grid scheduling software solutions allowing for simplified resource and job management in the cloud. Azure CycleCloud can automatically create, manage, and scale several well known and widely adopted scheduling technologies including but not limited to: [Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net), [HTCondor](https://research.cs.wisc.edu/htcondor/), and [PBS Professional](http://pbspro.org/).
 
+## Standard Autoscale Configurations
+
+CycleCloud supports a standard set <autostop-attributes> of autostop attributes across schedulers:
+
+| Attribute                                             | Description                                                                                               |
+| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| cyclecloud.cluster.autoscale.stop_enabled             | Is autostop enabled on this node? true/false                                                              |
+| cyclecloud.cluster.autoscale.idle_time_after_jobs     | The amount of time (in seconds) for a node to sit idle after completing jobs before it is scaled down.    |
+| cyclecloud.cluster.autoscale.idle_time_before_jobs    |   The amount of time (in seconds) for a node to sit idle before completing jobs before it is scaled down. |
+
 ## Open Grid Scheduler (Grid Engine)
 
 [Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net/) can easily be enabled on an azure CycleCloud cluster by modifying the "run_list" in the cluster definition. The two basic components of a Grid Engine cluster are the 'master' node which provides a shared filesystem on which the Grid Engine software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple Grid Engine cluster template snippet may look like:
@@ -204,28 +214,32 @@ The following are the Grid Engine specific configuration options you can toggle 
 | gridengine.root                    | Default: '/sched/sge/sge-2011.11' This is where the Grid Engine will be installed and mounted on every node in the system. It is recommended this value not be changed, but if it is it should be set to the same value on **every** node in the cluster.                                                                                                      |
 
 
-CycleCloud supports a `standard set <autostop-attributes>` of autostop attributes for Grid Engine.
+CycleCloud supports the `standard set <autostop-attributes>` of autostop attributes for Grid Engine.
 
 ## PBS Professional OSS
 
-[PBS Professional OSS (PBS Pro)](http://pbspro.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Professional cluster are the 'master' node which provides a shared filesystem on which the PBS Professional software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
+[PBS Professional OSS (PBS Pro)](http://pbspro.org/) can be enabled on a CycleCloud cluster by adding the
+appropriate _cluster-init specs_. The two basic components of a PBS Professional cluster are the 'master' node which provides a shared filesystem on which the PBS Professional software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
 
 ``` ini
 [cluster my-pbspro]
 
+[[node default]]
+
+    [[[cluster-init cyclecloud/pbspro:default]]]
+
 [[node master]]
     ImageName = cycle.image.centos7
     MachineType = Standard_A4 # 8 cores
-
-    [[[configuration]]]
-    run_list = role[pbspro_master_role]
+    
+    [[[cluster-init cyclecloud/pbspro:master]]]
 
 [[nodearray execute]]
     ImageName = cycle.image.centos7
     MachineType = Standard_A1  # 1 core
 
-    [[[configuration]]]
-    run_list = role[pbspro_execute_role]
+    [[[cluster-init cyclecloud/pbspro:execute]]]
+
 ```
 
 Importing and starting a cluster with definition in CycleCloud will yield a single 'master' node. Execute nodes can be added to the cluster via the `cyclecloud add_node` command. For example, to add 10 more execute nodes:
@@ -234,6 +248,30 @@ Importing and starting a cluster with definition in CycleCloud will yield a sing
 cyclecloud add_node my-pbspro -t execute -c 10
 ```
 
+## PBS Resource-based Autoscaling
+
+Cyclecloud maintains two resources to expand the dynamic provisioning capability.
+These resources are *nodearray* and *machinetype*. 
+
+If you submit a job and specify a nodearray resource by `qsub -l nodearray=highmem -- /bin/hostname ` 
+then CycleCloud will add nodes to the nodearray named 'highmem'. If there is 
+no such nodearray then the job will remain idle.
+
+Similarly if a machinetype resource is specified which a job submission, e.g. 
+`qsub -l machinetype:Standard_L32s_v2 my-job.sh`, then CycleCloud 
+autoscale the 'Standard_L32s_v2' in the 'execute' (default) nodearray. If that 
+machine type is not available in the 'execute' node array then the job will remain
+idle.
+
+These resources can be used in combination as
+
+```bash
+qsub -l nodes=8:ppn=16:nodearray=hpc:machinetype=Standard_HB60rs my-simulation.sh
+```
+which will autoscale only if the 'Standard_HB60rs' machines are specified an the
+'hpc' node array.
+
+
 ## PBS Professional Configuration Reference
 
 The following are the PBS Professional specific configuration options you can toggle to customize functionality:
@@ -241,16 +279,8 @@ The following are the PBS Professional specific configuration options you can to
 | PBS Pro Specific Configuration Options | Description                                                                                                                                                                                                                                                                                                                                                          |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | pbspro.slots                           | The number of slots for a given node to report to PBS Pro. The number of slots is the number of concurrent jobs a node can execute, this value defaults to the number of CPUs on a given machine. You can override this value in cases where you don't run jobs based on CPU but on memory, GPUs, etc.                                                               |
-| pbspro.slot_type                       | The name of type of 'slot' a node provides. The default is 'execute'. When a job is tagged with the hard resource 'slot_type=<type>', that job will *only* run on a machine of the same slot type. This allows you to create different software and hardware configurations per node and ensure an appropriate job is always scheduled on the correct type of node.  |
 | pbspro.version                         | Default: '18.1.3-0'. This is the PBS Professional version to install and run. This is currently the default and *only* option. In the future additional versions of the PBS Professional software may be supported.                                                                                                                                                                    
 
-CycleCloud supports a standard set <autostop-attributes> of autostop attributes for PBS Pro:
-
-| Attribute                                             | Description                                                                                               |
-| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| cyclecloud.cluster.autoscale.stop_enabled             | Is autostop enabled on this node? true/false                                                              |
-| cyclecloud.cluster.autoscale.idle_time_after_jobs     | The amount of time (in seconds) for a node to sit idle after completing jobs before it is scaled down.    |
-| cyclecloud.cluster.autoscale.idle_time_before_jobs    |   The amount of time (in seconds) for a node to sit idle before completing jobs before it is scaled down. |
 
 ## HTCondor
 
