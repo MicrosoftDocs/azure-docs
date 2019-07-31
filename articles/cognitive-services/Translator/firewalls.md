@@ -1,6 +1,6 @@
 ---
 title: Translate behind firewalls - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Translate behind IP firewalls with the Translator Text API.
 services: cognitive-services
 author: swmachan

@@ -1,13 +1,13 @@
 ---
 title: Azure Backup support matrix for Azure VM backup
 description: Provides a summary of support settings and limitations when backing up Azure VMs with the Azure Backup service.
-services: backup
-author: rayne-wiselman
+
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
-ms.author: raynew
+ms.author: dacurwin
 ---
 
 # Support matrix for Azure VM backup
@@ -139,8 +139,7 @@ Restore VM in different virtual network |	Supported.<br/><br/> The virtual netwo
 **Compute** | **Support**
 --- | ---
 VM size |	Any Azure VM size with at least 2 CPU cores and 1-GB RAM.<br/><br/> [Learn more.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
-Back up VMs in [availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability#availability-sets) | Supported.<br/><br/> You can't restore a VM in an available set by using the option to quickly create a VM. Instead, when you restore the VM, restore the disk and use it to deploy a VM, or restore a disk and use it to replace an existing disk.
-Back up VMs in [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview) |	Not supported.
+Back up VMs in [availability sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Supported.<br/><br/> You can't restore a VM in an available set by using the option to quickly create a VM. Instead, when you restore the VM, restore the disk and use it to deploy a VM, or restore a disk and use it to replace an existing disk.
 Back up VMs that are deployed with [Hybrid Use Benefit (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Supported.
 Back up VMs that are deployed in a [scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |	Not supported.
 Back up VMs that are deployed from the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Published by Microsoft, third party) |	Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS). We do not restore the Azure Marketplace VMs backed as VMs, as these needs purchase information but only as Disks.
