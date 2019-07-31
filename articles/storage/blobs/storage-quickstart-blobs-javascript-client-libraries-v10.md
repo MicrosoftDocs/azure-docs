@@ -251,7 +251,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-This code calls the ContainerURL [create](/javascript/api/@azure/storage-blob) and [delete](/javascript/api/@azure/storage-blob/) functions without using an [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) instance. To keep things simple for this quickstart, this code assumes that your storage account has been created and is enabled. In production code, use an Aborter instance to add timeout functionality.
+This code calls the ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-) and [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-) functions without using an [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) instance. To keep things simple for this quickstart, this code assumes that your storage account has been created and is enabled. In production code, use an Aborter instance to add timeout functionality.
 
 ### List blobs
 
@@ -287,7 +287,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-This code calls the [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob) function in a loop to ensure that all segments are retrieved. For each segment, it loops over the list of blob items it contains and updates the **Files** list.
+This code calls the [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#listblobflatsegment-aborter--string--icontainerlistblobssegmentoptions-) function in a loop to ensure that all segments are retrieved. For each segment, it loops over the list of blob items it contains and updates the **Files** list.
 
 ### Upload blobs
 
@@ -315,7 +315,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-This code connects the **Select and upload files** button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](javascript/api/@azure/storage-blob/) function for each file you selected. Each call returns a Promise, which is added to a list so that they can all be awaited at once, causing the files to upload in parallel.
+This code connects the **Select and upload files** button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) function for each file you selected. Each call returns a Promise, which is added to a list so that they can all be awaited at once, causing the files to upload in parallel.
 
 ### Delete blobs
 
@@ -343,7 +343,7 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-This code calls the [BlobURL.delete](/javascript/api/@azure/storage-blob/) function to remove  each file selected in the list. It then calls the `listFiles` function shown earlier to refresh the contents of the **Files** list.
+This code calls the [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) function to remove  each file selected in the list. It then calls the `listFiles` function shown earlier to refresh the contents of the **Files** list.
 
 ### Run and test the web application
 
