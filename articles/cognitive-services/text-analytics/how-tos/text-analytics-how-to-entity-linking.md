@@ -92,7 +92,7 @@ Document size must be under 5,120 characters per document, and you can have up t
 
 Details on request definition can be found in [How to call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
 
-+ Create a **POST** request. Review the API documentation for this request: [Entity Linking API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
++ Create a **POST** request. Review the API documentation for this request: [Entities API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
 + Set the HTTP endpoint for entity extraction. It must include the `/entities` resource: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
