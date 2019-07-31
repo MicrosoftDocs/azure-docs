@@ -21,17 +21,20 @@ The [example Azure Machine Learning Notebooks repository](https://github.com/azu
 
 This article shows you how to access the repository from the following environments:
 
-- [Azure Machine Learning Notebook VM](#azure-machine-learning-notebook-vm)
-- [Bring your own notebook server](#bring-your-own-jupyter-notebook-server)
-- [Data Science Virtual Machine](#data-science-virtual-machine)
-- [Azure Notebooks](#azure-notebooks)
+- [Azure Machine Learning Notebook VM](#notebookvm)
+- [Bring your own notebook server](#byo)
+- [Data Science Virtual Machine](#dsvm)
+- [Azure Notebooks](#aznb)
 
 > [!NOTE]
 > Once you've cloned the repository, you'll find tutorial notebooks in the **tutorials** folder and feature-specific notebooks in the **how-to-use-azureml** folder.
 
+<a name="notebookvm"></a>
 ## Get samples on Azure Machine Learning Notebook VM
 
 The easiest way to get started with the samples is to complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the sample repository. No downloads or installation necessary.
+
+<a name="byo"></a>
 
 ## Get samples on your notebook server
 
@@ -41,12 +44,14 @@ If you'd like to bring your own notebook server for local development, follow th
 
 These instructions install the base SDK packages necessary for the quickstart and tutorial notebooks. Other sample notebooks may require you to install extra components. For more information, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
 
+<a name="dsvm"></a>
 ## Get samples on DSVM
 
 The Data Science Virtual Machine (DSVM) is a customized VM image built specifically for doing data science. If you [create a DSVM](how-to-configure-environment.md#dsvm), the SDK and notebook server are installed and configured for you. However, you'll still need to create a workspace and clone the sample repository.
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
+<a name="aznb"></a>
 ## Get samples on Azure Notebooks
 
 On [Azure Notebooks](https://notebooks.azure.com/), the SDK and notebook server are installed and configured for you. Azure Notebooks provides a fully-managed, lightweight notebook environment for you to explore.
