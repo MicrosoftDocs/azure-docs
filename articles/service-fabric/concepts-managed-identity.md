@@ -2,7 +2,7 @@
 title: Service Fabric -Managed Identiy overview | Microsoft Docs
 description: This article is an overview of MITS.
 services: service-fabric
-author: atsenthi 
+author: athinanthny 
 
 ms.service: service-fabric
 ms.topic: conceptual 

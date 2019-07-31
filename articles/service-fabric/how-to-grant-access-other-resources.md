@@ -2,7 +2,7 @@
 title: Service Fabric - Grant Service Fabric app access to other Azure resources| Microsoft Docs
 description: This article explains how to grant your Service Fabric application access to other Azure resources
 services: service-fabric
-author: Nickomang
+author: athinanthny
 
 ms.service: service-fabric
 ms.devlang: dotnet
