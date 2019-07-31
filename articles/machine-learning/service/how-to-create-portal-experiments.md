@@ -1,7 +1,7 @@
 ---
-title: Create and explore experiments in Portal
+title: Use automated ML to build and deploy machine learning models
 titleSuffix: Azure Machine Learning service
-description: Create and manage automated machine learning experiments in the Azure portal
+description: Create, manage and deploy automated machine learning experiments in the Azure portal
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 08/02/2019
 
 ---
 
-# Create and explore automated machine learning experiments in the Azure portal (Preview)
+# Create, explore and deploy automated machine learning experiments in the Azure portal (Preview)
 
  In this article, you learn how to create, run, and explore automated machine learning experiments in the Azure portal without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
 
@@ -100,22 +100,25 @@ Select **Create Experiment** and populate the **Create a new automated machine l
 
 You can get a vast variety of summary statistics across your data set to verify whether your data set is ML-ready. For non-numeric columns, they include only basic statistics like min, max, and error count. For numeric columns, you can also review their statistical moments and estimated quantiles. Specifically, our data profile includes:
 
-Advanced settings|Description
+>[!NOTE]
+> Blank entries appear for features with irrelevant types.
+
+Statistic|Description
 ------|------
 Feature| Name of the column that is being summarized.
 Profile| In-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
 Type distribution| In-line value count of types within a column. Nulls are their own type, so this visualization is useful for detecting odd or missing values.
 Type|Inferred type of the column. Possible values include: strings, booleans, dates, and decimals.
 Min| Minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (e.g. booleans).
-Max| Maximum value of the column. Like "min," blank entries appear for features with irrelevant types.
+Max| Maximum value of the column. 
 Count| Total number of missing and non-missing entries in the column.
 Not missing count| Number of entries in the column that are not missing. Empty strings and errors are treated as values, so they will not contribute to the "not missing count."
-Quantiles| Approximated values at each quantile to provide a sense of the distribution of the data. Blank entries appear for features with irrelevant types.
-Mean| Arithmetic mean of the column. Blank entries appear for features with irrelevant types.
-Standard deviation| Standard deviation of the column. Blank entries appear for features with irrelevant types.
-Variance| Variance of the column. Blank entries appear for features with irrelevant types.
-Skewness| Skewness of the column. Blank entries appear for features with irrelevant types.
-Kurtosis| Kurtosis of the column. Blank entries appear for features with irrelevant types.
+Quantiles| Approximated values at each quantile to provide a sense of the distribution of the data.
+Mean| Arithmetic mean or average of the column.
+Standard deviation| Measure of the amount of dispersion or variation of this column's data.
+Variance| Measure of how far spread out this column's data is from its average value. 
+Skewness| Measure of how different this column's data is from a normal distribution.
+Kurtosis| Measure of how heavily tailed this column's data is compared to a normal distribution.
 
 <a name="preprocess"></a>
 
@@ -153,15 +156,15 @@ Drill down on any of the output models to see training run details, like perform
 
 ![Iteration details](media/how-to-create-portal-experiments/iteration-details.png)
 
-## Deploy model
+## Deploy your model
 
 Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
 
 Automated ML helps you with deploying the model without writing code:
 
-1. You have a few options for deployment. 
-   Choose the model to deploy:
-      + Option 1: To deploy the best model (according to the metric criteria you defined), select Deploy Best Model from the Run Detail page.
+1. You have a couple options for deployment. 
+
+    + Option 1: To deploy the best model (according to the metric criteria you defined), select Deploy Best Model from the Run Detail page.
 
     + Option 2: To deploy a specific model iteration from this experiment, drill down on the model to open its run detail page and select Deploy Model.
 1. Populate the **Deploy Model** pane,
@@ -185,7 +188,7 @@ Now you have an operational web service to generate predictions!
 
 ## Next steps
 
-* Try the end to end [tutorial](tutorial-first-experiment-automated-ml.md). 
+* Try the end to end [tutorial for creating your first automated ML experiment with Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
 * [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn how to consume a web service](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).
