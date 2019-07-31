@@ -1,6 +1,6 @@
 ---
 title: What's new in Azure Site Recovery | Microsoft Docs
-description: Provides an summary of new features introduced in Azure Site Recovery
+description: Provides a summary of new features introduced in Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -14,6 +14,10 @@ The [Azure Site Recovery](site-recovery-overview.md) service is updated and impr
 
 If you have suggestions for Site Recovery features, we'd love to [hear your feedback](https://feedback.azure.com/forums/256299-site-recovery).
 
+
+## Installing updates
+
+[Review this article](service-updates-how-to.md) for Site Recovery update support and instructions.
 
 ## Updates (July 2019)
 
@@ -109,7 +113,7 @@ Features added this month are summarized in the table.
 **Feature** | **Details**
 --- | ---
 **Managed disks** | Replication of on-premises VMware VMs and physical servers is now directly to managed disks in Azure. On-premises data is sent to a cache storage account in Azure, and recovery points are created in managed disks in the target location. This ensures you don't need to manage multiple target storage accounts.
-**Configuration server** | Site Recovery now supports a configuration servers with multiple NICs. You must add additional adapters to the configuration server VM before you register the configuration server in the vault. If you add afterwards, you need to re-register the server in the vault.
+**Configuration server** | Site Recovery now supports configuration servers with multiple NICs. Add additional adapters to the configuration server VM before you register the configuration server in the vault. If you add afterwards, you need to re-register the server in the vault.
 
 
 ## Updates (February 2019)
@@ -158,7 +162,7 @@ Features added this month are summarized in the table.
 
 ### Accelerated networking (Azure VMs)
 
-Accelerated networking enable single root I/O virtualization (SR-IOV) to a VM, improving networking performance. When you enable replication for an Azure VM, Site Recovery detects whether accelerated networking is enabled. If it is, after failover Site Recovery automatically configures accelerated networking on the target replica Azure VM, for both [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) and [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, improving networking performance. When you enable replication for an Azure VM, Site Recovery detects whether accelerated networking is enabled. If it is, after failover Site Recovery automatically configures accelerated networking on the target replica Azure VM, for both [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) and [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
@@ -282,7 +286,7 @@ Features added this month are summarized in the table.
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup).
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
-### Azure VMs disaster recovery 
+### Azure VM disaster recovery 
 Features added this month are summarized in the table.
 
 **Feature** | **Details**
@@ -311,7 +315,7 @@ Features added this month are summarized in the table.
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup).
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
-### Azure VMs disaster recovery 
+### Azure VM disaster recovery 
 
 Features added this month are summarized in the table.
 
