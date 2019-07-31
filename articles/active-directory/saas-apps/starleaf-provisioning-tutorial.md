@@ -89,9 +89,6 @@ To configuring StarLeaf for automatic user provisioning with Azure AD, you need 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in StarLeaf based on user and/or group assignments in Azure AD.
 
-> [!TIP]
-> You may also choose to enable SAML-based single sign-on for StarLeaf , following the instructions provided in the [StarLeaf Single sign-on tutorial](starleaf-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
-
 ## To configure automatic user provisioning for StarLeaf in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
