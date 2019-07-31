@@ -123,4 +123,4 @@ In this quickstart, you created a Truffle project to connect to your Azure Block
 Try the next tutorial to use Azure Blockchain Development Kit for Ethereum and Truffle to execute a smart contract function via a transaction on a consortium blockchain network.
 
 > [!div class="nextstepaction"]
-> [Send a transaction](send-transaction.md)
+> [Use smart contracts on Azure Blockchain Service](send-transaction.md)
