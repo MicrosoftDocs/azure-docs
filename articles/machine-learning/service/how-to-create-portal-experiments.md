@@ -1,7 +1,7 @@
 ---
 title: Create and explore experiments in Portal
 titleSuffix: Azure Machine Learning service
-description: Learn how to create and manage automated machine learning experiments in portal
+description: Create and manage automated machine learning experiments in the Azure portal
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -32,27 +32,19 @@ Navigate to the left pane of your workspace. Select Automated Machine Learning u
 
 ![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)
 
- If this is your first time doing any experiments with Automated Machine Learning, you'll see the following:
+ If this is your first time doing any experiments you'll see the Welcome to Automated Machine Learning screen. 
 
-![Azure portal experiment landing page](media/how-to-create-portal-experiments/landing-page.png)
-
-Otherwise, you will see your Automated machine learning dashboard with an overview of all of your automated machine learning experiments, including those created with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
-
-![Azure portal experiment dashboard](media/how-to-create-portal-experiments/dashboard.png)
+Otherwise, you'll see your Automated machine learning dashboard with an overview of all of your automated machine learning experiments, including those created with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
 
 ## Create an experiment
 
-Select the Create Experiment button to populate the following form.
-
-![Create experiment form](media/how-to-create-portal-experiments/create-exp-name-compute.png)
+Select the Create Experiment button and populate the Create a new automated machine learning experiment form.
 
 1. Enter your experiment name.
 
 1. Select a compute for the data profiling and training job. A list of your existing computes is available in the dropdown. To create a new compute, follow the instructions in step 3.
 
-1. Select the Create a new compute button to open the below pane, and configure your compute context for this experiment.
-
-    ![Create new compute for experiment](media/how-to-create-portal-experiments/create-new-compute.png)
+1. Select the Create a new compute button to configure your compute context for this experiment.
 
     Field|Description
     ---|---
@@ -65,11 +57,11 @@ Select the Create Experiment button to populate the following form.
       >[!NOTE]
       > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See 7b for more details on data profiling).
 
-1. Select a storage account for your data. Public preview only supports local file uploads and Azure Blob Storage accounts.
+1. Select a storage account for your data. 
 
 1. Select a storage container.
 
-1. Select a data file from your storage container, or upload a file from your local computer to the container.
+1. Select a data file from your storage container, or upload a file from your local computer to the container. Public preview only supports local file uploads and Azure Blob Storage accounts.
 
     ![Select data file for experiment](media/how-to-create-portal-experiments/select-file.png)
 
@@ -77,11 +69,7 @@ Select the Create Experiment button to populate the following form.
 
     1. On the Preview tab, indicate if your data includes headers, and select the features (columns) for training using the **Included** switch buttons in each feature column.
 
-        ![Data preview](media/how-to-create-portal-experiments/data-preview.png)
-
     1. On the Profile tab, you can view the [data profile](#profile) by feature, as well as the distribution, type, and summary statistics (mean, median, max/min, and so on) of each.
-
-        ![Data profile tab](media/how-to-create-portal-experiments/data-profile.png)
 
         >[!NOTE]
         > The following error message will appear if your compute context is **not** profiling enabled: *Data profiling is only available for compute targets that are already running*.
@@ -105,7 +93,6 @@ Select the Create Experiment button to populate the following form.
     Concurrency| Select the multi-core limits you would like to use when using multi-core compute.
     Blocked algorithm| Select algorithms you want to exclude from the training job.
 
-   ![Advanced settings form](media/how-to-create-portal-experiments/advanced-settings.png)
 
 > [!NOTE]
 > For more information on fields, click the information tool tip.
@@ -195,46 +182,24 @@ Automated ML helps you with deploying the model without writing code:
 
         ![Deploy model button](media/how-to-create-portal-experiments/deploy-model-button2.png)
 
-1. First step is to register the model into the service. Select "Register model" and wait for the registration process to complete.
+1. Populate the **Deploy Best Model** pane,
 
-    ![Deploy model blade](media/how-to-create-portal-experiments/deploy-model-blade.png)
+    Field| Value
+    ----|----
+    Deployment name| Enter a unique name for your deployment.
+    Deployment description| Enter a description to better identify what this deployment is for.
+    Scoring script| Autogenerate or upload your own scoring file. [Learn more about scoring script](how-to-deploy-and-where.md#script)
+    Environment script| Autogenerate or upload your own environment file.
+    >[!Important]
+    > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.
 
-1. Once the model is registered, you'll be able to download the scoring script (scoring.py) and the environment script (condaEnv.yml) to be used during deployment.
+1. Select **Deploy**. Deployment can take about 20 minutes to complete.
 
-1. When the scoring script and the environment script are downloaded, go to the **Assets** blade of the left navigation pane and select **Models**.
+    The following message appears when deployment successfully completes.
 
-    ![Navigation pane models](media/how-to-create-portal-experiments/nav-pane-models.png)
+    ![Deploy complete](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png) 
 
-1. Select the model you registered, and select "Create image".
-
-    You can identify the model by its description, which will include the run ID, iteration number, in the following format: *<Run_ID>_<Iteration_number>_Model*
-
-    ![Models: Create image](media/how-to-create-portal-experiments/model-create-image.png)
-
-1. Enter a name for the image. 
-1. Select the **Browse** button next to the "Scoring File" box to upload the scoring file (scoring.py) you previously downloaded.
-
-1. Select the **Browse** button next to the "Conda File" box to upload the environment file (condaEnv.yml) you previously downloaded.
-
-    You can use your own scoring script and conda file, as well as upload additional files. [Learn more about scoring script](how-to-deploy-and-where.md#script).
-
-      >[!Important]
-      > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.
-
-    ![Create image](media/how-to-create-portal-experiments/create-image.png)
-
-1. Select the "Create" button to start the image creation. This will take a few minutes to complete, once done, you will see a message on the top bar.
-1. Go to the "Images" tab, check the checkbox next to the image you want to deploy, and select "Create deployment". [Learn more about deployments](how-to-deploy-and-where.md).
-
-    There are 2 options for deployment.
-     + Azure Container Instance (ACI) - This is used more for testing purpose rather than operational deployment at scale. Make sure to fill in the values for at least one core for  _CPU Reserve Capacity_, and at least one gigabyte (GB) for _Memory Reserve Capacity_
-     + Azure Kubernetes Service (AKS)) - This option is for deployment at scale. You will need to have an AKS based compute ready.
-
-     ![Images: Create deployment](media/how-to-create-portal-experiments/images-create-deployment.png)
-
-1. When done, select **Create**. Deploying the model can take several minutes for each pipeline to finish running.
-
-1. That's it! You have an operational web service to generate predictions.
+Now you have an operational web service to generate predictions!
 
 ## Next steps
 
