@@ -190,7 +190,7 @@ To validate the migration, use one of the following two methods:
 
 - To search for a user by display name, use the Azure portal:
 
-   1. Open **Azure AD B2C**, and then select **Users and Groups**.
+   1. Open **Azure AD B2C**, and then select **Users**.
 
    1. In the search box, type the user's display name, and then view the user's profile.
 
@@ -225,18 +225,18 @@ After you run the pre-migration process with user passwords, the accounts are re
 
 If you migrate users with a random password, they must reset their password. To help them reset the password, send a welcome email with a link to reset the password.
 
-To get the link to your password reset policy, do the following:
+To get the link to your password reset policy, follow these steps. This procedure assumes you've previously created a password reset [custom policy](active-directory-b2c-get-started-custom.md).
 
-1. Select **Azure AD B2C Settings**, and then select **Reset password** policy properties.
-
-1. Select your application.
+1. Select the directory containing your Azure AD B2C tenant by using the **Directory + subscription** filter in the upper-right section of the [Azure portal](https://portal.azure.com)
+1. Select **Azure AD B2C** in the left-hand menu (or from within **All services**).
+1. Under **Policies**, select **Identity Experience Framework**.
+1. Select your password reset policy. For example, *B2C_1A_PasswordReset*.
+1. Select your application in the **Select application** drop-down.
 
     > [!NOTE]
-    > Run Now requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started][B2C-GetStarted] article or the [Application registration][B2C-AppRegister] article.
+    > **Run now** requires at least one application to be registered in your tenant. To learn how to register applications, see [Tutorial: Register an application in Azure Active Directory B2C][B2C-AppRegister].
 
-1. Select **Run now**, and then check the policy.
-
-1. In the **Run now endpoint** box, copy the URL, and then send it to your users.
+1. Copy the URL shown in the **Run now endpoint** text box, and then send it to your users.
 
     ![Password reset policy page with Run now endpoint highlighted](media/active-directory-b2c-user-migration/pre-migration-policy-uri.png)
 
@@ -329,23 +329,16 @@ After you define the technical profile for your RESTful API, tell your Azure AD 
 ### Step 4.4: Upload the policy to your tenant
 
 1. In the [Azure portal][Portal], switch to the [context of your Azure AD B2C tenant][B2C-NavContext], and then select **Azure AD B2C**.
-
 1. Select **Identity Experience Framework**.
-
 1. Select **All Policies**.
-
 1. Select **Upload Policy**.
-
 1. Select the **Overwrite the policy if it exists** check box.
-
 1. Upload the *TrustFrameworkExtensions.xml* file, and ensure that it passes validation.
 
 ### Step 4.5: Test the custom policy by using Run Now
 
 1. Select **Azure AD B2C Settings**, and then go to **Identity Experience Framework**.
-
 1. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.
-
 1. Try to sign in with one of the migrated users' credentials, and then select **Sign In**. Your REST API should throw the following error message:
 
     ![Sign-in Sign-up page showing the change password error message](media/active-directory-b2c-user-migration/pre-migration-error-message.png)
@@ -355,22 +348,17 @@ After you define the technical profile for your RESTful API, tell your Azure AD 
 You can view and monitor logging information in near-real time.
 
 1. On your RESTful application's settings menu, under **Monitoring**, select **Diagnostic logs**.
-
 1. Set **Application Logging (Filesystem)** to **On**.
-
 1. Set the **Level** to **Verbose**.
-
 1. Select **Save**
 
     ![Diagnostics logs configuration page in Azure portal](media/active-directory-b2c-user-migration/pre-migration-diagnostic-logs.png)
 
 1. On the **Settings** menu, select **Log stream**.
-
 1. Check the output of the RESTful API.
 
 > [!IMPORTANT]
 > Use the diagnostics logs only during development and testing. The RESTful API output might contain confidential information that should not be exposed in production.
->
 
 ## (Optional) Download the complete policy files
 
