@@ -1,5 +1,5 @@
 ---
-title: Connect a Plug and Play device to IoT Central | Microsoft Docs
+title: Connect an IoT Plug and Play device to IoT Central | Microsoft Docs
 description: As a device developer, learn about how to use Visual Studio Code to create and test an IoT Plug and Play device that connects to IoT Central.
 author: dominicbetts
 ms.author: dobett
@@ -13,7 +13,7 @@ manager: philmea
 # As, an operator, I want to configure a real device to connect to my IoT Central application. As a device developer, I want to use Visual Studio Code to create and test an IoT Plug and Play device that connects to my IoT Central application.
 ---
 
-# Use Visual Studio Code to create a IoT Plug and Play device that connects to IoT Central
+# Use Visual Studio Code to create an IoT Plug and Play device that connects to IoT Central
 
 This how-to guide shows you how:
 
@@ -38,7 +38,7 @@ In this guide, you learn how to:
 
 ## Prerequisites
 
-To test your device code in this guide, you need an IoT Central application created from the Plug and Play application template. If you don't already have an IoT Central application to use, complete the quickstart [Create an Azure IoT Central application (preview features)](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json):
+To test your device code in this guide, you need an IoT Central application created from the **Preview** application template. If you don't already have an IoT Central application to use, complete the quickstart [Create an Azure IoT Central application (preview features)](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json):
 
 To work with the device capability model in this guide, you need:
 

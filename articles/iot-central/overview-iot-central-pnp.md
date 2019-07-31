@@ -16,7 +16,7 @@ manager: timlt
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 > [!WARNING]
-> The Plug and Play capabilities in Azure IoT Central are currently in public preview. Don't use a Plug and Play enabled IoT Central application for production workloads. For production environments use an IoT central application created from a current, generally available, application template.
+> The IoT Plug and Play capabilities in Azure IoT Central are currently in public preview. Don't use an IoT Plug and Play enabled IoT Central application for production workloads. For production environments use an IoT central application created from a current, generally available, application template.
 
 Azure IoT Central is a fully managed IoT software-as-a-service solution that makes it easy to create products that connect the physical and digital worlds. You can bring your connected product vision to life by:
 

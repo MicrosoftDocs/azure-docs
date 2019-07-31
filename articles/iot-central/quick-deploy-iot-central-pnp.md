@@ -18,7 +18,7 @@ manager: peterpr
 This quickstart shows you how to create an Azure IoT Central application that uses preview features such as IoT Plug and Play.
 
 > [!WARNING]
-> The Plug and Play capabilities in Azure IoT Central are currently in public preview. Don't use a Plug and Play enabled IoT Central application for production workloads. For production environments use an IoT central application created from a current, generally available, application template.
+> The IoT Plug and Play capabilities in Azure IoT Central are currently in public preview. Don't use an IoT Plug and Play enabled IoT Central application for production workloads. For production environments use an IoT central application created from a current, generally available, application template.
 
 ## Create an application
 

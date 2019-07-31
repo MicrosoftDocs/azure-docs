@@ -1,4 +1,4 @@
-- name: Azure IoT Central documentation (Plug and Play)
+- name: Azure IoT Central documentation (preview features)
   href: ../iot-central/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
 - name: Overview
   items:
@@ -33,7 +33,7 @@
   items:
   - name : Connect devices
     items:
-      - name: Connect a Plug and Play device
+      - name: Connect an IoT Plug and Play device
         href: ../iot-central/howto-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Generate a device connection string
         href: ../iot-central/howto-generate-connection-string.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
