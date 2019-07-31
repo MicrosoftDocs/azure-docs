@@ -5,7 +5,7 @@ services: azure-blockchain
 
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/19/2019
+ms.date: 07/31/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
@@ -161,11 +161,14 @@ Smart contract functions can return the current value of state variables. Let's 
     ``` solidity
     function getMessage() public view returns (string memory)
     {
-        return RequestMessage;
+        if (State == StateType.Request)
+            return RequestMessage;
+        else
+            return ResponseMessage;
     }
     ```
 
-    The function returns the value of the **RequestMessage** state variable.
+    The function returns the message stored in a state variable based on the current state of the contract.
 
 1. Right-click **HelloBlockchain.sol** and choose **Build Contracts** from the menu to compile the changes to the smart contract.
 1. To deploy, right-click **HelloBlockchain.sol** and choose **Deploy Contracts** from the menu.
