@@ -654,7 +654,7 @@ This section contains the following examples:
   }
 ```
 
-#### Queue trigger, receive blob name from queue message (Java)
+#### Queue trigger, receive blob name from queue message
 
  The following example shows a Java function that uses the ```QueueTrigger``` annotation to receive a message containing the name of a file in a blob storage container. The ```BlobInput``` annotation then reads the file and passes its contents to the function as a ```byte[]```.
 
