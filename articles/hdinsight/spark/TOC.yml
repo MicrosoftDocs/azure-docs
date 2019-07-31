@@ -76,6 +76,8 @@
       href: ./apache-spark-troubleshoot-blocking-cross-origin.md
     - name: Kryo serialization failed
       href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
+    - name:  Apache Spark event log - RequestBodyTooLarge
+      href: ./apache-spark-troubleshoot-event-log-requestbodytoolarge.md
 - name: How to
   items:
   - name: Use cluster storage
