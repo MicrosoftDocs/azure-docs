@@ -1,17 +1,17 @@
 ---
 title: Delete image resources in Azure Container Registry
-description: Details on how to effectively manage registry size by deleting container image data.
+description: Details on how to effectively manage registry size by deleting container image data using Azure CLI commands.
 services: container-registry
 author: dlepow
 manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 06/17/2019
+ms.date: 07/31/2019
 ms.author: danlep
 ---
 
-# Delete container images in Azure Container Registry
+# Delete container images in Azure Container Registry using the Azure CLI
 
 To maintain the size of your Azure container registry, you should periodically delete stale image data. While some container images deployed into production may require longer-term storage, others can typically be deleted more quickly. For example, in an automated build and test scenario, your registry can quickly fill with images that might never be deployed, and can be purged shortly after completing the build and test pass.
 
@@ -197,7 +197,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 Using this command in a script, you can delete all untagged images in a repository.
 
 > [!WARNING]
-> Use the following sample scripts with caution--deleted image data is UNRECOVERABLE. If you have systems that pull images by manifest digest (as opposed to image name), you should not run these scripts. Deleting untagged images will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice][tagging-best-practices].
+> Use the following sample scripts with caution--deleted image data is UNRECOVERABLE. If you have systems that pull images by manifest digest (as opposed to image name), you should not run these scripts. Deleting untagged images will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice](container-registry-image-tag-version.md).
 
 **Azure CLI in Bash**
 
@@ -255,6 +255,10 @@ if ($enableDelete) {
     az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null]" -o tsv
 }
 ```
+
+## Automatically purge tags and manifests (preview)
+
+As an alternative to scripting Azure CLI commands, run an on-demand or scheduled ACR task to delete all tags that are older than a certain duration or match a specified name filter. For more information, see [Automatically purge images from an Azure container registry](container-registry-auto-purge.md).
 
 ## Next steps
 

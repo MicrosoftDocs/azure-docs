@@ -66,7 +66,10 @@
     - name: Lock container images
       href: container-registry-image-lock.md
     - name: Delete container images
-      href: container-registry-delete.md
+      items:
+      - name: Delete image data - CLI
+        href: container-registry-delete.md
+      - name: Automatically purge tags and manifests (preview)
     - name: Upgrade a Classic registry
       href: container-registry-upgrade.md
     - name: Use ACR webhooks
