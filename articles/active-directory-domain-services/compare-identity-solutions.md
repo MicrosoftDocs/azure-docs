@@ -50,109 +50,21 @@ The following table outlines some of the features you may need for your organiza
 
 | **Feature** | **Azure AD DS** | **Self-managed AD DS** |
 | ----------- |:---------------:|:----------------------:|
-| [**Managed service**](#managed-service)                                                               | **&#x2713;** | **&#x2715;** |
-| [**Secure deployments**](#secure-deployments)                                                         | **&#x2713;** | Administrator secures the deployment |
-| [**DNS server**](#dns-server)                                                                         | **&#x2713;** (managed service) |**&#x2713;** |
-| [**Domain or Enterprise administrator privileges**](#domain-or-enterprise-administrator-privileges)   | **&#x2715;** | **&#x2713;** |
-| [**Domain join**](#domain-join)                                                                       | **&#x2713;** | **&#x2713;** |
-| [**Domain authentication using NTLM and Kerberos**](#domain-authentication-using-ntlm-and-kerberos)   | **&#x2713;** | **&#x2713;** |
-| [**Kerberos constrained delegation**](#kerberos-constrained-delegation)                               | Resource-based | Resource-based & account-based|
-| [**Custom OU structure**](#custom-ou-structure)                                                       | **&#x2713;** | **&#x2713;** |
-| [**Group Policy**](#group-policy)                                                                     | **&#x2713;** | **&#x2713;** |
-| [**Schema extensions**](#schema-extensions)                                                           | **&#x2715;** | **&#x2713;** |
-| [**AD domain / forest trusts**](#ad-domain-or-forest-trusts)                                          | **&#x2715;** | **&#x2713;** |
-| [**Secure LDAP (LDAPS)**](#secure-ldap)                                                               | **&#x2713;** | **&#x2713;** |
-| [**LDAP read**](#ldap-read)                                                                           | **&#x2713;** | **&#x2713;** |
-| [**LDAP write**](#ldap-write)                                                                         | **&#x2715;** | **&#x2713;** |
-| [**Geo-distributed deployments**](#geo-dispersed-deployments)                                         | **&#x2715;** | **&#x2713;** |
-
-### Managed service
-
-Azure AD DS is managed by Microsoft. You don't have to patch, update, monitor, back-up, and ensure availability of your domain. These management tasks are offered as a service by Microsoft Azure for your managed domains.
-
-In a self-managed AD DS environment, you do all these actions.
-
-### Secure deployments
-
-An Azure AD DS managed domain is securely locked down as per Microsoft’s security recommendations for AD deployments.
-
-For self-managed AD DS environments, you need to take specific deployment steps to lock down and secure your deployment.
-
-### DNS server
-
-An Azure AD DS managed domain includes managed DNS services. DNS management can be done using the *DNS Administration console* included in the Remote Server Administration Tools (RSAT) package. For more information, see [manage DNS in Azure AD DS][manage-dns].
-
-For self-managed AD DS environments, you have to configure and managed DNS yourself.
-
-### Domain or Enterprise Administrator privileges
-
-Elevated privileges aren't available on an Azure AD DS managed domain. Applications that require these elevated privileges cannot be deployed against Azuer AD DS managed domains. A smaller subset of administrative privileges is available to members of the delegated administration group called *AAD DC Administrators*. These privileges include privileges to configure DNS, configure group policy, or gain administrator privileges on domain-joined machines. 
-
-Self-managed AD DS environments can use the *Domain Administrator* or *Enterprise Administrator* privileges.
-
-### Domain join
-
-Virtual machines in an Azure AD DS managed domain can be domain-joined in the same way as with a self-managed AD DS environment.
-
-### Domain authentication using NTLM and Kerberos
-
-With Azure AD DS, existing credentials can be used to authenticate with the managed domain. These credentials are automatically kept in sync with an Azure AD tenant. To extend this single source of credentials, Azure AD Connect can be used to make sure that changes to credentials made on-premises are synchronized to Azure AD.
-
-With a self-managed AD DS environment that runs on Azure VMs, you could set up a domain trust with your on-premises AD DS for users to authenticate with their existing credentials. Alternately, you could set up AD replication to ensure that user passwords synchronize to your Azure domain controller VMs.
-
-### Kerberos constrained delegation
-
-As you don't have *Domain Administrator* privileges on an Azure AD DS managed domain, you can't configure account-based (traditional) Kerberos constrained delegation. Instead, you can configure the more secure resource-based constrained delegation. For more information, see [Configure Kerberos constrained delegation (KCD) in Azure AD DS][deploy-kcd].
-
-In a self-managed AD DS environment, you can use both forms of constrained delegation.
-
-### Custom OU structure
-
-Members of the *AAD DC Administrators* group can create custom OUs within an Azure AD DS managed domain. Users who create custom OUs are granted full administrative privileges over the OU. For more information, see [create a custom OU in Azure AD DS][custom-ou].
-
-A self-managed AD DS environment can create more complex OU structures for user and computer accounts.
-
-### Group Policy
-
-In an Azure AD DS managed domain, there are built-in GPOs applied to the *AADDC Computers* and *AADDC Users* containers. You can customize these built-in GPOs to configure group policy. Members of the *AAD DC Administrators* group can create custom GPOs and link them to existing OUs, including custom OUs. For more information, see [Administer Group Policy in Azure AD DS][manage-gpos].
-
-In a self-managed AD DS environment, you can also create and apply GPOs to OUs.
-
-### Schema extensions
-
-You can't extend the base schema of an Azure AD DS managed domain. Applications that rely on extensions to AD schema (for example, new attributes under the user object) can't use a lift-and-shift strategy and connect to Azure AD DS.
-
-In a self-managed AD DS environment, you can extend the schema as needed.
-
-### AD Domain or Forest Trusts
-
-Azure AD DS managed domains can't be configured to set up trust relationships (inbound or outbound) with other domains. Resource forest deployment scenarios can't use Azure AD DS. Also, deployments where you prefer not to synchronize passwords to Azure AD can't use Azure AD DS.
-
-In a self-managed AD DS environment, you can create trust relationships as needed.
-
-### Secure LDAP
-
-An Azure AD DS managed domain can be configured to provide secure LDAP access, including over the internet. For more information, see [Configure secure LDAP in Azure AD DS][tutorial-ldaps].
-
-A self-managed AD DS environment can also be configured to use secure LDAP.
-
-### LDAP read
-
-An Azure AD DS managed domain supports LDAP read workloads. Applications that use LDAP read operations can be deployed against the Azure AD DS managed domain.
-
-Self-managed AD DS environments also support LDAP read operations
-
-### LDAP write
-
-Azure AD DS managed domains are read-only for user objects. Applications that do LDAP write operations against attributes of the user object won't work in an Azure AD DS managed domain. User passwords or group membership changes also can't be changed from within the Azure AD DS managed domain. Changes to user attributes or passwords should be made in Azure AD, such as using Azure PowerShell or the Azure portal, or to an on-premises AD DS environment that is synchronized to Azure AD using Azure AD Connect.
-
-Self-managed AD DS environments support LDAP write operations.
-
-### Geo-dispersed deployments
-
-Azure AD DS managed domains are available in a single virtual network in Azure. A single Azure AD DS instance is available per Azure AD tenant. Although other Azure resources and services in different regions can connect through peered virtual networks, Azure AD DS can only be deployed to a single geographic region.
-
-For self-managed AD DS environments, you can create Azure VMs in different geographic regions and promote them to domain controllers.
+| **Managed service**                               | **&#x2713;** | **&#x2715;** |
+| **Secure deployments**                            | **&#x2713;** | Administrator secures the deployment |
+| **DNS server**                                    | **&#x2713;** (managed service) |**&#x2713;** |
+| **Domain or Enterprise administrator privileges** | **&#x2715;** | **&#x2713;** |
+| **Domain join**                                   | **&#x2713;** | **&#x2713;** |
+| **Domain authentication using NTLM and Kerberos** | **&#x2713;** | **&#x2713;** |
+| **Kerberos constrained delegation**               | Resource-based | Resource-based & account-based|
+| **Custom OU structure**                           | **&#x2713;** | **&#x2713;** |
+| **Group Policy**                                  | **&#x2713;** | **&#x2713;** |
+| **Schema extensions**                             | **&#x2715;** | **&#x2713;** |
+| **AD domain / forest trusts**                     | **&#x2715;** | **&#x2713;** |
+| **Secure LDAP (LDAPS)**                           | **&#x2713;** | **&#x2713;** |
+| **LDAP read**                                     | **&#x2713;** | **&#x2713;** |
+| **LDAP write**                                    | **&#x2715;** | **&#x2713;** |
+| **Geo-distributed deployments**                   | **&#x2715;** | **&#x2713;** |
 
 ## Azure AD DS and Azure AD
 
