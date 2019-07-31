@@ -209,6 +209,7 @@ Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsS
 Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 
 - **Name**: Guest Configuration Policy name.
+- **Parameter**: Policy parameters provided in hashtable format.
 - **Path**: Full path of the Guest Configuration package.
 
 The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
@@ -217,6 +218,10 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 ```azurepowershell-interactive
 New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConfig\localhost.mof -Path .\package -Verbose | Test-GuestConfigurationPackage -Verbose
 ```
+
+For more information about how to test with parameters,
+see the section below
+[Using parameters in custom Guest Configuration policies](/azure/governance/policy/how-to/guest-configuration-create#using-parameters-in-custom-guest-configuration-policies).
 
 ## Create the Azure Policy definition and initiative deployment files
 
@@ -270,7 +275,8 @@ means that the values in the MOF file in the package don't have to be considered
 override values are provided through Azure Policy and don't impact how the Configurations are
 authored or compiled.
 
-The `New-GuestConfigurationPolicy` cmdlet parameter **Parameters** takes a hashtable definition
+The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a parameter named **Parameters**.
+This parameter takes a hashtable definition
 including all details about each parameter and automatically creates all the required sections of
 the files used to create each Azure Policy definition.
 
