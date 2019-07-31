@@ -195,9 +195,9 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Workplace by Facebook tile in the Access Panel, you should be automatically signed in to the Workplace by Facebook for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Test SSO for Workday (Mobile)
+## Test SSO for Workplace by Facebook (Mobile)
 
-1. Open Workday Mobile application. On the sign in page, click on **LOG IN**.
+1. Open Workplace by Facebook Mobile application. On the sign in page, click on **LOG IN**.
 
 	![The sign in](./media/workplacebyfacebook-tutorial/test05.png)
 
