@@ -209,7 +209,7 @@ When you click the Salesforce tile in the Access Panel, you should be automatica
 
     ![Salesforce mobile app](media/salesforce-tutorial/mobile-app2.png)
 
-1. Enter your Azure AD credentials to signin into the Salesforce application and click **Next**.
+1. Enter your Azure AD credentials to sign in into the Salesforce application and click **Next**.
 
     ![Salesforce mobile app](media/salesforce-tutorial/mobile-app3.png)
 
@@ -217,7 +217,7 @@ When you click the Salesforce tile in the Access Panel, you should be automatica
 
     ![Salesforce mobile app](media/salesforce-tutorial/mobile-app4.png)
 
-1. Finally after successful signin, the application homepage will be displayed.
+1. Finally after successful sign in, the application homepage will be displayed.
 
     ![Salesforce mobile app](media/salesforce-tutorial/mobile-app5.png)
     ![Salesforce mobile app](media/salesforce-tutorial/mobile-app6.png)
