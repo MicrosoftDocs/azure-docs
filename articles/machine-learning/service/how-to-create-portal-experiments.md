@@ -32,7 +32,7 @@ Navigate to the left pane of your workspace. Select Automated Machine Learning u
 
 ![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)
 
- If this is your first time doing any experiments you'll see the **Welcome to Automated Machine Learning** screen. 
+ If this is your first time doing any experiments, you'll see the **Welcome to Automated Machine Learning** screen. 
 
 Otherwise, you'll see your **Automated machine learning** dashboard with an overview of all of your automated machine learning experiments, including those created with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
 
@@ -76,7 +76,7 @@ Select **Create Experiment** and populate the **Create a new automated machine l
 
 1. Select the training job type: classification, regression, or forecasting.
 
-1. Select target column; this is the column which you would like to do predictions on.
+1. Select target column; this is the column that you would like to do predictions on.
 
 1. For forecasting:
     1. Select time column: This column contains the time data to be used.
@@ -100,7 +100,7 @@ Select **Create Experiment** and populate the **Create a new automated machine l
 
 You can get a vast variety of summary statistics across your data set to verify whether your data set is ML-ready. For non-numeric columns, they include only basic statistics like min, max, and error count. For numeric columns, you can also review their statistical moments and estimated quantiles. Specifically, our data profile includes:
 
-* **Feature**: name of the column which is being summarized.
+* **Feature**: name of the column that is being summarized.
 
 * **Profile**: an in-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
 
@@ -114,7 +114,7 @@ You can get a vast variety of summary statistics across your data set to verify 
 
 * **Count**: the total number of missing and non-missing entries in the column.
 
-* **Not missing count**: the number of entries in the column which are not missing. Note that empty strings and errors are treated as values, so they will not contribute to the "not missing count."
+* **Not missing count**: the number of entries in the column that are not missing. Empty strings and errors are treated as values, so they will not contribute to the "not missing count."
 
 * **Quantiles** (at 0.1, 1, 5, 25, 50, 75, 95, 99, and 99.9% intervals): the approximated values at each quantile to provide a sense of the distribution of the data. Blank entries appear for features with irrelevant types.
 
@@ -152,7 +152,7 @@ Select **Start** to run your experiment. The experiment preparing process takes 
 
 ### View experiment details
 
-Once the experiment preparation phase is done, you'll see the Run Detail screen begin to populate. This screen gives you a full list of the models created. By default, the model that scores the highest based on ythe chosen metric is at the top of the list. As the training job tries out more models, they are added to the iteration list and chart. Use the iteration chart to get a quick comparison of the metrics for the models produced so far.
+Once the experiment preparation phase is done, you'll see the Run Detail screen begin to populate. This screen gives you a full list of the models created. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they are added to the iteration list and chart. Use the iteration chart to get a quick comparison of the metrics for the models produced so far.
 
 Training jobs can take a while for each pipeline to finish running.
 
