@@ -29,7 +29,7 @@ You can open diagnostic search from the Application Insights Overview tab of you
 
 ![Search tab](./media/diagnostic-search/view-custom-events.png)
 
-Go to the Event types' drop-down menu to see a list of telemetry items- server requests, page views, custom events that you have coded, and so on. At the top of the results' list is a summary chart showing counts of events over time.
+Go to the Event types' drop-down menu to see a list of telemetry items- server requests, page views, custom events that you have coded, and so on. At the top of the results' list, is a summary chart showing counts of events over time.
 
 Click out of the drop-down menu or Refresh to get new events.
 
@@ -45,7 +45,7 @@ The Search window has features similar to the web portal:
 
 ![Visual Studio Application Insights search window](./media/diagnostic-search/34.png)
 
-The Track Operation tab is available when you open a request or a page view. An 'operation' is a sequence of events that is associated with to a single request or page view. For example, dependency calls, exceptions, trace logs, and custom events might be part of a single operation. The Track Operation tab shows graphically the timing and duration of these events in relation to the request or page view. 
+The Track Operation tab is available when you open a request or a page view. An 'operation' is a sequence of events that is associated with to a single request or page view. For example, dependency calls, exceptions, trace logs, and custom events might be part of a single operation. The Track Operation tab shows graphically the timing and duration of these events in relation to the request or page view.
 
 ## Inspect individual items
 
@@ -79,7 +79,7 @@ Notice that the counts to the right of the filter values show how many occurrenc
 
 ## Find events with the same property
 
-To find all the items with the same property value either type it into the search bar or click the checkbox when looking through properties in the filter tab.
+To find all the items with the same property value, either type it into the search bar or click the checkbox when looking through properties in the filter tab.
 
 ![Click the checkbox of a property in the filter tab](./media/diagnostic-search/filter-property.png)
 
@@ -97,10 +97,10 @@ You might want to set a time range, as searches over a shorter range are faster.
 
 Search for complete words, not substrings. Use quotation marks to enclose special characters.
 
-| string | is *not* found by | but these do find it |
+| string | *Not* found | Found |
 | --- | --- | --- |
-| HomeController.About |home<br/>controller<br/>out | homecontroller<br/>about<br/>"homecontroller.about"|
-|United States|Uni<br/>ted|united<br/>states<br/>united AND states<br/>"united states"
+| HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
+|United States|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
 
 Here are the search expressions you can use:
 
@@ -112,7 +112,8 @@ Here are the search expressions you can use:
 | `apple NOT banana` |Find events that contain one word but not the other. |
 
 ## Sampling
-If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module automatically reduces the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request are selected or deselected as a group, so that you can navigate between related events. 
+
+If your app generates a large amount of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module automatically reduces the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request are selected or deselected as a group, so that you can navigate between related events.
 
 [Learn about sampling](../../azure-monitor/app/sampling.md).
 
@@ -129,22 +130,26 @@ The first time you do this, you are asked to configure a link to your Azure DevO
 (You can also configure the link on the Work Items tab.)
 
 ## Send more telemetry to Application Insights
+
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
-* Capture log traces from your favorite logging framework in [.NET](../../azure-monitor/app/asp-net-trace-logs.md) or [Java](../../azure-monitor/app/java-trace-logs.md). This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
-* [Write code](../../azure-monitor/app/api-custom-events-metrics.md) to send custom events, page views, and exceptions. 
+* Capture log traces from your favorite logging framework in [.NET](../../azure-monitor/app/asp-net-trace-logs.md) or [Java](../../azure-monitor/app/java-trace-logs.md). This means you can search through your log traces and correlate them with page views, exceptions, and other events.
+* [Write code](../../azure-monitor/app/api-custom-events-metrics.md) to send custom events, page views, and exceptions.
 
 [Learn how to send logs and custom telemetry to Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
 
 ## <a name="questions"></a>Q & A
+
 ### <a name="limits"></a>How much data is retained?
 
 See the [Limits summary](../../azure-monitor/app/pricing.md#limits-summary).
 
 ### How can I see POST data in my server requests?
+
 We don't log the POST data automatically, but you can use [TrackTrace or log calls](../../azure-monitor/app/asp-net-trace-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.
 
 ## <a name="add"></a>Next steps
+
 * [Write complex queries in Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Send logs and custom telemetry to Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Set up availability and responsiveness tests](../../azure-monitor/app/monitor-web-app-availability.md)
