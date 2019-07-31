@@ -9,7 +9,7 @@ manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/23/2019
+ms.date: 07/30/2019
 ms.author: aahi
 ---
 # Quickstart: Call the Text Analytics service using the Go SDK 
@@ -22,8 +22,6 @@ Use this quickstart to begin analyzing language with the Text Analytics SDK for 
 * The Text Analytics [SDK for Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics)
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
 ## Set up a new Project
 

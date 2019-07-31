@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot the Azure Backup agent
 description: Troubleshoot installation and registration of the Azure Backup agent
-
-author: saurabhsensharma
-manager: sivan
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.author: saurse
+ms.author: dacurwin
 ---
 
 # Troubleshoot the Microsoft Azure Recovery Services (MARS) agent
