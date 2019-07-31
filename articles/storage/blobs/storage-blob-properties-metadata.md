@@ -37,8 +37,6 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
     {
         Console.WriteLine("Setting blob properties.");
 
-        // Set property values for the blob.
-
         // You must explicitly set the MIME ContentType every time
         // the properties are updated or the field will be cleared.
         blob.Properties.ContentType = "text/plain";
@@ -58,17 +56,17 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
 }
 ```
 
-To retrieve blob properties, call the **FetchAttributes** or **FetchAttributesAsync** method on your blob to populate the **Properties** property. The following code example gets a blob's system properties and displays some property values:
+To retrieve blob properties, call the **FetchAttributes** or **FetchAttributesAsync** method on your blob to populate the **Properties** property. The following code example gets a blob's system properties and displays some of the values:
 
 ```csharp
 private static async Task GetBlobPropertiesAsync(CloudBlob blob)
 {
     try
     {
-        // Fetch blob properties and display their values.
+        // Fetch the blob properties.
         await blob.FetchAttributesAsync();
 
-        // Display some of the blob's properties values.
+        // Display some of the blob's property values.
         Console.WriteLine(" ContentLanguage: {0}", blob.Properties.ContentLanguage);
         Console.WriteLine(" ContentType: {0}", blob.Properties.ContentType);
         Console.WriteLine(" Created: {0}", blob.Properties.Created);
@@ -94,7 +92,7 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 
 Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. [Base64-encode](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) or [URL-encode](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode) metadata values containing non-ASCII characters.
 
-The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names maintain the case used when they were created, but are case-insensitive when set or read. If two or more metadata headers using the same name are submitted for a resource, Blob storage returns HTTP error code 400 (Bad Request).
+The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names maintain the case used when they were created, but are case-insensitive when set or read. If two or more metadata headers using the same name are submitted for a resource, Azure Blob storage returns HTTP error code 400 (Bad Request).
 
 The following code example sets metadata on a blob. One value is set using the collection's **Add** method. The other value is set using implicit key/value syntax.
 
@@ -130,11 +128,13 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 {
     try
     {
-        // Fetch blob attributes in order to populate the blob's properties and metadata.
+        // Fetch blob attributes in order to populate 
+        // the blob's properties and metadata.
         await blob.FetchAttributesAsync();
 
-        // Enumerate the blob's metadata.
         Console.WriteLine("Blob metadata:");
+
+        // Enumerate the blob's metadata.
         foreach (var metadataItem in blob.Metadata)
         {
             Console.WriteLine("\tKey: {0}", metadataItem.Key);
