@@ -23,7 +23,7 @@ Role permissions include:
 
 When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in SQL Server Data Tools (SSDT). When deployed to a server, you use SQL Server Management Studio (SSMS), [Analysis Services PowerShell cmdlets](/sql/analysis-services/powershell/analysis-services-powershell-reference), or [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) to add or remove roles and user members.
 
-Security groups must be [mail-enabled](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) with the `MailEnabled` property set to `True`. When specifying a group by email address use **obj:groupid@tenantid**.
+**Security groups** must be [mail-enabled](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) with the `MailEnabled` property set to `True`. When specifying a group by email address use `obj:groupid@tenantid`.
 
 
 ## To add or manage roles and users in SSDT  
