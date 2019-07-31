@@ -15,12 +15,12 @@ ms.date: 7/30/2019
 ---
 # Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure 
 
-Azure Data Factory can be the tool to do data migration when you want to migrate your data lake or enterprise data warehouse (EDW) to Azure. The data lake migration and EDW migration are related to the following scenarios: 
+Azure Data Factory can be the tool to do data migration when you want to migrate your data lake or enterprise data warehouse (EDW) to Azure. The data lake migration and data warehouse migration are related to the following scenarios: 
 
 1. Big data workload migration from AWS S3, on-prem Hadoop File System to Azure.​ 
 2. EDW migration from Oracle Exadata, Netezza, Teradata, AWS Redshift to Azure. 
 
-Azure Data Factory can move PBs' level of data for data lake migration and tens of TB data for EDW migration​. 
+Azure Data Factory can move PBs' level of data for data lake migration and tens of TB data for data warehouse migration​. 
 
 ## Why Azure Data Factory can be used for data migration 
 
@@ -35,20 +35,20 @@ Azure Data Factory can move PBs' level of data for data lake migration and tens 
 
 ## Online vs. offline data migration
 
-Azure Data Factory is a typical online data migration tool to transfer data over network (Internet, ER, or VPN), where offline data migration is letting people to physically ship data transfer devices from your organization to Azure Data Center.  
+Azure Data Factory is a typical online data migration tool to transfer data over network (Internet, ER, or VPN), where offline data migration is letting people physically ship data transfer devices from your organization to Azure Data Center.  
 
 There are three key considerations when selecting online vs. offline migration approach:  
 
 1. Size of data to be migrated. 
 2. Network bandwidth. 
-3. Migration windows.   
+3. Migration window.   
 
-If you want to complete the data migration within two weeks (migration window).  You can see a cut line in the picture below to show when it is good to use online migration tool (Azure Data Factory) with different data size and network bandwidth.   
+If you want to complete the data migration within two weeks (migration window), you can see a cut line in the picture below to show when it is good to use online migration tool (Azure Data Factory) with different data size and network bandwidth.   
 
 ![online vs. offline](media/data-migration-guidance-overview/online-offline.png)
 
 > [!NOTE]
-> The benefit of online migration approach is that you can achieve both historical data loading and incremental feeds end to end by one tool.  By doing so, the data can be keeping synchronized between existing and new store during the entre migration window so that you can rebuild your ETL logic at the same time. 
+> The benefit of online migration approach is that you can achieve both historical data loading and incremental feeds end to end by one tool.  By doing so, the data can be keeping synchronized between existing and new store during the entire migration window so that you can rebuild your ETL logic on the new store with refreshed data. 
 
 
 ## Next steps
