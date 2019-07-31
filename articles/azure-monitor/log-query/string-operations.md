@@ -29,7 +29,7 @@ Each character in a string has an index number, according to its location. The f
 
 
 ## Strings and escaping them
-String values are wrapped with either with single or double quote characters. Backslash (\) is used to escape characters to the character following it, such as \t for tab, \n for newline, and \" the quote character itself.
+String values are wrapped with either with single or double quote characters. Backslash (\\) is used to escape characters to the character following it, such as \t for tab, \n for newline, and \" the quote character itself.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
