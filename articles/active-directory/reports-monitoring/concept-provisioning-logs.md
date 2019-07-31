@@ -143,7 +143,25 @@ In addition to the default fields, when selected, you can also include the follo
 
   
 
-## Steps information 
+## Provisioning details 
+
+When you select an item in the provisioning list view, you get more details about this item.
+The details are grouped based on the following categories:
+
+- Steps
+
+- Troubleshoot and recomendations
+
+- Modified properties
+
+- Summary
+
+
+![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Tabs")
+
+
+
+### Steps
 
 The **Steps** tab outlines the steps taken to provision an object. Provisioning an object can consist of four steps: 
 
@@ -152,9 +170,23 @@ The **Steps** tab outlines the steps taken to provision an object. Provisioning 
 - Match object between source and target
 - Provision object (take action - this could be a create, update, delete, or disable)
 
+
+
+![Filter](./media/concept-provisioning-logs/steps.png "Filter")
+
+
+### Troubleshoot and recomendations
+
+
 The **troubleshoot and recomendations** tab provides the error code and reason. The error information is only available in the case of a failure. 
 
+
+### Modified properties
+
 The **modified properties** shows the old value and new value. In cases where there is no old value the old value column is blank. 
+
+
+### Summary
 
 The **summary** tab provides an overview of what happened and identifiers for the object in the source and target system. 
 
