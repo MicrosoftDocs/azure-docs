@@ -15,7 +15,7 @@ Introductory paragraph.
 
 # Prerequisites
 
-# Enable Managed Identity Token Service in Service Fabric cluster
+## Enable Managed Identity Token Service in Service Fabric cluster
 
 ## Next steps
 
