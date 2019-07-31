@@ -34,7 +34,7 @@ Azure Monitor for Storage are several Azure Monitor workbooks tied together, whi
 This feature does not require you to enable or configure anything, the metrics are already collected by default. If you are unfamiliar with the comprehensive set of metrics available with Azure Storage and need a description of their purpose and how to interpret their values, review [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
 >[!NOTE]
->There is no charge to access this feature and you will only be charged for the Azure Monitor  as outlined here - https://azure.microsoft.com/en-us/pricing/details/monitor/  
+>There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details]https://azure.microsoft.com/pricing/details/monitor/) page.
 
 ## View from Azure Monitor
 
