@@ -58,6 +58,8 @@
     items:
     - name: InvalidNetworkSecurityGroupSecurityRules - cluster creation fails
       href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+    - name: Converting service principal certificate
+      href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
 - name: How to
   items:
   - name: Use Apache Hadoop sandbox

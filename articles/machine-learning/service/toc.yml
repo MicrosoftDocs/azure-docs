@@ -115,8 +115,6 @@
     href: concept-accelerate-with-fpgas.md
   - name: ONNX and ONNX Runtime
     href: concept-onnx.md
-  - name: Data drift monitoring
-    href: concept-data-drift.md
   - name: Security
     items:
     - name: Enterprise security overview
