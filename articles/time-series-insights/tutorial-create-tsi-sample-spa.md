@@ -35,7 +35,7 @@ Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if yo
 
 * The IIS Express, Web Deploy, and Azure Cloud Services core tools components for Visual Studio. Add the components by modifying your Visual Studio installation.
 
-## Application design
+## Understand application design
 
 The Time Series Insights sample SPA is the basis for the design and code used in this tutorial. The code uses the Time Series Insights JavaScript client library. The Time Series Insights client library provides an abstraction for two main API categories:
 
@@ -45,11 +45,11 @@ The Time Series Insights sample SPA is the basis for the design and code used in
 
 This tutorial also uses data from the sample application's Time Series Insights environment. For details about the structure of the Time Series Insights sample application and how it uses the Time Series Insights client library, see the tutorial [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md).
 
-## Register the application with Azure AD
+## Register with Azure AD
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-## Build and publish the web application
+## Build and publish
 
 1. Create a directory to store your application project files. Then, go to each of the following URLs. Right-click the **Raw** link in the upper-right corner of the page, and then select **Save as** to save the files in your project directory.
 
