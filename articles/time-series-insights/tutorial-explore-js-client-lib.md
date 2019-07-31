@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Explore the Azure Time Series Insights JavaScript client library | Microsoft Docs'
-description: Learn about the Azure Time Series Insights JavaScript client library and the related programming model.
+description: Tutorial to learn about the Azure Time Series Insights JavaScript client library and the related programming model.
 author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
@@ -30,9 +30,9 @@ Specifically, you'll learn about:
 > * The Time Series Insights sample app source files are provided in the [GitHub sample repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * Read the [Time Series Insights client reference documentation](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
-## Prerequisites
+Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
 
-* Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
+## Prerequisites
 
 * This tutorial uses your browser's **Developer Tools** feature. Modern web browsers ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others)
 typically provide access to the **Web Inspector View** through the F12 hotkey on your keyboard. Another way to access the view is to right-click on a webpage, and then select **Inspect Element**.
@@ -43,8 +43,6 @@ In this video, we introduce the open-source Time Series Insights JavaScript SDK:
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
-
-
 
 ## Time Series Insights sample application
 
@@ -101,7 +99,7 @@ First, let's view the [HTML and JavaScript source code](https://github.com/Micro
 
 ## Time Series Insights JavaScript client library concepts
 
-The Time Series Insights client library (*tsclient.js*) provides abstractions for two important JavaScript functionalities:
+The Time Series Insights client library (*tsiclient.js*) provides abstractions for two important JavaScript functionalities:
 
 * **Wrapper methods for calling the Time Series Insights Query APIs**: REST APIs you can use to query for Time Series Insights data by using aggregate expressions. The methods are organized under the TsiClient.Server namespace of the library.
 
