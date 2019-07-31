@@ -85,6 +85,14 @@ The infrastructure supporting your virtual machines may occasionally be updated 
 
 Once a dedicated host is provisioned, Azure assigns it to physical server. This guarantees the availability of the capacity when you need to provision your VM. Azure uses the entire capacity in the region (or zone) to pick a physical server for your host. It also means that customers can expect to be able to grow their dedicated host footprint without the concern of running out of space in the cluster.
 
+## Quotas
+
+There is a quota limit of 3000 vCPUs for dedicated hosts, but the number of hosts you can deploy will also be limited by the quota limit for the VM size family you want to use for the host. For example, I have a **Pay-as-you-go** subscription and I would like to deploy a dedicated host in the East US region, using the Dsv3 size series. In the screenshot below, you can see that I only have a quota of 10 vCPUs available for the Dsv3 size series in the East US region. In this case, I need to request a quota increase to at least 64 vCPUs before I can deploy a dedicated host. Select the **Request increase** button in the upper right corner to file a request if needed.
+
+![Screenshot of the usage and quotas page in the portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
+
+For more information, see [Virtual machine vCPU quotas](/azure/virtual-machines/windows/quotas).
+
 ## Pricing
 
 Users are charged per dedicated host, regardless how many VMs are deployed. In your monthly statement you will see a new billable resource type of hosts. The VMs on a dedicated host will still be shown in your statement, but will carry a price of 0.

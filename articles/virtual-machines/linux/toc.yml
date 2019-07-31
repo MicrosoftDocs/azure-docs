@@ -105,6 +105,8 @@
       href: sizes-previous-gen.md
     - name: Azure compute units (ACU)
       href: acu.md
+    - name: vCPU quotas
+      href: quotas.md
     - name: Benchmark scores
       href: compute-benchmark-scores.md
   - name: Endorsed distros
@@ -141,12 +143,8 @@
     href: monitor.md
   - name: Backup and recovery
     href: backup-recovery.md
-  - name: Deployment considerations
-    items:
-    - name: Infrastructure guidelines
-      href: infrastructure-example.md
-    - name: vCPU quotas
-      href: quotas.md
+  - name: Infrastructure guidelines
+    href: infrastructure-example.md
   - name: Security attributes
     href: virtual-machines-linux-security-attributes.md
 - name: How-to guides
