@@ -26,7 +26,7 @@ Moving a SQL Server VM requires doing the following:
 1. [**Configuring**](#configure-azure-site-recovery-vault): Moving your SQL Server VM requires that it is a replicated object within the Azure Site Recovery vault. You need to add your SQL Server VM to the Azure Site Recovery vault. 
 1. [**Testing**](#test-move-process): Migrating the SQL Server VM requires failing it over from the source region to the replicated target region. To ensure that the move process will succeed, you need to first test that your SQL Server VM can successfully failover to the target region. This will help expose any issues and avoid them when performing the actual move. 
 1. [**Moving**](#move-the-sql-server-vm): Once your test failover passed, and you know that you are safe to migrate your SQL Server VM, you can perform the move of the VM to the target region. 
-1. [**CLeaning up**](#clean-up-source-resources): To avoid billing charges, remove the SQL Server VM from the vault, and any unnecessary resources that are left over in the resource group. 
+1. [**Cleaning up**](#clean-up-source-resources): To avoid billing charges, remove the SQL Server VM from the vault, and any unnecessary resources that are left over in the resource group. 
 
 ## Verify prerequisites 
 
