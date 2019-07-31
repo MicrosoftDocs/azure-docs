@@ -325,7 +325,7 @@ Now republish your bot to Azure and try it out:
 
 ## Add custom wake word activation
 
-The Speech SDK supports custom wake word activation. Similar to "Hey Cortana" for Microsoft's Assistant, you can write an application that will continuously listen for a wake word or phrase of your choice. wake word detection is done on the client application. Only after a wake word is detected, audio starts streaming to the cloud (to Direct Line Speech channel and your bot).
+The Speech SDK supports custom wake word activation. Similar to "Hey Cortana" for Microsoft's Assistant, you can write an application that will continuously listen for a wake word of your choice. That could be single word or a multi-word phrase. The term *wake would* is often interchangeable with the term *key word*, and you may find both in Microsoft documentations. Wake word detection is done on the client application. Only after a wake word is detected, audio starts streaming to the cloud (to Direct Line Speech channel and your bot). Direct Line speech channel includes a component called *key word verification (KWV)*, which does more complex processing in the cloud to verify that indeed the wake word is present at the beginning of the audio stream. Only if this verification succeeds, the channel will start communicating with the bot.
 
 Follow these steps to create a model file for a wake word of your choice, configure Direct Line Speech Client to load this model, and test it with the echo-bot:
 1. Follow the instructions in [Create a custom wake word by using the Speech service](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
@@ -377,16 +377,15 @@ If you're not going to continue using the echo-bot deployed in this tutorial, yo
 1. Find the one named SpeechEchoBotTutorial-ResourceGroup, and click on the three dots (...) on the right side
 1. Select "Delete resource group".
 
-## How much will it cost me to voice-enable my bot?
-
-TODO
-
 ## Next steps
 
 - Submit feedback below on this Tutorial
 - Update your Azure subscription as needed in order to
     -  Deploy to an [Azure region closer to you](https://azure.microsoft.com/en-us/global-infrastructure/locations/) (instead of West US) to see bot response time improvement
     -  Deploy to an [Azure region that supports Neural TTS voices](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#standard-and-neural-voices) (instead of West US). Update your bot to use Neural voice and hear the improvement compared to standard voice. 
+- Understand the Azure billing associated with using Direct Line Speech channel
+    - Look at the [Bot Service pricing](https://azure.microsoft.com/en-gb/pricing/details/bot-service/) page, and the details regarding Direct Line Speech channel
+    - Be familar with Cognitive [Speech Services](https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/speech-services/) pricing
 - Build your own client application with the Speech SDK:
     - [C# (UWP)](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstart-virtual-assistant-csharp-uwp), [Java (Windows, macOS, Linux)](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstart-virtual-assistant-java-jre), or [Java (Android)](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstart-virtual-assistant-java-jre) Quickstart documentation
     - [Speech SDK sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk#voice-first-virtual-assistants-quickstarts) for C# (UWP), Java (Windows, macOS, Linux) and [C# Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/unity/VirtualAssistantPreview)
