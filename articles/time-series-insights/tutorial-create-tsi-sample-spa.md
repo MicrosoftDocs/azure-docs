@@ -98,7 +98,7 @@ This tutorial also uses data from the sample application's Time Series Insights 
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. To configure the app to use your Azure AD app registration ID, change the `clientID` value to use the **Application ID** you copied in **step 3** when you [registered the application to use Azure AD](#register-the-application-with-azure-ad). If you've created a **Logout URL** in Azure AD, set that value as the `postLogoutRedirectUri` value.
+   1. To configure the app to use your Azure AD app registration ID, change the `clientID` value to use the **Application ID** you copied in **step 3** when you [registered the application to use Azure AD](#register-with-azure-ad). If you've created a **Logout URL** in Azure AD, set that value as the `postLogoutRedirectUri` value.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -138,9 +138,9 @@ This tutorial also uses data from the sample application's Time Series Insights 
 
 Error code/condition | Description
 ---------------------| -----------
-*AADSTS50011: No reply address is registered for the application.* | The Azure AD registration is missing the **Reply URL** property. Go to **Settings** > **Reply URLs** for your Azure AD application registration. Verify that the **Redirect URI** you had the option to specify in **step 2** when you [registered the application to use Azure AD](#register-the-application-with-azure-ad) is present.
-*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '\<Application ID GUID>'.* | The `postLogoutRedirectUri` specified in **step 6** in [Build and publish the web application](#build-and-publish-the-web-application) must match the value specified under **Settings** > **Reply URLs** in your Azure AD application registration. Be sure to also change the value for **Destination URL** to use *https* per **step 5** in [Build and publish the web application](#build-and-publish-the-web-application).
-The web application loads, but it has an unstyled, text-only sign-in page, with a white background. | Verify that the paths discussed in **step 4** in [Build and publish the web application](#build-and-publish-the-web-application) are correct. If the web application can't find the .css files, the page won't be styled correctly.
+*AADSTS50011: No reply address is registered for the application.* | The Azure AD registration is missing the **Reply URL** property. Go to **Settings** > **Reply URLs** for your Azure AD application registration. Verify that the **Redirect URI** you had the option to specify in **step 2** when you [registered the application to use Azure AD](#register-with-azure-ad) is present.
+*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '\<Application ID GUID>'.* | The `postLogoutRedirectUri` specified in **step 6** in [Build and publish the web application](#build-and-publish) must match the value specified under **Settings** > **Reply URLs** in your Azure AD application registration. Be sure to also change the value for **Destination URL** to use *https* per **step 5** in [Build and publish the web application](#build-and-publish).
+The web application loads, but it has an unstyled, text-only sign-in page, with a white background. | Verify that the paths discussed in **step 4** in [Build and publish the web application](#build-and-publish) are correct. If the web application can't find the .css files, the page won't be styled correctly.
 
 ## Clean up resources
 
