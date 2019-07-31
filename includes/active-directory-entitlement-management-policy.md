@@ -5,7 +5,7 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 07/29/2019
+ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
 ---
@@ -16,7 +16,7 @@ Follow these steps if you want your policy to be for users and groups in your di
 
 1. In the **Users who can request access** section, select **For users in your directory**.
 
-    Note that the **For users in your directory** setting includes both internal users and guest users that have been added to your directory. If you want to only include internal users and not guest users, select **For users in your directory** and then select a group of your internal users. If necessary, you can create a dynamic group of your internal users (user.userType -eq "Member"). For more information, see [Dynamic membership rules for groups in Azure Active Directory](../articles/active-directory/users-groups-roles/groups-dynamic-membership.md).
+    Note that the **For users in your directory** setting includes both member users and guest users that have been added to your directory. If you want to only include member users and not guest users, select **For users in your directory** and then select a group of your member users. If necessary, you can create a dynamic group of your member users (user.userType -eq "Member"). For more information, see [Dynamic membership rules for groups in Azure Active Directory](../articles/active-directory/users-groups-roles/groups-dynamic-membership.md).
 
 1. In the **Select users and groups** section, click **Add users and groups**.
 
