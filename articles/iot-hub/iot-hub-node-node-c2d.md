@@ -161,7 +161,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
 
 You are now ready to run the applications.
 
-1. At the command prompt in the **simulateddevice** folder, run the following command to send telemetry to IoT Hub and to listen for cloud-to-device messages:
+1. At the command prompt in the **simulated-device** folder, run the following command to send telemetry to IoT Hub and to listen for cloud-to-device messages:
 
     ```shell
     node SimulatedDevice.js
