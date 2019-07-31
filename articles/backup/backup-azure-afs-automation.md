@@ -1,12 +1,13 @@
 ---
 title: Back up and restore Azure Files using Azure Backup and PowerShell
 description: Back up and restore Azure Files using Azure Backup and PowerShell. 
-author: pvrk
-manager: shivamg
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: pullabhk
+ms.author: dacurwin
+ms.reviewer: pullabhk
 ---
 
 # Back up and restore Azure Files with PowerShell
