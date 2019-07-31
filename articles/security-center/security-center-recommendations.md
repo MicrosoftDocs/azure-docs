@@ -38,20 +38,24 @@ Each recommendation provides you with:
 - The **secure score impact**, which is the amount that your secure score will go up if you implement this recommendation.
 
 
-## Implementing security recommendations
-### Set recommendations
-In [Setting security policies in Azure Security Center](tutorial-security-policy.md), you learn to:
+## Security recommendations and policies
 
-* Configure security policies.
-* Turn on data collection.
-* Choose which recommendations to see as part of your security policy.
+Azure Security Center automatically assigns its built-in security policies on each subscription that is onboarded. You can configure these policies in Azure Policy, which also enables you to set [policies](../governance/policy/overview) across management groups and across multiple subscriptions.
 
-Current policy recommendations center around system updates, baseline rules, anti-malware programs, [network security groups](../virtual-network/security-overview.md) on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  [Setting security policies](tutorial-security-policy.md) provides a description of each recommendation option.
+Recommendations tell you what you need to do to keep your resources in accordance with these policies.
 
-### Monitor recommendations
-After setting a security policy, Security Center analyzes the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile under **Overview** shows the total number of recommendations identified by Security Center.
+Recommendations center around system updates, baseline rules, anti-malware programs, [network security groups](../virtual-network/security-overview.md) 
+
+on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  You can view and configure these policies. For more information, see [Setting security policies](tutorial-security-policy.md) provides a description of each recommendation option.
+[disable security policy](tutorial-security-policydisable-security-policies)
+
+## Monitor recommendations
+
+Security Center analyzes the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile under **Overview** shows the total number of recommendations identified by Security Center.
 
 ![Security center overview](./media/security-center-recommendations/asc-overview.png)
+
+
 
 1. Select the **Recommendations tile** under **Overview**. The **Recommendations** list opens.
     
