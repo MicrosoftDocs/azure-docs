@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/28/2019
+ms.date: 07/28/2019
 ms.author: aahi
 ---
 
@@ -23,8 +23,6 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 ## Prerequisites
 
 * [Python 3.x](https://python.org)
-
-* The [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
 * The Python requests library
     
