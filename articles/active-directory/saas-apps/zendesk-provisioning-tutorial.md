@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 07/31/2019
 ms.author: "jeedes"
 ms.collection: M365-identity-device-management
 ---
@@ -30,7 +30,7 @@ This tutorial demonstrates the steps to perform in Zendesk and Azure Active Dire
 The scenario outlined in this tutorial assumes that you have:
 
 * An Azure AD tenant.
-* A Zendesk tenant with the [Enterprise](https://www.zendesk.com/product/pricing/) plan or better enabled.
+* A Zendesk tenant fully enabled with all functionalities.
 * A user account in Zendesk with admin permissions.
 
 > [!NOTE]
