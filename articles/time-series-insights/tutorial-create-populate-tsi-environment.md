@@ -30,7 +30,7 @@ This tutorial guides you through the process of creating an Azure Time Series In
 
 * Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, see [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-## Video
+## Review video
 
 ### Learn how to use an Azure IoT solution accelerator to generate data and get started with Time Series Insights. </br>
 
