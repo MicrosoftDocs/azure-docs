@@ -35,5 +35,5 @@ It supports English and is available in three regions: Central Canada, East Asia
 * [Example user scenarios](text-analytics-user-scenarios.md)
 * [Sentiment analysis](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Language detection](how-tos/text-analytics-how-to-language-detection.md)
-* [Entity linking](how-tos/text-analytics-how-to-entity-linking.md)
+* [Entity recognition](how-tos/text-analytics-how-to-entity-linking.md)
 * [Key phrase extraction](how-tos/text-analytics-how-to-keyword-extraction.md)
