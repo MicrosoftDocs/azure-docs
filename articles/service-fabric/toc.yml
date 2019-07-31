@@ -353,7 +353,7 @@
   - name: App Resource model
     href: concepts-app-resource-model.md
   - name: Managed Identity 
-    href: concepts-managed-identity-token-service.md
+    href: concepts-managed-identity.md
   
 - name: How-to guides
   items:

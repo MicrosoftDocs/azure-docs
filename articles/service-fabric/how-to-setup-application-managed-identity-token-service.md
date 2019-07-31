@@ -2,7 +2,7 @@
 title: Service Fabric - Set up an application with Managed Identity | Microsoft Docs
 description: This article shows you how to set up a Service Fabric application with Managed Identity
 services: service-fabric
-author: atsenthi
+author: athinanthny
 
 ms.service: service-fabric
 ms.topic: article
