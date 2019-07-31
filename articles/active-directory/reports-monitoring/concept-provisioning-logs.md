@@ -81,7 +81,7 @@ This enables you to display additional fields or remove fields that are already 
 
 Select an item in the list view to get more detailed information.
 
-![Sign-in activity](./media/concept-provisioning-logs/03.png "Sign-in activity")
+![Detailed information](./media/concept-provisioning-logs/detailed-information.png "Detailed information")
 
 
 ## Filter provisioning activities
@@ -133,17 +133,17 @@ When you select a custom time frame, you can configure a start date and an end d
 
 In addition to the default fields, when selected, you can also include the following fields in your filter:
 
-- **Job ID** - Short description of the job ID 
+- **Job ID** - A unique Job ID is associated with each application that you have enabled provisioning for.   
 
-- **Cycle ID** - Short description of the cycle ID
+- **Cycle ID** - Uniquely identifies the provisioning cycle. You can share this ID to support to look up the cycle in which this event occurred.
 
-- **Change ID** - Short description of the change ID 
+- **Change ID** - Unique identifier for the provisioning event. You can share this ID to support to look up the provisioning event.   
 
 
 
   
 
-## Drawer tabs 
+## Steps information 
 
 The **Steps** tab outlines the steps taken to provision an object. Provisioning an object can consist of four steps: 
 
