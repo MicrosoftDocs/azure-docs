@@ -39,7 +39,7 @@ Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** d
 ![Microsoft Azure Machine Learning Studio Capabilities Overview](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## Get started with Machine Learning Studio
-When you first enter Machine Learning Studio,](https://studio.azureml.net) you see the **Home** page. From here you can view documentation, videos, webinars, and find other valuable resources.
+When you first enter [Machine Learning Studio](https://studio.azureml.net), you see the **Home** page. From here you can view documentation, videos, and webinars and find other valuable resources.
 
 Click the upper-left menu ![Menu](./media/what-is-ml-studio/menu.png) and you'll see several options.
 ### Azure Machine Learning Studio
