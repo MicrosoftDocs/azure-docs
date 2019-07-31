@@ -75,7 +75,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
 
-   To have a free passive license for a standby secondary availability group or failover clustered instance, you must meet all of the following criteria:
+   To have a free passive license for a standby secondary availability group or failover clustered instance, you must meet all of the following criteria as outlined by the [licensing guide PDF](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf):
 
    1. You have [license mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) through [software assurance](https://www.microsoft.comlicensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
    1. The passive SQL Server instance does not serve SQL Server data to clients or run active SQL Server workloads. It is only used to synchronize with the primary server and otherwise maintain the passive database in a warm standby state. If it is serving data, such as reports to clients running active SQL Server workloads, or performing any "work", such cas additional backups from the secondary server, then it must be a paid licensed SQL Server instance. 
