@@ -18,32 +18,39 @@ ms.collection: M365-identity-device-management
 # Conditional Access: Require MFA for Azure management
 
 Organizations use a variety of Azure services and manage them from Azure Resource Manager based tools like:
-•	Azure portal
-•	Azure PowerShell
-•	Azure CLI
-Using any of these tools to perform resource management is a highly privileged action. These tools can alter subscription-wide configurations, such as service settings and subscription billing. To protect privileged actions, this Require MFA for service management (preview) policy will require multi-factor authentication for any user accessing Azure portal, Azure PowerShell, or Azure CLI.
 
-This section details how to set up the equivalent policy through Conditional Access.
-Step 1: Naming the Policy and Specifying User Scope
-Navigate to the Conditional Access blade and select New policy. Name the policy something descriptive such as “Require MFA for Service Management”.
-If you’d like your policy to be exactly like Baseline protection, it needs to apply to all users in your tenant. To do so, select Users and groups -> Include -> All users.  If you have users that are assigned one of these eight roles that need to be excluded from this policy, click the Exclude tab and select the users that need to be excluded from the policy. Click Done once you’ve defined the users this policy will apply to. 
+* Azure portal
+* Azure PowerShell
+* Azure CLI
 
+These tools can provide highly privileged access to resources, that can alter subscription-wide configurations, service settings, and subscription billing. To protect these privileged resources Microsoft recommends requiring multi-factor authentication for any user accessing these resources.
 
- 
+## User exclusions
 
-Step 2: Selecting Application Scope
-Select Cloud apps or actions and set the toggle at the top of the blade to Cloud apps. Under the Include tab, choose the Select apps option and then search for and select Microsoft Azure Management. This selection encompasses Azure Portal, Azure PowerShell, and Azure Command Line Interface. 
-Once complete, click Done.
+Conditional Access policies are powerful tools, we recommend excluding the following accounts from your policy:
 
- 
+* **Emergency access** or **break-glass** accounts to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant take steps to recover access.
+   * More information can be found in the article, [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md).
+* **Service accounts** and **service principles**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services and allow programmatic access to applications. Service accounts should be excluded since MFA can’t be completed programmatically.
+   * If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md). As a temporary workaround, you can exclude these specific accounts from the baseline policy.
 
+## Create a Conditional Access policy
 
-Step 3: Requiring MFA
+The following steps will help create a Conditional Access policy to require those assigned administrative roles to perform multi-factor authentication.
 
-Now that we have our conditions defined, we need to define our Access controls. Under the Access controls heading, select Grant and choose Grant access. Many different options will appear. Since the policy requires users to perform MFA every single time they sign in, select the first option: Require multi-factor authentication. Then click Select to save your selection. 
- 
+1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Browse to **Azure Active Directory** > **Conditional Access**.
+1. Select **New policy**.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+1. Under **Assignments**, select **Users and groups**
+   1. Under **Include**, select **All users**.
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   1. Select **Done**.
+1. Under **Cloud apps or actions** > **Include**, select **Select apps**, choose **Microsoft Azure Management** and select **Select** then **Done**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+1. Set **Enable policy** to **On**.
+1. Select **Create** to create and enable your policy.
 
-Step 4: Enabling Policy
-Now that you’ve defined your Conditional Access policy to protect Azure Service Management, enable the policy by setting the Enable policy toggle to On. Click Create and you’ve now created a CA policy for Require MFA for Service Management.
+## Next steps
 
- 
+[Conditional Access policy templates](howto-conditional-access-policy-templates.md)
