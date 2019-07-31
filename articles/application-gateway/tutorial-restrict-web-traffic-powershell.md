@@ -3,29 +3,18 @@ title: Restrict web traffic with a web application firewall - Azure PowerShell
 description: Learn how to restrict web traffic with a web application firewall on an application gateway using Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-tags: azure-resource-manager
-
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 03/25/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
 ---
-# Enable web application firewall using Azure PowerShell
 
-> [!div class="op_single_selector"]
->
-> - [Azure portal](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
->
-> 
+# Enable web application firewall using Azure PowerShell
 
 You can restrict traffic on an [application gateway](overview.md) with a [web application firewall](waf-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Set up the network
@@ -35,7 +24,7 @@ In this tutorial, you learn how to:
 
 ![Web application firewall example](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
-If you prefer, you can complete this tutorial using [Azure CLI](tutorial-restrict-web-traffic-cli.md).
+If you prefer, you can complete this article using the [Azure portal](application-gateway-web-application-firewall-portal.md) or the [Azure CLI](tutorial-restrict-web-traffic-cli.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -43,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -77,12 +66,13 @@ $pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static `
+  -Sku Standard
 ```
 
 ## Create an application gateway
 
-In this section you create resources that support the application gateway, and then finally create it and a WAF. The resources that you create include:
+In this section, you create resources that support the application gateway, and then finally create it and a WAF. The resources that you create include:
 
 - *IP configurations and frontend port* - Associates the subnet that you previously created to the application gateway and assigns a port to use to access it.
 - *Default pool* - All application gateways must have at least one backend pool of servers.
@@ -97,7 +87,7 @@ $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
 
-$subnet=$vnet.Subnets[0]
+$subnet=$vnet.Subnets[1]
 
 $gipconfig = New-AzApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
@@ -155,8 +145,8 @@ Now that you created the necessary supporting resources, specify parameters for 
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
-  -Name WAF_Medium `
-  -Tier WAF `
+  -Name WAF_v2 `
+  -Tier WAF_v2 `
   -Capacity 2
 
 $wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration `
@@ -253,7 +243,7 @@ Update-AzVmss `
 
 ## Create a storage account and configure diagnostics
 
-In this tutorial, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Azure Monitor logs or Event Hub to record data.
+In this article, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Azure Monitor logs or Event Hub to record data.
 
 ### Create the storage account
 
@@ -309,13 +299,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway with WAF enabled
-> * Create a virtual machine scale set
-> * Create a storage account and configure diagnostics
-
-> [!div class="nextstepaction"]
-> [Create an application gateway with SSL termination](./tutorial-ssl-powershell.md)
+[Create an application gateway with SSL termination](./tutorial-ssl-powershell.md)

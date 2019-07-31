@@ -46,7 +46,7 @@
   href: code-samples.md
 - name: Concepts
   items:
-  - name: Applications types
+  - name: Application types
     href: active-directory-b2c-apps.md
   - name: Authentication protocols
     href: active-directory-b2c-reference-protocols.md
@@ -289,6 +289,9 @@
       href: idp-pass-through-user-flow.md
     - name: Request access token
       href: active-directory-b2c-access-tokens.md
+    - name: Support multiple token issuers
+      href: multiple-token-endpoints.md
+      displayName: migrate, b2clogin, owin, jwt
   - name: Use b2clogin.com
     href: b2clogin.md
   - name: Use the Azure AD Graph API

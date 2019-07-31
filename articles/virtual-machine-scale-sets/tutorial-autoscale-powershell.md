@@ -133,7 +133,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 ```
 
 
-## Apply autoscale rules to a scale set
+## Apply autoscale profile to a scale set
 The final step is to apply the autoscale profile to your scale set. Your scale set is then able to automatically scale in or out based on the application demand. Apply the autoscale profile with [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting) as follows:
 
 ```azurepowershell-interactive

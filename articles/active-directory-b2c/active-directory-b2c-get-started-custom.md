@@ -66,13 +66,15 @@ Azure AD B2C requires you to register two applications that are used to sign up 
 
 ### Register the IdentityExperienceFramework application
 
-1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure Active Directory**.
-2. In the menu, select **App registrations (Legacy)**.
-3. Select **New application registration**.
-4. For **Name**, enter `IdentityExperienceFramework`.
-5. For **Application type**, choose **Web app/API**.
-6. For **Sign-on URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant domain name. All URLs should now be using [b2clogin.com](b2clogin.md).
-7. Click **Create**. After it's created, copy the application ID and save it to use later.
+1. Select **All services** in the top-left corner of the Azure portal.
+1. In the search box, enter `Azure Active Directory`.
+1. Select **Azure Active Directory** in the search results.
+1. Under **Manage** in the left-hand menu, select **App registrations (Legacy)**.
+1. Select **New application registration**.
+1. For **Name**, enter `IdentityExperienceFramework`.
+1. For **Application type**, choose **Web app/API**.
+1. For **Sign-on URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant domain name. All URLs should now be using [b2clogin.com](b2clogin.md).
+1. Click **Create**. After it's created, copy the application ID and save it to use later.
 
 ### Register the ProxyIdentityExperienceFramework application
 

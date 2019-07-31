@@ -16,6 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Add your work or school account
+
 If your organization uses two-factor verification, you can set up your work or school account to use the Microsoft Authenticator app as one of the verification methods.
 
 >[!Important]
@@ -31,7 +32,7 @@ If your organization uses two-factor verification, you can set up your work or s
 2. Check the box next to **Authenticator app**, and then select **Configure**.
 
     The **Configure mobile app** page appears.
-    
+
     ![Screen that provides the QR code](./media/user-help-auth-app-download-install/auth-app-barcode.png)
 
 3. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Work or school account**.

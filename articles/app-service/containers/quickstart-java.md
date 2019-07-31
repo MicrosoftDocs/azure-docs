@@ -1,5 +1,5 @@
 ---
-title: Create Java web app on Linux - Azure App Service 
+title: Create a Java web app on Linux - Azure App Service
 description: In this quickstart, you deploy your first Java Hello World in Azure App Service on Linux in minutes.
 keywords: azure, app service, web app, linux, java, maven, quickstart
 services: app-service\web
@@ -16,7 +16,7 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 #Customer intent: As a Java developer, I want deploy a java app so that it is hosted on Azure App Service.
 ---
 # Quickstart: Create a Java app in App Service on Linux
@@ -59,6 +59,31 @@ Then add the following plugin definition inside the `<build>` element of the `po
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
         <version>1.7.0</version>
+        <configuration>
+            <!-- Specify v2 schema -->
+            <schemaVersion>v2</schemaVersion>
+            <!-- App information -->
+            <resourceGroup>RESOURCEGROUP_NAME</resourceGroup>
+            <appName>WEBAPP_NAME</appName>
+            <region>REGION</region>
+   
+            <!-- Java Runtime Stack for App on Linux-->
+            <runtime>
+                <os>linux</os>
+                <javaVersion>jre8</javaVersion>
+                <webContainer>tomcat 8.5</webContainer>
+            </runtime> 
+            <deployment>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/target</directory>
+                        <includes>
+                            <include>*.war</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </deployment>
+        </configuration>
     </plugin>
 </plugins>
 ```
@@ -79,7 +104,7 @@ Then you can configure the deployment, run the maven command `mvn azure-webapp:c
 [INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
 [INFO] --------------------------------[ war ]---------------------------------
 [INFO]
-[INFO] --- azure-webapp-maven-plugin:1.6.0:config (default-cli) @ helloworld ---
+[INFO] --- azure-webapp-maven-plugin:1.7.0:config (default-cli) @ helloworld ---
 [WARNING] The plugin may not work if you change the os of an existing webapp.
 Define value for OS(Default: Linux):
 1. linux [*]
