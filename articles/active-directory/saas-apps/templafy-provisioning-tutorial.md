@@ -56,11 +56,11 @@ Before configuring Templafy for automatic user provisioning with Azure AD, you w
 
 	![Templafy Admin Console](media/templafy-provisioning-tutorial/image00.png)
 
-2. Click on the **Authentication Method**.
+2. Click on **Authentication Method**.
 
 	![Templafy Add SCIM](media/templafy-provisioning-tutorial/image01.png)
 
-3. Copy **the SCIM Api Key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Templafy application in the Azure portal.
+3. Copy the **SCIM Api Key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Templafy application in the Azure portal.
 
 	![Templafy Add SCIM](media/templafy-provisioning-tutorial/image02.png)
 
@@ -111,7 +111,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://scim.templafy.com/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Templafy. If the connection fails, ensure your Templafy account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://scim.templafy.com/scim` in **Tenant URL**. Input the **SCIM API Key** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Templafy. If the connection fails, ensure your Templafy account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -155,9 +155,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md)
 	
-## Connector limitations
-
-
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
