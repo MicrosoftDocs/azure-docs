@@ -45,8 +45,6 @@ This article shows how to use Azure DevTest Labs Tasks to create and deploy a VM
 
 This section describes how to create the Azure Resource Manager template that you use to create an Azure VM on demand.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 1. To create a Resource Manager template in your subscription, follow the procedure in [Use a Resource Manager template](devtest-lab-use-resource-manager-template.md).
    
 1. Before you generate the Resource Manager template, add the [WinRM artifact](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-winrm) as part of creating the VM. Deployment tasks like *Azure File Copy* and *PowerShell on Target Machines* need WinRM access. The WinRM artifact requires a hostname as a parameter, which should be the fully qualified domain name (FQDN) of the VM. 
@@ -62,6 +60,8 @@ This section describes how to create the Azure Resource Manager template that yo
 ## Create a script to get VM properties
 
 When you run task steps like *Azure File Copy* or *PowerShell on Target Machines* in the release pipeline, the following script collects the values that you need to deploy an app to a VM. You would ordinarily use these tasks to deploy your app to an Azure VM. The tasks require values such as the VM resource group name, IP address, and FQDN.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 To create the script file:
 
