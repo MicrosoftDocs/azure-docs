@@ -4,7 +4,7 @@ description: This article is an overview of Security Code Analysis Extension
 author: vharindra
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/18/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: security
 services: azure
@@ -16,13 +16,13 @@ ms.workload: na
 ---
 # About Microsoft Security Code Analysis
 
-**Microsoft Security Code Analysis extension** empowers teams to seamlessly integrate security analysis into their Azure DevOps CI/CD pipelines as recommended by the[Secure Development Lifecycle (SDL)](https://www.microsoft.com/securityengineering/sdl/practices) experts at Microsoft. Security is simplified through a consistent UX that abstracts the complexities of running various tools. With a NuGet based delivery of the tools, teams no longer need to manage the installing or updating of the tooling. With Command Line and Basic build task interfaces, all users, from savvy tool gurus to everyday developers, can have as little or as much control over the tools as they desire. Teams can also leverage powerful post processing capabilities such as publishing logs for retention, generating actionable developer focused reports & configuring build breaks on regressions.
+**Microsoft Security Code Analysis extension** empowers teams to seamlessly integrate security code analysis into their Azure DevOps CI/CD pipelines as recommended by the [Secure Development Lifecycle (SDL)](https://www.microsoft.com/securityengineering/sdl/practices) experts at Microsoft. Security is simplified through a consistent UX that abstracts the complexities of running various tools. With a NuGet based delivery of the tools, teams no longer need to manage the installing or updating of the tooling. With Command Line and Basic build task interfaces, all users, from savvy tool gurus to everyday developers, can have as little or as much control over the tools as they desire. Teams can also leverage powerful post processing capabilities such as publishing logs for retention, generating actionable developer focused reports & configuring build breaks on regressions.
 
 ## Why Microsoft Security Code Analysis
 
 ### Security simplified
 
-Adding security analysis tools to your Azure DevOps Pipeline is as simple as adding new tasks. Customize them or go with the defaults. The tasks run as part of your DevOps pipeline and produce logs detailing all kinds of findings.
+Adding security code analysis tools to your Azure DevOps Pipeline is as simple as adding new tasks. Customize them or go with the defaults. The tasks run as part of your DevOps pipeline and produce logs detailing all kinds of findings.
 
 ### Clean builds
 
@@ -40,7 +40,7 @@ The Microsoft Security Code Analysis Extension build tasks abstract the complexi
   - Processing the results from log files to create a summary report or break the build.
 >>>
 
-## Security Analysis Toolset
+## Security Code Analysis Toolset
 
 The Microsoft Security Code Analysis extension makes readily available to you, the latest versions of important analysis tools. The extension includes both Microsoft Internal and Open Source tools. The tools get automatically downloaded on the cloud-hosted agent once you configure & run the pipeline using the corresponding build task. Below is the set of tools that are available in the extension today. 
 Stay tuned for more and send us your suggestions for tools that could be added.
@@ -93,8 +93,8 @@ The task can be configured to break the build for issues found by specific tools
 
 ## Next steps
 
-For instructions on onboarding and installing the Security code analysis, refer to our [Onboarding guide](security-code-analysis-onboard.md)
+For instructions on onboarding and installing the Security code analysis, refer to our [Onboarding and installation guide](security-code-analysis-onboard.md)
 
 For more information about configuring the build tasks, see our [Configuration guide](security-code-analysis-customize.md)
 
-For frequently asked questions about the extension and the tools offered, [check our FAQs page.](security-code-analysis-faq.md)
+If you have further questions about the extension and the tools offered, [check our FAQs page.](security-code-analysis-faq.md)

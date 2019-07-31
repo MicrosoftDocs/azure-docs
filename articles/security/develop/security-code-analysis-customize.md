@@ -4,7 +4,7 @@ description: This article is about customizing the tasks in Security Code Analys
 author: vharindra
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/18/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: security
 services: azure
@@ -17,20 +17,19 @@ ms.workload: na
 
 # How To: Configure & Customize the build tasks
 
-This page describes in detail the configuration options available in each of the build tasks, starting with the tasks for security analysis tools followed by the post processing tasks
+This page describes in detail the configuration options available in each of the build tasks, starting with the tasks for security code analysis tools followed by the post processing tasks
 
 ## Anti-Malware Scanner Task
 
 > [!NOTE]
-> The Anti-Malware build task requires a build agent with Windows Defender enabled, which is true on "Hosted VS2017" build agents. (It will not run on the legacy/VS2015 "Hosted" agent.)Signatures cannot be updated on these agents, but the signature should always be relatively current, less than 3 hours old.
+> The Anti-Malware build task requires a build agent with Windows Defender enabled, which is true on "Hosted VS2017" and later build agents. (It will not run on the legacy/VS2015 "Hosted" agent) Signatures cannot be updated on these agents, but the signature should always be relatively current, less than 3 hours old.
 
-Click the newly added task to see the different options available.
+Screenshot and details on configuring below.
 
 ![Customizing the Anti-Malware Scanner Build Task](./media/security-tools/5-add-anti-malware-task600.png) 
 
-Settings for Type = **Basic**
-
-With Type = **Custom**, command-line arguments can be provided to customize the scan.
+- Settings for Type = **Basic**
+- With Type = **Custom**, command-line arguments can be provided to customize the scan.
 
 Windows Defender uses the Windows Update client to download and install signatures. If signature update fails on your build agent, the HRESULT error code is likely coming from Windows Update. For more information on Windows Update Errors and mitigation, visit [this page](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) and this [technet page](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx)
 
@@ -38,10 +37,10 @@ Windows Defender uses the Windows Update client to download and install signatur
 
 > [!NOTE]
 > As a prerequisite to run the BinSkim task, your build should meet one of the below conditions.
->    - Your build produces binary artifacts from managed code>   
+>    - Your build produces binary artifacts from managed code.
 >    - You have binary artifacts committed you would like to analyze with BinSkim.
 
-Click the **BinSkim** task to see the different options available within. 
+Screenshot and details on configuring below. 
 ![BinSkim Setup](./media/security-tools/7-binskim-task-details.png)  
 1. Set the build configuration to Debug to produce ***.pdb** debug files. They're used by BinSkim to map issues found in the output binary back to source code. 
 2. Choose Type = **Basic** & Function = **Analyze** to avoid researching and creating your own command line. 
@@ -68,7 +67,7 @@ Click the **BinSkim** task to see the different options available within.
 For more details on BinSkim about command line arguments, rules by ID or exit codes, visit the [BinSkim User Guide](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md)
 
 ## Credential Scanner Task
- Click **Run Credential Scanner** to see the different options available within. 
+Screenshot and details on configuring below. 
 ![Credential Scanner Customization](./media/security-tools/3-taskdetails.png)
 
 Available options include 
@@ -89,7 +88,7 @@ Available options include
 > [!NOTE]
 > You have to create and configure an account with the Risk Detection service as a prerequisite to be able to use this task. This service requires a separate onboarding process; it is not 'plug-and-play' as most of the other tasks in this extension. Please refer to [Microsoft Security Risk Detection](https://aka.ms/msrddocs) and [Microsoft Security Risk Detection: How To](https://docs.microsoft.com/security-risk-detection/how-to/) for instructions.
 
-Click **Microsoft Security Risk Detection Task** to see the different options available.
+Details on configuring below.
 
 Enter the required data; each option has hover text help.
    - **Azure DevOps Service Endpoint Name for MSRD**: If you have created a Generic type of Azure DevOps Service Endpoint to store the MSRD instance URL (you have onboarded to) and the REST API access token, then you can choose that service endpoint. If not, click the Manage link to create and configure a new service endpoint for this MSRD task. 
@@ -119,7 +118,7 @@ Enter the required data; each option has hover text help.
 >  - The build agent running this build task has Visual Studio 2017 v15.5 or later installed (compiler version 2.6.x).
 >
 
-Click the task **Run Roslyn Analyzers** to see the different options available.
+Details on configuring below.
 
 Available options include 
 - **Ruleset** - SDL Required, SDL Recommended, or you can use a custom ruleset of your own.
@@ -143,14 +142,14 @@ For More information about TSLint, visit [TSLint GitHub Repo](https://github.com
 >As you may be aware, TSLint will be deprecated some time in 2019 (Source: [TSLint GitHub Repo](https://github.com/palantir/tslint)) The team is currently investigating [ESLint](https://github.com/eslint/eslint) as an alternative, and creating a new task for ESLint is in the roadmap.
 
 ## Publish Security Analysis Logs Task
-Click the **Publish Security Analysis Logs** task to see the different options available.
+Screenshot and details on configuring below.
 ![Customizing Publish Security Analysis](./media/security-tools/9-publish-security-analsis-logs600.png)  
 - **Artifact name** -can be any String Identifier
 - **Artifact Type** - you can publish logs to the Azure-DevOps server or to a file share that is accessible to the build agent. 
-- **Tools** - You can choose to preserve logs for individual/specific tools, or select **All Tools** to preserve all logs. 
+- **Tools** - You can choose to preserve logs for individual/specific tools or select **All Tools** to preserve all logs. 
 
 ## Security Report Task
-Click the **Security Analysis** task to see the different options available.  
+Screenshot and details on configuring below.  
 ![Setup Post-Analysis](./media/security-tools/4-createsecurityanalysisreport600.png) 
 - **Reports** - Choose Report files to create; one will be created in each format **Console**, **TSV**, and/or **HTML** 
 - **Tools** - Select the tools in your build definition for which you would like a summary of issues detected. For each tool selected, there may be an option to select whether you would like to see Errors only or both Errors and Warnings in the report. 
@@ -158,7 +157,7 @@ Click the **Security Analysis** task to see the different options available.
 You can customize the base logs folder where logs are to be found, but this is not a typical scenario. 
 
 ## Post-Analysis Task
-Click the **Post-Analysis** task to see the different options available.
+Screenshot and details on configuring below.
 ![Customizing Post-Analysis](./media/security-tools/a-post-analysis600.png) 
 - **Tools** - Select the tools in your build definition for which you would like to inject a build break based on its findings. For each tool selected, there may be an option to select whether you would like to break on Errors only or both Errors and Warnings. 
 - **Report** - You can optionally write the results that are found and causing the build break to the Azure DevOps console window and log file. 
@@ -166,6 +165,6 @@ Click the **Post-Analysis** task to see the different options available.
 
 ## Next steps
 
-If you have further questions about the extension and the tools offered, [check our FAQs page](security-code-analysis-faq.md)
+If you have further questions about the extension and the tools offered, [check our FAQs page.](security-code-analysis-faq.md)
 
 

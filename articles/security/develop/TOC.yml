@@ -28,7 +28,7 @@
     items:
       - name: Overview
         href: security-code-analysis-overview.md
-      - name: Onboarding and Installation
+      - name: Onboarding and installation
         href: security-code-analysis-onboard.md
       - name: Configuration
         href: security-code-analysis-customize.md       

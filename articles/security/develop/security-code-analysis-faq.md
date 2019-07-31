@@ -4,7 +4,7 @@ description: This article contains FAQs about the Security Code Analysis Extensi
 author: vharindra
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/18/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: security
 services: azure
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ---
 
-# FAQs
+# Frequently asked questions
 Got questions? Check out the FAQs below for more information.
 
 ## General FAQs
@@ -58,7 +58,7 @@ The build tasks automatically add output paths to the following well-known locat
 Yes, all tasks and tools in the extension can be executed on a hosted build agent.
 
 >[!NOTE]
-> The Anti-Malware build task requires a build agent with Windows Defender enabled, which is true on "Hosted VS2017" build agents. (It will not run on the legacy/VS2015 "Hosted" agent.)
+> The Anti-Malware build task requires a build agent with Windows Defender enabled, which is true on "Hosted VS2017" or later build agents. (It will not run on the legacy/VS2015 "Hosted" agent.)
 Signatures cannot be updated on these agents, but the signature should always be relatively current, less than 3 hours old.
 >
 
@@ -177,10 +177,7 @@ Ensure your compiler supports Roslyn analyzers. "csc.exe /version" should report
 
 **The C# compiler is not recent enough (it must be >= 2.6)**
 
-The latest versions of the C# compiler are released here: https://www.nuget.org/packages/Microsoft.Net.Compilers. To get the installed version you are using: 
-    C:\>csc.exe /version
-    2.10.0.0 (b9fb1610)
-Ensure that you do not have any reference to a Microsoft.Net.Compilers NuGet package that is < v2.6.
+The latest versions of the C# compiler are released here: https://www.nuget.org/packages/Microsoft.Net.Compilers. To get the installed version you are using run `C:\>csc.exe /version` from command prompt. Ensure that you do not have any reference to a Microsoft.Net.Compilers NuGet package that is < v2.6.
 
 **MSBuild/VSBuild Logs Not Found**
 
@@ -192,6 +189,6 @@ If you need additional assistance, Microsoft Security Code Analysis Support is a
 
   - Onboarding - Contact your Technical Account Managers to get started. 
   >[!NOTE] 
-  >If you don’t already have a paid support relationship with Microsoft or if you have a support offering that doesn’t allow you to purchase services from the Phoenix catalog, please visit our [support services](https://www.microsoft.com/enterprise/services/support) for more information.
+  >If you don’t already have a paid support relationship with Microsoft or if you have a support offering that doesn’t allow you to purchase services from the Phoenix catalog, please visit our [support services home page](https://www.microsoft.com/enterprise/services/support) for more information.
 
   - Support - Email our team at [Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)

@@ -4,7 +4,7 @@ description: This article is about installing Security Code Analysis Extension
 author: vharindra
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/18/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: security
 services: azure
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ---
 
-# How to: Onboarding and Installing
+# How To: Onboarding and Installing
 
 Pre-requisites to get started with the Microsoft Security Code Analysis
   - Eligible Microsoft Unified Support Services offering (details below)
-  -	An Azure DevOps Organization
-  -	Permissions to install extensions to the Azure DevOps Organization
+  - An Azure DevOps Organization
+  - Permissions to install extensions to the Azure DevOps Organization
   - Source code that can be synced to a cloud-hosted Azure DevOps pipeline
 
 
-## Onboarding Microsoft Security Analysis tools extension
+## Onboarding Microsoft Security Code Analysis extension
 
 - If you already have one of the following support offerings, simply contact your Technical Account Manager and purchase\swap existing hours to get access to the extension.
    - Unified support – Advanced and Performance tier, Premier Support for Developers, Premier Support for Partners, or Premier Support for Enterprise.
@@ -36,7 +36,7 @@ Pre-requisites to get started with the Microsoft Security Code Analysis
 >[!NOTE]
 > Only registered partners in the Microsoft Partners Network are eligible for purchasing Premier Support for Partners, otherwise please purchase one of the eligible support offerings mentioned previously
 
-## Installing Microsoft Security Analysis tools extension
+## Installing Microsoft Security Code Analysis extension
 
 1. Once the extension is shared with your Azure DevOps Organization, navigate to your Azure DevOps Organization page (For example http://dev.azure.com/contoso)
 2. Click on the shopping bag icon in the upper right corner next to your name, then click Manage extensions 
@@ -58,7 +58,7 @@ Once the extension is installed, the secure development build tasks will be visi
    - Edit - Select the Pipeline and click **Edit** to begin editing an existing Pipeline.
 4. Click + to navigate to the **Add Tasks** pane.
 5. Find the build task you want to add either from the list or using the search box and then click **Add**. 
-6. You can now continue to specifying the parameters needed for the task.
+6. You can now continue to specify the parameters needed for the task.
 >[!NOTE]
 >File or directory paths are relative to the root of your source repository and parameters specifying the output folder/files will be replaced with the common location that we have defined on the build agent.
 
