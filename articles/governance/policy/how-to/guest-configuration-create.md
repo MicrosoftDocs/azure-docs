@@ -99,7 +99,7 @@ service:
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
-    Import-DscResource -ModuleName 'GuestConfiguration'
+    Import-DscResource -ModuleName 'PSDscResources'
 
     Service 'Ensure BitLocker service is present and running'
     {
