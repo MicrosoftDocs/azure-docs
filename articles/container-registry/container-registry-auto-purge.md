@@ -79,7 +79,7 @@ This example walks through using `acr purge` to periodically clean up multiple r
 
 Before deleting data, we recommend running an on-demand purge task using the `--dry-run` parameter. This option allows you to see the tags and manifests that the command will purge, without removing any data. 
 
-In the following example, the filter in each repository selects all tags. The `--ago 0d` parameter matches images of all ages in the repositories that match the filters. The `--untagged` parameter indicates to delete manifests in addition to tags. 
+In the following example, the filter in each repository selects all tags. The `--ago 0d` parameter matches images of all ages in the repositories that match the filters. Modify the selection criteria as needed for your scenario. The `--untagged` parameter indicates to delete manifests in addition to tags. 
 
 ```azurecli
 az acr run \
