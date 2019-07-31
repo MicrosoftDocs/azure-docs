@@ -52,13 +52,16 @@ npm install @azure/event-processor-host
 This section shows you how to create a Node.js application that sends events to an event hub. 
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com). 
-2. Create a file called `send.js` and paste the below code into it.
+2. Create a file called `send.js` and paste the below code into it. Get the connection string for the event hub namespace by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 
+
     ```javascript
     const { EventHubClient } = require("@azure/event-hubs");
 
-    // Define connection string and the name of the Event Hub
-    const connectionString = "";
-    const eventHubsName = "";
+    // Connection string - primary key of the Event Hubs namespace
+    const connectionString = "Endpoint=sb://<EVENT HUBS NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SHARED ACCESS KEY>";
+
+    // Name of the event hub
+    const eventHubsName = "<EVENT HUB NAME>";
 
     async function main() {
       const client = EventHubClient.createFromConnectionString(connectionString, eventHubsName);
