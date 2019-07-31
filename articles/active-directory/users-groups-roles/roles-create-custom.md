@@ -29,18 +29,18 @@ For more information, see the [custom roles overview](roles-custom-overview.md) 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 1. Select **Azure Active Directory** > **Roles and administrators** > **New custom role**.
 
-    ![Create or edit roles from the Roles and administrators page](./media/roles-create-custom/new-custom-role.png)
+   ![Create or edit roles from the Roles and administrators page](./media/roles-create-custom/new-custom-role.png)
 
 1. On the **Basics** tab, provide a name and description for the role.
 
-    ![provide a name and description for a custom role on the Basics tab](./media/roles-create-custom/basics-tab.png)
+   ![provide a name and description for a custom role on the Basics tab](./media/roles-create-custom/basics-tab.png)
 
 1. To select the permissions necessary to manage app registration credentials and basic properties such as name:
-    1. Enter "credentials" in the search bar and select the `microsoft.directory/applications/credentials/update` permission.
+   1. Enter "credentials" in the search bar and select the `microsoft.directory/applications/credentials/update` permission.
 
       ![Select the permissions for a custom role on the Permissions tab](./media/roles-create-custom/permissions-tab.png)
 
-    1. Enter "basic" in the search bar, select the `microsoft.directory/applications/basic/update` permission, and then click **Next**.
+   1. Enter "basic" in the search bar, select the `microsoft.directory/applications/basic/update` permission, and then click **Next**.
 1. On the **Review + create** tab, review the permissions and select **Create**.
 
 Your custom role will show up in the list of available roles to assign.
