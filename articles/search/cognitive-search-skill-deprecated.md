@@ -27,7 +27,7 @@ This document describes cognitive skills that are considered deprecated. Use the
 
 ### Last available api version
 
-2017-11-11-preview
+2017-11-11-Preview
 
 ### End of support
 
