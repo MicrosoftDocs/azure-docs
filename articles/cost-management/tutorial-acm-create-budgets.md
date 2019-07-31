@@ -5,10 +5,10 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 07/31/2019
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: adwise
 ms.custom: seodec18
 ---
 
@@ -59,33 +59,29 @@ After you create budgets, they show a simple view of your current spending again
 
 Click **Add**.
 
-![Cost Management budgets shown in the Azure portal](./media/tutorial-acm-create-budgets/budgets01.png)
+![Example showing a list of budgets already created](./media/tutorial-acm-create-budgets/budgets01.png)
 
-In the **Create budget** window, enter a budget name and budget amount. Then, choose either a monthly, quarterly, or annual duration period. Next, select an end date. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally received in less than eight hours. For more information about notifications, see [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md).
+In the **Create budget** window, make sure that the scope shown is correct. Choose any filters that you want to add. Filters allow you to create budgets on specific costs, such as resource groups in a subscription or a service like virtual machines. Any filter you can use in cost analysis can also be applied to a budget.
 
-If you have a Pay-As-You-Go, MSDN, or Visual Studio subscription, your invoice billing period might not align to the calendar month. For those types of subscriptions and resource groups, you can create a budget that's aligned to your invoice period or to calendar months. To create a budget aligned to your invoice period, select a reset period of Billing month, Billing quarter or Billing year. To create a budget aligned to the calendar month, select a reset period of Monthly, Quarterly or Annually.
+After you've identified your scope and filters, type a budget name. Then, choose a monthly, quarterly or annual budget reset period. This reset period determines the time window that's analyzed by the budget. The cost evaluated by the budget starts at zero at the beginning of each new period. When you create a quarterly budget, it works in the same way as a monthly budget. The difference is that the budget amount for the quarter is evenly divided among the three months of the quarter. An annual budget amount is evenly divided among all 12 months of the calendar year.
 
-Here's an example of creating a monthly budget for $4,500. An email alert gets generated when 90% of the budget is reached.
+If you have a Pay-As-You-Go, MSDN, or Visual Studio subscription, your invoice billing period might not align to the calendar month. For those subscription types and resource groups, you can create a budget that's aligned to your invoice period or to calendar months. To create a budget aligned to your invoice period, select a reset period of **Billing month**, **Billing quarter**, or **Billing year**. To create a budget aligned to the calendar month, select a reset period of **Monthly**, **Quarterly**, or **Annually**.
 
-![Example information shown in the Create budget box](./media/tutorial-acm-create-budgets/monthly-budget01.png)
+Next, identify the expiration date when the budget becomes invalid and stops evaluating your costs.
 
-When you create a quarterly budget, it works in the same way as a monthly budget. The difference is that the budget amount for the quarter is evenly divided among the three months of the quarter. As you might expect, an annual budget amount is evenly divided among all 12 months of the calendar year.
+Based on the fields chosen in the budget so far, a graph is shown to help you select a threshold to use for your budget. The suggested budget is based on the highest forecasted cost that you might incur in future periods. You can change the budget amount.
 
-Current spending against budgets is updated whenever Cost Management receives updated billing data. Typically, daily.
+![Example showing budget creation with monthly cost data ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-![Example information showing current spending against budgets](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
+After you configure the budget amount, click **Next** to configure budget alerts. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally received in less than eight hours. For more information about notifications, see [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md). In the example below, an email alert gets generated when 90% of the budget is reached.
+
+![Example showing alert conditions](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
 After you create a budget, it is shown in cost analysis. Viewing your budget in relation to your spending trend is one of the first steps when you start to [analyze your costs and spending](quick-acm-cost-analysis.md).
 
 ![Example budget and spending shown in cost analysis](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
 In the preceding example, you created a budget for a subscription. However, you can also create a budget for a resource group. If you want to create a budget for a resource group, navigate to **Cost Management + Billing** &gt; **Subscriptions** &gt; select a subscription > **Resource groups** > select a resource group > **Budgets** > and then **Add** a budget.
-
-## Edit a budget
-
-Depending on the level of access that you have, you can edit a budget to change its properties. In the following example, some of the properties are read-only because the user has only Contributor permission to the subscription. Currently, the **Expiration date** is disabled and can't be modified once set.
-
-![Example of editing a budget to change various properties](./media/tutorial-acm-create-budgets/edit-budget.png)
 
 ## Trigger an action group
 
@@ -94,6 +90,7 @@ When you create or edit a budget for a subscription or resource group scope, you
 To create or update action groups, click **Manage action groups** while you're creating or editing a budget.
 
 ![Example of creating a budget to show Manage action groups](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+
 
 Next, click **Add action group** and create the action group.
 
