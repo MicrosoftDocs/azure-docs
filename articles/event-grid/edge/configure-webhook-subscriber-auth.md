@@ -22,7 +22,7 @@ This guide gives examples of the possible webhook subscriber configurations an E
         "Env": [
             "outbound:webhook:httpsOnly=true",
             "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=false",
+            "outbound:webhook:allowUnknownCA=false"
         ]
  }
  ```
@@ -34,7 +34,7 @@ This guide gives examples of the possible webhook subscriber configurations an E
         "Env": [
             "outbound:webhook:httpsOnly=true",
             "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true",
+            "outbound:webhook:allowUnknownCA=true"
         ]
  }
  ```
@@ -49,7 +49,7 @@ This guide gives examples of the possible webhook subscriber configurations an E
         "Env": [
             "outbound:webhook:httpsOnly=true",
             "outbound:webhook:skipServerCertValidation=true",
-            "outbound:webhook:allowUnknownCA=false",
+            "outbound:webhook:allowUnknownCA=false"
         ]
  }
  ```
@@ -64,7 +64,7 @@ This guide gives examples of the possible webhook subscriber configurations an E
         "Env": [
             "outbound:webhook:httpsOnly=false",
             "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true",
+            "outbound:webhook:allowUnknownCA=true"
         ]
  }
  ```

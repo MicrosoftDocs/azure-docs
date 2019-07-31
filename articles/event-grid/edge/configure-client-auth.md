@@ -28,7 +28,7 @@ See [Security and authentication](security-authentication.md) guide for all the 
             "inbound:clientAuth:sasKeys:enabled=false",
             "inbound:clientAuth:clientCert:enabled=true",
             "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=false",
+            "inbound:clientAuth:clientCert:allowUnknownCA=false"
         ]
  }
  ```
@@ -41,7 +41,7 @@ See [Security and authentication](security-authentication.md) guide for all the 
             "inbound:clientAuth:sasKeys:enabled=false",
             "inbound:clientAuth:clientCert:enabled=true",
             "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
+            "inbound:clientAuth:clientCert:allowUnknownCA=true"
         ]
  }
 ```
@@ -59,7 +59,7 @@ See [Security and authentication](security-authentication.md) guide for all the 
             "inbound:clientAuth:sasKeys:key2=<some-secret2-here>",
             "inbound:clientAuth:clientCert:enabled=true",
             "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
+            "inbound:clientAuth:clientCert:allowUnknownCA=true"
         ]
  }
  ```

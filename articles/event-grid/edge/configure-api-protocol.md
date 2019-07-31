@@ -28,7 +28,7 @@ See [Security and authentication](security-authentication.md) guide for all the 
  {
         "Env": [
             "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
+            "inbound:serverAuth:serverCert:source=IoTEdge"
         ]
  }
  ```
@@ -39,7 +39,7 @@ See [Security and authentication](security-authentication.md) guide for all the 
  {
         "Env": [
             "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
+            "inbound:serverAuth:serverCert:source=IoTEdge"
         ],
         "HostConfig": {
             "PortBindings": {
@@ -62,7 +62,7 @@ See [Security and authentication](security-authentication.md) guide for all the 
  {
         "Env": [
             "inbound:serverAuth:tlsPolicy=enabled",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
+            "inbound:serverAuth:serverCert:source=IoTEdge"
         ]
  }
  ```
@@ -73,7 +73,7 @@ See [Security and authentication](security-authentication.md) guide for all the 
  {
         "Env": [
             "inbound:serverAuth:tlsPolicy=enabled",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
+            "inbound:serverAuth:serverCert:source=IoTEdge"
         ],
         "HostConfig": {
             "PortBindings": {
