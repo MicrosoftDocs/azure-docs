@@ -59,17 +59,17 @@ By default, Kudu will execute the build steps for your Node application (`dotnet
 
 ## Other Deployment Considerations
 
-## Use deployment slots
+### Use deployment slots
 
 Whenever possible, use [deployment slots](deploy-staging-slots.md) when deploying a new production build. When using a Standard App Service Plan tier or better, you can deploy your app to a staging environment, validate your changes, and do smoke tests. When you are ready, you can swap your staging and production slots. The swap operation will warm up the necessary worker instances to match your production scale, thus eliminating downtime. 
 
-## Local Cache
+### Local Cache
 
 Azure App Service content is stored on Azure Storage and is surfaced up in a durable manner as a content share. However, some apps just need a high-performance, read-only content store that they can run with high availability. These apps can benefit from using [local cache](overview-local-cache.md). 
 
 Always use local cache in conjunction with [deployment slots](deploy-staging-slots
 md) to prevent downtime. See [this section](overview-local-cache.md#best-practices-for-using-app-service-local-cache) for information on using these features together.
 
-## High CPU or Memory
+### High CPU or Memory
 
 If your App Service Plan is using over 90% of available CPU or memory, the underlying virtual machine may have trouble processing your deployment. When this happens, temporarily scale up your instance count to perform the deployment. Once the deployment has finished, you can return the instance count to its previous value.
