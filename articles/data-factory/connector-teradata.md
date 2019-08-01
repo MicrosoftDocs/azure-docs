@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 08/01/2019
 ms.author: jingwang
 
 ---
@@ -147,11 +147,12 @@ To copy data from Teradata, the following properties are supported:
     "name": "TeradataDataset",
     "properties": {
         "type": "TeradataTable",
+        "typeProperties": {},
+        "schema": [],        
         "linkedServiceName": {
             "referenceName": "<Teradata linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
