@@ -1,6 +1,6 @@
 ---
 title: Install and use Azure IoT explorer | Microsoft Docs
-description: Install the Azure IoT explorer tool and use it to interact with the Plug and Play devices connected to my IoT hub.
+description: Install the Azure IoT explorer tool and use it to interact with the IoT Plug and Play Preview devices connected to my IoT hub.
 author: miagdp
 ms.author: miag
 ms.date: 07/02/2019
@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 
-# As a solution developer, I want to use a GUI tool to interact with Plug and Play devices connected to an IoT hub to test and verify their behavior.
+# As a solution developer, I want to use a GUI tool to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
 ---
 
 # Install and use Azure IoT explorer
 
-The Azure IoT explorer is a graphical tool for interacting with and testing your Plug and Play devices. After installing the tool on your local machine, you can use it to connect to a device. You can use the tool to view the telemetry the device is sending, work with device properties, and call commands.
+The Azure IoT explorer is a graphical tool for interacting with and testing your IoT Plug and Play Preview devices. After installing the tool on your local machine, you can use it to connect to a device. You can use the tool to view the telemetry the device is sending, work with device properties, and call commands.
 
 This article shows you how to:
 
@@ -47,7 +47,7 @@ In this article, you use Azure IoT explorer to interact with a simulated device.
 
 The first time you run Azure IoT explorer, you're prompted for your IoT hub's connection string. After you add the connection string, select **Connect**. You can use the tool's settings to switch to another IoT hub by updating the connection string.
 
-The model definition for a Plug and Play device is stored in either the public repository, an company repository, or on the physical device. By default, the tool looks for your model definition in the public model repository. To use a model definition from another location, add it as a definition source in the tool settings:
+The model definition for an IoT Plug and Play device is stored in either the public repository, an company repository, or on the physical device. By default, the tool looks for your model definition in the public model repository. To use a model definition from another location, add it as a definition source in the tool settings:
 
 1. Go to **Settings**.
 1. Select **New** and choose the source to add.
@@ -83,7 +83,7 @@ This section includes the **Device Identity**, **Telemetry**, and **Device Twin*
 
 ### Digital twin
 
-You can use the tool to a view digital twin instance of the device. For a Plug and Play device, all the interfaces associated with the device capability model are displayed in this article. Select an interface to expand its corresponding [Plug and Play primitives](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+You can use the tool to a view digital twin instance of the device. For an IoT Plug and Play device, all the interfaces associated with the device capability model are displayed in this article. Select an interface to expand its corresponding [IoT Plug and Play primitives](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
 #### Properties
 
@@ -120,4 +120,4 @@ If you plan to continue with other articles, you can keep the Azure resources yo
 
 ## Next steps
 
-In this how-to article, you learned how to install and use Azure IoT explorer to interact with your Plug and Play devices. To learn about the Plug and Play CLI utilities, continue to the next article.
+In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. To learn about the IoT Plug and Play CLI utilities, continue to the next article.

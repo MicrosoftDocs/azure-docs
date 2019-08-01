@@ -1,5 +1,5 @@
 ---
-title: Interact with an IoT Plug and Play device from an Azure IoT solution | Microsoft Docs
+title: Interact with an IoT Plug and Play Preview device from an Azure IoT solution | Microsoft Docs
 description: As a solution developer, learn about how to use the service SDK to interact with IoT Plug and Play devices.
 author: YasinMSFT
 ms.author: yahajiza
@@ -13,9 +13,9 @@ manager: philmea
 # As a solution developer, I want to use Node service SDK to get and set properties, send commands to an IoT Plug and Play device, and manage telemetry routing and queries.
 ---
 
-# Connect to and interact with an IoT Plug and Play device
+# Connect to and interact with an IoT Plug and Play Preview device
 
-This how-to guide shows you how to use the samples in the Node service SDK to learn how to interact with IoT Plug and Play devices connected to your your IoT Solution.
+This how-to guide shows you how to use the samples in the Node service SDK to learn how to interact with IoT Plug and Play Preview devices connected to your your IoT Solution.
 
 If you haven't completed the [Connect an IoT Plug and Play device to your solution](quickstart-connect-pnp-device-solution.md) quickstart, you should do so now. The quickstart shows you how to download and install the SDK and run some of the samples.
 

@@ -1,5 +1,5 @@
 ---
-title: Create an Azure plug and play device | Microsoft Docs
+title: Create an Azure IoT Pug and Play Preview device | Microsoft Docs
 description: Use a device capability model to generate device code. Then run the device code and see the device connect to your IoT Hub.
 author: miagdp
 ms.author: miag
@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Quickstart: Use a device capability model to create a device
 
-A _device capability model_ (DCM) describes the capabilities of a plug and play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code to create a plug and play device using a DCM.
+A _device capability model_ (DCM) describes the capabilities of an IoT Plug and Play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code to create an IoT Plug and Play device using a DCM.
 
 ## Prerequisites
 
@@ -177,7 +177,7 @@ In order to validate the device code with **Azure IoT Explorer**, you need to pu
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 
-1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the plug and play primitives - properties, commands and telemetry.
+1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands and telemetry.
 
 1. Select the **Telemetry** page to view the telemetry data the device is sending.
 
@@ -195,7 +195,7 @@ In order to validate the device code with **Azure IoT Explorer**, you need to pu
 
 ## Next steps
 
-In this quickstart, you learned how to create a Plug and Play device using a DCM.
+In this quickstart, you learned how to create an IoT Plug and Play device using a DCM.
 
 To learn more about DCMs and how to create your own models, continue to the tutorial:
 

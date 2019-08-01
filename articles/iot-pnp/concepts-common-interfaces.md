@@ -1,5 +1,5 @@
 ---
-title: Common interfaces - IoT Plug and Play | Microsoft Docs
+title: Common interfaces - IoT Plug and Play Preview | Microsoft Docs
 description: Description of common interfaces for IoT Plug and Play developers
 author: ChrisGMsft
 ms.author: chrisgre
@@ -9,7 +9,7 @@ ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# IoT Plug and Play common interfaces
+# IoT Plug and Play Preview common interfaces
 
 All IoT Plug and Play devices are expected to implement some common interfaces. Common interfaces benefit IoT solutions because they provide consistent functionality. [Certification](tutorial-build-device-certification.md) requires your device to implement several common interfaces. You can retrieve common interface definitions from the global model repository.
 
