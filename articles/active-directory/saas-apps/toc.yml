@@ -59,7 +59,7 @@
         href: agiloft-tutorial.md
       - name: Aha!
         href: aha-tutorial.md
-      - name: AirStack
+      - name: Airstack
         href: airstack-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
@@ -219,6 +219,8 @@
         href: canvas-lms-tutorial.md
       - name: Capriza Platform
         href: capriza-tutorial.md
+      - name: Carbonite Endpoint Backup
+        href: carbonite-endpoint-backup-tutorial.md
       - name: Carlson Wagonlit Travel
         href: carlsonwagonlit-tutorial.md
       - name: CBRE ServiceInsight
