@@ -20,7 +20,7 @@ For Site Recovery, you can Azure Monitor Logs to help you do the following:
 - **Monitor Site Recovery health and status**. For example, you can monitor replication health, test failover status, Site Recovery events, recovery point objectives (RPOs) for protected machines, and disk/data change rates.
 - **Set up alerts for Site Recovery**. For example, you can configure alerts for machine health, test failover status, or Site Recovery job status.
 
-
+Using Azure Monitor Logs with Site Recovery is supported for Azure to Azure replication, and VMware VM/physical server to Azure replication.
 ## Before you start
 
 Here's what you need:
@@ -216,7 +216,8 @@ You can set up Site Recovery alerts based on Azure Monitor data. [Learn more](..
 
 Set up an alert if more than 20 replicated Azure VMs go into a Critical state.
 
-```AzureDiagnostics   
+```
+AzureDiagnostics   
 | where replicationProviderName_s == "A2A"   
 | where replicationHealth_s == "Critical"  
 | where isnotempty(name_s) and isnotnull(name_s)   
