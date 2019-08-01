@@ -151,11 +151,11 @@ To copy data from SAP HANA, the following properties are supported:
             "schema": "<schema name>",
             "table": "<table name>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP HANA linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
