@@ -19,7 +19,7 @@ metadata:
 # linkListType: architecture | deploy | download | get-started | how-to-guide | learn | overview | quickstart | tutorial
 
 landingContent:
-  - title: About Azure Active Directory Domain Services
+  - title: Learn about Azure AD Domain Services
     linkLists:
       - linkListType: overview
         links:
@@ -69,3 +69,17 @@ landingContent:
             url: manage-dns.md
           - text: Check health status
             url: check-health.md
+          - text: Enable security audits (preview)
+            url: security-audit-events.md
+  - title: Join VMs to Azure AD Domain Services
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Windows Server
+            url: join-windows-vm.md
+      - linkListType: how-to-guide
+        links:
+          - text: Ubuntu Server
+            url: join-ubuntu-linux-vm.md
+          - text: Red Hat Enterprise Linux
+            url: join-rhel-linux-vm.md
