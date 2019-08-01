@@ -54,9 +54,9 @@ Only machines for which initial replication has completed are included in the co
 - AzureSiteRecoveryEvents is sent whenever an event is generated. 
 - AzureSiteRecoveryReplicatedItems is sent whenever there is any environment change. Typically, the data refresh time is 15 minutes after a change. 
 
-### How log is data kept in Azure Monitor logs? 
+### How long is data kept in Azure Monitor logs? 
 
-By default, retention is for 31 days. You can increase in the **Usage and Estimated Cost** section in the Log Analytics workspace. Click on **Data Retention**, and choose the range.
+By default, retention is for 31 days. You can increase the period in the **Usage and Estimated Cost** section in the Log Analytics workspace. Click on **Data Retention**, and choose the range.
 
 ### What's the size of the diagnostic logs? 
 
