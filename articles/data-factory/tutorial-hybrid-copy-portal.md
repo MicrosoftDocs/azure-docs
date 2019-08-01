@@ -176,7 +176,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
     e. Under **User name** and **Password**, enter the user name and password. If you need to use a backslash (\\) in your user account or server name, precede it with the escape character (\\). For example, use *mydomain\\\\myuser*.
 
-    f. Select **Test connection**. This step is to confirm that Data Factory can connect to your SQL Server database by using the self-hosted integration runtime you created.
+    f. Select **Test connection**. This step confirms that Data Factory can connect to your SQL Server database by using the self-hosted integration runtime you created.
 
     g. To save the linked service, select **Finish**.
 
@@ -218,7 +218,11 @@ In this step, you create a data factory and start the Data Factory UI to create 
     c. For the **File** part, select **Add dynamic content**.
     ![dynamic expression for resolving file name](./media/tutorial-hybrid-copy-portal/file-name.png)
 
+<<<<<<< HEAD
     d. Add `@CONCAT(pipeline().RunId, '.txt')`, and then select **Finish**. This action will rename the file with PipelineRunID.txt. 
+=======
+    d. Add `@CONCAT(pipeline().RunId, '.txt')`, and then select **Finish**. This step will rename the file with PipelineRunID.txt. 
+>>>>>>> Update Tutorial-Copy on-premises data to cloud-UI
 
 1. Go to the tab with the pipeline opened, or select the pipeline in the tree view. In **Sink Dataset**, confirm that **AzureBlobDataset** is selected.
 
