@@ -8,6 +8,8 @@
   items:
   - name: Use a device capability model to create a device
     href: quickstart-create-pnp-device.md
+  - name: Connect a device to IoT Hub
+    href: quickstart-connect-pnp-device.md
   - name: Connect a device to your solution
     href: quickstart-connect-pnp-device-solution.md
 - name: Tutorials
