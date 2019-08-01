@@ -63,7 +63,7 @@ Moving a SQL Server VM requires doing the following:
     - For any additional networking components, see the [networking documentation](../../../virtual-network/virtual-networks-overview.md).
 - Manually create a non-production network in the target region if you want to test the configuration before you perform the final move to the target region. We recommend this step because it ensures minimal interference with the production network. 
 
-## Configure Azure Site Recovery vault   
+## Configure Azure Site Recovery vault
 
 The following steps show you how to use Azure Site Recovery to copy data to the target region. Create the Recovery Services vault in any region other than the source region. 
 
@@ -97,11 +97,7 @@ The following steps show you how to use Azure Site Recovery to test the move pro
 
    ![Test failover for your VM](media/virtual-machines-windows-sql-move-to-new-region/test-failover-of-replicated-vm.png)
 
-1. On the **Test Failover** page, select a recovery point to use for the failover: 
-   - **Latest processed**: Fails the VM over to the last recovery point that was processed by the Site Recovery service. The time stamp indicates the time of the last recovery point. WIth this option, no time is spent processing data, so the it provides a low Recovery TIme Objective (RTO). 
-   - **Latest app-consistent**: This option fails over all the VMs to the latest app-consistent recovery time. The time stamp indicates the latest app-consistent time. 
-   - **Custom**: Select any recovery point. 
-
+1. On the **Test Failover** page, select the **Latest app-consistent** recovery point to use for the failover, as that is the only type of snapshot that can guarantee SQL Server data consistency. 
 1. Select the virtual network under **Azure virtual network** and then select **OK** to test failover. 
    
    >[!IMPORTANT]
@@ -123,13 +119,16 @@ The following steps show you how to move the SQL Server VM from your source regi
 
    ![Initiate failover](media/virtual-machines-windows-sql-move-to-new-region/initiate-failover.png)
 
-1. Select the **latest processed** recover point under **Recovery Point**. 
+1. Select the **latest app-consistent** recover point under **Recovery Point**. 
 1. Select the checkbox next to **Shut down the machine before beginning failover**. Site Recovery will attempt to shut down the source VM before triggering the failover. Failover will continue even if shut down fails. 
 1. Select **OK** to start the failover.
 1. You can monitor the failover process from the same **Site Recovery jobs** page you viewed when monitoring the failover test in the previous section. 
 1. After the job completes, check that the SQL Server VM appears in the target region as expected. 
 1. Navigate back to the vault, select **Replicated Items**, select the SQL Server VM, and select **Commit** to finish the move process to the target region. Wait until the commit job finishes. 
 1. Register your SQL Server VM with the SQL VM resource provider to enable **SQL virtual machine** manageability in the Azure portal and features associated with the resource provider. For more information, see [Register SQL Server VM with SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md). 
+
+  > [!WARNING]
+  > SQL Server data consistency is only guaranteed with app-consistent snapshots. The **latest processed** snapshot can't be used for SQL Server failover as a crash recovery snapshot can't guarantee SQL Server data consistency. 
 
 ## Clean up source resources
 To avoid billing charges, remove the SQL Server VM from the vault, and delete any unnecessary associated resources. 
