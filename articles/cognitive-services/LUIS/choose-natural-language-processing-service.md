@@ -54,9 +54,11 @@ You might combine the two services for this utterance, if the chat bot needs to 
 
 ## Use both services when your knowledge base is incomplete
 
-If you are building your QnA Maker knowledge base but know it isn't complete, you could combine the two services. Your client application would need to monitor both responses for scores. If the score from QnA Maker is below some arbitrary threshold, use the intent and entity information returned from LUIS to pass the information on to a third-party service.
+If you are building your QnA Maker knowledge base but know the subject domain is changing (such as timely information), you could combine LUIS and QnA Maker services. This allows you to use the information in your knowledge base but also use LUIS to determine a user's intention. Once the client application has the intention, it can request relevant information from another source. 
 
-Continuing with the example text, `How do I get to the Human Resources building on the Seattle North campus?`, suppose that QnA Maker returns a low score. Use the LUIS intent, `FindLocation` and pulls out entities, such as `Human Resources building` and `Seattle North campus`. Then send this information to a mapping or search service for another answer. 
+Your client application would need to monitor both LUIS and QnA Maker responses for scores. If the score from QnA Maker is below some arbitrary threshold, use the intent and entity information returned from LUIS to pass the information on to a third-party service.
+
+Continuing with the example text, `How do I get to the Human Resources building on the Seattle North campus?`, suppose that QnA Maker returns a low confidence score. Use the intent returned from LUIS, `FindLocation` and any extracted entities, such as `Human Resources building` and `Seattle North campus`, to send this information to a mapping or search service for another answer. 
 
 You can present this third-party answer to the user for validation. Once you have the user's approval, you can go back to QnA Maker to add the information to grow your knowledge. 
 
