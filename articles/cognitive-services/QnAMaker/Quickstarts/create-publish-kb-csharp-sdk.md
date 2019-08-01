@@ -64,7 +64,6 @@ Build succeeded.
 ...
 ```
 
-
 ### Install the SDK
 
 Within the application directory, install the QnA Maker client library for .NET with the following command:
