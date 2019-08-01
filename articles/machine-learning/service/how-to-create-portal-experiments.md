@@ -96,7 +96,7 @@ Select **Create Experiment** and populate the **Create a new automated machine l
 
 <a name="profile"></a>
 
-### Data profiling
+## Data profiling & summary stats
 
 You can get a vast variety of summary statistics across your data set to verify whether your data set is ML-ready. For non-numeric columns, they include only basic statistics like min, max, and error count. For numeric columns, you can also review their statistical moments and estimated quantiles. Specifically, our data profile includes:
 
@@ -122,7 +122,7 @@ Kurtosis| Measure of how heavily tailed this column's data is compared to a norm
 
 <a name="preprocess"></a>
 
-### Advanced preprocessing
+## Advanced preprocessing options
 
 When configuring your experiments, you can enable the advanced setting `Preprocess`. Doing so means that the following data preprocessing and featurization steps are performed automatically.
 

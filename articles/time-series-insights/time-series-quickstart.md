@@ -11,6 +11,7 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 07/29/2019
+# Customer intent: As a data analyst or developer, I want to quickly learn about the Time Series insights visualization explorer.
 ---
 
 # Quickstart: Explore Azure Time Series Insights
