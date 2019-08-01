@@ -19,7 +19,7 @@ At the end of this tutorial, you'll have two .NET console apps:
 
 * **CreateIdentities**. This app creates a device identity, a module identity, and associated security key to connect your device and module clients.
 
-* **UpdateModuleTwinReportedProperties**. This app sends updated module twin reported properties to your IoT Hub.
+* **UpdateModuleTwinReportedProperties**. This app sends updated module twin reported properties to your IoT Hub instance.
 
 > [!NOTE]
 > For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
@@ -30,7 +30,7 @@ To complete this tutorial, you need the following prerequisites:
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-## Create an IoT hub
+## Create a hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -46,7 +46,7 @@ To complete this tutorial, you need the following prerequisites:
 
 In this section, you create a .NET console app on your simulated device that updates the module twin reported properties.
 
-Before you begin, get your module connection string. Sign in to the [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and select **IoT Devices**. Find **myFirstDevice**. Select **myFirstDevice** to open it, and then select **myFirstModule** to open it. In **Module Identity Details**, copy the **Connection string (primary key)** when needed in the following procedure.
+Before you begin, get your module connection string. Sign in to the [Azure portal](https://portal.azure.com/). Navigate to your hub and select **IoT Devices**. Find **myFirstDevice**. Select **myFirstDevice** to open it, and then select **myFirstModule** to open it. In **Module Identity Details**, copy the **Connection string (primary key)** when needed in the following procedure.
 
    ![Azure portal module detail](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 

@@ -18,7 +18,7 @@ When you run this console app, it generates a unique ID and key for both device 
 
 1. Open Visual Studio, and select **Create a new project**.
 1. In **Create a new project**, select **Console App (.NET Framework)**.
-1. Select **Next** to open **Configure your new project**. Name the project **CreateIdentities** and name the solution **IoTHubGetStarted**. Make sure the .NET Framework version is 4.6.1 or later.
+1. Select **Next** to open **Configure your new project**. Name the project *CreateIdentities* and name the solution *IoTHubGetStarted*. Make sure the .NET Framework version is 4.6.1 or later.
 
     ![Enter name and framework for your Visual Studio solution](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
 
