@@ -239,9 +239,6 @@ To inject these secrets in your Spring or Tomcat configuration file, use environ
 
 This section shows how to connect Java applications deployed on Azure App Service on Linux with the NewRelic and AppDynamics application performance monitoring (APM) platforms.
 
-[Configure New Relic](#configure-new-relic)
-[Configure AppDynamics](#configure-appdynamics)
-
 ### Configure New Relic
 
 1. Create a NewRelic account at [NewRelic.com](https://newrelic.com/signup)
