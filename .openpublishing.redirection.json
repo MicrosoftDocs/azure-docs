@@ -37420,6 +37420,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/concept-data-drift.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-monitor-data-drift",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/governance/policy/samples/allowed-app-gate-sku.md",
       "redirect_url": "/azure/governance/policy/samples/allowed-app-gateway-sku",
       "redirect_document_id": true
