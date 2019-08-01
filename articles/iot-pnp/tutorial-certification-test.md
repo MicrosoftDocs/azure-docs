@@ -43,6 +43,10 @@ To certify your IoT Plug and Play device, your device must meet the following re
 * Your device code must implement the [Device Information Interface](concepts-common-interfaces.md).
 * The capability model and device code work with IoT Central.
 
+All of the devices are considered as pre-certified IoT Plug and Play devices. It does not guarantee the quality and compliance of the final product of IoT Plug and Play software components such as SDK, Digital Twin Definition Languages. 
+
+All of the pre-certified IoT Plug and Play devices are required to recertify upon general availability of IoT Plug and Play based on the final version of certification requirements and software components provided by Microsoft.
+
 ## Add product name
 
 **Product** is a friendly name for a product model that a customer can purchase. To add a product:
