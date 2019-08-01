@@ -1,7 +1,7 @@
 ---
-title: Train and register scikit-learn models
+title: Train machine learning models with scikit-learn
 titleSuffix: Azure Machine Learning service
-description: This article shows you how to train and register a scikit-learn model using Azure Machine Learning service.
+description: Learn how to run your scikit-learn training scripts at enterprise scale using Azure Machine Learning's SKlearn estimator class. The example scripts classify iris flower images to build a machine learning model based on scikit-learn's iris dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,14 @@ author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
 
-#Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
+#Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
 
 # Build scikit-learn models at scale with Azure Machine Learning service
 
-In this article, learn how to run your scikit-learn training scripts at enterprise scale using Azure Machine Learning's  [SKlearn estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) class. The example scripts in this article are used to classify iris flower images to build a machine learning model based on the [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris).
+In this article, learn how to run your scikit-learn training scripts at enterprise scale using Azure Machine Learning's [SKlearn estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) class. 
+
+The example scripts in this article are used to classify iris flower images to build a machine learning model based on scikit-learn's [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris).
 
 Whether you're training a machine learning scikit-learn model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version and monitor production-grade models with Azure Machine Learning.
 
@@ -187,7 +189,7 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 
 ## Next steps
 
-In this article, you trained and registered a machine learning, classification model using scikit-learn on the Azure Machine Learning service.
+In this article, you trained and registered a machine learning, classification model using scikit-learn on Azure Machine Learning service.
 
 * To learn how to deploy a model, continue on to our [model deployment](how-to-deploy-and-where.md) article.
 
