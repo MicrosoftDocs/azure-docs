@@ -38,7 +38,7 @@ On this page, you can customize the following aspects of your application:
 
 A PNG image, no larger than 1 MB, with a transparent background. This logo displays to the left on the IoT Central application title bar.
 
-If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage application settings](./howto-administer.md#Change-application-name-and-URL).
+If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage your Application](./howto-administer.md#change-application-name-and-url).
 
 ### Browser icon (favicon)
 
