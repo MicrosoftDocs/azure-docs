@@ -295,7 +295,10 @@ pprint(entities)
 ### Output
 
 ```json
-{'documents': [{'id': '1',
+{
+   "documents" : [
+      {
+         "id" : "1",
          "entities" : [
             {
                "name" : "Microsoft",
