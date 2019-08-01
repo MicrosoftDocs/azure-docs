@@ -96,9 +96,12 @@ of the default consumer group in an event hub.
     ```javascript
     const { EventHubClient, delay } = require("@azure/event-hubs");
 
-    // Define connection string and related Event Hubs entity name here
-    const connectionString = "";
-    const eventHubsName = "";
+    // Connection string - primary key of the Event Hubs namespace. 
+    // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    const connectionString = "Endpoint=sb://<EVENT HUBS NAMESPACE NAME>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SHARED ACCESS KEY>";
+
+    // Name of the event hub. For example: myeventhub
+    const eventHubsName = "<EVENT HUB NAME>";
 
     async function main() {
       const client = EventHubClient.createFromConnectionString(connectionString, eventHubsName);
@@ -136,10 +139,15 @@ This section shows how to receive events from an event hub by using Azure [Event
     ```javascript
     const { EventProcessorHost, delay } = require("@azure/event-processor-host");
 
-    // Define connection string and related Event Hubs entity name here
-    const eventHubConnectionString = "";
-    const eventHubName = "";
-    const storageConnectionString = "";
+    // Connection string - primary key of the Event Hubs namespace. 
+    // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    const connectionString = "Endpoint=sb://<EVENT HUBS NAMESPACE NAME>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SHARED ACCESS KEY>";
+
+    // Name of the event hub. For example: myeventhub
+    const eventHubsName = "<EVENT HUB NAME>";
+
+    // Azure Storage connection string
+    const storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=<STORAGE ACCOUNT NAME>;AccountKey=<STORAGE ACCOUNT KEY>;EndpointSuffix=core.windows.net";
 
     async function main() {
       const eph = EventProcessorHost.createFromConnectionString(
