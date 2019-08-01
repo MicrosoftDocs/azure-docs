@@ -1,5 +1,5 @@
 ---
-title: Create an Azure plug and play device | Microsoft Docs
+title: Create an Azure IoT Plug and Play Preview device | Microsoft Docs
 description: Use a device capability model to generate device code. Then run the device code and see the device connect to your IoT Hub.
 author: miagdp
 ms.author: miag
@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 
-# As a device builder, I want to try out generating device code from a model so I can understand the purpose of device capability models.​
+# As a device builder, I want to try out generating device code from a model so I can understand the purpose of device capability models.
 ---
 
 # Quickstart: Use a device capability model to create a device
 
-A _device capability model_ (DCM) describes the capabilities of a plug and play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code to create a plug and play device using a DCM.
+A _device capability model_ (DCM) describes the capabilities of an IoT Plug and Play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code to create an IoT Plug and Play device using a DCM.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 
     You should expect this operation to take several minutes to complete.
 
-1. Create a `pnp_app` subdirectory in the root of the the local clone of the repository. This is the folder you use for the device model files and device code stub.
+1. Create a `pnp_app` subdirectory in the root of the local clone of the repository. This is the folder you use for the device model files and device code stub.
 
     ```cmd/sh
     cd azure-iot-sdk-c-pnp
@@ -79,7 +79,7 @@ In this quickstart, you use an existing sample device capability model and assoc
 
     ![Device capability model](media/quickstart-create-pnp-device/dcm.png)
 
-1. In the files you downloaded, replace `<YOUR_COMPANY_NAME_HERE>` in the `@id` and `schema` fields with a unique value. Use only the characters a-z, A-Z, 0-9, and underscore. For more more information, see [Digital Twin identifier format](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
+1. In the files you downloaded, replace `<YOUR_COMPANY_NAME_HERE>` in the `@id` and `schema` fields with a unique value. Use only the characters a-z, A-Z, 0-9, and underscore. For more information, see [Digital Twin identifier format](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
 
 ## Generate the C code stub
 
@@ -115,7 +115,7 @@ You use the device SDK to build the generated device code stub. The application 
     add_subdirectory(pnp_app/sample_device)
     ```
 
-1. Create a cmake subdirectory in the the device SDK root folder, and navigate to that folder:
+1. Create a cmake subdirectory in the device SDK root folder, and navigate to that folder:
 
     ```cmd\sh
     mkdir cmake
@@ -177,7 +177,7 @@ In order to validate the device code with **Azure IoT Explorer**, you need to pu
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 
-1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the plug and play primitives - properties, commands and telemetry.
+1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands and telemetry.
 
 1. Select the **Telemetry** page to view the telemetry data the device is sending.
 
@@ -195,7 +195,7 @@ In order to validate the device code with **Azure IoT Explorer**, you need to pu
 
 ## Next steps
 
-In this quickstart, you learned how to create a Plug and Play device using a DCM.
+In this quickstart, you learned how to create an IoT Plug and Play device using a DCM.
 
 To learn more about DCMs and how to create your own models, continue to the tutorial:
 

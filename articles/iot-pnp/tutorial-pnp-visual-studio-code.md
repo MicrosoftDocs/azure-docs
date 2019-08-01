@@ -1,6 +1,6 @@
 ---
-title: Create and test an Azure IoT Plug and Play device | Microsoft Docs
-description: As a device developer, learn about how to use VS Code to create and test a new device capability model for an IoT Plug and Play device.
+title: Create and test an Azure IoT Plug and Play Preview device | Microsoft Docs
+description: As a device developer, learn about how to use VS Code to create and test a new device capability model for an IoT Plug and Play Preview device.
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/10/2019
@@ -210,9 +210,9 @@ To create an interface file that defines the capabilities of your IoT device in 
 
 ### Create the model file
 
-The model file specifies the interfaces that your Plug and Play device implements. There are typically at least two interfaces in a model - one or more that define the specific capabilities of your device, and a standard interface that all Plug and Play devices must implement.
+The model file specifies the interfaces that your IoT Plug and Play device implements. There are typically at least two interfaces in a model - one or more that define the specific capabilities of your device, and a standard interface that all IoT Plug and Play devices must implement.
 
-To create a model file that specifies the interfaces your Plug and Play device implements in VS Code:
+To create a model file that specifies the interfaces your IoT Plug and Play device implements in VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
@@ -327,7 +327,7 @@ To provide implementations for the stubbed code in VS Code:
 
 ## Build the code
 
-Before you run the code to test your plug and play device with an Azure IoT hub, you need to compile the code.
+Before you run the code to test your IoT Plug and Play device with an Azure IoT hub, you need to compile the code.
 
 Follow the instructions in the **Readme.md** file in the **sensorbox_app** folder to build and run the code on Windows. The following section includes instructions for retrieving a device connection string to use when you run the device code.
 
@@ -360,7 +360,7 @@ When you run the code, it connects to IoT Hub and starts sending sample telemetr
     sensorbox_app.exe {your device connection string}
     ```
 
-1. Use the Azure IoT explorer tool to interact with the Plug and Play device connected to your IoT hub. For more information, see [Install and use Azure IoT explorer](./howto-install-iot-explorer.md).
+1. Use the Azure IoT explorer tool to interact with the IoT Plug and Play device connected to your IoT hub. For more information, see [Install and use Azure IoT explorer](./howto-install-iot-explorer.md).
 
 ## Next steps
 
