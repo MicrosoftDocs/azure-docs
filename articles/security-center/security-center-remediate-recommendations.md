@@ -19,7 +19,7 @@ ms.author: v-mohabe
 ---
 # Remediate recommendations in Azure Security Center
 
-When you receive recommendations, you can remediate them easily by following the [remediation steps](#remediation-steps) provided in Security Center. Some recommendations have a ["One-click fix" option](#one-click) .
+Recommendations give you suggestions on how to better secure your resources, You remediate them by following the [remediation steps](#remediation-steps) provided in the recommendation. For several recommendations, Security Center provides a ["One-click fix" option](#one-click) that automatically runs some of the steps for you.
 
 ## Remediation steps <a name="remediation-steps"></a>
 
@@ -45,16 +45,14 @@ To implement one-click remediation:
     > [!NOTE]
     > Some of the listed resources might be disabled, because you do not have the appropriate permissions to modify them.
 
-    ![One-click fix](./media/security-center-remediate-recommendations/security-center-remediate-one-click.png)
-
 3. In the confirmation box, read the remediation details and implications. 
+
+   ![One-click fix](./media/security-center-remediate-recommendations/security-center-one-click-fix.png)
 
     > [!NOTE]
     > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the 1-click remediation.
 
 4. Insert the relevant parameters if required, and approve the remediation.
- 
-   ![One-click fix](./media/security-center-remediate-recommendations/security-center-one-click-fix.png)
 
     > [!NOTE]
     > -It can take several minutes after remediation completes to see the resources in the **Healthy resources** tab. To view the the remediation actions, check the activity log where they are logged.
@@ -63,11 +61,7 @@ To implement one-click remediation:
 
 ## Next steps
 
-In this document, you were introduced to security recommendations in Security Center. To learn more about Security Center, see the following topics:
+In this document, you were shown how to remediate recommendations in Security Center. To learn more about Security Center, see the following topics:
 
 * [Setting security policies in Azure Security Center](tutorial-security-policy.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
-* [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
-* [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
