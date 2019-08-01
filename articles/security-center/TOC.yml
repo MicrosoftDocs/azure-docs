@@ -46,6 +46,8 @@
     href: security-center-incident.md
   - name: Incident response
     href: security-center-incident-response.md  
+  - name: Cross-tenant management
+    href: security-center-cross-tenant-management.md 
 
 - name: How-to guides
   items:
