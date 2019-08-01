@@ -131,19 +131,13 @@ $customAdmin = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -Disp
     "rolePermissions":
     [
         {
-            "resourceActions":
-            {
-                "allowedResourceActions":
-                [
-                    "microsoft.directory/applications/basic/update",
-                    "microsoft.directory/applications/credentials/update"
-                ]
-            },
-            "condition":null
+            "allowedResourceActions": 
+            [
+                "microsoft.directory/applications/basic/read",
+                "microsoft.directory/applications/credentials/update"
+            ]
         }
-    ],
-    "templateId":"<GET NEW GUID AND INSERT HERE>",
-    "version":"1"
+    ]
     }
     ```
 
@@ -163,7 +157,7 @@ $customAdmin = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -Disp
     {
     "principalId":"<GUID OF USER>",
     "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
-    "resourceScopes":["/<GUID OF APPLICATION REGISTRATION>"]
+    "resourceScope":["/<GUID OF APPLICATION REGISTRATION>"]
     }
     ```
 
