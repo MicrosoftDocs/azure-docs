@@ -71,7 +71,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
 ## Create a data factory
 
-1. On the left menu, select **+ Create a resource** > **Analytics** > **Data Factory**:
+1. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**:
     
     ![New data factory creation](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
@@ -122,8 +122,6 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
     
     a. Click **Browse** to navigate to the **adfv2tutorial/input** folder, select the **inputEmp.txt** file, then click **Choose**.
 
-    ![Choose the input file or folder](./media/tutorial-copy-data-tool/specify-source-path.png)
-
     b. Click **Next** to move to next step.
 
 1. On the **File format settings** page, notice that the tool automatically detects the column and row delimiters. Select **Next**. You also can preview data and view the schema of the input data on this page.
@@ -133,11 +131,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
     a. Click **+ Create new connection** to add a connection
 
-    ![New sink linked service](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
-
     b. Select **Azure SQL Database** from the gallery, and then select **Next**.
-
-    ![Select Azure SQL DB](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 
     c. On the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password, then select **Finish**.
 
@@ -149,41 +143,33 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
 1. On the **Table mapping** page, select the **[dbo].[emp]** table, and then select **Next**.
 
-    ![Table mapping](./media/tutorial-copy-data-tool/table-mapping.png)
 1. On the **Schema mapping** page, notice that the first and second columns in the input file are mapped to the **FirstName** and **LastName** columns of the **emp** table. Select **Next**.
 
     ![Schema mapping page](./media/tutorial-copy-data-tool/schema-mapping.png)
 1. On the **Settings** page, select **Next**.
 1. On the **Summary** page, review the settings, and then select **Next**.
-
-    ![Summary page](./media/tutorial-copy-data-tool/summary-page.png)
 1. On the **Deployment page**, select **Monitor** to monitor the pipeline (task).
-
-    ![Deployment page](./media/tutorial-copy-data-tool/deployment-page.png)
 1. Notice that the **Monitor** tab on the left is automatically selected. The **Actions** column includes links to view activity run details and to rerun the pipeline. Select **Refresh** to refresh the list.
 
-    ![Monitor pipeline runs](./media/tutorial-copy-data-tool/pipeline-monitoring.png)
-1. To view the activity runs that are associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. For details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. To go back to the **Pipeline Runs** view, select the **Pipelines** link at the top. To refresh the view, select **Refresh**.
+1. To view the activity runs that are associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. For details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. To go back to the Pipeline Runs view, select the **Pipeline Runs** link at the top. To refresh the view, select **Refresh**.
 
     ![Monitor activity runs](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-    ![Copy activity details](./media/tutorial-copy-data-tool/copy-execution-details.png)
 
 1. Verify that the data is inserted into the **emp** table in your SQL database.
 
-    ![Verify SQL output](./media/tutorial-copy-data-tool/verify-sql-output.png)
 
 1. Select the **Author** tab on the left to switch to the editor mode. You can update the linked services, datasets, and pipelines that were created via the tool by using the editor. For details on editing these entities in the Data Factory UI, see [the Azure portal version of this tutorial](tutorial-copy-data-portal.md).
 
 ## Next steps
 The pipeline in this sample copies data from Blob storage to a SQL database. You learned how to:
 
-> [!div class="checklist"]
+> [!div class="checklist"
 > * Create a data factory.
 > * Use the Copy Data tool to create a pipeline.
 > * Monitor the pipeline and activity runs.
 
 Advance to the following tutorial to learn how to copy data from on-premises to the cloud:
 
-> [!div class="nextstepaction"]
+>[!div class="nextstepaction"]
 >[Copy data from on-premises to the cloud](tutorial-hybrid-copy-data-tool.md)
