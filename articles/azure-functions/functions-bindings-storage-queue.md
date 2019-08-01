@@ -50,6 +50,7 @@ See the language-specific example:
 * [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [Python](#trigger---python-example)
 
 ### Trigger - C# example
 
@@ -184,6 +185,52 @@ The following Java example shows a storage queue trigger functions which logs th
  }
  ```
 
+### Trigger - Python example
+
+Here's the *function.json* file:
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
+
+Here's the Python code:
+
+```python
+import logging
+import json
+
+import azure.functions as func
+
+def main(msg: func.QueueMessage):
+    logging.info('Python queue trigger function processed a queue item.')
+
+    result = json.dumps({
+        'id': msg.id,
+        'body': msg.get_body().decode('utf-8'),
+        'expiration_time': (msg.expiration_time.isoformat()
+                            if msg.expiration_time else None),
+        'insertion_time': (msg.insertion_time.isoformat()
+                           if msg.insertion_time else None),
+        'time_next_visible': (msg.time_next_visible.isoformat()
+                              if msg.time_next_visible else None),
+        'pop_receipt': msg.pop_receipt,
+        'dequeue_count': msg.dequeue_count
+    })
+
+    logging.info(result)
+```
+
 ## Trigger - attributes
 
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a queue trigger:
@@ -315,6 +362,7 @@ See the language-specific example:
 * [C# script (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 * [Java](#output---java-example)
+* [Python](#output---python-example)
 
 ### Output - C# example
 
@@ -463,6 +511,67 @@ module.exports = function(context) {
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on parameters whose value would be written to Queue storage.  The parameter type should be `OutputBinding<T>`, where T is any native Java type of a POJO.
 
+### Output - Python example
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
+
+Here's the Python code to add a single queue message:
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+
+    input_msg = req.params.get('message')
+
+    msg.set(input_msg)
+
+    return 'OK'
+```
+
+To create more than one message, adjust the code to:
+
+* Declare `msg` as a list type
+* Pass an array to the `set` method
+
+```python
+import azure.functions as func
+import typing
+
+def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpResponse:
+
+    msg.set(['one', 'two'])
+
+    return 'OK'
+```
 
 ## Output - attributes
 
