@@ -191,9 +191,6 @@ Use customizations when you need to modify an imported interface or add IoT Cent
 
 You can't customize the capability name or capability type. If there are changes you can't make in the **Customize** section, you'll need to version your device template and interface to modify the capability.
 
->[!NOTE]
->Bug bash: We are currently testing a left-hand panel for adding elements into your view in the Device Template page vs. a right-hand panel for adding elements into your view in the Dashboard page. Please leave us feedback and preferences in the Teams channel.
-
 ### Generate default views
 
 Generating default views is a quick way to get started with visualizing your important device information. You will have up to three default views generated for your device template:

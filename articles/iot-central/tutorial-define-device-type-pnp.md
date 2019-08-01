@@ -127,9 +127,6 @@ As a builder, you can customize the application to display relevant information 
 * Forms to view and edit device and cloud properties.
 * Dashboards to visualize devices.
 
->[!NOTE]
->Bug bash: We are currently testing a left-hand panel for adding elements into your view in the Device Template page vs. a right-hand panel for adding elements into your view in the Dashboard page. Please leave us feedback and preferences in the Teams channel.
-
 ### Generate default views
 
 Generating default views is a quick way to get started with visualizing your important device information. You can have up to three default views generated for your device template:
