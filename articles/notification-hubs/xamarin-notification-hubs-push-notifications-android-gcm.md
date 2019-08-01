@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/01/2019
+ms.date: 08/01/2019
 ms.author: jowargo
 ---
 
@@ -307,7 +307,7 @@ You can test receiving notifications in your app with the **Test Send** option i
 
 ![Azure portal - Test Send](media/partner-xamarin-notification-hubs-android-get-started/send-test-notification.png)
 
-Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET through a compatible library. If a library is not available for your back-end, you can also use the REST API directly to send notification messages.
+Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET through a compatible library. If a library isn't available for your back-end, you can also use the REST API directly to send notification messages.
 
 ## Next steps
 
