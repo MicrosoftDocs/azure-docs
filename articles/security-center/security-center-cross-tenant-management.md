@@ -42,7 +42,7 @@ You are able to review and manage subscriptions across multiple tenants in the s
 
 Select the subscription, from each tenant, you'd like to view.
 
-  ![Filter tenants](./media/security-center-cross-tenant-management/cross-tenant-filter2.png)
+  ![Filter tenants](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
 The views and actions are basically the same. Here are some examples:
 
@@ -59,3 +59,10 @@ The views and actions are basically the same. Here are some examples:
 - **Manage Alerts**: Detect [alerts](security-center-alerts-overview.md) throughout the different tenants. Take action on resources that are out of compliance with actionable [remediation steps](security-center-managing-and-responding-alerts.md).
 
 - **Manage advanced cloud defense features and more**: Manage the various threat detection and protection services, such as [just-in-time (JIT) VM access](security-center-just-in-time.md), [Adaptive Network Hardening](security-center-adaptive-network-hardening.md), [adaptive application controls](security-center-adaptive-application.md), and more.
+
+
+## Next steps
+This article explains how cross-tenant management works in Security Center. To learn more about Security Center, see the following:
+
+* [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
+* [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
