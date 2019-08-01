@@ -18,7 +18,7 @@ ms.author: magattus
 
 ---
 # Debug HTTP header for Azure CDN from Microsoft
-The debug repsonse header, `X-Cache`, provides details as to what layer of the CDN stack the content was served from. This header is specific to Azure CDN from Microsoft.
+The debug response header, `X-Cache`, provides details as to what layer of the CDN stack the content was served from. This header is specific to Azure CDN from Microsoft.
 
 ### Response header format
 
