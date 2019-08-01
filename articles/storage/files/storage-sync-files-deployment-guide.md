@@ -1,10 +1,9 @@
 ---
 title: Deploy Azure File Sync | Microsoft Docs
 description: Learn how to deploy Azure File Sync, from start to finish.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files

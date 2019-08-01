@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/31/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -18,7 +18,7 @@ The curated list of the most frequently asked questions regarding the QnA Maker 
 
 ## Use the Help bot in the QnA Maker portal
 
-QnA Maker provides a **Help** bot within the QnA Maker portal to help you. The help bot is available on every web page. The bot uses QnA Maker to provide answers and provides the [C# Bot Framework code project](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot) to the bot so you can quickly get up and running with your own answer bot. 
+QnA Maker provides a **Help** bot within the QnA Maker portal to help you. The help bot is available on every web page. The bot uses QnA Maker to provide answers and provides the [C# Bot Framework code project](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) to the bot so you can quickly get up and running with your own answer bot. 
 
 ![![QnA Maker provides a **Help** bot within the QnA Maker portal to help you.](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
