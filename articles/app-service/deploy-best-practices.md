@@ -21,7 +21,7 @@ ms.custom:
 
 # Deployment Best Practices
 
-Every development team has unique requirements that can make implementing an efficient deployment pipeline difficult on any cloud service. This document introduces the three main components of deploying to App Service: deployment sources, build pipelines, and deployment mechanisms. This also covers some best practices and tips for specific language stacks.
+Every development team has unique requirements that can make implementing an efficient deployment pipeline difficult on any cloud service. This article introduces the three main components of deploying to App Service: deployment sources, build pipelines, and deployment mechanisms. This article also covers some best practices and tips for specific language stacks.
 
 ## Deployment Components
 
@@ -31,7 +31,7 @@ A deployment source is the location of your application code. For production app
 
 ### Build Pipeline
 
-Once the deployment source has been decided, a team must choose a build pipeline. The specific actions performed by the build pipeline will depend on your language stack. In any case, a build pipeline will read source code from the deployment source and perform a series of actions (such as compiling code, minifying HTML and JavaScript, running tests, and packaging components) to get the application in a runnable state. These operations can be executed on a build server such as Azure Pipelines or Jenkins, or executed locally.
+Once you decide on a deployment source, your next step is to choose a build pipeline. The specific actions done by the build pipeline will depend on your language stack. In any case, a build pipeline will read your source code from the deployment source and execute a series of steps (such as compiling code, minifying HTML and JavaScript, running tests, and packaging components) to get the application in a runnable state. These operations can be executed on a build server such as Azure Pipelines or executed locally.
 
 ### Deployment Mechanism
 
@@ -47,7 +47,7 @@ Deployment tools such as Azure Pipelines, Jenkins, and editor plugins all use on
 
 ### Java
 
-Use the Kudu [zipdeploy/](deploy-zip.md) API for deploying JAR applications, and [wardeploy/](deploy-zip.md#deploy-war-file) for WAR apps. If you are using Jenkins, you can use those APIs directly in your deployment phase. See this article for more information.
+Use the Kudu [zipdeploy/](deploy-zip.md) API for deploying JAR applications, and [wardeploy/](deploy-zip.md#deploy-war-file) for WAR apps. If you are using Jenkins, you can use those APIs directly in your deployment phase. For more information, see [this article]() 
 
 ### Node
 
@@ -61,15 +61,15 @@ By default, Kudu will execute the build steps for your Node application (`dotnet
 
 ## Use deployment slots
 
-Whenever possible, use [deployment slots](deploy-staging-slots.md) when deploying a new production build. When using a Standard App Service Plan tier or better, you can deploy your app to a staging environment, validate your changes, and perform smoke tests. When you are ready, you can swap your staging and production slots. This will warm up the necessary worker instances to match your production scale, thus eliminating downtime. 
+Whenever possible, use [deployment slots](deploy-staging-slots.md) when deploying a new production build. When using a Standard App Service Plan tier or better, you can deploy your app to a staging environment, validate your changes, and do smoke tests. When you are ready, you can swap your staging and production slots. The swap operation will warm up the necessary worker instances to match your production scale, thus eliminating downtime. 
 
 ## Local Cache
 
 Azure App Service content is stored on Azure Storage and is surfaced up in a durable manner as a content share. However, some apps just need a high-performance, read-only content store that they can run with high availability. These apps can benefit from using [local cache](overview-local-cache.md). 
 
-Local cache should always be used in conjunction with [deployment slots](deploy-staging-slots
+Always use local cache in conjunction with [deployment slots](deploy-staging-slots
 md) to prevent downtime. See [this section](overview-local-cache.md#best-practices-for-using-app-service-local-cache) for information on using these features together.
 
 ## High CPU or Memory
 
-If your App Service Plan is using over 90% of available CPU or memory, the underlying virtual machine may have trouble processing your deployment. If this happens, temporarily scale up your instance count to perform the deployment. Once the deployment has finished, you can return the instance count to its previous value.
+If your App Service Plan is using over 90% of available CPU or memory, the underlying virtual machine may have trouble processing your deployment. When this happens, temporarily scale up your instance count to perform the deployment. Once the deployment has finished, you can return the instance count to its previous value.
