@@ -39,11 +39,11 @@ Performance reports, traffic visualizations, and health checkups are available f
 
 ### SSH console access
 
-[!INCLUDE [Open SSH session in browser](../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+[!INCLUDE [Open SSH session in browser](/includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
 ### Stream diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](/includes/app-service-web-logs-access-no-h.md)]
 
 For more information, see [Streaming logs with the Azure CLI](troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
 
@@ -173,7 +173,7 @@ Follow the instructions in the [Bind an existing custom SSL certificate](app-ser
 
 ### Use KeyVault References
 
-[Azure KeyVault](../../key-vault/key-vault-overview.md) provides centralized secret management with access policies and audit history. You can store secrets (such as passwords or connection strings) in KeyVault and access these secrets in your application through environment variables.
+[Azure KeyVault](../key-vault/key-vault-overview.md) provides centralized secret management with access policies and audit history. You can store secrets (such as passwords or connection strings) in KeyVault and access these secrets in your application through environment variables.
 
 First, follow the instructions for [granting your app access to Key Vault](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) and [making a KeyVault reference to your secret in an Application Setting](app-service-key-vault-references.md#reference-syntax). You can validate that the reference resolves to the secret by printing the environment variable while remotely accessing the App Service terminal.
 
@@ -252,7 +252,7 @@ Finally, we will place the driver JARs in the Tomcat classpath and restart your 
 
 3. Connect to the local tunneling port with your SFTP client and upload the files to the */home/tomcat/lib* folder.
 
-Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ## Configuring Tomcat
 
