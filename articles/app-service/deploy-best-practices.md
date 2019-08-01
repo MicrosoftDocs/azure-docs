@@ -21,27 +21,27 @@ ms.custom:
 
 # Deployment Best Practices
 
-Every development team has unique needs that can make implementing an efficient deployment pipeline difficult on any cloud service. This document introduces the three main components of deploying to App Service: deployment sources, build pipelines, and deployment mechanisms. ....sjfbsdkf ..........x.x.x.x.x.xx
+Every development team has unique requirements that can make implementing an efficient deployment pipeline difficult on any cloud service. This document introduces the three main components of deploying to App Service: deployment sources, build pipelines, and deployment mechanisms. This also covers some best practices and tips for specific language stacks.
 
 ## Deployment Components
 
 ### Deployment Source
 
-A deployment source is the location of your application code. For production apps, the deployment source will be version control software such as GitHub, BitBucket, or Azure Repos. App Service also supports OneDrive and Dropbox folders as deployment sources. While cloud folders can make it easy to get started with App Service, we do not typically recommend this source for enterprise production applications.
+A deployment source is the location of your application code. For production apps, the deployment source will be a repository hosted by version control software such as GitHub, BitBucket, or Azure Repos. For development and test scenarios, the deployment source may be a project on your local machine. App Service also supports OneDrive and Dropbox folders as deployment sources. While cloud folders can make it easy to get started with App Service, we do not typically recommend this source for enterprise production applications. 
 
 ### Build Pipeline
 
-Once the deployment source has been decided, a team must choose a build pipeline. The specific actions performed by the build pipeline will depend on your language stack. In any case, a build pipeline will read source code from the deployment source and perform a series of actions (such as compiling code, minifying HTML and JavaScript, and packaging components) to get the application in a runnable state.
+Once the deployment source has been decided, a team must choose a build pipeline. The specific actions performed by the build pipeline will depend on your language stack. In any case, a build pipeline will read source code from the deployment source and perform a series of actions (such as compiling code, minifying HTML and JavaScript, running tests, and packaging components) to get the application in a runnable state. These operations can be executed on a build server such as Azure Pipelines or Jenkins, or executed locally.
 
 ### Deployment Mechanism
 
 The deployment mechanism is the action used to put your built application into the /home/site/wwwroot directory of your web app. The /wwwroot directory is a mounted storage location shared by all instances of your web app. When the deployment mechanism puts your application in this directory, your instances will receive a notification to sync the new files. App Service supports the following deployment mechanisms:
 
-- Kudu endpoints: [Kudu](https://github.com/projectkudu/kudu/wiki) is the open-source developer productivity tool that runs as a separate process in Windows App Service, and runs as a separate container in Linux App Service. Kudu handles continuous deployments and provides HTTP endpoints for deployment, such as zipdeploy.
+- Kudu endpoints: [Kudu](https://github.com/projectkudu/kudu/wiki) is the open-source developer productivity tool that runs as a separate process in Windows App Service, and as a second container in Linux App Service. Kudu handles continuous deployments and provides HTTP endpoints for deployment, such as zipdeploy.
 - Cloud sync: 
-- FTP and WebDeploy: Using your site or user credentials, you can upload files via FTP and deploy content via WebDeploy. These mechanisms do not go through Kudu.  
+- FTP and WebDeploy: Using your [site or user credentials](deploy-configure-credentials.md), you can upload files [via FTP](deploy-ftp.md) or WebDeploy. These mechanisms do not go through Kudu.  
 
-Deployment tools such as Azure Pipelines, Jenkins, and the Maven plugin all hook into one of these three deployment mechanisms.
+Deployment tools such as Azure Pipelines, Jenkins, and editor plugins all use one of these three deployment mechanisms.
 
 ## Language-Specific Considerations
 
