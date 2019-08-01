@@ -321,7 +321,7 @@ Yes. For details see, [Migrate Azure Application Gateway and Web Application Fir
 
 ### Does WAF support non UTF-8 encoding?
 
-No. WAF is only UTF-8 aware currently.
+No. WAF currently supports only UTF-8 encoding.
 
 ## Diagnostics and logging
 
