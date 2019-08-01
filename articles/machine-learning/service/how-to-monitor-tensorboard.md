@@ -30,7 +30,7 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
 
     * Azure Machine Learning Notebook VM - no downloads or installation necessary
 
-        * Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md#create-notebook) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+        * Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
 
         * In the samples folder on the notebook server, find  two completed and expanded notebooks by navigating to this directory: **how-to-use-azureml > training-with-deep-learning**.
         * export-run-history-to-run-history.ipynb
