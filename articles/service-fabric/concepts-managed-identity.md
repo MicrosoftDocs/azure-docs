@@ -35,18 +35,18 @@ The following terms are used throughout the managed identities for Azure resourc
 
 
 ## Supported scenarios for Service Fabric Application 
-   For preview release, we ONLY allow these actions to be deployed in Azure Service Fabric Applications for below supported scenarios:
-   - Deploy new application with one ore more services which has Managed Identity enabled.
+   For preview release, we ONLY allow these actions to be deployed in Azure Service Fabric Applications for the below supported scenarios:
+   - Deploy a new application with one or more services that has Managed Identity enabled.
    - Upgrade an application to use managed identity to access Azure resources 
-   - Rollback or disable managed identity by removing application using ARM. This action will automatically ONLY remove system-assigned      managed identity.
+   - Roll back or disable a managed identity by removing application using Azure Resource Manager. This action will automatically ONLY remove system-assigned managed identities.
 >
 > [!NOTE]
 >
->  It is not reommended to enable this feature in Production clusters. One user-assigned or system-assigned identity can be associated to one ore more application.
+>  It is not recommended to enable this feature in Production clusters. One user-assigned or system-assigned identity can be associated to one or more application.
 
 ## Next steps
 
-Get started with the managed identities for Azure Service Fabric applications with help of following "How-To" documents in a sequential order.
+Get started with managed identities for Azure Service Fabric applications by following the "How-To" documents in a sequential order.
 
 * [How to Configure Service Fabric cluster to enable Managed Identity for their applications](how-to-setup-cluster-managed-identity-token-service.md)
 * [How to Enable MI(Managed Identity) in Service Fabric application ](how-to-setup-application-managed-identity-token-service.md)
