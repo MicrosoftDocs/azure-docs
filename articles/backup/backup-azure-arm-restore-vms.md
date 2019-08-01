@@ -106,7 +106,8 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 
 4. In **Restore configuration**, select **OK**. In **Restore**, click **Restore** to trigger the restore operation.
 
-During the VM restore, Azure Backup doesn’t use storage account. But in case of **Restore disks** and **Instant Restore**, storage account is used for storing template.
+When your virtual machine uses managed disks and you select the **Create virtual machine** option, Azure Backup doesn’t use the specified storage account. In the case of **Restore disks** and **Instant Restore**, the storage account is used only for storing the template. Managed disks are created in the specified resource group.
+When your virtual machine uses unmanaged disks, they are restored as blobs to the storage account.
 
 ### Use templates to customize a restored VM
 
