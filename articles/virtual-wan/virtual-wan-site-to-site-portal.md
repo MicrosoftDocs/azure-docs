@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 07/25/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -58,7 +58,12 @@ Create as many sites as you need that correspond to your physical locations. For
    * **Subscription** - Verify the subscription.
    * **Resource Group** - The resource group you want to use.
    * **Location**
-4. Click **Show advanced** to view additional settings. You can select **BGP** to enable BGP, which will enable BGP functionality on all connections created for this site in Azure. You can also enter **Device information** (optional fields). Doing so can help the Azure Team better understand your environment to add additional optimization possibilities in the future, or to help you troubleshoot.
+4. Click **Show advanced** to view additional settings. 
+
+   You can select **BGP** to enable BGP, which will enable BGP functionality on all connections created for this site in Azure. Configuring BGP on a Virtual WAN is equivalent to configuring BGP on an Azure VPN gateway. Your on-premises BGP peer address *must not* be the same as the public IP address of your VPN to device or the VNet address space of the VPN site. Use a different IP address on the VPN device for your BGP peer IP. It can be an address assigned to the loopback interface on the device. However, it *cannot* be an APIPA (169.254.*x*.*x*) address. Specify this address in the corresponding Local Network Gateway representing the location. For BGP prerequisites, see [About BGP with Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+
+   You can also enter **Device information** (optional fields). Doing so can help the Azure Team better understand your environment to add additional optimization possibilities in the future, or to help you troubleshoot.
+   
 5. Click **Confirm**.
 6. After you click **Confirm**, view the status on the VPN sites page. The site will go from **Provisioning** to **Provisioned**.
 

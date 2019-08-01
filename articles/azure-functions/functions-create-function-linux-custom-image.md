@@ -185,7 +185,7 @@ Now, you can use this image as the deployment source for a new function app in A
 
 ## Create a Premium plan
 
-Linux hosting for custom Functions containers supported on [Dedicated (App Service) plans](functions-scale.md#app-service-plan) and [Premium plans](functions-scale.md#premium-plan). This tutorial uses a Premium plan, which can scale as needed. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md).
+Linux hosting for custom Functions containers supported on [Dedicated (App Service) plans](functions-scale.md#app-service-plan) and [Premium plans](functions-premium-plan.md#features). This tutorial uses a Premium plan, which can scale as needed. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md).
 
 The following example creates a Premium plan named `myPremiumPlan` in the **Elastic Premium 1** pricing tier (`--sku EP1`), in the West US region (`-location WestUS`), and in a Linux container (`--is-linux`).
 

@@ -1,6 +1,6 @@
 ---
-title: Scenario Availability - Speech Services
-titlesuffix: Azure Cognitive Services
+title: Scenario Availability - Speech Service
+titleSuffix: Azure Cognitive Services
 description: Reference for regions of the Speech Service.
 services: cognitive-services
 author: chrisbasoglu

@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 07/26/2019
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
@@ -110,7 +110,22 @@ When you create your ISE, you can select the Developer SKU or Premium SKU. Here 
 
   Provides an ISE that you can use for production and includes SLA support, built-in triggers and actions, Standard connectors, Enterprise connectors, a single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account, options for scaling up capacity, and redundancy during recycling for a fixed monthly price.
 
+> [!IMPORTANT]
+> The SKU option is available only at ISE creation and can't be changed later.
+
 For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+
+<a name="endpoint-access"></a>
+
+## ISE endpoint access
+
+When you create your ISE, you can choose to use either internal or external access endpoints. These endpoints determine whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network. These endpoints also affect access to inputs and outputs in logic app run history.
+
+* **Internal**: Private endpoints that permit calls to logic apps in your ISE plus access to inputs and outputs in run history only *from inside your virtual network*
+* **External**: Public endpoints that permit calls to logic apps in your ISE plus access to inputs and outputs in run history *from outside your virtual network*
+
+> [!IMPORTANT]
+> The access endpoint option is available only at ISE creation and can't be changed later.
 
 <a name="on-premises"></a>
 
@@ -153,6 +168,8 @@ you can select your ISE as the location for your integration account. To learn h
 
 ## Next steps
 
-* Learn how to [connect to Azure virtual networks from isolated logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Connect to Azure virtual networks from isolated logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Add artifacts to integration service environments](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Manage integration service environments](../logic-apps/ise-manage-integration-service-environment.md)
 * Learn more about [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * Learn about [virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)

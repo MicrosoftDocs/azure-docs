@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create an object detection project with the Custom Vision SDK for Node.js"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and detect objects using the Node.js SDK.
 services: cognitive-services
 author: areddish

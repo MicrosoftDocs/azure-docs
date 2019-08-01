@@ -119,11 +119,11 @@ router.get('/subdomain', function (req, res) {
 });
 ```
 
-Th **getimmersivereadertoken** API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)) to prevent unauthorized users from obtaining tokens to use against your Immersive Reader service and billing; that work is beyond the scope of this tutorial.
+The **getimmersivereadertoken** API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)) to prevent unauthorized users from obtaining tokens to use against your Immersive Reader service and billing; that work is beyond the scope of this tutorial.
 
 ## Launch the Immersive Reader with sample content
 
-1. Open _views\layout.pug_, and add the following code under the `head` tag, before the `body` tag. These `script` tags load the [Immersive Reader SDK](https://github.com/Microsoft/immersive-reader-sdk) and jQuery.
+1. Open _views\layout.pug_, and add the following code under the `head` tag, before the `body` tag. These `script` tags load the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and jQuery.
 
     ```pug
     script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
@@ -261,5 +261,5 @@ You can include math content in the Immersive Reader by using [MathML](https://d
 
 ## Next steps
 
-* Explore the [Immersive Reader SDK](https://github.com/Microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)
-* View code samples on [GitHub](https://github.com/microsoft/immersive-reader-sdk/samples/advanced-csharp)
+* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)
+* View code samples on [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)

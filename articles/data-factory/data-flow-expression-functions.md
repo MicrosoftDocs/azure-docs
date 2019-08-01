@@ -117,6 +117,18 @@ Calculate the cube root of a number
 Returns the smallest integer not smaller than the number
 * ``ceil(-0.1) -> 0``
 ---
+### <code>coalesce</code>
+<code><b>coalesce(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
+Returns the first not null value from a set of inputs. All inputs should be of the same type
+* ``coalesce(10, 20) -> 10``
+* ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``
+---
+### <code>compare</code>
+<code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>
+Compares two values of the same type. Returns negative integer if value1 < value2, 0 if value1 == value2, positive value if value1 > value2
+* ``(compare(12, 24) < 1) -> true``
+* ``(compare('dumbo', 'dum') > 0) -> true``
+---
 ### <code>concat</code>
 <code><b>concat(<i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
 Concatenates a variable number of strings together. Same as the + operator with strings
@@ -510,6 +522,11 @@ Gets the mean of values of a column. Same as AVG
 Based on a criteria gets the mean of values of a column. Same as avgIf
 * ``meanIf(region == 'West', sales) -> 7523420.234``
 ---
+### <code>millisecond</code>
+<code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
+Gets the millisecond value of a date. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.
+* ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
+---
 ### <code>min</code>
 <code><b>min(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
 Gets the minimum value of a column
@@ -834,13 +851,13 @@ Gets the aggregate sum of distinct values of a numeric column
 Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column
 * ``sumDistinctIf(state == 'CA' && commission < 10000, sales) -> value``
 * ``sumDistinctIf(true, sales) -> SUM(sales)``
-*********************************
+---
 ### <code>sumIf</code>
 <code><b>sumIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column
 * ``sumIf(state == 'CA' && commission < 10000, sales) -> value``
 * ``sumIf(true, sales) -> SUM(sales)``
-*********************************
+---
 ### <code>tan</code>
 <code><b>tan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calculates a tangent value

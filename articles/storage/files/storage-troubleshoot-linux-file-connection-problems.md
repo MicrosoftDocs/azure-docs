@@ -1,11 +1,9 @@
 ---
 title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
 description: Troubleshooting Azure Files problems in Linux
-services: storage
 author: jeffpatt24
-tags: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
