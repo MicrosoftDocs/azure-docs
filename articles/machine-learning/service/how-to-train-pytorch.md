@@ -1,7 +1,7 @@
 ---
-title: Train and register PyTorch models
+title: Train deep learning neural network with PyTorch and
 titleSuffix: Azure Machine Learning service
-description: This article shows you how to train and register a PyTorch model using Azure Machine Learning service.
+description: Learn how to train and register a PyTorch model using Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,19 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: peterlu
-ms.date: 06/18/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
 ---
 
-# Train and register PyTorch models at scale with Azure Machine Learning service
+# Build a deep learning neural network classifier with PyTorch and Azure Machine Learning service
 
-This article shows you how to train and register a PyTorch model using Azure Machine Learning service. It's based on  [PyTorch's transfer learning tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) that builds a deep neural network (DNN) classifier for images of chickens and turkeys.
+In this article, you'll learn how to build a deep neural network (DNN) to classify chicken and turkey images at scale using PyTorch with Azure Machine Learning service. Then, you can register and deploy that model in Azure. The code here-in is based on [PyTorch's transfer learning tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html).
 
-[PyTorch](https://pytorch.org/) is an open-source computational framework commonly used to create deep neural networks (DNN). With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
+Whether you're training a deep learning PyTorch model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning.
 
-Whether you're developing a PyTorch model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service can help you build production-ready models.
+[PyTorch](https://pytorch.org/) is an open-source computational framework used to create deep neural networks. 
+
+Learn more about [deep learning vs machine learning](concept-deep-learning-vs-machine-learning.md).
 
 ## Prerequisites
 
@@ -28,7 +30,7 @@ Run this code on either of these environments:
  - Azure Machine Learning Notebook VM - no downloads or installation necessary
 
     - Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-    - In the samples folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-pytorch** folder. 
+    - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-pytorch** folder. 
  
  - Your own Jupyter Notebook server
 
@@ -68,7 +70,7 @@ Create a workspace object from the `config.json` file created in the [prerequisi
 ws = Workspace.from_config()
 ```
 
-### Create an experiment
+### Create a deep learning experiment
 
 Create an experiment and a folder to hold your training scripts. In this example, create an experiment called "pytorch-birds".
 
@@ -215,7 +217,7 @@ To optimize inference with the [ONNX Runtime](concept-onnx.md), convert your tra
 
 ## Next steps
 
-In this article, you trained and registered a PyTorch model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
+In this article, you trained and registered a deep learning, neural network using PyTorch on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
 
 > [!div class="nextstepaction"]
 > [How and where to deploy models](how-to-deploy-and-where.md)
