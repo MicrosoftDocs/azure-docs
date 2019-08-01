@@ -176,7 +176,7 @@ PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion 
 
 The Azure AD Password Protection Proxy software is not time-limited in any version. Microsoft still recommends that both DC and proxy agents be upgraded to the latest versions as they are released. The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to find Proxy agents that require upgrades, similar to the example above for DC agents.
 
-Please refer to [Upgrading the DC agent service](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent-service) and [Upgrading the Proxy agent service](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent-service) for more details on specific upgrade procedures.
+Please refer to [Upgrading the DC agent](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) and [Upgrading the Proxy agent](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) for more details on specific upgrade procedures.
 
 ## Emergency remediation
 

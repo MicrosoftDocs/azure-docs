@@ -294,7 +294,7 @@ The Proxy agent supports automatic upgrade. Automatic upgrade uses the Microsoft
 
 The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to query the software version of all currently installed Proxy agents in a forest.
 
-## Upgrading the DC agent service
+## Upgrading the DC agent
 
 When a newer version of the Azure AD Password Protection DC Agent software is available, the upgrade is accomplished by running the latest version of the `AzureADPasswordProtectionDCAgentSetup.msi` software package. It is not required to uninstall the current version of the DC agent software - the installer will perform an in-place upgrade. A reboot is always required when upgrading the DC agent software - this is caused by core Windows behavior. 
 
