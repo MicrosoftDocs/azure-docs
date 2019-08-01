@@ -4,7 +4,7 @@ description: Release notes for the Azure File Sync agent.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/24/2019
 ms.author: wgries
 ms.subservice: files

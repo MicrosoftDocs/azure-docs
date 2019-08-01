@@ -1,10 +1,9 @@
 ---
 title: Troubleshoot Azure File Sync | Microsoft Docs
 description: Troubleshoot common issues with Azure File Sync.
-services: storage
 author: jeffpatt24
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
@@ -302,7 +301,7 @@ The table below contains all of the unicode characters Azure File Sync does not 
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### Common sync errors
-<a id="-2147023673"></a>**The sync session was cancelled.**  
+<a id="-2147023673"></a>**The sync session was canceled.**  
 
 | | |
 |-|-|
@@ -758,6 +757,25 @@ To resolve this issue, perform the following steps:
 3. From the command prompt running under the system account, run the following command to confirm the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder: **cacls "drive letter:\system volume information" /T /C**
 4. If the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder, run the following command: **cacls  "drive letter:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"**
 	- If step #4 fails with access denied, run the following command to take ownership of the System Volume Information folder and then repeat step #4: **takeown /A /R /F "drive letter:\System Volume Information"**
+
+<a id="-2134375810"></a>**Sync failed because the Azure file share was deleted and recreated.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8027e |
+| **HRESULT (decimal)** | -2134375810 |
+| **Error string** | ECS_E_SYNC_REPLICA_ROOT_CHANGED |
+| **Remediation required** | Yes |
+
+This error occurs because Azure File Sync does not support deleting and recreating an Azure file share in the same sync group. 
+
+To resolve this issue, delete and recreate the sync group by performing the following steps:
+
+1. Delete all server endpoints in the sync group.
+2. Delete the cloud endpoint. 
+3. Delete the sync group.
+4. If cloud tiering was enabled on a server endpoint, delete the orphaned tiered files on the server by performing the steps documented in the [Tiered files are not accessible on the server after deleting a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) section.
+5. Recreate the sync group.
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
