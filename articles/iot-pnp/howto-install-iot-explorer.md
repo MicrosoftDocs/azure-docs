@@ -34,27 +34,34 @@ To use the Azure IoT explorer tool, you need:
 
 ## Install Azure IoT explorer
 
-Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. At the time of writing, the most recent release is 0.9.1. Download and run the appropriate file for your operating system, for example:
-
-- For Windows, download and run `Azure.IoT.Explorer.Setup.x.y.z.exe`. If you see a **Windows Security Alert** from **Windows Firewall**, select **Allow Access**.
-- For iOS, download and run `Azure.IoT.Explorer.Setup-x.y.z.dmg`.
+Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent releases. Download and install the most recent version of the application.
 
 ## Use Azure IoT explorer
 
-In this article, you use Azure IoT explorer to interact with a simulated device. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) to run the simulated device.
+For device, you can either connect your own device, or use one of our sample simulated devices. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) to run the simulated device sample.
 
 ### Connect to your hub
 
 The first time you run Azure IoT explorer, you're prompted for your IoT hub's connection string. After you add the connection string, select **Connect**. You can use the tool's settings to switch to another IoT hub by updating the connection string.
 
-The model definition for a Plug and Play device is stored in either the public repository, an organizational repository, or on the physical device. By default, the tool looks for your model definition in the public model repository. To use a model definition from another location, add it as a definition source in the tool settings:
+The model definition for a Plug and Play device is stored in either the public repository, a company repository, or your connected device. By default, the tool looks for your model definition from the public model repository and your connected device. You can add/remove a source, or configure the priority of the sources anytime in Settings.
+
+### Settings
+
+#### Add a source
 
 1. Go to **Settings**.
-1. Select **New** and choose the source to add.
+1. Select **New** and choose your source.
+1. If you are adding your company model repository, please provide the connection string.
 
-You can rank the model definition sources by changing the order of the list. If there's a conflict, definition sources with higher rankings override sources with lower rankings.
+#### Remove a source 
+1. Go to **Settings**.
+1. Find the source you want to remove.
+1. Click **X** to remove it. Please note, public model repository cannot be removed, as the standard interface definitions come from public model repository.
 
-To remove a source, select **X** to delete it.
+#### Rank the sources 
+You can drag and drop one of the model definition sources to a different ranking in the list. If there's a conflict, definition sources with higher rankings override sources with lower rankings.
+
 
 ### Overview page
 
@@ -66,7 +73,7 @@ After the tool connects to your IoT hub, it displays an overview page that lists
 
 - To register a new device with your hub, select **Add**. Enter a device ID. Use the default settings to autogenerate authentication keys and enable the connection to your hub.
 - To delete a device identity, select **Delete**. Review the device details before you complete this action to be sure you're deleting the right device identity.
-- You can use the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) to filter the list of devices from the IoT hub's registry. The tool also supports querying by `capabilityID` and `interfaceID`.
+- The tool supports querying by `capabilityID` and `interfaceID`. Add either your `capabilityID` or `interfaceID` as a parameter to query your devices. 
 
 
 ## Interact with a device
