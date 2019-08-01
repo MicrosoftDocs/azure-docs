@@ -1,18 +1,18 @@
 ---
 title: Using the Azure Dev Spaces Plugin for Jenkins with Azure Kubenetes Service
-description: Learn how to use the Azure Dev Spaces plugin in a continuous integration pipeline.
+description: Learn how to use the Azure Dev Spaces plug-in in a continuous integration pipeline.
 author: tomarchermsft
 ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 07/31/2019
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
 # Tutorial: Using the Azure Dev Spaces Plugin for Jenkins with Azure Kubenetes Service 
 
-Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. The Azure Dev Spaces plugin for Jenkins helps you use Dev Spaces in your continuous integration and delivery (CI/CD) pipeline.
+Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. The Azure Dev Spaces plug-in for Jenkins helps you use Dev Spaces in your continuous integration and delivery (CI/CD) pipeline.
 
 This tutorial also uses Azure Container Registry (ACR). ACR stores images, and an ACR Task builds Docker and Helm artifacts. Using ACR and ACR Task for artifact generation removes the need for you to install additional software, such as Docker, on your Jenkins server. 
 
@@ -22,9 +22,9 @@ In this tutorial, you'll complete these tasks:
 > * Create an Azure Dev Spaces enabled AKS cluster
 > * Deploy a multi-service application to AKS
 > * Prepare your Jenkins server
-> * Use the Azure Dev Spaces plugin in a Jenkins pipeline to preview code changes before merging them into the project
+> * Use the Azure Dev Spaces plug-in in a Jenkins pipeline to preview code changes before merging them into the project
 
-This tutorial assumes intermediate knowledge of core Azure services, AKS, ACR, Azure Dev Spaces, Jenkins [pipelines](https://jenkins.io/doc/book/pipeline/) and plugins, and GitHub. Basic familiarity with supporting tools such as kubectl and Helm is helpful.
+This tutorial assumes intermediate knowledge of core Azure services, AKS, ACR, Azure Dev Spaces, Jenkins [pipelines](https://jenkins.io/doc/book/pipeline/) and plug-ins, and GitHub. Basic familiarity with supporting tools such as kubectl and Helm is helpful.
 
 ## Prerequisites
 
@@ -165,22 +165,22 @@ For more information on using Azure Dev Spaces and multi-service development wit
 
 In this section, you prepare the Jenkins server to run the sample CI pipeline.
 
-* Install plugins
+* Install plug-ins
 * Install Helm and Kubernetes CLI
 * Add credentials
 
-### Install plugins
+### Install plug-ins
 
 1. Sign in to your Jenkins server. Choose **Manage Jenkins > Manage Plugins**.
-2. On the **Available** tab, select the following plugins:
+2. On the **Available** tab, select the following plug-ins:
     * [Azure Dev Spaces](https://plugins.jenkins.io/azure-dev-spaces)
     * [Azure Container Registry Tasks](https://plugins.jenkins.io/azure-container-registry-tasks)
     * [Environment Injector](https://plugins.jenkins.io/envinject)
     * [GitHub Integration](https://plugins.jenkins.io/github-pullrequest)
 
-    If these plugins don't appear in the list, check the **Installed** tab to see if they're already installed.
+    If these plug-ins don't appear in the list, check the **Installed** tab to see if they're already installed.
 
-3. To install the plugins, choose **Download now and install after restart**.
+3. To install the plug-ins, choose **Download now and install after restart**.
 
 4. Restart your Jenkins server to complete the installation.
 
@@ -357,7 +357,7 @@ To complete step 3 in this section, you will need to comment part of the Jenkins
 
 When you file a pull request, Jenkins creates a child dev space based on the team's shared dev space and runs the code from your pull request in that child dev space. The URL to the child dev space takes the form `http://$env.azdsprefix.<test_endpoint>`. 
 
-**$env.azdsprefix** is set during pipeline execution by the Azure Dev Spaces plugin by **devSpacesCreate**:
+**$env.azdsprefix** is set during pipeline execution by the Azure Dev Spaces plug-in by **devSpacesCreate**:
 
 ```Groovy
 stage('create dev space') {
@@ -409,7 +409,7 @@ az group delete -y --no-wait -n MyResourceGroup
 
 ## Next steps
 
-In this article, you learned how to use the Azure Dev Spaces plugin for Jenkins and the Azure Container Registry plugin to build code and deploy to a dev space.
+In this article, you learned how to use the Azure Dev Spaces plug-in for Jenkins and the Azure Container Registry plug-in to build code and deploy to a dev space.
 
 The following list of resources provides more information on Azure Dev Spaces, ACR Tasks, and CI/CD with Jenkins.
 

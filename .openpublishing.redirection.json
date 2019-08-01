@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/security/develop/security-code-analysis-install.md",
+      "redirect_url": "/azure/security/develop/security-code-analysis-onboard",
+      "redirect_document_id": true
+    }, 
+    {
+      "source_path": "articles/machine-learning/ui-quickstart-run-experiment.md",
+      "redirect_url": "/azure/machine-learning/service/ui-tutorial-automobile-price-train-score",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/batch-ai/cli-samples.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/cli-samples",
       "redirect_document_id": true
@@ -1017,18 +1027,53 @@
     },
     {
       "source_path": "articles/cognitive-services/bing-entity-search/resize-and-crop-thumbnails.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/bing-news-search/resize-and-crop-thumbnails.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/bing-visual-search/resize-and-crop-thumbnails.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-image-search/bing-image-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-entities-search/bing-entity-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-news-search/bing-news-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-video-search/bing-video-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-viusal-search/bing-visual-search-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-viusal-search/bing-autosuggest-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-viusal-search/bing-spell-check-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/management-groups/overview.md",
@@ -13851,6 +13896,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security/fundamentals/quick-encrypt-vm-powershell.md",
+      "redirect_url": "/azure/security/azure-disk-encryption-linux-powershell-quickstart",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-bus-relay/relay-wcf-dotnet-get-started.md",
       "redirect_url": "/azure/service-bus-relay/service-bus-relay-tutorial",
       "redirect_document_id": false
@@ -15613,6 +15663,16 @@
     {
       "source_path": "articles/cognitive-services/cognitive-services-text-analytics-quick-start.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/cognitive-services-text-analytics-how-to-access-key.md",
+      "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/cognitive-services-text-analytics-how-to-sign-up.md",
+      "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account",
       "redirect_document_id": false
     },
     {
@@ -37370,6 +37430,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/concept-data-drift.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-monitor-data-drift",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/governance/policy/samples/allowed-app-gate-sku.md",
       "redirect_url": "/azure/governance/policy/samples/allowed-app-gateway-sku",
       "redirect_document_id": true
@@ -38422,6 +38487,11 @@
     {
       "source_path": "articles/cognitive-services/Content-Moderator/content-moderator-helper-quickstart-dotnet.md",
       "redirect_url": "/azure/cognitive-services/content-moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/text-moderation-quickstart-python.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/python-sdk-quickstart",
       "redirect_document_id": false
     },
     {
@@ -40838,6 +40908,11 @@
     {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/quickstart-cli-dockerfile.md",
+      "redirect_url": "/azure/dev-spaces/quickstart-cli",
       "redirect_document_id": false
     }
   ]

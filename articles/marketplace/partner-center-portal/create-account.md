@@ -5,7 +5,7 @@ author: mattwojo
 manager: evansma
 ms.author: parthp 
 ms.service: marketplace 
-ms.topic: how-to
+ms.topic: guide
 ms.date: 07/05/2019
 ---
 
@@ -47,7 +47,7 @@ So that you can link your company's work email account domain to your new Partne
 
 #### Agree to terms and conditions
 
-You'll need to agree to two sets of terms and conditions, including the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?LinkId=870457), and the [Microsoft Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?linkid=843476).
+You'll need to agree to terms and conditions in the [Microsoft Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560).
 
 #### Provide your publisher profile
 
