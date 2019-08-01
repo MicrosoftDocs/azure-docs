@@ -85,5 +85,7 @@
       href: how-to/dev-spaces-business-continuity.md
     - name: Interact with Windows containers
       href: how-to/run-dev-spaces-windows-containers.md
+    - name: Use traefik for custom ingress and HTTPS
+      href: how-to/ingress-https-traefik.md
   - name: Troubleshooting
     href: troubleshooting.md
