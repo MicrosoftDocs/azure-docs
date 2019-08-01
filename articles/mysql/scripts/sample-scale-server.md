@@ -11,7 +11,7 @@ ms.date: 08/01/2019
 ---
 
 # Monitor and scale an Azure Database for MySQL server using Azure CLI
-This sample CLI script scalescompute and storage for a single Azure Database for MySQL server after querying the metrics.
+This sample CLI script scales compute and storage for a single Azure Database for MySQL server after querying the metrics.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
