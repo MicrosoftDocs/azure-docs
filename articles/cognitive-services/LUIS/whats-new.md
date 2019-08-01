@@ -26,8 +26,8 @@ Learn what's new in the service. These items may release notes, videos, blog pos
     * Improvements in French DateTime to reduce false positives of non-Date and non-Time entities.
     * Support for calendar/school/fiscal year and acronyms in English DateRange.
     * Improved PhoneNumber recognition in Chinese and Japanese.
-    * Improved support for NumberRange in English;
-    Performance improvements.
+    * Improved support for NumberRange in English.
+    * Performance improvements.
 
 ### June 24, 2019
 
