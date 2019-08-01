@@ -56,7 +56,7 @@ Once your knowledge base is edited, publish the knowledge base to a working [Azu
 
 ## Search quality and ranking provides the best possible answer
 
-QnA Maker provides a layered approach of Azure Search and QnA Maker. Queries are first sent to Azure Search, then the returned results are reranked by QnA Maker with information criteria such as metadata and multi-turn context. 
+QnA Maker's system is a layered ranking approach. The data is stored in Azure search, which also serves as the first ranking layer. The top results from Azure search are then passed through an NLP re-ranking model to produce the final results and confidence score."
 
 ## QnA Maker improves the conversation process
 
