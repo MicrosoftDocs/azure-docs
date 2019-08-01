@@ -462,7 +462,7 @@
       - name: Marketo
         href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
       - name: Salesforce
-        href: ./partner-center-portal/ccommercial-marketplace-lead-management-instructions-salesforce.md      
+        href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md      
   - name: Create a new offer
     items:
     - name: Offer creation checklist
