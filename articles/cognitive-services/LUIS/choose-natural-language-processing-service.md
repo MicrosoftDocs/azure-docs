@@ -12,7 +12,7 @@ ms.date: 08/01/2019
 
 # Use Cognitive Services with natural language processing (NLP) to enrich bot conversations
 
-Cognitive Services provides two natural language processing services, [Language Understanding](./luis/what-is-luis.md) and [QnA Maker](./qnamaker/overview/overview.md), each with a different purpose. Understand when to use each service and how they compliment each other. 
+Cognitive Services provides two natural language processing services, [Language Understanding](what-is-luis.md) and [QnA Maker](../qnamaker/overview/overview.md), each with a different purpose. Understand when to use each service and how they compliment each other. 
 
 Natural language processing (NLP) allows your client application, such as a chat bot, to work with your users, using natural language. A user enters a sentence or phrase. The user's text can have poor grammar, spelling, and punctuation. The Cognitive Service can work through the user sentence anyway, returning information the chat bot needs to help the user. 
 
@@ -72,15 +72,15 @@ Use the Bot builder sample, **NLP with dispatch**, in [C#](https://github.com/mi
 
 Implement best practices for each service:
 
-* [LUIS](./luis/luis-concept-best-practices.md) best practices
-* [QnA Maker](./qnamaker/concepts/best-practices.md) best practices
+* [LUIS](luis-concept-best-practices.md) best practices
+* [QnA Maker](../qnamaker/concepts/best-practices.md) best practices
 
 ## See also
 
-* [Language Understanding (LUIS)](./luis/what-is-luis.md)
-* [QnA Maker](./qnamaker/overview/overview.md)
+* [Language Understanding (LUIS)](what-is-luis.md)
+* [QnA Maker](../qnamaker/overview/overview.md)
 * [Dispatch CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Bot framework samples](https://github.com/Microsoft/BotBuilder-Samples)
-* [Azure bot service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
+* [Azure bot service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
 * [Azure bot emulator](https://github.com/Microsoft/BotFramework-Emulator)
 * [Bot framework web chat](https://github.com/microsoft/BotFramework-WebChat)
