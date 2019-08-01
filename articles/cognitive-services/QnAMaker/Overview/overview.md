@@ -1,23 +1,29 @@
 ---
-title: What is QnA Maker API service?
+title: What is QnA Maker service?
 titleSuffix: Azure Cognitive Services
-description: QnA Maker is a cloud-based API service that applies custom machine-learning intelligence to a user's natural language question to provide the best answer.
+description: QnA Maker is a cloud-based NLP service that easily creates a natural conversational layer over your data. It can be used to find the most appropriate answer for any given natural language input, from your custom knowledge base (KB) of information.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 07/17/2019
-ms.author: tulasim
+ms.date: 08/01/2019
+ms.author: diberry
 #customer intent: As a developer, I want to know how to use QnA Maker for my FAQs and product manuals so that I can enable conversational question and answer sessions for my customers.
 ---
 
-# What is the QnA Maker API service?
+# What is the QnA Maker service?
 
-QnA Maker is a cloud-based API service that takes natural language questions, and returns the most appropriate answer from your custom knowledge base (KB) of information.
+QnA Maker is a cloud-based NLP service that easily creates a natural conversational layer over your data. It can be used to find the most appropriate answer for any given natural language input, from your custom knowledge base (KB) of information.
 
 A client application for QnA Maker is any conversational application that communicates with a user in natural language to answer a question. Examples of client applications include social media apps, chat bots, and speech-enabled desktop applications.
+
+## When to use QnA Maker
+
+* **When you have static information** - Use QnA Maker when you have a static information in your knowledge base of answers. This knowledge base is custom to your needs, which you've built with documents such as PDFs and URLs.
+* **When you want to provide the same answer to a request, question, or command** - when different users submit the same question, the same answer is returned to both. 
+* **When you want to manage a bot conversation that includes static information** - your knowledge takes a user's conversational text or command and answers it. If the answer is part of a pre-determined conversation flow, represented in your knowledge base with multi-turn context, the bot can easily provide this flow.  
 
 ## Use QnA Maker knowledge base in a chat bot
 
@@ -45,13 +51,11 @@ After you publish your knowledge base, a client application sends a user's quest
 
 The QnA Maker portal provides the complete knowledge base authoring experience. You can import documents, in their current form, to your knowledge base. These documents (such as an FAQ, product manual, spreadsheet, or web page) are converted into question and answer sets. Each set is analyzed for follow-up prompts and connected to other sets. The final markdown format supports rich presentation including images. 
 
-
-
 Once your knowledge base is edited, publish the knowledge base to a working [Azure Web App bot](https://azure.microsoft.com/en-us/services/bot-service/) without writing any code. Test your bot in the [Azure portal](https://portal.azure.com) or download and continue development. 
 
-## Quality search provided in a layered approach
+## Search quality and ranking provides the best possible answer
 
-QnA Maker provides a layered approach
+QnA Maker provides a layered approach of Azure Search and QnA Maker. Queries are first sent to Azure Search, then the returned results are re-ranked by QnA Maker with information criteria such as metadata and multi-turn context. 
 
 ## QnA Maker improves the conversation process
 
@@ -79,8 +83,17 @@ QnA Maker provides authoring, training, and publishing along with collaboration 
 
 Learn what's new with QnA Maker.
 
-* May 2019:
-    * Multi-turn conversations
+* June 2019
+    * Improved ranker model for French, Italian, German, Spanish, Portuguese
+* April 2019
+    * Support website content extraction
+    * Sharepoint document support
+* March 2019
+    * Active learning 
+    * Improved NLP ranker model for English, 
+
+e.	Jun: improved ranker model for French, Italian, German, Spanish, Portuguese
+
 
 ## Next steps
 QnA Maker provides everything you need to build, manage and deploy your custom knowledge base. 
