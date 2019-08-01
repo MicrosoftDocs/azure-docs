@@ -172,19 +172,21 @@ Confirm that *classify* now contains a file named *predict.py*.
 
 ### Install dependencies
 
-The helper library has some dependencies that need to be installed. In the terminal with the virtual environment activated, run the following commands in the *start* folder. Some installation steps may take a few minutes to complete.
+The helper library has some dependencies that need to be installed. Open *start/requirements.txt* in your editor and add the following dependencies to the file.
 
-```console
-pip install tensorflow Pillow requests --no-cache-dir
+```txt
+tensorflow
+Pillow
+requests
 ```
 
-Save the dependencies in *requirements.txt*.
+Save the file.
+
+In the terminal with the virtual environment activated, run the following command in the *start* folder to install the dependencies. Some installation steps may take a few minutes to complete.
 
 ```console
-pip freeze > requirements.txt
+pip install --no-cache-dir -r requirements.txt
 ```
-
-Open *requirements.txt* and confirm that it contains a list of dependencies for the application.
 
 ### Caching the model in global variables
 
