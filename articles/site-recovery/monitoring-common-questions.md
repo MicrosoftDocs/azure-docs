@@ -1,5 +1,5 @@
 ---
-title: Common questions about Azure Site Recovery monitoring | Microsoft Docs'
+title: Common questions about zure Site Recovery monitoring 
 description: Get answers to common questions about Azure Site Recovery monitoring, using inbuilt monitoring and Azure Monitor (Log Analytics)
 author: rayne-wiselman
 manager: carmonm
@@ -11,7 +11,7 @@ ms.author: raynew
 ---
 # Common questions about Site Recovery monitoring
 
-This article answers common questions about monitoring Azure [Site Recovery](site-recovery-overview.md).
+This article answers common questions about monitoring Azure [Site Recovery](site-recovery-overview.md), using inbuilt Site Recovery monitoring, and Azure Monitor (Log Analytics).
 
 ## General
 
@@ -32,10 +32,10 @@ An incorrect system time on the replicating source machine, or on on-premises in
 
 
 
-## Inbuild Site Recovery logging
+## Inbuilt Site Recovery logging
 
 
-### Why is the VM count in the vault infrastructure view different from the total count shown in the replicated items?
+### Why is the VM count in the vault infrastructure view different from the total count shown in Replicated Items?
 
 The vault infrastructure view is scoped by replication scenarios. Only machines in the currently selected replication scenario are included in the count for the view. In addition, we only count VMs that are configured to replicate to Azure. Failed over machines, or machines replicating back to an on-premises site, aren't counted in the view.
 
