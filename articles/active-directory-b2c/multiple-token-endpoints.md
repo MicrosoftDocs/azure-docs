@@ -105,7 +105,7 @@ In this section, you update the code to specify that both token issuer endpoints
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
 {
-    // This SecurityTokenProvider fetches the Azure AD B2C metadata &  from the OpenIDConnect metadata endpoint
+    // This SecurityTokenProvider fetches the Azure AD B2C metadata &  from the OpenID Connect metadata endpoint
     AccessTokenFormat = new JwtFormat(tvps, new tCachingSecurityTokenProvider(String.Format(AadInstance, ultPolicy)))
 });
 ```
