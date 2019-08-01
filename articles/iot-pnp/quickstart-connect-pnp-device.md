@@ -1,6 +1,6 @@
 ---
-title: Connect an IoT Plug and Play device to IoT Hub | Microsoft Docs
-description: Connect an IoT Plug and Play device to IoT Hub and view with Azure IoT explorer
+title: Connect an IoT Plug and Play Preview device to IoT Hub | Microsoft Docs
+description: Connect an IoT Plug and Play Preview device to IoT Hub and view with Azure IoT explorer
 author: ChrisGMsft
 ms.author: chrisgre
 ms.date: 07/24/2019
@@ -12,9 +12,9 @@ ms.custom: mvc
 # As a solution developer, I want to connect an IoT Plug and Play device to IoT Hub and view it with Azure IoT explorer.
 ---
 
-# Quickstart: Connect an IoT Plug and Play device to IoT Hub
+# Quickstart: Connect an IoT Plug and Play Preview device to IoT Hub
 
-IoT Plug and Play simplifies IoT by enabling you to interact with device capabilities without knowledge of the underlying device implementation. This quickstart shows you how to build a sample of an IoT Plug and Play device, connect it to IoT Hub and view it with the Azure IoT explorer tool.
+IoT Plug and Play Preview simplifies IoT by enabling you to interact with device capabilities without knowledge of the underlying device implementation. This quickstart shows you how to build an IoT Plug and Play device sample, connect it to IoT Hub, and view it with the Azure IoT explorer tool.
 
 ## Prerequisites
 
@@ -28,6 +28,8 @@ To complete this quickstart, you need to install the following software on your 
 
 Download and install the Azure IoT explorer tool from the [latest release](https://github.com/Azure/azure-iot-explorer/releases) page.
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 ## Prepare an IoT hub
 
 You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -38,7 +40,7 @@ Add the Microsoft Azure IoT Extension for Azure CLI:
 az extension add --name azure-cli-iot-ext
 ```
 
-Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDevice** with your actual names. If you don't have an IoT Hub, follow [these instructions](../iot-hub/iot-hub-create-using-cli.md) to create one:
+Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDevice** placeholders with your actual names. If you don't have an IoT Hub, follow [these instructions to create one](../iot-hub/iot-hub-create-using-cli.md):
 
 ```azurecli-interactive
 az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
@@ -74,7 +76,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 
 You use the device SDK to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. Create a cmake subdirectory in the the device SDK root folder, and navigate to that folder:
+1. Create a `cmake` subdirectory in the device SDK root folder, and navigate to that folder:
 
     ```cmd\sh
     cd <root folder>\azure-iot-sdk-c
@@ -85,7 +87,7 @@ You use the device SDK to build the generated device code stub. The application 
 1. Run the following commands to build the device SDK and the generated code stub:
 
     ```cmd\sh
-    cmake .. 
+    cmake ..
     cmake --build . -- /m /p:Configuration=Release
     ```
 
@@ -96,12 +98,12 @@ You use the device SDK to build the generated device code stub. The application 
 
 Run your application by passing the IoT hub device connection string as parameter.
 
-    ```cmd\sh
-    cd azure-iot-sdk-c\cmake\digitaltwin_client\samples\digitaltwin_sample_device\Release
-    digitaltwin_sample_device.exe "[IoT Hub device connection string]"
-    ```
+```cmd\sh
+cd azure-iot-sdk-c\cmake\digitaltwin_client\samples\digitaltwin_sample_device\Release
+digitaltwin_sample_device.exe "[IoT Hub device connection string]"
+```
 
-1. The device application starts sending data to IoT Hub.
+The device application starts sending data to IoT Hub.
 
 ## Use the Azure IoT explorer to validate the code
 
@@ -115,7 +117,7 @@ Run your application by passing the IoT hub device connection string as paramete
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 
-1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands and telemetry.
+1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands, and telemetry.
 
 1. Select the **Telemetry** page to view the telemetry data the device is sending.
 
@@ -133,7 +135,7 @@ Run your application by passing the IoT hub device connection string as paramete
 
 ## Next steps
 
-In this quickstart, you've learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
+In this quickstart, you've learned how to connect an IoT Plug and Play device to an IoT hub. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
 
 > [!div class="nextstepaction"]
 > [How-to: Connect to and interact with a device](howto-develop-solution.md)

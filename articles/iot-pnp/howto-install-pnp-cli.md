@@ -52,7 +52,7 @@ To use the Azure IoT extension for Azure CLI, you need:
 az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
 ```
 
-- (Optional) The connection string for your organization's model repository, or a connection string that is shared to you from a third-party. A model repository for your organization is created when you first [onboard to the Azure Certified for IoT portal](howto-onboard-portal.md).
+- (Optional) The connection string for your organization's model repository, or a connection string that is shared to you from a third party. A model repository for your organization is created when you first [onboard to the Azure Certified for IoT portal](howto-onboard-portal.md).
 
 ### Interact with a device
 
@@ -198,7 +198,7 @@ Publish a device capability model in the IoT Plug and Play company model reposit
 az iot pnp model publish --interface {YourInterfaceName} --login {CompanyModelRepoConnectionString}
 ```
 
-You can't directly publish an model in the public model repository.
+You can't directly publish a model in the public model repository.
 
 ## Next steps
 
