@@ -8,15 +8,12 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/06/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
 
 # Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C
-
->[!NOTE]
-> This feature is in public preview. Do not use the feature in production environments.
 
 To use an Azure Active Directory (Azure AD) as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure AD B2C, you need to create an application that represents it. This article shows you how to enable sign-in for users from a specific Azure AD organization using a user flow in Azure AD B2C.
 
@@ -50,7 +47,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 3. Select **Identity providers**, and then select **Add**.
 4. Enter a **Name**. For example, enter `Contoso Azure AD`.
-5. Select **Identity provider type**, select **OpenID Connect (Preview)**, and then click **OK**.
+5. Select **Identity provider type**, select **OpenID Connect**, and then click **OK**.
 6. Select **Set up this identity provider**
 7. For **Metadata url**, enter the following URL replacing `your-AD-tenant-domain` with the domain name of your Azure AD tenant. For example `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
 
