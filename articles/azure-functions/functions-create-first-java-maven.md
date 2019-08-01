@@ -1,5 +1,5 @@
 ---
-title: Create your first function in Azure with Java and Maven| Microsoft Docs
+title: Use Java and Maven to publish a function - Azure Functions
 description: Create and publish a simple HTTP triggered function to Azure with Java and Maven.
 services: functions
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: java
 ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, seo-java-july2019
 ---
 
 # Create your first function with Java and Maven
@@ -121,7 +121,7 @@ public class Function {
 
 Change directory to the newly created project folder and build and run the function with Maven:
 
-```
+```CMD
 cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
@@ -143,7 +143,7 @@ Http Functions:
 
 Trigger the function from the command line using curl in a new terminal window:
 
-```
+```CMD
 curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
 ```
 
@@ -166,7 +166,7 @@ Deploy your code into a new Function app using the `azure-functions:deploy` Mave
 > [!NOTE]
 > When you use Visual Studio Code to deploy your Function app, remember to choose a non-free subscription, or you will get an error. You can watch your subscription on the left side of the IDE.
 
-```
+```azurecli
 mvn azure-functions:deploy
 ```
 
@@ -185,7 +185,7 @@ Test the function app running on Azure using `cURL`. You'll need to change the U
 > [!NOTE]
 > Make sure you set the **Access rights** to `Anonymous`. When you choose the default level of `Function`, you are required to present the [function key](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) in requests to access your function endpoint.
 
-```
+```azurecli
 curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 

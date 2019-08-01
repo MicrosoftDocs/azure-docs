@@ -1,14 +1,14 @@
 ---
 title: 'Azure Backup: Restore Azure VMs using REST API'
 description: manage restore operations of Azure VM Backup using REST API
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: REST API; Azure VM backup; Azure VM restore;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ---
 

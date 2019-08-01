@@ -21,7 +21,7 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
     - Use the globally hosted, Azure Content Delivery Network version of the Azure Maps services module. Add a script reference to the `<head>` element of the file:
 
         ```html
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
         ```
 
     - Alternatively, load the Azure Maps Web SDK source code locally by using the [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:

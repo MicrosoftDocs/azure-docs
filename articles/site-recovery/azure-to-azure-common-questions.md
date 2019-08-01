@@ -6,7 +6,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgan
+ms.author: asgang
 
 ---
 # Common questions: Azure-to-Azure disaster recovery

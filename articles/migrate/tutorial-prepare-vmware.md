@@ -4,7 +4,7 @@ description: Describes how to prepare for assessment and migration of on-premise
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/26/2019
+ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -79,7 +79,7 @@ The tenant/global admin can grant permissions as follows
 
 #### Assign Application Developer role 
 
-The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 ## Assign role assignment permissions
 
@@ -97,11 +97,11 @@ Assign role assignment permissions on the resource group in which the Azure Migr
 
 ## Prepare for VMware VM assessment
 
-To prepare for VMware VM assessment, you need to verify Hyper-V host and VM settings, and verify settings for appliance deployment.
+To prepare for VMware VM assessment, you need to verify VMware host and VM settings, and verify settings for appliance deployment.
 
 ### Verify VMware settings
 
-1. [Verify](migrate-support-matrix-vmware.md#assessment-vmware-server-requirements) VMware server requirements for VM assessment.
+1. [Verify](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) VMware server requirements for VM assessment.
 2. [Make sure](migrate-support-matrix-vmware.md#assessment-port-requirements) that the required ports are open on vCenter servers.
 
 

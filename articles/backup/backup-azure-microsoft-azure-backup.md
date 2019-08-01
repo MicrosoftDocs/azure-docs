@@ -1,13 +1,13 @@
 ---
 title: Use Azure Backup Server to back up workloads to Azure
 description: Use Azure Backup Server to protect or back up workloads to the Azure portal.
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: kasinh
+ms.author: dacurwin
 ---
 
 # Install and upgrade Azure Backup Server
@@ -242,15 +242,15 @@ Here are the steps if you need to move MABS to a new server, while retaining the
 
 
   > [!IMPORTANT]
-  > - The new server name must be the same name as the original Azure Backup Server instance. You can't change the name of the new Azure Backup Server instance if you want to use the previous storage pool and Data Protection Manager database to retain recovery points.
-  > - You must have a backup of the Data Protection Manager database. You'll need to restore the database.
+  > - The new server name must be the same name as the original Azure Backup Server instance. You can't change the name of the new Azure Backup Server instance if you want to use the previous storage pool and MABS Database (DPMDB) to retain recovery points.
+  > - You must have a backup of the MABS Database (DPMDB). You'll need to restore the database.
 
 1. In the display pane, select the client computers for which you want to update the protection agent.
 2. Shutdown the original Azure backup server or take it off the wire.
 3. Reset the machine account in active directory.
 4. Install Server 2016 on new machine and name it the same machine name as the original Azure Backup server.
 5. Join the Domain
-6. Install Azure Backup server V2 or later (Move DPM Storage pool disks from old server and import)
+6. Install Azure Backup server V2 or later (Move MABS Storage pool disks from old server and import)
 7. Restore the DPMDB taken in step 1.
 8. Attach the storage from the original backup server to the new server.
 9. From SQL Restore the DPMDB

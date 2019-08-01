@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
-ms.author: hkanna
+ms.author: matd
 ---
 
 # StorSimple as a backup target with NetBackup

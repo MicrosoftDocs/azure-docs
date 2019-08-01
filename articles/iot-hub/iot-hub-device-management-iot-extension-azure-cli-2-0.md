@@ -18,7 +18,7 @@ ms.author: menchi
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[The IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) is a new open source IoT extension that adds to the capabilities of the [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). The Azure CLI includes commands for interacting with Azure resource manager and management endpoints. For example, you can use Azure CLI to create an Azure VM or an IoT hub. A CLI extension enables an Azure service to augment the Azure CLI giving you access to additional service-specific capabilities. The IoT extension gives IoT developers command line access to all IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
+[The IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) is a new open-source IoT extension that adds to the capabilities of the [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). The Azure CLI includes commands for interacting with Azure Resource Manager and management endpoints. For example, you can use Azure CLI to create an Azure VM or an IoT hub. A CLI extension enables an Azure service to augment the Azure CLI giving you access to additional service-specific capabilities. The IoT extension gives IoT developers command-line access to all IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -28,7 +28,7 @@ ms.author: menchi
 | Twin desired properties    | Put a device into certain states, such as setting an LED to green or setting the telemetry send interval to 30 minutes.         |
 | Twin reported properties   | Get the reported state of a device. For example, the device reports the LED is blinking now.                                    |
 | Twin tags                  | Store device-specific metadata in the cloud. For example, the deployment location of a vending machine.                         |
-| Device twin queries        | Query all device twins to retrieve those with arbitrary conditions, such as identifying the devices that are available for use. |
+| Device twin queries        | Query all device twins to retrieve those twins with arbitrary conditions, such as identifying the devices that are available for use. |
 
 For more detailed explanation on the differences and guidance on using these options, see [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md).
 
@@ -36,7 +36,7 @@ Device twins are JSON documents that store device state information (metadata, c
 
 ## What you learn
 
-You learn using the IoT extension for Azure CLI with various management options on your development machine.
+You learn to use the IoT extension for Azure CLI with various management options on your development machine.
 
 ## What you do
 
@@ -44,7 +44,7 @@ Run Azure CLI and the IoT extension for Azure CLI with various management option
 
 ## What you need
 
-* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These cover the following requirements::
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These items cover the following requirements:
 
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
@@ -54,13 +54,16 @@ Run Azure CLI and the IoT extension for Azure CLI with various management option
 
 * [Python 2.7x or Python 3.x](https://www.python.org/downloads/)
 
-* The Azure CLI. If you need to install it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az –version` to validate. 
+<!-- I'm not sure we need all this info, so comment out this include for now. Robin 7.26.2019
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)] -->
+
+* The Azure CLI. If you need to install it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az –version` to validate.
 
 * Install the IoT extension. The simplest way is to run `az extension add --name azure-cli-iot-ext`. [The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) describes several ways to install the extension.
 
-## Log in to your Azure account
+## Sign in to your Azure account
 
-Log in to your Azure account by running the following command:
+Sign in to your Azure account by running the following command:
 
 ```bash
 az login
@@ -94,7 +97,7 @@ Get the reported properties of the device by running the following command:
 az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
-One of the twin reported properties is $metadata.$lastUpdated which shows the last time the device app updated its reported property set.
+One of the twin reported properties is $metadata.$lastUpdated, which shows the last time the device app updated its reported property set.
 
 ## Device twin tags
 

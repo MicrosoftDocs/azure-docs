@@ -1,10 +1,9 @@
 ---
 title: Deploy Azure File Sync | Microsoft Docs
 description: Learn how to deploy Azure File Sync, from start to finish.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
@@ -352,6 +351,20 @@ if ($cloudTieringDesired) {
 
 ---
 
+## Configure firewall and virtual network settings
+
+### Portal
+If you'd like to configure your Azure File sync to work with firewall and virtual network settings, do the following:
+
+1. From the Azure portal, navigate to the storage account you want to secure.
+1. Select the **Firewalls and virtual networks** button on the left menu.
+1. Select **Selected networks** under **Allow access from**.
+1. Make sure your servers IP or virtual network is listed under the appropriate section.
+1. Make sure **Allow trusted Microsoft services to access this storage account** is checked.
+1. Select **Save** to save your settings.
+
+![Configuring firewall and virtual network settings to work with Azure File sync](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
+
 ## Onboarding with Azure File Sync
 The recommended steps to onboard on Azure File Sync for the first with zero downtime while preserving full file fidelity and access control list (ACL) are as follows:
  
@@ -370,13 +383,13 @@ The recommended steps to onboard on Azure File Sync for the first with zero down
  
 If you don't have extra storage for initial onboarding and would like to attach to the existing shares, you can pre-seed the data in the Azure files shares. This approach is suggested, if and only if you can accept downtime and absolutely guarantee no data changes on the server shares during the initial onboarding process. 
  
-1. Ensure that data on any of the server can't change during the onboarding process.
-2. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB e.g. Robocopy, direct SMB copy. Since AzCopy does not upload data over the SMB so it can't be used for pre-seeding.
+1. Ensure that data on any of the servers can't change during the onboarding process.
+2. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB for example, Robocopy, direct SMB copy. Since AzCopy does not upload data over the SMB so it can't be used for pre-seeding.
 3. Create Azure File Sync topology with the desired server endpoints pointing to the existing shares.
 4. Let sync finish reconciliation process on all endpoints. 
 5. Once reconciliation is complete, you can open shares for changes.
  
-Please be aware that currently, pre-seeding approach has a few limitations - 
+Currently, pre-seeding approach has a few limitations - 
 - Full fidelity on files is not preserved. For example, files lose ACLs and timestamps.
 - Data changes on the server before sync topology is fully up and running can cause conflicts on the server endpoints.  
 - After the cloud endpoint is created, Azure File Sync runs a process to detect the files in the cloud before starting the initial sync. The time taken to complete this process varies depending on the various factors like network speed, available bandwidth, and number of files and folders. For the rough estimation in the preview release, detection process runs approximately at 10 files/sec.  Hence, even if pre-seeding runs fast, the overall time to get a fully running system may be significantly longer when data is pre-seeded in the cloud.

@@ -1,6 +1,6 @@
 ---
 title: Language Understanding Bot C# v4 
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Using C#, build a chat bot integrated with language understanding (LUIS). The bot is built with the Bot Framework version 4 and the Azure Web app bot service.
 services: cognitive-services
 author: diberry

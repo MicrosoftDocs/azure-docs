@@ -1,14 +1,14 @@
 ---
 title: 'Azure Backup: Monitor Azure Backup with Azure Monitor'
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: Log Analytics; Azure Backup; Alerts; Diagnostic Settings; Action groups
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 ---
 
@@ -26,7 +26,7 @@ Azure Backup provides [built-in monitoring and alerting capabilities](backup-azu
 > [!NOTE]
 > Data from Azure VM backups, the Azure Backup agent, System Center Data Protection Manager, SQL backups in Azure VMs, and Azure Files share backups is pumped to the Log Analytics workspace through diagnostic settings. 
 
-To monitor at scale, you need the capabilities of two Azure services. *Diagnostic settings* send data from multiple Azure Resource Manager resources to another resource. *Log Analytics* generates custom alerts where you can use action groups to define other notification channels. 
+To monitor/report at scale, you need the capabilities of two Azure services. *Diagnostic settings* send data from multiple Azure Resource Manager resources to another resource. *Log Analytics* generates custom alerts where you can use action groups to define other notification channels. 
 
 The following sections detail how to use Log Analytics to monitor Azure Backup at scale.
 
@@ -45,50 +45,33 @@ You can target a Log Analytics workspace from another subscription. To monitor v
 
 ### Deploy a solution to the Log Analytics workspace
 
-After the data is inside the Log Analytics workspace, [deploy a GitHub template](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) to Log Analytics to visualize the data. To properly identify the workspace, make sure you give it the same resource group, workspace name, and workspace location. Then install this template on the workspace.
+> [!IMPORTANT]
+> We have released an updated, multi-view [template](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) for LA-based Monitoring and Reporting in Azure Backup. Please note that users who were using the [earlier solution](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) will continue to see it in their workspaces even after deploying the new solution. However, the old solution may provide inaccurate results due to some minor schema changes. Users are hence required to deploy the new template.
 
-> [!NOTE]
-> If you don't have alerts, backup jobs, or restore jobs in your Log Analytics workspace, you might see a "BadArgumentError" error code in the portal. Ignore this error and continue using the solution. After the relevant data type starts flowing into the workspace, the visualizations will reflect the same, and you won't see the error anymore.
+After the data is inside the Log Analytics workspace, [deploy a GitHub template](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) to Log Analytics to visualize the data. To properly identify the workspace, make sure you give it the same resource group, workspace name, and workspace location. Then install this template on the workspace.
 
 ### View Azure Backup data by using Log Analytics
 
-After the template is deployed, the solution for monitoring Azure Backup will show up in the workspace summary region. To go to the summary, follow one of these paths:
+After the template is deployed, the solution for monitoring and reporting in Azure Backup will show up in the workspace summary region. To go to the summary, follow one of these paths:
 
 - **Azure Monitor**: In the **Insights** section, select **More** and then choose the relevant workspace.
 - **Log Analytics workspaces**: Select the relevant workspace, and then under **General**, select **Workspace summary**.
 
-![The Log Analytics monitoring tile](media/backup-azure-monitoring-laworkspace/la-azurebackup-azuremonitor-tile.png)
+![The Log Analytics monitoring and reporting tiles](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
 
-When you select the monitoring tile, the designer template opens a series of graphs about basic monitoring data from Azure Backup. Here are some of the graphs you'll see:
+When you select any of the overview tiles, you can view further information. Here are some of the reports you'll see:
 
-* All backup jobs
+* Non Log Backup Jobs
 
-   ![Log Analytics graphs for backup jobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-allbackupjobs.png)
+   ![Log Analytics graphs for backup jobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
 
-* Restore jobs
+* Alerts from Azure Resources Backup
 
-   ![Log Analytics graph for restore jobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-restorejobs.png)
+   ![Log Analytics graph for restore jobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
-* Built-in Azure Backup alerts for Azure resources
-
-   ![Log Analytics graph for built-in Azure Backup alerts for Azure resources](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts.png)
-
-* Built-in Azure Backup alerts for on-premises resources
-
-   ![Log Analytics graph for built-in Azure Backup alerts for on-premises resources](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts-onprem.png)
-
-* Active data sources
-
-   ![Log Analytics graph for active backed-up entities](media/backup-azure-monitoring-laworkspace/la-azurebackup-activedatasources.png)
-
-* Recovery Services vault cloud storage
-
-   ![Log Analytics graph for Recovery Services vault cloud storage](media/backup-azure-monitoring-laworkspace/la-azurebackup-cloudstorage-in-gb.png)
-
+Similarly, by clicking on the other tiles, you will be able to see reports on Restore Jobs, Cloud Storage, Backup Items, Alerts from On-Premises Resources Backup, and Log Backup Jobs.
+ 
 These graphs are provided with the template. You can edit the graphs or add more graphs if you need to.
-
-> [!IMPORTANT]
-> When you deploy the template, you're essentially creating a read-only lock. To edit and save the template, you need to remove the lock. You can remove a lock in the **Settings** section of the Log Analytics workspace,on the **Locks** pane.
 
 ### Create alerts by using Log Analytics
 
